@@ -1,0 +1,182 @@
+[
+  {
+    "name": "north-head-clear",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 15,
+    "maxChannelDelta": 36,
+    "bounds": [
+      91,
+      112,
+      105,
+      148
+    ]
+  },
+  {
+    "name": "north-tower",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 15,
+    "maxChannelDelta": 20,
+    "bounds": [
+      91,
+      113,
+      105,
+      149
+    ]
+  },
+  {
+    "name": "bow-leader",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 15,
+    "maxChannelDelta": 20,
+    "bounds": [
+      91,
+      110,
+      105,
+      146
+    ]
+  },
+  {
+    "name": "dining-leader",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 14,
+    "maxChannelDelta": 29,
+    "bounds": [
+      91,
+      110,
+      105,
+      146
+    ]
+  },
+  {
+    "name": "owner-angle",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 9,
+    "maxChannelDelta": 19,
+    "bounds": [
+      91,
+      110,
+      105,
+      146
+    ]
+  },
+  {
+    "name": "dining-copper",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 6,
+    "maxChannelDelta": 39,
+    "bounds": [
+      94,
+      110,
+      96,
+      121
+    ]
+  },
+  {
+    "name": "terrace-foot",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 14,
+    "maxChannelDelta": 24,
+    "bounds": [
+      93,
+      110,
+      105,
+      138
+    ]
+  },
+  {
+    "name": "north-court",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 13,
+    "maxChannelDelta": 20,
+    "bounds": [
+      94,
+      110,
+      105,
+      135
+    ]
+  },
+  {
+    "name": "north-shade",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 15,
+    "maxChannelDelta": 20,
+    "bounds": [
+      91,
+      113,
+      105,
+      149
+    ]
+  },
+  {
+    "name": "north-stone-close",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 11,
+    "maxChannelDelta": 19,
+    "bounds": [
+      91,
+      113,
+      105,
+      149
+    ]
+  },
+  {
+    "name": "northeast",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 18,
+    "maxChannelDelta": 33,
+    "bounds": [
+      0,
+      113,
+      161,
+      451
+    ]
+  },
+  {
+    "name": "courtyard",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 13,
+    "maxChannelDelta": 26,
+    "bounds": [
+      94,
+      109,
+      105,
+      134
+    ]
+  },
+  {
+    "name": "west",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 11,
+    "maxChannelDelta": 10,
+    "bounds": [
+      91,
+      111,
+      105,
+      147
+    ]
+  },
+  {
+    "name": "stair-support",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 11,
+    "maxChannelDelta": 6,
+    "bounds": [
+      91,
+      111,
+      105,
+      147
+    ]
+  },
+  {
+    "name": "gate-court",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 11,
+    "maxChannelDelta": 6,
+    "bounds": [
+      91,
+      110,
+      105,
+      146
+    ]
+  }
+]

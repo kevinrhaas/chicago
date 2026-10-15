@@ -1,0 +1,126 @@
+{
+  "not_a_reading": "Runtime measurements of existing assets; no new archival reading or historical ruling.",
+  "runs": [
+    {
+      "run": "mobile",
+      "detail": "light",
+      "views": 15,
+      "maximumCalls": 171,
+      "maximumTriangles": 1178966,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "readyAtMs": 112923.90000000596,
+      "textureEstimateBytes": 457112240,
+      "unpricedTextureFormats": 0,
+      "buildingBatches": 51,
+      "sceneAssetBytes": 60490748,
+      "motion": {
+        "wallElapsedMs": 368408.5,
+        "minMs": 167.59999999403954,
+        "medianMs": 286.19999998807907,
+        "p95Ms": 1072.2000000178814,
+        "maxMs": 2016.5999999940395,
+        "samples": 30,
+        "maximumTriangles": 955585,
+        "medianCadenceMs": 10455.75
+      }
+    },
+    {
+      "run": "desktop",
+      "detail": "full",
+      "views": 15,
+      "maximumCalls": 219,
+      "maximumTriangles": 4289410,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "readyAtMs": 132279.69999998808,
+      "textureEstimateBytes": 486472368,
+      "unpricedTextureFormats": 0,
+      "buildingBatches": 51,
+      "sceneAssetBytes": 86959696,
+      "motion": {
+        "wallElapsedMs": 1329880.400000006,
+        "minMs": 26.30000001192093,
+        "medianMs": 82.40000000596046,
+        "p95Ms": 212,
+        "maxMs": 230.80000001192093,
+        "samples": 30,
+        "maximumTriangles": 4004441,
+        "medianCadenceMs": 38734.45000000298
+      }
+    },
+    {
+      "run": "balanced",
+      "detail": "balanced",
+      "views": 5,
+      "maximumCalls": 218,
+      "maximumTriangles": 2328422,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 2535000
+      },
+      "readyAtMs": 155835.5,
+      "textureEstimateBytes": 469695152,
+      "unpricedTextureFormats": 0,
+      "buildingBatches": 51,
+      "sceneAssetBytes": 60490748,
+      "motion": {
+        "wallElapsedMs": 1175789.7999999821,
+        "minMs": 64.40000000596046,
+        "medianMs": 147.7999999821186,
+        "p95Ms": 410.7000000178814,
+        "maxMs": 2653.5999999940395,
+        "samples": 30,
+        "maximumTriangles": 2382548,
+        "medianCadenceMs": 35368.64999999106
+      }
+    },
+    {
+      "run": "lifecycle",
+      "detail": "light",
+      "views": 4,
+      "maximumCalls": 171,
+      "maximumTriangles": 1178966,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "readyAtMs": 94529.09999999404,
+      "textureEstimateBytes": 457112240,
+      "unpricedTextureFormats": 0,
+      "buildingBatches": 51,
+      "sceneAssetBytes": 60490748,
+      "motion": {
+        "wallElapsedMs": 285443.2999999821,
+        "minMs": 83.90000000596046,
+        "medianMs": 115.7000000178814,
+        "p95Ms": 590.7999999821186,
+        "maxMs": 755.1000000238419,
+        "samples": 30,
+        "maximumTriangles": 955585,
+        "medianCadenceMs": 7614.399999991059
+      }
+    },
+    {
+      "run": "season",
+      "detail": "light",
+      "views": 1,
+      "maximumCalls": 171,
+      "maximumTriangles": 1052528,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "readyAtMs": 133274.10000002384,
+      "textureEstimateBytes": 457112240,
+      "unpricedTextureFormats": 0,
+      "buildingBatches": 51,
+      "sceneAssetBytes": 60490748,
+      "motion": null
+    }
+  ]
+}

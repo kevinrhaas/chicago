@@ -1,0 +1,4 @@
+{
+  "method": "Actual published /1904/ app; normal Full/Light boot at 1280x800/390x780 (Balanced separately). Animation held with the existing harness API for frozen camera comparisons, then released for moving-frame timing. RenderBufferDirect instrumentation reconciles actual main/shadow draw counts, then restores the method. Software renderer and boot phases declared; still captures are not frame-time measurements.",
+  "results": []
+}

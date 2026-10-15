@@ -1,0 +1,154 @@
+{
+  "off": {
+    "onPick": {
+      "id": "glessner_house",
+      "point": [
+        1377.4313132773082,
+        5.644697781664562,
+        3231.6687838833127
+      ],
+      "distance": 2.913926695300148
+    },
+    "onCull": {
+      "tested": 15523,
+      "culled": 12764,
+      "triangles": 580291,
+      "active": true,
+      "occluders": 64
+    },
+    "pick": {
+      "id": "glessner_house",
+      "point": [
+        1377.4313132773082,
+        5.644697781664562,
+        3231.6687838833127
+      ],
+      "distance": 2.913926695300148
+    },
+    "stats": {
+      "drawCalls": 195,
+      "triangles": 1617416,
+      "programs": 40,
+      "geometries": 249,
+      "textures": 440,
+      "batches": 51,
+      "wallRelief": {
+        "off": false,
+        "substrates": {
+          "clapboard": {
+            "id": "clapboard_board_face",
+            "px": 512,
+            "tileM": 4.48,
+            "meanRough": 0.8663
+          },
+          "hewn_log": {
+            "id": "hewn_log_face",
+            "px": 512,
+            "tileM": 4.08,
+            "meanRough": 0.9062
+          }
+        }
+      },
+      "structures": 151,
+      "structuresExpected": 151,
+      "structuresStanding": 151,
+      "bytes": 60490748,
+      "fps": 0,
+      "cameraNear": 0.1,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "withinBudget": false
+    },
+    "cull": {
+      "tested": 0,
+      "culled": 0,
+      "triangles": 0,
+      "active": false,
+      "occluders": 0
+    }
+  },
+  "restored": {
+    "stats": {
+      "drawCalls": 166,
+      "triangles": 1037125,
+      "programs": 40,
+      "geometries": 249,
+      "textures": 440,
+      "batches": 51,
+      "wallRelief": {
+        "off": false,
+        "substrates": {
+          "clapboard": {
+            "id": "clapboard_board_face",
+            "px": 512,
+            "tileM": 4.48,
+            "meanRough": 0.8663
+          },
+          "hewn_log": {
+            "id": "hewn_log_face",
+            "px": 512,
+            "tileM": 4.08,
+            "meanRough": 0.9062
+          }
+        }
+      },
+      "structures": 151,
+      "structuresExpected": 151,
+      "structuresStanding": 151,
+      "bytes": 60490748,
+      "fps": 0,
+      "cameraNear": 0.1,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "withinBudget": true
+    },
+    "cull": {
+      "tested": 15523,
+      "culled": 12764,
+      "triangles": 580291,
+      "active": true,
+      "occluders": 64
+    }
+  },
+  "confidence": [],
+  "finalRestore": {
+    "drawCalls": 166,
+    "triangles": 1037125,
+    "programs": 40,
+    "geometries": 249,
+    "textures": 440,
+    "batches": 51,
+    "wallRelief": {
+      "off": false,
+      "substrates": {
+        "clapboard": {
+          "id": "clapboard_board_face",
+          "px": 512,
+          "tileM": 4.48,
+          "meanRough": 0.8663
+        },
+        "hewn_log": {
+          "id": "hewn_log_face",
+          "px": 512,
+          "tileM": 4.08,
+          "meanRough": 0.9062
+        }
+      }
+    },
+    "structures": 151,
+    "structuresExpected": 151,
+    "structuresStanding": 151,
+    "bytes": 60490748,
+    "fps": 0,
+    "cameraNear": 0.1,
+    "budget": {
+      "drawCalls": 330,
+      "triangles": 1270000
+    },
+    "withinBudget": true
+  }
+}

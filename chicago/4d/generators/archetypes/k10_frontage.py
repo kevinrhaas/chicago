@@ -45,6 +45,8 @@ from __future__ import annotations
 import math
 import random
 
+from .k01_frontage_params import bracketed_section
+
 CORNICE = "k10.cornice.bracketed_timber"
 STONE = "k10.cornice.moulded_stone"      # T-2460: 1619's, from its drawing
 CRESTING = "k10.cresting.iron_ridge"
@@ -89,6 +91,17 @@ def spec(params) -> dict | None:
     pr = t.get("pairs")
     if pr is not None and not (isinstance(pr, dict) and 0.6 <= float(pr.get("spacing_m", 0)) <= 2.4):
         raise ValueError("wall_head.pairs names the pairs' spacing_m, 0.6-2.4 m between stations")
+    cw = t.get("crown")
+    if cw is not None:
+        cr = (getattr(params, "mansard", None) or {}).get("crown") or {}
+        if cr.get("form") != "hip" or t.get("cornice") != CORNICE or pr is not None:
+            raise ValueError(f"wall_head.crown carries {CORNICE!r}, unpaired, round a hipped crown "
+                             f"(mansard.crown.form: hip)")
+        blk = cw.get("block")
+        if blk is not None and not (0.0 < float(blk["at"]) < 1.0 and 0.3 <= float(blk["width_m"]) <= 1.2
+                                    and 0.0 <= float(blk["rise_m"]) <= 0.3 and 0.0 <= float(blk["proud_m"]) <= 0.1):
+            raise ValueError("wall_head.crown.block: `at` 0-1 along the crown's face, width_m 0.3-1.2, "
+                             "rise_m 0-0.3 over the fascia, proud_m 0-0.1 past it")
     paint = t.get("paint")
     if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
         raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
@@ -336,9 +349,22 @@ def _cornice(a, K, data, bays, conf):
     # T-2465: a pavilion under a crown is carried up to the crown's own cornice, through
     # the line of the bed moulding, which runs into its cheeks; its brackets stand clear
     cr = (getattr(p, "mansard", None) or {}).get("crown") or {}
-    for wall, s0, s1, top in bays:
+    # T-2472: a bay carrying the cornice's own section as its eaves (k01_frontage_params'
+    # `eaves.cornice`) rises to the bed moulding's foot and carries it round its plan, under
+    # the house's soffit and fascia; the wall's bed moulding stops at its junctions
+    sec = [tuple(q) for q in bracketed_section(data, p.eave_overhang_m)]
+    cut = []
+    for b, (wall, s0, s1, top) in zip(p.bays, bays):
         if cr.get("form") == "hip" and wall == "k01.wall.street_front" \
                 and -cr["z1"] - cr["overhang_m"] <= s0 and s1 <= -cr["z0"] + cr["overhang_m"]:
+            continue
+        ev = b["variant"].get("overrides", {}).get("eaves", {})
+        if [tuple(q) for q in ev.get("profile", ())] == sec:
+            wall_top = math.fsum(st["height_m"] for st in b["variant"]["storeys"])
+            if b["variant"].get("base") != "grade" or wall != runs(p)[0].name or abs(wall_top - y_bed) > 0.001:
+                raise ValueError(f"the bay {b['id']} carries the cornice's section; it rises from grade on the "
+                                 f"street front to the bed moulding's foot at {y_bed:.3f} m (has {wall_top:.3f})")
+            cut.append(tuple(b["span_m"]))
             continue
         if top > y_bed - 0.005:
             raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
@@ -357,8 +383,10 @@ def _cornice(a, K, data, bays, conf):
             stations.append((start + s, i, s))
         start += r.L
     perim = start
+    crown = _crown_stations(p, B, cr, spec(p).get("crown"))
     seed = a.instance(CORNICE, "cornice",
                       {"brackets": len(stations) * (2 if spec(p).get("pairs") else 1),
+                       **({"crown_brackets": len(crown["stations"])} if crown else {}),
                        **({"paired": True} if spec(p).get("pairs") else {}),
                        "bracket_height_m": h, "bracket_projection_m": B["projection_m"],
                        "bed_mould": "bed_mould", "soffit_m": y_s},
@@ -394,15 +422,122 @@ def _cornice(a, K, data, bays, conf):
         spans.append((ps + w / 2, nxt - w / 2))
     if flat:
         spans = [(0.0, stations[0][0] - w / 2)] + spans + [(stations[-1][0] + w / 2, perim)]
+    # the street front starts the perimeter; the span that closes it runs on past `perim`
+    for c0, c1 in [(c0 + m, c1 + m) for c0, c1 in cut for m in (0.0, perim)]:
+        spans = [q for s0, s1 in spans for q in ((s0, min(s1, c0)), (max(s0, c1), s1)) if q[1] - q[0] > 1e-6]
     for k, (s0, s1) in enumerate(spans):
         corners = [c + m * perim for m in (0, 1) for c in cum[:len(rr)] if s0 + 1e-6 < c + m * perim < s1 - 1e-6]
         path = [point(s0)] + [point(c) for c in sorted(corners)] + [point(s1)]
         pc = var.piece(f"bed moulding {k + 1}", "timber", "open")
         K.sweep(pc.mesh, path, K.Y, bed, side=1.0, sgn=1.0)
+    if crown:
+        _crown_cornice(a, K, var, B, bed, y_s, y_bed, crown)
     a.wall_head = {"brackets": [round(s, 3) for s in (st[2] for st in stations)], "paired": paired,
+                   **({"crown": {"brackets": {r.name: [round(s, 3) for i, s in crown["stations"] if crown["runs"][i] is r]
+                                              for r in crown["runs"]},
+                                 **({"block": crown["block_box"]} if crown.get("block_box") else {})}} if crown else {}),
                    "bracket_runs": {r.name: [round(st[2], 3) for st in stations if st[1] == i] for i, r in enumerate(rr)},
                    "bed_mould_m": [round(y_bed, 4), round(y_s, 4)]}
     _lay(a, var.pieces, conf, CORNICE)
+
+
+def _crown_stations(p, B, cr, c):
+    """T-2467: the bracketed cornice carried round a hipped crown's pavilion — 1637's wing,
+    whose engraving draws its cornice as a band as deep as the main one's with a block in it
+    over the window, where T-2465's crown carried K05's fascia alone. The pavilion's walls
+    rise into the crown's soffit, so the house's own brackets and bed moulding run round its
+    three faces on the main wall head's line: its cheek off the street front, its face and
+    its far cheek. A cheek that leaves the street front starts at an inside corner, so its
+    brackets stand clear of the front's (by the brackets' projection); a cheek flush with a
+    side wall runs on into that wall's run, whose corner bracket closes its spacing. The
+    record's `block` stands over the window, `at` along the face, its back on the wall, from
+    the brackets' feet through the crown's fascia to `rise_m` over it, `proud_m` past it.
+    Returns None where the record asks for none of this."""
+    if not c or cr.get("form") != "hip":
+        return None
+    K = _kit()
+    D, W = p.depth_m, p.width_m
+    x1, za, zb = cr["x1"], cr["z1"], cr["z0"]
+    rr = [K.Run("k10.crown.cheek_a", (D, za), (x1, za), (False, True)),
+          K.Run("k10.crown.face", (x1, za), (x1, zb), (True, True)),
+          K.Run("k10.crown.cheek_b", (x1, zb), (D, zb), (True, False))]
+    flush = (abs(za) < 1e-6, abs(zb + W) < 1e-6)      # a cheek on a side wall's plane
+    w, cc, sp = B["width_m"], B["corner_m"], B["spacing_m"]
+    inside = B["projection_m"] + w / 2 + CLEAR_M      # clear of the street front's brackets
+
+    def even(a_, b_, drop_last=False):
+        n = max(1, math.ceil((b_ - a_) / sp - 1e-9))
+        out = [a_ + (b_ - a_) * i / n for i in range(n + 1)]
+        return out[:-1] if drop_last else out
+
+    out = []
+    # the cheeks: from the outside corner to the street front, or on into the side wall's run
+    for i, f, corner_first in ((0, flush[0], False), (2, flush[1], True)):
+        L = rr[i].L
+        if f:   # the side run's corner bracket stands `cc` past this cheek's street end
+            ss = even(cc, L + cc, drop_last=True) if corner_first else [L - s for s in even(cc, L + cc, True)]
+        else:
+            lo, hi = (cc, L - inside) if corner_first else (inside, L - cc)
+            if hi - lo < 0:
+                raise ValueError(f"{rr[i].name}: {L:.2f} m leaves no room for a bracket clear of the front's")
+            # a stretch too short for two takes one, at its outside corner
+            ss = even(lo, hi) if hi - lo >= B["range_spacing_m"][0] else [lo if corner_first else hi]
+        out += [(i, s) for s in ss]
+    # the face: a bracket `cc` from each corner, evenly between, and none where the block stands
+    L = rr[1].L
+    blk = c.get("block")
+    free = [(cc, L - cc)]
+    box = None
+    if blk:
+        bw = float(blk["width_m"])
+        s0 = float(blk["at"]) * L - bw / 2
+        box = (s0, s0 + bw)
+        free = [(cc, s0 - w / 2 - CLEAR_M), (s0 + bw + w / 2 + CLEAR_M, L - cc)]
+        if free[0][1] < cc or free[1][0] > L - cc:
+            raise ValueError(f"wall_head.crown.block: {bw} m at {blk['at']} leaves no corner bracket room")
+    for a_, b_ in free:
+        out += [(1, s) for s in even(a_, b_)]
+    return {"runs": rr, "stations": [(i, s) for i, s in out], "block": blk, "box": box,
+            "overhang_m": cr["overhang_m"]}
+
+
+def _crown_cornice(a, K, var, B, bed, y_s, y_bed, crown):
+    """T-2467: lay `_crown_stations`' brackets, the bed moulding between them round the
+    crown's three faces (mitred at its two outside corners, dying into each bracket's side
+    and the block's), and the block."""
+    p = a.p
+    rr, w, h = crown["runs"], B["width_m"], B["height_m"]
+    for k, (i, s) in enumerate(crown["stations"]):
+        pc = var.piece(f"crown bracket {k + 1}", "timber", "open", bracket={"run": rr[i].name, "s": s})
+        K.console(pc.mesh, rr[i], s, y_s, 0.0, w, h, B["projection_m"], B["curl"])
+    cum = [0.0]
+    for r in rr:
+        cum.append(cum[-1] + r.L)
+    stops = sorted((cum[i] + s - w / 2, cum[i] + s + w / 2) for i, s in crown["stations"])
+    if crown["box"]:
+        stops = sorted(stops + [(cum[1] + crown["box"][0], cum[1] + crown["box"][1])])
+
+    def point(ps):
+        i = max(j for j in range(len(rr)) if cum[j] <= ps + 1e-9)
+        return rr[i].at(ps - cum[i], y_bed)
+
+    edges = [0.0] + [q for st in stops for q in st] + [cum[-1]]
+    for k in range(0, len(edges), 2):
+        s0, s1 = edges[k], edges[k + 1]
+        if s1 - s0 < 1e-6:
+            continue
+        path = [point(s0)] + [point(c) for c in cum[1:-1] if s0 + 1e-6 < c < s1 - 1e-6] + [point(s1)]
+        pc = var.piece(f"crown bed moulding {k // 2 + 1}", "timber", "open")
+        K.sweep(pc.mesh, path, K.Y, bed, side=1.0, sgn=1.0)
+    if crown["box"]:
+        blk = crown["block"]
+        s0, s1 = crown["box"]
+        y0, y1 = y_s - h, p.eave_m + float(blk["rise_m"])
+        n1 = crown["overhang_m"] + float(blk["proud_m"])
+        pc = var.piece("crown block", "timber", "open")
+        K.face_box(pc.mesh, rr[1], s0, s1, y0, y1, 0.0, n1, skip=("back",))
+        crown["block_box"] = {"s_m": [round(s0, 3), round(s1, 3)], "y_m": [round(y0, 4), round(y1, 4)],
+                              "proud_m": round(n1, 3)}
 
 
 def _stone_cornice(a, K, data, bays, conf):

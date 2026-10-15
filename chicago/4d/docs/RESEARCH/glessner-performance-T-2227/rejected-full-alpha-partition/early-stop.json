@@ -1,0 +1,22 @@
+{
+  "recordedAt": "2026-10-15T16:09:09.547424+00:00",
+  "reason": "Full image audit found changed alpha-blended roof-edge pixels. Full roof detail was repartitioned from 3 original instances to 471 spatial pieces, changing transparent order. Preserve original transparent roof groups, then validate. This is not a completed or accepted Full matrix.",
+  "completedViews": [
+    "north-head-clear",
+    "north-tower",
+    "bow-leader",
+    "dining-leader",
+    "owner-angle",
+    "dining-copper",
+    "terrace-foot",
+    "north-court",
+    "north-shade"
+  ],
+  "nodePid": 1039960,
+  "pendingLifecyclePid": 1039129,
+  "children": [
+    "1039972"
+  ],
+  "observedExit": 1,
+  "observedError": "page.screenshot: Target page, context or browser has been closed after targeted driver termination"
+}

@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D) with a frame (yellow) bay and porches on the Prairie face'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2441 (piece 1 of T-1870) refines the district draft (T-2335) in place under the same id from the house's one picture of its remodelled front, a line engraving of the Grosvenor house as Jesse Spalding remodelled it (glessner_blog_1637_spalding_remodel_engraving), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (13.1 m, where the draft's fit had stopped at 11.5 m) and depth: a K03 brick block of a raised basement and two tall storeys under a bracketed cornice; at the north end of the front a K08 swell bay of three windows a storey rising nearly to the cornice, at the south end the wing the engraving draws forward of the front as a K08 full-height projection on the sheet's 4.8 m by 1.0 m step, the entrance up its stoop between them under one window; a slated mansard whose steep lower faces carry two dormers on the street face and one on the north face, and the three stacks the engraving draws. The sheet's two-storey rear range behind the south part stands on K01's rear wings. What the engraving shows and K01 cannot yet build, or this piece has not yet built, is listed open in its match record (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json) for T-2442. T-2465 carries the wing up to the cornice under its own steep hip, its ridge running back into the main roof and its stack beside the ridge (K01's mansard crown built as a hip). T-2471 dresses the three stacks with the K15 kit's head (corbelled courses, a stone cap and, on the two tall ones, a sunk panel). Everything not read is reconstructed and recorded as L-k01-1637-spalding-remodel-2441.",
+  "research_note": "T-2441 (piece 1 of T-1870) refines the district draft (T-2335) in place under the same id from the house's one picture of its remodelled front, a line engraving of the Grosvenor house as Jesse Spalding remodelled it (glessner_blog_1637_spalding_remodel_engraving), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (13.1 m, where the draft's fit had stopped at 11.5 m) and depth: a K03 brick block of a raised basement and two tall storeys under a bracketed cornice; at the north end of the front a K08 swell bay of three windows a storey rising nearly to the cornice, at the south end the wing the engraving draws forward of the front as a K08 full-height projection on the sheet's 4.8 m by 1.0 m step, the entrance up its stoop between them under one window; a slated mansard whose steep lower faces carry two dormers on the street face and one on the north face, and the three stacks the engraving draws. The sheet's two-storey rear range behind the south part stands on K01's rear wings. What the engraving shows and K01 cannot yet build, or this piece has not yet built, is listed open in its match record (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json) for T-2442. T-2465 carries the wing up to the cornice under its own steep hip, its ridge running back into the main roof and its stack beside the ridge (K01's mansard crown built as a hip). T-2471 dresses the three stacks with the K15 kit's head (corbelled courses, a stone cap and, on the two tall ones, a sunk panel). Everything not read is reconstructed and recorded as L-k01-1637-spalding-remodel-2441. T-2467 carries K10's bracketed cornice round the wing under its crown and stands the engraving's block in it over the window.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -132,13 +132,21 @@
         },
         "wall_head": {
           "value": {
-            "cornice": "k10.cornice.bracketed_timber"
+            "cornice": "k10.cornice.bracketed_timber",
+            "crown": {
+              "block": {
+                "at": 0.5,
+                "width_m": 0.75,
+                "rise_m": 0.15,
+                "proud_m": 0.05
+              }
+            }
           },
           "confidence": "inferred",
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving"
           ],
-          "note": "A heavy cornice over a plain frieze runs round the front, the bay and the wing at one height in the engraving; drawn as K10's bracketed timber cornice, the kit's one heavy eave."
+          "note": "A heavy cornice over a plain frieze runs round the front, the bay and the wing at one height in the engraving; drawn as K10's bracketed timber cornice, the kit's one heavy eave. The wing carries the same cornice (T-2467): the engraving draws its cornice as a band as deep as the main one's (y 232-262 px) with a block in it over the window, where T-2465's crown carried K05's 0.2 m fascia alone. The wing's walls rise into the crown's soffit, so K10's brackets and bed moulding run round its three faces on the main wall head's line (`crown`): two on its cheek off the front, clear of the front's own, eight on its face and two on its far cheek, which runs on into the side wall's. Through the camera the wing's band now spans y 258-265 px at the fascia's top to 293-299 at the brackets' feet, 35 px, as the main cornice's does (258-293), where the fascia alone was 9 px. The block (`crown.block`) stands on the window's centre, 0.75 m wide, from the brackets' feet through the fascia to 0.15 m over its top and 0.05 m past its face: through the camera at x 709-738 px against the engraving's about 700-730, rising about 6 px over the band as the engraving's does about 5-7. Its width, rise and projection are read off the plate at the wing's scale (about 0.023 m/px), not measured; the whole band stands about 30 px under the engraving's, which is the house's eave height (the match record's open item), not the wing's."
         },
         "roof_form": {
           "value": "mansard",
@@ -516,7 +524,7 @@
                   ]
                 },
                 {
-                  "height_m": 4.1,
+                  "height_m": 4.552,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
@@ -536,6 +544,9 @@
                 "kind": "cone",
                 "pitch": 0.05,
                 "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.bracketed_timber"
               }
             },
             {
@@ -591,7 +602,7 @@
             "glessner_blog_1637_spalding_remodel_engraving",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). The bay stands from grade to 10.7 m, as high as K10's cornice lets a bay rise under its bed moulding (the engraving's runs on to the cornice itself, T-2466). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks."
+          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). The bay rises from grade to the cornice itself, as the engraving carries it (T-2472): its upper storey 4.552 m, so its wall top stands at 11.152 m, the foot of K10's bed moulding, and its eaves ARE the cornice, carried round the bow (`eaves.cornice`): the bed moulding swept round its plan under the house's soffit (11.21 m) and fascia (to 11.41 m), 0.5 m out from the bow's face as the main eave stands from the wall, in the same painted timber; the wall's bed moulding stops at the bow's junctions and its brackets stand clear of them. The bow carries no brackets of its own: the engraving draws its top as one plain band, and its brackets would be K10's, not the engraving's. Through the camera that band lands at y 245-267 px on the bow's crown, the engraving's at about 255-270; until T-2472 the bay stopped at 10.7 m under a plain K08 eave (y 270-287 px). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks."
         },
         "rear_wings": {
           "value": [

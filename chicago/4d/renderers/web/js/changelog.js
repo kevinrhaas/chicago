@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 1827, ts: '2026-10-15T20:17:26.404Z', date: 'Oct 15, 2026, 3:17 PM CT', title: '1637 Prairie\'s wing wears the cornice', kind: 'improvement',
+    items: [
+      'The wing at the south end of 1637 Prairie Avenue now carries the house\'s bracketed cornice round its three faces, so its band reads as deep as the main cornice\'s, as the engraving of Jesse Spalding\'s remodel draws it.',
+      'A painted block stands in that band over the wing\'s window, rising just above it, where the engraving draws one.',
+    ] },
+  { v: 1826, ts: '2026-10-15T19:37:21.528Z', date: 'Oct 15, 2026, 2:37 PM CT', title: 'Glessner’s July view stays within its detail limits', kind: 'fix',
+    items: [
+      'Nothing you can see changed. Glessner avoids drawing hidden scenery in July’s Light detail and uses fewer drawing operations in Full detail, while preserving the house\'s geometry, stone and dark glass.',
+      'The existing detail limits are retained. Historical-photo refinements continue in the final comparison pass.',
+    ] },
+  { v: 1825, ts: '2026-10-15T19:31:48.120Z', date: 'Oct 15, 2026, 2:31 PM CT', title: '1638 Prairie\'s door gets the transom its photograph shows', kind: 'feature',
+    items: [
+      'The pale gabled shape over the Shortall-Gregory house\'s double door turns out to be a glass transom, so the door now has one: a bar over the leaves and a single light under a low gable.',
+      'The photograph\'s long run of front steps was worked out too: the floor stands about 1.4 m up on the house\'s basement, and the photographer stood on the far sidewalk. Rebuilding the house to that is the next ticket.',
+    ] },
+  { v: 1824, ts: '2026-10-15T19:01:53.139Z', date: 'Oct 15, 2026, 2:01 PM CT', title: 'Lee\'s Place cabin now looks like its one picture', kind: 'improvement',
+    items: [
+      'In 1812, the farm cabin at Lee\'s Place has the three doors and six windows the 1912 plate draws along its river front.',
+      'Its chimney stands at the upstream end, with a low plank lean-to beyond it.',
+      'The logs are whitewashed and the roof is weathered dark, as the drawing shows them. The whitewash is our reading of a pale drawing, not a recorded fact.',
+    ] },
+  { v: 1823, ts: '2026-10-15T18:50:36.642Z', date: 'Oct 15, 2026, 1:50 PM CT', title: '1637 Prairie\'s round bay rises to the cornice', kind: 'improvement',
+    items: [
+      'The rounded bay at the north end of Jesse Spalding\'s house at 1637 Prairie now rises to the cornice, as the engraving shows, and the cornice now runs round its top. It used to stop short of the cornice under a thin eave of its own.',
+    ] },
   { v: 1822, ts: '2026-10-15T18:25:37.424Z', date: 'Oct 15, 2026, 1:25 PM CT', title: '1812: two houses and the garrison\'s cornfield at the forks', kind: 'feature',
     items: [
       'Walk up the main stem to the forks in 1812 and two small log houses stand there, one either side of the river, where Captain Whistler\'s 1808 draught draws them: a discharged soldier\'s, and the house we take for Clark the cattle dealer\'s.',

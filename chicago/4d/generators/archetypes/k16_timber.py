@@ -926,7 +926,10 @@ class Sample:
         rev = cs["reveal_depth_m"]
         cw, cth = cs["width_m"], cs["thickness_m"]
         sa, sb = c - hw - cw, c + hw + cw
-        y0, yH = y_start, y_start + H
+        # T-2520: a transom light over the leaves raises the opening (yH) above the leaves' head (yL)
+        tm = door.get("transom")
+        y0, yL = y_start, y_start + H
+        yH = yL + (tm["bar_m"] + tm["apex_m"] if tm else 0.0)
         tw = self.tone("door_casing", c)
         # the jamb lining, the head soffit and the threshold, the wall's depth to the leaf
         for s_e, hs in ((c - hw, 1), (c + hw, -1)):
@@ -941,13 +944,15 @@ class Sample:
         pw = (x1 - x0 - (ncol - 1) * st) / ncol
         rows = []
         y_lo = y0 + rb
-        y_hi = yH - rt
+        y_hi = yL - rt
         ph = (y_hi - y_lo - (nrow - 1) * rl) / nrow
         for j in range(nrow):
             rows.append((y_lo + j * (ph + rl), y_lo + j * (ph + rl) + ph))
         panels = [(x0 + i * (pw + st), x0 + i * (pw + st) + pw, ya, yb) for i in range(ncol) for (ya, yb) in rows]
         td = self.tone("door", c)
-        self.sheathing(F, (c - hw, c + hw, y0, yH), panels, role="door", z=-rev)
+        self.sheathing(F, (c - hw, c + hw, y0, yL), panels, role="door", z=-rev)
+        if tm:
+            self._door_transom(F, tm, c, hw, yL, rev, door["panel_sink_m"], tw)
         glazed = bool(door.get("glazed"))     # T-2425: each panel a light of glass, the hall dark behind
         for (pa, pb, ya, yb) in panels:
             zb = -rev - sink
@@ -981,9 +986,35 @@ class Sample:
         cap = [(0.0, yHc), (zc, yHc), (zc, yHc + dc["front_m"]), (0.0, y_top)]
         self.poly(F, "drip_cap", [(sa, yHc, cth), (sb, yHc, cth), (sb, yHc, zc), (sa, yHc, zc)], (0, -1, 0), tw)
         self.profile_run(F, cap, [None, "drip_cap", "drip_cap", None], sa, sb, ("end_grain", "end_grain"), tw)
-        self.meta.setdefault("doors", []).append({"s": [round(sa, 6), round(sb, 6)], "y": [round(y0, 6), round(y_top, 6)],
-                                                  "panels": len(panels), "glazed": glazed, "on_course_lines": True})
+        dm = {"s": [round(sa, 6), round(sb, 6)], "y": [round(y0, 6), round(y_top, 6)],
+              "panels": len(panels), "glazed": glazed, "on_course_lines": True}
+        if tm:
+            dm["transom"] = {"glass_y": [round(yL + tm["bar_m"], 6), round(yH, 6)], "side_m": tm["side_m"]}
+        self.meta.setdefault("doors", []).append(dm)
         return (c - hw, c + hw, y0, yH), (sa, sb, y0, y_top)
+
+    def _door_transom(self, F, tm, c, hw, yL, rev, sink, tw):
+        """T-2520: a glazed transom over a door's leaves, the opening's full width: a bar on
+        the leaves' head, then one light under a low gable, `side_m` high at the jambs and
+        `apex_m` at the middle, the two corners over its slopes filled with painted board to
+        the opening's square head. The glass is sunk as the leaves' lights are, the hall dark
+        behind it."""
+        yg, ys, ya = yL + tm["bar_m"], yL + tm["bar_m"] + tm["side_m"], yL + tm["bar_m"] + tm["apex_m"]
+        zb = -rev - sink
+        zh = zb - GLAZED_HALL_M
+        light = [(c - hw, yg), (c + hw, yg), (c + hw, ys), (c, ya), (c - hw, ys)]
+        self.poly(F, "glass_outer", [(s, y, zb) for s, y in light], (0, 0, 1))
+        self.poly(F, "backing", [(s, y, zh) for s, y in light], (0, 0, 1))
+        self.poly(F, "door", [(c - hw, yL, -rev), (c + hw, yL, -rev), (c + hw, yg, -rev), (c - hw, yg, -rev)], (0, 0, 1), tw)
+        self.poly(F, "door", [(c - hw, ys, -rev), (c, ya, -rev), (c - hw, ya, -rev)], (0, 0, 1), tw)
+        self.poly(F, "door", [(c + hw, ys, -rev), (c + hw, ya, -rev), (c, ya, -rev)], (0, 0, 1), tw)
+        rise = ya - ys
+        for (p, q), hint in ((((c - hw, yg), (c + hw, yg)), (0, 1, 0)),
+                             (((c - hw, yg), (c - hw, ys)), (1, 0, 0)),
+                             (((c + hw, yg), (c + hw, ys)), (-1, 0, 0)),
+                             (((c - hw, ys), (c, ya)), (rise, -hw, 0)),
+                             (((c, ya), (c + hw, ys)), (-rise, -hw, 0))):
+            self.poly(F, "door", [(*p, zb), (*q, zb), (*q, -rev), (*p, -rev)], hint, tw)
 
     def _batten_wall(self):
         v, d = self.v, self.data
