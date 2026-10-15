@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1806, ts: '2026-10-15T11:00:18.252Z', date: 'Oct 15, 2026, 6:00 AM CT', title: '1808 Prairie gets its columned entrance loggia and side stair', kind: 'improvement',
+    items: [
+      'The Keith house at 1808 Prairie now enters through an open stone loggia at its north end, as its 1888 photograph shows: paired columns on corner pedestals, a parapet across the front, and a balcony over it under the second-storey window.',
+      'A low arch opens under the loggia at basement level.',
+      'The front stair now rises beside the loggia on its south side instead of running straight out from the door, and the gate and front walk line up with it.',
+    ] },
   { v: 1805, ts: '2026-10-15T10:38:01.904Z', date: 'Oct 15, 2026, 5:38 AM CT', title: '1812: the first fort\'s wharf and its covered way to the river', kind: 'feature',
     items: [
       'A log wharf stands on the river bank west of the fort\'s north-west corner, where Captain Whistler\'s 1808 plan marks one beside his note \'122 feet to River\'.',
