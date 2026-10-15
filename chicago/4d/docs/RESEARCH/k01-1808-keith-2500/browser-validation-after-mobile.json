@@ -1,0 +1,242 @@
+{
+  "method": "Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 26983,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "data/gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "stands": [
+        {
+          "name": "front",
+          "heap_mb": 721.4,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 109,
+            "triangles": 812134,
+            "programs": 40,
+            "geometries": 195,
+            "textures": 438,
+            "batches": 146,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 56783880,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1802,
+          "camera": [
+            1405.92,
+            -3247.06,
+            6.35
+          ],
+          "target": [
+            1387.87,
+            -3242.77,
+            8.85
+          ]
+        },
+        {
+          "name": "southeast",
+          "heap_mb": 740.9,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 108,
+            "triangles": 816740,
+            "programs": 40,
+            "geometries": 201,
+            "textures": 450,
+            "batches": 146,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 56783880,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2145.2,
+          "camera": [
+            1395.44,
+            -3248.68,
+            6.05
+          ],
+          "target": [
+            1387.86,
+            -3241.87,
+            7.35
+          ]
+        },
+        {
+          "name": "loggia",
+          "heap_mb": 711.4,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 108,
+            "triangles": 780029,
+            "programs": 40,
+            "geometries": 201,
+            "textures": 450,
+            "batches": 146,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 56783880,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2266.7,
+          "camera": [
+            1393.28,
+            -3243.2,
+            6.05
+          ],
+          "target": [
+            1388.35,
+            -3241.06,
+            7.55
+          ]
+        },
+        {
+          "name": "northeast",
+          "heap_mb": 709.6,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 125,
+            "triangles": 757989,
+            "programs": 40,
+            "geometries": 208,
+            "textures": 462,
+            "batches": 146,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 56783880,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1655.8,
+          "camera": [
+            1403.68,
+            -3226.08,
+            6.05
+          ],
+          "target": [
+            1387.91,
+            -3246.27,
+            13.35
+          ]
+        }
+      ]
+    }
+  ]
+}

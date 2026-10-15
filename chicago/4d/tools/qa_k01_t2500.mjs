@@ -1,0 +1,78 @@
+// T-2500: 1808 Prairie (Keith) given its north entrance loggia, balcony and stair from the
+// 1888 Inland Architect plate and its plan, read in the actual published /1904/ app. Stands in the K01 footprint
+// frame (u east toward Prairie Avenue, the front the u = 18 face, v north across the 10.4 m front,
+// Glessner beyond v = 10.4, metres above the ground at its origin): square on across the street at the
+// plate's own height, the 1965 colour photograph's side (south-east, close on the loggia and stair),
+// the loggia close up from the walk, and the owner's photograph's side (north-east).
+// At 1280x800 full detail and 390x780 light detail; records the scene load, JS heap, draws,
+// triangles and a timed frame at every stand, and screenshots each.
+//   QA_TAG=before node tools/qa_k01_t2500.mjs           (after tools/publish.sh, on dev)
+//   QA_TAG=after QA_VIEWPORT=mobile node tools/qa_k01_t2500.mjs
+import fs from 'node:fs';
+import http from 'node:http';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+const root=process.cwd(),require=createRequire(path.join(root,'tools/qa.mjs'));
+const {chromium}=require('playwright');
+const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH/k01-1808-keith-2500');
+fs.mkdirSync(out,{recursive:true});
+const ID='keith_house_1808_prairie';
+const TAG=process.env.QA_TAG||'after';
+if(!['before','after'].includes(TAG))throw Error('QA_TAG is before or after');
+const SHIFT=[0,0];
+const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.svg':'image/svg+xml'};
+const server=http.createServer((req,res)=>{let p=path.join(site,decodeURIComponent(req.url.split('?')[0]));try{if(fs.statSync(p).isDirectory())p=path.join(p,'index.html');res.writeHead(200,{'Content-Type':types[path.extname(p)]||'application/octet-stream'});fs.createReadStream(p).pipe(res)}catch{res.writeHead(404);res.end('missing')}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE || undefined,args:['--no-sandbox','--enable-unsafe-swiftshader','--enable-precise-memory-info']});
+// [name, eye, target]: the stone front is the u = 18 face, 10.4 m across
+const STANDS=[
+ ['front',[36,3.0,2.0],[18,7.5,4.5]],
+ ['southeast',[25.5,1.5,1.7],[18,8.4,3.0]],
+ ['loggia',[23.4,7.0,1.7],[18.5,9.2,3.2]],
+ ['northeast',[34,24,1.7],[18,4,9]],
+].map(([n,e,t])=>[n,[e[0]+SHIFT[0],e[1]+SHIFT[1],e[2]],[t[0]+SHIFT[0],t[1]+SHIFT[1],t[2]]]);
+const results=[];let failed=null;
+try{
+for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full'],['mobile',{width:390,height:780},'light']]){
+ if(process.env.QA_VIEWPORT && process.env.QA_VIEWPORT!==label)continue;
+ const context=await browser.newContext({viewport,deviceScaleFactor:1,isMobile:label==='mobile',hasTouch:label==='mobile'});
+ const page=await context.newPage();page.setDefaultTimeout(240000);
+ const errors=[],bad=[],assets=[];
+ page.on('pageerror',e=>errors.push(String(e)));
+ page.on('response',async r=>{if(r.status()>=400)bad.push(r.url()+':'+r.status());if(r.url().endsWith('.glb')&&(r.url().includes(ID)||false))assets.push({url:r.url().replace(/^.*\/data\//,'data/'),status:r.status(),bytes:Number(r.headers()['content-length']||0)})});
+ const t0=Date.now();
+ await page.goto(`http://127.0.0.1:${server.address().port}/1904/`,{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:240000,polling:500});
+ const loadMs=Date.now()-t0;
+ const boot=await page.evaluate(()=>({ready:__chicago4d.ready,error:__chicago4d.error,scene:__chicago4d.scene?.id}));
+ if(!boot.ready||boot.scene!=='1904')throw Error(JSON.stringify(boot));
+ await page.waitForFunction(()=>window.__chicago4d?.welcome.state==='welcome',null,{timeout:240000,polling:1000});
+ await page.evaluate(async detail=>{const a=__chicago4d;if(!a.welcome.enter('spawn'))throw Error('welcome entry failed');document.exitPointerLock?.();document.getElementById('control-help-gotit')?.click();a.renderer.setAnimationLoop(null);await a.setDetail(detail);a.step();},detail);
+ await page.waitForFunction(()=>document.getElementById('gate').hidden);
+ const placed=await page.evaluate(id=>Boolean(__chicago4d.registry.get(id)?.sidecar?.placement),ID);
+ if(!placed)throw Error(`${ID} is not in the 1904 registry`);
+ const stands=[];
+ for(const [name,pos,target] of STANDS){
+  const observation=await page.evaluate(({pos,target,id})=>{const a=__chicago4d,pl=a.registry.get(id).sidecar.placement,th=pl.rotation_deg*Math.PI/180;
+   const ground=a.terrain.surfaceHeight(pl.local_e,pl.local_n);
+   const en=([x,y,z])=>[pl.local_e+x*Math.cos(th)+y*Math.sin(th),pl.local_n-x*Math.sin(th)+y*Math.cos(th),ground+z];
+   const p=en(pos),t=en(target);a.setFly(true);a.walker.teleport({local_e:p[0],local_n:p[1],altitude_m:p[2]-a.terrain.surfaceHeight(p[0],p[1]),yaw_deg:Math.atan2(t[0]-p[0],t[1]-p[1])*180/Math.PI,pitch_deg:Math.atan2(t[2]-p[2],Math.hypot(t[0]-p[0],t[1]-p[1]))*180/Math.PI});a.step();
+   const frame=()=>{a.camera.position.set(p[0],p[2],-p[1]);a.camera.lookAt(t[0],t[2],-t[1]);a.camera.updateMatrixWorld();a.world.follow(a.camera.position);a.world.aim(a.camera);a.renderer.render(a.scene3d,a.camera);};
+   frame();
+   // a timed frame: render and wait for the GPU (a one-pixel read) — 5 of them, median
+   const gl=a.renderer.getContext(),px=new Uint8Array(4),ms=[];
+   for(let i=0;i<5;i++){const s=performance.now();frame();gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,px);ms.push(performance.now()-s);}
+   ms.sort((x,y)=>x-y);
+   return {heap_mb:performance.memory?Math.round(performance.memory.usedJSHeapSize/1e5)/10:null,detail:a.detail,problems:a.problems,stats:a.stats(),frame_ms_median:Math.round(ms[2]*10)/10,camera:p.map(v=>Math.round(v*100)/100),target:t.map(v=>Math.round(v*100)/100)};
+  },{pos,target,id:ID});
+  await page.screenshot({path:path.join(out,`${TAG}-${label}-${name}.jpg`),type:'jpeg',quality:82});stands.push({name,...observation});
+ }
+ const row={label,viewport,detail,load_ms_to_ready:loadMs,boot,errors,bad,assets,stands};
+ results.push(row);
+ if(errors.length||bad.length||stands.some(x=>x.problems.length||!x.stats.withinBudget))throw Error(JSON.stringify(row));
+ if(!assets.some(a=>a.url.includes(ID)&&a.status<400))throw Error(`${ID}'s GLB never loaded`);
+ await context.close();console.log(TAG+' '+label+' actual published 1904 app, 1808 Prairie: PASS');
+}
+}catch(e){failed=e;}
+finally{fs.writeFileSync(path.join(out,`browser-validation-${TAG}`+(process.env.QA_VIEWPORT?'-'+process.env.QA_VIEWPORT:'')+'.json'),JSON.stringify({method:'Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine\'s software GL (a relative reading, not a device claim).',results},null,2)+'\n');await browser.close();server.close();}
+if(failed){console.error(String(failed).slice(0,4000));process.exit(1);}
