@@ -1,0 +1,28 @@
+{
+  "id": "kirkland_1893_kinzie_mansion_1812_plate",
+  "type": "illustration",
+  "citation": "\"Kinzie Mansion—1812.\" — halftone plate after Sarony's lithograph, in Joseph Kirkland, The Chicago Massacre of 1812 (Chicago: Dibble Publishing Co., 1893), p. 73.",
+  "author": "after Napoleon Sarony's lithograph of a sketch by Juliette A. Kinzie; the 1893 plate's maker is not named",
+  "date": "1893",
+  "describes_date": "1812, by its caption",
+  "repository": "Project Gutenberg eBook #59624 (images/page73.png); the copy held in this repository is chicago/reference/images/chicago/chicago_kinzie_mansion_1812_kirkland_1893.png (catalogued in chicago/reference/images/IMAGE_SOURCES.md); the volume is also Internet Archive chicagomass00kirkrich (chicago/reference/chicago-massacre-1812.yaml)",
+  "url": "https://www.gutenberg.org/ebooks/59624",
+  "locator": "p. 73, the plate captioned 'KINZIE MANSION—1812.', 600 x 353 px as Project Gutenberg serves it",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1893 in the United States, out of copyright by age.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Fetched from Project Gutenberg and read off the image itself on 2026-10-15 (T-2498); the page and caption are read from the Gutenberg text's page markers.",
+  "what_it_supplies": [
+    "the house long and low under a gable roof along the river, the east end toward the eye's right, a piazza across the front on posts with a rail",
+    "a picket fence round the green before the house down toward the water, a landing at the water's edge",
+    "four columnar Lombardy poplars in a row east of the house running toward the river, and a great broad-crowned tree behind it",
+    "two stacks through the ridge, and outbuildings and a two-storey house up the road to the west, behind the house"
+  ],
+  "what_it_does_not_supply": [
+    "anything the Currey plate does not: it is the same artwork, cropped a little closer, and its 1812 caption is Kirkland's reading of it, not the artist's",
+    "any dimension or position"
+  ],
+  "note": "Kept as its own record because it is a separate publication with its own date claim (1812); for the house's form it is a copy of sarony_kinzie_residence_currey_1912_plate and adds no evidence."
+}

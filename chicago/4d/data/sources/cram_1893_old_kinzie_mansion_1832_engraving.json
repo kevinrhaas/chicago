@@ -1,0 +1,30 @@
+{
+  "id": "cram_1893_old_kinzie_mansion_1832_engraving",
+  "type": "illustration",
+  "citation": "\"The Old Kinzie Mansion in 1832.\" — wood engraving, the upper panel of a plate with \"Chicago in 1845, from the West\", in George F. Cram, Cram's Standard American Railway System Atlas of the World / Columbian World's Fair Atlas (Chicago: George F. Cram, 1893).",
+  "author": "Blomgren Bros. & Co., engravers, for George F. Cram's atlas; the artist is not named on the plate",
+  "date": "1893",
+  "describes_date": "1832, by its caption",
+  "repository": "David Rumsey Map Collection, via Internet Archive; the copy held in this repository is chicago/reference/images/chicago/chicago_kinzie_mansion_1832_and_1845_view.jpg (catalogued in chicago/reference/images/IMAGE_SOURCES.md)",
+  "url": "https://archive.org/details/dr_the-old-kinzie-mansion-in-1832-with-chicago-in-1845-from-the-west-wit-1773025",
+  "locator": "the upper panel, about x 290-980, y 112-550 px of the 1280 x 881 px page held here; captioned under it",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1893 in the United States, out of copyright by age; the Rumsey scan is offered as public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read off the image file itself on 2026-10-15 (T-2498). The atlas page number was not reached from the run's container, so none is cited.",
+  "what_it_supplies": [
+    "the house long and low under a gable roof along the river, its west gable toward the eye",
+    "two stacks through the ridge, about 0.44 and 0.92 of it from the west gable",
+    "a piazza across the whole front, its roof drawn as the main roof carried down in one plane",
+    "a central door with two sash either side under the piazza",
+    "a picket fence round the green before the house, four columnar poplars in a row east of it, and a great tree behind",
+    "a two-storey house and a shed behind it to the north-west, in 1832"
+  ],
+  "what_it_does_not_supply": [
+    "the house in 1812: it dates itself to 1832",
+    "any dimension, position or colour"
+  ],
+  "note": "Close in composition to the 1857 Chicago Magazine engraving and probably redrawn from the same tradition; it agrees with that engraving on the stacks and the poplars and with Lossing on the one-plane piazza roof. Its camera and match record are data/reference_views/kinzie_house_1812/cram_1893.json."
+}
