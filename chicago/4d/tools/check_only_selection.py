@@ -269,7 +269,7 @@ def audit_step(script: str) -> list[str]:
 
 
 # ------------------------------------------- the bake's first half, run (T-2492)
-# bake.sh's own text, with Blender, the six pure-Python emitters and every step after
+# bake.sh's own text, with Blender, the five pure-Python emitters and every step after
 # them stubbed: the stub Blender exits with the status the case gives, an emitter
 # appends a master to --wrote when the case names it, and each step logs that it ran.
 STUB_BLENDER = """#!/usr/bin/env bash
@@ -289,10 +289,15 @@ if me in os.environ.get("FIXTURE_EMITS", "").split(","):
 STUB_STEP = """#!/usr/bin/env bash
 echo "$(basename "$0") $*" >> "$FIXTURE_LOG"
 """
-# haystack_emit joined on 2026-10-15 (T-2510), landing beside T-2492: a bake.sh emitter with no
-# stub here is a missing script, the bake ends 2 there, and every case below reads that as the
-# defect it is guarding against.
-EMITTERS = ("k01_emit", "k13_emit", "k16_emit", "k12_emit", "draft_emit", "haystack_emit")
+
+
+def emitters_of(script: str) -> tuple[str, ...]:
+    """Every `generators/<name>_emit.py` the script runs, read from its own text.
+
+    The fixture stubs each one, so it cannot fall behind the next emitter bake.sh grows: a
+    fixed list of five did, the day T-2510 added haystack_emit.py, and every case below
+    ended 2 on the missing file — dev's gate red for every pull request (T-2518)."""
+    return tuple(dict.fromkeys(re.findall(r"generators/(\w+_emit)\.py", script)))
 
 
 def run_bake(script: str, blender_exit: int, emits: tuple[str, ...], *args: str):
@@ -308,7 +313,7 @@ def run_bake(script: str, blender_exit: int, emits: tuple[str, ...], *args: str)
         blender = root / "cache" / "fixture-blender" / "blender"
         blender.write_text(STUB_BLENDER)
         blender.chmod(0o755)
-        for name in EMITTERS:
+        for name in emitters_of(script):
             (root / "generators" / f"{name}.py").write_text(STUB_EMIT)
         for name in ("web_derivatives.sh", "publish.sh", "check.sh"):
             (root / "tools" / name).write_text(STUB_STEP)
