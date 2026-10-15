@@ -27193,7 +27193,7 @@ Neutral-light diagnostics distinguish the scene's blue shade from the owner-appr
 ### L-1812-potawatomi-camp-2515 — The Potawatomi camp of August 1812: its three groups on the creek, its 26 lodges, and the lodge's form and size
 
 **Decision:** the camp of the Potawatomi gathered at Chicago in August 1812 stands in the 1812 scene
-as three groups of mat lodges on the west bank of the State Street creek, at the `camp` archetype:
+as three groups of mat lodges on the banks of the State Street creek, at the `camp` archetype:
 `potawatomi_camp_1812_mouth` (10 lodges), `potawatomi_camp_1812_middle` (8) and
 `potawatomi_camp_1812_upper` (8), dated 12-16 August 1812. **That the camp stood, when, and on which
 ground is the sources'**: Wau-Bun's council of the 12th with the Indians "assembled from the
@@ -27205,8 +27205,10 @@ view from the fort on the evening of 14 August, "the groups of Indian wigwams cl
 creek that formerly flowed into the main stream at the present State Street" (ch. III). The committed
 1812 ground already carries that creek (the `state_slough_course` and `state_slough_mouth` swales).
 
-**What is ours.** The three grounds and their places on the bank (the west bank because it is level;
-the east bank climbs onto the ridge east of State), each 28 x 20 m and 4-6 m clear of the swale's cut;
+**What is ours.** The three grounds and their places on the banks (by the mouth, on its level west
+bank; then the south-east bank where the creek bends west; then the north bank near its head by
+Dearborn), 28 x 20 m twice and 20 x 16 m, each 1.7-7 m clear of the swale's cut and 4 m or more
+from every footprint and clear of every street corridor the 1835 layer later draws on that ground;
 the number of lodges, 26, which counts nothing: the one size given is Heald's "between four hundred
 and five hundred" warriors at the fight of the 15th (Currey ch. III), with their families in the camp,
 which would have needed far more lodges, so the drawn camp understates the gathering instead of
