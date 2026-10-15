@@ -16,7 +16,7 @@
         "sources": [
           "kinzie_waubun_1856",
           "moses_kirkland_history_of_chicago_v1",
-          "currey_1912_story_of_old_fort_dearborn"
+          "currey_1912_old_fort_dearborn"
         ],
         "note": "THE OPENING IS A DATED MENTION AND THE CLOSE IS A BOUND THIS PROJECT CHOSE. It opens on 7 April 1812, the day Lee's son ran down from Lee's Place to give the alarm (Wau-Bun ch. XIX: the family 'had resided in a house on the Lake shore, not far from the fort'); that is the first dated day a source ties to the household, and the house may well be older, since Lee was cultivating his South Branch farm before it. It was standing on 18 August 1812: Currey lists 'that lately occupied by Charles Lee and his family near the mouth of the river' among the four houses left after the burning (ch. III). Moses and Kirkland say 'the house built by Charles Lee south of the fort was sold in 1812 to' Jean Baptiste Beaubien (data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 9785-9789) and say nothing of it after. No source read for T-2487 says when it came down. It is closed at the end of 1817, the year Moses and Kirkland's same paragraph ends its account of the post-war houses (Jouett in the Burns house, Crafts at Lee's farm, both 1817): it stands through what that paragraph describes and in no scene this project draws after it, so it is out of 1835. The close is reconstructed (L-1812-burns-lee-2487); a dated record of the house after 1817 replaces it."
       },
@@ -28,7 +28,7 @@
         "confidence": "inferred",
         "sources": [
           "kinzie_waubun_1856",
-          "currey_1912_story_of_old_fort_dearborn",
+          "currey_1912_old_fort_dearborn",
           "moses_kirkland_history_of_chicago_v1"
         ],
         "note": "THE TWO SOURCES DISAGREE IN WORDS AND NOT ON THIS GROUND. Wau-Bun ch. XIX puts the house 'on the Lake shore, not far from the fort'. Currey 1912 ch. II puts it 'near the fort on the bank of the river opposite where it discharged into the lake; which was near the present intersection of Madison Street and Michigan Avenue', and adds the reason: 'a long sand-bar prevented the river from finding an outlet directly in line with its course, and the current was forced to creep along close to the shore for some distance toward the south.' Ch. VIII says the same: 'On the bank of the river, near its mouth, stood the house of Charles Lee.' Moses and Kirkland have it 'south of the fort'. THE RULING: on this project's 1812 ground (data/terrain/epochs/e1830_natural/shoreline.geojson) the river ran south behind the spit, and its west bank ends at the adopted outlet station, local E +1163.8, N -426.8, where the lake shore runs on south. At that one place the river bank and the lake shore are the same bank, so the house is seated there, west of the waterline, and both writers are right. Its east wall stands about 29 m west of the outlet station and about 22 m from the lake shore south of it; the ground there reads +2.4 m, the dry back of the beach. WHERE CURREY'S STREET NAMES AND THIS GROUND DIFFER: Madison Street is local N -519, 80 m south of the house. That gap is the spread between this ground's two readings of the mouth itself (the adopted Swearingen half-mile station and the 'madison_street_compilation' alternative, 94.9 m apart, shoreline.geojson's mouth_outlet_reading_band). Currey wrote his intersection with the second reading in mind; this record keeps the house opposite the mouth the ground draws, because 'opposite where it discharged' is his claim and 'Madison Street' his gloss on where that was. If the ground's mouth moves, the house moves with it. Nothing dates its facing; rotation 0 is a reconstruction.",
@@ -99,7 +99,7 @@
     "confidence": "attested",
     "sources": [
       "kinzie_waubun_1856",
-      "currey_1912_story_of_old_fort_dearborn"
+      "currey_1912_old_fort_dearborn"
     ],
     "note": "The house of Charles Lee's family. Lee owned Lee's Place, the farm on the South Branch also called Hardscrabble, and lived here with his household while his hired men worked the farm (Currey ch. II; Wau-Bun ch. XIX)."
   },

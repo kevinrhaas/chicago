@@ -29,7 +29,7 @@
         "sources": [
           "kinzie_waubun_1856",
           "moses_kirkland_history_of_chicago_v1",
-          "currey_1912_story_of_old_fort_dearborn"
+          "currey_1912_old_fort_dearborn"
         ],
         "note": "THREE SOURCES PUT IT AT THE FOOT OF STATE STREET AND ONE PUTS IT CLOSER TO THE LAKE; THIS RECORD TAKES THE THREE. Wau-Bun, n. 30 to ch. XVIII: 'Burns's house stood near the spot where the Agency Building, or \"Cobweb Castle,\" was afterwards erected, at the foot of N. State Street.' Moses and Kirkland, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 9797-9802: 'near what is now the southwest corner of North State (formerly Wolcott) and Water streets'. Currey 1912 ch. II: the alarm was called 'to John Burns, then living in a cabin on the north bank of the river near' the later State Street bridge, and ch. III sets the house on the north bank opposite the creek that came in at State Street. THE ALTERNATIVE, STATED AND NOT TAKEN: Moses and Kirkland p. 36 (lines 5630-5640) give Hurlbut's judgment that the Burns house was the log house Wau-Bun puts 'on the north side of the river some two or three hundred yards from the lake and twenty steps from the river bank', at 'about the northeast corner of north State and North Water streets'. On this project's 1812 ground the lake is about 600 m east of State Street at this northing, so two or three hundred yards (183-274 m) from it would seat the house near local E +1000..+1100, on the north bank opposite the fort, where the histories put the Kinzie house instead. The two readings cannot both hold, and the street corner is the one three writers give. FROM HURLBUT THIS RECORD KEEPS ONE FIGURE, the twenty steps from the river bank, because it does not disagree with the corner: the south wall stands 15.2 m (twenty paces of 2.5 ft) north of the north bank of data/terrain/epochs/e1830_natural/shoreline.geojson, which reads N +92.1 at this easting. SOUTHWEST OVER NORTHEAST: Moses and Kirkland write both corners, Hurlbut's 'northeast' on p. 36 and their own 'southwest' later. The southwest corner is the one between Water Street and the river, so it is the one that keeps the twenty steps; it is also the corner Wau-Bun gives for Cobweb Castle, which Wau-Bun puts 'near the spot'. THE EXACT SEAT IS THIS PROJECT'S: the house stands west of cobweb_castle's footprint (local E +801..+814, N +113..+122) and clear of it, so the later building does not stand on this one in plan. Nothing dates which way the house faced; rotation 0 is a reconstruction.",
         "derivation": {
@@ -100,7 +100,7 @@
     "sources": [
       "kinzie_waubun_1856",
       "moses_kirkland_history_of_chicago_v1",
-      "currey_1912_story_of_old_fort_dearborn"
+      "currey_1912_old_fort_dearborn"
     ],
     "note": "The Burns family's house. THE SOURCES DISAGREE ON THE HUSBAND'S FIRST NAME, AND THE RECORD DOES NOT RULE: Moses and Kirkland think its occupant 'probable' to be 'the \"Thomas Burns\" who appears in the Fort Dearborn muster roll, 1810', enlisted 8 June 1806 and so due his discharge on 8 June 1811 (data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8548-8556); Currey 1912 calls him John Burns throughout. Neither cites a document for the name it gives. Wau-Bun calls the house only 'Burns's'."
   },
