@@ -456,7 +456,7 @@ step "the 1812 Hardscrabble site re-derives from its readings (T-2501)" \
 # bank at or above the water) asserted. measure_anchors.mjs --gate holds the anchor on it.
 step "the 1812 South Branch apron re-derives from the box floor and T-2501's trace (T-2502)" \
   python3 tools/derive_apron_south_branch_1812.py --check
-step "the 1812 South Branch apron's self-test (T-2502)" \
+selftest "…and its seams still hold when the apron is re-derived (T-2502)" \
   python3 tools/derive_apron_south_branch_1812.py --self-test
 
 # T-2048. The first fort's one plan, Whistler's draught of 25 January 1808, read into a
