@@ -21148,7 +21148,8 @@ from the 1812 ground exactly as they are dealt from 1835's. Everything the town 
 out by the manifest's `scenes` lists (T-0471): `z10_settled_town`'s cropped, hoof-poached sward,
 the 260 dooryard stems, the Lombardy rows, the Sauganash's three trees and the willows by the
 second fort's west wall stand in 1835 only. Those zone records are written for 1 July 1835 and
-carry a `july` phenology block; the 1812 scene is dated 1 August 1812 and shows them as written.
+carry a `july` phenology block; the 1812 scene is dated 14 August 1812 (moved from 1 August by the
+owner's ruling of 2026-10-13, T-2514) and shows them as written.
 **Why:** the communities are the ground's, not the town's — every one of them is graded from the
 ecology literature and the presettlement surveys, not from anything the settlers did, so the
 twenty-three years between the scenes move the town and not the prairie. A scene that drew bare
@@ -21156,7 +21157,7 @@ terrain (which is what 1812 drew before this) said the shore had no cover at all
 than a month's drift in bloom.
 **Consequence:** a visitor sees the fort standing in uncut prairie. The garrison's gardens and
 the factor's grounds are not drawn (T-2062 owns them), so the ground round the pickets is greener
-and less trodden than it was. The bloom is July's, two weeks early for 1 August.
+and less trodden than it was. The bloom is July's, a month early for 14 August.
 **How to resolve:** an August phenology block per zone, and a cleared-and-trodden zone for the
 first fort's surroundings once T-2062 places its gardens and outbuildings.
 **Recorded:** 2026-10-04 (T-0471).
@@ -21767,8 +21768,8 @@ thirteen stripes and a star a state from the 4th of July after admission, so 24 
 4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one,
 is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is
 ours — Andreas has it up "in pleasant weather and on holidays", the scene is drawn fair, and
-the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 1 August
-1812. The arrangement of the stars, the size, the colours' wear and the wind are ours.
+the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 14 August
+1812, the eve of the evacuation. The arrangement of the stars, the size, the colours' wear and the wind are ours.
 **How to resolve:** a quartermaster's account, a post return or a period view of either fort
 replaces the roofs and timber; any record of the post's colours (a requisition for a garrison
 or storm flag, its size and its cloth) replaces the cloth; the 1861 regulations' text read at

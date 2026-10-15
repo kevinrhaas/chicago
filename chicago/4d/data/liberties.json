@@ -24467,7 +24467,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the 1812 scene (`data/scenes/1812.json`) now draws the flora layer, and what it draws is the NATURAL zone records of `data/flora/zones/` — wet and mesic prairie, sedge meadow, marsh, river timber, the wet woods, the lakeshore beach and foredune, the sand prairie — dealt from the 1812 ground exactly as they are dealt from 1835's. Everything the town made is scoped out by the manifest's `scenes` lists (T-0471): `z10_settled_town`'s cropped, hoof-poached sward, the 260 dooryard stems, the Lombardy rows, the Sauganash's three trees and the willows by the second fort's west wall stand in 1835 only. Those zone records are written for 1 July 1835 and carry a `july` phenology block; the 1812 scene is dated 1 August 1812 and shows them as written."
+          "text": "the 1812 scene (`data/scenes/1812.json`) now draws the flora layer, and what it draws is the NATURAL zone records of `data/flora/zones/` — wet and mesic prairie, sedge meadow, marsh, river timber, the wet woods, the lakeshore beach and foredune, the sand prairie — dealt from the 1812 ground exactly as they are dealt from 1835's. Everything the town made is scoped out by the manifest's `scenes` lists (T-0471): `z10_settled_town`'s cropped, hoof-poached sward, the 260 dooryard stems, the Lombardy rows, the Sauganash's three trees and the willows by the second fort's west wall stand in 1835 only. Those zone records are written for 1 July 1835 and carry a `july` phenology block; the 1812 scene is dated 14 August 1812 (moved from 1 August by the owner's ruling of 2026-10-13, T-2514) and shows them as written."
         },
         {
           "label": "Why",
@@ -24475,7 +24475,7 @@
         },
         {
           "label": "Consequence",
-          "text": "a visitor sees the fort standing in uncut prairie. The garrison's gardens and the factor's grounds are not drawn (T-2062 owns them), so the ground round the pickets is greener and less trodden than it was. The bloom is July's, two weeks early for 1 August."
+          "text": "a visitor sees the fort standing in uncut prairie. The garrison's gardens and the factor's grounds are not drawn (T-2062 owns them), so the ground round the pickets is greener and less trodden than it was. The bloom is July's, a month early for 14 August."
         },
         {
           "label": "How to resolve",
@@ -25414,7 +25414,7 @@
         },
         {
           "label": "What is recorded and what is not",
-          "text": "no source reached gives either fort's roof pitch, eave, gable construction, log colour, picket section or ribbands; all of it is the archetype's, chosen to read as hewn and split timber the way the town's plank walks do. The flags' STAR AND STRIPE COUNTS are inferred from the Flag Acts (1794: fifteen and fifteen from 1 May 1795; 1818: thirteen stripes and a star a state from the 4th of July after admission, so 24 stars from 4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one, is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is ours — Andreas has it up \"in pleasant weather and on holidays\", the scene is drawn fair, and the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 1 August 1812. The arrangement of the stars, the size, the colours' wear and the wind are ours."
+          "text": "no source reached gives either fort's roof pitch, eave, gable construction, log colour, picket section or ribbands; all of it is the archetype's, chosen to read as hewn and split timber the way the town's plank walks do. The flags' STAR AND STRIPE COUNTS are inferred from the Flag Acts (1794: fifteen and fifteen from 1 May 1795; 1818: thirteen stripes and a star a state from the 4th of July after admission, so 24 stars from 4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one, is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is ours — Andreas has it up \"in pleasant weather and on holidays\", the scene is drawn fair, and the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 14 August 1812, the eve of the evacuation. The arrangement of the stars, the size, the colours' wear and the wind are ours."
         },
         {
           "label": "How to resolve",

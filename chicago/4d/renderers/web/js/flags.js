@@ -19,7 +19,7 @@
  *    1 July 1835 is the 24-star flag of 4 July 1822 (Missouri), and the 25th
  *    (Arkansas) waits for 4 July 1836. INFERRED.
  *  - 1812: Whistler's 1808 draught draws the staff, 75 ft; Quaife calls it "a
- *    lofty flagstaff". On 1 August 1812 the law is the Flag Act of 1794: fifteen
+ *    lofty flagstaff". On 14 August 1812 the law is the Flag Act of 1794: fifteen
  *    stars and FIFTEEN stripes, in force from 1 May 1795 to 4 July 1818. INFERRED.
  *  - That either flag is UP at the scene's hour, how big it is, how its stars
  *    are laid out and which way the wind takes it are RECONSTRUCTED — L390 —

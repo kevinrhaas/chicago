@@ -1,12 +1,12 @@
 {
   "id": "1812",
   "title": "Fort Dearborn, summer 1812",
-  "target_date": "1812-08-01",
+  "target_date": "1812-08-14",
   "terrain_epoch": "e1830_natural",
   "terrain_apron": "e1830_natural/apron_south_branch.json",
   "lighting": {
     "local_time": "15:00",
-    "note": "Mid-afternoon, 1 August 1812, in local mean solar time at the datum. Chosen for the view the scene opens on: the visitor stands south-west of the fort facing north-east, so a sun in the south-west lights the south and west faces of the picket rows and the south-west blockhouse corner they see first, rather than leaving the fort in its own shadow as a morning sun would."
+    "note": "Mid-afternoon, 14 August 1812, the eve of the evacuation, in local mean solar time at the datum: the renderer's solar position puts the sun 43 degrees up at azimuth 247 (west-south-west), against 46 degrees at azimuth 250 on the 1 August the scene was first dated, so the light the view was chosen for still holds. Chosen for the view the scene opens on: the visitor stands south-west of the fort facing north-east, so a sun in the south-west lights the south and west faces of the picket rows and the south-west blockhouse corner they see first, rather than leaving the fort in its own shadow as a morning sun would."
   },
   "spawn": {
     "local_e": 1112.0,
@@ -60,7 +60,7 @@
     "exclusions"
   ],
   "released": false,
-  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). THE COVER (T-0471): the flora layer is drawn, and data/flora/index.json's `scenes` lists decide what of it stands here - the natural zone records (prairie, sedge meadow, marsh, river timber, wet woods, beach and sand prairie) are the ground's and are dealt from this epoch's heightfield, while the settled town's sward and the 1835 plantings (dooryards, the Lombardy rows, the Sauganash's trees, the willows by the second fort) are scoped to 1835 and stand nowhere here. The one planting of this scene is massacre_cottonwoods_1812, a remembered pair whose existence is inferred and whose places are reconstructed (L372); the cover's own month and the garrison's missing clearing are L371. The other town-wide layers written for 1835 are still left out - fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here. `eighteenth_street_shore` is a CAMERA on the conjectural bank three kilometres south of the fort, looking east-south-east at the two cottonwoods; it does not locate the battle, which is T-0470's to map. `lees_place_reach` is a CAMERA on T-2501's ruled reach of the South Branch's north-west bank, 930 m west of the box: it stands on the apron field `terrain_apron` names (T-2502), the 1812 ground carried down the river from the box floor at the conjectural grade, and looks south-east across the channel. It marks the reading's station and not the cabin, which is not drawn yet (T-2503). No person is drawn: the Indigenous-history review gates of T-0472 come before any figure. The scene's cards (T-0472) name the event, say whose accounts it rests on and where they disagree, and are held for that review, so this scene is not released. THE EXCLUSIONS LAYER (T-2489) is this scene's own: data/exclusions.json entries whose `scenes` names 1812 are the structures the record places at Chicago before the evacuation that were researched and ruled out of this date, and the 1835 town's entries, which carry no `scenes`, are not listed here (tools/exclusion_scope.py).",
+  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground on 14 August 1812, the eve of the evacuation of the 15th and the burning of the 16th. THE DATE IS THE OWNER'S (2026-10-13, T-2490, moved by T-2514): the scene was first dated 1 August, and moves to the 14th so that the camp of the August gathering, assembled by the council of the 12th (Wau-Bun ch. XVIII), stands on the scene date; the card `the_eve` says what the day was, and stages nothing of it. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). THE COVER (T-0471): the flora layer is drawn, and data/flora/index.json's `scenes` lists decide what of it stands here - the natural zone records (prairie, sedge meadow, marsh, river timber, wet woods, beach and sand prairie) are the ground's and are dealt from this epoch's heightfield, while the settled town's sward and the 1835 plantings (dooryards, the Lombardy rows, the Sauganash's trees, the willows by the second fort) are scoped to 1835 and stand nowhere here. The one planting of this scene is massacre_cottonwoods_1812, a remembered pair whose existence is inferred and whose places are reconstructed (L372); the cover's own month and the garrison's missing clearing are L371. The other town-wide layers written for 1835 are still left out - fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here. `eighteenth_street_shore` is a CAMERA on the conjectural bank three kilometres south of the fort, looking east-south-east at the two cottonwoods; it does not locate the battle, which is T-0470's to map. `lees_place_reach` is a CAMERA on T-2501's ruled reach of the South Branch's north-west bank, 930 m west of the box: it stands on the apron field `terrain_apron` names (T-2502), the 1812 ground carried down the river from the box floor at the conjectural grade, and looks south-east across the channel. It marks the reading's station and not the cabin, which is not drawn yet (T-2503). No person is drawn: the Indigenous-history review gates of T-0472 come before any figure. The scene's cards (T-0472) name the event, say whose accounts it rests on and where they disagree, and are held for that review, so this scene is not released. THE EXCLUSIONS LAYER (T-2489) is this scene's own: data/exclusions.json entries whose `scenes` names 1812 are the structures the record places at Chicago before the evacuation that were researched and ruled out of this date, and the 1835 town's entries, which carry no `scenes`, are not listed here (tools/exclusion_scope.py).",
   "cards": [
     {
       "id": "first_fort_plan",
@@ -85,10 +85,46 @@
       "confidence_note": "The plan, its date and its scale are Whistler's own (tier 1); the burning is the commanding officer's own letter, read as quoted in the 1895 history's machine OCR ('tire' and 'wilh' read as 'fire' and 'with'). That the heights are not Whistler's is the source record's own finding: the folded elevations on the sheet disagree with one another."
     },
     {
+      "id": "the_eve",
+      "kind": "evidence",
+      "title": "The day you see: 14 August 1812, the eve of the evacuation",
+      "text": "This scene shows the afternoon of 14 August 1812. The order to evacuate the fort had been read on parade days before. The Potawatomi of the neighbouring villages had come in, as the commanding officer wrote, 'from all quarters', and were camped on the south bank of the river; a council had been held with them on the 12th, the factory's goods were given out on the 13th, and the arms and liquor the garrison could not carry were destroyed. The garrison and the families with it marched out the next morning. Nothing of that day is staged here: no one is drawn, and the camp by the river is not built yet.",
+      "quotes": [
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 46, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 7134-7146, Heald's letter",
+          "cite": "Captain Nathan Heald, 1812, as printed in Moses and Kirkland's History of Chicago (1895), p. 46",
+          "text": "The neighboring Indians got the information as early as I did and came from all quarters in order to receive the goods in the factory store which they understood were to be given them."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, 'Massacre at Chicago' (authorama.com/wau-bun-20.html), the council of 12 August",
+          "cite": "Juliette Kinzie, Wau-Bun (1856), ch. XVIII",
+          "text": "The Indians being assembled from the neighboring villages, a council was held with them on the afternoon of the 12th."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, 'Massacre at Chicago' (authorama.com/wau-bun-20.html), the arrival of Captain Wells on 14 August",
+          "cite": "Juliette Kinzie, Wau-Bun (1856), ch. XVIII",
+          "text": "There was, therefore, now no alternative, and every preparation was made for the march of the troops on the following morning."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, 'Narrative of the Massacre, Continued' (authorama.com/wau-bun-21.html), Mrs. Helm's narrative of 15 August",
+          "cite": "Mrs. Helm's narrative, in Juliette Kinzie, Wau-Bun (1856), ch. XIX",
+          "text": "back towards the Chicago River, along the southern bank of which was the Pottowattamie encampment"
+        }
+      ],
+      "confidence": "inferred",
+      "confidence_note": "The council of the 12th, the order read on parade, the march 'on the following morning' and the encampment on the south bank are Wau-Bun's, a family narrative printed forty-four years after the event; the goods given out on the 13th and the arms and liquor destroyed are Wau-Bun's as quoted in the 1895 history (p. 48, lines 7328-7341). Heald's letter, written within months, agrees that the neighbouring Indians came in for the goods, but it dates Captain Wells's arrival, which Wau-Bun puts on the 14th and makes the day the march was settled, to the 13th (p. 48, line 7397), so the day-by-day order of the 13th and 14th is Wau-Bun's and not the commanding officer's. Heald's letter is read in that history's machine OCR (';is' read as 'as').",
+      "review_required": true,
+      "review_note": "Held for review because this card describes the Potawatomi gathering and encampment before the attack of 15 August from accounts written by the garrison's side and a settler family, and how that gathering is told is the Indigenous-history judgement AGENTS.md places under consultation with Native scholars or community organisations before the scene is released."
+    },
+    {
       "id": "what_it_is_called",
       "kind": "terminology",
       "title": "What the event of 15 August 1812 is called",
-      "text": "Two weeks after the afternoon this scene shows, on 15 August 1812, the garrison and the families with it left the fort under orders to march to Fort Wayne, and their column was attacked on the lake shore south of the river mouth by warriors Captain Heald counted as mostly Potawatomi. It is called both the Battle of Fort Dearborn and the Fort Dearborn Massacre, and choosing between the names is a judgement about the event. The sources split the same way from the start: the commanding officer wrote of 'the action'; the 1895 history heads its chapter 'The Massacre'. This reconstruction takes neither name as its verdict, and calls it the evacuation of the fort and the attack on the lake shore.",
+      "text": "The morning after the afternoon this scene shows, on 15 August 1812, the garrison and the families with it left the fort under orders to march to Fort Wayne, and their column was attacked on the lake shore south of the river mouth by warriors Captain Heald counted as mostly Potawatomi. It is called both the Battle of Fort Dearborn and the Fort Dearborn Massacre, and choosing between the names is a judgement about the event. The sources split the same way from the start: the commanding officer wrote of 'the action'; the 1895 history heads its chapter 'The Massacre'. This reconstruction takes neither name as its verdict, and calls it the evacuation of the fort and the attack on the lake shore.",
       "quotes": [
         {
           "source_id": "moses_kirkland_history_of_chicago_v1",
