@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1823, ts: '2026-10-15T18:50:36.642Z', date: 'Oct 15, 2026, 1:50 PM CT', title: '1637 Prairie\'s round bay rises to the cornice', kind: 'improvement',
+    items: [
+      'The rounded bay at the north end of Jesse Spalding\'s house at 1637 Prairie now rises to the cornice, as the engraving shows, and the cornice now runs round its top. It used to stop short of the cornice under a thin eave of its own.',
+    ] },
   { v: 1822, ts: '2026-10-15T18:25:37.424Z', date: 'Oct 15, 2026, 1:25 PM CT', title: '1812: two houses and the garrison\'s cornfield at the forks', kind: 'feature',
     items: [
       'Walk up the main stem to the forks in 1812 and two small log houses stand there, one either side of the river, where Captain Whistler\'s 1808 draught draws them: a discharged soldier\'s, and the house we take for Clark the cattle dealer\'s.',
