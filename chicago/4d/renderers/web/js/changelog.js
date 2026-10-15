@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1805, ts: '2026-10-15T10:38:01.904Z', date: 'Oct 15, 2026, 5:38 AM CT', title: '1812: the first fort\'s wharf and its covered way to the river', kind: 'feature',
+    items: [
+      'A log wharf stands on the river bank west of the fort\'s north-west corner, where Captain Whistler\'s 1808 plan marks one beside his note \'122 feet to River\'.',
+      'A covered way of pickets now runs from the fort\'s north-east corner down the bank to the water, from Quaife\'s line that it gave the garrison \'access in safety to the water in time of attack\'. The plan leaves it out, so its line and width are ours.',
+      'The covered way steps down the bank in three pieces so its pickets stay standing as the ground falls. Liberties says what is invented in both.',
+    ] },
   { v: 1804, ts: '2026-10-15T10:03:26.347Z', date: 'Oct 15, 2026, 5:03 AM CT', title: '1808 Prairie loses its pitched roof and rises above Glessner', kind: 'improvement',
     items: [
       'The Keith house at 1808 Prairie now has the flat top its 1888 photograph shows, with a stone parapet standing higher than Glessner\'s ridge next door. The slate hip, the dormer and the iron cresting are gone.',
