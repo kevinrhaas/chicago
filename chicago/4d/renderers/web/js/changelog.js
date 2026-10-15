@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1817, ts: '2026-10-15T16:34:21.169Z', date: 'Oct 15, 2026, 11:34 AM CT', title: 'Nothing you can see changed: rebuilding one building keeps the Glessner house', kind: 'fix',
+    items: [
+      'Rebuilding a single building on a fresh copy of the project used to drop the Glessner house\'s packed model from the list of built models, and the next publish then refused the Glessner house. The list now keeps it, so building tickets that rebuild one structure can publish.',
+    ] },
   { v: 1816, ts: '2026-10-15T16:05:57.972Z', date: 'Oct 15, 2026, 11:05 AM CT', title: 'Coursoll\'s worm-fenced field on the north bank (1812)', kind: 'feature',
     items: [
       'A zigzag rail fence now closes a field on the north bank, just west of Le Mai\'s house, where Whistler\'s 1808 plan letters \'Mr Coursell\' inside a \'Worm Fence\'.',
