@@ -7,15 +7,15 @@
     434
   ],
   "principal_px": [
-    250.0,
-    242.4
+    120.6,
+    212.3
   ],
-  "focal_px": 326.7,
+  "focal_px": 374.9,
   "eye": [
-    16.24,
-    15.93,
-    2.17
+    18.06,
+    18.25,
+    3.47
   ],
-  "yaw_deg": 217.45,
-  "solve": "Fitted by least squares (an unpitched camera, as photo_match draws it: verticals stay vertical, the principal point free) to nine points read off the engraving at 687 x 434 px against the GLB's footprint frame (u along the front, v toward the river, the house's west gable the +u end): the west gable's back corner at grade (113, 290) and eave (113, 197), its front corner at the eave (170, 207) and grade (170, 318), the gable apex (140, 176), the middle stack's head (238, 165), the door's foot (305, 320), and the piazza's west post at its foot (208, 322) and head (208, 240). Bounds kept the eye in front of the house; the best of 27 starts is eye (16.24, 15.93) at 2.17 m, heading 217.45 degrees, focal 326.7 px, principal (250.0, 242.4), rms 14.3 px. The two worst points are the back eave (27.5 px) and the door's foot (28.0 px): the engraver's horizon is not one line (the front corner puts it near y 255, the back corner near y 237), which is a drawing's perspective and not a lens's, and the wide focal is the solve absorbing it. Checked on a red-edge overlay of the render on the engraving: the gable apex within about 10 px, the stacks at x 250 and 325 against the drawn 238 and 330, the piazza's roof and rail on the drawn ones."
+  "yaw_deg": 199.17,
+  "solve": "Fitted by least squares (an unpitched camera, as photo_match draws it: verticals stay vertical, the principal point free) to nine points read off the engraving at 687 x 434 px against the GLB's footprint frame (u along the front, v toward the river, the house's west gable the +u end): the west gable's back corner at grade (113, 290) and eave (113, 197), its front corner at the eave (170, 207) and grade (170, 318), the gable apex (140, 176), the middle stack's head (238, 165), the door's foot (305, 320), and the piazza's west post at its foot (208, 322) and head (208, 240). Bounds kept the eye in front of the house; the best of 27 starts is eye (16.24, 15.93) at 2.17 m, heading 217.45 degrees, focal 326.7 px, principal (250.0, 242.4), rms 14.3 px. The two worst points are the back eave (27.5 px) and the door's foot (28.0 px): the engraver's horizon is not one line (the front corner puts it near y 255, the back corner near y 237), which is a drawing's perspective and not a lens's, and the wide focal is the solve absorbing it. Checked on a red-edge overlay of the render on the engraving: the gable apex within about 10 px, the stacks at x 250 and 325 against the drawn 238 and 330, the piazza's roof and rail on the drawn ones. RE-FITTED FOR T-2516 on the same points with the same quantities held, against the rebuilt piazza: its posts' heads now 2.81 m over grade (2.11 m before), its plate 2.95 m and its eave at its front edge 2.88 m (2.20 m), under the swept roof. Eye (18.06, 18.25) at 3.47 m, heading 199.17 degrees, focal 374.9 px, principal (120.6, 212.3), rms 13.97 px (the T-2497/T-2498 camera on the old points: 14.68 px). The west post's head lands 5 px above the drawn and its foot 5 px below: the engraving's piazza, drawn under a flatter roof below the main eave, stands about 0.3 m shorter than the rebuilt one read off Sarony's lithograph."
 }
