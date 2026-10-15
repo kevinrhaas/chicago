@@ -470,6 +470,86 @@ class Sample:
                                          "pieces": [[round(p, 6), round(q, 6)] for p, q, _, _ in pieces]})
         return sup, Z0
 
+    def smooth_board(self, F, s0, s1, y_start, y_end, cuts=(), incised=()):
+        """T-2521: a smooth painted face from y_start to y_end across s0-s1, flush boards laid on
+        the clapboard's course lines (each its own paint tone), standing where the clapboard's butts would so the casing and the corner boards keep their reveal over it,
+        and cut by the strips a pointed head cuts its courses by, so its edges stand under the
+        band. Each `incised` ornament is a trefoil cut into it, one lobe up: a groove `groove_m`
+        wide and `depth_m` deep round three lobes `lobe_r_m` in radius whose middles stand
+        `lobe_off_m` from its centre (`centre_m`, `centre_y_m`)."""
+        cl = self.data["cladding"]["clapboard"]
+        zf = clapboard_support(cl) + cl["butt_m"]
+        boxes, cut_in = [], []
+        for o in incised:
+            lobes = [(o["lobe_off_m"] * math.cos(math.radians(a)), o["lobe_off_m"] * math.sin(math.radians(a)))
+                     for a in (90, 210, 330)]
+
+            def radius(a, d, lobes=lobes, rl=o["lobe_r_m"]):     # out to the lobes' outline, inset by d
+                u = (math.cos(a), math.sin(a))
+                best = 0.0
+                for lx, ly in lobes:
+                    b = u[0] * lx + u[1] * ly
+                    disc = (rl - d) ** 2 - (lx * lx + ly * ly - b * b)
+                    if disc >= 0:
+                        best = max(best, b + math.sqrt(disc))
+                return best
+            c, n = (o["centre_m"], o["centre_y_m"]), 60
+            angs = [2 * math.pi * k / n for k in range(n)]
+            outer = [(c[0] + radius(a, 0.0) * math.cos(a), c[1] + radius(a, 0.0) * math.sin(a)) for a in angs]
+            inner = [(c[0] + radius(a, o["groove_m"]) * math.cos(a), c[1] + radius(a, o["groove_m"]) * math.sin(a))
+                     for a in angs]
+            m = 0.01
+            box = (min(x for x, _ in outer) - m, max(x for x, _ in outer) + m,
+                   min(y for _, y in outer) - m, max(y for _, y in outer) + m)
+            if box[0] < s0 or box[1] > s1 or box[2] < y_start or box[3] > y_end or any(
+                    not (box[1] <= ha or box[0] >= hb or box[3] <= hy0 or box[2] >= hy1) for ha, hb, hy0, hy1 in cuts) \
+                    or any(box[2] < cs["y"][1] and not (box[1] <= cs["s"][0] or box[0] >= cs["s"][1])
+                           for cs in self.meta.get("casings", [])):     # clear of each casing's band
+                raise ValueError(f"{self.v['id']}: the incised trefoil at {c} does not stand clear on the board")
+            boxes.append(box)
+            cut_in.append((c, outer, inner, o["depth_m"]))
+        # flush boards on the clapboard's course lines, each its own paint tone, the openings and
+        # each ornament's field cut from them as the courses are cut
+        E = cl["exposure_m"]
+        rects = [(s0, s1, y_start, y_end)]
+        for (ha, hb, hy0, hy1) in list(cuts) + boxes:
+            nxt = []
+            for (a, b, c0, d0) in rects:
+                if hb <= a or ha >= b or hy1 <= c0 or hy0 >= d0:
+                    nxt.append((a, b, c0, d0))
+                    continue
+                nxt += [r for r in ((a, b, c0, hy0), (a, b, hy1, d0), (a, ha, max(c0, hy0), min(d0, hy1)),
+                                    (hb, b, max(c0, hy0), min(d0, hy1))) if r[1] - r[0] > 1e-9 and r[3] - r[2] > 1e-9]
+            rects = nxt
+        for (a, b, c0, d0) in rects:
+            k0, k1 = int(math.floor((c0 - y_start) / E + 1e-9)), int(math.ceil((d0 - y_start) / E - 1e-9))
+            for k in range(k0, k1):
+                ya, yb = max(c0, y_start + k * E), min(d0, y_start + (k + 1) * E)
+                if yb - ya > 1e-9:
+                    self.poly(F, "board", [(a, ya, zf), (b, ya, zf), (b, yb, zf), (a, yb, zf)], (0, 0, 1),
+                              self.tone("smooth", F.name, k))
+        for (c, outer, inner, dp), (a0, a1, b0, b1) in zip(cut_in, boxes):
+            tone = self.tone("smooth", F.name, int(math.floor((c[1] - y_start) / E)))
+            rect = [(a0, b0), (a1, b0), (a1, b1), (a0, b1)]
+            pts = rect + outer
+            for tri in K09.triangulate(rect, [outer]):
+                self.poly(F, "board", [(*pts[i], zf) for i in tri], (0, 0, 1), tone)
+            n, zb = len(outer), zf - dp
+            for k in range(n):
+                o0, o1, i0, i1 = outer[k], outer[(k + 1) % n], inner[k], inner[(k + 1) % n]
+                mx, my = (o0[0] + o1[0]) / 2 - c[0], (o0[1] + o1[1]) / 2 - c[1]
+                self.poly(F, "board", [(c[0], c[1], zf), (i0[0], i0[1], zf), (i1[0], i1[1], zf)], (0, 0, 1), tone)
+                # the groove: its floor and its two walls, in the board's paint (the bake's occlusion
+                # is what shades a cut, as it shades every other recess in the house)
+                self.poly(F, "board", [(i0[0], i0[1], zb), (o0[0], o0[1], zb), (o1[0], o1[1], zb), (i1[0], i1[1], zb)],
+                          (0, 0, 1), tone)
+                self.poly(F, "board", [(o0[0], o0[1], zb), (o1[0], o1[1], zb), (o1[0], o1[1], zf), (o0[0], o0[1], zf)],
+                          (-mx, -my, 0), tone)
+                self.poly(F, "board", [(i0[0], i0[1], zb), (i1[0], i1[1], zb), (i1[0], i1[1], zf), (i0[0], i0[1], zf)],
+                          (mx, my, 0), tone)
+        self.meta.setdefault("smooth", []).append({"frame": F.name, "s": [s0, s1], "y": [y_start, y_end],
+                                                    "face_z": round(zf, 6), "incised": len(cut_in)})
+
     def shingles(self, F, clip_poly, y_start, bands, s_mid):
         sh = self.data["cladding"]["shingle"]
         E, w, butt, nseg = sh["exposure_m"], sh["width_m"], sh["butt_m"], sh["arc_segments"]
@@ -591,7 +671,7 @@ class Sample:
             y_start = self._base(F, 0.0, W, y_fd, T, ("cut", "cut"), R, W, D)
         else:
             y_start = self._base(F, 0.0, W, y_fd, T)
-        fr = tr["frieze"]
+        fr = dict(tr["frieze"], **({"height_m": v["frieze_m"]} if "frieze_m" in v else {}))   # T-2521
         y_fr0 = y_s - fr["height_m"]
         cb, ct = tr["corner_board"]["width_m"], tr["corner_board"]["thickness_m"]
 
@@ -632,7 +712,10 @@ class Sample:
             # face's cladding or board dies against it
             b0, b1 = (v.get("boards") or (False, False))
             a, b = (cb - ct if b0 else 0.0), (W - cb + ct if b1 else W)
-            self.clapboards(F, a, b, y_start, y_fr0, ("trim" if b0 else "cut", "trim" if b1 else "cut"), cuts)
+            if v.get("cladding") == "smooth":     # T-2521: a smooth board, its ornament incised
+                self.smooth_board(F, a, b, y_start, y_fr0, cuts, v.get("incised") or [])
+            else:
+                self.clapboards(F, a, b, y_start, y_fr0, ("trim" if b0 else "cut", "trim" if b1 else "cut"), cuts)
             tc = self.tone("corner")
             if b0:
                 self.box(F, "corner_board", -ct, cb - ct, y_start, y_fr0, 0, ct, skip=("back", "top"), tone=tc)
@@ -2117,7 +2200,15 @@ def tower_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
              "wall_top_m": round(tv["wall_top_m"] - y0, 6),
              "windows": [{"k06_variant": win["k06_variant"], "clear_width_m": win["clear_width_m"],
                           "clear_height_m": win["clear_height_m"], "sill_m": round(win["sill_m"] - y0, 6),
-                          "centre_m": round(w / 2, 6)}] if win else []}
+                          "centre_m": round(w / 2, 6),
+                          **({"surround": win["surround"]} if win and win.get("surround") else {})}] if win else []}
+        sg = tv.get("stage")
+        if sg:     # T-2521: the stage smooth under a shallower frieze, a trefoil incised over each light
+            v.update(cladding="smooth", frieze_m=sg["frieze_m"])
+            if win and sg.get("incised"):
+                o = sg["incised"]
+                v["incised"] = [{"centre_m": round(w / 2, 6), "centre_y_m": round(o["centre_y_m"] - y0, 6),
+                                 **{k: o[k] for k in ("lobe_r_m", "lobe_off_m", "groove_m", "depth_m")}}]
         sm = Sample(v, data).build()
         for role in TOWER_DROP:
             sm.prims.pop(role, None)
@@ -2328,17 +2419,18 @@ def heart(c, y_lobe, lobe_r, lobe_off, y_apex, n=10):
     return list(reversed([(c, y_apex)] + right + left))
 
 
-def pierced_board(sm: Sample, Fr: Frame, role, a0, a1, y0, y1, d0, d1, hole, tone):
-    """A board from a0 to a1 and y0 to y1 in frame Fr, its faces at d0 (in) and d1 (out),
-    pierced through by the polygon `hole`; the piercing's cut edges are `cutout`."""
-    outer = [(a0, y0), (a1, y0), (a1, y1), (a0, y1)]
-    pts = outer + hole
+def pierced_board(sm: Sample, Fr: Frame, role, outer, d0, d1, hole, tone):
+    """A board whose outline is the anticlockwise polygon `outer` in frame Fr's (a, y), its
+    faces at d0 (in) and d1 (out), pierced through by the polygon `hole`; the piercing's cut
+    edges are `cutout`. T-2521: an outline, not a rectangle, so a cap board's corners can flare."""
+    pts = list(outer) + hole
     for tri in K09.triangulate(outer, [hole]):
         tq = [pts[i] for i in tri]
         sm.poly(Fr, role, [(x, y, d1) for x, y in tq], (0, 0, 1), tone)
         sm.poly(Fr, role, [(x, y, d0) for x, y in tq], (0, 0, -1), tone)
-    for (p, q), h in (((outer[0], outer[1]), (0, -1)), ((outer[1], outer[2]), (1, 0)),
-                      ((outer[2], outer[3]), (0, 1)), ((outer[3], outer[0]), (-1, 0))):
+    for i in range(len(outer)):
+        p, q = outer[i], outer[(i + 1) % len(outer)]
+        h = (q[1] - p[1], p[0] - q[0])     # the edge's outward normal on an anticlockwise outline
         sm.poly(Fr, role, [(p[0], p[1], d0), (q[0], q[1], d0), (q[0], q[1], d1), (p[0], p[1], d1)], (h[0], h[1], 0),
                 tone)
     mx = math.fsum(x for x, _ in hole) / len(hole)
@@ -2348,6 +2440,29 @@ def pierced_board(sm: Sample, Fr: Frame, role, a0, a1, y0, y1, d0, d1, hole, ton
         m = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
         sm.poly(Fr, "cutout", [(p[0], p[1], d0), (q[0], q[1], d0), (q[0], q[1], d1), (p[0], p[1], d1)],
                 (mx - m[0], my - m[1], 0), tone)
+
+
+def cap_outline(cp: dict, y0: float, inner: float | None = None, n: int = 8) -> list:
+    """T-2521: a gate cap board's outline, anticlockwise in (a, y), from y0 to the cap's top: as
+    broad as the cap's `top_half_m` (or `half_m` with no flare), and where the cap's `flare`
+    is given each lower corner swept out to `half_m` at `widest_m` along a quarter-sine from
+    `from_m`, then turned back in a quarter-round to its foot at `foot_m`, a hood over the
+    heart. `inner` keeps the board's straight edges in to that half-breadth (a side board,
+    which stands between the street and yard boards) while its corners flare as theirs do."""
+    fl, y1 = cp.get("flare"), cp["top_m"]
+    if not fl:
+        h = cp["half_m"] if inner is None else inner
+        return [(-h, y0), (h, y0), (h, y1), (-h, y1)]
+    h0, h1 = cp["top_half_m"], cp["half_m"]
+    hs = h0 if inner is None else inner
+    yf, yw, yt = fl["foot_m"], fl["widest_m"], fl["from_m"]
+    ear = [(h0 + (h1 - h0) * math.sin(math.pi / 2 * k / n), yf + (yw - yf) * (1 - math.cos(math.pi / 2 * k / n)))
+           for k in range(n + 1)]                                        # the foot rounded out to the widest
+    ear += [(h0 + (h1 - h0) * math.cos(math.pi / 2 * k / n), yw + (yt - yw) * k / n) for k in range(1, n + 1)]
+    side = [(hs, y0), (hs, yf)] + ([] if hs == h0 else [(h0, yf)]) + ear[1:-1] + \
+        ([] if hs == h0 else [(h0, yt)]) + [(hs, yt), (hs, y1)]
+    side = [q for m, q in enumerate(side) if m == 0 or q != side[m - 1]]
+    return side + [(-a, y) for a, y in reversed(side)]
 
 
 def _gate_pier(sm: Sample, pv: dict, pr: dict, zc: float) -> dict:
@@ -2361,16 +2476,17 @@ def _gate_pier(sm: Sample, pv: dict, pr: dict, zc: float) -> dict:
     y_cap = pv["shaft_top_m"]
     sm.box(sm.F, "pier", c - hs, c + hs, pv["plinth_top_m"], y_cap, zc - hs, zc + hs, skip=("bottom", "top"), tone=ts)
     cp = pv["cap"]
-    ho, t, y_top = cp["half_m"], cp["board_m"], cp["top_m"]
+    ho, t, y_top = cp.get("top_half_m", cp["half_m"]), cp["board_m"], cp["top_m"]     # T-2521: flared under
     hi = ho - t
     hk = hi - 0.005      # the dark behind the hearts, clear of the boards' inner faces
     sm.box(sm.F, "backing", c - hk, c + hk, y_cap, y_top, zc - hk, zc + hk, skip=("bottom",))
     hv = cp["heart"]
     for n in ((0.0, 0.0, 1.0), (1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (-1.0, 0.0, 0.0)):
         Fr = Frame("pier cap", (c, 0.0, zc), (n[2], 0.0, -n[0]), n)
-        a = ho if n[0] == 0.0 else hi      # the street and yard boards run past the side boards' ends
+        # the street and yard boards run past the side boards' ends
+        outline = cap_outline(cp, y_cap, None if n[0] == 0.0 else hi)
         hole = heart(0.0, hv["lobe_y_m"], hv["lobe_r_m"], hv["lobe_off_m"], hv["apex_y_m"])
-        pierced_board(sm, Fr, "pier_cap", -a, a, y_cap, y_top, hi, ho, hole, ts)
+        pierced_board(sm, Fr, "pier_cap", outline, hi, ho, hole, ts)
     e = ho + cp["eave_m"]
     y_ap = y_top + cp["rise_m"]
     sq = [(c - e, zc - e), (c + e, zc - e), (c + e, zc + e), (c - e, zc + e)]

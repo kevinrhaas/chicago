@@ -27860,6 +27860,30 @@ about 0.09 m higher through the same camera.
 **Ticket:** T-2528.
 **Recorded:** 2026-10-15 (T-2528).
 
+### L-k16-1638-tower-caps-2521 — 1638 Prairie's tower stage built smooth with an incised trefoil over each light, and its gate caps' lower corners flared: the stage, frieze, casings and flare read, the ornament's pattern and the flare's curve reconstructed
+
+**Decision:** the corner tower's upper stage on the Shortall-Gregory house (T-2521, piece 3 of
+T-2458) is built smooth under a 0.12 m frieze, each light's casing carried round its pointed
+head, and over each light an incised trefoil 0.225 m across centred at 6.51 m; the two gate
+piers' caps are the shaft's breadth with their lower corners flared out to 0.40 m at 1.215 m
+and rounded back in by 1.17 m. The tower's record stays `inferred` as a whole, its reconstructed
+parts, the trefoil among them, declared in its note; so this entry covers the fence alone.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`) through
+the camera T-2423 solved, the tower's heights re-placed through the one T-2523 re-solved:
+that the stage shows no course line; the frieze line at 300 px (6.92 m); the casing band following each head; that a figure about 0.23 by 0.32 m (6.34-6.66 m) stands
+over each light on the band's apex; the caps' outline row by row (57 px at the top, 63 px at the
+lower corners, the flare from 806 to 830 px and back to the shaft by 836 px).
+**What is invented.** The ornament's pattern: the halftone shows a faint figure and no more, and
+the trefoil is the gable's own (T-2457); its groove's width and depth; the smooth face's
+construction (flush boards on the clapboard's course lines, each its own paint tone); the
+flare's curve between the rows read (a quarter-sine out, a quarter-round back); every colour.
+**How to resolve:** a sharper print of the tower fixes the ornament; T-2524 re-reads the caps at
+the camera T-2523 re-solves.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.boundary`.
+**Ticket:** T-2521 (piece 3 of T-2458).
+**Review:** `docs/RESEARCH/k16-1638-tower-caps-2521/README.md`.
+**Recorded:** 2026-10-15 (T-2521).
+
 ### L-k01-1621-side-stoop-2530 — 1621 Prairie's side stoop from the drawing: its run along the front read off the plate, its landing, width and riser count bounded by the sheet's plan and the stair rules
 
 **Decision:** John H. Hamline's house at 1621 Prairie (T-2530, piece 1 of T-2527) climbs to its
