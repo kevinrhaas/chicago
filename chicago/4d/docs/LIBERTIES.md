@@ -27004,7 +27004,7 @@ Baptiste Point du Sable built on the north bank opposite the fort and John Kinzi
 stands in the 1812 scene as a single-storey hewn-log house 12.19 m by 6.71 m (forty feet by
 twenty-two), facing south across the river, centred on the first fort's flagstaff easting and set
 back so that 18 m of fenced green lies between its piazza and the top of the bank. A piazza 2.1 m
-deep runs its whole front on six posts under its own flatter roof, with a rail between the posts
+deep runs its whole front on six posts under a flatter roof (since T-2516 the main roof carried down over it at a break, L-kinzie-house-1812-2516), with a rail between the posts
 except at the door, and two stacks rise through its ridge. A paling 1.1 m high encloses the green, 39 m along the river by 15.5 m to the bank, with a gate before
 the door (`kinzie_house_1812_green`). Four Lombardy poplars 12 m tall stand in a row 4.5 m apart along
 the green's river-side fence, from opposite the house's east half eastward, and two cottonwoods 20-21 m tall stand behind the house
@@ -27037,6 +27037,48 @@ after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32) and Kirkland's 
 **Covers:** `kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`.
 **Ticket:** T-2497.
 **Recorded:** 2026-10-15 (T-2497).
+
+### L-kinzie-house-1812-2516 — The Kinzie house's piazza under the main roof carried down, and its pierced ends: what is read off the pictures and what is the archetype's
+
+**Decision:** the Kinzie house (`kinzie_house_1812`) is rebuilt to what its seven pictures agree on
+(T-2516). Its piazza is roofed by the main roof carried down over it and broken to a flatter pitch,
+15 degrees from the main roof's 30, on a plate 2.95 m up, so its posts stand nearly the height of
+the wall; T-2497 had hung a separate 12-degree roof 0.30 m under the main eave, and its posts stood
+2.0 m. The west end carries a small light high in the gable, a window toward the back and a door
+toward the front; the east end two small lights under the eave.
+
+**What is read, not invented.** The break, the plate and the pitch are read through the solved
+camera of Sarony's lithograph after Juliette Kinzie's sketch (`data/reference_views/
+kinzie_house_1812/sarony_1912.json`, the one picture by a member of the household): post heads
+2.83-3.14 m, the piazza's eave 2.88-3.24 m, the piazza roof meeting the wall line 3.56-3.93 m up.
+Eastman's 1820 engraving draws the same break end-on, the 1857 engraving draws it close to, and
+Lossing, the Cram plate and the Teich painting draw the roof as one plane from afar, which is how
+the break reads at their distance. The west end's light, window and door are read off Sarony
+(placed through his camera; the Teich painting, the 1857 engraving and the Cram plate draw the light
+or the door); the east end's two lights off Eastman.
+
+**What is invented.** The sizes: each light is the archetype's 0.7 by 0.8 m, the end door the
+front door's 1.04 by 1.93 m and the end window the front windows' 0.7 by 1.3 m (Sarony draws the
+door taller, under a lintel); Eastman's two lights are set with their heads just under the eave
+because a light is built in the log wall or in the gable and not across the plate. Where the
+piazza roof meets the main slope (1.19 m inside the front wall, 3.83 m up) follows from the plate
+and the two pitches. The board closing the space between the piazza's ceiling and the main eave
+is the generator's (`_swept_piazza_roof`). The lights in the gable sit on the board face the
+archetype closes every gable with, flush with the rake.
+
+**What the pictures still disagree on, and why the build stands.** The front's length: Sarony, the
+Teich painting and the Gemmell plate draw the front shorter against its end than the 40 ft footprint
+does, but Sarony's two stacks land within 3 px on a 40 ft ridge, so L-kinzie-house-1812-2497's length
+stands. The piazza's height: the Cram plate draws it about 1.2 times the rebuilt one and Lossing
+about 0.8 times; Sarony governs. The walls (light and smooth in five pictures) are the standing
+squared-log ruling, which T-2516 did not reopen.
+
+**How to resolve:** a measured or described account of the piazza, its roof or the house's ends;
+Quaife's 1928 article for the length.
+
+**Covers:** `kinzie_house_1812.kinzie_1804.form.end_openings`
+**Ticket:** T-2516.
+**Recorded:** 2026-10-15 (T-2516).
 
 ### L-first-fort-outer-2507 — The first fort's interpreter's house, armourer's shop, merchant's shop and bake house stand where the 1808 draught's rule puts them, and the interpreter's own figure is set aside for the river
 

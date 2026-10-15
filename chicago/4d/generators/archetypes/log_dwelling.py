@@ -69,6 +69,7 @@ from common import materials  # noqa: E402
 from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, simple_material  # noqa: E402
 from archetypes.log_dwelling_params import (  # noqa: E402
+    LIGHT_HALF_W_M, LIGHT_HALF_H_M,
     ADDITION_WIN_HALF_M, DOOR_HALF_M, WIN_AT_FRAC, WIN_HALF_M, LogDwellingParams,
     addition_extent, addition_front_rects, core_extent, core_front_rects,
 )
@@ -154,6 +155,8 @@ def build(params: LogDwellingParams, name: str):
 
     _core_openings(b, params, cx0, cy0, cx1, cy1, wall_z,
                    params.conf("fenestration", "reconstructed"))
+    if params.end_openings:
+        _end_openings(b, params, cx0, cy0, cx1, cy1, wall_z)
 
     addition_ridge_z = _frame_addition(b, params) if params.frame_addition else None
 
@@ -525,9 +528,15 @@ def _piazza(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     """
     d = p.piazza_depth_m
     yf = y1 + d
-    head = wall_z - PIAZZA_UNDER_EAVE_M
-    drop = d * math.tan(math.radians(PIAZZA_PITCH_DEG))
-    plate_z = head - drop
+    pitch = PIAZZA_PITCH_DEG if p.piazza_pitch_deg is None else p.piazza_pitch_deg
+    tp = math.tan(math.radians(pitch))
+    swept = p.piazza_roof == "swept"
+    if swept:
+        plate_z = p.piazza_plate_m
+        head = plate_z + d * tp
+    else:
+        head = wall_z - PIAZZA_UNDER_EAVE_M
+        plate_z = head - d * tp
     xm = (x0 + x1) / 2.0
 
     # the deck, its face against the wall left off (add_box's y0 face)
@@ -562,8 +571,11 @@ def _piazza(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
 
     # the shed roof, overhanging the plate and the gable ends as the main roof does
     rx0, rx1, ry = x0 - 0.25, x1 + 0.25, yf + 0.25
-    rz = plate_z - 0.25 * math.tan(math.radians(PIAZZA_PITCH_DEG))
+    rz = plate_z - 0.25 * tp
     t = 0.07
+    if swept:
+        _swept_piazza_roof(b, p, rx0, rx1, y1, yf, ry, rz, plate_z, tp, t, wall_z, conf)
+        return
     b.add_poly([(rx0, ry, rz), (rx1, ry, rz), (rx1, y1, head), (rx0, y1, head)], conf, M_ROOF)
     b.add_poly([(rx0, y1, head - t), (rx1, y1, head - t), (rx1, ry, rz - t),
                 (rx0, ry, rz - t)], conf, M_ROOF)
@@ -574,6 +586,92 @@ def _piazza(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
         if sgn > 0:
             pts.reverse()
         b.add_poly([(x, y, z) for y, z in pts], conf, M_ROOF)
+
+
+def _end_poly(b: MeshBuilder, x: float, outward: int, pts_yz, conf: float,
+              mat: int) -> None:
+    """A flat polygon in the y-z plane at `x`, wound to face +x or -x."""
+    area = sum(ya * zb - yb * za for (ya, za), (yb, zb)
+               in zip(pts_yz, pts_yz[1:] + pts_yz[:1]))
+    if (area > 0) != (outward > 0):      # counter-clockwise in (y, z) faces +x
+        pts_yz = list(reversed(pts_yz))
+    b.add_poly([(x, y, z) for y, z in pts_yz], conf, mat)
+
+
+def _swept_piazza_roof(b: MeshBuilder, p: LogDwellingParams, rx0, rx1, y1, yf, ry, rz,
+                       plate_z, tp, t, wall_z, conf) -> None:
+    """The main roof carried down over the piazza at a break (T-2516).
+
+    A flatter plane rises from the plate at the piazza's pitch until it meets the main
+    roof's front slope, which it does above the front wall rather than under the eave:
+    from afar the two read as one plane run down to the posts, and close to as a break,
+    which is what the Kinzie house's pictures draw between them. The main roof is left
+    whole beneath it; the part the piazza roof covers cannot be seen, and a board along
+    the wall line closes the space between the piazza's ceiling and the main eave, so
+    that eave does not show as a ledge under the piazza.
+    """
+    tm = math.tan(math.radians(p.roof_pitch_deg))
+    ye = y1 + 0.25                          # the main roof's front eave edge, at wall_z
+    yb = (wall_z + ye * tm - plate_z - yf * tp) / (tm - tp)
+    zb = plate_z + (yf - yb) * tp
+    if yb >= ye:
+        raise ValueError(f"a swept piazza roof from a {plate_z} m plate meets the main "
+                         f"roof beyond its eave; lower the pitch or raise the plate")
+    yw = ye + 0.01                          # the wall-line board, just proud of the eave
+    zw = plate_z + (yf - yw) * tp
+
+    b.add_poly([(rx0, ry, rz), (rx1, ry, rz), (rx1, yb, zb), (rx0, yb, zb)], conf, M_ROOF)
+    b.add_poly([(rx0, yw, zw - t), (rx1, yw, zw - t), (rx1, ry, rz - t),
+                (rx0, ry, rz - t)], conf, M_ROOF)
+    b.add_poly([(rx0, ry, rz - t), (rx1, ry, rz - t), (rx1, ry, rz), (rx0, ry, rz)],
+               conf, M_ROOF)
+    _panel(b, "y", yw, rx0, rx1, wall_z - 0.18, zw - t, 1, conf, M_FRAME)
+    for x, sgn in ((rx0, -1), (rx1, 1)):
+        _end_poly(b, x, sgn, [(ry, rz - t), (ry, rz), (yw, zw), (yw, zw - t)], conf, M_ROOF)
+        _end_poly(b, x, sgn, [(yw, zw - t), (yw, zw), (yb, zb), (ye, wall_z)], conf, M_ROOF)
+
+
+# ---------------------------------------------------------------- gable ends
+
+LIGHT_HALF_W = LIGHT_HALF_W_M   # a small sash in a gable end, about two feet wide
+LIGHT_HALF_H = LIGHT_HALF_H_M
+GABLE_FACE_OUT = 0.25 + 0.04    # add_gable_roof's overhang, where it closes the gable, and
+#                                 0.04 m off that board face, so the sash, which the kit
+#                                 sets back into a log wall's relief, stands in front of it
+
+
+def _end_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
+                  wall_z: float) -> None:
+    """Doors, windows and small lights in the gable ends (T-2516).
+
+    The archetype's rule is that a log gable end is not pierced (`_core_openings`),
+    and it still is everywhere a record does not say otherwise: these are built only
+    where a record states them, because a picture draws them. A door takes the front
+    door's size and a window the front windows' size and band, so the end matches the
+    front it turns the corner from. A light above the eave is in the GABLE, which
+    `add_gable_roof` closes with a board triangle flush with its rake, 0.25 m outboard
+    of the log end, so it is set on that face; a light below the eave is in the log
+    wall like any window.
+    """
+    plane = {"+x": (x1, 1), "-x": (x0, -1)}
+    rects = core_front_rects(p)
+    win = next(r for r in rects if r[0] == "window")
+    whalf, wz0, wz1 = (win[2] - win[1]) / 2.0, win[3], win[4]
+    c = p.conf("end_openings", "reconstructed")
+    for end, kind, at, z in p.end_openings:
+        x, out = plane[end]
+        yc = y0 + at * (y1 - y0)
+        if kind == "light":
+            if z - LIGHT_HALF_H >= wall_z:
+                x += out * GABLE_FACE_OUT
+            _opening(b, "x", x, yc - LIGHT_HALF_W, yc + LIGHT_HALF_W, z - LIGHT_HALF_H,
+                     z + LIGHT_HALF_H, out, c, shutters=False)
+        elif kind == "door":
+            _opening(b, "x", x, yc - _DOOR_HALF, yc + _DOOR_HALF, 0.02, 1.95, out, c,
+                     kind="door")
+        else:
+            z0, z1 = (wz0, wz1) if z is None else (z - (wz1 - wz0) / 2.0, z + (wz1 - wz0) / 2.0)
+            _opening(b, "x", x, yc - whalf, yc + whalf, z0, z1, out, c, shutters=False)
 
 
 # ------------------------------------------------------------- frame addition
