@@ -754,8 +754,8 @@ class Assembly:
                                            "openings": len(holes)},
                              {"base": O, "top": _add(O, _mul(Y, height))})
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
-        sb = sorted({0.0, length, *cols, *[e for h in holes for e in (h[0], h[1])]})
-        yb = sorted({0.0, height, *extra_breaks, *[e for h in holes for e in (h[2], h[3])]})
+        sb = _breaks({0.0, length, *cols, *[e for h in holes for e in (h[0], h[1])]})
+        yb = _breaks({0.0, height, *extra_breaks, *[e for h in holes for e in (h[2], h[3])]})
         # T-2410: a round-headed hole (s0, s1, sill, spring, its head right -> left) is cut as
         # a rectangle to its spring; over it, up to the first row clear of its crown, the
         # cells are left out and strips from the head's curve to that row fill them (K08's
@@ -2585,6 +2585,18 @@ def _weld_shell(pts, tris):
         if len({a, b, c}) == 3:
             out.append((a, b, c, role, n))
     return pts, out
+
+
+def _breaks(xs):
+    """Sorted cell lines, a line within half the K01 measure's 1 mm face quantum of the one
+    before it dropped (T-2499): two datums that agree to the millimetre but not to the float
+    (1808's second-storey heads, 5.9 + 0.75 + 2.2, and the band at 8.85 m) otherwise leave a
+    row of quads 1e-5 m tall, which the measure counts as degenerate faces."""
+    out = []
+    for x in sorted(set(xs)):
+        if not out or x - out[-1] >= 5e-4:
+            out.append(x)
+    return out
 
 
 def _pieces(s0, s1, gaps):
