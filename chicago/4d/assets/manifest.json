@@ -648,6 +648,33 @@
       "phase_id": "draft_1904",
       "structure_id": "flats_2127_prairie"
     },
+    "forks_company_cornfield_1812__cornfield_1808.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 981728,
+      "inputs_sha256": "b855383cc5725ef882f999c522478df6671143fb32fc4841cf235f208ee305ef",
+      "kind": "generated",
+      "phase_id": "cornfield_1808",
+      "structure_id": "forks_company_cornfield_1812"
+    },
+    "forks_house_clark_1812__clark_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 47824,
+      "inputs_sha256": "d6ed7bd055a7d3ced4a4f477908d364546c5e5501665a694abc52d378727ac6b",
+      "kind": "generated",
+      "phase_id": "clark_1812",
+      "structure_id": "forks_house_clark_1812"
+    },
+    "forks_house_soldier_1812__soldier_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48136,
+      "inputs_sha256": "a70d41c8a3ec8ca12591f4bdd79feb27833e0876afccb8bc8330e23e5cc17529",
+      "kind": "generated",
+      "phase_id": "soldier_1812",
+      "structure_id": "forks_house_soldier_1812"
+    },
     "forsyth_house_1635_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
