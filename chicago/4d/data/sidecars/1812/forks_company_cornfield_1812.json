@@ -1,0 +1,162 @@
+{
+  "id": "forks_company_cornfield_1812",
+  "phase": "cornfield_1808",
+  "name": "The first fort's company garden and public cornfield at the forks, 1812",
+  "aka": [
+    "'Company Garden & public Cornfield Eight acres' on Whistler's draught",
+    "'a small field of eight or nine acres ... the company gardens and public cornfield' (Quaife 1913)"
+  ],
+  "archetype": "palisade",
+  "asset": "gltf/forks_company_cornfield_1812__cornfield_1808.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "documented_range": {
+    "from": "1808-01-25",
+    "to": "1812-08-16",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "THE RANGE IS THE GARRISON'S. It opens on 25 January 1808, the date Whistler's draught carries, the one day a source shows the field laid out; it may well be older, since the garrison had been at the post since 1803. It closes on 16 August 1812 with the first fort, the day after the evacuation, as the officers' and the sutler's gardens do (first_fort_outer_officers_garden): a company field is kept by companies, and there were none at Chicago between that day and July 1816."
+  },
+  "change_note": "Built T-2512 (2026-10-15). The first fort's company garden and public cornfield at the forks, in the 1812 scene.",
+  "placement": {
+    "local_e": 142.4,
+    "local_n": -263.3,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "quaife_1913",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "position_note": "THE PLACE IS QUAIFE'S WORDS AND THE SHEET'S ARRANGEMENT; THE OUTLINE IS A RULING. Quaife, reading Whistler's description: 'Close to the forks on the south side of the main river a small field of eight or nine acres had been reduced to cultivation and made to serve as the company gardens and public cornfield.' The draught draws it the same way: a dotted outline lettered 'Company Garden & public Cornfield Eight acres' on the fort's side of the river where the branch comes in, with the 'Medow Ground sufficient for the Garrison' and the timber south of it. On the committed forks water (Wright 1834, +/-20 m) the field is laid square to the grid south of the main stem, its north fence about 26 m back from the south bank at its west end and more to the east, and its west fence about 90 m east of the South Branch, so that neither bank's uncertainty can put a rail in the river. WHAT FIXES ITS EDGES IS NOT EVIDENCE: the sheet's dotted outline is drawn 'without any Regular rule', so the record's rectangle was drawn to stand clear of what this project's own gate keeps every footprint of any date off, the 1835 inferred households' roofs (tools/generate_inferred_households.py holds every record three metres from them): Temple's Lake Street building fixes its east fence, the cooperage on South Water Street its north fence, the sawpit shed its west fence and the two sawyers' houses its south fence, all twenty-three years later and nothing to do with 1808. THE STREETS IT LIES ACROSS ARE THE 1830 PLAT'S, and it is refused in writing for them (tools/corridor_intrusion_baseline.json): the field closed with the first fort on 16 August 1812, eighteen years before Thompson's plat laid out a street here, so no street corridor and this fence ever stand in one scene; a field of the sheet's eight acres by the forks cannot be laid in this ground without crossing the later plat's streets, and moving it off them would move it away from the forks Quaife puts it beside (L-1812-forks-2512).",
+    "symbolic_location": "On the south bank of the main river close to the forks, east of the South Branch; local E +142.4..+292.3, N -263.3..-46.5.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        149.9,
+        0
+      ],
+      [
+        149.9,
+        216.8
+      ],
+      [
+        0,
+        216.8
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "THE AREA IS THE SHEET'S; THE SHAPE IS OURS. 149.9 x 216.8 m is 32,498 square metres, 8.03 acres: the draught's lettered 'Eight acres', inside Quaife's 'eight or nine'. The proportion is not read; the position note says what drew the rectangle (L-1812-forks-2512)."
+  },
+  "attributes": {
+    "wall_kind": {
+      "value": "worm_fence",
+      "confidence": "reconstructed",
+      "sources": [
+        "quaife_1913"
+      ],
+      "note": "THE SHEET DRAWS THE FIELD'S BOUND AS A DOTTED LINE, NOT AS A FENCE, so the fence is a reconstruction. It is the bounded one: a cornfield beside a cattle dealer's house and the garrison's hay meadow had to keep stock out, and the post's own field fence of these years is on record: Whistler had the picket fence north of the fort 'removed and replaced by a common rail fence' (Quaife 1913), and the draught letters the zigzag round Coursoll's field north of the river 'Worm Fence'. A common rail fence is a worm fence."
+    },
+    "construction": {
+      "value": "split_rail",
+      "confidence": "reconstructed",
+      "note": "A worm fence is stacked split rails by construction; it has no posts."
+    },
+    "fence_height_m": {
+      "value": 1.3,
+      "confidence": "reconstructed",
+      "note": "Unattested. About four and a half feet, the ordinary height of a worm fence that has to keep stock out of a field."
+    },
+    "rail_courses": {
+      "value": 4,
+      "confidence": "reconstructed",
+      "note": "Unattested. One course more than the 1830 garrison garden's light fence, for a field beside a cattle dealer's."
+    },
+    "panel_length_m": {
+      "value": 3.0,
+      "confidence": "reconstructed",
+      "note": "Unattested. Ten feet, which is a split rail's length."
+    },
+    "panel_offset_m": {
+      "value": 0.9,
+      "confidence": "reconstructed",
+      "note": "Unattested. How far each panel steps off the line, which is what makes the zigzag; three feet is the ordinary lay."
+    },
+    "planting": {
+      "value": "Indian corn and the garrison's vegetables, the corn standing high in the first half of August",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "geometry": "absent",
+      "note": "'Company Garden & public Cornfield' (the draught); 'reduced to cultivation and made to serve as the company gardens and public cornfield' (Quaife). That it was corn is the sheet's word; that the corn stood high on the scene date is the month's, a field planted in May standing in tassel by early August, and is not stated. NOTHING OF THE PLANTING IS BUILT. The fence is modelled and the plot inside it is ground the planters keep clear, because corn is flora and this project's flora layer (data/flora/) has no cultivated zone and no crop species, as the 1830 garrison garden's record already says. The cover is filed to be built when it has one (L-1812-forks-2512)."
+    },
+    "function": {
+      "value": "company_gardens",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "note": "The garrison's field: 'Company Garden & public Cornfield' on Whistler's draught of January 1808, and 'the company gardens and public cornfield' in Quaife's reading of his description."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    }
+  ],
+  "research_note": "THE FIRST FORT'S CORNFIELD AT THE FORKS (T-2512). Captain Whistler's draught of January 1808 and his description of it, through Quaife (1913, ch. VIII), put a field of eight or nine acres 'close to the forks on the south side of the main river', cultivated as 'the company gardens and public cornfield', with a meadow along the timber of the South Branch that gave the garrison its hay. The officers' and the sutler's gardens beside the fort are separate and stand already. ONLY THE FENCE IS BUILT, and the fence is itself a reconstruction: the sheet bounds the field with a dotted line. Its area is the sheet's 'Eight acres'; its rectangle, its seat along the bank and its rails are rulings (L-1812-forks-2512). The corn the garrison planted there is recorded on the planting attribute and not drawn.",
+  "research_doc": "",
+  "review_required": false
+}
