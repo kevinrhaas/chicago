@@ -1012,6 +1012,11 @@ const DETAIL_DECLARED = {
   // 90-call cap, the reaches and the shadow tier are unchanged; nothing in
   // the scene moves. A later trim can still bring this back down, as T-0672 did.
   light:    { triangles: 1190000, shadowReachM: 120, furnitureCastsShadow: false,
+              // T-2529: a structure piece casts only if its shadow can reach the
+              // view (shadow-casters.js). Conservative, so the frame is the same
+              // picture; the sun's pass stops drawing houses whose shadows fall
+              // away from the screen. `full` and `balanced` are unchanged.
+              castersTowardView: true,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -1690,7 +1695,12 @@ async function boot() {
   bootController.end('terrain');
   bootController.start('buildings', loaded.registry.size);
   await yieldToPaint();
+  // T-2529: one switch for every structure batch, old and rebuilt alike; the
+  // detail tier sets it (applyShadowTier) and the sun is read when the shadow
+  // map is drawn. See shadow-casters.js for the test and the reading behind it.
+  const shadowCasters = { on: false, culled: 0, sun: () => world.direction };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
+    shadowCasters,
     preserveMaterials: inspectionLod,
     collectViewBackings: inspectionLod && detailLevel!=='full',
     // Balanced and Light share the reduced asset and its batches. Keep their
@@ -2115,6 +2125,7 @@ async function boot() {
     const want = DETAIL[level] ?? DETAIL.full;
     world.setShadowRig(want.shadowReachM);
     const casts = want.furnitureCastsShadow !== false;
+    shadowCasters.on = want.castersTowardView === true;
     for (const name of FURNITURE_LAYERS) {
       const group = scene3d.getObjectByName(name);
       // A layer that drew nothing (a record that failed to load, a fence whose
@@ -2141,7 +2152,8 @@ async function boot() {
         o.castShadow = casts && !o.userData.groundHugging && !o.userData.farMerged;
       });
     }
-    return { reachM: want.shadowReachM, furnitureCastsShadow: casts };
+    return { reachM: want.shadowReachM, furnitureCastsShadow: casts,
+      castersTowardView: shadowCasters.on };
   }
   applyShadowTier(detailLevel);
 
@@ -2407,6 +2419,7 @@ async function boot() {
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
+            shadowCasters,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
             collectViewBackings: level!=='full',
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
@@ -3969,6 +3982,16 @@ async function boot() {
      *  changes the call count and not the triangle count, and the only honest
      *  way to read that is the same frame with it off and with it on.
      *  `tools/measure_far_merge.mjs` is what does. */
+    /** T-2529, HARNESS ONLY, for the same reason: the cull's claim is that it
+     *  changes the triangle count and not the picture, and the only honest way
+     *  to read that is the same frame with it off and on
+     *  (`tools/qa_shadow_casters_t2529.mjs`). The tier sets it back on change.
+     *  Returns what took effect and how many pieces it has left out so far;
+     *  called with no argument it only reads. */
+    setCastersTowardView(on) {
+      if (on !== undefined) shadowCasters.on = Boolean(on);
+      return { on: shadowCasters.on, culled: shadowCasters.culled };
+    },
     setFarMerge(on) {
       const state = farMerge.setEnabled(on);
       // The merge only ever hides a chunk; the reach is what makes one visible
