@@ -1,0 +1,111 @@
+{
+  "harness_sha256": "29f8e8bc5fa4a8d2a7b916c836d00d64a64fad234cdaec8646d027266ba8ebbf",
+  "local_axes": "east,north,up metres in house frame",
+  "cameras": [
+    {
+      "name": "north-shade",
+      "position": [
+        39.5,
+        35,
+        5
+      ],
+      "target": [
+        39.5,
+        22.5556,
+        5
+      ]
+    },
+    {
+      "name": "north-stone-close",
+      "position": [
+        39.5,
+        25.3,
+        2.5
+      ],
+      "target": [
+        39.5,
+        22.5556,
+        2.5
+      ]
+    },
+    {
+      "name": "prairie-stone",
+      "position": [
+        54,
+        12,
+        3
+      ],
+      "target": [
+        49.15,
+        12,
+        3
+      ]
+    },
+    {
+      "name": "prairie-stone-close",
+      "position": [
+        51.4,
+        15,
+        2.5
+      ],
+      "target": [
+        49.15,
+        15,
+        2.5
+      ]
+    },
+    {
+      "name": "court-west",
+      "position": [
+        20,
+        7,
+        4
+      ],
+      "target": [
+        10.82,
+        7,
+        2
+      ]
+    },
+    {
+      "name": "stair-support",
+      "position": [
+        18.7,
+        10,
+        2.4
+      ],
+      "target": [
+        15.7,
+        11.7,
+        1
+      ]
+    },
+    {
+      "name": "gate-court",
+      "position": [
+        3.5,
+        2.4,
+        2
+      ],
+      "target": [
+        0,
+        2.4,
+        1.4
+      ]
+    },
+    {
+      "name": "boundary-brick",
+      "position": [
+        26,
+        3,
+        1.8
+      ],
+      "target": [
+        26,
+        0,
+        1.4
+      ]
+    }
+  ],
+  "status": "candidate baseline; retain every failed budget and confirm actual framing"
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "file": "desktop-north-shade.png",
+    "review": "Scene light remains blue in north shade, with stone relief and dark joints visible. Tree occlusion is unchanged; no new surface halos or baked shadows."
+  },
+  {
+    "file": "desktop-north-shade-neutral.png",
+    "review": "Neutral diagnostic reveals grey stone and readable course relief; supports retaining the owner tint and actual scene illumination. Existing pillowed shape remains final architectural work."
+  },
+  {
+    "file": "desktop-north-stone-close.png",
+    "review": "Close shaded stone retains grain, joint depth, sill contact and dark glazing. No clipping, bright mortar gloss or added directional albedo bands."
+  },
+  {
+    "file": "desktop-north-stone-close-neutral.png",
+    "review": "Neutral close-up confirms readable grain, matte stone crowns and recessed mortar; dark frame and sill contacts remain distinct."
+  },
+  {
+    "file": "desktop-prairie-stone.png",
+    "review": "Sunny Prairie entry retains stone grain and carved relief without white clipping; tree shadows cross the facade as before. Door recess and new vines remain distinct. No global exposure change needed."
+  },
+  {
+    "file": "desktop-prairie-stone-neutral.png",
+    "review": "Neutral Prairie entry shows intact carving, course texture and dark door separation. Existing mottled sunlight is removed by the diagnostic fill without changing the geometry. No surface-finish regression."
+  },
+  {
+    "file": "desktop-prairie-stone-close.png",
+    "review": "Sunny close stone retains granular detail without clipped white faces; dark recesses and pale mortar remain readable. Existing rounded block shapes are unchanged final-photo work."
+  },
+  {
+    "file": "desktop-prairie-stone-close-neutral.png",
+    "review": "Neutral close stone retains the same course/relief structure; no added joint gloss or albedo shadow band."
+  },
+  {
+    "file": "desktop-court-west.png",
+    "review": "Actual July court light separates pink brick, pale limestone, dark openings and planted grass. Physical wall/path contact and existing vine coverage remain intact. The high west service-door datum remains the separately recorded T-2228 issue."
+  },
+  {
+    "file": "desktop-court-west-neutral.png",
+    "review": "Neutral court view retains brick course scale, limestone distinction and wall/path contacts without halos. West service-door access remains unresolved architectural work, not solved by material finish."
+  },
+  {
+    "file": "desktop-stair-support.png",
+    "review": "Full stair cheek retains its modeled coursing; small returns have matching joint detail. Piers, stone feet, rail plates and nosings remain seated; shade beneath the landing anchors the structure without a detached dark band."
+  },
+  {
+    "file": "desktop-stair-support-neutral.png",
+    "review": "Neutral stair view confirms matte clay/limestone separation and coherent joints; no double grid on modeled bricks or new contact halo."
+  },
+  {
+    "file": "desktop-gate-court.png",
+    "review": "Compared directly with the baseline image: diagonal brace and horizontal ledge grain now follow the members, making the previously blended braces clearly visible. Boards, hardware, joints, posts and ground contact remain fixed."
+  },
+  {
+    "file": "desktop-gate-court-neutral.png",
+    "review": "Neutral gate view confirms member-axis grain without painted-on shadow bands; brace construction remains legible, iron is matte and the threshold contact is unchanged."
+  },
+  {
+    "file": "desktop-boundary-brick.png",
+    "review": "Full modeled boundary brick remains coursed, with readable joints in blue shade and unchanged vines/coping. No double joint pattern or new halo."
+  },
+  {
+    "file": "desktop-boundary-brick-neutral.png",
+    "review": "Neutral boundary view retains the modeled half-bond pattern and clay palette; joint scale, cap and planted edge remain coherent."
+  },
+  {
+    "file": "mobile-north-shade.png",
+    "review": "Light phone north scene retains shaded courses, window positions and tree occlusion. No new color or material seam; the frozen budget still fails independently of image quality."
+  },
+  {
+    "file": "mobile-north-stone-close.png",
+    "review": "Light shaded close-up retains granite grain, joint spacing and dark window/sill contact. No painted-on directional band introduced."
+  },
+  {
+    "file": "mobile-prairie-stone.png",
+    "review": "Light entry preserves readable arch/trim and dark door hardware with the same sun and tree shadows; small reduced vine leaves remain visible."
+  },
+  {
+    "file": "mobile-prairie-stone-close.png",
+    "review": "Light sunny close-up retains stone grain and mortar without highlight clipping or new surface artifacts."
+  },
+  {
+    "file": "mobile-court-west.png",
+    "review": "Light court view retains distinct existing brick, limestone, dark glazing and planted edge. Boundary joint pattern now reads coherently at the left; no new wall/path gap."
+  },
+  {
+    "file": "mobile-stair-support.png",
+    "review": "Direct before/after phone comparison shows the formerly plain clay cheek and pier now carrying clear half-bond brick courses at the surrounding wall scale. Rail plates, nosings, cap and pier feet remain seated and unchanged."
+  },
+  {
+    "file": "mobile-gate-court.png",
+    "review": "Direct before/after phone comparison shows ledges and diagonal braces now readable through their member-axis grain. Broad diagonal scene shadow is present in both baseline and after; it is not new albedo dirt or a UV defect. Hardware and threshold are unchanged."
+  },
+  {
+    "file": "mobile-boundary-brick.png",
+    "review": "Direct before/after phone comparison replaces the plain clay face with readable mortar courses in shade. The cap, vines and ground junction are unchanged; no doubled joints or new halo."
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "measurement": "Two bare write runs in a clean isolated Git fixture containing the exact current modules, tool, numeric Glessner input and original texture inputs/outputs; not a claim that the active application tree was clean. All three output mtimes advance, their bytes reproduce, and deliberately perturbed outputs are repaired.",
+  "before": {
+    "flat_brick_normal.png": {
+      "sha256": "73a9b4f29e76c8d199e6463aed5620da22bc6dd4321fb0c722d4938b7a3740e3",
+      "mtime_ns": 1792044217163735212
+    },
+    "flat_brick_roughness.png": {
+      "sha256": "9ab036a7bd68f1dfaf7a881c51d62c882e207e5ab3e6a193e2dde1757b6f8888",
+      "mtime_ns": 1792044217479733306
+    },
+    "flat_brick_basecolor.png": {
+      "sha256": "a7f50e56eca045df972116a4d741f59df8fc691c25fddf368c48d9d3c9559ebc",
+      "mtime_ns": 1792044216747737722
+    }
+  },
+  "runs": [
+    {
+      "stdout": "WROTE: flat_brick_basecolor.png: 1123201 bytes; a7f50e56eca045df972116a4d741f59df8fc691c25fddf368c48d9d3c9559ebc\nWROTE: flat_brick_normal.png: 1453159 bytes; 73a9b4f29e76c8d199e6463aed5620da22bc6dd4321fb0c722d4938b7a3740e3\nWROTE: flat_brick_roughness.png: 385300 bytes; 9ab036a7bd68f1dfaf7a881c51d62c882e207e5ab3e6a193e2dde1757b6f8888",
+      "outputs": {
+        "flat_brick_normal.png": {
+          "sha256": "73a9b4f29e76c8d199e6463aed5620da22bc6dd4321fb0c722d4938b7a3740e3",
+          "mtime_ns": 1792044334831022936
+        },
+        "flat_brick_roughness.png": {
+          "sha256": "9ab036a7bd68f1dfaf7a881c51d62c882e207e5ab3e6a193e2dde1757b6f8888",
+          "mtime_ns": 1792044335235020527
+        },
+        "flat_brick_basecolor.png": {
+          "sha256": "a7f50e56eca045df972116a4d741f59df8fc691c25fddf368c48d9d3c9559ebc",
+          "mtime_ns": 1792044334199026706
+        }
+      },
+      "git_status": ""
+    },
+    {
+      "stdout": "WROTE: flat_brick_basecolor.png: 1123201 bytes; a7f50e56eca045df972116a4d741f59df8fc691c25fddf368c48d9d3c9559ebc\nWROTE: flat_brick_normal.png: 1453159 bytes; 73a9b4f29e76c8d199e6463aed5620da22bc6dd4321fb0c722d4938b7a3740e3\nWROTE: flat_brick_roughness.png: 385300 bytes; 9ab036a7bd68f1dfaf7a881c51d62c882e207e5ab3e6a193e2dde1757b6f8888",
+      "outputs": {
+        "flat_brick_normal.png": {
+          "sha256": "73a9b4f29e76c8d199e6463aed5620da22bc6dd4321fb0c722d4938b7a3740e3",
+          "mtime_ns": 1792044338850998995
+        },
+        "flat_brick_roughness.png": {
+          "sha256": "9ab036a7bd68f1dfaf7a881c51d62c882e207e5ab3e6a193e2dde1757b6f8888",
+          "mtime_ns": 1792044339114997449
+        },
+        "flat_brick_basecolor.png": {
+          "sha256": "a7f50e56eca045df972116a4d741f59df8fc691c25fddf368c48d9d3c9559ebc",
+          "mtime_ns": 1792044338391001689
+        }
+      },
+      "git_status": ""
+    }
+  ],
+  "perturbed_git_status": " M assets/textures/glessner-v4/flat_brick_basecolor.png\n M assets/textures/glessner-v4/flat_brick_normal.png\n M assets/textures/glessner-v4/flat_brick_roughness.png\n",
+  "repair_stdout": "WROTE: flat_brick_basecolor.png: 1123201 bytes; a7f50e56eca045df972116a4d741f59df8fc691c25fddf368c48d9d3c9559ebc\nWROTE: flat_brick_normal.png: 1453159 bytes; 73a9b4f29e76c8d199e6463aed5620da22bc6dd4321fb0c722d4938b7a3740e3\nWROTE: flat_brick_roughness.png: 385300 bytes; 9ab036a7bd68f1dfaf7a881c51d62c882e207e5ab3e6a193e2dde1757b6f8888",
+  "check_stdout": "PASS: flat_brick_basecolor.png: 1123201 bytes; a7f50e56eca045df972116a4d741f59df8fc691c25fddf368c48d9d3c9559ebc\nPASS: flat_brick_normal.png: 1453159 bytes; 73a9b4f29e76c8d199e6463aed5620da22bc6dd4321fb0c722d4938b7a3740e3\nPASS: flat_brick_roughness.png: 385300 bytes; 9ab036a7bd68f1dfaf7a881c51d62c882e207e5ab3e6a193e2dde1757b6f8888",
+  "finding": "reproduces"
+}

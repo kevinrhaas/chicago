@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-terrace-section",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "11a82664b658a340cf6a663981042dd311e52bb6f548aa2ffdf14fd7ef68e972",
+  "glb_sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
   "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
   "verdict": "differs",
@@ -45,6 +45,10 @@
     },
     {
       "what": "T-2225: Re-rendered and visually reviewed on the final canonical Full web asset. The new vines do not cover this paired barred opening or terrace coping. The curved coping and complete stair remain; coping shoulder, opening/section proportions and materials still differ. The drawing does not specify July planting coverage. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2226: Re-rendered and visually reviewed on the final canonical Full web asset. The paired barred openings and curved coping remain visible. Coping shoulder, low stair-tower opening and section proportions still differ; the new service-surface joints do not resolve them. The drawing does not establish 1904 material colour or weathering. No camera refit or whole-house acceptance promotion.",
       "status": "open"
     }
   ],
