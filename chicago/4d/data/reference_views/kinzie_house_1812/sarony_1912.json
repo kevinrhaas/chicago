@@ -1,0 +1,26 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "source_id": "sarony_kinzie_residence_currey_1912_plate",
+  "photo": "../../../../reference/images/chicago/chicago_kinzie_residence_sarony_currey_1912.png",
+  "image_px": [
+    656,
+    391
+  ],
+  "principal_px": [
+    323.3,
+    149.5
+  ],
+  "focal_px": 1300.0,
+  "eye": [
+    57.91,
+    85.12,
+    8.17
+  ],
+  "yaw_deg": 210.28,
+  "sun_uvy": [
+    -0.5,
+    0.6,
+    0.6
+  ],
+  "solve": "Fitted by least squares (an unpitched camera, as photo_match draws it; the principal point free, the focal held) to six points read off the plate at 656 x 391 px, as Project Gutenberg serves it, against the GLB's footprint frame (u along the front, the west gable the +u end; v toward the river), all on the house's fixed frame and none on the piazza, so that the piazza can be MEASURED through the camera rather than fitted to it: the west gable's apex (300.0, 187.8); the end wall's back corner at its top (277.5, 215.8) and its foot (277.8, 262.5); the front wall's west corner at its foot (320.0, 270.0); and the heads of the two stacks (361.2, 177.5; 426.2, 180.0), taken as T-2497's stacks at 0.55 and 0.08 of the ridge from its east end. Left free, the focal goes to 560 px at rms 3.36 px with the eye 42 m off on the green itself, 4 m up; but the plate draws the river and its landing in the foreground, so the eye is across the water, and the focal is held at 1300 px, which puts it 97 m south-west of the house's middle and 8.2 m up: an elevated draughtsman's eye looking down on the fenced green, as the plate does. Eye (57.91, 85.12) at 8.17 m, heading 210.28 degrees, principal (323.3, 149.5), rms 3.87 px; the stacks land within 3 px, the apex within 6. Read through it (T-2516): the five visible piazza posts' heads stand 2.83-3.14 m over their feet, the piazza's eave 2.88-3.24 m, and the piazza roof meets the front wall's line 3.56-3.93 m up, a flatter pitch than the main roof's (14-17 degrees); on the west end a light high in the gable 3.3-4.2 m up and 2.6-3.8 m from the back, a window 1.1-2.4 m from the back with its sill about 1.5 m up, and a door 3.5-4.9 m from the back. sun_uvy puts the light where the plate has it, from the front and the east: the front white, the west end in half-shade."
+}

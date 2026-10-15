@@ -2,8 +2,8 @@
   "structure_id": "kinzie_house_1812",
   "view": "cram_1893",
   "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
-  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
-  "camera_sha256": "f6a447730316014d9f0ec2d3f74bec1b5c7e050aa1e27605323e81c0aa34d647",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "83bf2d011381d98ac86f57644381f1a190f66caffc5195c669c69d3a3d987f4b",
   "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/cram_1893-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -24,18 +24,6 @@
       "status": "open"
     },
     {
-      "what": "piazza roof: the plate carries the roof down over the piazza in one plane from the ridge to an eave at y 370 px, as Lossing does; the build hangs the piazza's own flatter roof under the main eave, as the 1857 engraving draws it. Two pictures of four now draw one plane, so the 1857 engraving's governing here (the Lossing record's ruling) is a choice between them and is carried to T-2516",
-      "status": "open"
-    },
-    {
-      "what": "piazza height: every post stands about 40 px from its foot (y 410) to its head (y 370) against bays of about 23 px; the build's 2.0 m posts on 2.39 m bays draw 22-25 px tall from this camera, so every foot lands 6-10 px above the drawn one and every head 7-10 px below. The plate's piazza stands about 1.7 times as tall against its bays; with its one-plane roof that is a taller front wall, a steeper roof or an engraver's stretch, and one plate cannot say which (T-2516)",
-      "status": "open"
-    },
-    {
-      "what": "the west gable end: dark, in the shade, with an upright pale mark low on the end wall at x 597-603 px that may be a door; at this size it is not legible as an opening, as on the 1857 engraving, and the build leaves the end unpierced",
-      "status": "open"
-    },
-    {
       "what": "the picket fence round the green before the piazza, running east to the poplars, the four poplars in a row east of the house toward the river, and the great tree behind its middle: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
       "status": "fixed"
     },
@@ -46,6 +34,18 @@
     {
       "what": "colour: a monochrome wood engraving",
       "status": "not shown"
+    },
+    {
+      "what": "piazza roof: the plate carries the roof down over the piazza in one plane from the ridge to an eave at y 370 px. Rebuilt (T-2516): the main roof now runs down over the piazza and breaks to a flatter pitch above the front wall, as Sarony's and Eastman's views draw it, and from this camera it reads as the plate's one plane, the eave on the drawn one within 3-6 px",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza height: on the rebuilt piazza (2.95 m plate, Sarony's reading) every post's foot lands 3-7 px above the drawn foot and every head 3-6 px below the drawn head, so the plate still draws the piazza about 1.2 times as tall as the build (1.7 times before T-2516). Sarony's lithograph, drawn by a member of the household, governs the height",
+      "status": "open"
+    },
+    {
+      "what": "the west gable end: an upright pale mark low on the end wall at x 597-603 px: the door Sarony draws there, now built (end_openings), with the light high in the gable",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
