@@ -1,0 +1,121 @@
+{
+  "id": "lees_place_field_fence_1812",
+  "name": "Lee's Place (Hardscrabble): the field's worm fence along the South Branch",
+  "aka": [
+    "the field Messrs. Russell and Lee's cabin stood in (Captain Heald, 15 April 1812)"
+  ],
+  "archetype": "palisade",
+  "phases": [
+    {
+      "id": "lees_place_1812",
+      "documented_range": {
+        "from": "1812-04-06",
+        "to": "1822-12-31",
+        "confidence": "reconstructed",
+        "sources": [
+          "moses_kirkland_history_of_chicago_v1",
+          "currey_1912_old_fort_dearborn",
+          "chicago_antiquities_american_fur_co"
+        ],
+        "note": "The field's fence is dated with the cabin (lees_place_cabin_1812 says how): it opens on 6 April 1812, when Heald's letter puts the cabin 'in a field on the Portage branch of the Chicago river' (Moses and Kirkland 1895, p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6878-6885), and closes at the end of 1822 with the cabin, a bound this project chose (L-1812-lees-place-2509). A field worked from the fort's own market for at least a season was fenced against stock, and Wau-Bun's cattle stood across the river, so the fence is inferred to stand with the field."
+      },
+      "position": {
+        "utm_e": 445411.59,
+        "utm_n": 4633248.27,
+        "rotation_deg": 151.0,
+        "symbolic_location": "Lee's Place, round the field on the north-west bank of the South Branch half a mile below the later canal mouth at Bridgeport (T-2501's ruled reach): its river side runs 10 m back from the bank, past the cabin, for 150 m; local E -1792.3..-1617.5, N -4299.0..-4147.5.",
+        "confidence": "reconstructed",
+        "sources": [
+          "moses_kirkland_history_of_chicago_v1",
+          "currey_1912_hardscrabble_plate"
+        ],
+        "note": "SEATED WITH THE CABIN, ON THE SAME RULING. Its river side runs parallel to the bank's normal at T-2501's station, 10 m inland, where T-2502's apron stands at its 1.31 m land grade along the whole 150 m; the cabin (lees_place_cabin_1812) stands inside it, 17 m behind that side. The field runs 30 m downstream of the station and 120 m upstream, and 90 m back from the river side. Only that there was a field is a source's (Heald: 'in a field'); where its bounds ran is this project's (L-1812-lees-place-2509). The 1912 plate (tier 5) draws the fence along the bank in front of the house and turning back round a field that stretches away behind it, which is the arrangement built; it gives no measure.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage): the field is laid out round the cabin on T-2501's ruled reach, which the structure-position derivations do not read. The seat is a stated ruling recorded as L-1812-lees-place-2509."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            150.0,
+            0
+          ],
+          [
+            150.0,
+            90.0
+          ],
+          [
+            0,
+            90.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "Unattested. 150 x 90 m, about three and a third acres: a working field big enough to send produce to a garrison (Currey: 'The products of the farm found a ready market at the fort', lines 1500-1502), and the plate's field is wide. No source gives an acreage or a bound (L-1812-lees-place-2509)."
+      },
+      "form": {
+        "wall_kind": {
+          "value": "worm_fence",
+          "confidence": "inferred",
+          "sources": [
+            "currey_1912_hardscrabble_plate"
+          ],
+          "note": "The 1912 plate draws a zigzag rail fence along the bank and round the field: a worm (snake) fence. The plate is tier 5, so this is inferred from it and from the type, which is what a frontier farm without a post-hole digger built."
+        },
+        "construction": {
+          "value": "split_rail",
+          "confidence": "inferred",
+          "note": "A worm fence is stacked split rails by construction, and the plate draws rails, not pales."
+        },
+        "fence_height_m": {
+          "value": 1.3,
+          "confidence": "reconstructed",
+          "note": "Unattested. About four and a half feet, the ordinary height of a worm fence kept against stock."
+        },
+        "rail_courses": {
+          "value": 4,
+          "confidence": "reconstructed",
+          "note": "Unattested. The plate draws about four rails a panel; a field fence against cattle carries more than a garden's three."
+        },
+        "panel_length_m": {
+          "value": 3.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. Ten feet, a split rail's length."
+        },
+        "panel_offset_m": {
+          "value": 0.9,
+          "confidence": "reconstructed",
+          "note": "Unattested. Three feet, the ordinary lay of the zigzag."
+        },
+        "gate_sides": {
+          "value": [
+            "n"
+          ],
+          "confidence": "reconstructed",
+          "note": "Unattested. One gap on the river side, toward the canoe landing below the cabin, the farm's road to the fort being the river (Currey: 'Communication between the farm and the fort was usually maintained by means of canoes')."
+        },
+        "gate_width_m": {
+          "value": 3.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. A rail gap a cart could pass."
+        }
+      },
+      "change_note": "Built T-2509 (2026-10-15), piece 1 of T-2503: the fence round Lee's Place's field in the 1812 scene."
+    }
+  ],
+  "function": {
+    "value": "dwelling_farmstead",
+    "confidence": "attested",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1",
+      "currey_1912_old_fort_dearborn"
+    ],
+    "note": "The field of Lee's farm, whose cabin Heald puts 'in a field on the Portage branch'; Currey: 'There was a tract of land under cultivation ... owned by a man named Charles Lee'."
+  },
+  "research_note": "THE FIELD AT LEE'S PLACE. That the farm had a field is Heald's ('in a field') and Currey's ('a tract of land under cultivation'); its fence, its size and where its bounds ran are this project's, built toward the 1912 plate's zigzag rail fence (L-1812-lees-place-2509). Nothing is planted inside it: what was grown is not recorded, and data/flora/ has no cultivated zone. The haystacks and cattle Wau-Bun puts on the opposite bank are T-2510's. It carries review_required with the cabin it encloses, for the reason that record gives.",
+  "review_required": true
+}

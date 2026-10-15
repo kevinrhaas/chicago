@@ -2120,6 +2120,24 @@
       "phase_id": "lee_1812",
       "structure_id": "lee_house_1812"
     },
+    "lees_place_cabin_1812__lees_place_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48752,
+      "inputs_sha256": "c1f718aa1c0cbfcac67b41ef822f044dc6c39b3c78b36cf3f657b66414aaa19f",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_cabin_1812"
+    },
+    "lees_place_field_fence_1812__lees_place_1812.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 578512,
+      "inputs_sha256": "768c2ca7199f3bbf493d288fe1ea7c7d399b925b86ba45fe6053909ab008a84f",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_field_fence_1812"
+    },
     "log_jail__log_1833.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

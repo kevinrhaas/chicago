@@ -1,0 +1,248 @@
+{
+  "id": "lees_place_cabin_1812",
+  "phase": "lees_place_1812",
+  "name": "Lee's Place (Hardscrabble): the farm cabin on the South Branch",
+  "aka": [
+    "Messrs. Russell and Lee's cabin (Captain Heald, 15 April 1812)",
+    "the log house at Hardscrabble (Currey 1912)",
+    "Lee's place, later known as Hardscrabble (Moses and Kirkland)"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/lees_place_cabin_1812__lees_place_1812.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1812-04-06",
+    "to": "1822-12-31",
+    "confidence": "reconstructed",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1",
+      "currey_1912_old_fort_dearborn",
+      "chicago_antiquities_american_fur_co"
+    ],
+    "note": "THE OPENING IS A DATED MENTION AND THE CLOSE IS A BOUND THIS PROJECT CHOSE. It opens on 6 April 1812, the evening Captain Heald's letter of 15 April puts a party at 'Messrs. Russell and Lee's cabin, in a field on the Portage branch of the Chicago river' (Moses and Kirkland 1895, p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6878-6885): the first dated day a source puts the cabin on the ground. It is older than that, and no source says how much: Currey has it 'built some time after Fort Dearborn had been established' (the plate's caption, Gutenberg #52346 plain text lines 1482-1487), so after 1803. It closes at the end of 1822, the last year a source puts a house on the same premises: Gurdon Hubbard, as Hurlbut printed him (data/research/books/text/hurlbut_chicago_antiquities_28_36.txt lines 58-61), sets John Crafts's trading house 'about half a mile below Bridgeport, (\"Hardscrabble\" - the same premises, where in April 1812, two murders were committed by the Indians)', and 'In 1822, Crafts succumbed, and engaged himself to the American Fur Company' (same, lines 61-64). Whether Crafts traded from Lee's cabin or built his own is not known, so the close is a bound and not a reading (L-1812-lees-place-2509). It is out of 1835 either way."
+  },
+  "change_note": "Built T-2509 (2026-10-15), piece 1 of T-2503: the farm cabin at Lee's Place in the 1812 scene, on T-2501's ruled reach and T-2502's apron ground.",
+  "placement": {
+    "local_e": -1648.36,
+    "local_n": -4217.36,
+    "rotation_deg": 151.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "chicago_antiquities_american_fur_co",
+      "moses_kirkland_history_of_chicago_v1",
+      "currey_1912_old_fort_dearborn",
+      "currey_1912_hardscrabble_plate"
+    ],
+    "position_note": "SEATED ON T-2501's RULING, NOT MEASURED. data/terrain/1812_hardscrabble_site.json rules the farm onto a REACH of the north-west bank, 0.25 to 0.75 mi below Bridgeport by river, with its station half a mile below (Hubbard's 'about half a mile below Bridgeport ... on the north side of the river, (south branch)'), at local E -1638.9, N -4249.5; it says the cabin's place on that reach is this ticket's. THE RULING HERE: the cabin's centre stands 30 m inland of the station along the bank's own normal (bearing 331 degrees), on T-2502's apron at its 1.31 m land grade, with its long front facing the river (rotation 151 degrees, the normal reversed). Why near the bank: every account puts the cabin by the water - Wau-Bun has the men's canoes 'tied near the bank' in sight of the cabin door, Currey says the farm and the fort talked 'by means of canoes', and the 1912 plate (currey_1912_hardscrabble_plate, tier 5) draws the house a few rods back from the bank inside the field's fence with a canoe below it. The 30 m is this project's (L-1812-lees-place-2509); the plate gives no distance. Why the station's normal and not a point up or down the reach: no source distinguishes one place on the reach from another, so the cabin takes the one point the ruling names. The bearing to the fort is about 3.3 miles in a straight line, inside Heald's 'about three miles from the garrison' (T-2501's own test). If the reach moves, the cabin moves with it.",
+    "symbolic_location": "Lee's Place, on the north-west bank of the South Branch half a mile below the later canal mouth at Bridgeport (T-2501's ruled reach), about 30 m back from the bank at the reach's station; local E -1661.1..-1645.7, N -4229.2..-4217.4, its river front facing south-south-east across the channel.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        14.6,
+        0
+      ],
+      [
+        14.6,
+        5.5
+      ],
+      [
+        0,
+        5.5
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "Unattested in size. Proportioned on the 1912 plate, which draws a long, low house whose river front is about two and a half times its gable end and carries three doors and six windows: 48 x 18 ft (14.6 x 5.5 m). The plate is a retrospective picture (tier 5) and gives no measure, so the size is this project's (L-1812-lees-place-2509). A log house this long is two pens under one roof, which the plate's three doors also suggest; the archetype builds it as one."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1",
+        "currey_1912_old_fort_dearborn",
+        "currey_1912_hardscrabble_plate"
+      ],
+      "note": "One storey. Heald and Currey both call it a cabin, and the 1912 plate draws a single low storey with nothing in the roof."
+    },
+    "wall_height_m": {
+      "value": 2.4,
+      "confidence": "reconstructed",
+      "note": "Unattested. About eight feet of log to the plate; the plate's front is low, a little over a door's height to the eave."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_old_fort_dearborn"
+      ],
+      "note": "Currey 1912: 'On this tract stood a log cabin in which a number of men employed by Lee lived and carried on the work of the farm' (Gutenberg #52346 plain text lines 1456-1457), and 'the log house at Hardscrabble' (lines 1495-1496)."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "sources": [
+        "currey_1912_hardscrabble_plate"
+      ],
+      "note": "The 1912 plate draws a dark gable roof whose ridge runs along the river front. A retrospective picture, so inferred and not attested."
+    },
+    "roof_pitch_deg": {
+      "value": 30.0,
+      "confidence": "reconstructed",
+      "note": "Unattested. The plate's roof is low; 30 degrees is read off it only roughly, and the plate is tier 5."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "currey_1912_hardscrabble_plate"
+      ],
+      "note": "One stack, which the 1912 plate draws standing outside one gable end. The plate draws it against the LEFT gable as seen from the river; the archetype stands its single stack against the other end (generators/archetypes/log_dwelling.py, _chimneys), which is a difference the image gate records."
+    },
+    "function": {
+      "value": "dwelling_farmstead",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "note": "The farm's cabin, where Lee's hired men lived and worked the farm; Lee and his family lived in their house near the fort (lee_house_1812). Currey 1912 (lines 1456-1458); Heald calls it 'Messrs. Russell and Lee's cabin, in a field'."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_antiquities_american_fur_co",
+      "citation": "Henry H. Hurlbut, Chicago Antiquities: Comprising original items and relations, letters, extracts, and notes pertaining to early Chicago (Chicago, 1881), pages 28-36 — the chapter on the American Fur Company and Chicago. It names Hubbard, Beaubien, Crafts and the Kinzies as the company's Chicago men, prints Gurdon S. Hubbard's own account of how the trade here was organised and how small it was, and closes with extracts from a surviving Michilimackinac outfit book of 1821-22 and a catalogue of the goods furnished for the trade of the Chicago country.",
+      "url": "https://genealogytrails.com/ill/americanfurco.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "Gurdon S. Hubbard's account of the American Fur Company in the West, quoted at length and in quotation marks by Hurlbut — the organisation of the brigades, John Crafts at Hardscrabble, Beaubien's removal from Milwaukee, the Factory House, Crafts's death, John Kinzie the silversmith, and Hubbard's judgement that 'this place never had been preeminent as a trading-post'",
+          "date": "Undated within the chapter; Hubbard was alive and in Chicago when Hurlbut printed it in 1881, and he is describing 1818-1823 at sixty years' distance",
+          "tier": 2,
+          "note": "A near-primary recollection by the man who ran the Illinois trade, and the rung this record is graded on. It is a recollection and not a record: it dates Crafts's death 'in December, of I think the year 1823', and the 'I think' is the source's own."
+        },
+        {
+          "work": "An outward-invoice book of the American Fur Company's Michilimackinac agency, 1821 and 1822, then in private hands at Chicago — outfits by trader, destination and date, the agency dwelling's 1821 expenses, and a catalogue of goods for the Chicago country",
+          "date": "1821-1822",
+          "tier": 1,
+          "note": "A period business record, and Hurlbut prints extracts from it verbatim with the orthography kept. He also records that every other book of the company that lady saved went to the Chicago Historical Society and burned in 1871, so these extracts are what survives of them. This project has read the extracts only, at two removes."
+        },
+        {
+          "work": "Henry H. Hurlbut's own connecting narrative — Astor's rise, the Southwest Company, Astoria, Ramsey Crooks's career, and the judgement that Chicago was 'the port and point of a very limited district of distribution'",
+          "date": "1881",
+          "tier": 4,
+          "note": "Later compilation written forty-six years after the scene. Where Hurlbut is the one speaking, the claim says so, and his sizing judgement is filed as a judgement."
+        }
+      ],
+      "what_it_supplies": [
+        "the size of the fur trade at Chicago, stated twice and by two different men — Hurlbut's 'a very limited district of distribution' and Hubbard's own 'this place never had been preeminent as a trading-post, as this was not the Indian hunting-ground'",
+        "a dated arrival for Gurdon S. Hubbard: Montreal 13 May 1818, Mackinaw 4 July, Chicago the last day of October or first day of November of that year",
+        "the sequence of the Chicago trade houses — Crafts at Hardscrabble to 1819, Beaubien's trading houses at the old river mouth about the foot of Harrison Street from 1819, the Factory House south of Fort Dearborn bought from the U.S. in 1822",
+        "John Kinzie the elder's trade, in his own son-in-law's circle's words: silversmith, making Indian trinkets, and not in the company's business until Crafts died",
+        "that Astor sold the company in 1834 and it was assigned in 1842 — so no Astor company stood behind the Chicago trade in the scene year",
+        "a catalogue of the goods actually furnished for the trade of the Chicago country, about 130 named articles",
+        "one dated vessel arrival: the Schooner Ann, Capt. Ransom, from Michilimackinac to Chicago, 13 September 1821"
+      ],
+      "what_it_does_not_supply": [
+        "anything about 1835. The latest Chicago event in the chapter is 1828 and the latest company event 1842; the scene year is not described at all",
+        "any building this project could trace. Crafts's house is 'about half a mile below Bridgeport' and Beaubien's trading houses are at a river mouth the 1834 harbour cut has already moved — both are placements in prose, not on a sheet",
+        "a residence for anybody in 1835. Every person named here is named for what they did in the 1810s and 1820s",
+        "page numbers. The transcription runs pages 28-36 together with no breaks marked",
+        "reliable orthography for the outfit book, and it says so: 'Pains have been taken to carefully follow the orthography' is a claim about fidelity to the manuscript, not about the manuscript being right — 'Jamie Kinzie', 'Milliwaki', 'Lower Wasbash' and 'Achoolcraft' are all on the page"
+      ]
+    },
+    {
+      "source_id": "currey_1912_hardscrabble_plate",
+      "citation": "'Hardscrabble.' Halftone plate facing p. 74 of J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912), the eighth of the book's eleven illustrations; maker not named, undated. A wash drawing of Lee's Place on the South Branch, with a printed caption beneath it.",
+      "url": "https://www.gutenberg.org/cache/epub/52346/images/hardscrabble.png",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the house's form as one illustrator imagined it in 1912: long, low, one storey, a gable roof running along the river front, an exterior stack at one gable end and a lean-to beyond it",
+        "the river front's opening set-out: three doors and six windows",
+        "the field's fence: a worm (zigzag) rail fence along the bank and round the field",
+        "the house standing close to the bank inside the fence, with the field behind it and woods beyond"
+      ],
+      "what_it_does_not_supply": [
+        "a maker, a date of drawing or a stated basis: nothing says the picture was drawn from a witness's description, and it may as well show the later trading house on the same premises (Hurlbut: Crafts's, 1817-1822) as the farm of 1812",
+        "any dimension, position or bearing: it is tier 5 and gives form only",
+        "colour: the plate is a monochrome halftone",
+        "haystacks: Wau-Bun puts them on the bank opposite the cabin, and the plate draws none"
+      ]
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "citation": "J. Seymour Currey, The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912 (published August 1912). A popular history of the first fort from 1803 to its burning in 1812, compiled from the printed accounts and the pioneer recollections before it, with eleven illustrations.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "two placings of Lee's Place: 'some four miles southwest of the fort ... on the west bank of the South Branch ... about where at the present time the old Illinois and Michigan Canal opens into that stream' (lines 1450-1454), and, in the caption to its illustration, 'on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river' (lines 1484-1486)",
+        "the caption of an illustration titled 'Hardscrabble', facing p. 74, which T-2503 is to read as a picture",
+        "a 'Map of Chicago in 1812' facing p. 165, not yet opened",
+        "the Lee family's house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue, with the sand-bar as the reason (lines 1456-1463)",
+        "the Burns house, John Burns's cabin on the north bank near the later State Street bridge, west of the Kinzies' (lines 1565-1576, 2249-2251, 2820-2822)",
+        "the four houses left standing on 18 August 1812: the Kinzie and Ouilmette houses, Burns's and Lee's (lines 3100-3105)",
+        "the one statement in the corpus that names Guarie among the residents John Kinzie found in 1804 (lines 801-803), uncited; weighed and not followed in data/exclusions.json guarie_trading_house, because Hubbard's tradition, which is Andreas's and Quaife's only authority for Guarie, dates his house before 1778 (T-2489)"
+      ],
+      "what_it_does_not_supply": [
+        "an eyewitness: Currey writes a century after the farm, from the books before him, and he says so ('it is said in a recent history of Chicago')",
+        "a survey distance. 'Some four miles' is a round figure, and the book gives no route for it",
+        "the illustration's own date or maker, which the caption does not state; until it is read it is a retrospective picture and grades tier 5 as a picture, whatever this record's tier as a text"
+      ]
+    },
+    {
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+      "url": "https://archive.org/details/historyofchicago01mose",
+      "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "transcribes": [
+        {
+          "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+          "date": "1881",
+          "tier": 3,
+          "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+        }
+      ],
+      "what_it_supplies": [
+        "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+        "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+        "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+        "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+        "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+        "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+        "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+      ],
+      "what_it_does_not_supply": [
+        "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+        "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+        "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+        "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+        "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+        "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+      ]
+    }
+  ],
+  "research_note": "LEE'S PLACE, LATER HARDSCRABBLE: the farm Charles Lee worked on the South Branch, and its log cabin, where on 6 April 1812 Liberty White and a Canadian Frenchman whose name Heald did not know (Debou in Currey) were killed by a war party Heald took to be Winnebagoes; the discharged soldier and Lee's son escaped across the river and ran to the fort. WHERE: four placings that do not all meet (data/terrain/1812_hardscrabble_site.json, T-2501): Heald's three miles from the garrison and Moses and Kirkland's north-west bank near the forks agree with the ruled reach; Currey puts it at the canal's mouth itself, half a mile above, and his caption's four miles from the river's mouth falls a mile short of both. The scene card `where_lees_place_stood` says so to the visitor. WHAT IT LOOKED LIKE: only the 1912 plate (currey_1912_hardscrabble_plate), drawn a century later by a maker the book does not name; it is tier 5, and the cabin is built toward it through the image gate (data/reference_views/lees_place_cabin_1812/). WHAT IS NOT BUILT: the haystacks Wau-Bun puts with the cattle on the OPPOSITE bank (T-2510), the plate's three outbuildings, and the cattle. It carries review_required because its card and this record speak of a killing in the war of 1812, an event of Winnebago and Potawatomi history as much as the settlers', and the 1812 scene waits on the review T-0472 holds it for. Nobody is drawn in or near it (L1).",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "It carries review_required because its card and this record speak of a killing in the war of 1812, an event of Winnebago and Potawatomi history as much as the settlers', and the 1812 scene waits on the review T-0472 holds it for."
+}

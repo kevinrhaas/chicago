@@ -239,6 +239,18 @@
       "name": "The Lee family's house, on the shore at the river's mouth south of the fort",
       "sidecar": "sidecars/1812/lee_house_1812.json",
       "asset": "gltf/lee_house_1812__lee_1812.glb"
+    },
+    {
+      "id": "lees_place_cabin_1812",
+      "name": "Lee's Place (Hardscrabble): the farm cabin on the South Branch",
+      "sidecar": "sidecars/1812/lees_place_cabin_1812.json",
+      "asset": "gltf/lees_place_cabin_1812__lees_place_1812.glb"
+    },
+    {
+      "id": "lees_place_field_fence_1812",
+      "name": "Lee's Place (Hardscrabble): the field's worm fence along the South Branch",
+      "sidecar": "sidecars/1812/lees_place_field_fence_1812.json",
+      "asset": "gltf/lees_place_field_fence_1812__lees_place_1812.glb"
     }
   ],
   "excluded_by_date": [

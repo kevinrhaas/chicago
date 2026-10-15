@@ -50,6 +50,13 @@
       "local_e": -1648.7,
       "local_n": -4232.1,
       "yaw_deg": 150.0
+    },
+    {
+      "id": "lees_place_cabin",
+      "label": "Lee's Place from across the South Branch - the farm cabin and its field",
+      "local_e": -1647.2,
+      "local_n": -4317.0,
+      "yaw_deg": 356.0
     }
   ],
   "layers": [
@@ -60,7 +67,7 @@
     "exclusions"
   ],
   "released": false,
-  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). THE COVER (T-0471): the flora layer is drawn, and data/flora/index.json's `scenes` lists decide what of it stands here - the natural zone records (prairie, sedge meadow, marsh, river timber, wet woods, beach and sand prairie) are the ground's and are dealt from this epoch's heightfield, while the settled town's sward and the 1835 plantings (dooryards, the Lombardy rows, the Sauganash's trees, the willows by the second fort) are scoped to 1835 and stand nowhere here. The one planting of this scene is massacre_cottonwoods_1812, a remembered pair whose existence is inferred and whose places are reconstructed (L372); the cover's own month and the garrison's missing clearing are L371. The other town-wide layers written for 1835 are still left out - fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here. `eighteenth_street_shore` is a CAMERA on the conjectural bank three kilometres south of the fort, looking east-south-east at the two cottonwoods; it does not locate the battle, which is T-0470's to map. `lees_place_reach` is a CAMERA on T-2501's ruled reach of the South Branch's north-west bank, 930 m west of the box: it stands on the apron field `terrain_apron` names (T-2502), the 1812 ground carried down the river from the box floor at the conjectural grade, and looks south-east across the channel. It marks the reading's station and not the cabin, which is not drawn yet (T-2503). No person is drawn: the Indigenous-history review gates of T-0472 come before any figure. The scene's cards (T-0472) name the event, say whose accounts it rests on and where they disagree, and are held for that review, so this scene is not released. THE EXCLUSIONS LAYER (T-2489) is this scene's own: data/exclusions.json entries whose `scenes` names 1812 are the structures the record places at Chicago before the evacuation that were researched and ruled out of this date, and the 1835 town's entries, which carry no `scenes`, are not listed here (tools/exclusion_scope.py).",
+  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). THE COVER (T-0471): the flora layer is drawn, and data/flora/index.json's `scenes` lists decide what of it stands here - the natural zone records (prairie, sedge meadow, marsh, river timber, wet woods, beach and sand prairie) are the ground's and are dealt from this epoch's heightfield, while the settled town's sward and the 1835 plantings (dooryards, the Lombardy rows, the Sauganash's trees, the willows by the second fort) are scoped to 1835 and stand nowhere here. The one planting of this scene is massacre_cottonwoods_1812, a remembered pair whose existence is inferred and whose places are reconstructed (L372); the cover's own month and the garrison's missing clearing are L371. The other town-wide layers written for 1835 are still left out - fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here. `eighteenth_street_shore` is a CAMERA on the conjectural bank three kilometres south of the fort, looking east-south-east at the two cottonwoods; it does not locate the battle, which is T-0470's to map. `lees_place_reach` is a CAMERA on T-2501's ruled reach of the South Branch's north-west bank, 930 m west of the box: it stands on the apron field `terrain_apron` names (T-2502), the 1812 ground carried down the river from the box floor at the conjectural grade, and looks south-east across the channel. It marks the reading's station, and stands in the yard of the cabin built there since (T-2509): `lees_place_cabin_1812` 30 m back from that station with its river front to the channel, inside the worm fence of `lees_place_field_fence_1812`. `lees_place_cabin` is a CAMERA on the opposite (south-east) bank, 94 m from the cabin and a little upstream of it, looking north across the river at its front and its upstream gable, the side the 1912 plate draws; it claims nothing about where anyone stood. The card `where_lees_place_stood` gives the four placings and where they disagree. No person is drawn: the Indigenous-history review gates of T-0472 come before any figure. The scene's cards (T-0472) name the event, say whose accounts it rests on and where they disagree, and are held for that review, so this scene is not released. THE EXCLUSIONS LAYER (T-2489) is this scene's own: data/exclusions.json entries whose `scenes` names 1812 are the structures the record places at Chicago before the evacuation that were researched and ruled out of this date, and the 1835 town's entries, which carry no `scenes`, are not listed here (tools/exclusion_scope.py).",
   "cards": [
     {
       "id": "first_fort_plan",
@@ -161,6 +168,48 @@
       "confidence_note": "Who wrote each account is read from the accounts themselves and from the source records quaife_1913 and moses_kirkland_history_of_chicago_v1. 'An Indian' is the source's word, and the speaker's nation is not stated, so it is not given here.",
       "review_required": true,
       "review_note": "Held for review because this card characterises the record of an attack by Potawatomi warriors and quotes a settler history's language about Native people, and both are for the Native scholars or community organisations AGENTS.md says to consult before the scene is released."
+    },
+    {
+      "id": "where_lees_place_stood",
+      "kind": "conflict",
+      "title": "Where Lee's Place stood: four placings that do not all meet",
+      "text": "Charles Lee's farm on the South Branch, later called Hardscrabble, is placed four ways, and they do not all agree. Captain Heald, writing nine days after two of Lee's men were killed there in April 1812, put the cabin about three miles from the garrison. Gurdon Hubbard, who knew the place from 1818, put the same premises half a mile below Bridgeport on the river's north side. The 1895 history put it on the north-western side of the branch near its forks. Currey in 1912 put it at the canal's mouth itself, half a mile higher than Hubbard, and four miles from the river's mouth, which by the river's course falls about a mile short of both. This scene stands the cabin where Hubbard's half mile falls, on the north-west bank that every placing naming a side agrees on; Heald's three miles and the forks fit it, and Currey's two placings do not.",
+      "quotes": [
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6878-6885, Captain Nathan Heald's letter of 15 April 1812 (the OCR's line-end hyphens closed up)",
+          "cite": "Captain Nathan Heald, 15 April 1812, as printed in Moses and Kirkland's History of Chicago (1895), p. 43",
+          "text": "came to Messrs. Russell and Lee's cabin, in a field on the Portage branch of the Chicago river, about three miles from the garrison"
+        },
+        {
+          "source_id": "chicago_antiquities_american_fur_co",
+          "locator": "data/research/books/text/hurlbut_chicago_antiquities_28_36.txt lines 58-61, Gurdon S. Hubbard's account as printed by Hurlbut (1881), pp. 28-36",
+          "cite": "Gurdon S. Hubbard, as printed in Hurlbut's Chicago Antiquities (1881)",
+          "text": "His trading house was located about half a mile below Bridgeport, (\"Hardscrabble\" - the same premises, where in April 1812, two murders were committed by the Indians) on the north side of the river, (south branch)"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6865-6868 (the OCR's line-end hyphens closed up)",
+          "cite": "Moses and Kirkland, History of Chicago (1895), p. 43",
+          "text": "Lee's place, later known as Hardscrabble, was on the northwestern side of the South branch, near its forks"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "Project Gutenberg #52346 plain text, lines 1450-1453",
+          "cite": "J. Seymour Currey, The Story of Old Fort Dearborn (1912), ch. II",
+          "text": "There was a tract of land under cultivation some four miles southwest of the fort, situated on the west bank of the South Branch of the Chicago River, about where at the present time the old Illinois and Michigan Canal opens into that stream."
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "Project Gutenberg #52346 plain text, lines 1484-1486, the caption of the plate 'Hardscrabble' facing p. 74",
+          "cite": "J. Seymour Currey, The Story of Old Fort Dearborn (1912), caption to 'Hardscrabble'",
+          "text": "There was a farmhouse standing on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river"
+        }
+      ],
+      "confidence": "documented",
+      "confidence_note": "Each placing is the source's own words. The distances between them are this project's measurement in the local frame, along T-2501's trace of the South Branch off Rees and Rucker 1849, and are derived in data/terrain/1812_hardscrabble_site.json, which re-derives under tools/check.sh. That Hubbard's 'Hardscrabble' is Lee's farm is his own parenthesis. The site chosen is a ruling, not a finding: L-1812-lees-place-2509 and the cabin's position note.",
+      "review_required": true,
+      "review_note": "Held for review because this card speaks of the killing of two of Lee's men in April 1812 by a war party the garrison took to be Winnebago and quotes Hubbard's 'committed by the Indians', telling an event of Indigenous history only from the settlers' side, which is the Indigenous-history review AGENTS.md requires before the scene is released."
     },
     {
       "id": "no_one_is_drawn",
