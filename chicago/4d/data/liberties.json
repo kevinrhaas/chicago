@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 579,
+  "count": 580,
   "liberties": [
     {
       "id": "L1",
@@ -38740,6 +38740,62 @@
         {
           "label": "Recorded",
           "text": "2026-10-15 (T-2525)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-basement-2523",
+      "title": "1638 Prairie raised on a basement to its photograph's steps: the floor's height and the ten risers read through a re-solved camera, the basement's face and the stoop's fabric reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.gable"
+        },
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.porch"
+        },
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.wing_wall"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Shortall-Gregory house (T-2523, after T-2520) stands on a basement storey 0.95 m high, so its principal floor and the porch floor at the door's foot are 1.55 m over the walk, where the kit put them at 0.6 m. The stoop under the tower climbs to it in ten risers of 0.155 m on 0.36 m goings between its cheek walls, its foot 5.0 m out from the front. The camera the house is matched through is solved again: the eye 30.71 m out from the front (on the far walk of Prairie Avenue, just inside its far street line at 30.8 m), 3.25 m over the walk, f 2242 px. The porch and the tower on it, which stand out from the front, are re-read through that camera: centred 6.53 m from the front's south end (was 6.40 m), the floor 1.16 m a side, the posts 0.23 m and 0.045 m in from its ends, the trefoil and quatrefoils 3 % larger, the plate 2.87 m clear, the tower's sills at 4.40 m, its cornice at 7.05 m and its spire's point at 10.08 m over the basement's top. **What is read, not invented.** That there is a basement (the 1911 sheet's '2BB'). How high it carries the floor, from the photograph (`chicagology_1638_prairie_photo`): T-2520's eight nosings (813-922.5 px, about 15 px apart) fitted together with the fence's base (1022 px on the street line, 10.8 m out) want a floor of 1.45-1.6 m over the walk in ten risers; rendered through the new camera the built stair lands within 3.7 px rms of the eight. The camera's depth follows from that floor and the fence's base. Every porch and tower reading listed above is the print's own pixel re-taken at its depth through the new camera; rendered, each lies within 4 px of the print. **What is invented.** The choice of 1.55 m inside the band the print allows (1.6 m fits as well but puts the eye past the far street line; 1.4 m needs goings over 0.4 m and still misses by 4 px); that the fall is all in the floor and none in the yard between house and fence (the hedge hides the house's foot; the sheet's basement, and a city that raised its streets above its lots, make it the floor); the basement's face, carried down as the kit's brick foundation under every wall, the bay and the rear pieces alike, the print showing none of it; the stoop's treads, risers and cheeks as the kit builds them; every colour, the print being monochrome. **What the record states and the model simplifies.** Every height the record gave over grade before T-2523 was read against the print's old grade line (825 px); the new camera puts that line at the basement's top, so the record keeps those numbers and the kit builds them over the basement (form.basement). The fence is not re-read here: through this camera its piers, bars and caps draw about 1.37 times smaller than the print's, which is T-2524's. The bay's base (about 3 px) and the porch roof's south end (about 4 px) are left at their old readings. The basement's height (`form.basement`) and the tower's re-read heights are inferred and argued in their notes; what this entry covers is the stoop (`form.porch`) and the basement's face under the front's walls."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture showing the house's foot (below the hedge) settles the split between floor and yard, and the basement's material; a second view of the stoop fixes its goings."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2523 (after T-2520, piece 2 of T-2458)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-basement-2523/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2523)."
         }
       ]
     },
