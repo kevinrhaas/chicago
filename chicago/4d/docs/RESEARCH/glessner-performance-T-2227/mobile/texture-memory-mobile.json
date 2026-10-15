@@ -1,0 +1,767 @@
+{
+  "method": "Unique scene texture source/sampler bindings; estimated uncompressed texel storage including generated mip levels. Not measured GPU allocation; excludes render targets, driver alignment and internal PMREM copies. Unsupported formats listed explicitly.",
+  "estimatedBytes": 457112240,
+  "bindings": [
+    {
+      "name": "",
+      "width": 128,
+      "height": 128,
+      "faces": 1,
+      "bytes": 87380
+    },
+    {
+      "name": "sandstone_brown_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "sandstone_brown_normal_gl",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "common_buff_common_6_basecolor",
+      "width": 518,
+      "height": 480,
+      "faces": 1,
+      "bytes": 1325564
+    },
+    {
+      "name": "common_buff_common_6_normal_gl",
+      "width": 518,
+      "height": 480,
+      "faces": 1,
+      "bytes": 1325564
+    },
+    {
+      "name": "dressed_trim_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "dressed_trim_normal_gl",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "mortar_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "limestone_basecolor",
+      "width": 2048,
+      "height": 2048,
+      "faces": 1,
+      "bytes": 22369620
+    },
+    {
+      "name": "tin_flat_seam_painted_basecolor",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "tin_flat_seam_painted_normal_gl",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "painted_tin_sheet_basecolor",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "painted_tin_sheet_normal_gl",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "common_buff_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "limestone_lemont_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "limestone_lemont_normal_gl",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "turf_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "gravel_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "tin_standing_seam_painted_basecolor",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "tin_standing_seam_painted_normal_gl",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "copper_sheet_basecolor",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "copper_sheet_normal_gl",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "painted_wood_basecolor",
+      "width": 2048,
+      "height": 2048,
+      "faces": 1,
+      "bytes": 22369620
+    },
+    {
+      "name": "limestone_bedford_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "limestone_bedford_normal_gl",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "slate_pennsylvania_basecolor",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "slate_pennsylvania_normal_gl",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "granite_photographic_basecolor",
+      "width": 1254,
+      "height": 1254,
+      "faces": 1,
+      "bytes": 8384072
+    },
+    {
+      "name": "granite_stone_occlusion_light",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "granite_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "granite_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "court_brick_basecolor",
+      "width": 2048,
+      "height": 2048,
+      "faces": 1,
+      "bytes": 22369620
+    },
+    {
+      "name": "brick_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "brick_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "limestone_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "limestone_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "roof_tiles_basecolor",
+      "width": 2048,
+      "height": 2048,
+      "faces": 1,
+      "bytes": 22369620
+    },
+    {
+      "name": "roof_tiles_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "roof_tiles_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "copper_basecolor",
+      "width": 2048,
+      "height": 2048,
+      "faces": 1,
+      "bytes": 22369620
+    },
+    {
+      "name": "copper_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "oak_basecolor",
+      "width": 2048,
+      "height": 2048,
+      "faces": 1,
+      "bytes": 22369620
+    },
+    {
+      "name": "oak_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "oak_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "turf_patch_photographic_basecolor",
+      "width": 1254,
+      "height": 1254,
+      "faces": 1,
+      "bytes": 8384072
+    },
+    {
+      "name": "turf_normal",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "turf_roughness",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "gravel_normal",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "gravel_roughness",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "mortar_normal",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "mortar_roughness",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "terracotta_basecolor",
+      "width": 2048,
+      "height": 2048,
+      "faces": 1,
+      "bytes": 22369620
+    },
+    {
+      "name": "terracotta_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "terracotta_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "painted_wood_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "painted_wood_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "vines_atlas",
+      "width": 2048,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 11184812
+    },
+    {
+      "name": "flat_brick_basecolor",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "flat_brick_normal",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "flat_brick_roughness",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 5592404
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "procedural-species-leaf-and-bark-atlas",
+      "width": 1024,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 4194304
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 256,
+      "height": 512,
+      "faces": 1,
+      "bytes": 699052
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "",
+      "width": 512,
+      "height": 512,
+      "faces": 1,
+      "bytes": 1398100
+    },
+    {
+      "name": "PMREM.cubeUv",
+      "width": 768,
+      "height": 1024,
+      "faces": 1,
+      "bytes": 6291456
+    }
+  ],
+  "unpriced": [],
+  "rendererMemory": {
+    "geometries": 250,
+    "textures": 440
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "method": "Whole unmodified PNGs: requested Light view on/off pairs, winter and summer on/off and repeat/restoration pairs, and initial versus restored summer canvas.",
+  "pairs": [
+    {
+      "before": "mobile-courtyard.png",
+      "after": "mobile-courtyard-occlusion-off.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "03e92a34ebea17966b524716dfb65e8d4503feebbf0429865e5aefa5ae897412",
+      "afterSha256": "03e92a34ebea17966b524716dfb65e8d4503feebbf0429865e5aefa5ae897412"
+    },
+    {
+      "before": "mobile-season-winter-on.png",
+      "after": "mobile-season-winter-off.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9",
+      "afterSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9"
+    },
+    {
+      "before": "mobile-season-summer-on.png",
+      "after": "mobile-season-summer-off.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd",
+      "afterSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd"
+    },
+    {
+      "before": "mobile-season-winter-on.png",
+      "after": "mobile-season-winter-repeatOn.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9",
+      "afterSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9"
+    },
+    {
+      "before": "mobile-season-winter-off.png",
+      "after": "mobile-season-winter-repeatOff.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9",
+      "afterSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9"
+    },
+    {
+      "before": "mobile-season-winter-on.png",
+      "after": "mobile-season-winter-restoredOn.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9",
+      "afterSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9"
+    },
+    {
+      "before": "mobile-season-summer-on.png",
+      "after": "mobile-season-summer-repeatOn.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd",
+      "afterSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd"
+    },
+    {
+      "before": "mobile-season-summer-off.png",
+      "after": "mobile-season-summer-repeatOff.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd",
+      "afterSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd"
+    },
+    {
+      "before": "mobile-season-summer-on.png",
+      "after": "mobile-season-summer-restoredOn.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd",
+      "afterSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd"
+    },
+    {
+      "before": "mobile-season-before.png",
+      "after": "mobile-season-restored.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd",
+      "afterSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd"
+    }
+  ],
+  "complete": true,
+  "allExact": true
+}

@@ -295,6 +295,24 @@
       "asset": "gltf/first_fort_wharf__first_fort_1803.glb"
     },
     {
+      "id": "forks_company_cornfield_1812",
+      "name": "The first fort's company garden and public cornfield at the forks, 1812",
+      "sidecar": "sidecars/1812/forks_company_cornfield_1812.json",
+      "asset": "gltf/forks_company_cornfield_1812__cornfield_1808.glb"
+    },
+    {
+      "id": "forks_house_clark_1812",
+      "name": "Clark's house at the forks, 1812",
+      "sidecar": "sidecars/1812/forks_house_clark_1812.json",
+      "asset": "gltf/forks_house_clark_1812__clark_1812.glb"
+    },
+    {
+      "id": "forks_house_soldier_1812",
+      "name": "The discharged soldier's house at the forks, 1812",
+      "sidecar": "sidecars/1812/forks_house_soldier_1812.json",
+      "asset": "gltf/forks_house_soldier_1812__soldier_1812.glb"
+    },
+    {
       "id": "kinzie_house_1812",
       "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
       "sidecar": "sidecars/1812/kinzie_house_1812.json",

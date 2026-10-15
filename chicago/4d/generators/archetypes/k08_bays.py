@@ -14,7 +14,8 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   corbel       an oriel: stone courses each stepped out over the one below
   floor bands  a string course at every floor line between storeys
   eaves        a soffit out to a fascia, or (T-2460) a moulded section the variant's
-               eaves name as a `profile`, swept and mitred as the soffit is; on a variant naming `brackets` (T-2408), a
+               eaves name as a `profile` (in the role they name, T-2472; a band's stone
+               by default), swept and mitred as the soffit is; on a variant naming `brackets` (T-2408), a
                console under the soffit at every corner of the plan and a row of
                modillions along each run
   roof         the plan's own lines offset to the eaves and lifted at one pitch: a
@@ -621,7 +622,9 @@ class Bay:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
             if prof:
-                moulding(flat, "band", run, y_top, prof)
+                # T-2472: in the stone of the bay's bands, or the role its eaves name (the
+                # bracketed cornice's section is the eave's painted timber)
+                moulding(flat, eaves.get("role", "band"), run, y_top, prof)
             else:
                 ledge(flat, "soffit", run, y_top, 0.0, ov, (0.0, -1.0, 0.0))
                 flat.plane("fascia", K6.box(run.s_start(ov), run.s_end(ov), y_top, y_e), -ov)

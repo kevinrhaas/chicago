@@ -1,0 +1,16 @@
+{
+  "recordedAt": "2026-10-15T15:30:20.794598+00:00",
+  "cause": "Automatic detached Git maintenance after read-only fetch, pack-objects PID 1038739 competed with Chromium during early still captures.",
+  "action": "SIGSTOP, then SIGTERM and SIGCONT to stop that pack writer; maintenance/repack parents exited. No manual object/pack deletion. Future fetches disable automatic maintenance per command.",
+  "timingScope": "Startup completed before repack. First two still views overlapped; counts/pixels retained, not quiet wall-time measurements. Motion had not started when maintenance ended.",
+  "stashesPreserved": 7,
+  "stashCommits": [
+    "56ccc795859171f2f196a61c76bfeff8f58cdd29",
+    "285bd7506fd686ce5532dc5cd31c2675dcd37c1b",
+    "fbbdb2edd872b18cabffa5514c793cf93e9a25b1",
+    "792fbaf111bc43c1445ee4e567f854996b989094",
+    "34fd88ee2f4a4f38e54a8a6e9591ca46dcd519ff",
+    "39c5d40faca6919c0737da892d6f6114cfe73493",
+    "23056e14127bd50b8393eb5e8ef64495eff30268"
+  ]
+}

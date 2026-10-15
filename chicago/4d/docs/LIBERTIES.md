@@ -14357,7 +14357,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 683 phases (682 until T-2509's farm cabin at Lee's Place, lees_place_cabin_1812, 2026-10-15, L-1812-lees-place-2509; 680 until T-2504's La Lime and Le Mai houses on the north bank west of the Kinzie house, lalime_house_1812 and lemai_house_1812, 2026-10-15, dated 1808-1816, L-1812-lalime-lemai-2504; 679 until T-2497's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, L-kinzie-house-1812-2497; 675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 685 phases (683 until T-2512's two 1812 log houses at the forks of the river, forks_house_soldier_1812 and forks_house_clark_1812, 2026-10-15, L-1812-forks-2512; 682 until T-2509's farm cabin at Lee's Place, lees_place_cabin_1812, 2026-10-15, L-1812-lees-place-2509; 680 until T-2504's La Lime and Le Mai houses on the north bank west of the Kinzie house, lalime_house_1812 and lemai_house_1812, 2026-10-15, dated 1808-1816, L-1812-lalime-lemai-2504; 679 until T-2497's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, L-kinzie-house-1812-2497; 675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14629,8 +14629,8 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 101 phases: 76 log dwellings and
-25 fort structures. It was 100 until T-2509, 2026-10-15, wrote the farm cabin at Lee's Place, lees_place_cabin_1812, a log dwelling on the South Branch dated 1812-1822 (L-1812-lees-place-2509). It was 98 until T-2504, 2026-10-15, wrote La Lime's and Le Mai's houses, two log dwellings on the north bank dated 1808-1816 (L-1812-lalime-lemai-2504). It was 97 until T-2497, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (L-kinzie-house-1812-2497). It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
+**Scope:** `structures.phases[log_or_fort_archetype]` — 103 phases: 78 log dwellings and
+25 fort structures. It was 101 until T-2512, 2026-10-15, wrote the two houses Whistler's draught draws at the forks of the river, log dwellings dated 1808-1816 (L-1812-forks-2512). It was 100 until T-2509, 2026-10-15, wrote the farm cabin at Lee's Place, lees_place_cabin_1812, a log dwelling on the South Branch dated 1812-1822 (L-1812-lees-place-2509). It was 98 until T-2504, 2026-10-15, wrote La Lime's and Le Mai's houses, two log dwellings on the north bank dated 1808-1816 (L-1812-lalime-lemai-2504). It was 97 until T-2497, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (L-kinzie-house-1812-2497). It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
 corner of the School Section tier's block 82 (L-block82-east-corners-2270). It was 91 until T-2062, 2026-10-05, wrote the first fort's factory and
 agent's house outside its stockade, two log dwellings dated 1808-1812 (L391). It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
 `fort_structure` records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles
@@ -26141,6 +26141,19 @@ kit's flashing is not laid, since it reads one slope and these stacks stand on t
 crown's steep side; each joins its roof as the plain stack did. Not built: the dark hooded crown the
 engraving draws over each cap, about 0.4-0.5 m tall, a pot or a cowl that the engraving's scale does not
 settle; each stack's top was read at that crown's top, so each cap stands where the drawn crown ends.
+**Revised:** 2026-10-15 (T-2472) — **the swell bay rises to the cornice.** The engraving carries the
+bow up to the cornice and draws its top as one plain band; the bow's upper storey is now 4.552 m, so its
+wall top stands at 11.152 m, the foot of K10's bed moulding, where it stopped at 10.7 m under a plain
+K08 eave. Its eaves are the cornice carried round it (`eaves.cornice`, T-2460's machinery): the bed
+moulding swept round the plan, then the house's eave over it, a soffit 0.5 m out from the bow's face to
+a 0.2 m fascia at the main one's height, in the eave's painted timber. The wall's bed moulding stops at
+the bow's junctions. Read, through the camera: the band's height, y 245-267 px on the bow's crown
+against the engraving's about 255-270. Invented: the band's members, which are the house's eave and the
+kit's bed moulding, not a section read off the plate (the engraving draws a dark band, not its
+profile); and no brackets on the bow, since the engraving draws none there and the front's are K10's,
+not the engraving's. Not built: the engraving draws the main cornice running on straight over the
+bow's cap, about 0.3 m over the build's eave all along the front (soffit 11.21 m against about 11.5 m);
+raising it is the storey lines' reading, not the bow's, so the bow's band is the build's eave itself.
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
@@ -27264,6 +27277,32 @@ the premises between 1812 and 1822.
 **Recorded:** 2026-10-15 (T-2509).
 **Covers:** `lees_place_cabin_1812.lees_place_1812.documented_range`, `lees_place_cabin_1812.lees_place_1812.position`, `lees_place_cabin_1812.lees_place_1812.footprint`, `lees_place_cabin_1812.lees_place_1812.form.wall_height_m`, `lees_place_cabin_1812.lees_place_1812.form.roof_pitch_deg`, `lees_place_field_fence_1812.lees_place_1812.documented_range`, `lees_place_field_fence_1812.lees_place_1812.position`, `lees_place_field_fence_1812.lees_place_1812.footprint`, `lees_place_field_fence_1812.lees_place_1812.form.fence_height_m`, `lees_place_field_fence_1812.lees_place_1812.form.rail_courses`, `lees_place_field_fence_1812.lees_place_1812.form.panel_length_m`, `lees_place_field_fence_1812.lees_place_1812.form.panel_offset_m`, `lees_place_field_fence_1812.lees_place_1812.form.gate_sides`, `lees_place_field_fence_1812.lees_place_1812.form.gate_width_m`
 
+### L-1812-lees-place-2511 — Lee's Place cabin built to the Currey plate: its openings' sizes, the stack's place on its gable, the lean-to and the whitewash
+
+**Decision:** `lees_place_cabin_1812` is rebuilt toward the 1912 plate (`currey_1912_hardscrabble_plate`,
+tier 5) through its solved camera. **What the plate shows is read as inferred:** the river front's
+order of three doors and six windows, the stack against the upstream gable, a gabled plank lean-to
+beyond it, bare sash with no shutters, and a roof drawn much darker than the walls. **What is this
+project's:** every opening's size (doors 1.2 m wide, windows 0.85 x 0.8 m, read off the plate to
+about 0.2 m an edge); the doors' 1.7 m height, which is deliberately NOT the plate's 1.5 m, because
+the drawing's heads stand lower than a man walks under; the stack slid to the gable's front corner with its head at 4.2 m (eighteen inches over the ridge),
+which is where the camera puts the drawn stack; the lean-to's 2.3 x 1.8 m plan behind the stack, its 2.2 m eave and
+45 degree roof, sized to the plate only roughly because its perspective disagrees with the main
+roof's; and the whitewash on logs and chinking. That last is the ruling T-2509 left open: the plate
+draws the walls smooth and pale while it draws boards, rails and shadow where it saw them, so a coat
+is the likelier reading of the drawing, but no source says the cabin was whitewashed and a wash
+drawing a century later cannot prove it.
+
+**Consequence:** a visitor to 1812 sees a long whitewashed cabin with three doors on the river and a
+stack and lean-to at its upstream end, as the one picture of it draws. The order of the openings is
+the picture's; their sizes, the coat and the lean-to's measure are ours.
+
+**How to resolve:** any description of the cabin or of Crafts's trading house on the premises; a
+second picture; a survey or inventory of the farm.
+**Ticket:** T-2511.
+**Recorded:** 2026-10-15 (T-2511).
+**Covers:** `lees_place_cabin_1812.lees_place_1812.form.door_w_m`, `lees_place_cabin_1812.lees_place_1812.form.door_h_m`, `lees_place_cabin_1812.lees_place_1812.form.window_w_m`, `lees_place_cabin_1812.lees_place_1812.form.window_h_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_length_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_width_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_wall_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_pitch_deg`, `lees_place_cabin_1812.lees_place_1812.form.chimney_head_m`, `lees_place_cabin_1812.lees_place_1812.form.log_finish`
+
 ### L-glessner-finish-2226 — Plain brick joints and gate member grain
 
 **Ticket:** T-2226.
@@ -27277,6 +27316,55 @@ Previously flat stair returns and Light stair, pier and boundary faces receive a
 Rear-gate ledges and braces receive grain along their own timber axis, at the existing physical oak texture scale. Cut ends retain a generic original oak study on a noncollapsed mapping; their growth rings are not measured or simulated. Joint positions, supports, contacts, hardware and silhouettes remain the existing reconstruction. Full and Light use the same new material library; the simplified tier does not acquire additional geometry.
 
 Neutral-light diagnostics distinguish the scene's blue shade from the owner-approved grey-greige granite. They are capture-only observations, not a historical colour calibration or a change to July lighting. Existing dark glazing and restrained material roughness remain. No new directional dirt map, orange iron rust, modern copper patina or neglected mid-century decay is invented for the seventeen-year-old house. The separately cited family typescript remains a textual comparison with its unresolved rights unchanged; these new assets derive only from original project textures, numeric construction and cleared references. Exact period weathering is still unmeasured.
+
+### L-1812-forks-2512 — The forks of 1812: the two houses Whistler draws there, Clark taken for one of them, and the company cornfield as a rail-fenced eight acres
+
+**Decision:** the 1812 scene gains three records at the forks of the river, found on Captain
+Whistler's draught of January 1808 at T-2512 where the committed trace's index does not reach: the
+two small houses Quaife describes ("two houses at the forks, one occupied by a discharged soldier"),
+`forks_house_soldier_1812` on the north bank east of the North Branch and `forks_house_clark_1812`
+on the south bank east of the South Branch, and the garrison's field lettered "Company Garden &
+public Cornfield Eight acres", `forks_company_cornfield_1812`. **That they were there, at the forks,
+and on which side of the main river is the sources'** (the draught; Quaife 1913 pp. 166-67, his
+reading of Whistler's description and of Surgeon Cooper).
+
+**The rulings.** The draught's "One branch of Cheykago River" is taken for the North Branch, because
+the river line it meets is the main stem coming round from the fort and the cornfield Quaife puts on
+the south side is drawn on the fort's side of it; so one house stands north of the main stem and one
+south. **Cooper's Clark is merged into the draught's second house**: Cooper counts one house near the
+forks, Whistler draws two the same winter and names one a discharged soldier's, and nothing read
+puts a third there. Which of the two was Clark's is not on the sheet as read; the south-bank house,
+beside the cornfield, is given to him. Both seats are set well back from the committed forks water
+(Wright 1834, +/-20 m) because the sheet's outside distances are "not laid down by a scale" and the
+forks lie far beyond anything T-2062's arrangement rule can open out.
+
+**Everything a visitor sees of their shape is invented:** the houses' plans are their drawn boxes at
+the index's forty feet to the inch (an upper bound), one storey of log, eight feet to the plate, a 35
+degree gable and one chimney each, and the way each faces. The field's area is the sheet's "Eight
+acres"; its rectangle (150 x 217 m, 8.03 acres) and the four-course worm fence round it are ours — the
+rectangle drawn clear of the 1835 inferred households' roofs that this project's gate keeps every
+footprint of any date off, and refused in writing for the 1830 plat's streets it lies across, which
+never stand in a scene with it;
+the sheet bounds it with a dotted line, and the fence rests on Whistler's own "common rail fence" north
+of the fort and the "Worm Fence" he letters round Coursoll's field. The corn is recorded and not drawn:
+the flora layer has no cultivated cover.
+
+**The ranges.** All three open on 25 January 1808, the draught's date. The field closes with the first
+fort on 16 August 1812, like the officers' garden. The houses close on 3 July 1816, the day before the
+troops came back, because nothing read names a house at the forks at the reoccupied post; that bound
+is this project's.
+
+**Consequence:** a visitor to 1812 who walks the main stem up to the forks finds two small log houses,
+one either side of the river, and a long rail-fenced field on the south bank where the garrison grew
+its corn. Their presence and their sides of the river are argued; their form and their exact seats
+are ours.
+
+**How to resolve:** a legible reading of the lettering beside the forks houses on a better copy of the
+draught, which may name the soldier's house; any dimension, survey or later record of either house or
+of the field; a cultivated cover in the flora layer, which would plant the field.
+**Ticket:** T-2512.
+**Recorded:** 2026-10-15 (T-2512).
+**Covers:** `forks_house_soldier_1812.soldier_1812.documented_range`, `forks_house_soldier_1812.soldier_1812.position`, `forks_house_soldier_1812.soldier_1812.footprint`, `forks_house_soldier_1812.soldier_1812.form.stories`, `forks_house_soldier_1812.soldier_1812.form.wall_height_m`, `forks_house_soldier_1812.soldier_1812.form.construction`, `forks_house_soldier_1812.soldier_1812.form.roof_type`, `forks_house_soldier_1812.soldier_1812.form.roof_pitch_deg`, `forks_house_soldier_1812.soldier_1812.form.chimneys`, `forks_house_clark_1812.clark_1812.documented_range`, `forks_house_clark_1812.clark_1812.position`, `forks_house_clark_1812.clark_1812.footprint`, `forks_house_clark_1812.clark_1812.form.stories`, `forks_house_clark_1812.clark_1812.form.wall_height_m`, `forks_house_clark_1812.clark_1812.form.construction`, `forks_house_clark_1812.clark_1812.form.roof_type`, `forks_house_clark_1812.clark_1812.form.roof_pitch_deg`, `forks_house_clark_1812.clark_1812.form.chimneys`, `forks_company_cornfield_1812.cornfield_1808.position`, `forks_company_cornfield_1812.cornfield_1808.footprint`, `forks_company_cornfield_1812.cornfield_1808.form.wall_kind`, `forks_company_cornfield_1812.cornfield_1808.form.fence_height_m`, `forks_company_cornfield_1812.cornfield_1808.form.rail_courses`, `forks_company_cornfield_1812.cornfield_1808.form.panel_length_m`, `forks_company_cornfield_1812.cornfield_1808.form.panel_offset_m`, `forks_company_cornfield_1812.cornfield_1808.form.construction`, `forks_company_cornfield_1812.cornfield_1808.form.planting`.
 
 ### L-1812-lees-place-haystacks-2510 — Lee's Place in 1812: four haystacks on the bank opposite the cabin, their count, size, place and season
 
@@ -27550,6 +27638,38 @@ profile, the fretwork and the plate; the 1911 sheet cannot, as it draws the fron
 **Ticket:** T-2519 (piece 1 of T-2458, a piece of T-2426).
 **Review:** `docs/RESEARCH/k16-1638-entrance-2519/README.md`.
 **Recorded:** 2026-10-15 (T-2519).
+
+### L-k16-1638-transom-2520 — 1638 Prairie's door given the glazed transom its photograph shows over the leaves: the bar and the gabled light read, the light's shape north of the print's slope and its joinery reconstructed
+
+**Decision:** the double door in the Shortall-Gregory house's wing wall under the corner tower
+(T-2520, piece 2 of T-2458) gains a transom light over its leaves, the opening's full width: a
+0.12 m bar on the leaves' head, then one light under a low gable, 0.17 m high at the jambs and
+0.39 m at the middle, the corners over its slopes filled with painted board to the opening's square
+head, the casing and its drip cap raised with it. The leaves stay 1.72 m clear as T-2425 read them;
+the opening is now 2.23 m. The pale gabled shape the print shows over the door, which T-2425 left
+unidentified, is this light: in a porch that is black everywhere else it is the leaves' lights' own
+tone, it starts on the south jamb's line and it sits on a dark bar over the head, where light
+falling through the arch would show the wall's boards and would not stop at the jamb.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`) through the
+camera T-2423 solved, at 73 px a metre at the wall: that the door has a light over it; the bar's
+depth (the dark from 659 to 650 px); the light's foot (650 px), its south slope (634 px at 692 px,
+622 px at 725 px, a fall of 0.36) and its apex height (622 px).
+**What is invented.** That the light's head is a symmetric gable with its apex at the door's middle:
+the print's apex stands 9 px (0.13 m) south of it, and north of 737 px the glass reads dark but for
+a lobe falling to 757 px, which is taken as what the glass reflects (the porch's north post and
+soffit) rather than as its shape; the board in the corners over the slopes; the bar's and the
+light's joinery; glass, the print showing it pale; every colour, the print being monochrome.
+**What the record states and the model simplifies.** The steps' run, which this ticket settled
+through the camera (the floor 1.3-1.6 m over the walk in about ten risers, the eye on the far walk
+28-33 m out, the sheet's '2BB' basement making it the floor's height), is not built here: the stoop
+keeps T-2425's four risers from a 0.6 m floor until T-2523 re-solves the camera and raises the
+floor, and T-2524 re-reads the fence at the new scale.
+**How to resolve:** a sharper or second picture of the entrance, or one taken with the porch lit,
+fixes the light's head and its glazing; T-2523 builds the steps.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`.
+**Ticket:** T-2520 (piece 2 of T-2458).
+**Review:** `docs/RESEARCH/k16-1638-steps-transom-2520/README.md`.
+**Recorded:** 2026-10-15 (T-2520).
 
 ### L-k08-1621-bow-iron-2525 — 1621 Prairie's bow given its drawn balcony rail and barred basement lights: the rail's height read, its bars, sections and the grilles' pattern reconstructed
 

@@ -1,0 +1,1052 @@
+{
+  "full": {
+    "drawCalls": 360,
+    "triangles": 4600000
+  },
+  "light": {
+    "drawCalls": 330,
+    "triangles": 1270000
+  },
+  "restored": {
+    "drawCalls": 360,
+    "triangles": 4600000
+  },
+  "before": {
+    "stats": {
+      "drawCalls": 217,
+      "triangles": 3931007,
+      "programs": 66,
+      "geometries": 257,
+      "textures": 443,
+      "batches": 51,
+      "wallRelief": {
+        "off": false,
+        "substrates": {
+          "clapboard": {
+            "id": "clapboard_board_face",
+            "px": 1024,
+            "tileM": 4.48,
+            "meanRough": 0.867
+          },
+          "hewn_log": {
+            "id": "hewn_log_face",
+            "px": 1024,
+            "tileM": 4.08,
+            "meanRough": 0.907
+          }
+        }
+      },
+      "structures": 151,
+      "structuresExpected": 151,
+      "structuresStanding": 151,
+      "bytes": 86959696,
+      "fps": 0,
+      "cameraNear": 0.1,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "withinBudget": true
+    },
+    "batches": [
+      {
+        "instances": 845,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 334,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 126,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 16,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 10,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 6,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 28,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 9,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 7,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 39,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 17,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 10,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 68,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 4,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 9,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 11,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 4,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 2,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 2,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 912,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 590,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 96,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 93,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 60,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 115,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": "dark"
+      },
+      {
+        "instances": 68,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 50,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 24,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 229,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 56,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 3,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 150,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 73,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 83,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 22,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 2,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      }
+    ]
+  },
+  "reduced": {
+    "stats": {
+      "drawCalls": 156,
+      "triangles": 1002089,
+      "programs": 53,
+      "geometries": 254,
+      "textures": 441,
+      "batches": 51,
+      "wallRelief": {
+        "off": false,
+        "substrates": {
+          "clapboard": {
+            "id": "clapboard_board_face",
+            "px": 1024,
+            "tileM": 4.48,
+            "meanRough": 0.867
+          },
+          "hewn_log": {
+            "id": "hewn_log_face",
+            "px": 1024,
+            "tileM": 4.08,
+            "meanRough": 0.907
+          }
+        }
+      },
+      "structures": 151,
+      "structuresExpected": 151,
+      "structuresStanding": 151,
+      "bytes": 119581704,
+      "fps": 0,
+      "cameraNear": 0.1,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 4600000
+      },
+      "withinBudget": true
+    },
+    "batches": [
+      {
+        "instances": 21380,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 225,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 10,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 6466,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 4,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 4,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 571,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 24,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 206,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 175,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 119,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 197,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 126,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 74,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 101,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 61,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1291,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 327,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 103,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 713,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 573,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 37,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 52,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1348,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 80,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 6,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 110,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 121,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 351,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 33,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 6,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 27,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 794,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 409,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 81,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 91,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 60,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 103,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": "dark"
+      },
+      {
+        "instances": 35,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 49,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 24,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 221,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 55,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 294,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 137,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 71,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 82,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 20,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 9,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      }
+    ]
+  },
+  "after": {
+    "stats": {
+      "drawCalls": 216,
+      "triangles": 4084455,
+      "programs": 53,
+      "geometries": 256,
+      "textures": 441,
+      "batches": 51,
+      "wallRelief": {
+        "off": false,
+        "substrates": {
+          "clapboard": {
+            "id": "clapboard_board_face",
+            "px": 1024,
+            "tileM": 4.48,
+            "meanRough": 0.867
+          },
+          "hewn_log": {
+            "id": "hewn_log_face",
+            "px": 1024,
+            "tileM": 4.08,
+            "meanRough": 0.907
+          }
+        }
+      },
+      "structures": 151,
+      "structuresExpected": 151,
+      "structuresStanding": 151,
+      "bytes": 119581704,
+      "fps": 0,
+      "cameraNear": 0.1,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "withinBudget": true
+    },
+    "batches": [
+      {
+        "instances": 845,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 334,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 126,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 16,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 10,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 6,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 28,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 9,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 7,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 39,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 17,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 10,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 68,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 4,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 1,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 9,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 5,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 11,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 4,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 2,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 2,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 912,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 590,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 96,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 93,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 60,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 115,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": "dark"
+      },
+      {
+        "instances": 68,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 50,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 24,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 229,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 56,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 3,
+        "material": "MeshStandardMaterial",
+        "transparent": true,
+        "glass": null
+      },
+      {
+        "instances": 150,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 73,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 83,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 22,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      },
+      {
+        "instances": 2,
+        "material": "MeshStandardMaterial",
+        "transparent": false,
+        "glass": null
+      }
+    ]
+  }
+}

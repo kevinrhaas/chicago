@@ -850,6 +850,8 @@ def _k02(front: dict) -> dict:
 
 BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
+EAVE_FASCIA_M = 0.20       # the K05 eave's fascia on a K01 house: its soffit stands this far under the eaves line
+BRACKETED_CORNICE = "k10.cornice.bracketed_timber"
 
 
 def _bay_span(plan: dict) -> tuple:
@@ -861,8 +863,20 @@ def _bay_span(plan: dict) -> tuple:
     raise ParamError(f"a K01 bay's plan is a polyline or a bow, not a {plan['kind']}")
 
 
+def bracketed_section(k10: dict, overhang: float) -> list:
+    """T-2472: the bracketed timber cornice's section as a bay carries it round its plan,
+    [n out, u up] from the bay's wall top: the kit's bed moulding, then the house's eave
+    over it, a soffit out to `overhang` and a fascia EAVE_FASCIA_M deep whose top is the
+    eaves line. Its brackets are not in it: a bay's own eaves are a band."""
+    bed = [list(q) for q in k10["parts"]["profiles"]["bed_mould"]["points"]]
+    n, u = bed[-1]
+    if overhang < n + 0.1:
+        raise ParamError(f"eave_overhang_m {overhang} leaves the bay's soffit no width past its bed moulding")
+    return bed + [[overhang, u], [overhang, u + EAVE_FASCIA_M], [0.0, u + EAVE_FASCIA_M]]
+
+
 def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False,
-          floors: tuple = (), eave: float = 0.0):
+          floors: tuple = (), eave: float = 0.0, overhang: float = 0.0):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
@@ -960,10 +974,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if "cornice" in ev:
                 k10 = json.loads(K10_KIT.read_text())
                 cv = next((x for x in k10["variants"] if x["id"] == ev["cornice"]), None)
-                if cv is None or cv["kind"] != "moulded" or set(ev) - {"cornice"}:
-                    raise ParamError(f"bays: {e['id']}'s eaves name a K10 moulded cornice and nothing else, "
-                                     f"not {ev}")
-                v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
+                if cv is not None and cv["id"] == BRACKETED_CORNICE and not set(ev) - {"cornice"}:
+                    # T-2472: a bay rising to the bracketed timber cornice carries what of it
+                    # a bow can: its bed moulding, and the house's eave over that (the K05
+                    # soffit out `eave_overhang_m` to a fascia), in the eave's painted timber
+                    v["overrides"]["eaves"]["profile"] = bracketed_section(k10, overhang)
+                    v["overrides"]["eaves"]["role"] = "fascia"
+                elif cv is None or cv["kind"] != "moulded" or set(ev) - {"cornice"}:
+                    raise ParamError(f"bays: {e['id']}'s eaves name a K10 moulded cornice, or "
+                                     f"{BRACKETED_CORNICE}, and nothing else, not {ev}")
+                else:
+                    v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
         # T-2525: an iron balcony rail on a bow's eaves, round its plan from wall to wall
         if "balcony" in e:
             bl = e["balcony"]
@@ -1805,7 +1826,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
-                 openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave)
+                 openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
+                 float(val("eave_overhang_m")))
     if (val("mansard") or {}).get("crown"):
         mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
                                                pitch, float(val("eave_overhang_m")))
