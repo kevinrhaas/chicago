@@ -21,6 +21,11 @@
                     hands that list to tools/web_derivatives.sh, so `--only` derives
                     what it built and not the whole town (T-1653)
 
+Exit status: 0 built something; 1 a full build built nothing; 2 refused (an unverified
+datum, an id no record answers to); 3 a `--only` selection Blender built nothing for,
+which the pure-Python emitters bake.sh runs next may still build (T-2492 — see
+NOTHING_FOR_BLENDER in generators/common/selection.py).
+
 Every STRUCTURE VERSION of a selected id (T-1727; all of them when nothing is
 selected) is baked after the structures, to <out>/versions/<id>/<label>/ and recorded
 in assets/manifest.versions.json — see generators/common/versions.py.
@@ -51,7 +56,8 @@ import mesh_inputs  # noqa: E402
 from common.versions import (asset_key, label_problem, load_versions,  # noqa: E402
                              read_manifest, write_manifest)
 from common.phases import drawn_by_another_layer  # noqa: E402
-from common.selection import REFUSED, parse_only, refusal, selects  # noqa: E402
+from common.selection import (NOTHING_FOR_BLENDER, REFUSED, parse_only,  # noqa: E402
+                              refusal, selects)
 
 
 def argv_after_ddash() -> list[str]:
@@ -323,7 +329,16 @@ def main() -> int:
         if unbuilt:
             print(f"{len(unbuilt)} of {len(only)} selected id(s) built nothing "
                   f"(see the skip lines above): {', '.join(unbuilt)}")
-    return 0 if built else 1
+    if built:
+        return 0
+    # T-2492. A selection Blender built nothing for may still be built by the pure-
+    # Python emitters bake.sh runs next (K01/K12/K13/K16/draft), so say that, with its
+    # own status, rather than fail; bake.sh's empty-list guard is the refusal.
+    if only is not None:
+        print(f"nothing for Blender in this selection (exit {NOTHING_FOR_BLENDER}); "
+              "the pure-Python emitters may still build it")
+        return NOTHING_FOR_BLENDER
+    return 1
 
 
 if __name__ == "__main__":

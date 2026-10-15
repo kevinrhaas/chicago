@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1812, ts: '2026-10-15T14:22:52.342Z', date: 'Oct 15, 2026, 9:22 AM CT', title: 'Haystacks across the river from Lee\'s Place (1812)', kind: 'feature',
+    items: [
+      'Four round haystacks now stand on the South Branch\'s far bank opposite the Lee\'s Place farm, where Wau-Bun puts the farm\'s cattle \'standing among the haystacks on the opposite bank\' in April 1812.',
+      'Three are this summer\'s hay, pale with darker raked tops; one is lower and greyed, the last of the winter\'s. Each is built round its stack pole.',
+      'How many there were, their size and exact place, and that they stood in August are reconstructions, recorded as a liberty on each card.',
+    ] },
+  { v: 1811, ts: '2026-10-15T14:22:52.342Z', date: 'Oct 15, 2026, 9:22 AM CT', title: 'Rebuilding one Prairie Avenue front alone no longer fails', kind: 'fix',
+    items: [
+      'Rebuilding one of the Prairie Avenue houses made by the lighter pure-Python builders (the K01 fronts, the timber fronts, the coach houses, the conservatories and the 1904 draft houses) on its own used to stop at the Blender step, which has nothing to build for them, before their own builder ran. The bake now goes on to that builder and still refuses a selection that nothing builds at all.',
+    ] },
   { v: 1810, ts: '2026-10-15T13:43:33.406Z', date: 'Oct 15, 2026, 8:43 AM CT', title: 'The 1812 Kinzie house\'s card shows six more pictures of it', kind: 'feature',
     items: [
       'The Kinzie house\'s Images tab in 1812 now lists the 1893 atlas plate, the Teich postcard, Eastman\'s 1820 engraving, Gemmell\'s 1820 lithograph, and Sarony\'s lithograph of Juliette Kinzie\'s sketch in Currey (1912) and Kirkland (1893), each with its credit.',

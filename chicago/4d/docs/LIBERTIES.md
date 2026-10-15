@@ -27190,6 +27190,52 @@ Previously flat stair returns and Light stair, pier and boundary faces receive a
 Rear-gate ledges and braces receive grain along their own timber axis, at the existing physical oak texture scale. Cut ends retain a generic original oak study on a noncollapsed mapping; their growth rings are not measured or simulated. Joint positions, supports, contacts, hardware and silhouettes remain the existing reconstruction. Full and Light use the same new material library; the simplified tier does not acquire additional geometry.
 
 Neutral-light diagnostics distinguish the scene's blue shade from the owner-approved grey-greige granite. They are capture-only observations, not a historical colour calibration or a change to July lighting. Existing dark glazing and restrained material roughness remain. No new directional dirt map, orange iron rust, modern copper patina or neglected mid-century decay is invented for the seventeen-year-old house. The separately cited family typescript remains a textual comparison with its unresolved rights unchanged; these new assets derive only from original project textures, numeric construction and cleared references. Exact period weathering is still unmeasured.
+
+### L-1812-lees-place-haystacks-2510 — Lee's Place in 1812: four haystacks on the bank opposite the cabin, their count, size, place and season
+
+**Decision:** four round haystacks stand in the 1812 scene on the South Branch's south-east bank,
+across the river from Lee's cabin, as `lees_place_haystack_1812_a` to `_d` at a new `haystack`
+archetype (one stack to a record). **That there were haystacks, with cattle among them, on the bank
+opposite the cabin, with woods close behind them, is the source's**: Wau-Bun, ch. XVIII, telling the
+afternoon in April 1812 when the discharged soldier and Lee's son got away from the war party by
+crossing to fodder the cattle "standing among the haystacks on the opposite bank" and going round
+behind the stacks into the woods. **Their number, size, form, exact place and the season they stand
+in are this project's.**
+
+**Count and size.** Wau-Bun says "haystacks" and no more. Four is enough for cattle to stand among
+and for two people to go round them out of sight of the far bank. Each is a round stack about 3.5 to
+3.9 m across and 4.2 to 4.5 m to the peak, two or three tons of loose hay pitched by hand round a
+stack pole: the scale a single farm stacks at, and big enough to hide a man, which a cock of hay is
+not.
+
+**Form.** The bottom drawn in, the body bellied, the top drawn in from the shoulder to a peak and
+drawn a shade darker where it was raked to shed the rain, the pole standing clear of the peak. No
+picture of the stacks exists; the form is the hand-built round stack generally, not a reading of
+these.
+
+**The seat** is a ruling on T-2501's ruling: on the line through T-2501's station and the channel's
+centre, carried across the river along the bank's normal, 42 to 62 m from the centre (beyond the
+bank face T-2502's apron draws) and up to 14 m up or down the river from that line, 8 to 12 m apart.
+Wau-Bun gives the side and nothing else.
+
+**The season.** The source's stacks were the winter's, fed from in April. The scene stands in August,
+when a farm that stacked on that bank in 1811 is taken to have cut and stacked there again in July,
+so three of the four are this season's hay and one, lower and greyed, is the last of the winter's.
+Nobody records whether Lee's Place was worked at all after the April raid. The stacks close on 16
+August 1812, the day the post was burned, after Lee and most of his household fell on the 15th.
+
+**Not built:** the cattle, the woods behind the stacks, the canoes and anybody at all (L1).
+
+**Consequence:** a visitor to 1812 at Lee's Place sees four haystacks across the river from the
+cabin. That they stood on that bank is a source's; how many, how big, exactly where and in which
+summer are ours.
+
+**How to resolve:** any other account of Lee's Place that counts or places the stacks, sizes the
+meadow, or says whether the farm was worked between April and August 1812.
+**Ticket:** T-2510.
+**Recorded:** 2026-10-15 (T-2510).
+**Covers:** `lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`
+
 ### L-1812-potawatomi-camp-2515 — The Potawatomi camp of August 1812: its three groups on the creek, its 26 lodges, and the lodge's form and size
 
 **Decision:** the camp of the Potawatomi gathered at Chicago in August 1812 stands in the 1812 scene
