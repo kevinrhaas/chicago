@@ -27197,9 +27197,9 @@ the east bank climbs onto the ridge east of State), each 28 x 20 m and 4-6 m cle
 the number of lodges, 26, which counts nothing: the one size given is Heald's "between four hundred
 and five hundred" warriors at the fight of the 15th (Currey ch. III), with their families in the camp,
 which would have needed far more lodges, so the drawn camp understates the gathering instead of
-claiming a figure; the scatter; the bearing of every door (north, to the river); two cold fire rings
-and two woodpiles per group, with the archetype's stone ring, pot crane and kettle; which group's mats
-are new and which weathered.
+claiming a figure; the scatter; the bearing of every door (north, to the river); and which group's
+mats are new and which weathered. No fire is drawn outside the lodges: the archetype's fire ring is a
+settler's stone ring, pot crane and kettle, and no source describes the camp's fires.
 
 **The lodge.** Its covering and frame are inferred from Wau-Bun, which describes the inside of a mat
 lodge in 1831 ("the mats of which the lodge was constructed ... depending from the poles or
@@ -27207,7 +27207,7 @@ frame-work", the smoke "escaping through an opening in the top", a mat "which hu
 entrance", ch. XVI) and the rush mats "used in covering their wigwams" (ch. VII). Those passages do not
 describe this camp, and they give no shape and no size. **Invented:** the oval dome and its
 superellipse profile; 3.40 x 4.60 m on the ground and 2.40 m to the crown; the door on the long axis,
-0.75 x 1.25 m, and the mat rolled up over it; the smoke opening at 16 % of the plan's radii; the four
+0.88 x 1.34 m, and the mat rolled up over it; the smoke opening at 16 % of the plan's radii; the four
 lapped courses of mat; the two poles laid over the mats; the mats' colour. It is never a hide tipi:
 Moses and Kirkland's buffalo-hide "teepees" (1895, v1 p. 32) picture 1803 from 1895 and are not used.
 Bark covering, which Wau-Bun gives its villages, is not drawn: a party come in to a gathering carried

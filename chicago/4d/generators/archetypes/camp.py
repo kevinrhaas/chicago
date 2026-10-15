@@ -204,79 +204,62 @@ def _lodge_ring(z_frac: float) -> float:
 def _mat_lodge(p: _Placed) -> None:
     """A mat lodge, door at y = 0, centred on x = 0: an oval dome of rush mats on a
     bent-pole frame, laid in lapped courses, a smoke opening at the crown, a mat
-    rolled up over the door, and two poles laid over the mats to hold them down.
-    Nobody at the door and no smoke (L1)."""
+    rolled up over the door, and a pole laid over the mats to hold them down.
+    Nobody at the door and no smoke (L1).
+
+    Kept lean on purpose: 26 of these stand in the 1812 scene and the published tree
+    has almost no headroom (validate.py's SITE_BUDGET_MB), so the dome is twelve
+    facets round and each course one band, which is about a sixth of the faces of
+    a finer build and reads the same from the bank."""
     a, b, H = LODGE_W_M / 2.0, LODGE_D_M / 2.0, LODGE_H_M
     cy = b
-    n = 24
-    # the plan angle of each meridian; the door is at -90 degrees, y = 0
-    th = [2 * math.pi * j / n - math.pi / 2.0 for j in range(n)]
+    n = 12
+    # the plan angle of each facet's first edge; the door is centred at -90 degrees,
+    # y = 0, so the facets are offset half a step to put an edge either side of it
+    th = [2 * math.pi * (j - 0.5) / n - math.pi / 2.0 for j in range(n)]
     s_top = LODGE_SMOKE_HOLE
     z_top = H * (1.0 - s_top ** 2.6) ** (1.0 / 2.6)
 
     def pt(theta, s, z, out=0.0):
         return ((a * s + out) * math.cos(theta), cy + (b * s + out) * math.sin(theta), z)
 
-    # the door's half-angle on the plan, so the lowest courses leave it open
-    door_half = math.asin(min(1.0, (LODGE_DOOR_W_M / 2.0) / a))
-
-    def in_door(j):
-        mid = th[j] + math.pi / n
-        dd = math.atan2(math.sin(mid + math.pi / 2.0), math.cos(mid + math.pi / 2.0))
-        return abs(dd) < door_half
-
     # the mats, in four lapped courses: each starts a little proud of the course
-    # under it and a little lower, so the joints read as mats laid like shingles
+    # under it and a little lower, so the joints read as mats laid like shingles.
+    # The lowest courses leave the door's facet open.
     courses = [0.0, 0.30, 0.56, 0.78, z_top / H]
     lip = 0.035
     for k in range(len(courses) - 1):
-        z0, z1 = courses[k] * H, courses[k + 1] * H
-        zs = [z0 + (z1 - z0) * i / 2 for i in range(3)]
-        for i in range(2):
-            za, zb = zs[i], zs[i + 1]
-            sa, sb = _lodge_ring(za / H), _lodge_ring(zb / H)
-            oa = lip if i == 0 and k > 0 else 0.0
-            za_ = za - (0.05 if i == 0 and k > 0 else (0.04 if k == 0 and i == 0 else 0.0))
-            for j in range(n):
-                if za < LODGE_DOOR_H_M - 1e-6 and in_door(j):
-                    continue
-                t0, t1 = th[j], th[(j + 1) % n]
-                p.poly([pt(t0, sa, za_, oa), pt(t1, sa, za_, oa),
-                        pt(t1, sb, zb), pt(t0, sb, zb)], M_MAT)
-    # the doorway: the dark inside behind the gap the courses leave, and a mat
+        za, zb = courses[k] * H, courses[k + 1] * H
+        sa, sb = _lodge_ring(za / H), _lodge_ring(zb / H)
+        oa, za_ = (lip, za - 0.05) if k else (0.0, za - 0.04)
+        for j in range(n):
+            if j == 0 and za < LODGE_DOOR_H_M:
+                continue
+            t0, t1 = th[j], th[(j + 1) % n]
+            p.poly([pt(t0, sa, za_, oa), pt(t1, sa, za_, oa),
+                    pt(t1, sb, zb), pt(t0, sb, zb)], M_MAT)
+    # the doorway: the dark inside behind the facet the courses leave open, and a mat
     # rolled up and tied over it — Wau-Bun's mat "which hung over the entrance"
-    j_door = [j for j in range(n) if in_door(j)]
-    for j in j_door:
-        t0, t1 = th[j], th[(j + 1) % n]
-        for i in range(3):
-            za = LODGE_DOOR_H_M * i / 3
-            zb = LODGE_DOOR_H_M * (i + 1) / 3
-            sa, sb = _lodge_ring(za / H), _lodge_ring(zb / H)
-            p.poly([pt(t0, sa, za, -0.05), pt(t1, sa, za, -0.05),
-                    pt(t1, sb, zb, -0.05), pt(t0, sb, zb, -0.05)], M_DARK)
+    zc = courses[2] * H
+    sc = _lodge_ring(zc / H)
+    p.poly([pt(th[0], 1.0, 0.0, -0.05), pt(th[1], 1.0, 0.0, -0.05),
+            pt(th[1], sc, zc, -0.05), pt(th[0], sc, zc, -0.05)], M_DARK)
     s_d = _lodge_ring(LODGE_DOOR_H_M / H)
     yd = cy - b * s_d - 0.10
     p.log_x(-LODGE_DOOR_W_M / 2.0 - 0.08, LODGE_DOOR_W_M / 2.0 + 0.08, yd,
-            LODGE_DOOR_H_M + 0.06, 0.08, M_MAT, n=8)
+            LODGE_DOOR_H_M + 0.06, 0.08, M_MAT, n=5)
     # the smoke opening at the crown, the frame's dark inside showing through
     p.poly([pt(t, s_top, z_top - 0.03) for t in th], M_DARK)
-    # the frame: two poles laid over the mats, one across the lodge and one round it
-    # at shoulder height, which is how the bent poles show from outside
-    arc = [(i / 10.0) for i in range(11)]
+    # the frame: a pole laid over the mats across the lodge, which is how the bent
+    # poles show from outside
     for side in (0.0, math.pi):
         prev = None
-        for f in arc:
-            z = min(z_top, f * z_top)
-            q = pt(side, _lodge_ring(z / H), z, 0.06)
+        for f in (0.0, 0.6, 1.0):
+            z = f * z_top
+            q = pt(side, _lodge_ring(z / H), z, 0.05)
             if prev is not None:
                 p.rod(prev, q, 0.03, M_WOOD)
             prev = q
-    zg = 0.95
-    sg = _lodge_ring(zg / H)
-    for j in range(n):
-        if in_door(j):
-            continue
-        p.rod(pt(th[j], sg, zg, 0.06), pt(th[(j + 1) % n], sg, zg, 0.06), 0.03, M_WOOD)
 
 
 def _wagon(p: _Placed) -> None:

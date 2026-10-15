@@ -102,8 +102,8 @@ WAGON_TRACK_M = 1.52          # outside width over the wheels, the 5 ft gauge
 LODGE_W_M = 3.40              # across the door (u)
 LODGE_D_M = 4.60              # door to back (v)
 LODGE_H_M = 2.40              # ground to the crown
-LODGE_DOOR_W_M = 0.75
-LODGE_DOOR_H_M = 1.25
+LODGE_DOOR_W_M = 0.88          # one facet of the twelve, at the ground
+LODGE_DOOR_H_M = 1.34          # up to the third course
 LODGE_SMOKE_HOLE = 0.16       # the crown's opening, as a fraction of the plan's radii
 
 BRUSH_SHELTER_W_M = 2.40

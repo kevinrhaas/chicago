@@ -17,7 +17,7 @@
           "kinzie_waubun_1856",
           "currey_1912_old_fort_dearborn"
         ],
-        "note": "THE CAMP OF THE AUGUST GATHERING, DATED BY TWO EVENTS AND NOT BY A DAY IT WAS PITCHED. It opens on 12 August 1812: 'The Indians being assembled from the neighboring villages, a council was held with them on the afternoon of the 12th' (Wau-Bun ch. XVIII), so the gathering was camped by then; Heald's letter has them coming 'from all quarters' for the factory's goods, and nothing dates the first lodge, so the camp may be older than its range. It stood on the 14th, the scene date (Currey 1912 ch. III (lines 2239-2248), the view from the fort's walls on the evening of the last day, 14 August 1812: 'Toward the west was the Agency House, standing near the bank of the river, beyond which were the groups of Indian wigwams clustered along the creek that formerly flowed into the main stream at the present State Street.'), and on the 15th (Wau-Bun ch. XIX, Mrs. Helm's narrative of 15 August: led 'back towards the Chicago River, along the southern bank of which was the Pottowattamie encampment', to 'one of the wigwams', where water was dipped 'from a stream that flowed near' (Kinzie's footnote 36: 'Along the present State Street').). It closes on 16 August, the morning the fort was burned (Wau-Bun ch. XIX); when the gathering broke up after that no source read here says, and the 16th is the bound this project chose. Nothing of 1835 can draw it. T-2515."
+        "note": "As potawatomi_camp_1812_mouth, whose note gives the reasoning in full: the camp of the August gathering, open on 12 August 1812 (Wau-Bun ch. XVIII, the council 'on the afternoon of the 12th') and standing on the 14th (Currey ch. III) and the 15th (Wau-Bun ch. XIX); closed on 16 August, the morning the fort burned, a bound this project chose. T-2515."
       },
       "position": {
         "utm_e": 447780.7,
@@ -61,12 +61,12 @@
         "tents": {
           "value": 8,
           "confidence": "reconstructed",
-          "note": "8 LODGES IN THIS GROUP, 26 ACROSS THE THREE, AND 26 IS A FIGURE THIS PROJECT STATES, NOT A COUNT. No source counts the lodges. The one size the sources give for the gathering is Heald's, of the fight on the 15th: 'The number of their warriors, Heald said, was between four hundred and five hundred, mostly of the Potawatami nation' (Currey ch. III, lines 2763-2765), and the warriors' families were in the camp too ('the Indian camp, near the fort, where had been left their squaws and children', Wau-Bun ch. XIX). A gathering that size would have needed many more lodges than are drawn, and some may have camped elsewhere. The drawn camp is held to what the creek's level west bank gives between the river and the Randolph line, and it understates the gathering rather than claim a number. L-1812-potawatomi-camp-2515."
+          "note": "As potawatomi_camp_1812_mouth, whose note gives the reasoning in full: 8 lodges in this group and 26 across the three is a figure this project states, not a count; Heald's 'between four hundred and five hundred' warriors (Currey ch. III) and their families would have needed many more, so the camp understates the gathering. L-1812-potawatomi-camp-2515."
         },
         "tent_kind": {
           "value": "lodge",
           "confidence": "inferred",
-          "note": "MAT LODGES ON BENT-POLE FRAMES, NEVER A HIDE TIPI. Currey and Wau-Bun both call them wigwams; Wau-Bun describes one from inside, in 1831 — 'the mats of which the lodge was constructed were very neat and new, and against the sides, depending from the poles or frame-work, hung various bags', the smoke 'escaping through an opening in the top', a mat 'which hung over the entrance' (ch. XVI) — and the rush mats the women made 'used in covering their wigwams' (ch. VII). The covering and the frame are inferred from those passages, which describe lodges of the same years and region but not this camp; the oval dome and every dimension are the archetype's (L-1812-potawatomi-camp-2515). Moses and Kirkland's buffalo-hide 'teepees' (1895, v1 p. 32, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 5118-5122) are the later author picturing 1803 and are not used. Wau-Bun's villages are of 'neat bark wigwams' (chs. XXV, XXXIII); a party come in to a gathering carried its mats, and bark is not drawn here."
+          "note": "As potawatomi_camp_1812_mouth, whose note gives the reasoning in full: mat lodges on bent-pole frames, inferred from Wau-Bun's lodge 'constructed' of mats on 'poles or frame-work' (ch. XVI) and its rush mats 'used in covering their wigwams' (ch. VII); never Moses and Kirkland's hide 'teepees'. The oval dome and its size are the archetype's. L-1812-potawatomi-camp-2515."
         },
         "wagons": {
           "value": 0,
@@ -79,14 +79,14 @@
           "note": "None. L-1812-potawatomi-camp-2515."
         },
         "fire_rings": {
-          "value": 2,
+          "value": 0,
           "confidence": "reconstructed",
-          "note": "Two cooking fires among the lodges, drawn out: no flame, no smoke, nobody at them (L1). That the camp cooked is Wau-Bun's (the kettle of ch. XIX); the stone rings, the pot crane and the hung kettle are the archetype's kit, and so a liberty. L-1812-potawatomi-camp-2515."
+          "note": "None drawn. The camp cooked (Wau-Bun's kettle, ch. XIX), but the archetype's fire ring is a settler's stone ring, pot crane and hung kettle, and no source describes the camp's fires; the lodges' own hearths are inside them. L-1812-potawatomi-camp-2515."
         },
         "woodpiles": {
-          "value": 2,
+          "value": 0,
           "confidence": "reconstructed",
-          "note": "Firewood by the fires. Invented. L-1812-potawatomi-camp-2515."
+          "note": "None. L-1812-potawatomi-camp-2515."
         },
         "baggage_heaps": {
           "value": 0,
@@ -114,14 +114,14 @@
       "kinzie_waubun_1856",
       "currey_1912_old_fort_dearborn"
     ],
-    "note": "The camp of the Potawatomi gathered at Chicago in August 1812, before the evacuation of the fort: Wau-Bun's 'Pottowattamie encampment' on the river's south bank (ch. XIX) and Currey's 'groups of Indian wigwams clustered along the creek' on 14 August (ch. III). Heald's letter says they came in for the goods of the factory store; Wau-Bun's council of the 12th was held with them. Whose lodges these were the sources do not say lodge by lodge — Wau-Bun names the wife of Wau-bee-nee-mah, 'a chief from the Illinois River', standing at one wigwam — and no lodge here is given to a family, a band or a person."
+    "note": "As potawatomi_camp_1812_mouth, whose note gives the reasoning in full: the camp of the Potawatomi gathered at Chicago in August 1812, Wau-Bun's 'Pottowattamie encampment' (ch. XIX) and Currey's 'groups of Indian wigwams clustered along the creek' (ch. III). No lodge is given to a family, a band or a person."
   },
   "occupants": {
     "value": "Nobody this layer names or counts. The camp stands for the families of the gathering, whom no roll counts; no household card is minted for it and no name, band or person is given to any lodge. No figure is drawn (L1).",
     "confidence": "reconstructed",
     "note": "Seats nobody: see the value. T-2515."
   },
-  "research_note": "THIS RECORD IS FLAGGED review_required, AND touches_removal, because it builds the camp of the Potawatomi gathered at Chicago on the eve of 15 August 1812 — the people whose land this was and who were removed from it in 1835 — from accounts written by the garrison's side and settler historians. AGENTS.md § Standing constraint commits the project to review by Native scholars or community organisations before any scene carrying such a record is marked released; that review has not been held, and the 1812 scene stays unreleased (T-0472). Built on the owner's ruling of 2026-10-13, 'You can include native lodges as documented' (T-2490, T-2515). NOTHING IS STAGED: no figure, no flame, no smoke, no ceremony, no council, no dialogue and nothing of the next morning. The lodges stand empty, as every building in this project does. WHAT WOULD REPLACE THIS: a source that counts or maps the lodges of August 1812, sizes or pictures one, or places the camp on the creek more exactly; any of them would move, re-form or retire these groups.",
+  "research_note": "THIS RECORD IS FLAGGED review_required, AND touches_removal, because it builds the camp of the Potawatomi gathered at Chicago on the eve of 15 August 1812 — the people whose land this was and who were removed from it in 1835 — from accounts written by the garrison's side and settler historians. AGENTS.md § Standing constraint commits the project to review by Native scholars or community organisations before any scene carrying such a record is marked released; that review has not been held, and the 1812 scene stays unreleased (T-0472). NOTHING IS STAGED: no figure, no flame, no smoke, no ceremony and nothing of the next morning. The full note, and what would replace this, is on potawatomi_camp_1812_mouth. T-2515.",
   "review_required": true,
   "touches_removal": true
 }
