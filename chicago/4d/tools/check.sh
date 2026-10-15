@@ -226,6 +226,8 @@ selftest "…and the draft builder still fits rectangles inside a part, reads th
   python3 tools/draft_prairie_1904.py --self-test
 step "the Prairie district draft's houses are the bytes their records build (T-2329)" \
   python3 generators/draft_emit.py --check
+step "the haystacks are the bytes their records build (T-2510)" \
+  python3 generators/haystack_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
