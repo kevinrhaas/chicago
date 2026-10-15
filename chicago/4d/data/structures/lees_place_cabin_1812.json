@@ -1,0 +1,124 @@
+{
+  "id": "lees_place_cabin_1812",
+  "name": "Lee's Place (Hardscrabble): the farm cabin on the South Branch",
+  "aka": [
+    "Messrs. Russell and Lee's cabin (Captain Heald, 15 April 1812)",
+    "the log house at Hardscrabble (Currey 1912)",
+    "Lee's place, later known as Hardscrabble (Moses and Kirkland)"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "lees_place_1812",
+      "documented_range": {
+        "from": "1812-04-06",
+        "to": "1822-12-31",
+        "confidence": "reconstructed",
+        "sources": [
+          "moses_kirkland_history_of_chicago_v1",
+          "currey_1912_old_fort_dearborn",
+          "chicago_antiquities_american_fur_co"
+        ],
+        "note": "THE OPENING IS A DATED MENTION AND THE CLOSE IS A BOUND THIS PROJECT CHOSE. It opens on 6 April 1812, the evening Captain Heald's letter of 15 April puts a party at 'Messrs. Russell and Lee's cabin, in a field on the Portage branch of the Chicago river' (Moses and Kirkland 1895, p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6878-6885): the first dated day a source puts the cabin on the ground. It is older than that, and no source says how much: Currey has it 'built some time after Fort Dearborn had been established' (the plate's caption, Gutenberg #52346 plain text lines 1482-1487), so after 1803. It closes at the end of 1822, the last year a source puts a house on the same premises: Gurdon Hubbard, as Hurlbut printed him (data/research/books/text/hurlbut_chicago_antiquities_28_36.txt lines 58-61), sets John Crafts's trading house 'about half a mile below Bridgeport, (\"Hardscrabble\" - the same premises, where in April 1812, two murders were committed by the Indians)', and 'In 1822, Crafts succumbed, and engaged himself to the American Fur Company' (same, lines 61-64). Whether Crafts traded from Lee's cabin or built his own is not known, so the close is a bound and not a reading (L-1812-lees-place-2509). It is out of 1835 either way."
+      },
+      "position": {
+        "utm_e": 445424.34,
+        "utm_n": 4633178.44,
+        "rotation_deg": 151.0,
+        "symbolic_location": "Lee's Place, on the north-west bank of the South Branch half a mile below the later canal mouth at Bridgeport (T-2501's ruled reach), about 30 m back from the bank at the reach's station; local E -1661.1..-1645.7, N -4229.2..-4217.4, its river front facing south-south-east across the channel.",
+        "confidence": "reconstructed",
+        "sources": [
+          "chicago_antiquities_american_fur_co",
+          "moses_kirkland_history_of_chicago_v1",
+          "currey_1912_old_fort_dearborn",
+          "currey_1912_hardscrabble_plate"
+        ],
+        "note": "SEATED ON T-2501's RULING, NOT MEASURED. data/terrain/1812_hardscrabble_site.json rules the farm onto a REACH of the north-west bank, 0.25 to 0.75 mi below Bridgeport by river, with its station half a mile below (Hubbard's 'about half a mile below Bridgeport ... on the north side of the river, (south branch)'), at local E -1638.9, N -4249.5; it says the cabin's place on that reach is this ticket's. THE RULING HERE: the cabin's centre stands 30 m inland of the station along the bank's own normal (bearing 331 degrees), on T-2502's apron at its 1.31 m land grade, with its long front facing the river (rotation 151 degrees, the normal reversed). Why near the bank: every account puts the cabin by the water - Wau-Bun has the men's canoes 'tied near the bank' in sight of the cabin door, Currey says the farm and the fort talked 'by means of canoes', and the 1912 plate (currey_1912_hardscrabble_plate, tier 5) draws the house a few rods back from the bank inside the field's fence with a canoe below it. The 30 m is this project's (L-1812-lees-place-2509); the plate gives no distance. Why the station's normal and not a point up or down the reach: no source distinguishes one place on the reach from another, so the cabin takes the one point the ruling names. The bearing to the fort is about 3.3 miles in a straight line, inside Heald's 'about three miles from the garrison' (T-2501's own test). If the reach moves, the cabin moves with it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage): the cabin is seated on T-2501's ruled reach of the 1812 South Branch, which the structure-position derivations do not read. The seat is a stated ruling recorded as L-1812-lees-place-2509."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            14.6,
+            0
+          ],
+          [
+            14.6,
+            5.5
+          ],
+          [
+            0,
+            5.5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "Unattested in size. Proportioned on the 1912 plate, which draws a long, low house whose river front is about two and a half times its gable end and carries three doors and six windows: 48 x 18 ft (14.6 x 5.5 m). The plate is a retrospective picture (tier 5) and gives no measure, so the size is this project's (L-1812-lees-place-2509). A log house this long is two pens under one roof, which the plate's three doors also suggest; the archetype builds it as one."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "moses_kirkland_history_of_chicago_v1",
+            "currey_1912_old_fort_dearborn",
+            "currey_1912_hardscrabble_plate"
+          ],
+          "note": "One storey. Heald and Currey both call it a cabin, and the 1912 plate draws a single low storey with nothing in the roof."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "reconstructed",
+          "note": "Unattested. About eight feet of log to the plate; the plate's front is low, a little over a door's height to the eave."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "currey_1912_old_fort_dearborn"
+          ],
+          "note": "Currey 1912: 'On this tract stood a log cabin in which a number of men employed by Lee lived and carried on the work of the farm' (Gutenberg #52346 plain text lines 1456-1457), and 'the log house at Hardscrabble' (lines 1495-1496)."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "currey_1912_hardscrabble_plate"
+          ],
+          "note": "The 1912 plate draws a dark gable roof whose ridge runs along the river front. A retrospective picture, so inferred and not attested."
+        },
+        "roof_pitch_deg": {
+          "value": 30.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. The plate's roof is low; 30 degrees is read off it only roughly, and the plate is tier 5."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "currey_1912_hardscrabble_plate"
+          ],
+          "note": "One stack, which the 1912 plate draws standing outside one gable end. The plate draws it against the LEFT gable as seen from the river; the archetype stands its single stack against the other end (generators/archetypes/log_dwelling.py, _chimneys), which is a difference the image gate records."
+        }
+      },
+      "change_note": "Built T-2509 (2026-10-15), piece 1 of T-2503: the farm cabin at Lee's Place in the 1812 scene, on T-2501's ruled reach and T-2502's apron ground."
+    }
+  ],
+  "function": {
+    "value": "dwelling_farmstead",
+    "confidence": "attested",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "note": "The farm's cabin, where Lee's hired men lived and worked the farm; Lee and his family lived in their house near the fort (lee_house_1812). Currey 1912 (lines 1456-1458); Heald calls it 'Messrs. Russell and Lee's cabin, in a field'."
+  },
+  "research_note": "LEE'S PLACE, LATER HARDSCRABBLE: the farm Charles Lee worked on the South Branch, and its log cabin, where on 6 April 1812 Liberty White and a Canadian Frenchman whose name Heald did not know (Debou in Currey) were killed by a war party Heald took to be Winnebagoes; the discharged soldier and Lee's son escaped across the river and ran to the fort. WHERE: four placings that do not all meet (data/terrain/1812_hardscrabble_site.json, T-2501): Heald's three miles from the garrison and Moses and Kirkland's north-west bank near the forks agree with the ruled reach; Currey puts it at the canal's mouth itself, half a mile above, and his caption's four miles from the river's mouth falls a mile short of both. The scene card `where_lees_place_stood` says so to the visitor. WHAT IT LOOKED LIKE: only the 1912 plate (currey_1912_hardscrabble_plate), drawn a century later by a maker the book does not name; it is tier 5, and the cabin is built toward it through the image gate (data/reference_views/lees_place_cabin_1812/). WHAT IS NOT BUILT: the haystacks Wau-Bun puts with the cattle on the OPPOSITE bank (T-2510), the plate's three outbuildings, and the cattle. It carries review_required because its card and this record speak of a killing in the war of 1812, an event of Winnebago and Potawatomi history as much as the settlers', and the 1812 scene waits on the review T-0472 holds it for. Nobody is drawn in or near it (L1).",
+  "review_required": true
+}
