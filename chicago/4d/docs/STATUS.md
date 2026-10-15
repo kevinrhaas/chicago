@@ -1,3 +1,38 @@
+## T-2501 — Lee's Place (Hardscrabble) placed, not pinned (2026-10-15)
+
+T-2488 asked for the 1812 farm on the South Branch. The farm site is about 1.4 km west and
+450 m south of the e1830_natural box, and the ticket's own first step was a ruling. **Ruled:
+extend the 1812 ground; do not use a detached patch.** No patch mechanism exists. Outside the box
+the renderer seats walkers and footprints at its 0 m fallback, under an apron drawn at
+1.31 m, and `measure_anchors.mjs --gate` refuses any anchor there. Every account of the farm
+also puts it on the river bank. The ticket is split: **T-2501**
+(this, the trace and the site), **T-2502** (the ground carried to the site) and **T-2503**
+(the farm built on it, image-gated on Currey's "Hardscrabble" picture).
+
+- `tools/trace_south_branch_bridgeport_rees_1849.py` traces the South Branch on Rees &
+  Rucker 1849, through its committed fit (RMS 25.0 m), from the committed reach's last vertex
+  40 m below the box floor to the canal's mouth at Bridgeport. It is a least-cost path over
+  the same ink-density field, because the channel turns west below Cermak Road and a
+  row-stepping programme cannot follow it there. The reach is 2,417 m long and reaches the forks
+  at 2,269 m. Widths run 30-87 m (median 57.6), and the first one is 62.7 m against the reach
+  above's last 67.2 m. Everything is `inferred`. The file is
+  `data/terrain/1812_south_branch_to_bridgeport.geojson`, a measuring line that no epoch reads yet.
+- `tools/derive_hardscrabble_1812.py` reads `data/terrain/1812_hardscrabble_readings.json`
+  (five placings, quoted) and writes `data/terrain/1812_hardscrabble_site.json`. **Adopted:
+  Hubbard's "about half a mile below Bridgeport … on the north side"**, as a station on the
+  north-west bank with its reach 0.25-0.75 mi below the canal. **Agree:** Heald's "about three
+  miles from the garrison" (3.28 mi in a straight line) and Moses & Kirkland's "northwestern
+  side … near its forks" (657 m below the forks). **Differ:** Currey's text puts the farm *at*
+  the canal's mouth (3.76 mi south-west of the fort, which fits his four miles). His caption's
+  "four miles from the mouth" falls, by river, at the box floor, about a mile short of both
+  points (the mouth to Bridgeport is 5.51 mi by river). Both disagreements are printed, not
+  resolved.
+- A new source record, `currey_1912_old_fort_dearborn` (tier 3, Gutenberg #52346, sha256
+  recorded). Its "Hardscrabble" illustration has not been opened and is T-2503's.
+- **Unverified:** the bank widths read a few metres wide of the drawn stroke, as the reach
+  above's do, and T-2502 may refine them. The main stem is measured on its south bank and across
+  the forks window on a 316 m chord, so the river distances are slightly short.
+
 ## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
 
 Service posts now seat on actual treads, rail bars join continuously, and brick
@@ -7,8 +42,9 @@ the excluded 1955 stable stair. Exact 1904 finish details remain reconstructed;
 the owner's stone colour and dark glass are preserved. Functional geometry,
 canonical bake and package checks pass; all ten fixed-camera Full/Light browser
 views pass unchanged budgets with no errors. Mobile loads 124 credited images
-and the reconstruction note. T-2226 retains the Light supports' missing mortar
-pattern and gate member grain. Preflight and exact-commit CI receipts are
+and the reconstruction note. T-2226 adds the Light supports' mortar pattern
+and aligns the gate member grain; its surface report records the comparison.
+Preflight and exact-commit CI receipts are
 maintained on the PR.
 [Evidence, dating and bounds](RESEARCH/glessner-service-access-T-2223/README.md).
 T-2227 retains existing scene-budget issues; T-2228 retains photo acceptance.

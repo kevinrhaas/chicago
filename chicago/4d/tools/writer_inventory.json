@@ -664,6 +664,20 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its one output, changed no committed byte; `--check` reads and writes nothing in-tree.",
       "placed": "after measure_shore_1812_harrison.py, beside the 1812 shore whose output it reads (T-0470)"
     },
+    "derive_hardscrabble_1812.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its one output, changed no committed byte; `--check` reads and writes nothing in-tree.",
+      "placed": "after derive_evacuation_1812.py, beside the 1812 shore whose output it reads (T-2501)"
+    },
+    "trace_south_branch_bridgeport_rees_1849.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 2s with the Rees 1849 raster at /tmp/rees_rucker_1849.jpg (sha256-checked against the GCP file) and numpy, scipy and Pillow installed; it wrote its one output and changed no committed byte.",
+      "placed": "Not placed, because it needs the uncommitted Rees 1849 raster, fetched over the network, as its sibling trace_south_branch_rees_1849.py does, and a rederive must run offline. Its offline half, --check-properties, gates the committed file in check.sh. It can join the manifest only once a rederive can reach the raster."
+    },
     "derive_shore_1812.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

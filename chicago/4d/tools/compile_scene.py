@@ -34,6 +34,7 @@ DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 from review_constraint import record_reason  # noqa: E402
 from tiers import tier_ladder, tier_label  # noqa: E402
+from exclusion_scope import ruled_for  # noqa: E402
 from associations import HOME_KINDS, WORK_KINDS, read_bounds  # noqa: E402
 sys.path.insert(0, str(ROOT / "generators"))
 from common.materials import fabric_tone  # noqa: E402
@@ -358,6 +359,10 @@ def compile_exclusions(scene_id: str, scene: dict, target: dt.date,
     # why, so the panel says so rather than listing 1835 buildings under a 1904 badge.
     applies = "exclusions" in scene.get("layers", [])
     for ex in (exclusions.get("excluded", []) if applies else []):
+        # T-2489: and of the scenes that list it, only the entries ruled FOR this one.
+        # An entry with no `scenes` is the 1835 town's (tools/exclusion_scope.py).
+        if not ruled_for(ex, scene_id):
+            continue
         earliest = str(ex.get("earliest_scene") or "")
         if earliest.isdigit() and int(earliest) <= year:
             continue
@@ -419,6 +424,8 @@ def compile_watch_list(scene_id: str, sources: dict, exclusions: dict,
     """
     out = []
     for item in exclusions.get("watch_list", []):
+        if not ruled_for(item, scene_id):
+            continue
         wid = item.get("id")
         phase = in_scene.get(wid)
         entry = {

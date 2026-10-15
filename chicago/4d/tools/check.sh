@@ -439,6 +439,20 @@ step "the Harrison 1830 cross-check still measures what the 1812 shore quotes (T
 step "the 1812 evacuation route and battle zone re-derive from their readings (T-0470)" \
   python3 tools/derive_evacuation_1812.py --check
 
+# T-2501. The South Branch below the box floor, down to the forks and the canal at
+# Bridgeport, off the same Rees 1849 sheet: a MEASURING line, not yet a layer of any
+# epoch. Its offline half holds the committed file to the trace's own literals and
+# to the Bridgeport pick, the same way the reach above it is held.
+step "the South Branch to Bridgeport still carries what its tracer writes (T-2501)" \
+  python3 tools/trace_south_branch_bridgeport_rees_1849.py --check-properties
+
+# T-2501. Lee's Place (Hardscrabble) is PLACED, not pinned: five printed placings
+# measured along the river above, the adopted station and its reach of the
+# north-west bank derived from them, and each disagreement printed. This holds the
+# site file to its readings byte for byte, and refuses it if the river moves.
+step "the 1812 Hardscrabble site re-derives from its readings (T-2501)" \
+  python3 tools/derive_hardscrabble_1812.py --check
+
 # T-2048. The first fort's one plan, Whistler's draught of 25 January 1808, read into a
 # register the first fort will be built from (T-2049). The raster is not committed, so
 # this holds what can be held without it: the scale is the 75 ft staff's arithmetic,
