@@ -1,3 +1,20 @@
+## T-2499 — 1808 Prairie's flat top, height and bow (2026-10-15)
+
+First piece of T-1882, from the owner's report of 2026-10-13 that the Keith house
+"has an Italianette top" its pictures do not show. Read off the Inland Architect
+plate of February 1888: a flat roof behind a front parapet whose top stands at
+about 16.5 m, over Glessner's 15.5 m ridge; floors raised to the plate's courses;
+the south bow stopped at floor 3 under a moulded stone cap; the third storey run
+flat across the front as a six-light arcade. K01 now lets an upper storey light
+its own number of bays, and its wall mesher merges cell lines closer than half a
+millimetre (a float-noise duplicate left 246 zero-area faces); every other K01,
+K12, K13, K16 and draft mesh re-emits byte-identical. NOT DONE, said: the principal
+floor stays at 1.5 m where the plate reads 2.0 m (the stoop would cross the fence);
+no camera is solved for the plate because its scan is `check_required`, so the
+image gate has not been run on this house. The loggia and stair are T-2500; the
+lattice, pinnacles, diaper band, stone tone and fence are T-1883.
+[Before/after views and browser readings](RESEARCH/k01-1808-keith-2499/).
+
 ## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
 
 Service posts now seat on actual treads, rail bars join continuously, and brick
