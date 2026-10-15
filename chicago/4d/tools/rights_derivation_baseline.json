@@ -564,6 +564,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "keith_house_1808_prairie/as_built_1886/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_keith_plate"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
     "keith_house_1808_prairie/as_built_1886/form.front_bays_by_storey": {
       "kind": "structure",
       "blocked_sources": [

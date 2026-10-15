@@ -126,7 +126,6 @@
         },
         "street_front_trim": {
           "value": {
-            "entrance": "k09.entrance.ring_on_colonnettes",
             "by_storey": [
               "k09.surround.rowhouse_restrained",
               "k09.trim.lintel_cornice_hood",
@@ -138,7 +137,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "The street front's carved trim, from the K09 carved-trim kit (T-2309, data/components/prairie_1904/k09_trim.json): a round ring of thirteen voussoirs and a label over the door, springing from two engaged foliate colonnettes on the stoop's landing; the principal-floor windows in the kit's restrained surround (an architrave, and a cornice hood on scrolled consoles) over a bounded foliate apron panel; the second floor's windows under the cornice hood alone; the third floor's keeping K01's flat lintel, so the trim lightens as the front rises. RECONSTRUCTED: the T-1837 register reads 'Romanesque-classical stone front' and an Ionic-columned entrance loggia off the 1888 Inland Architect plate, but that plate is not a source record here and no photograph of 1808's carving has been read, so every form, motif and placement is the kit's generic one (liberty L-k09-1808-trim-2310, T-2310). Glessner's documented carving is its own and is not drawn from this kit."
+          "note": "The street front's carved trim, from the K09 carved-trim kit (T-2309, data/components/prairie_1904/k09_trim.json): the principal-floor windows in the kit's restrained surround (an architrave, and a cornice hood on scrolled consoles) over a bounded foliate apron panel; the second floor's windows under the cornice hood alone; the third floor's keeping K01's flat lintel, so the trim lightens as the front rises. RECONSTRUCTED: the T-1837 register reads 'Romanesque-classical stone front' and an Ionic-columned entrance loggia off the 1888 Inland Architect plate, but that plate is not a source record here and no photograph of 1808's carving has been read, so every form, motif and placement is the kit's generic one (liberty L-k09-1808-trim-2310, T-2310). Glessner's documented carving is its own and is not drawn from this kit. T-2500: the K09 ring of voussoirs on colonnettes that stood over the door is gone: the door now stands at the back of the north loggia the 1888 plate draws, under its ceiling 3.45 m over the floor, which the ring's 3.8 m crown would have passed through, and the plate shows nothing of the door in the loggia's shadow (entrance_kit)."
         },
         "wall_head": {
           "value": {
@@ -186,9 +185,9 @@
           "note": "A landing one door-swing deep before the threshold."
         },
         "stoop_width_m": {
-          "value": 1.8,
+          "value": 2.0,
           "confidence": "reconstructed",
-          "note": "The stoop half again the door's width."
+          "note": "T-2500: the stair beside the loggia 2.0 m wide between its cheeks, rounded down from about 2.3 m on the plan under the 1888 plate (its treads and cheeks run about 155 px at 68 px/m) so its south cheek stays clear of the bow's north end; reconstructed, as the plan is a small print."
         },
         "entrance_bay": {
           "value": "north",
@@ -199,10 +198,10 @@
           "value": [
             2.0,
             5.0,
-            8.4
+            8.7
           ],
           "confidence": "reconstructed",
-          "note": "Three bays across the 10.4 m front, south to north, the north bay the entrance."
+          "note": "Three bays across the 10.4 m front, south to north, the north bay the entrance. T-2500: the north bay stands at 8.7 m, the middle of the loggia (7.0 to 10.4 m) the 1888 plate and its plan draw, so the door at the back of the loggia and the second-storey window over the balcony are centred in it, as the plate shows the window."
         },
         "front_bays_by_storey": {
           "value": {
@@ -336,11 +335,81 @@
           "value": {
             "k01.opening.door_leaf": {
               "variant": "k07.entrance.panel_door_stoop",
-              "front_yard_m": 4.75
+              "front_yard_m": 4.75,
+              "stoop_v_m": 6.0,
+              "terrace": {
+                "side": "right",
+                "to_v_m": 10.4,
+                "out_m": 2.7,
+                "loggia": {
+                  "pedestal": {
+                    "width_m": 0.9,
+                    "depth_m": 0.6,
+                    "height_m": 1.0
+                  },
+                  "columns": {
+                    "height_m": 2.45,
+                    "segments": 12,
+                    "profile": [
+                      [
+                        0.2,
+                        0.0
+                      ],
+                      [
+                        0.2,
+                        0.05
+                      ],
+                      [
+                        0.165,
+                        0.09
+                      ],
+                      [
+                        0.155,
+                        0.5
+                      ],
+                      [
+                        0.14,
+                        0.86
+                      ],
+                      [
+                        0.17,
+                        0.9
+                      ],
+                      [
+                        0.2,
+                        0.94
+                      ],
+                      [
+                        0.2,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "entablature": {
+                    "height_m": 0.7
+                  },
+                  "balcony": {
+                    "thickness_m": 0.25,
+                    "height_m": 0.9
+                  },
+                  "parapet": {
+                    "thickness_m": 0.3,
+                    "height_m": 0.9
+                  },
+                  "arch": {
+                    "span_m": 1.5,
+                    "spring_m": 0.35,
+                    "depth_m": 0.4
+                  }
+                }
+              }
             }
           },
           "confidence": "reconstructed",
-          "note": "The door and its stoop are built from the K07 kit (T-2304): the kit's stone-front entrance, a four-panel leaf under a two-light transom with the dark hall behind it, in the K01 proof's own 1.20 x 2.70 m hole, at the head of a straight stone stoop between cheek walls solved from this record's principal floor, tread, landing and width (nine equal risers of 0.167 m). front_yard_m is the 1904 street grid's own distance, measured at the door square to the front, from the front face to the inner edge of Prairie Avenue's walk band (data/street_grid/1904.json face prairie__indiana_prairie_18_20: the front stands 4.44 m behind the street line and the walk begins 1 ft further out, 4.75 m); the stoop reaches 3.60 m. No source shows this house's door, transom or stoop; the register's north entrance loggia with Ionic columns, balustraded balcony and stair is T-1882's to build from the 1888 plate. The main range has no carriage opening: the 1911 Sanborn sheet draws this lot's carriage house as the detached rear building, T-1935's."
+          "sources": [
+            "inland_architect_1888_02_keith_plate"
+          ],
+          "note": "The door and its stoop are built from the K07 kit (T-2304): the kit's stone-front entrance, a four-panel leaf under a two-light transom with the dark hall behind it, in the K01 proof's own 1.20 x 2.70 m hole. T-2500 (piece 2 of T-1882) rebuilt what stands in front of it to the arrangement the Inland Architect plate of February 1888 (inland_architect_1888_02_keith_plate) and the first-floor plan printed under it draw: an open loggia at the north end of the front, a stone deck at the principal floor 2.7 m deep running from the stair to the north corner (terrace out_m; the plan draws it about 2.7 m out and 3.4 m wide on the 10.4 m front), a pedestal at each front corner (0.9 x 0.6 m, 1.0 m high, the plate's pedestal tops about 1.0 m over the deck) carrying a pair of columns side by side (2.45 m from pedestal to the top of the capital, the plate about 2.45 m), a parapet 0.9 m high between the pedestals across the front and along the north side back to the wall, the south side left open to the stair as the plan leaves it, an entablature 0.7 m deep over the columns (the plate about 0.7 m) whose top is the floor of a balcony walled by a 0.9 m parapet under the second-storey window, and a round-headed arch 1.5 m wide in the deck's face at basement level, dark behind. The stair rises on the loggia's south side, as the plate and the plan both draw it: a straight stoop 2.0 m wide centred 6.0 m from the south corner (stoop_v_m), nine equal risers of 0.167 m from the 1.2 m landing to its foot 3.60 m out, the deck's south face its north cheek as far as the deck's front, the cheek carried on from there down to the walk; the gate and the front walk line up on it. The arrangement and its proportions are read off the plate and plan at about 68 px/m on the plan and 78 px/m on the loggia's face; every dimension is rounded, and what the plate cannot give is reconstructed: the columns are plain turned shafts with a base and a swelling cap, not Ionic; the parapets and the balcony are solid stone, not the pierced balustrade and carved panel the plate shows (both are T-1883's finish); the arch's span and spring are read from a void half hidden by the stair's cheek; and the stair keeps T-2499's 1.5 m principal floor where the plate reads about 2.0 m. front_yard_m is the 1904 street grid's own distance, measured at the door square to the front, from the front face to the inner edge of Prairie Avenue's walk band (data/street_grid/1904.json face prairie__indiana_prairie_18_20: the front stands 4.44 m behind the street line and the walk begins 1 ft further out, 4.75 m). The main range has no carriage opening: the 1911 Sanborn sheet draws this lot's carriage house as the detached rear building, T-1935's. Liberty L-k07-1808-loggia-2500."
         },
         "bays": {
           "value": [

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 561,
+  "count": 562,
   "liberties": [
     {
       "id": "L1",
@@ -28935,7 +28935,7 @@
         }
       ],
       "recorded": "2026-10-10",
-      "revised": null,
+      "revised": "2026-10-15",
       "fields": [
         {
           "label": "Decision",
@@ -28956,6 +28956,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2310)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-15 (T-2500) — **no ring over the door.** The door now stands inside the north loggia, under a ceiling 3.45 m over the floor that the K09 ring's crown would have passed through, and the plate shows nothing of the door in the loggia's shadow, so `street_front_trim` names no entrance. The window trim is unchanged. See L-k07-1808-loggia-2500."
         }
       ]
     },
@@ -28975,7 +28979,7 @@
         }
       ],
       "recorded": "2026-10-10",
-      "revised": null,
+      "revised": "2026-10-15",
       "fields": [
         {
           "label": "Decision",
@@ -29000,6 +29004,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2304)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-15 (T-2500) — **the stoop is now the stair beside the north loggia the 1888 plate draws.** The door stands at the back of an open stone loggia at the north end of the front (v 7.0-10.4, 2.7 m deep) with paired columns on corner pedestals, a parapet, an entablature carrying a balcony and a basement arch, and the straight stoop, 2.0 m wide, rises on its south side, centred 6.0 m from the south corner, the loggia's deck its north cheek. The door itself is still the K07 variant this entry describes; the north bay moved to 8.7 m, the loggia's middle. See L-k07-1808-loggia-2500."
         }
       ]
     },
@@ -36797,6 +36805,56 @@
         {
           "label": "How to resolve",
           "text": "the plate's camera solved into `data/reference_views/keith_house_1808_prairie/` once a copy whose rights are cleared is in the tree (the scan this source reads is `check_required`, so no asset is derived from it here), and the side-by-side worked down."
+        }
+      ]
+    },
+    {
+      "id": "L-k07-1808-loggia-2500",
+      "title": "1808 Prairie's north entrance loggia, balcony and stair from the 1888 plate; the columns, parapets and stone reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.stoop_width_m"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Ticket",
+          "text": "T-2500 (piece 2 of T-1882)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2500)."
+        },
+        {
+          "label": "Sources",
+          "text": "`inland_architect_1888_02_keith_plate`."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.entrance_kit`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`"
+        },
+        {
+          "label": "Decision",
+          "text": "the owner reported on 2026-10-13 that the house's entrance is not the one its pictures show: a round-arched door in the middle of the front on an open stoop, where the pictures show an open loggia at the north end. The record now builds the arrangement the Inland Architect plate of February 1888 (`inland_architect_1888_02_keith_plate`) and the first-floor plan printed under it draw: a stone loggia deck at the principal floor from the stair to the north corner, 2.7 m deep and 3.4 m wide (the plan at about 68 px/m); a pedestal at each front corner carrying a pair of columns side by side; a parapet between the pedestals and along the north side back to the wall, the south side open to the stair; an entablature over the columns whose top is a balcony's floor, walled by a parapet under the second-storey window; and a round-headed arch at basement level in the deck's face, dark behind. The stair rises on the loggia's south side, 2.0 m wide, the deck its north cheek. Heights are read off the plate's loggia face at about 78 px/m: pedestals 1.0 m over the deck, columns 2.45 m, entablature 0.7 m, balcony parapet 0.9 m. **What is invented.** The columns are plain turned shafts with a base and a swelling cap, not the Ionic columns the T-1837 register reads; the parapets and the balcony are solid stone, where the plate shows a pierced balustrade and a carved panel; all of it is built in the stoop's pale limestone; the arch's 1.5 m span and its spring are read from a void the stair's cheek half hides; the stair's width is rounded down from the plan's 2.3 m to 2.0 m so its south cheek keeps clear of the bow; and the north bay moved from 8.4 m to 8.7 m, the loggia's middle. The stair keeps T-2499's reconstructed 1.5 m principal floor (nine risers) where the plate reads about 2.0 m."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-1883 carries the finish: the Ionic capitals, the pierced balustrade and carved balcony panel, the scrolled cheek walls and the stone's tone. The plate's camera solved once a copy whose rights are cleared is in the tree (the scan this source reads is `check_required`, so no asset is derived from it here) puts every dimension above on a side-by-side."
         }
       ]
     },
