@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1810, ts: '2026-10-15T13:43:33.406Z', date: 'Oct 15, 2026, 8:43 AM CT', title: 'The 1812 Kinzie house\'s card shows six more pictures of it', kind: 'feature',
+    items: [
+      'The Kinzie house\'s Images tab in 1812 now lists the 1893 atlas plate, the Teich postcard, Eastman\'s 1820 engraving, Gemmell\'s 1820 lithograph, and Sarony\'s lithograph of Juliette Kinzie\'s sketch in Currey (1912) and Kirkland (1893), each with its credit.',
+      'Sarony\'s plate, the one picture drawn by someone in the household, is now held in the image library alongside the others.',
+      'Four of those pictures now have their camera solved and a side-by-side against the house as built. They agree on its stacks, piazza and front. Where they differ, on the piazza roof and the gable windows, the house is down for a rebuild; the light walls they draw are later than 1812, so the logs stay.',
+    ] },
   { v: 1809, ts: '2026-10-15T12:40:26.138Z', date: 'Oct 15, 2026, 7:40 AM CT', title: 'Glessner courtyard brick joints and gate grain', kind: 'improvement',
     items: [
       'Light mode now shows brick courses on the courtyard stair supports and boundary walls. Small plain stair returns also gain matching joints.',
