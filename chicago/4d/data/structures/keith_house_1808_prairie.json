@@ -220,6 +220,23 @@
           ],
           "note": "T-2499: the third storey runs flat across the whole front over the bow as one arcade of six sash windows divided by colonnettes, as the plate, the mid-1950s photograph and the 1967 photograph all show it. On the plate the six lights span about 6.1 m centred on the front; set at 1.12 m centres, 6.45 m overall, the least that keeps two K01 flat lintels' horns from meeting (k01_frontage_params). The colonnettes between them are T-1883's."
         },
+        "front_bays_by_storey": {
+          "value": {
+            "2": [
+              2.4,
+              3.52,
+              4.64,
+              5.76,
+              6.88,
+              8.0
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1888_02_keith_plate"
+          ],
+          "note": "T-2499: the third storey runs flat across the whole front over the bow as one arcade of six sash windows divided by colonnettes, as the plate, the mid-1950s photograph and the 1967 photograph all show it. On the plate the six lights span about 6.1 m centred on the front; set at 1.12 m centres, 6.45 m overall, the least that keeps two K01 flat lintels' horns from meeting (k01_frontage_params). The colonnettes between them are T-1883's."
+        },
         "side_bays": {
           "value": [
             3.0,

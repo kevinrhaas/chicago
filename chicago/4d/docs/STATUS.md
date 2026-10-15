@@ -42,6 +42,7 @@ no camera is solved for the plate because its scan is `check_required`, so the
 image gate has not been run on this house. The loggia and stair are T-2500; the
 lattice, pinnacles, diaper band, stone tone and fence are T-1883.
 [Before/after views and browser readings](RESEARCH/k01-1808-keith-2499/).
+
 ## T-2502 — the 1812 ground carried down the South Branch to Lee's Place (2026-10-15)
 
 T-2501 ruled the farm's site a reach of the South Branch's north-west bank, about 930 m west
