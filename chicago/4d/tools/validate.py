@@ -551,9 +551,6 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
     # exclusions.json is a research record, not a filter — but it should not
     # contradict the dataset by naming something that is actually in the scene.
     for ex in exclusions.get("excluded", []):
-        # T-2489: an entry is a ruling about the scenes it names (none named: 1835's).
-        if not ruled_for(ex, sid):
-            continue
         if ex.get("id") in [i.split(":")[0] for i in included]:
             rep.error(where, f"'{ex.get('id')}' is listed in exclusions.json but resolves "
                              f"into this scene — the data and the research record disagree")
@@ -565,8 +562,11 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
         # T-1739: asked only of a scene that lists `exclusions`. The record is the 1835
         # town's; the 1904 scene stands on Prairie Avenue, where none of it is, and an
         # 1837 brick block on Clark Street is not an exclusion from that ground at all.
+        # T-2489: and of a scene that lists it, only the entries ruled FOR that scene —
+        # an entry names its scenes, and one naming none is the 1835 town's. The identity
+        # check above stays unscoped: an id excluded anywhere may not stand anywhere.
         earliest = str(ex.get("earliest_scene") or "")
-        if ("exclusions" in scene.get("layers", []) and earliest.isdigit()
+        if ("exclusions" in scene.get("layers", []) and ruled_for(ex, sid) and earliest.isdigit()
                 and int(earliest) <= target.year):
             rep.error(where, f"'{ex.get('id')}' is excluded, but its own earliest_scene "
                              f"({earliest}) is on or before this scene ({target.year}) — "
