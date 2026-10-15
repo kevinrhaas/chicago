@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1834, ts: '2026-10-15T23:37:41.072Z', date: 'Oct 15, 2026, 6:37 PM CT', title: 'Phones draw Prairie Avenue\'s east row inside their detail limit', kind: 'fix',
+    items: [
+      'Nothing you can see changed: the picture is the same, pixel for pixel.',
+      'On the Light setting a house now casts into the sun\'s shadow pass only when its shadow can fall somewhere on screen. Houses beside and behind you, whose shadows fall away from the view, are left out.',
+      'Looking down Prairie\'s east row from 1613 to 1621, a phone drew 1.37 million triangles against its 1.27 million limit. It now draws 0.98 million.',
+    ] },
   { v: 1833, ts: '2026-10-15T23:01:40.517Z', date: 'Oct 15, 2026, 6:01 PM CT', title: '1638 Prairie\'s tower gets its smooth stage and the gate caps flare', kind: 'improvement',
     items: [
       'The corner tower\'s upper stage at 1638 Prairie is smooth, as its photograph shows, not clapboarded: a shallow frieze under the cornice, and each light\'s casing carried round its pointed head.',
