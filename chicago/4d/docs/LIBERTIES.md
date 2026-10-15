@@ -27076,7 +27076,6 @@ squared-log ruling, which T-2516 did not reopen.
 **How to resolve:** a measured or described account of the piazza, its roof or the house's ends;
 Quaife's 1928 article for the length.
 
-**Covers:** `kinzie_house_1812.kinzie_1804.form.end_openings`
 **Ticket:** T-2516.
 **Recorded:** 2026-10-15 (T-2516).
 
