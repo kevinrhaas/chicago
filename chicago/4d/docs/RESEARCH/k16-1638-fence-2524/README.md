@@ -64,6 +64,11 @@ builds a boundary, so the kit change reaches none of them.
 
 ## Still open (match record)
 
-The caps' flared lower corners and the pale block south of the south pier (T-2521, which reads them
-at the old scale; whichever lands second carries them through this camera). Liberty:
+T-2521 (#839) landed first. It read the caps' flared lower corners row by row through the old camera,
+and the pale block south of the south pier as the barred run continuing. Merging it, this branch keeps
+T-2521's rows and carries them through T-2523's camera: the flare runs from 806 px (1.927 m) out to its
+widest at about 829 px (1.721 m) and back to the shaft's line by 836 px (1.66 m). The board's top
+half is the shaft's (0.245 m), and its eave is 0.008 m, because the cap's 57 px top reads 0.51 m
+across against the 0.49 m shaft. Re-rendered, the flare lands at the caps' lower corners as the print
+draws it. The match record stays `differs` on the porch board's fretwork (T-2533). Liberty:
 `L-k16-1638-fence-2524`.

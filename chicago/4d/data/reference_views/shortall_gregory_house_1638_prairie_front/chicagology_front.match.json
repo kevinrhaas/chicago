@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "b36f1d08ef5fc680be86ade3cbb9a04a654187238c5b80c7d04149dbf6ed52f9",
+  "glb_sha256": "a7b74db146cc268760f1e08345f5f0b5e1e24ee0029e16df4765e215f79d1324",
   "camera_sha256": "a8fbf32f4f70b529f9438469cfb333941f8cef958c6681562df40b1a5b643891",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -108,20 +108,24 @@
       "status": "fixed"
     },
     {
-      "what": "Tower: the upper stage is smooth with incised ornament over each light; the model's is clapboarded",
-      "status": "open"
+      "what": "Tower: the upper stage is smooth, with no course line on its three street faces from the porch roof to the cornice, under a frieze only 0.12 m deep (the print's one line across each face at 300 px); over each light a faint incised figure about 0.23 by 0.32 m (6.34-6.66 m through the camera T-2523 re-solved), built as an incised trefoil, one lobe up, its foot on the light's casing band; the model's stage was clapboarded under the kit's 0.4 m frieze (T-2521)",
+      "status": "fixed"
+    },
+    {
+      "what": "Tower: each light's casing is carried round its pointed head as an arched band, the smooth face round it, with no head board or drip cap, where the model's lights stood in square-headed casings (T-2521)",
+      "status": "fixed"
     },
     {
       "what": "Fence: two gate piers either side of an open gateway, each a square shaft on a plinth under a hollow cap pierced in every face with an inverted heart, the north pier's iron finial a spike through a ring, the south's a plain spike; and thin iron bars on a pale base along the street line (T-2456). Re-read through T-2523's camera (T-2456 took them at 158.7 px a metre, where it draws 112.6): shafts 0.49 m at s -0.47 and 1.365 m, the gateway 1.255 m clear, caps 0.56 m from 1.61 to 1.98 m, finials to 2.385 m, the base 0.32 m and the bars 0.349 m apart to 0.83 m, the first bar against the north plinth at 345 px as the print draws it; rendered, the shafts within 2 px, the caps' tops within 3 px and every bar within 1 px (T-2524)",
       "status": "fixed"
     },
     {
-      "what": "Fence: the print's caps flare out at their lower corners like a hood over the heart; the model's cap is a plain box a little broader than the shaft",
-      "status": "open"
+      "what": "Fence: each cap is the shaft's breadth at its top (57 px, 0.51 m, with its eave) and its lower corners flare out like a hood over the heart, a quarter-sine from 1.93 m to 0.56 m across at 1.72 m (63 px), then rounded back in to the shaft by 1.66 m; the model's cap was a plain box; T-2521 read those rows through the camera T-2423 solved, and they are carried here through the one T-2523 re-solved, with the rest of the fence T-2524 re-reads (T-2521, T-2524)",
+      "status": "fixed"
     },
     {
-      "what": "Fence: south of the south pier the print shows a pale block to the frame's edge with a pale rail at about 918 px, not the bars and base north of the gateway; the model carries the barred run on to the lot line",
-      "status": "open"
+      "what": "Fence: south of the south pier, read again at 3x (T-2521), the print's 'pale block' is the lawn, in the tone of the lawn between the bars north of the gateway (180-200 against 160-200) under a hedge line at 946 px; a bar stands at 68-70 px hard by the plinth, dark down to the base, and the base runs on under it to the frame, so it is the barred run continuing, as the model builds it; the pale dash at 918 px over those same 20 px stands where the model's own top rail does (925 px), and the 7 px between them falls to the fence's heights T-2524 re-reads",
+      "status": "fixed"
     },
     {
       "what": "South of the gable the print shows a two-storey block with a hipped roof, a pale stack and a two-light window over a door: the register's 'separate lower wing' or the neighbour, not yet identified; the model shows the gable range's south flank and projection there",

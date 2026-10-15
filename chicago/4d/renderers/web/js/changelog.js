@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1833, ts: '2026-10-15T23:01:40.517Z', date: 'Oct 15, 2026, 6:01 PM CT', title: '1638 Prairie\'s tower gets its smooth stage and the gate caps flare', kind: 'improvement',
+    items: [
+      'The corner tower\'s upper stage at 1638 Prairie is smooth, as its photograph shows, not clapboarded: a shallow frieze under the cornice, and each light\'s casing carried round its pointed head.',
+      'Over each tower light a small trefoil is cut into the boards, where the photograph shows a faint carved figure. The figure\'s pattern is a liberty.',
+      'The two gate piers\' caps now flare out at their lower corners like a hood over the pierced heart, read row by row off the photograph.',
+      'South of the gate the photograph\'s pale patch is lawn behind the same iron bars, so the fence there stays as built.',
+    ] },
+  { v: 1832, ts: '2026-10-15T22:34:23.858Z', date: 'Oct 15, 2026, 5:34 PM CT', title: '1620 and 1637 Prairie\'s cornices meet their mansard eaves', kind: 'fix',
+    items: [
+      'On the two mansard-roofed houses on Prairie, the bracketed cornice, its bed moulding and the brick wall head now rise to the soffit the roof actually builds; they had stopped about 9-11 cm short of it.',
+      '1637 Prairie\'s swell bay rises with its cornice, so the band carried round the bow now runs level with the main eave.',
+    ] },
   { v: 1831, ts: '2026-10-15T22:22:16.626Z', date: 'Oct 15, 2026, 5:22 PM CT', title: '1619 Prairie rises as a four-storey stone house with a full-height bow', kind: 'feature',
     items: [
       '1619 Prairie Avenue, the house between the 1613/1615 brick pair and Hamline\'s 1621, is now a full four-storey stone-fronted house in place of its draft.',
