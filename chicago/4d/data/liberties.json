@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 579,
+  "count": 580,
   "liberties": [
     {
       "id": "L1",
@@ -38802,6 +38802,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-15 (T-2523)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-fence-2524",
+      "title": "1638 Prairie's street fence re-read through the camera T-2523 re-solved: the piers, caps, hearts, finials, base and bars 1.44 times T-2456's sizes, the gateway 1.26 m clear, the bars laid from the north pier at the print's pitch, the sizes no front view resolves carried by the same ratio",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.boundary"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "T-2456 read 1638 Prairie's fence off its photograph at 158.7 px a metre on the street line, the scale of T-2423's camera (eye 20 m out). T-2523 re-solved that camera on the front steps and the fence's base (eye 30.71 m out, 3.25 m over the walk, f 2242 px), and through it the street line draws 112.6 px a metre, so the fence as built drew 1.44 times smaller than the print. T-2524 re-reads the same pixels through the new camera, each at the depth of the face it was read on: shafts 0.49 m square, their middles at s -0.47 and 1.365 m, a gateway 1.255 m clear; plinths 0.58 m square to 0.43 m; caps 0.56 m square from 1.61 to 1.98 m, each heart 0.35 m across with its point at 1.91 m; finials to 2.385 m, the north pier's ring 0.19 m across round 2.085 m; a base 0.32 m high; bars 0.349 m apart to a rail at 0.83 m. Rendered, the shafts land within 2 px of the print, the caps' tops within 3 px and every bar within 1 px. **What is read, not invented.** Every size and height above, from the print's pixels (`chicagology_1638_prairie_photo`), and the bars' phase: the first bar stands against the north plinth at 345 px (0.018 m off its face), so the kit's new `bars.first_m` lays the bars from each gate pier at the print's own pitch instead of spreading them evenly along the run. **What is invented.** The plinths' breadth (T-2456 took the caps' 0.40 m without reading it; it is carried here by the shafts' ratio to 0.58 m); the base's width, 0.48 m, so that its street face stays 10.75 m out, where the camera was solved on it; the sizes no front view of a halftone resolves — the finials' rod, point and ring bar, the caps' boards, eave and pyramid, the bars' and rail's section — each carried by the same 1.44 so the fence draws in the print's proportions; the ring raised 0.005 m over its reading to clear the cap's point; and the gap the bars leave at the far lot line, out of the frame. What L-k16-1638-fence-2456 records as invented (the run past the print's edges, the materials, the depths) stands as it was."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a second picture of the yard, or a measured drawing of the fence, fixes the piers' sizes without leaning on the camera; a camera solved again moves these readings with it, and they should be re-taken from the same pixels, as these were."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.boundary`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2524 (after T-2523)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-fence-2524/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2524)."
         }
       ]
     },

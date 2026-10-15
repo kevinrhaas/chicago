@@ -2433,16 +2433,21 @@ def boundary(sm: Sample, bv: dict) -> dict:
             raise ValueError(f"the fence's run s {s0:.3f}..{s1:.3f} is shorter than a bar's pitch")
         sm.box(sm.F, "fence_base", s0, s1, 0.0, yb, zc - hb, zc + hb, skip=("bottom",), tone=sm.tone("base", i))
         sm.box(sm.F, "fence_rail", s0, s1, ry0, yt, zc - hr, zc + hr)
-        k = round((s1 - s0) / f["pitch_m"])
-        p = (s1 - s0) / k
-        for j in range(k):
-            s = s0 + p * (j + 0.5)
+        if "first_m" in f:      # T-2524: from the gate pier at the print's own pitch, its first bar on the plinth
+            p, n = f["pitch_m"], int((s1 - s0 - f["first_m"] - hr) / f["pitch_m"] + 1e-9) + 1
+            at = [s0 + f["first_m"] + p * j for j in range(n)] if i else [s1 - f["first_m"] - p * j for j in range(n)]
+        else:
+            k = round((s1 - s0) / f["pitch_m"])
+            p = (s1 - s0) / k
+            at = [s0 + p * (j + 0.5) for j in range(k)]
+        for s in at:
             sm.box(sm.F, "fence_bar", s - hr, s + hr, yb, ry0, zc - hr, zc + hr, skip=("bottom", "top"))
             bars.append(round(s, 4))
     built = [_gate_pier(sm, pv, pr, zc) for pr in piers]
     gate = piers[-1]["centre_m"] - piers[0]["centre_m"] - 2 * hp
     return {"line_z_m": zl, "runs_s_m": [[round(a, 4), round(c, 4)] for a, c in runs], "bars": len(bars),
-            "bar_pitch_m": round((runs[1][1] - runs[1][0]) / round((runs[1][1] - runs[1][0]) / f["pitch_m"]), 4),
+            "bar_pitch_m": f["pitch_m"] if "first_m" in f else
+            round((runs[1][1] - runs[1][0]) / round((runs[1][1] - runs[1][0]) / f["pitch_m"]), 4),
             "gateway_clear_m": round(gate, 4), "piers": built}
 
 

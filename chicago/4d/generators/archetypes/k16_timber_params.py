@@ -167,6 +167,9 @@ def boundary_errors(bv: dict) -> list[str]:
         out.append("bars need bar_m (0.01-0.05) and rail_m")
     elif not (_num(f.get("height_m")) and _num(b.get("height_m")) and f["height_m"] - f["rail_m"] > b["height_m"]):
         out.append("bars.height_m must stand a rail over the base")
+    if "first_m" in f and not (_num(f["first_m"]) and _num(f.get("bar_m")) and _num(f.get("pitch_m"))
+                               and f["bar_m"] / 2 <= f["first_m"] <= f["pitch_m"]):
+        out.append("bars.first_m (T-2524) puts the first bar off its pier's plinth: half a bar to one pitch")
     out += [f"pier needs a positive {k}" for k in PIER_NUMS if not (_num(pv.get(k)) and pv[k] > 0)]
     if out:
         return out
