@@ -253,15 +253,15 @@
     },
     {
       "id": "house_1619_prairie",
-      "name": "1619 Prairie Avenue — stone-front house with its swell bay, for now wearing the front of Hamline's house next door at 1621 (T-2439), K01 frontage assembly",
+      "name": "1619 Prairie Avenue — Stone-front masonry (district draft; refined by T-1868)",
       "sidecar": "sidecars/1904/house_1619_prairie.json",
-      "asset": "gltf/house_1619_prairie__as_mapped_1904.glb"
+      "asset": "gltf/house_1619_prairie__draft_1904.glb"
     },
     {
       "id": "house_1621_prairie",
-      "name": "1621 Prairie Avenue — John H. Hamline's house, Brick masonry (district draft; refined by T-1869)",
+      "name": "1621 Prairie Avenue — John H. Hamline's stone-front house with its swell bay, from Treat & Foltz's drawing, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1621_prairie.json",
-      "asset": "gltf/house_1621_prairie__draft_1904.glb"
+      "asset": "gltf/house_1621_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1623_prairie",
