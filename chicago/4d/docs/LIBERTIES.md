@@ -24189,7 +24189,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1619_prairie.draft_1904.form.draft_elevation`, `house_1619_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24251,6 +24251,10 @@ build moved to 1621, John H. Hamline's house by T-2439's ruling, which now stand
 stone-front frontage with its swell bay under `L-k01-1621-hamline-front-2440`, under the same id; its
 draft attributes are gone. 1619, whose own front no picture shows, stands as this draft again, under
 the draft's rules exactly as it first did, until T-2434 builds it a bounded front.
+**1619 retired from this liberty again by T-2434 (2026-10-15):** with no picture of its own, it now
+stands as the K01 stone-front frontage the 1911 sheet bounds: four storeys, its curved bay on K08's
+bow at the sheet's chord and rise, the brick rear block and the two-storey frame piece behind it,
+under `L-k01-1619-stone-front-2434`, under the same id; its draft attributes are gone.
 **1625 retired from this liberty by T-2432 (2026-10-13):** its main body now stands as the K01
 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house,
 under `L-k01-1625-mcbirney-tudor-2432`, under the same id; its draft attributes are gone. The
@@ -25839,6 +25843,48 @@ projection's form.
 **Ticket:** T-2418 (piece 2 of T-1868).
 **Review:** `docs/RESEARCH/k01-1615-brick-flat-2418/README.md`.
 **Recorded:** 2026-10-13 (T-2418).
+
+### L-k01-1619-stone-front-2434 — 1619 Prairie refined from the district draft to a four-storey K01 stone-front house bounded by the 1911 sheet, with no picture of its own: its plan, storeys, curved bay and rear pieces read, everything else the kits'
+
+**Decision:** the stone-fronted house at 1619 Prairie Avenue (T-2434, piece 3 of T-1869) is no
+longer a district draft. It stands, under the draft's own id `house_1619_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py`, its plan turned 180 degrees (rotation
+179.607) so K01's local south wall and south end are the world's north. No picture of this house
+is known: the Building Budget drawing once built here is John H. Hamline's house at 1621 (T-2439,
+moved by T-2440), and the 1886 Robinson plate draws the earlier house on the 33 ft lot, not this
+one. So it is built to the sheet and the kits, and made its own rather than a copy of either
+neighbour (1615's plain brick under a bracketed timber cornice; 1621's smooth Bedford limestone,
+two storeys under a gable).
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1619-f, '4-storey brick dwelling (D), stone (blue) front with a curved bay';
+s20-1619-a1, 'brick rear block and a 2-storey frame half-round piece at its east end'): the main
+body's place and plan (13.3 m by 8.46 m, the front 3.8 m back from the street line, the plan T-2420
+first read off this trace), four storeys, brick with a stone street front; the curved bay's place
+and size (a 3.76 m chord, 1.02 m out, over v 3.79-7.55); the rear block's place and plan (6.0 m
+behind the south 5.69 m of the rear wall) and its four storeys (one part with the house); the
+frame piece's place, depth (2.97 m), chord (4.77 m), two storeys and frame; and the figures
+'12 12 12 8' against the south wall, so the walls are laid 12 inches (0.30 m) thick (`inferred`).
+**What is invented.** Every height (a 1.4 m principal floor over a basement the sheet does not
+print; 3.9, 3.6, 3.4 and 3.1 m storeys, a 15.4 m wall head); the stone: rock-faced Lemont limestone,
+dressed smooth at the openings, over two rusticated base courses, chosen as a front of about 1891-92
+would most likely be faced (J. Foster Rhodes bought the lot in July 1891 meaning to improve it, the
+likeliest origin of this front, which is itself not a reading); the bow rising the full four storeys
+to the cornice with three lights a storey; the door in the north strip and its stoop; every window's
+kind, size and place and every head; K10's moulded stone cornice carried round the bow; the flat
+roof, its fall, covering and parapets; the two stacks against the south wall; the rear block's and
+the frame piece's heights, windows and decks.
+**What is built otherwise than read.** The frame piece is HALF-ROUND on the sheet and is built as a
+rectangle on its chord and depth, because K01's rear wings are rectangles; its rounded end is the
+kit's to learn. The 0.6 m step the trace draws in the north wall's rear half is not built.
+**What is not built.** The frame piece's door and yard steps, any rear stair, and the front's
+carving, if it had any.
+**How to resolve:** a photograph, plate or description of 1619 (Rhodes's or Howard E. Perry's house,
+1904 Blue Book) ingested as a source replaces the kits' choices in place, and puts the house under
+the image gate; a curved K01 wing replaces the frame piece's rectangle.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.principal_floor_m`, `house_1619_prairie.as_mapped_1904.form.storey_heights_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1619_prairie.as_mapped_1904.form.service_wall_brick`, `house_1619_prairie.as_mapped_1904.form.stone_front`, `house_1619_prairie.as_mapped_1904.form.street_front_trim`, `house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.roof_form`, `house_1619_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1619_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1619_prairie.as_mapped_1904.form.stair_tread_m`, `house_1619_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1619_prairie.as_mapped_1904.form.stoop_width_m`, `house_1619_prairie.as_mapped_1904.form.front_bays`, `house_1619_prairie.as_mapped_1904.form.side_bays`, `house_1619_prairie.as_mapped_1904.form.north_bays`, `house_1619_prairie.as_mapped_1904.form.rear_bays`, `house_1619_prairie.as_mapped_1904.form.sash_by_storey`, `house_1619_prairie.as_mapped_1904.form.basement_lights`, `house_1619_prairie.as_mapped_1904.form.roof_covering`, `house_1619_prairie.as_mapped_1904.form.chimneys`, `house_1619_prairie.as_mapped_1904.form.window_kit`, `house_1619_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2434 (piece 3 of T-1869).
+**Review:** `docs/RESEARCH/k01-1619-stone-front-2434/README.md`.
+**Recorded:** 2026-10-15 (T-2434).
 
 ### L-k16-1638-gable-2423 — 1638 Prairie's gable read off its photograph through a solved camera: pointed twin lights under an ogee hood, a blind oval, clapboard to the rake; sections, finial and verge still the kit's
 
