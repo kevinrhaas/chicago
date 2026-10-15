@@ -17,7 +17,8 @@ What the record's `street_front_trim` names, and what is built for it:
                    surround (architrave and a cornice hood on consoles), its cornice hood
                    alone, or `k01.flat_lintel` (K01's own stone lintel, kept)
   apron            the kit's bounded foliate panel under each window of the storeys it
-                   names, centred between the basement light's lintel and the sill
+                   names, centred between the basement light's lintel and the sill, or
+                   (`apron_over_belt`, T-2526) between the storey's belt course and the sill
 
 A generic kit motif is allowed here because 1808's own carving is not read in any source
 this project holds (k09_trim.json `restrictions`: a generic motif never replaces a
@@ -66,6 +67,8 @@ def spec(params) -> dict | None:
         raise ValueError(f"street_front_trim.entrance builds {ENTRANCE!r} or {DOOR_HOOD!r} alone")
     if t.get("apron") not in (None, APRON):
         raise ValueError(f"street_front_trim.apron builds {APRON!r} alone")
+    if t.get("apron_over_belt") and not t.get("apron"):
+        raise ValueError("street_front_trim.apron_over_belt places an apron, and names none")
     return t
 
 
@@ -171,6 +174,9 @@ def _apron(a, kit, data, op, frame, conf):
     below = [o for o in p.openings if o.wall == op.wall and abs(o.s_m - op.s_m) < 1e-6
              and o.head_m <= op.sill_m and o is not op]
     floor_y = max((o.head_m + 0.30 for o in below), default=p.principal_floor_m)   # K01's lintel
+    if spec(p).get("apron_over_belt"):
+        # T-2526: the panel stands on its storey's belt course, under the sill it carries
+        floor_y = max(floor_y, p.floors_m[_storey(p, op)])
     top_y = op.sill_m - 0.10                                                      # K01's sill
     if top_y - floor_y < v["height_m"] + 0.2:
         raise ValueError(f"no room for an apron under the window at s = {op.s_m}")
