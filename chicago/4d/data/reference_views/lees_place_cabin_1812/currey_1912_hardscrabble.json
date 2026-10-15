@@ -1,0 +1,26 @@
+{
+  "structure_id": "lees_place_cabin_1812",
+  "source_id": "currey_1912_hardscrabble_plate",
+  "photo": "../../sources/assets/currey_1912_hardscrabble_t2509/currey_1912_hardscrabble.png",
+  "image_px": [
+    659,
+    362
+  ],
+  "principal_px": [
+    329.5,
+    160.3
+  ],
+  "focal_px": 655.8,
+  "eye": [
+    62.3,
+    40.9,
+    4.31
+  ],
+  "yaw_deg": 234.1,
+  "sun_uvy": [
+    0.5,
+    0.7,
+    0.6
+  ],
+  "solve": "Fitted by T-2509 to the house in the plate. A wash drawing made about a century after the farm by an illustrator the book does not name, so this camera is approximate and says how far. The drawing's verticals are vertical, so the camera is level; its principal point is put at the plate's middle across (x 329.5 px) and solved for height. Fitted points, read off the plate at 7x on a 5 px grid, each to about +/-1 px: the front wall's two ends at grade and at the eave, the left end at x 322 px (just right of the stack's shaft, which hides the corner itself), grade y 207.9, eave y 181.4, and the right end at x 402.1, grade y 200.0, eave y 177.9. Those four, on the record's 14.6 m front and 2.4 m wall, solve the eye 62.3 m along the front and 40.9 m out from it in the footprint frame (u along the front from its downstream end, v out of the back wall toward the river), 4.31 m over the cabin's grade, looking 234.1 degrees from the frame's north, with f = 655.8 px (about 53 degrees across the plate) and the horizon at y 160.3: the viewer stands on the far bank about 67 m off, upstream of the house and a little above it. Residuals 0 px on the four fitted points, which is no test of the drawing, since four points and five unknowns over-fit nothing. The test is the ridge: the record's 30 degree roof puts the ridge's right end at (380.4, 163.2) against the drawing's (379.3, 167.1), within 4 px. The ridge's left end is hidden in the drawing behind the stack. The drawing is not a strict perspective: its left-hand lean-to is drawn gable-on to the viewer while the main roof's right verge recedes as if seen from the left, and the two cannot both hold, so nothing is fitted to the lean-to. The sun is from the front and left, which lights the front wall white and shades the stack's right side, as the plate draws it."
+}

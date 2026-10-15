@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 1818, ts: '2026-10-15T16:39:55.101Z', date: 'Oct 15, 2026, 11:39 AM CT', title: 'Lee\'s Place: the farm cabin on the South Branch, 1812', kind: 'feature',
+    items: [
+      'The 1812 scene now has Lee\'s Place, the farm later called Hardscrabble: a long log cabin on the north-west bank of the South Branch, inside a zigzag rail fence round its field.',
+      'Its shape follows the one picture of it, a drawing printed in 1912, which is now in the library. The cabin does not match that drawing yet: the drawing has three doors, six windows and the chimney at the other end, and those come next.',
+      'A new viewpoint, Lee\'s Place from across the South Branch, looks at the farm from the far bank. A new card sets out the four places the old accounts put the farm and where they disagree.',
+    ] },
+  { v: 1817, ts: '2026-10-15T16:34:21.169Z', date: 'Oct 15, 2026, 11:34 AM CT', title: 'Nothing you can see changed: rebuilding one building keeps the Glessner house', kind: 'fix',
+    items: [
+      'Rebuilding a single building on a fresh copy of the project used to drop the Glessner house\'s packed model from the list of built models, and the next publish then refused the Glessner house. The list now keeps it, so building tickets that rebuild one structure can publish.',
+    ] },
+  { v: 1816, ts: '2026-10-15T16:05:57.972Z', date: 'Oct 15, 2026, 11:05 AM CT', title: 'Coursoll\'s worm-fenced field on the north bank (1812)', kind: 'feature',
+    items: [
+      'A zigzag rail fence now closes a field on the north bank, just west of Le Mai\'s house, where Whistler\'s 1808 plan letters \'Mr Coursell\' inside a \'Worm Fence\'.',
+      'Quaife reads it as \'a house and inclosed field north of the river, belonging to Mr. Coursoll\'. The only house the plan draws at the field is the one now built as Le Mai\'s, outside its corner, so no second house is added.',
+      'Its place, size and rails follow the same rule as the houses beside it, and are recorded as a liberty on its card.',
+    ] },
   { v: 1815, ts: '2026-10-15T15:41:26.236Z', date: 'Oct 15, 2026, 10:41 AM CT', title: '1812: La Lime\'s and Le Mai\'s houses across the river', kind: 'feature',
     items: [
       'Two more log houses stand on the north bank west of the Kinzie house in 1812, where Captain Whistler\'s 1808 plan of the fort draws them: La Lime\'s, the post interpreter\'s, and Le Mai\'s, beside the field the plan gives to Mr. Coursell.',

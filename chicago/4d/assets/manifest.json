@@ -251,6 +251,15 @@
       "phase_id": "log_1834",
       "structure_id": "council_house"
     },
+    "coursoll_field_1812__coursoll_1808.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 117672,
+      "inputs_sha256": "cc98a81efff4c4705800f5ef6c8f811b2955a98a508a27dce32f85f21806b097",
+      "kind": "generated",
+      "phase_id": "coursoll_1808",
+      "structure_id": "coursoll_field_1812"
+    },
     "dearborn_street_drawbridge__draw_1834.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,
@@ -2254,6 +2263,24 @@
       "kind": "generated",
       "phase_id": "lee_1812",
       "structure_id": "lee_house_1812"
+    },
+    "lees_place_cabin_1812__lees_place_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48752,
+      "inputs_sha256": "df7eb4b920492e8acf9cfe02730b2f197980c5cea5450f5970e70d1ba7e507e0",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_cabin_1812"
+    },
+    "lees_place_field_fence_1812__lees_place_1812.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 578512,
+      "inputs_sha256": "768c2ca7199f3bbf493d288fe1ea7c7d399b925b86ba45fe6053909ab008a84f",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_field_fence_1812"
     },
     "lees_place_haystack_1812_a__lees_place_1812.glb": {
       "archetype": "haystack",

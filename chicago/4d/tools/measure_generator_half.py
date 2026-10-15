@@ -602,17 +602,25 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # and Le Mai's log houses on the 1812 north bank (lalime_house_1812, lemai_house_1812), through
 # emit.py and the common modules.
 #
-# 885 -> 888, 731 -> 734 and 725 -> 728 on 2026-10-15 (T-2512, landing after T-2504): the two
+# 885 -> 886, 731 -> 732 and 725 -> 726 on 2026-10-15 (T-2513, landing after T-2504): Coursoll's
+# worm-fenced field west of the no. 31 houses on the 1812 north bank (coursoll_field_1812,
+# `palisade`), emitted the same way and restaling on the same rows.
+#
+# 886 -> 888, 732 -> 734 and 726 -> 728 on 2026-10-15 (T-2509, landing after T-2513): Lee's Place's
+# cabin (log_dwelling) and its field's worm fence (palisade) of 1812, emitted through emit.py and the
+# common modules, so restaling on those two rows.
+#
+# 888 -> 891, 734 -> 737 and 728 -> 731 on 2026-10-15 (T-2512, landing after T-2509): the two
 # houses at the forks of 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`),
 # emitted the same way as T-2062's, restaling on the same rows.
 #
 STATED = {
-    "assets": 888,
+    "assets": 891,
     "restales": {
-        "generators/common/*.py": 734,
+        "generators/common/*.py": 737,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 728,
+        "generators/emit.py": 731,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
