@@ -29,6 +29,11 @@
       "type": "string",
       "description": "Must resolve in data/terrain/epochs.json, and its interval must cover target_date."
     },
+    "terrain_apron": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+/[a-z0-9_]+\\.json$",
+      "description": "T-2502. Optional: an apron field beside the terrain box, as <epoch>/<file>.json under data/terrain/epochs/ - a second heightfield the renderer samples outside the box before its fallback, drawn in place of the box's carried apron over the field's cut_local_enu_m. 1812's carries the ground down the South Branch to Lee's Place."
+    },
     "lighting": {
       "type": "object",
       "additionalProperties": false,
