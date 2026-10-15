@@ -1651,6 +1651,8 @@ async function boot() {
     // The sand belt and the marsh are painted from the 1835 plant zones' extents.
     substrateBase: layerBase('flora'),
     sceneId: loaded.scene.id ?? YEAR,
+    // T-2502: ground off the box, where the scene names one (1812: down the South Branch).
+    apronPath: loaded.scene.terrain_apron ?? null,
     confidence,
     problems,
   });

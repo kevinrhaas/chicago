@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1802, ts: '2026-10-15T08:54:03.739Z', date: 'Oct 15, 2026, 3:54 AM CT', title: 'The 1812 ground now reaches Lee\'s Place', kind: 'change',
+    items: [
+      'The 1812 ground used to stop about two kilometres west of the fort. It now follows the South Branch south-west to the stretch of bank where Lee\'s Place, the farm later called Hardscrabble, stood.',
+      'The river and both of its banks follow the 1849 map traced for the farm\'s site, and the ground beside them is the same flat prairie as the edge of the existing ground. All of it is marked as a reconstruction.',
+      'A new viewpoint, The South Branch at Lee\'s Place, stands on that bank. The farm itself comes next.',
+    ] },
   { v: 1801, ts: '2026-10-15T08:18:58.270Z', date: 'Oct 15, 2026, 3:18 AM CT', title: '1812: what was ruled out, and why', kind: 'feature',
     items: [
       'The 1812 scene\'s Evidence drawer now lists the buildings researched and left out of that summer, as the 1835 town\'s always has.',
