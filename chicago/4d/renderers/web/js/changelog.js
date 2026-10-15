@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1798, ts: '2026-10-15T06:00:08.997Z', date: 'Oct 15, 2026, 1:00 AM CT', title: 'July vines at Glessner House', kind: 'improvement',
+    items: [
+      'Selective Boston ivy now climbs the Prairie front, with Virginia creeper on courtyard walls. Green leaves and connected stems leave doors and windows clear.',
+      'Full and Light use the same planting layout. The house’s Liberties panel explains the reconstructed 1904 coverage.',
+    ] },
   { v: 1797, ts: '2026-10-15T03:15:40.080Z', date: 'Oct 14, 2026, 10:15 PM CT', title: 'Paths through the Glessner courtyard', kind: 'change',
     items: [
       'Gravel approaches now connect the carriage drive to the service stair and curved terrace.',
