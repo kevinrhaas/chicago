@@ -1565,7 +1565,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 o.meeting_rail for o in openings if o.component == comp):
             raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
     arched = _arched_front(arched_groups, openings, variants, kit, val("street_front_dress") or {},
-                           pf, floors, width, door_s, eave - float(val("eave_overhang_m")) * math.tan(math.radians(pitch)) - 0.20) \
+                           pf, floors, width, door_s,
+                           # T-2528: the soffit the roof builds; a mansard's stands on the wall head
+                           eave - (0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch)))
+                           - EAVE_FASCIA_M) \
         if sfo else {}
     if val("street_front_dress") and not sfo:
         raise ParamError("street_front_dress dresses a street front laid by street_front_openings")
