@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1827, ts: '2026-10-15T20:17:26.404Z', date: 'Oct 15, 2026, 3:17 PM CT', title: '1637 Prairie\'s wing wears the cornice', kind: 'improvement',
+    items: [
+      'The wing at the south end of 1637 Prairie Avenue now carries the house\'s bracketed cornice round its three faces, so its band reads as deep as the main cornice\'s, as the engraving of Jesse Spalding\'s remodel draws it.',
+      'A painted block stands in that band over the wing\'s window, rising just above it, where the engraving draws one.',
+    ] },
   { v: 1826, ts: '2026-10-15T19:37:21.528Z', date: 'Oct 15, 2026, 2:37 PM CT', title: 'Glessner’s July view stays within its detail limits', kind: 'fix',
     items: [
       'Nothing you can see changed. Glessner avoids drawing hidden scenery in July’s Light detail and uses fewer drawing operations in Full detail, while preserving the house\'s geometry, stone and dark glass.',
