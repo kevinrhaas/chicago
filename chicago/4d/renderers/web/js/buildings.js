@@ -31,6 +31,7 @@
 
 import * as THREE from 'three';
 import { spatialPieces } from './spatial-batch.js';
+import { castOnlyTowardView } from './shadow-casters.js';
 import { backingTriangles } from './view-occlusion.js';
 import { opaqueConfidenceRange } from './confidence.js';
 import { seasonPreservesSurface } from './season.js';
@@ -376,7 +377,7 @@ function materialKey(m) {
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
   onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS,
-  spatialCells = null, collectViewBackings = false }) {
+  spatialCells = null, collectViewBackings = false, shadowCasters = null }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -659,6 +660,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.castShadow = true;
     batch.receiveShadow = true;
     batch.customDepthMaterial = depthMaterial;
+    // T-2529: at `light`, a piece whose shadow cannot reach the view is left
+    // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
+    if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
     batch.userData.batchIndex = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
