@@ -606,13 +606,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # worm-fenced field west of the no. 31 houses on the 1812 north bank (coursoll_field_1812,
 # `palisade`), emitted the same way and restaling on the same rows.
 #
+# 886 -> 888, 732 -> 734 and 726 -> 728 on 2026-10-15 (T-2509, landing after T-2513): Lee's Place's
+# cabin (log_dwelling) and its field's worm fence (palisade) of 1812, emitted through emit.py and the
+# common modules, so restaling on those two rows.
+#
 STATED = {
-    "assets": 886,
+    "assets": 888,
     "restales": {
-        "generators/common/*.py": 732,
+        "generators/common/*.py": 734,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 726,
+        "generators/emit.py": 728,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
