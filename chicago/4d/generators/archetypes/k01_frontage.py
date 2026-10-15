@@ -2653,7 +2653,10 @@ def build(params, structure_id: str):
         # the kit: the same seats, laid by the same calls, and nothing else is taken from it
         a.k14_sills = build(dataclasses.replace(p, condition={}), structure_id).footprints
     D, W, E = p.depth_m, p.width_m, p.eave_m
-    yf = E - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg)) - EAVE_FASCIA_M
+    # T-2528: the soffit the roof builds (Assembly.roof): a hip's drops by the overhang's run
+    # down its slope, a mansard's stands on the wall head (T-2370), the fascia's depth under E
+    drop = 0.0 if p.mansard else p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg))
+    yf = E - drop - EAVE_FASCIA_M
     a.soffit_m = yf
     floors = p.floors_m
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
