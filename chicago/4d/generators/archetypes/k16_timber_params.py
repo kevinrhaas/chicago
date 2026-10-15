@@ -13,6 +13,9 @@ Its phase's `form` carries each as an attested-shaped entry:
     canted_bay   optional: a plain bay standing on the gable front's ground storey; with
                  `lights` (T-2424) built in kit timber, a pointed light in each face
     roof_covering optional: the roof's colour
+    basement     optional (T-2523): `height_m`, the basement storey the whole house stands
+                 on; every other height in the record is over its top, the porch floor and
+                 stoop come down to grade, and the foundations run on down to grade
 
 OR, since T-2357, a WHOLE small frame house closed on every face from the kit:
 
@@ -34,7 +37,7 @@ from dataclasses import dataclass, field
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
 REQUIRED = ("layout", "gable", "wing_wall", "porch", "body")
-OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary")
+OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary", "basement")
 #: The form attributes that reach the mesh. `stories` and `construction` are stated on a
 #: record for the card and declare `geometry: simplified`.
 # T-2357: the whole-house layout, read instead of the front's five
@@ -65,6 +68,7 @@ class K16TimberParams:
     roof_covering: dict | None = None
     tower: dict | None = None
     boundary: dict | None = None
+    basement: dict | None = None
     frame_house: dict | None = None
     confidence: dict = field(default_factory=dict)
 
@@ -119,6 +123,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         bad = boundary_errors(form["boundary"]["value"])
         if bad:
             raise ParamError(f"{rid}: boundary: {'; '.join(bad)}")
+    if "basement" in form:     # T-2523
+        bad = basement_errors(form["basement"]["value"])
+        if bad:
+            raise ParamError(f"{rid}: basement: {'; '.join(bad)}")
     if "canted_bay" in form and "lights" in form["canted_bay"]["value"]:     # T-2424
         bad = bay_errors(form["canted_bay"]["value"])
         if bad:
@@ -194,6 +202,15 @@ PORCH_ARCH = ("spring_below_plate_m", "rise_m", "lower_radius_ratio", "lower_swe
 PORCH_STOOP = ("max_riser_m", "going_m", "cheek_above_m")
 #: T-2519: what a cusped trefoil head needs in place of the pointed arch's rise and arcs
 PORCH_TREFOIL = ("spring_below_plate_m", "foil_radius_m", "head_radius_m", "head_over_spring_m", "lobe_m")
+
+
+def basement_errors(bv: dict) -> list[str]:
+    """T-2523: the basement a house stands on is one height, a storey's worth at most."""
+    if set(bv) != {"height_m"}:
+        return ["sets height_m and nothing else"]
+    if not (_num(bv["height_m"]) and 0 < bv["height_m"] <= 2.5):
+        return ["height_m must lie in 0-2.5 m"]
+    return []
 
 
 def transom_errors(door: dict) -> list[str]:

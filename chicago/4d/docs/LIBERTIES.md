@@ -27716,18 +27716,59 @@ architects' plans would settle the basement's lights.
 **Ticket:** T-2525 (piece 1 of T-2422).
 **Recorded:** 2026-10-15 (T-2525).
 
+### L-k16-1638-basement-2523 — 1638 Prairie raised on a basement to its photograph's steps: the floor's height and the ten risers read through a re-solved camera, the basement's face and the stoop's fabric reconstructed
+
+**Decision:** the Shortall-Gregory house (T-2523, after T-2520) stands on a basement storey 0.95 m
+high, so its principal floor and the porch floor at the door's foot are 1.55 m over the walk, where
+the kit put them at 0.6 m. The stoop under the tower climbs to it in ten risers of 0.155 m on
+0.36 m goings between its cheek walls, its foot 5.0 m out from the front. The camera the house is
+matched through is solved again: the eye 30.71 m out from the front (on the far walk of Prairie
+Avenue, just inside its far street line at 30.8 m), 3.25 m over the walk, f 2242 px. The porch and
+the tower on it, which stand out from the front, are re-read through that camera: centred 6.53 m
+from the front's south end (was 6.40 m), the floor 1.16 m a side, the posts 0.23 m and 0.045 m in
+from its ends, the trefoil and quatrefoils 3 % larger, the plate 2.87 m clear, the tower's sills at
+4.40 m, its cornice at 7.05 m and its spire's point at 10.08 m over the basement's top.
+**What is read, not invented.** That there is a basement (the 1911 sheet's '2BB'). How high it
+carries the floor, from the photograph (`chicagology_1638_prairie_photo`): T-2520's eight nosings
+(813-922.5 px, about 15 px apart) fitted together with the fence's base (1022 px on the street
+line, 10.8 m out) want a floor of 1.45-1.6 m over the walk in ten risers; rendered through the new
+camera the built stair lands within 3.7 px rms of the eight. The camera's depth follows from that
+floor and the fence's base. Every porch and tower reading listed above is the print's own pixel
+re-taken at its depth through the new camera; rendered, each lies within 4 px of the print.
+**What is invented.** The choice of 1.55 m inside the band the print allows (1.6 m fits as well
+but puts the eye past the far street line; 1.4 m needs goings over 0.4 m and still misses by
+4 px); that the fall is all in the floor and none in the yard between house and fence (the hedge
+hides the house's foot; the sheet's basement, and a city that raised its streets above its lots,
+make it the floor); the basement's face, carried down as the kit's brick foundation under every
+wall, the bay and the rear pieces alike, the print showing none of it; the stoop's treads, risers
+and cheeks as the kit builds them; every colour, the print being monochrome.
+**What the record states and the model simplifies.** Every height the record gave over grade
+before T-2523 was read against the print's old grade line (825 px); the new camera puts that line
+at the basement's top, so the record keeps those numbers and the kit builds them over the
+basement (form.basement). The fence is not re-read here: through this camera its piers, bars and
+caps draw about 1.37 times smaller than the print's, which is T-2524's. The bay's base (about
+3 px) and the porch roof's south end (about 4 px) are left at their old readings. The basement's height
+(`form.basement`) and the tower's re-read heights are inferred and argued in their notes; what
+this entry covers is the stoop (`form.porch`) and the basement's face under the front's walls.
+**How to resolve:** a picture showing the house's foot (below the hedge) settles the split between
+floor and yard, and the basement's material; a second view of the stoop fixes its goings.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`.
+**Ticket:** T-2523 (after T-2520, piece 2 of T-2458).
+**Review:** `docs/RESEARCH/k16-1638-basement-2523/README.md`.
+**Recorded:** 2026-10-15 (T-2523).
+
 ### L-k16-1638-tower-caps-2521 — 1638 Prairie's tower stage built smooth with an incised trefoil over each light, and its gate caps' lower corners flared: the stage, frieze, casings and flare read, the ornament's pattern and the flare's curve reconstructed
 
 **Decision:** the corner tower's upper stage on the Shortall-Gregory house (T-2521, piece 3 of
 T-2458) is built smooth under a 0.12 m frieze, each light's casing carried round its pointed
-head, and over each light an incised trefoil 0.225 m across centred at 6.43 m; the two gate
+head, and over each light an incised trefoil 0.225 m across centred at 6.51 m; the two gate
 piers' caps are the shaft's breadth with their lower corners flared out to 0.40 m at 1.215 m
 and rounded back in by 1.17 m. The tower's record stays `inferred` as a whole, its reconstructed
 parts, the trefoil among them, declared in its note; so this entry covers the fence alone.
 **What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`) through
-the camera T-2423 solved: that the stage shows no course line; the frieze line at 300 px
-(6.88 m); the casing band following each head; that a figure about 0.23 by 0.32 m stands over
-each light on the band's apex; the caps' outline row by row (57 px at the top, 63 px at the
+the camera T-2423 solved, the tower's heights re-placed through the one T-2523 re-solved:
+that the stage shows no course line; the frieze line at 300 px (6.92 m); the casing band following each head; that a figure about 0.23 by 0.32 m (6.34-6.66 m) stands
+over each light on the band's apex; the caps' outline row by row (57 px at the top, 63 px at the
 lower corners, the flare from 806 to 830 px and back to the shaft by 836 px).
 **What is invented.** The ornament's pattern: the halftone shows a faint figure and no more, and
 the trefoil is the gable's own (T-2457); its groove's width and depth; the smooth face's

@@ -1436,6 +1436,7 @@ class Sample:
         if "plate" in v:       # T-2519: a house's own plate (its clear height, its depth)
             pl = dict(pl, **v["plate"])
         yf, Dp = fl["height_m"], v.get("depth_m", fl["depth_m"])   # T-2323: a house's own depth
+        yf += v.get("basement_m", 0.0)     # T-2523: the floor raised by the basement under it
         pitch = fl["board_width_m"] + fl["gap_m"]
         nb = int(round(v["width_m"] / pitch))
         Wf = nb * pitch - fl["gap_m"]
@@ -1934,13 +1935,16 @@ def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
     out = {"gable": Sample(gv, data, (0.0, 0.0, 0.0)).build(),
            "wing_wall": Sample(wv, data, (Wg + join, 0.0, 0.0)).build()}
     half = dict(pv, width_m=pv["half_width_m"])
+    lift = basement_of(form)
+    if lift:     # T-2523: the floor stands the basement higher; the half is set down by it, to
+        half["basement_m"] = lift      # come back up with the house (its lattice and stoop to grade)
     probe = Sample(half, data).build()
     reach = max(p[0] for pr in probe.prims.values() for p in pr.pos)    # the half's roof edge
     # the porch stands with its roof's south edge at the gable's, unless the record places its
     # middle (T-2396: 1638's photograph puts its porch, and the tower on it, there)
     c = pv["centre_m"] if "centre_m" in pv else Wg + join + reach
-    out["porch_right"] = Sample(half, data, (c, 0.0, 0.0)).build()
-    out["porch_left"] = Sample(half, data, (c, 0.0, 0.0)).build()      # mirrored when merged
+    out["porch_right"] = Sample(half, data, (c, -lift, 0.0)).build()
+    out["porch_left"] = Sample(half, data, (c, -lift, 0.0)).build()      # mirrored when merged
     out["_porch_mirror_s"] = c
     for k in ("gable", "wing_wall", "porch_right", "porch_left"):
         out[k].seed = seed_of(out[k].v["id"], 0, sid)
@@ -2256,6 +2260,44 @@ def tower_roof(house: Sample, parts: dict, form: dict, data: dict) -> dict:
             "across_flats_m": tv["across_flats_m"], "front_z_m": round(zc + R, 4)}
 
 
+# -- T-2523: a house raised on its basement ------------------------------------------------------
+#
+# Every height a record gives is over the basement's top: the parts are built as before, the
+# porch's floor the basement higher and its half set down by it, and then the whole house is
+# raised. A foundation's foot stays on grade, so each foundation runs on down as the basement's
+# wall, its brick coursed on (its texture's v carried down with it).
+
+#: the roles whose foot is on grade before the lift and stays there
+BASEMENT_STRETCH = ("foundation",)
+#: a basement wall built below the old grade (under a part with no foundation of its own),
+#: raised with the house and then laid in with the foundations
+BASEMENT_WALL = "basement_wall"
+
+
+def basement_of(form: dict) -> float:
+    return form["basement"]["value"]["height_m"] if form.get("basement") else 0.0
+
+
+def raise_on_basement(house: Sample, lift: float) -> dict:
+    """Raise the merged house `lift` metres, keeping each foundation's foot on grade."""
+    kept = 0
+    for role, pr in house.prims.items():
+        stretch = role in BASEMENT_STRETCH
+        for i, p in enumerate(pr.pos):
+            if stretch and abs(p[1]) < 1e-9:
+                n = pr.nrm[i]
+                au = _cross(Y, n)
+                au = _unit(au) if _dot(au, au) > 1e-9 else (1.0, 0.0, 0.0)
+                u, w = pr.uv[i]
+                pr.uv[i] = (u, w + lift * _cross(n, au)[1])
+                kept += 1
+            else:
+                pr.pos[i] = (p[0], p[1] + lift, p[2])
+    if BASEMENT_WALL in house.prims:
+        absorb(house.prims.setdefault("foundation", Prim("foundation")), house.prims.pop(BASEMENT_WALL))
+    return {"height_m": lift, "kept_on_grade": kept}
+
+
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     """The whole front, merged into one sample and turned to face its street."""
     data = data or load()
@@ -2266,6 +2308,7 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     gv, wv = form["gable"]["value"], form["wing_wall"]["value"]
     Wg, Ww, join = gv["width_m"], wv["width_m"], form["layout"]["value"]["join_gap_m"]
     house = Sample({"id": st["id"], "kind": "structure", "use": "structure"}, data)
+    lift = basement_of(form)
     timber = bool(body.get("timber_walls"))
     if timber:     # T-2395: the body closed in kit timber under its own roofs
         house.meta["body"] = timber_body_roofs(house, parts, form, data)
@@ -2287,6 +2330,9 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     bay = form.get("canted_bay")
     if bay and "lights" in bay["value"]:     # T-2424: its faces are parts, merged below
         house.meta["bay"] = bay_trim(house, form, data)
+        if lift:     # T-2523: the basement's wall carried round under the bay's plinth
+            plan = [tuple(q) for q in bay["value"]["plan"]]
+            bay_ring(house, plan, ((BAY_BASE[1][0], -lift), BAY_BASE[1]), (BASEMENT_WALL,))
     elif bay:
         b = bay["value"]
         canted_bay_body(house, [tuple(q) for q in b["plan"]], b["height_m"], b.get("roof_m", 0.12))
@@ -2300,7 +2346,7 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     zl = Dp - po["lattice"]["setback_m"]
     sk = po["lattice"]["frame_thickness_m"]
     for a, b in ((c + Wf - sk, c + Wf), (c - Wf, c - Wf + sk)):
-        house.box(house.F, "skirt", a, b, 0.0, y_rim0, 0.0, zl, skip=("back", "bottom"), tone=house.tone("skirt", a))
+        house.box(house.F, "skirt", a, b, -lift, y_rim0, 0.0, zl, skip=("back", "bottom"), tone=house.tone("skirt", a))
     # merge: the porch's left half mirrored, the board roles dropped
     mirror_s(parts["porch_left"], c)
     keys = ("gable", "wing_wall", "porch_right", "porch_left") + body_part_keys(parts)
@@ -2333,6 +2379,8 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
                     absorb(house.prims.setdefault(role, Prim(role)), pr)
     house.meta.update({"parts": {kk: triangles(parts[kk]) for kk in keys},
                        "focus": [0.0, 3.0, 0.0], "span_m": 9.0})
+    if lift:     # T-2523: the house up on its basement, the fence left on the walk
+        house.meta["basement"] = raise_on_basement(house, lift)
     if form.get("boundary"):     # T-2456: the street fence, built facing east and turned with the rest
         bd = Sample({"id": f"{st['id']}.boundary", "kind": "boundary", "use": "boundary"}, data)
         house.meta["boundary"] = boundary(bd, form["boundary"]["value"])

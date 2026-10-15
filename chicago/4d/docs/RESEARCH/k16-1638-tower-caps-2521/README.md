@@ -28,6 +28,13 @@ from the porch roof at 555 px (3.57 m), as T-2396 read them.
   high), a 12 mm groove 6 mm deep, centred at 6.43 m so its foot stands 0.014 m over the band.
   The trefoil is the gable's own figure (T-2457), reconstructed; its place and size are read.
   Rendered, it reads as faintly as the print's does.
+- **Re-placed after T-2523.** T-2523 landed first and re-solved the camera on the steps (eye
+  30.71 m out, f 2242 px), re-reading the tower's sills at 4.40 m, its lights' points at 6.28 m
+  and its cornice at 7.05 m. Through that camera the figure's rows (320-345 px) read 6.34-6.66 m,
+  its middle 6.50 m, and the casing band's apex rises with the points; the trefoil is centred
+  at 6.51 m so its foot stays just clear of the band. The frieze line (300 px) reads 6.92 m,
+  still 0.12-0.13 m under the cornice. The before/after crops below were taken through the
+  earlier camera.
 
 ## The gate caps
 
