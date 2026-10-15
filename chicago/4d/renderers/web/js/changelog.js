@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1813, ts: '2026-10-15T15:02:02.311Z', date: 'Oct 15, 2026, 10:02 AM CT', title: 'Nothing you can see changed: a self-test caught up with the haystacks', kind: 'fix',
+    items: [
+      'Nothing you can see changed. The check that rebuilding one building on its own still works ran against a fixed list of five builders. When the haystacks brought a sixth, it failed for every change waiting to land. It now reads the builders from the bake script itself, so the next new builder will not trip it.',
+    ] },
   { v: 1812, ts: '2026-10-15T14:22:52.342Z', date: 'Oct 15, 2026, 9:22 AM CT', title: 'Haystacks across the river from Lee\'s Place (1812)', kind: 'feature',
     items: [
       'Four round haystacks now stand on the South Branch\'s far bank opposite the Lee\'s Place farm, where Wau-Bun puts the farm\'s cattle \'standing among the haystacks on the opposite bank\' in April 1812.',
