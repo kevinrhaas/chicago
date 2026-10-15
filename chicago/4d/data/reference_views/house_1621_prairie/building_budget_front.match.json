@@ -2,7 +2,7 @@
   "structure_id": "house_1621_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b358ce32a145c40d4721a29e6cf7ff93a790c0cde354f6ca6889595ccea18686",
+  "glb_sha256": "dba82518aa9ad3f734f93c23c7d2d54b4b8fe15e073dfe764f2d5ffca9fd38d4",
   "camera_sha256": "6222a0879a57a2c0bd3f87866f0fd82d3834acd772c43f2cb1c31c72deb02a7b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg",
   "verdict": "differs",
@@ -55,7 +55,7 @@
     {
       "what": "the basement: two segmental-headed lights under the bow with iron grilles, about 0.9 m high; the build's bow is blind in its basement (the K08 kit refuses a light under a bay's clear wall)",
       "status": "fixed",
-      "how": "T-2525: the bow's basement built as a storey of its own, 1.4 m to the principal floor, so the bow carries the string course the drawing draws there; in it two lights at -30 and +30 degrees under the principal lights, 0.92 m high over a 0.1 m plinth, their heads flat as the drawn openings are (the drawing's arch is the grille's, not the head's), each barred with seven iron uprights between a foot bar and a head bar and the arched ring the drawing draws over them, as a plain ring. Through the camera their heads land within about 3 px of the drawing's and their sills about 9 px above (the drawing takes them nearly to grade, under the kit's plinth and sill stone); they are 0.75 m wide as the principal lights are, against about 0.95 m drawn (the widths, below)"
+      "how": "T-2525: the bow's basement built as a storey of its own, 1.4 m to the principal floor, so the bow carries the string course the drawing draws there; in it two lights at -30 and +30 degrees under the principal lights, 0.92 m high over a 0.1 m plinth, their heads flat as the drawn openings are (the drawing's arch is the grille's, not the head's), each barred with seven iron uprights between a foot bar and a head bar and the arched ring the drawing draws over them, as a plain ring. Through the camera their heads land within about 3 px of the drawing's and their sills about 9-10 px above (the drawing takes them nearly to grade, under the kit's plinth and sill stone); they are 0.75 m wide as the principal lights are, against about 0.95 m drawn (the widths, below)"
     },
     {
       "what": "the basement lights' heads: the drawing sets a block of splayed voussoirs over each, its joints fanned up to the string course; the build's are K06's plain flat lintel",
