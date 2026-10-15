@@ -20,6 +20,7 @@ cannot be generated while the datum origin is unverified.
 from __future__ import annotations
 
 import argparse
+import array
 import datetime as dt
 import hashlib
 import json
@@ -1802,7 +1803,7 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             except Exception:  # noqa: BLE001 — reported by the param check
                 continue
 
-    targets = sorted((d, sc.get("terrain_epoch")) for d, sc in
+    targets = sorted((d, scene_ground_key(sc)) for d, sc in
                      ((parse_date(sc.get("target_date", "")), sc) for sc in scenes.values()) if d)
     town_field = field
     for name, st in sorted(structures.items()):
@@ -1868,6 +1869,39 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             if abs(worst) > GROUND_CONTACT_TOL_M:
                 found.append((sid, pid, "ground_contact", f"structure {sid}/{pid}", worst))
     return found
+
+
+def scene_ground_key(sc: dict):
+    """The ground a scene stands on: its terrain epoch, or the epoch with its apron."""
+    ep, apron = sc.get("terrain_epoch"), sc.get("terrain_apron")
+    return f"{ep}+{apron}" if ep and apron else ep
+
+
+def load_apron(meta_path: Path) -> Heightfield:
+    """A scene's apron field (T-2502): the heightfield layout, in its own JSON and bin."""
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    samples = array.array({"int16": "h", "float32": "f"}[meta.get("encoding", "int16")])
+    samples.frombytes((meta_path.parent / meta["bin"]).read_bytes())
+    if len(samples) != int(meta["cols"]) * int(meta["rows"]):
+        raise ValueError(f"{meta['bin']} holds {len(samples)} samples, but "
+                         f"{meta_path.name} declares {meta['cols']}x{meta['rows']}")
+    return Heightfield(meta, samples)
+
+
+class ApronedField:
+    """An epoch's box with a scene's apron beside it, sampled as the renderer does:
+    the box wherever it reaches, the apron where the box does not (terrain.js `sample`)."""
+
+    def __init__(self, box: Heightfield, apron: Heightfield) -> None:
+        self.box, self.apron = box, apron
+
+    def covers(self, e: float, n: float) -> bool:
+        return self.box.covers(e, n) or self.apron.covers(e, n)
+
+    def height(self, e: float, n: float) -> float:
+        if not self.box.covers(e, n) and self.apron.covers(e, n):
+            return self.apron.height(e, n)
+        return self.box.height(e, n)
 
 
 def check_ground_contact(structures: dict, unlanded: list[tuple], rep: Report) -> None:
@@ -6524,6 +6558,18 @@ def main() -> int:
             fields[ep] = Heightfield.load(DATA / "terrain" / "epochs" / ep)
         except Exception as e:  # noqa: BLE001
             rep.error("ground contact", f"cannot read the {ep} heightfield: {e}")
+    # T-2509: a scene that names a `terrain_apron` (T-2502) stands on its epoch's box AND
+    # that apron, which the renderer samples wherever the box does not reach
+    # (terrain.js `sample`). Measured against the box alone, Lee's Place stood "outside
+    # the modelled terrain box altogether" on ground the visitor walks on.
+    for sc in scenes.values():
+        key, ep, apron = scene_ground_key(sc), sc.get("terrain_epoch"), sc.get("terrain_apron")
+        if not apron or key in fields or fields.get(ep) is None:
+            continue
+        try:
+            fields[key] = ApronedField(fields[ep], load_apron(DATA / "terrain" / "epochs" / apron))
+        except Exception as e:  # noqa: BLE001
+            rep.error("ground contact", f"cannot read the {apron} apron: {e}")
     town = next((sc.get("terrain_epoch") for sc in scenes.values() if sc.get("id") == "1835"), None)
     field = fields.get(town) or next(iter(fields.values()), None)
     datum_origin = None

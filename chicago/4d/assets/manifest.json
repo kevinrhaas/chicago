@@ -2201,6 +2201,46 @@
       "phase_id": "lee_1812",
       "structure_id": "lee_house_1812"
     },
+    "lees_place_haystack_1812_a__lees_place_1812.glb": {
+      "archetype": "haystack",
+      "baked_ao": false,
+      "bytes": 26732,
+      "generator": "generators/haystack_emit.py",
+      "inputs_sha256": "710c595cf7d35a4d85a6f933293325668fff87efad9b0526e1441f700e6556b8",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_haystack_1812_a"
+    },
+    "lees_place_haystack_1812_b__lees_place_1812.glb": {
+      "archetype": "haystack",
+      "baked_ao": false,
+      "bytes": 26748,
+      "generator": "generators/haystack_emit.py",
+      "inputs_sha256": "de0144a831bdbbadfb33e6d1f34bb9a66c9331489d6dfce1d110f0b7eeb0a685",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_haystack_1812_b"
+    },
+    "lees_place_haystack_1812_c__lees_place_1812.glb": {
+      "archetype": "haystack",
+      "baked_ao": false,
+      "bytes": 26728,
+      "generator": "generators/haystack_emit.py",
+      "inputs_sha256": "082d4e2775b975d2df1f8e4afd47f78de8eb99c812f0acb8c570f6df01692791",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_haystack_1812_c"
+    },
+    "lees_place_haystack_1812_d__lees_place_1812.glb": {
+      "archetype": "haystack",
+      "baked_ao": false,
+      "bytes": 26732,
+      "generator": "generators/haystack_emit.py",
+      "inputs_sha256": "05bb8c135fce12390928a3b7ca5c3064b1224fbe93d57aebc766270af47dfe17",
+      "kind": "generated",
+      "phase_id": "lees_place_1812",
+      "structure_id": "lees_place_haystack_1812_d"
+    },
     "log_jail__log_1833.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

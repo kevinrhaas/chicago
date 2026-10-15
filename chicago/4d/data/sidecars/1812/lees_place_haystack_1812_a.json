@@ -1,0 +1,184 @@
+{
+  "id": "lees_place_haystack_1812_a",
+  "phase": "lees_place_1812",
+  "name": "Lee's Place (Hardscrabble): haystack 1 of 4, on the bank opposite the cabin",
+  "aka": [
+    "the haystacks on the opposite bank (Wau-Bun, ch. XVIII)"
+  ],
+  "archetype": "haystack",
+  "asset": "gltf/lees_place_haystack_1812_a__lees_place_1812.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1812-04-06",
+    "to": "1812-08-16",
+    "confidence": "reconstructed",
+    "sources": [
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "note": "THE STACKS ARE DATED ONCE AND THE REST IS A BOUND THIS PROJECT CHOSE. Wau-Bun puts haystacks with the cattle on the bank opposite Lee's cabin on the afternoon the war party came, which Captain Heald's letter of 15 April 1812 dates to 6 April (Moses and Kirkland 1895, p. 43; Wau-Bun's ch. XIX says the 7th) - the one day a source shows them. Those were the winter's stacks, fed from in April. The stacks standing on the 1812 scene's date are not the same hay: a farm that stacked on that bank in 1811 is taken to have cut and stacked there again in July 1812, and no source says whether anyone worked Lee's Place after April, so the stacks of the summer are reconstructed (L-1812-lees-place-haystacks-2510). They close on 16 August 1812, the day the post was burned: Charles Lee, his son and the rest of his household but his wife and infant fell on the 15th (Wau-Bun ch. XIX), and nothing was fed at Lee's Place after that."
+  },
+  "change_note": "Built T-2510 (2026-10-15), piece 2 of T-2503: the haystacks at Lee's Place in the 1812 scene, on the bank opposite the cabin, on T-2502's apron ground.",
+  "placement": {
+    "local_e": -1604.84,
+    "local_n": -4300.62,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "kinzie_waubun_1856",
+      "chicago_antiquities_american_fur_co"
+    ],
+    "position_note": "SEATED ACROSS THE RIVER FROM THE CABIN, ON T-2501's RULING, NOT MEASURED. Wau-Bun gives the side and nothing else: the stacks stood 'on the opposite bank' from the cabin, close enough that the soldier, walking down to the canoes, pointed to them across the water and was soon over to them, the stream between 'narrow', with woods 'close at hand' behind them. The cabin's bank is the north-west one (Hubbard's 'north side of the river, (south branch)', data/terrain/1812_hardscrabble_site.json), so the stacks are on the south-east bank. THE RULING HERE: the four stacks stand as a loose group on the line through T-2501's station and the channel's centre, carried on across the river along the bank's own normal (bearing 147 degrees), between 42 and 62 m from the centre - beyond the bank face T-2502's apron draws, on its 1.31 m land grade - and up to 14 m up or down the river from that line, with 8 to 12 m of meadow between neighbours, room for cattle to stand among them and for two men to walk round them out of sight of the far bank. Every distance is this project's (L-1812-lees-place-haystacks-2510). If the reach moves, the stacks move with it.",
+    "symbolic_location": "Lee's Place, on the south-east bank of the South Branch opposite the farm cabin (T-2501's station, half a mile below the later canal mouth at Bridgeport), about 42 m from the channel's centre; the stack's centre at local E -1602.8, N -4298.6, this record's origin the south-west corner of the square it stands in.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "ground",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        4.1,
+        0
+      ],
+      [
+        4.1,
+        4.1
+      ],
+      [
+        0,
+        4.1
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "The square a 3.8 m stack stands in, with 0.15 m round its widest girth. No source sizes a stack at Lee's Place (L-1812-lees-place-haystacks-2510)."
+  },
+  "attributes": {
+    "diameter_m": {
+      "value": 3.8,
+      "confidence": "reconstructed",
+      "note": "Unattested. A round stack of about twelve feet across, the size two or three men pitch off a meadow in a day; Wau-Bun's stacks hid two people walking round them, which a stack this size does and a cock of hay does not. The four differ by a few tenths of a metre, as stacks built by hand do."
+    },
+    "height_m": {
+      "value": 4.4,
+      "confidence": "reconstructed",
+      "note": "Unattested. To the peak; the shoulder where the top is begun stands at a little over half of it."
+    },
+    "condition": {
+      "value": "new",
+      "confidence": "reconstructed",
+      "note": "This season's hay, cut and stacked in July 1812 (see the range note): pale, its top a shade darker where it was raked to shed the rain."
+    },
+    "stack_pole": {
+      "value": true,
+      "confidence": "reconstructed",
+      "note": "Unattested. A round stack pitched by hand was built round a pole set in the ground, which stands clear of the peak."
+    },
+    "function": {
+      "value": "haystack",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun, ch. XVIII: the cattle 'standing among the haystacks on the opposite bank' from Lee's cabin, and the hay the men 'pulled ... for the cattle' from them. That the stacks were hay kept to feed the stock is the source's; this stack's own size and place are not (L-1812-lees-place-haystacks-2510)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_antiquities_american_fur_co",
+      "citation": "Henry H. Hurlbut, Chicago Antiquities: Comprising original items and relations, letters, extracts, and notes pertaining to early Chicago (Chicago, 1881), pages 28-36 — the chapter on the American Fur Company and Chicago. It names Hubbard, Beaubien, Crafts and the Kinzies as the company's Chicago men, prints Gurdon S. Hubbard's own account of how the trade here was organised and how small it was, and closes with extracts from a surviving Michilimackinac outfit book of 1821-22 and a catalogue of the goods furnished for the trade of the Chicago country.",
+      "url": "https://genealogytrails.com/ill/americanfurco.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "Gurdon S. Hubbard's account of the American Fur Company in the West, quoted at length and in quotation marks by Hurlbut — the organisation of the brigades, John Crafts at Hardscrabble, Beaubien's removal from Milwaukee, the Factory House, Crafts's death, John Kinzie the silversmith, and Hubbard's judgement that 'this place never had been preeminent as a trading-post'",
+          "date": "Undated within the chapter; Hubbard was alive and in Chicago when Hurlbut printed it in 1881, and he is describing 1818-1823 at sixty years' distance",
+          "tier": 2,
+          "note": "A near-primary recollection by the man who ran the Illinois trade, and the rung this record is graded on. It is a recollection and not a record: it dates Crafts's death 'in December, of I think the year 1823', and the 'I think' is the source's own."
+        },
+        {
+          "work": "An outward-invoice book of the American Fur Company's Michilimackinac agency, 1821 and 1822, then in private hands at Chicago — outfits by trader, destination and date, the agency dwelling's 1821 expenses, and a catalogue of goods for the Chicago country",
+          "date": "1821-1822",
+          "tier": 1,
+          "note": "A period business record, and Hurlbut prints extracts from it verbatim with the orthography kept. He also records that every other book of the company that lady saved went to the Chicago Historical Society and burned in 1871, so these extracts are what survives of them. This project has read the extracts only, at two removes."
+        },
+        {
+          "work": "Henry H. Hurlbut's own connecting narrative — Astor's rise, the Southwest Company, Astoria, Ramsey Crooks's career, and the judgement that Chicago was 'the port and point of a very limited district of distribution'",
+          "date": "1881",
+          "tier": 4,
+          "note": "Later compilation written forty-six years after the scene. Where Hurlbut is the one speaking, the claim says so, and his sizing judgement is filed as a judgement."
+        }
+      ],
+      "what_it_supplies": [
+        "the size of the fur trade at Chicago, stated twice and by two different men — Hurlbut's 'a very limited district of distribution' and Hubbard's own 'this place never had been preeminent as a trading-post, as this was not the Indian hunting-ground'",
+        "a dated arrival for Gurdon S. Hubbard: Montreal 13 May 1818, Mackinaw 4 July, Chicago the last day of October or first day of November of that year",
+        "the sequence of the Chicago trade houses — Crafts at Hardscrabble to 1819, Beaubien's trading houses at the old river mouth about the foot of Harrison Street from 1819, the Factory House south of Fort Dearborn bought from the U.S. in 1822",
+        "John Kinzie the elder's trade, in his own son-in-law's circle's words: silversmith, making Indian trinkets, and not in the company's business until Crafts died",
+        "that Astor sold the company in 1834 and it was assigned in 1842 — so no Astor company stood behind the Chicago trade in the scene year",
+        "a catalogue of the goods actually furnished for the trade of the Chicago country, about 130 named articles",
+        "one dated vessel arrival: the Schooner Ann, Capt. Ransom, from Michilimackinac to Chicago, 13 September 1821"
+      ],
+      "what_it_does_not_supply": [
+        "anything about 1835. The latest Chicago event in the chapter is 1828 and the latest company event 1842; the scene year is not described at all",
+        "any building this project could trace. Crafts's house is 'about half a mile below Bridgeport' and Beaubien's trading houses are at a river mouth the 1834 harbour cut has already moved — both are placements in prose, not on a sheet",
+        "a residence for anybody in 1835. Every person named here is named for what they did in the 1810s and 1820s",
+        "page numbers. The transcription runs pages 28-36 together with no breaks marked",
+        "reliable orthography for the outfit book, and it says so: 'Pains have been taken to carefully follow the orthography' is a claim about fidelity to the manuscript, not about the manuscript being right — 'Jamie Kinzie', 'Milliwaki', 'Lower Wasbash' and 'Achoolcraft' are all on the page"
+      ]
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+      "url": "https://archive.org/details/historyofchicago01mose",
+      "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "transcribes": [
+        {
+          "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+          "date": "1881",
+          "tier": 3,
+          "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+        }
+      ],
+      "what_it_supplies": [
+        "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+        "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+        "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+        "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+        "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+        "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+        "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+      ],
+      "what_it_does_not_supply": [
+        "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+        "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+        "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+        "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+        "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+        "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+      ]
+    }
+  ],
+  "research_note": "THE HAYSTACKS AT LEE'S PLACE, LATER HARDSCRABBLE, read at T-2510 from Wau-Bun's account of the afternoon in April 1812 when a war party came to the farm cabin: the discharged soldier and Lee's son got away across the river by making as if to fodder the cattle 'standing among the haystacks on the opposite bank', and went round behind the stacks into the woods and so down to the fort. That account is the only source for the stacks and gives no number, size or place beyond the bank, so four stacks is this project's count (L-1812-lees-place-haystacks-2510): enough for cattle to stand among and two people to go round unseen. WHAT IS NOT BUILT: the cattle themselves, the woods behind the stacks, the canoes and the men (L1). It carries review_required because this record tells part of the war party's raid on Lee's Place, an event of Winnebago and Potawatomi history as much as the settlers', in the words of a settler's history, and the 1812 scene waits on the review T-0472 holds it for.",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "It carries review_required because this record tells part of the war party's raid on Lee's Place, an event of Winnebago and Potawatomi history as much as the settlers', in the words of a settler's history, and the 1812 scene waits on the review T-0472 holds it for."
+}
