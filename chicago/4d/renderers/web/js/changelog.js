@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1832, ts: '2026-10-15T22:34:23.858Z', date: 'Oct 15, 2026, 5:34 PM CT', title: '1620 and 1637 Prairie\'s cornices meet their mansard eaves', kind: 'fix',
+    items: [
+      'On the two mansard-roofed houses on Prairie, the bracketed cornice, its bed moulding and the brick wall head now rise to the soffit the roof actually builds; they had stopped about 9-11 cm short of it.',
+      '1637 Prairie\'s swell bay rises with its cornice, so the band carried round the bow now runs level with the main eave.',
+    ] },
   { v: 1831, ts: '2026-10-15T22:22:16.626Z', date: 'Oct 15, 2026, 5:22 PM CT', title: '1619 Prairie rises as a four-storey stone house with a full-height bow', kind: 'feature',
     items: [
       '1619 Prairie Avenue, the house between the 1613/1615 brick pair and Hamline\'s 1621, is now a full four-storey stone-fronted house in place of its draft.',
