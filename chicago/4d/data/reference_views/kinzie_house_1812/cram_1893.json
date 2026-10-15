@@ -1,0 +1,21 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "source_id": "cram_1893_old_kinzie_mansion_1832_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_kinzie_mansion_1832_and_1845_view.jpg",
+  "image_px": [
+    1280,
+    881
+  ],
+  "principal_px": [
+    621.2,
+    267.6
+  ],
+  "focal_px": 1600.0,
+  "eye": [
+    64.72,
+    133.61,
+    11.65
+  ],
+  "yaw_deg": 202.23,
+  "solve": "Fitted by least squares (an unpitched camera, as photo_match draws it; the principal point free, the focal held) to twelve points read off the upper panel of the atlas page at 1280 x 881 px against the GLB's footprint frame (u along the front, the west gable the +u end; v toward the river): the west gable's apex (613, 340); the heads of the two stacks (671, 330; 735, 330); and five piazza posts at their feet on the floor (642, 668, 690, 712, 734 at y 410) and four of them at their heads (y 370), taken as the build's posts at u 12.08, 9.69, 7.30, 4.91 and 2.52, with the door between the third and fourth. Left free, focal and distance trade against each other with almost no change in the residual (rms 8.38 px at 140 m and focal 1478 px; 8.34 px at 260 m and focal 2883 px), because the house is about 150 px wide on the page; so the focal is held at 1600 px, as on the Lossing camera, which puts the eye about 135 m south-south-west of the house across the river, 11.7 m up: an elevated draughtsman's eye looking down on the fenced green. Eye (64.72, 133.61) at 11.65 m, heading 202.23 degrees, principal (621.2, 267.6), rms 8.37 px. The residual is not noise: every post's foot lands 6-10 px above the drawn foot and every head 7-10 px below the drawn head, so the engraving's piazza stands about 1.7 times as tall against its bays as the build's (see the match record). The stacks land within 1 and 6 px and the gable apex within 4 px."
+}

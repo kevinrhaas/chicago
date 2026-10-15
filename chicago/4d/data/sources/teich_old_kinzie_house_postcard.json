@@ -1,0 +1,30 @@
+{
+  "id": "teich_old_kinzie_house_postcard",
+  "type": "illustration",
+  "citation": "\"The Old Kinzie House (First House Built in Chicago)\" — colour postcard after a painting, \"By Courtesy of John H. Kinzie\", Curt Teich & Co., Chicago, about 1910.",
+  "author": "unidentified painter; printed by Curt Teich & Co.",
+  "date": "about 1910 (the postcard); the painting's date is not recorded",
+  "describes_date": "the house under the Kinzies, before it was given up in the early 1830s; the card names no year",
+  "repository": "Newberry Library, Curt Teich Postcard Archives (NBY 416153), via Wikimedia Commons; the copy held in this repository is chicago/reference/images/chicago/chicago_kinzie_house_1804.jpg (catalogued in chicago/reference/images/IMAGE_SOURCES.md)",
+  "url": "https://commons.wikimedia.org/wiki/File:The_Old_Kinzie_House_-First_House_Built_In_Chicago-_(NBY_416153).jpg",
+  "locator": "the whole card, 960 x 609 px in the copy held here; the title is lettered at top left and the courtesy line at bottom left",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published before 1930 in the United States; the Newberry's scan is offered on Commons as public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read off the image file itself on 2026-10-15 (T-2498). Whether John H. Kinzie (1803-1865) lent the painting itself or a copy of it is not stated on the card.",
+  "what_it_supplies": [
+    "the only picture of the house in colour: a red-brown roof and cream walls under the piazza",
+    "the west gable broad, with a small square light high in it",
+    "two stacks through the ridge, the second toward the east end",
+    "the piazza across the front, its roof carried down from the main roof, with a low paling along it",
+    "a central door with openings either side",
+    "four poplars in a row east of the house running down toward the river, a fenced green, and a great tree behind"
+  ],
+  "what_it_does_not_supply": [
+    "a date: the card's file name here says 1804 and the card itself says no year",
+    "any dimension or position; its colours are a painter's and a printer's, not evidence of 1812"
+  ],
+  "note": "A painting of uncertain date reproduced about a century later. It is the one picture that shows a light in a gable, which the 1857 engraving and the Cram plate may also hint at. Its camera and match record are data/reference_views/kinzie_house_1812/teich_postcard.json."
+}

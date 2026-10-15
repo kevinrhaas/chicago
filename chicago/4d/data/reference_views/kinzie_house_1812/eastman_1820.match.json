@@ -1,0 +1,44 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "eastman_1820",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
+  "camera_sha256": "6232fa303d7888acfbcffb49f710ffe2bd6714bb327fc07e987e0c6fe767d6c4",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/eastman_1820-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the house seen end-on from the east, its gable toward the eye, the ridge running away up the river and the front slope carried down long and low on the left over the piazza; on the red-edge overlay the build's apex, both stacks and both eave corners land within about 7 px of the drawn ones",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, the near one just behind the east gable's apex (x 1469 px) and the far one further along it (x 1492 px); the build's land within about 4 px",
+      "status": "fixed"
+    },
+    {
+      "what": "east end: the engraving draws two windows in the end wall under the gable (about x 1442 and 1477 px, y 710-722 px), side by side at the eave's height; the build's east end is unpierced, as the archetype leaves it. With the gable light the Teich painting shows at the west end, the ends are the pictures' to settle (T-2516)",
+      "status": "open"
+    },
+    {
+      "what": "walls: drawn smooth and light on the gable end, as weatherboard reads, in 1820; the build's are squared log. Eight years after the 1812 scene and the earliest picture of the house; the same reading as the 1857, Cram and Teich records, and the same ruling: the 1812 house is built of squared logs (Moses and Kirkland) and Lossing's 1812 view draws them coursed",
+      "status": "open"
+    },
+    {
+      "what": "the house below its eaves: hidden behind a low log building with its own gable in front of it (x 1420-1510 px, y 712-752 px) and a whitewashed house with a door and a window to its right (x 1510-1575 px); the farmstead of 1820, after the Kinzies' return in 1816, which no 1812 source places",
+      "status": "not shown"
+    },
+    {
+      "what": "the palisade-like fence west of the house with two horses before it (x 1360-1420 px): the farmstead's yard in 1820; the 1812 green and its fence are kinzie_house_1812_green, south of the house, which this view does not see",
+      "status": "not shown"
+    },
+    {
+      "what": "the tree behind the house's ridge to the north-west (x 1500-1560 px): the cottonwoods are data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: a monochrome steel engraving",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

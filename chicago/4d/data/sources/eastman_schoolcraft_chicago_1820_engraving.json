@@ -1,0 +1,29 @@
+{
+  "id": "eastman_schoolcraft_chicago_1820_engraving",
+  "type": "illustration",
+  "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+  "author": "Seth Eastman, after a sketch made by Henry Rowe Schoolcraft at Chicago in 1820",
+  "date": "1854",
+  "describes_date": "1820, by its caption; Schoolcraft passed through Chicago with the Cass expedition in August 1820",
+  "repository": "Newberry Library (NBY 1788), via Wikimedia Commons; the copy held in this repository is chicago/reference/images/chicago/chicago_settlement_1820_2.jpg (catalogued in chicago/reference/images/IMAGE_SOURCES.md)",
+  "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+  "locator": "the whole plate, 1920 x 1407 px in the copy held here; the Kinzie farmstead is at the right, about x 1360-1580, y 640-790 px; the artist's line and 'Pl. 27' are lettered under the image",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1854 in the United States, out of copyright by age.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read off the image file itself on 2026-10-15 (T-2498); the plate number and the artists' line are read off the scan. The volume itself was not opened from the run's container; its title and part are the catalogue's and the plate's.",
+  "what_it_supplies": [
+    "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+    "two stacks through the ridge, one just behind the east gable",
+    "two windows in the east end under the gable, and light, smooth walls",
+    "a log building, a whitewashed house and a yard fence round it in 1820",
+    "the second Fort Dearborn across the river to the left"
+  ],
+  "what_it_does_not_supply": [
+    "the house in 1812: it shows it eight years later, after the family's return in 1816",
+    "any dimension or position"
+  ],
+  "note": "Drawn from a sketch made on the spot, which none of the other pictures of the house can claim. The plate also draws Native people in canoes and on the bank; nothing of them is built (AGENTS.md, the standing constraint). Its camera and match record are data/reference_views/kinzie_house_1812/eastman_1820.json."
+}
