@@ -23030,7 +23030,7 @@ Romanesque-classical stone, the south curved bay, the north loggia with Ionic
 columns, the pierced parapet) from the 1888 plate once it is a source record;
 T-1935 the detached rear garage. A measured reading of sheet 28 for this lot
 replaces the footprint.
-**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
 **Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
 **Recorded:** 2026-10-10.
 
@@ -23206,10 +23206,11 @@ outlets, over the profile's 12 m; it falls both ways from its middle, so no poin
 **How to resolve:** T-1882 and T-1883 build the actual Keith/Field front from the 1888 Inland
 Architect plate, whose pierced parapet replaces this dormer and may hide a different roof; a
 photograph of the house's roof or rainwater goods replaces the covering, the caps and the pipes.
-**Covers:** `keith_house_1808_prairie.as_built_1886.form.roof_covering`, `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.rainwater`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.roof_covering`.
 **Ticket:** T-2293 (piece 2 of T-1846, K04).
 **Review:** `docs/RESEARCH/k04-1808-roof-2293/README.md`.
 **Recorded:** 2026-10-10 (T-2293).
+**Revised:** 2026-10-15 (T-2499) — **the hip, its slate, the dormer and the gutters are gone.** The 1888 Inland Architect plate and every later photograph show a flat top behind a stone parapet, so the roof is K01's flat deck in painted tin and the house hangs no gutter (a K01 flat roof's one eave is its rear fascia). See L-k01-1808-flat-top-2499.
 
 ### L-k02-stone-library-2288 — The 1904 stone library: how six building stones look, and the joints and edges they are laid with
 
@@ -23707,6 +23708,7 @@ bow; a photograph or plan of 1808's rear replaces or removes the canted bay.
 **Ticket:** T-2308 (piece 2 of T-1850, K08).
 **Review:** `docs/RESEARCH/k08-1808-bays-2308/README.md`.
 **Recorded:** 2026-10-10 (T-2308).
+**Revised:** 2026-10-15 (T-2499) — **the south bow is two storeys under a flat moulded cap, read off the plate.** It stands 5.0 m on its chord and 1.2 m out, centred 3.7 m from the south corner (the plan under the plate), rises from grade to floor 3 (9.8 m) and stops there under the K10 moulded stone section carried round its plan on a level deck; three principal-storey lights and four second-storey lights, as the plate draws them. The copper cone is gone. See L-k01-1808-flat-top-2499.
 
 ### L-k05-1808-roof-2302 — The 1808 Prairie roof rebuilt from the K05 kit, with two reconstructed chimney stacks
 
@@ -23916,6 +23918,7 @@ profile.
 **Ticket:** T-2317 (piece 2 of T-1852, K10).
 **Review:** `docs/RESEARCH/k10-1808-wall-head-2317/README.md`.
 **Recorded:** 2026-10-10 (T-2317).
+**Revised:** 2026-10-15 (T-2499) — **no brackets and no cresting.** The plate draws a thin moulded stone course under the parapet, so the wall head is the K10 kit's moulded_stone cornice along the street front, projecting 0.35 m; the timber brackets, the bed moulding and the ridge cresting went with the hip. See L-k01-1808-flat-top-2499.
 
 ### L-k11-1808-boundary-2319 — 1808 Prairie's front fence, gates, piers and south boundary wall from the K11 kit, all reconstructed
 
@@ -25198,10 +25201,11 @@ profile and band (the kit's generic ones, L-k10-cornice-kit-2316). None of it wa
 picture of 1808 Prairie.
 **What would replace it.** The 1888 plate deposited and read as a source (T-1882's parapet), or
 a photograph of the roof.
-**Covers:** `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.wall_head`
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.wall_head`
 **Ticket:** T-2326.
 **Review:** `docs/RESEARCH/k10-1808-dormer-face-2326/README.md`.
 **Recorded:** 2026-10-11 (T-2326).
+**Revised:** 2026-10-15 (T-2499) — **the dormer is gone**: no roof slope or dormer shows over the parapet in any picture of the house. See L-k01-1808-flat-top-2499.
 
 ### L-k16-1630-frame-house-2357 — 1630 Prairie refined from the district draft to a whole K16 clapboard frame house, everything but the plan the kit's
 
@@ -27026,3 +27030,34 @@ Lime, the interpreter, in it rather than north of the river, where Surgeon Coope
 **Ticket:** T-2507 (piece 1 of T-2505; the wharf and covered way are T-2508's).
 **Recorded:** 2026-10-15 (T-2507).
 **Covers:** `first_fort_outer_interpreters_house.first_fort_1803.position`, `first_fort_outer_interpreters_house.first_fort_1803.footprint`, `first_fort_outer_interpreters_house.first_fort_1803.form.wall_height_m`, `first_fort_outer_interpreters_house.first_fort_1803.form.construction`, `first_fort_outer_interpreters_house.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_interpreters_house.first_fort_1803.form.loft`, `first_fort_outer_interpreters_house.first_fort_1803.form.chimneys`, `first_fort_outer_armourers_shop.first_fort_1803.position`, `first_fort_outer_armourers_shop.first_fort_1803.footprint`, `first_fort_outer_armourers_shop.first_fort_1803.form.construction`, `first_fort_outer_armourers_shop.first_fort_1803.form.wall_height_m`, `first_fort_outer_armourers_shop.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_armourers_shop.first_fort_1803.form.chimneys`, `first_fort_outer_merchants_shop.first_fort_1803.position`, `first_fort_outer_merchants_shop.first_fort_1803.footprint`, `first_fort_outer_merchants_shop.first_fort_1803.form.construction`, `first_fort_outer_merchants_shop.first_fort_1803.form.wall_height_m`, `first_fort_outer_merchants_shop.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_bake_house.first_fort_1803.position`, `first_fort_outer_bake_house.first_fort_1803.footprint`, `first_fort_outer_bake_house.first_fort_1803.form.construction`, `first_fort_outer_bake_house.first_fort_1803.form.wall_height_m`, `first_fort_outer_bake_house.first_fort_1803.form.roof_pitch_deg`.
+
+### L-k01-1808-flat-top-2499 — 1808 Prairie's flat top, its height and its two-storey bow read off the 1888 plate; the parapet's height, the stacks and the deck reconstructed
+
+**Ticket:** T-2499 (piece 1 of T-1882).
+**Recorded:** 2026-10-15 (T-2499).
+**Sources:** `inland_architect_1888_02_keith_plate`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.roof_covering`
+
+**Decision:** the owner reported on 2026-10-13 that the house "has an Italianette top" where its pictures
+show none. The record now builds what the Inland Architect plate of February 1888 shows, the plate read
+at about 43.8 px/m across its 10.4 m front: a flat top behind a front parapet, the parapet's top about
+16.5 m over grade and so over Glessner's ridge (15.5 m); the third storey run flat across the whole
+front as an arcade of six lights; and the round bow on the south half stopped at floor 3 under a
+moulded cap. The floor heights are read off the plate's courses (floor 2 at 5.9 m, floor 3 at 9.8 m,
+the wall head at 15.2 m) and are `inferred`.
+**What is invented.** The parapet's height over the wall head (1.3 m) is K05's flat deck rule — 2
+degrees of fall, a 0.45 m upstand at the deck's high line — not a reading; it lands within 0.1 m of the
+plate's. The deck, its painted tin covering and its fall to the rear wall: nothing shows them. The two
+stacks keep the places the plan's fireplaces give them, but their plain brick prisms and their height
+(0.9 m over the parapet) are reconstructed; no picture shows a stack over the parapet. The arcade's
+lights stand at 1.12 m centres, 6.45 m overall, where the plate reads about 6.1 m: the least spacing at
+which two K01 flat lintels do not meet.
+**Kept, said.** The principal floor stays at its reconstructed 1.5 m where the plate reads about 2.0 m,
+because at 2.0 m the K01 stoop's foot passes the fence line; the stair (T-2500) and the fence
+(T-1883) are the pieces that rebuild those, and until then the principal storey is 0.6 m taller than
+the plate's so that the floors above stand where it puts them. The stone is still the reconstructed
+buff Lemont limestone; its pale grey tone, the pierced lattice, the diaper band, the corner pinnacles
+and the colonnettes are T-1883's. The north loggia, its balcony and stair are T-2500's.
+**How to resolve:** the plate's camera solved into `data/reference_views/keith_house_1808_prairie/`
+once a copy whose rights are cleared is in the tree (the scan this source reads is `check_required`,
+so no asset is derived from it here), and the side-by-side worked down.

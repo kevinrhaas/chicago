@@ -227,7 +227,12 @@ def rule_windows(b, tracer):
                 d = K._mul(ou, -1)
                 d = rotate_y(d, yaw)
                 d = K._unit(K._add(K._mul(d, math.cos(math.radians(pitch))), K._mul(K.Y, math.sin(math.radians(pitch)))))
-                hs = [h for h in tracer.hits(start, d, 3.0) if h[0] > 3e-3]
+                # T-2499: the 3 mm the ray skips (its own pane, which on a curve is a slab whose
+                # chord falls inside the true arc by up to its sagitta) is a depth along the pane's
+                # normal, so an oblique ray skips 3 mm / cos(its angle off that normal); measured
+                # along the ray, a 3.2 m bow's own glass read as a second pane at 35 degrees
+                cos_in = -sum(d[k] * ou[k] for k in range(3))
+                hs = [h for h in tracer.hits(start, d, 3.0) if h[0] * cos_in > 3e-3]
                 if not hs:
                     fails.append(f"recess: a ray in through a pane of {w['opening']} (run {w['run']}, storey "
                                  f"{w['storey']}) reaches nothing within 3 m — no room behind the glass")

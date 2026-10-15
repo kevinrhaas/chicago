@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 561,
+  "count": 562,
   "liberties": [
     {
       "id": "L1",
@@ -28225,12 +28225,6 @@
           "domain": "structure",
           "structure": "keith_house_1808_prairie",
           "phase": "as_built_1886",
-          "aspect": "form.roof_form"
-        },
-        {
-          "domain": "structure",
-          "structure": "keith_house_1808_prairie",
-          "phase": "as_built_1886",
           "aspect": "form.roof_pitch_deg"
         },
         {
@@ -28267,12 +28261,6 @@
           "domain": "structure",
           "structure": "keith_house_1808_prairie",
           "phase": "as_built_1886",
-          "aspect": "form.storey_heights_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "keith_house_1808_prairie",
-          "phase": "as_built_1886",
           "aspect": "form.wall_thickness_front_m"
         },
         {
@@ -28299,7 +28287,7 @@
         },
         {
           "label": "Covers",
-          "text": "`keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`."
+          "text": "`keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`."
         },
         {
           "label": "Review",
@@ -28472,23 +28460,11 @@
           "domain": "structure",
           "structure": "keith_house_1808_prairie",
           "phase": "as_built_1886",
-          "aspect": "form.dormer"
-        },
-        {
-          "domain": "structure",
-          "structure": "keith_house_1808_prairie",
-          "phase": "as_built_1886",
-          "aspect": "form.rainwater"
-        },
-        {
-          "domain": "structure",
-          "structure": "keith_house_1808_prairie",
-          "phase": "as_built_1886",
           "aspect": "form.roof_covering"
         }
       ],
       "recorded": "2026-10-10",
-      "revised": null,
+      "revised": "2026-10-15",
       "fields": [
         {
           "label": "Decision",
@@ -28500,7 +28476,7 @@
         },
         {
           "label": "Covers",
-          "text": "`keith_house_1808_prairie.as_built_1886.form.roof_covering`, `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.rainwater`."
+          "text": "`keith_house_1808_prairie.as_built_1886.form.roof_covering`."
         },
         {
           "label": "Ticket",
@@ -28513,6 +28489,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2293)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-15 (T-2499) — **the hip, its slate, the dormer and the gutters are gone.** The 1888 Inland Architect plate and every later photograph show a flat top behind a stone parapet, so the roof is K01's flat deck in painted tin and the house hangs no gutter (a K01 flat roof's one eave is its rear fascia). See L-k01-1808-flat-top-2499."
         }
       ]
     },
@@ -29040,7 +29020,7 @@
         }
       ],
       "recorded": "2026-10-10",
-      "revised": null,
+      "revised": "2026-10-15",
       "fields": [
         {
           "label": "Decision",
@@ -29065,6 +29045,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2308)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-15 (T-2499) — **the south bow is two storeys under a flat moulded cap, read off the plate.** It stands 5.0 m on its chord and 1.2 m out, centred 3.7 m from the south corner (the plan under the plate), rises from grade to floor 3 (9.8 m) and stops there under the K10 moulded stone section carried round its plan on a level deck; three principal-storey lights and four second-storey lights, as the plate draws them. The copper cone is gone. See L-k01-1808-flat-top-2499."
         }
       ]
     },
@@ -29285,7 +29269,7 @@
         }
       ],
       "recorded": "2026-10-10",
-      "revised": null,
+      "revised": "2026-10-15",
       "fields": [
         {
           "label": "Decision",
@@ -29306,6 +29290,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2317)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-15 (T-2499) — **no brackets and no cresting.** The plate draws a thin moulded stone course under the parapet, so the wall head is the K10 kit's moulded_stone cornice along the street front, projecting 0.35 m; the timber brackets, the bed moulding and the ridge cresting went with the hip. See L-k01-1808-flat-top-2499."
         }
       ]
     },
@@ -33623,17 +33611,11 @@
           "domain": "structure",
           "structure": "keith_house_1808_prairie",
           "phase": "as_built_1886",
-          "aspect": "form.dormer"
-        },
-        {
-          "domain": "structure",
-          "structure": "keith_house_1808_prairie",
-          "phase": "as_built_1886",
           "aspect": "form.wall_head"
         }
       ],
       "recorded": "2026-10-11",
-      "revised": null,
+      "revised": "2026-10-15",
       "fields": [
         {
           "label": "Decision",
@@ -33641,7 +33623,7 @@
         },
         {
           "label": "Covers",
-          "text": "`keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.wall_head`"
+          "text": "`keith_house_1808_prairie.as_built_1886.form.wall_head`"
         },
         {
           "label": "Ticket",
@@ -33654,6 +33636,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-11 (T-2326)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-15 (T-2499) — **the dormer is gone**: no roof slope or dormer shows over the parapet in any picture of the house. See L-k01-1808-flat-top-2499."
         }
       ]
     },
@@ -36935,6 +36921,62 @@
         {
           "label": "Covers",
           "text": "`first_fort_outer_interpreters_house.first_fort_1803.position`, `first_fort_outer_interpreters_house.first_fort_1803.footprint`, `first_fort_outer_interpreters_house.first_fort_1803.form.wall_height_m`, `first_fort_outer_interpreters_house.first_fort_1803.form.construction`, `first_fort_outer_interpreters_house.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_interpreters_house.first_fort_1803.form.loft`, `first_fort_outer_interpreters_house.first_fort_1803.form.chimneys`, `first_fort_outer_armourers_shop.first_fort_1803.position`, `first_fort_outer_armourers_shop.first_fort_1803.footprint`, `first_fort_outer_armourers_shop.first_fort_1803.form.construction`, `first_fort_outer_armourers_shop.first_fort_1803.form.wall_height_m`, `first_fort_outer_armourers_shop.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_armourers_shop.first_fort_1803.form.chimneys`, `first_fort_outer_merchants_shop.first_fort_1803.position`, `first_fort_outer_merchants_shop.first_fort_1803.footprint`, `first_fort_outer_merchants_shop.first_fort_1803.form.construction`, `first_fort_outer_merchants_shop.first_fort_1803.form.wall_height_m`, `first_fort_outer_merchants_shop.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_bake_house.first_fort_1803.position`, `first_fort_outer_bake_house.first_fort_1803.footprint`, `first_fort_outer_bake_house.first_fort_1803.form.construction`, `first_fort_outer_bake_house.first_fort_1803.form.wall_height_m`, `first_fort_outer_bake_house.first_fort_1803.form.roof_pitch_deg`."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1808-flat-top-2499",
+      "title": "1808 Prairie's flat top, its height and its two-storey bow read off the 1888 plate; the parapet's height, the stacks and the deck reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.roof_pitch_deg"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Ticket",
+          "text": "T-2499 (piece 1 of T-1882)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2499)."
+        },
+        {
+          "label": "Sources",
+          "text": "`inland_architect_1888_02_keith_plate`."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.chimneys`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.roof_covering`"
+        },
+        {
+          "label": "Decision",
+          "text": "the owner reported on 2026-10-13 that the house \"has an Italianette top\" where its pictures show none. The record now builds what the Inland Architect plate of February 1888 shows, the plate read at about 43.8 px/m across its 10.4 m front: a flat top behind a front parapet, the parapet's top about 16.5 m over grade and so over Glessner's ridge (15.5 m); the third storey run flat across the whole front as an arcade of six lights; and the round bow on the south half stopped at floor 3 under a moulded cap. The floor heights are read off the plate's courses (floor 2 at 5.9 m, floor 3 at 9.8 m, the wall head at 15.2 m) and are `inferred`. **What is invented.** The parapet's height over the wall head (1.3 m) is K05's flat deck rule — 2 degrees of fall, a 0.45 m upstand at the deck's high line — not a reading; it lands within 0.1 m of the plate's. The deck, its painted tin covering and its fall to the rear wall: nothing shows them. The two stacks keep the places the plan's fireplaces give them, but their plain brick prisms and their height (0.9 m over the parapet) are reconstructed; no picture shows a stack over the parapet. The arcade's lights stand at 1.12 m centres, 6.45 m overall, where the plate reads about 6.1 m: the least spacing at which two K01 flat lintels do not meet. **Kept, said.** The principal floor stays at its reconstructed 1.5 m where the plate reads about 2.0 m, because at 2.0 m the K01 stoop's foot passes the fence line; the stair (T-2500) and the fence (T-1883) are the pieces that rebuild those, and until then the principal storey is 0.6 m taller than the plate's so that the floors above stand where it puts them. The stone is still the reconstructed buff Lemont limestone; its pale grey tone, the pierced lattice, the diaper band, the corner pinnacles and the colonnettes are T-1883's. The north loggia, its balcony and stair are T-2500's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the plate's camera solved into `data/reference_views/keith_house_1808_prairie/` once a copy whose rights are cleared is in the tree (the scan this source reads is `check_required`, so no asset is derived from it here), and the side-by-side worked down."
         }
       ]
     },
