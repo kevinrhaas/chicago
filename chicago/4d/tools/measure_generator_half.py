@@ -598,17 +598,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # groups of the Potawatomi camp of August 1812 (potawatomi_camp_1812_mouth, _middle, _upper), on the
 # `camp` archetype's new mat lodge, emitted the same way and restaling on the same rows.
 #
-# 883 -> 884, 729 -> 730 and 723 -> 724 on 2026-10-15 (T-2513, landing after T-2515): Coursoll's
-# worm-fenced field north of the river in 1812 (first_fort_outer_coursoll_field, `palisade`),
-# emitted like the first fort's other outside parts, restaling on the same rows.
+# 883 -> 885, 729 -> 731 and 723 -> 725 on 2026-10-15 (T-2504, landing after T-2515): La Lime's
+# and Le Mai's log houses on the 1812 north bank (lalime_house_1812, lemai_house_1812), through
+# emit.py and the common modules.
+#
+# 885 -> 886, 731 -> 732 and 725 -> 726 on 2026-10-15 (T-2513, landing after T-2504): Coursoll's
+# worm-fenced field west of the no. 31 houses on the 1812 north bank (coursoll_field_1812,
+# `palisade`), emitted the same way and restaling on the same rows.
 #
 STATED = {
-    "assets": 884,
+    "assets": 886,
     "restales": {
-        "generators/common/*.py": 730,
+        "generators/common/*.py": 732,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 724,
+        "generators/emit.py": 726,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

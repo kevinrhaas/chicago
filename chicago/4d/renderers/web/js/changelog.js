@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1815, ts: '2026-10-15T15:41:26.236Z', date: 'Oct 15, 2026, 10:41 AM CT', title: '1812: La Lime\'s and Le Mai\'s houses across the river', kind: 'feature',
+    items: [
+      'Two more log houses stand on the north bank west of the Kinzie house in 1812, where Captain Whistler\'s 1808 plan of the fort draws them: La Lime\'s, the post interpreter\'s, and Le Mai\'s, beside the field the plan gives to Mr. Coursell.',
+      'The plan names none of its houses there; Surgeon Cooper names who lived in them. Which house was whose is our reconstruction, and each card says so.',
+      'Their size is the plan\'s drawing; their heights and roofs are reconstructed and listed in Liberties. Neither appears in 1835.',
+    ] },
   { v: 1814, ts: '2026-10-15T15:19:32.226Z', date: 'Oct 15, 2026, 10:19 AM CT', title: 'The Potawatomi camp of August 1812 stands on the creek', kind: 'feature',
     items: [
       'On the eve of the evacuation, 14 August 1812, three groups of mat-covered lodges now stand along the creek that ran into the river at the later State Street. That is where the accounts put the camp of the Potawatomi gathering: Wau-Bun\'s encampment on the south bank, and Currey\'s \'groups of Indian wigwams clustered along the creek\'.',

@@ -251,6 +251,15 @@
       "phase_id": "log_1834",
       "structure_id": "council_house"
     },
+    "coursoll_field_1812__coursoll_1808.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 117672,
+      "inputs_sha256": "cc98a81efff4c4705800f5ef6c8f811b2955a98a508a27dce32f85f21806b097",
+      "kind": "generated",
+      "phase_id": "coursoll_1808",
+      "structure_id": "coursoll_field_1812"
+    },
     "dearborn_street_drawbridge__draw_1834.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,
@@ -592,15 +601,6 @@
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_bake_house"
-    },
-    "first_fort_outer_coursoll_field__coursoll_1808.glb": {
-      "archetype": "palisade",
-      "baked_ao": false,
-      "bytes": 182508,
-      "inputs_sha256": "e216e426435e829479a1f3cad0ecbfa8b4d5f8f6376543abb547e2fefc6347f7",
-      "kind": "generated",
-      "phase_id": "coursoll_1808",
-      "structure_id": "first_fort_outer_coursoll_field"
     },
     "first_fort_outer_factory__first_fort_1803.glb": {
       "archetype": "log_dwelling",
@@ -2163,6 +2163,15 @@
       "phase_id": "shell_1835",
       "structure_id": "lake_house_construction"
     },
+    "lalime_house_1812__lalime_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48412,
+      "inputs_sha256": "5df66fa25123d9c3c9a3368809d8dfc7dbe5a8253d473a0c23dd8f67b7f77c4a",
+      "kind": "generated",
+      "phase_id": "lalime_1812",
+      "structure_id": "lalime_house_1812"
+    },
     "land_sale_camp_shore__camp_1835.glb": {
       "archetype": "camp",
       "baked_ao": false,
@@ -2267,6 +2276,15 @@
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_d"
+    },
+    "lemai_house_1812__lemai_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48732,
+      "inputs_sha256": "5f58301e4791b9595769d7689e9db8a9f512debe8c91be594a89ca5fbbbb1ed6",
+      "kind": "generated",
+      "phase_id": "lemai_1812",
+      "structure_id": "lemai_house_1812"
     },
     "log_jail__log_1833.glb": {
       "archetype": "outbuilding",

@@ -14357,7 +14357,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 680 phases (679 until T-2497's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, L-kinzie-house-1812-2497; 675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 682 phases (680 until T-2504's La Lime and Le Mai houses on the north bank west of the Kinzie house, lalime_house_1812 and lemai_house_1812, 2026-10-15, dated 1808-1816, L-1812-lalime-lemai-2504; 679 until T-2497's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, L-kinzie-house-1812-2497; 675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14629,8 +14629,8 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 98 phases: 73 log dwellings and
-25 fort structures. It was 97 until T-2497, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (L-kinzie-house-1812-2497). It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
+**Scope:** `structures.phases[log_or_fort_archetype]` — 100 phases: 75 log dwellings and
+25 fort structures. It was 98 until T-2504, 2026-10-15, wrote La Lime's and Le Mai's houses, two log dwellings on the north bank dated 1808-1816 (L-1812-lalime-lemai-2504). It was 97 until T-2497, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (L-kinzie-house-1812-2497). It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
 corner of the School Section tier's block 82 (L-block82-east-corners-2270). It was 91 until T-2062, 2026-10-05, wrote the first fort's factory and
 agent's house outside its stockade, two log dwellings dated 1808-1812 (L391). It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
 `fort_structure` records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles
@@ -27287,46 +27287,101 @@ organisations, which may change the form, the number or whether the camp is draw
 **Recorded:** 2026-10-15 (T-2515).
 **Covers:** `potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.tents`, `potawatomi_camp_1812_mouth.camp_1812.form.wagons`, `potawatomi_camp_1812_mouth.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_mouth.camp_1812.form.fire_rings`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_mouth.camp_1812.form.arrangement`, `potawatomi_camp_1812_mouth.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.tents`, `potawatomi_camp_1812_middle.camp_1812.form.wagons`, `potawatomi_camp_1812_middle.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_middle.camp_1812.form.fire_rings`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_middle.camp_1812.form.arrangement`, `potawatomi_camp_1812_middle.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.tents`, `potawatomi_camp_1812_upper.camp_1812.form.wagons`, `potawatomi_camp_1812_upper.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_upper.camp_1812.form.fire_rings`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_upper.camp_1812.form.arrangement`, `potawatomi_camp_1812_upper.camp_1812.form.canvas_condition`
 
-### L-1812-coursoll-field-2513 — Coursoll's inclosed field north of the river: its place and size by the outside rule, one mean box for a skewed drawing, its east side and its rails
 
-**Decision:** a worm fence stands in the 1812 scene north of the river, west of the three houses
-Whistler's draught numbers 31, as `first_fort_outer_coursoll_field`. **That there was an inclosed
-field north of the river, that it was Coursoll's and that it was worm-fenced is the sources'**: the
-draught draws it with a zigzag lettered 'Worm Fence' and 'Mr Coursell' inside it, and Quaife (1913,
-p. 167) reads Whistler's description as "a house and inclosed field north of the river, belonging to
-Mr. 'Coursoll.'" **Its place, its size, its shape, its rails and its dates are this project's.**
+### L-1812-lalime-lemai-2504 — La Lime's and Le Mai's houses of 1812: which drawn house is whose, the north bank's frame, their sizes, heights and closing dates
+
+**Decision:** two of the three houses Captain Whistler's draught of January 1808 draws across the
+river west of the Kinzie house, each lettered '31', stand in the 1812 scene at the `log_dwelling`
+archetype: `lalime_house_1812`, the middle one, and `lemai_house_1812`, the westernmost. **That the
+three houses stood and that the north side's occupants in Cooper's time were Kinzie, Ouilmette, La
+Lime and Le Mai is the sources'** (the draught; Quaife 1913 pp. 142, 148-50, 166-67). **Which drawn
+house was whose is ours.** Ouilmette takes the one nearest Kinzie's, where Currey's 'close in the
+rear of the Kinzie house' puts his (T-2486 builds it); the other two take Cooper's remaining names in
+the order he writes them, walking west. Cooper's order is not stated to be an order on the ground.
+
+**The westernmost house carries two names and is built once.** Quaife reads the draught as giving
+'a house and inclosed field north of the river' to Mr. 'Coursoll', and the field lettered 'Mr
+Coursell' has this house at its south-east corner. The record takes the draught's 'belonging to' as
+ownership and Cooper's names as occupancy, gives the occupant as Le Mai's household
+(`reconstructed`), and names Coursoll on the record. T-2513, which builds the field, builds no house.
+
+**The frame is a ruling.** T-2062's outside rule opens the sheet about the main gate; about the gate
+it would put two of these houses east of the Kinzie house as built, when the sheet draws all three
+west of it. So the north bank is opened out about `kinzie_house_1812`'s footprint centre (no. 30's
+drawn main block), by the drafter's '52 yards in length' lettered on the picket between the
+westernmost house and the middle one (2.497 times the drawing), not by no. 17's eighteen perches
+(3.322), which would set the two houses 74 m apart against the fence's 47.5. The register's
+`north_bank` section and `tools/read_whistler_1808.py --check` carry it.
+
+**What a visitor sees of their shape:** the footprints are the drawn boxes at the index's forty feet
+to the inch, about 23 x 15 ft (La Lime) and 24 x 13 ft (Le Mai), an upper bound because the drawing
+is roof and front together; one storey of log under a gable, which the draught draws. **Invented:**
+eight feet to the plate, the 35 degree pitch, and where the one stack stands (the draught puts La
+Lime's on the east gable and Le Mai's on the west; the archetype places its own, T-2511).
+
+**The ranges.** Both open on 25 January 1808, the draught's date, and may be too late. Both stand
+through August 1812 by continuity alone: La Lime was killed that year, after 13 April, and nothing
+read says what became of either house. Both close on 30 June 1816, the day before the second fort's
+records open, because no source read names either house after the war. Both are out of 1835.
+
+**Not built:** the picket and the field fence (T-2513), the building numbered 32 between the third
+house and Kinzie's garden (T-2485), and anybody at all (L1).
+
+**Consequence:** a visitor to 1812 sees two small log houses on the north bank between the Burns
+house and the Kinzie house, where the draught draws them. That they stood is the draught's; whose
+each was, how tall, and how long they lasted are ours.
+
+**How to resolve:** any source that names the occupant of a particular north-side house before 1812,
+gives one a dimension or a picture, dates one after 1812, or identifies Mr. Bridges' house of 1816
+with one of them.
+**Ticket:** T-2504.
+**Recorded:** 2026-10-15 (T-2504).
+**Covers:** `lalime_house_1812.lalime_1812.position`, `lalime_house_1812.lalime_1812.footprint`, `lalime_house_1812.lalime_1812.form.wall_height_m`, `lalime_house_1812.lalime_1812.form.roof_pitch_deg`, `lalime_house_1812.occupants`, `lemai_house_1812.lemai_1812.position`, `lemai_house_1812.lemai_1812.footprint`, `lemai_house_1812.lemai_1812.form.wall_height_m`, `lemai_house_1812.lemai_1812.form.roof_pitch_deg`, `lemai_house_1812.occupants`
+
+### L-1812-coursoll-field-2513 — Coursoll's inclosed field north of the river: its place and size by the north-bank rule, one box for a skewed drawing kept off the house at its corner, its east side and its rails
+
+**Decision:** a worm fence stands in the 1812 scene on the north bank, west of the three houses
+Whistler's draught numbers 31, as `coursoll_field_1812`. **That there was an inclosed field north of
+the river, that it was Coursoll's and that it was worm-fenced is the sources'**: the draught draws it
+with a zigzag lettered 'Worm Fence' and 'Mr Coursell' inside it, and Quaife (1913, p. 167) reads
+Whistler's description as "a house and inclosed field north of the river, belonging to Mr.
+'Coursoll.'" **Its place, its size, its shape, its rails and its dates are this project's.**
 
 **Place and size.** The draught lays down nothing outside the garrison to scale, so the field is
-seated by T-2062's rule like every other part read outside the stockade: its sheet offset from the
-main gate opened out by no. 17's expansion (about 3.32), no. 17 being the nearest part with a figure
-of its own. The field carries no lettered scale and is not a pictorial building, so its outline is
-opened out by the same expansion as its place (the two gardens already stand that way, their lettered
-fifty feet being their expansion). That keeps the sheet's arrangement whole and gives 41.2 x 31.6 m,
-about a third of an acre: small for a field, and as uncertain as everything else the drafter
-compressed outside the fort.
+seated by T-2504's north-bank rule, the one the no. 31 houses beside it stand by: its sheet offset
+from the Kinzie house's drawn centre, opened out by the bank's own expansion (about 2.50, from the
+drafter's '52 yards in length' on the picket) and hung on the Kinzie house as built. The field carries
+no lettered scale and is not a pictorial building, so its outline is opened out by the same expansion
+as its place (the gardens outside the stockade already stand that way, their lettered fifty feet
+being their expansion). That gives 31.0 x 18.2 m, about 560 square metres: small for a field, and as
+uncertain as everything else the drafter compressed.
 
-**Shape.** The four drawn corners make a skewed quadrilateral, turned about 29.5 degrees anticlockwise
-on the paper; the archetype fences a rectangle, so the MEAN box in the drawing's own axes stands for
-it. The turn on the ground is the turn on the paper, and the paper's orientation (its right taken as
-east) is itself inferred.
+**Shape.** The drawn corners make a skewed quadrilateral, turned about 29.5 degrees anticlockwise on
+the paper; the archetype fences a rectangle. Its length is the mean of the two drawn long sides. Its
+depth stops short of the drawn south-east side (108 of 141 px), because the westernmost no. 31 house,
+built by T-2504 as Le Mai's, stands across that corner OUTSIDE the fence, and a box carried to the
+drawn side would run the fence through the house; it passes north of it by about 1.6 m instead. The
+turn on the ground is the turn on the paper, and the paper's orientation (its right taken as east) is
+itself inferred.
 
-**The east side.** Three sides are drawn as the zigzag; the east side is a hatched band running down
-to the bank, like the paling along it. It is built as worm fence with the rest.
+**The east side.** Three sides are drawn as the zigzag; the east side is a hatched paling running down
+to the bank. It is built as worm fence with the rest.
 
 **Rails and dates.** Four courses to 1.3 m, ten-foot panels stepped three feet, as the garrison's own
-fields are given. The field opens with the sheet (25 January 1808) and closes with the first fort on
-16 August 1812: nothing mentions it after the sheet.
+fields are given. The field opens with the sheet (25 January 1808) and closes on 16 August 1812, the
+day the post was burned: nothing mentions it after the sheet.
 
-**Not built:** the house. The only house drawn at the field is the westernmost no. 31, across its
-south-east corner, and whose house that was is T-2504's ruling, so it is built once, there. Nothing
-is planted inside: neither source says what grew there.
+**Not built:** a house of Coursoll's. The only house drawn at the field is the westernmost no. 31,
+which T-2504 built as Le Mai's from Cooper's names; whether Quaife's Coursoll house of 1808 and
+Cooper's Le Mai are one house in different years is open, and it is not built twice. Nothing is
+planted inside: neither source says what grew there.
 
-**Consequence:** a visitor to 1812 sees a worm-fenced field on the north bank west of the houses
-across from the fort. That a fenced field of Coursoll's stood there is the sources'; its exact place,
-size, shape and rails are ours.
+**Consequence:** a visitor to 1812 sees a worm-fenced field on the north bank just west of Le Mai's
+house. That a fenced field of Coursoll's stood there is the sources'; its exact place, size, shape and
+rails are ours.
 
-**How to resolve:** any survey or account that places or sizes the Courselles' field, or a reading
-of Kinzie's account books that dates their time at Chicago.
+**How to resolve:** any survey or account that places or sizes the Courselles' field, or a reading of
+Kinzie's account books that dates their time at Chicago.
 **Ticket:** T-2513.
 **Recorded:** 2026-10-15 (T-2513).
-**Covers:** `first_fort_outer_coursoll_field.coursoll_1808.position`, `first_fort_outer_coursoll_field.coursoll_1808.footprint`, `first_fort_outer_coursoll_field.coursoll_1808.form.fence_height_m`, `first_fort_outer_coursoll_field.coursoll_1808.form.rail_courses`, `first_fort_outer_coursoll_field.coursoll_1808.form.panel_length_m`, `first_fort_outer_coursoll_field.coursoll_1808.form.panel_offset_m`
+**Covers:** `coursoll_field_1812.coursoll_1808.position`, `coursoll_field_1812.coursoll_1808.footprint`, `coursoll_field_1812.coursoll_1808.form.fence_height_m`, `coursoll_field_1812.coursoll_1808.form.rail_courses`, `coursoll_field_1812.coursoll_1808.form.panel_length_m`, `coursoll_field_1812.coursoll_1808.form.panel_offset_m`
