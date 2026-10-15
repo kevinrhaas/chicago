@@ -1,0 +1,32 @@
+[
+  {
+    "view": "habs-01-northwest",
+    "camera_unchanged": true,
+    "verdict": "differs",
+    "review": "The plain court brick and rear gate are hidden from this street camera. Complete service openings and the repaired west-gable junction remain visible. Tower cone/eave silhouette, stable and north-wing proportions, opening correspondence and rounded repetitive masonry relief still differ. Later garage alterations remain excluded from the 1904 target."
+  },
+  {
+    "view": "habs-14-north-inclined",
+    "camera_unchanged": true,
+    "verdict": "differs",
+    "review": "The flat north front and curved western return remain, but the tower roof still has an extended upper ridge instead of the photographed pointed cone. Window proportions and masonry relief also differ. The court/gate surface changes are not shown here."
+  },
+  {
+    "view": "habs04-hood-section",
+    "camera_unchanged": true,
+    "verdict": "differs",
+    "review": "The connected copper hood remains visible and unchanged by the surface pass. Its section height/profile and adjacent wall/window correspondence still differ from the measured drawing. The new plain brick and gate-grain treatment does not resolve those dimensional differences."
+  },
+  {
+    "view": "habs04-terrace-section",
+    "camera_unchanged": true,
+    "verdict": "differs",
+    "review": "The paired barred openings and curved coping remain visible. Coping shoulder, low stair-tower opening and section proportions still differ; the new service-surface joints do not resolve them. The drawing does not establish 1904 material colour or weathering."
+  },
+  {
+    "view": "taylor-2135-ne",
+    "camera_unchanged": true,
+    "verdict": "differs",
+    "review": "The Prairie street facade retains the existing selective vines, roof tiles, entry and dark-glass geometry. Whole-house window positions/proportions, roof/chimney silhouette and rounded repetitive stone relief still differ. The new courtyard/gate materials are not visible. This bare-GLB diagnostic does not apply the app owner-selected granite tint, and the early bare-season image is not a July 1904 planting map."
+  }
+]

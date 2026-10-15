@@ -1,0 +1,50 @@
+{
+  "tier": "full",
+  "source": "before-full/desktop-checkpoint.json",
+  "browser_errors": [],
+  "bad_requests": [],
+  "problems": [],
+  "neutral_lighting_restored": true,
+  "budget_failures": [
+    {
+      "view": "north-shade",
+      "light": "scene",
+      "calls": 299,
+      "triangles": 4618485,
+      "limits": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      }
+    },
+    {
+      "view": "north-shade",
+      "light": "neutral",
+      "calls": 299,
+      "triangles": 4618485,
+      "limits": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      }
+    },
+    {
+      "view": "north-stone-close",
+      "light": "scene",
+      "calls": 300,
+      "triangles": 4616007,
+      "limits": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      }
+    },
+    {
+      "view": "north-stone-close",
+      "light": "neutral",
+      "calls": 300,
+      "triangles": 4616007,
+      "limits": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      }
+    }
+  ]
+}

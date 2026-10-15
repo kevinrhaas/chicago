@@ -1,0 +1,131 @@
+{
+  "id": "kinzie_house_1812_green",
+  "name": "The Kinzie house's fenced green",
+  "aka": [
+    "the green 'inclosed between it and the river'"
+  ],
+  "archetype": "palisade",
+  "phases": [
+    {
+      "id": "kinzie_1804",
+      "documented_range": {
+        "from": "1804-10-01",
+        "to": "1833-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "currey_1912_story_of_old_fort_dearborn",
+          "kinzie_waubun_1856"
+        ],
+        "note": "The house's own range (kinzie_house_1812). THE KINZIE YEARS, BOTH ENDS INFERRED. It opens in the fall of 1804, when Currey has John Kinzie buy the house from Le Mai and arrive 'in the fall of that year' (currey_1912_story_of_old_fort_dearborn, ch. II); Moses and Kirkland give Le Mai 1796 where Currey gives 1797, and the Kinzies' arrival is put at 1803 elsewhere, so the opening is the later of the two readings and the house stands earlier than this phase says, under du Sable and Le Mai, in a form no picture shows. It covers 1 and 14 August 1812: Currey, 'The house escaped the general destruction at the time of the massacre'. It closes at the end of 1833: Currey says it 'was finally demolished in the early thirties', the 1857 engraving shows it about 1833, and data/exclusions.json kinzie_house rules it unoccupied and 'dilapidated beyond repair' from 1832 and gone by 1835, so it stands in no 1835 view."
+      },
+      "position": {
+        "utm_e": 448205.2,
+        "utm_n": 4637713.8,
+        "rotation_deg": 0.0,
+        "symbolic_location": "Before the Kinzie house, from just off its piazza (local N +333.5) to the top of the e1830_natural north bank (N +318), E +1132.5 to E +1171.5, centred on the house's door. The origin is the fence's south-west corner.",
+        "confidence": "reconstructed",
+        "sources": [
+          "kinzie_waubun_1856",
+          "chicago_magazine_1857_kinzie_house_engraving"
+        ],
+        "note": "Wau-Bun: 'A broad green space was inclosed between it and the river'. Its north side runs along the piazza and its south side along the bank top, where the 1812 ground's level 1.5 m stands; its width, a house-length and a half either side of the door, is read off the 1832 and 1833 pictures, which carry the fence well east of the house to take in the poplars. The corners are this record's own (docs/LIBERTIES.md L-kinzie-house-1812-2497).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No source measures the green; it is placed by the house it fronts and the bank it runs to."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            39.0,
+            0
+          ],
+          [
+            39.0,
+            15.5
+          ],
+          [
+            0,
+            15.5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "The fence line. Thirty-nine metres along the river by fifteen and a half to the bank."
+      },
+      "form": {
+        "wall_kind": {
+          "value": "picket_stockade",
+          "confidence": "inferred",
+          "sources": [
+            "chicago_magazine_1857_kinzie_house_engraving",
+            "lossing_1869_kinzie_mansion_engraving"
+          ],
+          "note": "Both engravings draw a fence of close-set pickets round the green, not rails."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Split pales, the archetype's light-post kind."
+        },
+        "picket_height_m": {
+          "value": 1.1,
+          "confidence": "reconstructed",
+          "note": "About rail-high: both engravings draw the pickets level with the piazza's rail."
+        },
+        "picket_width_m": {
+          "value": 0.09,
+          "confidence": "reconstructed",
+          "note": "Unattested. A sawn or split paling."
+        },
+        "picket_spacing_m": {
+          "value": 0.16,
+          "confidence": "reconstructed",
+          "note": "Unattested. Close set, as both engravings hatch them."
+        },
+        "gate_sides": {
+          "value": [
+            "n"
+          ],
+          "confidence": "reconstructed",
+          "note": "Unattested. A gate before the door, so the piazza opens onto the green."
+        },
+        "gate_width_m": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "Unattested. A walk's width, and the narrowest gate the archetype builds."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "dooryard_green",
+    "confidence": "attested",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Wau-Bun ch. XVII: 'A broad green space was inclosed between it and the river, and shaded by a row of Lombardy poplars.' The grass inside is the 1812 ground's own cover; only the fence is built."
+  },
+  "research_note": "THE GREEN BEFORE THE KINZIE HOUSE (T-2497). Only the paling is built; the poplars that shade it and the two cottonwoods behind the house are data/flora/plantings/kinzie_house_1812_trees.json.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS ONLY 16 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 16.0,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

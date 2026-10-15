@@ -1,0 +1,14 @@
+{
+  "current_app_bytes": 275001468,
+  "current_app_mib": 262.26183700561523,
+  "previous_cap_mib": 256,
+  "proposed_cap_mib": 288,
+  "headroom_mib": 25.738162994384766,
+  "warning_fraction_unchanged": 0.9,
+  "new_full_light_bytes": 7413840,
+  "json_whitespace_savings_mib": 5.435091972351074,
+  "other_current_local_site_bytes": 135408963,
+  "two_app_caps_plus_current_other_site_mib": 705.1360502243042,
+  "platform_limit_mib_recorded_in_existing_site_budget_document": 1024,
+  "limits": "Local checked checkout sizes, not a claim to have built both deployment branches. Whole-tree hygiene cap; all boot/frame/Light geometry/texture checks unchanged. No duplicated published files above64KiB found by site_budget.py. Global JSON compaction alone does not cover the overrun and docs/SITE-BUDGET.md section6 reserves that readability change for the owner."
+}

@@ -1,4 +1,41 @@
 export const CHANGELOG = [ // newest first
+  { v: 1809, ts: '2026-10-15T12:40:26.138Z', date: 'Oct 15, 2026, 7:40 AM CT', title: 'Glessner courtyard brick joints and gate grain', kind: 'improvement',
+    items: [
+      'Light mode now shows brick courses on the courtyard stair supports and boundary walls. Small plain stair returns also gain matching joints.',
+      'Wood grain follows the rear gate’s horizontal ledges and diagonal braces, making their construction clearer.',
+      'The approved grey stone, dark windows and existing July lighting remain. Exact period weathering and whole-house photographic matching remain under review.',
+    ] },
+  { v: 1808, ts: '2026-10-15T12:25:18.881Z', date: 'Oct 15, 2026, 7:25 AM CT', title: 'The 1812 fort now stands on 14 August, the evacuation\'s eve', kind: 'improvement',
+    items: [
+      'The 1812 scene moves from 1 August to the afternoon of 14 August 1812, the day before the garrison marched out, so the Potawatomi camp of that week can stand in it when it is built.',
+      'A new card, \'The day you see\', says what that day was, in the words of the commanding officer\'s letter and Wau-Bun, and where the two disagree on dates. Nothing of the day is staged and no one is drawn.',
+    ] },
+  { v: 1807, ts: '2026-10-15T11:34:32.648Z', date: 'Oct 15, 2026, 6:34 AM CT', title: '1812: the Kinzie house stands across the river from the fort', kind: 'feature',
+    items: [
+      'The log house Jean Baptiste Point du Sable built on the north bank, John Kinzie\'s home from 1804, now faces the first Fort Dearborn in the 1812 scene.',
+      'It has its piazza along the front, two stacks through the ridge and tall sash either side of the door, matched to Lossing\'s 1869 engraving and the Chicago Magazine\'s of 1857.',
+      'A paling encloses the green down to the river, with Kinzie\'s four Lombardy poplars along it and two cottonwoods behind the house.',
+      'A new place to stand, \'Across the river from the fort\', looks at it from the fort\'s mound.',
+      'Its size, set-back and the trees\' places are reconstructions, and its card says so.',
+    ] },
+  { v: 1806, ts: '2026-10-15T11:00:18.252Z', date: 'Oct 15, 2026, 6:00 AM CT', title: '1808 Prairie gets its columned entrance loggia and side stair', kind: 'improvement',
+    items: [
+      'The Keith house at 1808 Prairie now enters through an open stone loggia at its north end, as its 1888 photograph shows: paired columns on corner pedestals, a parapet across the front, and a balcony over it under the second-storey window.',
+      'A low arch opens under the loggia at basement level.',
+      'The front stair now rises beside the loggia on its south side instead of running straight out from the door, and the gate and front walk line up with it.',
+    ] },
+  { v: 1805, ts: '2026-10-15T10:38:01.904Z', date: 'Oct 15, 2026, 5:38 AM CT', title: '1812: the first fort\'s wharf and its covered way to the river', kind: 'feature',
+    items: [
+      'A log wharf stands on the river bank west of the fort\'s north-west corner, where Captain Whistler\'s 1808 plan marks one beside his note \'122 feet to River\'.',
+      'A covered way of pickets now runs from the fort\'s north-east corner down the bank to the water, from Quaife\'s line that it gave the garrison \'access in safety to the water in time of attack\'. The plan leaves it out, so its line and width are ours.',
+      'The covered way steps down the bank in three pieces so its pickets stay standing as the ground falls. Liberties says what is invented in both.',
+    ] },
+  { v: 1804, ts: '2026-10-15T10:03:26.347Z', date: 'Oct 15, 2026, 5:03 AM CT', title: '1808 Prairie loses its pitched roof and rises above Glessner', kind: 'improvement',
+    items: [
+      'The Keith house at 1808 Prairie now has the flat top its 1888 photograph shows, with a stone parapet standing higher than Glessner\'s ridge next door. The slate hip, the dormer and the iron cresting are gone.',
+      'Its round bay on the south half now stops at the second storey under a moulded stone cap, where it used to climb under a copper cone.',
+      'The top storey runs straight across the whole front as a row of six tall windows.',
+    ] },
   { v: 1803, ts: '2026-10-15T09:09:06.563Z', date: 'Oct 15, 2026, 4:09 AM CT', title: '1812: four more buildings outside the first fort', kind: 'feature',
     items: [
       'The 1812 scene gains the interpreter\'s house, the armourer\'s shop, the merchant\'s shop and the bake house, each found by its number on Captain Whistler\'s 1808 plan of the fort.',

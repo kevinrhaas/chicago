@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 195466904,
-      "sha256": "0afba5d57f93a311c521b221b2ef7f734f28c44f0b803fc359a37566e94f2574",
+      "bytes": 198744544,
+      "sha256": "bf27a842e5d36fff63b362962b068777e781a880f1bf66f6454cc51860333364",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -19,17 +19,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 30,
-        "materials": 30,
+        "draw_primitives": 31,
+        "materials": 31,
         "triangles": 1371506,
         "vertices": 3160022
       },
       "texture": {
-        "images": 35,
-        "textures": 70,
-        "encoded_bytes": 28017225,
-        "pixels": 65535304,
-        "gpu_rgba8_mip_bytes": 349521621,
+        "images": 38,
+        "textures": 73,
+        "encoded_bytes": 31292998,
+        "pixels": 68681032,
+        "gpu_rgba8_mip_bytes": 366298837,
         "largest_px": 4096
       },
       "bbox_m": {
@@ -131,6 +131,9 @@
             2
           ],
           "uv_per_m_times_tile_m": 1
+        },
+        "flat_brick": {
+          "median_uv_per_m": 0.5209
         },
         "glass": {
           "median_uv_per_m": 1
@@ -333,8 +336,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 55383984,
-      "sha256": "11a82664b658a340cf6a663981042dd311e52bb6f548aa2ffdf14fd7ef68e972",
+      "bytes": 59090956,
+      "sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -351,17 +354,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 30,
-        "materials": 30,
+        "draw_primitives": 31,
+        "materials": 31,
         "triangles": 1371506,
         "vertices": 2503270
       },
       "texture": {
-        "images": 34,
-        "textures": 34,
-        "encoded_bytes": 28831488,
-        "pixels": 58195272,
-        "gpu_rgba8_mip_bytes": 310374784,
+        "images": 37,
+        "textures": 37,
+        "encoded_bytes": 32535878,
+        "pixels": 61341000,
+        "gpu_rgba8_mip_bytes": 327152000,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -392,6 +395,7 @@
       "below_grade_m": {
         "brick": -0.0001,
         "drive": -0.0598,
+        "flat_brick": -0.0001,
         "granite": -0.005,
         "lawn": -0.0598,
         "limestone_trim": -0.0606,
@@ -464,6 +468,9 @@
             2
           ],
           "uv_per_m_times_tile_m": 1.0002
+        },
+        "flat_brick": {
+          "median_uv_per_m": 0.5223
         },
         "glessner_vines": {
           "median_uv_per_m": 0.1095
@@ -651,8 +658,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 28915140,
-      "sha256": "1792bd7cf45f6a5a0610c3427ff5de3e9a421baf173dc0009006ffb82dcdfae7",
+      "bytes": 32622008,
+      "sha256": "9ee9d6632f8a5338a6f8561c736013876519263c963d94f28224cec08ffee5fd",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -669,17 +676,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 27,
-        "materials": 27,
+        "draw_primitives": 28,
+        "materials": 28,
         "triangles": 199850,
         "vertices": 389471
       },
       "texture": {
-        "images": 34,
-        "textures": 34,
-        "encoded_bytes": 25487551,
-        "pixels": 55049544,
-        "gpu_rgba8_mip_bytes": 293597568,
+        "images": 37,
+        "textures": 37,
+        "encoded_bytes": 29191941,
+        "pixels": 58195272,
+        "gpu_rgba8_mip_bytes": 310374784,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -781,6 +788,9 @@
             2
           ],
           "uv_per_m_times_tile_m": 1.0001
+        },
+        "flat_brick": {
+          "median_uv_per_m": 0.521
         },
         "glessner_vines": {
           "median_uv_per_m": 0.1187

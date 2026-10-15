@@ -1,0 +1,27 @@
+{
+  "tier": "light",
+  "source": "before-mobile/browser-validation-mobile.json",
+  "browser_errors": [],
+  "bad_requests": [],
+  "problems": [],
+  "budget_failures": [
+    {
+      "view": "north-shade",
+      "calls": 196,
+      "triangles": 1534402,
+      "limits": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      }
+    },
+    {
+      "view": "north-stone-close",
+      "calls": 185,
+      "triangles": 1476142,
+      "limits": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      }
+    }
+  ]
+}

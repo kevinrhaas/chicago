@@ -8,6 +8,7 @@ replaced by its existing metric brick material and normal map.
 from __future__ import annotations
 
 import math
+from archetypes.masonry_house_v4_finish import flat_brick,grain_members
 
 
 def _box(b,lo,hi,conf,mat,skip=()):
@@ -24,7 +25,7 @@ def _brick_box(b,lo,hi,conf):
     old=b.decorate
     try:
         b.decorate=not getattr(b,'reduced_service_access',False)
-        d.legacy._box(b,*lo,*hi,conf,d.BRICK)
+        d.legacy._box(b,*lo,*hi,conf,d.BRICK if b.decorate else flat_brick(b))
     finally:
         b.decorate=old
 
@@ -109,13 +110,13 @@ def build_stair(b,params):
     if getattr(b,'reduced_service_access',False):
         for i in range(count):
             a=fy0+i*run;c=a+run;h=rise*(i+1)-spec['nosing_height_m']
-            b.raw([(outer,a,base),(outer,c,base),(outer,c,h),(outer,a,h)],conf,d.BRICK,(1,0,0))
+            b.raw([(outer,a,base),(outer,c,base),(outer,c,h),(outer,a,h)],conf,flat_brick(b),(1,0,0))
     else:b.wall(face,conf,d.BRICK,custom_holes=holes)
     for i in range(1,count):
         y=fy0+i*run;low=rise*i;high=rise*(i+1)-spec['nosing_height_m']
-        b.raw([(fx1,y,low),(outer,y,low),(outer,y,high),(fx1,y,high)],conf,d.BRICK,(0,-1,0))
+        b.raw([(fx1,y,low),(outer,y,low),(outer,y,high),(fx1,y,high)],conf,flat_brick(b),(0,-1,0))
     for y,h,want in ((fy0,rise-spec['nosing_height_m'],(0,-1,0)),(fy1,top,(0,1,0))):
-        b.raw([(fx1,y,base),(outer,y,base),(outer,y,h),(fx1,y,h)],conf,d.BRICK,want)
+        b.raw([(fx1,y,base),(outer,y,base),(outer,y,h),(fx1,y,h)],conf,flat_brick(b),want)
 
     inset=rail['edge_inset_m'];xl=fx0+inset;xr=fx1-inset
     bottom_y=fy0+rail['first_post_inset_m'];knee_y=fy1-run
@@ -209,6 +210,7 @@ def build_jamb_piece(b,w):
 def _brace(b,at,back,low_y,high_y,low_z,high_z,width,conf):
     """Compression brace butts into the ledges, without overlapping face planes."""
     from archetypes import masonry_house_v4_detail as d
+    first=len(b.faces)
     dy=high_y-low_y;dz=high_z-low_z
     half=width*math.hypot(dy,dz)/(2*abs(dz))
     shape=[(low_y-half,low_z),(low_y+half,low_z),(high_y+half,high_z),(high_y-half,high_z)]
@@ -218,6 +220,7 @@ def _brace(b,at,back,low_y,high_y,low_z,high_z,width,conf):
         a=shape[i];q=shape[(i+1)%4]
         want=(0,(a[0]+q[0]-low_y-high_y)/2,(a[1]+q[1]-low_z-high_z)/2)
         b.raw([(at,*a),(back,*a),(back,*q),(at,*q)],conf,d.WOOD,want)
+    grain_members(b,first,(0,dy,dz),(at,low_y,low_z))
 
 
 def build_gate(b,w):
@@ -236,8 +239,10 @@ def build_gate(b,w):
         back=at+spec['leaf_thickness_m']/2
         levels=[bottom+(top-bottom)*fraction for fraction in spec['hinge_fractions']]
         for z in levels:
+            first=len(b.faces)
             _box(b,(back,lo,z-spec['ledge_height_m']/2),
                  (back+spec['ledge_depth_m'],hi,z+spec['ledge_height_m']/2),conf,d.WOOD,('left',))
+            grain_members(b,first,(0,1,0),(back,lo,z))
         near=lo if direction>0 else hi;far=hi if direction>0 else lo
         margin=spec['brace_width_m']
         _brace(b,back,back+spec['ledge_depth_m'],near+direction*margin,far-direction*margin,

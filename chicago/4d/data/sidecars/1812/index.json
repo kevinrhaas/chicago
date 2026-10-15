@@ -1,6 +1,6 @@
 {
   "scene": "1812",
-  "target_date": "1812-08-01",
+  "target_date": "1812-08-14",
   "intersections": [
     {
       "id": "fulton_canal",
@@ -107,6 +107,30 @@
       "name": "The Burns house, on the north bank at the later foot of State Street",
       "sidecar": "sidecars/1812/burns_house_1812.json",
       "asset": "gltf/burns_house_1812__burns_1812.glb"
+    },
+    {
+      "id": "first_fort_covered_way_bank_lower",
+      "name": "First Fort Dearborn — the covered way to the river, down the bank, to the water",
+      "sidecar": "sidecars/1812/first_fort_covered_way_bank_lower.json",
+      "asset": "gltf/first_fort_covered_way_bank_lower__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_covered_way_bank_middle",
+      "name": "First Fort Dearborn — the covered way to the river, down the bank, middle step",
+      "sidecar": "sidecars/1812/first_fort_covered_way_bank_middle.json",
+      "asset": "gltf/first_fort_covered_way_bank_middle__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_covered_way_bank_upper",
+      "name": "First Fort Dearborn — the covered way to the river, down the bank, upper step",
+      "sidecar": "sidecars/1812/first_fort_covered_way_bank_upper.json",
+      "asset": "gltf/first_fort_covered_way_bank_upper__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_covered_way_terrace",
+      "name": "First Fort Dearborn — the covered way to the river, across the terrace",
+      "sidecar": "sidecars/1812/first_fort_covered_way_terrace.json",
+      "asset": "gltf/first_fort_covered_way_terrace__first_fort_1803.glb"
     },
     {
       "id": "first_fort_dearborn_blockhouse_nw",
@@ -259,6 +283,12 @@
       "asset": "gltf/first_fort_outer_sutlers_garden__first_fort_1803.glb"
     },
     {
+      "id": "first_fort_wharf",
+      "name": "First Fort Dearborn — the wharf",
+      "sidecar": "sidecars/1812/first_fort_wharf.json",
+      "asset": "gltf/first_fort_wharf__first_fort_1803.glb"
+    },
+    {
       "id": "forks_company_cornfield_1812",
       "name": "The first fort's company garden and public cornfield at the forks, 1812",
       "sidecar": "sidecars/1812/forks_company_cornfield_1812.json",
@@ -275,6 +305,18 @@
       "name": "The discharged soldier's house at the forks, 1812",
       "sidecar": "sidecars/1812/forks_house_soldier_1812.json",
       "asset": "gltf/forks_house_soldier_1812__soldier_1812.glb"
+    },
+    {
+      "id": "kinzie_house_1812",
+      "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
+      "sidecar": "sidecars/1812/kinzie_house_1812.json",
+      "asset": "gltf/kinzie_house_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_house_1812_green",
+      "name": "The Kinzie house's fenced green",
+      "sidecar": "sidecars/1812/kinzie_house_1812_green.json",
+      "asset": "gltf/kinzie_house_1812_green__kinzie_1804.glb"
     },
     {
       "id": "lee_house_1812",
