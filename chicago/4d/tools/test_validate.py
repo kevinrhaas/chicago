@@ -150,6 +150,7 @@ def test_an_exclusion_expires_at_its_own_earliest_scene() -> None:
     # T-1739: the record is the 1835 town's, so it is asked of a scene that LISTS it.
     def town(date: str) -> dict:
         sc = scene(date)
+        sc["id"] = "1835"  # T-2489: an entry naming no `scenes` is a ruling for 1835's
         sc["layers"] = sc["layers"] + ["exclusions"]
         return sc
 
@@ -169,6 +170,22 @@ def test_an_exclusion_expires_at_its_own_earliest_scene() -> None:
     V.validate_scene(scene("1837-07-01"), {}, EPOCHS, excl, rep)
     check("a scene that does not list `exclusions` is not held to the 1835 town's record",
           not any("earliest_scene" in e for e in rep.errors), rep.errors)
+
+    # T-2489: an entry scoped to another scene is not asked of this one, and is asked of
+    # the scene it names. 1812 is the first scene besides 1835 to list the layer.
+    scoped = {"excluded": [dict(excl["excluded"][0], scenes=["1812"])]}
+    rep = V.Report()
+    V.validate_scene(town("1837-07-01"), {}, EPOCHS, scoped, rep)
+    check("an entry ruled for 1812 is not held against the 1835 town's scenes",
+          not any("earliest_scene" in e for e in rep.errors), rep.errors)
+    early = dict(scoped["excluded"][0], earliest_scene="1812")
+    rep = V.Report()
+    sc = town("1812-08-01")
+    sc["id"] = "1812"
+    V.validate_scene(sc, {}, {"e": {"id": "e", "from": "1800-01-01", "to": "1848-12-31"}},
+                     {"excluded": [early]}, rep)
+    check("an entry ruled for 1812 is held to its own earliest_scene there",
+          any("earliest_scene" in e for e in rep.errors), rep.errors)
 
 
 def test_exclusions_carry_a_reason_and_a_citation_that_resolves() -> None:
