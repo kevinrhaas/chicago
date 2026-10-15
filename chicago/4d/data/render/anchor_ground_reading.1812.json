@@ -81,24 +81,37 @@
     },
     {
       "id": "lees_place_reach",
-      "local_e": -1648.7,
-      "local_n": -4232.1,
+      "local_e": -1641.8,
+      "local_n": -4244.3,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 1.258,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 7.5,
+      "inside_a_roof": null
+    },
+    {
+      "id": "lees_place_cabin",
+      "local_e": -1647.2,
+      "local_n": -4317,
       "aerial": false,
       "inside": true,
       "ground_m": 1.31,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 22.5,
+      "margin_m": 12.5,
       "inside_a_roof": null
     }
   ],
   "totals": {
-    "anchors": 5,
+    "anchors": 6,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,
     "on_a_deck": 0,
-    "southernmost_n": -4232.1
+    "southernmost_n": -4317
   }
 }
