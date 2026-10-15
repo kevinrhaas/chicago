@@ -127,6 +127,16 @@ invented dialogue, ceremony or depiction, and the August gathering is not staged
 residents, families and Black-owned businesses are identified on a `community` field so the
 town can list them.
 
+**Owner ruling, 2026-10-13, verbatim** (project thread "1812 structures", T-2490): *"You can
+include native lodges as documented"*. This extends the 2026-09-17 ruling to the 1812 BUILT
+environment: Potawatomi lodges stand in the 1812 scene where and when a source puts them, in the
+form the sources describe (mat or bark on a bent-pole frame, never a generic tipi), and nowhere
+the sources do not. Unchanged: no human figure is drawn (L1); no invented ceremony, dialogue or
+depiction; every lodge record carries `review_required` + `touches_removal` with its own
+sentence; and the 1812 scene stays unreleased until the review by Native scholars or community
+organisations (T-0472). The first build under it is the camp of the August 1812 gathering on the
+State Street creek (T-2515, L-1812-potawatomi-camp-2515).
+
 ## THE VISIBLE-PROGRESS RULE — read this before choosing a parcel
 
 **Measured 2026-08-15, on the owner's report that the loop "just does organization and research

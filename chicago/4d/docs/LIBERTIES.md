@@ -27176,3 +27176,52 @@ before 1812, which would move both with the bank.
 **Ticket:** T-2508 (piece 2 of T-2505; nos. 19-23 are T-2507's, L-first-fort-outer-2507).
 **Recorded:** 2026-10-15 (T-2508).
 **Covers:** `first_fort_wharf.first_fort_1803.position`, `first_fort_wharf.first_fort_1803.footprint`, `first_fort_wharf.first_fort_1803.form.length_m`, `first_fort_wharf.first_fort_1803.form.width_m`, `first_fort_wharf.first_fort_1803.form.deck_height_m`, `first_fort_wharf.first_fort_1803.form.construction`, `first_fort_wharf.first_fort_1803.ground_contact`, `first_fort_covered_way_terrace.first_fort_1803.position`, `first_fort_covered_way_terrace.first_fort_1803.footprint`, `first_fort_covered_way_terrace.first_fort_1803.form.wall_kind`, `first_fort_covered_way_terrace.first_fort_1803.form.construction`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_terrace.first_fort_1803.form.gate_sides`, `first_fort_covered_way_terrace.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.position`, `first_fort_covered_way_bank_upper.first_fort_1803.footprint`, `first_fort_covered_way_bank_upper.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_upper.first_fort_1803.form.construction`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_upper.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.ground_contact`, `first_fort_covered_way_bank_middle.first_fort_1803.position`, `first_fort_covered_way_bank_middle.first_fort_1803.footprint`, `first_fort_covered_way_bank_middle.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_middle.first_fort_1803.form.construction`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_middle.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_middle.first_fort_1803.ground_contact`, `first_fort_covered_way_bank_lower.first_fort_1803.position`, `first_fort_covered_way_bank_lower.first_fort_1803.footprint`, `first_fort_covered_way_bank_lower.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_lower.first_fort_1803.form.construction`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_lower.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_lower.first_fort_1803.ground_contact`.
+
+### L-1812-potawatomi-camp-2515 — The Potawatomi camp of August 1812: its three groups on the creek, its 26 lodges, and the lodge's form and size
+
+**Decision:** the camp of the Potawatomi gathered at Chicago in August 1812 stands in the 1812 scene
+as three groups of mat lodges on the west bank of the State Street creek, at the `camp` archetype:
+`potawatomi_camp_1812_mouth` (10 lodges), `potawatomi_camp_1812_middle` (8) and
+`potawatomi_camp_1812_upper` (8), dated 12-16 August 1812. **That the camp stood, when, and on which
+ground is the sources'**: Wau-Bun's council of the 12th with the Indians "assembled from the
+neighboring villages" (ch. XVIII) and its "Pottowattamie encampment" on the river's south bank with "a
+stream that flowed near", footnoted "Along the present State Street" (ch. XIX); Currey's habitual
+camping place "on the south bank near the present State Street bridge", where "a swale or gully opened
+into the river ... reaching back as far as the present line of Randolph Street" (1912, ch. II), and his
+view from the fort on the evening of 14 August, "the groups of Indian wigwams clustered along the
+creek that formerly flowed into the main stream at the present State Street" (ch. III). The committed
+1812 ground already carries that creek (the `state_slough_course` and `state_slough_mouth` swales).
+
+**What is ours.** The three grounds and their places on the bank (the west bank because it is level;
+the east bank climbs onto the ridge east of State), each 28 x 20 m and 4-6 m clear of the swale's cut;
+the number of lodges, 26, which counts nothing: the one size given is Heald's "between four hundred
+and five hundred" warriors at the fight of the 15th (Currey ch. III), with their families in the camp,
+which would have needed far more lodges, so the drawn camp understates the gathering instead of
+claiming a figure; the scatter; the bearing of every door (north, to the river); two cold fire rings
+and two woodpiles per group, with the archetype's stone ring, pot crane and kettle; which group's mats
+are new and which weathered.
+
+**The lodge.** Its covering and frame are inferred from Wau-Bun, which describes the inside of a mat
+lodge in 1831 ("the mats of which the lodge was constructed ... depending from the poles or
+frame-work", the smoke "escaping through an opening in the top", a mat "which hung over the
+entrance", ch. XVI) and the rush mats "used in covering their wigwams" (ch. VII). Those passages do not
+describe this camp, and they give no shape and no size. **Invented:** the oval dome and its
+superellipse profile; 3.40 x 4.60 m on the ground and 2.40 m to the crown; the door on the long axis,
+0.75 x 1.25 m, and the mat rolled up over it; the smoke opening at 16 % of the plan's radii; the four
+lapped courses of mat; the two poles laid over the mats; the mats' colour. It is never a hide tipi:
+Moses and Kirkland's buffalo-hide "teepees" (1895, v1 p. 32) picture 1803 from 1895 and are not used.
+Bark covering, which Wau-Bun gives its villages, is not drawn: a party come in to a gathering carried
+its mats.
+
+**Consequence:** a visitor to the eve of the evacuation sees lodges standing empty along the creek
+where the sources put the camp. That they stood there is argued from the sources; how many there were,
+how they were set out and what each looked like is ours. No person is drawn (L1), nothing is staged,
+and every record is `review_required` and `touches_removal`; the scene stays unreleased until the
+review T-0472 waits for.
+
+**How to resolve:** a count or a map of the lodges of August 1812; a picture or a description of a
+Potawatomi lodge at Chicago in those years; the ruling of the review by Native scholars or community
+organisations, which may change the form, the number or whether the camp is drawn at all.
+**Ticket:** T-2515 (piece 2 of T-2490; the date move was T-2514).
+**Recorded:** 2026-10-15 (T-2515).
+**Covers:** `potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.tents`, `potawatomi_camp_1812_mouth.camp_1812.form.wagons`, `potawatomi_camp_1812_mouth.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_mouth.camp_1812.form.fire_rings`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_mouth.camp_1812.form.arrangement`, `potawatomi_camp_1812_mouth.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.tents`, `potawatomi_camp_1812_middle.camp_1812.form.wagons`, `potawatomi_camp_1812_middle.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_middle.camp_1812.form.fire_rings`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_middle.camp_1812.form.arrangement`, `potawatomi_camp_1812_middle.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.tents`, `potawatomi_camp_1812_upper.camp_1812.form.wagons`, `potawatomi_camp_1812_upper.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_upper.camp_1812.form.fire_rings`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_upper.camp_1812.form.arrangement`, `potawatomi_camp_1812_upper.camp_1812.form.canvas_condition`

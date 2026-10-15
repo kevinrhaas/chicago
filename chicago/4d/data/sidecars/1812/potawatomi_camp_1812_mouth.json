@@ -1,0 +1,161 @@
+{
+  "id": "potawatomi_camp_1812_mouth",
+  "phase": "camp_1812",
+  "name": "The Potawatomi camp of August 1812: the lodges by the creek's mouth",
+  "aka": [
+    "the Pottowattamie encampment (Wau-Bun)",
+    "the Indian camp near the fort"
+  ],
+  "archetype": "camp",
+  "asset": "gltf/potawatomi_camp_1812_mouth__camp_1812.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "documented_range": {
+    "from": "1812-08-12",
+    "to": "1812-08-16",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "currey_1912_old_fort_dearborn"
+    ],
+    "note": "THE CAMP OF THE AUGUST GATHERING, DATED BY TWO EVENTS AND NOT BY A DAY IT WAS PITCHED. It opens on 12 August 1812: 'The Indians being assembled from the neighboring villages, a council was held with them on the afternoon of the 12th' (Wau-Bun ch. XVIII), so the gathering was camped by then; Heald's letter has them coming 'from all quarters' for the factory's goods, and nothing dates the first lodge, so the camp may be older than its range. It stood on the 14th, the scene date (Currey 1912 ch. III (lines 2239-2248), the view from the fort's walls on the evening of the last day, 14 August 1812: 'Toward the west was the Agency House, standing near the bank of the river, beyond which were the groups of Indian wigwams clustered along the creek that formerly flowed into the main stream at the present State Street.'), and on the 15th (Wau-Bun ch. XIX, Mrs. Helm's narrative of 15 August: led 'back towards the Chicago River, along the southern bank of which was the Pottowattamie encampment', to 'one of the wigwams', where water was dipped 'from a stream that flowed near' (Kinzie's footnote 36: 'Along the present State Street').). It closes on 16 August, the morning the fort was burned (Wau-Bun ch. XIX); when the gathering broke up after that no source read here says, and the 16th is the bound this project chose. Nothing of 1835 can draw it. T-2515."
+  },
+  "change_note": "A group of the Potawatomi camp of the August 1812 gathering on the State Street creek, flagged for review. T-2515.",
+  "placement": {
+    "local_e": 756.0,
+    "local_n": -60.0,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "position_note": "THE PLACE IS THE SOURCES', THE SPOT IS OURS. Currey puts the Potawatomi's habitual camping place at the creek or swale that opened into the river at the later State Street bridge (Currey 1912 ch. II (Gutenberg #52346 plain text, lines 1360-1365): the Potawatomi near the fort 'lived in their wigwams near the river, their favorite camping place being at a point on the south bank near the present State Street bridge. A swale or gully opened into the river there, reaching back as far as the present line of Randolph Street.'), and puts the gathering's lodges there on the scene date (ch. III, 'clustered along the creek'); Wau-Bun puts the encampment on the river's south bank with a stream beside it. The committed 1812 ground already carries that creek: the terrain's state_slough_course and state_slough_mouth swales (T-0005, T-0118, T-1629), which run from the Randolph line and enter the river just east of State Street, as Currey says. So the camp is drawn ON THE CREEK'S BANKS, never in its bed, in three groups along its lower course (with potawatomi_camp_1812_middle and potawatomi_camp_1812_upper). Which bank, how far apart and where each rectangle sits are this project's: the west bank is taken because it is level, while the east bank rises 0.6 m in 40 m onto the ridge east of State. This ground, measured on the e1830_natural heightfield: its outline lies between -0.01 and +0.07 m of the origin's 0.77 m (the walker's tolerance is 0.35 m), and every sampled point of it is at least 5.6 m clear of the swale's cut edge. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the lodges' doors open north, towards the river. L-1812-potawatomi-camp-2515.",
+    "symbolic_location": "On the south bank of the main river, on the creek's west bank 60-80 m above its mouth, the lowest of the three groups and the nearest the river and the later State Street bridge: local E +756..+784, N -60..-40, west of the later State Street (E +824..+827) and west of the agent's house of 1808 (first_fort_outer_agents_house, E +1061).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "ground",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        28.0,
+        0
+      ],
+      [
+        28.0,
+        20.0
+      ],
+      [
+        0,
+        20.0
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "The group's ground, 28.0 x 20.0 m: room for 10 lodges in the archetype's scatter. INVENTED in its extent. L-1812-potawatomi-camp-2515."
+  },
+  "attributes": {
+    "tents": {
+      "value": 10,
+      "confidence": "reconstructed",
+      "note": "10 LODGES IN THIS GROUP, 26 ACROSS THE THREE, AND 26 IS A FIGURE THIS PROJECT STATES, NOT A COUNT. No source counts the lodges. The one size the sources give for the gathering is Heald's, of the fight on the 15th: 'The number of their warriors, Heald said, was between four hundred and five hundred, mostly of the Potawatami nation' (Currey ch. III, lines 2763-2765), and the warriors' families were in the camp too ('the Indian camp, near the fort, where had been left their squaws and children', Wau-Bun ch. XIX). A gathering that size would have needed many more lodges than are drawn, and some may have camped elsewhere. The drawn camp is held to what the creek's level west bank gives between the river and the Randolph line, and it understates the gathering rather than claim a number. L-1812-potawatomi-camp-2515."
+    },
+    "tent_kind": {
+      "value": "lodge",
+      "confidence": "inferred",
+      "note": "MAT LODGES ON BENT-POLE FRAMES, NEVER A HIDE TIPI. Currey and Wau-Bun both call them wigwams; Wau-Bun describes one from inside, in 1831 — 'the mats of which the lodge was constructed were very neat and new, and against the sides, depending from the poles or frame-work, hung various bags', the smoke 'escaping through an opening in the top', a mat 'which hung over the entrance' (ch. XVI) — and the rush mats the women made 'used in covering their wigwams' (ch. VII). The covering and the frame are inferred from those passages, which describe lodges of the same years and region but not this camp; the oval dome and every dimension are the archetype's (L-1812-potawatomi-camp-2515). Moses and Kirkland's buffalo-hide 'teepees' (1895, v1 p. 32, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 5118-5122) are the later author picturing 1803 and are not used. Wau-Bun's villages are of 'neat bark wigwams' (chs. XXV, XXXIII); a party come in to a gathering carried its mats, and bark is not drawn here."
+    },
+    "wagons": {
+      "value": 0,
+      "confidence": "reconstructed",
+      "note": "None. No wagon is drawn in an 1812 camp. L-1812-potawatomi-camp-2515."
+    },
+    "brush_shelters": {
+      "value": 0,
+      "confidence": "reconstructed",
+      "note": "None. L-1812-potawatomi-camp-2515."
+    },
+    "fire_rings": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "Two cooking fires among the lodges, drawn out: no flame, no smoke, nobody at them (L1). That the camp cooked is Wau-Bun's (the kettle of ch. XIX); the stone rings, the pot crane and the hung kettle are the archetype's kit, and so a liberty. L-1812-potawatomi-camp-2515."
+    },
+    "woodpiles": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "Firewood by the fires. Invented. L-1812-potawatomi-camp-2515."
+    },
+    "baggage_heaps": {
+      "value": 0,
+      "confidence": "reconstructed",
+      "note": "None: the archetype's chests and barrel are a settler's baggage, and what the families brought to the gathering is not claimed. L-1812-potawatomi-camp-2515."
+    },
+    "arrangement": {
+      "value": "scatter",
+      "confidence": "reconstructed",
+      "note": "A loose scatter along the bank, Currey's 'groups ... clustered along the creek'; the spacing and the bearing of each door are the archetype's. L-1812-potawatomi-camp-2515."
+    },
+    "canvas_condition": {
+      "value": "new",
+      "confidence": "reconstructed",
+      "note": "For a lodge this is the mats' condition. New, as Wau-Bun found the mats of the lodge it describes ('very neat and new'). Which group has which is invented. L-1812-potawatomi-camp-2515."
+    },
+    "function": {
+      "value": "gathering_camp",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "currey_1912_old_fort_dearborn"
+      ],
+      "note": "The camp of the Potawatomi gathered at Chicago in August 1812, before the evacuation of the fort: Wau-Bun's 'Pottowattamie encampment' on the river's south bank (ch. XIX) and Currey's 'groups of Indian wigwams clustered along the creek' on 14 August (ch. III). Heald's letter says they came in for the goods of the factory store; Wau-Bun's council of the 12th was held with them. Whose lodges these were the sources do not say lodge by lodge — Wau-Bun names the wife of Wau-bee-nee-mah, 'a chief from the Illinois River', standing at one wigwam — and no lodge here is given to a family, a band or a person."
+    },
+    "occupants": {
+      "value": "Nobody this layer names or counts. The camp stands for the families of the gathering, whom no roll counts; no household card is minted for it and no name, band or person is given to any lodge. No figure is drawn (L1).",
+      "confidence": "reconstructed",
+      "note": "Seats nobody: see the value. T-2515."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "citation": "J. Seymour Currey, The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912 (published August 1912). A popular history of the first fort from 1803 to its burning in 1812, compiled from the printed accounts and the pioneer recollections before it, with eleven illustrations.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "two placings of Lee's Place: 'some four miles southwest of the fort ... on the west bank of the South Branch ... about where at the present time the old Illinois and Michigan Canal opens into that stream' (lines 1450-1454), and, in the caption to its illustration, 'on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river' (lines 1484-1486)",
+        "the caption of an illustration titled 'Hardscrabble', facing p. 74, which T-2503 is to read as a picture",
+        "a 'Map of Chicago in 1812' facing p. 165, not yet opened",
+        "the Lee family's house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue, with the sand-bar as the reason (lines 1456-1463)",
+        "the Burns house, John Burns's cabin on the north bank near the later State Street bridge, west of the Kinzies' (lines 1565-1576, 2249-2251, 2820-2822)",
+        "the four houses left standing on 18 August 1812: the Kinzie and Ouilmette houses, Burns's and Lee's (lines 3100-3105)",
+        "the one statement in the corpus that names Guarie among the residents John Kinzie found in 1804 (lines 801-803), uncited; weighed and not followed in data/exclusions.json guarie_trading_house, because Hubbard's tradition, which is Andreas's and Quaife's only authority for Guarie, dates his house before 1778 (T-2489)"
+      ],
+      "what_it_does_not_supply": [
+        "an eyewitness: Currey writes a century after the farm, from the books before him, and he says so ('it is said in a recent history of Chicago')",
+        "a survey distance. 'Some four miles' is a round figure, and the book gives no route for it",
+        "the illustration's own date or maker, which the caption does not state; until it is read it is a retrospective picture and grades tier 5 as a picture, whatever this record's tier as a text"
+      ]
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    }
+  ],
+  "research_note": "THIS RECORD IS FLAGGED review_required, AND touches_removal, because it builds the camp of the Potawatomi gathered at Chicago on the eve of 15 August 1812 — the people whose land this was and who were removed from it in 1835 — from accounts written by the garrison's side and settler historians. AGENTS.md § Standing constraint commits the project to review by Native scholars or community organisations before any scene carrying such a record is marked released; that review has not been held, and the 1812 scene stays unreleased (T-0472). Built on the owner's ruling of 2026-10-13, 'You can include native lodges as documented' (T-2490, T-2515). NOTHING IS STAGED: no figure, no flame, no smoke, no ceremony, no council, no dialogue and nothing of the next morning. The lodges stand empty, as every building in this project does. WHAT WOULD REPLACE THIS: a source that counts or maps the lodges of August 1812, sizes or pictures one, or places the camp on the creek more exactly; any of them would move, re-form or retire these groups.",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "A group of the Potawatomi camp of the August 1812 gathering on the State Street creek, flagged for review."
+}
