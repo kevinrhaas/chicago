@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1820, ts: '2026-10-15T18:01:09.766Z', date: 'Oct 15, 2026, 1:01 PM CT', title: 'Hamline\'s house moves next door, to 1621 Prairie', kind: 'feature',
+    items: [
+      'The stone house with the swell bay and the tall pedimented gable, built from Treat & Foltz\'s 1886 drawing of John H. Hamline\'s house, now stands at 1621 Prairie Avenue — the address the building permit, the directories and the 1886 atlas give it.',
+      'It is fitted to 1621\'s own footprint on the 1911 fire-insurance map: a narrower front with a smaller bay at its south end, beside the driveway the drawing marks.',
+      '1619 goes back to a plain draft until its own front can be built; its card no longer wears the house next door\'s.',
+      '1621\'s Images tab shows the drawing, and its liberties say which widths the narrower front changed.',
+    ] },
   { v: 1819, ts: '2026-10-15T17:03:50.399Z', date: 'Oct 15, 2026, 12:03 PM CT', title: 'The Kinzie house of 1812 rebuilt to Juliette Kinzie\'s own sketch', kind: 'improvement',
     items: [
       'The Kinzie house\'s main roof now runs down over the piazza and breaks to a flatter pitch, and the piazza\'s posts stand nearly as tall as the walls. That is how Sarony\'s lithograph of Juliette Kinzie\'s sketch draws it. She was the one artist who lived beside the house. The other old pictures agree once the roof is built that way.',
