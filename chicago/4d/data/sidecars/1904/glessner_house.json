@@ -3586,6 +3586,79 @@
       ],
       "note": "T-2222 / L-glessner-stacks-2222: HABS sheets 4/6 show a broad stone top course and shallower course below on the street stacks, corroborated qualitatively by early Taylor. 448 mm top-course height and 229 mm lower bed are raster-bounded estimates, not surveyed stock; 320 mm cap modules and 8 mm joints reconstruct unreadable return joints. Licensed 2024 w_lemay views distinguish two brick service shafts with plain pale stone caps; carrying that fabric into 1904 is explicitly reconstructed, not dated by modern photographs. Their existing presence, plans and heights are retained pending early evidence. Service caps use 220 mm stock and 450 mm bounded modules. All flue counts remain the prior unmeasured reconstructions (two, four or six mouths); 300 mm maximum mouth width, 600 mm brick-lined depth and 12 mm top drainage fall are invented within masonry construction bounds. No pots or repeated side vents are added. Every new finish face is reconstructed. Other roof, glazing and granite-colour choices are preserved. Light retains every shaft plane, cap thickness, exterior cap joint, mouth and flue depth. It omits only service shafts' 1–6 mm per-brick relief, fine internal top-bed cap joints and the interior flue lining material break; the same metric brick textures and dark masonry lining remain. The complete Light assembly measures 199,967 triangles against the unchanged 200,000 ceiling."
     },
+    "service_access_details": {
+      "value": {
+        "stair": {
+          "slab_thickness_m": 0.14,
+          "nosing_side_m": 0.025,
+          "nosing_front_m": 0.025,
+          "nosing_height_m": 0.04,
+          "pier_width_m": 0.26,
+          "pier_cap_width_m": 0.34,
+          "pier_cap_height_m": 0.18,
+          "pier_cap_bevel_m": 0.12,
+          "footing_bottom_m": -0.04,
+          "footing_top_m": 0.04,
+          "cheek_outer_m": 0.01,
+          "cheek_inner_m": 0.105,
+          "cheek_base_m": 0.0
+        },
+        "rail": {
+          "edge_inset_m": 0.05,
+          "first_post_inset_m": 0.08,
+          "flight_post_treads": [
+            0,
+            5
+          ],
+          "post_radius_m": 0.013,
+          "foot_width_m": 0.085,
+          "foot_thickness_m": 0.012,
+          "top_width_m": 0.036,
+          "top_thickness_m": 0.012,
+          "lower_width_m": 0.018,
+          "lower_thickness_m": 0.012,
+          "lower_fractions": [
+            0.33,
+            0.66
+          ]
+        },
+        "gate": {
+          "leaf_thickness_m": 0.045,
+          "jamb_gap_m": 0.012,
+          "centre_gap_m": 0.008,
+          "bottom_clearance_m": 0.012,
+          "board_width_m": 0.14,
+          "board_joint_m": 0.004,
+          "groove_depth_m": 0.003,
+          "ledge_height_m": 0.09,
+          "ledge_depth_m": 0.035,
+          "brace_width_m": 0.09,
+          "hinge_fractions": [
+            0.18,
+            0.82
+          ],
+          "pin_radius_m": 0.015,
+          "pin_height_m": 0.12,
+          "pin_leaf_offset_m": 0.05,
+          "pin_jamb_inset_m": 0.02,
+          "strap_length_m": 0.36,
+          "strap_height_m": 0.05,
+          "strap_thickness_m": 0.006,
+          "latch_height_m": 1.1,
+          "threshold_width_m": 0.32,
+          "threshold_top_m": 0.045,
+          "threshold_bottom_m": -0.005
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "wlemay_glessner_courtyard_2024_159537058",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "owner_glessner_v4_reconstruction_brief_2026"
+      ],
+      "note": "T-2223: retain the existing HABS sheet 2 north-court landing/flight plan, ten treads, 6-ft landing and 3-ft nominal guard. The separately labelled wooden stair behind the west/stable wing was added ca.1955 and remains excluded. The current courtyard stair is visible in 1963 and 2024; those sources do not independently date every member to 1904. Modern licensed frames bound two lower horizontal rails, sparse posts, brick cheek and brick piers with pale capitals. Exact rail stock, seated base plates, continuous return joins, capital bevels and buried footings are bounded reconstructions. The paired alley leaves follow the existing HABS plan opening, with the retained reconstructed 8-ft top; board joints, two ledges and a compression brace per leaf, dressed coursed gate reveals, plain two-hinge hardware, latch and flush sill are reconstructed, not traced from an undocumented elevation. Rendered ground measurements place the gate within 0.5 mm of ng and the ground beneath service piers about 15.4 mm below ng; buried bases close contact without moving the landing or gate top. No modern wrapping, paint, paving or plants are copied. Light omits only shallow brick relief on the stair cheek and support piers while retaining the same outlines, seated posts, cap profiles, rail runs, leaf gaps and connected hinge geometry. See the T-2223 component register and liberty. The sill is 50 mm stone stock, entering grade by 5 mm; the brick cheek starts at local datum and meets the existing raised lawn. Only the stone stair/pier footings extend to -40 mm. Hinge knuckles sit outside the timber ledges, tangent to their front faces, with straps meeting the exposed pins directly. The brick cheek follows each tread underside, beneath the stone noses; landing rails follow both exposed outer edges, and the latch passes through an open keeper."
+    },
     "function": {
       "value": "residence",
       "confidence": "attested",
@@ -3948,6 +4021,22 @@
       "what_it_does_not_supply": [
         "The 1904 sheet-stock dimensions or patina.",
         "A dated original construction detail for every modern fitting."
+      ]
+    },
+    {
+      "source_id": "wlemay_glessner_courtyard_2024_159537058",
+      "citation": "Courtyard, Glessner House, Prairie Avenue and 18th Street, Near South Side, Chicago, IL - 54203017925.jpg Photograph by w_lemay, October 26, 2024. Wikimedia Commons, from Flickr; CC BY-SA 2.0.",
+      "url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54203017925.jpg",
+      "archived_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54203017925.jpg/1920px-Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54203017925.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Qualitative construction and relative proportions of north-court stair rails, landing supports and stone capitals."
+      ],
+      "what_it_does_not_supply": [
+        "Independent dating of this stair or its current rails to 1904.",
+        "Surveyed rail stock, anchor spacing or original paint.",
+        "Rear-gate elevation or hardware."
       ]
     },
     {

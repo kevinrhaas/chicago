@@ -978,3 +978,17 @@ cross-checks only and supply no new derived geometry or texture. Full/Light
 simplifications and invented flue dimensions are declared in L-glessner-stacks-2222.
 The HABS drawing excerpts in the T-2222 research folder are annotated diagnostic
 crops of unrestricted federal measured drawings, not newly surveyed dimensions.
+
+### Glessner service-access refinement (T-2223)
+
+Generated Glessner Full/web/Light geometry and recovery assets follow the
+existing model license. Service-access layout uses cleared HABS IL-1015 drawing
+sheets 2 and 4. The qualitative stair/rail/capital comparison uses w_lemay's
+October 26, 2024 Commons photograph 159537058 and the previously credited
+159537051; CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0/.
+The new Prairie library display and thumbnail retain w_lemay attribution and
+that license. They derive from the recorded 1920×1440 display rendition,
+not the unavailable native original. No photographic pixels become textures.
+Gate finish and hidden joints are procedural bounded reconstructions; no
+uncleared photograph is traced. Research browser screenshots are generated
+from this project's scene and contain no imported reference photograph.

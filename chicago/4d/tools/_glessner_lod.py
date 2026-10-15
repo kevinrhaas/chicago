@@ -111,6 +111,7 @@ def _construct(root, *, roof_details_reduced=True):
             self.reduced_roof_details=roof_details_reduced
             # T-2211's two-plane street sash costs more triangles than this tier has left.
             self.reduced_sash=True
+            self.reduced_service_access=True
             self.components=Counter()
 
         def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
@@ -212,7 +213,7 @@ def _construct(root, *, roof_details_reduced=True):
         # T-2201: the courtyard's boundary runs are 30 m of brick; per-course relief on
         # them would spend the reduced tier's triangle cap, so they stay flat here.
         b.decorate='ends' not in w
-        legacy._gate_piece(b,w)
+        d.gate_piece(b,w)
     b.decorate=True
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
