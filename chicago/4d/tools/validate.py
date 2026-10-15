@@ -207,7 +207,16 @@ WIDE_RANGE_YEARS = 12
 # Raising it removes the recurring "pay for the budget out of the record" raises
 # (32 -> 36 -> 40, each bought with a doc edit); the honest guard on visitor cost
 # is the boot budget now.
-SITE_BUDGET_MB = 256
+# T-2226, 2026-10-15: measured whole-tree re-budget, 256 -> 288 MiB.
+# The published surface pass is 262.262 MiB, including 7,413,840 new bytes in
+# the Full/Light assets. No duplicate files over 64 KiB remain; minifying ALL
+# JSON would save only 5.435 MiB and would change the readable-record contract
+# (docs/SITE-BUDGET.md §6). Keep the original material maps and record the cost.
+# Two 288 MiB app allowances plus this checkout's 129.136 MiB of other site
+# content total 705.136 MiB, below the documented 1 GiB platform ceiling.
+# This is storage hygiene only: boot-payload, frame/Light limits and the 90%
+# warning/duplicate guard are unchanged. Measurements and limits: §8.
+SITE_BUDGET_MB = 288
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).

@@ -3824,6 +3824,30 @@
             "usda_nrcs_virginia_creeper_2006"
           ],
           "note": "T-2225: seven bounded original planting studies for July 1904. HABS establishes wall locations and openings; the USDA guide supplies Virginia-creeper botanical bounds only, not Glessner planting history or coverage. Boston ivy profiles are independently drawn generic three-lobed botanical reconstructions. The species history remains separately cited in form.vines; its unresolved typescript and later-image rights are not cleared by this work and no image is traced or sampled. Two selective Prairie ivy areas and five courtyard creeper areas are reconstructed placement, scale, maintenance and growth, not a measured 1904 map. The south boundary, west wall and one north-wall pier carry creeper; window/door openings and their surrounds retain at least 220 mm clearance. No new neighborhood trees, flower beds or plants over unresolved tower/roof geometry. Mature leaves are green for July; conspicuous ripe berries and autumn colors are omitted. Seeded branches, root joints, curled lobed/compound leaves and a generated alpha atlas share one numeric layout. Light carries the same atlas on four connected panels per plant, collapsing leaf depth while preserving its visible coverage. Full stems follow actual masonry faces. Precise branch trajectories, leaf shapes, veins, serration, color, wall offsets and coverage remain liberties; better dated summer evidence should replace them."
+        },
+        "surface_finish": {
+          "value": {
+            "scene_date": "1904-07-01",
+            "flat_brick": {
+              "width_m": 0.2159,
+              "course_m": 0.066675,
+              "joint_m": 0.009,
+              "joint_depth_m": 0.005,
+              "edge_transition_m": 0.002,
+              "columns": 8,
+              "rows": 32,
+              "pixels": 1024,
+              "seed": 2226
+            },
+            "gate_grain": "member_axis"
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "habs_glessner_house_il_1015_drawings",
+            "wlemay_glessner_courtyard_2024_159537051",
+            "owner_glessner_v4_reconstruction_brief_2026"
+          ],
+          "note": "T-2226: use the existing slightly pink courtyard clay, grey mortar and 215.9 by 66.675 mm half-bond course module on previously plain stair returns and Light stair/pier/boundary faces. The new original periodic maps represent existing joints without adding geometry or double-gridding modeled bricks. The 9 mm joint, 5 mm normal-map recess, fine edge transition and per-unit kiln variation are bounded render reconstructions, not measured 1904 samples. Oak grain follows each rear-gate ledge and compression brace at the existing physical texture scale; cut ends retain a nondegenerate generic oak study, not claimed measured end grain. Neutral diagnostic and actual July views preserve the owner grey-greige granite, dark glazing and existing lighting/contact geometry. No copied modern patina, neglected mid-century deterioration or invented directional grime is added: the 1923 family account describes unglazed red roof tiles, pinkish brick with grey limestone and protected Bower-Barff exterior iron. These data do not measure a 1904 RGB value or exact seventeen-year dirt map. Existing restrained finish variation remains; the new pattern adds no baked directional shadows. Modern references bound construction and material separation only. The family typescript remains a textual comparison only, with unresolved underlying rights unchanged; no new asset derives from it. These maps reuse the already committed original courtyard clay/mortar studies and numeric course schedule."
         }
       }
     }

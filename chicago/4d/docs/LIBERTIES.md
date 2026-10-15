@@ -26952,3 +26952,17 @@ The plant identities and 1887 establishment are recorded as textual history in t
 Two selective Prairie areas carry Boston ivy; three areas on the south courtyard boundary and one each on the west and north courtyard walls carry Virginia creeper. Their 220mm opening margins, restrained height, summer maintenance and exact coverage are liberties, not recovered observations. Existing street trees remain the district's planting. Roofs, gutters, tower joints, entrances and the west service-door access remain clear.
 
 Full uses connected stems following the actual masonry and curled individual leaves. Light collapses their depth into a small number of continuous wall panels using the same original generated alpha atlas. The leaves and stems remain masked in the reduced occlusion bake; a rectangular carrier is not a solid plant. Both tiers carry reconstructed confidence. Better dated summer photographs could replace this coverage; no claim is made of an exact July1904 vegetation map.
+
+### L-glessner-finish-2226 — Plain brick joints and gate member grain
+
+**Ticket:** T-2226.
+**Recorded:** 2026-10-15 (T-2226).
+**Covers:** `glessner_house.as_built_1887.form.surface_finish`
+
+**Sources:** `habs_glessner_house_il_1015_drawings`, `wlemay_glessner_courtyard_2024_159537051`, `owner_glessner_v4_reconstruction_brief_2026`.
+
+Previously flat stair returns and Light stair, pier and boundary faces receive an original half-bond surface study using the existing courtyard clay, mortar and numeric course schedule. The 215.9 by 66.675 mm course module, 9 mm joint, 5 mm normal-map recess, 2 mm edge transition and restrained per-unit kiln distribution are **reconstructed**, not a measured 1904 material sample. The texture repeats after eight bricks and thirty-two courses. Individually modeled brick faces retain their existing geometry and fabric: the extra joints apply only to plain masonry. No photograph pixels, tracings or imported texture are used.
+
+Rear-gate ledges and braces receive grain along their own timber axis, at the existing physical oak texture scale. Cut ends retain a generic original oak study on a noncollapsed mapping; their growth rings are not measured or simulated. Joint positions, supports, contacts, hardware and silhouettes remain the existing reconstruction. Full and Light use the same new material library; the simplified tier does not acquire additional geometry.
+
+Neutral-light diagnostics distinguish the scene's blue shade from the owner-approved grey-greige granite. They are capture-only observations, not a historical colour calibration or a change to July lighting. Existing dark glazing and restrained material roughness remain. No new directional dirt map, orange iron rust, modern copper patina or neglected mid-century decay is invented for the seventeen-year-old house. The separately cited family typescript remains a textual comparison with its unresolved rights unchanged; these new assets derive only from original project textures, numeric construction and cleared references. Exact period weathering is still unmeasured.

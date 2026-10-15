@@ -1,0 +1,240 @@
+[
+  {
+    "prefix": "data/sidecars",
+    "before": 41310355,
+    "compact": 40085274,
+    "saved": 1225081,
+    "files": 1669
+  },
+  {
+    "prefix": "data/reconstruction",
+    "before": 5308901,
+    "compact": 4646056,
+    "saved": 662845,
+    "files": 5
+  },
+  {
+    "prefix": "data/enclosures",
+    "before": 2189819,
+    "compact": 1718289,
+    "saved": 471530,
+    "files": 16
+  },
+  {
+    "prefix": "tickets.json",
+    "before": 2081270,
+    "compact": 1658377,
+    "saved": 422893,
+    "files": 1
+  },
+  {
+    "prefix": "prairie-1904/data",
+    "before": 3479262,
+    "compact": 3059893,
+    "saved": 419369,
+    "files": 6
+  },
+  {
+    "prefix": "data/railway",
+    "before": 828180,
+    "compact": 422288,
+    "saved": 405892,
+    "files": 3
+  },
+  {
+    "prefix": "data/frontage",
+    "before": 1155472,
+    "compact": 764287,
+    "saved": 391185,
+    "files": 6
+  },
+  {
+    "prefix": "data/businesses",
+    "before": 2032642,
+    "compact": 1648120,
+    "saved": 384522,
+    "files": 292
+  },
+  {
+    "prefix": "data/liberties.json",
+    "before": 3240332,
+    "compact": 2859296,
+    "saved": 381036,
+    "files": 1
+  },
+  {
+    "prefix": "data/yard",
+    "before": 1109790,
+    "compact": 736218,
+    "saved": 373572,
+    "files": 9
+  },
+  {
+    "prefix": "data/street_grid",
+    "before": 350241,
+    "compact": 235775,
+    "saved": 114466,
+    "files": 1
+  },
+  {
+    "prefix": "data/comparisons",
+    "before": 251695,
+    "compact": 150281,
+    "saved": 101414,
+    "files": 4
+  },
+  {
+    "prefix": "data/flora",
+    "before": 518232,
+    "compact": 427163,
+    "saved": 91069,
+    "files": 26
+  },
+  {
+    "prefix": "data/signage",
+    "before": 315286,
+    "compact": 233504,
+    "saved": 81782,
+    "files": 2
+  },
+  {
+    "prefix": "pre-fire/viewer",
+    "before": 301360,
+    "compact": 254803,
+    "saved": 46557,
+    "files": 1
+  },
+  {
+    "prefix": "data/terrain",
+    "before": 263753,
+    "compact": 217279,
+    "saved": 46474,
+    "files": 10
+  },
+  {
+    "prefix": "data/fauna",
+    "before": 212427,
+    "compact": 181798,
+    "saved": 30629,
+    "files": 11
+  },
+  {
+    "prefix": "data/context",
+    "before": 572150,
+    "compact": 557172,
+    "saved": 14978,
+    "files": 1
+  },
+  {
+    "prefix": "data/street_trees",
+    "before": 79668,
+    "compact": 71841,
+    "saved": 7827,
+    "files": 1
+  },
+  {
+    "prefix": "data/wharves",
+    "before": 40457,
+    "compact": 34718,
+    "saved": 5739,
+    "files": 3
+  },
+  {
+    "prefix": "data/textures",
+    "before": 26674,
+    "compact": 22193,
+    "saved": 4481,
+    "files": 24
+  },
+  {
+    "prefix": "data/street_surfaces",
+    "before": 24984,
+    "compact": 22277,
+    "saved": 2707,
+    "files": 1
+  },
+  {
+    "prefix": "data/scenes",
+    "before": 28381,
+    "compact": 25780,
+    "saved": 2601,
+    "files": 3
+  },
+  {
+    "prefix": "data/street_section",
+    "before": 25528,
+    "compact": 22976,
+    "saved": 2552,
+    "files": 1
+  },
+  {
+    "prefix": "data/boats",
+    "before": 19614,
+    "compact": 17388,
+    "saved": 2226,
+    "files": 2
+  },
+  {
+    "prefix": "data/render",
+    "before": 6988,
+    "compact": 5023,
+    "saved": 1965,
+    "files": 1
+  },
+  {
+    "prefix": "prairie-1904/docs",
+    "before": 10955,
+    "compact": 9044,
+    "saved": 1911,
+    "files": 1
+  },
+  {
+    "prefix": "data/town_census.json",
+    "before": 9904,
+    "compact": 9058,
+    "saved": 846,
+    "files": 1
+  },
+  {
+    "prefix": "data/wells",
+    "before": 15384,
+    "compact": 14668,
+    "saved": 716,
+    "files": 2
+  },
+  {
+    "prefix": "data/datum.json",
+    "before": 3890,
+    "compact": 3666,
+    "saved": 224,
+    "files": 1
+  },
+  {
+    "prefix": "build.json",
+    "before": 109,
+    "compact": 95,
+    "saved": 14,
+    "files": 1
+  },
+  {
+    "prefix": "data/pictures",
+    "before": 416271,
+    "compact": 416268,
+    "saved": 3,
+    "files": 3
+  },
+  {
+    "prefix": "data/loading",
+    "before": 40716,
+    "compact": 40715,
+    "saved": 1,
+    "files": 1
+  },
+  {
+    "prefix": "data/residents",
+    "before": 33003464,
+    "compact": 33003464,
+    "saved": 0,
+    "files": 1428
+  }
+]
