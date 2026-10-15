@@ -1,0 +1,157 @@
+{
+  "master": {
+    "triangles": 1371506,
+    "primitive_count": 30,
+    "triangles_by_material": {
+      "granite": 74890,
+      "brick": 98567,
+      "limestone_trim": 87100,
+      "roof_plane": 2032,
+      "copper": 5565,
+      "glass": 2448,
+      "oak": 36580,
+      "lawn": 286,
+      "drive": 221,
+      "mortar": 5013,
+      "iron": 15330,
+      "glass_dark": 2868,
+      "granite_1": 144850,
+      "granite_2": 147479,
+      "granite_3": 151481,
+      "granite_4": 150574,
+      "brick_dark_red": 32574,
+      "brick_buff": 22799,
+      "brick_smoky": 10112,
+      "roof_plane_1": 96602,
+      "roof_plane_2": 95499,
+      "roof_plane_3": 96615,
+      "linen_blind": 1236,
+      "painted_wood": 13876,
+      "rough_stone_trim": 16684,
+      "turf_blade_dark": 3961,
+      "turf_blade_middle": 10003,
+      "turf_blade_light": 6036,
+      "rainwater_metal": 6013,
+      "glessner_vines": 34212
+    },
+    "vine_material": {
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "extras": {
+        "surface_tier": "reconstructed",
+        "texture_generator": "tools/generate_glessner_vines.py"
+      },
+      "name": "glessner_vines",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 69
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5199999809265137
+      }
+    }
+  },
+  "web": {
+    "triangles": 1371506,
+    "primitive_count": 30,
+    "triangles_by_material": {
+      "granite": 74890,
+      "brick": 98567,
+      "limestone_trim": 87100,
+      "roof_plane": 2032,
+      "copper": 5565,
+      "glass": 2448,
+      "oak": 36580,
+      "lawn": 286,
+      "drive": 221,
+      "mortar": 5013,
+      "iron": 15330,
+      "glass_dark": 2868,
+      "granite_1": 144850,
+      "granite_2": 147479,
+      "granite_3": 151481,
+      "granite_4": 150574,
+      "brick_dark_red": 32574,
+      "brick_buff": 22799,
+      "brick_smoky": 10112,
+      "roof_plane_1": 96602,
+      "roof_plane_2": 95499,
+      "roof_plane_3": 96615,
+      "linen_blind": 1236,
+      "painted_wood": 13876,
+      "rough_stone_trim": 16684,
+      "turf_blade_dark": 3961,
+      "turf_blade_middle": 10003,
+      "turf_blade_light": 6036,
+      "rainwater_metal": 6013,
+      "glessner_vines": 34212
+    },
+    "vine_material": {
+      "name": "glessner_vines",
+      "extras": {
+        "surface_tier": "reconstructed",
+        "texture_generator": "tools/generate_glessner_vines.py"
+      },
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.5199999809265137,
+        "metallicFactor": 0,
+        "baseColorTexture": {
+          "index": 33
+        }
+      }
+    }
+  },
+  "light": {
+    "triangles": 199850,
+    "primitive_count": 27,
+    "triangles_by_material": {
+      "granite": 6184,
+      "brick": 77001,
+      "limestone_trim": 10454,
+      "roof_plane": 1518,
+      "copper": 2857,
+      "glass": 1296,
+      "oak": 5500,
+      "lawn": 286,
+      "drive": 161,
+      "mortar": 4447,
+      "iron": 3546,
+      "glass_dark": 2394,
+      "granite_1": 2397,
+      "granite_2": 2540,
+      "granite_3": 2686,
+      "granite_4": 2583,
+      "brick_dark_red": 25483,
+      "brick_buff": 17928,
+      "brick_smoky": 7992,
+      "roof_plane_1": 2868,
+      "roof_plane_2": 2714,
+      "roof_plane_3": 2380,
+      "linen_blind": 1236,
+      "painted_wood": 6348,
+      "rough_stone_trim": 2134,
+      "rainwater_metal": 4861,
+      "glessner_vines": 56
+    },
+    "vine_material": {
+      "name": "glessner_vines",
+      "extras": {
+        "surface_tier": "reconstructed",
+        "texture_generator": "tools/generate_glessner_vines.py"
+      },
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.5199999809265137,
+        "metallicFactor": 0,
+        "baseColorTexture": {
+          "index": 33
+        }
+      }
+    }
+  }
+}

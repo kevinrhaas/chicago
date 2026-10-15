@@ -182,6 +182,10 @@ step "Glessner rainwater reaches its collectors and grade without crossing openi
   python3 tools/test_glessner_rainwater.py
 step "Glessner court surfaces are disjoint and approaches meet their thresholds (T-2224)" \
   python3 tools/test_glessner_courtyard_ground.py
+step "Glessner vines attach to masonry, clear openings and share their Light layout (T-2225)" \
+  python3 tools/test_glessner_vines.py
+step "Glessner foliage atlas rederives from its declared planting (T-2225)" \
+  python3 tools/generate_glessner_vines.py --check
 step "Glessner service posts seat on stone and gate hinges connect to masonry (T-2223)" \
   python3 tools/test_glessner_service_access.py
 step "Glessner stacks meet both roof pitches and retain deep open flues (T-2222)" \

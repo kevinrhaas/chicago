@@ -227,6 +227,21 @@ def _atlas_key(bpy, np, me, mask):
         "recipe": ATLAS_RECIPE, "blender": bpy.app.version_string, "size": SIZE,
         "samples": SAMPLES, "distance_m": DISTANCE_M, "margin_px": BAKE_MARGIN_PX,
         "slots": list(GRANITE_SLOTS)}
+    foliage_slots={i for i,m in enumerate(me.materials)
+                   if m and m.get('texture_generator')=='tools/generate_glessner_vines.py'}
+    if foliage_slots:
+        # Masked foliage changes AO even if Light's panel vertices stay fixed.
+        # Cache the actual alpha image and UVs, not just its opaque carrier mesh.
+        atlas=Path(__file__).resolve().parents[2]/'assets/textures/glessner-v4/vines_atlas.png'
+        uv=np.zeros(len(me.loops)*2,np.float32)
+        me.uv_layers['SurfaceUV'].data.foreach_get('uv',uv)
+        foliage_loops=np.zeros(len(me.loops),bool)
+        for polygon in me.polygons:
+            if polygon.material_index in foliage_slots:
+                foliage_loops[polygon.loop_start:polygon.loop_start+polygon.loop_total]=True
+        recipe['masked_foliage']={'atlas_sha256':hashlib.sha256(atlas.read_bytes()).hexdigest(),
+                                  'uv_sha256':hashlib.sha256(uv.reshape(-1,2)[foliage_loops].tobytes()).hexdigest(),
+                                  'alpha_cutoff':.5}
     key, fingerprints = _mesh_digest(np, me, mask, recipe, True)
     # T-2494: report the actual producer inputs when a runner gets a different
     # key. The digest and all baked/exported values remain unchanged; a key alone

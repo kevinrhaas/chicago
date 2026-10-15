@@ -1,0 +1,10 @@
+{
+  "masked": {
+    "open_area_mean": 1.0,
+    "leaf_mean": 0.103515625
+  },
+  "opaque": {
+    "open_area_mean": 0.009375,
+    "leaf_mean": 0.0078125
+  }
+}

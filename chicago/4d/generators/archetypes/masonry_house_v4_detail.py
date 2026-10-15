@@ -1990,7 +1990,9 @@ def build(params,name):
     if params.detail.get("roof_edges"):
         from archetypes.masonry_house_v4_roof_edges import add_edges
         add_edges(b,params)
-    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater')))
+    from archetypes.masonry_house_v4_vines import add_vines
+    vines=add_vines(b,params)
+    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater'),params.detail.get('vines')))
     assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
     # T-2400: the granite's stone-scale occlusion, on its own TEXCOORD_1.
@@ -2000,6 +2002,8 @@ def build(params,name):
     obj['masonry_blocks']=b.masonry_blocks
     obj['roof_tiles']=b.roof_tiles
     obj['grass_blades']=grass_blades
+    obj['vine_plants']=len(vines['plants'])
+    obj['vine_leaflets']=sum(p['leaves'] for p in vines['plants'])
     axial=len([o for o in params.openings if o['kind'] not in ('fan','band')])
     bowed=sum(w['lights_per_row']*len(w['light_rows']) for w in params.bows)
     round_tower=len(params.detail.get('tower_stair_windows',{}).get('openings',[]))

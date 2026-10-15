@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 558,
+  "count": 559,
   "liberties": [
     {
       "id": "L1",
@@ -36583,6 +36583,42 @@
         {
           "label": "Covers",
           "text": "`glessner_house.as_built_1887.form.courtyard_ground`"
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-vines-2225",
+      "title": "Selective July vines on the front and courtyard walls",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.vines_details"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Ticket",
+          "text": "T-2225."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2225)."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.vines_details`"
+        },
+        {
+          "label": "Sources",
+          "text": "`habs_glessner_house_il_1015_drawings`, `usda_nrcs_virginia_creeper_2006`. The plant identities and 1887 establishment are recorded as textual history in the house's separate vines attribute; they do not establish coverage in July 1904. The seven visible planting areas, maintained clear openings, stem paths, root joints, leaf dimensions, veins, serration, green summer palette and degree of growth are **reconstructed**. HABS supplies wall locations and openings. The USDA guide bounds Virginia creeper's five compound leaflets and mature green foliage. Boston ivy's three-lobed leaves are original generic botanical studies. No photograph is sampled, traced, projected or embedded, and no unresolved-rights source has been cleared by this work. Later heavy overgrowth is not a 1904 planting map. Two selective Prairie areas carry Boston ivy; three areas on the south courtyard boundary and one each on the west and north courtyard walls carry Virginia creeper. Their 220mm opening margins, restrained height, summer maintenance and exact coverage are liberties, not recovered observations. Existing street trees remain the district's planting. Roofs, gutters, tower joints, entrances and the west service-door access remain clear. Full uses connected stems following the actual masonry and curled individual leaves. Light collapses their depth into a small number of continuous wall panels using the same original generated alpha atlas. The leaves and stems remain masked in the reduced occlusion bake; a rectangular carrier is not a solid plant. Both tiers carry reconstructed confidence. Better dated summer photographs could replace this coverage; no claim is made of an exact July1904 vegetation map."
         }
       ]
     },

@@ -200,8 +200,29 @@ def _occlusion(bpy, nt, uv, fabric):
     nt.links.new(split.outputs["Red"], node.inputs["Occlusion"])
 
 
-def build_materials(colours=None, rainwater=None):
-    """Return 28 fabric slots and optional rainwater stock at slot 28.
+def vine_material(bpy):
+    """The same cutout shader for the exported model and its occlusion baker."""
+    material=_plain(bpy, 'glessner_vines', (1,1,1,1), roughness=.52)
+    nt=material.node_tree;bsdf=nt.nodes.get('Principled BSDF')
+    tex=nt.nodes.new('ShaderNodeTexImage')
+    tex.image=bpy.data.images.load(str(TEXTURES/'vines_atlas.png'),check_existing=True)
+    tex.image.colorspace_settings.name='sRGB'
+    tex.extension='CLIP'
+    uv=nt.nodes.new('ShaderNodeUVMap');uv.uv_map=SURFACE_UV
+    nt.links.new(uv.outputs['UV'],tex.inputs['Vector'])
+    nt.links.new(tex.outputs['Color'],bsdf.inputs['Base Color'])
+    # Blender 4.5's glTF exporter recognizes ROUND as MASK/cutoff0.5.
+    # The same atlas supplies Full's leaves and Light's wall panels.
+    mask=nt.nodes.new('ShaderNodeMath');mask.operation='ROUND'
+    nt.links.new(tex.outputs['Alpha'],mask.inputs[0])
+    nt.links.new(mask.outputs[0],bsdf.inputs['Alpha'])
+    material['surface_tier']='reconstructed'
+    material['texture_generator']='tools/generate_glessner_vines.py'
+    return material
+
+
+def build_materials(colours=None, rainwater=None, vines=None):
+    """Return 28 fabric slots, then optional rainwater (28) and vines (29).
 
     Textured fabrics carry reconstructed absolute albedo in their maps. Turf and
     pale compacted gravel preserve the record's courtyard material reading.
@@ -281,6 +302,10 @@ def build_materials(colours=None, rainwater=None):
         finish=rainwater['finish']
         mats.append(_plain(bpy, "rainwater_metal", (*finish['linear_rgb'],1),
                            roughness=finish['roughness'],metallic=finish['metallic']))
+    if vines:
+        if len(mats)!=29:
+            raise ValueError('Vine material follows the complete Glessner rainwater library')
+        mats.append(vine_material(bpy))
     return mats
 
 

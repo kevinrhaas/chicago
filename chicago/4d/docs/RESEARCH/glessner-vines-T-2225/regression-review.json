@@ -1,0 +1,17 @@
+{
+  "rejected_first_bake": {
+    "full_coincident_faces_1mm": 1488,
+    "material": "oak",
+    "light_coincident_faces": 0,
+    "diagnostic": "coincident-investigation.json"
+  },
+  "cause": "Compound leaflets shared the same base with different near-identical support endpoints, nesting their petioles.",
+  "fix": "One maximum-support junction and one shared petiole per compound base.",
+  "regression": {
+    "fixture": "Fine 0.1m masonry panels on a 0.0003m/m slope expose differing leaflet support endpoints.",
+    "previous_algorithm": "FAIL: Coincident vine faces on K01 1 mm grid",
+    "corrected_algorithm": "PASS; Full fixture55836, Light56",
+    "canonical_retest": "PASS: Full/web/Light all zero coincident faces at unchanged K01 1mm quantum; scale, origin and metric UV verdicts also pass."
+  },
+  "gate_unchanged": true
+}

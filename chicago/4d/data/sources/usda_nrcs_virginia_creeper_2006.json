@@ -1,0 +1,27 @@
+{
+  "id": "usda_nrcs_virginia_creeper_2006",
+  "type": "article",
+  "citation": "King, Kellie, and James Henson. Virginia Creeper (Parthenocissus quinquefolia), Plant Guide. USDA NRCS National Plant Data Center; edited September 19, 2005 and August 2, 2006.",
+  "author": "Kellie King and James Henson, USDA NRCS National Plant Data Center",
+  "date": "2006-08-02",
+  "describes_date": "Botanical description; not a dated record of Glessner House",
+  "url": "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_paqu2.pdf",
+  "repository": "USDA NRCS PLANTS Plant Guide library",
+  "locator": "Description, p.1; Reproduction and Management; author/edition statement on final page.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "Prepared by USDA NRCS National Plant Data Center employees in their federal duties. Botanical text is used to bound original numeric leaf studies; no external photograph or illustration is sampled, traced or embedded.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Downloaded and text read 2026-10-15. 157049bytes; SHA256 f42dfa607248eca2e4f9270a4b73aa7f754a7a1ff1298aa8f76c97df3cc8c3bb. Archived with the T-2225 research record.",
+  "what_it_supplies": [
+    "woody climbing vine with five compound leaflets, toothed margins and 2\u20136inch leaflets",
+    "mature foliage green; red-to-maroon fall foliage",
+    "adhesive branched tendrils; brownish-green young stems and purplish-brown older stems"
+  ],
+  "what_it_does_not_supply": [
+    "Glessner House planting positions, dates, extent or appearance in 1904",
+    "Boston ivy morphology",
+    "a unique July fruit state: its early-summer fruit sentence and Aug\u2013Oct maturity statement are not identical"
+  ]
+}

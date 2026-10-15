@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "tools/test_glessner_vines.py", line 60, in <module>
+    assert grid not in grid_seen,'Coincident vine faces on K01 1 mm grid'
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Coincident vine faces on K01 1 mm grid
