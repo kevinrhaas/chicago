@@ -1,0 +1,27 @@
+{
+  "method": "Read-only T2223 baseline on the local published T2222 assets, captured before the T2222 commit. This is not a deployed-dev acceptance claim.",
+  "base_head": "43bbb5a726c84f96a1f4d70f8d1082f0a28b5c83",
+  "assets": [
+    {
+      "tier": "full",
+      "sha256": "435d2d90784a37b086729c09d553c52f9f248437cda2fdb0ace1a7b1ec108b2f",
+      "bytes": 53509700,
+      "matches_t2222_canonical": true
+    },
+    {
+      "tier": "light",
+      "sha256": "14bd3a616942b1c47ec74d8c149b4910d87b11d924f736d570f4342fc1e7ab30",
+      "bytes": 27981076,
+      "matches_t2222_canonical": true
+    }
+  ],
+  "invalid_views": [
+    "before-desktop/desktop-gate-courtyard.png"
+  ],
+  "recapture": [
+    "Full gate-courtyard and gate-alley using corrected fixed camera definitions; original Full alley image is clear but the future paired view uses the closer angle."
+  ],
+  "recapture_complete": true,
+  "accepted_full": "before-full-final",
+  "accepted_light": "before-mobile"
+}

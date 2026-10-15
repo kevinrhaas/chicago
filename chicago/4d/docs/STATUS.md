@@ -1,3 +1,18 @@
+## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
+
+Service posts now seat on actual treads, rail bars join continuously, and brick
+landing supports have pale capitals. Two boarded rear-gate leaves have hinges
+connected to the masonry reveals. The north-court stair remains distinct from
+the excluded 1955 stable stair. Exact 1904 finish details remain reconstructed;
+the owner's stone colour and dark glass are preserved. Functional geometry,
+canonical bake and package checks pass; all ten fixed-camera Full/Light browser
+views pass unchanged budgets with no errors. Mobile loads 124 credited images
+and the reconstruction note. T-2226 retains the Light supports' missing mortar
+pattern and gate member grain. Preflight and exact-commit CI receipts are
+maintained on the PR.
+[Evidence, dating and bounds](RESEARCH/glessner-service-access-T-2223/README.md).
+T-2227 retains existing scene-budget issues; T-2228 retains photo acceptance.
+
 ## T-2222 — Glessner chimney shafts and caps (2026-10-14)
 
 Two street stacks now meet both pitches of the main roof. Thick flush masonry

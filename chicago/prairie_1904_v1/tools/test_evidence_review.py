@@ -17,10 +17,10 @@ class EvidenceReviewTests(unittest.TestCase):
     def test_complete_review(self):
         self.assertEqual(validate_reviews(self.records), [])
         records = [r for r in self.records if 'pa-1800-22' in r['building_ids']]
-        # The original 173 reviewed records plus five T-2220 and two T-2222
-        # credited modern courtyard references. Unavailable historic views
+        # The original 173 reviewed records plus five T-2220, two T-2222 and
+        # one T-2223 credited modern courtyard references. Unavailable views
         # remain independently counted below; new references do not recover them.
-        self.assertEqual(len(records), 180)
+        self.assertEqual(len(records), 181)
         self.assertEqual(sum(r['evidence_review']['review_state'].startswith('unavailable') for r in records), 7)
         recovered = [r for r in records if r.get('retrieval_review') and r['evidence_review'].get('audit_number')]
         self.assertEqual({r['evidence_review']['audit_number'] for r in recovered},

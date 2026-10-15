@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 556,
+  "count": 557,
   "liberties": [
     {
       "id": "L1",
@@ -36511,6 +36511,42 @@
         {
           "label": "Covers",
           "text": "`glessner_house.as_built_1887.form.chimney_plans`, `glessner_house.as_built_1887.form.stack_finish`"
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-service-access-2223",
+      "title": "Service stairs, rails and rear gate",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.service_access_details"
+        }
+      ],
+      "recorded": "2026-10-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Retain the north-court service landing and ten-step flight for 1904-07-01 as a reconstructed continuation of later measured fabric. HABS sheet 2's wooden stair behind the stable, explicitly dated 1955, is separate and excluded. No early source newly dates the north-court rail stock to 1904. Modern licensed w_lemay frames 159537058 and 159537051 bound the sparse posts, two horizontal lower rails and pale stone capitals on brick piers. Modern wrapping, paint, plants and paving are not transferred into the historic scene. The existing landing plan and 1.8288 m elevation remain. Ten posts seat on actual treads/landing, using 85 mm feet, 26 mm diameter stock and shared closed rail joints. The handrail is 36×12 mm, lower bars 18×12 mm at approximate thirds of the retained 914.4 mm guard. These stock sizes, anchorage, 260 mm brick piers, 340 mm by 180 mm chamfered capitals and buried footings are bounded reconstructions. The rail pitch and each stepped post base are independent; the former cannot serve as an approximate seat for the latter. The brick cheek follows the underside of each tread, with 25 mm stone side noses and closed overhangs. Landing rails follow both exposed outer edges; the plain latch passes through an open keeper. No bolts or ornate metalwork are invented. Full and Light retain the same contacts and rails. Light replaces only millimetre-scale stair brick relief with the existing metric material. The rear gate keeps the HABS plan opening, S61.3–70.8 at W161.25 ft, and the existing reconstructed 8 ft top. Two 45 mm boarded leaves have shallow joints, two ledges and a compression brace each, plain strap hinges and a modest latch. Exact 1904 boards, species/finish, stock and hardware are unverified. The gate reveals alone are dressed flush so the hinges meet masonry; outer stone keeps its rock faces. The sill top at 45 mm above local datum clears the existing modeled drive (36.6 mm) by 8.4 mm, with another 12 mm leaf clearance. Terrain beneath the gate is within 0.5 mm of local datum; that terrain alone is not the drive top. These choices are replaceable in `service_access_details`. The sill is 50 mm stone stock, entering grade by 5 mm. The brick cheek starts at local datum below the raised lawn; separate stone stair/pier footings extend to -40 mm. The hinge pins stand outside the timber ledges, with straps meeting the exposed barrels directly. The modern stair photograph supplies no gate elevation. All new finish faces carry reconstructed confidence; the owner's granite and glass remain unchanged."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2223."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-14 (T-2223)."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.service_access_details`"
         }
       ]
     },

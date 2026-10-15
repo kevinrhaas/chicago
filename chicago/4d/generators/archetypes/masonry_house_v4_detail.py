@@ -1625,6 +1625,10 @@ def service_stair(b,params):
         b.decorate = old
     s=params.detail.get('north_court_service_stair')
     if not s:return
+    if params.detail.get('service_access'):
+        from archetypes.masonry_house_v4_service import build_stair
+        build_stair(b,params)
+        return
     x0,x1=s['landing_x'];y0,y1=s['landing_y'];z=s['landing_z']
     fx0,fx1=s['flight_x'];fy0,fy1=s['flight_y']
     conf=params.detail['conf'];old=b.decorate;b.decorate=False
@@ -1932,6 +1936,15 @@ def _discard_export_scratch_uv(ob):
     modifier.show_in_editmode = False
 
 
+def gate_piece(b,w):
+    """Keep legacy versions intact; both current detail tiers share the gate."""
+    if b.params.detail.get('service_access'):
+        from archetypes.masonry_house_v4_service import build_gate,build_jamb_piece
+        if w.get('kind')=='gate':return build_gate(b,w)
+        if build_jamb_piece(b,w):return
+    return legacy._gate_piece(b,w)
+
+
 def build(params,name):
     from archetypes.masonry_house_v4_materials import build_materials, assign_metric_uvs
     from archetypes.masonry_house_v4_landscape import add_lawn_blades
@@ -1958,7 +1971,7 @@ def build(params,name):
             u=n['u0']+i*.16
             slab(b,n,u,u+.075,n['z0']-.125,n['z0']-.05,.015,.07,n['conf'],TRIM)
     b.decorate=True
-    for w in params.walls:legacy._gate_piece(b,w)
+    for w in params.walls:gate_piece(b,w)
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
     add_frontage(b,params)
