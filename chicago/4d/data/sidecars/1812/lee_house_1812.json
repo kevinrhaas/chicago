@@ -118,7 +118,8 @@
         "a 'Map of Chicago in 1812' facing p. 165, not yet opened",
         "the Lee family's house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue, with the sand-bar as the reason (lines 1456-1463)",
         "the Burns house, John Burns's cabin on the north bank near the later State Street bridge, west of the Kinzies' (lines 1565-1576, 2249-2251, 2820-2822)",
-        "the four houses left standing on 18 August 1812: the Kinzie and Ouilmette houses, Burns's and Lee's (lines 3100-3105)"
+        "the four houses left standing on 18 August 1812: the Kinzie and Ouilmette houses, Burns's and Lee's (lines 3100-3105)",
+        "the one statement in the corpus that names Guarie among the residents John Kinzie found in 1804 (lines 801-803), uncited; weighed and not followed in data/exclusions.json guarie_trading_house, because Hubbard's tradition, which is Andreas's and Quaife's only authority for Guarie, dates his house before 1778 (T-2489)"
       ],
       "what_it_does_not_supply": [
         "an eyewitness: Currey writes a century after the farm, from the books before him, and he says so ('it is said in a recent history of Chicago')",
