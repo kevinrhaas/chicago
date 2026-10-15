@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1796, ts: '2026-10-15T01:19:09.939Z', date: 'Oct 14, 2026, 8:19 PM CT', title: 'Glessner service stairs and rear gate', kind: 'improvement',
+    items: [
+      'The courtyard stair has seated posts, joined rails and stone capitals on its brick supports. The rear gate has two boarded leaves with connected hinges and a threshold.',
+      'Uncertain 1904 details remain labeled as reconstructed. A credited courtyard stair photograph joins the Images tab.',
+    ] },
   { v: 1795, ts: '2026-10-14T22:53:59.400Z', date: 'Oct 14, 2026, 5:53 PM CT', title: 'Glessner chimney shafts and masonry caps', kind: 'improvement',
     items: [
       'Glessner’s two central street chimneys now meet both roof slopes, with thick masonry caps and recessed open flues. Courtyard service stacks have brick shafts and pale caps.',
