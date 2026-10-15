@@ -66,7 +66,23 @@ trap 'rm -f "$WROTE"' EXIT
 
 echo
 echo "== generate + bake"
-"$BIN" -b -noaudio --factory-startup --python generators/build.py -- "$@" --wrote "$WROTE"
+# T-2492. A selection naming only pure-Python archetypes (below) is one Blender builds
+# nothing for, and build.py says so with its own status, NOTHING_FOR_BLENDER
+# (generators/common/selection.py) — under `set -e` its old `1` ended the bake here,
+# before the emitters that build those ids ever ran. That status goes on to them, and
+# only for a selection; every other non-zero still stops the bake. If nothing below
+# writes a master either, the empty-list guard under "web derivatives" refuses.
+NOTHING_FOR_BLENDER=3
+BUILT=0
+"$BIN" -b -noaudio --factory-startup --python generators/build.py -- "$@" --wrote "$WROTE" || BUILT=$?
+if [ "$BUILT" != "0" ]; then
+  if [ "$SELECTED" = "1" ] && [ "$BUILT" = "$NOTHING_FOR_BLENDER" ]; then
+    echo "   Blender built nothing for this selection; the pure-Python emitters run next (T-2492)"
+  else
+    echo "   generators/build.py exited $BUILT — stopping the bake." >&2
+    exit "$BUILT"
+  fi
+fi
 # T-2266: the K01 assemblies write their glTF in pure Python (no Blender, seconds), and
 # hand what they wrote to the same list, so a bake derives and publishes them too.
 python3 generators/k01_emit.py "$@" --wrote "$WROTE"
