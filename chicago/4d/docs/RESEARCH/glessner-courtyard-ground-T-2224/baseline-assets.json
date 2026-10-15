@@ -1,0 +1,49 @@
+{
+  "status": "Accepted: T-2223 deployed Full/Light bytes verified",
+  "app_head": "71b78905affc892535c26edddb0a9cc31a353744",
+  "assets": {
+    "master": {
+      "path": "assets/gltf/glessner_house__as_built_1887.glb",
+      "bytes": 186975288,
+      "sha256": "8f79a0b3d875c9701a9c93f89d83184f5c25f4d350401eacc42cd6e1e117a121"
+    },
+    "web": {
+      "path": "assets/web/glessner_house__as_built_1887.glb",
+      "bytes": 53506044,
+      "sha256": "65ff71de05b55266d278c16e80755cec1f333822b8c4e273350393ed727807e7"
+    },
+    "light": {
+      "path": "assets/web/glessner_house__as_built_1887.light.glb",
+      "bytes": 27976312,
+      "sha256": "bb29e241736ec543e155895e56c4fa5c3e6dd9403daacb00a3241b78f678ede8"
+    }
+  },
+  "deployment": {
+    "build": {
+      "tier": "dev",
+      "app": "chicago/4d",
+      "ref": "refs/heads/dev",
+      "sha": "f0ae14b0",
+      "committedAt": "2026-10-15T01:16:22Z",
+      "committedCT": "Oct 14, 2026, 8:16 PM CT",
+      "note": "Integration preview. Production is at /4d/ and is promoted only on owner dispatch (chicago-4d-promote-to-prod.yml)."
+    },
+    "merge": "f0ae14b0437b60ab39a92ff54fb9407a5ff19c79",
+    "assets": [
+      {
+        "tier": "full",
+        "url": "https://chicago.polecat.live/4d/dev/data/gltf/glessner_house__as_built_1887.glb?commit=f0ae14b0",
+        "bytes": 53506044,
+        "sha256": "65ff71de05b55266d278c16e80755cec1f333822b8c4e273350393ed727807e7",
+        "matches": true
+      },
+      {
+        "tier": "light",
+        "url": "https://chicago.polecat.live/4d/dev/data/gltf/glessner_house__as_built_1887.light.glb?commit=f0ae14b0",
+        "bytes": 27976312,
+        "sha256": "bb29e241736ec543e155895e56c4fa5c3e6dd9403daacb00a3241b78f678ede8",
+        "matches": true
+      }
+    ]
+  }
+}

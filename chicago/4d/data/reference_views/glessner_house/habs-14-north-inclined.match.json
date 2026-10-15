@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "65ff71de05b55266d278c16e80755cec1f333822b8c4e273350393ed727807e7",
+  "glb_sha256": "6ac7ed6c9dded67ad9e3115099446292f566035903ad67feb408409e5d3ea574",
   "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
@@ -65,6 +65,10 @@
     },
     {
       "what": "T-2223: Re-rendered and visually reviewed on the final T-2223 canonical web asset. The court stair and rear gate are outside this north-facing view. The flat north wall and curved west return remain. The cone still has an extended horizontal ridge where the photograph shows a pointed cone; window correspondence, pillowed stone relief and the lower rainwater receiver absolute height also remain different. T-2228 remains open; no camera change or match claim.",
+      "status": "open"
+    },
+    {
+      "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The new court approaches are hidden from this north-facing camera. The flat north wall and curved west return remain. The extended cone ridge, shaded stone tone/relief, opening proportions and upper roof correspondence still differ and remain final-pass work. No camera refit or whole-house acceptance promotion.",
       "status": "open"
     }
   ],

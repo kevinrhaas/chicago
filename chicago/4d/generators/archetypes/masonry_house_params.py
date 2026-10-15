@@ -668,6 +668,17 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                              "lift_m": round(float(g.get("lift_ft", 0.05)) * FT, 4),
                              "conf": cf("courtyard_ground")})
 
+    if p.detail_profile and cg and cg.get("finish"):
+        finish = cg["finish"]
+        p.detail["court_ground"] = {
+            "walks": [{"id": q["id"], "pts": [fr.xy(v) for v in q["outline"]]}
+                      for q in finish["walks"]],
+            **{k.removesuffix("_ft") + "_m": float(finish[k]) * FT for k in
+               ("path_lift_ft", "wall_fall_ft", "wall_fall_run_ft", "turf_lift_ft")},
+            "conf": cf("courtyard_ground"),
+            "wall_fall_start_y": fr.y(finish["wall_fall_start_S"]),
+        }
+
     if p.detail_profile:
         fg = val("prairie_frontage")
         if fg:

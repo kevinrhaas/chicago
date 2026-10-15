@@ -5397,3 +5397,18 @@ T-2494 resolution: host libm changes the welded smart-project/pack UV layout, no
 
 
 T-2220 (2026-10-14): rebuild the low courtyard copper hood against both host roofs; seated seams/laps, local wall closure and drainage-aligned procedural finish. HABS relative rise and five licensed modern references are documented in RESEARCH/glessner-copper-T-2220/README.md. Full/Light package and camera checks pass; the two existing Balanced draw-call overruns remain T-2227. Whole-house acceptance remains T-2228.
+
+## T-2224 — Glessner courtyard ground (2026-10-15)
+
+Reconstructed gravel approaches connect the drive to the north service stair and
+curved terrace; the west walk falls away from masonry. Ground clipping removes
+lawn below paths and actual occupied footprints, preserving gate/passage levels.
+HABS sheet 2 supplies access positions, not a 1904 garden layout; paving and grades
+are separately declared reconstructions and 1946 parking is excluded. Geometry
+contact/turf-clearance tests and K01 pass. Full/web has 1,315,670 triangles and
+Light 199,794. Ten fixed-camera browser views were inspected with no page errors;
+eight meet scene budgets, while both terrace views retain their baseline failures
+for T-2227. The new liberty and credited Images panel are visible on mobile.
+All five historical comparisons retain unchanged cameras and `differs` verdicts
+for T-2228. Full preflight and exact-head CI govern the dev merge; their receipts
+are on the ticket-linked PR. See docs/RESEARCH/glessner-courtyard-ground-T-2224/README.md.

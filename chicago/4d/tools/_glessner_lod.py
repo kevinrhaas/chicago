@@ -216,7 +216,8 @@ def _construct(root, *, roof_details_reduced=True):
         d.gate_piece(b,w)
     b.decorate=True
     b.decorate=False
-    for g in params.ground:legacy._ground(b,g)
+    from archetypes.masonry_house_v4_ground import build as build_ground
+    build_ground(b,params)
     from archetypes.masonry_house_v4_frontage import add_frontage
     add_frontage(b,params,reduced=True)
     _columns(b,params,d)

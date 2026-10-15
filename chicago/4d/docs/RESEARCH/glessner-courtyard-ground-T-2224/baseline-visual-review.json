@@ -1,0 +1,17 @@
+{
+  "full": {
+    "court-overview": "Viewed: broad uninterrupted lawn, plain drive and no separate pedestrian approach. The existing dining-bay footprint is visible.",
+    "carriage-route": "Viewed: retained gate-to-passage carriage alignment is clear; lawn reaches the western wall and stair access remains through lawn.",
+    "porte-threshold": "Viewed: the drive meets the passage; shaded ground is strongly blue. No new paving layout inferred from this image.",
+    "service-stair-foot": "Viewed: same service stair contacts as accepted T-2223; lawn directly surrounds the tread foot and piers.",
+    "terrace-foot": "Viewed: complete curved terrace flight opens onto lawn. This pre-edit view fails the existing scene budget:405 draw calls/4,701,255 triangles against360/4,600,000. Keep the failure for T-2227 and preserve this camera."
+  },
+  "light": {
+    "court-overview": "Viewed: continuous lawn reaches stair and house wall; no separate pedestrian approach. Simplified stair brick still lacks mortar courses (T-2226).",
+    "carriage-route": "Viewed: clear gate-to-passage drive, lawn directly at west wall, narrow turf strip along south boundary.",
+    "porte-threshold": "Viewed: drive enters passage; grass remains beside passage jambs, blue shaded ground. No layout measurement inferred from screenshot.",
+    "service-stair-foot": "Viewed: step noses and seated rails visible; lawn surrounds tread foot and pier bases. Simplified clay faces remain T-2226 material work.",
+    "terrace-foot": "Viewed: stair foot meets lawn with no pedestrian apron. Existing budget fails: 282 calls / 1,639,605 triangles against 330 / 1,270,000; preserve failure and camera for T-2227."
+  },
+  "status": "Read-only baseline candidate before T-2224 claim; must match verified T-2223 deployed assets."
+}

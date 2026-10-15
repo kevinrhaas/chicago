@@ -23312,3 +23312,18 @@ The measured terrace and fan-shaped flight replace the narrow straight boxes. Th
 ### T-2494 — reproducible Glessner UV layouts
 
 The pinned Blender build produces different stone-occlusion UV layouts with Debian glibc 2.41 and Ubuntu glibc 2.39 math libraries. A controlled library substitution reproduces the CI atlas key while all pre-unwrap mesh arrays remain identical. Full and Light now retain their validated UV layout beside the AO atlas, keyed by exact mesh/unwrap inputs; stale or corrupt layouts are refused. The complete atlas digest and K01 package guard remain unchanged. Local and canonical full-bake validation are recorded in the ticket-linked PR. T-2220 waits on this repair; whole-house photographic acceptance remains T-2228. See [the report](RESEARCH/glessner-bake-2494/README.md).
+
+## T-2224 — Glessner courtyard ground (2026-10-15)
+
+Reconstructed gravel approaches connect the drive to the north service stair and
+curved terrace; the west walk falls away from masonry. Ground clipping removes
+lawn below paths and actual occupied footprints, preserving gate/passage levels.
+HABS sheet 2 supplies access positions, not a 1904 garden layout; paving and grades
+are separately declared reconstructions and 1946 parking is excluded. Geometry
+contact/turf-clearance tests and K01 pass. Full/web has 1,315,670 triangles and
+Light 199,794. Ten fixed-camera browser views were inspected with no page errors;
+eight meet scene budgets, while both terrace views retain their baseline failures
+for T-2227. The new liberty and credited Images panel are visible on mobile.
+All five historical comparisons retain unchanged cameras and `differs` verdicts
+for T-2228. Full preflight and exact-head CI govern the dev merge; their receipts
+are on the ticket-linked PR. See docs/RESEARCH/glessner-courtyard-ground-T-2224/README.md.
