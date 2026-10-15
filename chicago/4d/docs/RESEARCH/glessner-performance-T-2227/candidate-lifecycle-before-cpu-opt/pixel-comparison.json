@@ -1,0 +1,71 @@
+{
+  "method": "Whole unmodified PNGs: three Light view on/off pairs, winter and summer on/off pairs, and initial versus restored summer canvas.",
+  "pairs": [
+    {
+      "before": "mobile-north-tower.png",
+      "after": "mobile-north-tower-occlusion-off.png",
+      "changedPixels": 3827,
+      "maxChannelDelta": 74,
+      "bounds": [
+        132,
+        738,
+        257,
+        769
+      ],
+      "beforeSha256": "e99d46293cbed341beab9147dbecb2ae2ad6dd754a34d8fff24d4be1b7661313",
+      "afterSha256": "5531220e5d2cd66940aa480e9565fdf7df06fe40786dfc823b7f9299c5f6502a"
+    },
+    {
+      "before": "mobile-dining-leader.png",
+      "after": "mobile-dining-leader-occlusion-off.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "7dde988e703a3056be4a7ecaf90bb2241f2d699d86f2ea87928c671dc9aadd5b",
+      "afterSha256": "7dde988e703a3056be4a7ecaf90bb2241f2d699d86f2ea87928c671dc9aadd5b"
+    },
+    {
+      "before": "mobile-courtyard.png",
+      "after": "mobile-courtyard-occlusion-off.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "7eeecbcaa1c9a493a5bde3c42fe94b1ee12e15dd23756d684b332cab8c15d92c",
+      "afterSha256": "7eeecbcaa1c9a493a5bde3c42fe94b1ee12e15dd23756d684b332cab8c15d92c"
+    },
+    {
+      "before": "mobile-season-winter-on.png",
+      "after": "mobile-season-winter-off.png",
+      "changedPixels": 1,
+      "maxChannelDelta": 1,
+      "bounds": [
+        281,
+        326,
+        281,
+        326
+      ],
+      "beforeSha256": "b589bc1de8eda4a8b19da288b6f17e4d5dcd5dba316ad813e8f1ce0a6d31758b",
+      "afterSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9"
+    },
+    {
+      "before": "mobile-season-summer-on.png",
+      "after": "mobile-season-summer-off.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd",
+      "afterSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd"
+    },
+    {
+      "before": "mobile-season-before.png",
+      "after": "mobile-season-restored.png",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "beforeSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd",
+      "afterSha256": "dacab42db184f0cd9f4093714b338b357bd4d1a3f8e52afe90a9424d867502dd"
+    }
+  ],
+  "complete": true,
+  "allExact": false
+}

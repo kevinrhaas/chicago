@@ -68,6 +68,7 @@ import { createStreetTrees } from './street-trees.js';
 import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
 import { createContext } from './context.js';
 import { createRailway } from './railway.js';
+import { createViewOcclusion } from './view-occlusion.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
 import { mountOrderBook } from './orderbook.js';
@@ -1691,6 +1692,7 @@ async function boot() {
   await yieldToPaint();
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     preserveMaterials: inspectionLod,
+    collectViewBackings: inspectionLod && detailLevel!=='full',
     // Balanced and Light share the reduced asset and its batches. Keep their
     // cells identical so a same-asset Balanced -> Light switch stays culled.
     spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
@@ -1828,6 +1830,22 @@ async function boot() {
   });
   scene3d.add(railway.group);
   api.railway = railway;
+
+  let glessnerOcclusion=null;
+  function refreshGlessnerOcclusion() {
+    glessnerOcclusion?.dispose();glessnerOcclusion=null;
+    if (!inspectionLod || detailLevel!=='light') return;
+    const batches=[...buildings.batches];
+    for(const group of [railway.group,terrain.group,streets.group])
+      group.traverse(o=>{if(o.isBatchedMesh)batches.push(o);});
+    glessnerOcclusion=createViewOcclusion({camera,renderer,triangles:buildings.viewOccluders,batches,
+      // Each backing triangle checks its own actual confidence range. Tinting
+      // opaque stone is safe; a hidden or dithered backing fails open.
+      // The pixel proof covers the scene's July appearance. Winter's on/off
+      // comparison has a repeatable raster difference; alternate seasons retain
+      // the complete draw list, then summer can safely restore this filter.
+      allow:()=>buildings.group.visible && api.season?.current==='summer'});
+  }
 
   // T-2481 — the Season setting, offered where there are street trees (1904): the
   // ground's snow, sward and leaves (season.js uniforms), the elms, the context
@@ -2390,6 +2408,7 @@ async function boot() {
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
+            collectViewBackings: level!=='full',
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
@@ -2474,6 +2493,7 @@ async function boot() {
       streets.setDetail?.(level);
       void streetTrees.setDetail(level);
       railway.setDetail(level);
+      refreshGlessnerOcclusion();
       api.humans?.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
@@ -3965,6 +3985,9 @@ async function boot() {
     /** Keep rendering, advance nothing — for tests comparing two frames of the
      *  same scene. Never set by the application. */
     setAnimationHold(on) { animationHold = !!on; return animationHold; },
+    /** Same-camera on/off proof, like setFarMerge; no visitor setting. */
+    setGlessnerOcclusion(on) { return glessnerOcclusion?.setEnabled(on) ?? false; },
+    glessnerOcclusionStats() { return glessnerOcclusion?.stats ?? {active:false}; },
     walkBudget: WALK,
   });
 
@@ -4091,6 +4114,9 @@ async function boot() {
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;
   bootController.end('interaction');
+  // Ground protection can replace terrain batches while later layers build.
+  // Install the hooks only after the final startup geometry is in the scene.
+  refreshGlessnerOcclusion();
   api.ready = true;
   if (!bootController.finish()) {
     api.ready = false;

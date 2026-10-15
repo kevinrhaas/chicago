@@ -1,0 +1,6 @@
+{
+  "start": "2026-10-15T12:28:30.495184+00:00",
+  "reason": "Incoming unrelated 1812 dev integration regenerates derived data while the baseline browser is running. No local mirror publishing. Do not accept overlapping moving-frame time as quiet-device performance.",
+  "end": "2026-10-15T12:42:08.381140+00:00",
+  "additional_activity": "A second worktree checkout and candidate publish/checks overlapped the Light moving run and Balanced boot. These timings are retained as contended observations, not the quiet before/after timing comparison. Draw counts and fixed captures remain usable."
+}

@@ -27,10 +27,14 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const web = path.join(root, 'renderers/web');
 const threeURL = pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href;
 const THREE = await import(threeURL);
+const batchSource = await readFile(path.join(web, 'js/batch-material.js'), 'utf8');
+const batchURL = 'data:text/javascript;base64,' + Buffer.from(
+  batchSource.replace("from 'three'", `from '${threeURL}'`)).toString('base64');
 const source = await readFile(path.join(web, 'js/glass.js'), 'utf8');
 const { cheapenGlass, readGlassRequest, glassForDetail, GLASS_MODES, GLASS_BY_DETAIL, DEFAULT_GLASS,
   paneLayout, writePaneAttributes, BLIND_DROPS, PANE_PATCH } = await import(
-  `data:text/javascript;base64,${Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64')}`);
+  `data:text/javascript;base64,${Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)
+    .replace("from './batch-material.js'", `from '${batchURL}'`)).toString('base64')}`);
 
 const checks = [];
 function check(name, run) { run(); checks.push(name); }
