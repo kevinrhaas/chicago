@@ -2,17 +2,13 @@
   "structure_id": "kinzie_house_1812",
   "view": "chicago_magazine_1857",
   "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
-  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
-  "camera_sha256": "6bcab6fc7680f8cea65bd9152ca096b501aeaa137fd6439b686bc6e5b7cdb8c1",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "e8fc1b6bc3c897412261fd3e06c734b015f455046b39af49dfa6f4104bbf2869",
   "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/chicago_magazine_1857-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
       "what": "massing: long and low, one storey, the ridge along the river, the west gable toward the eye; the gable apex within about 10 px of the drawn (140, 176) on the red-edge overlay",
-      "status": "fixed"
-    },
-    {
-      "what": "piazza: across the front on six slender posts, under its own flatter roof hung below the main eave, with a rail between the posts open at the door; built so (log_dwelling `piazza`, T-2497), its roof and rail on the drawn ones",
       "status": "fixed"
     },
     {
@@ -28,16 +24,20 @@
       "status": "open"
     },
     {
-      "what": "the west gable end: something dark high in the gable and an upright mark low on the end wall may be a small window and a door; at 687 px neither is legible as an opening, and the build leaves the gable unpierced as the archetype does",
-      "status": "open"
-    },
-    {
       "what": "the paling round the green before the piazza, and the four poplars along its river side: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; the great tree behind the house is the west cottonwood there. This render is the house alone",
       "status": "fixed"
     },
     {
       "what": "colour: a monochrome wood engraving",
       "status": "not shown"
+    },
+    {
+      "what": "the west gable end: something dark high in the gable and an upright mark low on the end wall: the light and the door Sarony draws there, now built (T-2516, end_openings)",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza: across the front on six slender posts with a rail between them open at the door, under a flatter roof running from the main roof's lower edge out over the posts; built so (log_dwelling `piazza`, T-2497), and its roof rebuilt (T-2516) as the main slope broken to a flatter pitch just as drawn, its posts nearly the height of the wall (the west post's head lands about 5 px above the drawn one through this loose camera, rms 14 px)",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
