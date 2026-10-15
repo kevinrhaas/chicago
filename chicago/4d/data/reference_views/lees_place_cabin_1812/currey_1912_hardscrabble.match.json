@@ -1,0 +1,53 @@
+{
+ "structure_id": "lees_place_cabin_1812",
+ "view": "currey_1912_hardscrabble",
+ "glb": "assets/gltf/lees_place_cabin_1812__lees_place_1812.glb",
+ "glb_sha256": "8739eb89f844f386fe4160b7418522bf7d657d9d33bd1bbc0fd8b60c870d1ba6",
+ "camera_sha256": "84b0226acb4491942f88906ecbcfaffda30e832023e2c4e6fac60cb10f2f31b2",
+ "side_by_side": "docs/RESEARCH/photo-match/lees_place_cabin_1812/currey_1912_hardscrabble-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: a long, low, one-storey house with its ridge along the river front, the front about two and a half times the gable end",
+   "status": "fixed",
+   "how": "T-2509: log_dwelling on a 14.6 x 5.5 m plan with a 2.4 m wall. The camera is fitted to the front's four corners, so their landing is not a test; the test is the ridge, whose right end the record's 30 degree roof puts at (380.4, 163.2) against the plate's (379.3, 167.1)"
+  },
+  {
+   "what": "the river front's openings: three doors and six small windows in the order window, door, window, window, door, window, window, door, window; the build has the archetype's one door between two windows",
+   "status": "open",
+   "how": "log_dwelling builds its front from core_front_rects, one door and two windows a storey, and states no other set-out. Giving it one is an archetype change that re-hashes every log dwelling's mesh: T-2511"
+  },
+  {
+   "what": "the stack: the plate stands it outside the LEFT (upstream) gable as seen from the river; the build stands it against the right (downstream) gable",
+   "status": "open",
+   "how": "log_dwelling always puts a single stack at the low end of the ridge's axis (_chimneys, at_min=True), and the record cannot choose the end: T-2511"
+  },
+  {
+   "what": "a lower gabled lean-to beyond the stack at the left end, drawn gable-on to the viewer",
+   "status": "open",
+   "how": "log_dwelling's frame_addition is a FRAME addition and builds clapboard, not a log or plank lean-to, and stands its stack differently: T-2511. The lean-to's own perspective disagrees with the main roof's, so its size is read only roughly"
+  },
+  {
+   "what": "the walls: the plate draws them smooth and pale with no courses and no notched corners, as whitewash or as a wash drawing's convention; the build shows round logs with saddle-notched corners",
+   "status": "open",
+   "how": "Currey's text calls it a log cabin (lines 1456-1457) and the record grades construction 'log' attested on that; whether the plate's pale walls are whitewash or the illustrator's shorthand cannot be settled from a monochrome wash drawing, so it is left open for T-2511 to rule on rather than built either way"
+  },
+  {
+   "what": "the roof's tone: the plate draws the roof much darker than the walls; the build's shingles are pale",
+   "status": "open",
+   "how": "Tone, not colour: a monochrome print can still say the roof was darker than the walls. Weathered shakes or bark would read so; the build's roof finish is the archetype's. T-2511"
+  },
+  {
+   "what": "colour",
+   "status": "not shown",
+   "how": "A monochrome halftone"
+  },
+  {
+   "what": "the back wall and the right (downstream) gable",
+   "status": "not shown",
+   "how": "The plate sees the front and the left end only"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+ "note": "Reviewed by T-2509 against the side-by-side. The plate is a retrospective wash drawing (tier 5) by an unnamed illustrator, about a century after the farm, and may as well show the later trading house on the same premises; it is still the one picture of the place, and the image gate builds toward it. The massing and the roof's height agree; the opening set-out, the stack's end, the lean-to, the walls' finish and the roof's tone do not, and each needs the log_dwelling archetype to state what it builds today by rule. That change re-hashes all 72 log dwellings, which is T-2511's run, not this one."
+}
