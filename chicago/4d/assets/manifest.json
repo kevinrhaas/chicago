@@ -251,6 +251,15 @@
       "phase_id": "log_1834",
       "structure_id": "council_house"
     },
+    "coursoll_field_1812__coursoll_1808.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 117672,
+      "inputs_sha256": "cc98a81efff4c4705800f5ef6c8f811b2955a98a508a27dce32f85f21806b097",
+      "kind": "generated",
+      "phase_id": "coursoll_1808",
+      "structure_id": "coursoll_field_1812"
+    },
     "dearborn_street_drawbridge__draw_1834.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,
@@ -2154,6 +2163,15 @@
       "phase_id": "shell_1835",
       "structure_id": "lake_house_construction"
     },
+    "lalime_house_1812__lalime_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48412,
+      "inputs_sha256": "47703d5b6bd5a1f2f2d03bacfb82219d06b629a339dd981197cefe7f63950797",
+      "kind": "generated",
+      "phase_id": "lalime_1812",
+      "structure_id": "lalime_house_1812"
+    },
     "land_sale_camp_shore__camp_1835.glb": {
       "archetype": "camp",
       "baked_ao": false,
@@ -2258,6 +2276,15 @@
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_d"
+    },
+    "lemai_house_1812__lemai_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48732,
+      "inputs_sha256": "879d3efab90ef69fc5d927b94c944324fc5cf32c327be582da34fc851f9949dd",
+      "kind": "generated",
+      "phase_id": "lemai_1812",
+      "structure_id": "lemai_house_1812"
     },
     "log_jail__log_1833.glb": {
       "archetype": "outbuilding",

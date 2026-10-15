@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 1816, ts: '2026-10-15T16:05:57.972Z', date: 'Oct 15, 2026, 11:05 AM CT', title: 'Coursoll\'s worm-fenced field on the north bank (1812)', kind: 'feature',
+    items: [
+      'A zigzag rail fence now closes a field on the north bank, just west of Le Mai\'s house, where Whistler\'s 1808 plan letters \'Mr Coursell\' inside a \'Worm Fence\'.',
+      'Quaife reads it as \'a house and inclosed field north of the river, belonging to Mr. Coursoll\'. The only house the plan draws at the field is the one now built as Le Mai\'s, outside its corner, so no second house is added.',
+      'Its place, size and rails follow the same rule as the houses beside it, and are recorded as a liberty on its card.',
+    ] },
+  { v: 1815, ts: '2026-10-15T15:41:26.236Z', date: 'Oct 15, 2026, 10:41 AM CT', title: '1812: La Lime\'s and Le Mai\'s houses across the river', kind: 'feature',
+    items: [
+      'Two more log houses stand on the north bank west of the Kinzie house in 1812, where Captain Whistler\'s 1808 plan of the fort draws them: La Lime\'s, the post interpreter\'s, and Le Mai\'s, beside the field the plan gives to Mr. Coursell.',
+      'The plan names none of its houses there; Surgeon Cooper names who lived in them. Which house was whose is our reconstruction, and each card says so.',
+      'Their size is the plan\'s drawing; their heights and roofs are reconstructed and listed in Liberties. Neither appears in 1835.',
+    ] },
+  { v: 1814, ts: '2026-10-15T15:19:32.226Z', date: 'Oct 15, 2026, 10:19 AM CT', title: 'The Potawatomi camp of August 1812 stands on the creek', kind: 'feature',
+    items: [
+      'On the eve of the evacuation, 14 August 1812, three groups of mat-covered lodges now stand along the creek that ran into the river at the later State Street. That is where the accounts put the camp of the Potawatomi gathering: Wau-Bun\'s encampment on the south bank, and Currey\'s \'groups of Indian wigwams clustered along the creek\'.',
+      'The lodges follow the form the sources describe: rush mats on a frame of bent poles, a smoke opening at the top and a mat over the door. Never a tipi. Their number, 26, is far fewer than a gathering of hundreds of families would have needed, and their places and shape are reconstructed.',
+      'A new card, \'The camp on the creek\', and a new viewpoint on the bank above the creek\'s mouth. No one is drawn and nothing is staged; the lodges stand empty, and the scene stays held for review by Native scholars or community organisations.',
+    ] },
   { v: 1813, ts: '2026-10-15T15:02:02.311Z', date: 'Oct 15, 2026, 10:02 AM CT', title: 'Nothing you can see changed: a self-test caught up with the haystacks', kind: 'fix',
     items: [
       'Nothing you can see changed. The check that rebuilding one building on its own still works ran against a fixed list of five builders. When the haystacks brought a sixth, it failed for every change waiting to land. It now reads the builders from the bake script itself, so the next new builder will not trip it.',

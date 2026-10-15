@@ -1,0 +1,127 @@
+{
+  "id": "lalime_house_1812",
+  "name": "La Lime's house, the middle of the three houses west of the Kinzie house",
+  "aka": [
+    "the middle no. 31 house on Whistler's draught (1808)",
+    "Jean (John) La Lime's house, the post interpreter's (Cooper, via Quaife 1913)"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "lalime_1812",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1816-06-30",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913"
+        ],
+        "note": "THE RANGE IS BOUNDED BY THE DRAUGHT AND BY SILENCE, NOT BY A DATE FOR THIS HOUSE. It opens on 25 January 1808, the date in the parade of Whistler's draught, the first day a source draws the house; it may be older (Quaife has the north side's houses at four from 1803). It is taken to stand through the 1812 scene dates (1 and 14 August) by continuity: nothing read says it was pulled down, burned or left before the evacuation. It closes on 30 June 1816, the day before the second fort's records open (fort_dearborn_barracks, 1816-07-01): after the war no source read names this house again, and Mrs. Callis's list of the north side in 1816 (Andreas p. 89) names a Mr. Bridges' house 'between Kinzie's and the Burns house' that may be one of the three no. 31 houses and is not dated before 1816, so this record stops where its own record does. Out of 1835. L-1812-lalime-lemai-2504."
+      },
+      "position": {
+        "utm_e": 448179.376,
+        "utm_n": 4637745.09,
+        "rotation_deg": 180.0,
+        "symbolic_location": "The north bank of the main river WEST of the Kinzie house, the draught's middle no. 31 house; fort-frame box E -171.7..-148.7 ft, N +405.4..+420.9 ft by the north-bank rule (data/traces/whistler_1808_fort_dearborn.json north_bank). This record's origin is the footprint's north-east corner, local E +1106.7, N +349.3, which a south facing puts at the frame's (0, 0).",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913"
+        ],
+        "note": "SEATED BY STATED RULE, NOT MEASURED. Whistler draws three houses west of Kinzie's, each with a '31' ('Oather Dwelling Houses on opisite side River'), and says his outside distances are 'not laid down by a scale'. T-2062's rule opens the sheet out about the main gate; here it is opened out about the Kinzie house as built (kinzie_house_1812, seated by its texts on the flagstaff's easting), because about the gate it would put the no. 31 houses east of that house when the sheet draws them west of it. The expansion is the drafter's own '52 yards in length', lettered on the picket he draws along this bank between the westernmost house and the middle one: 2.497 times the drawing, where no. 17's eighteen perches would give 3.322 and set the two houses 74 m apart against the fence's 47.5. The house faces south to the river, as the draught draws its front. tools/read_whistler_1808.py --check re-derives this seat from the sheet boxes and refuses it wet or on a neighbour. L-1812-lalime-lemai-2504.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage): the draught is not to scale outside the stockade and the house was gone before any plat. The seat is the north-bank rule in the register, re-derived by tools/read_whistler_1808.py --check."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7.01,
+            0
+          ],
+          [
+            7.01,
+            4.724
+          ],
+          [
+            0,
+            4.724
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "23 x 16 ft: the drawn box at the index's forty feet to the inch for the Indian Department's dwellings (outside_the_stockade.the_rule), the scale every outside building is read at. The drawing is a small pictorial elevation, roof and front together, so the depth is an upper bound. The long side runs along the bank. L-1812-lalime-lemai-2504."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws one storey of logs under the eaves, with no upper lights."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "reconstructed",
+          "note": "Unattested. About eight feet of hewn log to the plate, a one-room house's ordinary height; the draught gives no height."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws the house in logs: the corners notched and the log ends standing out at both gables, as it draws the Kinzie house beside it. Hewn or round is not read off a drawing this small."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws a pitched roof running along the front with its gables at the ends."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "reconstructed",
+          "note": "Unattested; the draught's elevation is too small and too freely drawn to measure a pitch from."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws one chimney, on the house's east gable. The log_dwelling archetype sets its stack its own way and states no gable end (T-2511), so the end is not carried."
+        }
+      },
+      "change_note": "Built T-2504 (2026-10-15). One of the three houses Whistler draws across the river west of Kinzie's in January 1808, standing in the 1812 scene."
+    }
+  ],
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "Whistler letters the three no. 31 houses 'Oather Dwelling Houses'."
+  },
+  "occupants": {
+    "value": "La Lime, the post's interpreter, in Cooper's time (from 1808) and until his death in 1812; whether anybody lived in the house after him is not known.",
+    "confidence": "reconstructed",
+    "sources": [
+      "quaife_1913",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "WHICH HOUSE IS WHOSE IS THIS PROJECT'S, AND IT IS GRADED SO. Cooper, post surgeon from 1808, counted four houses on the north side in his time, 'occupied by Kinzie, Ouilmette, La Lime, and Le Mai' (Quaife 1913 p. 166); Whistler's draught of January 1808 draws Kinzie's and three more west of it, and names none. Quaife pairs the two. The assignment: Ouilmette takes the no. 31 house nearest Kinzie's, because Currey has his cabin 'close in the rear of the Kinzie house' and Wau-Bun 'close at hand' (T-2486 builds it); the other two take Cooper's remaining names in the order he gives them, walking west, La Lime the middle house and Le Mai the westernmost. Cooper's order is not stated to be an order on the ground. L-1812-lalime-lemai-2504."
+  },
+  "research_note": "LA LIME'S HOUSE, the largest of the three dwellings Whistler draws across the river west of Kinzie's in January 1808. Jean (John) La Lime came to Chicago with the garrison or before it; he and Dr. Smith wintered 1803-04 in the vacant cabin that became Kinzie's (Quaife p. 142), and when Surgeon Cooper came in 1808 La Lime 'was living in one of the four houses on the north side of the river and acting as government Indian interpreter' (Quaife pp. 148-49). He served as interpreter until his death in 1812, after 13 April and some weeks before the evacuation: Kinzie killed him in a fight outside the fort's gate (Quaife pp. 149-50; Currey ch. III). The fight is not drawn and nobody is drawn in or near the house (L1). Nothing read says what became of the house after his death; it is taken to stand on the scene date by continuity, and the record says so. Which of the three drawn houses was his is reconstructed (occupants). Its size is the draught's drawn box; its height and pitch are this project's. No picture of it is known, so it has no image gate to meet. It carries review_required because its card speaks of Chicago in the summer of 1812, an event of Potawatomi history as much as the garrison's, and the 1812 scene's account of that summer waits on the review by Native scholars or community organisations that T-0472 holds it for.",
+  "review_required": true
+}
