@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1799, ts: '2026-10-15T07:15:57.829Z', date: 'Oct 15, 2026, 2:15 AM CT', title: 'Where Lee\'s Place stood in 1812, read from five accounts', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. This is the groundwork for building Lee\'s Place, the farm on the South Branch later called Hardscrabble.',
+      'The South Branch is now traced from an 1849 map past the edge of the modelled ground, down to the forks and the canal at Bridgeport.',
+      'Five old accounts that place the farm are measured against that river. The adopted site is half a mile below Bridgeport, on the north-west bank.',
+      'Two of the accounts agree with that site and two do not. Where they disagree, both readings are kept rather than one being chosen.',
+    ] },
   { v: 1798, ts: '2026-10-15T06:00:08.997Z', date: 'Oct 15, 2026, 1:00 AM CT', title: 'July vines at Glessner House', kind: 'improvement',
     items: [
       'Selective Boston ivy now climbs the Prairie front, with Virginia creeper on courtyard walls. Green leaves and connected stems leave doors and windows clear.',
