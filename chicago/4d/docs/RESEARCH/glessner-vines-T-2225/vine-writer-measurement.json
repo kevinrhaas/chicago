@@ -1,0 +1,24 @@
+{
+  "measurement": "Two bare write runs in a clean isolated Git fixture containing the exact current generator modules, tool, numeric Glessner input and committed-candidate atlas; not the full application checkout. Target mtime advances, all hashes and git status reproduce. A perturbed atlas is also restored.",
+  "before": {
+    "sha256": "a112e23149e5346610e7d4eaf45bbe0123aba2bbce9f2e52becc0e7b9c86ccfc",
+    "mtime_ns": 1792034796615559308
+  },
+  "runs": [
+    {
+      "stdout": "WROTE: seven original vine studies, 2851 leaf polygons; 688213bytes; SHA256 a112e23149e5346610e7d4eaf45bbe0123aba2bbce9f2e52becc0e7b9c86ccfc",
+      "sha256": "a112e23149e5346610e7d4eaf45bbe0123aba2bbce9f2e52becc0e7b9c86ccfc",
+      "mtime_ns": 1792040883953084182,
+      "git_status": ""
+    },
+    {
+      "stdout": "WROTE: seven original vine studies, 2851 leaf polygons; 688213bytes; SHA256 a112e23149e5346610e7d4eaf45bbe0123aba2bbce9f2e52becc0e7b9c86ccfc",
+      "sha256": "a112e23149e5346610e7d4eaf45bbe0123aba2bbce9f2e52becc0e7b9c86ccfc",
+      "mtime_ns": 1792040887992029303,
+      "git_status": ""
+    }
+  ],
+  "perturbed_git_status": " M assets/textures/glessner-v4/vines_atlas.png\n",
+  "repair_stdout": "WROTE: seven original vine studies, 2851 leaf polygons; 688213bytes; SHA256 a112e23149e5346610e7d4eaf45bbe0123aba2bbce9f2e52becc0e7b9c86ccfc",
+  "finding": "reproduces"
+}

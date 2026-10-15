@@ -36,7 +36,7 @@ MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass'
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
  'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light',
- 'rainwater_metal')
+ 'rainwater_metal','glessner_vines')
 
 
 def _left_to_right_sum(iterable,start=0):
@@ -244,6 +244,10 @@ def _construct(root, *, roof_details_reduced=True):
     if params.detail.get("roof_edges"):
         from archetypes.masonry_house_v4_roof_edges import add_edges
         add_edges(b,params)
+    from archetypes.masonry_house_v4_vines import add_vines
+    vines=add_vines(b,params,reduced=True)
+    b.components['vine_plants']=len(vines['plants'])
+    b.components['vine_panels']=vines['added_faces']
     return b,params,materials
 
 
@@ -552,7 +556,8 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     owner=next((n for n in full.get('nodes',[]) if n.get('extras',{}).get('detail_profile')=='glessner_v4'),None)
     if owner is None:raise ValueError('Source master is not the detailed Glessner v4')
     b,params,uv_module=_construct(root)
-    required=MATERIAL_NAMES if params.detail.get('rainwater') else MATERIAL_NAMES[:28]
+    required=MATERIAL_NAMES[:29] if params.detail.get('rainwater') else MATERIAL_NAMES[:28]
+    if params.detail.get('vines'):required+=MATERIAL_NAMES[29:]
     if any(n not in names for n in required):raise ValueError('Full master does not contain the expected v4 material library')
     counts=_apertures(params)
     if counts!=owner['extras'].get('aperture_counts'):
@@ -621,6 +626,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     extras.update({'lod':'light','grass_blades':0,'roof_tiles':0,'masonry_blocks':b.masonry_blocks,
                    'openings_recessed':sum(counts.values()),'aperture_counts':counts,
                    'stone_occlusion':occlusion_record})
+    extras['vine_panels']=b.components['vine_panels']
     bounds=[[min(p[k] for p in b.verts),max(p[k] for p in b.verts)] for k in range(3)]
     receipt={'master_sha256':master_sha,'recipe_sha256':recipe_sha256,'triangles':triangle_count,
              'openings_recessed':sum(counts.values()),'bounds_zup_m':bounds,

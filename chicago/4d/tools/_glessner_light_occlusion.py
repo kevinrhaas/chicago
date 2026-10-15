@@ -38,6 +38,7 @@ def main(argv):
     root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(root / "generators"))
     from archetypes import masonry_house_v4_occlusion as occlusion
+    from archetypes.masonry_house_v4_materials import vine_material
 
     data = np.load(source)
     co, uv0, corners, slot = data["co"], data["uv0"], data["corners"], data["slot"]
@@ -57,11 +58,19 @@ def main(argv):
     me.polygons.foreach_set("material_index", slot.astype(np.int32))
     me.update(calc_edges=True)
     surface = me.uv_layers.new(name="SurfaceUV")
-    surface.data.foreach_set("uv", uv0.astype(np.float32).ravel())
+    # Input UV0 is in glTF's downward-v convention; Blender's shader reads up-v.
+    surface_uv=uv0.astype(np.float32).copy()
+    surface_uv[:,1]=1-surface_uv[:,1]
+    surface.data.foreach_set("uv", surface_uv.ravel())
     me.uv_layers.active = surface
     for name in names:
-        material = bpy.data.materials.new(name)
-        material.use_nodes = True
+        if name=='glessner_vines' and 29 in slot:
+            # A plain shader would bake solid rectangular shadows behind the
+            # reduced foliage panels. Preserve the actual shared alpha mask.
+            material=vine_material(bpy)
+        else:
+            material = bpy.data.materials.new(name)
+            material.use_nodes = True
         me.materials.append(material)
     ob = bpy.data.objects.new("glessner_light", me)
     bpy.context.scene.collection.objects.link(ob)

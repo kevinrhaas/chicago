@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 187009784,
-      "sha256": "af938f644a23e6bb6062e078326712eb918fce7b754123412bd26c7ab1a52bd9",
+      "bytes": 195466904,
+      "sha256": "0afba5d57f93a311c521b221b2ef7f734f28c44f0b803fc359a37566e94f2574",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -19,18 +19,18 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 29,
-        "materials": 29,
-        "triangles": 1315670,
-        "vertices": 3014138
+        "draw_primitives": 30,
+        "materials": 30,
+        "triangles": 1371506,
+        "vertices": 3160022
       },
       "texture": {
-        "images": 34,
-        "textures": 69,
-        "encoded_bytes": 27324026,
-        "pixels": 57146696,
-        "gpu_rgba8_mip_bytes": 304782379,
-        "largest_px": 2048
+        "images": 35,
+        "textures": 70,
+        "encoded_bytes": 28017225,
+        "pixels": 65535304,
+        "gpu_rgba8_mip_bytes": 349521621,
+        "largest_px": 4096
       },
       "bbox_m": {
         "min": [
@@ -63,12 +63,13 @@
         "lawn": -0.06,
         "limestone_trim": -0.061,
         "mortar": -0.025,
+        "oak": -0.0151,
         "rainwater_metal": -0.06,
         "rough_stone_trim": -0.022
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 2367,
+        "degenerate": 2413,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -136,6 +137,9 @@
         },
         "glass_dark": {
           "median_uv_per_m": 1
+        },
+        "glessner_vines": {
+          "median_uv_per_m": 0.1079
         },
         "granite": {
           "median_uv_per_m": 0.625,
@@ -329,8 +333,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 53510216,
-      "sha256": "6ac7ed6c9dded67ad9e3115099446292f566035903ad67feb408409e5d3ea574",
+      "bytes": 55383984,
+      "sha256": "11a82664b658a340cf6a663981042dd311e52bb6f548aa2ffdf14fd7ef68e972",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -347,17 +351,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 29,
-        "materials": 29,
-        "triangles": 1315670,
-        "vertices": 2400909
+        "draw_primitives": 30,
+        "materials": 30,
+        "triangles": 1371506,
+        "vertices": 2503270
       },
       "texture": {
-        "images": 33,
-        "textures": 33,
-        "encoded_bytes": 27898687,
-        "pixels": 56098120,
-        "gpu_rgba8_mip_bytes": 299189973,
+        "images": 34,
+        "textures": 34,
+        "encoded_bytes": 28831488,
+        "pixels": 58195272,
+        "gpu_rgba8_mip_bytes": 310374784,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -392,12 +396,13 @@
         "lawn": -0.0598,
         "limestone_trim": -0.0606,
         "mortar": -0.025,
+        "oak": -0.015,
         "rainwater_metal": -0.0598,
         "rough_stone_trim": -0.0216
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 3166,
+        "degenerate": 3258,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -459,6 +464,9 @@
             2
           ],
           "uv_per_m_times_tile_m": 1.0002
+        },
+        "glessner_vines": {
+          "median_uv_per_m": 0.1095
         },
         "granite": {
           "median_uv_per_m": 0.6251,
@@ -557,13 +565,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "oak": {
-          "median_uv_per_m": 0.7176,
+          "median_uv_per_m": 0.7178,
           "fabric": "oak",
           "tile_m": [
             0.8,
             2.4
           ],
-          "uv_per_m_times_tile_m": 0.9944
+          "uv_per_m_times_tile_m": 0.9946
         },
         "painted_wood": {
           "median_uv_per_m": 0.7222,
@@ -643,8 +651,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27981920,
-      "sha256": "b7e23616c59449ea393f112fab47425ba2ce507b71e785e38ba5b8fe621cf02f",
+      "bytes": 28915140,
+      "sha256": "1792bd7cf45f6a5a0610c3427ff5de3e9a421baf173dc0009006ffb82dcdfae7",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -661,17 +669,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 26,
-        "materials": 26,
-        "triangles": 199794,
-        "vertices": 389384
+        "draw_primitives": 27,
+        "materials": 27,
+        "triangles": 199850,
+        "vertices": 389471
       },
       "texture": {
-        "images": 33,
-        "textures": 33,
-        "encoded_bytes": 24557348,
-        "pixels": 52952392,
-        "gpu_rgba8_mip_bytes": 282412757,
+        "images": 34,
+        "textures": 34,
+        "encoded_bytes": 25487551,
+        "pixels": 55049544,
+        "gpu_rgba8_mip_bytes": 293597568,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -701,6 +709,7 @@
       "wall_base_y_m": -0.0048,
       "below_grade_m": {
         "drive": -0.0604,
+        "glessner_vines": -0.0347,
         "granite": -0.0048,
         "lawn": -0.0604,
         "limestone_trim": -0.0612,
@@ -772,6 +781,9 @@
             2
           ],
           "uv_per_m_times_tile_m": 1.0001
+        },
+        "glessner_vines": {
+          "median_uv_per_m": 0.1187
         },
         "granite": {
           "median_uv_per_m": 0.6254,

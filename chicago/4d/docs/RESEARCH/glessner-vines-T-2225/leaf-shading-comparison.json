@@ -1,0 +1,17 @@
+{
+  "before": {
+    "master_sha256": "30fff27586eaadb3434069c72a365583c9a001eec81d48794df1da722a0ba1ec",
+    "leaf_triangles": 34212,
+    "flat_shaded_triangles": 34212,
+    "smooth_corner_triangles": 0,
+    "max_normal_length_error": 1.1920928955078125e-07
+  },
+  "after": {
+    "master_sha256": "0afba5d57f93a311c521b221b2ef7f734f28c44f0b803fc359a37566e94f2574",
+    "leaf_triangles": 34212,
+    "flat_shaded_triangles": 0,
+    "smooth_corner_triangles": 34212,
+    "max_normal_length_error": 1.1920928955078125e-07
+  },
+  "result": "PASS: all leaf triangles now interpolate unit corner normals; no added leaf triangles. Actual final browser appearance still pending."
+}

@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "generate_glessner_vines.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: two bare write runs in a clean isolated Git fixture containing the exact current generator modules, tool, numeric Glessner input and candidate atlas advance the target mtime, preserve its SHA-256 and leave git status clean. A deliberately perturbed atlas is also restored byte for byte. This was an isolated generator measurement, not a claim that the active application checkout was clean. See docs/RESEARCH/glessner-vines-T-2225/vine-writer-measurement.json (T-2225).",
+      "placed": "The atlas reads the authored Glessner record and shared numeric vine layout, and is consumed by the Blender master and reduced masked-occlusion bake. It is generated explicitly before those bakes and checked read-only in check.sh. Manifest ordering must place it before asset baking after any eventual writer of those numeric inputs; no existing reconstruction stage currently writes them. That ordering is not appended blindly here."
+    },
     "extend_ic_lakefront_1904.py": {
       "placement": "pending",
       "write_mode": "(bare)",

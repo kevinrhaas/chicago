@@ -5412,3 +5412,24 @@ for T-2227. The new liberty and credited Images panel are visible on mobile.
 All five historical comparisons retain unchanged cameras and `differs` verdicts
 for T-2228. Full preflight and exact-head CI govern the dev merge; their receipts
 are on the ticket-linked PR. See docs/RESEARCH/glessner-courtyard-ground-T-2224/README.md.
+
+## T-2225 — Selective July vines (2026-10-15)
+
+Seven reconstructed planting areas add Boston ivy to the Prairie front and
+Virginia creeper to courtyard walls. Full carries connected stems and curled
+leaves; Light shares the same original masked atlas on continuous panels. Cleared
+HABS geometry and the public-domain USDA botanical guide bound the numeric study;
+the 1887 planting history does not establish exact July 1904 coverage. Later
+blanket overgrowth is excluded, and the new liberty states the reconstruction.
+
+The first Full bake's nested compound petioles were rejected and corrected with a
+shared junction. The regression reproduces the old defect; the corrected canonical
+Full/web/Light assets have zero coincident faces at K01's unchanged 1 mm quantum.
+Full/web has 1,371,506 triangles and Light 199,850. Ten fixed-camera app views were
+actually reviewed with no browser errors; eight meet scene budgets and both
+north-court views retain their baseline failures for T-2227. Both confidence
+views, the new liberty and credited mobile Images panel were inspected. All five
+historical cameras remain unchanged and whole-house verdicts remain `differs` for
+T-2228. Owner granite and dark glass are retained. Full preflight and exact-head
+CI govern merge; see the ticket-linked PR for results and deployment verification.
+See docs/RESEARCH/glessner-vines-T-2225/README.md.

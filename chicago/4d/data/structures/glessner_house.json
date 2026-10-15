@@ -2144,8 +2144,8 @@
             "inland_architect_1888_02_glessner_exterior",
             "habs_glessner_photo_05_court_c1923"
           ],
-          "note": "Glessner 1923 records both plantings in 1887. The 1888 photograph shows bare walls and HABS photograph 5 (c. 1923) shows bare stems on the courtyard's stair tower and bow. How far they had grown by 1904 is not recorded, and NO VINE IS DRAWN: the walls stand bare. docs/LIBERTIES.md L295.",
-          "geometry": "absent"
+          "note": "Glessner 1923 records both plantings in 1887; the 1888 photograph shows bare walls and HABS photograph5 (c.1923) shows courtyard stems. Exact 1904 coverage is unknown. This is textual history only: the numeric, independently reconstructed July planting is separately declared in form.vines_details and L-glessner-vines-2225. No unresolved-rights photograph or typescript expression is used as a geometry or texture asset. L295 records the earlier omission.",
+          "geometry": "simplified"
         },
         "ironwork_finish": {
           "value": "Bower-Barffed iron, never painted",
@@ -3737,6 +3737,93 @@
             "owner_glessner_v4_reconstruction_brief_2026"
           ],
           "note": "T-2223: retain the existing HABS sheet 2 north-court landing/flight plan, ten treads, 6-ft landing and 3-ft nominal guard. The separately labelled wooden stair behind the west/stable wing was added ca.1955 and remains excluded. The current courtyard stair is visible in 1963 and 2024; those sources do not independently date every member to 1904. Modern licensed frames bound two lower horizontal rails, sparse posts, brick cheek and brick piers with pale capitals. Exact rail stock, seated base plates, continuous return joins, capital bevels and buried footings are bounded reconstructions. The paired alley leaves follow the existing HABS plan opening, with the retained reconstructed 8-ft top; board joints, two ledges and a compression brace per leaf, dressed coursed gate reveals, plain two-hinge hardware, latch and flush sill are reconstructed, not traced from an undocumented elevation. Rendered ground measurements place the gate within 0.5 mm of ng and the ground beneath service piers about 15.4 mm below ng; buried bases close contact without moving the landing or gate top. No modern wrapping, paint, paving or plants are copied. Light omits only shallow brick relief on the stair cheek and support piers while retaining the same outlines, seated posts, cap profiles, rail runs, leaf gaps and connected hinge geometry. See the T-2223 component register and liberty. The sill is 50 mm stone stock, entering grade by 5 mm; the brick cheek starts at local datum and meets the existing raised lawn. Only the stone stair/pier footings extend to -40 mm. Hinge knuckles sit outside the timber ledges, tangent to their front faces, with straps meeting the exposed pins directly. The brick cheek follows each tread underside, beneath the stone noses; landing rails follow both exposed outer edges, and the latch passes through an open keeper."
+        },
+        "vines_details": {
+          "value": {
+            "scene_date": "1904-07-01",
+            "plants": [
+              {
+                "id": "front-south",
+                "species": "boston_ivy",
+                "face": "east",
+                "at": 49.149,
+                "root_u": 10.05,
+                "root_z": 0.0152,
+                "width_m": 1.45,
+                "height_m": 2.25
+              },
+              {
+                "id": "front-north",
+                "species": "boston_ivy",
+                "face": "east",
+                "at": 49.149,
+                "root_u": 18.15,
+                "root_z": 0.0152,
+                "width_m": 1.45,
+                "height_m": 4.8
+              },
+              {
+                "id": "south-west",
+                "species": "virginia_creeper",
+                "face": "north",
+                "at": 0,
+                "root_u": 19.0,
+                "root_z": 0.0152,
+                "width_m": 4.0,
+                "height_m": 2.45
+              },
+              {
+                "id": "south-middle",
+                "species": "virginia_creeper",
+                "face": "north",
+                "at": 0,
+                "root_u": 24.8,
+                "root_z": 0.0152,
+                "width_m": 4.0,
+                "height_m": 2.45
+              },
+              {
+                "id": "south-east",
+                "species": "virginia_creeper",
+                "face": "north",
+                "at": 0,
+                "root_u": 29.0,
+                "root_z": 0.0152,
+                "width_m": 3.4,
+                "height_m": 2.45
+              },
+              {
+                "id": "west-court",
+                "species": "virginia_creeper",
+                "face": "east",
+                "at": 10.8204,
+                "root_u": 7.9,
+                "root_z": 0.035,
+                "width_m": 2.0,
+                "height_m": 4.8
+              },
+              {
+                "id": "north-court",
+                "species": "virginia_creeper",
+                "face": "south",
+                "at": 14.3774,
+                "root_u": 22.1,
+                "root_z": 0.0152,
+                "width_m": 1.4,
+                "height_m": 4.6
+              }
+            ],
+            "seed": 222500,
+            "bounds": {
+              "opening_clearance_m": 0.22
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "habs_glessner_house_il_1015_drawings",
+            "usda_nrcs_virginia_creeper_2006"
+          ],
+          "note": "T-2225: seven bounded original planting studies for July 1904. HABS establishes wall locations and openings; the USDA guide supplies Virginia-creeper botanical bounds only, not Glessner planting history or coverage. Boston ivy profiles are independently drawn generic three-lobed botanical reconstructions. The species history remains separately cited in form.vines; its unresolved typescript and later-image rights are not cleared by this work and no image is traced or sampled. Two selective Prairie ivy areas and five courtyard creeper areas are reconstructed placement, scale, maintenance and growth, not a measured 1904 map. The south boundary, west wall and one north-wall pier carry creeper; window/door openings and their surrounds retain at least 220 mm clearance. No new neighborhood trees, flower beds or plants over unresolved tower/roof geometry. Mature leaves are green for July; conspicuous ripe berries and autumn colors are omitted. Seeded branches, root joints, curled lobed/compound leaves and a generated alpha atlas share one numeric layout. Light carries the same atlas on four connected panels per plant, collapsing leaf depth while preserving its visible coverage. Full stems follow actual masonry faces. Precise branch trajectories, leaf shapes, veins, serration, color, wall offsets and coverage remain liberties; better dated summer evidence should replace them."
         }
       }
     }

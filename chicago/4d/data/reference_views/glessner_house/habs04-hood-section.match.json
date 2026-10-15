@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-hood-section",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6ac7ed6c9dded67ad9e3115099446292f566035903ad67feb408409e5d3ea574",
+  "glb_sha256": "11a82664b658a340cf6a663981042dd311e52bb6f548aa2ffdf14fd7ef68e972",
   "camera_sha256": "2229a228b90863f49d0a93094d0c79d385aa880fd39815501996e9b61e7a046f",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
   "verdict": "differs",
@@ -33,6 +33,10 @@
     },
     {
       "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The courtyard ground is outside this cropped measured section. The connected, unfolded hood remains; the earlier hood section/profile residual and surrounding opening/material differences are not resolved by this ground pass. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2225: Re-rendered and visually reviewed on the final canonical Full web asset. No vines enter this hood crop or conceal the roof junction. The connected copper surface remains, but its section/profile and surrounding wall/opening correspondence still differ from the measured drawing. No camera refit or whole-house acceptance promotion.",
       "status": "open"
     }
   ],
