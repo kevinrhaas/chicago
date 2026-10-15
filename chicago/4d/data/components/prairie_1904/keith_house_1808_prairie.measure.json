@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 7547808,
-      "sha256": "12eaaa050471c4dd9482ab8a9d2f0dd5e6bf1b7016ab2c751e58de47f48abdbf",
+      "bytes": 7554752,
+      "sha256": "e71d2567ebcb603ce990dc0622096d5cb5460bd239bc197d94df03fa158477cb",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 27,
         "materials": 27,
-        "triangles": 53882,
-        "vertices": 117909
+        "triangles": 53918,
+        "vertices": 118089
       },
       "texture": {
         "images": 13,
@@ -71,7 +71,7 @@
       },
       "metric_uv": {
         "backing": {
-          "median_uv_per_m": 1.0183
+          "median_uv_per_m": 1.0304
         },
         "bay_brick": {
           "median_uv_per_m": 1.203,
@@ -83,19 +83,19 @@
           "uv_per_m_times_tile_m": 1
         },
         "bay_stone": {
-          "median_uv_per_m": 0.8301,
+          "median_uv_per_m": 0.8303,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9962
+          "uv_per_m_times_tile_m": 0.9964
         },
         "bay_tin": {
           "median_uv_per_m": 1.0001
         },
         "blind": {
-          "median_uv_per_m": 1.0376
+          "median_uv_per_m": 1.0368
         },
         "brick": {
           "median_uv_per_m": 1.203,
@@ -271,8 +271,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2299240,
-      "sha256": "28fe26c3f85a2f5d9dfdbd43cfbd3cdb231a95aaf98abe447456e83dbd8793f2",
+      "bytes": 2299592,
+      "sha256": "36445c020c75ff8d17a55287b1f9b49512d2221db6443eb8e69dc1f97394c6bc",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -290,8 +290,8 @@
       "mesh": {
         "draw_primitives": 27,
         "materials": 27,
-        "triangles": 53882,
-        "vertices": 86037
+        "triangles": 53918,
+        "vertices": 86115
       },
       "texture": {
         "images": 13,
@@ -351,13 +351,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "bay_stone": {
-          "median_uv_per_m": 0.8296,
+          "median_uv_per_m": 0.8298,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9956
+          "uv_per_m_times_tile_m": 0.9958
         },
         "brick": {
           "median_uv_per_m": 1.2029,

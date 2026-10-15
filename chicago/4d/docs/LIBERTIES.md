@@ -23028,7 +23028,7 @@ Romanesque-classical stone, the south curved bay, the north loggia with Ionic
 columns, the pierced parapet) from the 1888 plate once it is a source record;
 T-1935 the detached rear garage. A measured reading of sheet 28 for this lot
 replaces the footprint.
-**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
 **Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
 **Recorded:** 2026-10-10.
 
@@ -23204,7 +23204,7 @@ outlets, over the profile's 12 m; it falls both ways from its middle, so no poin
 **How to resolve:** T-1882 and T-1883 build the actual Keith/Field front from the 1888 Inland
 Architect plate, whose pierced parapet replaces this dormer and may hide a different roof; a
 photograph of the house's roof or rainwater goods replaces the covering, the caps and the pipes.
-**Covers:** `keith_house_1808_prairie.as_built_1886.form.roof_covering`, `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.rainwater`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.roof_covering`.
 **Ticket:** T-2293 (piece 2 of T-1846, K04).
 **Review:** `docs/RESEARCH/k04-1808-roof-2293/README.md`.
 **Recorded:** 2026-10-10 (T-2293).
@@ -25199,7 +25199,7 @@ profile and band (the kit's generic ones, L-k10-cornice-kit-2316). None of it wa
 picture of 1808 Prairie.
 **What would replace it.** The 1888 plate deposited and read as a source (T-1882's parapet), or
 a photograph of the roof.
-**Covers:** `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.wall_head`
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.wall_head`
 **Ticket:** T-2326.
 **Review:** `docs/RESEARCH/k10-1808-dormer-face-2326/README.md`.
 **Recorded:** 2026-10-11 (T-2326).
@@ -26963,7 +26963,7 @@ Full uses connected stems following the actual masonry and curled individual lea
 **Ticket:** T-2499 (piece 1 of T-1882).
 **Recorded:** 2026-10-15 (T-2499).
 **Sources:** `inland_architect_1888_02_keith_plate`.
-**Covers:** `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.front_bays_by_storey`, `keith_house_1808_prairie.as_built_1886.form.chimneys`
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.roof_covering`
 
 **Decision:** the owner reported on 2026-10-13 that the house "has an Italianette top" where its pictures
 show none. The record now builds what the Inland Architect plate of February 1888 shows, the plate read
