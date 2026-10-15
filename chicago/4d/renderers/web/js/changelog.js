@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1828, ts: '2026-10-15T20:53:51.796Z', date: 'Oct 15, 2026, 3:53 PM CT', title: '1621 Prairie\'s bow gets its balcony rail and barred basement lights', kind: 'feature',
+    items: [
+      'Hamline\'s swell bay at 1621 Prairie now carries the iron balcony rail its 1886 drawing shows round the bow\'s top.',
+      'Below the principal windows, the bow\'s basement now has its two lights, barred with iron as drawn, under a string course at the principal floor.',
+      'The rail\'s bars, sections and the grille pattern are reconstructed and recorded as a liberty; the dressed heads over the basement lights are still to come.',
+    ] },
   { v: 1827, ts: '2026-10-15T20:17:26.404Z', date: 'Oct 15, 2026, 3:17 PM CT', title: '1637 Prairie\'s wing wears the cornice', kind: 'improvement',
     items: [
       'The wing at the south end of 1637 Prairie Avenue now carries the house\'s bracketed cornice round its three faces, so its band reads as deep as the main cornice\'s, as the engraving of Jesse Spalding\'s remodel draws it.',

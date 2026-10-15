@@ -27683,6 +27683,39 @@ fixes the light's head and its glazing; T-2523 builds the steps.
 **Review:** `docs/RESEARCH/k16-1638-steps-transom-2520/README.md`.
 **Recorded:** 2026-10-15 (T-2520).
 
+### L-k08-1621-bow-iron-2525 — 1621 Prairie's bow given its drawn balcony rail and barred basement lights: the rail's height read, its bars, sections and the grilles' pattern reconstructed
+
+**Decision:** the swell bay of John H. Hamline's house at 1621 Prairie (T-2525, piece 1 of
+T-2422) takes the two things Treat & Foltz's Building Budget drawing draws on it that T-2420 and
+T-2440 left off: an iron balcony rail round its top, and two barred lights in its basement. The
+bow's basement becomes a storey of its own, 1.4 m from grade to the principal floor, so the bow
+carries the string course the drawing draws at that line, and the principal storey above it is
+3.9 m with its lights 0.7 m over its floor, where they were. In the basement storey two lights at
+-30 and +30 degrees on the bow, 0.75 m wide and 0.92 m high over a 0.1 m plinth, each barred with
+seven square iron uprights between a foot bar and a head bar, with a ring arched over them. On the
+moulded cornice an iron rail 0.06 m in from its edge runs round the bow from the wall to the wall,
+0.6 m high: a post against the wall at each end, a foot rail and a top rail, square bars 0.08 m
+apart.
+**What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`),
+through the camera T-2440 carried to 1621: that the rail is a light rail of close-set bars round
+the whole bow, its top about 29 px over the cornice's at about 48 px a metre (0.6 m); that the
+basement lights are two, under the principal lights, their openings flat-headed, barred with
+uprights and an arched scroll over them, reaching from about 627 px to about 675 px; and the
+string course over them at the principal floor.
+**What is invented.** The rail's 0.08 m bar spacing (the drawing's bars are counted, not
+measured), its 0.05 m posts, its rail and bar sections and its 0.06 m inset; the grille's seven
+uprights, its 0.04 m set-back in the reveal, and its scroll drawn as one plain ring of 0.25 m
+radius; the 0.1 m plinth, set by the kit's sill stone, which holds each light's sill about 9 px
+above the drawn one; the lights' 0.75 m width, the principal lights' width on the sheet's 2.3 m
+chord, against about 0.95 m drawn (the widths are argued in L-k01-1621-hamline-front-2440); and
+the iron's colour.
+**What is not built.** The block of splayed voussoirs over each basement light, open in the match
+record.
+**How to resolve:** a photograph of the house after 1886 settles the rail and the grilles; the
+architects' plans would settle the basement's lights.
+**Ticket:** T-2525 (piece 1 of T-2422).
+**Recorded:** 2026-10-15 (T-2525).
+
 ### L-k16-1638-tower-caps-2521 — 1638 Prairie's tower stage built smooth with an incised trefoil over each light, and its gate caps' lower corners flared: the stage, frieze, casings and flare read, the ornament's pattern and the flare's curve reconstructed
 
 **Decision:** the corner tower's upper stage on the Shortall-Gregory house (T-2521, piece 3 of

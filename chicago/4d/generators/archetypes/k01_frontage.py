@@ -263,7 +263,8 @@ K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "
              "frame": "sash", "sash_outer": "sash", "sash_inner": "sash",
              "glass_outer": "glass", "glass_inner": "glass", "blind": "blind",
              "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
-             "bracket": "fascia"}   # T-2408: a hood's consoles and modillions, the eaves' joinery
+             "bracket": "fascia",   # T-2408: a hood's consoles and modillions, the eaves' joinery
+             "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 # T-2356: a frame bay has no stone in it. Its dressings are painted timber (the fascia's
 # slot) and its plinth the house's brick carried out under it, as a timber bay on a

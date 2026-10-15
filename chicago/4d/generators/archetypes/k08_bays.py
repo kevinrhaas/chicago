@@ -24,6 +24,10 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                plane cuts it, with a finial at the apex; a bay's hip may FLARE (T-2408):
                flat at the eaves and steepening inward, cut into bands at one
                distance in from the eaves on every plane, so the hips stay shared
+  balcony      (T-2525) a bow's iron balcony rail on its eaves, round the plan from wall to
+               wall: a post at each end against the wall, square bars between a foot rail
+               and a top rail; and a window entry's `grille`, iron bars in its reveal
+               clipped to its head, with an arch ring over them as 1621's drawing draws
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -71,7 +75,7 @@ ROLE_MATERIAL = {
     "frame": "joinery", "sash_outer": "joinery", "sash_inner": "joinery",
     "glass_outer": "glass", "glass_inner": "glass", "came": "lead_came",
     "blind": "blind", "curtain": "curtain", "backing": "backing",
-    "roof": "covering", "finial": "covering",
+    "roof": "covering", "finial": "covering", "iron": "iron",
     "board_wall": "board", "ground": "ground",
 }
 # The specimen's board, not the bay: excluded from a variant's costs and its checks.
@@ -95,6 +99,7 @@ def materials(data: dict) -> dict:
         "joinery": m6["joinery"], "glass": m6["glass"], "lead_came": m6["lead_came"],
         "blind": m6["blind"], "curtain": m6["curtain"], "backing": m6["backing"],
         "board": {"color": (0.58, 0.52, 0.44), "roughness": 0.95}, "ground": m6["ground"],
+        "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},   # T-2525: K01's iron
     }
     for fab, col in data["roofs"]["covering_colors"].items():
         metal = fab.startswith("copper") or fab.startswith("tin")
@@ -466,6 +471,70 @@ def proud(o, role, run, y0, y1, out, top=True, bottom=True):
         ledge(o, role, run, y0, 0.0, out, (0.0, -1.0, 0.0))
 
 
+def prism(o, role, poly2, d0, d1):
+    """T-2525: a closed bar: the (s, y) polygon `poly2` carried from depth d0 to d1 behind
+    the face (d1 > d0), its front, its back and its sides."""
+    o.plane(role, poly2, d0)
+    o.plane(role, poly2[::-1], d1, (0.0, 0.0, -1.0))
+    o.tube(role, poly2, d0, d1, inward=False)
+
+
+def rect(s0, s1, y0, y1):
+    return [(s0, y0), (s1, y0), (s1, y1), (s0, y1)]
+
+
+def head_y(outline, x) -> float:
+    """The top of a clear hole's outline (K06's, at the face) over x."""
+    best = None
+    for (a, b) in zip(outline, outline[1:] + outline[:1]):
+        if min(a[0], b[0]) - 1e-9 <= x <= max(a[0], b[0]) + 1e-9 and abs(b[0] - a[0]) > 1e-9:
+            y = a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0])
+            best = y if best is None else max(best, y)
+    return best
+
+
+def grille(o, g: dict):
+    """T-2525: iron in a window's reveal, `set_back_m` behind the face and in front of its
+    frame: `bars` square uprights clipped to the head, a foot bar and a bar at the head's
+    spring, and an arch ring of `ring_radius_m` whose crown stands just under that bar (the
+    scroll 1621's drawing draws over its basement bars, as a plain ring). In the opening's
+    own frame, so the bay bends it with the opening."""
+    out = o.holes[0]
+    s0, s1 = min(q[0] for q in out), max(q[0] for q in out)
+    hd = o.meta["heads"][0]
+    spring = hd.get("spring_m", hd.get("top_m", max(q[1] for q in out)))
+    b, d, n = IRON_BAR_M, g["set_back_m"], g["bars"]
+    if not (0.0 < d and d + 2 * b + 0.002 <= o.meta["reveal_depth_m"]):
+        raise ValueError(f"a grille {d} m back does not stand in a {o.meta['reveal_depth_m']} m reveal")
+    for i in range(1, n + 1):
+        x = s0 + (s1 - s0) * i / (n + 1)
+        prism(o, "iron", rect(x - b / 2, x + b / 2, 0.003, head_y(out, x) - 0.003), d + b + 0.002, d + 2 * b + 0.002)
+    for y in (0.06, spring - 0.03):    # 3 mm off the jambs: never in the reveal's planes
+        prism(o, "iron", rect(s0 + 0.003, s1 - 0.003, y, y + b), d, d + b)
+    r = g["ring_radius_m"]
+    if not 0.05 < r < (s1 - s0) / 2:
+        raise ValueError(f"a grille's ring of {r} m does not stand in a {s1 - s0:.3f} m light")
+    cy, segs = spring - 0.03 - b / 2 - r, 12
+    ro, ri = r + b / 2, r - b / 2
+    arc = [(math.cos(math.pi * j / segs), math.sin(math.pi * j / segs)) for j in range(segs + 1)]
+    q = lambda c, rr: (rr * c[0], cy + rr * c[1])
+    for c0, c1 in zip(arc, arc[1:]):          # one band, so no two segments meet face to face
+        band = [q(c0, ri), q(c0, ro), q(c1, ro), q(c1, ri)]
+        o.plane("iron", band[::-1], d)
+        o.plane("iron", band, d + b, (0.0, 0.0, -1.0))
+        for rr, sg in ((ro, 1.0), (ri, -1.0)):
+            m = ((c0[0] + c1[0]) * sg, (c0[1] + c1[1]) * sg, 0.0)
+            o.face("iron", [o.P(*q(c0, rr), d), o.P(*q(c1, rr), d), o.P(*q(c1, rr), d + b), o.P(*q(c0, rr), d + b)], m)
+    for c in (arc[0], arc[-1]):               # its two feet
+        o.face("iron", [o.P(*q(c, ri), d), o.P(*q(c, ro), d), o.P(*q(c, ro), d + b), o.P(*q(c, ri), d + b)],
+               (0.0, -1.0, 0.0))
+    for x in (-r, r):     # the ring's legs down to the foot bar
+        prism(o, "iron", rect(x - b / 2, x + b / 2, 0.06 + b, cy), d + b + 0.002, d + 2 * b + 0.002)
+
+
+IRON_BAR_M = 0.018        # T-2525: K01's guard and grille bar (k01_arched_front.IRON_BAR_M)
+
+
 # -- a window: a K06 opening, its recess cut to the bay ------------------------------------------
 
 def k06_variant(w: dict) -> dict:
@@ -537,6 +606,8 @@ class Bay:
                 hi = levels[k + 1]
                 for w, s in per_run[i][k]:
                     o = window(w, s, levels[k] + w["sill_m"], w.get("recess_m", recess))
+                    if w.get("grille") and self.tier == "full":   # the light tier keeps the hole
+                        grille(o, w["grille"])
                     for h in o.holes:
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
                         holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
@@ -559,6 +630,8 @@ class Bay:
                 flat.plane("fascia", K6.box(run.s_start(ov), run.s_end(ov), y_top, y_e), -ov)
             if v.get("brackets"):
                 self._modillions(flat, run, y_top, ov)
+            if v.get("balcony"):
+                self._balcony(flat, run, y_e, ov)
             if not grade:
                 self._corbel_courses(flat, run, y0)
             bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]))
@@ -868,6 +941,31 @@ class Bay:
         self.meta["finial"] = {"top_m": round(ay + H, 4)}
 
     # sockets and the specimen's board --------------------------------------------------------
+    def _balcony(self, flat, run, y_e, ov):
+        """T-2525: an iron rail on the eaves, `inset_m` in from their edge and round the run
+        from the wall to the wall: a square post against the wall at each end, a foot rail
+        and a top rail between them, and square bars at `pitch_m` under the top rail. Only a
+        bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others)."""
+        bl = self.v["balcony"]
+        z = ov - bl["inset_m"]
+        pm, bm, (rw, rd) = bl["post_m"], bl["bar_m"], bl["rail_m"]
+        y0, y3 = y_e, y_e + bl["height_m"]
+        d0, d1 = -z - pm / 2, -z + pm / 2
+        sa, sb = run.s_start(z), run.s_end(z)
+        for a in (sa, sb - pm):
+            prism(flat, "iron", rect(a, a + pm, y0, y3), d0, d1)
+        e0, e1 = sa + pm, sb - pm
+        # the rails run into the posts' middles, so no end of theirs lies in a post's face
+        for ya, yb in ((y3 - rd, y3 - 0.004), (y0 + bl["foot_rail_m"], y0 + bl["foot_rail_m"] + rd / 2)):
+            prism(flat, "iron", rect(sa + pm / 2, sb - pm / 2, ya, yb), -z - rw / 2, -z + rw / 2)
+        n = max(1, math.floor((e1 - e0) / bl["pitch_m"]))
+        step = (e1 - e0) / (n + 1)
+        # the light tier keeps the posts and rails, the rail's outline, and drops the bars
+        for i in (range(1, n + 1) if self.tier == "full" else ()):
+            m = e0 + i * step
+            prism(flat, "iron", rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
+        self.meta["balcony"] = {"bars": n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
+
     def _sockets(self, y0, y_e):
         first, last = self.runs[0], self.runs[-1]
         jl, jr = first.world(0.0, y0, 0.0), last.world(last.L, y0, 0.0)
