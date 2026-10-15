@@ -1,0 +1,21 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "source_id": "lossing_1869_kinzie_mansion_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_kinzie_house_fort_dearborn_1812.jpg",
+  "image_px": [
+    960,
+    506
+  ],
+  "principal_px": [
+    480.0,
+    250.0
+  ],
+  "focal_px": 1600.0,
+  "eye": [
+    98.31,
+    79.92,
+    5.58
+  ],
+  "yaw_deg": 240.23,
+  "solve": "Fitted by least squares to ten points read off the engraving at 960 x 506 px against the GLB's footprint frame: the west gable's back corner at grade (108, 335) and eave (108, 285), the apex (150, 243), its front corner at the eave (190, 292) and grade (190, 338), the middle stack's head (200, 234), and the piazza's second post from the west and its east post at their feet (213, 330; 305, 328) and heads (213, 298; 305, 296). The principal point is held at (480, 250): y 250 is the far shore's line, the engraving's horizon. Left free, focal and distance trade against each other with almost no change in the residual (rms 10.64 px at 350 m and focal 4750 px; 10.82 px at 120 m and focal 1600 px), because the house is small in the plate; so the focal is held at 1600 px, which puts the eye about 120 m west-south-west of the house, on the river before the fort where the view across to it is taken, at 5.6 m (an elevated draughtsman's eye). Eye (98.31, 79.92) at 5.58 m, heading 240.23 degrees, rms 10.82 px. Checked on a red-edge overlay: the house's two ends, the piazza's posts and the middle stack land on the drawn ones within about 10 px."
+}

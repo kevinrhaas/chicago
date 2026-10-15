@@ -5604,6 +5604,8 @@
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
     "kimberly_residence",
+    "kinzie_house_1812",
+    "kinzie_house_1812_green",
     "lake_house_construction",
     "recon_1835_north_a1_050",
     "recon_1835_north_a2_048",
@@ -5641,6 +5643,8 @@
    ],
    "standing_families": {
     "kimberly_residence": "D6",
+    "kinzie_house_1812": null,
+    "kinzie_house_1812_green": null,
     "lake_house_construction": null,
     "recon_1835_north_a1_050": "A1",
     "recon_1835_north_a2_048": "A2",

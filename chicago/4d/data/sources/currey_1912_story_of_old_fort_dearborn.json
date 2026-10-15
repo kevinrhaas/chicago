@@ -1,0 +1,32 @@
+{
+  "id": "currey_1912_story_of_old_fort_dearborn",
+  "type": "book",
+  "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+  "author": "J. Seymour Currey",
+  "date": "1912",
+  "describes_date": "1779-1816; the passage cited here describes the Kinzie house from 1804",
+  "repository": "Project Gutenberg eBook #52346 (released 16 June 2016), transcribed from the 1912 edition",
+  "url": "https://www.gutenberg.org/ebooks/52346",
+  "locator": "ch. II, 'Fortifying the Frontier', the paragraphs before the plate 'Residence of John Kinzie' (facing p. 32 by the volume's list of illustrations)",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1912 in the United States, out of copyright by age; Project Gutenberg distributes it as a public-domain text.",
+  "asset_use": "inventory",
+  "verified": true,
+  "access_notes": "Read on 2026-10-15 (T-2497) from the Gutenberg plain-text file https://www.gutenberg.org/cache/epub/52346/pg52346.txt, fetched from the run's container. The page numbers of the printed book are not carried by the transcription; the locator is the chapter and the plate the passage stands beside.",
+  "what_it_supplies": [
+    "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+    "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+    "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+    "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+    "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+    "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'"
+  ],
+  "what_it_does_not_supply": [
+    "any dimension of the house, the piazza or the green",
+    "the number of the house's rooms, windows or chimneys",
+    "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+    "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+  ],
+  "note": "A secondary history written a century after the events, so tier 3. Its dates for Le Mai (1797) and Kinzie (1804) differ from Moses and Kirkland's (1796; Kinzie's arrival given elsewhere as 1803), and the Kinzie house record carries both. The Sarony plate's caption reads: 'The house in which John Kinzie and his family lived from 1804 to 1813, and again from 1816 to 1828, as it was lithographed by Sarony from a sketch made by Mrs. John H. Kinzie, the author of Wau-Bun.'"
+}
