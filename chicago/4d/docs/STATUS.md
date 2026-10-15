@@ -42,6 +42,45 @@ no camera is solved for the plate because its scan is `check_required`, so the
 image gate has not been run on this house. The loggia and stair are T-2500; the
 lattice, pinnacles, diaper band, stone tone and fence are T-1883.
 [Before/after views and browser readings](RESEARCH/k01-1808-keith-2499/).
+## T-2502 — the 1812 ground carried down the South Branch to Lee's Place (2026-10-15)
+
+T-2501 ruled the farm's site a reach of the South Branch's north-west bank, about 930 m west
+and 450 m south of the e1830_natural box. Off the box there was nothing to stand on: the
+sampler answered 0 m under an apron drawn flat at 1.31 m, and that apron carried the floor's
+last channel section due south as a straight trench. **Chosen: an apron field beside the box,
+not a wider box.** The 1812 ground is the 1834 field's own arithmetic on the 1834 grid
+(`terrain_gen_e1830.py`), and west of E -705 that arithmetic runs past its tracing window.
+The main stem's and branches' water polygons stop at the wall, so a box carried west would
+draw them ending in a bank. A wider box would also double a 3.8 MB field and need a
+town-wide bake. The box is byte-for-byte unchanged (`terrain_gen_e1830.py --check`).
+
+- `tools/derive_apron_south_branch_1812.py` writes
+  `data/terrain/epochs/e1830_natural/apron_south_branch.{json,bin}`: 421 x 161 samples at
+  5 m, E -2200..-100, N -4600..-3800, 135 KB. **Land** is the box's floor row carried (1.31 m),
+  which is what the drawn apron already stood at. Across the floor's channel the row is bridged
+  crest to crest, so the trench is not carried twice. **Water and banks** follow T-2501's trace,
+  joined to the committed reach where the two overlap below the floor. They use the 1834
+  cross-section (`channel_profile`, e-fold 9 m; `bank.face_m` 6 m) at the bed the committed reach
+  leaves the box with (-1.38 m). **Every sample is conjectural**, because all of it is south of
+  `evidence_limit`. The north row is the floor row itself. The west and east columns are the
+  carried land. The channel leaves through the south row at E -2085..-1990, below the ruled
+  reach and short of the forks. `--check` holds both files byte for byte, and `--self-test`
+  asserts the seams.
+- **Renderer.** A scene may name `terrain_apron` (schema). `Heightfield.sample()` answers the
+  apron outside the box, before its fallback, so the walker, footprints and flora roots stand on
+  it. `terrain-apron.js` draws the field from its own samples. It adds a 0.5 m lip under the
+  floor row against cracks, and carries the south row on to the apron's outer edge, as the box's
+  skirt does. The box's carried apron is cut out over the field's `cut_local_enu_m` with the
+  T-2474 ground cut.
+- **Anchor.** `lees_place_reach` stands 20 m back from T-2501's station on the north-west bank,
+  facing south-east across the channel. `measure_anchors.mjs` now reads a scene's apron, and the
+  gate holds the anchor on 1.31 m of ground, 22.5 m from the water.
+- **Seen** in the published mirror at 1280x800 and 390x780, with no page errors: the
+  walker's eye is at 2.99 m (ground 1.31 m), and the channel and its far bank are in view. The
+  flora's near cards follow the walker onto the apron, because the sampler answers there.
+- **Not done:** the forks,
+  the west fork and the river past the south row are not drawn; the south row is carried on
+  straight, as the box's own skirt is. The farm, its fence, haystacks and card are T-2503.
 
 ## T-2501 — Lee's Place (Hardscrabble) placed, not pinned (2026-10-15)
 
