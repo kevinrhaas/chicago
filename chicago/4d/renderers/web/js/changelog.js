@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1819, ts: '2026-10-15T17:03:50.399Z', date: 'Oct 15, 2026, 12:03 PM CT', title: 'The Kinzie house of 1812 rebuilt to Juliette Kinzie\'s own sketch', kind: 'improvement',
+    items: [
+      'The Kinzie house\'s main roof now runs down over the piazza and breaks to a flatter pitch, and the piazza\'s posts stand nearly as tall as the walls. That is how Sarony\'s lithograph of Juliette Kinzie\'s sketch draws it. She was the one artist who lived beside the house. The other old pictures agree once the roof is built that way.',
+      'The west end now has a small window high in the gable, a second window and a side door. The east end has two small windows under the eaves, as the earliest picture of the house, from 1820, shows them.',
+      'Sarony\'s lithograph joins the six other pictures the house is compared against.',
+    ] },
   { v: 1818, ts: '2026-10-15T16:39:55.101Z', date: 'Oct 15, 2026, 11:39 AM CT', title: 'Lee\'s Place: the farm cabin on the South Branch, 1812', kind: 'feature',
     items: [
       'The 1812 scene now has Lee\'s Place, the farm later called Hardscrabble: a long log cabin on the north-west bank of the South Branch, inside a zigzag rail fence round its field.',
