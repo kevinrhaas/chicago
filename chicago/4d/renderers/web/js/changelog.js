@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1797, ts: '2026-10-15T03:15:40.080Z', date: 'Oct 14, 2026, 10:15 PM CT', title: 'Paths through the Glessner courtyard', kind: 'change',
+    items: [
+      'Gravel approaches now connect the carriage drive to the service stair and curved terrace.',
+      'Lawn edges stop at paths, steps and masonry; the western walk slopes gently away from the wall.',
+      'The paths and gravel finish are labeled reconstructions for 1904, excluding the later parking pavement.',
+    ] },
   { v: 1796, ts: '2026-10-15T01:19:09.939Z', date: 'Oct 14, 2026, 8:19 PM CT', title: 'Glessner service stairs and rear gate', kind: 'improvement',
     items: [
       'The courtyard stair has seated posts, joined rails and stone capitals on its brick supports. The rear gate has two boarded leaves with connected hinges and a threshold.',
