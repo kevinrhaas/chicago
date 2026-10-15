@@ -150,6 +150,36 @@
       ],
       "note": "The 1857 engraving draws a rail with balusters between the posts, open at the door."
     },
+    "piazza_roof": {
+      "value": "swept",
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate",
+        "eastman_schoolcraft_chicago_1820_engraving",
+        "lossing_1869_kinzie_mansion_engraving",
+        "cram_1893_old_kinzie_mansion_1832_engraving",
+        "teich_old_kinzie_house_postcard",
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "THE MAIN ROOF CARRIED DOWN OVER THE PIAZZA AT A BREAK (T-2516). Lossing, the Cram plate and the Teich painting draw one plane from the ridge to the piazza's eave; the 1857 engraving draws a flatter roof below the main one. Sarony's lithograph of Juliette Kinzie's sketch, the one picture by a member of the household, and Eastman's 1820 engraving, the earliest, both draw the two together: the front slope breaks to a flatter pitch over the piazza, so seen from afar it is one plane run down to the posts and seen close it is a break. Built as that: a flatter plane rising from the piazza's plate until it meets the main slope above the front wall (generators/archetypes/log_dwelling.py _swept_piazza_roof). T-2497 had built the 1857 reading, a separate roof hung under the main eave."
+    },
+    "piazza_plate_m": {
+      "value": 2.95,
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate",
+        "cram_1893_old_kinzie_mansion_1832_engraving"
+      ],
+      "note": "Read through Sarony's solved camera (data/reference_views/kinzie_house_1812/sarony_1912.json): the posts' heads stand 2.83-3.14 m over their feet, and the piazza's eave 2.88-3.24 m. The Cram plate's camera reads the same: every post about 1.7 times as tall as T-2497's 2.0 m posts. So the posts stand nearly the height of the 3.0 m wall, as wall_height_m's own note says the engravings draw them, and the plate is 2.95 m."
+    },
+    "piazza_pitch_deg": {
+      "value": 15.0,
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate"
+      ],
+      "note": "Read through Sarony's camera: the piazza roof meets the front wall's line 3.56-3.93 m up and its eave stands 2.88-3.24 m, over the 2.35 m from the wall to the eave, which is 14-17 degrees. Fifteen, against the main roof's thirty; it meets the main slope 1.19 m inside the front wall, 3.83 m up."
+    },
     "chimney_ridge_at": {
       "value": [
         0.08,
@@ -193,6 +223,48 @@
         "chicago_magazine_1857_kinzie_house_engraving"
       ],
       "note": "The 1857 engraving draws the sash bare, dark panes in plain casings, with no leaf beside any of them."
+    },
+    "end_openings": {
+      "value": [
+        {
+          "end": "+x",
+          "kind": "light",
+          "at": 0.48,
+          "z": 3.75
+        },
+        {
+          "end": "+x",
+          "kind": "window",
+          "at": 0.26,
+          "z": 2.1
+        },
+        {
+          "end": "+x",
+          "kind": "door",
+          "at": 0.63
+        },
+        {
+          "end": "-x",
+          "kind": "light",
+          "at": 0.26,
+          "z": 2.55
+        },
+        {
+          "end": "-x",
+          "kind": "light",
+          "at": 0.7,
+          "z": 2.55
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate",
+        "eastman_schoolcraft_chicago_1820_engraving",
+        "teich_old_kinzie_house_postcard",
+        "chicago_magazine_1857_kinzie_house_engraving",
+        "cram_1893_old_kinzie_mansion_1832_engraving"
+      ],
+      "note": "THE ENDS ARE PIERCED (T-2516); +x is the west end at this record's 180-degree facing, and `at` runs from the back wall. WEST: Sarony draws a small light high in the gable, a window toward the back of the end wall and a door toward its front with a step before it; read through his camera the light stands 3.3-4.2 m up across 2.6-3.8 m of the end's 6.71 m, the window 1.1-2.4 m and the door 3.5-4.9 m from the back. The Teich painting draws the same light (a small square high in the west gable), and the 1857 engraving and the Cram plate draw something dark high in the gable and an upright pale mark low on the end wall where Sarony's light and door are. EAST: Eastman 1820, the earliest picture, draws two small windows side by side at the eave's height, at about 0.3 and 0.74 of the end from its front corner; built in the log wall with their heads just under the eave, since a light is in the wall or in the gable above it and not both. The west light, 3.35-4.15 m up, is in the gable, which the archetype closes with a board face flush with the rake. The window is set at Sarony's height, its centre 2.1 m up where the front's stand at 1.67 m; the door and window take the front's sizes and the lights the archetype's 0.7 by 0.8 m: none of the pictures measures them."
     },
     "function": {
       "value": "dwelling_and_trading_house",
@@ -259,6 +331,26 @@
       ]
     },
     {
+      "source_id": "cram_1893_old_kinzie_mansion_1832_engraving",
+      "citation": "\"The Old Kinzie Mansion in 1832.\" — wood engraving, the upper panel of a plate with \"Chicago in 1845, from the West\", in George F. Cram, Cram's Standard American Railway System Atlas of the World / Columbian World's Fair Atlas (Chicago: George F. Cram, 1893).",
+      "url": "https://archive.org/details/dr_the-old-kinzie-mansion-in-1832-with-chicago-in-1845-from-the-west-wit-1773025",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the house long and low under a gable roof along the river, its west gable toward the eye",
+        "two stacks through the ridge, about 0.44 and 0.92 of it from the west gable",
+        "a piazza across the whole front, its roof drawn as the main roof carried down in one plane",
+        "a central door with two sash either side under the piazza",
+        "a picket fence round the green before the house, four columnar poplars in a row east of it, and a great tree behind",
+        "a two-storey house and a shed behind it to the north-west, in 1832"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812: it dates itself to 1832",
+        "any dimension, position or colour"
+      ]
+    },
+    {
       "source_id": "currey_1912_story_of_old_fort_dearborn",
       "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
       "url": "https://www.gutenberg.org/ebooks/52346",
@@ -278,6 +370,25 @@
         "the number of the house's rooms, windows or chimneys",
         "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
         "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
+    },
+    {
+      "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+      "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+      "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+        "two stacks through the ridge, one just behind the east gable",
+        "two windows in the east end under the gable, and light, smooth walls",
+        "a log building, a whitewashed house and a yard fence round it in 1820",
+        "the second Fort Dearborn across the river to the left"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812: it shows it eight years later, after the family's return in 1816",
+        "any dimension or position"
       ]
     },
     {
@@ -348,9 +459,47 @@
         "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
         "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
       ]
+    },
+    {
+      "source_id": "sarony_kinzie_residence_currey_1912_plate",
+      "citation": "\"Residence of John Kinzie.\" — lithograph by Napoleon Sarony from a sketch by Mrs. John H. Kinzie, reproduced as a plate in J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912), ch. II.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the house long and low under a gable roof along the river, the east end toward the eye's right, a piazza across the front on posts with a rail",
+        "a picket fence round the green before the house down toward the water, a landing at the water's edge",
+        "four columnar Lombardy poplars in a row east of the house running toward the river, and a great broad-crowned tree behind it",
+        "two stacks through the ridge, and outbuildings and a two-storey house up the road to the west, behind the house"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812 as distinct from the 1820s: the caption covers both",
+        "any dimension or position"
+      ]
+    },
+    {
+      "source_id": "teich_old_kinzie_house_postcard",
+      "citation": "\"The Old Kinzie House (First House Built in Chicago)\" — colour postcard after a painting, \"By Courtesy of John H. Kinzie\", Curt Teich & Co., Chicago, about 1910.",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Old_Kinzie_House_-First_House_Built_In_Chicago-_(NBY_416153).jpg",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the only picture of the house in colour: a red-brown roof and cream walls under the piazza",
+        "the west gable broad, with a small square light high in it",
+        "two stacks through the ridge, the second toward the east end",
+        "the piazza across the front, its roof carried down from the main roof, with a low paling along it",
+        "a central door with openings either side",
+        "four poplars in a row east of the house running down toward the river, a fenced green, and a great tree behind"
+      ],
+      "what_it_does_not_supply": [
+        "a date: the card's file name here says 1804 and the card itself says no year",
+        "any dimension or position; its colours are a painter's and a printer's, not evidence of 1812"
+      ]
     }
   ],
-  "research_note": "THE FIRST HOUSE AT CHICAGO (T-2497, piece 1 of T-2484). Jean Baptiste Point du Sable, a Black man from San Domingo and the first non-Native settler at Chicago, built it before 1779 and lived in it for over eighteen years; Le Mai bought it in 1796 or 1797; John Kinzie bought it in 1803 or 1804, the sources differ, repaired it, added the piazza and planted the poplars. It escaped the burning of August 1812 and was gone by the mid-1830s. This record is the house as the Kinzies had it, which is the only form any picture shows; the green, its fence and its trees are kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json. The pictures it is matched to are data/reference_views/kinzie_house_1812/: Lossing 1869 and the 1857 engraving (T-2497), the Cram atlas plate, the Teich postcard and the two 1820 views (T-2498). Sarony's lithograph of Juliette Kinzie's sketch, sarony_kinzie_residence_currey_1912_plate, reproduced by Kirkland as kirkland_1893_kinzie_mansion_1812_plate, is in the library and on the card and has no camera yet.",
+  "research_note": "THE FIRST HOUSE AT CHICAGO (T-2497, piece 1 of T-2484). Jean Baptiste Point du Sable, a Black man from San Domingo and the first non-Native settler at Chicago, built it before 1779 and lived in it for over eighteen years; Le Mai bought it in 1796 or 1797; John Kinzie bought it in 1803 or 1804, the sources differ, repaired it, added the piazza and planted the poplars. It escaped the burning of August 1812 and was gone by the mid-1830s. This record is the house as the Kinzies had it, which is the only form any picture shows; the green, its fence and its trees are kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json. The pictures it is matched to are data/reference_views/kinzie_house_1812/: Lossing 1869 and the 1857 engraving (T-2497), the Cram atlas plate, the Teich postcard and the two 1820 views (T-2498). Sarony's lithograph of Juliette Kinzie's sketch, sarony_kinzie_residence_currey_1912_plate (reproduced by Kirkland as kirkland_1893_kinzie_mansion_1812_plate), is solved into sarony_1912 (T-2516) and governs where the pictures disagree: it settled the piazza's swept roof and its height and the pierced west end.",
   "research_doc": "",
   "review_required": false
 }

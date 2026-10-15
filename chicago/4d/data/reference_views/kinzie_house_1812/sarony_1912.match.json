@@ -1,0 +1,56 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "sarony_1912",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "826b04c696c43c08d70020c7d0df221b92245e9e4e6ac210c9be841a2c7a111a",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/sarony_1912-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a long, low, single-storey house under a gable roof along the river, the west gable toward the eye and the front running away to the right; the build's apex, the end wall's corners and both stacks land within 3-6 px",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, at x 361 and 426 px; the build's at 0.55 and 0.08 of the ridge from its east end land within 3 px of each",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza roof: the main roof carried down over the piazza and broken to a flatter pitch, the main roof drawn in dark courses and the piazza roof lighter below the break; built so (T-2516, piazza_roof swept at 15 degrees), its eave on the drawn one within about 3 px",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza height: the posts stand nearly as tall as the wall, their heads about y 223 px over feet at y 271; T-2497's 2.0 m posts drew some 30 px. Read through this camera and built (piazza_plate_m 2.95): the render's heads and feet land on the drawn ones within about 3 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the west end: a small light high in the gable (x 294-301, y 203-216 px), a window toward the back of the end wall (x 284-292, y 224-241) and a door toward its front (x 300-309, y 230-264) with a step before it; built (end_openings), each within about 3 px of the drawn, except that the drawn door is taller, its head about 10 px above the build's 1.95 m door, under a lintel",
+      "status": "fixed"
+    },
+    {
+      "what": "front: a window in each bay of the piazza but the door's, the door in the middle bay; the build's two windows each side of a middle door",
+      "status": "fixed"
+    },
+    {
+      "what": "length: the posts are drawn about 25 px apart where the build's 2.39 m bays draw 29-33 px from this camera, so the front reads about 0.85 of the build's 40 ft against its end, as the Teich painting and the Gemmell plate also draw it. The roof does not agree with the posts: both stacks, at 0.08 and 0.55 of a 40 ft ridge, land within 3 px of the drawn ones. So the 40 ft length (L-kinzie-house-1812-2497) stands and the spacing is read as the draughtsman's",
+      "status": "open"
+    },
+    {
+      "what": "walls: drawn light, smooth-faced and whitewashed, front and end; the standing ruling, which this ticket (T-2516) leaves alone: the 1812 house is built of squared logs (Moses and Kirkland), and a picture that draws the house light and smooth is evidence of a later cladding or whitewash. Not built for 1812",
+      "status": "open"
+    },
+    {
+      "what": "the picket fence round the green, the landing, the four poplars in a row and the great tree behind the house: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "outbuildings and a two-storey house up the road to the west, behind the house: Wau-Bun's outbuildings and the neighbours' houses are T-2484's other pieces, not this record",
+      "status": "open"
+    },
+    {
+      "what": "colour: a monochrome lithograph",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

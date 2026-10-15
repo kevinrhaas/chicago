@@ -2,8 +2,8 @@
   "structure_id": "kinzie_house_1812",
   "view": "lossing_1869",
   "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
-  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
-  "camera_sha256": "561759ae2fb407aaf146270ed3b48c90f2cb207e67f76b4e03a9f88bd9044dda",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "65297127b1b3982bb48e24abfa355631a6cc950a48fe96f1822c84a4e57cecf6",
   "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/lossing_1869-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -24,10 +24,6 @@
       "status": "open"
     },
     {
-      "what": "piazza roof: Lossing carries the main roof down over the piazza in one plane, its eave at y 293 px; the build hangs the piazza's own flatter roof under the main eave, as the 1857 engraving draws it. The same ruling as the stacks: the 1857 engraving governs the roof",
-      "status": "open"
-    },
-    {
       "what": "a dark mass behind the roof east of the stacks (x 240-280 px, y 250-270 px): it may be the far slope in shadow or a building behind. The 1857 engraving shows no range behind the house, so none is built; Wau-Bun's outbuildings and Ouilmette's and Pettell's cabins behind the house are T-2484's other pieces",
       "status": "open"
     },
@@ -41,6 +37,18 @@
     },
     {
       "what": "colour: a monochrome wood engraving",
+      "status": "not shown"
+    },
+    {
+      "what": "piazza roof: Lossing carries the main roof down over the piazza in one plane, its eave at y 293 px. Rebuilt (T-2516) as the main roof carried down over the piazza, broken to a flatter pitch above the front wall: Sarony and Eastman draw that break close to, and it is the one roof that answers all five pictures. From this low eye the break shows where Lossing draws none",
+      "status": "open"
+    },
+    {
+      "what": "piazza height: Lossing's posts are about 32 px tall and the rebuilt ones (Sarony's 2.95 m plate) draw about 39 px, every head about 7 px above the drawn head; T-2497's 2.0 m posts matched him. Sarony's lithograph governs; Lossing drew the house from a distance more than fifty years after the fort burned",
+      "status": "open"
+    },
+    {
+      "what": "the west end: drawn dark and hatched, in shade, with no opening legible; the light, window and door Sarony draws on it are built",
       "status": "not shown"
     }
   ],
