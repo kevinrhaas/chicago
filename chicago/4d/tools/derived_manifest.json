@@ -301,6 +301,22 @@
       ]
     },
     {
+      "why": "A DERIVATION FROM COMMITTED GROUND AND TRACES (T-2502): the 1812 apron field beside the e1830_natural box, carrying the ground down the South Branch to Lee's Place. It reads the box's committed heightfield (terrain_gen_e1830.py's output), T-2501's Rees 1849 trace and the site T-2501 derives, so it follows both. It changes nothing in the box.",
+      "command": [
+        "python3",
+        "tools/derive_apron_south_branch_1812.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/terrain/epochs/e1830_natural/apron_south_branch.json",
+        "chicago/4d/data/terrain/epochs/e1830_natural/apron_south_branch.bin"
+      ],
+      "verify": [
+        "python3",
+        "tools/derive_apron_south_branch_1812.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-1250): the four Prairie Avenue sheets' GCP files, fitted from picks written in the tool, the committed rasters under chicago/reference/ and data/traces/prairie_1904_control.json. It reads nothing another step writes, so it sits with the other readers at the head of the manifest; tools/trace_ic_edge_1904.py reads its output and follows it.",
       "command": [
         "python3",
