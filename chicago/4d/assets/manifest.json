@@ -381,7 +381,7 @@
       "archetype": "camp",
       "baked_ao": false,
       "bytes": 171676,
-      "inputs_sha256": "b748fc394371e879e64bb1fccfa8a9ebe3f1166bc36895de289946c85910907f",
+      "inputs_sha256": "7156a054fe335bd7f5b2742629d2c813eee06dc93b1b483f7e4a6350a3fdd8ef",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "emigrant_camp_shore"
@@ -2167,7 +2167,7 @@
       "archetype": "camp",
       "baked_ao": false,
       "bytes": 206900,
-      "inputs_sha256": "f76ce7744b4c7f6252e1e60c807935b4a47be0bda24f3307fc055c1ddc6403ce",
+      "inputs_sha256": "16c88639f243d83bb8c4f428515749277fe6705ba19db7d8ef890bb892ab9fea",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "land_sale_camp_shore"
@@ -2176,7 +2176,7 @@
       "archetype": "camp",
       "baked_ao": false,
       "bytes": 49724,
-      "inputs_sha256": "04a903d13a3a066fe5352cb5199d23b3c02cd34dc84ae910408e497bbdac0b90",
+      "inputs_sha256": "2c5b3361ee48a7b61d999a2834447653ab9280494c8a52f8c0263ff0650dd81d",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "landing_camp_west"
@@ -2687,6 +2687,33 @@
       "kind": "generated",
       "phase_id": "shop_1833",
       "structure_id": "pierce_blacksmith_shop"
+    },
+    "potawatomi_camp_1812_middle__camp_1812.glb": {
+      "archetype": "camp",
+      "baked_ao": false,
+      "bytes": 95636,
+      "inputs_sha256": "8c078e73912af8d8d89e80e8c2dd82f492c086941b892d0330af954d3aa477da",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_middle"
+    },
+    "potawatomi_camp_1812_mouth__camp_1812.glb": {
+      "archetype": "camp",
+      "baked_ao": false,
+      "bytes": 118628,
+      "inputs_sha256": "cc6c02896aac9b56db8c48a06b1686b38cebe6f54b93200db3ed22f4447f8899",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_mouth"
+    },
+    "potawatomi_camp_1812_upper__camp_1812.glb": {
+      "archetype": "camp",
+      "baked_ao": false,
+      "bytes": 95636,
+      "inputs_sha256": "961399ee7f319cfdb2a042aab447c2107cd5df2796438a376c3b3101f598b192",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_upper"
     },
     "pruyne_kimball_drugstore__frame_1830s.glb": {
       "archetype": "frame_storefront",
@@ -8030,7 +8057,7 @@
       "archetype": "camp",
       "baked_ao": false,
       "bytes": 111048,
-      "inputs_sha256": "0b7c8817b8358cfb978b414cbd8699942bef78e5034a6b4e239b65626e6840b3",
+      "inputs_sha256": "9e3c34ffe30bd36c85c38eff2d0d1b5ca1c56dd941a223fe257ed8246103d054",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "west_approach_wagon_camp"
@@ -8095,7 +8122,7 @@
       "archetype": "camp",
       "baked_ao": false,
       "bytes": 42348,
-      "inputs_sha256": "b4d85b61db638dbe3c46d85176dd94d548b938ac7832e20cfb47f8b33df9b53f",
+      "inputs_sha256": "557b7ceedd04f432545612a3b5f448cbc8bcd270786c3fa2cc74c322b5a26330",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "wolf_point_trading_camp"

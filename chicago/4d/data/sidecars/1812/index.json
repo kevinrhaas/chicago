@@ -335,6 +335,24 @@
       "name": "Lee's Place (Hardscrabble): haystack 4 of 4, on the bank opposite the cabin",
       "sidecar": "sidecars/1812/lees_place_haystack_1812_d.json",
       "asset": "gltf/lees_place_haystack_1812_d__lees_place_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_middle",
+      "name": "The Potawatomi camp of August 1812: the lodges at the creek's middle reach",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_middle.json",
+      "asset": "gltf/potawatomi_camp_1812_middle__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_mouth",
+      "name": "The Potawatomi camp of August 1812: the lodges by the creek's mouth",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_mouth.json",
+      "asset": "gltf/potawatomi_camp_1812_mouth__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_upper",
+      "name": "The Potawatomi camp of August 1812: the lodges up the creek",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_upper.json",
+      "asset": "gltf/potawatomi_camp_1812_upper__camp_1812.glb"
     }
   ],
   "excluded_by_date": [
