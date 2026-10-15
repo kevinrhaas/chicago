@@ -1,0 +1,105 @@
+{
+  "id": "lees_place_haystack_1812_c",
+  "phase": "lees_place_1812",
+  "name": "Lee's Place (Hardscrabble): haystack 3 of 4, on the bank opposite the cabin",
+  "aka": [
+    "the haystacks on the opposite bank (Wau-Bun, ch. XVIII)"
+  ],
+  "archetype": "haystack",
+  "asset": "gltf/lees_place_haystack_1812_c__lees_place_1812.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "documented_range": {
+    "from": "1812-04-07",
+    "to": "1812-08-16",
+    "confidence": "reconstructed",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "THE STACKS ARE DATED ONCE AND THE REST IS A BOUND THIS PROJECT CHOSE. Wau-Bun puts haystacks with the cattle on the bank opposite Lee's cabin on the afternoon the war party came, which it dates to the 7th of April 1812 (ch. XIX; Captain Heald's letter, cited on the cabin's record, gives the 6th) - the one day a source shows them. Those were the winter's stacks, fed from in April. The stacks standing on the 1812 scene's date are not the same hay: a farm that stacked on that bank in 1811 is taken to have cut and stacked there again in July 1812, and no source says whether anyone worked Lee's Place after April, so the stacks of the summer are reconstructed (L-1812-lees-place-haystacks-2510). They close on 16 August 1812, the day the post was burned: Charles Lee, his son and the rest of his household but his wife and infant fell on the 15th (Wau-Bun ch. XIX), and nothing was fed at Lee's Place after that."
+  },
+  "change_note": "Built T-2510 (2026-10-15), piece 2 of T-2503: the haystacks at Lee's Place in the 1812 scene, on the bank opposite the cabin, on T-2502's apron ground.",
+  "placement": {
+    "local_e": -1590.54,
+    "local_n": -4304.55,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "kinzie_waubun_1856"
+    ],
+    "position_note": "SEATED ACROSS THE RIVER FROM THE CABIN, ON T-2501's RULING, NOT MEASURED. Wau-Bun gives the side and nothing else: the stacks stood 'on the opposite bank' from the cabin, close enough that the soldier, walking down to the canoes, pointed to them across the water and was soon over to them, the stream between 'narrow', with woods 'close at hand' behind them. The cabin's bank is the north-west one by T-2501's ruling (data/terrain/1812_hardscrabble_site.json, which states the placings it rests on), so the stacks are on the south-east bank. THE RULING HERE: the four stacks stand as a loose group on the line through T-2501's station and the channel's centre, carried on across the river along the bank's own normal (bearing 147 degrees), between 42 and 62 m from the centre - beyond the bank face T-2502's apron draws, on its 1.31 m land grade - and up to 14 m up or down the river from that line, with 8 to 12 m of meadow between neighbours, room for cattle to stand among them and for two men to walk round them out of sight of the far bank. Every distance is this project's (L-1812-lees-place-haystacks-2510). If the reach moves, the stacks move with it.",
+    "symbolic_location": "Lee's Place, on the south-east bank of the South Branch opposite the farm cabin (T-2501's station, half a mile below the later canal mouth at Bridgeport), about 53 m from the channel's centre; the stack's centre at local E -1588.4, N -4302.5, this record's origin the south-west corner of the square it stands in.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "ground",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        4.2,
+        0
+      ],
+      [
+        4.2,
+        4.2
+      ],
+      [
+        0,
+        4.2
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "The square a 3.9 m stack stands in, with 0.15 m round its widest girth. No source sizes a stack at Lee's Place (L-1812-lees-place-haystacks-2510)."
+  },
+  "attributes": {
+    "diameter_m": {
+      "value": 3.9,
+      "confidence": "reconstructed",
+      "note": "Unattested. A round stack of about twelve feet across, the size two or three men pitch off a meadow in a day; Wau-Bun's stacks hid two people walking round them, which a stack this size does and a cock of hay does not. The four differ by a few tenths of a metre, as stacks built by hand do."
+    },
+    "height_m": {
+      "value": 4.5,
+      "confidence": "reconstructed",
+      "note": "Unattested. To the peak; the shoulder where the top is begun stands at a little over half of it."
+    },
+    "condition": {
+      "value": "new",
+      "confidence": "reconstructed",
+      "note": "This season's hay, cut and stacked in July 1812 (see the range note): pale, its top a shade darker where it was raked to shed the rain."
+    },
+    "stack_pole": {
+      "value": true,
+      "confidence": "reconstructed",
+      "note": "Unattested. A round stack pitched by hand was built round a pole set in the ground, which stands clear of the peak."
+    },
+    "function": {
+      "value": "haystack",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun, ch. XVIII: the cattle 'standing among the haystacks on the opposite bank' from Lee's cabin, and the hay the men 'pulled ... for the cattle' from them. That the stacks were hay kept to feed the stock is the source's; this stack's own size and place are not (L-1812-lees-place-haystacks-2510)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    }
+  ],
+  "research_note": "THE HAYSTACKS AT LEE'S PLACE, LATER HARDSCRABBLE, read at T-2510 from Wau-Bun's account of the afternoon in April 1812 when a war party came to the farm cabin: the discharged soldier and Lee's son got away across the river by making as if to fodder the cattle 'standing among the haystacks on the opposite bank', and went round behind the stacks into the woods and so down to the fort. That account is the only source for the stacks and gives no number, size or place beyond the bank, so four stacks is this project's count (L-1812-lees-place-haystacks-2510): enough for cattle to stand among and two people to go round unseen. WHAT IS NOT BUILT: the cattle themselves, the woods behind the stacks, the canoes and the men (L1). It carries review_required because this record tells part of the war party's raid on Lee's Place, an event of Winnebago and Potawatomi history as much as the settlers', in the words of a settler's history, and the 1812 scene waits on the review T-0472 holds it for.",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "It carries review_required because this record tells part of the war party's raid on Lee's Place, an event of Winnebago and Potawatomi history as much as the settlers', in the words of a settler's history, and the 1812 scene waits on the review T-0472 holds it for."
+}

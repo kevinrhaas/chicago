@@ -51,6 +51,17 @@ import difflib
 # to tell those apart. It is the status the datum refusal already uses.
 REFUSED = 2
 
+# T-2492. The exit status of a SELECTION Blender built nothing for. 3, not 1:
+# the K01/K12/K13/K16 and Prairie-draft archetypes are emitted in pure Python by
+# the generators/*_emit.py steps bake.sh runs AFTER build.py, so build.py skips
+# them ('has no generator yet') and a `--only` naming only those builds nothing
+# here by design. Returning 1 for that killed bake.sh under `set -e` before
+# those emitters ever ran — every content build dispatched with only=<a K16 id>
+# was red (#770). bake.sh lets this one status through, and its own empty-list
+# guard stays the refusal: if nothing downstream writes a master either, the
+# bake still stops there. A bake with NO selection that builds nothing keeps 1.
+NOTHING_FOR_BLENDER = 3
+
 
 def parse_only(raw: str | None) -> list[str] | None:
     """The ids a `--only` value names: in the order written, without duplicates.
