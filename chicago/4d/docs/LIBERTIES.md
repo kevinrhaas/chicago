@@ -14473,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 106 structures (105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 105 structures (106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -24189,7 +24189,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1619_prairie.draft_1904.form.draft_elevation`, `house_1619_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24246,6 +24246,11 @@ house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft
 **1623 retired from this liberty by T-2433 (2026-10-13):** its main body now stands as the K01
 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's
 house, under `L-k01-1623-farwell-oriel-front-2433`, under the same id; its draft attributes are gone.
+**1621 retired from this liberty, and 1619 returned to it, by T-2440 (2026-10-15):** the drawing's
+build moved to 1621, John H. Hamline's house by T-2439's ruling, which now stands as the K01
+stone-front frontage with its swell bay under `L-k01-1621-hamline-front-2440`, under the same id; its
+draft attributes are gone. 1619, whose own front no picture shows, stands as this draft again, under
+the draft's rules exactly as it first did, until T-2434 builds it a bounded front.
 **1625 retired from this liberty by T-2432 (2026-10-13):** its main body now stands as the K01
 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house,
 under `L-k01-1625-mcbirney-tudor-2432`, under the same id; its draft attributes are gone. The
@@ -25019,7 +25024,7 @@ range (K01 builds no porch), and the 0.6 m jog in the north wall's rear half.
 **How to resolve:** T-2421 and T-2422 build what the drawing shows and bring its match record to
 `matches`; a photograph of the house after 1886 settles the storey count, the strip's width and the
 stone.
-**Covers:** `house_1619_prairie.as_mapped_1904.form.principal_floor_m`, `house_1619_prairie.as_mapped_1904.form.storey_heights_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1619_prairie.as_mapped_1904.form.service_wall_brick`, `house_1619_prairie.as_mapped_1904.form.stone_front`, `house_1619_prairie.as_mapped_1904.form.street_front_trim`, `house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.roof_form`, `house_1619_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1619_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1619_prairie.as_mapped_1904.form.stair_tread_m`, `house_1619_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1619_prairie.as_mapped_1904.form.stoop_width_m`, `house_1619_prairie.as_mapped_1904.form.front_bays`, `house_1619_prairie.as_mapped_1904.form.side_bays`, `house_1619_prairie.as_mapped_1904.form.north_bays`, `house_1619_prairie.as_mapped_1904.form.rear_bays`, `house_1619_prairie.as_mapped_1904.form.sash_by_storey`, `house_1619_prairie.as_mapped_1904.form.basement_lights`, `house_1619_prairie.as_mapped_1904.form.roof_covering`, `house_1619_prairie.as_mapped_1904.form.chimneys`, `house_1619_prairie.as_mapped_1904.form.rainwater`, `house_1619_prairie.as_mapped_1904.form.window_kit`, `house_1619_prairie.as_mapped_1904.form.entrance_kit`
+**Retired:** by T-2440 (2026-10-15), which moved the drawing's build, its build with it, from 1619 to `house_1621_prairie`, John H. Hamline's house by T-2439's ruling; every invention this entry recorded is carried, or re-fitted to 1621's narrower front, under `L-k01-1621-hamline-front-2440`, and this entry claims none. 1619 stands as its district draft again.
 **Ticket:** T-2420 (piece 1 of T-2419, of T-1868).
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md`.
 **Recorded:** 2026-10-12 (T-2420).
@@ -25062,7 +25067,7 @@ the lights (T-2422).
 **How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
 gable's sizes, the pinnacles' carving and the lights' sash; T-2429 and T-2422 build what the drawing
 shows round it.
-**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`
+**Retired:** by T-2440 (2026-10-15), which moved the drawing's build, its wall gable with it, from 1619 to `house_1621_prairie`, John H. Hamline's house by T-2439's ruling; every invention this entry recorded is carried, or re-fitted to 1621's narrower front, under `L-k01-1621-hamline-front-2440`, and this entry claims none. 1619 stands as its district draft again.
 **Ticket:** T-2428 (piece 1 of T-2421, of T-2419).
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The wall gable (T-2428).
 **Recorded:** 2026-10-12 (T-2428).
@@ -26052,6 +26057,7 @@ landing on 1619. Taking it down first would leave a grey box at 1619 for no gain
 `L-k01-1619-hamline-swell-front-2420`'s.
 **How to resolve:** T-2440 moves the drawing's build to `house_1621_prairie` and hands 1619 back to a
 front of its own (T-2434); this entry is then resolved.
+**Retired:** by T-2440 (2026-10-15), which moved the drawing's build to `house_1621_prairie` under `L-k01-1621-hamline-front-2440` and stood 1619 back as its district draft (`L-draft-prairie-16-18-east-2335`), so the front a visitor sees at 1619 is no longer the house next door's.
 **Ticket:** T-2439 (piece 1 of T-2436).
 **Review:** `docs/RESEARCH/hamline-1621-2436/README.md`.
 **Recorded:** 2026-10-13 (T-2439).
@@ -26267,7 +26273,7 @@ drawing draws none on the front, K01's half-round gutter runs only round a hip's
 gable's side walls are parapets; how the roof drained is not read.
 **How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
 rear slope, the north wall and the stacks; T-2460 builds the stone cornice at the bow's top.
-**Covers:** `house_1619_prairie.as_mapped_1904.form.roof_form`, `house_1619_prairie.as_mapped_1904.form.gable_roof`, `house_1619_prairie.as_mapped_1904.form.chimneys`, `house_1619_prairie.as_mapped_1904.form.rainwater`
+**Retired:** by T-2440 (2026-10-15), which moved the drawing's build, its roof and crow-stepped south wall with it, from 1619 to `house_1621_prairie`, John H. Hamline's house by T-2439's ruling; every invention this entry recorded is carried, or re-fitted to 1621's narrower front, under `L-k01-1621-hamline-front-2440`, and this entry claims none. 1619 stands as its district draft again.
 **Ticket:** T-2459 (piece 1 of T-2429, of T-2421).
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The roof behind the gable (T-2459).
 **Recorded:** 2026-10-13 (T-2459).
@@ -26293,7 +26299,7 @@ colour, so the rear range's fascia takes it too.
 **How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
 section and the eave; T-2422 builds the balcony rail on the cornice. The bow's `eaves.cornice` names the same section,
 and `form.bays` is inferred from the drawing, so the invention is the wall head's alone.
-**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`.
+**Retired:** by T-2440 (2026-10-15), which moved the drawing's build, its stone cornice with it, from 1619 to `house_1621_prairie`, John H. Hamline's house by T-2439's ruling; every invention this entry recorded is carried, or re-fitted to 1621's narrower front, under `L-k01-1621-hamline-front-2440`, and this entry claims none. 1619 stands as its district draft again.
 **Ticket:** T-2460 (piece 2 of T-2429, of T-2421).
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The stone cornice (T-2460).
 **Recorded:** 2026-10-13 (T-2460).
@@ -27466,6 +27472,45 @@ Kinzie's account books that dates their time at Chicago.
 **Ticket:** T-2513.
 **Recorded:** 2026-10-15 (T-2513).
 **Covers:** `coursoll_field_1812.coursoll_1808.position`, `coursoll_field_1812.coursoll_1808.footprint`, `coursoll_field_1812.coursoll_1808.form.fence_height_m`, `coursoll_field_1812.coursoll_1808.form.rail_courses`, `coursoll_field_1812.coursoll_1808.form.panel_length_m`, `coursoll_field_1812.coursoll_1808.form.panel_offset_m`
+
+### L-k01-1621-hamline-front-2440 — 1621 Prairie built to Treat & Foltz's drawing of John H. Hamline's house, moved from 1619 and re-fitted to 1621's narrower front
+
+**Decision:** the stone-front house T-2420, T-2428, T-2459 and T-2460 built at 1619 Prairie from the
+Building Budget drawing of John H. Hamline's house (`building_budget_1886_06_hamline_farwell_houses`)
+now stands at 1621, where T-2439 ruled the house was (the 1885 permit, the 1884-87 directories, the
+1886 occupant map, the 1886 Robinson plate and the 1904 Blue Book against one newspaper's "1619"). It
+stands on 1621's own plan from the 1911 Sanborn sheet 20 (trace `s20fp-1621-b1`): a 6.2 m front with
+a 2.3 m curved bay at its south end, 13.3 m deep, and the rest of the sheet's part as a rear range.
+**What is read, not invented.** The plan, from the sheet: the front's place and width, the bay's place,
+chord and rise, the depth of the part. From the drawing, as the four tickets read it at 1619 and
+unchanged here: every height (the principal floor's band, the storeys, the cornice, the gable's foot
+and apex, the stack's top), the stone front, the bow's two lights a storey, the wall gable with its
+three lights, voussoirs, panel, finial and pinnacles, the slated street slope and the crow-stepped
+south wall to its stack. The sheet's '3B' agrees with the drawing's two storeys and roof storey.
+**What is invented.** Everything the four 1619 entries recorded as invented, carried unchanged: the
+stone, the brick, the paint and every colour; the rear slope and its steps; the north wall's parapet;
+the second stack; the stacks' plain shafts; the cornice's members; the rear range's storeys, windows,
+heights and deck; the walls' windows; the kit sash and door. And, new at 1621, three widths the
+narrower front forced: the bow's lights are 0.75 m wide at -30 and +30 degrees (the drawing's 1.1 m
+lights overlap on a 2.3 m chord); the wall gable is 2.5 m across with 0.55 m lights and its pinnacles
+3.1 m apart (the drawing's 3.4 m, 0.75 m and 3.8 m would put a pinnacle outside the south wall, and a
+wider face's valley runs into the crow-stepped wall); and the first stack stands 0.62 m behind the
+ridge rather than on it, clear of the gable's body.
+**What disagrees, and how it is built.** The drawing's front is about 5.1 m at the plate's scale, its
+bow about 3.7 m and its north strip about 1.4 m; 1621's sheet has 6.2 m, 2.3 m and 3.6 m. Either the
+bow was built narrower than drawn or the sheet's bay is a later one. The plan is built to the sheet
+(the survey of what stood nearer the 1904 scene), the heights to the drawing, and the camera
+(`data/reference_views/house_1621_prairie/building_budget_front.json`) is the plate's one station
+point, not fitted to either, so the match record shows the difference where it falls.
+**What is not built.** The sheet's half-round rear end, the strip behind the passage with the light
+well shared with 1623, and what T-2422 owns: the balcony rail, the arched entrance, the side stoop
+and the grilled basement arches.
+**How to resolve:** a photograph of the house after 1886, or the architects' plans, settles the bow's
+width and the gable's; T-2422 builds the rest of what the drawing shows.
+**Covers:** `house_1621_prairie.as_mapped_1904.form.principal_floor_m`, `house_1621_prairie.as_mapped_1904.form.storey_heights_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1621_prairie.as_mapped_1904.form.service_wall_brick`, `house_1621_prairie.as_mapped_1904.form.stone_front`, `house_1621_prairie.as_mapped_1904.form.street_front_trim`, `house_1621_prairie.as_mapped_1904.form.wall_head`, `house_1621_prairie.as_mapped_1904.form.roof_form`, `house_1621_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1621_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1621_prairie.as_mapped_1904.form.stair_tread_m`, `house_1621_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1621_prairie.as_mapped_1904.form.stoop_width_m`, `house_1621_prairie.as_mapped_1904.form.front_bays`, `house_1621_prairie.as_mapped_1904.form.side_bays`, `house_1621_prairie.as_mapped_1904.form.north_bays`, `house_1621_prairie.as_mapped_1904.form.rear_bays`, `house_1621_prairie.as_mapped_1904.form.sash_by_storey`, `house_1621_prairie.as_mapped_1904.form.basement_lights`, `house_1621_prairie.as_mapped_1904.form.roof_covering`, `house_1621_prairie.as_mapped_1904.form.chimneys`, `house_1621_prairie.as_mapped_1904.form.rainwater`, `house_1621_prairie.as_mapped_1904.form.window_kit`, `house_1621_prairie.as_mapped_1904.form.entrance_kit`, `house_1621_prairie.as_mapped_1904.form.gable_roof`
+**Ticket:** T-2440 (piece 2 of T-2436).
+**Review:** `docs/RESEARCH/hamline-1621-2436/README.md` § The build moved (T-2440).
+**Recorded:** 2026-10-15 (T-2440).
 
 ### L-k16-1638-entrance-2519 — 1638 Prairie's gable widened and its entrance re-read off its photograph: the porch and tower re-centred, the posts set to the print's opening, a cusped trefoil head; the foils' profile, the plate's depth and the board's solidity reconstructed
 
