@@ -27285,4 +27285,4 @@ gives one a dimension or a picture, dates one after 1812, or identifies Mr. Brid
 with one of them.
 **Ticket:** T-2504.
 **Recorded:** 2026-10-15 (T-2504).
-**Covers:** `lalime_house_1812.lalime_1812.documented_range`, `lalime_house_1812.lalime_1812.position`, `lalime_house_1812.lalime_1812.footprint`, `lalime_house_1812.lalime_1812.form.wall_height_m`, `lalime_house_1812.lalime_1812.form.roof_pitch_deg`, `lalime_house_1812.occupants`, `lemai_house_1812.lemai_1812.documented_range`, `lemai_house_1812.lemai_1812.position`, `lemai_house_1812.lemai_1812.footprint`, `lemai_house_1812.lemai_1812.form.wall_height_m`, `lemai_house_1812.lemai_1812.form.roof_pitch_deg`, `lemai_house_1812.occupants`
+**Covers:** `lalime_house_1812.lalime_1812.position`, `lalime_house_1812.lalime_1812.footprint`, `lalime_house_1812.lalime_1812.form.wall_height_m`, `lalime_house_1812.lalime_1812.form.roof_pitch_deg`, `lalime_house_1812.occupants`, `lemai_house_1812.lemai_1812.position`, `lemai_house_1812.lemai_1812.footprint`, `lemai_house_1812.lemai_1812.form.wall_height_m`, `lemai_house_1812.lemai_1812.form.roof_pitch_deg`, `lemai_house_1812.occupants`

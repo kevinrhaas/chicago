@@ -37744,12 +37744,6 @@
           "domain": "structure",
           "structure": "lalime_house_1812",
           "phase": "lalime_1812",
-          "aspect": "documented_range"
-        },
-        {
-          "domain": "structure",
-          "structure": "lalime_house_1812",
-          "phase": "lalime_1812",
           "aspect": "footprint"
         },
         {
@@ -37775,12 +37769,6 @@
           "structure": "lemai_house_1812",
           "phase": null,
           "aspect": "occupants"
-        },
-        {
-          "domain": "structure",
-          "structure": "lemai_house_1812",
-          "phase": "lemai_1812",
-          "aspect": "documented_range"
         },
         {
           "domain": "structure",
@@ -37844,7 +37832,7 @@
         },
         {
           "label": "Covers",
-          "text": "`lalime_house_1812.lalime_1812.documented_range`, `lalime_house_1812.lalime_1812.position`, `lalime_house_1812.lalime_1812.footprint`, `lalime_house_1812.lalime_1812.form.wall_height_m`, `lalime_house_1812.lalime_1812.form.roof_pitch_deg`, `lalime_house_1812.occupants`, `lemai_house_1812.lemai_1812.documented_range`, `lemai_house_1812.lemai_1812.position`, `lemai_house_1812.lemai_1812.footprint`, `lemai_house_1812.lemai_1812.form.wall_height_m`, `lemai_house_1812.lemai_1812.form.roof_pitch_deg`, `lemai_house_1812.occupants`"
+          "text": "`lalime_house_1812.lalime_1812.position`, `lalime_house_1812.lalime_1812.footprint`, `lalime_house_1812.lalime_1812.form.wall_height_m`, `lalime_house_1812.lalime_1812.form.roof_pitch_deg`, `lalime_house_1812.occupants`, `lemai_house_1812.lemai_1812.position`, `lemai_house_1812.lemai_1812.footprint`, `lemai_house_1812.lemai_1812.form.wall_height_m`, `lemai_house_1812.lemai_1812.form.roof_pitch_deg`, `lemai_house_1812.occupants`"
         }
       ]
     },

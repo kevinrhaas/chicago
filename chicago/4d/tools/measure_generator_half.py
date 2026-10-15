@@ -594,13 +594,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # below: registering it in emit.py instead would have re-staled every mesh on that row for want of
 # one dict entry.
 #
+# 880 -> 882, 726 -> 728 and 720 -> 722 on 2026-10-15 (T-2504, landing after T-2510): La Lime's
+# and Le Mai's log houses on the 1812 north bank (lalime_house_1812, lemai_house_1812), through
+# emit.py and the common modules.
+#
 STATED = {
-    "assets": 880,
+    "assets": 882,
     "restales": {
-        "generators/common/*.py": 726,
+        "generators/common/*.py": 728,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 720,
+        "generators/emit.py": 722,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
