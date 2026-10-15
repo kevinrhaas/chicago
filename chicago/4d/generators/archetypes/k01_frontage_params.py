@@ -1351,8 +1351,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if sfo or not 1 <= k < stories:
             raise ParamError(f"front_bays_by_storey names storey {key}: only an upper storey of a front "
                              f"that does not name its own openings")
-        if len(xs) != len(front_bays) or list(xs) != sorted(xs) or xs[0] < 0.6 or xs[-1] > width - 0.6:
+        if not xs or list(xs) != sorted(xs) or xs[0] < 0.6 or xs[-1] > width - 0.6:
             raise ParamError(f"front_bays_by_storey[{key}] is one centre a bay, south to north, inside the front")
+        # T-2499: an upper storey may light its own number of bays — 1808's third storey runs six
+        # sashes across a front its lower storeys open in three — so long as no two of its sashes,
+        # with their lintels' horns, meet
+        sw = float(sash[k]["width_m"])
+        if len(xs) != len(front_bays) and any(b - a < sw + 2 * 0.12 + 0.02 for a, b in zip(xs, xs[1:])):
+            raise ParamError(f"front_bays_by_storey[{key}] sets its centres closer than a {sw} m sash and its "
+                             f"lintels' horns")
         fbs[k] = xs
     for k, row in enumerate(sash):
         sill = floors[k] + float(row["sill_above_floor_m"])

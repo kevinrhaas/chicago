@@ -621,13 +621,28 @@
    "no": 27,
    "name": "Wharf of said River",
    "status": "sheet_only",
-   "why": "READ AT T-2507 at 8x: '27' between two short dotted lines that leave the river's east line west of the fort, near the north-west blockhouse and the red '122 feet to River', and meet about 24 px out: a small dotted outline standing out from the bank. The river is 'not regularly surveyed', so the mark is not read for position. Building it is T-2508's, seated on the committed 1812 river rather than by the outside rule.",
+   "why": "READ AT T-2507 at 8x: '27' between two short dotted lines that leave the river's east line west of the fort, near the north-west blockhouse and the red '122 feet to River', and meet about 24 px out: a small dotted outline standing out from the bank. The river is 'not regularly surveyed', so the mark is not read for position. BUILT AT T-2508 (first_fort_wharf), seated on the committed 1812 river by `seat` below rather than by the outside rule.",
    "sheet_px": [
     630,
     753,
     654,
     776
-   ]
+   ],
+   "seat": {
+    "ticket": "T-2508",
+    "record": "first_fort_wharf",
+    "rule": "The drafter's own figure, on the drafter's own side. The red '122 feet to River' (unnumbered, beside this mark) is the one distance the sheet gives from the garrison to the river at the wharf. A circle of that radius about the outer picket row's north-west corner (its record's footprint, not a sheet pixel) is swept clockwise from due west, the side of the angle the sheet draws no. 27 on, and the wharf's bank foot is where it first meets the committed 1812 water (data/terrain/epochs/e1830_natural/river.geojson). The deck is laid along the bank there: the bank's line is the water's edge cast north at two points 8 m apart about the foot, the deck is centred on the foot, ties `heel_m` back into the bank and stands out `reach_px` at the outside buildings' forty feet to the inch, and its top is the committed ground at the heel's centre, as the 1835 wharves' decks take theirs (data/wharves/river_landings.json form.freeboard_m).",
+    "radius_ft": 122,
+    "from_bearing_deg": 270.0,
+    "along_bank_m": 10.0,
+    "along_bank_why": "The shortest crib the pier_crib archetype builds. The sheet draws the mark about 23 px along the line, about 10 ft at forty feet to the inch; the archetype's floor governs and the difference is a liberty.",
+    "heel_m": 2.0,
+    "heel_why": "data/wharves/river_landings.json form.heel_in_m, the 1835 wharves' figure, so the deck meets ground rather than ending on the waterline.",
+    "reach_px": 24,
+    "scale_ft_per_in": 40.0,
+    "reach_why": "The dotted outline stands about 24 px out from the river's line. Read at the index's forty feet to the inch for the outside buildings, that is 10.6 ft (3.24 m) beyond the committed waterline.",
+    "agreement": "The circle meets the water at bearing 288.4, 18 degrees north of the sheet's westward line, so the drafter's distance and his side both land on the committed bank within a turn of the page. Quaife's 'eighty feet' from the north-west corner (after Wilson) is the nearest water, due north, which the committed bank puts at 21.1 m (69 ft) from the corner. The two figures measure different lines and do not disagree."
+   }
   },
   {
    "no": 28,
@@ -685,7 +700,41 @@
    "no": 33,
    "name": "Covered Way to procure Water",
    "status": "omitted_by_drafter",
-   "why": "The index: '{ N. 33 Covered Way to procure Water } Omited in their places'. It is not on the sheet. Quaife (text only): 'From the northeast corner of the stockade a covered way led to the river'. That is where T-2049/T-2050 may place it, as INFERRED from text and never as traced."
+   "why": "The index: '{ N. 33 Covered Way to procure Water } Omited in their places'. It is not on the sheet. Quaife (text only): 'From the northeast corner of the stockade a covered way led to the river'. BUILT AT T-2508 (first_fort_covered_way_*), INFERRED from that text and never traced, by `seat` below.",
+   "seat": {
+    "ticket": "T-2508",
+    "rule": "Quaife p. 165: 'From the northeast corner of the stockade a covered way led to the river, securing thus to the garrison access in safety to the water in time of attack.' The passage leaves the outer picket row's north-east corner (its record's footprint) along the frame's north, its east row continuing the east curtain's line, and runs to the committed 1812 water, which is about 26.3 m off on that line. 'In safety' is read as screened, so it is built as a passage between two picket rows of the outer row's own pickets, open to the sky. It is cut into RUNS because a structure stands on the lowest ground under it: across the terrace one run, and down the 3.4 m bank three steps, each falling no more than `max_fall_m`, so the uphill end of every step still shows more than two metres of picket. Each run is its own enclosure with a gateway at both ends, `joint_m` after the one before it (the outer row's own picket spacing, so no picket of one run stands inside another's).",
+    "records": [
+     "first_fort_covered_way_terrace",
+     "first_fort_covered_way_bank_upper",
+     "first_fort_covered_way_bank_middle",
+     "first_fort_covered_way_bank_lower"
+    ],
+    "runs_m": [
+     [
+      0.3,
+      19.2
+     ],
+     [
+      19.5,
+      21.5
+     ],
+     [
+      21.8,
+      23.9
+     ],
+     [
+      24.2,
+      26.35
+     ]
+    ],
+    "runs_note": "Metres north of the outer row's north face, along the passage's centre. The terrace run stops where the committed ground first falls off the 3.6 m terrace; the last run stops on the committed water's edge.",
+    "width_m": 3.0,
+    "width_why": "Reconstructed: the narrowest enclosure the palisade archetype builds with a 1.5 m gateway at each end (it refuses a gate wider than half its side). No source gives the passage's width.",
+    "joint_m": 0.3,
+    "max_fall_m": 1.6,
+    "wells": "The sheet letters 'wells' (unnumbered) just outside this same angle, between the stockade and the river: the drafter's water was here. No well is built from the word."
+   }
   },
   {
    "no": 34,

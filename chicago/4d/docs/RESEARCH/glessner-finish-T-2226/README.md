@@ -103,3 +103,6 @@ The subsequent integration also preserves dev's T-2489 1812 exclusions and sourc
 
 
 The fort/apron integration (8cc2ab7e) preserves the newer dev records and every compiled dev liberty, alongside the unchanged Glessner surface liberty. The affected derived chain was regenerated to a stable result; the exact reviewed master, Full and Light model bytes and historical camera/review records remain unchanged. The additional integration receipts record the base and row audit.
+
+
+The final dev integration (`44d130bae3af26ffe9f0fb2fbbb649b10841fb67`) preserves all current dev records and the exact reviewed Glessner master, Full and Light assets. The affected derived chain was rebuilt to stability; separate integration receipts record every dev liberty and the unchanged historical camera/review records.
