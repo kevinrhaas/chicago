@@ -1,0 +1,28 @@
+{
+  "id": "currey_1912_old_fort_dearborn",
+  "type": "book",
+  "citation": "J. Seymour Currey, The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912 (published August 1912). A popular history of the first fort from 1803 to its burning in 1812, compiled from the printed accounts and the pioneer recollections before it, with eleven illustrations.",
+  "author": "J. Seymour Currey (1844-1929)",
+  "date": "1912",
+  "describes_date": "Chicago and the first Fort Dearborn, 1803-1812",
+  "repository": "Project Gutenberg, eBook #52346 (released 16 June 2016)",
+  "url": "https://www.gutenberg.org/ebooks/52346",
+  "locator": "Project Gutenberg plain text https://www.gutenberg.org/cache/epub/52346/pg52346.txt, fetched 2026-10-15, 209,193 bytes, sha256 abf7f4f660f699bb99a4f3d48613ada7c671366869293f22cd9ac1a02eb4ce88 (the file's own header reads 'Most recently updated: October 23, 2024'). Every claim names its LINES in that file, because the plain text carries no page breaks. The list of illustrations places 'Hardscrabble' facing p. 74, and the passages on Lee's Place stand just before it.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published in the United States in 1912, so in the public domain there. The Gutenberg licence binds the Gutenberg file and its trademark, not the 1912 text. This project quotes the text and does not redistribute the file.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "OPENED 2026-10-15 for T-2501, the first piece of T-2488, which named this book as a source the 1812 settlement tickets need ('Gutenberg 52346'). It was fetched from the run's container, and the two passages cited were read in that file, at lines 1450-1454 and 1484-1486. The illustration 'Hardscrabble' was NOT opened: the plain text carries only its caption, and the picture is T-2503's to bring in.",
+  "what_it_supplies": [
+    "two placings of Lee's Place: 'some four miles southwest of the fort ... on the west bank of the South Branch ... about where at the present time the old Illinois and Michigan Canal opens into that stream' (lines 1450-1454), and, in the caption to its illustration, 'on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river' (lines 1484-1486)",
+    "the caption of an illustration titled 'Hardscrabble', facing p. 74, which T-2503 is to read as a picture",
+    "a 'Map of Chicago in 1812' facing p. 165, not yet opened"
+  ],
+  "what_it_does_not_supply": [
+    "an eyewitness: Currey writes a century after the farm, from the books before him, and he says so ('it is said in a recent history of Chicago')",
+    "a survey distance. 'Some four miles' is a round figure, and the book gives no route for it",
+    "the illustration's own date or maker, which the caption does not state; until it is read it is a retrospective picture and grades tier 5 as a picture, whatever this record's tier as a text"
+  ],
+  "note": "Graded tier 3 as a compiled secondary history drawn from pioneer testimony, the rung the ladder gives Andreas. It places the farm independently of Hubbard's 'half a mile below Bridgeport' only in its wording: it may rest on the same tradition, and nothing here claims the two agree because they are independent."
+}
