@@ -27511,3 +27511,42 @@ width and the gable's; T-2422 builds the rest of what the drawing shows.
 **Ticket:** T-2440 (piece 2 of T-2436).
 **Review:** `docs/RESEARCH/hamline-1621-2436/README.md` § The build moved (T-2440).
 **Recorded:** 2026-10-15 (T-2440).
+
+### L-k16-1638-entrance-2519 — 1638 Prairie's gable widened and its entrance re-read off its photograph: the porch and tower re-centred, the posts set to the print's opening, a cusped trefoil head; the foils' profile, the plate's depth and the board's solidity reconstructed
+
+**Decision:** the gable and entrance of the Shortall-Gregory house (T-2519, piece 1 of T-2458)
+take the width T-2457 left open and the entrance's opening T-2425 left open, read through the
+camera T-2423 solved for the print. The gable is 5.45 m wide from the front's south corner, where
+it was the 5.21 m the sheet's undivided front line was split at, so its middle (and the window
+pair, hood and oval on it) stands 0.12 m further north and its apex 0.15 m higher; the wing wall
+behind the porch is 2.68 m and its door keeps its place. The porch, and the corner tower standing
+on it, are centred 6.40 m from the south end, not 6.55 m; the floor is 1.076 m a side, its posts'
+outer faces 0.01 m in from its ends (the kit sets them 0.05 m in), so the opening between the
+0.22 m posts is 1.69 m. The head between them is a cusped trefoil in place of T-2425's four-centred pointed arch:
+two side foils 0.274 m in radius, tangent to the posts at a spring 2.80 m over grade, meet a round
+head foil 0.455 m in radius in two cusps, and the head crowns at 3.424 m. The board the head is cut
+from runs flush up to the roof's fascia, so the plate over the posts is carried 0.02 m deep on a
+2.83 m clear height, its top and the roof's unmoved; the two pierced quatrefoils are 0.2 m across.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`) at 73 px a
+metre at the wall, 79.95 at the posts' face and 80.9 at the roof's edge: the verges' meeting, oval,
+window pair and hood on one middle 0.12 m north of the old gable's; the porch roof's ends (657 and
+859 px), the posts' middles (676 and 830 px) and the quatrefoils' (698 and 809 px), which share one
+middle at 6.40 m; the posts' faces 133 px apart; that the head is cusped and three-foiled, its
+cusps at about 597 px, the side foils' spring at 617 px, the head's crown at 565 px and its width at
+four heights; the quatrefoils' size (16 px) and height (573.5 px). **What is invented.** That each
+foil is a true circular arc and the side foils are tangent to the posts (the print's opening stands
+some 5 px inside the post's face below the foils, which reads as a moulding not built); the plate's
+0.02 m depth, a number chosen so the head and quatrefoils fit under it (the print shows no plate's
+foot, only the board running up to the fascia); the head's crown and the quatrefoils' middles, held
+2-3 px under the print's by that board's top; the board's being solid where the print shows its
+field dark round each quatrefoil, open fretwork the model does not cut; and every moulding.
+**What the record states and the model simplifies.** The record grades the porch and gable
+`reconstructed`, as before; the numbers above are its readings, not claims of evidence. The steps'
+run and the pale shape over the door stay open for T-2520.
+**How to resolve:** a sharper print of the entrance, or a second photograph of it, fixes the foils'
+profile, the fretwork and the plate; the 1911 sheet cannot, as it draws the front as one line.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`,
+`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`.
+**Ticket:** T-2519 (piece 1 of T-2458, a piece of T-2426).
+**Review:** `docs/RESEARCH/k16-1638-entrance-2519/README.md`.
+**Recorded:** 2026-10-15 (T-2519).
