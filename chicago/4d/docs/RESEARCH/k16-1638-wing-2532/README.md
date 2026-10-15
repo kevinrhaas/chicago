@@ -87,3 +87,23 @@ That is left, and said in item 29.
 where the render lights it. The record's verdict stays `differs`: items 21, 25, 27 and 28 are the
 porch board's fretwork and T-2521's tower and fence (PR #839), and T-2524 re-reads the fence; the
 record is brought to `matches` by T-2533 once those land.
+
+## In the published app (`tools/qa_k16_t2532.mjs`)
+
+The actual published `/1904/` app, normal boot, three stands in scene-local metres: the front
+across Prairie, the wing down the gap from Prairie, and the wing from the south-east on the walk.
+Desktop 1280×800 at full detail, phone 390×780 at light. Both boot `ready`, place both 1638
+records, and record **0 page errors and 0 failed requests** (`browser-validation-after.json`).
+Frame times are software GL on the runner, a relative reading, not a device claim.
+
+| | load to ready | JS heap | |
+|---|---|---|---|
+| desktop | 51.3 s | 129.8 MB | [front](after-desktop-front.jpg) · [wing](after-desktop-south-wing.jpg) · [south-east](after-desktop-south-east-walk.jpg) |
+| phone | 35.0 s | 224.6 MB | [front](after-mobile-front.jpg) · [wing](after-mobile-south-wing.jpg) · [south-east](after-mobile-south-east-walk.jpg) |
+
+The renderer smoke's part 14 at desktop ran on this tree to 18 passes and zero page errors and
+was cut at 9 m 50 s by the run's 600 s ceiling before its suite body finished (dev's record has
+the same part red on a timeout on 2026-10-14); it is not counted as a pass. `check.sh` ran in full
+once (12 m 43 s on this 4-core runner) and named four red steps, all derived files this change
+reaches (the stale manifest hashes of every emitter that imports the K16 kit, the 1904 sidecar,
+the source-use backlinks, a liberty's cover); each was rebuilt and its step re-run green.
