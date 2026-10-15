@@ -1,0 +1,27 @@
+{
+  "path": "chicago/reference/resident-research/final/audit/resident_audit_master.xlsx",
+  "sheet_names": [
+    "Residents",
+    "Metrics",
+    "Gaps",
+    "Sources"
+  ],
+  "all_cell_values_and_formulas_identical": true,
+  "different_zip_members": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/core.xml",
+    "xl/_rels/workbook.xml.rels",
+    "xl/styles.xml",
+    "xl/workbook.xml",
+    "xl/worksheets/sheet1.xml",
+    "xl/worksheets/sheet2.xml",
+    "xl/worksheets/sheet3.xml",
+    "xl/worksheets/sheet4.xml"
+  ],
+  "before_sha256": "3623599e106af32ae7695e4093a18ade1e8bddd72a7ac5e48ff55eefd7460172",
+  "regenerated_sha256": "630e9344725fb8bf57edbc6f34225e6b6f2a35734bfa917a31cea16c74aa8eef",
+  "action": "Restored base bytes only after confirming workbook content unchanged.",
+  "all_xml_elements_attributes_text_and_order_identical": true,
+  "difference": "XML serialization only; namespace prefixes and empty-tag formatting."
+}

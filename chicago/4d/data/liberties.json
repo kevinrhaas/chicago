@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 566,
+  "count": 567,
   "liberties": [
     {
       "id": "L1",
@@ -24469,7 +24469,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the 1812 scene (`data/scenes/1812.json`) now draws the flora layer, and what it draws is the NATURAL zone records of `data/flora/zones/` — wet and mesic prairie, sedge meadow, marsh, river timber, the wet woods, the lakeshore beach and foredune, the sand prairie — dealt from the 1812 ground exactly as they are dealt from 1835's. Everything the town made is scoped out by the manifest's `scenes` lists (T-0471): `z10_settled_town`'s cropped, hoof-poached sward, the 260 dooryard stems, the Lombardy rows, the Sauganash's three trees and the willows by the second fort's west wall stand in 1835 only. Those zone records are written for 1 July 1835 and carry a `july` phenology block; the 1812 scene is dated 1 August 1812 and shows them as written."
+          "text": "the 1812 scene (`data/scenes/1812.json`) now draws the flora layer, and what it draws is the NATURAL zone records of `data/flora/zones/` — wet and mesic prairie, sedge meadow, marsh, river timber, the wet woods, the lakeshore beach and foredune, the sand prairie — dealt from the 1812 ground exactly as they are dealt from 1835's. Everything the town made is scoped out by the manifest's `scenes` lists (T-0471): `z10_settled_town`'s cropped, hoof-poached sward, the 260 dooryard stems, the Lombardy rows, the Sauganash's three trees and the willows by the second fort's west wall stand in 1835 only. Those zone records are written for 1 July 1835 and carry a `july` phenology block; the 1812 scene is dated 14 August 1812 (moved from 1 August by the owner's ruling of 2026-10-13, T-2514) and shows them as written."
         },
         {
           "label": "Why",
@@ -24477,7 +24477,7 @@
         },
         {
           "label": "Consequence",
-          "text": "a visitor sees the fort standing in uncut prairie. The garrison's gardens and the factor's grounds are not drawn (T-2062 owns them), so the ground round the pickets is greener and less trodden than it was. The bloom is July's, two weeks early for 1 August."
+          "text": "a visitor sees the fort standing in uncut prairie. The garrison's gardens and the factor's grounds are not drawn (T-2062 owns them), so the ground round the pickets is greener and less trodden than it was. The bloom is July's, a month early for 14 August."
         },
         {
           "label": "How to resolve",
@@ -25416,7 +25416,7 @@
         },
         {
           "label": "What is recorded and what is not",
-          "text": "no source reached gives either fort's roof pitch, eave, gable construction, log colour, picket section or ribbands; all of it is the archetype's, chosen to read as hewn and split timber the way the town's plank walks do. The flags' STAR AND STRIPE COUNTS are inferred from the Flag Acts (1794: fifteen and fifteen from 1 May 1795; 1818: thirteen stripes and a star a state from the 4th of July after admission, so 24 stars from 4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one, is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is ours — Andreas has it up \"in pleasant weather and on holidays\", the scene is drawn fair, and the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 1 August 1812. The arrangement of the stars, the size, the colours' wear and the wind are ours."
+          "text": "no source reached gives either fort's roof pitch, eave, gable construction, log colour, picket section or ribbands; all of it is the archetype's, chosen to read as hewn and split timber the way the town's plank walks do. The flags' STAR AND STRIPE COUNTS are inferred from the Flag Acts (1794: fifteen and fifteen from 1 May 1795; 1818: thirteen stripes and a star a state from the 4th of July after admission, so 24 stars from 4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one, is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is ours — Andreas has it up \"in pleasant weather and on holidays\", the scene is drawn fair, and the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 14 August 1812, the eve of the evacuation. The arrangement of the stars, the size, the colours' wear and the wind are ours."
         },
         {
           "label": "How to resolve",
@@ -37599,6 +37599,42 @@
         {
           "label": "Covers",
           "text": "`lees_place_cabin_1812.lees_place_1812.documented_range`, `lees_place_cabin_1812.lees_place_1812.position`, `lees_place_cabin_1812.lees_place_1812.footprint`, `lees_place_cabin_1812.lees_place_1812.form.wall_height_m`, `lees_place_cabin_1812.lees_place_1812.form.roof_pitch_deg`, `lees_place_field_fence_1812.lees_place_1812.documented_range`, `lees_place_field_fence_1812.lees_place_1812.position`, `lees_place_field_fence_1812.lees_place_1812.footprint`, `lees_place_field_fence_1812.lees_place_1812.form.fence_height_m`, `lees_place_field_fence_1812.lees_place_1812.form.rail_courses`, `lees_place_field_fence_1812.lees_place_1812.form.panel_length_m`, `lees_place_field_fence_1812.lees_place_1812.form.panel_offset_m`, `lees_place_field_fence_1812.lees_place_1812.form.gate_sides`, `lees_place_field_fence_1812.lees_place_1812.form.gate_width_m`"
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-finish-2226",
+      "title": "Plain brick joints and gate member grain",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.surface_finish"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Ticket",
+          "text": "T-2226."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2226)."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.surface_finish`"
+        },
+        {
+          "label": "Sources",
+          "text": "`habs_glessner_house_il_1015_drawings`, `wlemay_glessner_courtyard_2024_159537051`, `owner_glessner_v4_reconstruction_brief_2026`. Previously flat stair returns and Light stair, pier and boundary faces receive an original half-bond surface study using the existing courtyard clay, mortar and numeric course schedule. The 215.9 by 66.675 mm course module, 9 mm joint, 5 mm normal-map recess, 2 mm edge transition and restrained per-unit kiln distribution are **reconstructed**, not a measured 1904 material sample. The texture repeats after eight bricks and thirty-two courses. Individually modeled brick faces retain their existing geometry and fabric: the extra joints apply only to plain masonry. No photograph pixels, tracings or imported texture are used. Rear-gate ledges and braces receive grain along their own timber axis, at the existing physical oak texture scale. Cut ends retain a generic original oak study on a noncollapsed mapping; their growth rings are not measured or simulated. Joint positions, supports, contacts, hardware and silhouettes remain the existing reconstruction. Full and Light use the same new material library; the simplified tier does not acquire additional geometry. Neutral-light diagnostics distinguish the scene's blue shade from the owner-approved grey-greige granite. They are capture-only observations, not a historical colour calibration or a change to July lighting. Existing dark glazing and restrained material roughness remain. No new directional dirt map, orange iron rust, modern copper patina or neglected mid-century decay is invented for the seventeen-year-old house. The separately cited family typescript remains a textual comparison with its unresolved rights unchanged; these new assets derive only from original project textures, numeric construction and cleared references. Exact period weathering is still unmeasured."
         }
       ]
     },

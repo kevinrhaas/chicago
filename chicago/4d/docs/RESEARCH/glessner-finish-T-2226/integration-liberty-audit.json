@@ -1,0 +1,11 @@
+{
+  "base": "ca355afeb16b41217ae6b155c8c53760c8f421a7",
+  "liberty_count": 561,
+  "all_current_dev_liberties_preserved_exactly": true,
+  "t2226_liberty_preserved_exactly": true,
+  "earlier_liberties_updated_by_dev": [
+    "L263",
+    "L266"
+  ],
+  "generated_json_rebuilt_from_combined_authored_sources": true
+}

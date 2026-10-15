@@ -312,7 +312,7 @@ visitor immediately is the boot payload, and that is what the 13 MB defends.
 
 ## 5. What the gate does now
 
-- **Refuses** over 256 MB — the repository-hygiene guard, not the visitor-cost
+- **Refuses** over 288 MiB (T-2226; measured re-budget in §8) — the repository-hygiene guard, not the visitor-cost
   budget; the visitor-cost budget is the 13 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
@@ -354,3 +354,31 @@ refreshed to hold it. Result: **196.3 MB**, 76.7 % of budget, 59.7 MB of headroo
 
 The cost, stated: the root is deployed from `main`, so `/4d/dev/` previews a moved
 directory at main's bytes until the next promotion. Viewer code and data never move.
+
+## 8. Detailed Glessner surfaces — measured storage allowance, T-2226
+
+The first full preflight refused the new surface pass at **262.262 MiB** against
+256 MiB. The original 1024-pixel joint maps add **7,413,840 bytes** across the
+Full and Light assets; their geometry counts remain unchanged. The complete gate
+reported this as its sole failure in 890 steps. This failure is retained in the
+T-2226 evidence and is not described as an initial green run.
+
+`site_budget.py` finds no identical-file waste over 64 KiB. A read-only price of
+minifying every published JSON file saves **5.435 MiB**, insufficient to cover the
+6.262 MiB overrun; the readable-record decision in §6 remains untouched. The
+reviewed material maps and all public research records are preserved.
+
+The whole-tree **repository-hygiene** allowance is now **288 MiB**, with
+**25.738 MiB** of measured headroom. The 90% warning still fires on this tree, and
+the duplicate-content guard is unchanged. This is a declared storage re-budget,
+not a change to the visitor boot allowance, Full/Balanced/Light scene limits or
+the 200,000-triangle Light house ceiling. T-2227 still owns the recorded scene
+performance failures and the added asset-transfer cost.
+
+This checkout carries 129.136 MiB outside `site/4d/`; two full 288 MiB app
+allowances plus that measured content total **705.136 MiB**, below the 1 GiB
+platform limit recorded in §4. That is a capacity calculation using the current
+checkout, not a claim that both deployment branches were rebuilt here. Future
+changes still need their own gate and measured visitor costs. Exact byte counts,
+alternatives and limitations are in
+`docs/RESEARCH/glessner-finish-T-2226/site-budget-reprice.json`.

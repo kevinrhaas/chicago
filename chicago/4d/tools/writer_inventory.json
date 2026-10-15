@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "generate_glessner_finish.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: two bare write runs in a clean isolated Git fixture with exact current modules, numeric structure record and original texture inputs/outputs advance all three target mtimes with identical bytes and clean Git status. All deliberately perturbed outputs are repaired. The fixture is not a claim that the active application tree was clean. See docs/RESEARCH/glessner-finish-T-2226/finish-writer-measurement.json.",
+      "placed": "The original flat-brick maps read authored surface_finish and existing committed original clay/mortar maps, before the Blender master and reduced derivative. Generated explicitly before those bakes and checked read-only in check.sh. Eventual manifest placement must follow the original-fabric writer and precede asset baking; this ordering is not appended blindly."
+    },
     "generate_glessner_vines.py": {
       "placement": "pending",
       "write_mode": "(bare)",

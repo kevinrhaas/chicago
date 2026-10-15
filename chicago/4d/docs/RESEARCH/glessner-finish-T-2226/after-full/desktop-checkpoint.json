@@ -1,0 +1,1233 @@
+{
+  "partial": true,
+  "errors": [],
+  "bad": [],
+  "assets": [
+    {
+      "url": "http://127.0.0.1:32885/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:32885/data/gltf/glessner_house__as_built_1887.glb",
+      "status": 200
+    }
+  ],
+  "stands": [
+    {
+      "name": "north-shade",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 300,
+        "triangles": 4618463,
+        "programs": 66,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.2,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": false
+      },
+      "camera": [
+        1377.7786478583218,
+        9.340440280685424,
+        3204.9611843315643
+      ],
+      "cameraQuaternion": [
+        0,
+        0.999982958188777,
+        0,
+        -0.005838093183804719
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.0001333422228147,
+        -1,
+        0,
+        0,
+        -0.40002666844456297,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "north-shade",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 300,
+        "triangles": 4618463,
+        "programs": 92,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.2,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": false
+      },
+      "camera": [
+        1377.7786478583218,
+        9.340440280685424,
+        3204.9611843315643
+      ],
+      "cameraQuaternion": [
+        0,
+        0.999982958188777,
+        0,
+        -0.005838093183804719
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.0001333422228147,
+        -1,
+        0,
+        0,
+        -0.40002666844456297,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "north-stone-close",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 301,
+        "triangles": 4615985,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": false
+      },
+      "camera": [
+        1377.891904935949,
+        6.840440280685425,
+        3214.660523114923
+      ],
+      "cameraQuaternion": [
+        0,
+        0.9999829581887769,
+        0,
+        -0.0058380931838069566
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "north-stone-close",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 301,
+        "triangles": 4615985,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": false
+      },
+      "camera": [
+        1377.891904935949,
+        6.840440280685425,
+        3214.660523114923
+      ],
+      "cameraQuaternion": [
+        0,
+        0.9999829581887769,
+        0,
+        -0.0058380931838069566
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "prairie-stone",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 223,
+        "triangles": 3819581,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1392.5462071515308,
+        7.340440280685425,
+        3227.79031468122
+      ],
+      "cameraQuaternion": [
+        0,
+        0.7112228860857019,
+        0,
+        0.7029665755268345
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "prairie-stone",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 223,
+        "triangles": 3819581,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1392.5462071515308,
+        7.340440280685425,
+        3227.79031468122
+      ],
+      "cameraQuaternion": [
+        0,
+        0.7112228860857019,
+        0,
+        0.7029665755268345
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "prairie-stone-close",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 222,
+        "triangles": 3816773,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1389.9113564227046,
+        6.840440280685425,
+        3224.8208767484107
+      ],
+      "cameraQuaternion": [
+        0,
+        0.7112228860857107,
+        0,
+        0.7029665755268255
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "prairie-stone-close",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 222,
+        "triangles": 3816773,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1389.9113564227046,
+        6.840440280685425,
+        3224.8208767484107
+      ],
+      "cameraQuaternion": [
+        0,
+        0.7112228860857107,
+        0,
+        0.7029665755268255
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "court-west",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 210,
+        "triangles": 3717848,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.15000000000000002,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1358.6069047550293,
+        8.340440280685424,
+        3233.1869574189636
+      ],
+      "cameraQuaternion": [
+        -0.0752532156668602,
+        0.7071358720874008,
+        0.07613706127308571,
+        0.6989270060883944
+      ],
+      "projection": [
+        1.2006138293569786,
+        0,
+        0,
+        0,
+        0,
+        1.920982126971166,
+        0,
+        0,
+        0,
+        0,
+        -1.00010000500025,
+        -1,
+        0,
+        0,
+        -0.30001500075003756,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "court-west",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 210,
+        "triangles": 3717848,
+        "programs": 98,
+        "geometries": 272,
+        "textures": 522,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.15000000000000002,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1358.6069047550293,
+        8.340440280685424,
+        3233.1869574189636
+      ],
+      "cameraQuaternion": [
+        -0.0752532156668602,
+        0.7071358720874008,
+        0.07613706127308571,
+        0.6989270060883944
+      ],
+      "projection": [
+        1.2006138293569786,
+        0,
+        0,
+        0,
+        0,
+        1.920982126971166,
+        0,
+        0,
+        0,
+        0,
+        -1.00010000500025,
+        -1,
+        0,
+        0,
+        -0.30001500075003756,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "stair-support",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 214,
+        "triangles": 3724810,
+        "programs": 98,
+        "geometries": 276,
+        "textures": 530,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1357.2719654095401,
+        6.740440280685425,
+        3230.2023407025554
+      ],
+      "cameraQuaternion": [
+        -0.16501673650692242,
+        0.49909139137248415,
+        0.09745503892365238,
+        0.8450915779481369
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "stair-support",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 214,
+        "triangles": 3724810,
+        "programs": 98,
+        "geometries": 276,
+        "textures": 530,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1357.2719654095401,
+        6.740440280685425,
+        3230.2023407025554
+      ],
+      "cameraQuaternion": [
+        -0.16501673650692242,
+        0.49909139137248415,
+        0.09745503892365238,
+        0.8450915779481369
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "gate-court",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 200,
+        "triangles": 3650376,
+        "programs": 98,
+        "geometries": 276,
+        "textures": 530,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1342.161739046954,
+        6.340440280685425,
+        3237.979297644149
+      ],
+      "cameraQuaternion": [
+        -0.05960258135206645,
+        0.708661829649779,
+        0.06030261096782291,
+        0.7004352494014426
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "gate-court",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 200,
+        "triangles": 3650376,
+        "programs": 98,
+        "geometries": 276,
+        "textures": 530,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1342.161739046954,
+        6.340440280685425,
+        3237.979297644149
+      ],
+      "cameraQuaternion": [
+        -0.05960258135206645,
+        0.708661829649779,
+        0.06030261096782291,
+        0.7004352494014426
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "boundary-brick",
+      "light": "scene",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 294,
+        "triangles": 4540588,
+        "programs": 98,
+        "geometries": 276,
+        "textures": 530,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1364.6531997045822,
+        6.140440280685425,
+        3237.116628828002
+      ],
+      "cameraQuaternion": [
+        0.00038664090159399087,
+        0.9977875608066489,
+        0.06622612903903768,
+        -0.00582527603088724
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    },
+    {
+      "name": "boundary-brick",
+      "light": "neutral",
+      "lightingRestored": true,
+      "detail": "full",
+      "problems": [],
+      "stats": {
+        "drawCalls": 294,
+        "triangles": 4540588,
+        "programs": 98,
+        "geometries": 276,
+        "textures": 530,
+        "batches": 148,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 87289484,
+        "fps": 0,
+        "cameraNear": 0.1,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "camera": [
+        1364.6531997045822,
+        6.140440280685425,
+        3237.116628828002
+      ],
+      "cameraQuaternion": [
+        0.00038664090159399087,
+        0.9977875608066489,
+        0.06622612903903768,
+        -0.00582527603088724
+      ],
+      "projection": [
+        1.2006138293569788,
+        0,
+        0,
+        0,
+        0,
+        1.9209821269711662,
+        0,
+        0,
+        0,
+        0,
+        -1.000066668888963,
+        -1,
+        0,
+        0,
+        -0.2000066668888963,
+        0
+      ],
+      "exposure": 0.95,
+      "glassModes": [
+        "dark"
+      ]
+    }
+  ]
+}

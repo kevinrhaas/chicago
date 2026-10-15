@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 1809, ts: '2026-10-15T12:40:26.138Z', date: 'Oct 15, 2026, 7:40 AM CT', title: 'Glessner courtyard brick joints and gate grain', kind: 'improvement',
+    items: [
+      'Light mode now shows brick courses on the courtyard stair supports and boundary walls. Small plain stair returns also gain matching joints.',
+      'Wood grain follows the rear gate’s horizontal ledges and diagonal braces, making their construction clearer.',
+      'The approved grey stone, dark windows and existing July lighting remain. Exact period weathering and whole-house photographic matching remain under review.',
+    ] },
+  { v: 1808, ts: '2026-10-15T12:25:18.881Z', date: 'Oct 15, 2026, 7:25 AM CT', title: 'The 1812 fort now stands on 14 August, the evacuation\'s eve', kind: 'improvement',
+    items: [
+      'The 1812 scene moves from 1 August to the afternoon of 14 August 1812, the day before the garrison marched out, so the Potawatomi camp of that week can stand in it when it is built.',
+      'A new card, \'The day you see\', says what that day was, in the words of the commanding officer\'s letter and Wau-Bun, and where the two disagree on dates. Nothing of the day is staged and no one is drawn.',
+    ] },
   { v: 1807, ts: '2026-10-15T11:34:32.648Z', date: 'Oct 15, 2026, 6:34 AM CT', title: '1812: the Kinzie house stands across the river from the fort', kind: 'feature',
     items: [
       'The log house Jean Baptiste Point du Sable built on the north bank, John Kinzie\'s home from 1804, now faces the first Fort Dearborn in the 1812 scene.',
