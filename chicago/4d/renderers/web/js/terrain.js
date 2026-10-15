@@ -50,6 +50,7 @@ import * as THREE from 'three';
 import { spatialBatch } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { contextSample, replaceApron } from './coast-extension.js';
+import { apronGeometry, apronCut } from './terrain-apron.js';
 import { floraInScene } from './flora.js';
 import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
 import { GRASS_GRAIN_PX, GRASS_GRAIN_M, grassGrainPixels, grassGrainMean } from './grass-grain.js';
@@ -286,6 +287,9 @@ export class Heightfield {
     this.data = null;
     this.meta = null;
     this.contextCoast = null;
+    /** T-2502: a scene's apron field (terrain-apron.js) — a second Heightfield
+     *  answered outside this one's grid, before the fallback. */
+    this.apron = null;
     /** Height used outside the grid and before anything is loaded. */
     this.fallbackY = 0;
   }
@@ -355,6 +359,7 @@ export class Heightfield {
     const gx = (e - this.originE) / this.cellM;
     const gy = (n - this.originN) / this.cellM;
     if (gx < 0 || gy < 0 || gx > this.cols - 1 || gy > this.rows - 1) {
+      if (this.apron?.contains(e, n)) return this.apron.sample(e, n);
       if (this.contextCoast) return contextSample(this, e, n, (ce, cn) => this.sample(ce, cn));
       return this.fallbackY;
     }
@@ -401,7 +406,7 @@ export class Heightfield {
  */
 export async function createTerrain({
   dataBase, assetBase, epochId, substrateBase = dataBase, confidence = null, problems = [],
-  sceneId = null,
+  sceneId = null, apronPath = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'terrain';
@@ -492,6 +497,35 @@ export async function createTerrain({
       problems.push(`terrain 1904 context coast: ${err.message}`);
     }
   }
+  // T-2502: the scene's apron field (its `terrain_apron`), ground off the box.
+  // Sampled outside the box before the fallback, drawn from its own samples, and
+  // the box's carried apron cut out from under it. Adopted only once it loads; a
+  // failure leaves the carried apron standing and says so.
+  let apronMesh = null;
+  let apronGroundCut = null;
+  if (apronPath && dataBase && heightfield.loaded) {
+    try {
+      const url = new URL(`terrain/epochs/${apronPath}`, dataBase);
+      const apronMeta = await (await fetchOk(url)).json();
+      const bin = await (await fetchOk(new URL(apronMeta.bin, url))).arrayBuffer();
+      const apron = new Heightfield().adopt(apronMeta, bin);
+      const mat = groundMaterial(zones, lakeShore, { groundTex: groundMat.userData.groundTex,
+        swardTex: groundMat.userData.swardTex, turf });
+      confidence?.patch(mat);
+      apronMesh = new THREE.Mesh(apronGeometry(apron, apronMeta.skirt_to_n_m ?? apron.originN), mat);
+      apronMesh.name = `terrain_apron__${apronPath.replace(/\W+/g, '_')}`;
+      apronMesh.receiveShadow = true;
+      apronMesh.castShadow = false;
+      apronGroundCut = apronCut(apronMeta.cut_local_enu_m);
+      disposables.push(mat, apronMesh.geometry, apronGroundCut.mask);
+      heightfield.apron = apron;
+    } catch (err) {
+      problems.push(`terrain apron ${apronPath}: ${err.message} — the box's carried apron stands `
+        + 'there instead, and the ground off the box is the fallback');
+      apronMesh = null;
+      apronGroundCut = null;
+    }
+  }
   ground.material = groundMat;
   ground.receiveShadow = true;
   ground.castShadow = false;
@@ -533,6 +567,11 @@ export async function createTerrain({
     ground.frustumCulled = false;
     group.add(ground);
     disposables.push(ground.geometry);
+  }
+
+  if (apronMesh) {
+    group.add(apronMesh);
+    applyCut(groundMat, apronGroundCut);
   }
 
   // One continuous, modest ground under the detailed tiles. The detail tiles
@@ -860,11 +899,9 @@ export async function createTerrain({
      */
     setGroundCut({ mask, x0, z0, width, depth, offset = null } = {}) {
       for (const m of [groundMat, groundBase?.material]) {
-        const cut = m?.userData?.cut;
-        if (!cut) continue;
-        cut.tex.value = mask ?? null;
-        cut.box.value.set(x0 ?? 0, z0 ?? 0, width ? 1 / width : 0, depth ? 1 / depth : 0);
-        cut.on.value = mask ? 1 : 0;
+        // Clearing a street's cut hands the tiles back to the apron field's (T-2502).
+        if (!mask && m === groundMat && apronGroundCut) applyCut(m, apronGroundCut);
+        else applyCut(m, { mask, x0, z0, width, depth });
       }
       walkOffset = typeof offset === 'function' ? offset : null;
     },
@@ -2018,6 +2055,15 @@ ${turf ? TURF_FRAGMENT : ''}
   if (nearHole) mat.customProgramCacheKey = () => 'chicago4d-ground-base';
   mat.needsUpdate = true;
   return mat;
+}
+
+/** Set a ground material's T-2474 cut: `mask` over the world box, or off without one. */
+function applyCut(m, { mask, x0, z0, width, depth } = {}) {
+  const cut = m?.userData?.cut;
+  if (!cut) return;
+  cut.tex.value = mask ?? null;
+  cut.box.value.set(x0 ?? 0, z0 ?? 0, width ? 1 / width : 0, depth ? 1 / depth : 0);
+  cut.on.value = mask ? 1 : 0;
 }
 
 /** T-2474: drop the ground where the cut mask says a layer draws its own surface.

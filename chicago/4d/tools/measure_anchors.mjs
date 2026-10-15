@@ -92,23 +92,29 @@ const TOL_M = 0.01;
 
 /** terrain.js § Heightfield semantics: bilinear inside the box, the constant
  *  outside it. Deliberately NOT clamped — clamping would report the bank's
- *  height out on the prairie and hide exactly the failure this tool is for. */
-export function heightfield(meta, arr) {
+ *  height out on the prairie and hide exactly the failure this tool is for.
+ *
+ *  `apron` is the scene's apron field (T-2502, its `terrain_apron`), built by
+ *  this same function: outside the box the renderer answers it before the
+ *  constant, so this does too, and an anchor on it is on modelled ground. */
+export function heightfield(meta, arr, apron = null) {
   const { cols, rows, cell_m: cell, origin_e: oe, origin_n: on } = meta;
   const scale = meta.scale ?? 0.01;
   const offset = meta.offset ?? 0;
   const at = (i, j) => arr[j * cols + i] * scale + offset;
-  const contains = (e, n) => {
+  const inBox = (e, n) => {
     const gx = (e - oe) / cell;
     const gy = (n - on) / cell;
     return gx >= 0 && gy >= 0 && gx <= cols - 1 && gy <= rows - 1;
   };
+  const contains = (e, n) => inBox(e, n) || !!apron?.contains(e, n);
   return {
     meta,
     cell,
+    apron,
     contains,
     sample(e, n) {
-      if (!contains(e, n)) return FALLBACK_Y;
+      if (!inBox(e, n)) return apron?.contains(e, n) ? apron.sample(e, n) : FALLBACK_Y;
       const gx = (e - oe) / cell;
       const gy = (n - on) / cell;
       const i = Math.min(Math.floor(gx), cols - 2);
@@ -122,14 +128,24 @@ export function heightfield(meta, arr) {
   };
 }
 
-async function loadHeightfield(epoch) {
-  const dir = path.join(ROOT, 'data/terrain/epochs', epoch);
-  const meta = JSON.parse(await readFile(path.join(dir, 'heightfield.json'), 'utf8'));
-  const raw = await readFile(path.join(dir, meta.bin ?? 'heightfield.bin'));
+async function readField(file) {
+  const meta = JSON.parse(await readFile(file, 'utf8'));
+  const raw = await readFile(path.join(path.dirname(file), meta.bin ?? 'heightfield.bin'));
   const arr = meta.encoding === 'float32'
     ? new Float32Array(raw.buffer, raw.byteOffset, raw.byteLength / 4)
     : new Int16Array(raw.buffer, raw.byteOffset, raw.byteLength / 2);
-  return heightfield(meta, arr);
+  return { meta, arr };
+}
+
+async function loadHeightfield(epoch, apronPath = null) {
+  const epochs = path.join(ROOT, 'data/terrain/epochs');
+  const box = await readField(path.join(epochs, epoch, 'heightfield.json'));
+  let apron = null;
+  if (apronPath) {
+    const a = await readField(path.join(epochs, apronPath));
+    apron = heightfield(a.meta, a.arr);
+  }
+  return heightfield(box.meta, box.arr, apron);
 }
 
 // --- the measurements ------------------------------------------------------ //
@@ -199,7 +215,7 @@ async function sceneOutlines(scene) {
 
 export async function measure({ scene = '1835' } = {}) {
   const sceneFile = JSON.parse(await readFile(path.join(ROOT, 'data/scenes', `${scene}.json`), 'utf8'));
-  const hf = await loadHeightfield(sceneFile.terrain_epoch);
+  const hf = await loadHeightfield(sceneFile.terrain_epoch, sceneFile.terrain_apron ?? null);
   const waterM = hf.meta.water_surface_m ?? 0;
   const roofs = await sceneOutlines(scene);
   const rows = sceneFile.anchors.map((a) => {
@@ -233,6 +249,7 @@ export async function measure({ scene = '1835' } = {}) {
     scene,
     epoch: sceneFile.terrain_epoch,
     box_local_enu_m: hf.meta.box_local_enu_m,
+    ...(hf.apron ? { apron: sceneFile.terrain_apron, apron_local_enu_m: hf.apron.meta.box_local_enu_m } : {}),
     water_surface_m: waterM,
     margin_scan_max_m: MARGIN_MAX_M,
     anchors: rows,
@@ -252,7 +269,7 @@ export async function measure({ scene = '1835' } = {}) {
 function faults(reading) {
   const bad = [];
   for (const a of reading.anchors) {
-    if (!a.inside) bad.push(`${a.id}: stands outside the modelled box — the walker gets the constant ${FALLBACK_Y} m there, not ground`);
+    if (!a.inside) bad.push(`${a.id}: stands outside the modelled box${reading.apron ? ' and its apron field' : ''} — the walker gets the constant ${FALLBACK_Y} m there, not ground`);
     else if (!a.dry) bad.push(`${a.id}: ground ${a.ground_m} m is at or below the water surface ${reading.water_surface_m} m and no deck carries it — the camera is in the water`);
     if (a.inside_a_roof) bad.push(`${a.id}: falls inside ${a.inside_a_roof}'s footprint — a standing viewpoint inside a building is a camera in a wall`);
   }
@@ -292,6 +309,13 @@ function selfTest() {
   ok('sample() reads the wet cell', hf.sample(10, 20) < 0);
   ok('marginToWater finds the wet cell one ring out', marginToWater(hf, 0, 20, 0) === 10);
   ok('marginToWater reports the box edge as a margin', marginToWater(hf, 0, 0, 0) === 10);
+  // T-2502: an apron field west of the box is ground; past it is still the constant.
+  const apron = heightfield({ ...meta, origin_e: -20 }, new Int16Array([3, 3, 3, 3, 3, 3, 3, 3, 3]));
+  const both = heightfield(meta, new Int16Array([2, 2, 2, 2, 2, 2, 2, -1, 2]), apron);
+  ok('an apron field admits a point west of the box', both.contains(-5, 10) === true);
+  ok('sample() reads the apron field outside the box', Math.abs(both.sample(-15, 10) - 3) < 1e-9);
+  ok('the box still answers inside itself', Math.abs(both.sample(0, 0) - 2) < 1e-9);
+  ok('past the apron field is still off the ground', both.contains(-25, 10) === false && both.sample(-25, 10) === FALLBACK_Y);
   // A unit square placed at (100, 100) and turned 90 degrees still contains its own centre.
   const poly = outline({ footprint: [[0, 0], [10, 0], [10, 10], [0, 10]], placement: { local_e: 100, local_n: 100, rotation_deg: 90 } });
   ok('outline() places and turns a footprint', poly.length === 4);
