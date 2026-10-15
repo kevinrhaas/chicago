@@ -21148,7 +21148,8 @@ from the 1812 ground exactly as they are dealt from 1835's. Everything the town 
 out by the manifest's `scenes` lists (T-0471): `z10_settled_town`'s cropped, hoof-poached sward,
 the 260 dooryard stems, the Lombardy rows, the Sauganash's three trees and the willows by the
 second fort's west wall stand in 1835 only. Those zone records are written for 1 July 1835 and
-carry a `july` phenology block; the 1812 scene is dated 1 August 1812 and shows them as written.
+carry a `july` phenology block; the 1812 scene is dated 14 August 1812 (moved from 1 August by the
+owner's ruling of 2026-10-13, T-2514) and shows them as written.
 **Why:** the communities are the ground's, not the town's — every one of them is graded from the
 ecology literature and the presettlement surveys, not from anything the settlers did, so the
 twenty-three years between the scenes move the town and not the prairie. A scene that drew bare
@@ -21156,7 +21157,7 @@ terrain (which is what 1812 drew before this) said the shore had no cover at all
 than a month's drift in bloom.
 **Consequence:** a visitor sees the fort standing in uncut prairie. The garrison's gardens and
 the factor's grounds are not drawn (T-2062 owns them), so the ground round the pickets is greener
-and less trodden than it was. The bloom is July's, two weeks early for 1 August.
+and less trodden than it was. The bloom is July's, a month early for 14 August.
 **How to resolve:** an August phenology block per zone, and a cleared-and-trodden zone for the
 first fort's surroundings once T-2062 places its gardens and outbuildings.
 **Recorded:** 2026-10-04 (T-0471).
@@ -21767,8 +21768,8 @@ thirteen stripes and a star a state from the 4th of July after admission, so 24 
 4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one,
 is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is
 ours — Andreas has it up "in pleasant weather and on holidays", the scene is drawn fair, and
-the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 1 August
-1812. The arrangement of the stars, the size, the colours' wear and the wind are ours.
+the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 14 August
+1812, the eve of the evacuation. The arrangement of the stars, the size, the colours' wear and the wind are ours.
 **How to resolve:** a quartermaster's account, a post return or a period view of either fort
 replaces the roofs and timber; any record of the post's colours (a requisition for a garrison
 or storm flag, its size and its cloth) replaces the cloth; the 1861 regulations' text read at
@@ -27175,6 +27176,20 @@ before 1812, which would move both with the bank.
 **Ticket:** T-2508 (piece 2 of T-2505; nos. 19-23 are T-2507's, L-first-fort-outer-2507).
 **Recorded:** 2026-10-15 (T-2508).
 **Covers:** `first_fort_wharf.first_fort_1803.position`, `first_fort_wharf.first_fort_1803.footprint`, `first_fort_wharf.first_fort_1803.form.length_m`, `first_fort_wharf.first_fort_1803.form.width_m`, `first_fort_wharf.first_fort_1803.form.deck_height_m`, `first_fort_wharf.first_fort_1803.form.construction`, `first_fort_wharf.first_fort_1803.ground_contact`, `first_fort_covered_way_terrace.first_fort_1803.position`, `first_fort_covered_way_terrace.first_fort_1803.footprint`, `first_fort_covered_way_terrace.first_fort_1803.form.wall_kind`, `first_fort_covered_way_terrace.first_fort_1803.form.construction`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_terrace.first_fort_1803.form.gate_sides`, `first_fort_covered_way_terrace.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.position`, `first_fort_covered_way_bank_upper.first_fort_1803.footprint`, `first_fort_covered_way_bank_upper.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_upper.first_fort_1803.form.construction`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_upper.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.ground_contact`, `first_fort_covered_way_bank_middle.first_fort_1803.position`, `first_fort_covered_way_bank_middle.first_fort_1803.footprint`, `first_fort_covered_way_bank_middle.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_middle.first_fort_1803.form.construction`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_middle.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_middle.first_fort_1803.ground_contact`, `first_fort_covered_way_bank_lower.first_fort_1803.position`, `first_fort_covered_way_bank_lower.first_fort_1803.footprint`, `first_fort_covered_way_bank_lower.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_lower.first_fort_1803.form.construction`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_lower.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_lower.first_fort_1803.ground_contact`.
+
+### L-glessner-finish-2226 — Plain brick joints and gate member grain
+
+**Ticket:** T-2226.
+**Recorded:** 2026-10-15 (T-2226).
+**Covers:** `glessner_house.as_built_1887.form.surface_finish`
+
+**Sources:** `habs_glessner_house_il_1015_drawings`, `wlemay_glessner_courtyard_2024_159537051`, `owner_glessner_v4_reconstruction_brief_2026`.
+
+Previously flat stair returns and Light stair, pier and boundary faces receive an original half-bond surface study using the existing courtyard clay, mortar and numeric course schedule. The 215.9 by 66.675 mm course module, 9 mm joint, 5 mm normal-map recess, 2 mm edge transition and restrained per-unit kiln distribution are **reconstructed**, not a measured 1904 material sample. The texture repeats after eight bricks and thirty-two courses. Individually modeled brick faces retain their existing geometry and fabric: the extra joints apply only to plain masonry. No photograph pixels, tracings or imported texture are used.
+
+Rear-gate ledges and braces receive grain along their own timber axis, at the existing physical oak texture scale. Cut ends retain a generic original oak study on a noncollapsed mapping; their growth rings are not measured or simulated. Joint positions, supports, contacts, hardware and silhouettes remain the existing reconstruction. Full and Light use the same new material library; the simplified tier does not acquire additional geometry.
+
+Neutral-light diagnostics distinguish the scene's blue shade from the owner-approved grey-greige granite. They are capture-only observations, not a historical colour calibration or a change to July lighting. Existing dark glazing and restrained material roughness remain. No new directional dirt map, orange iron rust, modern copper patina or neglected mid-century decay is invented for the seventeen-year-old house. The separately cited family typescript remains a textual comparison with its unresolved rights unchanged; these new assets derive only from original project textures, numeric construction and cleared references. Exact period weathering is still unmeasured.
 
 ### L-1812-lees-place-haystacks-2510 — Lee's Place in 1812: four haystacks on the bank opposite the cabin, their count, size, place and season
 

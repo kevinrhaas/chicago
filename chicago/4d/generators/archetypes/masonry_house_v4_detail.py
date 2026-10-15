@@ -1938,6 +1938,14 @@ def _discard_export_scratch_uv(ob):
 
 def gate_piece(b,w):
     """Keep legacy versions intact; both current detail tiers share the gate."""
+    if 'ends' in w and not b.decorate and b.params.detail.get('surface_finish'):
+        # Only the reduced boundary run is plain. Never remap individual bricks.
+        from archetypes.masonry_house_v4_finish import FLAT_BRICK
+        first=len(b.mat_index)
+        legacy._gate_piece(b,w)
+        for i in range(first,len(b.mat_index)):
+            if b.mat_index[i]==BRICK:b.mat_index[i]=FLAT_BRICK
+        return
     if b.params.detail.get('service_access'):
         from archetypes.masonry_house_v4_service import build_gate,build_jamb_piece
         if w.get('kind')=='gate':return build_gate(b,w)
@@ -1992,7 +2000,7 @@ def build(params,name):
         add_edges(b,params)
     from archetypes.masonry_house_v4_vines import add_vines
     vines=add_vines(b,params)
-    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater'),params.detail.get('vines')))
+    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater'),params.detail.get('vines'),params.detail.get('surface_finish')))
     assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
     # T-2400: the granite's stone-scale occlusion, on its own TEXCOORD_1.

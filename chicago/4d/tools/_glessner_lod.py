@@ -36,7 +36,7 @@ MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass'
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
  'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light',
- 'rainwater_metal','glessner_vines')
+ 'rainwater_metal','glessner_vines','flat_brick')
 
 
 def _left_to_right_sum(iterable,start=0):
@@ -557,7 +557,8 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     if owner is None:raise ValueError('Source master is not the detailed Glessner v4')
     b,params,uv_module=_construct(root)
     required=MATERIAL_NAMES[:29] if params.detail.get('rainwater') else MATERIAL_NAMES[:28]
-    if params.detail.get('vines'):required+=MATERIAL_NAMES[29:]
+    if params.detail.get('vines'):required+=MATERIAL_NAMES[29:30]
+    if params.detail.get('surface_finish'):required+=MATERIAL_NAMES[30:31]
     if any(n not in names for n in required):raise ValueError('Full master does not contain the expected v4 material library')
     counts=_apertures(params)
     if counts!=owner['extras'].get('aperture_counts'):

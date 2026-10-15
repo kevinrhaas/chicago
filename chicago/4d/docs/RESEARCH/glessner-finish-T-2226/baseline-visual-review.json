@@ -1,0 +1,127 @@
+{
+  "status": "Accepted pre-edit baseline: all 24 images actually viewed, cameras fixed, published assets match verified T-2225 dev deployment. Existing budget reds retained.",
+  "full": [
+    {
+      "view": "north-shade",
+      "light": "scene",
+      "observation": "Actual image viewed: wide north wall is shaded blue-grey with visible mortar, stone crowns and dark openings. District tree crowns obscure the upper right and two foreground trunks cross the view. Retain this as scene context; the additional north-close camera is needed for unobscured material inspection. This new stand fails the unchanged Full triangle budget before any material change: 4,618,485 triangles versus 4,600,000, 299 draws within 360. Do not shift its camera or relax its limit to pass."
+    },
+    {
+      "view": "north-shade",
+      "light": "neutral",
+      "observation": "Actual image viewed: neutral white fill removes the strong blue hue; stone remains grey-greige with legible joints. Same foreground trunks and crown occlusion as actual scene."
+    },
+    {
+      "view": "north-stone-close",
+      "light": "scene",
+      "observation": "Actual image viewed: unobscured north-wall close-up retains clear stone crowns, speckled surface and mortar joints in blue shade. Black window recess and frame remain distinct; no need to repaint approved granite."
+    },
+    {
+      "view": "north-stone-close",
+      "light": "neutral",
+      "observation": "Actual image viewed: neutral close-up has readable stone grain and recessed mortar without clipped highlights. The strong north blue hue comes primarily from scene light, not a blue albedo."
+    },
+    {
+      "view": "prairie-stone-close",
+      "light": "scene",
+      "observation": "Actual image viewed: sunny close-up has readable grey stone grain, crowns and joints without white clipping. Existing physical relief and the owner tint remain the baseline; do not flatten to fix the north light."
+    },
+    {
+      "view": "court-west",
+      "light": "scene",
+      "observation": "Actual image viewed: pinkish brick and pale limestone remain distinct, with clear dark glazing and visible mortar in both sun and shade. Ground-path contact is clean. West door elevation remains the separate T-2228 architectural investigation."
+    },
+    {
+      "view": "court-west",
+      "light": "neutral",
+      "observation": "Actual image viewed: white diagnostic fill makes the wall more even but does not reveal a need to recolour the courtyard fabric. No broad opaque vine shadows. Normal July state is restored by the harness."
+    },
+    {
+      "view": "stair-support",
+      "light": "scene",
+      "observation": "Actual image viewed: Full cheek and pier have legible real brick courses; pale nosings, slab and capital remain distinct. Pier foot seats at ground. Contact shade under landing is dark but brick remains readable. Faint narrow rail-shadow sampling is visible across treads; no detached broad shadow band."
+    },
+    {
+      "view": "stair-support",
+      "light": "neutral",
+      "observation": "Actual image viewed: same contacts and material boundaries under neutral light. Bright treads retain texture. No evidence justifying blanket contact-AO multiplication or a global exposure lift."
+    },
+    {
+      "view": "gate-court",
+      "light": "scene",
+      "observation": "Actual image viewed: both gate ledges and diagonal braces are almost invisible because their grain follows the vertical boarding. Timber contact geometry and strap hinges are visible; orient grain per member without moving geometry."
+    },
+    {
+      "view": "gate-court",
+      "light": "neutral",
+      "observation": "Actual image viewed: neutral light makes faint brace outlines visible but retains the same incorrect vertical grain. Dark protected iron and stone jamb textures remain distinct; no generic rust or grunge justified."
+    },
+    {
+      "view": "prairie-stone",
+      "light": "scene",
+      "observation": "Actual image viewed: entrance arch, carved tympanum, granite courses and dark glazed door remain readable with sun and tree shade. No clipped white stone or floating heavy shadow band."
+    },
+    {
+      "view": "prairie-stone",
+      "light": "neutral",
+      "observation": "Actual image viewed: arch and carving remain legible under white fill. Removing environment changes glazing reflections as expected; diagnostic must not be mistaken for the owner dark-glass setting or a production lighting proposal."
+    },
+    {
+      "view": "prairie-stone-close",
+      "light": "neutral",
+      "observation": "Actual image viewed: texture and crown detail remain visible under white fill. Same approved grey-greige granite and silhouette; no evidence for a global albedo or normal-strength change."
+    },
+    {
+      "view": "boundary-brick",
+      "light": "scene",
+      "observation": "Actual image viewed: Dark shaded boundary still has readable mortar bond and restrained pink clay. Thin rooted climbers remain separated from the wall; no opaque rectangular shadow or added random weathering."
+    },
+    {
+      "view": "boundary-brick",
+      "light": "neutral",
+      "observation": "Actual image viewed: Neutral fill clearly reveals the same bond, mortar and coping. Shade explains the large brightness difference; do not darken source albedo or bake this directional shadow into it."
+    }
+  ],
+  "light": [
+    {
+      "view": "north-shade",
+      "light": "scene",
+      "observation": "Actual image viewed: North portrait remains blue-shaded with a tree obscuring part of the wall. Courses and dark window openings remain visible. Existing Light scene budget fails here before edits."
+    },
+    {
+      "view": "north-stone-close",
+      "light": "scene",
+      "observation": "Actual image viewed: Shaded granite grain and modeled course separation are visible; Light crown shading is a simplified version of Full. Preserve the approved tint and do not hide the existing triangle-budget failure by reframing."
+    },
+    {
+      "view": "prairie-stone",
+      "light": "scene",
+      "observation": "Actual image viewed: Entrance arch, dark grille/glass and stone are distinct in sun; Full carving is simplified in this tier. No white clipping. The image includes the entrance steps and their existing contact shade."
+    },
+    {
+      "view": "prairie-stone-close",
+      "light": "scene",
+      "observation": "Actual image viewed: Sunlit Light granite has clear courses, crown shading and grain. No global albedo or exposure change justified."
+    },
+    {
+      "view": "court-west",
+      "light": "scene",
+      "observation": "Actual image viewed: Main-wall modeled brick bond remains readable at phone width with distinct grey trim. Do not apply a second joint pattern to these individually modeled bricks."
+    },
+    {
+      "view": "stair-support",
+      "light": "scene",
+      "observation": "Actual image viewed: Plain Light cheek and pier look like continuous clay/stucco, unlike the Full brick courses. Confirmed target for dedicated flat-brick surface. Nosing, rail and pier contacts remain seated."
+    },
+    {
+      "view": "gate-court",
+      "light": "scene",
+      "observation": "Actual image viewed: Horizontal ledges and diagonal braces share vertical grain with boards, obscuring their construction. Member-axis mapping is justified. Keep existing hardware and physical joint positions."
+    },
+    {
+      "view": "boundary-brick",
+      "light": "scene",
+      "observation": "Actual image viewed: Light boundary is a smooth mottled pink wall without mortar courses, unlike Full. Add flat-surface bond/normal detail while retaining the opaque silhouette, coping and vine coverage."
+    }
+  ]
+}
