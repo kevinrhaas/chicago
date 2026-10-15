@@ -26154,6 +26154,18 @@ profile); and no brackets on the bow, since the engraving draws none there and t
 not the engraving's. Not built: the engraving draws the main cornice running on straight over the
 bow's cap, about 0.3 m over the build's eave all along the front (soffit 11.21 m against about 11.5 m);
 raising it is the storey lines' reading, not the bow's, so the bow's band is the build's eave itself.
+**Revised:** 2026-10-15 (T-2467) — **the wing carries the cornice.** The engraving draws the wing's
+cornice as a band as deep as the main cornice's (y 232-262 px) with a block in it over the window;
+T-2465's crown carried K05's 0.2 m fascia alone. K10's bracketed timber cornice, the house's own,
+now runs round the wing's three faces under the crown's soffit on the main wall head's line
+(`wall_head.crown`), so the wing's band, fascia over brackets, reads 35 px deep through the camera
+as the main one's does, and a timber block stands in it over the window. Read, through the camera:
+the band's depth against the main cornice's, and the block's place over the window, its width
+(0.75 m) and its rise over the band (0.15 m), at the plate's scale. Invented: the brackets and bed
+moulding are K10's, not the engraving's, which draws a plain dark band (as on the main front); the
+block's 0.05 m projection past the fascia and its depth back to the wall; that it is painted timber
+like the fascia. The band stands about 30 px under the engraving's with the whole eave, the house's
+open storey-line reading, not the wing's.
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
