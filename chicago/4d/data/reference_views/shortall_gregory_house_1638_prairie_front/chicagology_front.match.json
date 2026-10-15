@@ -2,10 +2,10 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "201f165006d9d142ca73a8c37194c0ebf767e05bf67d4bfdc227e9b15d9f20ff",
+  "glb_sha256": "3f6d7ac66926355b1e86985398a9c6f1ce22894a6f270a5b28f45b1b7aa34c4d",
   "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "unreviewed",
   "differences": [
     {
       "what": "Gable: the twin windows' heads are pointed, two lights 0.63 m wide with their points at 5.87 m, not the kit's flat-headed pair (T-2423)",

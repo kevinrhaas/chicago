@@ -28,6 +28,7 @@ returns, so every field the builder reads is in it.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
@@ -160,9 +161,19 @@ def boundary_errors(bv: dict) -> list[str]:
         out.append("pier: plinth, shaft, cap and finial must rise in that order")
     if pv["section_m"] > pv["plinth_m"] or pv["cap"]["half_m"] * 2 < pv["section_m"]:
         out.append("pier: the plinth and the cap are at least as broad as the shaft")
-    hv = pv["cap"]["heart"]
-    if not (pv["shaft_top_m"] < hv["lobe_y_m"] - hv["lobe_r_m"] and hv["apex_y_m"] < pv["cap"]["top_m"]
-            and hv["lobe_off_m"] + hv["lobe_r_m"] < pv["cap"]["half_m"] - pv["cap"]["board_m"]):
+    cp, hv = pv["cap"], pv["cap"]["heart"]
+    if cp.get("flare") is not None:      # T-2521: the cap's lower corners flared out under it
+        fl, h0 = cp["flare"], cp.get("top_half_m")
+        if not (_num(h0) and pv["section_m"] / 2 <= h0 < cp["half_m"]):
+            out.append("pier: a flared cap needs top_half_m, at least the shaft's half and under half_m")
+        elif not all(_num(fl.get(k)) for k in ("foot_m", "widest_m", "from_m")) or not (
+                pv["shaft_top_m"] < fl["foot_m"] < fl["widest_m"] < fl["from_m"] < cp["top_m"]):
+            out.append("pier: the cap's flare needs shaft top < foot_m < widest_m < from_m < the cap's top")
+        if out:
+            return out
+    board_half = cp.get("top_half_m", cp["half_m"])
+    if not (pv["shaft_top_m"] < hv["lobe_y_m"] - hv["lobe_r_m"] and hv["apex_y_m"] < cp["top_m"]
+            and hv["lobe_off_m"] + hv["lobe_r_m"] < board_half - cp["board_m"]):
         out.append("pier: the cap's heart must stand inside its board")
     ps = sorted(q.get("centre_m", 0) for q in bv.get("piers") or [])
     if len(ps) != 2:
@@ -389,6 +400,17 @@ def tower_errors(tv: dict) -> list[str]:
             out.append(f"{k} must be a positive number")
     if not out and tv["spire_apex_m"] <= tv["wall_top_m"] + 1.0:
         out.append("spire_apex_m must stand at least 1 m over wall_top_m")
+    sg = tv.get("stage")
+    if sg is not None:     # T-2521: a smooth stage under a shallower frieze, a trefoil incised over each light
+        if not (_num(sg.get("frieze_m")) and 0.05 <= sg["frieze_m"] <= 0.5):
+            out.append("stage.frieze_m must be 0.05-0.5 m")
+        inc = sg.get("incised")
+        if inc is not None and not (all(_num(inc.get(k)) and inc[k] > 0 for k in
+                                        ("centre_y_m", "lobe_r_m", "lobe_off_m", "groove_m", "depth_m"))
+                                    and inc["lobe_r_m"] - inc["groove_m"] > inc["lobe_off_m"] * math.sqrt(3) / 2
+                                    and inc["depth_m"] < 0.015):
+            out.append("stage.incised needs positive centre_y_m, lobe_r_m, lobe_off_m, groove_m and depth_m "
+                       "(under 0.015 m), the lobes inside the groove overlapping")
     seen = set()
     for w in tv.get("windows", []):
         faces = w.get("faces") or []
