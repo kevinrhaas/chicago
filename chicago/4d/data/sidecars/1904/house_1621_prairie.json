@@ -1,12 +1,12 @@
 {
   "id": "house_1621_prairie",
-  "phase": "draft_1904",
-  "name": "1621 Prairie Avenue — John H. Hamline's house, Brick masonry (district draft; refined by T-1869)",
+  "phase": "as_mapped_1904",
+  "name": "1621 Prairie Avenue — John H. Hamline's stone-front house with its swell bay, from Treat & Foltz's drawing, K01 frontage assembly",
   "aka": [
     "1621 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_1621_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/house_1621_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "documented_range": {
@@ -20,18 +20,18 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1431.761,
-    "local_n": -3006.629,
+    "local_e": 1425.656,
+    "local_n": -3005.821,
     "rotation_deg": 179.603,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 15.750, v -2.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the K01 main body at its north (low-v) side: in the lot frame u 21.85, v -3.6 from the middle of the rear lot line, 13.3 m behind the sheet's street wall (u 35.15) on the north wall the trace s20fp-1621-b1 draws (v -3.6), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs south.",
     "symbolic_location": "1621 S. Prairie Avenue, parcel prairie_1621 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -41,120 +41,429 @@
         0.0
       ],
       [
-        19.0,
+        13.3,
         0.0
       ],
       [
-        19.0,
-        5.25
+        13.3,
+        6.2
       ],
       [
         0.0,
-        5.25
+        6.2
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The main body read off the 1911 sheet's trace (s20fp-1621-b1) in the lot frame: the street wall at u 35.15, the north wall at v -3.6 and the front's south wall at v 2.6, where the passage to 1623 runs back from the street, so 6.2 m along the front; built 13.3 m deep, as the drawing's roof was built at 1619 (its ridge 4.23 m behind the front, its rear slope falling to the rear wall's head). The sheet's one '3B' part runs on 6.1 m behind it at the same width, built as a rear range (form.rear_wings). Not built: the half-round rear end the trace draws (Robinson's 1886 plate draws it too); the 1.33 m strip behind the passage's end on the south side, with the light well shared with 1623, as 1623's build leaves its own side of it (T-2433); and the trace's two small jogs in the north wall."
   },
   "attributes": {
     "stories": {
-      "value": 3,
-      "confidence": "attested",
+      "value": 2,
+      "confidence": "inferred",
       "sources": [
+        "building_budget_1886_06_hamline_farwell_houses",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+      "note": "Two full storeys over a raised basement, and a third in the steep roof, lit by the wall gable over the bow: the Building Budget drawing's own count (the raised basement with its grilled lights; the principal and second storeys, which the bow carries to its balcony at the wall head; above that only the gable's three short lights between pinnacles). The 1911 sheet prints '3B' over the house, three storeys and a basement, which is the drawing's two and its roof storey: at 1619 T-2420 could not reconcile the sheet's '4' with the drawing, and that was one of the signs that the drawing's house was not 1619's (T-2439)."
     },
     "construction": {
-      "value": "brick",
-      "confidence": "attested",
+      "value": "brick_with_stone_front",
+      "confidence": "inferred",
       "sources": [
+        "building_budget_1886_06_hamline_farwell_houses",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "The drawing draws the street front in coursed smooth ashlar and the south side wall plain; the 1911 sheet reads the building '3B brick' and does not colour this front blue, as it does 1619's, so the stone front is the drawing's and the sheet neither shows nor refutes it (a sheet marks a stone front only where it chooses to)."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 1.4,
+      "confidence": "reconstructed",
+      "note": "1.4 m over grade, as T-2420 set it at 1619, inside the K01 contract's range. The drawing's raised basement reads about 1.5-1.7 m through its camera (building_budget_front.json), within that solve's own spread."
+    },
+    "storey_heights_m": {
+      "value": [
+        3.9,
+        3.9
+      ],
+      "confidence": "reconstructed",
+      "note": "Floor to floor, principal storey first: 3.9 m and 3.9 m, the two storeys the bow carries. Through the drawing's camera the second floor reads at about 5.3 m and the bow's balcony at about 8.9 m; the wall head is put at 9.2 m so the bow can rise to 8.2 m under the K10 cornice's bed moulding. No dimension is printed on the drawing."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "A stone front on its brick backing, as 1612's and 1634's."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "A brick-and-a-half wall, as every K01 brick house's."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "The one K03 panel k03_brick lays."
+    },
+    "stone_front": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "hip",
-            "rect": [
-              0.0,
-              0.0,
-              19.0,
-              5.25
-            ],
-            "from": "s20fp-1621-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 73% of its fill"
-          }
-        ],
-        "lot_v": [
-          -1.15,
-          6.65
-        ],
-        "street_u": 23.274
+        "fabric": "limestone_bedford",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 2,
+        "coping_height_m": 0.23,
+        "corner_bond": []
       },
+      "confidence": "reconstructed",
+      "note": "The drawing draws the front in smooth coursed ashlar, light, with plain joints, and the basement's courses heavier; it is monochrome, so the stone is chosen: K02's Bedford limestone, the light dressed stone of Chicago's mid-1880s fronts, smooth over two rusticated base courses. The 1911 sheet does not mark this front stone (form.construction). Replaceable by any description naming the stone."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k01.flat_lintel"
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "The north strip's door and the lights over it: a K09 cornice-hood lintel over the door's storey and K01's flat stone lintel over the second storey's light. The drawing's round-arched entrance and the carved panel over it are T-2422's to build."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.moulded_stone",
+        "dormer": "k10.dormer.pedimented_on_bracketed_eave",
+        "paint": {
+          "color": [
+            0.62,
+            0.57,
+            0.47
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "The drawing's moulded stone cornice (T-2460), K10's `k10.cornice.moulded_stone`: one section read off the plate, about 0.35 m deep where it runs round the bow's top and carries the balcony (8.2-8.55 m on the bow's face through its camera), swept along the street front under the K05 soffit (8.24-8.6 m), corner to corner between the side walls' parapets under the gable roof (T-2459) and capped at both corners, and stopped at the bow's junctions, where the bow carries the same section round its own plan (bays.eaves). It replaces K10's bracketed timber cornice (scrolled brackets and a bed moulding), which the drawing does not draw. The eave's timber over it (the K05 soffit and fascia) is painted to read as the stone, as a cornice of the period was (`paint`); the drawing shows one stone cornice and no eave above it, and the colour is reconstructed (L-k01-1621-hamline-front-2440). The dormer face is K10's pedimented face, the drawing's wall gable (T-2428): its horizontal and raking cornices are the kit's, the nearest it comes to the drawing's moulded stone gable."
+    },
+    "roof_form": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "A gable roof whose ridge runs along the front (T-2459), reconstructed as a whole because half of it is unseen: the drawing slates a steep slope facing the street behind the wall gable and carries the house's SOUTH side wall up above it as a crow-stepped parapet rising from the front corner to a tall stack, so the slope meets that wall and rises with it, which K01's hip (whose south face falls away from the wall) cannot do. What lies behind the ridge the drawing does not show: the rear slope falls to the rear wall's head (gable_roof)."
+    },
+    "roof_pitch_deg": {
+      "value": 45,
+      "confidence": "reconstructed",
+      "note": "45 degrees, the K01 contract's steepest ordinary pitch, for the street slope: the drawing's slates rise behind the gable about as steeply as the gable itself (about 50 degrees), and the third storey is in the roof. Through the drawing's camera the parapet's head, at the stack, stands about 13.5 m up and about 4 m behind the front, which a 45-degree slope from the 9.2 m wall head reaches 4.23 m back (gable_roof.ridge_back_m)."
+    },
+    "eave_overhang_m": {
+      "value": 0.4,
+      "confidence": "reconstructed",
+      "note": "The bracketed cornice's projection, as 1808's."
+    },
+    "stair_tread_m": {
+      "value": 0.28,
+      "confidence": "reconstructed",
+      "note": "A tread that brings the stoop inside the 3.85 m front yard the sheet leaves."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.0,
+      "confidence": "reconstructed",
+      "note": "A short landing: the front yard is 3.85 m deep."
+    },
+    "stoop_width_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "Inside the north strip, clear of the bow."
+    },
+    "entrance_bay": {
+      "value": "south",
+      "confidence": "inferred",
+      "sources": [
+        "building_budget_1886_06_hamline_farwell_houses"
+      ],
+      "note": "The door in the front's north strip, as the drawing draws it beside the bow (its round-arched recess is T-2422's). 'south' is K01's name for the low-v end of the front; on the east side of the avenue the plan's v runs south, so that end is the north end on the ground."
+    },
+    "front_bays": {
+      "value": [
+        1.8,
+        4.75
+      ],
+      "confidence": "reconstructed",
+      "note": "Two bays across the 6.2 m front, low v to high v: the door bay in the middle of the north strip (s 0-3.6, the sheet's front north of the bay) with a light over it in each upper storey, and the bow's centre. The drawing's north strip is about 1.4 m against the sheet's 3.6 m and its bow about 3.7 m against the sheet's 2.3 m; the sheet controls the plan, as at 1619."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "front_swell",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.street_front",
+          "s_m": 4.75,
+          "fabric": "front_stone",
+          "plan": {
+            "kind": "bow",
+            "chord_m": 2.3,
+            "rise_m": 1.02
+          },
+          "storeys": [
+            {
+              "height_m": 5.3,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.4,
+                  "sill_m": 2.1,
+                  "at_deg": [
+                    -30,
+                    30
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 2.94,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 1.95,
+                  "sill_m": 0.55,
+                  "at_deg": [
+                    -30,
+                    30
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.05,
+            "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "building_budget_1886_06_hamline_farwell_houses"
+      ],
+      "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1621-b1 bulges about 1.02 m from the front at the south end of the front, a 2.3 m chord about 0.1-0.2 m from the front's south corner; K01 keeps a bay 0.3 m clear of a corner, so it is built over s 3.6-5.9, about 0.15 m north of the trace); its HEIGHT and LIGHTS are the drawing's, as T-2420 and T-2460 read them: it rises from grade through the principal and second storeys (5.3 m and 2.94 m) to the foot of the moulded stone cornice at 8.24 m, and its eaves ARE that cornice, the same K10 section swept round its plan (eaves.cornice). Two lights a storey either side of a central pier, laid in the front's stone, under a nearly flat painted-tin deck where the drawing's balcony stands (the rail is T-2422's). The drawing's bow is about 3.7 m across at the plate's scale and its lights 1.1 m wide at -25 and +25 degrees; on the sheet's 2.3 m chord two such lights would overlap, so they are 0.75 m wide at -30 and +30 degrees, their heights and sills the drawing's (reconstructed widths, L-k01-1621-hamline-front-2440). Either the bow was built narrower than drawn, or the sheet's bay is a later one; no picture after 1886 is known that would say."
+    },
+    "side_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "None: the house's NORTH side wall (K01's 'south', low v) stands about 0.3 m from 1619's south wall on the 1911 sheet, so it is built blank. No picture shows it."
+    },
+    "north_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "None: the house's SOUTH side wall (K01's 'north', high v) is built blank, as the drawing draws it — a plain shaded wall from the ground to its stepped parapet, seen along the driveway to 1623."
+    },
+    "rear_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "None: the rear range covers the main body's whole rear wall."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_range",
+          "rect": [
+            -6.1,
+            0.0,
+            0.0,
+            6.2
+          ],
+          "floor_m": 1.4,
+          "storey_heights_m": [
+            3.9,
+            3.9
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.9
+            }
+          ],
+          "windows": {
+            "south": [],
+            "rear": [
+              1.6,
+              4.6
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1621-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 73% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The rest of the sheet's one '3B' part (s20fp-1621-b1 p1), which runs on 6.1 m behind the main body at its width to the rear wall at u 15.75, built as a rear range on K01's rear wings, so that the drawing's roof keeps the depth it was built to at 1619. Its PLACE is the sheet's; its two storeys, windows, heights and flat tin deck are reconstructed, and whether the main roof ran on over it the sheet does not say. The trace's half-round rear end is not built: K01 has no curved rear."
     },
-    "draft_elevation": {
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.0,
+          "height_m": 2.3
+        },
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 0.9,
+          "height_m": 1.9
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "The north strip's and the side and rear walls' sash, storey by storey; the second storey's light over the door is narrow, as the drawing's."
+    },
+    "basement_lights": {
       "value": {
-        "kind": "house",
-        "seed": 3173415262,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 38,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2335",
-          "refined_by": [
-            "T-1869"
+        "sill_m": 0.35,
+        "width_m": 0.85,
+        "height_m": 0.6
+      },
+      "confidence": "reconstructed",
+      "note": "Area lights under the principal windows, as 1634's; the drawing's two under the bow are its own."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "slate_pennsylvania",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll"
+      },
+      "confidence": "reconstructed",
+      "note": "Slate: the drawing hatches the roof behind the gable as slating. Pennsylvania slate, copper flashing and ridge roll, the K04 kit's commonest slate roof."
+    },
+    "dormer": {
+      "value": {
+        "width_m": 2.5,
+        "face_setback_m": 0.0,
+        "face_height_m": 2.0,
+        "face_thickness_m": 0.2,
+        "pitch_deg": 50,
+        "verge_m": 0.15,
+        "sash": {
+          "sill_m": 0.3,
+          "width_m": 0.55,
+          "height_m": 0.95,
+          "variant": "k06.opening.sash_1over1_segmental",
+          "at_m": [
+            -0.78,
+            0.0,
+            0.78
           ]
         },
-        "v_toward": "south"
+        "v_m": 4.3,
+        "wall_gable": {
+          "voussoirs": {
+            "ring_m": 0.2,
+            "proud_m": 0.04
+          },
+          "panel": {
+            "inset_m": 0.2,
+            "depth_m": 0.08
+          },
+          "pinnacles": {
+            "at_m": 1.55,
+            "shaft_m": 0.28,
+            "foot_m": -0.35,
+            "top_m": 2.45,
+            "cap_m": 0.1,
+            "spire_m": 0.4
+          },
+          "finial": {
+            "height_m": 0.45,
+            "radius_m": 0.09
+          }
+        }
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: 3B brick, the north unit of an attached group of three (1621-1625): the brick family's hip, its door at the group's north end. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3173415262 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
+      "confidence": "inferred",
+      "note": "The roof storey's WALL GABLE (T-2428, moved here by T-2440), read off the drawing through its camera: the street wall carried up over the bow as a steep pedimented gable (the K05 dormer with its face on the wall's plane), its face 2.0 m to the eave and pitched 50 degrees, so the pediment's foot lands at about 10.9 m; three short segment-headed lights (K06's one-over-one segmental sash, 0.95 m high, sills 0.3 m over the wall head) each under a block of seven radiating voussoirs; a recessed panel in the pediment; a turned finial at the apex; and a square pinnacle shaft either side of the face rising from under the wall head to a cap and pyramid. Its HEIGHTS are the drawing's as T-2428 read them at 1619. Its WIDTHS are narrowed to this narrower front: the drawing's gable is about 3.4 m across with its pinnacles 3.8 m apart, and on a 6.2 m front with the bow at its south end those pinnacles would stand outside the south wall, so the face is 2.5 m across, its lights 0.55 m wide 0.78 m apart and its pinnacles 3.1 m apart (K01 keeps each shaft clear of the face's cornice return, and a wider face's valley on this front runs into the crow-stepped south wall) (reconstructed, L-k01-1621-hamline-front-2440), and it stands 0.45 m north of the bow's centre (v 4.3), as the drawing sets it (0.47 m). The pinnacles' square plan, the pyramid tops (the drawing's are carved), the panel's depth, the lights' sash and the stone are reconstructed as at 1619.",
+      "sources": [
+        "building_budget_1886_06_hamline_farwell_houses"
+      ]
     },
-    "draft": {
+    "chimneys": {
       "value": {
-        "pass": "T-2335",
-        "liberty": "L-draft-prairie-16-18-east-2335",
-        "register_row": "frontage-20-028",
-        "census_ids": [
-          "s20-1621-f"
+        "plan_m": [
+          1.0,
+          0.9
         ],
-        "trace_building": "s20fp-1621-b1",
-        "seed": 3173415262,
-        "replaceable_by": [
-          "T-1869"
-        ],
-        "card": "District draft — refined by T-1869."
+        "top_above_ridge_m": 1.6,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 8.45,
+            "v_m": 5.75,
+            "in_parapet": true
+          },
+          {
+            "u_m": 3.6,
+            "v_m": 5.75,
+            "in_parapet": true
+          }
+        ]
       },
       "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "Two brick stacks carried up in the south side wall's parapet (T-2459), 1.0 m along the wall and 0.9 m deep (so the first stack's sides stand clear of the parapet head's risers), their outer faces in the wall's plane (v 5.75, 0.45 m in from the 6.2 m front's south wall): the first where the drawing's tall stack stands at the head of the crow steps, 0.62 m behind the ridge (u 8.45, where at 1619 it stood on it: on this narrower front the wall gable's body comes within reach of the wall, and K01 keeps a stack out of it), its top at 15.03 m (1.6 m over the ridge) as T-2459 read the drawing's through its camera at 1619; the second, over the rear rooms, reconstructed at the same height. The drawing's panelled shafts and corbelled cap are built plain."
+    },
+    "rainwater": {
+      "value": null,
+      "confidence": "reconstructed",
+      "note": "No gutter or downpipe is built (T-2459): the drawing draws none on the front, and K01's half-round gutter runs only round a hip's eaves, where this roof's side walls are parapets. How the roof drained is not read; T-2420's copper gutters and pipes, themselves reconstructed (no picture shows them), are withdrawn with the hip."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "Every window from the K06 kit: two-over-two double-hung sash, as the drawing's lights are drawn with one meeting rail and drawn-back curtains."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 3.8
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "K07's panelled door at the head of a straight stoop; the front yard is about 3.85 m, the sheet's front at u 35.15 against the street line at 39.0. The drawing's stoop climbs beside the strip; T-2422 builds it as drawn."
+    },
+    "gable_roof": {
+      "value": {
+        "ridge_back_m": 4.23,
+        "top_above_ridge_m": 0.3,
+        "ends": {
+          "north": {
+            "style": "stepped",
+            "steps": 5
+          },
+          "south": {
+            "style": "coped"
+          }
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "Read off the drawing where it shows the roof, reconstructed where it does not. The roof's ridge 4.23 m behind the front wall, at 13.43 m, where the drawing's parapet reaches its stack (about 13.5 m up and about 4 m back through its camera, building_budget_front.json); the rear slope falls from it to the rear wall's head, at about 25 degrees, which no picture shows. The house's SOUTH side wall (K01's 'north', high v) is carried up as the drawing's crow-stepped parapet: five steps up the street slope, as the drawing draws them (its kneeler blocks at about y 225, 205, 185, 165 and 145 px in the panel), each coped and clearing the slates by K05's 0.3 m upstand, to a level head 0.3 m (the upstand) over the ridge, at 13.73 m, where the stack stands; the same five steps down the rear slope are reconstructed. The NORTH side wall (K01's 'south'), which no picture shows, is carried up as a plain coped parapet on the slopes, reconstructed (L-k01-1621-hamline-front-2440)."
     },
     "function": {
       "value": "residence",
@@ -162,11 +471,31 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the north unit of the attached group 1621-1625, light well shared with 1623'. Carried to 1904 on the T-1840 census ruling (present_as_mapped). Whose house: John H. Hamline's, built to Treat & Foltz's design of 1885-86 (the left-hand house of the Building Budget drawing, building_budget_1886_06_hamline_farwell_houses), ruled at 1621 by T-2439 on the 1885 permit, the 1884-87 directories, the 1886 occupant map, the 1886 Robinson plate's printed number (robinson_1886_chicago_plate_10) and the 1904 Blue Book, against one 1886 newspaper's '1619' (docs/RESEARCH/hamline-1621-2436/README.md). The front standing here is still the district draft's: T-2440 moves the drawing's build from 1619 to this house."
+      "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the north unit of the attached group 1621-1625, light well shared with 1623'. Carried to 1904 on the T-1840 census ruling (present_as_mapped). Whose house: John H. Hamline's, built to Treat & Foltz's design of 1885-86 (the left-hand house of the Building Budget drawing, building_budget_1886_06_hamline_farwell_houses), ruled at 1621 by T-2439 on the 1885 permit, the 1884-87 directories, the 1886 occupant map, the 1886 Robinson plate's printed number (robinson_1886_chicago_plate_10) and the 1904 Blue Book, against one 1886 newspaper's '1619' (docs/RESEARCH/hamline-1621-2436/README.md). Its front is built to that drawing (T-2440, which moved the build here from 1619, where T-2420 first stood it)."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "building_budget_1886_06_hamline_farwell_houses",
+      "citation": "'Houses, Prairie Ave. — Treat and Foltz, Archts. — J. H. Hamline Esq. / G. Farwell Esq.' The Building Budget (Chicago), June 188- (the year is cut off on the reproduced page). Pen perspective of two stone-fronted town houses, with a small plan inset. Reproduced on chicagology.com, Prairie Avenue, the 1811 S. Prairie page (captioned there '1811 S. Prairie Ave.', a mislabel).",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1811prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the swell bay's height (grade to the third floor) and its two lights a storey",
+        "three storeys over a raised basement, the third in a wall gable over the bow",
+        "the entrance's place in the north strip, round-arched and recessed",
+        "the slated roof, the stepped south parapet and its stack",
+        "the stone front's smooth ashlar"
+      ],
+      "what_it_does_not_supply": [
+        "the plan: the 1911 Sanborn sheet's trace controls it, and the drawing's north strip is narrower than the sheet's",
+        "colour",
+        "the north side wall, the rear and anything the 1886 design lost or gained by 1904"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_20",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
@@ -188,7 +517,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1869 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1621-b1), the T-1840 census (s20-1621-f) and the T-1837 register row frontage-20-028 (Brick masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_note": "T-2440 (piece 2 of T-2436) moves the build of Treat & Foltz's drawing of John H. Hamline's house in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses) from 1619 Prairie, where T-2420, T-2428, T-2459 and T-2460 built it, to this house, which T-2439 ruled was Hamline's (docs/RESEARCH/hamline-1621-2436/README.md). The 1911 Sanborn sheet 20 still controls the plan, now 1621's own: the trace s20fp-1621-b1 draws a front 6.2 m wide at the street wall with a curved bay about 2.3 m across and 1 m deep at its SOUTH end, and south of the front the passage the drawing's plan letters 'Driveway'. On it stands everything the drawing gave 1619, carried unchanged where it is a height and re-fitted where it is a width: a K02 smooth limestone street front on K03 brick sides and rear, the K08 bow at the sheet's chord rising from grade to the moulded stone cornice (K10, T-2460) that runs round its top and along the front, the door in the north strip on a K07 stoop, the wall gable over the bow (T-2428) with its three segment-headed lights, voussoirs, pediment panel, finial and pinnacles, narrowed to the narrower front, and the slated gable roof behind it with the south side wall carried up in crow steps to the tall stack (T-2459). The camera is the plate's one station point (T-2420's, as T-2433 carried it to Farwell's 1623 next door), put in this house's frame: data/reference_views/house_1621_prairie/building_budget_front.json, which says where the drawing and the sheet disagree. What the drawing shows and is not yet built — the round-arched entrance, the side stoop, the balcony rail and the grilled basement arches (T-2422) — is listed open in its match record. Everything not read is reconstructed and recorded as L-k01-1621-hamline-front-2440.",
   "research_doc": "",
   "review_required": false
 }

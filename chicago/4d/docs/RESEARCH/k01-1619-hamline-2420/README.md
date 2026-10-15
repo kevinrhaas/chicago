@@ -28,7 +28,7 @@ in front of it.
 
 ## The camera
 
-`data/reference_views/house_1619_prairie/building_budget_front.json`. Level and square to the front;
+`data/reference_views/house_1621_prairie/building_budget_front.json` (at `house_1619_prairie` until T-2440 moved the build to 1621). Level and square to the front;
 the bow's two edges (its 3.76 m chord on the sheet) give 46 px/m at the front's plane, which the
 drawing's own floor bands agree with to about 10 %; the eye at 1.6 m, 20 m out, and 3.5 m south of
 the south wall, in front of the driveway, the only place from which that wall shows as deep as the
@@ -51,7 +51,7 @@ raised after 1886 — and a photograph after 1886 decides it.
 
 ## Match record
 
-`data/reference_views/house_1619_prairie/building_budget_front.match.json`, verdict **differs**:
+`data/reference_views/house_1621_prairie/building_budget_front.match.json` (moved from 1619 by T-2440), verdict **differs**:
 massing, the bow's lights and the storey lines are `fixed` (the bow's edges within 3 px, its top
 within 5 px, the bands within about 15 px); the wall gable, the stepped parapet and the stone
 cornice are `open` for **T-2421**; the balcony rail, the arched entrance and carved panel, the side
@@ -59,7 +59,7 @@ stoop and the grilled basement arches are `open` for **T-2422**, which brings th
 `matches`. The strip's width, the south pier, the storey count and colour are `not shown`, argued
 above.
 
-![side by side](../photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg)
+![side by side](../photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg)
 
 ## What K01 could not do here, for the next pieces
 
@@ -99,7 +99,7 @@ are K10's dormer face, unchanged; inside them a panel is recessed 0.08 m. Built 
 where the drawing is not: the two pinnacles' tops (drawn about 20 px apart in height) and their carved
 caps (square pyramids here). Every K01 house but 1619 builds byte-identical.
 
-![the gable, drawing and build](../photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg)
+![the gable, drawing and build](../photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg)
 
 Left for **T-2429**: the slates behind the gable as steep as it, the crow-stepped south parapet
 rising to its stack, and the moulded stone cornice at the bow's top (K10's bracketed timber cornice
@@ -162,7 +162,7 @@ bed, a plain band where the drawing draws a dentil course, a corona with its dri
 to read as the stone, since the drawing shows one stone cornice and no timber eave above it; its
 0.2 m fascia still shows as a top member over the moulding.
 
-![the cornice, drawing and build](../photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg)
+![the cornice, drawing and build](../photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg)
 
 Left for **T-2422**: the balcony rail on the cornice, the arched entrance, the side stoop and the
 basement arches.
