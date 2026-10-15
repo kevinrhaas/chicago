@@ -13,8 +13,8 @@ from exclusion_scope import ruled_for
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
-# T-2334; 144 000 from T-2473 — see outputs().
-INDEX_BUDGET = 144_000
+# T-2334; 144 000 from T-2473; 152 000 from T-2498 — see outputs().
+INDEX_BUDGET = 152_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -328,6 +328,12 @@ class Compiler:
         # city, T-2478's railway) took it to 136 530 bytes with every citation kept whole. Same
         # bargain as before: about twenty sources of room, the gzipped first open still held at
         # 120 KB by measure_sources.mjs.
+        # 152 000 SINCE 2026-10-15 (T-2498): the 1812 Kinzie house's pictures (T-2497's two and
+        # T-2498's six: the Cram plate, the Teich postcard, the Eastman and Gemmell 1820 views and
+        # Sarony's lithograph in Currey and Kirkland), each a source record the image gate and the
+        # card's Images tab need, took it to 144 165 bytes with every citation kept whole. Same
+        # bargain: about twenty sources of room, the gzipped first open still held at 120 KB by
+        # measure_sources.mjs; this is the raw file only.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

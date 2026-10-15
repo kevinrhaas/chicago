@@ -1,0 +1,48 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "teich_postcard",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
+  "camera_sha256": "1a9ba0dad068cbf0c5de10d95c6b2ae82baf087bd1a8792d4c31216f4236a0f1",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/teich_postcard-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a long, low, single-storey house above the river bank, its ridge along the river, the west gable toward the eye; on the red-edge overlay the build's ridge, its west apex and its east verge land on the painted ones within about 14 px, the painting's own perspective being looser than any lens (see the camera's solve)",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, at x 535 and 605 px, the second toward the east end; the build's land at x 527 and 607",
+      "status": "fixed"
+    },
+    {
+      "what": "front: a central door (x 570-585 px) with two openings each side of it under the piazza, and a low paling along the piazza's front between the posts; the build's door, two sash each side and rail stand between the same posts",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza roof: painted as the main roof carried down over the piazza in one plane to an eave at y 320 px, as Lossing and the Cram plate draw it; the build hangs the piazza's own flatter roof under the main eave, after the 1857 engraving. Three pictures of five now draw one plane (T-2516)",
+      "status": "open"
+    },
+    {
+      "what": "west end: the painting draws it broad and tall, the end wall about as wide as two of the front's bays, with a small square window high in the gable (about 457, 285 px) and the roof's back slope sweeping down past the end wall's back corner; the build's end is narrower in the picture than the painted one (its apex lands 13.5 px right of the drawn) and its gable is unpierced. The 1857 engraving and the Cram plate also show something dark high in the gable; with this painting that is three pictures of a gable light (T-2516)",
+      "status": "open"
+    },
+    {
+      "what": "walls: the front under the piazza painted cream, as whitewash or weatherboard reads, the west end dark brown in shade; the build's are squared log throughout. The same reading and ruling as on the 1857 and Cram records: the painting shows the house as it was later (the card says 'first house built in Chicago', not a year), and the 1812 house is built of squared logs",
+      "status": "open"
+    },
+    {
+      "what": "roof colour: painted red-brown, as weathered shingle reads; the build's roof is the archetype's neutral grey-brown. The painting is the only picture in colour, its painter and date are not recorded, and the postcard's colour printing is c. 1910's; a colour from it alone would be a reconstruction (T-2516)",
+      "status": "open"
+    },
+    {
+      "what": "the four poplars in a row east of the house running down to the river, the fence round the green below the house, and the great tree behind it: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "a low dark building behind the house's west end (x 375-420 px, y 275-310 px) and another on the rise behind (x 320-370 px, y 245-280 px), the road climbing past them: no 1812 source places them; Ouilmette's and Pettell's houses behind the Kinzie house are T-2484's other pieces",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

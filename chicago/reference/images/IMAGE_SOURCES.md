@@ -8,7 +8,7 @@ A scene *depicted* pre-1850 qualifies even when the artwork is later (an 1884 An
 
 | Path | What it holds | Rights |
 |---|---|---|
-| `chicago/` | 43 public-domain/institutional images of Chicago | Public domain (see each entry) |
+| `chicago/` | 45 public-domain/institutional images of Chicago | Public domain (see each entry) |
 | `chicago/licensed_previews/` | 20 preview/thumbnail images from commercial archives | **Previews only** — see below |
 | `st_louis/` | 20 public-domain/institutional images of St. Louis | Public domain (see each entry) |
 | `st_louis/licensed_previews/` | 2 preview/thumbnail images from commercial archives | **Previews only** — see below |
@@ -71,6 +71,8 @@ Primary subject of this collection: the Fort Dearborn settlement (1803-1830s) an
 | `chicago_kinzie_house_1804.jpg` | ca. 1804-1832 | building exterior | The Old Kinzie House (First House Built in Chicago) |
 | `chicago_sauganash_hotel_1831.jpg` | ca. 1831-1837 | building exterior | The Sauganash Hotel |
 | `chicago_kinzie_house_1833.png` | ca. 1832-1833 | building exterior | The Kinzie House |
+| `chicago_kinzie_residence_sarony_currey_1912.png` | 1804-1828 | building exterior | Residence of John Kinzie (Sarony lithograph, in Currey 1912) |
+| `chicago_kinzie_mansion_1812_kirkland_1893.png` | 1812 | building exterior | Kinzie Mansion—1812 (in Kirkland 1893) |
 | `chicago_st_marys_church_1843.jpg` | ca. 1834-1843 | building exterior | St. Mary's Church |
 | `chicago_saloon_building_1836.jpg` | ca. 1836-1848 | street scene | The Saloon Building |
 | `chicago_fort_dearborn_river_mouth_1830.jpg` | ca. 1836-1849 | building exterior | Old Fort Dearborn, erected at the mouth of Chicago River for defence against the Indians |
@@ -478,6 +480,22 @@ Also held/licensed by: Chicago History Museum (via its Alamy contributor account
 Lithographed rooftop panorama of Chicago looking over frame houses toward the business district and harbor, with a forest of schooner masts, church spires and the lighthouse along the river.  
 Institution: New York Public Library, I. N. Phelps Stokes Collection of American Historical Prints · Rights: Public domain (NYPL PD statement; published 1851, pre-1930)  
 Source page: <https://digitalcollections.nypl.org/items/510d47d9-7cbb-a3d9-e040-e00a18064a99>  
+
+#### `chicago_kinzie_residence_sarony_currey_1912.png`
+
+**Residence of John Kinzie** — lithograph (halftone reproduction) · scene: 1804-1813 and 1816-1828 · made: 1850s lithograph, reproduced 1912  
+*Napoleon Sarony (lithographer), after a sketch by Juliette A. (Mrs. John H.) Kinzie; reproduced in J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg, 1912)*  
+The Kinzie house on the north bank: its piazza, the picket-fenced green to the river, four Lombardy poplars in a row east of it, the great tree behind, outbuildings up the road to the west. Currey's caption: "The house in which John Kinzie and his family lived from 1804 to 1813, and again from 1816 to 1828, as it was lithographed by Sarony from a sketch made by Mrs. John H. Kinzie, the author of Wau-Bun." The same artwork as the Kirkland plate below and the source of the Teich postcard's painting. Fetched 2026-10-15 (chicago T-2498) from the Project Gutenberg edition, 656 x 391 px as Gutenberg serves it.  
+Institution: Project Gutenberg, eBook #52346 · Rights: Public domain (published 1912 in the US; Gutenberg edition public domain in the US)  
+Source page: <https://www.gutenberg.org/ebooks/52346>  
+
+#### `chicago_kinzie_mansion_1812_kirkland_1893.png`
+
+**Kinzie Mansion—1812** — halftone reproduction of a lithograph · scene: 1812, by its caption · made: 1893  
+*After Napoleon Sarony's lithograph of a sketch by Juliette A. Kinzie; reproduced in Joseph Kirkland, The Chicago Massacre of 1812 (Chicago: Dibble, 1893), p. 73*  
+The same artwork as Currey's "Residence of John Kinzie" above, cropped a little closer and captioned for 1812. Fetched 2026-10-15 (chicago T-2498) from the Project Gutenberg edition, 600 x 353 px as Gutenberg serves it.  
+Institution: Project Gutenberg, eBook #59624 · Rights: Public domain (published 1893 in the US)  
+Source page: <https://www.gutenberg.org/ebooks/59624>  
 
 ### Licensed previews (`licensed_previews/`)
 
