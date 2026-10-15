@@ -2,8 +2,8 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "94d0bc55bd14dd9e5b9e754831f2db7caf0565b8f7239b0871385824b9c565c2",
-  "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
+  "glb_sha256": "9108f9f554152d059ffa2ab303aa00991e7c1e83be876c2a1a85abba27a8c63a",
+  "camera_sha256": "e128973206a2450f63d647e3bc4ac5ca1196af41ee5c3e39a88d6af7c92cbb46",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -96,8 +96,12 @@
       "status": "open"
     },
     {
-      "what": "Entrance: the print's steps run on down past the model's foot, their nosings at 813, 834, 850, 865.5, 879.5, 892, 908 and 922.5 px (about 15 px apart) to where the fence's rail cuts them off. T-2520 settled it through the camera: no stair of buildable risers and goings draws that run from a 0.6 m floor through the present solve; solved with the fence's base, the run needs the floor 1.3-1.6 m over the walk in about ten risers of 0.15-0.16 m, the eye 28-33 m out on the far walk of Prairie Avenue (rms 2.8-3.1 px). The print cannot split that between a higher floor and a fall in the yard (the hedge hides the house's foot); the sheet's '2BB' basement makes it the floor's height. The camera's re-solve, the raised floor and the ten risers are T-2523's; the fence re-read at the new scale is T-2524's",
-      "status": "open"
+      "what": "Entrance: the print's steps run on down past the model's foot, their nosings at 813, 834, 850, 865.5, 879.5, 892, 908 and 922.5 px (about 15 px apart) to where the fence's rail cuts them off; T-2520 settled it through the camera as the floor's height. T-2523 builds it: the house on a 0.95 m basement (the sheet's '2BB'), the floor 1.55 m over the walk, the stoop ten risers of 0.155 m on 0.36 m goings, and the camera re-solved on those steps and the fence's base (the eye 30.71 m out on the far walk, 3.25 m over it, f 2242 px); rendered, the treads land on the eight nosings within 3.7 px rms, the print's wider top gap (813 to 834 px) the one the stair does not draw",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance and tower re-read through the camera T-2523 re-solved (the eye 30.71 m out where it stood 20 m, so what stands out from the front draws smaller and nearer the middle than before): the porch and tower centred 6.53 m from the front's south end, not 6.40 m; the floor 1.16 m a side, the posts 0.23 m and 0.045 m in from its ends, the trefoil and quatrefoils 3 % larger, the plate 2.87 m clear; the tower's sills 4.40 m, cornice 7.05 m and spire 10.08 m. Rendered, the roof's ends, posts, quatrefoils, spring, crown and roof lie within 4 px of the print, the tower's sills, points, cornice and spire within 1 px",
+      "status": "fixed"
     },
     {
       "what": "Entrance: a pale gabled shape over the door's south leaf, 686-757 px across and 622-650 px high, identified by T-2520 as a glazed transom over the leaves: the leaves' lights' own tone in a porch otherwise black, starting on the south jamb, on a dark bar over the head. Built as a 0.12 m bar and one light under a low gable, 0.17 m at the jambs and 0.39 m at the middle: rendered, its south slope lies within 1 px of the print's (631, 627 and 623 px at 700, 710 and 720 px), its foot and apex 4 px high, and the apex at the door's middle, 10 px north of the print's; the glass's dark north part (what it reflects) is not modelled",

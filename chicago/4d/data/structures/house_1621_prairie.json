@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the north unit of the attached group 1621-1625, light well shared with 1623'. Carried to 1904 on the T-1840 census ruling (present_as_mapped). Whose house: John H. Hamline's, built to Treat & Foltz's design of 1885-86 (the left-hand house of the Building Budget drawing, building_budget_1886_06_hamline_farwell_houses), ruled at 1621 by T-2439 on the 1885 permit, the 1884-87 directories, the 1886 occupant map, the 1886 Robinson plate's printed number (robinson_1886_chicago_plate_10) and the 1904 Blue Book, against one 1886 newspaper's '1619' (docs/RESEARCH/hamline-1621-2436/README.md). Its front is built to that drawing (T-2440, which moved the build here from 1619, where T-2420 first stood it)."
   },
   "review_required": false,
-  "research_note": "T-2440 (piece 2 of T-2436) moves the build of Treat & Foltz's drawing of John H. Hamline's house in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses) from 1619 Prairie, where T-2420, T-2428, T-2459 and T-2460 built it, to this house, which T-2439 ruled was Hamline's (docs/RESEARCH/hamline-1621-2436/README.md). The 1911 Sanborn sheet 20 still controls the plan, now 1621's own: the trace s20fp-1621-b1 draws a front 6.2 m wide at the street wall with a curved bay about 2.3 m across and 1 m deep at its SOUTH end, and south of the front the passage the drawing's plan letters 'Driveway'. On it stands everything the drawing gave 1619, carried unchanged where it is a height and re-fitted where it is a width: a K02 smooth limestone street front on K03 brick sides and rear, the K08 bow at the sheet's chord rising from grade to the moulded stone cornice (K10, T-2460) that runs round its top and along the front, the door in the north strip on a K07 stoop, the wall gable over the bow (T-2428) with its three segment-headed lights, voussoirs, pediment panel, finial and pinnacles, narrowed to the narrower front, and the slated gable roof behind it with the south side wall carried up in crow steps to the tall stack (T-2459). The camera is the plate's one station point (T-2420's, as T-2433 carried it to Farwell's 1623 next door), put in this house's frame: data/reference_views/house_1621_prairie/building_budget_front.json, which says where the drawing and the sheet disagree. What the drawing shows and is not yet built — the round-arched entrance, the side stoop, the balcony rail and the grilled basement arches (T-2422) — is listed open in its match record. Everything not read is reconstructed and recorded as L-k01-1621-hamline-front-2440.",
+  "research_note": "T-2440 (piece 2 of T-2436) moves the build of Treat & Foltz's drawing of John H. Hamline's house in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses) from 1619 Prairie, where T-2420, T-2428, T-2459 and T-2460 built it, to this house, which T-2439 ruled was Hamline's (docs/RESEARCH/hamline-1621-2436/README.md). The 1911 Sanborn sheet 20 still controls the plan, now 1621's own: the trace s20fp-1621-b1 draws a front 6.2 m wide at the street wall with a curved bay about 2.3 m across and 1 m deep at its SOUTH end, and south of the front the passage the drawing's plan letters 'Driveway'. On it stands everything the drawing gave 1619, carried unchanged where it is a height and re-fitted where it is a width: a K02 smooth limestone street front on K03 brick sides and rear, the K08 bow at the sheet's chord rising from grade to the moulded stone cornice (K10, T-2460) that runs round its top and along the front, the door in the north strip on a K07 stoop, the wall gable over the bow (T-2428) with its three segment-headed lights, voussoirs, pediment panel, finial and pinnacles, narrowed to the narrower front, and the slated gable roof behind it with the south side wall carried up in crow steps to the tall stack (T-2459). The camera is the plate's one station point (T-2420's, as T-2433 carried it to Farwell's 1623 next door), put in this house's frame: data/reference_views/house_1621_prairie/building_budget_front.json, which says where the drawing and the sheet disagree. T-2525 built the bow's balcony rail and its barred basement lights, and T-2526 the round-arched entrance under its voussoirs with the carved panel and framed light over it; what the drawing shows and is not yet built — the side stoop (T-2527) — is listed open in its match record. Everything not read is reconstructed and recorded as L-k01-1621-hamline-front-2440.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -130,11 +130,16 @@
           "value": {
             "by_storey": [
               "k09.trim.lintel_cornice_hood",
-              "k01.flat_lintel"
-            ]
+              "k09.surround.rowhouse_restrained"
+            ],
+            "apron": "k09.trim.foliate_panel",
+            "apron_storeys": [
+              1
+            ],
+            "apron_over_belt": true
           },
           "confidence": "reconstructed",
-          "note": "The north strip's door and the lights over it: a K09 cornice-hood lintel over the door's storey and K01's flat stone lintel over the second storey's light. The drawing's round-arched entrance and the carved panel over it are T-2422's to build."
+          "note": "The light over the door at the second floor (T-2526): K09's restrained surround, an architrave, a frieze block and a cornice hood on two consoles, for the drawing's framed and capped light, and under it on the second-floor belt course K09's carved foliate panel (`apron_over_belt`), for the drawing's carved panel. Through the drawing's camera the light's head and sill land within about 2 px of the drawn ones, its hood within about 5 px, and the panel within about 5 px of the drawn one's top and foot; the panel is about 43 px wide against about 54 px drawn. The carving is the kit's generic motif, the drawing's being illegible at its size (L-k01-1621-entrance-2526). The door's own head is its voussoir block (entrance_kit.arch); the principal storey's entry names nothing on this front, whose strip has no other window."
         },
         "wall_head": {
           "value": {
@@ -364,13 +369,16 @@
               "height_m": 2.3
             },
             {
-              "sill_above_floor_m": 0.7,
-              "width_m": 0.9,
-              "height_m": 1.9
+              "sill_above_floor_m": 1.2,
+              "width_m": 0.75,
+              "height_m": 0.95
             }
           ],
-          "confidence": "reconstructed",
-          "note": "The north strip's and the side and rear walls' sash, storey by storey; the second storey's light over the door is narrow, as the drawing's."
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "The north strip's and the rear wall's sash, storey by storey. The second storey's is the one light over the door, read off the Building Budget drawing through its camera (T-2526): a small light about 0.95 m high and 0.75 m wide, its sill 1.2 m over the second floor, over the carved panel (street_front_trim). The principal storey's row lights no window on the main body (its strip holds the door) and is reconstructed."
         },
         "basement_lights": {
           "value": {
@@ -483,12 +491,21 @@
         "entrance_kit": {
           "value": {
             "k01.opening.door_leaf": {
-              "variant": "k07.entrance.panel_door_stoop",
-              "front_yard_m": 3.8
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 3.8,
+              "reveal_depth_m": 0.32,
+              "arch": {
+                "ring_m": 0.3,
+                "keystone_top_m": 4.4,
+                "keystone_m": [
+                  0.24,
+                  0.3
+                ]
+              }
             }
           },
           "confidence": "reconstructed",
-          "note": "K07's panelled door at the head of a straight stoop; the front yard is about 3.85 m, the sheet's front at u 35.15 against the street line at 39.0. The drawing's stoop climbs beside the strip; T-2422 builds it as drawn."
+          "note": "K07's deep-arch entrance, its round-headed hole the K01 door's 1.2 m by 2.7 m to the crown, a pair of panelled leaves under a radial fanlight set 0.32 m back in the 0.45 m front (the wall less its 0.13 m frame), and round it the front's stone cut into a voussoir block 0.3 m beyond the arch (`arch`, laid as 1612's arched groups are): the Building Budget drawing's recessed round-arched doorway in the north strip (T-2526). Through the drawing's camera the arch's crown lands about 7 px under the drawn one and its spring about 3 px; the opening is about 7 px narrower than drawn. The leaves, fanlight, reveal and ring are reconstructed (L-k01-1621-entrance-2526). The stoop is a straight one toward the street, on a front yard of about 3.85 m (the sheet's front at u 35.15 against the street line at 39.0); the drawing's climbs beside the strip, T-2527's to build."
         },
         "gable_roof": {
           "value": {

@@ -2,7 +2,7 @@
   "structure_id": "house_1621_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
-  "glb_sha256": "dba82518aa9ad3f734f93c23c7d2d54b4b8fe15e073dfe764f2d5ffca9fd38d4",
+  "glb_sha256": "9ceb63fefef48191e071856624aee3b6dda50e7afc981d7267ca98348428014a",
   "camera_sha256": "6222a0879a57a2c0bd3f87866f0fd82d3834acd772c43f2cb1c31c72deb02a7b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg",
   "verdict": "differs",
@@ -44,8 +44,18 @@
     },
     {
       "what": "the entrance: a recessed round-arched doorway with voussoirs in the north strip, and over it at the second floor a small ornate light above a carved panel; the build has a flat-headed panelled door under a K09 hood and a plain sash over it",
+      "status": "fixed",
+      "how": "T-2526: K07's deep-arch door, a round-headed hole 1.2 m wide with its crown 2.7 m over the landing, a pair of panelled leaves under a radial fanlight 0.32 m back in the wall, under a block of voussoirs cut in the front's stone and radiating from the arch's centre, 0.3 m beyond it; through the camera its crown lands about 7 px under the drawn one (485 px against 478), its spring about 3 px, and the opening about 7 px narrower than drawn. Over it at the second floor a light 0.75 m by 0.95 m, its sill 1.2 m over the floor, in K09's restrained surround (architrave, frieze block and cornice hood on consoles), its head and sill within about 2 px of the drawing's and its hood within about 5 px; under it, on the belt course, K09's carved foliate panel, within about 5 px of the drawn panel's top and foot and about 11 px narrower"
+    },
+    {
+      "what": "the entrance arch's outline and depth: the drawing turns its voussoirs to a curved extrados under a band and sets the door at the back of a recess deeper than the wall, its jamb lit inside; the build cuts the voussoirs out to a rectangular block in the coursing and sets the door 0.32 m back in the 0.45 m front",
       "status": "open",
-      "how": "T-2526"
+      "how": "found by T-2526; the arch, its ring and the door are built, the curved extrados and the deeper recess are not"
+    },
+    {
+      "what": "the light over the entrance: the drawing seems to stand it a little proud of the wall on a moulded shelf over the carved panel, with returns at its sides; the build sets it flush in K09's surround, with K06's sill under it",
+      "status": "open",
+      "how": "found by T-2526"
     },
     {
       "what": "the stoop: the drawing's climbs beside the strip, parallel to the front, behind a stone cheek; the build's is a straight stoop toward the street",
@@ -84,5 +94,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2525, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, crops of the bow's top and basement read against the drawing: the balcony rail and the basement's lights, grilles and band fixed; the basement lights' voussoir heads found and left open; the entrance and the stoop still open for T-2526 and T-2527"
+  "reviewed": "T-2526, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, crops of the north strip read against the drawing at three times: the round-arched entrance under its voussoirs and the carved panel and framed light over it fixed; the arch's curved extrados and deeper recess, and the light's projecting shelf, found and left open; the stoop still open for T-2527, and T-2525's basement voussoir heads still open"
 }
