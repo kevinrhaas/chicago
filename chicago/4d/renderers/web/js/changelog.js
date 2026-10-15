@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1835, ts: '2026-10-15T23:40:26.560Z', date: 'Oct 15, 2026, 6:40 PM CT', title: '1638 Prairie\'s lower south wing, built from its photograph', kind: 'improvement',
+    items: [
+      'The block south of 1638 Prairie\'s gable in its photograph is the house\'s own wing, not the neighbour, and it is now built that way: a metre lower than the house, under a steep gable roof facing the street.',
+      'Its two upper windows and the lights below them stand where the photograph shows them.',
+      'The photograph puts the wing about 0.6 m wider than the 1911 fire-insurance map draws it; the photograph is followed and the difference is listed among the liberties.',
+    ] },
   { v: 1834, ts: '2026-10-15T23:37:41.072Z', date: 'Oct 15, 2026, 6:37 PM CT', title: 'Phones draw Prairie Avenue\'s east row inside their detail limit', kind: 'fix',
     items: [
       'Nothing you can see changed: the picture is the same, pixel for pixel.',
