@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1801, ts: '2026-10-15T08:18:58.270Z', date: 'Oct 15, 2026, 3:18 AM CT', title: '1812: what was ruled out, and why', kind: 'feature',
+    items: [
+      'The 1812 scene\'s Evidence drawer now lists the buildings researched and left out of that summer, as the 1835 town\'s always has.',
+      'Guarie\'s trading house on the North Branch is out: it is an eighteenth-century tradition, and by 1818 only its corn-hills were left.',
+      'Cobweb Castle is out until it was built, 1816-1820. The house a witness remembered standing before 1812 was the Burns house beside it.',
+      'Nothing in the scene itself changed. Three new builds were filed from the same reading: La Lime\'s and Le Mai\'s houses across the river, the fort\'s unbuilt outbuildings and wharf, and the houses and cornfield at the forks.',
+    ] },
   { v: 1800, ts: '2026-10-15T07:41:26.134Z', date: 'Oct 15, 2026, 2:41 AM CT', title: '1812: the Burns and Lee houses stand by the river', kind: 'feature',
     items: [
       'The 1812 scene gains its first settlers\' houses: the Burns family\'s log house on the north bank at the later foot of State Street, and the Lee family\'s house on the shore where the river met the lake south of the fort.',

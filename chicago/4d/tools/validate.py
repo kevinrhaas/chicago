@@ -30,6 +30,7 @@ from pathlib import Path
 
 from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION, HOME_KINDS, WORK_KINDS,
                          check_association_rows, home_of, workplace_of)
+from exclusion_scope import ruled_for, scenes_of
 from heightfield import Heightfield
 from migrate_attribute_tiers import check_tier_block
 from reconstruct_residents_1835 import (PROGRAMME as RECONSTRUCTION_PROGRAMME,
@@ -561,8 +562,11 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
         # T-1739: asked only of a scene that lists `exclusions`. The record is the 1835
         # town's; the 1904 scene stands on Prairie Avenue, where none of it is, and an
         # 1837 brick block on Clark Street is not an exclusion from that ground at all.
+        # T-2489: and of a scene that lists it, only the entries ruled FOR that scene —
+        # an entry names its scenes, and one naming none is the 1835 town's. The identity
+        # check above stays unscoped: an id excluded anywhere may not stand anywhere.
         earliest = str(ex.get("earliest_scene") or "")
-        if ("exclusions" in scene.get("layers", []) and earliest.isdigit()
+        if ("exclusions" in scene.get("layers", []) and ruled_for(ex, sid) and earliest.isdigit()
                 and int(earliest) <= target.year):
             rep.error(where, f"'{ex.get('id')}' is excluded, but its own earliest_scene "
                              f"({earliest}) is on or before this scene ({target.year}) — "
@@ -605,6 +609,10 @@ def check_exclusions(exclusions: dict, source_ids: set, rep: Report) -> None:
         for s in srcs:
             if s not in source_ids:
                 rep.error(where, f"source '{s}' does not resolve in data/sources/")
+        # T-2489: a ruling scoped to a scene that does not exist is a ruling nobody reads.
+        for sc in scenes_of(ex):
+            if not (DATA / "scenes" / f"{sc}.json").exists():
+                rep.error(where, f"scenes names '{sc}', which is not a scene in data/scenes/")
 
 
 # The claims the provenance card renders, as a RECORD names them mapped to the
