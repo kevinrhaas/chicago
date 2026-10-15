@@ -584,18 +584,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # fort's wharf (`pier_crib`, the archetype's first river wharf beside the two harbour piers) and
 # its covered way to the river in four runs (`palisade`), restaling on the same rows.
 #
-# 874 -> 878, 724 -> 728 and 718 -> 722 on 2026-10-15 (T-2510): four haystacks at Lee's Place in
-# 1812, the first records of the new `haystack` archetype, emitted the same way, restaling on the
-# same rows. No row is added for generators/archetypes/haystack.py: like every other archetype but
-# pier_crib it reaches only its own records.
+# 874 -> 878 on 2026-10-15 (T-2510): four haystacks at Lee's Place in 1812, the first records of
+# the new `haystack` archetype. It writes its glTF in pure Python (generators/haystack_emit.py, the
+# K12/K16 route), so it restales on none of the shared rows below: registering it in emit.py
+# instead would have re-staled all 722 of that row's meshes for want of one dict entry.
 #
 STATED = {
     "assets": 878,
     "restales": {
-        "generators/common/*.py": 728,
+        "generators/common/*.py": 724,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 722,
+        "generators/emit.py": 718,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
