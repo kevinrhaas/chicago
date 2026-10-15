@@ -27235,3 +27235,47 @@ meadow, or says whether the farm was worked between April and August 1812.
 **Ticket:** T-2510.
 **Recorded:** 2026-10-15 (T-2510).
 **Covers:** `lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`
+
+### L-1812-coursoll-field-2513 — Coursoll's inclosed field north of the river: its place and size by the outside rule, one mean box for a skewed drawing, its east side and its rails
+
+**Decision:** a worm fence stands in the 1812 scene north of the river, west of the three houses
+Whistler's draught numbers 31, as `first_fort_outer_coursoll_field`. **That there was an inclosed
+field north of the river, that it was Coursoll's and that it was worm-fenced is the sources'**: the
+draught draws it with a zigzag lettered 'Worm Fence' and 'Mr Coursell' inside it, and Quaife (1913,
+p. 167) reads Whistler's description as "a house and inclosed field north of the river, belonging to
+Mr. 'Coursoll.'" **Its place, its size, its shape, its rails and its dates are this project's.**
+
+**Place and size.** The draught lays down nothing outside the garrison to scale, so the field is
+seated by T-2062's rule like every other part read outside the stockade: its sheet offset from the
+main gate opened out by no. 17's expansion (about 3.32), no. 17 being the nearest part with a figure
+of its own. The field carries no lettered scale and is not a pictorial building, so its outline is
+opened out by the same expansion as its place (the two gardens already stand that way, their lettered
+fifty feet being their expansion). That keeps the sheet's arrangement whole and gives 41.2 x 31.6 m,
+about a third of an acre: small for a field, and as uncertain as everything else the drafter
+compressed outside the fort.
+
+**Shape.** The four drawn corners make a skewed quadrilateral, turned about 29.5 degrees anticlockwise
+on the paper; the archetype fences a rectangle, so the MEAN box in the drawing's own axes stands for
+it. The turn on the ground is the turn on the paper, and the paper's orientation (its right taken as
+east) is itself inferred.
+
+**The east side.** Three sides are drawn as the zigzag; the east side is a hatched band running down
+to the bank, like the paling along it. It is built as worm fence with the rest.
+
+**Rails and dates.** Four courses to 1.3 m, ten-foot panels stepped three feet, as the garrison's own
+fields are given. The field opens with the sheet (25 January 1808) and closes with the first fort on
+16 August 1812: nothing mentions it after the sheet.
+
+**Not built:** the house. The only house drawn at the field is the westernmost no. 31, across its
+south-east corner, and whose house that was is T-2504's ruling, so it is built once, there. Nothing
+is planted inside: neither source says what grew there.
+
+**Consequence:** a visitor to 1812 sees a worm-fenced field on the north bank west of the houses
+across from the fort. That a fenced field of Coursoll's stood there is the sources'; its exact place,
+size, shape and rails are ours.
+
+**How to resolve:** any survey or account that places or sizes the Courselles' field, or a reading
+of Kinzie's account books that dates their time at Chicago.
+**Ticket:** T-2513.
+**Recorded:** 2026-10-15 (T-2513).
+**Covers:** `first_fort_outer_coursoll_field.coursoll_1808.position`, `first_fort_outer_coursoll_field.coursoll_1808.footprint`, `first_fort_outer_coursoll_field.coursoll_1808.form.fence_height_m`, `first_fort_outer_coursoll_field.coursoll_1808.form.rail_courses`, `first_fort_outer_coursoll_field.coursoll_1808.form.panel_length_m`, `first_fort_outer_coursoll_field.coursoll_1808.form.panel_offset_m`

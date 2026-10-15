@@ -594,13 +594,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # below: registering it in emit.py instead would have re-staled every mesh on that row for want of
 # one dict entry.
 #
+# 880 -> 881, 726 -> 727 and 720 -> 721 on 2026-10-15 (T-2513, landing after T-2510): Coursoll's
+# worm-fenced field north of the river in 1812 (first_fort_outer_coursoll_field, `palisade`),
+# emitted like the first fort's other outside parts, restaling on the same rows.
+#
 STATED = {
-    "assets": 880,
+    "assets": 881,
     "restales": {
-        "generators/common/*.py": 726,
+        "generators/common/*.py": 727,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 720,
+        "generators/emit.py": 721,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

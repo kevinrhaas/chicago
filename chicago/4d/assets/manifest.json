@@ -593,6 +593,15 @@
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_bake_house"
     },
+    "first_fort_outer_coursoll_field__coursoll_1808.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 182508,
+      "inputs_sha256": "e216e426435e829479a1f3cad0ecbfa8b4d5f8f6376543abb547e2fefc6347f7",
+      "kind": "generated",
+      "phase_id": "coursoll_1808",
+      "structure_id": "first_fort_outer_coursoll_field"
+    },
     "first_fort_outer_factory__first_fort_1803.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,

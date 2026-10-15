@@ -826,7 +826,7 @@
   "ticket": "T-2062",
   "parent_ticket": "T-2050",
   "what_this_is": "The reading T-2062 adds for the buildings and gardens the draught draws OUTSIDE the stockade, and the rule they are built to. The index puts these off the garrison scale: the Indian Department's dwellings are 'laid down at forty feet to the Inch' and their distances 'not laid down by a scale'. So no part here is a measurement of where it stood. Each one is the sheet's ARRANGEMENT, opened out by a figure the drafter wrote himself. Every number below is a pixel box on the pinned sheet (sha256 above) or a figure lettered on it. tools/read_whistler_1808.py --check re-derives every record built from this from those boxes.",
-  "the_rule": "Each part is placed by its sheet offset from the main gate's outer mouth (gate_px), multiplied by an EXPANSION. A part with a stated distance or a stated scale uses its own: the agent's house (no. 17) has 'Distance to Main Gate Eighteen Perches' (297 ft), and the Commanding Officer's garden is lettered '5o feete to the Inch' (50/20 = 2.5). A part with neither uses the expansion of the nearest part that has one: the factory and the stables take no. 17's, and the sutler's garden takes the officers' garden's. A building's footprint is its drawn box at the scale the index states for the Indian Department's dwellings (40 ft to the inch), and a garden's is its drawn box at the garden's own lettered scale. The drawn buildings are small pictorial elevations, roof and front together, so a footprint read this way is an upper bound and is RECONSTRUCTED. The positions are reconstructed too. T-2507 adds nos. 19-22 under the same rule. 'Nearest' is the nearest part with its own figure, centre to centre on the sheet, among the parts T-2062 read: the bake house (22) beside no. 17 takes no. 17's; the armourer's shop (20) and the merchant's shop (21), east and south-east of the officers' garden, take the garden's, as the sutler's garden does. The interpreter's house (19) states its own distance, and that figure is KEPT BUT DOES NOT GOVERN (expansions.interpreter_19 says why): it takes no. 17's. A building drawn turned off the sheet's axes carries turn_deg, its box is its plan in its own axes about its drawn centre, and it is seated turned by that angle.",
+  "the_rule": "Each part is placed by its sheet offset from the main gate's outer mouth (gate_px), multiplied by an EXPANSION. A part with a stated distance or a stated scale uses its own: the agent's house (no. 17) has 'Distance to Main Gate Eighteen Perches' (297 ft), and the Commanding Officer's garden is lettered '5o feete to the Inch' (50/20 = 2.5). A part with neither uses the expansion of the nearest part that has one: the factory and the stables take no. 17's, and the sutler's garden takes the officers' garden's. A building's footprint is its drawn box at the scale the index states for the Indian Department's dwellings (40 ft to the inch), and a garden's is its drawn box at the garden's own lettered scale. The drawn buildings are small pictorial elevations, roof and front together, so a footprint read this way is an upper bound and is RECONSTRUCTED. The positions are reconstructed too. T-2507 adds nos. 19-22 under the same rule. 'Nearest' is the nearest part with its own figure, centre to centre on the sheet, among the parts T-2062 read: the bake house (22) beside no. 17 takes no. 17's; the armourer's shop (20) and the merchant's shop (21), east and south-east of the officers' garden, take the garden's, as the sutler's garden does. The interpreter's house (19) states its own distance, and that figure is KEPT BUT DOES NOT GOVERN (expansions.interpreter_19 says why): it takes no. 17's. A building drawn turned off the sheet's axes carries turn_deg, its box is its plan in its own axes about its drawn centre, and it is seated turned by that angle. T-2513 adds Coursoll's worm-fenced field north of the river under the same rule, taking no. 17's expansion as the nearest part with a figure; a field is ground and carries no lettered scale, so its drawn outline is opened out by that same expansion (scale_ft_per_in 'expansion'), as the gardens' outlines are by theirs.",
   "inch_px": 90.4,
   "inch_px_note": "One inch of the garrison scale: 20 ft at the staff's 4.52 px per foot. The other two scales are fractions of the same inch.",
   "gate_px": [
@@ -1027,8 +1027,32 @@
     "expansion": "garden_scale",
     "facing": 270,
     "drawn": "READ AT T-2507 at 8x, turned to its lettering. The small house east-south-east of the officers' garden that the register found with an illegible mark: the mark, west of its front, reads '21'. A front with two lights facing west, its roof drawn to the east."
+   },
+   {
+    "part": "coursoll_field",
+    "record": "first_fort_outer_coursoll_field",
+    "index_no": null,
+    "sheet_px": [
+     555,
+     431,
+     739,
+     572
+    ],
+    "drawn_bbox_px": [
+     522,
+     387,
+     748,
+     604
+    ],
+    "turn_deg": -29.5,
+    "scale_ft_per_in": "expansion",
+    "expansion": "agent_17",
+    "facing": 0,
+    "drawn": "READ AT T-2513 on 3x and 6x crops. North of the river, west of the three no. 31 houses: a field bounded by a zigzag lettered 'Worm Fence' along its south-west side and 'Mr Coursell' inside it, drawn TURNED about 29.5 degrees anticlockwise off the sheet's axes. Its four corners read about N (707, 387), W (522, 490), S (611, 604) and E (748, 525). Three sides are drawn as the zigzag; the east side, N to E, is a hatched band like the paling drawn along the bank, and it runs down to the bank where the westernmost no. 31 house stands across the field's south-east corner, the south-east zigzag ending at its west gable. The four do not quite make a rectangle (the long sides read 212 and 153 px, the short sides 144 and 145 px), so sheet_px is the MEAN box in the drawing's own axes about the corners' centre (647, 501.5): 184 px along the long sides, 141 px across; drawn_bbox_px is the turned drawing's extent on the sheet.",
+    "identity": "Quaife 1913 p. 167, reading Whistler's description: 'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' The sheet draws one field north of the river and letters it so. The house is NOT this part: the only house drawn at the field is the westernmost no. 31 (index no. 31, px 708, 530), and which name that house takes is T-2504's ruling, so it is built once, there.",
+    "scale_note": "No scale is lettered at the field and it is not a building, so neither the index's forty feet to the inch nor a garden's own figure applies. A field is ground: its outline is a set of distances on the ground like the ones between the buildings, so it is opened out by the same expansion as its place (agent_17, the nearest part with a figure of its own, centre to centre). The two gardens already stand this way, their lettered fifty feet being their expansion. It keeps the sheet's arrangement whole: the no. 31 house, seated by the same expansion, lands on the field's south-east fence where the sheet draws it."
    }
   ],
-  "not_built": "The paled yards beside nos. 17 and 18, and the 'Old field' lettered west of the road, which is ground rather than a structure. The small unnumbered mark south of the bake house (no. 22). The house inside the sutler's garden, whose mark is not read. The wharf (no. 27) and the covered way (no. 33) are T-2508's: they are seated on the river rather than by this rule. Until T-2507 the interpreter's house (no. 19) was here too; it is now built, by no. 17's expansion (expansions.interpreter_19)."
+  "not_built": "The paled yards beside nos. 17 and 18, and the 'Old field' lettered west of the road, which is ground rather than a structure. The small unnumbered mark south of the bake house (no. 22). The house inside the sutler's garden, whose mark is not read. The wharf (no. 27) and the covered way (no. 33) are T-2508's: they are seated on the river rather than by this rule. Until T-2507 the interpreter's house (no. 19) was here too; it is now built, by no. 17's expansion (expansions.interpreter_19). The three no. 31 houses north of the river, the westernmost of them standing at Coursoll's field (T-2513), are T-2504's, which decides whose each is."
  }
 }

@@ -1,0 +1,112 @@
+{
+  "id": "first_fort_outer_coursoll_field",
+  "name": "Coursoll's inclosed field, north of the river, 1812",
+  "aka": [
+    "'Mr Coursell' inside a zigzag lettered 'Worm Fence' on Whistler's draught",
+    "'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' (Quaife 1913)"
+  ],
+  "archetype": "palisade",
+  "phases": [
+    {
+      "id": "coursoll_1808",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913"
+        ],
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS FIELD. It opens on 25 January 1808, the date Whistler's draught carries, the one day a source shows the field fenced; it may well be older. That it still stood in August 1812 is continuity, not a reading: nothing in the corpus mentions it after the sheet, and Quaife finds the Courselles at Chicago otherwise only in Kinzie's account books. It closes on 16 August 1812 with the first fort, the day the post was burned and the people about it gone, as every part read by this rule does: a worm fence is stacked rails, and nothing says anybody kept this one through the four years the place stood empty. Closing it then keeps it out of every later scene and adds nothing to one."
+      },
+      "position": {
+        "utm_e": 448141.09,
+        "utm_n": 4637720.92,
+        "rotation_deg": 330.5,
+        "symbolic_location": "North of the river, west of the three houses Whistler's draught numbers 31, in the frame of the draught (T-2062 rule, part 'coursoll_field', drawn turned 29.5 degrees anticlockwise): E -308.6..-173.3 ft, N +368.2..+471.8 ft of the flagstaff's foot, the box in the field's own axes about its centre; this record's origin is the box's south-west corner turned with it.",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913"
+        ],
+        "note": "PLACED BY T-2062's RULE, NOT MEASURED. The draught says the buildings outside the garrison are 'not laid down by a scale', so this is the sheet's ARRANGEMENT opened out about the main gate. The field's mean box on the sheet is px [555, 431, 739, 572] about its centre (647, 501.5), drawn turned 29.5 degrees anticlockwise; its offset from the gate's mouth (px [964, 1150]) is multiplied by no. 17's expansion (about 3.32: the drafter's 'Eighteen Perches' to the agent's house against the house's drawn distance), no. 17 being the nearest part with a figure of its own. The rule and its numbers are data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade, and tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m, and refuses any corner on the committed 1812 water. The sheet's orientation (its right taken as east) is itself inferred, so the turn on the ground is the turn on the paper and no more (L-1812-coursoll-field-2513).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage). It is a reconstruction by stated rule, and tools/read_whistler_1808.py --check (run by check.sh) recomputes it: it refuses this utm point and rotation unless they are what the register's outside_the_stockade rule and the fort's seat give this record's box, to 0.01 m (T-2062, T-2513)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            41.239,
+            0
+          ],
+          [
+            41.239,
+            31.577
+          ],
+          [
+            0,
+            31.577
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "THE DRAWN OUTLINE, OPENED OUT WITH ITS PLACE. No scale is lettered at the field, so its mean drawn box (184 x 141 px) is opened by the same expansion as its position: 41.239 x 31.577 m, about 1,300 square metres, a third of an acre. The sheet's four corners make a skewed quadrilateral rather than a rectangle and the archetype fences a rectangle, so the mean box stands for it. A field this size is small: the drafter compresses the ground outside the fort and the size is as uncertain as the place (L-1812-coursoll-field-2513)."
+      },
+      "form": {
+        "wall_kind": {
+          "value": "worm_fence",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "Lettered 'Worm Fence' along the field's south-west side and drawn as a zigzag on three sides, so a worm fence is the sheet's own word for it. The east side is drawn as a hatched band instead, running down to the bank like the paling along it, and is built as worm fence with the rest; that the whole round was one fence is the inference (L-1812-coursoll-field-2513)."
+        },
+        "construction": {
+          "value": "split_rail",
+          "confidence": "inferred",
+          "note": "A worm fence is stacked split rails by construction; it has no posts and nothing is set in the ground."
+        },
+        "fence_height_m": {
+          "value": 1.3,
+          "confidence": "reconstructed",
+          "note": "Unattested. About four and a half feet, the ordinary height of a worm fence that has to keep stock out of a field, as the garrison's own fields here are given."
+        },
+        "rail_courses": {
+          "value": 4,
+          "confidence": "reconstructed",
+          "note": "Unattested. Four courses, as the garrison's cornfield at the forks is given, for a field with cattle about."
+        },
+        "panel_length_m": {
+          "value": 3.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. Ten feet, which is a split rail's length."
+        },
+        "panel_offset_m": {
+          "value": 0.9,
+          "confidence": "reconstructed",
+          "note": "Unattested. How far each panel steps off the line, which is what makes the zigzag; three feet is the ordinary lay."
+        }
+      },
+      "change_note": "Built T-2513 (2026-10-15). Coursoll's worm-fenced field north of the river, in the 1812 scene."
+    }
+  ],
+  "function": {
+    "value": "fenced_field",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' (Quaife 1913 p. 167, reading Whistler's description); the draught letters it 'Mr Coursell'. Quaife: 'There were two Courselles, one of them a well-known trader, but the only other record of either of them being at Chicago is the recurrence of their names in Kinzie's account books.'"
+  },
+  "research_note": "COURSOLL'S FIELD (T-2513, piece 2 of T-2506). Whistler's draught of January 1808 draws one field north of the river, a worm fence round it and 'Mr Coursell' lettered inside; Quaife reads his description as 'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' ONLY THE FENCE IS BUILT, and nothing inside it: neither source says what grew there. The house is the westernmost of the three no. 31 houses the sheet draws, standing across the field's south-east corner; it is built once, by T-2504, which decides whose house it was (Coursoll's in 1808, or one of Cooper's Ouilmette, La Lime and Le Mai). Placed and sized by the same rule as everything else the sheet draws outside the stockade (L-1812-coursoll-field-2513).",
+  "review_required": false
+}

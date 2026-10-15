@@ -235,6 +235,12 @@
       "asset": "gltf/first_fort_outer_bake_house__first_fort_1803.glb"
     },
     {
+      "id": "first_fort_outer_coursoll_field",
+      "name": "Coursoll's inclosed field, north of the river, 1812",
+      "sidecar": "sidecars/1812/first_fort_outer_coursoll_field.json",
+      "asset": "gltf/first_fort_outer_coursoll_field__coursoll_1808.glb"
+    },
+    {
       "id": "first_fort_outer_factory",
       "name": "First Fort Dearborn — the United States factory (the factor's house)",
       "sidecar": "sidecars/1812/first_fort_outer_factory.json",

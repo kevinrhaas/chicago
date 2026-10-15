@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -66,6 +66,7 @@
     "first_fort_outer_agents_house__first_fort_1803.glb": "dd794b8bae5923ede6fabf1da05b22afd61ee1b0f07845b565add376985e1b95",
     "first_fort_outer_armourers_shop__first_fort_1803.glb": "9e82bcbb7b18d9baf86d533f4522d92462e101876d43567e111151845006aea4",
     "first_fort_outer_bake_house__first_fort_1803.glb": "b490a61ed03948abb648e98e0d70aec69088891643ce26e87b5c67635cb08570",
+    "first_fort_outer_coursoll_field__coursoll_1808.glb": "20a0054e2ac3a748bb51c281f8e24fa895cda1cc4d711153819566e7873c9294",
     "first_fort_outer_factory__first_fort_1803.glb": "90f8de3ddbae5fc253ec4457f36f6ee120801699fecffad23d305f9cc3d0e49a",
     "first_fort_outer_interpreters_house__first_fort_1803.glb": "8786ee5f63adf0efce3fe4bbfdb7eaa6d4d7d52a5cdfe404c58a0f0e12e73a9d",
     "first_fort_outer_merchants_shop__first_fort_1803.glb": "07c82c64560a5d4457e2622e32150728b5230b927a50a3470b0713d6153da053",

@@ -41,6 +41,11 @@ commit (data/traces/README.md):
     `turn_deg` (clockwise, about its box's centre) and is seated turned. A stated figure
     whose expansion does not govern (`governs: false`) is kept and computed, never used.
     And every outside record stands DRY: no footprint corner on the committed 1812 water.
+  * (T-2513) Coursoll's worm-fenced field north of the river stands by the same rule. A
+    field is GROUND, not a pictorial elevation, and carries no lettered scale, so its
+    `scale_ft_per_in` is the word "expansion": its drawn outline is opened out by the
+    same figure as its place, which is what the two gardens already get (their lettered
+    fifty feet IS their expansion), and keeps the sheet's arrangement of fence and house.
   * (T-2508) the wharf (27) and the covered way (33) are seated on the committed 1812
     river by their index rows' `seat`, not by the outside rule: the wharf where the
     drafter's red '122 feet to River' about the outer row's north-west corner first meets
@@ -365,7 +370,9 @@ def outside_boxes(doc: dict) -> dict[str, dict]:
         k = exp[p["expansion"]]
         ce = (gx - ox) / s + (cx - gx) / s * k
         cn = (oy - gy) / s - (cy - gy) / s * k
-        ft_per_px = p["scale_ft_per_in"] / out["inch_px"]
+        # a ground part with no lettered scale is opened out with its place (T-2513)
+        ft_per_px = (k / s if p["scale_ft_per_in"] == "expansion"
+                     else p["scale_ft_per_in"] / out["inch_px"])
         w, h = (x1 - x0) * ft_per_px, (y1 - y0) * ft_per_px
         box = [round(ce - w / 2, 1), round(ce + w / 2, 1), round(cn - h / 2, 1), round(cn + h / 2, 1)]
         ew, ns = (box[1] - box[0]) * FT_M, (box[3] - box[2]) * FT_M
