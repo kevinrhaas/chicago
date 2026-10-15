@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1807, ts: '2026-10-15T11:34:32.648Z', date: 'Oct 15, 2026, 6:34 AM CT', title: '1812: the Kinzie house stands across the river from the fort', kind: 'feature',
+    items: [
+      'The log house Jean Baptiste Point du Sable built on the north bank, John Kinzie\'s home from 1804, now faces the first Fort Dearborn in the 1812 scene.',
+      'It has its piazza along the front, two stacks through the ridge and tall sash either side of the door, matched to Lossing\'s 1869 engraving and the Chicago Magazine\'s of 1857.',
+      'A paling encloses the green down to the river, with Kinzie\'s four Lombardy poplars along it and two cottonwoods behind the house.',
+      'A new place to stand, \'Across the river from the fort\', looks at it from the fort\'s mound.',
+      'Its size, set-back and the trees\' places are reconstructions, and its card says so.',
+    ] },
   { v: 1806, ts: '2026-10-15T11:00:18.252Z', date: 'Oct 15, 2026, 6:00 AM CT', title: '1808 Prairie gets its columned entrance loggia and side stair', kind: 'improvement',
     items: [
       'The Keith house at 1808 Prairie now enters through an open stone loggia at its north end, as its 1888 photograph shows: paired columns on corner pedestals, a parapet across the front, and a balcony over it under the second-storey window.',

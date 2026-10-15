@@ -289,6 +289,18 @@
       "asset": "gltf/first_fort_wharf__first_fort_1803.glb"
     },
     {
+      "id": "kinzie_house_1812",
+      "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
+      "sidecar": "sidecars/1812/kinzie_house_1812.json",
+      "asset": "gltf/kinzie_house_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_house_1812_green",
+      "name": "The Kinzie house's fenced green",
+      "sidecar": "sidecars/1812/kinzie_house_1812_green.json",
+      "asset": "gltf/kinzie_house_1812_green__kinzie_1804.glb"
+    },
+    {
       "id": "lee_house_1812",
       "name": "The Lee family's house, on the shore at the river's mouth south of the fort",
       "sidecar": "sidecars/1812/lee_house_1812.json",

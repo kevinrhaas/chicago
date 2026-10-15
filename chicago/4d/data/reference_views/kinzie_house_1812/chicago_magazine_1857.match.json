@@ -1,0 +1,44 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "chicago_magazine_1857",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
+  "camera_sha256": "6bcab6fc7680f8cea65bd9152ca096b501aeaa137fd6439b686bc6e5b7cdb8c1",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/chicago_magazine_1857-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: long and low, one storey, the ridge along the river, the west gable toward the eye; the gable apex within about 10 px of the drawn (140, 176) on the red-edge overlay",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza: across the front on six slender posts, under its own flatter roof hung below the main eave, with a rail between the posts open at the door; built so (log_dwelling `piazza`, T-2497), its roof and rail on the drawn ones",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, about 0.45 and 0.93 of it from the west gable (x 238 and 330 px); the build's at x 250 and 325 px",
+      "status": "fixed"
+    },
+    {
+      "what": "front windows: two tall bare sash each side of the central door; built as two 0.7 x 1.3 m sash each side with no shutters (`front_windows_per_side`, `window_w_m`, `window_h_m`, `front_shutters`)",
+      "status": "fixed"
+    },
+    {
+      "what": "walls: the engraving draws them light and smooth-faced with a corner board, as weatherboard or whitewash reads, about 1833. The 1812 house is built of squared logs from Moses and Kirkland's text, and Lossing's 1812 view draws them dark and coursed; the plate is evidence of its own date, about twenty years later, and a cladding put on in the 1810s or 1820s is the likeliest reading. Not built for 1812",
+      "status": "open"
+    },
+    {
+      "what": "the west gable end: something dark high in the gable and an upright mark low on the end wall may be a small window and a door; at 687 px neither is legible as an opening, and the build leaves the gable unpierced as the archetype does",
+      "status": "open"
+    },
+    {
+      "what": "the paling round the green before the piazza, and the four poplars along its river side: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; the great tree behind the house is the west cottonwood there. This render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: a monochrome wood engraving",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
