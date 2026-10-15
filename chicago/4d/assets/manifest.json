@@ -539,6 +539,24 @@
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_agents_house"
     },
+    "first_fort_outer_armourers_shop__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 89784,
+      "inputs_sha256": "f0d96790b138a6a00b4a7c68e272e746b62666c196246e5cd4826bc422ed6400",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_armourers_shop"
+    },
+    "first_fort_outer_bake_house__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 66712,
+      "inputs_sha256": "12ecd829a0678408c224c10c3118180af948dab832b0ce2c38e83d4b23a6eb5c",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_bake_house"
+    },
     "first_fort_outer_factory__first_fort_1803.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -547,6 +565,24 @@
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_factory"
+    },
+    "first_fort_outer_interpreters_house__first_fort_1803.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 80476,
+      "inputs_sha256": "4d27dc92dd97537ae56fe56e23351223eeebdeaba8df02d12b2d89c618201bc1",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_interpreters_house"
+    },
+    "first_fort_outer_merchants_shop__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 66720,
+      "inputs_sha256": "2488620b71ae784db85be5142d89361a8b2abe02c8ee498a2423ff5f5c34124c",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_merchants_shop"
     },
     "first_fort_outer_officers_garden__first_fort_1803.glb": {
       "archetype": "palisade",

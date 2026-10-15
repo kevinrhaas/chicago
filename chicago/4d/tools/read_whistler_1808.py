@@ -35,7 +35,12 @@ commit (data/traces/README.md):
   * (T-2062) the factory, the agent's house, the stables and the two gardens OUTSIDE
     the stockade (`first_fort_outer_*`) stand where the register's `outside_the_stockade`
     rule puts them: the sheet's arrangement about the main gate, opened out by the
-    drafter's own eighteen perches or the garden's lettered fifty feet to the inch.
+    drafter's own eighteen perches or the garden's lettered fifty feet to the inch;
+  * (T-2507) the interpreter's house, armourer's shop, merchant's shop and bake house
+    (nos. 19-22) stand by the same rule. A part drawn turned off the sheet's axes carries
+    `turn_deg` (clockwise, about its box's centre) and is seated turned. A stated figure
+    whose expansion does not govern (`governs: false`) is kept and computed, never used.
+    And every outside record stands DRY: no footprint corner on the committed 1812 water.
 
 `--remeasure` fetches the working copy, refuses it if its sha256 has moved, and finds
 the staff's two ends again: the longest near-continuous dark run in columns 994-1007,
@@ -194,14 +199,23 @@ SEAT_TOL_M = 0.01
 BOX = re.compile(r"E ([+-][\d.]+)\.\.([+-][\d.]+) ft, N ([+-][\d.]+)\.\.([+-][\d.]+) ft")
 
 
-def seat(box: list[float], facing: int, datum: dict) -> tuple[float, float, float]:
-    """The UTM point and facade bearing the seat gives a record with this frame box."""
+def seat(box: list[float], facing: int, datum: dict,
+         turn: float = 0.0) -> tuple[float, float, float]:
+    """The UTM point and facade bearing the seat gives a record with this frame box.
+
+    `turn` (T-2507) is a drawing's own turn off the sheet's axes, degrees clockwise: the
+    box is the plan in its own axes about its centre, and the corner is turned with it."""
     ce, cn = box[CORNER[facing][0]] * FT_M, box[CORNER[facing][1]] * FT_M
+    if turn:
+        mx, my = (box[0] + box[1]) / 2 * FT_M, (box[2] + box[3]) / 2 * FT_M
+        de, dn, t = ce - mx, cn - my, math.radians(turn)
+        ce = mx + de * math.cos(t) + dn * math.sin(t)
+        cn = my - de * math.sin(t) + dn * math.cos(t)
     th = math.radians(SEAT_BEARING_DEG)
     e = SEAT_LOCAL[0] + ce * math.cos(th) + cn * math.sin(th)
     n = SEAT_LOCAL[1] - ce * math.sin(th) + cn * math.cos(th)
     return (datum["origin_utm_e"] + e, datum["origin_utm_n"] + n,
-            (SEAT_BEARING_DEG + facing) % 360)
+            (SEAT_BEARING_DEG + facing + turn) % 360)
 
 
 def two_forts() -> list[str]:
@@ -316,6 +330,7 @@ def records(doc: dict) -> list[str]:
 #: `outside_the_stockade.the_rule` in the register — and stands for as long as the post.
 OUTSIDE_PREFIX = "first_fort_outer_"
 PERCH_FT = 16.5
+WATER_1812 = ROOT / "data" / "terrain" / "epochs" / "e1830_natural" / "river.geojson"
 
 
 def outside_boxes(doc: dict) -> dict[str, dict]:
@@ -348,8 +363,33 @@ def outside_boxes(doc: dict) -> dict[str, dict]:
         box = [round(ce - w / 2, 1), round(ce + w / 2, 1), round(cn - h / 2, 1), round(cn + h / 2, 1)]
         ew, ns = (box[1] - box[0]) * FT_M, (box[3] - box[2]) * FT_M
         boxes[p["record"]] = {"box": box, "facing": p["facing"], "expansion": round(k, 3),
+                              "turn": float(p.get("turn_deg", 0.0)),
                               "size_m": (ns, ew) if p["facing"] in (90, 270) else (ew, ns)}
     return boxes
+
+
+def _inside(pt, ring) -> bool:
+    x, y = pt
+    hit = False
+    for (x1, y1), (x2, y2) in zip(ring, ring[1:] + ring[:1]):
+        if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+            hit = not hit
+    return hit
+
+
+def wet_corners(pos: dict, poly: list) -> list[tuple[float, float]]:
+    """T-2507: the footprint corners that stand on the committed 1812 water (river.geojson)."""
+    g = json.loads(WATER_1812.read_text())
+    rings = [f["geometry"]["coordinates"] for f in g["features"]
+             if f["properties"].get("kind") == "water" and f["geometry"]["type"] == "Polygon"]
+    t = math.radians(float(pos.get("rotation_deg") or 0.0))
+    ux, uy = (math.cos(t), -math.sin(t)), (math.sin(t), math.cos(t))
+    wet = []
+    for x, y in poly:
+        c = (pos["utm_e"] + x * ux[0] + y * uy[0], pos["utm_n"] + x * ux[1] + y * uy[1])
+        if any(_inside(c, r[0]) and not any(_inside(c, h) for h in r[1:]) for r in rings):
+            wet.append(c)
+    return wet
 
 
 def outside_records(doc: dict) -> list[str]:
@@ -378,7 +418,7 @@ def outside_records(doc: dict) -> list[str]:
         want = "E {:+.1f}..{:+.1f} ft, N {:+.1f}..{:+.1f} ft".format(*b["box"])
         if want not in pos.get("symbolic_location", ""):
             errs.append(f"{sid}: symbolic_location does not carry the rule's box {want}")
-        e, n, rot = seat(b["box"], b["facing"], datum)
+        e, n, rot = seat(b["box"], b["facing"], datum, b["turn"])
         off = math.hypot(pos["utm_e"] - e, pos["utm_n"] - n)
         if off > SEAT_TOL_M or float(pos.get("rotation_deg") or 0.0) != rot:
             errs.append(f"{sid}: stands {off:.2f} m / {pos.get('rotation_deg')} deg off where the "
@@ -389,6 +429,13 @@ def outside_records(doc: dict) -> list[str]:
         if abs(w - b["size_m"][0]) > TOL_M or abs(d - b["size_m"][1]) > TOL_M:
             errs.append(f"{sid}: footprint {w:.2f} x {d:.2f} m is not the rule's "
                         f"{b['size_m'][0]:.2f} x {b['size_m'][1]:.2f} m")
+        for c in wet_corners(pos, poly):
+            errs.append(f"{sid}: a footprint corner ({c[0]:.2f}, {c[1]:.2f}) stands on the "
+                        f"committed 1812 water — the river governs a figure that puts a house in it")
+    for key, e in out["expansions"].items():
+        users = [p["part"] for p in out["parts"] if p["expansion"] == key]
+        if e.get("governs") is False and users:
+            errs.append(f"expansion {key} is kept but does not govern, and {users} use it")
     return errs
 
 
