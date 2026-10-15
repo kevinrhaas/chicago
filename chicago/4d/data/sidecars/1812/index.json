@@ -199,10 +199,34 @@
       "asset": "gltf/first_fort_outer_agents_house__first_fort_1803.glb"
     },
     {
+      "id": "first_fort_outer_armourers_shop",
+      "name": "First Fort Dearborn — the armourer's shop",
+      "sidecar": "sidecars/1812/first_fort_outer_armourers_shop.json",
+      "asset": "gltf/first_fort_outer_armourers_shop__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_bake_house",
+      "name": "First Fort Dearborn — the bake house",
+      "sidecar": "sidecars/1812/first_fort_outer_bake_house.json",
+      "asset": "gltf/first_fort_outer_bake_house__first_fort_1803.glb"
+    },
+    {
       "id": "first_fort_outer_factory",
       "name": "First Fort Dearborn — the United States factory (the factor's house)",
       "sidecar": "sidecars/1812/first_fort_outer_factory.json",
       "asset": "gltf/first_fort_outer_factory__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_interpreters_house",
+      "name": "First Fort Dearborn — the interpreter's house",
+      "sidecar": "sidecars/1812/first_fort_outer_interpreters_house.json",
+      "asset": "gltf/first_fort_outer_interpreters_house__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_merchants_shop",
+      "name": "First Fort Dearborn — the merchant's shop",
+      "sidecar": "sidecars/1812/first_fort_outer_merchants_shop.json",
+      "asset": "gltf/first_fort_outer_merchants_shop__first_fort_1803.glb"
     },
     {
       "id": "first_fort_outer_officers_garden",
@@ -212,7 +236,7 @@
     },
     {
       "id": "first_fort_outer_stable_middle",
-      "name": "First Fort Dearborn — stable, middle of three",
+      "name": "First Fort Dearborn — the house in the factor's department",
       "sidecar": "sidecars/1812/first_fort_outer_stable_middle.json",
       "asset": "gltf/first_fort_outer_stable_middle__first_fort_1803.glb"
     },
