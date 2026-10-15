@@ -453,6 +453,16 @@ step "the South Branch to Bridgeport still carries what its tracer writes (T-250
 step "the 1812 Hardscrabble site re-derives from its readings (T-2501)" \
   python3 tools/derive_hardscrabble_1812.py --check
 
+# T-2502. ...and the 1812 ground carried down to it: an apron field beside the box (the box
+# itself is untouched), its land the floor row carried, its channel and banks T-2501's
+# trace at the 1834 cross-section, every sample conjectural. Held byte for byte, and its
+# rules (the north row IS the floor row, the side columns the carried land, the site's
+# bank at or above the water) asserted. measure_anchors.mjs --gate holds the anchor on it.
+step "the 1812 South Branch apron re-derives from the box floor and T-2501's trace (T-2502)" \
+  python3 tools/derive_apron_south_branch_1812.py --check
+selftest "…and its seams still hold when the apron is re-derived (T-2502)" \
+  python3 tools/derive_apron_south_branch_1812.py --self-test
+
 # T-2048. The first fort's one plan, Whistler's draught of 25 January 1808, read into a
 # register the first fort will be built from (T-2049). The raster is not committed, so
 # this holds what can be held without it: the scale is the 75 ft staff's arithmetic,

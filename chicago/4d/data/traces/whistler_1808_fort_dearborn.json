@@ -550,34 +550,50 @@
    "name": "Interpreters House",
    "status": "sheet_only",
    "sheet_px_centre": [
-    450,
-    1245
+    451,
+    1242
    ],
-   "why": "Numeral '19' beside it, west-south-west of the fort. Its distance line reads 'Distance to the Main Gate is fortyeight Perches' (792 ft), against about 116 ft on the sheet at the garrison scale, a ratio of 6.8 where 17's is 3.3. The two ratios disagree, which confirms the red-ink distances are not drawn to scale."
+   "why": "Numeral '19' beside it, west-south-west of the fort, the one house on the sheet drawn turned (about 32 degrees). Its distance line reads 'Distance to the Main Gate is fortyeight Perches' (792 ft), against about 115 ft on the sheet at the garrison scale, a ratio of 6.9 where 17's is 3.3. The two ratios disagree, which confirms the red-ink distances are not drawn to scale. BUILT at T-2507 by no. 17's figure, not its own: outside_the_stockade.expansions.interpreter_19 says why."
   },
   {
    "no": 20,
    "name": "Armerers Shop",
-   "status": "not_located",
-   "why": "No numeral '20' read."
+   "status": "sheet_only",
+   "why": "READ AT T-2507: the numeral '20' is lettered beside the front of the house south-east of the officers' garden toward the beach, after a word or two not read. Built by the outside_the_stockade rule (part armourers_shop).",
+   "sheet_px_centre": [
+    1408,
+    1841
+   ]
   },
   {
    "no": 21,
    "name": "Merchants Shop",
-   "status": "not_located",
-   "why": "No numeral '21' read with confidence; the small house east-south-east of the garden at about (1317, 1458) carries a mark that is not legible."
+   "status": "sheet_only",
+   "why": "READ AT T-2507 at 8x, turned to the lettering: the mark west of the small house east-south-east of the officers' garden, which T-2048 could not read at 3x, is '21'. Built by the outside_the_stockade rule (part merchants_shop).",
+   "sheet_px_centre": [
+    1320,
+    1467
+   ]
   },
   {
    "no": 22,
    "name": "Bake House",
-   "status": "not_located",
-   "why": "No numeral '22' read."
+   "status": "sheet_only",
+   "why": "READ AT T-2507 at 8x, turned to the lettering: '22' beside the small building between the agent's house (17) and its distance line. Built by the outside_the_stockade rule (part bake_house).",
+   "sheet_px_centre": [
+    580,
+    1233
+   ]
   },
   {
    "no": 23,
    "name": "House in Factors Dept.",
-   "status": "not_located",
-   "why": "No numeral '23' read with confidence among the small buildings at x about 560."
+   "status": "sheet_only",
+   "why": "READ AT T-2507 at 8x, turned to the lettering: '23' beside the middle building of the column of three south of no. 17, whose neighbours both read '24'. T-2062 built it as a stable (first_fort_outer_stable_middle) and noted it 'reads more like 23'; it is re-labelled, not moved.",
+   "sheet_px_centre": [
+    567,
+    1490
+   ]
   },
   {
    "no": 24,
@@ -587,7 +603,7 @@
     560,
     1490
    ],
-   "why": "The numeral '24' is read beside the column of three small buildings at x about 560, y 1420-1560, south-west of the fort. Which of the three it covers is not read."
+   "why": "READ AT T-2507 at 8x: '24' is lettered beside the north and the south buildings of the column of three south of no. 17, and '23' beside the middle one. Two stables are built (first_fort_outer_stable_north, _south)."
   },
   {
    "no": 25,
@@ -604,8 +620,14 @@
   {
    "no": 27,
    "name": "Wharf of said River",
-   "status": "not_located",
-   "why": "No numeral '27' read."
+   "status": "sheet_only",
+   "why": "READ AT T-2507 at 8x: '27' between two short dotted lines that leave the river's east line west of the fort, near the north-west blockhouse and the red '122 feet to River', and meet about 24 px out: a small dotted outline standing out from the bank. The river is 'not regularly surveyed', so the mark is not read for position. Building it is T-2508's, seated on the committed 1812 river rather than by the outside rule.",
+   "sheet_px": [
+    630,
+    753,
+    654,
+    776
+   ]
   },
   {
    "no": 28,
@@ -755,7 +777,7 @@
   "ticket": "T-2062",
   "parent_ticket": "T-2050",
   "what_this_is": "The reading T-2062 adds for the buildings and gardens the draught draws OUTSIDE the stockade, and the rule they are built to. The index puts these off the garrison scale: the Indian Department's dwellings are 'laid down at forty feet to the Inch' and their distances 'not laid down by a scale'. So no part here is a measurement of where it stood. Each one is the sheet's ARRANGEMENT, opened out by a figure the drafter wrote himself. Every number below is a pixel box on the pinned sheet (sha256 above) or a figure lettered on it. tools/read_whistler_1808.py --check re-derives every record built from this from those boxes.",
-  "the_rule": "Each part is placed by its sheet offset from the main gate's outer mouth (gate_px), multiplied by an EXPANSION. A part with a stated distance or a stated scale uses its own: the agent's house (no. 17) has 'Distance to Main Gate Eighteen Perches' (297 ft), and the Commanding Officer's garden is lettered '5o feete to the Inch' (50/20 = 2.5). A part with neither uses the expansion of the nearest part that has one: the factory and the stables take no. 17's, and the sutler's garden takes the officers' garden's. A building's footprint is its drawn box at the scale the index states for the Indian Department's dwellings (40 ft to the inch), and a garden's is its drawn box at the garden's own lettered scale. The drawn buildings are small pictorial elevations, roof and front together, so a footprint read this way is an upper bound and is RECONSTRUCTED. The positions are reconstructed too.",
+  "the_rule": "Each part is placed by its sheet offset from the main gate's outer mouth (gate_px), multiplied by an EXPANSION. A part with a stated distance or a stated scale uses its own: the agent's house (no. 17) has 'Distance to Main Gate Eighteen Perches' (297 ft), and the Commanding Officer's garden is lettered '5o feete to the Inch' (50/20 = 2.5). A part with neither uses the expansion of the nearest part that has one: the factory and the stables take no. 17's, and the sutler's garden takes the officers' garden's. A building's footprint is its drawn box at the scale the index states for the Indian Department's dwellings (40 ft to the inch), and a garden's is its drawn box at the garden's own lettered scale. The drawn buildings are small pictorial elevations, roof and front together, so a footprint read this way is an upper bound and is RECONSTRUCTED. The positions are reconstructed too. T-2507 adds nos. 19-22 under the same rule. 'Nearest' is the nearest part with its own figure, centre to centre on the sheet, among the parts T-2062 read: the bake house (22) beside no. 17 takes no. 17's; the armourer's shop (20) and the merchant's shop (21), east and south-east of the officers' garden, take the garden's, as the sutler's garden does. The interpreter's house (19) states its own distance, and that figure is KEPT BUT DOES NOT GOVERN (expansions.interpreter_19 says why): it takes no. 17's. A building drawn turned off the sheet's axes carries turn_deg, its box is its plan in its own axes about its drawn centre, and it is seated turned by that angle.",
   "inch_px": 90.4,
   "inch_px_note": "One inch of the garrison scale: 20 ft at the staff's 4.52 px per foot. The other two scales are fractions of the same inch.",
   "gate_px": [
@@ -774,6 +796,13 @@
     "stated": "Comm'g Officers Garden 5o feete to the Inch",
     "scale_ft_per_in": 50.0,
     "note": "READ AT T-2062, on a 4x crop of the lettering above the garden's north side. The first figure is the period 5 with a looped head, so it is easily taken for an 's'; 'so feete' makes no sense and '5o' does. The 2048 register left this scale unread. It is inferred and not attested."
+   },
+   "interpreter_19": {
+    "stated": "Distance to the Main Gate is fortyeight Perches",
+    "stated_ft": 792.0,
+    "measured_from_part": "interpreters_house",
+    "governs": false,
+    "note": "READ, KEPT AND NOT USED (T-2507). A perch is 16.5 ft. The sheet puts the interpreter's house's centre about 115 ft from the gate at the garrison scale, so this figure is about 6.9 times the drawing where no. 17's is 3.3. Under the rule's own priority (a part with a stated distance uses its own) it would seat no. 19 with one corner of its footprint 0.4 m inside the committed 1812 river (data/terrain/epochs/e1830_natural/river.geojson) and its centre 4.5 m from the edge. A house cannot stand in the river, so ONE of the two is wrong, and the river governs: it is drawn from Wright's 1834 survey, while the drafter says outright that his outside distances are 'not laid down by a scale' and his two figures already disagree by a factor of two. No. 19 therefore takes no. 17's expansion like every other building west of the fort, which keeps the sheet's arrangement among them, the one thing it does draw. Possible reasons the figure runs long (a distance walked by the road, which bends here, rather than a straight line) are not asserted. tools/read_whistler_1808.py --check refuses this expansion if any part uses it, and refuses any outside record with a footprint corner on the 1812 water."
    }
   },
   "parts": [
@@ -809,6 +838,21 @@
     "drawn": "pictorial elevation drawn like the factory, numeral '17' beside it, its paled yard east of it with the distance line running from it"
    },
    {
+    "part": "bake_house",
+    "record": "first_fort_outer_bake_house",
+    "index_no": 22,
+    "sheet_px": [
+     564,
+     1212,
+     597,
+     1254
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "agent_17",
+    "facing": 90,
+    "drawn": "READ AT T-2507 at 8x, turned to its lettering. The small building between the agent's house and its distance line, the numeral '22' beside its front. Its front faces east like the column below it; where the others draw a pitched roof to the west it draws a hatched, ROUNDED shape. That may be an oven's dome or a roof drawn round, and is read as neither: the record carries a gable. A smaller mark just south of it, about [561, 1255, 580, 1272], has no numeral and is not built."
+   },
+   {
     "part": "stable_north",
     "record": "first_fort_outer_stable_north",
     "index_no": 24,
@@ -826,7 +870,7 @@
    {
     "part": "stable_middle",
     "record": "first_fort_outer_stable_middle",
-    "index_no": 24,
+    "index_no": 23,
     "sheet_px": [
      552,
      1467,
@@ -836,7 +880,7 @@
     "scale_ft_per_in": 40.0,
     "expansion": "agent_17",
     "facing": 90,
-    "drawn": "the second of the three. At 3x its numeral reads more like '23' (House in Factors Dept.) than '24'. That is NOT asserted, and all three are built as the stables the register reads beside the column."
+    "drawn": "the second of the three. READ AT T-2507 at 8x, turned to its lettering: the numeral beside its front is '23', House in Factors Dept., where its neighbours north and south both read '24', Stables. So this record is RE-LABELLED as the house in the factor's department and is not moved (L391 said a better reading would do exactly that). Its id and part key are kept from T-2062 so that nothing that names it breaks."
    },
    {
     "part": "stable_south",
@@ -882,8 +926,60 @@
     "expansion": "garden_scale",
     "facing": 0,
     "drawn": "a small ruled plot east of the officers' garden toward the beach, lettered 'a Sutlers Garden', with one small house inside it. The house is not built: its numeral is not legible, and the register's no. 21 reading of a mark near it stays unread."
+   },
+   {
+    "part": "interpreters_house",
+    "record": "first_fort_outer_interpreters_house",
+    "index_no": 19,
+    "sheet_px": [
+     411,
+     1219,
+     491,
+     1266
+    ],
+    "drawn_bbox_px": [
+     408,
+     1201,
+     494,
+     1284
+    ],
+    "turn_deg": -32.0,
+    "scale_ft_per_in": 40.0,
+    "expansion": "agent_17",
+    "facing": 180,
+    "drawn": "READ AT T-2507 on a 5x crop. A pictorial elevation drawn TURNED about 32 degrees anticlockwise off the sheet's axes, the only house on the sheet drawn so: its front, with two rows of two lights, runs from about (425, 1283) up to (493, 1240) and faces south-south-east (bearing 148), the roof drawn behind it to the north-north-west. sheet_px is the plan in the drawing's own axes about its centre (451, 1242.5): 80 px along the front, 47 px deep; drawn_bbox_px is the turned drawing's extent on the sheet. The numeral '19' is the register's reading."
+   },
+   {
+    "part": "armourers_shop",
+    "record": "first_fort_outer_armourers_shop",
+    "index_no": 20,
+    "sheet_px": [
+     1385,
+     1804,
+     1432,
+     1879
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "garden_scale",
+    "facing": 270,
+    "drawn": "READ AT T-2507 on 5-6x crops. The house south-east of the officers' garden toward the beach: a front of lights facing west with its roof, and a lower piece on it, drawn to the east. Lettered beside its front, reading down the sheet, a word or two and the numeral '20'; the numeral is clear, the words before it are not read (they may name the trade, and are not asserted)."
+   },
+   {
+    "part": "merchants_shop",
+    "record": "first_fort_outer_merchants_shop",
+    "index_no": 21,
+    "sheet_px": [
+     1304,
+     1447,
+     1336,
+     1488
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "garden_scale",
+    "facing": 270,
+    "drawn": "READ AT T-2507 at 8x, turned to its lettering. The small house east-south-east of the officers' garden that the register found with an illegible mark: the mark, west of its front, reads '21'. A front with two lights facing west, its roof drawn to the east."
    }
   ],
-  "not_built": "The interpreter's house (no. 19). Its own stated distance (48 perches, 792 ft) carries it to within 4 m of the 1812 river's edge on the committed water (data/terrain/epochs/e1830_natural/river.geojson), and the ticket does not ask for it. Also not built: the paled yards beside nos. 17 and 18, and the 'Old field' lettered west of the road, which is ground rather than a structure."
+  "not_built": "The paled yards beside nos. 17 and 18, and the 'Old field' lettered west of the road, which is ground rather than a structure. The small unnumbered mark south of the bake house (no. 22). The house inside the sutler's garden, whose mark is not read. The wharf (no. 27) and the covered way (no. 33) are T-2508's: they are seated on the river rather than by this rule. Until T-2507 the interpreter's house (no. 19) was here too; it is now built, by no. 17's expansion (expansions.interpreter_19)."
  }
 }

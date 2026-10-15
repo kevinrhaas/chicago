@@ -13,6 +13,17 @@
       1120
     ]
   },
+  "apron": "e1830_natural/apron_south_branch.json",
+  "apron_local_enu_m": {
+    "e": [
+      -2200,
+      -100
+    ],
+    "n": [
+      -4600,
+      -3800
+    ]
+  },
   "water_surface_m": 0,
   "margin_scan_max_m": 400,
   "anchors": [
@@ -67,14 +78,27 @@
       "deck_m": null,
       "margin_m": 45,
       "inside_a_roof": null
+    },
+    {
+      "id": "lees_place_reach",
+      "local_e": -1648.7,
+      "local_n": -4232.1,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 1.31,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 22.5,
+      "inside_a_roof": null
     }
   ],
   "totals": {
-    "anchors": 4,
+    "anchors": 5,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,
     "on_a_deck": 0,
-    "southernmost_n": -3185
+    "southernmost_n": -4232.1
   }
 }
