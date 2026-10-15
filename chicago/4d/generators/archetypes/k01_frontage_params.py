@@ -1552,11 +1552,37 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if terrace is not None:
         terraces = []
         for t in (terrace if isinstance(terrace, list) else [terrace]):
-            if set(t) - {"side", "to_v_m", "back"} or t.get("side", "right") not in ("right", "left"):
-                raise ParamError("entrance_kit.terrace takes side 'right' or 'left', to_v_m and "
-                                 "back [[v, out], ...] alone, or a list of one a side")
+            if set(t) - {"side", "to_v_m", "back", "out_m", "loggia"} or t.get("side", "right") not in ("right", "left"):
+                raise ParamError("entrance_kit.terrace takes side 'right' or 'left', to_v_m, "
+                                 "back [[v, out], ...], out_m and loggia alone, or a list of one a side")
             terraces.append({"side": t.get("side", "right"), "to_v_m": float(t["to_v_m"]),
                              "back": [[float(v), float(o)] for v, o in t.get("back", [])]})
+            # T-2500: a terrace deeper than the landing (1808's loggia deck), and the loggia on
+            # it (k07_entrances.Entrance._loggia): its deck clear of the walk, and its parts
+            # named in full so a record cannot half-specify one
+            if "out_m" in t:
+                out = float(t["out_m"])
+                if not float(val("stair_landing_depth_m")) < out < yard:
+                    raise ParamError(f"entrance_kit.terrace.out_m: {out} m is not deeper than the landing "
+                                     f"and short of the walk at {yard} m")
+                terraces[-1]["out_m"] = out
+            if "loggia" in t:
+                lg = t["loggia"]
+                need = {"pedestal": {"width_m", "depth_m", "height_m"},
+                        "columns": {"height_m", "segments", "profile"},
+                        "entablature": {"height_m"}, "balcony": {"thickness_m", "height_m"},
+                        "parapet": {"thickness_m", "height_m"}, "arch": {"span_m", "spring_m", "depth_m"}}
+                if set(lg) != set(need) or any(set(lg[k]) != v for k, v in need.items()):
+                    raise ParamError(f"entrance_kit.terrace.loggia takes {sorted(need)}, each with "
+                                     + "; ".join(f"{k}: {sorted(v)}" for k, v in need.items()))
+                if "out_m" not in t:
+                    raise ParamError("entrance_kit.terrace.loggia stands on a terrace with its own out_m")
+                prof = lg["columns"]["profile"]
+                if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
+                    raise ParamError("entrance_kit.terrace.loggia.columns.profile runs [r, fraction of height] from 0 to 1")
+                if 2 * max(r for r, _ in prof) > float(lg["pedestal"]["width_m"]) / 2:
+                    raise ParamError("entrance_kit.terrace.loggia: two columns do not stand side by side on a pedestal")
+                terraces[-1]["loggia"] = lg
         if len({t["side"] for t in terraces}) != len(terraces):
             raise ParamError("entrance_kit.terrace: one terrace a side")
         door_kit["terrace"] = terraces[0] if len(terraces) == 1 else terraces

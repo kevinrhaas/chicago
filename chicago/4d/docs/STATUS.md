@@ -1,3 +1,31 @@
+## T-2500 — 1808 Prairie's north entrance loggia and stair (2026-10-15)
+
+Second piece of T-1882, after T-2499. The owner's report of 2026-10-13 said the
+Keith house's entrance is not the one its pictures show. The straight stoop out from the
+north-bay door is gone. In its place is what the Inland Architect plate of
+February 1888 and its first-floor plan draw: an open stone loggia at the north
+end, 3.4 m wide and 2.7 m deep at the principal floor; a pedestal at each front
+corner carrying a pair of columns; a parapet across the front and down the north
+side; an entablature carrying a balcony under the second-storey window; and a
+round-headed basement arch in the deck's face. The stair rises beside it on the
+south side, 2.0 m wide, with the deck as its north cheek. The door and the window
+over it are re-centred in the loggia (north bay 8.4 → 8.7 m). The K09 ring over
+the door went, because the loggia's ceiling would have cut it. K07 learns a
+terrace deeper than its landing and a loggia on it; every other K01, K12, K13,
+K16 and draft mesh, and the K07 specimen, re-emits byte-identical.
+
+NOT DONE, said:
+- The columns are plain turned shafts, not Ionic.
+- The parapets and balcony are solid, where the plate shows a pierced balustrade
+  and a carved panel.
+- The cheek is not scrolled.
+
+All three are T-1883's finish. The principal floor stays at 1.5 m. No camera is
+solved for the plate (its scan is `check_required`), so the image gate has still
+not been run on this house.
+[Before/after views and browser readings](RESEARCH/k01-1808-keith-2500/); the
+before views are T-2499's after views.
+
 ## T-2499 — 1808 Prairie's flat top, height and bow (2026-10-15)
 
 First piece of T-1882, from the owner's report of 2026-10-13 that the Keith house
