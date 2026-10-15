@@ -217,8 +217,10 @@ class PalisadeParams:
             self._validate_fence()
 
     def _validate_stockade(self) -> None:
-        if not 1.5 <= self.picket_height_m <= 6.5:
-            raise ParamError(f"picket_height_m {self.picket_height_m} outside 1.5-6.5 m; "
+        # 1.0 m is a dooryard paling's height, the Kinzie green's (T-2497): every
+        # picture of it draws pickets about rail-high before a piazza.
+        if not 1.0 <= self.picket_height_m <= 6.5:
+            raise ParamError(f"picket_height_m {self.picket_height_m} outside 1.0-6.5 m; "
                              f"a stockade taller than that is a wall and needs a different "
                              f"kind of evidence")
         if not 0.08 <= self.picket_width_m <= 0.5:
