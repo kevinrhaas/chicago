@@ -1,0 +1,36 @@
+{
+  "commands": [
+    {
+      "command": "python3 tools/test_glessner_finish.py",
+      "result": "pass",
+      "finding": "Full/Light component vertices, faces, confidence and contacts match finish-off exactly; only plain-brick roles and gate member UVs change; valid deterministic map normals."
+    },
+    {
+      "command": "python3 tools/test_glessner_service_access.py",
+      "result": "pass",
+      "finding": "Retained seated posts, six closed joined rails, gate hardware and actual masonry contact assertions including slot30."
+    },
+    {
+      "command": "python3 tools/test_glessner_vines.py",
+      "result": "pass",
+      "finding": "Connected/clearance/raised-wall tests retain Full55836 and Light56 added triangles."
+    },
+    {
+      "command": "node tools/measure_step_isolation.mjs --tool tools/generate_glessner_finish.py",
+      "result": "pass",
+      "finding": "Declared --check writes nothing in-tree."
+    },
+    {
+      "command": "node tools/measure_step_isolation.mjs --tool tools/test_glessner_finish.py",
+      "result": "pass",
+      "finding": "Declared test writes nothing in-tree."
+    },
+    {
+      "command": "python3 tools/validate.py",
+      "result": "pass",
+      "finding": "0 errors; 263 warnings after new liberty compilation."
+    }
+  ],
+  "initial_test_fixture_repair": "The first finish test correctly found that the isolated Light service/boundary fixture had no individually modeled brick surfaces at all, so its double-grid assertion could not be exercised. Added an ordinary coursed wall to both finish-on/off fixtures; kept the assertion and reran all focused tests. Production geometry was not changed to satisfy it.",
+  "initial_validate": "Ran before compile_liberties; the sole failure was the not-yet-compiled new liberty. Authored liberty exists; compile_liberties/compile_source_use and revalidation are running. After compilation, validation passed with 0 errors and 263 existing warnings; source-use compilation passed with all355 source IDs resolving."
+}

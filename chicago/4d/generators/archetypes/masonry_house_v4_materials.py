@@ -26,6 +26,7 @@ BAKE_UV = "BakeUV"
 TILE_M = {
     "granite": (1.6, 1.6),
     "brick": (1.7272, 2.1336),
+    "flat_brick": (1.7272, 2.1336),
     "limestone": (1.2, 1.2),
     "mortar": (1.2, 1.2),
     "terracotta": (2.4384, 1.95072),
@@ -83,12 +84,14 @@ SLOT_FABRIC = {
     # T-2210: the courtyard's rock-faced trim is Joliet limestone, so its UVs are
     # divided by the limestone repeat its albedo is drawn at (K01 contract metric_uv).
     24: "limestone",
+    30: "flat_brick",
 }
 
 
 def _image(bpy, fabric, suffix, colour=False):
     """Load the exact committed map. Missing output is a build error, never a flat fallback."""
     ext = "jpg" if suffix == "basecolor" else "png"
+    if fabric == "flat_brick": ext = "png"
     path = TEXTURES / f"{fabric}_{suffix}.{ext}"
     if fabric in ALBEDO_TILE_M and suffix == "basecolor":
         path = TEXTURES / ("turf_patch_photographic_basecolor.png" if fabric == "turf" else f"{fabric}_photographic_basecolor.png")
@@ -221,8 +224,8 @@ def vine_material(bpy):
     return material
 
 
-def build_materials(colours=None, rainwater=None, vines=None):
-    """Return 28 fabric slots, then optional rainwater (28) and vines (29).
+def build_materials(colours=None, rainwater=None, vines=None, surface_finish=None):
+    """Return 28 fabric slots, rainwater (28), vines (29), then plain brick (30).
 
     Textured fabrics carry reconstructed absolute albedo in their maps. Turf and
     pale compacted gravel preserve the record's courtyard material reading.
@@ -306,6 +309,16 @@ def build_materials(colours=None, rainwater=None, vines=None):
         if len(mats)!=29:
             raise ValueError('Vine material follows the complete Glessner rainwater library')
         mats.append(vine_material(bpy))
+    if surface_finish:
+        from archetypes.masonry_house_v4_finish import validate
+        validate(surface_finish)
+        f=surface_finish['flat_brick']
+        if len(mats)!=30 or any(abs(a-b)>1e-9 for a,b in zip(
+                TILE_M['flat_brick'],(f['width_m']*f['columns'],f['course_m']*f['rows']))):
+            raise ValueError('Plain brick must follow the complete library at its declared metric repeat')
+        mat=_pbr(bpy, "flat_brick", "flat_brick", normal_strength=.85)
+        mat['texture_generator']='tools/generate_glessner_finish.py'
+        mats.append(mat)
     return mats
 
 
