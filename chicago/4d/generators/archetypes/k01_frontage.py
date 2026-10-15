@@ -1493,9 +1493,14 @@ class Assembly:
                  "hardware": "door_iron", "backing": "backing",
                  # T-2409: a terrace beside the landing and turned balustrades, in the stoop's stone
                  "terrace": "stoop_stone", "terrace_face": "stoop_stone", "baluster": "stoop_stone",
-                 "newel": "stoop_stone", "rail": "stoop_stone"}
+                 "newel": "stoop_stone", "rail": "stoop_stone",
+                 # T-2500: a stone loggia on the terrace, its basement arch's void the hall's backing
+                 "pedestal": "stoop_stone", "column": "stoop_stone", "entablature": "stoop_stone",
+                 "loggia_wall": "stoop_stone", "balcony": "stoop_stone", "arch_reveal": "stoop_stone",
+                 "arch_back": "backing"}
     STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek",
-                             "terrace", "terrace_face", "baluster", "newel", "rail"})
+                             "terrace", "terrace_face", "baluster", "newel", "rail",
+                             "pedestal", "column", "entablature", "loggia_wall", "balcony", "arch_reveal"})
 
     def door_variant(self) -> dict:
         """The record's K07 variant at this house's own door and stoop: the K01 hole's clear
@@ -1523,6 +1528,9 @@ class Assembly:
             porches.append({"side": q["side"], "to_s_m": k * (q["to_v_m"] - door.s_m),
                             "back": [[k * (s - door.s_m), o] for s, o in q["back"]],
                             **({"wall_to_s_m": end} if k * (q["to_v_m"] - door.s_m) > end else {}),
+                            # T-2500: a terrace deeper than the landing, and the loggia standing on it
+                            **({"out_m": q["out_m"]} if "out_m" in q else {}),
+                            **({"loggia": q["loggia"]} if "loggia" in q else {}),
                             **({"balustrade": p.entrance_kit["balustrade"]}
                                if p.entrance_kit.get("balustrade") else {})})
         if porches:

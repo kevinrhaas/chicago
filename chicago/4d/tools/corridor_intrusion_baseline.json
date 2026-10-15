@@ -74,6 +74,21 @@
       "street": "wells",
       "structure": "exchange_coffee_house"
     },
+    "first_fort_wharf:first_fort_1803": {
+      "anchor_in": [
+        "kinzie"
+      ],
+      "anchor_offset_m": 6.83,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 5.15,
+      "layer": "research",
+      "phase": "first_fort_1803",
+      "position_confidence": "reconstructed",
+      "street": "kinzie",
+      "structure": "first_fort_wharf"
+    },
     "first_presbyterian_church:frame_1834": {
       "anchor_in": [],
       "anchor_offset_m": 22.47,
@@ -346,8 +361,18 @@
     }
   },
   "measured": "2026-10-15",
-  "placed_phases": 868,
+  "placed_phases": 875,
   "refused": {
+    "first_fort_wharf:first_fort_1803": {
+      "depth_m": 5.15,
+      "escape_bearing_deg": 180.46,
+      "escape_m": 10.401,
+      "escape_vs_facade": "oblique",
+      "on": "2026-10-15",
+      "street": "kinzie",
+      "ticket": "T-2508",
+      "why": "T-2508. THE STREET IS EIGHTEEN YEARS YOUNGER THAN THE WHARF. The corridor is the platted Kinzie Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the wharf's one phase is the first fort's, closing on 16 August 1812, so no date resolves the wharf and the street together. It is seated on the committed 1812 river by the drafter's own '122 feet to River' (data/traces/whistler_1808_fort_dearborn.json index no. 27 seat), and the only translation that clears the corridor runs 10.4 m due south onto the bank's crest, which would take a wharf away from its water to satisfy a street that did not exist. Refused rather than repaired; argued in the record's own position.note."
+    },
     "forks_company_cornfield_1812:cornfield_1808": {
       "depth_m": 12.15,
       "escape_bearing_deg": 180.47,

@@ -580,20 +580,28 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # armourer's shop, merchant's shop and bake house (`outbuilding`), emitted the same way as T-2062's,
 # restaling on the same rows.
 #
-# 869 -> 872, 719 -> 722 and 713 -> 716 on 2026-10-15 (T-2512): the two houses at the forks of
-# 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`), emitted the same way
-# as T-2062's, restaling on the same rows.
+# 869 -> 874, 719 -> 724, 713 -> 718 and pier_crib 2 -> 3 on 2026-10-15 (T-2508): the first
+# fort's wharf (`pier_crib`, the archetype's first river wharf beside the two harbour piers) and
+# its covered way to the river in four runs (`palisade`), restaling on the same rows.
+#
+# 874 -> 876, 724 -> 726 and 718 -> 720 on 2026-10-15 (T-2497, landing after T-2508): the Kinzie
+# house and its fenced green in the 1812 scene (kinzie_house_1812, kinzie_house_1812_green), through
+# emit.py and the common modules.
+#
+# 876 -> 879, 726 -> 729 and 720 -> 723 on 2026-10-15 (T-2512, landing after T-2497): the two
+# houses at the forks of 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`),
+# emitted the same way as T-2062's, restaling on the same rows.
 #
 STATED = {
-    "assets": 872,
+    "assets": 879,
     "restales": {
-        "generators/common/*.py": 722,
+        "generators/common/*.py": 729,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 716,
+        "generators/emit.py": 723,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
-        "generators/archetypes/pier_crib.py": 2,
+        "generators/archetypes/pier_crib.py": 3,
     },
     "layers_drawn_at_load": 10,
     # T-0252 (2026-10-03): this zero is the decision in docs/GLB-CONTRACT.md § "Layers
