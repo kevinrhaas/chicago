@@ -102,6 +102,23 @@
       "street": "clark",
       "structure": "first_presbyterian_church"
     },
+    "forks_company_cornfield_1812:cornfield_1808": {
+      "anchor_in": [
+        "randolph"
+      ],
+      "anchor_offset_m": 152.46,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "franklin"
+      ],
+      "depth_m": 12.15,
+      "layer": "research",
+      "phase": "cornfield_1808",
+      "position_confidence": "reconstructed",
+      "street": "lake",
+      "structure": "forks_company_cornfield_1812"
+    },
     "goss_cobb_saddlery:shop_1833": {
       "anchor_in": [
         "lake"
@@ -344,8 +361,18 @@
     }
   },
   "measured": "2026-10-15",
-  "placed_phases": 870,
+  "placed_phases": 875,
   "refused": {
+    "forks_company_cornfield_1812:cornfield_1808": {
+      "depth_m": 12.15,
+      "escape_bearing_deg": 180.47,
+      "escape_m": 77.743,
+      "escape_vs_facade": "across",
+      "on": "2026-10-15",
+      "street": "lake",
+      "ticket": "T-2512",
+      "why": "T-2512. A FIELD OF 1808-1812 IN THE GROUND THE 1830 PLAT LATER CUT INTO STREETS. The first fort's company cornfield ('Company Garden & public Cornfield Eight acres', Whistler's draught; 'close to the forks on the south side of the main river', Quaife 1913) closed with the fort on 16 August 1812, eighteen years before Thompson's plat laid out Lake Street, so the fence and the corridor never stand in one scene. Eight acres by the forks cannot be laid here without crossing the later plat's streets: its only escape from Lake clears it 77.7 m south and then laps Franklin, and every further escape walks it away from the forks the source puts it beside. Argued in full in the record's own position.note."
+    },
     "first_fort_wharf:first_fort_1803": {
       "depth_m": 5.15,
       "escape_bearing_deg": 180.46,
