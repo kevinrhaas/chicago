@@ -572,17 +572,19 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 862 -> 863 on 2026-10-13 (T-2443): the 1635 Forsyth house, ruled standing in 1904 and drafted
 # from Robinson 1886's outline, emitted the same way and restaling on none of the rows below either.
 #
-# 863 -> 865, 713 -> 715 and 707 -> 709 on 2026-10-15 (T-2497): the Kinzie house and its fenced
-# green in the 1812 scene (kinzie_house_1812, kinzie_house_1812_green), through emit.py and the
-# common modules.
+# 863 -> 865, 713 -> 715 and 707 -> 709 on 2026-10-15 (T-2487): the Burns house and the Lee family's
+# house of 1812, two log_dwelling roofs emitted the same way as T-2062's, restaling on the same rows.
+# 865 -> 867, 715 -> 717 and 709 -> 711 on 2026-10-15 (T-2497, landing after T-2487): the Kinzie
+# house and its fenced green in the 1812 scene (kinzie_house_1812, kinzie_house_1812_green), through
+# emit.py and the common modules.
 #
 STATED = {
-    "assets": 865,
+    "assets": 867,
     "restales": {
-        "generators/common/*.py": 715,
+        "generators/common/*.py": 717,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 709,
+        "generators/emit.py": 711,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

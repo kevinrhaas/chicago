@@ -123,6 +123,15 @@
       "phase_id": "draft_1904",
       "structure_id": "buckingham_house_2036_prairie_coach_house"
     },
+    "burns_house_1812__burns_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 48096,
+      "inputs_sha256": "95ed7450d7801fbe9bc2af4d8ab6ab8cf5e8793a559eea136be0361aca61d8d2",
+      "kind": "generated",
+      "phase_id": "burns_1812",
+      "structure_id": "burns_house_1812"
+    },
     "caldwell_agency_log_house__log_1830.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -2119,6 +2128,15 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "law_house_1620_prairie_coach_house"
+    },
+    "lee_house_1812__lee_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 49928,
+      "inputs_sha256": "452ab01f27f4b89749ccc13c72fc5568b9a467f9a6b4935857bce84f809c0a90",
+      "kind": "generated",
+      "phase_id": "lee_1812",
+      "structure_id": "lee_house_1812"
     },
     "log_jail__log_1833.glb": {
       "archetype": "outbuilding",

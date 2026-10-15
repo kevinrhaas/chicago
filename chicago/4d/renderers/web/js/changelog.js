@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1800, ts: '2026-10-15T07:41:26.134Z', date: 'Oct 15, 2026, 2:41 AM CT', title: '1812: the Burns and Lee houses stand by the river', kind: 'feature',
+    items: [
+      'The 1812 scene gains its first settlers\' houses: the Burns family\'s log house on the north bank at the later foot of State Street, and the Lee family\'s house on the shore where the river met the lake south of the fort.',
+      'Each card quotes Wau-Bun, Moses and Kirkland, and Currey, and says where they disagree: the Burns house\'s distance from the lake, John or Thomas Burns, and whether the Lee house stood on the lake shore or the river bank.',
+      'No picture of either house is known, so their size, logs and roofs are reconstructed and listed in Liberties. Neither appears in 1835.',
+    ] },
+  { v: 1799, ts: '2026-10-15T07:15:57.829Z', date: 'Oct 15, 2026, 2:15 AM CT', title: 'Where Lee\'s Place stood in 1812, read from five accounts', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. This is the groundwork for building Lee\'s Place, the farm on the South Branch later called Hardscrabble.',
+      'The South Branch is now traced from an 1849 map past the edge of the modelled ground, down to the forks and the canal at Bridgeport.',
+      'Five old accounts that place the farm are measured against that river. The adopted site is half a mile below Bridgeport, on the north-west bank.',
+      'Two of the accounts agree with that site and two do not. Where they disagree, both readings are kept rather than one being chosen.',
+    ] },
   { v: 1798, ts: '2026-10-15T06:00:08.997Z', date: 'Oct 15, 2026, 1:00 AM CT', title: 'July vines at Glessner House', kind: 'improvement',
     items: [
       'Selective Boston ivy now climbs the Prairie front, with Virginia creeper on courtyard walls. Green leaves and connected stems leave doors and windows clear.',
