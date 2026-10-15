@@ -1,0 +1,135 @@
+{
+  "id": "first_fort_wharf",
+  "phase": "first_fort_1803",
+  "name": "First Fort Dearborn — the wharf",
+  "aka": [
+    "Whistler's index no. 27, 'Wharf of said River'"
+  ],
+  "archetype": "pier_crib",
+  "asset": "gltf/first_fort_wharf__first_fort_1803.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1808-01-25",
+    "to": "1812-08-16",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS WORK. It opens on 25 January 1808, the date Whistler's draught carries, whose index names it; it may well be older. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). Quaife's description of it ends 'Such was the old Fort previous to 1812', so nothing of it is carried to the second fort."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1095.99,
+    "local_n": 247.91,
+    "rotation_deg": 338.76,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "position_note": "SEATED ON THE COMMITTED RIVER, NOT ON THE SHEET'S. The draught draws no. 27 as a small dotted outline off its river line west of the fort, beside the red '122 feet to River', and says 'The River is not regularly surveyed', so its position on the page is not read. What is kept is the drafter's distance and his side: a circle of 122 ft about the outer picket row's north-west corner, swept from due west, first meets the 1812 water (data/terrain/epochs/e1830_natural/river.geojson) 18 degrees north of west, and the deck is centred there and laid along the bank. The rule and its figures are data/traces/whistler_1808_fort_dearborn.json index no. 27 `seat`; tools/read_whistler_1808.py --check (run by check.sh) recomputes this point, turn, plan and deck height and refuses the record if any has moved. Where it stands is a reconstruction (docs/LIBERTIES.md L-first-fort-water-2508). IT LAPS THE PLATTED KINZIE STREET BY 5.15 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-2508; tools/corridor_intrusion_baseline.json `refused`). The corridor is the town's platted street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); this record's one phase closes on 16 August 1812. A street eighteen years in the future is not a reason to move a wharf off the river it served, and the only translation that clears the corridor (10.4 m due south, tools/measure_corridor_intrusion.py --escape) would stand it on the bank's crest, away from the water.",
+    "symbolic_location": "On the south bank of the river west of the first Fort Dearborn's north-west angle, where the drafter's red '122 feet to River' reaches the committed 1812 water from the outer picket row's north-west corner (bearing 288.4); the deck runs 10.0 m along the bank, centred on that point. This record's origin is the deck's west-south-west end on the waterline.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "water",
+    "walk_surface_m": 1.24
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        -2.0
+      ],
+      [
+        10.0,
+        -2.0
+      ],
+      [
+        10.0,
+        3.237
+      ],
+      [
+        0,
+        3.237
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "THE DRAWN REACH, TIED INTO THE BANK. Along the bank: 10.0 m, the shortest crib the pier_crib archetype builds; the sheet's mark is about 23 px along, about 10 ft at forty feet to the inch, so the deck is longer than the drawing (docs/LIBERTIES.md L-first-fort-water-2508). Out from the bank: {R:.2f} m beyond the committed waterline, the mark's 24 px at the forty feet to the inch the index gives for the buildings outside the garrison, and {H:.1f} m back into the bank, the 1835 wharves' heel (data/wharves/river_landings.json form.heel_in_m), so the deck meets the ground."
+  },
+  "attributes": {
+    "length_m": {
+      "value": 10.0,
+      "confidence": "reconstructed",
+      "note": "Along the bank. The archetype's floor; no source gives the wharf's length."
+    },
+    "width_m": {
+      "value": 5.237,
+      "confidence": "reconstructed",
+      "note": "Out from the bank: the 2.0 m heel plus the drawn 3.24 m reach. Nothing measures it; the sheet's mark is not to scale."
+    },
+    "deck_height_m": {
+      "value": 1.24,
+      "confidence": "reconstructed",
+      "note": "The committed 1812 ground at the centre of the deck's heel, so a man walks off the bank onto the planks, the rule the 1835 wharves' decks follow (data/wharves/river_landings.json form.freeboard_m). No source gives it. At the deck's face the committed bed is about 0.8 m under the water, enough for a bateau or a boat lightering from a schooner off the bar, not for the schooner."
+    },
+    "construction": {
+      "value": "timber_crib",
+      "confidence": "reconstructed",
+      "note": "Unattested. A log crib, the one form the archetype builds, and the way a bank wharf of logs was commonly raised."
+    },
+    "function": {
+      "value": "harbour_works",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "note": "Index no. 27, 'Wharf of said River', the garrison's landing on the Chicago River. The vocabulary's word for a work at the water's edge."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    }
+  ],
+  "research_note": "THE WHARF, no. 27, read at T-2507 at 8x and built at T-2508. Its place is the drafter's distance on the committed river, not his drawing; its size is the archetype's floor and the drawn reach. No boat lies at it: no vessel of the post is described in anything read. Nobody stands on it (L1).",
+  "research_doc": "",
+  "review_required": false
+}

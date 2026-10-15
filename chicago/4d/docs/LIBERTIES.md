@@ -27102,3 +27102,43 @@ and the colonnettes are T-1883's. The north loggia, its balcony and stair are T-
 **How to resolve:** the plate's camera solved into `data/reference_views/keith_house_1808_prairie/`
 once a copy whose rights are cleared is in the tree (the scan this source reads is `check_required`,
 so no asset is derived from it here), and the side-by-side worked down.
+
+### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
+
+**Decision:** the 1812 scene gains the last two works Captain Whistler's index of January 1808 names
+outside the first Fort Dearborn: the **wharf** (27) and the **covered way to procure water** (33).
+Neither is placed by L391's rule, because the draught says its river "is not regularly surveyed":
+each is seated on the committed 1812 river instead. **The wharf** stands where the drafter's red
+"122 feet to River", swung about the outer picket row's north-west corner from due west (the side the
+sheet draws no. 27 on), first meets the water: 18 degrees north of west, so his distance and his side
+both land on the bank. It is a log crib 10.0 m along the bank, the shortest the pier_crib archetype
+builds where the sheet's mark is about 10 ft; it reaches 3.24 m past the waterline, the mark's 24 px
+at the index's forty feet to the inch, and ties 2.0 m back into the bank, the 1835 wharves' heel. Its
+deck is the ground at that heel, 1.24 m over the water, as the 1835 decks take theirs. **The covered
+way** is never traced: the index says it is "Omited in their places" and the sheet does not draw it.
+Quaife (p. 165) gives one sentence, "From the northeast corner of the stockade a covered way led to the
+river, securing thus to the garrison access in safety to the water in time of attack", so it leaves
+the outer row's north-east corner along the frame's north, its east row on the east curtain's line,
+and runs 26.3 m to the water. "In safety" is read as screened: two rows of the outer row's own
+pickets, 3.0 m apart, open to the sky.
+
+**Why it is in four pieces.** A structure stands on the lowest ground under it, and the bank falls
+3.4 m in its last 7 m. One record would sink its whole upper end into the terrace. So the passage is
+one run across the terrace and three steps down the bank, each on no more than 1.6 m of fall, so the
+uphill end of every step still shows more than two metres of picket; each is its own enclosure with a
+1.5 m gateway at both ends, one picket spacing (0.3 m) after the one before. The gateways narrow the
+passage at every step, which nothing attests.
+
+**Also invented:** every dimension above; the wharf's crib construction and its two ends standing
+half over the river (declared `approach_not_modelled`, by design); the three bank steps' sunk uphill ends (declared the same way); the covered way's width, height,
+fabric and openness; and its line, which is the shortest sensible one and not a reading. The postern
+that would have let the garrison into its south end through both picket rows is not built: nothing
+draws one. The sheet letters "wells" beside this same angle; no well is built from the word. No boat
+lies at the wharf and nobody is in either (L1).
+
+**How to resolve:** any plan or view of the first fort that draws the covered way or the wharf; a
+statement of the covered way's form (roofed, trenched, picketed); a survey of the river at the fort
+before 1812, which would move both with the bank.
+**Ticket:** T-2508 (piece 2 of T-2505; nos. 19-23 are T-2507's, L-first-fort-outer-2507).
+**Recorded:** 2026-10-15 (T-2508).
+**Covers:** `first_fort_wharf.first_fort_1803.position`, `first_fort_wharf.first_fort_1803.footprint`, `first_fort_wharf.first_fort_1803.form.length_m`, `first_fort_wharf.first_fort_1803.form.width_m`, `first_fort_wharf.first_fort_1803.form.deck_height_m`, `first_fort_wharf.first_fort_1803.form.construction`, `first_fort_wharf.first_fort_1803.ground_contact`, `first_fort_covered_way_terrace.first_fort_1803.position`, `first_fort_covered_way_terrace.first_fort_1803.footprint`, `first_fort_covered_way_terrace.first_fort_1803.form.wall_kind`, `first_fort_covered_way_terrace.first_fort_1803.form.construction`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_terrace.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_terrace.first_fort_1803.form.gate_sides`, `first_fort_covered_way_terrace.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.position`, `first_fort_covered_way_bank_upper.first_fort_1803.footprint`, `first_fort_covered_way_bank_upper.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_upper.first_fort_1803.form.construction`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_upper.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_upper.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_upper.first_fort_1803.ground_contact`, `first_fort_covered_way_bank_middle.first_fort_1803.position`, `first_fort_covered_way_bank_middle.first_fort_1803.footprint`, `first_fort_covered_way_bank_middle.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_middle.first_fort_1803.form.construction`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_middle.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_middle.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_middle.first_fort_1803.ground_contact`, `first_fort_covered_way_bank_lower.first_fort_1803.position`, `first_fort_covered_way_bank_lower.first_fort_1803.footprint`, `first_fort_covered_way_bank_lower.first_fort_1803.form.wall_kind`, `first_fort_covered_way_bank_lower.first_fort_1803.form.construction`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_height_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_width_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.picket_spacing_m`, `first_fort_covered_way_bank_lower.first_fort_1803.form.gate_sides`, `first_fort_covered_way_bank_lower.first_fort_1803.form.gate_width_m`, `first_fort_covered_way_bank_lower.first_fort_1803.ground_contact`.
