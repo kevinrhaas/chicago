@@ -1973,8 +1973,9 @@ def annex_parts(st: dict, body: dict, foundation_m: float, y_flank: float, data:
 
 def annex_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dict:
     """Each annex's roof, in the plan frame: a flat deck just over its eave, overhanging only
-    where it has a wall, or a lean-to from its outer eave up into the main roof at the wing's
-    pitch, its two ends closed in painted board as the wing's are."""
+    where it has a wall, a lean-to from its outer eave up into the main roof at the wing's
+    pitch, its two ends closed in painted board as the wing's are, or (T-2522) a gable whose
+    ridge runs north into the main roof (`_annex_gable`)."""
     body = form["body"]["value"]
     ev = data["trim"]["eave"]
     P_, fh = ev["projection_m"], ev["fascia_m"]
@@ -2003,6 +2004,8 @@ def annex_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dict:
                 house.poly(F, "fascia", [(u, yi, -vi), (u, y0, 0.0), (u, yb, z1)], (hu, 0, 0))
                 house.poly(F, "fascia", [(u, y0, 0.0), (u, yb, 0.0), (u, yb, z1)], (hu, 0, 0))
             out[b["id"]] = {"eave_m": round(yb, 4), "meets_main_m": round(yi, 4), "meets_v_m": round(vi, 4)}
+        elif b["roof"]["kind"] == "gable":
+            out[b["id"]] = _annex_gable(house, b, x0, x1, z1, yb, ye, t, P_, fh)
         else:
             yd = yb + b["roof"].get("deck_m", 0.03)
             house.poly(F, "roof_covering", [(x0, yd, z1), (x1, yd, z1), (x1, yd, z0), (x0, yd, z0)], (0, 1, 0))
@@ -2014,6 +2017,34 @@ def annex_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dict:
                     house.poly(F, "roof_covering", q, hnt)
             out[b["id"]] = {"deck_m": round(yd, 4)}
     return out
+
+
+def _annex_gable(house: Sample, b: dict, x0, x1, z1, yb, ye, t, P_, fh) -> dict:
+    """T-2522: a gable over an annex on the south flank, its ridge running north (along v) from
+    a gable over its south wall into the main roof's south slope. Each slope runs under the main
+    eave to the flank and, above that eave, stops on its valley with the main roof
+    (y = ye + (v + P_) t); the south end is closed under its verge as `_gable` closes one."""
+    if b["against"] != "north" or b["roof"].get("ridge") != "v":
+        raise ValueError(f"{b['id']}: a gabled annex stands against the south flank with its ridge along v")
+    tw = math.tan(math.radians(b["roof"]["pitch_deg"]))
+    F = house.F
+    xm, yr = (x0 + x1) / 2, yb + (x1 - x0) / 2 * tw
+    if not yb < ye < yr:
+        raise ValueError(f"{b['id']}: a gabled annex's eave stands under the main eave and its ridge over it")
+    vi = (yr - ye) / t - P_                     # where the ridge runs into the main roof
+    zs, zw, ze, zf = z1, -b["rect_uv"][1], P_, 0.0     # verge, south wall, main eave's edge, flank
+    run = (ye - yb) / tw                        # from each eave in to where the slope reaches the main eave
+    for xe, sx in ((x1, 1), (x0, -1)):
+        xv = xe - sx * run
+        n = (sx * tw, 1, 0)
+        house.poly(F, "roof_covering", [(xe, yb, zs), (xe, yb, ze), (xm, yr, ze), (xm, yr, zs)], n)
+        house.poly(F, "roof_covering", [(xv, ye, ze), (xm, yr, -vi), (xm, yr, ze)], n)
+        house.poly(F, "roof_covering", [(xe, yb, ze), (xe, yb, zf), (xv, ye, zf), (xv, ye, ze)], n)
+        house.poly(F, "fascia", [(xe, yb - fh, zs), (xm, yr - fh, zs), (xm, yr, zs), (xe, yb, zs)], (0, 0, 1))
+        house.poly(F, "soffit", [(xe, yb - fh, zw), (xe, yb - fh, zs), (xm, yr - fh, zs), (xm, yr - fh, zw)],
+                   (-sx * tw, -1, 0))
+    return {"eave_m": round(yb, 4), "ridge_m": round(yr, 4), "ridge_meets_main_v_m": round(vi, 4),
+            "verge_v_m": round(-zs, 4)}
 
 
 def timber_body_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dict:

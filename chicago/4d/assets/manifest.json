@@ -7777,9 +7777,9 @@
     "shortall_gregory_house_1638_prairie_front__as_standing_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
-      "bytes": 3452888,
+      "bytes": 3518196,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "7269fe59269b9b2455be6d48c0be42c6f4cfc811c856c95e8a7df9feafac62d3",
+      "inputs_sha256": "bcbe56822d76fd3c5a344fca50f0af15c9b5b487d77a47bae5eb03ffcfbd43c2",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "shortall_gregory_house_1638_prairie_front"

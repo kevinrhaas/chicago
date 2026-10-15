@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "9108f9f554152d059ffa2ab303aa00991e7c1e83be876c2a1a85abba27a8c63a",
+  "glb_sha256": "4584f0758c16c6099a360bfbe1ebf1a1b10169b3c6887e3357aeb48b6b414c7b",
   "camera_sha256": "e128973206a2450f63d647e3bc4ac5ca1196af41ee5c3e39a88d6af7c92cbb46",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -124,8 +124,16 @@
       "status": "open"
     },
     {
-      "what": "South of the gable the print shows a two-storey block with a hipped roof, a pale stack and a two-light window over a door: the register's 'separate lower wing' or the neighbour, not yet identified; the model shows the gable range's south flank and projection there",
+      "what": "South of the gable: the print's block is the sheet's south projection, not the neighbour (sheet 20 puts 1700 Prairie's north wall 4.4 m south of the front's south end and its front 1.5 m forward of 1638's, so through this camera all of 1700 falls left of the frame), and it is a lower wing: on the sheet's east face (u -6.67 m) its eave's drip reads at 482 px, a wall top 5.03 m over the basement's top (5.98 m over the walk) where the house's flanks stand at 6.03 m; its roof faces the street, a 50-degree gable whose ridge (264 px, horizontal) runs north on the plan's middle into the main roof, its south rake seen edge-on against the sky; and the drip's south corner (88.5 px) puts its verge at v -3.42 m, so its south wall at v -3.0 m, 0.6 m south of the sheet's -2.4 m line (T-2532). On its face two upper lights 0.5 m wide (179-209 and 224-256 px, 522-592 px) and, under them, a light 0.58 m wide and a narrow one 0.22 m wide (190-225 and 154-167 px, 677-737 px), their feet lost in the planting. Rendered: ridge 263 px, drip 480-483 px, the drip's corner 88 px, the four lights within 3 px; the rake's top lands 5-7 px south of the print's (118 against 125 px at 275 px), the print's rake leaning more steeply than a ridge on the plan's middle can draw",
+      "status": "fixed"
+    },
+    {
+      "what": "South of the gable, at the wing's south corner: a pale upright about 0.6 m wide from under the eave (502 px) to 655 px with a soft south edge, and a third narrow lower light at 110-124 px, at or just past the wall's line; neither is identified (a lit corner, a downpipe or a tree's trunk), and neither is built; the wing's face in the print is dark, in 1700 Prairie's shadow, where the render lights it",
       "status": "open"
+    },
+    {
+      "what": "Left of the wing, the dark mass to the frame's edge and the tree over it: 1700 Prairie's north flank and its yard, outside this record",
+      "status": "not shown"
     },
     {
       "what": "Colour of every surface: the print is a monochrome halftone",
