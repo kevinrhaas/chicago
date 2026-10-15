@@ -26,6 +26,21 @@ A row, a ring or a scatter of the canvas and kit the crowd slept under and cooke
   a quartermaster or an outfitter of the 1830s sold, which is the whole of their
   footing: no source describes the tents at Chicago. `tent_kind` `mixed` alternates
   them, wall first.
+- **mat lodges** (`tent_kind` `lodge`, T-2515), the one pitch here that is not
+  canvas: a covering of rush mats on a frame of bent poles, an oval dome with its door
+  on the long axis, a mat rolled up over the door and the smoke opening at the crown.
+  This is the form Wau-Bun describes from inside one, in March 1831 — "the mats of
+  which the lodge was constructed were very neat and new, and against the sides,
+  depending from the poles or frame-work, hung various bags", with "the smoke
+  escaping through an opening in the top" and "the mat which hung over the entrance"
+  (ch. XVI) — and the covering it says the women made of rushes, "the coarse matting
+  used in covering their wigwams" (ch. VII). Neither passage gives a shape or a
+  size: the oval dome is the bent-pole frame's form as this archetype draws it, and
+  every dimension below is a liberty (L-1812-potawatomi-camp-2515). It is never a
+  hide tipi: Moses and Kirkland's buffalo-hide "teepees" (1895, v1 p. 32) are the
+  later author picturing 1803, and nothing is built from them. A lodge is drawn
+  only where a source puts a lodge, as T-1214 asked: the 1835 camps keep their
+  canvas.
 - **covered wagons**: a box bed on four wheels under canvas on hoop bows, the tongue
   down. An emigrant family that shipped its wagon by schooner unloaded it at the
   landing with everything else.
@@ -60,7 +75,7 @@ from dataclasses import dataclass, field
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
-TENT_KINDS = ("wall", "wedge", "mixed")
+TENT_KINDS = ("wall", "wedge", "mixed", "lodge")
 ARRANGEMENTS = ("row", "ring", "scatter")
 CANVAS_CONDITIONS = ("new", "weathered", "patched")
 
@@ -80,6 +95,16 @@ WAGON_BED_L_M = 3.20
 WAGON_BED_W_M = 1.12
 WAGON_TONGUE_M = 2.13
 WAGON_TRACK_M = 1.52          # outside width over the wheels, the 5 ft gauge
+
+# The mat lodge: an oval 11 x 15 ft on the ground and 8 ft to the crown, the door on
+# the long axis. No source sizes one; this is a family's lodge, large enough for the
+# square hearth Wau-Bun puts "in the centre" with room to sleep round it.
+LODGE_W_M = 3.40              # across the door (u)
+LODGE_D_M = 4.60              # door to back (v)
+LODGE_H_M = 2.40              # ground to the crown
+LODGE_DOOR_W_M = 0.88          # one facet of the twelve, at the ground
+LODGE_DOOR_H_M = 1.34          # up to the third course
+LODGE_SMOKE_HOLE = 0.16       # the crown's opening, as a fraction of the plan's radii
 
 BRUSH_SHELTER_W_M = 2.40
 BRUSH_SHELTER_D_M = 2.00
@@ -146,6 +171,8 @@ class CampParams:
         for kind in self.tent_kinds():
             if kind == "wall":
                 out.append(("wall_tent", WALL_TENT_W_M, WALL_TENT_D_M))
+            elif kind == "lodge":
+                out.append(("mat_lodge", LODGE_W_M, LODGE_D_M))
             else:
                 out.append(("wedge_tent", WEDGE_TENT_W_M, WEDGE_TENT_D_M))
         extras = ([("wagon", WAGON_BED_L_M + WAGON_TONGUE_M, WAGON_TRACK_M)] * self.wagons
