@@ -27086,7 +27086,10 @@ forks lie far beyond anything T-2062's arrangement rule can open out.
 **Everything a visitor sees of their shape is invented:** the houses' plans are their drawn boxes at
 the index's forty feet to the inch (an upper bound), one storey of log, eight feet to the plate, a 35
 degree gable and one chimney each, and the way each faces. The field's area is the sheet's "Eight
-acres"; its rectangle (300 x 108 m along the bank) and the four-course worm fence round it are ours —
+acres"; its rectangle (150 x 217 m, 8.03 acres) and the four-course worm fence round it are ours — the
+rectangle drawn clear of the 1835 inferred households' roofs that this project's gate keeps every
+footprint of any date off, and refused in writing for the 1830 plat's streets it lies across, which
+never stand in a scene with it;
 the sheet bounds it with a dotted line, and the fence rests on Whistler's own "common rail fence" north
 of the fort and the "Worm Fence" he letters round Coursoll's field. The corn is recorded and not drawn:
 the flora layer has no cultivated cover.

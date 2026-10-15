@@ -580,13 +580,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # armourer's shop, merchant's shop and bake house (`outbuilding`), emitted the same way as T-2062's,
 # restaling on the same rows.
 #
+# 869 -> 872, 719 -> 722 and 713 -> 716 on 2026-10-15 (T-2512): the two houses at the forks of
+# 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`), emitted the same way
+# as T-2062's, restaling on the same rows.
+#
 STATED = {
-    "assets": 869,
+    "assets": 872,
     "restales": {
-        "generators/common/*.py": 719,
+        "generators/common/*.py": 722,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 713,
+        "generators/emit.py": 716,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
