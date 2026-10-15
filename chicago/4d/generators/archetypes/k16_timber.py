@@ -1319,6 +1319,8 @@ class Sample:
         fl, la, pt, pl, ce = po["floor"], po["lattice"], po["post"], po["plate"], po["ceiling"]
         if "post_m" in v:      # T-2425: a house's own post, broader than the kit's
             pt = dict(pt, section_m=v["post_m"])
+        if "plate" in v:       # T-2519: a house's own plate (its clear height, its depth)
+            pl = dict(pl, **v["plate"])
         yf, Dp = fl["height_m"], v.get("depth_m", fl["depth_m"])   # T-2323: a house's own depth
         pitch = fl["board_width_m"] + fl["gap_m"]
         nb = int(round(v["width_m"] / pitch))
@@ -1407,7 +1409,7 @@ class Sample:
         self.meta["lattice"] = {"laths": n_layer, "pitch_m": la["pitch_m"], "layers_z": [round(z0f, 6), round(z0f - lt, 6)]}
         # the post: square blocks, a chamfered shaft, flat chamfer stops
         a, chm = pt["section_m"] / 2, pt["chamfer_m"]
-        sp = Wf - a - 0.05
+        sp = Wf - a - v.get("post_inset_m", 0.05)     # T-2519: the post's outer face in from the floor's end
         tp_ = self.tone("post")
         y_b, y_h = yf + pt["base_m"], yp - pt["head_m"]
         for (y0, y1, skip) in ((yf, y_b, ("bottom", "top")), (y_h, yp, ("bottom", "top"))):
@@ -1466,25 +1468,32 @@ class Sample:
         its post's inner face (s w), springing `spring_below_plate_m` under the plate and rising
         `rise_m` to a point: a lower arc of `lower_radius_ratio` x w swept `lower_sweep_deg` from
         the spring, then a flatter arc tangent to it whose centre lies past the middle, so the
-        two halves meet in a point. The spandrel over it is a solid board as deep as the plate,
+        two halves meet in a point; or, `kind: trefoil` (T-2519), a cusped trefoil arch
+        (`_trefoil_curve`). The spandrel over it is a solid board as deep as the plate,
         pierced by a quatrefoil of four lobes `lobe_m` in radius, `quatrefoil_inset_m` [in from
         the post, down from the plate] to its middle."""
         y_sp = yp - ar["spring_below_plate_m"]
-        h = ar["rise_m"]
-        r1 = ar["lower_radius_ratio"] * w
-        al = math.radians(ar["lower_sweep_deg"])
-        k = (r1 * r1 - (w - r1) ** 2 - h * h) / (2 * ((w - r1) * math.cos(al) - h * math.sin(al) + r1))
-        r2 = r1 - k
-        c1 = (w - r1, y_sp)
-        c2 = (w - r1 + k * math.cos(al), y_sp + k * math.sin(al))
-        if not (r2 > r1 and c2[0] < 0):
-            raise ValueError(f"{self.v['id']}: the arch does not close in a point (r2 {r2:.3f}, centre {c2[0]:.3f})")
-        a_cr = math.atan2(y_sp + h - c2[1], -c2[0])
-        n1, n2 = 8, 10
-        curve = [((c1[0] + r1 * math.cos(al * i / n1), c1[1] + r1 * math.sin(al * i / n1)), c1) for i in range(n1)]
-        curve += [((c2[0] + r2 * math.cos(al + (a_cr - al) * i / n2), c2[1] + r2 * math.sin(al + (a_cr - al) * i / n2)), c2)
-                  for i in range(n2)]
-        curve.append(((0.0, y_sp + h), c2))
+        if ar.get("kind") == "trefoil":     # T-2519
+            curve, h, radii = self._trefoil_curve(ar, w, y_sp)
+        else:
+            h = ar["rise_m"]
+            r1 = ar["lower_radius_ratio"] * w
+            al = math.radians(ar["lower_sweep_deg"])
+            k = (r1 * r1 - (w - r1) ** 2 - h * h) / (2 * ((w - r1) * math.cos(al) - h * math.sin(al) + r1))
+            r2 = r1 - k
+            c1 = (w - r1, y_sp)
+            c2 = (w - r1 + k * math.cos(al), y_sp + k * math.sin(al))
+            if not (r2 > r1 and c2[0] < 0):
+                raise ValueError(f"{self.v['id']}: the arch does not close in a point (r2 {r2:.3f}, centre {c2[0]:.3f})")
+            a_cr = math.atan2(y_sp + h - c2[1], -c2[0])
+            n1, n2 = 8, 10
+            curve = [((c1[0] + r1 * math.cos(al * i / n1), c1[1] + r1 * math.sin(al * i / n1)), c1) for i in range(n1)]
+            curve += [((c2[0] + r2 * math.cos(al + (a_cr - al) * i / n2), c2[1] + r2 * math.sin(al + (a_cr - al) * i / n2)), c2)
+                      for i in range(n2)]
+            curve.append(((0.0, y_sp + h), c2))
+            radii = [r1, r2]
+        if y_sp + h > yp - 0.005:
+            raise ValueError(f"{self.v['id']}: the arch's crown ({y_sp + h:.3f}) stands in the plate ({yp:.3f})")
         # the quatrefoil: the far side of four circles through its middle, on the axes
         lr = ar["lobe_m"]
         qc = (w - ar["quatrefoil_inset_m"][0], yp - ar["quatrefoil_inset_m"][1])
@@ -1515,7 +1524,35 @@ class Sample:
             self.poly(F, "spandrel", [(p[0], p[1], z0), (q[0], q[1], z0), (q[0], q[1], z1), (p[0], p[1], z1)],
                       (qc[0] - m[0], qc[1] - m[1], 0), tsp)
         self.meta["arch"] = {"spring_m": round(y_sp, 6), "crown_m": round(y_sp + h, 6), "half_span_m": round(w, 6),
-                             "radii_m": [round(r1, 6), round(r2, 6)], "quatrefoil_m": [round(qc[0], 6), round(qc[1], 6)]}
+                             "radii_m": [round(r, 6) for r in radii], "quatrefoil_m": [round(qc[0], 6), round(qc[1], 6)]}
+
+    def _trefoil_curve(self, ar, w, y_sp):
+        """T-2519: the half of a cusped trefoil arch, from its spring at the post's inner face
+        (s w) to its crown at the middle (s 0): a side foil of radius `foil_radius_m` tangent to
+        the post at the spring, its centre level with it, swept up over its top until it meets
+        the head, a round foil of radius `head_radius_m` centred on the middle `head_over_spring_m`
+        over the spring, in a cusp; then the head on to its crown. Returns the curve as (point,
+        centre) pairs, the crown's height over the spring and the two radii."""
+        rs, rh = ar["foil_radius_m"], ar["head_radius_m"]
+        cs, ch = (w - rs, y_sp), (0.0, y_sp + ar["head_over_spring_m"])
+        dx, dy = ch[0] - cs[0], ch[1] - cs[1]
+        d = math.hypot(dx, dy)
+        if not (abs(rh - rs) < d < rh + rs) or cs[0] <= 0:
+            raise ValueError(f"{self.v['id']}: the trefoil's head and side foils do not meet in a cusp")
+        a_ = (rs * rs - rh * rh + d * d) / (2 * d)
+        hh = math.sqrt(max(0.0, rs * rs - a_ * a_))
+        mx, my = cs[0] + a_ * dx / d, cs[1] + a_ * dy / d
+        cusp = max(((mx - hh * dy / d, my + hh * dx / d), (mx + hh * dy / d, my - hh * dx / d)), key=lambda q: q[1])
+        if not 0.0 < cusp[0] < w:
+            raise ValueError(f"{self.v['id']}: the trefoil's cusp falls outside its half-span")
+        t1 = math.atan2(cusp[1] - cs[1], cusp[0] - cs[0])
+        t2 = math.atan2(cusp[1] - ch[1], cusp[0] - ch[0])
+        n1, n2 = 10, 10
+        curve = [((cs[0] + rs * math.cos(t1 * i / n1), cs[1] + rs * math.sin(t1 * i / n1)), cs) for i in range(n1)]
+        curve += [((ch[0] + rh * math.cos(t2 + (math.pi / 2 - t2) * i / n2),
+                    ch[1] + rh * math.sin(t2 + (math.pi / 2 - t2) * i / n2)), ch) for i in range(n2)]
+        curve.append(((0.0, ch[1] + rh), ch))
+        return curve, ch[1] + rh - y_sp, [rs, rh]
 
     def _porch_stoop(self, F, so, sp, a, z_back, z_edge, yf):
         """T-2425: the half of a stoop from grade to the porch floor (the floor is its top tread),

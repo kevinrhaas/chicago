@@ -175,14 +175,29 @@ def boundary_errors(bv: dict) -> list[str]:
 #: T-2425: what a porch's arched head, broader post and stoop need
 PORCH_ARCH = ("spring_below_plate_m", "rise_m", "lower_radius_ratio", "lower_sweep_deg", "lobe_m")
 PORCH_STOOP = ("max_riser_m", "going_m", "cheek_above_m")
+#: T-2519: what a cusped trefoil head needs in place of the pointed arch's rise and arcs
+PORCH_TREFOIL = ("spring_below_plate_m", "foil_radius_m", "head_radius_m", "head_over_spring_m", "lobe_m")
 
 
 def porch_errors(pv: dict) -> list[str]:
     out = []
     if "post_m" in pv and not (_num(pv["post_m"]) and 0.08 <= pv["post_m"] <= 0.4):
         out.append("post_m must be a post section of 0.08-0.4 m")
+    if "post_inset_m" in pv and not (_num(pv["post_inset_m"]) and 0.0 <= pv["post_inset_m"] <= 0.3):
+        out.append("post_inset_m (the post's outer face in from the floor's end) must lie in 0-0.3 m")
+    pl = pv.get("plate")
+    if pl is not None:      # T-2519: a house's own plate
+        if not isinstance(pl, dict) or not pl or set(pl) - {"clear_m", "height_m"}:
+            out.append("plate may set only clear_m and height_m")
+        elif not all(_num(x) and x > 0 for x in pl.values()):
+            out.append("plate's clear_m and height_m must be positive")
     ar = pv.get("arch")
-    if ar is not None:
+    if ar is not None and ar.get("kind") == "trefoil":     # T-2519: a cusped trefoil head
+        out += [f"arch needs a positive {k}" for k in PORCH_TREFOIL if not (_num(ar.get(k)) and ar[k] > 0)]
+        qi = ar.get("quatrefoil_inset_m")
+        if not (isinstance(qi, list) and len(qi) == 2 and all(_num(x) and x > 0 for x in qi)):
+            out.append("arch needs quatrefoil_inset_m [in from the post, down from the plate]")
+    elif ar is not None:
         out += [f"arch needs a positive {k}" for k in PORCH_ARCH if not (_num(ar.get(k)) and ar[k] > 0)]
         qi = ar.get("quatrefoil_inset_m")
         if not (isinstance(qi, list) and len(qi) == 2 and all(_num(x) and x > 0 for x in qi)):

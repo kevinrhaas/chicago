@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 1822, ts: '2026-10-15T18:25:37.424Z', date: 'Oct 15, 2026, 1:25 PM CT', title: '1812: two houses and the garrison\'s cornfield at the forks', kind: 'feature',
+    items: [
+      'Walk up the main stem to the forks in 1812 and two small log houses stand there, one either side of the river, where Captain Whistler\'s 1808 draught draws them: a discharged soldier\'s, and the house we take for Clark the cattle dealer\'s.',
+      'Beside Clark\'s, on the south bank, a long rail-fenced field of eight acres: the \'Company Garden & public Cornfield\' the draught letters there. The corn itself isn\'t drawn yet.',
+    ] },
+  { v: 1821, ts: '2026-10-15T18:22:44.722Z', date: 'Oct 15, 2026, 1:22 PM CT', title: '1638 Prairie\'s entrance and gable, closer to its photograph', kind: 'feature',
+    items: [
+      'The arched entrance under 1638 Prairie\'s corner tower now has the cusped, three-lobed head its photograph shows, set higher, in place of a plain pointed arch.',
+      'Its posts stand closer together, as in the photograph, and the porch and the tower above it move a little south to where the picture puts them.',
+      'The front gable is a little wider, its twin windows, hood and oval re-centred on it and its peak slightly higher.',
+    ] },
   { v: 1820, ts: '2026-10-15T18:01:09.766Z', date: 'Oct 15, 2026, 1:01 PM CT', title: 'Hamline\'s house moves next door, to 1621 Prairie', kind: 'feature',
     items: [
       'The stone house with the swell bay and the tall pedimented gable, built from Treat & Foltz\'s 1886 drawing of John H. Hamline\'s house, now stands at 1621 Prairie Avenue — the address the building permit, the directories and the 1886 atlas give it.',
