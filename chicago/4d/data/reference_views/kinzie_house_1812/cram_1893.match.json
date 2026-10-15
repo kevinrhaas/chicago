@@ -1,0 +1,52 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "cram_1893",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
+  "camera_sha256": "f6a447730316014d9f0ec2d3f74bec1b5c7e050aa1e27605323e81c0aa34d647",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/cram_1893-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a long, low, single-storey house on the north bank, its ridge along the river and a gable at each end, the west gable toward the eye; the build's west gable apex lands within about 4 px of the drawn (613, 340) and its roof outline on the drawn one on the red-edge overlay",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, at x 671 and 735 px, 0.44 and 0.92 of the ridge from the west gable, the second by the east gable; the build's (0.45 and 0.92) land within 1 and 6 px. The plate agrees with the 1857 engraving and the Teich postcard against Lossing, as the Lossing match record rules",
+      "status": "fixed"
+    },
+    {
+      "what": "front windows: two sash each side of the central door under the piazza; the build's two each side of the door land between the same posts",
+      "status": "fixed"
+    },
+    {
+      "what": "walls: drawn light and smooth, with a corner board at the west end, as weatherboard or whitewash reads, 'in 1832' as the caption says. The same reading as the 1857 engraving's, and the same ruling: the 1812 house is built of squared logs (Moses and Kirkland) as Lossing's 1812 view draws it, and the plate is evidence of its own date, twenty years later. Not built for 1812",
+      "status": "open"
+    },
+    {
+      "what": "piazza roof: the plate carries the roof down over the piazza in one plane from the ridge to an eave at y 370 px, as Lossing does; the build hangs the piazza's own flatter roof under the main eave, as the 1857 engraving draws it. Two pictures of four now draw one plane, so the 1857 engraving's governing here (the Lossing record's ruling) is a choice between them and is carried to T-2516",
+      "status": "open"
+    },
+    {
+      "what": "piazza height: every post stands about 40 px from its foot (y 410) to its head (y 370) against bays of about 23 px; the build's 2.0 m posts on 2.39 m bays draw 22-25 px tall from this camera, so every foot lands 6-10 px above the drawn one and every head 7-10 px below. The plate's piazza stands about 1.7 times as tall against its bays; with its one-plane roof that is a taller front wall, a steeper roof or an engraver's stretch, and one plate cannot say which (T-2516)",
+      "status": "open"
+    },
+    {
+      "what": "the west gable end: dark, in the shade, with an upright pale mark low on the end wall at x 597-603 px that may be a door; at this size it is not legible as an opening, as on the 1857 engraving, and the build leaves the end unpierced",
+      "status": "open"
+    },
+    {
+      "what": "the picket fence round the green before the piazza, running east to the poplars, the four poplars in a row east of the house toward the river, and the great tree behind its middle: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "the two-storey house and the low shed behind the house to the north-west (x 530-600 px, y 325-375 px): buildings of the 1832 establishment that no 1812 source places; Ouilmette's and Pettell's houses behind the Kinzie house are T-2484's other pieces, and the plate dates itself to 1832",
+      "status": "not shown"
+    },
+    {
+      "what": "colour: a monochrome wood engraving",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

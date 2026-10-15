@@ -1,0 +1,27 @@
+{
+  "id": "gemmell_chicago_in_1820_lithograph",
+  "type": "illustration",
+  "citation": "\"Chicago in 1820.\" — hand-coloured lithograph, a bird's-eye view from over the lake, lettered \"J. Gemmell lith. 157 Lake St. Chicago\".",
+  "author": "J. Gemmell, lithographer, Chicago; the draughtsman is not named",
+  "date": "about 1857-1867 (the catalogue gives both readings)",
+  "describes_date": "1820, by its title",
+  "repository": "New York Public Library, I. N. Phelps Stokes Collection of American Historical Prints; the copy held in this repository is chicago/reference/images/chicago/chicago_settlement_view_1820.jpg (catalogued in chicago/reference/images/IMAGE_SOURCES.md)",
+  "url": "https://digitalcollections.nypl.org/items/510d47d9-7b70-a3d9-e040-e00a18064a99",
+  "locator": "the whole sheet, 1600 x 1187 px in the copy held here; the Kinzie house is right of the road, about x 1060-1180, y 540-600 px",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published before 1930 in the United States; NYPL offers it as public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read off the image file itself on 2026-10-15 (T-2498). The lithographer's line is read off the scan; the date is the catalogue's.",
+  "what_it_supplies": [
+    "the house's place: on the north bank east of the forks, across the river from the fort, end-on to the lake",
+    "a fenced green on the house's river side with two poplars at its west end, and trees behind it"
+  ],
+  "what_it_does_not_supply": [
+    "the house in 1812: it claims 1820 and was drawn decades later",
+    "any detail of the house: at about 40 px it shows a gabled block and no openings, stacks or piazza",
+    "colour: the colouring was added later and is not evidence"
+  ],
+  "note": "A retrospective bird's-eye view, useful for the house's setting and nothing finer. It also draws Native people in canoes; nothing of them is built (AGENTS.md, the standing constraint). Its camera and match record are data/reference_views/kinzie_house_1812/gemmell_1820.json."
+}
