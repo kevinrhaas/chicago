@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2499 — 1808 Prairie's flat top, height and bow (2026-10-15)
 
 First piece of T-1882, from the owner's report of 2026-10-13 that the Keith house
@@ -15,7 +14,7 @@ no camera is solved for the plate because its scan is `check_required`, so the
 image gate has not been run on this house. The loggia and stair are T-2500; the
 lattice, pinnacles, diaper band, stone tone and fence are T-1883.
 [Before/after views and browser readings](RESEARCH/k01-1808-keith-2499/).
-=======
+
 ## T-2501 — Lee's Place (Hardscrabble) placed, not pinned (2026-10-15)
 
 T-2488 asked for the 1812 farm on the South Branch. The farm site is about 1.4 km west and
@@ -50,7 +49,6 @@ also puts it on the river bank. The ticket is split: **T-2501**
 - **Unverified:** the bank widths read a few metres wide of the drawn stroke, as the reach
   above's do, and T-2502 may refine them. The main stem is measured on its south bank and across
   the forks window on a 316 m chord, so the river distances are slightly short.
->>>>>>> origin/dev
 
 ## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
 
