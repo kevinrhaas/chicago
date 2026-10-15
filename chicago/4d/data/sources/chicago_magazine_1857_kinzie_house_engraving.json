@@ -1,0 +1,30 @@
+{
+  "id": "chicago_magazine_1857_kinzie_house_engraving",
+  "type": "illustration",
+  "citation": "\"The Kinzie House\" — wood engraving, in The Chicago Magazine: The West As It Is, vol. 1 no. 1 (Chicago, March 1857); reprinted by A. T. Andreas, History of Chicago vol. 1 (1884), where it is captioned as the old Kinzie house about 1833.",
+  "author": "unidentified engraver",
+  "date": "1857",
+  "describes_date": "about 1832-1833, by the caption the Andreas reprint gives it",
+  "repository": "Wikimedia Commons, File:Kinzie_House.png; the copy held in this repository is chicago/reference/images/chicago/chicago_kinzie_house_1833.png (catalogued in chicago/reference/images/IMAGE_SOURCES.md), and the same artwork at chicago/pre_fire_v1/media/images/buildings/kinzie_house_1857.png",
+  "url": "https://commons.wikimedia.org/wiki/File:Kinzie_House.png",
+  "locator": "the whole plate, 687 x 436 px in the copy held here",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1857 in the United States, out of copyright by age; Commons holds it as public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read off the image file itself on 2026-10-15 (T-2497). Neither the 1857 magazine page nor the Andreas page was reached from the run's container, so no page is cited; the caption's date is the catalogue's reading of the Andreas reprint.",
+  "what_it_supplies": [
+    "the house long and low under a gable roof running along the river, with two stacks through the ridge, about 0.45 and 0.93 of it from the west gable",
+    "the piazza across the whole front on slender posts, under its own flatter roof below the main eave, with a railing between the posts",
+    "a door at the middle of the front with windows either side",
+    "the picket fence enclosing a green before the piazza, toward the water",
+    "four columnar Lombardy poplars in a row along the green's river-side fence, from opposite the house's east half to beyond its east end",
+    "a big broad-crowned tree behind the house"
+  ],
+  "what_it_does_not_supply": [
+    "the house in 1812: it shows it about twenty years later",
+    "any dimension, position or colour"
+  ],
+  "note": "The clearest picture of the piazza and the poplar row. It draws the walls sided and light, which may be a later cladding or the engraver's: the 1812 house is built of squared logs from the texts, and the match record says so."
+}

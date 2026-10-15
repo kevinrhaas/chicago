@@ -106,3 +106,6 @@ The fort/apron integration (8cc2ab7e) preserves the newer dev records and every 
 
 
 The final dev integration (`44d130bae3af26ffe9f0fb2fbbb649b10841fb67`) preserves all current dev records and the exact reviewed Glessner master, Full and Light assets. The affected derived chain was rebuilt to stability; separate integration receipts record every dev liberty and the unchanged historical camera/review records.
+
+
+Integration onto dev `b47d906f614be357f7f28d9b1ead83e26fbb39f7` follows the manual merge-lap path documented in `docs/PIPELINE.md`: the full affected generated chain was rebuilt to a stable result, the exact reviewed Glessner assets/cameras remain unchanged, and every dev liberty was retained. The feature had passed all 894 local checks at `27fdeba82701b36cc86072620e2cafaef8433d53`; the newer integration is gated in CI after push rather than repeatedly re-running the local suite while dev advances. The interrupted later local run is not a pass. Merge still requires repository CI and all 18 published desktop/mobile smoke groups green on the integration commit. Separate asset, liberty and method receipts record these distinctions.
