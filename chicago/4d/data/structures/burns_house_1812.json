@@ -1,0 +1,109 @@
+{
+  "id": "burns_house_1812",
+  "name": "The Burns house, on the north bank at the later foot of State Street",
+  "aka": [
+    "Burns's",
+    "the \"Burns House\" (Moses and Kirkland)",
+    "the house of John Burns (Currey 1912)"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "burns_1812",
+      "documented_range": {
+        "from": "1812-04-07",
+        "to": "1819-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856",
+          "moses_kirkland_history_of_chicago_v1"
+        ],
+        "note": "THE RANGE IS BOUNDED BY TWO DATED MENTIONS AND ONE LATER BUILDING, NOT BY A DATE FOR THIS HOUSE. It opens on 7 April 1812, the afternoon the alarm from Lee's Place was called across the river to Burns's and Ensign Ronan's party brought the mother and her day-old infant down to the fort by boat (Wau-Bun ch. XVIII; Moses and Kirkland p. 58, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8558-8562). That is the first day a source puts the house on the bank; it may be older, and nothing dates its building. It was still standing on 18 August 1812, when Currey lists it among the four houses left after the fort and the agency house burned (ch. III). Moses and Kirkland have it 'occupied in 1817 by Charles Jouett, the first United States Indian Agent' (lines 9797-9806), and the agency house afterwards called Cobweb Castle, 'commenced during Judge Jouett's incumbency' and completed by Wolcott about 1820, was put up 'near the spot' (Wau-Bun ch. XVIII n. 30; data/structures/cobweb_castle.json). So it closes at the end of 1819, the day before cobweb_castle opens: no source says whether the agency house was raised beside it, over it or out of it, and closing it then keeps the two from ever standing in one scene and keeps it out of 1835. data/exclusions.json carries no entry for it because no 1835 source was found that names it."
+      },
+      "position": {
+        "utm_e": 447866.2,
+        "utm_n": 4637503.0,
+        "rotation_deg": 0.0,
+        "symbolic_location": "The north bank of the main river, on the west side of the later foot of North State (Wolcott) Street, the south wall twenty steps (15.2 m) north of the 1812 north bank and the house just west and south of where cobweb_castle stands from 1820; local E +793.5..+800.8, N +107.2..+112.7.",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856",
+          "moses_kirkland_history_of_chicago_v1",
+          "currey_1912_story_of_old_fort_dearborn"
+        ],
+        "note": "THREE SOURCES PUT IT AT THE FOOT OF STATE STREET AND ONE PUTS IT CLOSER TO THE LAKE; THIS RECORD TAKES THE THREE. Wau-Bun, n. 30 to ch. XVIII: 'Burns's house stood near the spot where the Agency Building, or \"Cobweb Castle,\" was afterwards erected, at the foot of N. State Street.' Moses and Kirkland, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 9797-9802: 'near what is now the southwest corner of North State (formerly Wolcott) and Water streets'. Currey 1912 ch. II: the alarm was called 'to John Burns, then living in a cabin on the north bank of the river near' the later State Street bridge, and ch. III sets the house on the north bank opposite the creek that came in at State Street. THE ALTERNATIVE, STATED AND NOT TAKEN: Moses and Kirkland p. 36 (lines 5630-5640) give Hurlbut's judgment that the Burns house was the log house Wau-Bun puts 'on the north side of the river some two or three hundred yards from the lake and twenty steps from the river bank', at 'about the northeast corner of north State and North Water streets'. On this project's 1812 ground the lake is about 600 m east of State Street at this northing, so two or three hundred yards (183-274 m) from it would seat the house near local E +1000..+1100, on the north bank opposite the fort, where the histories put the Kinzie house instead. The two readings cannot both hold, and the street corner is the one three writers give. FROM HURLBUT THIS RECORD KEEPS ONE FIGURE, the twenty steps from the river bank, because it does not disagree with the corner: the south wall stands 15.2 m (twenty paces of 2.5 ft) north of the north bank of data/terrain/epochs/e1830_natural/shoreline.geojson, which reads N +92.1 at this easting. SOUTHWEST OVER NORTHEAST: Moses and Kirkland write both corners, Hurlbut's 'northeast' on p. 36 and their own 'southwest' later. The southwest corner is the one between Water Street and the river, so it is the one that keeps the twenty steps; it is also the corner Wau-Bun gives for Cobweb Castle, which Wau-Bun puts 'near the spot'. THE EXACT SEAT IS THIS PROJECT'S: the house stands west of cobweb_castle's footprint (local E +801..+814, N +113..+122) and clear of it, so the later building does not stand on this one in plan. Nothing dates which way the house faced; rotation 0 is a reconstruction.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage): the street corner it is described by was platted after the house stood, and the twenty steps are measured off the reconstructed 1812 north bank of the e1830_natural epoch, which the structure-position derivations do not read. The seat is a stated ruling recorded as L-1812-burns-lee-2487."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7.3,
+            0
+          ],
+          [
+            7.3,
+            5.5
+          ],
+          [
+            0,
+            5.5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "Unattested. 24 x 18 ft, the size of a one-room log house with a loft space under the roof, which is what the sources' 'cabin' (Currey) and 'log house' (Wau-Bun, via Moses and Kirkland) allow; no source gives a dimension. The long side runs east-west along the bank. L-1812-burns-lee-2487."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Unattested. Currey calls it a 'cabin'; one storey is the reading that word bounds."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "reconstructed",
+          "note": "Unattested. About eight feet of hewn log to the plate, a one-room house's ordinary height."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "No source states what this house was built of. Log is the bounded reading: every house the histories describe at the post before 1812 whose material they give is log (the Kinzie house, the agency house, the factory, Lee's Place, the cabin Hurlbut judged to be this one), and the ticket's own inventory builds the settlement at the log_dwelling archetype. Recorded as a liberty (L-1812-burns-lee-2487)."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "Unattested. A pitched gable over a one-room log house is the form the first fort's draught draws for its own log buildings outside the stockade (the agent's house, the factory), and it is the reading this project takes for them."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "reconstructed",
+          "note": "Unattested; no source describes the roof."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Unattested. One end chimney, the least a family's winter house on the lake needs; no source places it."
+        }
+      },
+      "change_note": "Built T-2487 (2026-10-15). The house of a discharged soldier and his family, standing on the north bank in the 1812 scene."
+    }
+  ],
+  "function": {
+    "value": "residence",
+    "confidence": "attested",
+    "sources": [
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1",
+      "currey_1912_story_of_old_fort_dearborn"
+    ],
+    "note": "The Burns family's house. THE SOURCES DISAGREE ON THE HUSBAND'S FIRST NAME, AND THE RECORD DOES NOT RULE: Moses and Kirkland think its occupant 'probable' to be 'the \"Thomas Burns\" who appears in the Fort Dearborn muster roll, 1810', enlisted 8 June 1806 and so due his discharge on 8 June 1811 (data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8548-8556); Currey 1912 calls him John Burns throughout. Neither cites a document for the name it gives. Wau-Bun calls the house only 'Burns's'."
+  },
+  "research_note": "THE BURNS HOUSE, the one house up the north bank west of the Kinzies' in 1812. On 7 April 1812 the man and boy running from Lee's Place called across the river to it that the Indians were 'killing and scalping' up the South Branch, and Mrs. Kinzie, who had been there helping Mrs. Burns with a child born a few hours before, ran home; Ensign Ronan and five or six soldiers went up in a scow and carried the mother and infant, bed and all, down to the fort (Wau-Bun ch. XVIII; Currey ch. II; Moses and Kirkland p. 58). Burns was killed with the militia on 15 August; his wife and child were taken captive and later freed (Currey ch. III; Moses and Kirkland p. 58). The house stood on: Currey counts it among the four left on 18 August, and Moses and Kirkland have Charles Jouett, the Indian agent, living in it in 1817. No picture of it is known, so it has no image gate to meet. Its size, height, material and roof are reconstructed (L-1812-burns-lee-2487). It carries review_required so that no scene containing it can be marked released: its card speaks of the attack of 15 August 1812 on the lake shore, an event of Potawatomi history as much as the garrison's, and the 1812 scene's whole account of that day waits on the review by Native scholars or community organisations that T-0472 holds it for. Nobody is drawn in or near it (L1).",
+  "review_required": true
+}

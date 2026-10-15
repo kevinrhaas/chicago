@@ -1,0 +1,26 @@
+{
+  "id": "currey_1912_story_of_old_fort_dearborn",
+  "type": "book",
+  "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+  "author": "Josiah Seymour Currey",
+  "date": "1912",
+  "describes_date": "1803-1812",
+  "url": "https://www.gutenberg.org/ebooks/52346",
+  "archived_url": "https://www.gutenberg.org/cache/epub/52346/pg52346.txt",
+  "locator": "ch. II (the attack at Lee's Place, April 1812; the Lee and Burns houses); ch. III (the Burns family on 15 August, the view from the fort's walls, the houses left on 18 August, and the caption of the map of 1812)",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-15 (T-2487) from the Project Gutenberg plain-text edition, eBook #52346, released 16 June 2016; the line numbers quoted in records are not stable across editions, so records cite chapters.",
+  "note": "A 1912 popular history, a century after the events, compiled from Wau-Bun, Kirkland, Andreas and the published letters; it rarely cites a page. Tier 4, later compilation, outranked by Wau-Bun (1856) wherever they disagree on what was said, and cited for what it adds: it is the one source read that puts the Lee house 'on the bank of the river opposite where it discharged into the lake', 'near the present intersection of Madison Street and Michigan Avenue', and gives the reason in the sand-bar; and it names the north-bank householder John Burns where Moses and Kirkland (1895) think him Thomas Burns. Its chapter VIII map of 1812 is a 1912 compilation and is not used for any coordinate here.",
+  "what_it_supplies": [
+    "the Lee house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue",
+    "the Burns house on the north bank near the later State Street bridge, west of the Kinzies'",
+    "the four houses left standing on 18 August 1812"
+  ],
+  "what_it_does_not_supply": [
+    "any dimension, material or picture of either house",
+    "a source for the name John Burns"
+  ]
+}
