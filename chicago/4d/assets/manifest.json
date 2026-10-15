@@ -404,6 +404,42 @@
       "phase_id": "stable_1834",
       "structure_id": "exchange_coffee_house_stable"
     },
+    "first_fort_covered_way_bank_lower__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 65396,
+      "inputs_sha256": "9dbe232d74337e382d863752a8a48578722b250d574810da7ce4da69f09289b9",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_covered_way_bank_lower"
+    },
+    "first_fort_covered_way_bank_middle__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 65400,
+      "inputs_sha256": "ca104f75a801b652415860ce2ddde30ecb9b65b3e0479579e9d967463f37e8ed",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_covered_way_bank_middle"
+    },
+    "first_fort_covered_way_bank_upper__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 65396,
+      "inputs_sha256": "291496272b398c94360e43061e547ed1f90d51b6cec19a837df39c1f349a8b34",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_covered_way_bank_upper"
+    },
+    "first_fort_covered_way_terrace__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 265672,
+      "inputs_sha256": "007f1483a590253ad96c897eeadfc63e4e01a6519fafca2ea1ae93bde10c73bc",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_covered_way_terrace"
+    },
     "first_fort_dearborn_blockhouse_nw__first_fort_1803.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
@@ -628,6 +664,15 @@
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_sutlers_garden"
+    },
+    "first_fort_wharf__first_fort_1803.glb": {
+      "archetype": "pier_crib",
+      "baked_ao": false,
+      "bytes": 15836,
+      "inputs_sha256": "d0cd074883e6224581ea20b4fd12fc223bd756f3def63c64bef9b9d48bd6784e",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_wharf"
     },
     "first_presbyterian_church__frame_1834.glb": {
       "archetype": "frame_dwelling",

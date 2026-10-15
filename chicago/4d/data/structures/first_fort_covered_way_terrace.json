@@ -1,0 +1,114 @@
+{
+  "id": "first_fort_covered_way_terrace",
+  "name": "First Fort Dearborn — the covered way to the river, across the terrace",
+  "aka": [
+    "Whistler's index no. 33, 'Covered Way to procure Water'"
+  ],
+  "archetype": "palisade",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913"
+        ],
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS WORK. It opens on 25 January 1808, the date Whistler's draught carries, whose index names it; it may well be older. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). Quaife's description of it ends 'Such was the old Fort previous to 1812', so nothing of it is carried to the second fort."
+      },
+      "position": {
+        "utm_e": 448238.56,
+        "utm_n": 4637634.1,
+        "rotation_deg": 0.0,
+        "symbolic_location": "North of the first Fort Dearborn's north-east angle: the run across the terrace, from the north-east angle to the head of the bank, 0.30-19.20 m north of the outer picket row's north face, its east row on the line of the east curtain. This record's origin is the run's south-west corner.",
+        "confidence": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "INFERRED FROM TEXT, NEVER TRACED. The draught's index lists 'Covered Way to procure Water' and says it is 'Omited in their places', so the sheet does not draw it. Quaife p. 165: 'From the northeast corner of the stockade a covered way led to the river'. So the passage leaves the outer picket row's north-east corner (its record's footprint) along the frame's north, which is grid north, and runs to the committed 1812 water about 26.3 m off. Its runs, width and joints are data/traces/whistler_1808_fort_dearborn.json index no. 33 `seat`; tools/read_whistler_1808.py --check (run by check.sh) recomputes this corner, refuses a run more than one joint from the one before it or standing on more than 1.6 m of fall, and refuses the passage if its last run does not reach the water. The line and the runs are reconstructed (docs/LIBERTIES.md L-first-fort-water-2508).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods. It is a reconstruction by stated rule from the outer picket row's own corner to the traced 1812 waterline, and tools/read_whistler_1808.py --check (run by check.sh) recomputes it to 0.01 m (T-2508)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            3.0,
+            0
+          ],
+          [
+            3.0,
+            18.9
+          ],
+          [
+            0,
+            18.9
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "3.0 m across, the narrowest the palisade archetype builds with a 1.5 m gateway at each end; no source gives the width. 18.90 m long, one of four runs: a structure stands on the lowest ground under it, so the passage is cut where the bank falls, and the ground falls 0.13 m under this one (docs/LIBERTIES.md L-first-fort-water-2508)."
+      },
+      "form": {
+        "wall_kind": {
+          "value": "picket_stockade",
+          "confidence": "reconstructed",
+          "note": "Quaife's covered way secured 'access in safety to the water in time of attack', which is read as screened. Built as two rows of the stockade's own pickets, open to the sky: no source says it was roofed, and none says it was not."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Unattested; the outer row's."
+        },
+        "picket_height_m": {
+          "value": 3.7,
+          "confidence": "reconstructed",
+          "note": "Unattested; the outer row's twelve feet."
+        },
+        "picket_width_m": {
+          "value": 0.24,
+          "confidence": "reconstructed",
+          "note": "Unattested; the outer row's."
+        },
+        "picket_spacing_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "Unattested; the outer row's."
+        },
+        "gate_sides": {
+          "value": [
+            "n",
+            "s"
+          ],
+          "confidence": "reconstructed",
+          "note": "A passage is open at both ends. The archetype builds each run as an enclosure, so each end is a gateway between short returns of pickets. The postern through the two rows of the stockade into its south end is not built: the sheet omits the covered way and draws no opening there."
+        },
+        "gate_width_m": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "Unattested; the archetype's narrowest gateway."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "military_post_enclosure",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "Index no. 33, 'Covered Way to procure Water'. Quaife p. 165: it led from the north-east corner of the stockade to the river, 'securing thus to the garrison access in safety to the water in time of attack'."
+  },
+  "research_note": "THE COVERED WAY, no. 33, built at T-2508 from Quaife's sentence: the run across the terrace, from the north-east angle to the head of the bank, run 1 of 4. The drafter letters 'wells' beside this same angle; no well is built from the word. Nobody is in it (L1).",
+  "review_required": false
+}
