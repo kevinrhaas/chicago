@@ -584,18 +584,23 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # fort's wharf (`pier_crib`, the archetype's first river wharf beside the two harbour piers) and
 # its covered way to the river in four runs (`palisade`), restaling on the same rows.
 #
-# 874 -> 878 on 2026-10-15 (T-2510): four haystacks at Lee's Place in 1812, the first records of
-# the new `haystack` archetype. It writes its glTF in pure Python (generators/haystack_emit.py, the
-# K12/K16 route), so it restales on none of the shared rows below: registering it in emit.py
-# instead would have re-staled all 722 of that row's meshes for want of one dict entry.
+# 874 -> 876, 724 -> 726 and 718 -> 720 on 2026-10-15 (T-2497, landing after T-2508): the Kinzie
+# house and its fenced green in the 1812 scene (kinzie_house_1812, kinzie_house_1812_green), through
+# emit.py and the common modules.
+#
+# 876 -> 880 on 2026-10-15 (T-2510, landing after T-2497): four haystacks at
+# Lee's Place in 1812, the first records of the new `haystack` archetype. It writes its glTF in pure
+# Python (generators/haystack_emit.py, the K12/K16 route), so it restales on none of the shared rows
+# below: registering it in emit.py instead would have re-staled every mesh on that row for want of
+# one dict entry.
 #
 STATED = {
-    "assets": 878,
+    "assets": 880,
     "restales": {
-        "generators/common/*.py": 724,
+        "generators/common/*.py": 726,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 718,
+        "generators/emit.py": 720,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

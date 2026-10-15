@@ -60,6 +60,9 @@ ROLE_MATERIAL = {
     "deck": "porch_timber", "skirt": "porch_timber", "post": "porch_timber", "beam": "porch_timber",
     "porch_roof": "porch_timber", "step_timber": "porch_timber",
     "terrace": "stone", "terrace_face": "stone", "baluster": "stone", "newel": "stone", "rail": "stone",
+    # T-2500: a stone loggia on the terrace (1808's), its basement arch's void behind the hall's backing
+    "pedestal": "stone", "column": "stone", "entablature": "stone", "loggia_wall": "stone",
+    "balcony": "stone", "arch_reveal": "stone", "arch_back": "backing",
     "ground": "ground", "walk": "walk",
 }
 # The board, not the entrance: excluded from an entrance's costs and from the walk rule.
@@ -355,6 +358,28 @@ class Entrance(Opening):
             for sgn in (-1.0, 1.0):
                 si, so = c + sgn * half, c + sgn * (half + t)
                 o0 = L if sgn in psides else 0.0
+                # T-2500: a terrace deeper than the landing (1808's loggia deck) is the flight's
+                # cheek on its side as far as its own front, and the cheek runs on from there,
+                # its top rising from the rake to the deck's edge
+                Dq = next((q.get("out_m", L) for q, sd in zip(porches, psides) if sd == sgn), L)
+                if Dq > L:
+                    o0 = Dq
+                    self.quad("cheek", [(si, -R, L), (si, -R, Dq), (si, 0, Dq), (si, 0, L)], (-sgn, 0.0, 0.0))
+                    prof = [(Dq, -R), (F, -R), (F, yF), (Dq, 0.0)]
+                    rake = lambda o: (o - Dq) / (F - Dq) * yF
+                    for k in range(1, n):
+                        if L < L + (k - 0.5) * g < Dq:
+                            self.probe(si, (-R + -k * r) / 2, L + (k - 0.5) * g, ("cheek",), f"the deck's side at step {k}")
+                    for q_ in (si, so):
+                        self.quad("cheek", [(q_, y, o) for o, y in prof], (sgn if q_ == so else -sgn, 0.0, 0.0))
+                    self.quad("cheek", [(si, 0.0, Dq), (so, 0.0, Dq), (so, yF, F), (si, yF, F)], (0.0, F - Dq, -yF))
+                    self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
+                    mid = c + sgn * (half + t / 2)
+                    top, foot = (mid, rake(Dq + 0.15), Dq + 0.15), (mid, rake(F - 0.15), F - 0.15)
+                    self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top, foot]
+                    for pt in (top, foot):
+                        self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
+                    continue
                 prof = [(o0, -R), (F, -R), (F, yF), (L, hc)] + ([(0, hc)] if o0 == 0.0 else [])
                 self.quad("cheek", [(si, y, o) for o, y in prof], (-sgn, 0.0, 0.0))
                 self.quad("cheek", [(so, y, o) for o, y in prof], (sgn, 0.0, 0.0))
@@ -388,6 +413,10 @@ class Entrance(Opening):
         back is faced too, as nothing stands behind it there."""
         m = lambda t: side * t
         S = porch["to_s_m"]
+        # T-2500: a terrace may stand deeper than the landing (1808's loggia deck); its
+        # cheek-side face is the flight's cheek (_stoop), so its front runs from s_deck
+        if porch.get("out_m", L) > L:
+            L = porch["out_m"]
         # a back step at or behind the landing's edge sets the terrace's back from the start
         back = [(b[0], b[1]) for b in porch.get("back", [])]
         first = 0.0
@@ -399,7 +428,11 @@ class Entrance(Opening):
             if not a < b or back >= L:
                 raise ValueError(f"terrace step {a:.3f}..{b:.3f} m at {back} m is not a strip in front of the wall")
             self.quad("terrace", [(m(a), 0, back), (m(b), 0, back), (m(b), 0, L), (m(a), 0, L)], Y)
-        self.quad("terrace_face", [(m(s_face), -R, L), (m(S), -R, L), (m(S), 0, L), (m(s_face), 0, L)], OUT)
+        lg = porch.get("loggia")
+        if lg and lg.get("arch"):
+            self._arch_face(lg["arch"], m, s_face, S, (s_deck + S) / 2, R, L)
+        else:
+            self.quad("terrace_face", [(m(s_face), -R, L), (m(S), -R, L), (m(S), 0, L), (m(s_face), 0, L)], OUT)
         last = steps[-1][1]
         self.quad("terrace_face", [(m(S), -R, last), (m(S), -R, L), (m(S), 0, L), (m(S), 0, last)], (side, 0.0, 0.0))
         W = porch.get("wall_to_s_m")
@@ -420,6 +453,104 @@ class Entrance(Opening):
             self._baluster_run(B, far, (m(S - nm), 0.0, last + nm), B["height_m"], skip_first=True)
         rec = {"s": [m(s_deck), m(S)], "out_m": L, "back": [[m(a), o] for a, o in steps]}
         self.meta["terrace" if side > 0 else "terrace_left"] = rec
+        if lg:
+            if W is not None and W < S:
+                raise ValueError("a loggia stands on a terrace inside the front")
+            self.meta["loggia"] = self._loggia(lg, m, side, s_deck, S, L)
+
+    # T-2500: the loggia on a terrace, and the basement arch under it ---------------------
+    def _arch_face(self, A, m, s0, s1, ca, R, L):
+        """The terrace's front from s0 to s1, faced to grade, with a round-headed arch in it
+        centred on ca, under the loggia's middle: the jambs `spring_m` over grade, the head a
+        half round, its void `depth_m` deep and closed by the backing."""
+        hw = A["span_m"] / 2
+        ys = -R + A["spring_m"]
+        if not (s0 + 0.2 <= ca - hw and ca + hw <= s1 - 0.2 and ys + hw <= -0.15):
+            raise ValueError("the basement arch does not stand inside the terrace's face")
+        k = A.get("segments", 12)
+        arc = [(ca - hw * math.cos(math.pi * i / k), ys + hw * math.sin(math.pi * i / k)) for i in range(k + 1)]
+        self.quad("terrace_face", [(m(s0), -R, L), (m(arc[0][0]), -R, L), (m(arc[0][0]), 0, L), (m(s0), 0, L)], OUT)
+        self.quad("terrace_face", [(m(arc[-1][0]), -R, L), (m(s1), -R, L), (m(s1), 0, L), (m(arc[-1][0]), 0, L)], OUT)
+        for (a, ya), (b, yb) in zip(arc, arc[1:]):
+            self.quad("terrace_face", [(m(a), ya, L), (m(b), yb, L), (m(b), 0, L), (m(a), 0, L)], OUT)
+        d = A["depth_m"]
+        outline = [(arc[0][0], -R)] + arc + [(arc[-1][0], -R)]
+        for (a, ya), (b, yb) in zip(outline, outline[1:]):
+            mx, my = (a + b) / 2 - ca, (ya + yb) / 2 - ys
+            self.quad("arch_reveal", [(m(a), ya, L), (m(b), yb, L), (m(b), yb, L - d), (m(a), ya, L - d)],
+                      (-m(mx) if abs(mx) > 1e-9 else 0.0, -my if a != b else 0.0, 0.0))
+        self.quad("arch_back", [(m(x), y, L - d) for x, y in outline], OUT)
+        self.probe(m(ca), ys, L - d, ("arch_back",), "the basement arch's void")
+        self.probe(m(s0 + 0.1), -R / 2, L, ("terrace_face",), "the terrace's face beside the arch")
+
+    def _box(self, role, s0, s1, y0, y1, o0, o1, skip=()):
+        """A closed block in the door's frame, s0 < s1 and o0 < o1; `skip` names the faces
+        another part covers ('back', 'front', 'left', 'right', 'bottom', 'top')."""
+        F = {"top": ([(s0, y1, o0), (s1, y1, o0), (s1, y1, o1), (s0, y1, o1)], Y),
+             "bottom": ([(s0, y0, o0), (s1, y0, o0), (s1, y0, o1), (s0, y0, o1)], (0.0, -1.0, 0.0)),
+             "front": ([(s0, y0, o1), (s1, y0, o1), (s1, y1, o1), (s0, y1, o1)], OUT),
+             "back": ([(s0, y0, o0), (s1, y0, o0), (s1, y1, o0), (s0, y1, o0)], (0.0, 0.0, -1.0)),
+             "left": ([(s0, y0, o0), (s0, y0, o1), (s0, y1, o1), (s0, y1, o0)], (-1.0, 0.0, 0.0)),
+             "right": ([(s1, y0, o0), (s1, y0, o1), (s1, y1, o1), (s1, y1, o0)], (1.0, 0.0, 0.0))}
+        for k, (pts, n) in F.items():
+            if k not in skip:
+                self.quad(role, pts, n)
+
+    def _loggia(self, lg, m, side, s_deck, S, D):
+        """1808's north entrance loggia (T-2500, the Inland Architect plate of February 1888):
+        a pedestal at each front corner carrying a pair of turned columns, a solid parapet
+        between the pedestals across the front and along the far side back to the wall, the
+        near side left open to the flight, and over the columns an entablature block the
+        loggia's whole plan, its soffit the loggia's ceiling and its top the balcony's floor,
+        walled by the balcony's parapet on its three open sides. Every block is closed except
+        where it meets the wall (o = 0) or another block."""
+        lo = lambda a, b: (min(m(a), m(b)), max(m(a), m(b)))
+        # in the mirrored frame "near" is the flight's side (s_deck), "far" the terrace's end (S)
+        near_face, far_face = ("left", "right") if side > 0 else ("right", "left")
+        P, C, E, B, W = lg["pedestal"], lg["columns"], lg["entablature"], lg["balcony"], lg["parapet"]
+        pw, pd, ph = P["width_m"], P["depth_m"], P["height_m"]
+        if not (2 * pw + 0.6 <= S - s_deck and pd < D):
+            raise ValueError(f"the loggia's pedestals ({pw} x {pd} m) do not fit its {S - s_deck:.3f} x {D} m deck")
+        for a, b, sk in ((s_deck, s_deck + pw, ()), (S - pw, S, ())):
+            s0, s1 = lo(a, b)
+            self._box("pedestal", s0, s1, 0.0, ph, D - pd, D, skip=("bottom",))
+            self.probe(m((a + b) / 2), ph / 2, D, ("pedestal",), "a loggia pedestal's face")
+        # the parapet between the pedestals, and along the far side to the wall
+        wt, wh = W["thickness_m"], W["height_m"]
+        if wh > ph:
+            raise ValueError("the loggia's parapet stands over its pedestals")
+        s0, s1 = lo(s_deck + pw, S - pw)
+        self._box("loggia_wall", s0, s1, 0.0, wh, D - wt, D, skip=("bottom", "left", "right"))
+        s0, s1 = lo(S - wt, S)
+        self._box("loggia_wall", s0, s1, 0.0, wh, 0.0, D - pd, skip=("bottom", "back", "front"))
+        self.probe(m((s_deck + S) / 2), wh / 2, D, ("loggia_wall",), "the loggia's front parapet")
+        # the columns, two to a pedestal side by side along the front
+        prof = [[float(r), float(y)] for r, y in C["profile"]]
+        ch = C["height_m"]
+        cols = []
+        for a in (s_deck, S - pw):
+            for f in (0.25, 0.75):
+                cs, co = m(a + pw * f), D - pd / 2
+                self._turn((cs, co), [(r, ph + ch * y) for r, y in prof], C["segments"], role="column")
+                cols.append([round(cs, 4), round(co, 4)])
+        # the entablature over the whole plan, its soffit the ceiling
+        y0, y1 = ph + ch, ph + ch + E["height_m"]
+        s0, s1 = lo(s_deck, S)
+        self._box("entablature", s0, s1, y0, y1, 0.0, D, skip=("back", "top"))
+        self.probe(m((s_deck + S) / 2), (y0 + y1) / 2, D, ("entablature",), "the entablature's face")
+        # the balcony: its floor and its parapet on the three open sides
+        bt, bh = B["thickness_m"], B["height_m"]
+        s0, s1 = lo(s_deck + bt, S - bt)
+        self.quad("balcony", [(s0, y1, 0.0), (s1, y1, 0.0), (s1, y1, D - bt), (s0, y1, D - bt)], Y)
+        s0, s1 = lo(s_deck, S)
+        self._box("balcony", s0, s1, y1, y1 + bh, D - bt, D, skip=("bottom",))
+        for a in (s_deck, S - bt):
+            s0, s1 = lo(a, a + bt)
+            self._box("balcony", s0, s1, y1, y1 + bh, 0.0, D - bt, skip=("bottom", "back", "front"))
+        self.probe(m((s_deck + S) / 2), y1 + bh / 2, D, ("balcony",), "the balcony's parapet")
+        return {"s": [round(m(s_deck), 4), round(m(S), 4)], "out_m": D, "pedestal_top_m": ph,
+                "columns": cols, "entablature_y_m": [round(y0, 4), round(y1, 4)],
+                "balcony_top_m": round(y1 + bh, 4)}
 
     def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0):
         """A turned balustrade on each cheek's top, level beside the landing and raked down
@@ -489,14 +620,14 @@ class Entrance(Opening):
             self.quad("newel", [(x, y, o0), (x, y, o1), (x, y_top, o1), (x, y_top, o0)], (hx, 0.0, 0.0))
         self.probe(s, (y + y_top) / 2, o1, ("newel",), "a newel")
 
-    def _turn(self, axis, prof, segs):
+    def _turn(self, axis, prof, segs, role="baluster"):
         """A turned baluster: the profile [r, y] revolved about the vertical through axis (s, out)."""
         cs, co = axis
         ang = [2 * math.pi * k / segs for k in range(segs + 1)]
         for (r0, y0), (r1, y1) in zip(prof, prof[1:]):
             for a, b in zip(ang, ang[1:]):
                 m = (a + b) / 2
-                self.quad("baluster", [(cs + r0 * math.cos(a), y0, co + r0 * math.sin(a)),
+                self.quad(role, [(cs + r0 * math.cos(a), y0, co + r0 * math.sin(a)),
                                        (cs + r0 * math.cos(b), y0, co + r0 * math.sin(b)),
                                        (cs + r1 * math.cos(b), y1, co + r1 * math.sin(b)),
                                        (cs + r1 * math.cos(a), y1, co + r1 * math.sin(a))],

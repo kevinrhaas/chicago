@@ -10959,7 +10959,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 128 structures (123 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, all five on the constructed grid (L407); 122 until T-2165's stable on blk_indiana_north_wolcott, 2026-10-08; 103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 130 structures (128 until T-2497's Kinzie house and its fenced green in the 1812 scene, 2026-10-15, both on the north fraction of section 10, which tools/resolve_land_tracts.py --build reaches on the constructed grid (L-kinzie-house-1812-2497); 123 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, all five on the constructed grid (L407); 122 until T-2165's stable on blk_indiana_north_wolcott, 2026-10-08; 103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -14357,7 +14357,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 679 phases (675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 680 phases (679 until T-2497's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, L-kinzie-house-1812-2497; 675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14629,8 +14629,8 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 97 phases: 72 log dwellings and
-25 fort structures. It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
+**Scope:** `structures.phases[log_or_fort_archetype]` — 98 phases: 73 log dwellings and
+25 fort structures. It was 97 until T-2497, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (L-kinzie-house-1812-2497). It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
 corner of the School Section tier's block 82 (L-block82-east-corners-2270). It was 91 until T-2062, 2026-10-05, wrote the first fort's factory and
 agent's house outside its stockade, two log dwellings dated 1808-1812 (L391). It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
 `fort_structure` records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles
@@ -23652,6 +23652,7 @@ and set the window heads from the photograph.
 **Ticket:** T-2310 (piece 2 of T-1851, K09).
 **Review:** `docs/RESEARCH/k09-1808-trim-2310/README.md`.
 **Recorded:** 2026-10-10 (T-2310).
+**Revised:** 2026-10-15 (T-2500) — **no ring over the door.** The door now stands inside the north loggia, under a ceiling 3.45 m over the floor that the K09 ring's crown would have passed through, and the plate shows nothing of the door in the loggia's shadow, so `street_front_trim` names no entrance. The window trim is unchanged. See L-k07-1808-loggia-2500.
 
 ### L-k07-1808-entrance-2304 — The 1808 exemplar's door and stoop: built from the reconstructed K07 kit, clear of the walk
 
@@ -23683,6 +23684,7 @@ A reading of the sheet to the foot for this lot replaces the front yard's buildi
 **Ticket:** T-2304 (piece 2 of T-1849, K07).
 **Review:** `docs/RESEARCH/k07-1808-entrance-2304/README.md`.
 **Recorded:** 2026-10-10 (T-2304).
+**Revised:** 2026-10-15 (T-2500) — **the stoop is now the stair beside the north loggia the 1888 plate draws.** The door stands at the back of an open stone loggia at the north end of the front (v 7.0-10.4, 2.7 m deep) with paired columns on corner pedestals, a parapet, an entablature carrying a balcony and a basement arch, and the straight stoop, 2.0 m wide, rises on its south side, centred 6.0 m from the south corner, the loggia's deck its north cheek. The door itself is still the K07 variant this entry describes; the north bay moved to 8.7 m, the loggia's middle. See L-k07-1808-loggia-2500.
 
 ### L-k08-1808-bays-2308 — 1808 Prairie's south front bow and rear canted bay, both reconstructed from the K08 kit
 
@@ -26994,6 +26996,47 @@ after 1812; or a survey of the 1812 mouth, which would move the Lee house with i
 **Recorded:** 2026-10-15 (T-2487).
 **Covers:** `burns_house_1812.burns_1812.footprint`, `burns_house_1812.burns_1812.form.stories`, `burns_house_1812.burns_1812.form.wall_height_m`, `burns_house_1812.burns_1812.form.construction`, `burns_house_1812.burns_1812.form.roof_type`, `burns_house_1812.burns_1812.form.roof_pitch_deg`, `burns_house_1812.burns_1812.form.chimneys`, `lee_house_1812.lee_1812.documented_range`, `lee_house_1812.lee_1812.footprint`, `lee_house_1812.lee_1812.form.stories`, `lee_house_1812.lee_1812.form.wall_height_m`, `lee_house_1812.lee_1812.form.construction`, `lee_house_1812.lee_1812.form.roof_type`, `lee_house_1812.lee_1812.form.roof_pitch_deg`, `lee_house_1812.lee_1812.form.chimneys`
 
+### L-kinzie-house-1812-2497 — The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand
+
+**Decision:** the Kinzie house (`kinzie_house_1812`, T-2497, piece 1 of T-2484), the log house Jean
+Baptiste Point du Sable built on the north bank opposite the fort and John Kinzie's home from 1804,
+stands in the 1812 scene as a single-storey hewn-log house 12.19 m by 6.71 m (forty feet by
+twenty-two), facing south across the river, centred on the first fort's flagstaff easting and set
+back so that 18 m of fenced green lies between its piazza and the top of the bank. A piazza 2.1 m
+deep runs its whole front on six posts under its own flatter roof, with a rail between the posts
+except at the door, and two stacks rise through its ridge. A paling 1.1 m high encloses the green, 39 m along the river by 15.5 m to the bank, with a gate before
+the door (`kinzie_house_1812_green`). Four Lombardy poplars 12 m tall stand in a row 4.5 m apart along
+the green's river-side fence, from opposite the house's east half eastward, and two cottonwoods 20-21 m tall stand behind the house
+(`data/flora/plantings/kinzie_house_1812_trees.json`).
+
+**What is read, not invented.** That the house was of squared logs (Moses and Kirkland vol. 1 p.
+30); that it faced south with the river in front, that Kinzie added a veranda and planted four
+Lombardy poplars "at the foot of the slope on which the house stood", and that it escaped the
+burning of 1812 (Currey 1912, ch. II); "a long, low building, with a piazza extending along its
+front", the green "inclosed between it and the river, and shaded by a row of Lombardy poplars", and
+"two immense cottonwood-trees ... in the rear" (Wau-Bun, of 1831). One storey, a ridge along the
+river, two stacks through the ridge and where they stand, the piazza's flatter roof under the eave,
+six posts and a rail, the paling, and the poplars' row along its river side are read off the two engravings matched in
+`data/reference_views/kinzie_house_1812/` (Lossing 1869; the Chicago Magazine 1857).
+
+**What is invented.** The 22 by 40 ft footprint is reported from du Sable's 1800 bill of sale
+(Quaife, *Mississippi Valley Historical Review* 15:1, 1928), which is not in this corpus and was not
+read, so it is cited to nothing. The set-back from the bank, the wall height (3.0 m), the roof pitch
+(30 degrees), the piazza's depth and its deck, post and rail sizes (`generators/archetypes/
+log_dwelling.py` `_piazza`), the stacks' size, the green's corners, the paling's height and the gate, and every tree's place and height.
+
+**Why:** the owner asked for the settlement around the fort to be built (T-2484, 2026-10-13), and
+the house has three texts and six pictures behind its form and nothing behind its measure. Built at
+the reconstructed tier, it stands where every source puts it, in the form every picture shows.
+
+**How to resolve:** Quaife's 1928 article (the bill of sale's dimensions); the Sarony lithograph
+after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32) and Kirkland's "Kinzie mansion in
+1812" (1893, p. 73), both T-2498's; any plat or survey of the Kinzie tract before 1833.
+
+**Covers:** `kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`.
+**Ticket:** T-2497.
+**Recorded:** 2026-10-15 (T-2497).
+
 ### L-first-fort-outer-2507 — The first fort's interpreter's house, armourer's shop, merchant's shop and bake house stand where the 1808 draught's rule puts them, and the interpreter's own figure is set aside for the river
 
 **Decision:** the 1812 scene gains four more buildings outside the first Fort Dearborn's stockade,
@@ -27061,6 +27104,37 @@ and the colonnettes are T-1883's. The north loggia, its balcony and stair are T-
 **How to resolve:** the plate's camera solved into `data/reference_views/keith_house_1808_prairie/`
 once a copy whose rights are cleared is in the tree (the scan this source reads is `check_required`,
 so no asset is derived from it here), and the side-by-side worked down.
+
+### L-k07-1808-loggia-2500 — 1808 Prairie's north entrance loggia, balcony and stair from the 1888 plate; the columns, parapets and stone reconstructed
+
+**Ticket:** T-2500 (piece 2 of T-1882).
+**Recorded:** 2026-10-15 (T-2500).
+**Sources:** `inland_architect_1888_02_keith_plate`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.entrance_kit`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`
+
+**Decision:** the owner reported on 2026-10-13 that the house's entrance is not the one its pictures
+show: a round-arched door in the middle of the front on an open stoop, where the pictures show an open
+loggia at the north end. The record now builds the arrangement the Inland Architect plate of February
+1888 (`inland_architect_1888_02_keith_plate`) and the first-floor plan printed under it draw: a stone
+loggia deck at the principal floor from the stair to the north corner, 2.7 m deep and 3.4 m wide (the
+plan at about 68 px/m); a pedestal at each front corner carrying a pair of columns side by side; a
+parapet between the pedestals and along the north side back to the wall, the south side open to the
+stair; an entablature over the columns whose top is a balcony's floor, walled by a parapet under the
+second-storey window; and a round-headed arch at basement level in the deck's face, dark behind. The
+stair rises on the loggia's south side, 2.0 m wide, the deck its north cheek. Heights are read off the
+plate's loggia face at about 78 px/m: pedestals 1.0 m over the deck, columns 2.45 m, entablature 0.7 m,
+balcony parapet 0.9 m.
+**What is invented.** The columns are plain turned shafts with a base and a swelling cap, not the
+Ionic columns the T-1837 register reads; the parapets and the balcony are solid stone, where the plate
+shows a pierced balustrade and a carved panel; all of it is built in the stoop's pale limestone; the
+arch's 1.5 m span and its spring are read from a void the stair's cheek half hides; the stair's width
+is rounded down from the plan's 2.3 m to 2.0 m so its south cheek keeps clear of the bow; and the north
+bay moved from 8.4 m to 8.7 m, the loggia's middle. The stair keeps T-2499's reconstructed 1.5 m
+principal floor (nine risers) where the plate reads about 2.0 m.
+**How to resolve:** T-1883 carries the finish: the Ionic capitals, the pierced balustrade and carved
+balcony panel, the scrolled cheek walls and the stone's tone. The plate's camera solved once a copy
+whose rights are cleared is in the tree (the scan this source reads is `check_required`, so no asset is
+derived from it here) puts every dimension above on a side-by-side.
 
 ### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
 

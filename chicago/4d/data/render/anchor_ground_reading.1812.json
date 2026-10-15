@@ -67,6 +67,19 @@
       "inside_a_roof": null
     },
     {
+      "id": "kinzie_house_across_river",
+      "local_e": 1140,
+      "local_n": 250,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 3.6,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 12.5,
+      "inside_a_roof": null
+    },
+    {
       "id": "eighteenth_street_shore",
       "local_e": 1495,
       "local_n": -3185,
