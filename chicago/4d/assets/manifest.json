@@ -251,6 +251,15 @@
       "phase_id": "log_1834",
       "structure_id": "council_house"
     },
+    "coursoll_field_1812__coursoll_1808.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 117672,
+      "inputs_sha256": "cc98a81efff4c4705800f5ef6c8f811b2955a98a508a27dce32f85f21806b097",
+      "kind": "generated",
+      "phase_id": "coursoll_1808",
+      "structure_id": "coursoll_field_1812"
+    },
     "dearborn_street_drawbridge__draw_1834.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,

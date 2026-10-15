@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1816, ts: '2026-10-15T16:05:57.972Z', date: 'Oct 15, 2026, 11:05 AM CT', title: 'Coursoll\'s worm-fenced field on the north bank (1812)', kind: 'feature',
+    items: [
+      'A zigzag rail fence now closes a field on the north bank, just west of Le Mai\'s house, where Whistler\'s 1808 plan letters \'Mr Coursell\' inside a \'Worm Fence\'.',
+      'Quaife reads it as \'a house and inclosed field north of the river, belonging to Mr. Coursoll\'. The only house the plan draws at the field is the one now built as Le Mai\'s, outside its corner, so no second house is added.',
+      'Its place, size and rails follow the same rule as the houses beside it, and are recorded as a liberty on its card.',
+    ] },
   { v: 1815, ts: '2026-10-15T15:41:26.236Z', date: 'Oct 15, 2026, 10:41 AM CT', title: '1812: La Lime\'s and Le Mai\'s houses across the river', kind: 'feature',
     items: [
       'Two more log houses stand on the north bank west of the Kinzie house in 1812, where Captain Whistler\'s 1808 plan of the fort draws them: La Lime\'s, the post interpreter\'s, and Le Mai\'s, beside the field the plan gives to Mr. Coursell.',
