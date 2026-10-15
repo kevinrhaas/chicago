@@ -594,17 +594,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # below: registering it in emit.py instead would have re-staled every mesh on that row for want of
 # one dict entry.
 #
-# 880 -> 882, 726 -> 728 and 720 -> 722 on 2026-10-15 (T-2509, landing after T-2510): Lee's Place's
+# 880 -> 883, 726 -> 729 and 720 -> 723 on 2026-10-15 (T-2515, landing after T-2510): the three
+# groups of the Potawatomi camp of August 1812 (potawatomi_camp_1812_mouth, _middle, _upper), on the
+# `camp` archetype's new mat lodge, emitted the same way and restaling on the same rows.
+#
+# 883 -> 885, 729 -> 731 and 723 -> 725 on 2026-10-15 (T-2509, landing after T-2515): Lee's Place's
 # cabin (log_dwelling) and its field's worm fence (palisade) of 1812, emitted through emit.py and the
 # common modules, so restaling on those two rows.
 #
 STATED = {
-    "assets": 882,
+    "assets": 885,
     "restales": {
-        "generators/common/*.py": 728,
+        "generators/common/*.py": 731,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 722,
+        "generators/emit.py": 725,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1814, ts: '2026-10-15T15:19:32.226Z', date: 'Oct 15, 2026, 10:19 AM CT', title: 'The Potawatomi camp of August 1812 stands on the creek', kind: 'feature',
+    items: [
+      'On the eve of the evacuation, 14 August 1812, three groups of mat-covered lodges now stand along the creek that ran into the river at the later State Street. That is where the accounts put the camp of the Potawatomi gathering: Wau-Bun\'s encampment on the south bank, and Currey\'s \'groups of Indian wigwams clustered along the creek\'.',
+      'The lodges follow the form the sources describe: rush mats on a frame of bent poles, a smoke opening at the top and a mat over the door. Never a tipi. Their number, 26, is far fewer than a gathering of hundreds of families would have needed, and their places and shape are reconstructed.',
+      'A new card, \'The camp on the creek\', and a new viewpoint on the bank above the creek\'s mouth. No one is drawn and nothing is staged; the lodges stand empty, and the scene stays held for review by Native scholars or community organisations.',
+    ] },
+  { v: 1813, ts: '2026-10-15T15:02:02.311Z', date: 'Oct 15, 2026, 10:02 AM CT', title: 'Nothing you can see changed: a self-test caught up with the haystacks', kind: 'fix',
+    items: [
+      'Nothing you can see changed. The check that rebuilding one building on its own still works ran against a fixed list of five builders. When the haystacks brought a sixth, it failed for every change waiting to land. It now reads the builders from the bake script itself, so the next new builder will not trip it.',
+    ] },
   { v: 1812, ts: '2026-10-15T14:22:52.342Z', date: 'Oct 15, 2026, 9:22 AM CT', title: 'Haystacks across the river from Lee\'s Place (1812)', kind: 'feature',
     items: [
       'Four round haystacks now stand on the South Branch\'s far bank opposite the Lee\'s Place farm, where Wau-Bun puts the farm\'s cattle \'standing among the haystacks on the opposite bank\' in April 1812.',
