@@ -508,7 +508,7 @@
               ]
             },
             {
-              "height_m": 4.1,
+              "height_m": 4.552,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -528,6 +528,9 @@
             "kind": "cone",
             "pitch": 0.05,
             "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.bracketed_timber"
           }
         },
         {

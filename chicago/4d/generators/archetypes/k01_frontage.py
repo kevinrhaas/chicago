@@ -105,7 +105,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
-from .k01_frontage_params import ROUND_HOODED, STRIP_FABRICS
+from .k01_frontage_params import EAVE_FASCIA_M, ROUND_HOODED, STRIP_FABRICS
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -2641,7 +2641,7 @@ def build(params, structure_id: str):
         # the kit: the same seats, laid by the same calls, and nothing else is taken from it
         a.k14_sills = build(dataclasses.replace(p, condition={}), structure_id).footprints
     D, W, E = p.depth_m, p.width_m, p.eave_m
-    yf = E - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg)) - 0.20
+    yf = E - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg)) - EAVE_FASCIA_M
     a.soffit_m = yf
     floors = p.floors_m
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
