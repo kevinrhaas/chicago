@@ -1,0 +1,98 @@
+{
+ "_doc": "The hand-entered readings Lee's Place (later Hardscrabble) is placed from, and NOTHING ELSE (T-2501, the first piece of T-2488). Every number in data/terrain/1812_hardscrabble_site.json is computed from this file plus committed lines by tools/derive_hardscrabble_1812.py, and its --check re-derives that file and refuses a hand edit. A reading here is a statement someone printed, quoted in its own words. Each band is this project's reading of that statement's 'about' or 'some', and it is graded as that reading. The SITE is a conclusion and lives only in the derived file.",
+ "address_date": "1812-08-01",
+ "what_this_does_not_claim": [
+  "where the cabin stood on the farm. This reading gives a reach of the north-west bank and a station on it, and T-2503 places the cabin, the fence and the haystacks",
+  "where the killings of 6 April 1812 took place. Heald puts them at the cabin, and this file places the farm and not the event",
+  "that the five placings are independent. Currey and Moses and Kirkland may rest on Hubbard or on the same tradition, and agreement among them is not counted as corroboration"
+ ],
+ "lines_used": {
+  "river_above_the_box_floor": "the South Branch's centre, as the midpoint of the committed bank lines: data/terrain/epochs/e1834_harbor_cut/branches.geojson § south_branch_west_bank / south_branch_east_bank (Wright 1834) down to the splice row N -2110, then data/terrain/epochs/e1834_harbor_cut/south_branch_below_twelfth.geojson (Rees 1849) to its last vertex 40 m below the box floor",
+  "river_below_the_box_floor": "data/terrain/1812_south_branch_to_bridgeport.geojson § south_branch_to_bridgeport_centreline and its north-west bank (T-2501's trace), which starts on that last vertex",
+  "main_stem_and_mouth": "data/terrain/epochs/e1830_natural/shoreline.geojson § channel_west_bank_1812, from the adopted outlet back up the old channel and along the main stem's south bank to its first vertex, then a straight chord to the datum origin at the forks. The chord crosses the forks window, where no 1812 centreline is committed, and is a lower bound there of about 316 m",
+  "fort": "data/terrain/epochs/e1830_natural/shoreline.geojson § mouth_outlet_reading_band_1812.properties.fort_anchor_local. This is the station on the old channel's west bank nearest the fort site, the one Swearingen's half mile and the 1812 evacuation route are measured from (data/terrain/1812_evacuation_readings.json § lines_used.fort_anchor). It lies about 50 m from the first fort's flagstaff, which is nothing at the scale of these readings"
+ },
+ "mile_m": 1609.344,
+ "placings": [
+  {
+   "id": "hubbard_half_mile_below_bridgeport",
+   "role": "adopted",
+   "kind": "along_river_below_bridgeport",
+   "source_id": "chicago_antiquities_american_fur_co",
+   "locator": "data/research/books/text/hurlbut_chicago_antiquities_28_36.txt lines 58-61, Gurdon S. Hubbard's account as printed by Hurlbut (1881), pp. 28-36",
+   "author": "Gurdon S. Hubbard, recalling 1818-1823; he came to Chicago in 1818 with the American Fur Company's brigade",
+   "quote": "His trading house was located about half a mile below Bridgeport, (\"Hardscrabble\" - the same premises, where in April 1812, two murders were committed by the Indians) on the north side of the river, (south branch)",
+   "value_m": 804.672,
+   "value_note": "Half a statute mile, measured DOWNSTREAM along the river from Bridgeport. 'Below' on a river means downstream, and 'Bridgeport' in an 1881 account means where the canal met the river, the point T-2501's trace ends on.",
+   "band_m": 402.336,
+   "band_note": "A quarter of a mile either side. Hubbard writes 'about' and counts in half miles, so the reading is the interval that rounds to half a mile, 0.25 to 0.75 mi. The convention is the one the 1812 evacuation reading applies to Heald's mile and a half.",
+   "side": "north-west",
+   "side_note": "'On the north side of the river'. Below the forks the South Branch runs from south-west to north-east, so its north side is its north-west bank.",
+   "confidence": "inferred",
+   "confidence_note": "Adopted because it is the only placing that names a point that can be found on the sheet (Bridgeport), a direction from it, a distance and a side. It is the recollection of a man who traded against the house that stood there, written down sixty years on, and it is read from a 2006 transcription of the 1881 print, so it is graded inferred and no higher."
+  },
+  {
+   "id": "heald_three_miles_from_the_garrison",
+   "role": "cross_check",
+   "kind": "straight_line_from_fort",
+   "source_id": "moses_kirkland_history_of_chicago_v1",
+   "locator": "p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6878-6885, quoting Captain Nathan Heald's letter of 15 April 1812",
+   "author": "Captain Nathan Heald, commanding the garrison, nine days after the killings",
+   "quote": "came to Messrs. Russell and Lee's cabin, in a field on the Portage branch of the Chicago river, about three miles from the garrison",
+   "value_m": 4828.032,
+   "value_note": "Three statute miles. Heald gives no route, so the derived file measures both the straight line and the distance by river. It is read as a straight line because a commander reporting a raid states how near it came, and that is how it is tested; the river distance is printed beside it.",
+   "band_m": 804.672,
+   "band_note": "Half a mile either side: 'about' a whole number of miles, read as the interval that rounds to it.",
+   "confidence": "inferred",
+   "confidence_note": "The only placing written in 1812. It reaches this project only as quoted in a tier-3 compilation's machine OCR, and it places the farm on the 'Portage branch' (the South Branch) and no closer."
+  },
+  {
+   "id": "currey_at_the_canal_mouth",
+   "role": "cross_check",
+   "kind": "at_bridgeport",
+   "source_id": "currey_1912_old_fort_dearborn",
+   "locator": "Project Gutenberg #52346 plain text, lines 1450-1454 (the text before the illustration facing p. 74)",
+   "author": "J. Seymour Currey, 1912",
+   "quote": "There was a tract of land under cultivation some four miles southwest of the fort, situated on the west bank of the South Branch of the Chicago River, about where at the present time the old Illinois and Michigan Canal opens into that stream.",
+   "value_m": 6437.376,
+   "value_note": "Two placings in one sentence: AT the canal's mouth, and four miles south-west of the fort. The four miles is read as a straight line from the fort to the canal's mouth.",
+   "band_m": 804.672,
+   "band_note": "Half a mile either side: 'some' four miles, read as the interval that rounds to it.",
+   "side": "west",
+   "confidence": "inferred",
+   "confidence_note": "A compiled history of 1912, a century after the farm. 'About where' is its own hedge."
+  },
+  {
+   "id": "currey_four_miles_from_the_mouth",
+   "role": "cross_check",
+   "kind": "along_river_from_mouth",
+   "source_id": "currey_1912_old_fort_dearborn",
+   "locator": "Project Gutenberg #52346 plain text, lines 1484-1486, the caption of the illustration 'Hardscrabble' facing p. 74",
+   "author": "J. Seymour Currey, 1912",
+   "quote": "There was a farmhouse standing on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river",
+   "value_m": 6437.376,
+   "value_note": "Four statute miles from the river's mouth, measured along the river. In 1812 the mouth was the natural outlet behind the baymouth bar, which Currey himself places near Madison Street on the same page (lines 1457-1459). The route goes up the old channel, along the main stem to the forks, and down the South Branch.",
+   "band_m": 804.672,
+   "band_note": "Half a mile either side, as above.",
+   "side": "west",
+   "confidence": "inferred",
+   "confidence_note": "The caption repeats the text's four miles but measures them from a different place, the mouth and not the fort. Both are tested."
+  },
+  {
+   "id": "moses_kirkland_near_the_forks",
+   "role": "cross_check",
+   "kind": "side_and_near_forks",
+   "source_id": "moses_kirkland_history_of_chicago_v1",
+   "locator": "p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6865-6868",
+   "author": "Moses and Kirkland, 1895",
+   "quote": "Lee's place, later known as Hardscrabble, was on the northwestern side of the South branch, near its forks, in the heart of the present lumber-yard region",
+   "side": "north-west",
+   "confidence": "inferred",
+   "confidence_note": "No distance is given. It names the bank and says the farm was near the forks, and the derived file reports how far the adopted station lies from the traced forks. The 'lumber-yard region' of 1895 is not located here, because no source in this corpus maps it."
+  }
+ ],
+ "not_read_here": [
+  "Wau-Bun, ch. XVIII (kinzie_waubun_1856): the haystacks, the cattle on the opposite bank and the men's canoe describe the farm and do not place it, so they belong to T-2503's build",
+  "Hubbard's Autobiography (hubbard_autobiography_1911, bk_hub_066): 'a log cabin near the present Bridgeport, called Hard-scrabble' in 1818. It agrees with Hurlbut's text without measuring anything, and it is the same man, so it is not counted twice"
+ ]
+}
