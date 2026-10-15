@@ -1,0 +1,103 @@
+{
+  "id": "first_fort_outer_armourers_shop",
+  "name": "First Fort Dearborn — the armourer's shop",
+  "aka": [
+    "Whistler's index no. 20, 'Armerers Shop'"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says the buildings outside the stockade burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one."
+      },
+      "position": {
+        "utm_e": 448300.38,
+        "utm_n": 4637477.9,
+        "rotation_deg": 270.0,
+        "symbolic_location": "Outside the first Fort Dearborn, in the frame of Whistler's 1808 draught (T-2507, by T-2062's rule, part 'armourers_shop'): E +227.5..+248.3 ft, N -455.7..-422.5 ft of the flagstaff's foot, facing west; this record's origin is the box's corner the seat names for that facing.",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "PLACED BY T-2062's RULE, NOT MEASURED. The draught says the buildings outside the garrison are 'not laid down by a scale', so this box is the sheet's ARRANGEMENT opened out about the main gate. The sheet box is px [1385, 1804, 1432, 1879]. Its offset from the gate's mouth (px [964, 1150]) is multiplied by 2.500, the officers' garden's lettered '5o feete to the Inch' against the garrison's twenty, the figure of the nearest part that states one. The rule and its numbers are data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade, and tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m, and refuses any footprint corner on the committed 1812 water. Seated with the fort's own frame: the staff's foot at local E +1152, N +221, the frame's north on grid north. The rule is a reconstruction (docs/LIBERTIES.md L391, L-T2507).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage). It is a reconstruction by stated rule, and tools/read_whistler_1808.py --check (run by check.sh) recomputes it: it refuses this utm point and rotation unless they are what the register's outside_the_stockade rule and the fort's seat give this record's box, to 0.01 m (T-2062, T-2507)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            10.119,
+            0
+          ],
+          [
+            10.119,
+            6.34
+          ],
+          [
+            0,
+            6.34
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "THE DRAWN BOX AT FORTY FEET TO THE INCH, the scale the index states for the Indian Department's dwellings, as for the agent's house. The drawing is a small pictorial elevation, roof and front together, so the plan is an upper bound and is reconstructed."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Unattested. Log, like the houses beside it."
+        },
+        "wall_height_m": {
+          "value": 2.7,
+          "confidence": "reconstructed",
+          "note": "Unattested; a one-storey shop."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws a pitched roof."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "reconstructed",
+          "note": "Unattested."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Unattested. An armourer works at a forge, which needs a stack; the sheet does not draw one."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "workshop",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "Index no. 20, 'Armerers Shop', the garrison's armourer, read at T-2507 from the numeral '20' beside it. Recorded as a workshop rather than a trade's shop: it was the army's, not a business, and nothing here hangs a sign on it."
+  },
+  "research_note": "THE ARMOURER'S SHOP, no. 20, south-east of the officers' garden toward the beach, read at T-2507. Nobody is placed in it (L1).",
+  "review_required": false
+}
