@@ -1159,7 +1159,7 @@ class Assembly:
         seats = [(a0 - m, a1 + m, b0 - m, b1 + m, kind) for a0, a1, b0, b1, kind in self.footprints.get(tuple(O), [])]
         sill_beds = {round(b0 + m, 4) for _, _, b0, _, kind in seats if kind == "K06.sill"}
         belts = [(floors[1] - 0.20, floors[1])] + ([(floors[2] - 0.15, floors[2])] if len(floors) > 2 else [])
-        if af:
+        if af and af["belts"] is not None:   # T-2526: a door's arch alone keeps these
             belts = list(af["belts"])
         # T-2366: a frieze stands between the stone's top and the soffit
         ytop = af["stone_top_m"] if af else yf
