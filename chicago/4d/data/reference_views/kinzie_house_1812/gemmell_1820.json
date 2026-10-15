@@ -1,0 +1,26 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "source_id": "gemmell_chicago_in_1820_lithograph",
+  "photo": "../../../../reference/images/chicago/chicago_settlement_view_1820.jpg",
+  "image_px": [
+    1600,
+    1187
+  ],
+  "principal_px": [
+    800.0,
+    310.0
+  ],
+  "focal_px": 1600.0,
+  "eye": [
+    -310.9,
+    -225.27,
+    65.31
+  ],
+  "yaw_deg": 42.77,
+  "sun_uvy": [
+    -0.6,
+    0.5,
+    0.6
+  ],
+  "solve": "A bird's-eye lithograph, so a level camera with its principal point held on the drawn horizon at the sheet's middle (800, 310: the far prairie's line), which keeps verticals vertical as the lithograph does, and the focal held at 1600 px as on the other cameras of this house. The house is about 40 px wide on a blurred scan of 1600 x 1187 px, and four points of it can be read: the east gable's apex (1108, 556), the end of the front slope's eave over the piazza on its left (1087, 573), the back eave's east corner (1123, 570) and the back eave's far end (1150, 585). The house is read end-on from the east, as on the Eastman plate: its gable toward the eye, the front and its fenced green with the two poplars on the left (south, toward the river), the north wall running away to the right. Fitted with only the first three points and the heading free, the solve flips the house round (eye south-east of it at rms 2.3 px), which puts the body on the left of the gable where the plate draws it on the right, so the heading is bounded to the east-north-east and the far eave added. Eye (-310.9, -225.27) at 65.31 m, heading 42.77 degrees, rms 9.5 px: about 385 m east-north-east of the house and 65 m up, over the shore, looking south-west across the river's mouth. The worst point is the far eave (15.3 px): the plate draws the north eave falling away to the right, as a house seen from near its own height looks, while its ground is laid out as from far above; the lithograph draws its buildings as from the ground and its land as from the air, and no one lens does both. sun_uvy is the plate's light, from the south-east."
+}
