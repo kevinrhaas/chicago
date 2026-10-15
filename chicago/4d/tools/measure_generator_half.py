@@ -575,16 +575,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 863 -> 865, 713 -> 715 and 707 -> 709 on 2026-10-15 (T-2487): the Burns house and the Lee family's
 # house of 1812, two log_dwelling roofs emitted the same way as T-2062's, restaling on the same rows.
 #
-# 865 -> 867, 715 -> 717 and 709 -> 711 on 2026-10-15 (T-2509): Lee's Place's cabin (log_dwelling) and
+# 865 -> 869, 715 -> 719 and 709 -> 713 on 2026-10-15 (T-2507): four more buildings outside the
+# first Fort Dearborn's stockade in 1812, the interpreter's house (`log_dwelling`) and the
+# armourer's shop, merchant's shop and bake house (`outbuilding`), emitted the same way as T-2062's,
+# restaling on the same rows.
+#
+# 869 -> 871, 719 -> 721 and 713 -> 715 on 2026-10-15 (T-2509): Lee's Place's cabin (log_dwelling) and
 # its field's worm fence (palisade) of 1812, emitted the same way and restaling on the same rows.
 #
 STATED = {
-    "assets": 867,
+    "assets": 871,
     "restales": {
-        "generators/common/*.py": 717,
+        "generators/common/*.py": 721,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 711,
+        "generators/emit.py": 715,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
