@@ -1,0 +1,175 @@
+{
+  "id": "lee_house_1812",
+  "phase": "lee_1812",
+  "name": "The Lee family's house, on the shore at the river's mouth south of the fort",
+  "aka": [
+    "the house of Charles Lee (Currey 1912)",
+    "the house built by Charles Lee south of the fort (Moses and Kirkland)"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/lee_house_1812__lee_1812.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1812-04-07",
+    "to": "1817-12-31",
+    "confidence": "reconstructed",
+    "sources": [
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1",
+      "currey_1912_old_fort_dearborn"
+    ],
+    "note": "THE OPENING IS A DATED MENTION AND THE CLOSE IS A BOUND THIS PROJECT CHOSE. It opens on 7 April 1812, the day Lee's son ran down from Lee's Place to give the alarm (Wau-Bun ch. XIX: the family 'had resided in a house on the Lake shore, not far from the fort'); that is the first dated day a source ties to the household, and the house may well be older, since Lee was cultivating his South Branch farm before it. It was standing on 18 August 1812: Currey lists 'that lately occupied by Charles Lee and his family near the mouth of the river' among the four houses left after the burning (ch. III). Moses and Kirkland say 'the house built by Charles Lee south of the fort was sold in 1812 to' Jean Baptiste Beaubien (data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 9785-9789) and say nothing of it after. No source read for T-2487 says when it came down. It is closed at the end of 1817, the year Moses and Kirkland's same paragraph ends its account of the post-war houses (Jouett in the Burns house, Crafts at Lee's farm, both 1817): it stands through what that paragraph describes and in no scene this project draws after it, so it is out of 1835. The close is reconstructed (L-1812-burns-lee-2487); a dated record of the house after 1817 replaces it."
+  },
+  "change_note": "Built T-2487 (2026-10-15). The house of the family that owned Lee's Place, on the shore at the river mouth in the 1812 scene.",
+  "placement": {
+    "local_e": 1127.0,
+    "local_n": -440.0,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "kinzie_waubun_1856",
+      "currey_1912_old_fort_dearborn",
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "position_note": "THE TWO SOURCES DISAGREE IN WORDS AND NOT ON THIS GROUND. Wau-Bun ch. XIX puts the house 'on the Lake shore, not far from the fort'. Currey 1912 ch. II puts it 'near the fort on the bank of the river opposite where it discharged into the lake; which was near the present intersection of Madison Street and Michigan Avenue', and adds the reason: 'a long sand-bar prevented the river from finding an outlet directly in line with its course, and the current was forced to creep along close to the shore for some distance toward the south.' Ch. VIII says the same: 'On the bank of the river, near its mouth, stood the house of Charles Lee.' Moses and Kirkland have it 'south of the fort'. THE RULING: on this project's 1812 ground (data/terrain/epochs/e1830_natural/shoreline.geojson) the river ran south behind the spit, and its west bank ends at the adopted outlet station, local E +1163.8, N -426.8, where the lake shore runs on south. At that one place the river bank and the lake shore are the same bank, so the house is seated there, west of the waterline, and both writers are right. Its east wall stands about 29 m west of the outlet station and about 22 m from the lake shore south of it; the ground there reads +2.4 m, the dry back of the beach. WHERE CURREY'S STREET NAMES AND THIS GROUND DIFFER: Madison Street is local N -519, 80 m south of the house. That gap is the spread between this ground's two readings of the mouth itself (the adopted Swearingen half-mile station and the 'madison_street_compilation' alternative, 94.9 m apart, shoreline.geojson's mouth_outlet_reading_band). Currey wrote his intersection with the second reading in mind; this record keeps the house opposite the mouth the ground draws, because 'opposite where it discharged' is his claim and 'Madison Street' his gloss on where that was. If the ground's mouth moves, the house moves with it. Nothing dates its facing; rotation 0 is a reconstruction.",
+    "symbolic_location": "The mainland's edge at the 1812 river mouth, on the west side of the channel where it broke through to the lake past the tip of the baymouth spit, about 660 m south of the first fort's flagstaff; local E +1127.0..+1135.0, N -440.0..-434.2.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        8.0,
+        0
+      ],
+      [
+        8.0,
+        5.8
+      ],
+      [
+        0,
+        5.8
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "Unattested. About 26 x 19 ft, a little larger than the Burns house because it held a family of at least five (Lee, his wife, a son, a daughter of about twelve and an infant, Wau-Bun ch. XIX); no source gives a dimension. L-1812-burns-lee-2487."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Unattested. One storey with the roof space over it, the least that a family's house built by a farmer at a frontier post needs."
+    },
+    "wall_height_m": {
+      "value": 2.5,
+      "confidence": "reconstructed",
+      "note": "Unattested. About eight feet of hewn log to the plate."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "No source states what this house was built of. Log is the bounded reading: every house the histories describe at the post before 1812 whose material they give is log (the Kinzie house, the agency house, the factory, Lee's Place, the cabin Hurlbut judged to be this one), and the ticket's own inventory builds the settlement at the log_dwelling archetype. Recorded as a liberty (L-1812-burns-lee-2487)."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "Unattested. A pitched gable over a one-room log house is the form the first fort's draught draws for its own log buildings outside the stockade (the agent's house, the factory), and it is the reading this project takes for them."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "reconstructed",
+      "note": "Unattested; no source describes the roof."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Unattested. One end chimney, the least a family's winter house on the lake needs; no source places it."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "currey_1912_old_fort_dearborn"
+      ],
+      "note": "The house of Charles Lee's family. Lee owned Lee's Place, the farm on the South Branch also called Hardscrabble, and lived here with his household while his hired men worked the farm (Currey ch. II; Wau-Bun ch. XIX)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "citation": "J. Seymour Currey, The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912 (published August 1912). A popular history of the first fort from 1803 to its burning in 1812, compiled from the printed accounts and the pioneer recollections before it, with eleven illustrations.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "two placings of Lee's Place: 'some four miles southwest of the fort ... on the west bank of the South Branch ... about where at the present time the old Illinois and Michigan Canal opens into that stream' (lines 1450-1454), and, in the caption to its illustration, 'on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river' (lines 1484-1486)",
+        "the caption of an illustration titled 'Hardscrabble', facing p. 74, which T-2503 is to read as a picture",
+        "a 'Map of Chicago in 1812' facing p. 165, not yet opened",
+        "the Lee family's house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue, with the sand-bar as the reason (lines 1456-1463)",
+        "the Burns house, John Burns's cabin on the north bank near the later State Street bridge, west of the Kinzies' (lines 1565-1576, 2249-2251, 2820-2822)",
+        "the four houses left standing on 18 August 1812: the Kinzie and Ouilmette houses, Burns's and Lee's (lines 3100-3105)"
+      ],
+      "what_it_does_not_supply": [
+        "an eyewitness: Currey writes a century after the farm, from the books before him, and he says so ('it is said in a recent history of Chicago')",
+        "a survey distance. 'Some four miles' is a round figure, and the book gives no route for it",
+        "the illustration's own date or maker, which the caption does not state; until it is read it is a retrospective picture and grades tier 5 as a picture, whatever this record's tier as a text"
+      ]
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+      "url": "https://archive.org/details/historyofchicago01mose",
+      "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "transcribes": [
+        {
+          "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+          "date": "1881",
+          "tier": 3,
+          "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+        }
+      ],
+      "what_it_supplies": [
+        "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+        "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+        "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+        "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+        "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+        "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+        "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+      ],
+      "what_it_does_not_supply": [
+        "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+        "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+        "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+        "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+        "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+        "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+      ]
+    }
+  ],
+  "research_note": "THE LEE FAMILY'S HOUSE, the one dwelling the histories put south of the fort in 1812. Charles Lee owned the farm called Lee's Place, or Hardscrabble, four miles up the South Branch; it was his son who ran down with the discharged soldier to give the alarm on 7 April 1812. Lee, his son and the rest of the household except Mrs. Lee and her infant died on 15 August; the daughter of about twelve was wounded and did not survive (Wau-Bun ch. XIX). Mrs. Lee later married a M. Dupin and lived in the Kinzie house; this house was sold to Jean Baptiste Beaubien in 1812 (Moses and Kirkland, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 9778-9789). WHERE THE SOURCES DISAGREE: lake shore (Wau-Bun) or river bank (Currey); ruled on the position's note, where the two coincide at the 1812 mouth. No picture of it is known, so it has no image gate to meet. Its size, height, material, roof and closing date are reconstructed (L-1812-burns-lee-2487). It carries review_required so that no scene containing it can be marked released: its card speaks of the attack of 15 August 1812 on the lake shore, an event of Potawatomi history as much as the garrison's, and the 1812 scene's whole account of that day waits on the review by Native scholars or community organisations that T-0472 holds it for. Nobody is drawn in or near it (L1).",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "It carries review_required so that no scene containing it can be marked released: its card speaks of the attack of 15 August 1812 on the lake shore, an event of Potawatomi history as much as the garrison's, and the 1812 scene's whole account of that day waits on the review by Native scholars or community organisations that T-0472 holds it for."
+}
