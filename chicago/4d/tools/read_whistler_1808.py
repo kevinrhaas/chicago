@@ -41,6 +41,13 @@ commit (data/traces/README.md):
     `turn_deg` (clockwise, about its box's centre) and is seated turned. A stated figure
     whose expansion does not govern (`governs: false`) is kept and computed, never used.
     And every outside record stands DRY: no footprint corner on the committed 1812 water.
+  * (T-2508) the wharf (27) and the covered way (33) are seated on the committed 1812
+    river by their index rows' `seat`, not by the outside rule: the wharf where the
+    drafter's red '122 feet to River' about the outer row's north-west corner first meets
+    the water west of the angle, laid along the bank with its deck at the ground of its
+    heel; the covered way from the outer row's north-east corner along the frame's north
+    to the water, in runs one joint apart, none on more than `max_fall_m` of fall, the
+    last reaching the river.
 
 `--remeasure` fetches the working copy, refuses it if its sha256 has moved, and finds
 the staff's two ends again: the longest near-continuous dark run in columns 994-1007,
@@ -439,6 +446,186 @@ def outside_records(doc: dict) -> list[str]:
     return errs
 
 
+#: T-2508. The wharf (27) and the covered way (33) are NOT placed by the outside rule:
+#: the draught says its river "is not regularly surveyed", so each is seated on the
+#: committed 1812 river instead, by the figures in its index row's `seat`, measured from
+#: the outer picket row's own record. Neither id takes a prefix the checks above glob.
+OUTER_ROW = "first_fort_dearborn_pickets_outer"
+HEIGHTFIELD_1812 = WATER_1812.parent / "heightfield.json"
+#: how far south of the bank the wharf's two tangent casts start, and how far apart they are
+BANK_CAST_M, BANK_SPAN_M = 15.0, 8.0
+ROT_TOL_DEG = 0.05
+
+
+def _wet(pt: tuple[float, float]) -> bool:
+    """Whether a UTM point stands on the committed 1812 water."""
+    return bool(wet_corners({"utm_e": pt[0], "utm_n": pt[1]}, [(0.0, 0.0)]))
+
+
+def _ground(datum: dict):
+    """The 1812 heightfield as a function of a UTM point (bilinear, metres over the water)."""
+    import struct
+    meta = json.loads(HEIGHTFIELD_1812.read_text())
+    raw = (HEIGHTFIELD_1812.parent / meta["bin"]).read_bytes()
+    cols = meta["cols"]
+
+    def at(c, r):
+        return struct.unpack_from("<h", raw, 2 * (r * cols + c))[0] * meta["scale"] + meta["offset"]
+
+    def h(pt):
+        x = (pt[0] - datum["origin_utm_e"] - meta["origin_e"]) / meta["cell_m"]
+        y = (pt[1] - datum["origin_utm_n"] - meta["origin_n"]) / meta["cell_m"]
+        i, j = int(x), int(y)
+        fx, fy = x - i, y - j
+        return (at(i, j) * (1 - fx) * (1 - fy) + at(i + 1, j) * fx * (1 - fy)
+                + at(i, j + 1) * (1 - fx) * fy + at(i + 1, j + 1) * fx * fy)
+    return h
+
+
+def _edge(a: tuple[float, float], b: tuple[float, float]) -> tuple[float, float]:
+    """The water's edge between a dry point `a` and a wet point `b`, to a millimetre."""
+    for _ in range(40):
+        m = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+        a, b = (a, m) if _wet(m) else (m, b)
+    return b
+
+
+def outer_row_corners() -> dict[str, tuple[float, float]]:
+    """The outer picket row's north-west and north-east corners, from its own record."""
+    ph = json.loads((ROOT / "data" / "structures" / f"{OUTER_ROW}.json").read_text())["phases"][0]
+    e, n = ph["position"]["utm_e"], ph["position"]["utm_n"]
+    xs = [p[0] for p in ph["footprint"]["polygon"]]
+    ys = [p[1] for p in ph["footprint"]["polygon"]]
+    return {"nw": (e + min(xs), n + max(ys)), "ne": (e + max(xs), n + max(ys))}
+
+
+def wharf_seat(seat: dict, ground, inch_px: float) -> dict:
+    """Where index no. 27's `seat` puts the wharf: the bank point the drafter's own
+    distance reaches from the outer row's north-west corner, on the sheet's side of it,
+    with the deck laid along the committed bank there."""
+    cx, cy = outer_row_corners()["nw"]
+    r = seat["radius_ft"] * FT_M
+
+    def on(b):
+        t = math.radians(b)
+        return (cx + r * math.sin(t), cy + r * math.cos(t))
+    b = seat["from_bearing_deg"]
+    if _wet(on(b)):
+        raise ValueError(f"the {seat['radius_ft']} ft circle is already wet at bearing {b}")
+    while not _wet(on(b + 1.0)):
+        b += 1.0
+        if b > seat["from_bearing_deg"] + 180:
+            raise ValueError("the circle never meets the committed 1812 water")
+    lo, hi = b, b + 1.0
+    for _ in range(40):
+        mid = (lo + hi) / 2
+        lo, hi = (lo, mid) if _wet(on(mid)) else (mid, hi)
+    foot = on(hi)
+    ends = [_edge((foot[0] + k, foot[1] - BANK_CAST_M), (foot[0] + k, foot[1] + BANK_CAST_M))
+            for k in (-BANK_SPAN_M / 2, BANK_SPAN_M / 2)]
+    du, dv = ends[1][0] - ends[0][0], ends[1][1] - ends[0][1]
+    ln = math.hypot(du, dv)
+    tu = (du / ln, dv / ln)
+    nv = (-tu[1], tu[0])                       # waterward: the bank runs with the water on its left
+    if not _wet((foot[0] + nv[0], foot[1] + nv[1])):
+        raise ValueError("the bank's normal at the wharf does not point into the water")
+    half = seat["along_bank_m"] / 2
+    origin = (foot[0] - half * tu[0], foot[1] - half * tu[1])
+    heel = (foot[0] - seat["heel_m"] * nv[0], foot[1] - seat["heel_m"] * nv[1])
+    return {"foot": foot, "bearing": hi, "origin": origin,
+            "rotation": round((math.degrees(math.atan2(tu[0], tu[1])) - 90.0) % 360, 2),
+            "deck": round(ground(heel), 2),
+            "reach_m": round(seat["reach_px"] * seat["scale_ft_per_in"] / inch_px * FT_M, 3)}
+
+
+def covered_way_runs(seat: dict, ground) -> list[dict]:
+    """Index no. 33's runs: from the outer row's north-east corner along the frame's
+    north, each its own enclosure, one joint apart, the last ending on the water."""
+    ex, ny = outer_row_corners()["ne"]
+    w = seat["width_m"]
+    out = []
+    for sid, (y0, y1) in zip(seat["records"], seat["runs_m"]):
+        line = [(ex - w / 2, ny + y0 + (y1 - y0) * k / 20) for k in range(21)]
+        across = [(ex - w * k / 4, ny + y) for k in range(5) for y in (y0, y1)]
+        hs = [ground(p) for p in line + across]
+        out.append({"record": sid, "origin": (ex - w, ny + y0), "length_m": round(y1 - y0, 3),
+                    "fall_m": round(max(hs) - min(hs), 2), "y0": y0, "y1": y1})
+    return out
+
+
+def water_works(doc: dict) -> list[str]:
+    """T-2508: the wharf and the covered way against the seats their index rows state."""
+    errs: list[str] = []
+    rows = {r["no"]: r for r in doc["index"]}
+    if "seat" not in rows[27] or "seat" not in rows[33]:
+        return errs
+    datum = json.loads((ROOT / "data" / "datum.json").read_text())
+    ground = _ground(datum)
+    sdir = ROOT / "data" / "structures"
+
+    def phase(sid):
+        f = sdir / f"{sid}.json"
+        if not f.exists():
+            errs.append(f"{sid}: named by the register's seat, but no record")
+            return None
+        st = json.loads(f.read_text())
+        ph = st["phases"][0]
+        if len(st["phases"]) != 1 or (ph["documented_range"]["from"], ph["documented_range"]["to"]) \
+                != ("1808-01-25", FIRST_FORT[1]):
+            errs.append(f"{sid}: must carry one phase, 1808-01-25 (the draught) to {FIRST_FORT[1]}")
+        return ph
+
+    s27 = rows[27]["seat"]
+    try:
+        w = wharf_seat(s27, ground, doc["outside_the_stockade"]["inch_px"])
+    except ValueError as e:
+        return errs + [f"no. 27: {e}"]
+    ph = phase(s27["record"])
+    if ph:
+        pos, poly = ph["position"], ph["footprint"]["polygon"]
+        off = math.hypot(pos["utm_e"] - w["origin"][0], pos["utm_n"] - w["origin"][1])
+        if off > SEAT_TOL_M or abs(float(pos["rotation_deg"]) - w["rotation"]) > ROT_TOL_DEG:
+            errs.append(f"{s27['record']}: stands {off:.2f} m / {pos['rotation_deg']} deg off where "
+                        f"the seat puts it ({w['origin'][0]:.2f}, {w['origin'][1]:.2f} turned {w['rotation']})")
+        us, vs = [p[0] for p in poly], [p[1] for p in poly]
+        want = (0.0, s27["along_bank_m"], -s27["heel_m"], w["reach_m"])
+        if max(abs(a - b) for a, b in zip((min(us), max(us), min(vs), max(vs)), want)) > TOL_M:
+            errs.append(f"{s27['record']}: footprint u {min(us)}..{max(us)}, v {min(vs)}..{max(vs)} "
+                        f"is not the seat's u 0..{want[1]}, v {want[2]}..{want[3]}")
+        deck = ph["form"]["deck_height_m"]["value"]
+        if abs(deck - w["deck"]) > 0.01:
+            errs.append(f"{s27['record']}: deck {deck} m is not the ground at its heel, {w['deck']} m")
+    s33 = rows[33]["seat"]
+    runs = covered_way_runs(s33, ground)
+    prev = 0.0
+    for i, r in enumerate(runs):
+        if abs(r["y0"] - prev - s33["joint_m"]) > 1e-6:
+            errs.append(f"{r['record']}: starts {r['y0'] - prev:.2f} m after the run before it, "
+                        f"not one joint ({s33['joint_m']} m)")
+        prev = r["y1"]
+        if r["fall_m"] > s33["max_fall_m"]:
+            errs.append(f"{r['record']}: the ground falls {r['fall_m']} m under it, more than "
+                        f"{s33['max_fall_m']} m — its uphill pickets would be buried past a man's height")
+        ph = phase(r["record"])
+        if not ph:
+            continue
+        pos, poly = ph["position"], ph["footprint"]["polygon"]
+        off = math.hypot(pos["utm_e"] - r["origin"][0], pos["utm_n"] - r["origin"][1])
+        if off > SEAT_TOL_M or float(pos.get("rotation_deg") or 0.0) != SEAT_BEARING_DEG:
+            errs.append(f"{r['record']}: stands {off:.2f} m off where the seat puts it")
+        us, vs = [p[0] for p in poly], [p[1] for p in poly]
+        if abs(max(us) - s33["width_m"]) > TOL_M or abs(max(vs) - r["length_m"]) > TOL_M:
+            errs.append(f"{r['record']}: footprint {max(us)} x {max(vs)} m is not the seat's "
+                        f"{s33['width_m']} x {r['length_m']} m")
+    if runs:
+        ex, ny = outer_row_corners()["ne"]
+        mid = (ex - s33["width_m"] / 2, ny + runs[-1]["y1"])
+        if not _wet((mid[0], mid[1] + s33["joint_m"])) or _wet((mid[0], mid[1] - s33["joint_m"])):
+            errs.append(f"{runs[-1]['record']}: its north end is not within {s33['joint_m']} m of "
+                        f"the committed 1812 water — the covered way must reach the river")
+    return errs
+
+
 def fetch(doc: dict) -> bytes:
     cache = Path("/tmp") / "chicago4d-whistler-1808.png"
     if not cache.exists():
@@ -481,7 +668,7 @@ def remeasure(doc: dict) -> list[str]:
 
 def main() -> int:
     doc = json.loads(TRACE.read_text())
-    errs = check(doc) + records(doc) + two_forts() + outside_records(doc)
+    errs = check(doc) + records(doc) + two_forts() + outside_records(doc) + water_works(doc)
     if "--remeasure" in sys.argv:
         errs += remeasure(doc)
     if errs:
@@ -494,7 +681,9 @@ def main() -> int:
           f"34 index numbers — " + ", ".join(f"{v} {k}" for k, v in count.items())
           + f"; {len(RECORDS)} first-fort records built from it"
           + (f", {len(outside_boxes(doc))} outside the stockade (T-2062)"
-             if "outside_the_stockade" in doc else ""))
+             if "outside_the_stockade" in doc else "")
+          + (f"; the wharf and the covered way's {len(doc['index'][32]['seat']['records'])} runs "
+             f"on the 1812 river (T-2508)" if "seat" in doc["index"][32] else ""))
     return 0
 
 
