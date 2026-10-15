@@ -1,0 +1,34 @@
+{
+  "method": "Final source restricts the existing Light visibility filter to summer; other seasons retain the normal complete draw list. Prior winter pixel failure is preserved, not tolerated. The final actual-browser run checks winter on/off, same-mode repeats and summer restoration with exact unmodified PNG equality.",
+  "finalInputManifest": "candidate-final-season-inputs.json",
+  "changedPublishedPathsSinceOptimizedMotion": [
+    "1812/index.html",
+    "1835/index.html",
+    "1880/index.html",
+    "1904/index.html",
+    "build.json",
+    "walk/index.html",
+    "walk/js/main.js"
+  ],
+  "priorRejectedWinterPair": {
+    "before": "mobile-season-winter-on.png",
+    "after": "mobile-season-winter-off.png",
+    "changedPixels": 1,
+    "maxChannelDelta": 1,
+    "bounds": [
+      281,
+      326,
+      281,
+      326
+    ],
+    "beforeSha256": "b589bc1de8eda4a8b19da288b6f17e4d5dcd5dba316ad813e8f1ce0a6d31758b",
+    "afterSha256": "fdb5755473434d811591dff8e454356df65d2d4c26cdbf7e58eda6627328fca9"
+  },
+  "finalPairs": 10,
+  "allFinalPairsExact": true,
+  "winterFilterInactive": true,
+  "summerFilterRestored": true,
+  "winterTriangles": 1946445,
+  "summerTriangles": 1052528,
+  "softwareRendererOnly": true
+}

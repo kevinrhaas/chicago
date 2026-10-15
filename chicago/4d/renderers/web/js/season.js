@@ -151,9 +151,21 @@ export const SEASON_FRAGMENT_APPLY = `
  * still share one.
  */
 const seasonPatched = new WeakSet();
+const surfacePatchHooks = new WeakMap();
+const materialHooks = m => [m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey];
+/** The season wrapper only adds varyings and changes albedo, never positions or
+ * coverage. Recognize precisely that wrapper over the captured source hooks;
+ * another shader mutation must still invalidate an opaque-surface proof. */
+export function seasonPreservesSurface(material, before) {
+  const patch=surfacePatchHooks.get(material);
+  return !!patch && before.length===3
+    && patch.before.every((fn,i)=>fn===before[i])
+    && materialHooks(material).every((fn,i)=>fn===patch.after[i]);
+}
 export function patchSeason(material, kind = 1) {
   if (!material || seasonPatched.has(material)) return false;
   seasonPatched.add(material);
+  const before=materialHooks(material);
   const prior = material.onBeforeCompile;
   const priorKey = Object.prototype.hasOwnProperty.call(material, 'customProgramCacheKey')
     ? String(material.customProgramCacheKey()) : String(prior);
@@ -168,6 +180,7 @@ export function patchSeason(material, kind = 1) {
       '#include <color_fragment>', '#include <color_fragment>' + SEASON_FRAGMENT_APPLY);
   };
   material.customProgramCacheKey = () => `${priorKey}|chicago4d-season`;
+  surfacePatchHooks.set(material,{before,after:materialHooks(material)});
   material.needsUpdate = true;
   return true;
 }

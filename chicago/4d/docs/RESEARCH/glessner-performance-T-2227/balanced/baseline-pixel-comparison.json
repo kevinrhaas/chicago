@@ -1,0 +1,26 @@
+[
+  {
+    "name": "owner-angle",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 35,
+    "maxChannelDelta": 16,
+    "bounds": [
+      120,
+      112,
+      136,
+      194
+    ]
+  },
+  {
+    "name": "dining-copper",
+    "sameCameraProjectionExposure": true,
+    "changedPixels": 35,
+    "maxChannelDelta": 16,
+    "bounds": [
+      120,
+      112,
+      136,
+      194
+    ]
+  }
+]

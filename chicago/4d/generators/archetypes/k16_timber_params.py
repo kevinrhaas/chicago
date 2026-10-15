@@ -123,6 +123,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         bad = bay_errors(form["canted_bay"]["value"])
         if bad:
             raise ParamError(f"{rid}: canted_bay: {'; '.join(bad)}")
+    for k, fv in form.items():     # T-2520: a door's transom light
+        doors = fv["value"].get("doors") if isinstance(fv, dict) and isinstance(fv.get("value"), dict) else None
+        for d in doors or []:
+            bad = transom_errors(d)
+            if bad:
+                raise ParamError(f"{rid}: {k}: door transom: {'; '.join(bad)}")
     if not isinstance(form["porch"]["value"].get("half_width_m"), (int, float)):
         raise ParamError(f"{rid}: porch needs half_width_m")
     bad = porch_errors(form["porch"]["value"])
@@ -188,6 +194,19 @@ PORCH_ARCH = ("spring_below_plate_m", "rise_m", "lower_radius_ratio", "lower_swe
 PORCH_STOOP = ("max_riser_m", "going_m", "cheek_above_m")
 #: T-2519: what a cusped trefoil head needs in place of the pointed arch's rise and arcs
 PORCH_TREFOIL = ("spring_below_plate_m", "foil_radius_m", "head_radius_m", "head_over_spring_m", "lobe_m")
+
+
+def transom_errors(door: dict) -> list[str]:
+    """T-2520: a transom is a bar on the leaves' head and one light under a low gable, its
+    sides at the jambs no higher than its apex at the middle."""
+    tm = door.get("transom")
+    if tm is None:
+        return []
+    if not all(_num(tm.get(k)) and tm[k] > 0 for k in ("bar_m", "side_m", "apex_m")):
+        return ["needs positive bar_m, side_m and apex_m"]
+    if tm["side_m"] > tm["apex_m"]:
+        return ["side_m (at the jambs) cannot stand over apex_m (the middle)"]
+    return []
 
 
 def porch_errors(pv: dict) -> list[str]:

@@ -31,6 +31,10 @@
 
 import * as THREE from 'three';
 import { spatialPieces } from './spatial-batch.js';
+import { backingTriangles } from './view-occlusion.js';
+import { opaqueConfidenceRange } from './confidence.js';
+import { seasonPreservesSurface } from './season.js';
+import { materialKey as inspectionMaterialKey, captureHooks } from './batch-material.js';
 import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
@@ -372,13 +376,14 @@ function materialKey(m) {
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
   onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS,
-  spatialCells = null }) {
+  spatialCells = null, collectViewBackings = false }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
 
   // material key -> { material, entries: [{ record, geo, factors }] }
   const groups = new Map();
+  const viewOccluders = [];
   /** structure id -> the facade tone applied to every one of its surfaces. */
   const tones = new Map();
   /**
@@ -499,7 +504,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       if (prepared.warning) problems.push(prepared.warning);
 
-      const key = materialKey(material);
+      // Inspection sources are immutable clones; other scenes retain their
+      // established in-place material lifecycle and batching policy.
+      const stableSurface = [THREE.MeshStandardMaterial, THREE.MeshPhysicalMaterial].includes(material.constructor)
+        && !JSON.stringify(captureHooks(material)).includes('opaque-hooks');
+      const key = preserveMaterials ? inspectionMaterialKey(material) : materialKey(material);
       let bucket = groups.get(key);
       if (!bucket) {
         material.side = material.side ?? THREE.FrontSide;
@@ -534,9 +543,22 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // T-2219: a narrow phone courtyard view need not submit an entire
       // building's material primitive. Keep every triangle/attribute, but let
       // the existing BatchedMesh cull smaller pieces in each camera/shadow pass.
-      const pieces = spatialCells ? spatialPieces(prepared.geo, spatialCells) : [prepared.geo];
-      for (const geo of pieces) bucket.entries.push({ record, geo, factors: prepared.factors });
-      if (spatialCells) prepared.geo.dispose();
+      // Full's alpha-faded tile relief keeps its original three draw groups.
+      // Repartitioning it changes transparent blending/depth order at the ridge.
+      const cells = spatialCells || (preserveMaterials && record.id === 'glessner_house'
+        && !material.transparent ? { cellM: 4, heightM: 2 } : null);
+      const pieces = cells ? spatialPieces(prepared.geo, cells) : [prepared.geo];
+      // Actual opaque building faces can hide geometry behind them. Neighboring
+      // houses matter in the elevated courtyard view too. Registered patches
+      // change surface shading, not vertex positions; unknown hooks fail open.
+      const occludesView = collectViewBackings && preserveMaterials && stableSurface
+        && !material.transparent && !material.transmission && material.opacity===1 && !material.alphaTest
+        && !material.alphaHash && !material.alphaMap && !material.displacementMap
+        && !material.polygonOffset && material.depthWrite && material.depthTest
+        && material.colorWrite && !material.wireframe && !material.stencilWrite
+        && !material.clippingPlanes?.length;
+      for (const geo of pieces) bucket.entries.push({ record, geo, factors: prepared.factors, occludesView });
+      if (cells) prepared.geo.dispose();
     }
   }
 
@@ -638,8 +660,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.receiveShadow = true;
     batch.customDepthMaterial = depthMaterial;
     batch.userData.batchIndex = [];
+    let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, factors } of bucket.entries) {
+    for (const { record, geo, factors, occludesView } of bucket.entries) {
       const pause = checkpoint(); if (pause) await pause;
       const geometryId = batch.addGeometry(geo);
       const instanceId = batch.addInstance(geometryId);
@@ -654,6 +677,39 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         factors,
       });
       batch.setMatrixAt(instanceId, placements.get(record.id));
+      if (occludesView) {
+        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=new THREE.Matrix4();
+        const identity=new THREE.Matrix4(), m=batch.material;
+        const hooks=[m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey], side=m.side;
+        // Only the existing opaque, aperture-cut backing, under its known
+        // position-preserving shaders. Visibility/transform changes fail open.
+        const active=()=> {
+          for(let o=batch;o;o=o.parent)if(!o.visible)return false;
+          return batch.getVisibleAt(instanceId) && batch.getGeometryIdAt(instanceId)===geometryId
+            && batch.material===m && m.side===side && batch.matrixWorld.equals(identity)
+            && batch.getMatrixAt(instanceId,current).equals(placement)
+            && batch.geometry.attributes.position.version===backingPositionVersion
+            && batch.geometry.index.version===backingIndexVersion
+            && batch.geometry.attributes._confidence.version===backingConfidenceVersion
+            && ([m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey].every((fn,i)=>fn===hooks[i])
+              || seasonPreservesSurface(m,hooks))
+            && m.visible && m.opacity===1 && !m.transparent && !m.transmission && m.depthWrite && m.depthTest
+            && m.colorWrite && !m.wireframe && !m.alphaTest && !m.alphaHash && !m.alphaMap
+            && !m.displacementMap && !m.polygonOffset && !m.stencilWrite
+            && [THREE.LessDepth,THREE.LessEqualDepth].includes(m.depthFunc)
+            && !m.clippingPlanes?.length;
+        };
+        const ranges=new Map();
+        for(const triangle of backingTriangles(geo,placement,m.side)) {
+          // Small distant facade details are expensive candidates with little
+          // coverage; the inspected house keeps its finer backing faces.
+          if(record.id!=='glessner_house' && triangle.area<4)continue;
+          const key=JSON.stringify(triangle.confidenceRange);
+          if(!ranges.has(key))ranges.set(key,()=>active()
+            && opaqueConfidenceRange(triangle.confidenceRange,confidence));
+          viewOccluders.push({...triangle,active:ranges.get(key)});
+        }
+      }
       batch.userData.batchIndex[instanceId] = record.id;
       record.instanceId = instanceId;
       // Measure BEFORE dispose, and union across every material a structure
@@ -681,6 +737,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       geo.dispose();
     }
+    backingPositionVersion=batch.geometry.attributes.position.version;
+    backingIndexVersion=batch.geometry.index.version;
+    backingConfidenceVersion=batch.geometry.attributes._confidence.version;
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
     group.add(batch);
@@ -777,6 +836,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   return {
     group,
     batches,
+    viewOccluders,
     problems,
     triangles: totalTris,
 

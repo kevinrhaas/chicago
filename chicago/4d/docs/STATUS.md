@@ -1,3 +1,29 @@
+## T-2227 — Glessner browser quality and performance (2026-10-15)
+
+The completed house exceeded the unchanged scene ceilings at eight of fifteen
+Light inspection stands and several Full courtyard stands. Equivalent inspection
+materials now share compatible texture sources and shader state; opaque Full
+Glessner faces have spatial pieces; Light rejects whole instance bounds only behind
+actual opaque building triangles. The original transparent roof draw groups remain
+intact. No house geometry, historical camera, source right, owner tint, dark glass
+setting or budget changes.
+
+The complete fifteen-view Full and Light runs and five-view Balanced run pass their
+existing ceilings, including thirty moving samples per tier. Full detail restoration
+is pixel-identical and restores the building material/instance census; eighteen Light
+visibility on/off images are exact. Earlier failed baselines and rejected transparent
+roof partitioning remain in the evidence. The allocation-reduced four-view Light rerun and thirty moving samples also pass.
+A persistent one-pixel winter difference caused a conservative summer-only filter:
+other seasons retain the complete normal draw list. The final ten seasonal/reference
+pairs are pixel-identical, winter retains all draws, and summer restores the filter.
+Full preflight, exact-commit CI and deployment receipts are recorded in the ticket-linked PR.
+Software-renderer timing does not establish physical-GPU FPS. Winter's supplementary
+round trip is not a claim that other seasons meet July's scene budget.
+
+[Runtime changes and complete evidence](RESEARCH/glessner-performance-T-2227/README.md).
+Five historical comparisons still read `differs`; T-2228 owns the remaining visible
+photographic corrections. This gate clears their existing performance blocker only.
+
 ## T-2500 — 1808 Prairie's north entrance loggia and stair (2026-10-15)
 
 Second piece of T-1882, after T-2499. The owner's report of 2026-10-13 said the
