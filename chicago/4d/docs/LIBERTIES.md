@@ -26141,6 +26141,19 @@ kit's flashing is not laid, since it reads one slope and these stacks stand on t
 crown's steep side; each joins its roof as the plain stack did. Not built: the dark hooded crown the
 engraving draws over each cap, about 0.4-0.5 m tall, a pot or a cowl that the engraving's scale does not
 settle; each stack's top was read at that crown's top, so each cap stands where the drawn crown ends.
+**Revised:** 2026-10-15 (T-2472) — **the swell bay rises to the cornice.** The engraving carries the
+bow up to the cornice and draws its top as one plain band; the bow's upper storey is now 4.552 m, so its
+wall top stands at 11.152 m, the foot of K10's bed moulding, where it stopped at 10.7 m under a plain
+K08 eave. Its eaves are the cornice carried round it (`eaves.cornice`, T-2460's machinery): the bed
+moulding swept round the plan, then the house's eave over it, a soffit 0.5 m out from the bow's face to
+a 0.2 m fascia at the main one's height, in the eave's painted timber. The wall's bed moulding stops at
+the bow's junctions. Read, through the camera: the band's height, y 245-267 px on the bow's crown
+against the engraving's about 255-270. Invented: the band's members, which are the house's eave and the
+kit's bed moulding, not a section read off the plate (the engraving draws a dark band, not its
+profile); and no brackets on the bow, since the engraving draws none there and the front's are K10's,
+not the engraving's. Not built: the engraving draws the main cornice running on straight over the
+bow's cap, about 0.3 m over the build's eave all along the front (soffit 11.21 m against about 11.5 m);
+raising it is the storey lines' reading, not the bow's, so the bow's band is the build's eave itself.
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 

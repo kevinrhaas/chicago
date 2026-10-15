@@ -508,7 +508,7 @@
               ]
             },
             {
-              "height_m": 4.1,
+              "height_m": 4.552,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -528,6 +528,9 @@
             "kind": "cone",
             "pitch": 0.05,
             "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.bracketed_timber"
           }
         },
         {
@@ -583,7 +586,7 @@
         "glessner_blog_1637_spalding_remodel_engraving",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). The bay stands from grade to 10.7 m, as high as K10's cornice lets a bay rise under its bed moulding (the engraving's runs on to the cornice itself, T-2466). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks."
+      "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). The bay rises from grade to the cornice itself, as the engraving carries it (T-2472): its upper storey 4.552 m, so its wall top stands at 11.152 m, the foot of K10's bed moulding, and its eaves ARE the cornice, carried round the bow (`eaves.cornice`): the bed moulding swept round its plan under the house's soffit (11.21 m) and fascia (to 11.41 m), 0.5 m out from the bow's face as the main eave stands from the wall, in the same painted timber; the wall's bed moulding stops at the bow's junctions and its brackets stand clear of them. The bow carries no brackets of its own: the engraving draws its top as one plain band, and its brackets would be K10's, not the engraving's. Through the camera that band lands at y 245-267 px on the bow's crown, the engraving's at about 255-270; until T-2472 the bay stopped at 10.7 m under a plain K08 eave (y 270-287 px). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks."
     },
     "rear_wings": {
       "value": [

@@ -45,6 +45,8 @@ from __future__ import annotations
 import math
 import random
 
+from .k01_frontage_params import bracketed_section
+
 CORNICE = "k10.cornice.bracketed_timber"
 STONE = "k10.cornice.moulded_stone"      # T-2460: 1619's, from its drawing
 CRESTING = "k10.cresting.iron_ridge"
@@ -336,9 +338,22 @@ def _cornice(a, K, data, bays, conf):
     # T-2465: a pavilion under a crown is carried up to the crown's own cornice, through
     # the line of the bed moulding, which runs into its cheeks; its brackets stand clear
     cr = (getattr(p, "mansard", None) or {}).get("crown") or {}
-    for wall, s0, s1, top in bays:
+    # T-2472: a bay carrying the cornice's own section as its eaves (k01_frontage_params'
+    # `eaves.cornice`) rises to the bed moulding's foot and carries it round its plan, under
+    # the house's soffit and fascia; the wall's bed moulding stops at its junctions
+    sec = [tuple(q) for q in bracketed_section(data, p.eave_overhang_m)]
+    cut = []
+    for b, (wall, s0, s1, top) in zip(p.bays, bays):
         if cr.get("form") == "hip" and wall == "k01.wall.street_front" \
                 and -cr["z1"] - cr["overhang_m"] <= s0 and s1 <= -cr["z0"] + cr["overhang_m"]:
+            continue
+        ev = b["variant"].get("overrides", {}).get("eaves", {})
+        if [tuple(q) for q in ev.get("profile", ())] == sec:
+            wall_top = math.fsum(st["height_m"] for st in b["variant"]["storeys"])
+            if b["variant"].get("base") != "grade" or wall != runs(p)[0].name or abs(wall_top - y_bed) > 0.001:
+                raise ValueError(f"the bay {b['id']} carries the cornice's section; it rises from grade on the "
+                                 f"street front to the bed moulding's foot at {y_bed:.3f} m (has {wall_top:.3f})")
+            cut.append(tuple(b["span_m"]))
             continue
         if top > y_bed - 0.005:
             raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
@@ -394,6 +409,9 @@ def _cornice(a, K, data, bays, conf):
         spans.append((ps + w / 2, nxt - w / 2))
     if flat:
         spans = [(0.0, stations[0][0] - w / 2)] + spans + [(stations[-1][0] + w / 2, perim)]
+    # the street front starts the perimeter; the span that closes it runs on past `perim`
+    for c0, c1 in [(c0 + m, c1 + m) for c0, c1 in cut for m in (0.0, perim)]:
+        spans = [q for s0, s1 in spans for q in ((s0, min(s1, c0)), (max(s0, c1), s1)) if q[1] - q[0] > 1e-6]
     for k, (s0, s1) in enumerate(spans):
         corners = [c + m * perim for m in (0, 1) for c in cum[:len(rr)] if s0 + 1e-6 < c + m * perim < s1 - 1e-6]
         path = [point(s0)] + [point(c) for c in sorted(corners)] + [point(s1)]

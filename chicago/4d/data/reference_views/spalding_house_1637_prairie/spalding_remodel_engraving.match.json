@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8834b79590e7e24a9336398c9308024988fe3e361dc8c7f7488df6de43367815",
+  "glb_sha256": "b13df5afb7a0c948db8a9775a3a20b6148c08dc1febc15a75b6780f41d6789e3",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -79,8 +79,13 @@
     },
     {
       "what": "the swell bay rises to the cornice itself in the engraving; the build stops it at 10.7 m, under K10's bed moulding",
+      "status": "fixed",
+      "how": "T-2472: the bow's upper storey carried to 11.152 m, the foot of K10's bed moulding, and the cornice carried round it on T-2460's machinery (the bay's eaves.cornice): the bed moulding swept round the plan under the house's soffit and fascia, 0.5 m out from the bow's face, so the bow's top reads as one plain band at y 245-267 px on its crown against the engraving's about 255-270 (it stood at 270-287 under the old K08 eave). The bow carries no brackets, as the engraving draws none on it; the wall's bed moulding stops at its junctions"
+    },
+    {
+      "what": "over the swell bay the engraving draws the main cornice running on straight, a band above the bow's own cap (y about 207-255 px), where the build's eave, about 0.3 m under the engraving's cornice line all along the front (its soffit at 11.21 m against the engraving's about 11.5 m), is the bow's cap itself and is carried round it",
       "status": "open",
-      "how": "T-2466"
+      "how": "not built: raising the house's cornice moves the whole eave and the mansard on it, which is the storey lines' reading (T-2441's), not the bow's; on the bow the band lands where the engraving's cap does"
     },
     {
       "what": "the stacks' panelled shafts and caps",
