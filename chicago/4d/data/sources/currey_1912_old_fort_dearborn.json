@@ -1,0 +1,24 @@
+{
+  "id": "currey_1912_old_fort_dearborn",
+  "type": "book",
+  "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+  "author": "J. Seymour Currey",
+  "date": "1912",
+  "describes_date": "1673-1816",
+  "url": "https://www.gutenberg.org/ebooks/52346",
+  "archived_url": "https://www.gutenberg.org/cache/epub/52346/pg52346.txt",
+  "locator": "ch. II 'Fortifying the Frontier' (pp. 17-94): the settlement across and around the first fort, 1803-1812 — the Kinzie house, Ouilmette's and Pettell's cabins, Guarie's trading house on the North Branch, and the residents John Kinzie found on arriving",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "READ IN FULL TEXT (Project Gutenberg 52346) FOR T-2489. A popular history written a century after the events, by the Chicago historian who later wrote the five-volume Chicago: Its History and Its Builders; it gives no footnotes and repeats Andreas (1884) and Hurlbut's Chicago Antiquities (1881) nearly word for word on the early settlement, so where it agrees with them it adds a reader and not a witness. It is cited here for the one place it goes further than they do: 'When John Kinzie arrived here he found Ouilmette, Pettell, Le Mai, and Guarie, all of whom were permanent residents', which would put Guarie's North Branch trading house in the 1804 settlement. Andreas's only authority for Guarie is Hubbard's tradition of a trader there 'prior to 1778', and Quaife (1913, p. 138) says that tradition is the whole of what is known — so that sentence is weighed in data/exclusions.json `guarie_trading_house` and not taken as evidence of a house standing after 1800.",
+  "what_it_supplies": [
+    "a compiled account of the north-bank settlement opposite the first fort, 1803-1812, without footnotes",
+    "the one statement in the corpus that names Guarie among the residents of 1804"
+  ],
+  "what_it_does_not_supply": [
+    "a primary source for any of the houses it describes",
+    "any dimension or position finer than a modern street name"
+  ]
+}

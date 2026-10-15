@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 from collections import defaultdict
 from compile_scene import cite, resolve_phase
+from exclusion_scope import ruled_for
 
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
@@ -146,10 +147,11 @@ class Compiler:
                 continue
             scene = read(path)
             layers = set(scene.get('layers', []))
-            # Residents, firms, animals and the excluded-buildings record are authored for
-            # 1835 alone; a scene that starts listing one needs its own reading of it here
-            # first, rather than a Sources list that silently leaves those citations out.
-            unread = sorted(layers & {'residents', 'businesses', 'fauna', 'exclusions'})
+            # Residents, firms and animals are authored for 1835 alone; a scene that starts
+            # listing one needs its own reading of it here first, rather than a Sources list
+            # that silently leaves those citations out. The excluded-buildings record is read
+            # per scene since T-2489: an entry is a ruling for the scenes its `scenes` names.
+            unread = sorted(layers & {'residents', 'businesses', 'fauna'})
             if unread:
                 raise ValueError(f"scene {path.stem} lists {', '.join(unread)}: the per-scene source index cannot read them yet")
             scenes[path.stem] = dict(target=dt.date.fromisoformat(scene['target_date']), layers=layers,
@@ -238,8 +240,12 @@ class Compiler:
             row = read(data / 'railway' / f'{s}.json')
             if row is not None:
                 self.record('railway', 'railway', f'railway/{s}', row, 'other_scene', elsewhere=(s,))
+        # T-2489: a ruling is the 1835 town's exclusion when it is ruled for 1835, and
+        # another scene's when that scene lists the layer and the ruling names it.
         for row in read(data / 'exclusions.json', {}).get('excluded', []):
-            self.record('exclusions', 'exclusion', row['id'], row, 'exclusion')
+            listed = tuple(s for s, o in others.items() if 'exclusions' in o['layers'] and ruled_for(row, s))
+            self.record('exclusions', 'exclusion', row['id'], row,
+                        'exclusion' if ruled_for(row, '1835') else 'other_scene', elsewhere=listed)
         for row in read(data / 'liberties.json', {}).get('liberties', []):
             self.record('liberties (structured citations)', 'liberty', row['id'], row, 'research', grade='reconstructed')
         for row in read(data / 'loading/statuses.json', {}).get('entries', []):
@@ -378,7 +384,7 @@ class Compiler:
                   '- Unmodelled flora/fauna zones are research, not scene use. Out-of-scene structure phases are other_scene; this does not claim they are visible in 1835.',
                   '- Jaunt evidence claims are validated and registered as typed jaunt backlinks (T-1253); source-free reconstructed narrative has no fabricated source edge. Unavailable jaunts are research use. Loading facts carry decision/loading_fact backlinks. No PDF/image bytes or asset derivation is produced.',
                   '- The compact index holds citation text and explicit type/date/tier metadata. Full public citations, links and source limits are lazy per-source data. Internal source fields and raw research paths are not exported.',
-                  '- Other scenes (T-2079) get their own use map over the one catalog: a source is `scene` there when a record that scene draws cites it — a structure standing on its date, its terrain epoch, flora zones its layer scope admits, its street grid and paving, its available jaunts. Edges keep their 1835 `use` and add `scenes` naming the other scenes that draw them. A scene that lists residents, businesses, fauna or exclusions is refused until this compiler reads those for it; plantings and loading facts are not read for other scenes.', '']
+                  '- Other scenes (T-2079) get their own use map over the one catalog: a source is `scene` there when a record that scene draws cites it — a structure standing on its date, its terrain epoch, flora zones its layer scope admits, its street grid and paving, its available jaunts. Edges keep their 1835 `use` and add `scenes` naming the other scenes that draw them. A scene that lists residents, businesses or fauna is refused until this compiler reads those for it; exclusions are read per scene, from the `scenes` each entry names (T-2489); plantings and loading facts are not read for other scenes.', '']
         return '\n'.join(lines)
 
 

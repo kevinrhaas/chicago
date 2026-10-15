@@ -30,6 +30,7 @@ from pathlib import Path
 
 from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION, HOME_KINDS, WORK_KINDS,
                          check_association_rows, home_of, workplace_of)
+from exclusion_scope import ruled_for, scenes_of
 from heightfield import Heightfield
 from migrate_attribute_tiers import check_tier_block
 from reconstruct_residents_1835 import (PROGRAMME as RECONSTRUCTION_PROGRAMME,
@@ -550,6 +551,9 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
     # exclusions.json is a research record, not a filter — but it should not
     # contradict the dataset by naming something that is actually in the scene.
     for ex in exclusions.get("excluded", []):
+        # T-2489: an entry is a ruling about the scenes it names (none named: 1835's).
+        if not ruled_for(ex, sid):
+            continue
         if ex.get("id") in [i.split(":")[0] for i in included]:
             rep.error(where, f"'{ex.get('id')}' is listed in exclusions.json but resolves "
                              f"into this scene — the data and the research record disagree")
@@ -605,6 +609,10 @@ def check_exclusions(exclusions: dict, source_ids: set, rep: Report) -> None:
         for s in srcs:
             if s not in source_ids:
                 rep.error(where, f"source '{s}' does not resolve in data/sources/")
+        # T-2489: a ruling scoped to a scene that does not exist is a ruling nobody reads.
+        for sc in scenes_of(ex):
+            if not (DATA / "scenes" / f"{sc}.json").exists():
+                rep.error(where, f"scenes names '{sc}', which is not a scene in data/scenes/")
 
 
 # The claims the provenance card renders, as a RECORD names them mapped to the
