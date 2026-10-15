@@ -44,7 +44,7 @@ up to the fascia, with no plate's foot under it.
 | gable | 5.21 m, middle 2.605 m | 5.45 m, middle 2.725 m; apex 0.15 m higher |
 | wing wall | 2.92 m | 2.68 m, the door unmoved on the front |
 | porch, tower | centred 6.55 m; floor 1.325 m a side | centred 6.40 m; floor 1.076 m a side |
-| posts | 2.11 m apart | 1.71 m apart, outer faces at the floor's ends |
+| posts | 2.11 m apart | 1.69 m apart, outer faces 0.01 m in from the floor's ends |
 | head | four-centred pointed arch, 2.45 to 3.10 m | cusped trefoil, spring 2.80 m, crown 3.424 m |
 | plate | the kit's 0.25 m on a 2.6 m clear height | 0.02 m on 2.83 m: its top and the roof's unmoved |
 | quatrefoils | 0.2 m at 3.04 m | 0.2 m at 3.305 m |
@@ -55,7 +55,7 @@ Measured on the render after: posts 664-688 and 820-840 px (print 667-685, 821-8
 
 The kit (`generators/archetypes/k16_timber.py`) gains an arch `kind: trefoil`
 (`foil_radius_m`, `head_radius_m`, `head_over_spring_m`), a porch's own `plate` (`clear_m`,
-`height_m`) and `post_inset_m`; `k16_timber_params.porch_errors` validates each, and the arch now
+`height_m`) and `post_inset_m`; `k16_timber_params.porch_errors` validates each (the posts stand 0.01 m in, not flush: flush, the stoop's cheek wall shares the floor end's plane and `check_timber_kit.py` refuses the doubled face), and the arch now
 refuses a crown that stands in the plate. Every default is what the kit built before: the four
 other K16 houses re-emit byte-identical with new input hashes. Liberty: L-k16-1638-entrance-2519.
 

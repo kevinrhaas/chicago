@@ -27395,8 +27395,8 @@ it was the 5.21 m the sheet's undivided front line was split at, so its middle (
 pair, hood and oval on it) stands 0.12 m further north and its apex 0.15 m higher; the wing wall
 behind the porch is 2.68 m and its door keeps its place. The porch, and the corner tower standing
 on it, are centred 6.40 m from the south end, not 6.55 m; the floor is 1.076 m a side, its posts'
-outer faces at its ends (the kit sets them 0.05 m in), so the opening between the 0.22 m posts is
-1.71 m. The head between them is a cusped trefoil in place of T-2425's four-centred pointed arch:
+outer faces 0.01 m in from its ends (the kit sets them 0.05 m in), so the opening between the
+0.22 m posts is 1.69 m. The head between them is a cusped trefoil in place of T-2425's four-centred pointed arch:
 two side foils 0.274 m in radius, tangent to the posts at a spring 2.80 m over grade, meet a round
 head foil 0.455 m in radius in two cusps, and the head crowns at 3.424 m. The board the head is cut
 from runs flush up to the roof's fascia, so the plate over the posts is carried 0.02 m deep on a

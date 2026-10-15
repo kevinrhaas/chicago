@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "16e6f3e66ba3068adc87d52dbbbe7b798a29634cab3b016542292858efab756c",
+  "glb_sha256": "201f165006d9d142ca73a8c37194c0ebf767e05bf67d4bfdc227e9b15d9f20ff",
   "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -84,7 +84,7 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: the porch, and the tower on it, centred 6.40 m from the front's south end, where the print's roof ends (657, 859 px), posts (676, 830 px) and quatrefoils (698, 809 px) put their one middle and T-2396 read the tower's, not 6.55 m; the roof's edge 1.25 m either side, the posts' outer faces at the floor's ends, so 1.71 m between the posts against the print's 1.66-1.72 m (T-2519)",
+      "what": "Entrance: the porch, and the tower on it, centred 6.40 m from the front's south end, where the print's roof ends (657, 859 px), posts (676, 830 px) and quatrefoils (698, 809 px) put their one middle and T-2396 read the tower's, not 6.55 m; the roof's edge 1.25 m either side, the posts' outer faces 0.01 m in from the floor's ends, so 1.69 m between the posts against the print's 1.66-1.72 m (T-2519)",
       "status": "fixed"
     },
     {
