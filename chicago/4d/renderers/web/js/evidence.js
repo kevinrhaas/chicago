@@ -91,7 +91,7 @@ const TOPICS = [
   },
   {
     id: 'exclusions',
-    gloss: 'Buildings dated later than 1 July 1835, or already gone',
+    gloss: 'Buildings researched and left out: dated later, or already gone',
     icon: SVG('<circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/>'),
     // The chip is the record's own `earliest_scene`; an entry without one had
     // already come down. Two findings, one list — the pills tell them apart.
