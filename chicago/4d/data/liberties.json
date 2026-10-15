@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 583,
+  "count": 584,
   "liberties": [
     {
       "id": "L1",
@@ -35579,8 +35579,45 @@
           "text": "`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`."
         },
         {
+          "label": "Revised by T-2535 (2026-10-15)",
+          "text": "the stoop is shortened to the engraving's foot. Its going is the K01 contract's floor (0.25 m) and its landing 1.1 m, so its fourteen risers reach 4.35 m before the front, where the engraving's first fence post (x 557 px) stands on the stoop's north cheek through the camera; it reached 5.1 m (x 586 px). The fence still starts at the stoop's south cheek on the line (x 642 px): the drawn post stands in front of the flight's foot, and a fence across a flight is what the K11 kit refuses (`L-k01-1637-basement-lights-2535`)."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-13 (T-2447)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1637-basement-lights-2535",
+      "title": "1637 Prairie's basement lights read off the engraving under the swell bay and the wing, and its stoop shortened to the drawn foot on the steepest going the contract allows",
+      "section": "per_subject",
+      "subjects": [
+        "spalding_house_1637_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "T-2535 (piece 2 of T-2449) builds the basement lights of the engraving of Jesse Spalding's remodel (`glessner_blog_1637_spalding_remodel_engraving`) on `spalding_house_1637_prairie`, and brings its stoop's foot to the one the engraving draws. Under the swell bay one barred, flat-headed light; under the wing two round-headed lights (K06's `k06.opening.basement_round`), each carried by its K08 bay as 1621's basement lights are. The stoop keeps K07's straight flight and its fourteen whole risers, on a 0.25 m going and a 1.1 m landing. **What is read, not invented.** Through the engraving's solved camera, on each face: the bow's light at x 388-439 px and y 696-757 px (1.0 m wide, 0.52-1.82 m over grade) under the middle window's own column; the wing's lights at x 675-710 and 736-771 px and y 692-757 px (each about 0.9 m wide, 0.3-1.7 m over grade, a 0.7 m pier between); the bars in the bow's light; the round heads of the wing's; the flight's foot at the fence's first post (x 557 px), which on the stoop's north cheek is 4.35 m before the front. **What is invented.** The wing pair's place: it reads about 0.35 m south of the wing's centre, the draughtsman's perspective converging faster than the camera's, and is set centred under the French window; the glazing (two-over-two behind the bow's grille, one plate light under each wing head), the grille's five bars and its ring, the lights' stone dressings, all K06's and K08's; the going (0.25 m) and the landing (1.1 m), which the engraving does not draw, chosen as the shortest the K01 contract allows because the foot the engraving does draw asks for them. **What is not built.** The fence still starts at the stoop's south cheek on the garden line (x 642 px), where the engraving's first post stands at x 557 px: through the camera that post stands in front of the flight's foot, and a fence crossing a flight is what the K11 kit refuses, so the drawn post is read as the foot's own newel position, not the fence's start."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the remodelled front at ground level would fix the lights' glazing, the stoop's going and where the fence meets it."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2535 (piece 2 of T-2449)."
+        },
+        {
+          "label": "Review",
+          "text": "`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2535)."
         }
       ]
     },
