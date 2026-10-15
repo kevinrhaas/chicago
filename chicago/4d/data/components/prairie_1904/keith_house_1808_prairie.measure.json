@@ -459,13 +459,13 @@
           "uv_per_m_times_tile_m": 0.9988
         },
         "yard_turf": {
-          "median_uv_per_m": 0.4164,
+          "median_uv_per_m": 0.4172,
           "fabric": "turf",
           "tile_m": [
             2.4,
             2.4
           ],
-          "uv_per_m_times_tile_m": 0.9994
+          "uv_per_m_times_tile_m": 1.0012
         }
       },
       "origin": {
