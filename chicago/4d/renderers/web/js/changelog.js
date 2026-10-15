@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1831, ts: '2026-10-15T22:22:16.626Z', date: 'Oct 15, 2026, 5:22 PM CT', title: '1619 Prairie rises as a four-storey stone house with a full-height bow', kind: 'feature',
+    items: [
+      '1619 Prairie Avenue, the house between the 1613/1615 brick pair and Hamline\'s 1621, is now a full four-storey stone-fronted house in place of its draft.',
+      'Its broad curved bay rises the whole height of the front to a moulded stone cornice, at the size and place the 1911 fire-insurance map draws it. Its door and stoop are at the north end.',
+      'Behind it stand the map\'s brick rear block and its two-storey timber piece. The map draws that piece half-round, and for now it is built square.',
+      'No picture of this house is known, so the rough grey limestone, the heights and the windows are reconstructions. They are recorded as liberty L-k01-1619-stone-front-2434.',
+    ] },
   { v: 1830, ts: '2026-10-15T21:47:09.088Z', date: 'Oct 15, 2026, 4:47 PM CT', title: '1621 Prairie\'s front door gets its round arch', kind: 'feature',
     items: [
       'Hamline\'s door at 1621 Prairie now stands in a round-arched doorway ringed with stone voussoirs, as the 1886 drawing shows, with a fanlight over its leaves.',
