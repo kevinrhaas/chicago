@@ -1,0 +1,7 @@
+{
+  "title": "Nothing you can see changed: a self-test caught up with the haystacks",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changed. The check that rebuilding one building on its own still works ran against a fixed list of five builders. When the haystacks brought a sixth, it failed for every change waiting to land. It now reads the builders from the bake script itself, so the next new builder will not trip it."
+  ]
+}
