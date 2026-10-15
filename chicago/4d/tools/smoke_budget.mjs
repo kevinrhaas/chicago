@@ -371,6 +371,7 @@ const COVERAGE = [
   // --- PART 9: what the light does to the town
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],
   ['renderers/web/js/buildings.js', [8, 9], 'the facades and the shadow reach they carry, and the merged batch part 8 reads the roughness channel out of'],
+  ['renderers/web/js/shadow-casters.js', [8, 9], 'T-2529, the sun\'s pass at `light` — it wraps every structure batch buildings.js makes, so it is read where the facades and their shadows are'],
   ['renderers/web/js/roof-relief.js', [8, 9], 'T-1488, the roof coverings\' relief maps — it binds them inside buildings.js\'s own load loop and adds two batches to the merge part 8 counts'],
   ['renderers/web/js/wall-relief.js', [8, 9], 'T-1963, the walls\' relief maps — bound inside buildings.js\'s load loop like the roofs\', and two more batches for the merge part 8 counts'],
   ['renderers/web/js/relief-pack.js', [2, 8, 9], 'T-2300, the orl and board grain both relief layers pack at load — the walls (8, 9) and the frontage walks (2)'],
