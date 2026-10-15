@@ -39028,12 +39028,6 @@
           "domain": "structure",
           "structure": "shortall_gregory_house_1638_prairie_front",
           "phase": "as_standing_1904",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "shortall_gregory_house_1638_prairie_front",
-          "phase": "as_standing_1904",
           "aspect": "form.body"
         }
       ],
@@ -39050,7 +39044,7 @@
         },
         {
           "label": "Covers",
-          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.footprint`"
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`"
         },
         {
           "label": "Ticket",

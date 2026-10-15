@@ -27892,7 +27892,7 @@ print is the picture the house is matched to, so it is taken; the sheet's east f
 are kept.
 **How to resolve:** a second view of the south side, or the sheet's earlier edition, settles the
 wing's width and depth; a view of its south face settles its openings.
-**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.footprint`
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`
 **Ticket:** T-2532 (piece 1 of T-2522).
 **Review:** `docs/RESEARCH/k16-1638-wing-2532/README.md`.
 **Recorded:** 2026-10-15 (T-2532).
