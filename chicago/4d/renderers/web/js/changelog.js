@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1830, ts: '2026-10-15T21:47:09.088Z', date: 'Oct 15, 2026, 4:47 PM CT', title: '1621 Prairie\'s front door gets its round arch', kind: 'feature',
+    items: [
+      'Hamline\'s door at 1621 Prairie now stands in a round-arched doorway ringed with stone voussoirs, as the 1886 drawing shows, with a fanlight over its leaves.',
+      'Above it, the small second-floor window is now framed and capped, over a carved stone panel on the belt course.',
+      'The leaves, the voussoir ring and the carving are reconstructed and recorded as a liberty. The drawing\'s deeper recess and the side stoop are still to come.',
+    ] },
   { v: 1829, ts: '2026-10-15T21:17:20.617Z', date: 'Oct 15, 2026, 4:17 PM CT', title: '1638 Prairie stands on its basement, up its photograph\'s ten steps', kind: 'feature',
     items: [
       'The Shortall-Gregory house now stands on a basement, its front door 1.55 m above the sidewalk, and a stoop of ten steps climbs to it between its cheek walls, as the old photograph shows.',

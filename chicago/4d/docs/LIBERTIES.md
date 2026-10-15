@@ -27607,7 +27607,7 @@ well shared with 1623, and what T-2422 owns: the balcony rail, the arched entran
 and the grilled basement arches.
 **How to resolve:** a photograph of the house after 1886, or the architects' plans, settles the bow's
 width and the gable's; T-2422 builds the rest of what the drawing shows.
-**Covers:** `house_1621_prairie.as_mapped_1904.form.principal_floor_m`, `house_1621_prairie.as_mapped_1904.form.storey_heights_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1621_prairie.as_mapped_1904.form.service_wall_brick`, `house_1621_prairie.as_mapped_1904.form.stone_front`, `house_1621_prairie.as_mapped_1904.form.street_front_trim`, `house_1621_prairie.as_mapped_1904.form.wall_head`, `house_1621_prairie.as_mapped_1904.form.roof_form`, `house_1621_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1621_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1621_prairie.as_mapped_1904.form.stair_tread_m`, `house_1621_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1621_prairie.as_mapped_1904.form.stoop_width_m`, `house_1621_prairie.as_mapped_1904.form.front_bays`, `house_1621_prairie.as_mapped_1904.form.side_bays`, `house_1621_prairie.as_mapped_1904.form.north_bays`, `house_1621_prairie.as_mapped_1904.form.rear_bays`, `house_1621_prairie.as_mapped_1904.form.sash_by_storey`, `house_1621_prairie.as_mapped_1904.form.basement_lights`, `house_1621_prairie.as_mapped_1904.form.roof_covering`, `house_1621_prairie.as_mapped_1904.form.chimneys`, `house_1621_prairie.as_mapped_1904.form.rainwater`, `house_1621_prairie.as_mapped_1904.form.window_kit`, `house_1621_prairie.as_mapped_1904.form.entrance_kit`, `house_1621_prairie.as_mapped_1904.form.gable_roof`
+**Covers:** `house_1621_prairie.as_mapped_1904.form.principal_floor_m`, `house_1621_prairie.as_mapped_1904.form.storey_heights_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1621_prairie.as_mapped_1904.form.service_wall_brick`, `house_1621_prairie.as_mapped_1904.form.stone_front`, `house_1621_prairie.as_mapped_1904.form.street_front_trim`, `house_1621_prairie.as_mapped_1904.form.wall_head`, `house_1621_prairie.as_mapped_1904.form.roof_form`, `house_1621_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1621_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1621_prairie.as_mapped_1904.form.stair_tread_m`, `house_1621_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1621_prairie.as_mapped_1904.form.stoop_width_m`, `house_1621_prairie.as_mapped_1904.form.front_bays`, `house_1621_prairie.as_mapped_1904.form.side_bays`, `house_1621_prairie.as_mapped_1904.form.north_bays`, `house_1621_prairie.as_mapped_1904.form.rear_bays`, `house_1621_prairie.as_mapped_1904.form.basement_lights`, `house_1621_prairie.as_mapped_1904.form.roof_covering`, `house_1621_prairie.as_mapped_1904.form.chimneys`, `house_1621_prairie.as_mapped_1904.form.rainwater`, `house_1621_prairie.as_mapped_1904.form.window_kit`, `house_1621_prairie.as_mapped_1904.form.entrance_kit`, `house_1621_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2440 (piece 2 of T-2436).
 **Review:** `docs/RESEARCH/hamline-1621-2436/README.md` § The build moved (T-2440).
 **Recorded:** 2026-10-15 (T-2440).
@@ -27788,3 +27788,38 @@ they should be re-taken from the same pixels, as these were.
 **Ticket:** T-2524 (after T-2523).
 **Review:** `docs/RESEARCH/k16-1638-fence-2524/README.md`.
 **Recorded:** 2026-10-15 (T-2524).
+
+### L-k01-1621-entrance-2526 — 1621 Prairie's entrance from the drawing: a round-arched door under a voussoir block, and the carved panel and framed light over it, their heights read and their joinery reconstructed
+
+**Decision:** the north strip of John H. Hamline's house at 1621 Prairie (T-2526, piece 2 of
+T-2422) takes the entrance Treat & Foltz's Building Budget drawing draws there in place of the
+flat-headed door under a K09 cornice hood that T-2420 and T-2440 built. The door is K07's
+deep-arch entrance (`k07.entrance.double_door_deep_arch`): a round-headed hole 1.2 m wide, its
+crown 2.7 m over the landing and its spring 0.6 m under that, a pair of panelled leaves under a
+radial fanlight, set 0.32 m back in the 0.45 m stone front, as deep as the wall and its door
+frame allow. Round it the front's own stone is cut into a voussoir block, the arch's stones
+radiating from its centre out to a rectangle 0.3 m beyond the arch, as 1612's arched groups are
+laid (`entrance_kit.arch`). At the second floor the light over the door is 0.75 m wide and 0.95
+m high, its sill 1.2 m over the floor, in K09's restrained surround (an architrave, a frieze
+block and a cornice hood on two consoles), and under it, standing on the second-floor belt
+course, K09's carved foliate panel, 1.0 by 0.45 m.
+**What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`),
+through the camera T-2440 carried to 1621: that the doorway is round-arched and recessed, ringed
+with voussoirs, its intrados crown at about 478 px and its spring at about 507 px (built: 485 px
+and 510 px); that over it at the second floor a small light, about 333 to 375 px (built: 332 to
+375 px), stands over a carved panel at about 395 to 420 px (built: 398 to 415 px), the panel on the
+belt course; and that the light is framed and capped (its hood at about 312 px, built about 310
+px).
+**What is invented.** The door's 1.2 m width (K01's door, about 7 px narrower than the drawn
+opening); its pair of leaves, their panels and the fanlight's bars (the drawing's door is not
+legible at the plate's size); the 0.32 m reveal; the voussoir block's 0.3 m ring, its
+rectangular outline and its crown stone; the light's surround, which is the kit's and not the
+drawing's carving; the panel's foliate carving, the kit's generic motif (k09_trim.json allows one
+where no carving is read), and its 1.0 m width against about 54 px drawn (about 43 px built).
+**What is not built.** The drawing turns the voussoirs to a curved extrados under a band and
+sets the door at the back of a recess deeper than this wall; it may also stand the light a little
+proud of the wall on a moulded shelf. Both are open in the match record.
+**How to resolve:** a photograph of the house after 1886 settles the doorway, the light and the
+carving; the architects' plans would settle the recess.
+**Ticket:** T-2526 (piece 2 of T-2422).
+**Recorded:** 2026-10-15 (T-2526).
