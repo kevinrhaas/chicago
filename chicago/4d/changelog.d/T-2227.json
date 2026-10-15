@@ -1,8 +1,0 @@
-{
-  "title": "Glessner’s July view stays within its detail limits",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see changed. Glessner avoids drawing hidden scenery in July’s Light detail and uses fewer drawing operations in Full detail, while preserving the house's geometry, stone and dark glass.",
-    "The existing detail limits are retained. Historical-photo refinements continue in the final comparison pass."
-  ]
-}

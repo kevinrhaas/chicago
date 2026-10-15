@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1826, ts: '2026-10-15T19:37:21.528Z', date: 'Oct 15, 2026, 2:37 PM CT', title: 'Glessner’s July view stays within its detail limits', kind: 'fix',
+    items: [
+      'Nothing you can see changed. Glessner avoids drawing hidden scenery in July’s Light detail and uses fewer drawing operations in Full detail, while preserving the house\'s geometry, stone and dark glass.',
+      'The existing detail limits are retained. Historical-photo refinements continue in the final comparison pass.',
+    ] },
   { v: 1825, ts: '2026-10-15T19:31:48.120Z', date: 'Oct 15, 2026, 2:31 PM CT', title: '1638 Prairie\'s door gets the transom its photograph shows', kind: 'feature',
     items: [
       'The pale gabled shape over the Shortall-Gregory house\'s double door turns out to be a glass transom, so the door now has one: a bar over the leaves and a single light under a low gable.',
