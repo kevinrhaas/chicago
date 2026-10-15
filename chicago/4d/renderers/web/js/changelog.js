@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1804, ts: '2026-10-15T10:03:26.347Z', date: 'Oct 15, 2026, 5:03 AM CT', title: '1808 Prairie loses its pitched roof and rises above Glessner', kind: 'improvement',
+    items: [
+      'The Keith house at 1808 Prairie now has the flat top its 1888 photograph shows, with a stone parapet standing higher than Glessner\'s ridge next door. The slate hip, the dormer and the iron cresting are gone.',
+      'Its round bay on the south half now stops at the second storey under a moulded stone cap, where it used to climb under a copper cone.',
+      'The top storey runs straight across the whole front as a row of six tall windows.',
+    ] },
   { v: 1803, ts: '2026-10-15T09:09:06.563Z', date: 'Oct 15, 2026, 4:09 AM CT', title: '1812: four more buildings outside the first fort', kind: 'feature',
     items: [
       'The 1812 scene gains the interpreter\'s house, the armourer\'s shop, the merchant\'s shop and the bake house, each found by its number on Captain Whistler\'s 1808 plan of the fort.',
