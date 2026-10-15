@@ -104,10 +104,23 @@
       "deck_m": null,
       "margin_m": 22.5,
       "inside_a_roof": null
+    },
+    {
+      "id": "potawatomi_camp",
+      "local_e": 798,
+      "local_n": -22,
+      "aerial": true,
+      "inside": true,
+      "ground_m": 1.068,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 17.5,
+      "inside_a_roof": null
     }
   ],
   "totals": {
-    "anchors": 5,
+    "anchors": 7,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,

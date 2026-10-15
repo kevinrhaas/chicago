@@ -289,7 +289,15 @@ if me in os.environ.get("FIXTURE_EMITS", "").split(","):
 STUB_STEP = """#!/usr/bin/env bash
 echo "$(basename "$0") $*" >> "$FIXTURE_LOG"
 """
-EMITTERS = ("k01_emit", "k13_emit", "k16_emit", "k12_emit", "draft_emit")
+
+
+def emitters_of(script: str) -> tuple[str, ...]:
+    """Every `generators/<name>_emit.py` the script runs, read from its own text.
+
+    The fixture stubs each one, so it cannot fall behind the next emitter bake.sh grows: a
+    fixed list of five did, the day T-2510 added haystack_emit.py, and every case below
+    ended 2 on the missing file — dev's gate red for every pull request (T-2518)."""
+    return tuple(dict.fromkeys(re.findall(r"generators/(\w+_emit)\.py", script)))
 
 
 def run_bake(script: str, blender_exit: int, emits: tuple[str, ...], *args: str):
@@ -305,7 +313,7 @@ def run_bake(script: str, blender_exit: int, emits: tuple[str, ...], *args: str)
         blender = root / "cache" / "fixture-blender" / "blender"
         blender.write_text(STUB_BLENDER)
         blender.chmod(0o755)
-        for name in EMITTERS:
+        for name in emitters_of(script):
             (root / "generators" / f"{name}.py").write_text(STUB_EMIT)
         for name in ("web_derivatives.sh", "publish.sh", "check.sh"):
             (root / "tools" / name).write_text(STUB_STEP)
