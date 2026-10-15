@@ -27882,3 +27882,35 @@ the camera T-2523 re-solves.
 **Ticket:** T-2521 (piece 3 of T-2458).
 **Review:** `docs/RESEARCH/k16-1638-tower-caps-2521/README.md`.
 **Recorded:** 2026-10-15 (T-2521).
+
+### L-k01-1637-wing-balcony-2534 — 1637 Prairie's wing built with the engraving's French window and its bowed balcony, the balcony's rise and stone balusters and the window's glazing bars reconstructed
+
+**Decision:** T-2534 (piece 1 of T-2449) builds the principal storey of the engraving of Jesse
+Spalding's remodel (`glessner_blog_1637_spalding_remodel_engraving`) on `spalding_house_1637_prairie`:
+its sashes about 2.95 m tall on the house and the swell bay, and on the wing a French window down to
+the principal floor over a bowed balcony. The window is a new K06 variant,
+`k06.opening.french_pair_transom` (two casement leaves meeting at the middle under a transom bar and
+a fixed transom light); the balcony is a new K08 feature on a projection, `floor_balcony`, a stone
+slab on a segmental bow out from the wing's front, and on it a stone balustrade.
+**What is read, not invented.** Through the engraving's solved camera: the principal storey's head
+line (the bay's heads at 5.96-6.03 m, the north flank's at 6.1 m) and the bay's sills (3.1-3.2 m),
+which carry the sash height past the K01 contract's 2.4 m starting range on this source; the French
+window's width (x 672-745 px, 1.9 m on the wing's face, centred on the wing), its head (5.71 m), its
+transom bar (about 4.8-4.9 m) and its foot at the principal floor (2.3 m); the balcony's floor (the
+principal floor), the top of its rail (0.87 m over that floor), its span along the wing (x 651-779 px,
+about 3.4 m at the wall) and its pale balusters about 0.17 m apart, drawn as the stoop's stone rail
+is drawn.
+**What is invented.** The balcony's rise off the wing's face (0.6 m): the engraving's nearly frontal
+view of the wing does not give it, and 0.6 m keeps the bow inside the drawn outline, its front
+1.9 m inside the fence line; its slab's depth (0.2 m), the balusters' square section (0.08 m) where a
+turned or sawn baluster would be as likely, the coping's section and the end posts; the stone itself,
+bounded by the engraving's pale tone and the stoop's stone rail beside it; the window leaves' two
+lights each, the four-light transom and the 0.05 m threshold over the balcony's floor, finer than the
+engraving resolves; and the kit's blind and curtains behind the glass.
+**What would replace it.** Any photograph of the remodelled front, or a second view of the wing (the
+c. 1870 Grosvenor photograph, T-2536, shows the house before the remodel, so it may not show the
+balcony at all).
+**Covers:** `spalding_house_1637_prairie.as_mapped_1904.form.bays`.
+**Ticket:** T-2534 (piece 1 of T-2449).
+**Review:** `docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg`.
+**Recorded:** 2026-10-15 (T-2534).
