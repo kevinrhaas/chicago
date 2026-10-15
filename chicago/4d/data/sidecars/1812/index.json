@@ -227,6 +227,18 @@
       "name": "First Fort Dearborn — the sutler's garden",
       "sidecar": "sidecars/1812/first_fort_outer_sutlers_garden.json",
       "asset": "gltf/first_fort_outer_sutlers_garden__first_fort_1803.glb"
+    },
+    {
+      "id": "kinzie_house_1812",
+      "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
+      "sidecar": "sidecars/1812/kinzie_house_1812.json",
+      "asset": "gltf/kinzie_house_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_house_1812_green",
+      "name": "The Kinzie house's fenced green",
+      "sidecar": "sidecars/1812/kinzie_house_1812_green.json",
+      "asset": "gltf/kinzie_house_1812_green__kinzie_1804.glb"
     }
   ],
   "excluded_by_date": [

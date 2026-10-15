@@ -1,0 +1,11 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "chicago_magazine_1857",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "1c5de582e77c4ce569b284ee3722ce4ad3422cf07ddad6f38b413092f7210c85",
+  "camera_sha256": "6bcab6fc7680f8cea65bd9152ca096b501aeaa137fd6439b686bc6e5b7cdb8c1",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/chicago_magazine_1857-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,21 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "source_id": "chicago_magazine_1857_kinzie_house_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_kinzie_house_1833.png",
+  "image_px": [
+    687,
+    434
+  ],
+  "principal_px": [
+    250.0,
+    242.4
+  ],
+  "focal_px": 326.7,
+  "eye": [
+    16.24,
+    15.93,
+    2.17
+  ],
+  "yaw_deg": 217.45,
+  "solve": "Fitted by least squares (an unpitched camera, as photo_match draws it: verticals stay vertical, the principal point free) to nine points read off the engraving at 687 x 434 px against the GLB's footprint frame (u along the front, v toward the river, the house's west gable the +u end): the west gable's back corner at grade (113, 290) and eave (113, 197), its front corner at the eave (170, 207) and grade (170, 318), the gable apex (140, 176), the middle stack's head (238, 165), the door's foot (305, 320), and the piazza's west post at its foot (208, 322) and head (208, 240). Bounds kept the eye in front of the house; the best of 27 starts is eye (16.24, 15.93) at 2.17 m, heading 217.45 degrees, focal 326.7 px, principal (250.0, 242.4), rms 14.3 px. The two worst points are the back eave (27.5 px) and the door's foot (28.0 px): the engraver's horizon is not one line (the front corner puts it near y 255, the back corner near y 237), which is a drawing's perspective and not a lens's, and the wide focal is the solve absorbing it. Checked on a red-edge overlay of the render on the engraving: the gable apex within about 10 px, the stacks at x 250 and 325 against the drawn 238 and 330, the piazza's roof and rail on the drawn ones."
+}

@@ -1,0 +1,11 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "lossing_1869",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "1c5de582e77c4ce569b284ee3722ce4ad3422cf07ddad6f38b413092f7210c85",
+  "camera_sha256": "561759ae2fb407aaf146270ed3b48c90f2cb207e67f76b4e03a9f88bd9044dda",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/lossing_1869-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

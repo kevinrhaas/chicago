@@ -1,0 +1,332 @@
+{
+  "id": "kinzie_house_1812",
+  "phase": "kinzie_1804",
+  "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
+  "aka": [
+    "the Kinzie Mansion",
+    "the Point du Sable house",
+    "the old Kinzie house"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/kinzie_house_1812__kinzie_1804.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1804-10-01",
+    "to": "1833-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "moses_kirkland_history_of_chicago_v1",
+      "chicagology_prefire273"
+    ],
+    "note": "THE KINZIE YEARS, BOTH ENDS INFERRED. It opens in the fall of 1804, when Currey has John Kinzie buy the house from Le Mai and arrive 'in the fall of that year' (currey_1912_story_of_old_fort_dearborn, ch. II); Moses and Kirkland give Le Mai 1796 where Currey gives 1797, and the Kinzies' arrival is put at 1803 elsewhere, so the opening is the later of the two readings and the house stands earlier than this phase says, under du Sable and Le Mai, in a form no picture shows. It covers 1 and 14 August 1812: Currey, 'The house escaped the general destruction at the time of the massacre'. It closes at the end of 1833: Currey says it 'was finally demolished in the early thirties', the 1857 engraving shows it about 1833, and data/exclusions.json kinzie_house rules it unoccupied and 'dilapidated beyond repair' from 1832 and gone by 1835, so it stands in no 1835 view."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1158.096,
+    "local_n": 342.706,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "position_note": "PLACED BY TWO STATEMENTS AND THE 1812 GROUND, NOT MEASURED. Wau-Bun: 'On the northern bank of the river, directly facing the fort'; Currey: 'near the present foot of Pine Street', facing south 'having the river directly in front'. So the house is centred on the flagstaff's easting (E +1152, the fort's seat in data/scenes/1812.json) and set back from the e1830_natural north bank, which stands at about N +305 there and reaches its level 1.5 m ground by N +318, far enough to leave the 'broad green space ... inclosed between it and the river' the same sentence gives: 18 m of green between the piazza and the bank top. The set-back is this record's own (docs/LIBERTIES.md L-kinzie-house-1812-2497).",
+    "symbolic_location": "The north bank of the river directly facing the first Fort Dearborn, near the later foot of Pine Street (N. Michigan Avenue) at Kinzie Street, the site of Pioneer Court; front wall at local N +336.0, centred on local E +1152.0, the easting of the fort's flagstaff; facing south. This record's origin is the footprint's north-east corner, which a 180-degree facing puts at the frame's (0, 0).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.192,
+        0
+      ],
+      [
+        12.192,
+        6.706
+      ],
+      [
+        0,
+        6.706
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "FORTY FEET BY TWENTY-TWO, CITED TO NOTHING HERE. Du Sable's bill of sale of 1800 to Jean La Lime is reported to give the house as 22 by 40 feet (Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928, pp. 89-96), but that article is not in this corpus and was not read, so the figure stands as a reconstruction and the article is named only as what would replace it. It agrees with what the sources here do say: Wau-Bun's 'long, low building ... a range of four or five rooms' and every picture's long front, about twice as long as it is deep. The long side runs along the river."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "lossing_1869_kinzie_mansion_engraving",
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "Wau-Bun: 'a long, low building'. Both engravings draw one storey under the eaves with no dormer."
+    },
+    "wall_height_m": {
+      "value": 3.0,
+      "confidence": "reconstructed",
+      "note": "Unattested. About ten feet to the eave: the engravings draw the piazza's posts nearly the height of the wall, and a piazza roof needs headroom under a low eave."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "note": "Moses and Kirkland vol. 1 p. 30 (data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 4953-4955): 'The house was of squared logs, after the fashion of the very best of the frontier mansions of that day.' The 1857 engraving draws the walls sided and light about 1833; that may be a later cladding, and the 1812 house is built from the text."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "sources": [
+        "lossing_1869_kinzie_mansion_engraving",
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "Both engravings draw a gable roof with its ridge along the river and its gables at the ends."
+    },
+    "roof_pitch_deg": {
+      "value": 30.0,
+      "confidence": "reconstructed",
+      "note": "Read by eye off the two engravings' gable ends, which are drawn in perspective and give no measurable pitch."
+    },
+    "loft": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "lossing_1869_kinzie_mansion_engraving",
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "Neither engraving draws a gable window or dormer."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "sources": [
+        "lossing_1869_kinzie_mansion_engraving",
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "Both engravings draw two stacks rising through the ridge, not against the gables."
+    },
+    "piazza": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "currey_1912_story_of_old_fort_dearborn",
+        "lossing_1869_kinzie_mansion_engraving"
+      ],
+      "note": "Wau-Bun ch. XVII describes 1831: 'a long, low building, with a piazza extending along its front'. Currey: Kinzie, after he bought it in 1804, 'repaired it, added a veranda'. Neither dates the veranda before August 1812; Lossing's view, which sets the house against the first fort, draws it, and that is the reading this phase takes."
+    },
+    "piazza_depth_m": {
+      "value": 2.1,
+      "confidence": "reconstructed",
+      "note": "Unattested. Seven feet, about a third of the house's depth as the engravings draw it."
+    },
+    "piazza_posts": {
+      "value": 6,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_magazine_1857_kinzie_house_engraving",
+        "lossing_1869_kinzie_mansion_engraving"
+      ],
+      "note": "The 1857 engraving draws six posts across the front; Lossing's are fewer and thicker at a smaller scale. Six, from the clearer picture."
+    },
+    "piazza_rail": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "The 1857 engraving draws a rail with balusters between the posts, open at the door."
+    },
+    "chimney_ridge_at": {
+      "value": [
+        0.08,
+        0.55
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicago_magazine_1857_kinzie_house_engraving",
+        "lossing_1869_kinzie_mansion_engraving"
+      ],
+      "note": "Fractions of the ridge from its EAST end, which is the footprint frame's -x end at this record's 180-degree facing. The 1857 engraving puts one stack 0.45 of the ridge from the west gable and the other 0.93, by the east end; Lossing agrees on the middle one (0.4 from the west) and draws his second near the west gable (0.1). Three pictures of the four this ticket lists (the 1857 engraving, the Teich postcard at 0.43 and 0.81, the Cram plate's one stack at 0.93) put the second toward the east, so the 1857 engraving's places are built and Lossing's west stack is recorded in his match record as where the pictures disagree."
+    },
+    "front_windows_per_side": {
+      "value": 2,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "The 1857 engraving draws two sash either side of the door under the piazza. Lossing's piazza is in shadow and shows none; Wau-Bun's 'range of four or five rooms' is a front long enough to light each from it."
+    },
+    "window_w_m": {
+      "value": 0.7,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "Scaled off the 1857 engraving against the door beside them: about as wide as the door is half."
+    },
+    "window_h_m": {
+      "value": 1.3,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "Scaled off the 1857 engraving: tall sash, about two-thirds of the door's height."
+    },
+    "function": {
+      "value": "dwelling_and_trading_house",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856"
+      ],
+      "note": "Built by Jean Baptiste Point du Sable, 'a native of San Domingo and a negro', an Indian trader who lived in it for over eighteen years (Currey). John Kinzie's family home and the base of his trade from 1804, 'the family mansion of my husband' in Wau-Bun."
+    },
+    "occupants": {
+      "value": "John Kinzie's household, from 1804; absent from 1812 to 1816",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "note": "Currey: it 'remained the residence of John Kinzie and his family until the time of his death, in 1828, except during the four years of his enforced absence, from 1812 to 1816.' Nobody is drawn (L1)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_magazine_1857_kinzie_house_engraving",
+      "citation": "\"The Kinzie House\" — wood engraving, in The Chicago Magazine: The West As It Is, vol. 1 no. 1 (Chicago, March 1857); reprinted by A. T. Andreas, History of Chicago vol. 1 (1884), where it is captioned as the old Kinzie house about 1833.",
+      "url": "https://commons.wikimedia.org/wiki/File:Kinzie_House.png",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the house long and low under a gable roof running along the river, with two stacks through the ridge, about 0.45 and 0.93 of it from the west gable",
+        "the piazza across the whole front on slender posts, under its own flatter roof below the main eave, with a railing between the posts",
+        "a door at the middle of the front with windows either side",
+        "the picket fence enclosing a green before the piazza, toward the water",
+        "four columnar Lombardy poplars in a row along the green's river-side fence, from opposite the house's east half to beyond its east end",
+        "a big broad-crowned tree behind the house"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812: it shows it about twenty years later",
+        "any dimension, position or colour"
+      ]
+    },
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+        "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+        "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+        "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+        "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension of the house, the piazza or the green",
+        "the number of the house's rooms, windows or chimneys",
+        "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+        "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "lossing_1869_kinzie_mansion_engraving",
+      "citation": "\"KINZIE MANSION AND FORT DEARBORN.\" — wood engraving, in Benson J. Lossing, The Pictorial Field-Book of the War of 1812 (New York: Harper & Brothers, 1869).",
+      "url": "https://commons.wikimedia.org/wiki/File:Kinzie_mansion_and_Fort_Dearborn.jpg",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "a long, low, single-storey house on the north bank, its ridge parallel to the river, gables at its ends",
+        "a piazza across its front on square posts, under a flatter roof hung below the main eave",
+        "two stacks rising through the ridge, one about 0.4 of it from the west gable and one near the west gable",
+        "a low picket fence before the house enclosing a green to the water, and a row of tall columnar poplars beside it",
+        "a large broad-crowned tree behind the house at the west end",
+        "the first fort's picket line and blockhouses across the river, which is what the plate claims to date"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension or position: it is a tier-5 retrospective view, form only",
+        "an eyewitness: Lossing drew it more than fifty years after the fort burned, and his sources for it are not stated on the plate"
+      ]
+    },
+    {
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+      "url": "https://archive.org/details/historyofchicago01mose",
+      "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "transcribes": [
+        {
+          "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+          "date": "1881",
+          "tier": 3,
+          "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+        }
+      ],
+      "what_it_supplies": [
+        "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+        "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+        "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+        "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+        "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+        "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+        "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+      ],
+      "what_it_does_not_supply": [
+        "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+        "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+        "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+        "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+        "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+        "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+      ]
+    }
+  ],
+  "research_note": "THE FIRST HOUSE AT CHICAGO (T-2497, piece 1 of T-2484). Jean Baptiste Point du Sable, a Black man from San Domingo and the first non-Native settler at Chicago, built it before 1779 and lived in it for over eighteen years; Le Mai bought it in 1796 or 1797; John Kinzie bought it in 1803 or 1804, the sources differ, repaired it, added the piazza and planted the poplars. It escaped the burning of August 1812 and was gone by the mid-1830s. This record is the house as the Kinzies had it, which is the only form any picture shows; the green, its fence and its trees are kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json. The pictures it is matched to are data/reference_views/kinzie_house_1812/; four more are T-2498's.",
+  "research_doc": "",
+  "review_required": false
+}

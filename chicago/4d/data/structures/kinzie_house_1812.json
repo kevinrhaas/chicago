@@ -1,0 +1,208 @@
+{
+  "id": "kinzie_house_1812",
+  "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
+  "aka": [
+    "the Kinzie Mansion",
+    "the Point du Sable house",
+    "the old Kinzie house"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "kinzie_1804",
+      "documented_range": {
+        "from": "1804-10-01",
+        "to": "1833-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "currey_1912_story_of_old_fort_dearborn",
+          "moses_kirkland_history_of_chicago_v1",
+          "chicagology_prefire273"
+        ],
+        "note": "THE KINZIE YEARS, BOTH ENDS INFERRED. It opens in the fall of 1804, when Currey has John Kinzie buy the house from Le Mai and arrive 'in the fall of that year' (currey_1912_story_of_old_fort_dearborn, ch. II); Moses and Kirkland give Le Mai 1796 where Currey gives 1797, and the Kinzies' arrival is put at 1803 elsewhere, so the opening is the later of the two readings and the house stands earlier than this phase says, under du Sable and Le Mai, in a form no picture shows. It covers 1 and 14 August 1812: Currey, 'The house escaped the general destruction at the time of the massacre'. It closes at the end of 1833: Currey says it 'was finally demolished in the early thirties', the 1857 engraving shows it about 1833, and data/exclusions.json kinzie_house rules it unoccupied and 'dilapidated beyond repair' from 1832 and gone by 1835, so it stands in no 1835 view."
+      },
+      "position": {
+        "utm_e": 448230.796,
+        "utm_n": 4637738.506,
+        "rotation_deg": 180.0,
+        "symbolic_location": "The north bank of the river directly facing the first Fort Dearborn, near the later foot of Pine Street (N. Michigan Avenue) at Kinzie Street, the site of Pioneer Court; front wall at local N +336.0, centred on local E +1152.0, the easting of the fort's flagstaff; facing south. This record's origin is the footprint's north-east corner, which a 180-degree facing puts at the frame's (0, 0).",
+        "confidence": "reconstructed",
+        "sources": [
+          "currey_1912_story_of_old_fort_dearborn",
+          "kinzie_waubun_1856"
+        ],
+        "note": "PLACED BY TWO STATEMENTS AND THE 1812 GROUND, NOT MEASURED. Wau-Bun: 'On the northern bank of the river, directly facing the fort'; Currey: 'near the present foot of Pine Street', facing south 'having the river directly in front'. So the house is centred on the flagstaff's easting (E +1152, the fort's seat in data/scenes/1812.json) and set back from the e1830_natural north bank, which stands at about N +305 there and reaches its level 1.5 m ground by N +318, far enough to leave the 'broad green space ... inclosed between it and the river' the same sentence gives: 18 m of green between the piazza and the bank top. The set-back is this record's own (docs/LIBERTIES.md L-kinzie-house-1812-2497).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage): no plat, survey or measured drawing of the house survives in this corpus. It is placed by stated rule from two texts and the committed 1812 ground, which the position note gives."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12.192,
+            0
+          ],
+          [
+            12.192,
+            6.706
+          ],
+          [
+            0,
+            6.706
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "FORTY FEET BY TWENTY-TWO, CITED TO NOTHING HERE. Du Sable's bill of sale of 1800 to Jean La Lime is reported to give the house as 22 by 40 feet (Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928, pp. 89-96), but that article is not in this corpus and was not read, so the figure stands as a reconstruction and the article is named only as what would replace it. It agrees with what the sources here do say: Wau-Bun's 'long, low building ... a range of four or five rooms' and every picture's long front, about twice as long as it is deep. The long side runs along the river."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "kinzie_waubun_1856",
+            "lossing_1869_kinzie_mansion_engraving",
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "Wau-Bun: 'a long, low building'. Both engravings draw one storey under the eaves with no dormer."
+        },
+        "wall_height_m": {
+          "value": 3.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. About ten feet to the eave: the engravings draw the piazza's posts nearly the height of the wall, and a piazza roof needs headroom under a low eave."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "moses_kirkland_history_of_chicago_v1"
+          ],
+          "note": "Moses and Kirkland vol. 1 p. 30 (data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 4953-4955): 'The house was of squared logs, after the fashion of the very best of the frontier mansions of that day.' The 1857 engraving draws the walls sided and light about 1833; that may be a later cladding, and the 1812 house is built from the text."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "lossing_1869_kinzie_mansion_engraving",
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "Both engravings draw a gable roof with its ridge along the river and its gables at the ends."
+        },
+        "roof_pitch_deg": {
+          "value": 30.0,
+          "confidence": "reconstructed",
+          "note": "Read by eye off the two engravings' gable ends, which are drawn in perspective and give no measurable pitch."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "inferred",
+          "sources": [
+            "lossing_1869_kinzie_mansion_engraving",
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "Neither engraving draws a gable window or dormer."
+        },
+        "chimneys": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "lossing_1869_kinzie_mansion_engraving",
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "Both engravings draw two stacks rising through the ridge, not against the gables."
+        },
+        "piazza": {
+          "value": true,
+          "confidence": "inferred",
+          "sources": [
+            "kinzie_waubun_1856",
+            "currey_1912_story_of_old_fort_dearborn",
+            "lossing_1869_kinzie_mansion_engraving"
+          ],
+          "note": "Wau-Bun ch. XVII describes 1831: 'a long, low building, with a piazza extending along its front'. Currey: Kinzie, after he bought it in 1804, 'repaired it, added a veranda'. Neither dates the veranda before August 1812; Lossing's view, which sets the house against the first fort, draws it, and that is the reading this phase takes."
+        },
+        "piazza_depth_m": {
+          "value": 2.1,
+          "confidence": "reconstructed",
+          "note": "Unattested. Seven feet, about a third of the house's depth as the engravings draw it."
+        },
+        "piazza_posts": {
+          "value": 6,
+          "confidence": "inferred",
+          "sources": [
+            "chicago_magazine_1857_kinzie_house_engraving",
+            "lossing_1869_kinzie_mansion_engraving"
+          ],
+          "note": "The 1857 engraving draws six posts across the front; Lossing's are fewer and thicker at a smaller scale. Six, from the clearer picture."
+        },
+        "piazza_rail": {
+          "value": true,
+          "confidence": "inferred",
+          "sources": [
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "The 1857 engraving draws a rail with balusters between the posts, open at the door."
+        },
+        "chimney_ridge_at": {
+          "value": [
+            0.08,
+            0.55
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicago_magazine_1857_kinzie_house_engraving",
+            "lossing_1869_kinzie_mansion_engraving"
+          ],
+          "note": "Fractions of the ridge from its EAST end, which is the footprint frame's -x end at this record's 180-degree facing. The 1857 engraving puts one stack 0.45 of the ridge from the west gable and the other 0.93, by the east end; Lossing agrees on the middle one (0.4 from the west) and draws his second near the west gable (0.1). Three pictures of the four this ticket lists (the 1857 engraving, the Teich postcard at 0.43 and 0.81, the Cram plate's one stack at 0.93) put the second toward the east, so the 1857 engraving's places are built and Lossing's west stack is recorded in his match record as where the pictures disagree."
+        },
+        "front_windows_per_side": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "The 1857 engraving draws two sash either side of the door under the piazza. Lossing's piazza is in shadow and shows none; Wau-Bun's 'range of four or five rooms' is a front long enough to light each from it."
+        },
+        "window_w_m": {
+          "value": 0.7,
+          "confidence": "inferred",
+          "sources": [
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "Scaled off the 1857 engraving against the door beside them: about as wide as the door is half."
+        },
+        "window_h_m": {
+          "value": 1.3,
+          "confidence": "inferred",
+          "sources": [
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "Scaled off the 1857 engraving: tall sash, about two-thirds of the door's height."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "dwelling_and_trading_house",
+    "confidence": "attested",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "note": "Built by Jean Baptiste Point du Sable, 'a native of San Domingo and a negro', an Indian trader who lived in it for over eighteen years (Currey). John Kinzie's family home and the base of his trade from 1804, 'the family mansion of my husband' in Wau-Bun."
+  },
+  "occupants": {
+    "value": "John Kinzie's household, from 1804; absent from 1812 to 1816",
+    "confidence": "attested",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn"
+    ],
+    "note": "Currey: it 'remained the residence of John Kinzie and his family until the time of his death, in 1828, except during the four years of his enforced absence, from 1812 to 1816.' Nobody is drawn (L1)."
+  },
+  "research_note": "THE FIRST HOUSE AT CHICAGO (T-2497, piece 1 of T-2484). Jean Baptiste Point du Sable, a Black man from San Domingo and the first non-Native settler at Chicago, built it before 1779 and lived in it for over eighteen years; Le Mai bought it in 1796 or 1797; John Kinzie bought it in 1803 or 1804, the sources differ, repaired it, added the piazza and planted the poplars. It escaped the burning of August 1812 and was gone by the mid-1830s. This record is the house as the Kinzies had it, which is the only form any picture shows; the green, its fence and its trees are kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json. The pictures it is matched to are data/reference_views/kinzie_house_1812/; four more are T-2498's.",
+  "review_required": false
+}

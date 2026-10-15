@@ -134,6 +134,8 @@ CONSUMED = frozenset({
     "loft", "chimneys", "sign", "sign_mount", "sign_device", "frame_paint",
     "frame_addition", "frame_addition_side", "frame_addition_width_m",
     "frame_addition_depth_m", "frame_addition_stories", "frame_addition_height_m",
+    "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
+    "front_windows_per_side", "window_w_m", "window_h_m",
 })
 
 # See frame_tavern_params for the argument. `perimeter`: the footprint outline
@@ -193,6 +195,29 @@ class LogDwellingParams:
     frame_addition_stories: int = 2
     frame_addition_height_m: float | None = None
     frame_paint: str = "unpainted"
+
+    # THE PIAZZA (T-2497): a full-front porch on posts under its own shed roof, the
+    # word the Kinzie house's one near-contemporary description uses ("a long, low
+    # building, with a piazza extending along its front" — Wau-Bun ch. XVII). It
+    # stands OUTSIDE the footprint, as frame_dwelling's stoop does, because a piazza
+    # is not a room and the polygon is the walls. Off by default, so no other log
+    # building gains one; a record that turns it on owes docs/LIBERTIES.md its depth,
+    # its posts and its rail, which no source here measures.
+    piazza: bool = False
+    piazza_depth_m: float = 2.1
+    piazza_posts: int = 6
+    piazza_rail: bool = False
+    # INTERIOR STACKS ON THE RIDGE (T-2497), as fractions of the ridge from the core's
+    # -x end, one per chimney. None keeps the archetype's gable-end placement (L26),
+    # which is every other record; a record sets it only where a picture puts a stack
+    # through the roof rather than against a gable.
+    chimney_ridge_at: tuple | None = None
+    # THE FRONT'S WINDOWS (T-2497). One small light each side of the door is the log
+    # type and stays the default; a long house a picture draws with more and larger
+    # sash states how many stand each side of the door and their size.
+    front_windows_per_side: int = 1
+    window_w_m: float | None = None
+    window_h_m: float | None = None
 
     # A hanging signboard, as a string naming what was painted on it. The value
     # exists so the sidecar can say what the board carried; whether the mesh draws
@@ -311,6 +336,32 @@ class LogDwellingParams:
                              f"addition would stand within a metre of each other")
         if self.frame_addition:
             self._validate_addition()
+        if self.chimney_ridge_at is not None:
+            if len(self.chimney_ridge_at) != self.chimneys:
+                raise ParamError(f"chimney_ridge_at names {len(self.chimney_ridge_at)} stacks "
+                                 f"for a record that counts {self.chimneys}")
+            if any(not 0.05 <= f <= 0.95 for f in self.chimney_ridge_at):
+                raise ParamError(f"chimney_ridge_at {self.chimney_ridge_at}: each stack "
+                                 f"stands between 0.05 and 0.95 of the ridge")
+            if self.roof_type != "gable":
+                raise ParamError("chimney_ridge_at needs a gable roof to have a ridge")
+        if not 1 <= self.front_windows_per_side <= 3:
+            raise ParamError(f"front_windows_per_side {self.front_windows_per_side} outside 1..3")
+        if self.window_w_m is not None and not 0.4 <= self.window_w_m <= 1.2:
+            raise ParamError(f"window_w_m {self.window_w_m} outside 0.4-1.2 m")
+        if self.window_h_m is not None and not 0.5 <= self.window_h_m <= 1.8:
+            raise ParamError(f"window_h_m {self.window_h_m} outside 0.5-1.8 m")
+        if self.piazza:
+            if self.frame_addition and self.frame_addition_side == "front":
+                raise ParamError("a piazza and a front addition both claim the facade")
+            if not 1.2 <= self.piazza_depth_m <= 3.5:
+                raise ParamError(f"piazza_depth_m {self.piazza_depth_m} outside 1.2-3.5 m: "
+                                 f"shallower is a stoop, deeper a room")
+            if not 2 <= self.piazza_posts <= 12:
+                raise ParamError(f"piazza_posts {self.piazza_posts} outside 2..12")
+            if self.wall_height_m < 2.6:
+                raise ParamError(f"a piazza roof hung under a {self.wall_height_m} m eave "
+                                 f"leaves no headroom at its posts; it needs 2.6 m of wall")
 
     def _validate_addition(self) -> None:
         if self.frame_addition_side not in ADDITION_SIDES:
@@ -406,6 +457,15 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         frame_addition_height_m=(None if val("frame_addition_height_m") is None
                                  else float(val("frame_addition_height_m"))),
         frame_paint=str(val("frame_paint", "unpainted")),
+        piazza=bool(val("piazza", False)),
+        piazza_depth_m=float(val("piazza_depth_m", 2.1)),
+        piazza_posts=int(val("piazza_posts", 6)),
+        piazza_rail=bool(val("piazza_rail", False)),
+        front_windows_per_side=int(val("front_windows_per_side", 1)),
+        window_w_m=(None if val("window_w_m") is None else float(val("window_w_m"))),
+        window_h_m=(None if val("window_h_m") is None else float(val("window_h_m"))),
+        chimney_ridge_at=(None if val("chimney_ridge_at") is None
+                          else tuple(float(f) for f in val("chimney_ridge_at"))),
         sign=(None if sign is None else str(sign)),
         sign_mount=str(val("sign_mount", "bracket")),
         sign_device=(None if val("sign_device") is None
@@ -481,10 +541,22 @@ def core_front_rects(p: "LogDwellingParams") -> list[tuple]:
     out: list[tuple] = []
     if not front_taken:
         out.append(("door", xm - DOOR_HALF_M, xm + DOOR_HALF_M, 0.02, 1.95))
+    whalf = WIN_HALF_M if p.window_w_m is None else p.window_w_m / 2.0
+    wh = 0.72 if p.window_h_m is None else p.window_h_m
+    n = p.front_windows_per_side
+    if n == 1:
+        us = (xm - span * WIN_AT_FRAC, xm + span * WIN_AT_FRAC)
+    else:
+        # T-2497: n sash each side, evenly in the wall between the door and the corner
+        step = (span / 2.0 - DOOR_HALF_M) / n
+        offs = [DOOR_HALF_M + (k + 0.5) * step for k in range(n)]
+        us = tuple(xm - o for o in reversed(offs)) + tuple(xm + o for o in offs)
     for story in range(p.stories):
         z0 = story * story_h + story_h * 0.34
-        for u in (xm - span * WIN_AT_FRAC, xm + span * WIN_AT_FRAC):
-            out.append(("window", u - WIN_HALF_M, u + WIN_HALF_M, z0, z0 + 0.72))
+        if p.window_h_m is not None:
+            z0 = story * story_h + max(0.6, min(story_h * 0.34, story_h - wh - 0.45))
+        for u in us:
+            out.append(("window", u - whalf, u + whalf, z0, z0 + wh))
         if front_taken and story == 0:
             out.append(("window", xm - WIN_HALF_M, xm + WIN_HALF_M, z0, z0 + 0.72))
     return out
