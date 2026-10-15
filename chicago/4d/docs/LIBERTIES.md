@@ -27837,6 +27837,27 @@ proud of the wall on a moulded shelf. Both are open in the match record.
 carving; the architects' plans would settle the recess.
 **Ticket:** T-2526 (piece 2 of T-2422).
 **Recorded:** 2026-10-15 (T-2526).
+### L-k01-mansard-soffit-2528 — the K01 mansard houses' cornices stand under the soffit their roof builds: 1620's and 1637's brackets, bed mouldings and wall heads raised to it, and 1637's swell bay with them
+
+**Decision:** a K01 house's cornice hangs from its soffit, and until T-2528 the builder took that
+soffit from the hip's rule on every house — the eaves line less the overhang's run down the roof's
+pitch, less the fascia — where a mansard's eave is its cornice and its soffit stands on the wall
+head, the fascia's 0.2 m under the eaves line (T-2370; the record's own storey checks already read
+it that way). So on the two K01 mansards the K10 bracketed cornice, the bed moulding over it and
+the walls' brick heads all stopped short of the roof they carry: 1637 Prairie's at 11.21 m under a
+soffit at 11.3 m (0.088 m), 1620 Prairie's at 10.59 m under one at 10.7 m (0.106 m), the gap closed
+only by the roof's hidden body. Both now stand on the soffit the roof builds. 1637's swell bay,
+which carries the cornice round its plan, rises with it: its upper storey 4.64 m for 4.552 m, its
+wall top 11.24 m at the bed moulding's foot, and its band's fascia now runs at the main fascia's
+height (11.3-11.5 m) rather than 0.09 m under it.
+**What is read, not invented.** Nothing new: the eaves lines, overhangs and the cornices'
+presence are as their records already state them. This corrects geometry to the records.
+**What is invented.** Nothing new. The y readings in 1637's engraving match record (the bow's
+band at 245-267 px) were taken at T-2472's height and are not re-read here; the band now stands
+about 0.09 m higher through the same camera.
+**How to resolve:** re-reading the bow's band through the engraving's camera.
+**Ticket:** T-2528.
+**Recorded:** 2026-10-15 (T-2528).
 
 ### L-k16-1638-tower-caps-2521 — 1638 Prairie's tower stage built smooth with an incised trefoil over each light, and its gate caps' lower corners flared: the stage, frieze, casings and flare read, the ornament's pattern and the flare's curve reconstructed
 

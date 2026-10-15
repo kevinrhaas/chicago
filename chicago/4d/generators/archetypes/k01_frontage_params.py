@@ -1585,7 +1585,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                               "ring_m": float(da["ring_m"]), "keystone_top_m": float(da["keystone_top_m"]),
                               "keystone_m": tuple(float(x) for x in da["keystone_m"])})
     arched = _arched_front(arched_groups, openings, variants, kit, val("street_front_dress") or {},
-                           pf, floors, width, door_s, eave - float(val("eave_overhang_m")) * math.tan(math.radians(pitch)) - 0.20) \
+                           pf, floors, width, door_s,
+                           # T-2528: the soffit the roof builds; a mansard's stands on the wall head
+                           eave - (0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch)))
+                           - EAVE_FASCIA_M) \
         if sfo or da else {}
     if da and not sfo:
         arched["belts"] = None    # a door's arch alone keeps K01's own belts (k01_frontage.stone_front)
