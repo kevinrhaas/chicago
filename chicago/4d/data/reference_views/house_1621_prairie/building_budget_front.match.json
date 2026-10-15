@@ -2,7 +2,7 @@
   "structure_id": "house_1621_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a91788807fe2c52e72b43f5818a4ce908f2f5655674588ad1c9b4eb63bb17f72",
+  "glb_sha256": "b358ce32a145c40d4721a29e6cf7ff93a790c0cde354f6ca6889595ccea18686",
   "camera_sha256": "6222a0879a57a2c0bd3f87866f0fd82d3834acd772c43f2cb1c31c72deb02a7b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg",
   "verdict": "differs",
@@ -39,23 +39,28 @@
     },
     {
       "what": "the balcony: an iron (or turned) rail round the top of the bow; the build's bow ends in a plain deck",
-      "status": "open",
-      "how": "T-2422"
+      "status": "fixed",
+      "how": "T-2525: an iron rail on the bow's moulded cornice, 0.06 m in from its edge and round the bow from the wall to the wall: a post against the wall at each end, a foot rail and a top rail, square bars about 0.08 m apart, 0.6 m high (the drawing's rail stands about 29 px over the cornice's top at about 48 px a metre). Through the camera its top lands within about 5 px of the drawing's at the bow's front, and its bars read about as close-set as the drawn ones; it runs across the sheet's narrower bow (the widths, below)"
     },
     {
       "what": "the entrance: a recessed round-arched doorway with voussoirs in the north strip, and over it at the second floor a small ornate light above a carved panel; the build has a flat-headed panelled door under a K09 hood and a plain sash over it",
       "status": "open",
-      "how": "T-2422"
+      "how": "T-2526"
     },
     {
       "what": "the stoop: the drawing's climbs beside the strip, parallel to the front, behind a stone cheek; the build's is a straight stoop toward the street",
       "status": "open",
-      "how": "T-2422"
+      "how": "T-2527"
     },
     {
       "what": "the basement: two segmental-headed lights under the bow with iron grilles, about 0.9 m high; the build's bow is blind in its basement (the K08 kit refuses a light under a bay's clear wall)",
+      "status": "fixed",
+      "how": "T-2525: the bow's basement built as a storey of its own, 1.4 m to the principal floor, so the bow carries the string course the drawing draws there; in it two lights at -30 and +30 degrees under the principal lights, 0.92 m high over a 0.1 m plinth, their heads flat as the drawn openings are (the drawing's arch is the grille's, not the head's), each barred with seven iron uprights between a foot bar and a head bar and the arched ring the drawing draws over them, as a plain ring. Through the camera their heads land within about 3 px of the drawing's and their sills about 9 px above (the drawing takes them nearly to grade, under the kit's plinth and sill stone); they are 0.75 m wide as the principal lights are, against about 0.95 m drawn (the widths, below)"
+    },
+    {
+      "what": "the basement lights' heads: the drawing sets a block of splayed voussoirs over each, its joints fanned up to the string course; the build's are K06's plain flat lintel",
       "status": "open",
-      "how": "T-2422"
+      "how": "found by T-2525; the lights, their grilles and the band are built, the dressed heads are not"
     },
     {
       "what": "the front's widths: the drawing draws a north strip of about 1.4 m beside a bow of about 3.7 m (its inset plan puts the strip at about a third of the front); 1621's 1911 sheet traces a 6.2 m front, 3.6 m of it north of a 2.3 m bay at the south end, so the build's strip is about 45 px wider at its outer edge and its bow about 57 px narrower at its north edge. The sheet controls the plan (the survey of what stood nearer the scene, against the 1886 design)",
@@ -79,5 +84,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2440, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, after the build moved here from 1619 and the camera was re-solved as the plate's one station point in 1621's frame: massing, the bow's lights, the storey lines, the wall gable, the roof and crow steps, and the cornice stay fixed at the sheet's narrower plan (the widths argued not shown); the storey count is now fixed, the sheet's '3B' agreeing with the drawing; the balcony's, entrance's, stoop's and basement's still open for T-2422"
+  "reviewed": "T-2525, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, crops of the bow's top and basement read against the drawing: the balcony rail and the basement's lights, grilles and band fixed; the basement lights' voussoir heads found and left open; the entrance and the stoop still open for T-2526 and T-2527"
 }

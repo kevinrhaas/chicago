@@ -212,13 +212,34 @@
               },
               "storeys": [
                 {
-                  "height_m": 5.3,
+                  "height_m": 1.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.75,
+                      "clear_height_m": 0.92,
+                      "sill_m": 0.2,
+                      "at_deg": [
+                        -30,
+                        30
+                      ],
+                      "grille": {
+                        "bars": 7,
+                        "set_back_m": 0.04,
+                        "ring_radius_m": 0.25
+                      },
+                      "why_not_ordinary": "a basement light under the bow, read off the Building Budget drawing: about 0.9 m high and barred, under a flat head (T-2525)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.9,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.75,
                       "clear_height_m": 2.4,
-                      "sill_m": 2.1,
+                      "sill_m": 0.7,
                       "at_deg": [
                         -30,
                         30
@@ -249,6 +270,19 @@
               },
               "eaves": {
                 "cornice": "k10.cornice.moulded_stone"
+              },
+              "plinth_m": 0.1,
+              "balcony": {
+                "height_m": 0.6,
+                "inset_m": 0.06,
+                "post_m": 0.05,
+                "bar_m": 0.02,
+                "pitch_m": 0.08,
+                "rail_m": [
+                  0.05,
+                  0.04
+                ],
+                "foot_rail_m": 0.06
               }
             }
           ],
@@ -257,7 +291,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1621-b1 bulges about 1.02 m from the front at the south end of the front, a 2.3 m chord about 0.1-0.2 m from the front's south corner; K01 keeps a bay 0.3 m clear of a corner, so it is built over s 3.6-5.9, about 0.15 m north of the trace); its HEIGHT and LIGHTS are the drawing's, as T-2420 and T-2460 read them: it rises from grade through the principal and second storeys (5.3 m and 2.94 m) to the foot of the moulded stone cornice at 8.24 m, and its eaves ARE that cornice, the same K10 section swept round its plan (eaves.cornice). Two lights a storey either side of a central pier, laid in the front's stone, under a nearly flat painted-tin deck where the drawing's balcony stands (the rail is T-2422's). The drawing's bow is about 3.7 m across at the plate's scale and its lights 1.1 m wide at -25 and +25 degrees; on the sheet's 2.3 m chord two such lights would overlap, so they are 0.75 m wide at -30 and +30 degrees, their heights and sills the drawing's (reconstructed widths, L-k01-1621-hamline-front-2440). Either the bow was built narrower than drawn, or the sheet's bay is a later one; no picture after 1886 is known that would say."
+          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1621-b1 bulges about 1.02 m from the front at the south end of the front, a 2.3 m chord about 0.1-0.2 m from the front's south corner; K01 keeps a bay 0.3 m clear of a corner, so it is built over s 3.6-5.9, about 0.15 m north of the trace); its HEIGHT and LIGHTS are the drawing's, as T-2420 and T-2460 read them: it rises from grade through the principal and second storeys (5.3 m and 2.94 m) to the foot of the moulded stone cornice at 8.24 m, and its eaves ARE that cornice, the same K10 section swept round its plan (eaves.cornice). Two lights a storey either side of a central pier, laid in the front's stone, under a nearly flat painted-tin deck. T-2525 builds the rest of the bow from the drawing: its basement is a storey of its own, 1.4 m to the principal floor, with the string course the drawing draws there and its two basement lights under the principal lights, 0.92 m high over a 0.1 m plinth and barred with iron (seven uprights, and the arched ring the drawing draws over them as a plain ring); their heads are flat, as the drawing's openings are under their splayed voussoirs; and on the cornice an iron balcony rail round the bow from the wall to the wall, 0.6 m high (the drawing's rail stands about 29 px over the cornice's top, about 48 px a metre at that height), square bars about 0.08 m apart between a foot rail and a top rail. The lights' widths follow the principal lights' (0.75 m at -30 and +30 degrees on the sheet's chord, against about 0.95 m drawn); the bar pitch, the rail's sections and the grille's set-back are reconstructed (L-k08-1621-bow-iron-2525). The drawing's bow is about 3.7 m across at the plate's scale and its lights 1.1 m wide at -25 and +25 degrees; on the sheet's 2.3 m chord two such lights would overlap, so they are 0.75 m wide at -30 and +30 degrees, their heights and sills the drawing's (reconstructed widths, L-k01-1621-hamline-front-2440). Either the bow was built narrower than drawn, or the sheet's bay is a later one; no picture after 1886 is known that would say."
         },
         "side_bays": {
           "value": [],

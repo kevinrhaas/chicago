@@ -929,6 +929,24 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
+        # T-2525: a window's iron grille in its reveal (1621's basement lights, from its drawing)
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                g = w.get("grille")
+                if g is None:
+                    continue
+                if set(g) != {"bars", "set_back_m", "ring_radius_m"} or not 2 <= int(g["bars"]) <= 16 \
+                        or not 0.0 < float(g["set_back_m"]) <= 0.08:
+                    raise ParamError(f"bays: {e['id']}'s grille takes bars (2-16), set_back_m (at most "
+                                     f"0.08 m) and ring_radius_m, not {g}")
+                w["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
+                               "ring_radius_m": float(g["ring_radius_m"])}
+        # T-2525: a plinth read off a picture: its height only, the kit's proud and stone kept
+        if "plinth_m" in e:
+            ph = float(e["plinth_m"])
+            if v["base"] != "grade" or not 0.1 <= ph <= 0.6:
+                raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.1-0.6 m")
+            v.setdefault("overrides", {}).setdefault("plinth", {})["height_m"] = ph
         if "eaves" in e:
             # T-2369: a hood read off a picture sizes the kit's soffit and fascia, never its shape
             ev = e["eaves"]
@@ -946,6 +964,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s eaves name a K10 moulded cornice and nothing else, "
                                      f"not {ev}")
                 v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
+        # T-2525: an iron balcony rail on a bow's eaves, round its plan from wall to wall
+        if "balcony" in e:
+            bl = e["balcony"]
+            need = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
+            if v["plan"]["kind"] != "bow" or set(bl) != need:
+                raise ParamError(f"bays: {e['id']}'s balcony stands on a bow and takes {sorted(need)}")
+            bal = {k: ([float(x) for x in bl[k]] if k == "rail_m" else float(bl[k])) for k in need}
+            if not 0.5 <= bal["height_m"] <= 1.2 or not 0.06 <= bal["pitch_m"] <= 0.3 \
+                    or not 0.0 < bal["bar_m"] < bal["pitch_m"] / 2 or not 0.0 <= bal["inset_m"] <= 0.3 \
+                    or not 0.0 < bal["foot_rail_m"] < bal["height_m"] / 2:
+                raise ParamError(f"bays: {e['id']}'s balcony {bal} is not a railing (0.5-1.2 m high, "
+                                 f"bars 0.06-0.3 m apart and thinner than half that, 0-0.3 m in from the eaves)")
+            v["balcony"] = bal
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi
