@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 1830, ts: '2026-10-15T21:47:09.088Z', date: 'Oct 15, 2026, 4:47 PM CT', title: '1621 Prairie\'s front door gets its round arch', kind: 'feature',
+    items: [
+      'Hamline\'s door at 1621 Prairie now stands in a round-arched doorway ringed with stone voussoirs, as the 1886 drawing shows, with a fanlight over its leaves.',
+      'Above it, the small second-floor window is now framed and capped, over a carved stone panel on the belt course.',
+      'The leaves, the voussoir ring and the carving are reconstructed and recorded as a liberty. The drawing\'s deeper recess and the side stoop are still to come.',
+    ] },
+  { v: 1829, ts: '2026-10-15T21:17:20.617Z', date: 'Oct 15, 2026, 4:17 PM CT', title: '1638 Prairie stands on its basement, up its photograph\'s ten steps', kind: 'feature',
+    items: [
+      'The Shortall-Gregory house now stands on a basement, its front door 1.55 m above the sidewalk, and a stoop of ten steps climbs to it between its cheek walls, as the old photograph shows.',
+      'The photographer turns out to have stood on the far sidewalk of Prairie Avenue, so the porch and tower were re-measured from that spot and now line up with the picture.',
+    ] },
+  { v: 1828, ts: '2026-10-15T20:53:51.796Z', date: 'Oct 15, 2026, 3:53 PM CT', title: '1621 Prairie\'s bow gets its balcony rail and barred basement lights', kind: 'feature',
+    items: [
+      'Hamline\'s swell bay at 1621 Prairie now carries the iron balcony rail its 1886 drawing shows round the bow\'s top.',
+      'Below the principal windows, the bow\'s basement now has its two lights, barred with iron as drawn, under a string course at the principal floor.',
+      'The rail\'s bars, sections and the grille pattern are reconstructed and recorded as a liberty; the dressed heads over the basement lights are still to come.',
+    ] },
   { v: 1827, ts: '2026-10-15T20:17:26.404Z', date: 'Oct 15, 2026, 3:17 PM CT', title: '1637 Prairie\'s wing wears the cornice', kind: 'improvement',
     items: [
       'The wing at the south end of 1637 Prairie Avenue now carries the house\'s bracketed cornice round its three faces, so its band reads as deep as the main cornice\'s, as the engraving of Jesse Spalding\'s remodel draws it.',

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 579,
+  "count": 581,
   "liberties": [
     {
       "id": "L1",
@@ -38524,12 +38524,6 @@
           "domain": "structure",
           "structure": "house_1621_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.sash_by_storey"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1621_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.service_wall_brick"
         },
         {
@@ -38612,7 +38606,7 @@
         },
         {
           "label": "Covers",
-          "text": "`house_1621_prairie.as_mapped_1904.form.principal_floor_m`, `house_1621_prairie.as_mapped_1904.form.storey_heights_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1621_prairie.as_mapped_1904.form.service_wall_brick`, `house_1621_prairie.as_mapped_1904.form.stone_front`, `house_1621_prairie.as_mapped_1904.form.street_front_trim`, `house_1621_prairie.as_mapped_1904.form.wall_head`, `house_1621_prairie.as_mapped_1904.form.roof_form`, `house_1621_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1621_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1621_prairie.as_mapped_1904.form.stair_tread_m`, `house_1621_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1621_prairie.as_mapped_1904.form.stoop_width_m`, `house_1621_prairie.as_mapped_1904.form.front_bays`, `house_1621_prairie.as_mapped_1904.form.side_bays`, `house_1621_prairie.as_mapped_1904.form.north_bays`, `house_1621_prairie.as_mapped_1904.form.rear_bays`, `house_1621_prairie.as_mapped_1904.form.sash_by_storey`, `house_1621_prairie.as_mapped_1904.form.basement_lights`, `house_1621_prairie.as_mapped_1904.form.roof_covering`, `house_1621_prairie.as_mapped_1904.form.chimneys`, `house_1621_prairie.as_mapped_1904.form.rainwater`, `house_1621_prairie.as_mapped_1904.form.window_kit`, `house_1621_prairie.as_mapped_1904.form.entrance_kit`, `house_1621_prairie.as_mapped_1904.form.gable_roof`"
+          "text": "`house_1621_prairie.as_mapped_1904.form.principal_floor_m`, `house_1621_prairie.as_mapped_1904.form.storey_heights_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1621_prairie.as_mapped_1904.form.service_wall_brick`, `house_1621_prairie.as_mapped_1904.form.stone_front`, `house_1621_prairie.as_mapped_1904.form.street_front_trim`, `house_1621_prairie.as_mapped_1904.form.wall_head`, `house_1621_prairie.as_mapped_1904.form.roof_form`, `house_1621_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1621_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1621_prairie.as_mapped_1904.form.stair_tread_m`, `house_1621_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1621_prairie.as_mapped_1904.form.stoop_width_m`, `house_1621_prairie.as_mapped_1904.form.front_bays`, `house_1621_prairie.as_mapped_1904.form.side_bays`, `house_1621_prairie.as_mapped_1904.form.north_bays`, `house_1621_prairie.as_mapped_1904.form.rear_bays`, `house_1621_prairie.as_mapped_1904.form.basement_lights`, `house_1621_prairie.as_mapped_1904.form.roof_covering`, `house_1621_prairie.as_mapped_1904.form.chimneys`, `house_1621_prairie.as_mapped_1904.form.rainwater`, `house_1621_prairie.as_mapped_1904.form.window_kit`, `house_1621_prairie.as_mapped_1904.form.entrance_kit`, `house_1621_prairie.as_mapped_1904.form.gable_roof`"
         },
         {
           "label": "Ticket",
@@ -38746,6 +38740,89 @@
         {
           "label": "Recorded",
           "text": "2026-10-15 (T-2525)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-basement-2523",
+      "title": "1638 Prairie raised on a basement to its photograph's steps: the floor's height and the ten risers read through a re-solved camera, the basement's face and the stoop's fabric reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.gable"
+        },
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.porch"
+        },
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.wing_wall"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Shortall-Gregory house (T-2523, after T-2520) stands on a basement storey 0.95 m high, so its principal floor and the porch floor at the door's foot are 1.55 m over the walk, where the kit put them at 0.6 m. The stoop under the tower climbs to it in ten risers of 0.155 m on 0.36 m goings between its cheek walls, its foot 5.0 m out from the front. The camera the house is matched through is solved again: the eye 30.71 m out from the front (on the far walk of Prairie Avenue, just inside its far street line at 30.8 m), 3.25 m over the walk, f 2242 px. The porch and the tower on it, which stand out from the front, are re-read through that camera: centred 6.53 m from the front's south end (was 6.40 m), the floor 1.16 m a side, the posts 0.23 m and 0.045 m in from its ends, the trefoil and quatrefoils 3 % larger, the plate 2.87 m clear, the tower's sills at 4.40 m, its cornice at 7.05 m and its spire's point at 10.08 m over the basement's top. **What is read, not invented.** That there is a basement (the 1911 sheet's '2BB'). How high it carries the floor, from the photograph (`chicagology_1638_prairie_photo`): T-2520's eight nosings (813-922.5 px, about 15 px apart) fitted together with the fence's base (1022 px on the street line, 10.8 m out) want a floor of 1.45-1.6 m over the walk in ten risers; rendered through the new camera the built stair lands within 3.7 px rms of the eight. The camera's depth follows from that floor and the fence's base. Every porch and tower reading listed above is the print's own pixel re-taken at its depth through the new camera; rendered, each lies within 4 px of the print. **What is invented.** The choice of 1.55 m inside the band the print allows (1.6 m fits as well but puts the eye past the far street line; 1.4 m needs goings over 0.4 m and still misses by 4 px); that the fall is all in the floor and none in the yard between house and fence (the hedge hides the house's foot; the sheet's basement, and a city that raised its streets above its lots, make it the floor); the basement's face, carried down as the kit's brick foundation under every wall, the bay and the rear pieces alike, the print showing none of it; the stoop's treads, risers and cheeks as the kit builds them; every colour, the print being monochrome. **What the record states and the model simplifies.** Every height the record gave over grade before T-2523 was read against the print's old grade line (825 px); the new camera puts that line at the basement's top, so the record keeps those numbers and the kit builds them over the basement (form.basement). The fence is not re-read here: through this camera its piers, bars and caps draw about 1.37 times smaller than the print's, which is T-2524's. The bay's base (about 3 px) and the porch roof's south end (about 4 px) are left at their old readings. The basement's height (`form.basement`) and the tower's re-read heights are inferred and argued in their notes; what this entry covers is the stoop (`form.porch`) and the basement's face under the front's walls."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture showing the house's foot (below the hedge) settles the split between floor and yard, and the basement's material; a second view of the stoop fixes its goings."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2523 (after T-2520, piece 2 of T-2458)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-basement-2523/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2523)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1621-entrance-2526",
+      "title": "1621 Prairie's entrance from the drawing: a round-arched door under a voussoir block, and the carved panel and framed light over it, their heights read and their joinery reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the north strip of John H. Hamline's house at 1621 Prairie (T-2526, piece 2 of T-2422) takes the entrance Treat & Foltz's Building Budget drawing draws there in place of the flat-headed door under a K09 cornice hood that T-2420 and T-2440 built. The door is K07's deep-arch entrance (`k07.entrance.double_door_deep_arch`): a round-headed hole 1.2 m wide, its crown 2.7 m over the landing and its spring 0.6 m under that, a pair of panelled leaves under a radial fanlight, set 0.32 m back in the 0.45 m stone front, as deep as the wall and its door frame allow. Round it the front's own stone is cut into a voussoir block, the arch's stones radiating from its centre out to a rectangle 0.3 m beyond the arch, as 1612's arched groups are laid (`entrance_kit.arch`). At the second floor the light over the door is 0.75 m wide and 0.95 m high, its sill 1.2 m over the floor, in K09's restrained surround (an architrave, a frieze block and a cornice hood on two consoles), and under it, standing on the second-floor belt course, K09's carved foliate panel, 1.0 by 0.45 m. **What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`), through the camera T-2440 carried to 1621: that the doorway is round-arched and recessed, ringed with voussoirs, its intrados crown at about 478 px and its spring at about 507 px (built: 485 px and 510 px); that over it at the second floor a small light, about 333 to 375 px (built: 332 to 375 px), stands over a carved panel at about 395 to 420 px (built: 398 to 415 px), the panel on the belt course; and that the light is framed and capped (its hood at about 312 px, built about 310 px). **What is invented.** The door's 1.2 m width (K01's door, about 7 px narrower than the drawn opening); its pair of leaves, their panels and the fanlight's bars (the drawing's door is not legible at the plate's size); the 0.32 m reveal; the voussoir block's 0.3 m ring, its rectangular outline and its crown stone; the light's surround, which is the kit's and not the drawing's carving; the panel's foliate carving, the kit's generic motif (k09_trim.json allows one where no carving is read), and its 1.0 m width against about 54 px drawn (about 43 px built). **What is not built.** The drawing turns the voussoirs to a curved extrados under a band and sets the door at the back of a recess deeper than this wall; it may also stand the light a little proud of the wall on a moulded shelf. Both are open in the match record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the house after 1886 settles the doorway, the light and the carving; the architects' plans would settle the recess."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2526 (piece 2 of T-2422)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2526)."
         }
       ]
     },

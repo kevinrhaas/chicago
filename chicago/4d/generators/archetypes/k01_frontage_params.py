@@ -1082,7 +1082,8 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
         lights = []
         for i in g["ops"]:
             o = openings[i]
-            v = variants[kit[o.component]["variant"]]
+            # T-2526: the door is K07's one round-headed hole, its spring a half span under its crown
+            v = {"bays": 1} if o.component == "k01.opening.door_leaf" else variants[kit[o.component]["variant"]]
             n, mull = int(v.get("bays", 1)), float(v.get("mullion_m", 0.0))
             bw = (o.width_m - mull * (n - 1)) / n
             for k in range(n):
@@ -1140,6 +1141,11 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
             "balconettes": dress.get("balconettes") or {}, "grilles": dress.get("grilles") or {},
             "stoop_rails": rails,
             "banded": dress.get("banded") or {}}
+
+
+def door_arch_of(entrance_kit) -> dict:
+    """T-2526: the record's voussoir block round a round-headed door, or {}."""
+    return dict(((entrance_kit or {}).get("k01.opening.door_leaf") or {}).get("arch") or {})
 
 
 WING_SIDES = ("south", "north", "rear")
@@ -1564,12 +1570,28 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if v["operation"].startswith("double_hung") != any(
                 o.meeting_rail for o in openings if o.component == comp):
             raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
+    da = door_arch_of(val("entrance_kit"))
+    if da:
+        # T-2526: the door's round head under its own voussoir block, as an arched group
+        if not val("stone_front"):
+            raise ParamError("entrance_kit.arch: a door's voussoirs are laid in a K02 stone front's courses")
+        need = {"ring_m", "keystone_top_m", "keystone_m"}
+        if set(da) != need:
+            raise ParamError(f"entrance_kit.arch takes {sorted(need)}")
+        if not 0.15 <= float(da["ring_m"]) <= 0.6:
+            raise ParamError("entrance_kit.arch.ring_m: a voussoir block 0.15-0.6 m outside the arch")
+        di = next(i for i, o in enumerate(openings) if o.component == "k01.opening.door_leaf")
+        arched_groups.append({"component": "k01.opening.door_leaf", "bay": front_bays.index(door_s), "ops": [di],
+                              "ring_m": float(da["ring_m"]), "keystone_top_m": float(da["keystone_top_m"]),
+                              "keystone_m": tuple(float(x) for x in da["keystone_m"])})
     arched = _arched_front(arched_groups, openings, variants, kit, val("street_front_dress") or {},
                            pf, floors, width, door_s,
                            # T-2528: the soffit the roof builds; a mansard's stands on the wall head
                            eave - (0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch)))
                            - EAVE_FASCIA_M) \
-        if sfo else {}
+        if sfo or da else {}
+    if da and not sfo:
+        arched["belts"] = None    # a door's arch alone keeps K01's own belts (k01_frontage.stone_front)
     if val("street_front_dress") and not sfo:
         raise ParamError("street_front_dress dresses a street front laid by street_front_openings")
     # T-2304: the door and its stoop are a K07 entrance. The K01 wall cuts a rectangular
@@ -1584,10 +1606,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     ev = evs.get(door_kit.get("variant"))
     if ev is None:
         raise ParamError("entrance_kit names no K07 variant for k01.opening.door_leaf (k07_entrances.json)")
-    if ev["head"] != "flat" or ev["use"] != "principal" or ev["stair"]["kind"] != "straight":
+    # T-2526: a stone front may lay its door's round head as an arched group (`arch`): the
+    # courses go round the jambs to the spring and a voussoir block over it, so the hole is
+    # K07's own round one and the door stands round-headed in its reveal
+    door_arch = door_arch_of(val("entrance_kit"))
+    if (ev["head"] != ("round" if door_arch else "flat") or ev["use"] != "principal"
+            or ev["stair"]["kind"] != "straight"):
         raise ParamError(f"entrance_kit: {ev['id']} is a {ev['head']}-headed {ev['use']} entrance on a "
                          f"{ev['stair']['kind']} stair; a K01 front cuts a rectangular hole at the "
-                         f"principal floor over a straight stoop")
+                         f"principal floor over a straight stoop, or (`arch`) a round one in a stone front")
     yard = float(door_kit.get("front_yard_m", 0.0))
     reach = float(val("stair_landing_depth_m")) + (risers - 1) * tread
     if not reach < yard:
@@ -1649,6 +1676,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
             raise ParamError("entrance_kit.balustrade.profile runs [r, fraction of height] from 0 to 1")
         door_kit["balustrade"] = dict(balustrade)
+    if door_arch:
+        door_kit["arch"] = dict(door_arch)
     # T-2369: a stoop between iron rails has no stone cheeks, and a door in a vestibule's
     # mouth stands deeper in its wall than the kit's outer leaf
     if "cheeks" in door_kit_in:
@@ -1827,10 +1856,17 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError(f"service_wall_brick = {panel!r}: k03_brick lays {k03_brick.PANEL!r} alone; "
                          f"another K03 panel is a new slot in generators/archetypes/k03_brick.py")
 
+    # a bay drops the openings behind it, so an arched group finds its own again by identity
+    grouped = [[openings[i] for i in g["ops"]] for g in (arched or {}).get("groups", ())]
     bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
                  float(val("eave_overhang_m")))
+    for g, ops in zip((arched or {}).get("groups", ()), grouped):
+        at = [j for o in ops for j, x in enumerate(openings) if x is o]
+        if len(at) != len(ops):
+            raise ParamError(f"bays: a bay stands in front of the arched group in bay {g['bay']}")
+        g["ops"] = tuple(at)
     if (val("mansard") or {}).get("crown"):
         mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
                                                pitch, float(val("eave_overhang_m")))
