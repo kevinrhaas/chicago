@@ -3923,6 +3923,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/generate_glessner_finish.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/generate_glessner_vines.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5371,6 +5375,10 @@
       "wrote_ignored": []
     },
     "tools/test_glessner_courtyard_ground.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_glessner_finish.py": {
       "wrote": [],
       "wrote_ignored": []
     },

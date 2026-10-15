@@ -1,0 +1,24 @@
+{
+  "base": "ca355afeb16b41217ae6b155c8c53760c8f421a7",
+  "assets": {
+    "master": {
+      "path": "assets/gltf/glessner_house__as_built_1887.glb",
+      "bytes": 198744544,
+      "sha256": "bf27a842e5d36fff63b362962b068777e781a880f1bf66f6454cc51860333364",
+      "matches_reviewed_asset": true
+    },
+    "web": {
+      "path": "assets/web/glessner_house__as_built_1887.glb",
+      "bytes": 59090956,
+      "sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
+      "matches_reviewed_asset": true
+    },
+    "light": {
+      "path": "assets/web/glessner_house__as_built_1887.light.glb",
+      "bytes": 32622008,
+      "sha256": "9ee9d6632f8a5338a6f8561c736013876519263c963d94f28224cec08ffee5fd",
+      "matches_reviewed_asset": true
+    }
+  },
+  "historical_cameras_and_match_reviews_unchanged": true
+}

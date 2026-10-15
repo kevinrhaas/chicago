@@ -1,0 +1,14 @@
+{
+  "mode": "documented-merge-lap",
+  "feature_checked_head": "27fdeba82701b36cc86072620e2cafaef8433d53",
+  "feature_local_steps": 894,
+  "feature_preflight_exit": 0,
+  "feature_exclusive_files_unchanged": 158,
+  "integration_base": "b47d906f614be357f7f28d9b1ead83e26fbb39f7",
+  "integration_local_gate": "Not claimed: generated-only integration uses CI, as the repository manual merge-lap path specifies.",
+  "policy_paths": [
+    "chicago/4d/docs/PIPELINE.md#clearing-one-by-hand",
+    ".github/steward/pr-lap.sh"
+  ],
+  "required_before_merge": "Exact integration-head repository CI and all 18 published smoke groups green; dev base unchanged."
+}

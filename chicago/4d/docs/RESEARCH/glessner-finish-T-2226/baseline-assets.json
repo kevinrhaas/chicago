@@ -1,0 +1,26 @@
+{
+  "source_head": "11d935cffecc2310451878a3d32cfa8f2d82d0f0",
+  "assets": {
+    "web": {
+      "sha256": "11a82664b658a340cf6a663981042dd311e52bb6f548aa2ffdf14fd7ef68e972",
+      "bytes": 55383984
+    },
+    "light": {
+      "sha256": "1792bd7cf45f6a5a0610c3427ff5de3e9a421baf173dc0009006ffb82dcdfae7",
+      "bytes": 28915140
+    }
+  },
+  "dev_acceptance": {
+    "verified": true,
+    "merge": "5e481fed3611851e0884666508d213417f082026",
+    "deployed_build": {
+      "tier": "dev",
+      "app": "chicago/4d",
+      "ref": "refs/heads/dev",
+      "sha": "14f34905",
+      "committedAt": "2026-10-15T06:00:45Z",
+      "committedCT": "Oct 15, 2026, 1:00 AM CT",
+      "note": "Integration preview. Production is at /4d/ and is promoted only on owner dispatch (chicago-4d-promote-to-prod.yml)."
+    }
+  }
+}

@@ -150,7 +150,7 @@ class Surface:
         self.axis,self.along,self.sign=frame(p);self.at=p['at'];self.cells=defaultdict(list);self.fallback=0
         lo,z0,hi,z1=p['bounds'];axis,along,sign=self.axis,self.along,self.sign
         for face,material in zip(b.faces,b.mat_index):
-            if material not in (0,1,2,9,12,13,14,15,16,17,18,24):continue
+            if material not in (0,1,2,9,12,13,14,15,16,17,18,24,30):continue
             points=[b.verts[i] for i in face]
             if any(not -.06<sign*(q[axis]-self.at)<.22 for q in points):continue
             a,c,e=points[0],points[1],points[2]

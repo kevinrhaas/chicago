@@ -61,7 +61,7 @@ for reduced in (False,True):
             assert sum(v*v for v in d.cross(d.sub(face[1],face[0]),d.sub(face[2],face[0])))>1e-15
         assert set(edges.values())=={2},'Open or doubled rail junction'
     stair=p.detail['north_court_service_stair'];spec=p.detail['service_access']['stair']
-    side=list(triangles(b,{d.BRICK,d.MORTAR,16,17,18}))
+    side=list(triangles(b,{d.BRICK,d.MORTAR,16,17,18,30}))
     run=(stair['flight_y'][1]-stair['flight_y'][0])/stair['steps']
     rise=stair['landing_z']/stair['steps']
     for i in range(stair['steps']):
@@ -110,6 +110,6 @@ for reduced in (False,True):
     # the separate stone stair footings to enter grade.
     tolerance=json.loads((ROOT/'data/components/prairie_1904/k01_contract.json').read_text())['measures']['base_tolerance_m']
     for builder in (b,g):
-        walls=list(triangles(builder,{d.GRANITE,d.BRICK,*range(12,19)}))
+        walls=list(triangles(builder,{d.GRANITE,d.BRICK,*range(12,19),30}))
         assert min(pt[2] for tri in walls for pt in tri)>=-tolerance,'Masonry base exceeds the package datum bound'
 print('PASS: Full/Light service posts seated, six closed joined rails, paired boarded gate and four masonry-mounted hinges')

@@ -127,8 +127,9 @@ the excluded 1955 stable stair. Exact 1904 finish details remain reconstructed;
 the owner's stone colour and dark glass are preserved. Functional geometry,
 canonical bake and package checks pass; all ten fixed-camera Full/Light browser
 views pass unchanged budgets with no errors. Mobile loads 124 credited images
-and the reconstruction note. T-2226 retains the Light supports' missing mortar
-pattern and gate member grain. Preflight and exact-commit CI receipts are
+and the reconstruction note. T-2226 adds the Light supports' mortar pattern
+and aligns the gate member grain; its surface report records the comparison.
+Preflight and exact-commit CI receipts are
 maintained on the PR.
 [Evidence, dating and bounds](RESEARCH/glessner-service-access-T-2223/README.md).
 T-2227 retains existing scene-budget issues; T-2228 retains photo acceptance.
@@ -23468,3 +23469,10 @@ historical cameras remain unchanged and whole-house verdicts remain `differs` fo
 T-2228. Owner granite and dark glass are retained. Full preflight and exact-head
 CI govern merge; see the ticket-linked PR for results and deployment verification.
 See docs/RESEARCH/glessner-vines-T-2225/README.md.
+
+
+## T-2226 — Glessner surface finish
+
+The material pass restores mortar courses to plain stair/Light boundary surfaces and maps gate ledge/brace grain along each member. Fixed Full/Light scene and neutral-light baselines preserve the owner granite tint, dark glass and current July light. The new maps reuse original project textures and numeric construction, with no copied photograph pixels, added random grunge or new claim of measured 1904 weathering. See docs/RESEARCH/glessner-finish-T-2226/README.md and L-glessner-finish-2226. Canonical exports and all 24 fixed-camera after views are reviewed; geometry counts stay unchanged at 1,371,506 Full / 199,850 Light triangles. No browser errors occurred. Mobile confidence, reconstructed liberty and all credited image tiles were reviewed. Five unchanged historical cameras still read differs. Full preflight and exact-head CI govern merge; see the ticket-linked PR for gate and deployment receipts. Existing north-view scene-budget failures are recorded unchanged for T-2227; T-2228 owns the final photographic verdicts.
+
+T-2226 preflight found one real failure: the published tree reached 262.262 MiB against its 256 MiB hygiene allowance. A measured storage re-budget to 288 MiB is documented in docs/SITE-BUDGET.md section 8; boot, frame and Light limits are unchanged. No material detail or research record was removed. The full gate is rerun before commit.
