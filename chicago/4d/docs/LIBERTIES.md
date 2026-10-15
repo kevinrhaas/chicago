@@ -27638,3 +27638,35 @@ profile, the fretwork and the plate; the 1911 sheet cannot, as it draws the fron
 **Ticket:** T-2519 (piece 1 of T-2458, a piece of T-2426).
 **Review:** `docs/RESEARCH/k16-1638-entrance-2519/README.md`.
 **Recorded:** 2026-10-15 (T-2519).
+
+### L-k16-1638-transom-2520 — 1638 Prairie's door given the glazed transom its photograph shows over the leaves: the bar and the gabled light read, the light's shape north of the print's slope and its joinery reconstructed
+
+**Decision:** the double door in the Shortall-Gregory house's wing wall under the corner tower
+(T-2520, piece 2 of T-2458) gains a transom light over its leaves, the opening's full width: a
+0.12 m bar on the leaves' head, then one light under a low gable, 0.17 m high at the jambs and
+0.39 m at the middle, the corners over its slopes filled with painted board to the opening's square
+head, the casing and its drip cap raised with it. The leaves stay 1.72 m clear as T-2425 read them;
+the opening is now 2.23 m. The pale gabled shape the print shows over the door, which T-2425 left
+unidentified, is this light: in a porch that is black everywhere else it is the leaves' lights' own
+tone, it starts on the south jamb's line and it sits on a dark bar over the head, where light
+falling through the arch would show the wall's boards and would not stop at the jamb.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`) through the
+camera T-2423 solved, at 73 px a metre at the wall: that the door has a light over it; the bar's
+depth (the dark from 659 to 650 px); the light's foot (650 px), its south slope (634 px at 692 px,
+622 px at 725 px, a fall of 0.36) and its apex height (622 px).
+**What is invented.** That the light's head is a symmetric gable with its apex at the door's middle:
+the print's apex stands 9 px (0.13 m) south of it, and north of 737 px the glass reads dark but for
+a lobe falling to 757 px, which is taken as what the glass reflects (the porch's north post and
+soffit) rather than as its shape; the board in the corners over the slopes; the bar's and the
+light's joinery; glass, the print showing it pale; every colour, the print being monochrome.
+**What the record states and the model simplifies.** The steps' run, which this ticket settled
+through the camera (the floor 1.3-1.6 m over the walk in about ten risers, the eye on the far walk
+28-33 m out, the sheet's '2BB' basement making it the floor's height), is not built here: the stoop
+keeps T-2425's four risers from a 0.6 m floor until T-2523 re-solves the camera and raises the
+floor, and T-2524 re-reads the fence at the new scale.
+**How to resolve:** a sharper or second picture of the entrance, or one taken with the porch lit,
+fixes the light's head and its glazing; T-2523 builds the steps.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`.
+**Ticket:** T-2520 (piece 2 of T-2458).
+**Review:** `docs/RESEARCH/k16-1638-steps-transom-2520/README.md`.
+**Recorded:** 2026-10-15 (T-2520).
