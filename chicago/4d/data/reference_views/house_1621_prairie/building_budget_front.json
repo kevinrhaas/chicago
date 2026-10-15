@@ -1,0 +1,22 @@
+{
+  "structure_id": "house_1621_prairie",
+  "source_id": "building_budget_1886_06_hamline_farwell_houses",
+  "library_image": "cgn-1619-1625-building-budget-hamline-farwell",
+  "photo": "../../sources/assets/hamline_1619_drawing_t2420/building_budget_1619_panel.jpg",
+  "image_px": [
+    580,
+    846
+  ],
+  "principal_px": [
+    649,
+    600
+  ],
+  "focal_px": 920,
+  "eye": [
+    33.35,
+    10.54,
+    1.6
+  ],
+  "yaw_deg": -90.0,
+  "solve": "Re-solved by T-2440 when the build moved from 1619 to 1621, John H. Hamline's house by T-2439's ruling, on the Hamline house in the plate (the display copy's pixels x 20-600, y 100-946, cropped unscaled into building_budget_1619_panel.jpg, the crop T-2420 made). An architect's pen perspective, not a photograph, so this camera is approximate and says how far. A plate has ONE station point, and T-2433 had already put it in front of Farwell's house at 1623 next door (data/reference_views/house_1623_prairie/building_budget_front.json: f = 920 px, the principal point at the plate's x 669, the eye 1.6 m up and 20 m in front of the stone face). Here it is that same eye carried into 1621's frame through both records' placements: u 33.35 (1621's street wall at u 13.3, at the same street line as 1623's, so 20.05 m off, 46 px/m at the front's plane) and v 10.54, which is 4.3 m south of 1621's south wall, in front of the driveway, where T-2420 had put it against 1619 for the same reason (the south side wall seen along the driveway as deep as the drawing draws it). The vertical is T-2420's: level, square to the front (yaw -90: u runs toward the street and v runs SOUTH on this side of the avenue, so the eye looks east), the horizon at the principal floor (y 600 in the panel), grade at y 680; at this scale the drawing's own floor bands run 52, 42 and 48 px/m, so a height read through it is good to about 10 %. So nothing is fitted to Hamline's front here: the one station point is carried, and the residuals say where the plate and 1621's survey disagree. The bow's SOUTH junction lands about 7 px left of the drawing's (x 436 against 443) and the front's south corner, which the drawing does not separate from the bow, about 7 px right of it (x 450), the 0.3 m pier K01 keeps between a bay and a corner; the bow's NORTH junction stands about 57 px right of the drawing's (x 330 against 273), because the 1911 sheet's bay is 2.3 m across where the plate draws about 3.7 m at this scale; and the north strip's outer edge about 45 px left of it (x 165 against 210): the sheet's front is 6.2 m and the plate's about 5.1 m. Against 1619's footprint T-2420 found the same two disagreements the other way round (a 3.76 m bow on the sheet, a 1.4 m strip drawn against 3.79 m), with the bow as its scale; at 1621 the bow cannot be the scale, because either the bow was built narrower than drawn or the sheet's bay is a later one, and using it would make every storey 1.6 times the drawing's. The sheet controls the plan (the survey of what stood nearer the 1904 scene), so both widths are argued in the match record, not built to the drawing."
+}
