@@ -27910,7 +27910,6 @@ engraving resolves; and the kit's blind and curtains behind the glass.
 **What would replace it.** Any photograph of the remodelled front, or a second view of the wing (the
 c. 1870 Grosvenor photograph, T-2536, shows the house before the remodel, so it may not show the
 balcony at all).
-**Covers:** `spalding_house_1637_prairie.as_mapped_1904.form.bays`.
 **Ticket:** T-2534 (piece 1 of T-2449).
 **Review:** `docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg`.
 **Recorded:** 2026-10-15 (T-2534).
