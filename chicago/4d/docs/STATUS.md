@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2499 — 1808 Prairie's flat top, height and bow (2026-10-15)
 
 First piece of T-1882, from the owner's report of 2026-10-13 that the Keith house
@@ -15,7 +14,7 @@ no camera is solved for the plate because its scan is `check_required`, so the
 image gate has not been run on this house. The loggia and stair are T-2500; the
 lattice, pinnacles, diaper band, stone tone and fence are T-1883.
 [Before/after views and browser readings](RESEARCH/k01-1808-keith-2499/).
-=======
+
 ## T-2502 — the 1812 ground carried down the South Branch to Lee's Place (2026-10-15)
 
 T-2501 ruled the farm's site a reach of the South Branch's north-west bank, about 930 m west
@@ -55,7 +54,6 @@ town-wide bake. The box is byte-for-byte unchanged (`terrain_gen_e1830.py --chec
 - **Not done:** the forks,
   the west fork and the river past the south row are not drawn; the south row is carried on
   straight, as the box's own skirt is. The farm, its fence, haystacks and card are T-2503.
->>>>>>> origin/dev
 
 ## T-2501 — Lee's Place (Hardscrabble) placed, not pinned (2026-10-15)
 
