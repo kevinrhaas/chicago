@@ -301,6 +301,12 @@
       "asset": "gltf/kinzie_house_1812_green__kinzie_1804.glb"
     },
     {
+      "id": "lalime_house_1812",
+      "name": "La Lime's house, the middle of the three houses west of the Kinzie house",
+      "sidecar": "sidecars/1812/lalime_house_1812.json",
+      "asset": "gltf/lalime_house_1812__lalime_1812.glb"
+    },
+    {
       "id": "lee_house_1812",
       "name": "The Lee family's house, on the shore at the river's mouth south of the fort",
       "sidecar": "sidecars/1812/lee_house_1812.json",
@@ -329,6 +335,12 @@
       "name": "Lee's Place (Hardscrabble): haystack 4 of 4, on the bank opposite the cabin",
       "sidecar": "sidecars/1812/lees_place_haystack_1812_d.json",
       "asset": "gltf/lees_place_haystack_1812_d__lees_place_1812.glb"
+    },
+    {
+      "id": "lemai_house_1812",
+      "name": "Le Mai's house, the westernmost of the three houses west of the Kinzie house, at the field the draught letters 'Mr Coursell'",
+      "sidecar": "sidecars/1812/lemai_house_1812.json",
+      "asset": "gltf/lemai_house_1812__lemai_1812.glb"
     },
     {
       "id": "potawatomi_camp_1812_middle",

@@ -48,6 +48,12 @@ commit (data/traces/README.md):
     heel; the covered way from the outer row's north-east corner along the frame's north
     to the water, in runs one joint apart, none on more than `max_fall_m` of fall, the
     last reaching the river.
+  * (T-2504) the houses across the river WEST of Kinzie's (no. 31) stand where the
+    register's `north_bank` rule puts them: the sheet's arrangement opened out about the
+    Kinzie house AS BUILT (no. 30's drawn centre on kinzie_house_1812's footprint centre)
+    by the drafter's '52 yards in length' on the picket between two of them. Each built
+    one stands dry, covers both 1812 scene dates, closes before 1835-07-01, and overlaps
+    neither its neighbours nor the Kinzie house.
 
 `--remeasure` fetches the working copy, refuses it if its sha256 has moved, and finds
 the staff's two ends again: the longest near-continuous dark run in columns 994-1007,
@@ -446,6 +452,125 @@ def outside_records(doc: dict) -> list[str]:
     return errs
 
 
+#: T-2504. The no. 31 houses are settlers', not the fort's: each closes on its own date,
+#: which must fall after both 1812 scene dates and before the 1835 scene.
+NORTH_BANK_OPEN_BY = ("1812-08-01", "1812-08-14")
+NORTH_BANK_CLOSE_BEFORE = "1835-07-01"
+
+
+def _corners(pos: dict, poly: list) -> list[tuple[float, float]]:
+    """A footprint's corners in UTM, turned the way wet_corners turns them."""
+    t = math.radians(float(pos.get("rotation_deg") or 0.0))
+    ux, uy = (math.cos(t), -math.sin(t)), (math.sin(t), math.cos(t))
+    return [(pos["utm_e"] + x * ux[0] + y * uy[0], pos["utm_n"] + x * ux[1] + y * uy[1])
+            for x, y in poly]
+
+
+def _overlap(a: list, b: list) -> bool:
+    """Two convex footprints overlap: no separating axis among their edges' normals."""
+    for poly in (a, b):
+        for (x1, y1), (x2, y2) in zip(poly, poly[1:] + poly[:1]):
+            nx, ny = y1 - y2, x2 - x1
+            pa = [nx * x + ny * y for x, y in a]
+            pb = [nx * x + ny * y for x, y in b]
+            if max(pa) <= min(pb) or max(pb) <= min(pa):
+                return False
+    return True
+
+
+def north_bank_boxes(doc: dict) -> tuple[dict[str, dict], dict[str, float]]:
+    """Each north-bank part's fort-frame box (ft), and the expansions computed."""
+    nb = doc["north_bank"]
+    s = doc["scale"]["px_per_ft"]
+    datum = json.loads((ROOT / "data" / "datum.json").read_text())
+    an = json.loads((ROOT / "data" / "structures" / f"{nb['anchor']['record']}.json").read_text())
+    ph = an["phases"][0]
+    cs = _corners(ph["position"], ph["footprint"]["polygon"])
+    ae = (sum(c[0] for c in cs) / len(cs) - datum["origin_utm_e"] - SEAT_LOCAL[0]) / FT_M
+    an_ = (sum(c[1] for c in cs) / len(cs) - datum["origin_utm_n"] - SEAT_LOCAL[1]) / FT_M
+    x0, y0, x1, y1 = nb["anchor"]["sheet_px"]
+    ax, ay = (x0 + x1) / 2, (y0 + y1) / 2
+    (lx0, ly0), (lx1, ly1) = nb["expansion"]["line_px"]
+    exp = {"north_bank": nb["expansion"]["stated_ft"] / (math.hypot(lx1 - lx0, ly1 - ly0) / s),
+           "agent_17": outside_boxes(doc)["first_fort_outer_agents_house"]["expansion"]}
+    k = exp["north_bank"]
+    out = doc["outside_the_stockade"]
+    boxes = {}
+    for p in nb["parts"]:
+        x0, y0, x1, y1 = p["sheet_px"]
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        ce = ae + (cx - ax) / s * k
+        cn = an_ - (cy - ay) / s * k
+        ft_per_px = p["scale_ft_per_in"] / out["inch_px"]
+        w, h = (x1 - x0) * ft_per_px, (y1 - y0) * ft_per_px
+        box = [round(ce - w / 2, 1), round(ce + w / 2, 1), round(cn - h / 2, 1), round(cn + h / 2, 1)]
+        ew, ns = (box[1] - box[0]) * FT_M, (box[3] - box[2]) * FT_M
+        boxes[p["part"]] = {"box": box, "facing": p["facing"], "record": p.get("record"),
+                            "turn": float(p.get("turn_deg", 0.0)),
+                            "size_m": (ns, ew) if p["facing"] in (90, 270) else (ew, ns)}
+    return boxes, exp
+
+
+def north_bank_records(doc: dict) -> list[str]:
+    """T-2504: the no. 31 houses against the north-bank rule they are built to."""
+    errs: list[str] = []
+    if "north_bank" not in doc:
+        return errs
+    nb = doc["north_bank"]
+    if nb["expansion"].get("governs") is not True:
+        errs.append("north_bank: its expansion must govern, or the bank has no rule")
+    boxes, _ = north_bank_boxes(doc)
+    datum = json.loads((ROOT / "data" / "datum.json").read_text())
+    an = json.loads((ROOT / "data" / "structures" / f"{nb['anchor']['record']}.json").read_text())
+    feet = {nb["anchor"]["record"]: _corners(an["phases"][0]["position"],
+                                             an["phases"][0]["footprint"]["polygon"])}
+    for part, b in sorted(boxes.items()):
+        sid = b["record"]
+        row = next(p for p in nb["parts"] if p["part"] == part)
+        if sid is None:
+            if not row.get("builds"):
+                errs.append(f"north_bank {part}: read and not built, so it must name the ticket that builds it")
+            continue
+        f = ROOT / "data" / "structures" / f"{sid}.json"
+        if not f.exists():
+            errs.append(f"north_bank {part}: names {sid}, which has no record")
+            continue
+        st = json.loads(f.read_text())
+        if len(st["phases"]) != 1:
+            errs.append(f"{sid}: a north-bank house carries one phase")
+        ph = st["phases"][0]
+        rng = ph["documented_range"]
+        if not (rng["from"] <= NORTH_BANK_OPEN_BY[0] and rng["to"] >= NORTH_BANK_OPEN_BY[1]
+                and rng["to"] < NORTH_BANK_CLOSE_BEFORE):
+            errs.append(f"{sid}: stands {rng['from']}..{rng['to']}, which must cover "
+                        f"{' and '.join(NORTH_BANK_OPEN_BY)} and close before {NORTH_BANK_CLOSE_BEFORE}")
+        pos = ph["position"]
+        want = "E {:+.1f}..{:+.1f} ft, N {:+.1f}..{:+.1f} ft".format(*b["box"])
+        if want not in pos.get("symbolic_location", ""):
+            errs.append(f"{sid}: symbolic_location does not carry the rule's box {want}")
+        e, n, rot = seat(b["box"], b["facing"], datum, b["turn"])
+        off = math.hypot(pos["utm_e"] - e, pos["utm_n"] - n)
+        if off > SEAT_TOL_M or float(pos.get("rotation_deg") or 0.0) != rot:
+            errs.append(f"{sid}: stands {off:.2f} m / {pos.get('rotation_deg')} deg off where the "
+                        f"north-bank rule seats its box ({e:.2f}, {n:.2f} turned {rot})")
+        poly = ph["footprint"]["polygon"]
+        w = max(p[0] for p in poly) - min(p[0] for p in poly)
+        d = max(p[1] for p in poly) - min(p[1] for p in poly)
+        if abs(w - b["size_m"][0]) > TOL_M or abs(d - b["size_m"][1]) > TOL_M:
+            errs.append(f"{sid}: footprint {w:.2f} x {d:.2f} m is not the rule's "
+                        f"{b['size_m'][0]:.2f} x {b['size_m'][1]:.2f} m")
+        for c in wet_corners(pos, poly):
+            errs.append(f"{sid}: a footprint corner ({c[0]:.2f}, {c[1]:.2f}) stands on the "
+                        f"committed 1812 water")
+        feet[sid] = _corners(pos, poly)
+    ids = sorted(feet)
+    for i, a in enumerate(ids):
+        for b_ in ids[i + 1:]:
+            if _overlap(feet[a], feet[b_]):
+                errs.append(f"north_bank: {a} and {b_} stand on one another")
+    return errs
+
+
 #: T-2508. The wharf (27) and the covered way (33) are NOT placed by the outside rule:
 #: the draught says its river "is not regularly surveyed", so each is seated on the
 #: committed 1812 river instead, by the figures in its index row's `seat`, measured from
@@ -668,7 +793,8 @@ def remeasure(doc: dict) -> list[str]:
 
 def main() -> int:
     doc = json.loads(TRACE.read_text())
-    errs = check(doc) + records(doc) + two_forts() + outside_records(doc) + water_works(doc)
+    errs = (check(doc) + records(doc) + two_forts() + outside_records(doc) + water_works(doc)
+            + north_bank_records(doc))
     if "--remeasure" in sys.argv:
         errs += remeasure(doc)
     if errs:
@@ -683,7 +809,9 @@ def main() -> int:
           + (f", {len(outside_boxes(doc))} outside the stockade (T-2062)"
              if "outside_the_stockade" in doc else "")
           + (f"; the wharf and the covered way's {len(doc['index'][32]['seat']['records'])} runs "
-             f"on the 1812 river (T-2508)" if "seat" in doc["index"][32] else ""))
+             f"on the 1812 river (T-2508)" if "seat" in doc["index"][32] else "")
+          + (f"; {sum(1 for p in doc['north_bank']['parts'] if p.get('record'))} no. 31 houses "
+             f"across the river (T-2504)" if "north_bank" in doc else ""))
     return 0
 
 
