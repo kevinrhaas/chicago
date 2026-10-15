@@ -137,7 +137,11 @@ def rule_risers(o, v, data):
     by_level = {}
     for tri in walked(o, tread_roles):
         by_level.setdefault(round(tri[0][1], 5), []).extend(tri)
+    side = v["stair"].get("side")    # T-2530: a side stoop's goings run along the wall
     for y, ps in by_level.items():
+        if side:
+            goings.append(max(p[0] for p in ps) - min(p[0] for p in ps))
+            continue
         mid = [p for p in ps if abs(p[0] - o.O[0]) < 1e-6] or ps
         goings.append(max(p[2] for p in mid) - min(p[2] for p in mid))
     glo, ghi = sr["tread_range_m"]
@@ -301,9 +305,9 @@ def rule_data(data):
 
 
 def house_entrances(data):
-    """T-2409: every K01 house whose door carries a terrace or a balustrade, built as the house
-    builds it (its own floor, tread, landing, width and the terrace's reach), so the kit's rules
-    measure what the kit's variants alone never build."""
+    """T-2409: every K01 house whose door carries a terrace or a balustrade (T-2530: or a side
+    stoop), built as the house builds it (its own floor, tread, landing, width and the terrace's
+    reach), so the kit's rules measure what the kit's variants alone never build."""
     import json
     from archetypes import k01_frontage, k01_frontage_params
     out = []
@@ -314,7 +318,7 @@ def house_entrances(data):
         for ph in st.get("phases", []):
             ek = ((((ph.get("form") or {}).get("entrance_kit") or {}).get("value") or {})
                   .get("k01.opening.door_leaf") or {})
-            if ek.get("terrace") or ek.get("balustrade"):
+            if ek.get("terrace") or ek.get("balustrade") or ek.get("side_stoop"):
                 a = k01_frontage.Assembly(st["id"], k01_frontage_params.from_phase(ph, st))
                 v = a.door_variant()
                 out.append((f"{st['id']}.{ph['id']}", v, K.Entrance(v, data).build()))

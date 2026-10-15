@@ -1544,6 +1544,14 @@ class Assembly:
             v["stair"]["cheeks"] = p.entrance_kit["cheeks"]
         if "reveal_depth_m" in p.entrance_kit:
             v["reveal_depth_m"] = p.entrance_kit["reveal_depth_m"]
+        # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
+        ss = p.entrance_kit.get("side_stoop")
+        if ss:
+            k = 1.0 if ss["run"] == "right" else -1.0
+            ends = sorted(k * (x - door.s_m) for x in ss["landing_v_m"])
+            v["stair"]["side"] = {"run": ss["run"], "landing_s_m": ends, "out_m": ss["out_m"],
+                                  **({"cheek_above_nosing_m": ss["cheek_above_nosing_m"]}
+                                     if "cheek_above_nosing_m" in ss else {})}
         return v
 
     def door_reveal(self) -> float:
@@ -1573,6 +1581,8 @@ class Assembly:
                                     "landing_depth_m": p.landing_depth_m, "width_m": p.stoop_width_m,
                                     "k07_variant": p.entrance_kit["variant"], "cheeks": o.v["stair"].get("cheeks", False),
                                     "front_yard_m": p.entrance_kit["front_yard_m"],
+                                    **({"side_stoop": dict(p.entrance_kit["side_stoop"])}
+                                       if p.entrance_kit.get("side_stoop") else {}),
                                     **({"terrace_to_v_m": (p.entrance_kit["terrace"]["to_v_m"]
                                                            if isinstance(p.entrance_kit["terrace"], dict)
                                                            else [q["to_v_m"] for q in p.entrance_kit["terrace"]])}
@@ -1580,7 +1590,8 @@ class Assembly:
                                     **({"balusters": o.meta.get("balusters", 0),
                                         "balustrade_height_m": p.entrance_kit["balustrade"]["height_m"]}
                                        if p.entrance_kit.get("balustrade") else {})},
-                                   {"foot": P(p.stoop_s_m(op.s_m), 0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
+                                   {"foot": P(op.s_m + st["foot_s_m"] if "foot_s_m" in st else p.stoop_s_m(op.s_m),
+                                              0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
                                     **{f"{k}_{end}": P(op.s_m + q[0], op.sill_m + q[1], q[2])
                                        for k, ends in sorted(o.sockets.items())
                                        for end, q in zip(("top", "foot"), ends)}})
