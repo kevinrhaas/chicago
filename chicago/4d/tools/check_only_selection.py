@@ -197,7 +197,7 @@ Path(target).write_bytes(b"glTF-Transform v4.5.0 " + command.encode())
 
 
 def run_step(script: str, names: list[str], *args: str, mode: str = "optimized",
-             untouched_master: bool = False):
+             untouched_master: bool = False, packaged_master: bool = False):
     """Run a copy of `script` (web_derivatives.sh's text) over fixture masters."""
     with tempfile.TemporaryDirectory() as directory:
         root = Path(directory)
@@ -218,8 +218,16 @@ def run_step(script: str, names: list[str], *args: str, mode: str = "optimized",
         # the merge drops as a whole rewrite would (T-2314).
         if untouched_master:
             (root / "assets" / "gltf" / "untouched.glb").write_bytes(b"untouched" * 400)
-        (root / "assets" / "manifest.web.json").write_text(json.dumps(
-            {"masters": {"untouched.glb": "kept"}}))
+        masters = {"untouched.glb": "kept"}
+        # An ignored master the committed Glessner package restores, absent as on a
+        # fresh checkout: not deleted, so a selection must keep its entry (T-2517).
+        if packaged_master:
+            package = root / "docs" / "RESEARCH" / "glessner-v4-recovery"
+            package.mkdir(parents=True)
+            (package / "manifest.json").write_text(json.dumps({"files": {
+                "assets/gltf/packed.glb": {}, "assets/web/packed.glb": {}}}))
+            masters["packed.glb"] = "kept"
+        (root / "assets" / "manifest.web.json").write_text(json.dumps({"masters": masters}))
         env = {**os.environ, "PATH": f"{root / 'bin'}{os.pathsep}{os.environ['PATH']}",
                "FIXTURE_TRANSFORM": mode}
         done = subprocess.run(["bash", "tools/web_derivatives.sh", *args], cwd=root,
@@ -248,6 +256,12 @@ def audit_step(script: str) -> list[str]:
                    f"reading {record} (exit {code}): the merge must drop an entry whose "
                    "master is gone, as the whole rewrite did, or assertion 9 refuses it "
                    "after every whole-town bake (T-2314).")
+    code, made, record = run_step(script, town, "--only", "a__p.glb", packaged_master=True)
+    if code != 0 or record != ["a__p.glb", "packed.glb"]:
+        rep.append(f"`--only a` on a fresh checkout left the record reading {record} "
+                   f"(exit {code}): an ignored master the Glessner v4 package restores is "
+                   "not deleted, and dropping its entry makes publish refuse its "
+                   "derivative (T-2517).")
     code, made, _ = run_step(script, town, "--only", "a__p.glb", mode="unavailable")
     if code != 0 or made != ["a__p.glb"]:
         rep.append(f"without the toolchain, `--only a` copied {made} (exit {code}) — the "
@@ -479,6 +493,8 @@ def self_test() -> int:
     arm_step("a selection rewrites the record whole",
              web_sh.replace("if only and record.exists():", "if False:"),
              "must merge its masters in")
+    arm_step("a packaged master's entry is dropped as deleted",
+             web_sh.replace("if n in packaged or (", "if ("), "is not deleted")
     print()
     for f in fails:
         print(f"  FAIL  {f}")
