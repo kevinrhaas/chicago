@@ -109,6 +109,12 @@
       "asset": "gltf/burns_house_1812__burns_1812.glb"
     },
     {
+      "id": "coursoll_field_1812",
+      "name": "Coursoll's inclosed field, north of the river, 1812",
+      "sidecar": "sidecars/1812/coursoll_field_1812.json",
+      "asset": "gltf/coursoll_field_1812__coursoll_1808.glb"
+    },
+    {
       "id": "first_fort_covered_way_bank_lower",
       "name": "First Fort Dearborn — the covered way to the river, down the bank, to the water",
       "sidecar": "sidecars/1812/first_fort_covered_way_bank_lower.json",

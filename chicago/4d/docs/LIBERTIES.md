@@ -27337,3 +27337,51 @@ with one of them.
 **Ticket:** T-2504.
 **Recorded:** 2026-10-15 (T-2504).
 **Covers:** `lalime_house_1812.lalime_1812.position`, `lalime_house_1812.lalime_1812.footprint`, `lalime_house_1812.lalime_1812.form.wall_height_m`, `lalime_house_1812.lalime_1812.form.roof_pitch_deg`, `lalime_house_1812.occupants`, `lemai_house_1812.lemai_1812.position`, `lemai_house_1812.lemai_1812.footprint`, `lemai_house_1812.lemai_1812.form.wall_height_m`, `lemai_house_1812.lemai_1812.form.roof_pitch_deg`, `lemai_house_1812.occupants`
+
+### L-1812-coursoll-field-2513 — Coursoll's inclosed field north of the river: its place and size by the north-bank rule, one box for a skewed drawing kept off the house at its corner, its east side and its rails
+
+**Decision:** a worm fence stands in the 1812 scene on the north bank, west of the three houses
+Whistler's draught numbers 31, as `coursoll_field_1812`. **That there was an inclosed field north of
+the river, that it was Coursoll's and that it was worm-fenced is the sources'**: the draught draws it
+with a zigzag lettered 'Worm Fence' and 'Mr Coursell' inside it, and Quaife (1913, p. 167) reads
+Whistler's description as "a house and inclosed field north of the river, belonging to Mr.
+'Coursoll.'" **Its place, its size, its shape, its rails and its dates are this project's.**
+
+**Place and size.** The draught lays down nothing outside the garrison to scale, so the field is
+seated by T-2504's north-bank rule, the one the no. 31 houses beside it stand by: its sheet offset
+from the Kinzie house's drawn centre, opened out by the bank's own expansion (about 2.50, from the
+drafter's '52 yards in length' on the picket) and hung on the Kinzie house as built. The field carries
+no lettered scale and is not a pictorial building, so its outline is opened out by the same expansion
+as its place (the gardens outside the stockade already stand that way, their lettered fifty feet
+being their expansion). That gives 31.0 x 18.2 m, about 560 square metres: small for a field, and as
+uncertain as everything else the drafter compressed.
+
+**Shape.** The drawn corners make a skewed quadrilateral, turned about 29.5 degrees anticlockwise on
+the paper; the archetype fences a rectangle. Its length is the mean of the two drawn long sides. Its
+depth stops short of the drawn south-east side (108 of 141 px), because the westernmost no. 31 house,
+built by T-2504 as Le Mai's, stands across that corner OUTSIDE the fence, and a box carried to the
+drawn side would run the fence through the house; it passes north of it by about 1.6 m instead. The
+turn on the ground is the turn on the paper, and the paper's orientation (its right taken as east) is
+itself inferred.
+
+**The east side.** Three sides are drawn as the zigzag; the east side is a hatched paling running down
+to the bank. It is built as worm fence with the rest.
+
+**Rails and dates.** Four courses to 1.3 m, ten-foot panels stepped three feet, as the garrison's own
+fields are given. The field opens with the sheet (25 January 1808) and closes on 16 August 1812, the
+day the post was burned: nothing mentions it after the sheet.
+
+**Not built:** a house of Coursoll's. The only house drawn at the field is the westernmost no. 31,
+which T-2504 built as Le Mai's from Cooper's names; whether Quaife's Coursoll house of 1808 and
+Cooper's Le Mai are one house in different years is open, and it is not built twice. Nothing is
+planted inside: neither source says what grew there.
+
+**Consequence:** a visitor to 1812 sees a worm-fenced field on the north bank just west of Le Mai's
+house. That a fenced field of Coursoll's stood there is the sources'; its exact place, size, shape and
+rails are ours.
+
+**How to resolve:** any survey or account that places or sizes the Courselles' field, or a reading of
+Kinzie's account books that dates their time at Chicago.
+**Ticket:** T-2513.
+**Recorded:** 2026-10-15 (T-2513).
+**Covers:** `coursoll_field_1812.coursoll_1808.position`, `coursoll_field_1812.coursoll_1808.footprint`, `coursoll_field_1812.coursoll_1808.form.fence_height_m`, `coursoll_field_1812.coursoll_1808.form.rail_courses`, `coursoll_field_1812.coursoll_1808.form.panel_length_m`, `coursoll_field_1812.coursoll_1808.form.panel_offset_m`

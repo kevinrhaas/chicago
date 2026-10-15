@@ -1,0 +1,151 @@
+{
+  "id": "coursoll_field_1812",
+  "phase": "coursoll_1808",
+  "name": "Coursoll's inclosed field, north of the river, 1812",
+  "aka": [
+    "'Mr Coursell' inside a zigzag lettered 'Worm Fence' on Whistler's draught",
+    "'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' (Quaife 1913)"
+  ],
+  "archetype": "palisade",
+  "asset": "gltf/coursoll_field_1812__coursoll_1808.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "documented_range": {
+    "from": "1808-01-25",
+    "to": "1812-08-16",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS FIELD. It opens on 25 January 1808, the date Whistler's draught carries, the one day a source shows the field fenced; it may well be older. That it still stood in August 1812 is continuity, not a reading: nothing in the corpus mentions it after the sheet, and Quaife finds the Courselles at Chicago otherwise only in Kinzie's account books. It closes on 16 August 1812 with the first fort, the day the post was burned and the people about it gone, as every part read by this rule does: a worm fence is stacked rails, and nothing says anybody kept this one through the four years the place stood empty. Closing it then keeps it out of every later scene and adds nothing to one."
+  },
+  "change_note": "Built T-2513 (2026-10-15). Coursoll's worm-fenced field north of the river, in the 1812 scene.",
+  "placement": {
+    "local_e": 1025.8,
+    "local_n": 326.25,
+    "rotation_deg": 330.5,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "position_note": "PLACED BY T-2504's NORTH-BANK RULE, NOT MEASURED. The draught lays nothing outside the garrison down to scale, so this is the sheet's ARRANGEMENT opened out: the field's box offset from the Kinzie house's drawn centre (no. 30, px 1335, 501.5), multiplied by the bank's own expansion (about 2.50: the drafter's '52 yards in length' on the picket between two of the no. 31 houses against its drawn length), added to kinzie_house_1812's footprint centre. That rule, not the main gate's, is the one the houses beside it stand by, so the field keeps its drawn place against them. The field's box on the sheet is px [547, 433, 731, 541] about its centre, drawn turned 29.5 degrees anticlockwise. tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m, refuses any corner on the committed 1812 water, and refuses the field standing on any of the houses. The sheet's orientation (its right taken as east) is itself inferred, so the turn on the ground is the turn on the paper and no more (L-1812-coursoll-field-2513).",
+    "symbolic_location": "The north bank of the main river, west of the three houses Whistler's draught numbers 31, Le Mai's house (lemai_house_1812) standing outside its south-east corner; fort-frame box E -435.3..-333.6 ft, N +366.5..+426.1 ft by the north-bank rule (data/traces/whistler_1808_fort_dearborn.json north_bank, part 'coursoll_field'), drawn turned 29.5 degrees anticlockwise and seated turned by it, the box in the field's own axes about its centre. This record's origin is the box's south-west corner turned with it.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        30.998,
+        0
+      ],
+      [
+        30.998,
+        18.166
+      ],
+      [
+        0,
+        18.166
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "THE DRAWN OUTLINE, OPENED OUT WITH ITS PLACE. No scale is lettered at the field, so its box is opened by the bank's expansion: 30.998 x 18.166 m, about 560 square metres. The sheet's corners make a skewed quadrilateral and the archetype fences a rectangle, so the box stands for it: its length is the mean of the two drawn long sides, and its depth stops short of the drawn south-east side (108 of 141 px) so that the fence passes north of Le Mai's house, which the sheet draws outside the fence at that corner, by about 1.6 m. A field this size is small: the drafter compresses the ground outside the fort, and the size is as uncertain as the place (L-1812-coursoll-field-2513)."
+  },
+  "attributes": {
+    "wall_kind": {
+      "value": "worm_fence",
+      "confidence": "inferred",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "note": "Lettered 'Worm Fence' along the field's south-west side and drawn as a zigzag on three sides, so a worm fence is the sheet's own word for it. The east side is drawn as a hatched band instead, running down to the bank like the paling along it, and is built as worm fence with the rest; that the whole round was one fence is the inference (L-1812-coursoll-field-2513)."
+    },
+    "construction": {
+      "value": "split_rail",
+      "confidence": "inferred",
+      "note": "A worm fence is stacked split rails by construction; it has no posts and nothing is set in the ground."
+    },
+    "fence_height_m": {
+      "value": 1.3,
+      "confidence": "reconstructed",
+      "note": "Unattested. About four and a half feet, the ordinary height of a worm fence that has to keep stock out of a field, as the garrison's own fields here are given."
+    },
+    "rail_courses": {
+      "value": 4,
+      "confidence": "reconstructed",
+      "note": "Unattested. Four courses, as the garrison's cornfield at the forks is given, for a field with cattle about."
+    },
+    "panel_length_m": {
+      "value": 3.0,
+      "confidence": "reconstructed",
+      "note": "Unattested. Ten feet, which is a split rail's length."
+    },
+    "panel_offset_m": {
+      "value": 0.9,
+      "confidence": "reconstructed",
+      "note": "Unattested. How far each panel steps off the line, which is what makes the zigzag; three feet is the ordinary lay."
+    },
+    "function": {
+      "value": "fenced_field",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
+      ],
+      "note": "'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' (Quaife 1913 p. 167, reading Whistler's description); the draught letters it 'Mr Coursell'. Quaife: 'There were two Courselles, one of them a well-known trader, but the only other record of either of them being at Chicago is the recurrence of their names in Kinzie's account books.'"
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    }
+  ],
+  "research_note": "COURSOLL'S FIELD (T-2513, piece 2 of T-2506). Whistler's draught of January 1808 draws one field north of the river, a worm fence round it and 'Mr Coursell' lettered inside; Quaife reads his description as 'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' ONLY THE FENCE IS BUILT, and nothing inside it: neither source says what grew there. The only house the sheet draws at the field is the westernmost of the three no. 31 houses, outside its south-east corner; T-2504 built it once, as Le Mai's (lemai_house_1812), from Cooper's names, so Quaife's 'house ... belonging to Mr. Coursoll' and Cooper's Le Mai may be one house in different years, and that is the open question, not a second house. Placed and sized by the north-bank rule the houses beside it stand by (L-1812-coursoll-field-2513).",
+  "research_doc": "",
+  "review_required": false
+}
