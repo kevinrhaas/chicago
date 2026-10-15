@@ -2,7 +2,7 @@
  "structure_id": "lees_place_cabin_1812",
  "view": "currey_1912_hardscrabble",
  "glb": "assets/gltf/lees_place_cabin_1812__lees_place_1812.glb",
- "glb_sha256": "8739eb89f844f386fe4160b7418522bf7d657d9d33bd1bbc0fd8b60c870d1ba6",
+ "glb_sha256": "836be0c83d62ee7f880963c8f4012b58bf4407a49f370047ba49266a173cbcac",
  "camera_sha256": "84b0226acb4491942f88906ecbcfaffda30e832023e2c4e6fac60cb10f2f31b2",
  "side_by_side": "docs/RESEARCH/photo-match/lees_place_cabin_1812/currey_1912_hardscrabble-side-by-side.jpg",
  "verdict": "differs",
@@ -10,32 +10,32 @@
   {
    "what": "massing: a long, low, one-storey house with its ridge along the river front, the front about two and a half times the gable end",
    "status": "fixed",
-   "how": "T-2509: log_dwelling on a 14.6 x 5.5 m plan with a 2.4 m wall. The camera is fitted to the front's four corners, so their landing is not a test; the test is the ridge, whose right end the record's 30 degree roof puts at (380.4, 163.2) against the plate's (379.3, 167.1)"
+   "how": "T-2509: log_dwelling on a 14.6 x 5.5 m plan with a 2.4 m wall. T-2511 lowered the roof from 30 to 24 degrees, which brings the ridge's right end from y 163.2 px down to the drawing's 167 (the render's ridge now reads at 166)"
   },
   {
-   "what": "the river front's openings: three doors and six small windows in the order window, door, window, window, door, window, window, door, window; the build has the archetype's one door between two windows",
-   "status": "open",
-   "how": "log_dwelling builds its front from core_front_rects, one door and two windows a storey, and states no other set-out. Giving it one is an archetype change that re-hashes every log dwelling's mesh: T-2511"
+   "what": "the river front's openings: three doors and six small windows in the order window, door, window, window, door, window, window, door, window",
+   "status": "fixed",
+   "how": "T-2511: log_dwelling gained a stated front set-out (front_set_out), and the record gives the nine openings in the plate's order, each centre read off the plate on a 1 px grid and carried onto the wall through this camera. Doors 1.2 m and windows 0.85 x 0.8 m wide as read, bare sash with no shutters as drawn. The heads stand on one line as the plate draws them, but at 1.7 m rather than the drawing's 1.5 m (see the last difference)"
   },
   {
-   "what": "the stack: the plate stands it outside the LEFT (upstream) gable as seen from the river; the build stands it against the right (downstream) gable",
-   "status": "open",
-   "how": "log_dwelling always puts a single stack at the low end of the ridge's axis (_chimneys, at_min=True), and the record cannot choose the end: T-2511"
+   "what": "the stack: the plate stands it outside the LEFT (upstream) gable as seen from the river",
+   "status": "fixed",
+   "how": "T-2511: chimney_end 'max' puts it on the upstream gable, and chimney_cross_m slides it to that gable's front corner, which is where this camera puts the drawn stack (x 308-322 px against the drawing's 310-325; centred it stood at 289-302). chimney_head_m holds its head at 3.9 m, at the drawing's y 165 and just clear of the ridge, where the archetype's rule stood it 10 px taller"
   },
   {
    "what": "a lower gabled lean-to beyond the stack at the left end, drawn gable-on to the viewer",
-   "status": "open",
-   "how": "log_dwelling's frame_addition is a FRAME addition and builds clapboard, not a log or plank lean-to, and stands its stack differently: T-2511. The lean-to's own perspective disagrees with the main roof's, so its size is read only roughly"
+   "status": "fixed",
+   "how": "T-2511: lean_to builds a plank shed against the upstream gable behind the stack, its ridge across the house's so its gable faces the river: 2.3 m out, 1.8 m across, a 2.2 m eave and a 45 degree roof. Its gable lands at x 297-313 px against the drawing's 297.5-312, its eave at y 184 against 184, its apex about 171 against 172. Its board door is this project's"
   },
   {
-   "what": "the walls: the plate draws them smooth and pale with no courses and no notched corners, as whitewash or as a wash drawing's convention; the build shows round logs with saddle-notched corners",
-   "status": "open",
-   "how": "Currey's text calls it a log cabin (lines 1456-1457) and the record grades construction 'log' attested on that; whether the plate's pale walls are whitewash or the illustrator's shorthand cannot be settled from a monochrome wash drawing, so it is left open for T-2511 to rule on rather than built either way"
+   "what": "the walls: the plate draws them smooth and pale with no courses and no notched corners",
+   "status": "fixed",
+   "how": "T-2511 ruled whitewash, at the reconstructed tier (log_finish, L-1812-lees-place-2511): the plate draws the lean-to's boards, the fence's rails and the stack's shade where it saw them, so the flat pale wall reads as a coat rather than the wash drawing's shorthand. The logs and chinking are whitewashed together; the notched ends at the corners still show as relief, which the drawing at 2 px a course does not resolve"
   },
   {
-   "what": "the roof's tone: the plate draws the roof much darker than the walls; the build's shingles are pale",
-   "status": "open",
-   "how": "Tone, not colour: a monochrome print can still say the roof was darker than the walls. Weathered shakes or bark would read so; the build's roof finish is the archetype's. T-2511"
+   "what": "the roof's tone: the plate draws the roof much darker than the walls",
+   "status": "fixed",
+   "how": "T-2511: roof_condition 'darkened', the sheet's weather-blackened condition, so the roof now reads darker than the whitewashed walls as the print draws it. The print's near-black is a solid wash; how much darker it means is not a measure a monochrome drawing gives"
   },
   {
    "what": "colour",
@@ -46,8 +46,18 @@
    "what": "the back wall and the right (downstream) gable",
    "status": "not shown",
    "how": "The plate sees the front and the left end only"
+  },
+  {
+   "what": "the lean-to's upstream side and roof slope show in the render, about 17 px of wall left of its gable; the plate draws the lean-to flat to the viewer with no side",
+   "status": "open",
+   "how": "Argued unbuildable, not left undone: through this camera any lean-to with depth shows a side here (a ridge along the house instead shows its gable 15-25 px wide and its side between it and the stack), and only a shed under a metre deep could look as the plate draws it. T-2509's solve already records that the lean-to's perspective disagrees with the main roof's and that the two cannot both hold. Narrowed to 1.8 m to keep the side small; the picture is wrong here about any building that could have stood there"
+  },
+  {
+   "what": "the door and window heads stand at 1.7 m, about 1-2 px higher than the drawing's 1.5 m",
+   "status": "open",
+   "how": "Deliberate: the plate's door heads read 1.49-1.54 m over grade through the camera, lower than a person walks under, so the build keeps a low cabin door of 1.7 m and the drawing's single line of heads (L-1812-lees-place-2511)"
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
- "note": "Reviewed by T-2509 against the side-by-side. The plate is a retrospective wash drawing (tier 5) by an unnamed illustrator, about a century after the farm, and may as well show the later trading house on the same premises; it is still the one picture of the place, and the image gate builds toward it. The massing and the roof's height agree; the opening set-out, the stack's end, the lean-to, the walls' finish and the roof's tone do not, and each needs the log_dwelling archetype to state what it builds today by rule. That change re-hashes all 72 log dwellings, which is T-2511's run, not this one."
+ "note": "Reviewed by T-2511 against the side-by-side, element by element: the massing, the nine openings in the plate's order, the stack on the upstream gable and its height, the lean-to, the walls' finish and the roof's tone are each built as the plate shows them. Two differences stay open and are argued rather than built: the lean-to's side, which the drawing's own perspective cannot hold for any lean-to with depth, and the door heads, kept at a height a person can walk under. The plate is a retrospective wash drawing (tier 5) by an unnamed illustrator, about a century after the farm."
 }

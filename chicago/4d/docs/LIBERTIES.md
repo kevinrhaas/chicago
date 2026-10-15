@@ -27217,6 +27217,32 @@ the premises between 1812 and 1822.
 **Recorded:** 2026-10-15 (T-2509).
 **Covers:** `lees_place_cabin_1812.lees_place_1812.documented_range`, `lees_place_cabin_1812.lees_place_1812.position`, `lees_place_cabin_1812.lees_place_1812.footprint`, `lees_place_cabin_1812.lees_place_1812.form.wall_height_m`, `lees_place_cabin_1812.lees_place_1812.form.roof_pitch_deg`, `lees_place_field_fence_1812.lees_place_1812.documented_range`, `lees_place_field_fence_1812.lees_place_1812.position`, `lees_place_field_fence_1812.lees_place_1812.footprint`, `lees_place_field_fence_1812.lees_place_1812.form.fence_height_m`, `lees_place_field_fence_1812.lees_place_1812.form.rail_courses`, `lees_place_field_fence_1812.lees_place_1812.form.panel_length_m`, `lees_place_field_fence_1812.lees_place_1812.form.panel_offset_m`, `lees_place_field_fence_1812.lees_place_1812.form.gate_sides`, `lees_place_field_fence_1812.lees_place_1812.form.gate_width_m`
 
+### L-1812-lees-place-2511 — Lee's Place cabin built to the Currey plate: its openings' sizes, the stack's place on its gable, the lean-to and the whitewash
+
+**Decision:** `lees_place_cabin_1812` is rebuilt toward the 1912 plate (`currey_1912_hardscrabble_plate`,
+tier 5) through its solved camera. **What the plate shows is read as inferred:** the river front's
+order of three doors and six windows, the stack against the upstream gable, a gabled plank lean-to
+beyond it, bare sash with no shutters, and a roof drawn much darker than the walls. **What is this
+project's:** every opening's size (doors 1.2 m wide, windows 0.85 x 0.8 m, read off the plate to
+about 0.2 m an edge); the doors' 1.7 m height, which is deliberately NOT the plate's 1.5 m, because
+the drawing's heads stand lower than a man walks under; the stack slid to the gable's front corner with its head at 3.9 m,
+which is where the camera puts the drawn stack; the lean-to's 2.3 x 1.8 m plan behind the stack, its 2.2 m eave and
+45 degree roof, sized to the plate only roughly because its perspective disagrees with the main
+roof's; and the whitewash on logs and chinking. That last is the ruling T-2509 left open: the plate
+draws the walls smooth and pale while it draws boards, rails and shadow where it saw them, so a coat
+is the likelier reading of the drawing, but no source says the cabin was whitewashed and a wash
+drawing a century later cannot prove it.
+
+**Consequence:** a visitor to 1812 sees a long whitewashed cabin with three doors on the river and a
+stack and lean-to at its upstream end, as the one picture of it draws. The order of the openings is
+the picture's; their sizes, the coat and the lean-to's measure are ours.
+
+**How to resolve:** any description of the cabin or of Crafts's trading house on the premises; a
+second picture; a survey or inventory of the farm.
+**Ticket:** T-2511.
+**Recorded:** 2026-10-15 (T-2511).
+**Covers:** `lees_place_cabin_1812.lees_place_1812.form.door_w_m`, `lees_place_cabin_1812.lees_place_1812.form.door_h_m`, `lees_place_cabin_1812.lees_place_1812.form.window_w_m`, `lees_place_cabin_1812.lees_place_1812.form.window_h_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_length_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_width_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_wall_m`, `lees_place_cabin_1812.lees_place_1812.form.lean_to_pitch_deg`, `lees_place_cabin_1812.lees_place_1812.form.chimney_head_m`, `lees_place_cabin_1812.lees_place_1812.form.log_finish`
+
 ### L-glessner-finish-2226 — Plain brick joints and gate member grain
 
 **Ticket:** T-2226.
