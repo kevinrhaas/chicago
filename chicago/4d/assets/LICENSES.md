@@ -992,3 +992,14 @@ not the unavailable native original. No photographic pixels become textures.
 Gate finish and hidden joints are procedural bounded reconstructions; no
 uncleared photograph is traced. Research browser screenshots are generated
 from this project's scene and contain no imported reference photograph.
+
+### Glessner courtyard ground (T-2224)
+
+The regenerated Full/web/Light model and recovery assets retain the existing model
+license. New functional circulation is independently reconstructed from the cleared
+HABS IL-1015 sheet 2 opening/stair locations and public-domain written alteration
+history. HABS05 is rights-uncleared and is not traced for this work. The plan does not
+identify 1904 paths or paving materials; those choices are declared in
+L-glessner-court-ground-2224. Existing original procedural gravel and turf textures
+are unchanged. Browser screenshots and the schematic ground plot are generated
+project diagnostics, not reproductions of a historical courtyard photograph.

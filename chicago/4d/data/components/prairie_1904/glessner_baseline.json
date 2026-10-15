@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 186975288,
-      "sha256": "8f79a0b3d875c9701a9c93f89d83184f5c25f4d350401eacc42cd6e1e117a121",
+      "bytes": 187009784,
+      "sha256": "af938f644a23e6bb6062e078326712eb918fce7b754123412bd26c7ab1a52bd9",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,13 +21,13 @@
       "mesh": {
         "draw_primitives": 29,
         "materials": 29,
-        "triangles": 1315351,
-        "vertices": 3013463
+        "triangles": 1315670,
+        "vertices": 3014138
       },
       "texture": {
         "images": 34,
         "textures": 69,
-        "encoded_bytes": 27323858,
+        "encoded_bytes": 27324026,
         "pixels": 57146696,
         "gpu_rgba8_mip_bytes": 304782379,
         "largest_px": 2048
@@ -68,7 +68,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 2363,
+        "degenerate": 2367,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -329,8 +329,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 53506044,
-      "sha256": "65ff71de05b55266d278c16e80755cec1f333822b8c4e273350393ed727807e7",
+      "bytes": 53510216,
+      "sha256": "6ac7ed6c9dded67ad9e3115099446292f566035903ad67feb408409e5d3ea574",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -349,13 +349,13 @@
       "mesh": {
         "draw_primitives": 29,
         "materials": 29,
-        "triangles": 1315351,
-        "vertices": 2400542
+        "triangles": 1315670,
+        "vertices": 2400909
       },
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 27898739,
+        "encoded_bytes": 27898687,
         "pixels": 56098120,
         "gpu_rgba8_mip_bytes": 299189973,
         "largest_px": 2048
@@ -397,7 +397,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 3145,
+        "degenerate": 3166,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -452,13 +452,13 @@
           "uv_per_m_times_tile_m": 1.0006
         },
         "drive": {
-          "median_uv_per_m": 0.5,
+          "median_uv_per_m": 0.5001,
           "fabric": "gravel",
           "tile_m": [
             2,
             2
           ],
-          "uv_per_m_times_tile_m": 1.0001
+          "uv_per_m_times_tile_m": 1.0002
         },
         "granite": {
           "median_uv_per_m": 0.6251,
@@ -526,13 +526,13 @@
           ]
         },
         "lawn": {
-          "median_uv_per_m": 0.4178,
+          "median_uv_per_m": 0.4167,
           "fabric": "turf",
           "tile_m": [
             2.4,
             2.4
           ],
-          "uv_per_m_times_tile_m": 1.0027,
+          "uv_per_m_times_tile_m": 1,
           "texture_transform_scale": [
             0.6,
             0.6
@@ -643,8 +643,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27976312,
-      "sha256": "bb29e241736ec543e155895e56c4fa5c3e6dd9403daacb00a3241b78f678ede8",
+      "bytes": 27981920,
+      "sha256": "b7e23616c59449ea393f112fab47425ba2ce507b71e785e38ba5b8fe621cf02f",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -663,13 +663,13 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 199475,
-        "vertices": 388821
+        "triangles": 199794,
+        "vertices": 389384
       },
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 24557306,
+        "encoded_bytes": 24557348,
         "pixels": 52952392,
         "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
@@ -771,7 +771,7 @@
             2,
             2
           ],
-          "uv_per_m_times_tile_m": 1
+          "uv_per_m_times_tile_m": 1.0001
         },
         "granite": {
           "median_uv_per_m": 0.6254,
@@ -839,13 +839,13 @@
           ]
         },
         "lawn": {
-          "median_uv_per_m": 0.4164,
+          "median_uv_per_m": 0.4167,
           "fabric": "turf",
           "tile_m": [
             2.4,
             2.4
           ],
-          "uv_per_m_times_tile_m": 0.9993,
+          "uv_per_m_times_tile_m": 1,
           "texture_transform_scale": [
             0.6,
             0.6

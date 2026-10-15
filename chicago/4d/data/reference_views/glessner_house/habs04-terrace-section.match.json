@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-terrace-section",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "65ff71de05b55266d278c16e80755cec1f333822b8c4e273350393ed727807e7",
+  "glb_sha256": "6ac7ed6c9dded67ad9e3115099446292f566035903ad67feb408409e5d3ea574",
   "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
   "verdict": "differs",
@@ -37,6 +37,10 @@
     },
     {
       "what": "T-2223: Re-rendered and visually reviewed on the final T-2223 canonical web asset. The curved hall-terrace stair is separate from the service stair refined here; its continuous cap and lower stair support are retained. The cap shoulder, paired opening proportions and section alignment still differ from the drawing. These remain T-2228 issues; no acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The narrow ground band now retains turf beside, rather than beneath, the paved approach and stair. The terrace rail/cheek, curved coping, full tread run and barred paired opening remain. The drawing supplies no 1904 paving layout; the path finish is separately reconstructed. Coping/section correspondence and material differences remain open. No camera refit or whole-house acceptance promotion.",
       "status": "open"
     }
   ],

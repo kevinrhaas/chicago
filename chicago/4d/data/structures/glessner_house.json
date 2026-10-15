@@ -2012,10 +2012,6 @@
                     63.3
                   ],
                   [
-                    110.0,
-                    63.3
-                  ],
-                  [
                     161.25,
                     61.3
                   ],
@@ -2024,23 +2020,99 @@
                     70.8
                   ],
                   [
-                    110.0,
-                    72.9
-                  ],
-                  [
                     26.5,
                     72.9
                   ]
                 ]
               }
-            ]
+            ],
+            "finish": {
+              "walks": [
+                {
+                  "id": "west-service-approach",
+                  "outline": [
+                    [
+                      125.75,
+                      63.501312
+                    ],
+                    [
+                      121.75,
+                      63.501312
+                    ],
+                    [
+                      121.75,
+                      39.551181
+                    ],
+                    [
+                      125.75,
+                      39.551181
+                    ]
+                  ]
+                },
+                {
+                  "id": "north-stair-approach",
+                  "outline": [
+                    [
+                      121.75,
+                      45.100066
+                    ],
+                    [
+                      107.116142,
+                      45.100066
+                    ],
+                    [
+                      107.116142,
+                      41.100066
+                    ],
+                    [
+                      121.75,
+                      41.100066
+                    ]
+                  ]
+                },
+                {
+                  "id": "terrace-approach",
+                  "outline": [
+                    [
+                      36.906168,
+                      63.299869
+                    ],
+                    [
+                      32.805118,
+                      63.299869
+                    ],
+                    [
+                      32.805118,
+                      52.674541
+                    ],
+                    [
+                      31.799869,
+                      51.799869
+                    ],
+                    [
+                      33.863189,
+                      46.783793
+                    ],
+                    [
+                      36.906168,
+                      48.081365
+                    ]
+                  ]
+                }
+              ],
+              "path_lift_ft": 0.12,
+              "wall_fall_ft": 0.024,
+              "wall_fall_run_ft": 4.0,
+              "turf_lift_ft": 0.05,
+              "wall_fall_start_S": 59.75
+            }
           },
           "confidence": "reconstructed",
           "sources": [
-            "habs_glessner_photo_05_court_c1923",
+            "habs_glessner_house_il_1015_drawings",
             "habs_glessner_house_il_1015_data_pages"
           ],
-          "note": "The courtyard was not a paved lot before 1946 (HABS data p. 2: 'entirely paved' then). HABS photograph 5 (c. 1923) shows it as a lawn with a hard carriage drive running from the underpass exit along the south side toward the alley gate. That is nineteen years after the scene date, so for 1904 the lawn and the drive's line are RECONSTRUCTED on that photograph's evidence rather than claimed from it; the drive's surface (the 1923 print reads as concrete) is drawn a neutral pale gravel tone. docs/LIBERTIES.md L295."
+          "note": "T-2224 independently reconstructs circulation from the cleared HABS sheet 2 gate, passage and stair positions. The drive is a straight ruled connection between the gate and passage jambs, replacing the earlier photograph-based intermediate bend; no new geometry is derived from rights-uncleared HABS05. The measured plan does not draw a 1904 paving layout. The 4-foot pedestrian approaches, their outlines, pale compacted gravel surface, cut lawn edge and shallow falls away from the west masonry are RECONSTRUCTED functional choices, not a traced historical garden. Path and material choices are separate: gravel is a permeable period-plausible surface, not material identified in the plan. HABS data printed p2 records complete parking paving in September 1946; that surface is excluded. West access allows for the separate court-side stair whose chronology and final geometry remain T-2228. Solid building/step footprints and all hard surfaces are cut out of turf. Gate and passage connections retain the 0.12-ft surface datum. L-glessner-court-ground-2224."
         },
         "porte_cochere_doors": {
           "value": "two oak leaves, each three panels wide and six high, every square panel sunk in a circular moulding; a horizontal iron strap two rows up with a lock plate and two ring pulls; scroll-ended strap hinges",

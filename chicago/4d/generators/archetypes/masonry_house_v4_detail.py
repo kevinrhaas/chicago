@@ -1973,9 +1973,10 @@ def build(params,name):
     b.decorate=True
     for w in params.walls:gate_piece(b,w)
     b.decorate=False
-    for g in params.ground:legacy._ground(b,g)
+    from archetypes.masonry_house_v4_ground import build as build_ground
+    grass_params=build_ground(b,params)
     add_frontage(b,params)
-    grass_blades=add_lawn_blades(b,params)
+    grass_blades=add_lawn_blades(b,grass_params)
     ornament.columns(b,params)
     roof_ridges(b,params)
     b.decorate=True
