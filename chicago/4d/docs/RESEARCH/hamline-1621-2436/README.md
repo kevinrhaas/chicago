@@ -70,3 +70,51 @@ him. Farwell's number is unchanged.
   by borrowing 1619's.
 - **For T-2434: the house without a picture is 1619**, not a third house of the 1621-1625 group,
   each of which now has one.
+
+## The build moved (T-2440)
+
+T-2440 (piece 2 of T-2436) moved the drawing's build — T-2420's K01 house, T-2428's wall gable,
+T-2459's roof and crow-stepped south wall, T-2460's stone cornice — from `house_1619_prairie` to
+`house_1621_prairie`, and stood 1619 back as its district draft (`tools/draft_prairie_1904.py`: the
+rules' `skip` now names `s20-1621-f` and no longer `s20-1619-f`), so the front a visitor sees at 1619
+is no longer the house next door's. T-2434 owns 1619's own picture-less front.
+
+**The plan is 1621's.** From the trace `s20fp-1621-b1` in the lot frame: the street wall at u 35.15,
+the north wall at v -3.6, the front's south wall at v 2.6, so a 6.2 m front; the bay bulges about
+1.02 m over about v 0.25-2.5 (a 2.3 m chord) at the south end, built 0.3 m clear of the corner as K01
+requires; the main body 13.3 m deep, as the drawing's roof was built at 1619, and the rest of the
+one '3B' part, 6.1 m at the same width, a rear range. Not built: the half-round rear end, the strip
+behind the passage and its light well (as 1623's build leaves its own side of it).
+
+**The camera is the plate's one station point.** T-2433 had already carried T-2420's eye to Farwell's
+1623 next door; here the same eye is carried into 1621's frame through both placements (u 33.35, v
+10.54: 20.05 m off the street wall, 4.3 m south of the south wall, in front of the driveway), and
+nothing is fitted to Hamline's front. So the residuals are the disagreement itself:
+
+| | drawing (px in the panel) | 1621 on the sheet, through the camera |
+|---|---|---|
+| bow's south junction | x 443 | x 436 (the 0.3 m pier K01 keeps) |
+| front's south corner | at the bow | x 450 |
+| bow's north junction | x 273 | x 330 |
+| north strip's outer edge | x 210 | x 165 |
+
+The drawing's bow is about 3.7 m at the plate's scale against the sheet's 2.3 m, and its front about
+5.1 m against 6.2 m. T-2420 scaled on 1619's 3.76 m bow; at 1621 the bow cannot be the scale, because
+every storey would then be 1.6 times the drawing's. The heights stay the drawing's, which its own floor
+bands confirm to about 10 %, and the widths are the sheet's.
+
+**What the narrower front changed.** The bow's lights are 0.75 m wide at -30 and +30 degrees (two
+1.1 m lights overlap on a 2.3 m chord). The wall gable is 2.5 m across, its lights 0.55 m and its
+pinnacles 3.1 m apart, 0.45 m north of the bow's centre as the drawing sets it: K01 keeps a pinnacle
+clear of the face's cornice return and on the front, and a wider face's valley ran into the
+crow-stepped south wall (the roof's dressing refused it). The first stack stands 0.62 m behind the
+ridge, clear of the gable's body. The sheet's '3B' now agrees with the drawing's two storeys and a
+roof storey, where 1619's '4' never did.
+
+![the drawing and the build at 1621](../photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg)
+
+Liberty `L-k01-1621-hamline-front-2440` takes over the four 1619 entries' inventions and the three
+new widths; `L-1619-wears-hamline-front-2436` and the four are retired. The match record
+(`data/reference_views/house_1621_prairie/building_budget_front.match.json`) stays `differs`, with
+the balcony rail, the arched entrance, the side stoop and the basement arches open for T-2422, which
+now builds at 1621.

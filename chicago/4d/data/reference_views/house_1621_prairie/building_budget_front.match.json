@@ -1,0 +1,83 @@
+{
+  "structure_id": "house_1621_prairie",
+  "view": "building_budget_front",
+  "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
+  "glb_sha256": "a91788807fe2c52e72b43f5818a4ce908f2f5655674588ad1c9b4eb63bb17f72",
+  "camera_sha256": "6222a0879a57a2c0bd3f87866f0fd82d3834acd772c43f2cb1c31c72deb02a7b",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a stone town house with a full-height swell bay rising from the raised basement to the wall head, a narrow entrance strip north of it, and its south side wall in shade along the driveway; the draft stood a grey flat-roofed box",
+      "status": "fixed",
+      "how": "T-2420, moved to 1621 by T-2440: K01 frontage on the 1911 sheet's plan of 1621, a K02 smooth limestone front, the K08 bow on the sheet's 2.3 m chord and 1.02 m rise at the south end of the front, rising from grade to the cornice; through the plate's one station point the bow's south edge lands about 7 px from the drawing's, its top within about 5 px, and its north edge about 57 px right of the drawing's (the bow's width, below)"
+    },
+    {
+      "what": "bow lights: two a storey either side of a central pier in the principal and second storeys, tall, under flat heads",
+      "status": "fixed",
+      "how": "T-2420, narrowed by T-2440: two K06 two-over-two sash a storey at -30 and +30 degrees on the bow, 0.75 m wide (the drawing's are about 1.1 m: two such lights overlap on the sheet's 2.3 m chord), their heads and sills the drawing's, within about 15 px"
+    },
+    {
+      "what": "storey lines: the principal floor at the stoop's head, the second floor at the bow's string course, the wall head at the bow's top",
+      "status": "fixed",
+      "how": "T-2420: a 1.4 m principal floor and 3.9 m storeys; through the camera, carried unchanged to 1621, they fall within about 15 px of the drawing's bands"
+    },
+    {
+      "what": "the roof storey: the drawing lights it with a steep pedimented WALL GABLE rising from the wall over the bow, about 3.4 m across, with three short segment-headed lights under radiating voussoirs, a horizontal cornice, a raking cornice round a recessed pediment panel, a finial at the apex and two pinnacle shafts at its foot; T-2420 built a single-light pedimented dormer set on the hip in its place",
+      "status": "fixed",
+      "how": "T-2428, moved and narrowed by T-2440: the K05 dormer as a wall gable (dormer.wall_gable), its face on the wall's plane 0.45 m north of the bow's centre as the drawing sets it, three K06 segmental lights under seven-stone voussoir blocks, K10's cornices, a recessed pediment panel, a turned finial and two square pinnacles. Its heights are the drawing's (the pediment's foot within about 5 px, its apex within about 10 px); its width is 2.5 m against the drawing's 3.4 m, its lights 0.55 m against 0.75 m and its pinnacles 3.1 m apart against 3.8 m, so that the pinnacles stand on the sheet's narrower front and the gable's valley clears the crow-stepped south wall: about 20 px narrower each side through the camera"
+    },
+    {
+      "what": "the roof behind: the drawing slates a steep roof whose south parapet steps up from the front in crow steps to a tall stack; the build has a 45-degree slate hip (the K01 contract's steepest) with plain eaves and two stacks against the south wall",
+      "status": "fixed",
+      "how": "T-2459, moved by T-2440: K01's gable roof, the street slope at 45 degrees to a ridge along the front 4.23 m back at 13.43 m, and the house's south side wall carried up as a five-step crow-stepped parapet to a level head at 13.73 m and a 0.9 m stack rising in the wall's plane to 15.03 m. At 1621 the stack stands 0.62 m behind the ridge, clear of the narrower front's wall gable; through the camera its top lands about 12 px under the drawing's and about 30 px left of it, and the steps rise from the cornice to the stack as the drawing's do, now from a corner within about 10 px of the drawing's, since the sheet's 1621 has no wide pier south of its bay"
+    },
+    {
+      "what": "the cornice: the drawing runs a moulded stone cornice at the bow's top that carries the balcony, and across the front at the same line; the build hung K10's bracketed timber cornice under the eave, with the bow stopping under it at 8.2 m in a plain timber eave",
+      "status": "fixed",
+      "how": "T-2460, moved by T-2440: K10's moulded stone cornice swept along the street front under the K05 soffit (8.24-8.6 m) and round the bow's top as its own eaves, one moulding; through the camera it lands within about 10 px of the drawing's"
+    },
+    {
+      "what": "the balcony: an iron (or turned) rail round the top of the bow; the build's bow ends in a plain deck",
+      "status": "open",
+      "how": "T-2422"
+    },
+    {
+      "what": "the entrance: a recessed round-arched doorway with voussoirs in the north strip, and over it at the second floor a small ornate light above a carved panel; the build has a flat-headed panelled door under a K09 hood and a plain sash over it",
+      "status": "open",
+      "how": "T-2422"
+    },
+    {
+      "what": "the stoop: the drawing's climbs beside the strip, parallel to the front, behind a stone cheek; the build's is a straight stoop toward the street",
+      "status": "open",
+      "how": "T-2422"
+    },
+    {
+      "what": "the basement: two segmental-headed lights under the bow with iron grilles, about 0.9 m high; the build's bow is blind in its basement (the K08 kit refuses a light under a bay's clear wall)",
+      "status": "open",
+      "how": "T-2422"
+    },
+    {
+      "what": "the front's widths: the drawing draws a north strip of about 1.4 m beside a bow of about 3.7 m (its inset plan puts the strip at about a third of the front); 1621's 1911 sheet traces a 6.2 m front, 3.6 m of it north of a 2.3 m bay at the south end, so the build's strip is about 45 px wider at its outer edge and its bow about 57 px narrower at its north edge. The sheet controls the plan (the survey of what stood nearer the scene, against the 1886 design)",
+      "status": "not shown",
+      "how": "argued in the camera's solve and docs/RESEARCH/hamline-1621-2436/README.md (T-2440): either the bow was built narrower than drawn or the sheet's bay is a later one, and no picture after 1886 is known to say which; the plan is built to the sheet and the heights to the drawing"
+    },
+    {
+      "what": "the pier south of the bow: the drawing carries the bow to the south corner; K01 keeps a bay 0.3 m clear of a corner, where the sheet draws it about 0.1-0.2 m off (about 7 px at the corner)",
+      "status": "not shown",
+      "how": "the kit's minimum pier, within the trace's own precision; T-2440"
+    },
+    {
+      "what": "storey count: the 1911 sheet prints '3B' over 1621, three storeys and a basement; the drawing shows two full storeys over a raised basement and a third in the roof under its gable, which is what is built",
+      "status": "fixed",
+      "how": "T-2440: at 1621 the sheet's '3B' and the drawing agree (at 1619 the sheet's '4' did not), the roof storey counted as the third"
+    },
+    {
+      "what": "colour and tone: the drawing is a monochrome pen plate",
+      "status": "not shown",
+      "how": "the stone (Bedford limestone), brick and paint are reconstructed, L-k01-1621-hamline-front-2440; the 1911 sheet reads 1621 'brick' and does not mark the stone front the drawing draws"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-2440, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, after the build moved here from 1619 and the camera was re-solved as the plate's one station point in 1621's frame: massing, the bow's lights, the storey lines, the wall gable, the roof and crow steps, and the cornice stay fixed at the sheet's narrower plan (the widths argued not shown); the storey count is now fixed, the sheet's '3B' agreeing with the drawing; the balcony's, entrance's, stoop's and basement's still open for T-2422"
+}

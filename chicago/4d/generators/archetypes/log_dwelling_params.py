@@ -38,6 +38,8 @@ parameter.
 
 from __future__ import annotations
 
+import math
+
 from dataclasses import dataclass, field
 
 # Confidence values as they are written into the _CONFIDENCE glTF attribute.
@@ -103,6 +105,11 @@ SIGN_MOUNTS = ("bracket", "sapling_pole")
 SIGN_DEVICES = (None, "wolf")
 
 ADDITION_SIDES = ("front", "end")
+PIAZZA_ROOFS = ("hung", "swept")
+GABLE_ENDS = ("+x", "-x")
+END_OPENING_KINDS = ("door", "window", "light")
+LIGHT_HALF_W_M = 0.35   # an end wall's or gable's small light (T-2516): 0.7 x 0.8 m
+LIGHT_HALF_H_M = 0.40
 
 # The form attributes whose VALUE this archetype reads. See the same set in
 # frame_tavern_params for the argument; the short version is that an attribute
@@ -136,6 +143,7 @@ CONSUMED = frozenset({
     "frame_addition_depth_m", "frame_addition_stories", "frame_addition_height_m",
     "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
     "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
+    "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings",
     "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
     "roof_condition",
@@ -218,6 +226,25 @@ class LogDwellingParams:
     piazza_depth_m: float = 2.1
     piazza_posts: int = 6
     piazza_rail: bool = False
+    # HOW THE PIAZZA IS ROOFED (T-2516). "hung" is T-2497's: its own flatter shed hung
+    # 0.30 m under the main eave at 12 degrees, the plate wherever that leaves it.
+    # "swept" carries the main roof down over the piazza at a break: a flatter plane
+    # that rises from the plate, stated as `piazza_plate_m`, at `piazza_pitch_deg`
+    # until it meets the main slope above the front wall, which is how the Kinzie
+    # house's later pictures draw it (one plane from afar, a break close to). The
+    # defaults build exactly what "hung" always built.
+    piazza_roof: str = "hung"
+    piazza_plate_m: float | None = None
+    piazza_pitch_deg: float | None = None
+    # DOORS, WINDOWS AND LIGHTS IN THE GABLE ENDS (T-2516), each (end, kind, at, z):
+    # end "+x" or "-x"; kind "door", "window" or "light"; `at` the opening's centre as
+    # a fraction of the end wall from its -y (back) corner. A door takes the front
+    # door's size, with z None; a window the front windows' size, in their band unless
+    # z states its centre's height; a light is a small sash about 0.7 x 0.8 m whose
+    # centre stands `z` metres up, which is how a light high in a gable or under its
+    # foot is stated. Empty, every other record,
+    # keeps the archetype's rule that a log gable end is not pierced.
+    end_openings: tuple = ()
     # INTERIOR STACKS ON THE RIDGE (T-2497), as fractions of the ridge from the core's
     # -x end, one per chimney. None keeps the archetype's gable-end placement (L26),
     # which is every other record; a record sets it only where a picture puts a stack
@@ -466,6 +493,56 @@ class LogDwellingParams:
             if self.wall_height_m < 2.6:
                 raise ParamError(f"a piazza roof hung under a {self.wall_height_m} m eave "
                                  f"leaves no headroom at its posts; it needs 2.6 m of wall")
+            if self.piazza_roof not in PIAZZA_ROOFS:
+                raise ParamError(f"piazza_roof '{self.piazza_roof}' not in {PIAZZA_ROOFS}")
+            if self.piazza_pitch_deg is not None and not (
+                    5.0 <= self.piazza_pitch_deg < self.roof_pitch_deg):
+                raise ParamError(f"piazza_pitch_deg {self.piazza_pitch_deg} outside 5 degrees "
+                                 f"to the main roof's {self.roof_pitch_deg}: a piazza roof "
+                                 f"is flatter than the house's own")
+            if self.piazza_roof == "swept":
+                if self.roof_type != "gable":
+                    raise ParamError("a swept piazza roof breaks from a gable's front slope")
+                if self.piazza_plate_m is None:
+                    raise ParamError("a swept piazza roof states its plate, piazza_plate_m")
+                if not 2.2 <= self.piazza_plate_m <= self.wall_height_m + 0.3:
+                    raise ParamError(f"piazza_plate_m {self.piazza_plate_m} outside 2.2 m to "
+                                     f"0.3 m over the {self.wall_height_m} m eave")
+            elif self.piazza_plate_m is not None:
+                raise ParamError("piazza_plate_m is a swept roof's; a hung roof's plate "
+                                 "falls where its eave and pitch leave it")
+        elif (self.piazza_roof != "hung" or self.piazza_plate_m is not None
+              or self.piazza_pitch_deg is not None):
+            raise ParamError("piazza_roof, piazza_plate_m and piazza_pitch_deg need a piazza")
+        if self.end_openings:
+            if self.roof_type != "gable" or self.width_m < self.depth_m:
+                raise ParamError("end_openings stand in the +/-x gable ends, so they need "
+                                 "a gable roof whose ridge runs along x")
+            if self.frame_addition and self.frame_addition_side == "end":
+                raise ParamError("an end addition covers a gable end")
+        apex = self.wall_height_m + self.depth_m / 2.0 * math.tan(
+            math.radians(self.roof_pitch_deg))
+        for end, kind, at, z in self.end_openings:
+            if end not in GABLE_ENDS or kind not in END_OPENING_KINDS:
+                raise ParamError(f"end_openings entry ({end}, {kind}, {at}): end is one of "
+                                 f"{GABLE_ENDS} and kind one of {END_OPENING_KINDS}")
+            if not 0.15 <= at <= 0.85:
+                raise ParamError(f"end_openings at {at} outside 0.15-0.85 of the end wall")
+            if kind == "light" and z is None or kind == "door" and z is not None:
+                raise ParamError(f"end_openings {kind} at {at}: a light states its centre "
+                                 f"height z, and a door does not")
+            if kind == "window" and z is not None:
+                half = (self.window_h_m or 0.72) / 2.0
+                if not 0.5 <= z - half and z + half <= self.wall_height_m - 0.1:
+                    raise ParamError(f"end_openings window at z {z} does not stand in the "
+                                     f"log wall under the {self.wall_height_m} m eave")
+            if z is not None and not 1.0 <= z <= apex - 0.6:
+                raise ParamError(f"end_openings light at z {z} outside 1.0 m to 0.6 m "
+                                 f"under the {apex:.2f} m apex")
+            if z is not None and z - LIGHT_HALF_H_M < self.wall_height_m < z + LIGHT_HALF_H_M:
+                raise ParamError(f"end_openings light at z {z} straddles the "
+                                 f"{self.wall_height_m} m eave: it is in the log wall or "
+                                 f"in the gable above it, not both")
 
     def _validate_set_out(self) -> None:
         if self.stories != 1 or self.frame_addition:
@@ -584,6 +661,14 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         piazza_depth_m=float(val("piazza_depth_m", 2.1)),
         piazza_posts=int(val("piazza_posts", 6)),
         piazza_rail=bool(val("piazza_rail", False)),
+        piazza_roof=str(val("piazza_roof", "hung")),
+        piazza_plate_m=(None if val("piazza_plate_m") is None
+                        else float(val("piazza_plate_m"))),
+        piazza_pitch_deg=(None if val("piazza_pitch_deg") is None
+                          else float(val("piazza_pitch_deg"))),
+        end_openings=tuple((str(o["end"]), str(o["kind"]), float(o["at"]),
+                            None if o.get("z") is None else float(o["z"]))
+                           for o in (val("end_openings") or ())),
         front_windows_per_side=int(val("front_windows_per_side", 1)),
         window_w_m=(None if val("window_w_m") is None else float(val("window_w_m"))),
         window_h_m=(None if val("window_h_m") is None else float(val("window_h_m"))),

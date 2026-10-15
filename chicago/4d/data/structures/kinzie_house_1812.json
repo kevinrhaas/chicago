@@ -147,6 +147,36 @@
           ],
           "note": "The 1857 engraving draws a rail with balusters between the posts, open at the door."
         },
+        "piazza_roof": {
+          "value": "swept",
+          "confidence": "inferred",
+          "sources": [
+            "sarony_kinzie_residence_currey_1912_plate",
+            "eastman_schoolcraft_chicago_1820_engraving",
+            "lossing_1869_kinzie_mansion_engraving",
+            "cram_1893_old_kinzie_mansion_1832_engraving",
+            "teich_old_kinzie_house_postcard",
+            "chicago_magazine_1857_kinzie_house_engraving"
+          ],
+          "note": "THE MAIN ROOF CARRIED DOWN OVER THE PIAZZA AT A BREAK (T-2516). Lossing, the Cram plate and the Teich painting draw one plane from the ridge to the piazza's eave; the 1857 engraving draws a flatter roof below the main one. Sarony's lithograph of Juliette Kinzie's sketch, the one picture by a member of the household, and Eastman's 1820 engraving, the earliest, both draw the two together: the front slope breaks to a flatter pitch over the piazza, so seen from afar it is one plane run down to the posts and seen close it is a break. Built as that: a flatter plane rising from the piazza's plate until it meets the main slope above the front wall (generators/archetypes/log_dwelling.py _swept_piazza_roof). T-2497 had built the 1857 reading, a separate roof hung under the main eave."
+        },
+        "piazza_plate_m": {
+          "value": 2.95,
+          "confidence": "inferred",
+          "sources": [
+            "sarony_kinzie_residence_currey_1912_plate",
+            "cram_1893_old_kinzie_mansion_1832_engraving"
+          ],
+          "note": "Read through Sarony's solved camera (data/reference_views/kinzie_house_1812/sarony_1912.json): the posts' heads stand 2.83-3.14 m over their feet, and the piazza's eave 2.88-3.24 m. The Cram plate's camera reads the same: every post about 1.7 times as tall as T-2497's 2.0 m posts. So the posts stand nearly the height of the 3.0 m wall, as wall_height_m's own note says the engravings draw them, and the plate is 2.95 m."
+        },
+        "piazza_pitch_deg": {
+          "value": 15.0,
+          "confidence": "inferred",
+          "sources": [
+            "sarony_kinzie_residence_currey_1912_plate"
+          ],
+          "note": "Read through Sarony's camera: the piazza roof meets the front wall's line 3.56-3.93 m up and its eave stands 2.88-3.24 m, over the 2.35 m from the wall to the eave, which is 14-17 degrees. Fifteen, against the main roof's thirty; it meets the main slope 1.19 m inside the front wall, 3.83 m up."
+        },
         "chimney_ridge_at": {
           "value": [
             0.08,
@@ -190,6 +220,48 @@
             "chicago_magazine_1857_kinzie_house_engraving"
           ],
           "note": "The 1857 engraving draws the sash bare, dark panes in plain casings, with no leaf beside any of them."
+        },
+        "end_openings": {
+          "value": [
+            {
+              "end": "+x",
+              "kind": "light",
+              "at": 0.48,
+              "z": 3.75
+            },
+            {
+              "end": "+x",
+              "kind": "window",
+              "at": 0.26,
+              "z": 2.1
+            },
+            {
+              "end": "+x",
+              "kind": "door",
+              "at": 0.63
+            },
+            {
+              "end": "-x",
+              "kind": "light",
+              "at": 0.26,
+              "z": 2.55
+            },
+            {
+              "end": "-x",
+              "kind": "light",
+              "at": 0.7,
+              "z": 2.55
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sarony_kinzie_residence_currey_1912_plate",
+            "eastman_schoolcraft_chicago_1820_engraving",
+            "teich_old_kinzie_house_postcard",
+            "chicago_magazine_1857_kinzie_house_engraving",
+            "cram_1893_old_kinzie_mansion_1832_engraving"
+          ],
+          "note": "THE ENDS ARE PIERCED (T-2516); +x is the west end at this record's 180-degree facing, and `at` runs from the back wall. WEST: Sarony draws a small light high in the gable, a window toward the back of the end wall and a door toward its front with a step before it; read through his camera the light stands 3.3-4.2 m up across 2.6-3.8 m of the end's 6.71 m, the window 1.1-2.4 m and the door 3.5-4.9 m from the back. The Teich painting draws the same light (a small square high in the west gable), and the 1857 engraving and the Cram plate draw something dark high in the gable and an upright pale mark low on the end wall where Sarony's light and door are. EAST: Eastman 1820, the earliest picture, draws two small windows side by side at the eave's height, at about 0.3 and 0.74 of the end from its front corner; built in the log wall with their heads just under the eave, since a light is in the wall or in the gable above it and not both. The west light, 3.35-4.15 m up, is in the gable, which the archetype closes with a board face flush with the rake. The window is set at Sarony's height, its centre 2.1 m up where the front's stand at 1.67 m; the door and window take the front's sizes and the lights the archetype's 0.7 by 0.8 m: none of the pictures measures them."
         }
       }
     }
@@ -228,6 +300,6 @@
     "margin_m": 35.4,
     "generated_by": "tools/resolve_land_tracts.py --build"
   },
-  "research_note": "THE FIRST HOUSE AT CHICAGO (T-2497, piece 1 of T-2484). Jean Baptiste Point du Sable, a Black man from San Domingo and the first non-Native settler at Chicago, built it before 1779 and lived in it for over eighteen years; Le Mai bought it in 1796 or 1797; John Kinzie bought it in 1803 or 1804, the sources differ, repaired it, added the piazza and planted the poplars. It escaped the burning of August 1812 and was gone by the mid-1830s. This record is the house as the Kinzies had it, which is the only form any picture shows; the green, its fence and its trees are kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json. The pictures it is matched to are data/reference_views/kinzie_house_1812/: Lossing 1869 and the 1857 engraving (T-2497), the Cram atlas plate, the Teich postcard and the two 1820 views (T-2498). Sarony's lithograph of Juliette Kinzie's sketch, sarony_kinzie_residence_currey_1912_plate, reproduced by Kirkland as kirkland_1893_kinzie_mansion_1812_plate, is in the library and on the card and has no camera yet.",
+  "research_note": "THE FIRST HOUSE AT CHICAGO (T-2497, piece 1 of T-2484). Jean Baptiste Point du Sable, a Black man from San Domingo and the first non-Native settler at Chicago, built it before 1779 and lived in it for over eighteen years; Le Mai bought it in 1796 or 1797; John Kinzie bought it in 1803 or 1804, the sources differ, repaired it, added the piazza and planted the poplars. It escaped the burning of August 1812 and was gone by the mid-1830s. This record is the house as the Kinzies had it, which is the only form any picture shows; the green, its fence and its trees are kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json. The pictures it is matched to are data/reference_views/kinzie_house_1812/: Lossing 1869 and the 1857 engraving (T-2497), the Cram atlas plate, the Teich postcard and the two 1820 views (T-2498). Sarony's lithograph of Juliette Kinzie's sketch, sarony_kinzie_residence_currey_1912_plate (reproduced by Kirkland as kirkland_1893_kinzie_mansion_1812_plate), is solved into sarony_1912 (T-2516) and governs where the pictures disagree: it settled the piazza's swept roof and its height and the pierced west end.",
   "review_required": false
 }
