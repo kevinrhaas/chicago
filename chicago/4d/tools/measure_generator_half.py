@@ -588,13 +588,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # house and its fenced green in the 1812 scene (kinzie_house_1812, kinzie_house_1812_green), through
 # emit.py and the common modules.
 #
+# 876 -> 879, 726 -> 729 and 720 -> 723 on 2026-10-15 (T-2515): the three groups of the
+# Potawatomi camp of August 1812 (potawatomi_camp_1812_mouth, _middle, _upper), on the `camp`
+# archetype's new mat lodge, emitted the same way and restaling on the same rows.
+#
 STATED = {
-    "assets": 876,
+    "assets": 879,
     "restales": {
-        "generators/common/*.py": 726,
+        "generators/common/*.py": 729,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 720,
+        "generators/emit.py": 723,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
