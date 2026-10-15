@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "ac623c71b2143a3e4f45d277d68136bd3ac12a33189f3a829a3c9c3bccd4452a",
+  "glb_sha256": "16e6f3e66ba3068adc87d52dbbbe7b798a29634cab3b016542292858efab756c",
   "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -44,8 +44,8 @@
       "status": "fixed"
     },
     {
-      "what": "Gable: re-measured by T-2457 on the verges' outer edges (rows 130-260 fitted, both slopes within 0.5 degree of the model's 52), the print's verges meet 9 px HIGHER than the model's and 9 px north of them (460 against 451 px), and its oval, its window pair and its hood stand on that same middle (459-460 px; T-2423's own hood readings, 380 and 537 px, put it at 458.5) while the south verge agrees within 3 px. So the earlier '12 px over' reading was the inner meeting of the boards under the pinnacles, and what the print shows is a gable about 0.24 m wider than the sheet's 5.21 m, its middle 0.12 m north, at the same pitch. Widening it moves the wing wall and the porch's south post, which is the entrance's narrower opening below (T-2458)",
-      "status": "open"
+      "what": "Gable: the print's verges, oval, window pair and hood stand on one middle 0.12 m north of the sheet-split 5.21 m gable's and its verges meet 9 px higher (T-2457): the gable is 5.45 m wide from the same south corner, its middle at 2.725 m (460 px), the pair, hood and oval moved with it and the apex 0.15 m higher; the wing wall behind the porch narrows to 2.68 m, its door unmoved (T-2519)",
+      "status": "fixed"
     },
     {
       "what": "Bay: three pointed lights, one in the face and one in each cant, between broad posts, the glass from 0.63 m to its point at 2.83 m and 0.73 m across, each a one-over-one sash; a panelled base under a weathered sill course at 0.45 m; a moulded cornice from 3.13 m to its crown at 3.55 m (T-2424)",
@@ -64,7 +64,7 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: a pointed arch between the posts, springing 0.75 m under the plate and rising 0.65 m to its point, where the kit's porch had scroll brackets (T-2425)",
+      "what": "Entrance: a pointed arch between the posts, springing 0.75 m under the plate and rising 0.65 m to its point, where the kit's porch had scroll brackets (T-2425); read again at 4x by T-2519, the head is a cusped trefoil, not a pointed arch (below)",
       "status": "fixed"
     },
     {
@@ -84,7 +84,15 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: the print's opening is narrower, its posts 1.72 m apart against the model's 2.11 m, which stand where the sheet's 2.91 m porch puts them, and its arch springs lower and stands more pointed for that",
+      "what": "Entrance: the porch, and the tower on it, centred 6.40 m from the front's south end, where the print's roof ends (657, 859 px), posts (676, 830 px) and quatrefoils (698, 809 px) put their one middle and T-2396 read the tower's, not 6.55 m; the roof's edge 1.25 m either side, the posts' outer faces at the floor's ends, so 1.71 m between the posts against the print's 1.66-1.72 m (T-2519)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the head is a cusped trefoil: side foils 0.274 m in radius tangent to the posts, springing at 2.80 m (617 px) to their tops at 3.07 m (597 px), meeting a round head foil 0.455 m in radius in two cusps at about 720 and 790 px, the head crowning at 3.424 m (567 px against the print's 565); the board runs up flush to the fascia, the plate carried 0.02 m deep; the quatrefoils 0.2 m across (T-2519)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: in the print the board's field round each quatrefoil is dark, open fretwork between the quatrefoil's ring, the head's band and the post; the model's board is solid, its quatrefoils 2-3 px under the print's, and the print's opening stands some 5 px inside the post's face below the side foils, a moulding not built",
       "status": "open"
     },
     {
