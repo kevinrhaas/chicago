@@ -1,7 +1,0 @@
-{
-  "title": "Rebuilding one Prairie Avenue front alone no longer fails",
-  "kind": "fix",
-  "items": [
-    "Rebuilding one of the Prairie Avenue houses made by the lighter pure-Python builders (the K01 fronts, the timber fronts, the coach houses, the conservatories and the 1904 draft houses) on its own used to stop at the Blender step, which has nothing to build for them, before their own builder ran. The bake now goes on to that builder and still refuses a selection that nothing builds at all."
-  ]
-}
