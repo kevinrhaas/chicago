@@ -484,7 +484,8 @@ def _core_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
         i += len(band)
         for kind, u0, u1, z0, z1 in band:
             _opening(b, "y", y1, u0, u1, z0, z1, 1, conf, kind=kind,
-                     shutters=(x1 - x0) >= 5.2)
+                     shutters=((x1 - x0) >= 5.2 if p.front_shutters is None
+                               else p.front_shutters))
         z0, z1 = band[0][3], band[0][4]
         # ONE WINDOW BEHIND, AND NEVER IN A GABLE. The rule this line has always stated
         # is "none on the gable ends: the gables carry the chimney at one end and the

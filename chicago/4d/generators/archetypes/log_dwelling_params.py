@@ -135,7 +135,7 @@ CONSUMED = frozenset({
     "frame_addition", "frame_addition_side", "frame_addition_width_m",
     "frame_addition_depth_m", "frame_addition_stories", "frame_addition_height_m",
     "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
-    "front_windows_per_side", "window_w_m", "window_h_m",
+    "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
 })
 
 # See frame_tavern_params for the argument. `perimeter`: the footprint outline
@@ -218,6 +218,9 @@ class LogDwellingParams:
     front_windows_per_side: int = 1
     window_w_m: float | None = None
     window_h_m: float | None = None
+    # None keeps the archetype's rule (shutters on a front 5.2 m or wider); a record
+    # whose picture draws the sash bare says False (T-2497).
+    front_shutters: bool | None = None
 
     # A hanging signboard, as a string naming what was painted on it. The value
     # exists so the sidecar can say what the board carried; whether the mesh draws
@@ -464,6 +467,7 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         front_windows_per_side=int(val("front_windows_per_side", 1)),
         window_w_m=(None if val("window_w_m") is None else float(val("window_w_m"))),
         window_h_m=(None if val("window_h_m") is None else float(val("window_h_m"))),
+        front_shutters=(None if val("front_shutters") is None else bool(val("front_shutters"))),
         chimney_ridge_at=(None if val("chimney_ridge_at") is None
                           else tuple(float(f) for f in val("chimney_ridge_at"))),
         sign=(None if sign is None else str(sign)),

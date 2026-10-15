@@ -2,10 +2,47 @@
   "structure_id": "kinzie_house_1812",
   "view": "lossing_1869",
   "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
-  "glb_sha256": "1c5de582e77c4ce569b284ee3722ce4ad3422cf07ddad6f38b413092f7210c85",
+  "glb_sha256": "aede2636178ff4b208b9c1fe3fd59f3ee61001d88380ce93b393534485be3228",
   "camera_sha256": "561759ae2fb407aaf146270ed3b48c90f2cb207e67f76b4e03a9f88bd9044dda",
   "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/lossing_1869-side-by-side.jpg",
-  "verdict": "unreviewed",
-  "differences": [],
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a long, low, single-storey house on the north bank, its ridge along the river and a gable at each end, the west gable toward the eye; the build's two ends land on the drawn ones (x 108 and 310 px) within about 10 px on the red-edge overlay",
+      "status": "fixed"
+    },
+    {
+      "what": "walls: drawn dark, hatched in horizontal courses, as hewn log reads; the build's are squared log (Moses and Kirkland)",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza: across the whole front on posts with a rail between them, five posts visible east of the west gable (x 213-305 px); the build's six-post piazza puts five there, within about 13 px",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: Lossing draws two through the ridge, at x 200 px (0.4 of the ridge from the west gable) and x 163 px (by the west gable). The build's middle stack lands at x 194 px on his x 200; its other stands by the EAST gable (x 242 px), where the 1857 engraving, the Teich postcard and the Cram plate put the second stack. Where they disagree, the 1857 engraving governs: it is twelve years earlier, made in Chicago, and draws the roof plainly; Lossing drew the house from a distance, more than fifty years after the fort burned",
+      "status": "open"
+    },
+    {
+      "what": "piazza roof: Lossing carries the main roof down over the piazza in one plane, its eave at y 293 px; the build hangs the piazza's own flatter roof under the main eave, as the 1857 engraving draws it. The same ruling as the stacks: the 1857 engraving governs the roof",
+      "status": "open"
+    },
+    {
+      "what": "a dark mass behind the roof east of the stacks (x 240-280 px, y 250-270 px): it may be the far slope in shadow or a building behind. The 1857 engraving shows no range behind the house, so none is built; Wau-Bun's outbuildings and Ouilmette's and Pettell's cabins behind the house are T-2484's other pieces",
+      "status": "open"
+    },
+    {
+      "what": "openings: the front is in the piazza's shadow and no door or window is legible",
+      "status": "not shown"
+    },
+    {
+      "what": "the paling across the front from beyond the west gable, the four poplars in a row receding east, and the great tree behind the house's west end: built outside this GLB, as kinzie_house_1812_green (its west side 13.4 m beyond the west gable, as drawn) and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: a monochrome wood engraving",
+      "status": "not shown"
+    }
+  ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

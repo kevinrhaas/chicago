@@ -186,6 +186,14 @@
       ],
       "note": "Scaled off the 1857 engraving: tall sash, about two-thirds of the door's height."
     },
+    "front_shutters": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_magazine_1857_kinzie_house_engraving"
+      ],
+      "note": "The 1857 engraving draws the sash bare, dark panes in plain casings, with no leaf beside any of them."
+    },
     "function": {
       "value": "dwelling_and_trading_house",
       "confidence": "attested",
@@ -202,6 +210,14 @@
         "currey_1912_story_of_old_fort_dearborn"
       ],
       "note": "Currey: it 'remained the residence of John Kinzie and his family until the time of his death, in 1828, except during the four years of his enforced absence, from 1812 to 1816.' Nobody is drawn (L1)."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+      "confidence": "reconstructed",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS ONLY 35 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
     }
   },
   "residents": [],
@@ -263,6 +279,14 @@
         "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
         "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
       ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
     },
     {
       "source_id": "kinzie_waubun_1856",

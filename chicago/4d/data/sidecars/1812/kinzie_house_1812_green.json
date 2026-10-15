@@ -21,7 +21,7 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1131.0,
+    "local_e": 1132.5,
     "local_n": 318.0,
     "rotation_deg": 0.0,
     "position_confidence": "reconstructed",
@@ -30,7 +30,7 @@
       "chicago_magazine_1857_kinzie_house_engraving"
     ],
     "position_note": "Wau-Bun: 'A broad green space was inclosed between it and the river'. Its north side runs along the piazza and its south side along the bank top, where the 1812 ground's level 1.5 m stands; its width, a house-length and a half either side of the door, is read off the 1832 and 1833 pictures, which carry the fence well east of the house to take in the poplars. The corners are this record's own (docs/LIBERTIES.md L-kinzie-house-1812-2497).",
-    "symbolic_location": "Before the Kinzie house, from just off its piazza (local N +333.5) to the top of the e1830_natural north bank (N +318), E +1131 to E +1173, centred on the house's door. The origin is the fence's south-west corner.",
+    "symbolic_location": "Before the Kinzie house, from just off its piazza (local N +333.5) to the top of the e1830_natural north bank (N +318), E +1132.5 to E +1171.5, centred on the house's door. The origin is the fence's south-west corner.",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -43,11 +43,11 @@
         0
       ],
       [
-        42.0,
+        39.0,
         0
       ],
       [
-        42.0,
+        39.0,
         15.5
       ],
       [
@@ -57,7 +57,7 @@
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "The fence line. Forty-two metres along the river by fifteen and a half to the bank."
+    "note": "The fence line. Thirty-nine metres along the river by fifteen and a half to the bank."
   },
   "attributes": {
     "wall_kind": {
@@ -108,6 +108,14 @@
         "kinzie_waubun_1856"
       ],
       "note": "Wau-Bun ch. XVII: 'A broad green space was inclosed between it and the river, and shaded by a row of Lombardy poplars.' The grass inside is the 1812 ground's own cover; only the fence is built."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+      "confidence": "reconstructed",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS ONLY 16 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
     }
   },
   "residents": [],
@@ -153,6 +161,14 @@
         "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
         "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
       ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
     },
     {
       "source_id": "kinzie_waubun_1856",
