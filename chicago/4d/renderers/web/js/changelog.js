@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1829, ts: '2026-10-15T21:17:20.617Z', date: 'Oct 15, 2026, 4:17 PM CT', title: '1638 Prairie stands on its basement, up its photograph\'s ten steps', kind: 'feature',
+    items: [
+      'The Shortall-Gregory house now stands on a basement, its front door 1.55 m above the sidewalk, and a stoop of ten steps climbs to it between its cheek walls, as the old photograph shows.',
+      'The photographer turns out to have stood on the far sidewalk of Prairie Avenue, so the porch and tower were re-measured from that spot and now line up with the picture.',
+    ] },
   { v: 1828, ts: '2026-10-15T20:53:51.796Z', date: 'Oct 15, 2026, 3:53 PM CT', title: '1621 Prairie\'s bow gets its balcony rail and barred basement lights', kind: 'feature',
     items: [
       'Hamline\'s swell bay at 1621 Prairie now carries the iron balcony rail its 1886 drawing shows round the bow\'s top.',
