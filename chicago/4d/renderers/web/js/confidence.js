@@ -41,6 +41,17 @@ export function levelOf(value) {
   return 'attested';
 }
 
+/** Whether every interpolated value in a triangle remains opaque under the
+ * public evidence controls. Unknown ranges fail open for visibility culling. */
+export function opaqueConfidenceRange(range, view) {
+  if (!range || range.length!==2 || !range.every(Number.isFinite)) return false;
+  const [min,max]=range;
+  if(min<0 || max>1 || min>max || (view.enabled && max>0.75))return false;
+  const levels=['attested','inferred','reconstructed'];
+  const first=levels.indexOf(levelOf(min)),last=levels.indexOf(levelOf(max));
+  return !levels.slice(first,last+1).some(level=>view.hidden?.[level]);
+}
+
 const VERTEX_DECL = /* glsl */`
 attribute float _confidence;
 varying float vConfidence;

@@ -1,0 +1,3065 @@
+{
+  "method": "Existing building batch API; instance counts include spatial pieces. Source identities compare only within this page load, not between runs. This is not a per-frame draw count.",
+  "batches": [
+    {
+      "name": "structures:merged",
+      "instances": 845,
+      "structures": [
+        "wheeler_house_1812_prairie_coach_house",
+        "house_1630_prairie_coach_house",
+        "house_1708_prairie",
+        "house_1712_prairie",
+        "house_1712_prairie_coach_house",
+        "house_1726_prairie",
+        "house_1726_prairie_coach_house",
+        "house_1730_prairie",
+        "house_1730_prairie_coach_house",
+        "house_1736_prairie",
+        "house_1736_prairie_coach_house",
+        "house_1828_prairie",
+        "house_1828_prairie_coach_house",
+        "house_1918_prairie_coach_house",
+        "house_1918_prairie",
+        "house_2000_prairie",
+        "house_2000_prairie_coach_house",
+        "house_2001_prairie",
+        "house_2001_prairie_coach_house",
+        "house_2003_prairie",
+        "house_2005_prairie",
+        "house_2010_prairie",
+        "house_2011_prairie_coach_house",
+        "house_2010_prairie_coach_house",
+        "house_2011_prairie",
+        "house_2017_prairie",
+        "house_2017_prairie_coach_house",
+        "house_2018_prairie",
+        "house_2018_prairie_coach_house",
+        "house_2026_prairie",
+        "house_2026_prairie_coach_house",
+        "house_2027_prairie",
+        "house_2027_prairie_coach_house",
+        "house_2101_prairie",
+        "house_2101_prairie_coach_house",
+        "house_2120_prairie",
+        "house_2120_prairie_coach_house",
+        "house_2123_prairie",
+        "house_2123_prairie_coach_house",
+        "house_2125_prairie",
+        "house_2125_prairie_coach_house",
+        "jones_house_1834_prairie",
+        "ic_16th_street_station_1605_prairie",
+        "jones_house_1834_prairie_coach_house",
+        "kellogg_house_1709_prairie",
+        "kellogg_house_1709_prairie_coach_house",
+        "kellogg_house_1923_prairie",
+        "kellogg_house_1923_prairie_coach_house",
+        "kimball_house_1801_prairie",
+        "law_house_1620_prairie_coach_house",
+        "mark_kimball_house_2108_prairie",
+        "mark_kimball_house_2108_prairie_coach_house",
+        "marsh_house_1824_prairie",
+        "marsh_house_1824_prairie_coach_house",
+        "marshall_field_house_1905_prairie",
+        "marshall_field_house_1905_prairie_coach_house",
+        "marshall_field_jr_house_1919_prairie",
+        "mayer_house_2009_prairie",
+        "mayer_house_2009_prairie_coach_house",
+        "moulton_lowden_house_1912_prairie",
+        "moulton_lowden_house_1912_prairie_coach_house",
+        "murdoch_house_2130_prairie",
+        "murdoch_house_2130_prairie_coach_house",
+        "otis_house_2033_prairie",
+        "otis_house_2033_prairie_coach_house",
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory",
+        "ream_house_1901_prairie",
+        "ream_house_1901_prairie_coach_house",
+        "rees_house_2110_prairie",
+        "reid_house_2013_prairie",
+        "reid_house_2013_prairie_coach_house",
+        "robbins_house_2126_prairie",
+        "robbins_house_2126_prairie_coach_house",
+        "roloson_house_2109_prairie",
+        "roloson_house_2109_prairie_coach_house",
+        "rothschild_house_2112_prairie",
+        "rothschild_house_2112_prairie_coach_house",
+        "sears_meeker_house_1815_prairie",
+        "sears_meeker_house_1815_prairie_coach_house",
+        "shed_1834_1900_prairie",
+        "sherman_house_2100_prairie",
+        "sherman_house_2100_prairie_coach_house",
+        "shortall_gregory_house_1638_prairie_coach_house",
+        "stone_house_2035_prairie",
+        "spalding_house_1637_prairie_coach_house",
+        "stone_house_2035_prairie_rear_building",
+        "tolman_house_2031_prairie",
+        "tolman_house_2031_prairie_coach_house",
+        "tucker_smith_house_2140_prairie",
+        "tucker_smith_house_2140_prairie_alley_building",
+        "tucker_smith_house_2140_prairie_coach_house",
+        "walker_house_1720_prairie",
+        "walker_house_1720_prairie_coach_house",
+        "wheeler_house_1812_prairie",
+        "armour_corwith_house_1945_prairie",
+        "armour_corwith_house_1945_prairie_coach_house",
+        "armour_house_2115_prairie",
+        "armour_house_2115_prairie_coach_house",
+        "buckingham_house_2036_prairie",
+        "buckingham_house_2036_prairie_coach_house",
+        "coleman_ames_house_1811_prairie",
+        "coleman_ames_house_1811_prairie_coach_house",
+        "dent_house_1823_prairie",
+        "dexter_house_1721_prairie",
+        "dexter_house_1721_prairie_coach_house",
+        "doane_house_1827_prairie",
+        "doane_house_1827_prairie_coach_house",
+        "edson_keith_house_1906_prairie",
+        "edson_keith_house_1906_prairie_coach_house",
+        "elbridge_keith_house_1900_prairie",
+        "elbridge_keith_house_1900_prairie_coach_house",
+        "flats_2127_prairie",
+        "forsyth_house_1635_prairie",
+        "george_glessner_house_1706_prairie",
+        "glessner_lee_house_1700_prairie_coach_house",
+        "glessner_lee_house_1700_prairie",
+        "goodman_house_1612_prairie_coach_house",
+        "henderson_house_1816_prairie",
+        "henderson_house_1816_prairie_coach_house",
+        "hibbard_house_1701_prairie",
+        "hibbard_house_1701_prairie_coach_house",
+        "high_house_2021_prairie",
+        "high_house_2021_prairie_coach_house",
+        "house_1616_prairie_coach_house",
+        "house_1621_prairie",
+        "house_1626_prairie_coach_house",
+        "house_1628_prairie_coach_house",
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "goodman_house_1612_prairie",
+        "house_1608_prairie",
+        "house_1604_prairie",
+        "house_1600_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1626_prairie",
+        "house_1625_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.92,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 334,
+      "structures": [
+        "wheeler_house_1812_prairie_coach_house",
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.08,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 1,
+      "structures": [
+        "wheeler_house_1812_prairie_coach_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.6,
+      "metalness": 0.6,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 126,
+      "structures": [
+        "house_1630_prairie_coach_house",
+        "house_1708_prairie",
+        "house_1712_prairie",
+        "house_1712_prairie_coach_house",
+        "house_1726_prairie",
+        "house_1726_prairie_coach_house",
+        "house_1730_prairie",
+        "house_1730_prairie_coach_house",
+        "house_1736_prairie",
+        "house_1736_prairie_coach_house",
+        "house_1828_prairie",
+        "house_1828_prairie_coach_house",
+        "house_1918_prairie_coach_house",
+        "house_1918_prairie",
+        "house_2000_prairie",
+        "house_2000_prairie_coach_house",
+        "house_2001_prairie",
+        "house_2001_prairie_coach_house",
+        "house_2003_prairie",
+        "house_2005_prairie",
+        "house_2010_prairie",
+        "house_2011_prairie_coach_house",
+        "house_2010_prairie_coach_house",
+        "house_2011_prairie",
+        "house_2017_prairie",
+        "house_2017_prairie_coach_house",
+        "house_2018_prairie",
+        "house_2018_prairie_coach_house",
+        "house_2026_prairie",
+        "house_2026_prairie_coach_house",
+        "house_2027_prairie",
+        "house_2027_prairie_coach_house",
+        "house_2101_prairie",
+        "house_2101_prairie_coach_house",
+        "house_2120_prairie",
+        "house_2120_prairie_coach_house",
+        "house_2123_prairie",
+        "house_2123_prairie_coach_house",
+        "house_2125_prairie",
+        "house_2125_prairie_coach_house",
+        "jones_house_1834_prairie",
+        "ic_16th_street_station_1605_prairie",
+        "jones_house_1834_prairie_coach_house",
+        "kellogg_house_1709_prairie",
+        "kellogg_house_1709_prairie_coach_house",
+        "kellogg_house_1923_prairie",
+        "kellogg_house_1923_prairie_coach_house",
+        "kimball_house_1801_prairie",
+        "law_house_1620_prairie_coach_house",
+        "mark_kimball_house_2108_prairie",
+        "mark_kimball_house_2108_prairie_coach_house",
+        "marsh_house_1824_prairie",
+        "marsh_house_1824_prairie_coach_house",
+        "marshall_field_house_1905_prairie",
+        "marshall_field_house_1905_prairie_coach_house",
+        "marshall_field_jr_house_1919_prairie",
+        "mayer_house_2009_prairie",
+        "mayer_house_2009_prairie_coach_house",
+        "moulton_lowden_house_1912_prairie",
+        "moulton_lowden_house_1912_prairie_coach_house",
+        "murdoch_house_2130_prairie",
+        "murdoch_house_2130_prairie_coach_house",
+        "otis_house_2033_prairie",
+        "otis_house_2033_prairie_coach_house",
+        "pullman_house_1729_prairie",
+        "ream_house_1901_prairie",
+        "ream_house_1901_prairie_coach_house",
+        "rees_house_2110_prairie",
+        "reid_house_2013_prairie",
+        "reid_house_2013_prairie_coach_house",
+        "robbins_house_2126_prairie",
+        "robbins_house_2126_prairie_coach_house",
+        "roloson_house_2109_prairie",
+        "roloson_house_2109_prairie_coach_house",
+        "rothschild_house_2112_prairie",
+        "rothschild_house_2112_prairie_coach_house",
+        "sears_meeker_house_1815_prairie",
+        "sears_meeker_house_1815_prairie_coach_house",
+        "shed_1834_1900_prairie",
+        "sherman_house_2100_prairie",
+        "sherman_house_2100_prairie_coach_house",
+        "shortall_gregory_house_1638_prairie_coach_house",
+        "stone_house_2035_prairie",
+        "spalding_house_1637_prairie_coach_house",
+        "stone_house_2035_prairie_rear_building",
+        "tolman_house_2031_prairie",
+        "tolman_house_2031_prairie_coach_house",
+        "tucker_smith_house_2140_prairie",
+        "tucker_smith_house_2140_prairie_alley_building",
+        "tucker_smith_house_2140_prairie_coach_house",
+        "walker_house_1720_prairie",
+        "walker_house_1720_prairie_coach_house",
+        "wheeler_house_1812_prairie",
+        "armour_corwith_house_1945_prairie",
+        "armour_corwith_house_1945_prairie_coach_house",
+        "armour_house_2115_prairie",
+        "armour_house_2115_prairie_coach_house",
+        "buckingham_house_2036_prairie",
+        "buckingham_house_2036_prairie_coach_house",
+        "coleman_ames_house_1811_prairie",
+        "coleman_ames_house_1811_prairie_coach_house",
+        "dent_house_1823_prairie",
+        "dexter_house_1721_prairie",
+        "dexter_house_1721_prairie_coach_house",
+        "doane_house_1827_prairie",
+        "doane_house_1827_prairie_coach_house",
+        "edson_keith_house_1906_prairie",
+        "edson_keith_house_1906_prairie_coach_house",
+        "elbridge_keith_house_1900_prairie",
+        "elbridge_keith_house_1900_prairie_coach_house",
+        "flats_2127_prairie",
+        "forsyth_house_1635_prairie",
+        "george_glessner_house_1706_prairie",
+        "glessner_lee_house_1700_prairie_coach_house",
+        "glessner_lee_house_1700_prairie",
+        "goodman_house_1612_prairie_coach_house",
+        "henderson_house_1816_prairie",
+        "henderson_house_1816_prairie_coach_house",
+        "hibbard_house_1701_prairie",
+        "hibbard_house_1701_prairie_coach_house",
+        "high_house_2021_prairie",
+        "high_house_2021_prairie_coach_house",
+        "house_1616_prairie_coach_house",
+        "house_1621_prairie",
+        "house_1626_prairie_coach_house",
+        "house_1628_prairie_coach_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.15,
+      "metalness": 0.1,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 1,
+      "structures": [
+        "pullman_house_1729_prairie_conservatory"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.04,
+      "metalness": 0,
+      "side": 0,
+      "transparent": true
+    },
+    {
+      "name": "structures:merged",
+      "instances": 1,
+      "structures": [
+        "pullman_house_1729_prairie_conservatory"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.45,
+      "metalness": 0.2,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 16,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.78,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.45,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.95,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.95,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.04,
+      "metalness": 0,
+      "side": 0,
+      "transparent": true
+    },
+    {
+      "name": "structures:merged",
+      "instances": 10,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.95,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 6,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.92,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front",
+        "house_1601_prairie",
+        "house_1609_prairie",
+        "house_1611_prairie",
+        "house_1630_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.9,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 1,
+      "structures": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.6,
+      "metalness": 0.4,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "house_1625_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "c27e3aa4-eb8a-41d2-af6e-e98c5c5aff27",
+          "source": "86ac75c6-01a2-4a2b-a07a-45a8a3f0b67d",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "bfbdbec0-7834-4b5b-a03b-127b32e453db",
+          "source": "8bffac96-da77-4fd6-8e39-3f0a7fd3cf24",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.84,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 28,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "goodman_house_1612_prairie",
+        "house_1608_prairie",
+        "house_1604_prairie",
+        "house_1600_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1626_prairie",
+        "house_1625_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "f0bfaaf3-c301-44b8-ac1e-a6b913c44d23",
+          "source": "30d6fa73-2bc3-4855-bc64-e2fd8731530e",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "316dc718-f4e1-4b61-9571-baf03154c274",
+          "source": "4fc350b2-4828-40e4-b500-7dcae7e8c349",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.87,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 9,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "goodman_house_1612_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1625_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "ce6b85af-7c8c-4523-a064-165362b61d76",
+          "source": "ecbeddbc-0ec1-43eb-9d15-73b50fb80894",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "a98350e5-9022-4b67-a7a3-9a5d6af9672d",
+          "source": "927bd096-f4a6-4c01-a62f-a7a111e3462a",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.66,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 7,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "goodman_house_1612_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1625_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "71c295b4-1203-4256-8202-e4ca6992c0fe",
+          "source": "84471ad3-5dda-48f0-a7e6-f859d8ed947a",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.95,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 39,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "goodman_house_1612_prairie",
+        "house_1608_prairie",
+        "house_1604_prairie",
+        "house_1600_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1626_prairie",
+        "house_1625_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "9006bb68-a934-49c1-bb97-a10b56750ff5",
+          "source": "f0df2be9-150b-455d-a147-887f9e3b8096",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.88,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 17,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "goodman_house_1612_prairie",
+        "house_1608_prairie",
+        "house_1604_prairie",
+        "house_1600_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1626_prairie",
+        "house_1625_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.04,
+      "metalness": 0,
+      "side": 0,
+      "transparent": true
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "f96f3260-0a69-4c40-a516-ecdd64249957",
+          "source": "9502417c-ad56-47e3-b735-1d4ccdb90178",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "98f115b6-9bea-46c9-b2a4-c456e22d343f",
+          "source": "374009c0-1e04-48ac-a93a-9f7052eebcb3",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.62,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 10,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "spalding_house_1637_prairie",
+        "goodman_house_1612_prairie",
+        "house_1604_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "e9636eed-480a-4a58-86a0-ab64ce39d1e0",
+          "source": "aefd67d2-d3c9-4494-87e1-7c93dfa04905",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "b4471e4f-5d24-425c-af06-5b6d26fb1503",
+          "source": "be0bb3e8-c330-48f9-9aae-da30ae65909a",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.6,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 68,
+      "structures": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "keith_house_1808_prairie",
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "goodman_house_1612_prairie",
+        "house_1608_prairie",
+        "house_1604_prairie",
+        "house_1600_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1626_prairie",
+        "house_1625_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "81cb92e4-7538-4017-9378-5b6f0122cb1a",
+          "source": "99cf77cc-e48f-465a-a8b3-6c4747b469f9",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.86,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 4,
+      "structures": [
+        "keith_house_1808_prairie",
+        "goodman_house_1612_prairie",
+        "house_1623_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "7d502189-e53e-463b-8d97-3af343117e6c",
+          "source": "c7043315-79bd-4f42-b5bb-02d2ba591a72",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "8b26229a-58a8-4edf-b65c-68bf1fd0d532",
+          "source": "7110ea2f-c744-4d70-ba14-01e7cdbaff22",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.88,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 1,
+      "structures": [
+        "keith_house_1808_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "89db1d29-bf6c-4062-83aa-48f68bae1e34",
+          "source": "7bf7ab0c-eec7-41f2-862e-1c28d5d9d32d",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.96,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 1,
+      "structures": [
+        "keith_house_1808_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "e462b0e8-bfc3-4d34-987e-8c85fdffdd70",
+          "source": "b7ffbe9d-5927-42a1-ae06-9767c8249c98",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.93,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 9,
+      "structures": [
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "goodman_house_1612_prairie",
+        "house_1608_prairie",
+        "house_1604_prairie",
+        "house_1600_prairie",
+        "house_1616_prairie",
+        "house_1626_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "4fca6b6a-82f1-4aa9-b26b-7a675cc9e68a",
+          "source": "4dc98504-f175-48a6-ae01-712ee1a75291",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "1f2f86b9-3958-4c03-ac11-66daf8bd3d69",
+          "source": "b84ca867-a35a-477f-943f-16bc8576cbea",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.62,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 5,
+      "structures": [
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1625_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "a93c54e0-c92e-4cea-a4c8-5ad37f9148d1",
+          "source": "cbdef61e-4b73-4f97-bc13-84621dc92864",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "ab764fca-5347-4af4-babf-38bc8e2f0e95",
+          "source": "0a6e73ec-edf6-40ca-9ac8-b3e0f24a215d",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.62,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 11,
+      "structures": [
+        "law_house_1620_prairie",
+        "spalding_house_1637_prairie",
+        "house_1608_prairie",
+        "house_1604_prairie",
+        "house_1600_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1623_prairie",
+        "house_1626_prairie",
+        "house_1625_prairie",
+        "house_1628_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "2451fab3-023b-43ce-b34b-63a77cec5253",
+          "source": "12f40590-dd80-4463-88e5-20c5a19a9ef4",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "3370b933-754d-44eb-bcea-13de471597b5",
+          "source": "0c9ed20b-2ed8-4488-944f-708662b796f5",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.48,
+      "metalness": 0.3,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 4,
+      "structures": [
+        "law_house_1620_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1626_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "4a26a4e1-23cb-4c15-8df6-c9d9bfbc0673",
+          "source": "ba85fe7f-3650-4552-9575-ea6c822edf3d",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.78,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 2,
+      "structures": [
+        "house_1600_prairie",
+        "house_1623_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.45,
+      "metalness": 0.35,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 2,
+      "structures": [
+        "house_1619_prairie"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "eb0a4870-1a98-4573-9631-188a6a37ce04",
+          "source": "fd47e05a-aa58-4084-b04b-d12856a6a5b0",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "2ebbd893-f482-4f4f-abab-59d3ad8497ee",
+          "source": "a964bfec-6f15-415c-ad3f-404b05b24647",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.8,
+      "metalness": 0,
+      "side": 0,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 912,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "a9480ff6-5b37-4e29-8fad-9c8e6ea8c5d6",
+          "source": "9a01b948-e071-4fa7-a75e-3b74628d10bc",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            7.2727274894714355,
+            7.2727274894714355
+          ],
+          "offset": [
+            0,
+            -6.2727274894714355
+          ]
+        },
+        "normalMap": {
+          "uuid": "ecb66ac9-888e-46bc-bc7c-c46bdd66eff2",
+          "source": "42484418-f738-48dc-8820-1fe3e906fb82",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": {
+          "uuid": "7f211b27-7542-4885-a1e5-f39e27ff28e0",
+          "source": "1a05de40-3241-46cd-a118-255fd2dbea38",
+          "channel": 1,
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "roughnessMap": {
+          "uuid": "8c6f4502-73c4-4a91-a86b-39ad82ad3ed5",
+          "source": "ca0cae1a-0f14-4df9-87ac-e975d7bd6f84",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "8c6f4502-73c4-4a91-a86b-39ad82ad3ed5",
+          "source": "ca0cae1a-0f14-4df9-87ac-e975d7bd6f84",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.6000000238418579,
+        -0.6000000238418579
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 590,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "4d166709-b814-4a98-85a5-e63771682633",
+          "source": "a7d4eb22-1e39-44a5-8226-ec4d8ff82c39",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "955e954b-684d-4d3d-8fd9-522889c89997",
+          "source": "2e60761d-23f8-41f3-b677-74cc1c66fa1b",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "8694268a-d984-4023-81b3-bbd55ec26d1f",
+          "source": "05caf0fd-84c0-4693-80c4-ac9a306e4342",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "8694268a-d984-4023-81b3-bbd55ec26d1f",
+          "source": "05caf0fd-84c0-4693-80c4-ac9a306e4342",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.8500000238418579,
+        -0.8500000238418579
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 96,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "a694a634-5827-43bf-8e58-cdb54b3f2dcb",
+          "source": "f0df2be9-150b-455d-a147-887f9e3b8096",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "edce4d47-a3d8-4ad2-ba16-f503f38bdeff",
+          "source": "8f4ec919-37fe-4b27-936f-d255bb5a0a13",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "30f6a240-95a3-4402-a4bc-6db912f6e079",
+          "source": "2472e0bd-c13c-4714-8878-384b610a928f",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "30f6a240-95a3-4402-a4bc-6db912f6e079",
+          "source": "2472e0bd-c13c-4714-8878-384b610a928f",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.8500000238418579,
+        -0.8500000238418579
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 93,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "416bbdf4-edb3-4377-9219-2f2236dd63af",
+          "source": "a71374e8-e5b1-47bf-b392-2a83a18831ce",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "6ef0b080-4ef9-4081-8b2d-b0c870b309ef",
+          "source": "d6420b58-89ea-4f41-ba78-eb55923067b9",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "0357064a-f479-4922-880c-1c5bdb345052",
+          "source": "07871f92-e1c1-4ad1-b352-bbba2fd02a7f",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "0357064a-f479-4922-880c-1c5bdb345052",
+          "source": "07871f92-e1c1-4ad1-b352-bbba2fd02a7f",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.699999988079071,
+        -0.699999988079071
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 60,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "52938c8e-fcce-4a44-b34b-4c7b388e96b0",
+          "source": "2c73e915-3791-4fa7-ac0c-392c7c005610",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "e71d8517-a658-4e85-af29-9c893bc14fb7",
+          "source": "f55b49d9-0f34-4fa4-a507-7abffa704313",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "e71d8517-a658-4e85-af29-9c893bc14fb7",
+          "source": "f55b49d9-0f34-4fa4-a507-7abffa704313",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0.7799999713897705,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 115,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.06499999761581421,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 68,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "23d2ff30-bd2b-49ad-bca0-908c7c83a202",
+          "source": "e34a7459-49f6-424b-ad05-9263505448bb",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "8665c1a6-8fa6-4b20-bbbb-ccb51f26be5d",
+          "source": "fe1f3617-d562-456b-8587-4754dcda3d36",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "e9c93fb2-1acc-4de0-8c4a-223823288c59",
+          "source": "7866ce5d-8de7-4ae0-a1ca-d0c5b56ecc0e",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "e9c93fb2-1acc-4de0-8c4a-223823288c59",
+          "source": "7866ce5d-8de7-4ae0-a1ca-d0c5b56ecc0e",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.44999998807907104,
+        -0.44999998807907104
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 50,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "70671153-b43c-4b7e-a598-db727e5260ab",
+          "source": "4e14f5bd-c00b-47b9-a423-d1a0a8ebea46",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "offset": [
+            0,
+            0.3999999761581421
+          ]
+        },
+        "normalMap": {
+          "uuid": "3521d430-c7a3-41d5-a6bb-403eedf7f57c",
+          "source": "98cfbcec-e8fb-43cb-8284-c1a909dfd5d8",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "df3625ba-fcb8-4d16-a831-cdcc323c5e30",
+          "source": "1075b972-12ee-4906-bab8-b1d5581ec2f1",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "df3625ba-fcb8-4d16-a831-cdcc323c5e30",
+          "source": "1075b972-12ee-4906-bab8-b1d5581ec2f1",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.25,
+        -0.25
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 24,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "e71f7c01-9f39-45bd-80a5-a950b3eed9e2",
+          "source": "b7ffbe9d-5927-42a1-ae06-9767c8249c98",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "a304c49d-73c3-490d-a631-bdb573400f66",
+          "source": "e0990888-3627-4bf4-9f6b-eb7cb25297ea",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "932dc6a3-6244-4285-8e09-6c0cd7efa14c",
+          "source": "4aa212b2-0c7a-4d5f-842e-33c85a58d670",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "932dc6a3-6244-4285-8e09-6c0cd7efa14c",
+          "source": "4aa212b2-0c7a-4d5f-842e-33c85a58d670",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.550000011920929,
+        -0.550000011920929
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 229,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "69b3a590-46de-4560-9b04-005b0f6b641f",
+          "source": "84471ad3-5dda-48f0-a7e6-f859d8ed947a",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "8189a884-eec5-4f9f-9cdf-3e5a4ebab7b2",
+          "source": "0f138f8d-a11b-40ff-bd42-b2e8ad9b7036",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "43a5a2c2-253e-454d-bf68-8970818d5832",
+          "source": "addfc681-7b68-44dc-a1a8-ccd19a3c6423",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "43a5a2c2-253e-454d-bf68-8970818d5832",
+          "source": "addfc681-7b68-44dc-a1a8-ccd19a3c6423",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.6499999761581421,
+        -0.6499999761581421
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 56,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.4000000059604645,
+      "metalness": 0.699999988079071,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 3,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "1df79f1b-c0c2-4a43-aa1a-db1600982e34",
+          "source": "d2c49fec-57fe-4fba-8aa3-2a771d6c70a8",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "ccdffb72-1b29-4b64-9eda-b8476b96be34",
+          "source": "986d86c6-2fde-4882-8bd6-87f0702d4276",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "2fbfc5ab-44e7-4f2b-89a2-4417f4623f8e",
+          "source": "f579eafc-9eec-41f6-9838-17ed87059a44",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "2fbfc5ab-44e7-4f2b-89a2-4417f4623f8e",
+          "source": "f579eafc-9eec-41f6-9838-17ed87059a44",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.699999988079071,
+        -0.699999988079071
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": true
+    },
+    {
+      "name": "structures:merged",
+      "instances": 150,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "33cf7ebe-4022-4d35-8a38-b4d8b3d5c9c3",
+          "source": "ba85fe7f-3650-4552-9575-ea6c822edf3d",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "a7c56c5a-082f-4c87-8fe9-c06825762666",
+          "source": "d83eac55-ab85-4d0c-a56a-77633edaaeb0",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "b635b80c-3ecb-4959-ad5a-53f16cbebc36",
+          "source": "872c743a-839d-446e-8328-bd78c6787f57",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "b635b80c-3ecb-4959-ad5a-53f16cbebc36",
+          "source": "872c743a-839d-446e-8328-bd78c6787f57",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.30000001192092896,
+        -0.30000001192092896
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 73,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "a694a634-5827-43bf-8e58-cdb54b3f2dcb",
+          "source": "f0df2be9-150b-455d-a147-887f9e3b8096",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "ecb66ac9-888e-46bc-bc7c-c46bdd66eff2",
+          "source": "42484418-f738-48dc-8820-1fe3e906fb82",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": {
+          "uuid": "e051e7b4-2082-4f1e-ae88-127ae0e63ceb",
+          "source": "1a05de40-3241-46cd-a118-255fd2dbea38",
+          "channel": 1,
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "roughnessMap": {
+          "uuid": "30f6a240-95a3-4402-a4bc-6db912f6e079",
+          "source": "2472e0bd-c13c-4714-8878-384b610a928f",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "30f6a240-95a3-4402-a4bc-6db912f6e079",
+          "source": "2472e0bd-c13c-4714-8878-384b610a928f",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.800000011920929,
+        -0.800000011920929
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 83,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": null,
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.7200000286102295,
+      "metalness": 0.15000000596046448,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 22,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "91f29247-3aad-496b-aab7-4fec68d3c39e",
+          "source": "81e4680d-4e1b-446e-84a2-f21fdacfd189",
+          "channel": 0,
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": null,
+        "aoMap": null,
+        "roughnessMap": null,
+        "metalnessMap": null,
+        "emissiveMap": null
+      },
+      "normalScale": [
+        1,
+        -1
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 0.5199999809265137,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    },
+    {
+      "name": "structures:merged",
+      "instances": 2,
+      "structures": [
+        "glessner_house"
+      ],
+      "materialType": "MeshStandardMaterial",
+      "maps": {
+        "map": {
+          "uuid": "ba7fd3f8-eea6-4a53-a3c8-beb4e01a8fcf",
+          "source": "827ecc73-13a1-444a-ad0f-911c6d301c5c",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "srgb",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "normalMap": {
+          "uuid": "e6588610-156f-4d15-9a98-1d68d7b011a8",
+          "source": "92b43882-7989-4e04-80cf-064807aef9f6",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "aoMap": null,
+        "roughnessMap": {
+          "uuid": "9434732f-6d14-430f-b102-cb144eabac13",
+          "source": "04d3c090-d499-4974-a209-8557d4e85a35",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "metalnessMap": {
+          "uuid": "9434732f-6d14-430f-b102-cb144eabac13",
+          "source": "04d3c090-d499-4974-a209-8557d4e85a35",
+          "channel": 0,
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "minFilter": 1008,
+          "magFilter": 1006,
+          "colorSpace": "",
+          "repeat": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "emissiveMap": null
+      },
+      "normalScale": [
+        0.8500000238418579,
+        -0.8500000238418579
+      ],
+      "aoMapIntensity": 1,
+      "roughness": 1,
+      "metalness": 0,
+      "side": 2,
+      "transparent": false
+    }
+  ]
+}

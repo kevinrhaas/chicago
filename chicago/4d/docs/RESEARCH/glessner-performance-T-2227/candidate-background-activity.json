@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-10-15T17:34:23.236219+00:00",
+  "phase": "Balanced motion",
+  "activity": "Compared two retained Balanced baseline PNG pairs and generated a five-image review sheet in a separate Python process; observed command wall time9.29062552s. Other activity was lightweight file/status reads.",
+  "scope": "One browser; no concurrent gate, bake or second renderer. This is not an otherwise-idle physical-GPU benchmark, and no before/after FPS improvement is claimed. Exact CPU scheduling impact was not measured.",
+  "additionalActivity": [
+    {
+      "phase": "Optimized Light motion",
+      "activity": "An early whole-image comparison of the saved lifecycle PNGs ran in a separate Python process for 3.500192599s while motion was active. Lightweight documentation edits and file/status reads also occurred. No concurrent second renderer, full gate or bake.",
+      "scope": "Not an otherwise-idle benchmark; exact scheduling impact was not measured and no controlled before/after FPS claim is supported."
+    }
+  ]
+}

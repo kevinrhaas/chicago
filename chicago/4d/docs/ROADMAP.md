@@ -5440,3 +5440,30 @@ See docs/RESEARCH/glessner-vines-T-2225/README.md.
 The material pass restores mortar courses to plain stair/Light boundary surfaces and maps gate ledge/brace grain along each member. Fixed Full/Light scene and neutral-light baselines preserve the owner granite tint, dark glass and current July light. The new maps reuse original project textures and numeric construction, with no copied photograph pixels, added random grunge or new claim of measured 1904 weathering. See docs/RESEARCH/glessner-finish-T-2226/README.md and L-glessner-finish-2226. Canonical exports and all 24 fixed-camera after views are reviewed; geometry counts stay unchanged at 1,371,506 Full / 199,850 Light triangles. No browser errors occurred. Mobile confidence, reconstructed liberty and all credited image tiles were reviewed. Five unchanged historical cameras still read differs. Full preflight and exact-head CI govern merge; see the ticket-linked PR for gate and deployment receipts. Existing north-view scene-budget failures are recorded unchanged for T-2227; T-2228 owns the final photographic verdicts.
 
 T-2226 preflight found one real failure: the published tree reached 262.262 MiB against its 256 MiB hygiene allowance. A measured storage re-budget to 288 MiB is documented in docs/SITE-BUDGET.md section 8; boot, frame and Light limits are unchanged. No material detail or research record was removed. The full gate is rerun before commit.
+
+
+## T-2227 — Glessner browser quality and performance (2026-10-15)
+
+The completed house exceeded the unchanged scene ceilings at eight of fifteen
+Light inspection stands and several Full courtyard stands. Equivalent inspection
+materials now share compatible texture sources and shader state; opaque Full
+Glessner faces have spatial pieces; Light rejects whole instance bounds only behind
+actual opaque building triangles. The original transparent roof draw groups remain
+intact. No house geometry, historical camera, source right, owner tint, dark glass
+setting or budget changes.
+
+The complete fifteen-view Full and Light runs and five-view Balanced run pass their
+existing ceilings, including thirty moving samples per tier. Full detail restoration
+is pixel-identical and restores the building material/instance census; eighteen Light
+visibility on/off images are exact. Earlier failed baselines and rejected transparent
+roof partitioning remain in the evidence. The allocation-reduced four-view Light rerun and thirty moving samples also pass.
+A persistent one-pixel winter difference caused a conservative summer-only filter:
+other seasons retain the complete normal draw list. The final ten seasonal/reference
+pairs are pixel-identical, winter retains all draws, and summer restores the filter.
+Full preflight, exact-commit CI and deployment receipts are recorded in the ticket-linked PR.
+Software-renderer timing does not establish physical-GPU FPS. Winter's supplementary
+round trip is not a claim that other seasons meet July's scene budget.
+
+[Runtime changes and complete evidence](RESEARCH/glessner-performance-T-2227/README.md).
+Five historical comparisons still read `differs`; T-2228 owns the remaining visible
+photographic corrections. This gate clears their existing performance blocker only.

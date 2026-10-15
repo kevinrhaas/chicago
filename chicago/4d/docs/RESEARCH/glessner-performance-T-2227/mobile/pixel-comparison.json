@@ -1,0 +1,145 @@
+{
+  "method": "Entire unmodified PNG at fixed camera, same page, animation held; only visibility optimization toggled. Partial until all 15 main pairs plus three evidence pairs exist. Not a photo-match verdict.",
+  "pairs": [
+    {
+      "name": "mobile-bow-leader",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "2926d0700c22735da362c5d4c4e17323a3dda4e441df319a8074b8b5d94f8a6f",
+      "offSha256": "2926d0700c22735da362c5d4c4e17323a3dda4e441df319a8074b8b5d94f8a6f"
+    },
+    {
+      "name": "mobile-courtyard",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "963f315a0766e582f1ac4a2f227994b7953b055ab8fa4771b8798ee6f3daa318",
+      "offSha256": "963f315a0766e582f1ac4a2f227994b7953b055ab8fa4771b8798ee6f3daa318"
+    },
+    {
+      "name": "mobile-dining-copper",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "6c44890742ec73d2556bb59654c40c2902a1c115af3b767269243a9ac3bbc507",
+      "offSha256": "6c44890742ec73d2556bb59654c40c2902a1c115af3b767269243a9ac3bbc507"
+    },
+    {
+      "name": "mobile-dining-leader",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "93f863b313281a8d03da6bb13ee764377528a98fd5ef6eca23637ea49501691f",
+      "offSha256": "93f863b313281a8d03da6bb13ee764377528a98fd5ef6eca23637ea49501691f"
+    },
+    {
+      "name": "mobile-gate-court",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "d936022a76381b3480b3da40062b7f6385844063350ba216824c6f562a3fff90",
+      "offSha256": "d936022a76381b3480b3da40062b7f6385844063350ba216824c6f562a3fff90"
+    },
+    {
+      "name": "mobile-north-court",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "c4a3456b6fc850464e9c760a28731b5d87a96997147c82a5e488b0ec7c768fe4",
+      "offSha256": "c4a3456b6fc850464e9c760a28731b5d87a96997147c82a5e488b0ec7c768fe4"
+    },
+    {
+      "name": "mobile-north-head-clear",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "8f7e440cae4ff0b439c776ef80c4154670ecbb67e93700037bc618e12d24a377",
+      "offSha256": "8f7e440cae4ff0b439c776ef80c4154670ecbb67e93700037bc618e12d24a377"
+    },
+    {
+      "name": "mobile-north-shade",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "d7efc52e273dd22001c9c8584d7f254b38dc5e41e4c03894bbe39fc67ba15e40",
+      "offSha256": "d7efc52e273dd22001c9c8584d7f254b38dc5e41e4c03894bbe39fc67ba15e40"
+    },
+    {
+      "name": "mobile-north-stone-close",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "de577aa26505637b283a052673617e33253656bc4e797b49645908a0f0a0f634",
+      "offSha256": "de577aa26505637b283a052673617e33253656bc4e797b49645908a0f0a0f634"
+    },
+    {
+      "name": "mobile-north-tower",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "d3924173e8d6966169c9e0cce36f5156c9a2dd5d403c8eaa4d1c3d6b4422c4a5",
+      "offSha256": "d3924173e8d6966169c9e0cce36f5156c9a2dd5d403c8eaa4d1c3d6b4422c4a5"
+    },
+    {
+      "name": "mobile-northeast",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "9d8c3ee08a86ca4c858ca3eb13b543cc44e567dd65b19dd62efa36d52608a5a9",
+      "offSha256": "9d8c3ee08a86ca4c858ca3eb13b543cc44e567dd65b19dd62efa36d52608a5a9"
+    },
+    {
+      "name": "mobile-owner-angle",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "7ef7c16aeded17720c20809f206101b2447cccb64c5da8eff7eec95300a9d6bc",
+      "offSha256": "7ef7c16aeded17720c20809f206101b2447cccb64c5da8eff7eec95300a9d6bc"
+    },
+    {
+      "name": "mobile-stair-support",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "e8397170d84d2b9d5aeecd2fb55485c2ab7f287c4e075eed19ade41c828d4e69",
+      "offSha256": "e8397170d84d2b9d5aeecd2fb55485c2ab7f287c4e075eed19ade41c828d4e69"
+    },
+    {
+      "name": "mobile-terrace-foot",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "c4dd594fb863a9d479acad3232307f3e0447ff637db030833ff228ed6621731a",
+      "offSha256": "c4dd594fb863a9d479acad3232307f3e0447ff637db030833ff228ed6621731a"
+    },
+    {
+      "name": "mobile-west",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null,
+      "onSha256": "f7547cdc15b3330fc9081d3eb843c9688d64441918b11545a45fe903acb88b28",
+      "offSha256": "f7547cdc15b3330fc9081d3eb843c9688d64441918b11545a45fe903acb88b28"
+    },
+    {
+      "name": "mobile-bow-leader-evidence-on",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null
+    },
+    {
+      "name": "mobile-bow-leader-hidden-inferred-on",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null
+    },
+    {
+      "name": "mobile-bow-leader-hidden-reconstructed-on",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "bounds": null
+    }
+  ],
+  "mainPairs": 15,
+  "complete": true
+}

@@ -1,0 +1,7 @@
+{
+  "recordedAt": "2026-10-15T16:47:50.422433+00:00",
+  "change": "Exclude transmissive physical materials from opaque-source eligibility, including later material mutation.",
+  "scope": "All 51 measured building batches are MeshStandardMaterial, in both published Full and Light censuses. This branch is not exercised by the measured scene; no existing batch eligibility changes.",
+  "publishedCaptureRevision": "candidate-roof-preserved-inputs.json",
+  "finalSourceValidation": "Full preflight and exact-head CI still pending; current browser pipeline continues against its frozen published mirror."
+}

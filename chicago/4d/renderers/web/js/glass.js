@@ -39,6 +39,7 @@
  * opaque batch, no transmission, a few dozen instructions on glass alone.
  */
 import * as THREE from 'three';
+import { captureHooks, registerPatch } from './batch-material.js';
 
 export const GLASS_MODES = Object.freeze(['transmission', 'clear', 'dark']);
 /** The GLB's own glass: what a caller that names no mode gets. */
@@ -308,6 +309,7 @@ const PANE_SHEEN = /* glsl */`
 `;
 
 function patchPanes(material) {
+  const batchHooks = captureHooks(material);
   material.userData.glassPanes = PANE_PATCH;
   const prior = material.onBeforeCompile;
   material.onBeforeCompile = (shader, renderer) => {
@@ -320,5 +322,6 @@ function patchPanes(material) {
       .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>' + PANE_SHEEN);
   };
   material.customProgramCacheKey = () => PANE_PATCH;
+  registerPatch(material, batchHooks, 'pane-v1', { patch: PANE_PATCH });
   material.needsUpdate = true;
 }

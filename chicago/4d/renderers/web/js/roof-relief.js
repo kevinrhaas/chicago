@@ -89,6 +89,7 @@
  */
 
 import * as THREE from 'three';
+import { captureHooks, registerPatch } from './batch-material.js';
 import { resolveBases } from './scene-loader.js';
 
 /**
@@ -122,6 +123,7 @@ const LIBRARY = 'textures/chicago_1835_pbr/';
  * is the whole of the transform.
  */
 function metricRoofUv(material, tileM) {
+  const batchHooks = captureHooks(material);
   const prior = material.onBeforeCompile;
   material.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior(shader, renderer);
@@ -153,6 +155,7 @@ function metricRoofUv(material, tileM) {
   }`,
       );
   };
+  registerPatch(material, batchHooks, 'metric-roof-uv-v1', { tileM });
   material.needsUpdate = true;
 }
 
