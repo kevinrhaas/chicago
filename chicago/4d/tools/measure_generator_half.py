@@ -588,12 +588,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # house and its fenced green in the 1812 scene (kinzie_house_1812, kinzie_house_1812_green), through
 # emit.py and the common modules.
 #
-# 876 -> 879, 726 -> 729 and 720 -> 723 on 2026-10-15 (T-2512, landing after T-2497): the two
+# 876 -> 880 on 2026-10-15 (T-2510, landing after T-2497): four haystacks at
+# Lee's Place in 1812, the first records of the new `haystack` archetype. It writes its glTF in pure
+# Python (generators/haystack_emit.py, the K12/K16 route), so it restales on none of the shared rows
+# below: registering it in emit.py instead would have re-staled every mesh on that row for want of
+# one dict entry.
+#
+# 880 -> 883, 726 -> 729 and 720 -> 723 on 2026-10-15 (T-2512, landing after T-2510): the two
 # houses at the forks of 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`),
 # emitted the same way as T-2062's, restaling on the same rows.
 #
 STATED = {
-    "assets": 879,
+    "assets": 883,
     "restales": {
         "generators/common/*.py": 729,
         "generators/common/__init__.py": 0,

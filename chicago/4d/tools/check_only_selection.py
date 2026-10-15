@@ -36,6 +36,15 @@ name under assets/gltf/ carries the comma the list splits on, and its self-test 
 the derivative step itself on a fixture with a stub toolchain: a list derives its
 members and nothing else, merges its record, and a name no master answers to or an
 empty list is refused before a byte is written.
+
+T-2492 ADDS THE STATUS build.py HANDS BACK. The K01/K12/K13/K16 and Prairie-draft
+archetypes are emitted in pure Python AFTER the Blender step, so a `--only` naming
+only those is one Blender builds nothing for — and build.py's `1` for that ended
+bake.sh under `set -e` before those emitters ran (#770, run 38454631755). build.py
+now returns NOTHING_FOR_BLENDER (`generators/common/selection.py`) for a selection it
+built nothing for, and bake.sh lets that one status, and only for a selection, on to
+the emitters, leaving its empty-list guard as the refusal. The self-test runs
+bake.sh's own text against a stub Blender and stub emitters for each status.
 """
 
 from __future__ import annotations
@@ -53,7 +62,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "generators"))
 
-from common.selection import parse_only, refusal, selects  # noqa: E402
+from common.selection import (NOTHING_FOR_BLENDER, parse_only, refusal,  # noqa: E402
+                              selects)
 
 BAKE_SH = ROOT / "tools" / "bake.sh"
 BUILD_PY = ROOT / "generators" / "build.py"
@@ -114,6 +124,17 @@ def audit_texts(bake_sh: str, build_py: str) -> list[str]:
                    "falsy, so that test reads an empty selection — an unexpanded "
                    "shell variable — as no selection at all, and bakes the whole "
                    "town. Ask `parse_only(...) is None` for absence instead.")
+    # T-2492: the status a selection Blender built nothing for, said in both files.
+    if not re.search(r"^\s*return NOTHING_FOR_BLENDER\b", build_py, re.M):
+        rep.append("generators/build.py no longer returns NOTHING_FOR_BLENDER for a "
+                   "selection it built nothing for, so a `--only` naming a pure-Python "
+                   "archetype (K01/K12/K13/K16/draft) fails the bake before its emitter "
+                   "runs (T-2492).")
+    held = re.search(r"^NOTHING_FOR_BLENDER=(\d+)$", bake_sh, re.M)
+    if not held or int(held.group(1)) != NOTHING_FOR_BLENDER:
+        rep.append(f"tools/bake.sh does not hold NOTHING_FOR_BLENDER={NOTHING_FOR_BLENDER} "
+                   "(generators/common/selection.py), so it cannot tell 'nothing for "
+                   "Blender' from a failed build (T-2492).")
     return rep
 
 
@@ -247,6 +268,94 @@ def audit_step(script: str) -> list[str]:
     return rep
 
 
+# ------------------------------------------- the bake's first half, run (T-2492)
+# bake.sh's own text, with Blender, the six pure-Python emitters and every step after
+# them stubbed: the stub Blender exits with the status the case gives, an emitter
+# appends a master to --wrote when the case names it, and each step logs that it ran.
+STUB_BLENDER = """#!/usr/bin/env bash
+[ "$1" = "--version" ] && { echo "Blender fixture"; exit 0; }
+echo blender >> "$FIXTURE_LOG"
+exit "$FIXTURE_BLENDER_EXIT"
+"""
+STUB_EMIT = """import os, sys
+from pathlib import Path
+me = Path(__file__).stem
+with open(os.environ["FIXTURE_LOG"], "a") as fh:
+    fh.write(me + "\\n")
+if me in os.environ.get("FIXTURE_EMITS", "").split(","):
+    with open(sys.argv[sys.argv.index("--wrote") + 1], "a") as fh:
+        fh.write(me + ".glb\\n")
+"""
+STUB_STEP = """#!/usr/bin/env bash
+echo "$(basename "$0") $*" >> "$FIXTURE_LOG"
+"""
+# haystack_emit joined on 2026-10-15 (T-2510), landing beside T-2492: a bake.sh emitter with no
+# stub here is a missing script, the bake ends 2 there, and every case below reads that as the
+# defect it is guarding against.
+EMITTERS = ("k01_emit", "k13_emit", "k16_emit", "k12_emit", "draft_emit", "haystack_emit")
+
+
+def run_bake(script: str, blender_exit: int, emits: tuple[str, ...], *args: str):
+    """Run a copy of `script` (bake.sh's text); return its status and what ran."""
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory)
+        for sub in ("tools", "generators", "cache/fixture-blender"):
+            (root / sub).mkdir(parents=True)
+        (root / "tools" / "bake.sh").write_text(script)
+        (root / "generators" / "blender.pin").write_text(
+            "BLENDER_VERSION=0\nBLENDER_URL=https://example.invalid/fixture.tar.xz\n"
+            "BLENDER_SHA256=0\nBLENDER_DIR=fixture-blender\n")
+        blender = root / "cache" / "fixture-blender" / "blender"
+        blender.write_text(STUB_BLENDER)
+        blender.chmod(0o755)
+        for name in EMITTERS:
+            (root / "generators" / f"{name}.py").write_text(STUB_EMIT)
+        for name in ("web_derivatives.sh", "publish.sh", "check.sh"):
+            (root / "tools" / name).write_text(STUB_STEP)
+            (root / "tools" / name).chmod(0o755)
+        for name in ("compile_scene.py", "stale_derivatives.py"):
+            (root / "tools" / name).write_text("")
+        log = root / "ran.log"
+        log.write_text("")
+        env = {**os.environ, "BLENDER_CACHE": str(root / "cache"), "SKIP_SMOKE": "1",
+               "FIXTURE_LOG": str(log), "FIXTURE_BLENDER_EXIT": str(blender_exit),
+               "FIXTURE_EMITS": ",".join(emits)}
+        done = subprocess.run(["bash", "tools/bake.sh", *args], cwd=root, env=env,
+                              capture_output=True, text=True)
+        return done.returncode, log.read_text().split("\n")
+
+
+def audit_bake(script: str) -> list[str]:
+    """What bake.sh does with each status build.py can hand it, run rather than read."""
+    rep: list[str] = []
+    nothing = NOTHING_FOR_BLENDER
+    code, ran = run_bake(script, nothing, ("k16_emit",), "--only", "a_k16_front")
+    if code != 0 or "web_derivatives.sh --only k16_emit.glb" not in ran:
+        rep.append(f"`--only <a K16 id>` with Blender building nothing (exit {nothing}) "
+                   f"ended {code} having run {[r for r in ran if r]}; it must go on to the "
+                   "emitters and derive the master K16 wrote (T-2492).")
+    code, ran = run_bake(script, nothing, (), "--only", "a_k16_front")
+    if code == 0 or any(r.startswith("web_derivatives.sh") for r in ran):
+        rep.append(f"a selection nothing built at all ended {code} having run "
+                   f"{[r for r in ran if r]}; the empty-list guard must refuse it before "
+                   "the derivative step.")
+    for status in (1, 2):
+        code, ran = run_bake(script, status, ("k16_emit",), "--only", "a_k16_front")
+        if code != status or "k16_emit" in ran:
+            rep.append(f"build.py's exit {status} under `--only` ended the bake {code} "
+                       f"having run {[r for r in ran if r]}; any status but "
+                       f"{nothing} must stop it with that status, before the emitters.")
+    code, ran = run_bake(script, nothing, ("k16_emit",))
+    if code == 0 or "k16_emit" in ran:
+        rep.append(f"a bake with NO selection went on past build.py's exit {nothing} "
+                   f"(ended {code}); only a selection may be built by the emitters alone.")
+    code, ran = run_bake(script, 0, ("k16_emit",), "--only", "a,a_k16_front")
+    if code != 0 or "web_derivatives.sh --only k16_emit.glb" not in ran:
+        rep.append(f"a selection Blender built ended {code} having run "
+                   f"{[r for r in ran if r]}; a clean build must run as before.")
+    return rep
+
+
 # ----------------------------------------------------------------------- self-test
 
 def self_test() -> int:
@@ -278,6 +387,14 @@ def self_test() -> int:
     else:
         print("  ok    a list derives its members, an unknown or empty one is refused")
 
+    print("\n  -- the bake goes on to the emitters for its selection (T-2492)")
+    live_bake = audit_bake(bake_sh)
+    if live_bake:
+        for line in live_bake:
+            fails.append(f"the committed bake.sh: {line}")
+    else:
+        print("  ok    nothing-for-Blender reaches the emitters; every other status stops")
+
     print("\n  -- and each assertion fires when the pair is broken")
     arm("the usage drops the comma form",
         bake_sh.replace(DOC_FORM, "--only <id>"), build_py, "no longer documents")
@@ -301,6 +418,37 @@ def self_test() -> int:
                bake_sh), build_py, "no longer passes a selection")
     arm("build.py drops --wrote (T-1653)",
         bake_sh, build_py.replace('"--wrote"', '"--written"'), "no longer takes `--wrote`")
+
+    arm("build.py fails a selection Blender built nothing for again (T-2492)",
+        bake_sh, build_py.replace("return NOTHING_FOR_BLENDER", "return 1"),
+        "no longer returns NOTHING_FOR_BLENDER")
+    arm("bake.sh's status drifts from selection.py's (T-2492)",
+        bake_sh.replace(f"NOTHING_FOR_BLENDER={NOTHING_FOR_BLENDER}",
+                        f"NOTHING_FOR_BLENDER={NOTHING_FOR_BLENDER + 4}"),
+        build_py, "does not hold NOTHING_FOR_BLENDER")
+
+    def arm_bake(label: str, broken: str, expect: str) -> None:
+        if broken == bake_sh:
+            fails.append(f"{label}: the break did not apply to bake.sh")
+            return
+        rep = audit_bake(broken)
+        if any(expect in line for line in rep):
+            print(f"  ok    {label}")
+        else:
+            fails.append(f"{label}: NOT caught (findings: {rep})")
+
+    arm_bake("build.py's status ends the bake under set -e again (the T-2492 defect)",
+             bake_sh.replace(' --wrote "$WROTE" || BUILT=$?', ' --wrote "$WROTE"'),
+             "must go on to the emitters")
+    arm_bake("every status is let through to the emitters",
+             bake_sh.replace('[ "$BUILT" = "$NOTHING_FOR_BLENDER" ]', "true"),
+             "must stop it with that status")
+    arm_bake("a bake with no selection is let through too",
+             bake_sh.replace('[ "$SELECTED" = "1" ] && [ "$BUILT"', '[ "$BUILT"'),
+             "only a selection may")
+    arm_bake("the empty-list guard is dropped",
+             bake_sh.replace('if [ ! -s "$WROTE" ]; then', "if false; then"),
+             "the empty-list guard must refuse")
 
     def arm_step(label: str, broken: str, expect: str) -> None:
         if broken == web_sh:
