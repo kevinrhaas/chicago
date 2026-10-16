@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1867, ts: '2026-10-16T13:39:34.411Z', date: 'Oct 16, 2026, 8:39 AM CT', title: 'Wall wood grain now loads GPU-compressed, using less phone memory', kind: 'improvement',
+    items: [
+      'Nothing you can see changed. The wood grain on every clapboard and log wall now arrives ready for the graphics chip, instead of being decoded and repacked in the page at every visit.',
+      'On a phone those walls hold 1.4 MB of graphics memory instead of 5.4 MB, and the page no longer repacks those images while it loads.',
+      'Close up, the walls match the old ones to within what the eye can tell apart.',
+    ] },
   { v: 1866, ts: '2026-10-16T13:30:30.805Z', date: 'Oct 16, 2026, 8:30 AM CT', title: 'Steadier frames while you move on a slow device', kind: 'improvement',
     items: [
       'On a phone or slow computer that can\'t keep up while you walk, turn or fly, the town is now drawn at fewer pixels, down to about two-thirds of your Image sharpness, to keep frames coming at an even pace instead of stuttering.',
