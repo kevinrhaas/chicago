@@ -5,8 +5,9 @@
  * numbers that imports no bare specifier — see spatial-kernel.js for why.
  */
 import { partitionTriangles } from './spatial-kernel.js';
+import { latticeSlots } from './lattice-kernel.js';
 
-export const KERNELS = { partitionTriangles };
+export const KERNELS = { partitionTriangles, latticeSlots };
 
 /** The distinct ArrayBuffers under every typed array in a job's result. */
 export function transferablesOf(value, out = new Set()) {

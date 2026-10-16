@@ -55,6 +55,15 @@ step "The image gate refuses to close a building that does not match its picture
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+# T-2604. A spread flora pass walks its lattice on a worker (jobs/lattice-kernel.js)
+# and a one-frame pass walks it in flora.js's own `scatter`; the two are separate
+# texts, so this slices flora.js and holds them to the same slots, bit for bit.
+step "The flora lattice walk on a worker hands the deal the slots the in-frame walk does (T-2604)" \
+  node tools/check_lattice_kernel.mjs
+
+selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
+  node tools/check_lattice_kernel.mjs --self-test
+
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
