@@ -1,0 +1,10 @@
+{
+  "title": "Walking up a slope no longer stalls the grass",
+  "kind": "fix",
+  "items": [
+    "Climbing or dropping more than 0.6 metres on foot used to make the grass and flowers around you be laid out again all at once, in a single frame.",
+    "On a slowed-down phone profile that frame took about 130 milliseconds on the walk from Lake Street into the block. It now spreads over frames like every other step.",
+    "A sharp turn on the spot can still cause one such frame; that is next.",
+    "Every plant stands exactly where it did before."
+  ]
+}
