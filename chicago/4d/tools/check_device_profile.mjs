@@ -128,7 +128,11 @@ check('Settings says the class and what it chose', () => {
   assert.match(hud, /describeProfile\(device\)/);
 });
 check('a stored choice is read before the profile, so the visitor keeps the last word', () => {
-  assert.match(main, /let detailLevel = readDetailPreference\(\) \|\| device\.choice\.detail;/);
+  assert.match(main, /let detailLevel = crashBoot\.lowered\.detail \? crashBoot\.detail : \(readDetailPreference\(\) \|\| device\.choice\.detail\);/,
+    "T-2547's step-down, then the stored choice, then the profile");
+  assert.match(main, /resolveSharpness\(readQualityPreference\(\), coarse, qualityGuess\)/);
+  assert.match(main, /crashGuard\.boot\(\{\s*detail: readDetailPreference\(\) \|\| bootGuess\?\.detail/,
+    'the crash guard steps down from the cached profile, not the platform default');
   assert.match(main, /const qualityGuess = device\.choice\.sharpness;/);
   assert.match(main, /resolveSharpness\(hud\.settings\.quality, coarse, qualityGuess\)/);
   for (const q of SHARPNESS_STOPS) assert.equal(resolveSharpness(q, false, 2), q);
