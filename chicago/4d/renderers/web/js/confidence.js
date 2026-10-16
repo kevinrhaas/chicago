@@ -71,7 +71,7 @@ export const GRADE_COLORS = Object.freeze({
  * flat colour). Attested is pulled least, so the house a source describes still reads
  * as its own stone and brick under the gold; reconstructed most, under its dither.
  */
-export const GRADE_TINT_STRENGTH = Object.freeze({ attested: 0.5, inferred: 0.72, reconstructed: 0.8 });
+export const GRADE_TINT_STRENGTH = Object.freeze({ attested: 0.62, inferred: 0.72, reconstructed: 0.8 });
 
 export const LEVELS = {
   attested: 0.0,
