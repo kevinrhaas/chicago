@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1882, ts: '2026-10-16T20:02:36.702Z', date: 'Oct 16, 2026, 3:02 PM CT', title: 'Nothing you can see yet: 1835 plank walks built ahead of time', kind: 'chore',
+    items: [
+      'Nothing in the scene changed. This is the first step toward phones downloading the town instead of building it at every visit.',
+      'A new tool builds the 1835 plank walks, crossings and fences on the server, using the page\'s own code and ground. All 768 of the 128 pieces\' buffers match what the page builds, byte for byte.',
+      'Built ahead, they come to 78 MB raw, or about 10 MB compressed. The next step makes the page load them and measures a phone\'s boot before and after.',
+    ] },
   { v: 1881, ts: '2026-10-16T19:54:24.053Z', date: 'Oct 16, 2026, 2:54 PM CT', title: 'Turning on the spot hitches less on a phone', kind: 'improvement',
     items: [
       'The planting grid for the grass and flowers around you is now laid out on a spare processor core, so redrawing it as you move costs the screen less.',

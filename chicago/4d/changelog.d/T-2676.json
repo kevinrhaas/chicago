@@ -1,9 +1,0 @@
-{
-  "title": "Nothing you can see yet: 1835 plank walks built ahead of time",
-  "kind": "chore",
-  "items": [
-    "Nothing in the scene changed. This is the first step toward phones downloading the town instead of building it at every visit.",
-    "A new tool builds the 1835 plank walks, crossings and fences on the server, using the page's own code and ground. All 768 of the 128 pieces' buffers match what the page builds, byte for byte.",
-    "Built ahead, they come to 78 MB raw, or about 10 MB compressed. The next step makes the page load them and measures a phone's boot before and after."
-  ]
-}
