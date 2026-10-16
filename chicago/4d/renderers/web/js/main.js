@@ -1498,6 +1498,9 @@ const arrival = createArrival({
   logEl: document.getElementById('arrival-log'),
   lampsEl: document.getElementById('arrival-lamps'),
   readoutEl: document.getElementById('arrival-readout'),
+  observatoryEl: document.getElementById('gate-observatory'),
+  detailsEl: document.getElementById('gate-details'),
+  detailEl: document.getElementById('gate-detail'),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
@@ -1512,13 +1515,15 @@ boot().catch((err) => {
   bootController.fail(active?.id || 'scene', err);
   api.error = String(err?.message || err);
   problems.push(`boot: ${api.error}`);
-  // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
-  // is not a broken build, and should not read like one.
-  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
+  // A year with no scene yet (a door such as /4d/1880/ that is ahead of the data)
+  // is not a broken build, and should not read like one. T-2616: a year the Observatory
+  // offers HAS a scene, so its scene file missing is a stalled jump, not an unbuilt year.
+  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`)
+    && !['1812', '1835', '1904'].includes(YEAR);
+  // T-2616: the visitor reads "the jump stalled"; what failed goes under the folded details.
   arrival.fail(err, {
-    message: unbuilt
-      ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
-      : `Could not load the scene — ${api.error}`,
+    message: `Could not load the scene — ${api.error}`,
+    headline: unbuilt ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.` : undefined,
   });
   console.error('[4D Chicago] boot failed', err);
 });

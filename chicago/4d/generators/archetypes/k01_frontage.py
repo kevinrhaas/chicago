@@ -2060,7 +2060,11 @@ class Assembly:
         # the cornice box: from the front wall's face out `o`, its soffit at the wall head's
         # line and its top at the deck's rear eave, ended flush with the side walls' planes
         cornice_top = E + .12 if finish else er
-        box = k5.extrude([(D, yf), (D + o, yf), (D + o, cornice_top), (D, cornice_top)], -W, 0.0, P,
+        # T-2679: a stone finish may read the box as a narrow fillet under its lattice
+        ob = finish.get("cornice_box_m", o) if finish else o
+        # T-2680: over a stone cornice lifted toward the lattice, the box stands on its top
+        yb = yf + float((p.wall_head or {}).get("lift_m", 0.0))
+        box = k5.extrude([(D, yb), (D + ob, yb), (D + ob, cornice_top), (D, cornice_top)], -W, 0.0, P,
                          lambda i, p_, q_: ("soffit", "fascia", "fascia", "hidden")[i], "fascia", "fascia")
         solids.append(box)
         for c in p.chimneys:

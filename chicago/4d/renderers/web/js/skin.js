@@ -20,7 +20,10 @@
   } catch {}
   root.dataset.skin = skin;
   try { root.dataset.theme = localStorage.getItem('chicago4d.theme') || toneOf(skin); } catch { root.dataset.theme = toneOf(skin); }
-  try { if (Number(sessionStorage.getItem('chicago4d.transfer')) > Date.now() - 15000) root.dataset.transfer = 'true'; } catch {}
+  // T-2615: a page opened within 10 s of the Observatory's transfer stamp is the far end
+  // of that jump, so the arrival opens with the portal's ring still expanding (skins.css).
+  // A direct visit, or one after 10 s, has no stamp young enough and opens plain.
+  try { const age = Date.now() - Number(sessionStorage.getItem('chicago4d.transfer')); if (age >= 0 && age < 10000) root.dataset.transfer = 'true'; } catch {}
 
   // The appearance dial: one small button that steps to the next machine, its hand
   // turning a quarter each step and a row of dots marking which of the four is on.

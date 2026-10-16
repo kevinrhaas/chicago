@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-reed-1941-prairie-north-from-1820",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "589e34370553820032ffb0dc52f48659e1f52d9b8d47c86cf4f495352d32e0cf",
-  "camera_sha256": "9ba76d2aa82e2c89e8877ec4e1881c55de03d6a2d06f6c89b7165d0a1572457d",
+  "glb_sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
+  "camera_sha256": "2583522f2a71f4b5a618930d224748f1a2feedac27071a0541aa493e1e4b07b2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -26,6 +26,14 @@
     {
       "what": "T-2581: the south face's front strip is built: coursed stone from grade to the parapet, 2.1 m behind the south-east pinnacle, where the model laid brick with toothed quoins; the photograph's strip runs on behind the pole at x 262, so this view bounds it from below and the mid-1950s view's downpipe sets its end.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2679: re-read after the crown changed: at this distance the band, the lattice head and the north-east boss are a few pixels and the picture cannot tell the old crown from the new.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2680: both front pinnacle apexes read within about 1 px of the lowered crown. Left of the south-east pier, the print shows dark coursed wall up to the coping's line (y 158), where the render's south side stops at y 182. The isolated render has no neighbours, so this is either Keith's south parapet or the house in front of it at 1812, and this distant view cannot say which.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

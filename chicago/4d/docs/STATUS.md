@@ -19,6 +19,27 @@ motion was not built and is moved to H1's entry. The spike (`renderers/web-hd/`)
 published. [The memo](RENDERING.md#h0--the-bake-off-memo-t-2558-2026-10-16) ·
 [the reading](measurements/t-2558-h0-bakeoff.json).
 
+## T-2635 — the building summary record and its gate (2026-10-16)
+
+Design doc "Field Navigator Mk II" §12. `data/summary.schema.json` shapes the authored
+front page of a notable structure, `data/summaries/<id>.json`; `tools/compile_summaries.py`
+gates every record and compiles them into `data/inspect/<scene>.json` (one per scene, empty
+ones included, generated at publish and never committed, mirrored by `publish.sh` and held
+byte for byte by `check_published.mjs`). The compiled form adds the resident's name from the
+scene's people directory, ranks notable facts by impact (surprising ×3, person ×2, visible from
+the street ×2, Attested ×1.5), sorts the story by date, counts facts by grade and resolves each
+cited source to its citation. `check.sh` runs `--check` and a `--self-test` that plants each
+fault and requires it refused by name: no grade, an unsourced Attested fact, an Inferred fact
+with no note, over-length summary / role / Look-for / notable, more than 3 sentences, a
+snake_case id, a file path, a link or a ticket number in a visitor string, and an unresolved
+source, person, liberty, era or structure-in-scene.
+
+Invisible on purpose: it is the gate blocking the Inspect app (T-2638), the fallback summary
+(T-2636) and the Glessner pilot record (T-2637). **No real record ships yet**; the self-test's
+record is a fixture held in the tool. **Open for T-2637:** the 1904 scene has no people
+directory (`data/sidecars/1904/people.json` does not exist), so a 1904 record cannot name a
+resident until one does — the gate refuses the id rather than guess. Reading level is T-2669.
+
 ## T-2228 — Glessner photographic corrections (2026-10-16)
 
 The north ridge now runs straight through the west crossing; its cross-gable and

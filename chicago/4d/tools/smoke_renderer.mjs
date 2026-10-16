@@ -16921,7 +16921,9 @@ for (const [label, viewport, touch] of [
       new MutationObserver(() => {
         const year = document.getElementById('arrival-year')?.dataset.year;
         if (year && year !== window.__arrivalYears.at(-1)?.year) {
-          window.__arrivalYears.push({ year, ready: window.__chicago4d?.ready === true });
+          window.__arrivalYears.push({ year, ready: window.__chicago4d?.ready === true,
+            // T-2610: the small line over the ticker, as it read when this year showed.
+            destination: document.getElementById('arrival-destination')?.textContent ?? null });
         }
       }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year'] });
     });
@@ -16990,6 +16992,11 @@ for (const [label, viewport, touch] of [
       years.length >= 2 && Number(years[0].year) > 1835 && early.length === 0
       && years.every((y, i) => i === 0 || Number(y.year) <= Number(years[i - 1].year)),
       years.map((y) => `${y.year}${y.ready ? '' : '·'}`).join(' '), true);
+    check(`${label}: the small line reads Destination ${YEAR} from first paint and never changes on the way`,
+      years.length >= 2 && (years[0].destination ?? '').startsWith(`Destination ${YEAR} · `)
+      && years.every((y) => y.destination === years[0].destination)
+      && !/Destination year/i.test(await p14.evaluate(() => document.getElementById('gate').textContent)),
+      [...new Set(years.map((y) => y.destination))].join(' | '));
 
     const welcome = await p14.evaluate(() => {
       const gate = document.getElementById('gate');

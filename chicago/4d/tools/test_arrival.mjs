@@ -54,7 +54,48 @@ assert.match(index, /id="gate-sub"[^>]*aria-live="polite"/,
   'the phase/arrival line is the gate\'s one live announcement');
 assert.match(index, /id="arrival-card"/, 'the source/status card slot must exist');
 
+assert.match(index, /id="gate-observatory"[^>]*href="\.\.\/"[^>]*hidden/, 'the way back to the Observatory waits, hidden, for a failure');
+assert.match(index, /<details id="gate-details"[^>]*hidden><summary>Details for your teacher<\/summary><p id="gate-detail"><\/p><\/details>/,
+  'the failure detail is folded under "Details for your teacher"');
 console.log('ARRIVAL A11Y PASS — year hidden, phase line polite, card slot present');
+
+// T-2610: two lines. The small line names where you are going from first paint (the
+// inline script, before any module arrives); the big ticker is the present year, rolling
+// down. The old "Destination year" label over the present year was the bug.
+assert.doesNotMatch(index, /Destination year/, 'the "Destination year" label over the ticker is gone');
+assert.match(index, /id="arrival-destination"[\s\S]*id="arrival-year"/, 'the destination line sits above the ticker');
+{
+  const script = index.match(/<script>(\(function \(\) \{ var h = document\.getElementById\('arrival-year'\)[\s\S]*?)<\/script>/)?.[1];
+  assert.ok(script, 'the first-paint script that writes the ticker is present');
+  const { runInNewContext } = await import('node:vm');
+  const node = () => ({ children: [], dataset: {}, textContent: '', className: '', innerHTML: '',
+    appendChild(c) { this.children.push(c); return c; },
+    get text() { return this.textContent + this.children.map(c => c.text ?? c.textContent).join(''); } });
+  const firstPaint = (pathname, search = '') => {
+    const els = { 'arrival-year': node(), 'arrival-destination': node() };
+    runInNewContext(script, {
+      document: { getElementById: id => els[id], createElement: node,
+        createTextNode: t => ({ textContent: t }), body: { classList: { add() {} } } },
+      location: { pathname, search }, URLSearchParams, navigator: { maxTouchPoints: 0 }, innerWidth: 1440,
+      window: {}, Date,
+    });
+    return { line: els['arrival-destination'].text.replace(/^Destination /, 'DESTINATION '), year: els['arrival-year'].dataset.year };
+  };
+  const present = String(new Date().getFullYear());
+  for (const [where, search, line] of [
+    ['/4d/1904/', '', 'DESTINATION 1904 · Prairie Ave'],
+    ['/4d/dev/1835/', '', 'DESTINATION 1835 · River settlement'],
+    ['/4d/1812/index.html', '', 'DESTINATION 1812 · Fort Dearborn'],
+    ['/walk/', '?year=1904&detail=light', 'DESTINATION 1904 · Prairie Ave'],
+    ['/walk/', '', 'DESTINATION 1835 · River settlement'],
+    ['/4d/1880/', '', 'DESTINATION 1880 · Chicago'],
+  ]) {
+    const got = firstPaint(where, search);
+    assert.equal(got.line, line, `${where}${search}: the destination line from first paint`);
+    assert.equal(got.year, present, `${where}${search}: the ticker starts at the present year`);
+  }
+}
+console.log('ARRIVAL READOUT PASS — destination line from first paint per year, ticker starts at the present');
 
 // Exercise the real event controller, including writes that the pure mapping
 // tests cannot see (failure followed by phaseend, and reduced phase announcements).
@@ -64,15 +105,16 @@ function fixture(reducedMotion = false) {
   const phaseEl = { textContent: '', setAttribute() {} };
   const buttonEl = { disabled: true, dataset: {}, addEventListener(_, fn) { this.click = fn; } };
   const barEl = { setAttribute(_, v) { this.percent = v; }, firstElementChild: { style: {} }, classList: { add() {} } };
+  const detailEl = { textContent: '' }, detailsEl = { hidden: true, open: true }, observatoryEl = { hidden: true };
   const boot = createBoot({ now: () => clock });
   // Fixed phase weights make the controller scenarios independent of device benchmarks.
   for (const p of boot.phases) boot.expected[p.id] = 1;
-  const arrival = createArrival({ boot, phaseEl, buttonEl, barEl, currentYear: 2026, reducedMotion,
+  const arrival = createArrival({ boot, phaseEl, buttonEl, barEl, detailEl, detailsEl, observatoryEl, currentYear: 2026, reducedMotion,
     now: () => clock, requestFrame: fn => { frames.set(++id, fn); return id; },
     cancelFrame: id => frames.delete(id), reload: () => { reloaded = true; } });
   const step = ms => { clock += ms; const pending = [...frames.values()]; frames.clear(); pending.forEach(fn => fn()); };
   const complete = () => { for (const p of boot.phases.filter(p => p.essential)) { boot.start(p.id); boot.end(p.id); } boot.frameRendered(); assert.ok(boot.finish()); };
-  return { boot, arrival, phaseEl, buttonEl, barEl, frames, step, complete, get reloaded() { return reloaded; } };
+  return { boot, arrival, phaseEl, buttonEl, barEl, detailEl, detailsEl, observatoryEl, frames, step, complete, get reloaded() { return reloaded; } };
 }
 const slow = fixture();
 slow.boot.start('scene');
@@ -119,13 +161,26 @@ const stopped = failed.arrival.state.year;
 failed.step(10000);
 assert.equal(failed.arrival.state.year, stopped);
 assert.ok(stopped >= 1836);
-assert.match(failed.phaseEl.textContent, /ground unavailable/);
-assert.doesNotMatch(failed.phaseEl.textContent, /arrived/);
-assert.equal(failed.buttonEl.textContent, 'Retry');
+// T-2616: the visitor reads where the jump stalled, at the ticker's own year; what
+// failed sits in the details, folded, beside TRY AGAIN and the way home.
+assert.equal(failed.phaseEl.textContent, `The jump stalled somewhere around ${stopped}.`);
+assert.doesNotMatch(failed.phaseEl.textContent, /ground unavailable|arrived/);
+assert.match(failed.detailEl.textContent, /ground unavailable/);
+assert.equal(failed.detailsEl.hidden, false);
+assert.equal(failed.detailsEl.open, false, 'the details start folded');
+assert.equal(failed.observatoryEl.hidden, false, 'the way back to the Observatory shows');
+assert.equal(failed.buttonEl.textContent, 'Try again');
 assert.equal(failed.frames.size, 0);
 failed.buttonEl.click({ preventDefault() {}, stopImmediatePropagation() {} });
 assert.ok(failed.reloaded);
 assert.ok(!failed.boot.finish());
+// A later, more specific report (main.js's catch) replaces the detail, never the stall year;
+// a headline replaces the stall sentence only when the failure is not a stall.
+failed.arrival.fail(new Error('404 Not Found: data/scenes/1835.json'), { message: 'Could not load the scene — 404 Not Found: data/scenes/1835.json' });
+assert.equal(failed.phaseEl.textContent, `The jump stalled somewhere around ${stopped}.`);
+assert.match(failed.detailEl.textContent, /scenes\/1835\.json/);
+failed.arrival.fail(null, { message: 'x', headline: '1880 has not been reconstructed yet.' });
+assert.equal(failed.phaseEl.textContent, '1880 has not been reconstructed yet.');
 console.log('ARRIVAL CONTROLLER PASS — real events, smooth ticks, monotone corrections, instant fast/reduced, optional/essential failure and retry');
 
 
@@ -183,7 +238,8 @@ assert.equal(phaseEl.textContent, essentialLabel,
 
 boot.fail('scene', new Error('essential unavailable'));
 assert.equal(integrated.state.failed, true, 'an essential failure stops arrival');
-assert.equal(buttonEl.textContent, 'Retry');
+assert.equal(buttonEl.textContent, 'Try again');
+assert.match(phaseEl.textContent, /^The jump stalled somewhere around \d{4}\.$/);
 assert.equal(buttonEl.disabled, false);
 
 const main = readFileSync(path.join(here, '../renderers/web/js/main.js'), 'utf8');

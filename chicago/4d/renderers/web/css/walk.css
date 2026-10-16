@@ -226,6 +226,18 @@ html, body {
 }
 .gate-btn:disabled { opacity: .45; cursor: progress; }
 .gate-btn:not(:disabled):hover { filter: brightness(1.08); }
+/* T-2616: the stalled jump — TRY AGAIN above, the way home below, the detail folded. */
+.gate-btn-secondary {
+  display: block; box-sizing: border-box; margin-top: 10px; text-align: center; text-decoration: none;
+  color: var(--ink); background: transparent; border: 1px solid var(--edge-strong, var(--edge));
+}
+.gate-btn-secondary[hidden], .gate-details[hidden] { display: none; }
+.gate-details { margin: 12px 0 0; text-align: left; font-size: 13px; color: var(--ink-dim); }
+.gate-details summary { cursor: pointer; text-align: center; }
+.gate-details p {
+  margin: 8px 0 0; padding: 8px 10px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  font: 400 12px/1.45 var(--font-mono, ui-monospace, monospace); overflow-wrap: anywhere;
+}
 
 .gate-keys { margin: 14px 0 0; font-size: 12px; color: var(--ink-dim); }
 .gate-keys .k {
@@ -293,6 +305,12 @@ body:is(.is-touch, .touch-first) .gate-touch { display: block; }
 .arrival-label {
   margin: 0 0 6px; color: var(--ink-dim); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
 }
+/* T-2610: the small line over the ticker, across the deck — where you are going. */
+.arrival-destination {
+  grid-column: 1 / -1; margin: 0 0 -6px; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.arrival-destination b { color: var(--ink); font-weight: inherit; }
 .arrival-lamps {
   list-style: none; margin: 0; padding: 0; display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 10px;
