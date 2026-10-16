@@ -23,14 +23,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1378.215,
-    "local_n": -3079.055,
+    "local_e": 1379.347,
+    "local_n": -3077.663,
     "rotation_deg": -0.815,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The south end of the house's front wall, read off the committed sheet 20 raster at pixel (3103.3, 3722.7) — the front wall line (column 3103.3) meeting the south wall line (row 3722.7) — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 2.46 m RMS): local E 1378.215, N -3079.055. The front stands 10.8 m behind the Prairie Avenue line (column 3316, the parcel's street corner) and its north wall 0.36 m inside the lot's north line, as the sheet draws. The bearing is the sheet's own rotation in that fit (0.815 degrees), so the front runs along the sheet's ruled lines.",
+    "position_note": "The south end of the house's front wall, read off the committed sheet 20 raster at pixel (3103.3, 3722.7) — the front wall line (column 3103.3) meeting the south wall line (row 3722.7) — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 3.08 m RMS): local E 1379.347, N -3077.663. The front stands 10.8 m behind the Prairie Avenue line (column 3316, the parcel's street corner) and its north wall 0.36 m inside the lot's north line, as the sheet draws. The bearing is the sheet's own rotation in that fit (0.815 degrees; T-2691 joined it to sheet 28 at 18th Street by a shift alone), so the front runs along the sheet's ruled lines.",
     "symbolic_location": "1638 S. Prairie Avenue: west side of Prairie between 16th and 18th Streets, parcel prairie_1638 (data/street_grid/1904.json), Lot 1, block 2 of E. L. Sherman's Sub.; the front's south end, on its wall line, at grade.",
     "uncertainty_m": 20,
     "placement_provisional": false,

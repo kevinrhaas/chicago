@@ -20,14 +20,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1428.921,
-    "local_n": -3045.659,
-    "rotation_deg": 179.599,
+    "local_e": 1428.801,
+    "local_n": -3044.271,
+    "rotation_deg": 179.604,
     "position_confidence": "inferred",
     "position_sources": [
       "robinson_1886_chicago_plate_10"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 30.750, v -2.856 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. The plate draws the house filling lot 6 between its lot lines, and its fit carries that 6.7 m-wide lot about 2 m south of the 1911 sheet's 5.7 m strip (the two maps' lines disagree here, as the strip's legal_lots record says); so the house's depth and set-back are the fit's, and its width is the strip's own, wall to wall (fills_lot). Rotation 179.599 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 32.000, v -2.860 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. The plate draws the house filling lot 6 between its lot lines, and its fit carries that 6.7 m-wide lot about 2 m south of the 1911 sheet's 5.7 m strip (the two maps' lines disagree here, as the strip's legal_lots record says); so the house's depth and set-back are the fit's, and its width is the strip's own, wall to wall (fills_lot). Rotation 179.604 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1635 S. Prairie Avenue, parcel prairie_1625_1637_c (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -46,11 +46,11 @@
       ],
       [
         15.0,
-        5.712
+        5.72
       ],
       [
         0.0,
-        5.712
+        5.72
       ]
     ],
     "confidence": "inferred",
@@ -85,22 +85,22 @@
               0.0,
               0.0,
               15.0,
-              5.712
+              5.72
             ],
-            "from": "r1886-1635-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill"
+            "from": "r1886-1635-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 99% of its fill"
           }
         ],
         "lot_v": [
           0.0,
-          5.712
+          5.72
         ],
-        "street_u": 19.951
+        "street_u": 18.691
       },
       "confidence": "inferred",
       "sources": [
         "robinson_1886_chicago_plate_10"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1635-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1635-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 99% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {

@@ -20,14 +20,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1461.225,
-    "local_n": -3052.574,
+    "local_e": 1462.36,
+    "local_n": -3051.184,
     "rotation_deg": 179.603,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.000, v -7.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.000, v -7.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1637 S. Prairie Avenue, parcel prairie_1637 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -90,7 +90,7 @@
               4.75,
               13.75
             ],
-            "from": "s20fp-1637-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill"
+            "from": "s20fp-1637-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 68% of its fill"
           },
           {
             "id": "r2",
@@ -98,12 +98,12 @@
             "storeys": 2,
             "roof": "flat",
             "rect": [
-              -2.25,
-              7.25,
+              -2.5,
+              8.25,
               0.0,
               15.75
             ],
-            "from": "s20fp-1637-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 69% of its fill"
+            "from": "s20fp-1637-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 68% of its fill"
           },
           {
             "id": "r3",
@@ -116,20 +116,20 @@
               7.0,
               6.25
             ],
-            "from": "s20fp-1637-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 69% of its fill"
+            "from": "s20fp-1637-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 68% of its fill"
           }
         ],
         "lot_v": [
           -1.428,
           15.928
         ],
-        "street_u": 52.176
+        "street_u": 52.171
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1637-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill; s20fp-1637-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 69% of its fill; s20fp-1637-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 69% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1637-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 68% of its fill; s20fp-1637-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 68% of its fill; s20fp-1637-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 68% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
