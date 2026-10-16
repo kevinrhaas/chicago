@@ -2372,6 +2372,41 @@ for (const [label, viewport, touch] of [
         `${JSON.stringify({ ...got, stored: got.stored ? 'cached!' : null })}${ferrors.length ? ` errors: ${ferrors.join('; ')}` : ''}`);
     }
 
+    // --- the frame governor says what it is doing, and rests at the ceiling (T-2555)
+    // The governor draws a MOVING frame at fewer pixels, or paced to 30, on a
+    // device that cannot hold 60, and is neutral the moment the camera rests.
+    // This asks the live page for its state API, that a still page sits at the
+    // Sharpness ceiling with a shadow every frame, that Fixed and Adaptive both
+    // reach the page and the Settings line, and that Settings' Frame pacing is
+    // there with both choices.
+    const governor = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const still = () => new Promise((r) => setTimeout(r, 400));
+      await still();
+      const atRest = a.governor;
+      const shadowAuto = a.renderer.shadowMap.autoUpdate;
+      a.setGovernor(false);
+      await still();
+      const fixed = { ...a.governor, line: document.getElementById('governor-line')?.textContent ?? null };
+      a.setGovernor(true);
+      await still();
+      const adaptive = { ...a.governor, line: document.getElementById('governor-line')?.textContent ?? null };
+      const sel = document.getElementById('s-governor');
+      return { atRest, shadowAuto, fixed, adaptive,
+        options: sel ? [...sel.options].map((o) => o.value) : null, selected: sel?.value ?? null };
+    });
+    check(`${label}: the frame governor reports its state and rests at the Sharpness ceiling (T-2555)`,
+      ['mode', 'scale', 'pace', 'fps', 'moving', 'shadowEvery', 'ratio', 'ceiling'].every((k) => k in governor.atRest)
+        && governor.atRest.mode === 'adaptive' && governor.atRest.moving === false
+        && governor.atRest.scale === 1 && governor.atRest.pace === 1 && governor.atRest.fps === 60
+        && Math.abs(governor.atRest.ratio - governor.atRest.ceiling) < 1e-9 && governor.shadowAuto === true,
+      JSON.stringify(governor.atRest) + ` shadowMap.autoUpdate=${governor.shadowAuto}`);
+    check(`${label}: Frame pacing offers Adaptive and Fixed, and each reaches the page and Settings (T-2555)`,
+      JSON.stringify(governor.options) === JSON.stringify(['adaptive', 'fixed']) && governor.selected === 'adaptive'
+        && governor.fixed.mode === 'fixed' && /^Fixed/.test(governor.fixed.line || '')
+        && governor.adaptive.mode === 'adaptive' && /^Adaptive/.test(governor.adaptive.line || ''),
+      `options ${JSON.stringify(governor.options)}; fixed "${governor.fixed.line}"; adaptive "${governor.adaptive.line}"`);
+
     // --- the scene-detail ladder is a ladder, and every rung says what it is
     // --- for (T-0135, the owner's ruling of 2026-09-21) ---------------------
     //
