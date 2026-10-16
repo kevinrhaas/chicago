@@ -421,6 +421,15 @@ the library sheets. The point is the phone's GPU memory, and the wire pays for i
 | the 20 derivatives on the wire | 28,806,824 B | 53,759,924 B (+23.797 MiB) |
 | their textures on a phone's GPU, by format (RGBA8 + mips → ETC2/ASTC + mips) | 1,074.6 MiB | 159.3 MiB (6.7×) |
 | the published tree | ≈ 274.2 MiB | 297.968 MiB |
+| `/1904/` on the phone at spawn, GPU textures, `tools/measure_memory.mjs` with and without `--ktx2-off` on one build | 510.2 MB | 384.0 MB |
+| the same, whole resident estimate | 1,329.4 MB | 1,105.6 MB |
+
+The by-format figure counts every texture of every house; the meter counts only what the
+GPU was asked to upload, which at spawn on Prairie and 18th is the houses in view. Of the
+126.2 MB the meter sees fall, 46.2 MB is the library sheets `--ktx2-off` also turns back
+into images (T-2582's, already shipped), so about 80 MB is these houses. The 1904 phone
+ceiling in `tools/memory_ceilings.json` comes down 1,450 → 1,225 MiB by its own rule,
+and the desktop one 2,175 → 1,750 MiB (desktop reads 1,587.5 MB, zero page errors).
 
 Every derivative is still smaller than its master (assertion 6 of
 `tools/measure_web_derivatives.py`). Rendered at each house's reference camera from
