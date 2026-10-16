@@ -47,7 +47,8 @@ check('every stop is an option in Settings, and nothing else is', () => {
 });
 check("hud.js keeps '' for never chosen, and shows the guess in force", () => {
   assert.match(hud, /^\s*quality: '',/m, "DEFAULT_SETTINGS.quality must be '' (never chosen)");
-  assert.match(hud, /qual\.value = String\(settings\.quality \|\| resolvedQuality\)/);
+  // T-2547: a crash step-down outranks the stored choice until the visitor picks again.
+  assert.match(hud, /qual\.value = String\(\(lowered\?\.quality \? '' : settings\.quality\) \|\| resolvedQuality\)/);
 });
 
 console.log(`check_sharpness_default: ${checks.length} checks passed`);

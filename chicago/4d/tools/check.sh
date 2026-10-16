@@ -81,6 +81,8 @@ step "A patched plain lit material cannot be handed another layer's shader progr
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
+step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
+  node tools/test_crash_guard.mjs
 
 step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
   node tools/calibrate_boot_weights.mjs --check
