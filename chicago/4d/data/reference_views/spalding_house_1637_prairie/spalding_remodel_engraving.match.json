@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5d9328a6b2d18b839a1fc767372def155ad5160821923c9c5def0d3b90767172",
+  "glb_sha256": "68ce849f29d3d08bb633bfedd4c925a1d53e4bdf3cb4124645eb75f52af858ff",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -53,14 +53,19 @@
       "how": "T-2449"
     },
     {
+      "what": "the wing's second-storey window: one opening about 1.8 m wide (x 675-745 px), a pale bar down its middle (x 704-707 px) and in each half a meeting rail and no bars, two one-over-one sashes; the build had a single 1.1 m sash (x 688-730 px)",
+      "status": "fixed",
+      "how": "T-2537: K06's paired flat-headed sash, 1.8 m clear, two 0.88 m lights on a 0.04 m mullion (the mullion's width reconstructed, L-k01-1637-wing-pair-2537), at the 2.1 m height and 0.75 m sill it had; through the camera it spans x 675-743 px, its mullion at x 709-710, and its lights y 353-445 px as the print's"
+    },
+    {
       "what": "the stoop's landing railed, its rail about 1.0 m over the landing (y 623-675 px)",
       "status": "fixed",
       "how": "T-2447: K07's turned balustrade on both cheeks, level beside the landing and raked down the flight, 1.0 m over the landing"
     },
     {
       "what": "the stoop's flight: the engraving draws its foot at the fence's first post (x 557 px), well short of the walk; K07's straight flight reaches about 1.6 m past the garden's line, so the built fence starts at about x 640 px",
-      "status": "open",
-      "how": "T-2449: the stoop's run against the engraving's foot; the draughtsman's depth is not the camera's, so it is argued, not copied"
+      "status": "fixed",
+      "how": "T-2535: the stoop shortened to the drawn foot: K07's fourteen whole risers on the K01 contract's shortest going (0.25 m) and a 1.1 m landing, so the flight reaches 4.35 m before the front (5.1 m before), and its north cheek's foot lands at x 560 px against the drawn 557. The fence still starts at the stoop's south cheek on the garden line (x 642 px): through the camera the drawn post stands in front of the flight's foot, and a fence across a flight is what the K11 kit refuses, so the post is read as the foot's place (L-k01-1637-basement-lights-2535). The engraving draws the cheek's rail level to the post where the build's rakes down the flight: at this camera's distance a level rail and a raked one differ by about 90 px, so the drawn stoop's rise is the draughtsman's, and the stair stays K07's"
     },
     {
       "what": "the wing's balcony on its principal floor, bowed, about 0.9 m high under the French window",
@@ -69,8 +74,8 @@
     },
     {
       "what": "the basement's lights: two round-headed under the wing, one nearly a storey tall under the bay",
-      "status": "open",
-      "how": "T-2449"
+      "status": "fixed",
+      "how": "T-2535: under the bow one barred, flat-headed light 1.0 m wide and 1.3 m tall over a 0.5 m sill, carried by the bay under its middle window: x 382-419 px and y 696-752 px against the drawn 388-439 and 696-757 (the bow's windows stand about 12 px left of the engraving's throughout, as built since T-2441); under the wing a pair of round-headed lights, each a two-light sash under a fanlight (K06's sash_round_fanlight_wide at a basement light's size, the engraving's upright and cross bar), 0.9 m wide and 1.4 m to the crown over a 0.3 m sill, 0.7 m apart, centred under the French window: x 665-697 and 728-760 px against the drawn 675-710 and 736-771, their crowns at y 695 px against 692"
     },
     {
       "what": "the wing rises to the cornice itself in the engraving, its cornice level with the main one's; the build stopped it at 10.7 m, under K10's bed moulding",
