@@ -238,6 +238,7 @@ async function fetchAsset(url) {
  */
 export async function loadScene(year, bases = resolveBases(), {
   onProgress = () => {}, version = null, detail = 'full', keepAssetBytes = true,
+  keepEncodedImages = false,
 } = {}) {
   const { dataBase, assetBase } = bases;
   const problems = [];
@@ -309,7 +310,9 @@ export async function loadScene(year, bases = resolveBases(), {
   // The shared KTX2 loader (T-2582), so a KHR_texture_basisu derivative decodes.
   const loader = registerKTX2(new GLTFLoader());
   // T-2464: houses built on one kit embed the same maps; decode each once.
-  const sharedImages = shareImageSources(loader);
+  // T-2598: a phone keeps each picture's encoded bytes, so texture residency can
+  // decode one again after the decoded copy was closed (texture-residency.js).
+  const sharedImages = shareImageSources(loader, { keepEncoded: keepEncodedImages });
   const registry = new Map();
   let bytes = 0;
   // Keep compressed bytes, not a parsed scene whose materials batching may modify.
