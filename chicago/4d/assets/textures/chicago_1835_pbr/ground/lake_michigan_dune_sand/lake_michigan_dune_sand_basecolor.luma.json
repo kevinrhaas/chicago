@@ -1,0 +1,5 @@
+{
+  "mean_linear_luma": 0.256117,
+  "from": "lake_michigan_dune_sand_basecolor.png",
+  "method": "mean linear Rec. 709 luminance over every texel of the lossless master (tools/ktx2_sheets.py, T-2590); ground-strip.js divides the sand's sampled luma by it to normalise the grain"
+}
