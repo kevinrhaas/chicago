@@ -278,6 +278,9 @@ const COVERAGE = [
   // T-2089. The grass grain the prairie's fine relief is read from: the same
   // ground, so the same part.
   ['renderers/web/js/grass-grain.js', [3], 'the grass grain the prairie\'s relief is lit from'],
+  // T-2552. The prairie's world-scale variation map, imported only by terrain.js:
+  // the same ground, so the same part.
+  ['renderers/web/js/prairie-macro.js', [3], 'the variation map the prairie\'s stands are drawn from'],
   ['renderers/web/js/turf-tile.js', [3, 10, 11, 12], 'the town turf: painted by the ground, thinned in the sward'],
   // T-1797. The ground-strip proof: imported only under `?proof=ground`, which
   // no part loads, so the boot chain never reaches it. Part 1 boots the scene
