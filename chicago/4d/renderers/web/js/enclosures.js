@@ -96,6 +96,9 @@
 
 import * as THREE from 'three';
 import { gateBoxes } from './gates.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -813,7 +816,8 @@ export async function createEnclosures({
     for (const chunk of ch.chunks) {
       const geo = new THREE.BufferGeometry();
       geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.pos.view(), 3));
-      geo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.nrm.view(), 3));
+      // Int8 x 4 normals (T-2569, compact-streams.js): 4 bytes a vertex for 12.
+      geo.setAttribute('normal', compactNormals(chunk.nrm.view()));
       geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.conf.view(), 1));
       chunk.pos = chunk.nrm = chunk.conf = null;   // scratch from here (T-2152)
       // The whole point of the chunk: its own bounding sphere, around its own

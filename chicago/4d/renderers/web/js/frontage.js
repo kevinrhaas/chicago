@@ -77,6 +77,9 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { gateBoxes } from './gates.js';
 import { packGrain } from './relief-pack.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals, compactColors } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -1881,9 +1884,10 @@ export async function createFrontage({
 
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
-  geo.setAttribute('normal', new THREE.BufferAttribute(buf.nrm.float32(), 3));
+  // Normals and tones in compact normalized formats (T-2569, compact-streams.js).
+  geo.setAttribute('normal', compactNormals(buf.nrm.view()));
   geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
-  geo.setAttribute('color', new THREE.BufferAttribute(buf.col.float32(), 3));
+  geo.setAttribute('color', compactColors(buf.col.view()));
   geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
   geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
   geo.computeBoundingSphere();
@@ -1980,9 +1984,9 @@ export async function createFrontage({
   for (const chunk of chunks) {
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
-    cgeo.setAttribute('normal', new THREE.BufferAttribute(chunk.buf.nrm.float32(), 3));
+    cgeo.setAttribute('normal', compactNormals(chunk.buf.nrm.view()));
     cgeo.setAttribute('_confidence', new THREE.BufferAttribute(chunk.buf.conf.float32(), 1));
-    cgeo.setAttribute('color', new THREE.BufferAttribute(chunk.buf.col.float32(), 3));
+    cgeo.setAttribute('color', compactColors(chunk.buf.col.view()));
     cgeo.setAttribute('uv', new THREE.BufferAttribute(chunk.buf.uv.float32(), 2));
     cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();

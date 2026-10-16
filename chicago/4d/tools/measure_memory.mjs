@@ -38,8 +38,10 @@
  *   per layer ..... each top-level child of `scene3d`, walked: the page bytes its
  *                   attributes still hold (CPU kept) and an ESTIMATE of their GPU
  *                   bytes (an attribute `upload-release.js` let go of is priced at
- *                   its count × item size × 4, the float32 layout `buildings.js`
- *                   writes; a released index at 4 bytes when it needs them), and
+ *                   the byte length it recorded as it let go — T-2569, since a
+ *                   compact attribute is not float32 — or, unrecorded, at its
+ *                   count × item size × 4; a released index at 4 bytes when it
+ *                   needs them), and
  *                   the distinct textures its materials reach. The layer sum is
  *                   printed beside the MEASURED GL total so the estimate's error
  *                   is in plain sight; only measured figures are gated.
@@ -298,7 +300,9 @@ function readLayers() {
     // been uploaded (a chunk this tier hides is never drawn), so it is page bytes only.
     if (arr && data.userData?.uploadReleased && !kept) return { cpu: arr.byteLength, gpu: 0, pending: arr.byteLength };
     if (arr) return { cpu: arr.byteLength, gpu: arr.byteLength, pending: 0 };
-    // Let go of after upload (T-2158): the GPU still holds it at its upload layout.
+    // Let go of after upload (T-2158): the GPU still holds it at its upload layout,
+    // which upload-release.js records as it lets go (T-2569: compact attributes).
+    if (data.userData?.uploadBytes) return { cpu: 0, gpu: data.userData.uploadBytes, pending: 0 };
     const count = data.count ?? attr.count ?? 0;
     const item = data.stride ?? attr.itemSize ?? 1;
     const width = isIndex ? (count > 65535 ? 4 : 2) : 4;
