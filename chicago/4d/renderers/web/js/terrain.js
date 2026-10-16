@@ -47,7 +47,7 @@
  */
 
 import * as THREE from 'three';
-import { spatialBatch } from './spatial-batch.js';
+import { spatialBatch, spatialBatchAsync } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { contextSample, replaceApron } from './coast-extension.js';
 import { apronGeometry, apronCut } from './terrain-apron.js';
@@ -543,15 +543,18 @@ export async function createTerrain({
   // every original triangle/attribute and the same reach; the continuous base
   // already carries everything beyond it. The small apron remainder stays one
   // mesh: it is deliberately outside the detailed heightfield's reach policy.
-  const tiles = sourceTiles?.map((tile) => {
+  // T-2599: the tiles are partitioned on the job pool, all at once, so the
+  // densest ground in the town is cut into pieces off the main thread and on as
+  // many cores as the pool has; the batches are the same, in the same order.
+  const tiles = sourceTiles && await Promise.all(sourceTiles.map(async (tile) => {
     if (tile.name.endsWith('__tthin')) return tile;
-    const batch = spatialBatch(tile.geometry, tile.material);
+    const batch = await spatialBatchAsync(tile.geometry, tile.material);
     batch.name = tile.name;
     batch.receiveShadow = tile.receiveShadow;
     batch.castShadow = tile.castShadow;
     tile.geometry.dispose();
     return batch;
-  });
+  }));
   /** One banked WORLD bounding box per ground tile, for the reach below.
    *  Empty when the ground was too coarse to tile, which is the case the reach
    *  has nothing to say about: one mesh around the camera is always near. */
