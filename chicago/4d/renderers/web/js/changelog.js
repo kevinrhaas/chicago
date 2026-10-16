@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 1849, ts: '2026-10-16T06:08:11.925Z', date: 'Oct 16, 2026, 1:08 AM CT', title: 'The town chooses its detail and sharpness for your device', kind: 'feature',
+    items: [
+      'At start-up the walkthrough now reads what your browser and graphics chip offer and runs a check of well under a second, then picks Scene detail and Image sharpness to suit: a capable computer is drawn at High sharpness, a modest one at Balanced detail, and a strong phone or tablet a little sharper than before.',
+      'Settings › Performance says what it chose — for example "Your device: standard computer, chosen Full detail at Medium sharpness" — and anything you pick there still overrides it.',
+      'A return visit remembers the result and skips the check. Only flora, shadows and sharpness change between devices; the reconstruction itself is the same everywhere.',
+    ] },
+  { v: 1848, ts: '2026-10-16T05:40:10.065Z', date: 'Oct 16, 2026, 12:40 AM CT', title: 'A phone on Prairie Avenue holds about 78 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1904 Prairie Avenue door now holds about 78 MB less in its page memory once the street is drawn. That memory is where phones were running out and closing the tab.',
+      'Every house\'s original model data is let go once the street has its own copy, and Glessner\'s whole downloaded model is no longer kept for a detail change. Changing detail on a phone fetches the houses again, normally from the browser\'s cache.',
+      'Each house\'s decoded pictures are also closed once the graphics card has them, rather than being held twice.',
+      'The same houses draw the same frame before and after a detail change. Tapping a house still opens its card. A computer keeps everything, so its detail changes stay instant.',
+    ] },
+  { v: 1847, ts: '2026-10-16T05:37:55.472Z', date: 'Oct 16, 2026, 12:37 AM CT', title: 'The prairie no longer looks like a plaid from the air', kind: 'improvement',
+    items: [
+      'Flying over 1835, the open prairie used to read as an even grid of light and dark squares. It now breaks into irregular stands of lush and thin grass, with yellower and fresher patches.',
+      'At 50–150 m up, the grass no longer lines up in rows toward the horizon.',
+      'Up close, at walking height, the grass looks as it did. The patchiness is a reconstruction, listed under Liberties.',
+    ] },
+  { v: 1846, ts: '2026-10-16T05:02:51.854Z', date: 'Oct 16, 2026, 12:02 AM CT', title: 'A phone that ran out of memory comes back at lower detail', kind: 'fix',
+    items: [
+      'If the walk closed while loading last time, as a phone does when it runs out of memory, the next visit starts one Scene detail level lower at Sharpness Low, and a card says so. Settings can raise either again.',
+      'When the display is lost, the page reloads at most once. If it is lost again, the card offers a Reload at a lower detail level, so a phone no longer gets stuck reloading.',
+    ] },
   { v: 1845, ts: '2026-10-16T04:50:44.479Z', date: 'Oct 15, 2026, 11:50 PM CT', title: '1811 Prairie rises as the Ames house, built from its 1888 photograph', kind: 'feature',
     items: [
       '1811 Prairie Avenue, Miner T. Ames\'s house by Cobb & Frost, now stands as a three-storey rock-faced brownstone house in place of its draft box, built against the Inland Architect\'s 1888 photograph of it.',

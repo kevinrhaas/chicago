@@ -109,3 +109,22 @@ export function releaseSharedImage(image) {
   shared.delete(image);
   return true;
 }
+
+/** True when `image` was decoded through the shared-image cache (a GLB's own image). */
+export function isSharedImage(image) {
+  return shared.has(image);
+}
+
+/**
+ * `image` is being closed while assets still hold it — T-2548, a phone closing a
+ * building's bitmap once the GPU has it (upload-release.js). It leaves the cache
+ * now, so the next GLB that carries the same picture decodes its own copy rather
+ * than being handed a closed one; and it leaves the registry, so retiring an
+ * asset that held it later cannot `forget` the successor filed under its key.
+ */
+export function retireSharedImage(image) {
+  const entry = shared.get(image);
+  if (!entry) return;
+  entry.forget();
+  shared.delete(image);
+}
