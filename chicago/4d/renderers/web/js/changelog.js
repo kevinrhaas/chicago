@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1868, ts: '2026-10-16T13:50:39.612Z', date: 'Oct 16, 2026, 8:50 AM CT', title: 'The Wabansia outline check agrees on every Python', kind: 'fix',
+    items: [
+      'Nothing you can see changed. The check that re-derives Wabansia\'s tract outline from Wright\'s sheet was red on Python 3.13 and green on 3.11, over the same committed file.',
+      'The cause was a note copied into the data file: Python 3.13 trims a note\'s indentation and 3.11 keeps it. The note is now trimmed the same way on every version, and the check passes on 3.11, 3.12 and 3.13.',
+    ] },
   { v: 1867, ts: '2026-10-16T13:39:34.411Z', date: 'Oct 16, 2026, 8:39 AM CT', title: 'Wall wood grain now loads GPU-compressed, using less phone memory', kind: 'improvement',
     items: [
       'Nothing you can see changed. The wood grain on every clapboard and log wall now arrives ready for the graphics chip, instead of being decoded and repacked in the page at every visit.',
