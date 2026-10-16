@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1893, ts: '2026-10-16T22:26:23.026Z', date: 'Oct 16, 2026, 5:26 PM CT', title: 'Every building is graded by whether a picture of it exists', kind: 'change',
+    items: [
+      'A building is now Attested when a photograph, print or drawing shows it whole, Inferred when only maps or written records say it stood, and Reconstructed when our reconstruction of the town placed it.',
+      'Every card opens with that grade and the reason for it. The Confidence menu\'s counts and the Go to list use it too.',
+      'On Prairie Avenue in 1904, 59 buildings are Attested by their pictures. The other 92 are known from the Sanborn map and records, so they are Inferred until a picture of them turns up.',
+      'In 1835 the Sauganash, the Green Tree and the Dearborn Street drawbridge are Attested. Every street drawn on the 1830 plat or the 1834 surveys is now Attested too.',
+      'Each detail on a card keeps its own grade, as before.',
+    ] },
   { v: 1892, ts: '2026-10-16T22:18:30.015Z', date: 'Oct 16, 2026, 5:18 PM CT', title: 'Grades now read gold, silver and bronze everywhere', kind: 'change',
     items: [
       'Attested is gold, Inferred is silver and Reconstructed is bronze, a clear brown that no longer looks like a darker gold. The same three colours mark every grade: the dots on a building card, the chips on a person, the legend, the census bars and the Confidence chip and menu in the HUD.',
