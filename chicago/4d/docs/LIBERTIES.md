@@ -23031,9 +23031,11 @@ Romanesque-classical stone, the south curved bay, the north loggia with Ionic
 columns, the pierced parapet) from the 1888 plate once it is a source record;
 T-1935 the detached rear garage. A measured reading of sheet 28 for this lot
 replaces the footprint.
-**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
 **Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
 **Recorded:** 2026-10-10.
+
+**Revised:** 2026-10-16 (T-1883): the principal-floor coverage is retired. The approved 1888 plate now supports the 2.0 m deck as inferred; the former 1.50 m kit floor no longer stands. The remaining coverage is retained for the dimensions still reconstructed.
 
 ### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
 
@@ -28075,3 +28077,28 @@ openings' outlines and the fascia's mouldings.
 **Ticket:** T-2533 (piece 2 of T-2522).
 **Review:** `docs/RESEARCH/k16-1638-fretwork-2533/README.md`.
 **Recorded:** 2026-10-16 (T-2533).
+
+### L-k01-keith-finish-1883 — Keith's stone-front finish: the photograph's arrangement, reconstructed sections and colour
+
+**Decision:** complete the street-facing stone kit from the approved 1888 Inland Architect
+plate: pierced two-row parapet and short north return, corner pinnacles, checker band,
+colonnettes, Ionic porch capitals, pierced lower panel, carved balcony and scrolled stair
+cheeks, heavy coursing on the bow, and the early low stone posts and rails.
+**What is read, not invented:** the arrangement and counts of the visible elements; the
+basement and principal window rows; the principal floor approximately 2 m over grade;
+three tall principal sashes with transoms and four second-floor sashes in the bow. The
+September 1886 Inland Architect notice explicitly calls the front granite. Its quarry
+and colour are not named. The footprint, position, upper floors and wall head stay at
+T-2499's accepted datums.
+**What is invented:** rounded section dimensions and exact course/block joints; the tiny
+leaf and scroll patterns unresolved by the scan; the concealed tin deck's 1.45 m drop
+below the wall head; the pinnacle's spiral section; neutral light greige material tint
+and dark sash paint; the unseen rear openings and existing rear canted bay; path surfaces.
+The 1965 print has a blue cast and cannot give a calibrated granite colour. The generic
+Lemont stone, tall spear fence, urn gate piers, south wall and nine-step stair previously
+used by the kit proof are superseded. The later iron infill is not carried into 1904.
+**How to resolve:** sharper original prints and an architectural specification for the
+stone, quarry and carved sections; rear photographs for the service elevations.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
+**Ticket:** T-1883.
+**Recorded:** 2026-10-16.

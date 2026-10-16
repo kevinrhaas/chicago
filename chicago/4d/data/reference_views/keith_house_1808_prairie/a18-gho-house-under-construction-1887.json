@@ -1,0 +1,44 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-gho-house-under-construction-1887",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-gho-house-under-construction-1887.jpg",
+  "image_px": [
+    1503,
+    977
+  ],
+  "principal_px": [
+    -56.30186713061848,
+    1450.8696386390704
+  ],
+  "focal_px": 1580.7019616361329,
+  "eye": [
+    57.73768939847942,
+    51.3260725710555,
+    1.7
+  ],
+  "yaw_deg": 233.2462451348943,
+  "basis_right_up_forward": [
+    [
+      -0.763071648693103,
+      0.6459848890458353,
+      -0.020619943870675627
+    ],
+    [
+      -0.2795657959166577,
+      -0.3011370024788672,
+      0.9116794784854644
+    ],
+    [
+      -0.5827217386662998,
+      -0.7014413937475338,
+      -0.410384388620281
+    ]
+  ],
+  "sun_uvy": [
+    55,
+    20,
+    40
+  ],
+  "solve": "T-1883: this is a reproduction of the Taylor construction-era photograph. SIFT/RANSAC registration to taylor-2135-ne: 46/111 accepted feature pairs. Intrinsic/rotation fit to the registered reference camera over front and loggia control points: 6.04px coordinate RMS. The original Glessner control fit has 1.57px RMS in the 1600-pixel display; this is a coordinate translation to Keith, not an independent survey. Homography [[0.7424546167545835, 0.034587131986916674, -0.5966942349263545], [-0.14435597797955274, 0.922540608146272, 7.832530011187987], [-0.00014886267689836235, 1.600801577711137e-05, 1.0]]. Monochrome: colour not shown.",
+  "source_id": "taylor_2135_glessner_exterior_1887_1889"
+}

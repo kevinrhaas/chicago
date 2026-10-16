@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-inland-architect-1888-02-glessner-plate",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-inland-architect-1888-02-glessner-plate.jpg",
+  "image_px": [
+    1559,
+    2400
+  ],
+  "principal_px": [
+    547.0820355243109,
+    -2386.8621714243523
+  ],
+  "focal_px": 3756.830461296374,
+  "eye": [
+    94.6348944174441,
+    109.02691244542052,
+    1.7
+  ],
+  "yaw_deg": 180.00000000000003,
+  "basis_right_up_forward": [
+    [
+      0.0199546160062145,
+      -6.417893993038697e-18,
+      0.9998008868269944
+    ],
+    [
+      0.9998008868269944,
+      -3.2156049025465545e-16,
+      -0.0199546160062145
+    ],
+    [
+      -3.216245299353273e-16,
+      -1.0,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 28.80px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 10.42, 0.0], [18.0, 32.9752, 0.0], [18.0, 10.42, 8.4856], [18.0, 32.9752, 8.4856], [18.0, 10.4, 16.44], [15.2, 10.4, 16.44]]; pixels [[414.109375, 487.1875], [395.83984375, 1449.3828125], [761.23046875, 523.7265625], [809.94921875, 1351.9453125], [1041.36328125, 563.91953125], [1041.36328125, 685.71640625]]; projected [[424.06, 530.98], [387.58, 1396.35], [747.29, 537.43], [806.67, 1404.71], [1050.19, 542.89], [1048.06, 649.52]]. February 1888 Inland Architect Glessner plate: the photograph is printed rotated on the page; roll is in the camera, the source raster is unaltered. Glessner conceals the lower Keith front. Monochrome colour not shown."
+}

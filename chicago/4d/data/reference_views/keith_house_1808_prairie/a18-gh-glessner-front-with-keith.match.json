@@ -1,0 +1,32 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "view": "a18-gh-glessner-front-with-keith",
+  "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
+  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
+  "camera_sha256": "9b6c4df136d0b7499f3564a8f62cd6bd6abab70752fa83711bc1302cdbe23e97",
+  "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-glessner-front-with-keith-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The visible short north stone return is too smooth: the photograph shows large horizontal ashlar courses, which the current return material does not reproduce.",
+      "status": "open"
+    },
+    {
+      "what": "Pinnacle caps and the curved top of the north return remain simplified; the photographic profiles are not yet matched.",
+      "status": "open"
+    },
+    {
+      "what": "Most of Keith is occluded by Glessner or outside this frame. Its bow, stair, lower ornament and rear cannot be accepted from this view. The isolated render does not include the occluding neighbour.",
+      "status": "not shown"
+    },
+    {
+      "what": "The independent camera calibration retains visible corner/height residuals; see the solve. Relative height and return depth need a stronger fit before this view can pass.",
+      "status": "open"
+    },
+    {
+      "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

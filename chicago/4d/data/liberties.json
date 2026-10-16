@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 589,
+  "count": 590,
   "liberties": [
     {
       "id": "L1",
@@ -28219,12 +28219,6 @@
           "domain": "structure",
           "structure": "keith_house_1808_prairie",
           "phase": "as_built_1886",
-          "aspect": "form.principal_floor_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "keith_house_1808_prairie",
-          "phase": "as_built_1886",
           "aspect": "form.rear_bays"
         },
         {
@@ -28277,7 +28271,7 @@
         }
       ],
       "recorded": "2026-10-10",
-      "revised": null,
+      "revised": "2026-10-16",
       "fields": [
         {
           "label": "Decision",
@@ -28293,7 +28287,7 @@
         },
         {
           "label": "Covers",
-          "text": "`keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`."
+          "text": "`keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`."
         },
         {
           "label": "Review",
@@ -28302,6 +28296,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-10."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-16 (T-1883): the principal-floor coverage is retired. The approved 1888 plate now supports the 2.0 m deck as inferred; the former 1.50 m kit floor no longer stands. The remaining coverage is retained for the dimensions still reconstructed."
         }
       ]
     },
@@ -39280,6 +39278,78 @@
         {
           "label": "Recorded",
           "text": "2026-10-16 (T-2533)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-keith-finish-1883",
+      "title": "Keith's stone-front finish: the photograph's arrangement, reconstructed sections and colour",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.stone_finish"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.stone_front"
+        }
+      ],
+      "recorded": "2026-10-16",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "complete the street-facing stone kit from the approved 1888 Inland Architect plate: pierced two-row parapet and short north return, corner pinnacles, checker band, colonnettes, Ionic porch capitals, pierced lower panel, carved balcony and scrolled stair cheeks, heavy coursing on the bow, and the early low stone posts and rails."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "the arrangement and counts of the visible elements; the basement and principal window rows; the principal floor approximately 2 m over grade; three tall principal sashes with transoms and four second-floor sashes in the bow. The September 1886 Inland Architect notice explicitly calls the front granite. Its quarry and colour are not named. The footprint, position, upper floors and wall head stay at T-2499's accepted datums."
+        },
+        {
+          "label": "What is invented",
+          "text": "rounded section dimensions and exact course/block joints; the tiny leaf and scroll patterns unresolved by the scan; the concealed tin deck's 1.45 m drop below the wall head; the pinnacle's spiral section; neutral light greige material tint and dark sash paint; the unseen rear openings and existing rear canted bay; path surfaces. The 1965 print has a blue cast and cannot give a calibrated granite colour. The generic Lemont stone, tall spear fence, urn gate piers, south wall and nine-step stair previously used by the kit proof are superseded. The later iron infill is not carried into 1904."
+        },
+        {
+          "label": "How to resolve",
+          "text": "sharper original prints and an architectural specification for the stone, quarry and carved sections; rear photographs for the service elevations."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1883."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-16."
         }
       ]
     },
