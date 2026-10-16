@@ -1885,6 +1885,10 @@ class Assembly:
                                      (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
                                     zc - sw / 2, zc + sw / 2, P,
                                     lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+        if p.shaped_gable:   # T-2543: the front carried up as a shaped gable, joined like a stack
+            from . import k01_shaped_gable
+            solids.append(k01_shaped_gable.element(self, k5, ye))
+            recesses += k01_shaped_gable.cutters(self, k5)
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
             if "k15" in c or "k15_head" in c:
@@ -1950,6 +1954,9 @@ class Assembly:
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
         if d:
             self.dormer_sash(seed)
+        if p.shaped_gable:
+            from . import k01_shaped_gable
+            k01_shaped_gable.dress(self, seed)
         for g in self.round_dormers:
             self.round_dormer_sash(g, conf)
         if k:

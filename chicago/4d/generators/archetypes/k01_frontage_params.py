@@ -159,6 +159,9 @@ class K01FrontageParams:
     # slope and a rear slope down to the same wall head, each side wall carried up as a
     # parapet (1619's crow-stepped south wall, its drawing); `gable` holds its resolved numbers
     gable: dict = field(default_factory=dict)
+    # T-2543: the street front carried up as a SHAPED (Flemish) gable over a hip (1812's, its
+    # photograph): its outline, slab, lights, kneelers and finial (k01_shaped_gable)
+    shaped_gable: dict = field(default_factory=dict)
     # T-2410: a brick street front's round-headed windows — {"storeys", "key"}: the storeys
     # whose street windows are ROUND_HOODED, and the key block over each hood's crown
     round_heads: dict = field(default_factory=dict)
@@ -214,7 +217,7 @@ CONSUMED = frozenset({
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
-    "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish",
+    "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -728,6 +731,68 @@ def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
     return {"v_m": vm, "sash": dict(dormer["sash"], variant=vid, at_m=at),
             "wall_gable": {"voussoirs": {"ring_m": ring, "proud_m": proud, "side_m": round(side, 4)},
                            "pinnacles": pin, "finial": finial, "panel": panel}}
+
+
+def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: float, pitch: float,
+                  overhang: float) -> dict:
+    """T-2543: the street front's shaped gable — 1812 Prairie's, which its photograph shows
+    standing over the whole front: `profile_m`, the outline's half-width over grade from its
+    foot to its apex ([half-width, height] pairs, rising, the last on the centre line); the
+    slab's `foot_m` under the wall head, `thickness_m`, and `proud_m` in front of the street
+    eave's fascia; a row of K06 `lights` (`variant`, `sill_m` over grade, `width_m`,
+    `height_m`, `at_m` from the centre); the `coping` band on the face; a pinnacle
+    `kneelers` each side on the ledge where the outline leaves the eave; a `finial`."""
+    if not sg:
+        return {}
+    if roof_form != "hip":
+        raise ParamError("shaped_gable: a shaped gable stands in front of a hip's street slope (T-2543)")
+    if dormer:
+        raise ParamError("shaped_gable: a front carried up as a shaped gable carries no street dormer")
+    pr = [(float(w), float(y)) for w, y in sg["profile_m"]]
+    if len(pr) < 3 or pr[-1][0] != 0.0:
+        raise ParamError("shaped_gable.profile_m: at least three points, the last on the centre line (0)")
+    if any(y1 <= y0 for (_, y0), (_, y1) in zip(pr, pr[1:])):
+        raise ParamError("shaped_gable.profile_m: the outline rises point by point")
+    if pr[0][0] > width / 2 or min(w for w, _ in pr) < 0.0:
+        raise ParamError("shaped_gable.profile_m: the outline stands inside the front")
+    ye = eave - overhang * math.tan(math.radians(pitch))
+    ridge = eave + width / 2 * math.tan(math.radians(pitch))
+    if pr[-1][1] < ridge + 0.3:
+        raise ParamError(f"shaped_gable: its apex ({pr[-1][1]} m) stands at least 0.3 m over the hip's ridge ({ridge:.2f} m)")
+    foot, t, proud = float(sg["foot_m"]), float(sg["thickness_m"]), float(sg["proud_m"])
+    if not eave - 1.5 <= foot < ye - 0.3:
+        raise ParamError("shaped_gable.foot_m: the slab starts under the street fascia, within 1.5 m of the wall head")
+    if not 0.02 <= proud <= 0.2 or not overhang + proud + 0.1 <= t <= 1.0:
+        raise ParamError("shaped_gable: its face 0.02-0.2 m proud of the fascia, its back over the wall")
+    li = sg["lights"]
+    kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+    if kit.get(li["variant"], {}).get("head") != "flat":
+        raise ParamError("shaped_gable.lights.variant: a flat-headed K06 variant")
+    lw, lh, sill = float(li["width_m"]), float(li["height_m"]), float(li["sill_m"])
+    at = sorted(float(x) for x in li["at_m"])
+    ledge = ye + 0.12
+    if sill < ledge + 0.3:
+        raise ParamError("shaped_gable.lights: a light's sill stands 0.3 m over the kneelers' ledge")
+    from archetypes import k01_shaped_gable as ksg
+    q = {"profile_m": pr}
+    for x in at:
+        need = abs(x) + lw / 2 + 0.15
+        if need > ksg.half_width(q, sill + lh + 0.15) or need > ksg.half_width(q, sill):
+            raise ParamError("shaped_gable.lights: every light stands 0.15 m inside the outline")
+    cp, kn, fn = sg["coping"], sg["kneelers"], sg["finial"]
+    coping = {"width_m": float(cp["width_m"]), "proud_m": float(cp["proud_m"])}
+    if not 0.1 <= coping["width_m"] <= 0.5 or not 0.0 < coping["proud_m"] <= 0.08:
+        raise ParamError("shaped_gable.coping: a 0.1-0.5 m band, 0-0.08 m proud")
+    kne = {k_: float(kn[k_]) for k_ in ("at_m", "shaft_m", "top_m", "cap_m", "spire_m")}
+    hb, hl = width / 2 + overhang + 0.02, ksg.half_width(q, ledge)
+    if not hl + kne["shaft_m"] / 2 <= kne["at_m"] <= hb - kne["shaft_m"] / 2 or kne["top_m"] <= ledge + 0.2:
+        raise ParamError("shaped_gable.kneelers: each pinnacle stands on its ledge and rises from it")
+    fin = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
+    if not 0.2 <= fin["height_m"] <= 1.2 or not 0.04 <= fin["radius_m"] <= 0.3:
+        raise ParamError("shaped_gable.finial: 0.2-1.2 m high, 0.04-0.3 m in radius")
+    return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
+            "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at},
+            "coping": coping, "kneelers": kne, "finial": fin}
 
 
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
@@ -1614,6 +1679,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if wg:
             dormer.update(_wall_gable(d, wg, dormer, width))
 
+    shaped = _shaped_gable(val("shaped_gable") or {}, roof_form, dormer, width, eave, pitch,
+                           float(val("eave_overhang_m")))
+
     # T-2298: every glazed K01 opening is built from a K06 variant. The K01 wall cuts a
     # rectangular hole, so only a flat-headed variant fits it; an arched head is a
     # different hole and a different wall, not a swap of this attribute.
@@ -2108,7 +2176,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         boundary=dict(val("boundary", {}) or {}),
         yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
-        roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, entrance_floor_m=ef, round_heads=rh,
+        roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
