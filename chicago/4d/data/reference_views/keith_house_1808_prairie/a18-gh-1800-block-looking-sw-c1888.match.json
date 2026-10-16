@@ -1,0 +1,44 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "view": "a18-gh-1800-block-looking-sw-c1888",
+  "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
+  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
+  "camera_sha256": "494643f7955b634df54b0ca595da48f169788e2a9da2f400d49a7c70ff20afff",
+  "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The south bow has three basement lights, three principal transom openings and four second-storey sashes; the north loggia has paired Ionic columns and a pierced lower panel.",
+      "status": "fixed"
+    },
+    {
+      "what": "Balcony and pedestal carving, Ionic volute sections, pinnacle caps and stair-head scrolls are schematic rather than the photographed profiles.",
+      "status": "open"
+    },
+    {
+      "what": "Granite courses and rock-face variation remain too regular; the checker stones and upper capital/head-band profiles need further photographic refinement.",
+      "status": "open"
+    },
+    {
+      "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
+      "status": "not shown"
+    },
+    {
+      "what": "The earlier low stone boundary replaces the generic iron fence with urns. Its exact post/rail sections remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The north stone return still lacks the photograph\u2019s large ashlar courses and curved coping profile.",
+      "status": "open"
+    },
+    {
+      "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

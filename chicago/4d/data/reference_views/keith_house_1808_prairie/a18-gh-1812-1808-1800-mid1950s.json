@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-gh-1812-1808-1800-mid1950s",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-gh-1812-1808-1800-mid1950s.jpg",
+  "image_px": [
+    675,
+    432
+  ],
+  "principal_px": [
+    487.2758431774608,
+    338.00066618231745
+  ],
+  "focal_px": 809.4271597321342,
+  "eye": [
+    46.228235694479714,
+    -28.716063065081265,
+    1.7
+  ],
+  "yaw_deg": 327.6932405265216,
+  "basis_right_up_forward": [
+    [
+      0.8434376188058114,
+      0.5333384102928638,
+      0.06452226971723665
+    ],
+    [
+      -0.05453414410498442,
+      -0.03448406032068479,
+      0.9979162673844616
+    ],
+    [
+      -0.5344520654931738,
+      0.845198787085074,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 7.37px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 0.0, 16.44], [18.0, 10.4, 16.44], [18.0, 0.0, 9.8], [18.0, 10.4, 9.8], [18.0, 0.0, 0.0], [18.0, 10.4, 0.0]]; pixels [[334.0, 20.0], [443.0, 84.0], [334.0, 168.0], [446.0, 204.0], [298.0, 356.0], [447.0, 364.0]]; projected [[332.16, 24.19], [453.73, 87.51], [323.35, 160.47], [446.52, 198.91], [310.34, 361.6], [435.89, 363.32]]. The camera is southeast looking northwest, contrary to the library direction text: 1812 is foreground left and Glessner recedes right. Cars obscure grade. Chimney, later iron fence and ageing are evidence of the 1950s, not automatically 1904."
+}

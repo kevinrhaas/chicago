@@ -1,0 +1,31 @@
+{
+  "id": "taylor_c1895_kimball_residence_1801",
+  "type": "photograph",
+  "citation": "J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie Ave.)', photograph no. 19825, c. 1895. Art Institute of Chicago, Ryerson & Burnham Art and Architecture Archives, Historic Architecture and Landscape Image Collection (Architecture Photograph Collection), MPDrawer 5; gift of Thomas E. Tallmadge, 1918.",
+  "author": "J. W. Taylor, photographer (Chicago)",
+  "date": "c. 1895",
+  "describes_date": "c. 1895",
+  "repository": "Art Institute of Chicago, Ryerson & Burnham Archives (https://artic.contentdm.oclc.org/digital/collection/mqc/id/28957). Prairie library image a18-rba-taylor-1801-kimball-c1895; the image store's 1600 x 1491 px display copy is committed at data/sources/assets/kimball_1801_photo_t2538/.",
+  "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/28957",
+  "locator": "The whole print: the house from the north-west, across the corner of 18th Street and Prairie Avenue — the Prairie Avenue front on the right, the 18th Street flank running away to the left to its small east turret, and the dark stone of 1811 Prairie at the right edge. The camera (data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json) says how far it can be measured.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A commercial photograph of c. 1895, public domain by age (the library's rights basis); the Art Institute asks to be contacted for publication. Read for forms, places, heights and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-10-16 (T-2538) from the image store's 1600 x 1491 px display copy, 248,299 bytes, sha256 91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34 (the library records the fetched original at 248,324 bytes, sha256 429e4ce3...). The Archives' description says 'view from SE'; the picture itself is taken from the north-west: the round tower stands on the 18th Street side, the entrance stair comes down the Prairie Avenue front, and the dark rock-faced house at the right edge is 1811 Prairie on the south. Dated by the library c. 1895 (1892-1900); W. W. Kimball lived here until his death in December 1904, so the photograph is the closest picture to the 1904 scene in the library.",
+  "note": "The house about a decade before the 1904 scene, in Bedford stone. Read off the print itself: a Prairie Avenue front about 11 m wide with an open arched entrance loggia at its north-west corner (an arch on each face), a broad stair of about nine risers with curved cheek walls coming down the front from it, a two-storey bowed bay in the middle of the front and a three-storey pavilion at its south end under a steep coped stone gable with carved tracery; a heavy cornice over the second storey at about 8 m; a very steep slate roof, its faces rising to a flat deck ringed with iron cresting at about 17-19 m, with tall hooded dormers; on the 18th Street flank a round tower about 2.4 m across rising to a corbelled upper stage, its eaves about 13 m up and its slate cone to about 18.7 m with a finial over 21 m; beyond it a three-storey section with a corbel table, a gabled bay with a balcony, a lower two-storey range and at the far east end a small round turret under a cone. Monochrome.",
+  "what_it_supplies": [
+    "the massing as built: the front, the flank and the east range, their storeys and heights at the photograph's scale",
+    "the round tower's place on the 18th Street flank (not at the corner), its girth, its eaves and the height of its cone",
+    "the steep slate roof over the main block, its deck and cresting, its dormers",
+    "the south pavilion's stone gable, the bowed bay and the corner loggia with its arches and stair",
+    "the east turret at the far end of the flank"
+  ],
+  "what_it_does_not_supply": [
+    "the plan: the 1911 Sanborn sheet 28's trace controls it",
+    "the south and east sides and the rear, which the camera does not see",
+    "colour (monochrome print); 'Bedford stone' is the register's reading",
+    "anything changed between c. 1895 and 1 July 1904"
+  ]
+}

@@ -257,7 +257,7 @@ MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "ro
 MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
 # K08 role -> slot; `body` is the bay's fabric (bay_stone, bay_brick or bay_frame), `cover`
 # its roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
-K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
+K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
              "plinth": "bay_stone", "band": "bay_stone", "corbel": "bay_stone",
              "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
              "frame": "sash", "sash_outer": "sash", "sash_inner": "sash",
@@ -464,6 +464,12 @@ class Assembly:
                 self.spec["bay_stone"] |= {"color": (1.0, 1.0, 1.0), "roughness": round(st["fabric_roughness"] + 0.02, 3)}
         # T-2289: what each kit seats on a wall, as (s0, s1, y0, y1, kind) in that wall's
         # frame, keyed by the frame's origin: the coursed front dresses the stone under it
+        if params.stone_finish:
+            self.spec["sash"]["color"] = (.11,.09,.065)
+            for slot in ("stoop_stone", "bay_stone", "carved_trim"):
+                fab = params.stone["fabric"] if slot == "bay_stone" else params.stone["trim"]
+                self.fabric[slot] = fab
+                self.spec[slot] = dict(self.spec[slot], fabric=fab, color=(1.0,1.0,1.0))
         self.footprints: dict[tuple, list] = {}
 
     def seat(self, frame, pts, kind):
@@ -1921,6 +1927,12 @@ class Assembly:
         t = math.tan(math.radians(p.roof_pitch_deg))
         f, tw, er = fl["fascia_m"], fl["parapet_m"], fl["deck_eave_m"]
         top, high = fl["parapet_top_m"], fl["deck_high_m"]
+        finish = p.stone_finish
+        deck_bottom = E
+        if finish:
+            drop = finish["deck_drop_m"]
+            er, high, deck_bottom = er - drop, high - drop, E - drop
+            top = E + .12
         yf = self.soffit_m                            # the cornice's soffit (build: the wall head)
         conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering")
         k = p.roof or {}
@@ -1937,17 +1949,24 @@ class Assembly:
         # the covering, and the fascia over the rear wall
         P = k5.frame("z")
         zf = D - tw / 2
-        deck = k5.extrude([(0.0, E), (zf, E), (zf, er + zf * t), (0.0, er)], -W + tw / 2, -tw / 2, P,
+        deck = k5.extrude([(0.0, deck_bottom), (zf, deck_bottom), (zf, er + zf * t), (0.0, er)], -W + tw / 2, -tw / 2, P,
                           lambda i, p_, q_: ("soffit", "hidden", "covering", "fascia")[i], "hidden", "hidden")
-        solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)]
+        solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)] if not finish else [deck,
+            k5.body_box(0, D, -tw, 0, deck_bottom-.2, E),
+            k5.body_box(0, D, -W, -W+tw, deck_bottom-.2, E),
+            k5.body_box(0, tw, -W, 0, deck_bottom-.2, E),
+            k5.body_box(D-tw, D, -W, 0, deck_bottom-.2, E)]
         cp, dr = fl["coping_m"], fl["drip_m"]
         for ends in ((-tw, 0.0), (-W, -W + tw)):      # the south and north parapets, on the side walls
             solids += k5.parapet_element({}, [(0.0, top), (D, top)], ends, "z", tw, E, cp, dr, 0.0, 0.0)
         # the blocking course over the street front
         solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
+        if finish:
+            solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (0, tw), "x", tw, E, cp, dr, 0.0, 0.0)
         # the cornice box: from the front wall's face out `o`, its soffit at the wall head's
         # line and its top at the deck's rear eave, ended flush with the side walls' planes
-        box = k5.extrude([(D, yf), (D + o, yf), (D + o, er), (D, er)], -W, 0.0, P,
+        cornice_top = E + .12 if finish else er
+        box = k5.extrude([(D, yf), (D + o, yf), (D + o, cornice_top), (D, cornice_top)], -W, 0.0, P,
                          lambda i, p_, q_: ("soffit", "fascia", "fascia", "hidden")[i], "fascia", "fascia")
         solids.append(box)
         for c in p.chimneys:
@@ -2663,7 +2682,8 @@ def build(params, structure_id: str):
 
     def holes(wall_id):
         # T-2343: where a rear wing stands on this wall, the wall is behind it and not drawn
-        return [hole(o) for o in p.openings if o.wall == wall_id] + \
+        finish_gap = [(0., p.stone_finish["stone_return_m"], p.floors_m[2]+.1, E)] if p.stone_finish and wall_id == "k01.wall.side.north" else []
+        return finish_gap + [hole(o) for o in p.openings if o.wall == wall_id] + \
                [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id]
 
     # The four walls, each about its base socket: outer face, left end (seen from
@@ -2771,6 +2791,8 @@ def build(params, structure_id: str):
     k10_frontage.dress(a, reach)
     # T-2319: the K11 boundary — the front fence on the street line, a pair of gates on the
     # walk to the stoop, a gate across the side passage, the south boundary wall
+    from . import k01_stone_finish
+    k01_stone_finish.dress(a)
     k11_frontage.dress(a)
     # T-2360: the K14 yard inside that boundary — the lawn and its bare strip at the wall
     # foot, earth under the open stoop, the front walk's flags and the side passage's cinder

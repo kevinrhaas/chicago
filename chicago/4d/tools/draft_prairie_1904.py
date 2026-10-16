@@ -737,9 +737,22 @@ def drafted_on_disk() -> dict:
             st = json.loads(p.read_text())
         except ValueError:
             continue
-        if isinstance(st, dict) and st.get("archetype") == ARCHETYPE:
+        if isinstance(st, dict) and st.get("archetype") == ARCHETYPE and refined_on_builder(st) is None:
             out[st["id"]] = p
     return out
+
+
+def refined_on_builder(st: dict):
+    """T-2538: a building whose per-building ticket refines its draft IN PLACE ON THIS BUILDER
+    (because the kit that will carry it, K01, cannot build it yet) keeps the archetype and
+    drops the pass's `draft` attribute: its record is then written by that ticket from its
+    own sources, not by these rules. It is exempt here only while the rules' `skip` names it
+    by id, so a draft that has merely lost its `draft` is still refused. Returns the skip's
+    reason, or None for a record of the pass itself."""
+    if any("draft" in (ph.get("form") or {}) for ph in st.get("phases") or []):
+        return None
+    skip = json.loads(RULES.read_text()).get("skip", {})
+    return next((why for why in skip.values() if f"`{st.get('id')}`" in why), None)
 
 
 def check(records, read=None) -> list[str]:
@@ -755,7 +768,8 @@ def check(records, read=None) -> list[str]:
             bad.append(f"{sid}: no record — run python3 tools/draft_prairie_1904.py")
         elif text != dump(rec):
             bad.append(f"{sid}: the committed record is not what the draft rules build — re-run the tool, "
-                       f"never hand-edit a draft (a per-building ticket that refines one changes its archetype)")
+                       f"never hand-edit a draft (a per-building ticket that refines one changes its archetype, "
+                       f"or drops `draft` for its own `refined_by` and skips the census id here)")
     for sid in sorted(set(have) - set(records)):
         bad.append(f"{sid}: a prairie_draft record the rules no longer build")
     return bad

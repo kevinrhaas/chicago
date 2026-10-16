@@ -403,15 +403,7 @@ class Opening:
                 fan = Region(day.s0, day.s1, head.spring, head=head, head_inset=fr["face_m"])
                 self._fanlight(fan, head, d_out, v.get("fanlight_bars", 5), mu)
             if op == "double_hung_transom":
-                tb = 0.06
-                t_bot = day.top_y - v["transom_m"]
-                sash_top = t_bot - tb
-                self.plane("frame", box(day.s0, day.s1, sash_top, t_bot), rev + stop)
-                self.face("frame", [self.P(day.s0, sash_top, rev + stop), self.P(day.s1, sash_top, rev + stop),
-                                    self.P(day.s1, sash_top, rev + fr["depth_m"]),
-                                    self.P(day.s0, sash_top, rev + fr["depth_m"])], (0.0, -1.0, 0.0))
-                self._sash("sash_outer", Region(day.s0, day.s1, t_bot, top_y=day.top_y), d_out, sa, mu,
-                           (v.get("transom_lights", 3), 1), (st, st, st, st), "transom")
+                sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
             arched_upper = op == "double_hung" and not flat
             meet = (day.y0 + (sash_top if not arched_upper else head.spring)) / 2
             up = Region(day.s0, day.s1, meet - mr, top_y=None if arched_upper else sash_top,
@@ -420,11 +412,34 @@ class Opening:
             low = Region(day.s0, day.s1, day.y0, top_y=meet)
             inner_glass = self._sash("sash_inner", low, d_in, sa, mu, panes, (st, st, br, mr), "lower")
             self.meta["meeting_rail_m"] = round(meet, 4)
+        elif op == "casement_pair_transom":
+            # T-2534: a French window — two casement leaves meeting at its middle, down to the
+            # floor it opens onto, under a transom bar and a fixed transom light
+            sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
+            mid = (day.s0 + day.s1) / 2
+            for a, b, key in ((day.s0, mid, "leaf_left"), (mid, day.s1, "leaf_right")):
+                inner_glass = self._sash("sash_outer", Region(a, b, day.y0, top_y=sash_top), d_out, sa, mu,
+                                         panes, (st, st, br, tr), key)
         else:  # fixed, casement, fixed_leaded: one sash in the outer track
             inner_glass = self._sash("sash_outer", day, d_out, sa, mu, panes, (st, st, br, tr), "fixed")
             if op == "fixed_leaded":
                 self._cames(day, (st, st, br, tr), inner_glass)
         self._room(day, head, rev, fr, inner_glass, p, top_flat)
+
+    def _transom(self, day: Region, rev, stop, fr, sa, mu, d_out):
+        """A transom bar `transom_m` under the daylight's top and the fixed light over it;
+        returns the top of what opens under the bar."""
+        v, st = self.v, sa["stile_m"]
+        tb = 0.06
+        t_bot = day.top_y - v["transom_m"]
+        sash_top = t_bot - tb
+        self.plane("frame", box(day.s0, day.s1, sash_top, t_bot), rev + stop)
+        self.face("frame", [self.P(day.s0, sash_top, rev + stop), self.P(day.s1, sash_top, rev + stop),
+                            self.P(day.s1, sash_top, rev + fr["depth_m"]),
+                            self.P(day.s0, sash_top, rev + fr["depth_m"])], (0.0, -1.0, 0.0))
+        self._sash("sash_outer", Region(day.s0, day.s1, t_bot, top_y=day.top_y), d_out, sa, mu,
+                   (v.get("transom_lights", 3), 1), (st, st, st, st), "transom")
+        return sash_top
 
     def _fanlight(self, fan: Region, head, d, bars, mu):
         outer = fan.outline()
