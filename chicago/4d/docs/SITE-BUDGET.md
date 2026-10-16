@@ -355,7 +355,43 @@ bind this KTX2 pair (its grain is a function of the `orl`'s B) and the 0.433 MB 
 boot (T-2589). On the phone the walls' maps fall from 5.4 MB of GPU memory to 1.4 MB
 (`measure_memory.mjs`, structures' textures 6.7 → 2.7 MB with the roofs' 1.3 MB in both).
 
-### 4d. Signage's wood prepared at convert time, and the sand as KTX2, re-measured 2026-10-16 (T-2590)
+### 4d. The frontage timber's KTX2, measured 2026-10-16 (T-2589) — it fits once the walls left the WebPs
+
+T-2589 ships the board face `frontage.js` binds (and the yard goods share) as KTX2: the
+`normal_gl` the wall relief already ships (T-2588, one file that both layers bind), and two of
+its own, the `orm` (ETC1S, 56 KB) and the grain the layer used to pack on the CPU (ETC1S,
+89 KB). The codecs are `tools/ktx2_sheets.py` § THE FRONTAGE TIMBER.
+
+**It did not fit while the walls stayed on their images.** `wall-relief.js` read the same
+three clapboard WebPs, so they were fetched anyway and the frontage KTX2s were pure addition.
+Measured then with `tools/measure_boot_payload.mjs --check` on one published tree, the
+frontage `.ktx2` removed for the before: 12.861 MB before, **13.273 MB after, 0.273 over**.
+The budget was not raised for it, because the bytes over were a duplicate and not the town,
+and the piece waited for T-2588.
+
+**With T-2588 merged, the frontage was the last layer reading those WebPs.** Once frontage
+moves to KTX2 they leave the boot. Re-measured on the merge of this branch with `dev` at
+d7dd58ce9:
+
+| reading | boot payload |
+|---|---:|
+| `dev` (walls on KTX2, frontage on the clapboard WebPs; § 4c above) | 12.906 MB |
+| this branch (frontage on the wall's normal plus its own `orm` and grain) | **12.639 MB, within 13.000** |
+
+That is 0.433 MB of WebPs out and 0.144 MB of `orm` and grain in. The shared normal is
+fetched once.
+
+What it buys, from `tools/measure_memory.mjs --year 1835 --only mobile` (the before/after on
+one tree, taken before the merge): total resident **628.4 → 610.3 MB**; GPU textures 100.9 →
+85.9 MB; the frontage layer's textures 16.0 → 1.0 MB and the yard's 14.8 → 4.8 MB;
+ArrayBuffers 241.3 → 238.3 MB, because the grain's CPU copy is no longer kept.
+
+A further lever, not taken here: the wall's `orl` already carries what the frontage's two
+own sheets do (AO and roughness in R and G, and L / mean in B, from which the grain is
+1 + GRAIN_STRENGTH x (2B - 1), over GRAIN_HEADROOM). A frontage shader that read the grain
+from the `orl` would fetch no clapboard file of its own and save another 0.144 MB.
+
+### 4e. Signage's wood prepared at convert time, and the sand as KTX2, re-measured 2026-10-16 (T-2590)
 
 `renderers/web/js/signage.js` fetched two 1024² library maps per wood sheet (the signboard
 and the heavy timber: basecolor and normal, 612 KB of WebP) only to read each one down to

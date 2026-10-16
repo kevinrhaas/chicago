@@ -443,7 +443,7 @@
       "placement": "pending",
       "write_mode": "(bare)",
       "measured": "2026-10-16",
-      "finding": "Reproduces: with its 26 .ktx2 sheets committed, ran it bare (the write mode; it fetches the pinned KTX-Software 4.3.2 and re-encodes every sheet) and git status reported no byte moved. Its --check reads only the files' headers, so it needs no ktx binary (T-2582). T-2590 added the dune sand's basecolor (27 sheets) and its luma sidecar, a number derived from the PNG master; re-run bare, the 26 already committed came back byte-identical, and --check recomputes the luma from the master.",
+      "finding": "Reproduces: with its 26 .ktx2 sheets committed, ran it bare (the write mode; it fetches the pinned KTX-Software 4.3.2 and re-encodes every sheet) and git status reported no byte moved. Its --check reads only the files' headers, so it needs no ktx binary (T-2582). T-2589 added the frontage timber's three (clapboard_board_face normal_gl, orm and the derived grain); converted twice from a clean temp dir they came out byte-identical (sha256), so the 29 still reproduce. T-2590 added the dune sand's basecolor (33 sheets with the wall relief's and the frontage's) and its luma sidecar, a number derived from the PNG master; re-run bare, the sheets already committed came back byte-identical, and --check recomputes the luma from the master.",
       "placed": "not yet \u2014 it reads only the committed PNG masters under assets/textures/chicago_1835_pbr/ and prairie_1904_pbr/, which no manifest step writes, so it has no ordering hazard; it needs a network fetch of the KTX-Software release, which the manifest's derivations do not, and joining it is its own measured pass"
     },
     "web_textures.py": {
