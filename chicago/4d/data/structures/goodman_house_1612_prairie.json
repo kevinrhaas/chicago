@@ -28,15 +28,15 @@
         "note": "STANDING IN 1904 is what the scene needs: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped; the 1904 Blue Book lists a household here). FROM and TO are the T-1837 register's reported chronology (built 1869, lost circa 1960); the register is not a source record here, so each is the year's first or last day and the confidence inferred. Bishop Anderson's ownership begins in 1905, after the target, and changes nothing drawn."
       },
       "position": {
-        "utm_e": 448432.307,
-        "utm_n": 4634401.353,
+        "utm_e": 448433.442,
+        "utm_n": 4634402.743,
         "rotation_deg": -0.578,
         "symbolic_location": "1612 S. Prairie Avenue, parcel prairie_1612 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The traced rear wing's south-west corner (lot frame u 27.000, v -4.250 m from the middle of the rear lot line): 2.0 m behind and 0.5 m south of the draft's origin, because the K01 rectangle runs from the wing's rear wall to the stone front and from the stone front's south end to the north wing's wall (see footprint). Placed through the T-1250 fit of the sheet, whose own fit residual, 2.46 m RMS on its control crossings, is all that is claimed; rotation -0.578 degrees turns the plan's u axis onto the lot's own rear-to-street line, the draft's.",
+        "note": "The traced rear wing's south-west corner (lot frame u 27.000, v -4.250 m from the middle of the rear lot line): 2.0 m behind and 0.5 m south of the draft's origin, because the K01 rectangle runs from the wing's rear wall to the stone front and from the stone front's south end to the north wing's wall (see footprint). Placed through the T-1250 fit of the sheet, whose own fit residual, 3.08 m RMS on its control crossings, is all that is claimed; rotation -0.578 degrees turns the plan's u axis onto the lot's own rear-to-street line, the draft's.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."

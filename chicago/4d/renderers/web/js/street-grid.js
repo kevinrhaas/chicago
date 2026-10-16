@@ -229,12 +229,25 @@ const PIECE_EPS_M2 = 0.01;
 /**
  * T-2475: a convex plan polygon minus the convex polygon `h` laid over it, as the
  * convex pieces outside `h` (none, when `h` covers it). `h` is counter-clockwise.
+ *
+ * T-2691: the edge cutting off the most is taken first. Each cut runs the edge's
+ * whole line across what is left, so a side edge cut first split a roadway running
+ * on past `h` lengthwise for its full length (Prairie Avenue's 16th-18th block, by
+ * the 18th-20th roadway's west edge, 1.5 m in from its curb), and the two long pieces
+ * drew a hairline seam up the block. The end edge first leaves the side edges only
+ * the stretch beside `h`.
  */
 function minusConvex(poly, h) {
   const pieces = [];
   let rest = poly;
-  for (let i = 0; i < h.length && rest.length >= 3; i += 1) {
-    const p = h[i]; const q = h[(i + 1) % h.length];
+  const edges = h.map((p, i) => [p, h[(i + 1) % h.length]]);
+  while (edges.length && rest.length >= 3) {
+    let best = 0; let bestArea = -1;
+    edges.forEach(([p, q], i) => {
+      const a = Math.abs(area2(clipLeft(rest, q, p)));
+      if (a > bestArea) { best = i; bestArea = a; }
+    });
+    const [p, q] = edges.splice(best, 1)[0];
     const outside = clipLeft(rest, q, p);
     if (outside.length >= 3 && Math.abs(area2(outside)) / 2 > PIECE_EPS_M2) pieces.push(outside);
     rest = clipLeft(rest, p, q);

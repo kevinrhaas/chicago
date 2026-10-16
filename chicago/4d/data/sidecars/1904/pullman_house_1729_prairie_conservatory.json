@@ -32,14 +32,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1463.448,
-    "local_n": -3168.813,
+    "local_e": 1464.58,
+    "local_n": -3167.421,
     "rotation_deg": -0.815,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The bay's centre on the wing's south wall line, read off the committed sheet 20 raster at pixel (4756.5, 5514) — the middle of the semicircle's chord, where it leaves the wing's south line — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 2.46 m RMS): local E 1463.45, N -3168.81. The bearing is the sheet's own rotation in that fit (0.815 degrees), so the wing runs along the sheet's ruled lines.",
+    "position_note": "The bay's centre on the wing's south wall line, read off the committed sheet 20 raster at pixel (4756.5, 5514) — the middle of the semicircle's chord, where it leaves the wing's south line — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 3.08 m RMS): local E 1464.58, N -3167.42. The bearing is the sheet's own rotation in that fit (0.815 degrees; T-2691 joined it to sheet 28 at 18th Street by a shift alone), so the wing runs along the sheet's ruled lines.",
     "symbolic_location": "1729 S. Prairie Avenue: east side of Prairie between 16th and 18th Streets, the corner lot on 18th Street, parcel prairie_1729 (data/street_grid/1904.json); on the south face of the house's east wing, looking onto the court between the house and the garage.",
     "uncertainty_m": 20,
     "placement_provisional": false,
