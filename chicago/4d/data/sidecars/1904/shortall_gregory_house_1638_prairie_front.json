@@ -117,11 +117,11 @@
       ],
       [
         -12.9,
-        -2.4
+        -3.0
       ],
       [
         -6.67,
-        -2.4
+        -3.0
       ],
       [
         -6.67,
@@ -130,9 +130,10 @@
     ],
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+      "sanborn_1911_chicago_v3_sheet_20",
+      "chicagology_1638_prairie_photo"
     ],
-    "note": "About the front's south end, u east and v north, between line centres on the committed sheet 20 raster at 0.050779 m a pixel (the fit's printed scale). The front wall runs 8.13 m (rows 3722.7 to 3562.7); the canted bay stands on it from 0.73 to 5.01 m north, 1.10 m out, its face 1.83 to 3.78 m; the house runs back 23.4 m (to column 2643) on its southern range and 12.9 m (to column 2850) on its northern. Where the two ranges part is RECONSTRUCTED, the sheet drawing one front line: 5.21 m north until T-2519, now 5.45 m, the gable's width read off the photograph's verges. Since T-2397 the polygon is the sheet's whole outline: behind the north range the house is 6.49 m wide (row 3594.9) to the back; a projection stands 2.40 m out of the south wall (row 3770) between 6.67 and 12.9 m behind the front (columns 2972 and 2850); the one-storey pieces are an ell round the back's north corner (columns 2618 to 2670, rows 3570 to 3625: 24.64 to 22.00 m behind, 4.96 to 7.75 m north) and a shed on the north side (columns 2710 to 2752: 19.97 to 17.84 m behind, out to 7.75 m), each line picked as a darkness peak. The open porch, which the sheet draws dotted at the north end of the front (2.91 m wide, 2.0 m out), stands outside this polygon."
+    "note": "About the front's south end, u east and v north, between line centres on the committed sheet 20 raster at 0.050779 m a pixel (the fit's printed scale). The front wall runs 8.13 m (rows 3722.7 to 3562.7); the canted bay stands on it from 0.73 to 5.01 m north, 1.10 m out, its face 1.83 to 3.78 m; the house runs back 23.4 m (to column 2643) on its southern range and 12.9 m (to column 2850) on its northern. Where the two ranges part is RECONSTRUCTED, the sheet drawing one front line: 5.21 m north until T-2519, now 5.45 m, the gable's width read off the photograph's verges. Since T-2397 the polygon is the sheet's whole outline: behind the north range the house is 6.49 m wide (row 3594.9) to the back; a projection stands 2.40 m out of the south wall (row 3770) between 6.67 and 12.9 m behind the front (columns 2972 and 2850); the one-storey pieces are an ell round the back's north corner (columns 2618 to 2670, rows 3570 to 3625: 24.64 to 22.00 m behind, 4.96 to 7.75 m north) and a shed on the north side (columns 2710 to 2752: 19.97 to 17.84 m behind, out to 7.75 m), each line picked as a darkness peak. The open porch, which the sheet draws dotted at the north end of the front (2.91 m wide, 2.0 m out), stands outside this polygon. T-2532: the projection's south wall is taken at v -3.0 m, 0.6 m south of the sheet's line (row 3770, -2.40 m), from the photograph (chicagology_1638_prairie_photo): through its camera, on the sheet's east face (column 2972, 6.67 m behind the front), the wing's eave drip ends at 88.5 px, which puts its south verge at -3.42 m and, under the kit's 0.42 m verge, its wall at -3.0 m. No reading of the sheet's line moves it 12 pixels, and no depth for the face the print allows (only one some 4 m further forward) keeps the sheet's width, so the two disagree; the print, being the picture the house is matched to, is taken, and the disagreement is recorded in docs/RESEARCH/k16-1638-wing-2532/README.md. The east face, the west end and the flank it stands against stay the sheet's."
   },
   "attributes": {
     "stories": {
@@ -585,14 +586,16 @@
             "id": "south_projection",
             "rect_uv": [
               -12.9,
-              -2.4,
+              -3.0,
               -6.67,
               0.0
             ],
             "against": "north",
-            "wall_top_m": "flank",
+            "wall_top_m": 5.03,
             "roof": {
-              "kind": "lean_to"
+              "kind": "gable",
+              "ridge": "v",
+              "pitch_deg": 50
             },
             "walls": [
               {
@@ -600,15 +603,15 @@
                 "windows": [
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.75,
-                    "sill_m": 1.3,
-                    "centre_m": 1.2
+                    "clear_height_m": 1.45,
+                    "sill_m": 0.97,
+                    "centre_m": 1.5
                   },
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.2,
-                    "sill_m": 4.2,
-                    "centre_m": 1.2
+                    "clear_height_m": 1.17,
+                    "sill_m": 3.38,
+                    "centre_m": 1.5
                   }
                 ]
               },
@@ -617,26 +620,26 @@
                 "windows": [
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.75,
-                    "sill_m": 1.3,
+                    "clear_height_m": 1.45,
+                    "sill_m": 0.97,
                     "centre_m": 1.75
                   },
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.75,
-                    "sill_m": 1.3,
+                    "clear_height_m": 1.45,
+                    "sill_m": 0.97,
                     "centre_m": 4.45
                   },
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.2,
-                    "sill_m": 4.2,
+                    "clear_height_m": 1.17,
+                    "sill_m": 3.38,
                     "centre_m": 1.75
                   },
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.2,
-                    "sill_m": 4.2,
+                    "clear_height_m": 1.17,
+                    "sill_m": 3.38,
                     "centre_m": 4.45
                   }
                 ]
@@ -646,15 +649,31 @@
                 "windows": [
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.75,
-                    "sill_m": 1.3,
-                    "centre_m": 1.2
+                    "clear_height_m": 1.0,
+                    "sill_m": 0.97,
+                    "centre_m": 0.72,
+                    "clear_width_m": 0.22
                   },
                   {
                     "k06_variant": "k06.opening.sash_2over2_flat",
-                    "clear_height_m": 1.2,
-                    "sill_m": 4.2,
-                    "centre_m": 1.2
+                    "clear_height_m": 1.0,
+                    "sill_m": 0.97,
+                    "centre_m": 1.5,
+                    "clear_width_m": 0.58
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.17,
+                    "sill_m": 3.38,
+                    "centre_m": 1.28,
+                    "clear_width_m": 0.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.17,
+                    "sill_m": 3.38,
+                    "centre_m": 2.05,
+                    "clear_width_m": 0.5
                   }
                 ]
               }
@@ -755,9 +774,10 @@
       },
       "confidence": "reconstructed",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1638_prairie_photo"
       ],
-      "note": "T-2395: the body behind the front, closed in the K16 kit's timber and roofed; its plan is the sheet's (above): the gable's range 23.4 m deep, the north range 12.9 m. RECONSTRUCTED from the kit, recorded as L-k16-1638-body-2395: both ranges' flanks are clapboard walls on the front's 0.75 m foundation with corner boards, a frieze and a boxed eave on scroll brackets; the gable's range ends at the back in a second kit gable (plain square shingle, pierced bargeboards and finial, the front's 52-degree pitch and 6.4 m belt) and is roofed by the front gable's own rake carried back to it, so its flanks' eave sits where that roof comes down to the fascia (6.03 m wall top); the narrow north range is roofed by a 22-degree lean-to from its north eave (the wing wall's, 6.4 m) up to the main roof. Openings are the kit's two-over-two sash in flat casings, a ground and an upper storey: five bays on the south flank, two on the north flank behind the wing, two on the wing's north side, one on its back wall, two a storey and an attic light in the rear gable. No source shows a side or rear elevation: the bays are spaced to the plan, not read. The colour is kept for the canted bay, which is still a plain stand-in (T-1865). T-2397 (piece 3 of T-1864), recorded as L-k16-1638-rear-2397: the plan's rear pieces stand against this body, their outlines the sheet's (footprint, above). The range behind the north range is widened to 6.49 m (`rear_width_m`), its north flank on the new line under a 22-degree lean-to from the flanks' eave up into the main roof, and the north range's back wall shortens to 1.64 m. `annexes` are blocks in the footprint's frame: a two-storey projection on the south flank (the sheet prints no storey number in it, so the house's '2BB' is carried to it), walled in the kit's clapboard to the flanks' wall top under a lean-to up into the main roof's south slope, the south flank's two bays it covers taken out; and three one-storey pieces (an L-shaped ell as two blocks, and a shed) at a 3.65 m wall top on flat decks, the sheet's '1' and small circle in each read as one storey under a slate or tin roof. Every opening on them, the lean-tos and the pieces' height are RECONSTRUCTED; the decks take the house's roof covering."
+      "note": "T-2395: the body behind the front, closed in the K16 kit's timber and roofed; its plan is the sheet's (above): the gable's range 23.4 m deep, the north range 12.9 m. RECONSTRUCTED from the kit, recorded as L-k16-1638-body-2395: both ranges' flanks are clapboard walls on the front's 0.75 m foundation with corner boards, a frieze and a boxed eave on scroll brackets; the gable's range ends at the back in a second kit gable (plain square shingle, pierced bargeboards and finial, the front's 52-degree pitch and 6.4 m belt) and is roofed by the front gable's own rake carried back to it, so its flanks' eave sits where that roof comes down to the fascia (6.03 m wall top); the narrow north range is roofed by a 22-degree lean-to from its north eave (the wing wall's, 6.4 m) up to the main roof. Openings are the kit's two-over-two sash in flat casings, a ground and an upper storey: five bays on the south flank, two on the north flank behind the wing, two on the wing's north side, one on its back wall, two a storey and an attic light in the rear gable. No source shows a side or rear elevation: the bays are spaced to the plan, not read. The colour is kept for the canted bay, which is still a plain stand-in (T-1865). T-2397 (piece 3 of T-1864), recorded as L-k16-1638-rear-2397: the plan's rear pieces stand against this body, their outlines the sheet's (footprint, above). The range behind the north range is widened to 6.49 m (`rear_width_m`), its north flank on the new line under a 22-degree lean-to from the flanks' eave up into the main roof, and the north range's back wall shortens to 1.64 m. `annexes` are blocks in the footprint's frame: a two-storey projection on the south flank (the sheet prints no storey number in it, so the house's '2BB' is carried to it), walled in the kit's clapboard to the flanks' wall top under a lean-to up into the main roof's south slope, the south flank's two bays it covers taken out; and three one-storey pieces (an L-shaped ell as two blocks, and a shed) at a 3.65 m wall top on flat decks, the sheet's '1' and small circle in each read as one storey under a slate or tin roof. Every opening on them, the lean-tos and the pieces' height are RECONSTRUCTED; the decks take the house's roof covering. T-2532 (piece 1 of T-2522), recorded as L-k16-1638-wing-2532: the south projection is the register's 'separate lower wing', and the photograph (chicagology_1638_prairie_photo) shows it south of the gable, not the neighbour (sheet 20 puts 1700 Prairie's north wall 4.4 m further south, and through the camera all of 1700 falls left of the frame). Read through the camera on the sheet's east face (37.38 m from the eye, 60 px a metre): its eave's drip at 482 px, so its wall top is 5.03 m over the basement's top where the flanks' is 6.03 m, a wing a metre lower than the house; its roof a gable facing the street, its ridge (264 px, level) running north on the plan's middle at 50 degrees into the main roof's south slope, its south rake seen edge-on against the sky; its south wall at -3.0 m (footprint, above). On its east face, read off the print: two upper lights 0.5 m wide, sills 3.38 m, 1.17 m high, centred 1.28 and 2.05 m from the south corner; under them a light 0.58 m wide centred 1.5 m and a narrow one 0.22 m wide centred 0.72 m, sills 0.97 m, 1.0 m high to heads the print shows, their feet lost in the planting. The south and west walls' openings are re-spaced to the new storeys and are not seen. The wall top, pitch, plan and east lights are INFERRED from the print through the camera; the openings' sash and the unseen walls are RECONSTRUCTED."
     },
     "canted_bay": {
       "value": {
@@ -834,54 +854,55 @@
         ],
         "end_clear_m": 0.06,
         "base": {
-          "height_m": 0.22,
-          "width_m": 0.3
+          "height_m": 0.32,
+          "width_m": 0.48
         },
         "bars": {
-          "pitch_m": 0.244,
-          "bar_m": 0.02,
-          "rail_m": 0.025,
-          "height_m": 0.58
+          "pitch_m": 0.349,
+          "first_m": 0.018,
+          "bar_m": 0.029,
+          "rail_m": 0.036,
+          "height_m": 0.83
         },
         "pier": {
-          "plinth_m": 0.4,
-          "plinth_top_m": 0.3,
-          "section_m": 0.34,
-          "shaft_top_m": 1.14,
+          "plinth_m": 0.58,
+          "plinth_top_m": 0.43,
+          "section_m": 0.49,
+          "shaft_top_m": 1.61,
           "cap": {
-            "half_m": 0.2,
-            "top_half_m": 0.17,
-            "board_m": 0.03,
-            "top_m": 1.4,
-            "eave_m": 0.01,
-            "rise_m": 0.005,
+            "half_m": 0.28,
+            "top_half_m": 0.245,
+            "board_m": 0.043,
+            "top_m": 1.98,
+            "eave_m": 0.008,
+            "rise_m": 0.007,
             "heart": {
-              "lobe_y_m": 1.225,
-              "lobe_r_m": 0.065,
-              "lobe_off_m": 0.055,
-              "apex_y_m": 1.35
+              "lobe_y_m": 1.736,
+              "lobe_r_m": 0.094,
+              "lobe_off_m": 0.079,
+              "apex_y_m": 1.91
             },
             "flare": {
-              "foot_m": 1.17,
-              "widest_m": 1.215,
-              "from_m": 1.36
+              "foot_m": 1.66,
+              "widest_m": 1.721,
+              "from_m": 1.927
             }
           },
           "finial": {
-            "rod_m": 0.018,
-            "top_m": 1.68,
-            "point_m": 0.05,
-            "ring_r_m": 0.06,
-            "ring_bar_m": 0.014,
-            "ring_y_m": 1.475
+            "rod_m": 0.026,
+            "top_m": 2.385,
+            "point_m": 0.072,
+            "ring_r_m": 0.085,
+            "ring_bar_m": 0.02,
+            "ring_y_m": 2.085
           }
         },
         "piers": [
           {
-            "centre_m": 0.46
+            "centre_m": -0.47
           },
           {
-            "centre_m": 1.76,
+            "centre_m": 1.365,
             "ring": true
           }
         ]
@@ -891,7 +912,7 @@
         "chicagology_1638_prairie_photo",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The front fence and its two gate piers (T-2456, piece 1 of T-2426), read off the photograph through the camera T-2423 solved (data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json: eye 20 m in front of the house and 2.3 m over grade, f 1460 px, horizon 657 px). The street line is the 1911 sheet's, 10.8 m in front of the house (form.position), and the lot lines are parcel prairie_1638's (data/street_grid/1904.json) carried into this frame, v -4.40 and 8.39 m; the plinths' street faces stand on the line, 9.2 m from the eye, where the print draws 158.7 px a metre. Across, on that scale: the piers' shafts 54-56 px (0.34 m), their middles at 103 and 309 px (s 0.46 and 1.76 m, an open gateway 0.9 m clear between the plinths); the caps 63 px (0.40 m) at their lower corners. T-2521 read the caps' outline row by row at 3x: each is 57 px (0.36 m) across at its top (797-806 px), its eave a hair over the shaft, and its lower corners flare out like a hood over the heart, the south pier's south edge stepping out 1 px every 4-6 rows from 806 px (1.36 m) to its widest at 826-830 px (1.21-1.23 m), 6 px out, then turning back in to the shaft's line by 836 px (1.17 m); the north pier's lower corners stand 275-338 px (63 px) over a 52 px shaft. So the cap's boards are the shaft's breadth (0.34 m, under a 0.01 m eave) and each board's lower corners are swept out along a quarter-sine to 0.40 m at 1.215 m and rounded back in to the shaft at 1.17 m (`flare`); the curve between the readings is RECONSTRUCTED. Heights through the camera (height = 2.3 - (row - 657) x distance / 1460): plinths to 975 px (0.30 m); the shaft's top under the cap 842 px (1.14 m); the cap's top about 800 px (1.40 m), level; in each cap's face a pierced inverted heart 39 px across (0.24 m), its point at 808 px (1.35 m) and its two lobes down to 838 px, dark behind; the south pier's finial a thin spike to about 753 px (1.68 m), the north pier's a spike through a ring 20-22 px across whose middle is 787 px (1.47 m), standing on the cap. The base is the light band from 986 px to the foot (0.22 m), and on it thin dark bars 38.7 px apart (0.244 m) stand against the lawn up to the hedge line at 939 px and, where the stoop's steps are behind them, to about 926 px: 0.58 m over grade, a rail at the top that the hedge hides. The print's foot falls at 1026 px, 4 px under the camera's grade at the line (1022 px, the reading the camera was solved on), so heights carry about 0.03 m of that. The print shows the fence from 0.4 m south of the south pier to 5.3 m along the front, where the frame cuts it off; north of that, and south to the lot line, it is carried on unchanged (RECONSTRUCTED), with no second gate where a walk to the stoop might cross it, because none is seen. The materials are RECONSTRUCTED: the base and plinths a pale stone, the piers painted timber in the house's trim (the print draws them in one tone with the base), the bars and finials iron. Nothing in the gateway: the print shows lawn and a shrub through it and no leaf."
+      "note": "The front fence and its two gate piers (T-2456, piece 1 of T-2426), read off the photograph, and re-read by T-2524 through the camera T-2523 re-solved on the front steps and the fence's base (data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json: eye 30.71 m in front of the house, v 2.7 m and 3.25 m over the walk, f 2242 px, principal point 459, 657 px). The street line is the 1911 sheet's, 10.8 m in front of the house (form.position), and the lot lines are parcel prairie_1638's (data/street_grid/1904.json) carried into this frame, v -4.40 and 8.39 m. The plinths' street faces stand on the line, 19.91 m from the eye, where the print draws 112.6 px a metre (T-2456 read the same pixels at 158.7, from the old camera's eye 20 m out; every size it took across came out 1.44 times too small through this one). Each reading is taken at the face it was read on: across = 2.7 + (column - 459) x depth / 2242, and height over the walk = 3.25 - (row - 657) x depth / 2242, the depth the eye's 30.71 m less the face's distance out. The shafts' street faces 75-131 and 282-336 px (0.50 and 0.48 m: 0.49 m square), their middles at s -0.47 and 1.365 m, an open gateway 1.255 m clear between plinths 0.58 m square (the shafts' ratio carried to T-2456's 0.4 m, unread); the caps 63 px (0.56 m) at their lower corners. T-2521 read the caps' outline row by row at 3x (through T-2423's camera; the rows are carried here through T-2523's): each is 57 px (0.51 m) across at its top (797-806 px), its eave a hair over the shaft, and its lower corners flare out like a hood over the heart, the south pier's south edge stepping out 1 px every 4-6 rows from 806 px (1.93 m) to its widest at 826-830 px (1.75-1.71 m), 6 px out, then turning back in to the shaft's line by 836 px (1.66 m); the north pier's lower corners stand 275-338 px (63 px) over a 52 px shaft. So the cap's boards are the shaft's breadth (0.49 m, under a 0.008 m eave) and each board's lower corners are swept out along a quarter-sine to 0.56 m at 1.721 m and rounded back in to the shaft at 1.66 m (`flare`); the curve between the readings is RECONSTRUCTED. Heights: plinths to 975 px (0.43 m); the shaft's top under the cap 842 px (1.61 m); the cap's top about 800 px (1.98 m), level; in each cap's face a pierced inverted heart 39 px across (0.35 m), its point at 808 px (1.91 m) and its two lobes down to 838 px (1.64 m), dark behind; the south pier's finial a thin spike to about 753 px (2.385 m), the north pier's a spike through a ring 20-22 px across (0.19 m) whose middle is 787 px (2.08 m), standing on the cap (built at 2.085 m, the least that clears the cap's point). The base is the light band from 986 px to the foot (0.32 m), its street face kept 10.75 m out where the camera was solved on it (so 0.48 m wide, 0.05 m behind the plinths' faces, as before), and on it thin dark bars 38.7 px apart (0.349 m), the first at 345 px against the north plinth (0.018 m off its face, s 1.673 m), stand against the lawn up to the hedge line at 939 px (0.71 m) and, where the stoop's steps are behind them, to about 926 px: 0.83 m over the walk, a rail at the top that the hedge hides. The bars are laid from each gate pier at that pitch (`bars.first_m`), so they stand where the print draws them rather than spread to fill the run; the gap left at the far lot line is RECONSTRUCTED. The print's foot falls at 1026 px, 4 px under the camera's grade at the line (1022 px, the reading the camera was solved on), so heights carry about 0.035 m of that. What T-2456 never read — the rod, ring bar, cap boards' thickness and pyramid, the bars' and rail's section — is carried by the same 1.44, so the fence draws in the print's proportions. The print shows the fence from south of the south pier to some 5 m along the front, where the frame cuts it off; north of that, and south to the lot line, it is carried on unchanged (RECONSTRUCTED), with no second gate where a walk to the stoop might cross it, because none is seen. The materials are RECONSTRUCTED: the base and plinths a pale stone, the piers painted timber in the house's trim (the print draws them in one tone with the base), the bars and finials iron. Nothing in the gateway: the print shows lawn and a shrub through it and no leaf."
     },
     "function": {
       "value": "residence",

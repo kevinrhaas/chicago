@@ -27833,6 +27833,38 @@ floor and yard, and the basement's material; a second view of the stoop fixes it
 **Review:** `docs/RESEARCH/k16-1638-basement-2523/README.md`.
 **Recorded:** 2026-10-15 (T-2523).
 
+### L-k16-1638-fence-2524 — 1638 Prairie's street fence re-read through the camera T-2523 re-solved: the piers, caps, hearts, finials, base and bars 1.44 times T-2456's sizes, the gateway 1.26 m clear, the bars laid from the north pier at the print's pitch, the sizes no front view resolves carried by the same ratio
+
+**Decision:** T-2456 read 1638 Prairie's fence off its photograph at 158.7 px a metre on the
+street line, the scale of T-2423's camera (eye 20 m out). T-2523 re-solved that camera on the front
+steps and the fence's base (eye 30.71 m out, 3.25 m over the walk, f 2242 px), and through it the
+street line draws 112.6 px a metre, so the fence as built drew 1.44 times smaller than the print.
+T-2524 re-reads the same pixels through the new camera, each at the depth of the face it was read
+on: shafts 0.49 m square, their middles at s -0.47 and 1.365 m, a gateway 1.255 m clear; plinths
+0.58 m square to 0.43 m; caps 0.56 m square from 1.61 to 1.98 m, each heart 0.35 m across with its
+point at 1.91 m; finials to 2.385 m, the north pier's ring 0.19 m across round 2.085 m; a base
+0.32 m high; bars 0.349 m apart to a rail at 0.83 m. Rendered, the shafts land within 2 px of the
+print, the caps' tops within 3 px and every bar within 1 px.
+**What is read, not invented.** Every size and height above, from the print's pixels
+(`chicagology_1638_prairie_photo`), and the bars' phase: the first bar stands against the north
+plinth at 345 px (0.018 m off its face), so the kit's new `bars.first_m` lays the bars from each
+gate pier at the print's own pitch instead of spreading them evenly along the run.
+**What is invented.** The plinths' breadth (T-2456 took the caps' 0.40 m without reading it; it is
+carried here by the shafts' ratio to 0.58 m); the base's width, 0.48 m, so that its street face stays
+10.75 m out, where the camera was solved on it; the sizes no front view of a halftone resolves —
+the finials' rod, point and ring bar, the caps' boards, eave and pyramid, the bars' and rail's
+section — each carried by the same 1.44 so the fence draws in the print's proportions; the ring
+raised 0.005 m over its reading to clear the cap's point; and the gap the bars leave at the far lot
+line, out of the frame. What L-k16-1638-fence-2456 records as invented (the run past the print's
+edges, the materials, the depths) stands as it was.
+**How to resolve:** a second picture of the yard, or a measured drawing of the fence, fixes the
+piers' sizes without leaning on the camera; a camera solved again moves these readings with it, and
+they should be re-taken from the same pixels, as these were.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.boundary`.
+**Ticket:** T-2524 (after T-2523).
+**Review:** `docs/RESEARCH/k16-1638-fence-2524/README.md`.
+**Recorded:** 2026-10-15 (T-2524).
+
 ### L-k01-1621-entrance-2526 — 1621 Prairie's entrance from the drawing: a round-arched door under a voussoir block, and the carved panel and framed light over it, their heights read and their joinery reconstructed
 
 **Decision:** the north strip of John H. Hamline's house at 1621 Prairie (T-2526, piece 2 of
@@ -27912,3 +27944,41 @@ the camera T-2523 re-solves.
 **Ticket:** T-2521 (piece 3 of T-2458).
 **Review:** `docs/RESEARCH/k16-1638-tower-caps-2521/README.md`.
 **Recorded:** 2026-10-15 (T-2521).
+
+
+### L-k16-1638-wing-2532 — 1638 Prairie's south wing from its photograph: the sheet's projection as a lower wing under a street-facing gable, its south wall taken past the sheet's line, its sash and unseen walls reconstructed
+
+**Decision:** the projection sheet 20 draws on the south flank of the Shortall-Gregory house
+(T-2397 built it to the flanks' wall top under a lean-to) is rebuilt as the photograph shows it
+(T-2532, piece 1 of T-2522): a wing a metre lower than the house, its wall top 5.03 m over the
+basement's top where the flanks' is 6.03 m, under a 50-degree gable that faces the street, its
+ridge running north on the plan's middle into the main roof's south slope and its south end a
+gable under a 0.42 m verge. Its south wall stands at v -3.0 m, 0.6 m south of the sheet's -2.4 m.
+On its east face two upper lights 0.5 m wide and, under them, a light 0.58 m wide and a narrow
+one 0.22 m wide; the south and west walls keep two and one bays a storey, re-spaced to the
+lower storeys.
+**What is read, not invented.** That the block south of the gable is this house's wing and not
+the neighbour's: sheet 20 puts 1700 Prairie's north wall 4.4 m south of the front's south end, so
+through the camera all of 1700 falls left of the frame. From the photograph
+(`chicagology_1638_prairie_photo`), through the camera T-2523 solved, on the sheet's east face:
+the eave's drip at 482 px (the wall top), the ridge at 264 px and level (a ridge running north,
+so a roof facing the street), its height and so the 50-degree pitch, the rake's foot at 88.5 px
+(the verge, so the south wall), and the four lights' places and heads. Rendered, the ridge lands
+at 263 px, the drip at 480-483 px, its corner at 88 px and the lights within 3 px.
+**What is invented.** That the ridge stands on the plan's middle (the camera sees only the east
+slope; the print's rake leans a little more steeply than this draws, its top 5-7 px south, which
+a ridge 0.8 m further back would close); the west slope and the west and south walls' openings,
+which no picture shows; every opening's sash, the kit's two-over-two; the lower lights' sills and
+the wing's floors, their feet hidden by the planting; the clapboard, the boxed eave and the
+verge's soffit and fascia, the kit's; and the wing standing on the house's basement like the rest.
+The print's wing face is dark, in 1700's shadow; the scene lights it as its sun does.
+**What disagrees.** The sheet draws the projection 2.40 m out of the south flank (row 3770); the
+print puts its verge at -3.42 m, so a wall about 0.6 m further out, a dozen sheet pixels. The
+print is the picture the house is matched to, so it is taken; the sheet's east face and west end
+are kept.
+**How to resolve:** a second view of the south side, or the sheet's earlier edition, settles the
+wing's width and depth; a view of its south face settles its openings.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`
+**Ticket:** T-2532 (piece 1 of T-2522).
+**Review:** `docs/RESEARCH/k16-1638-wing-2532/README.md`.
+**Recorded:** 2026-10-15 (T-2532).

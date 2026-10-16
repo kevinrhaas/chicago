@@ -1,0 +1,375 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 51296,
+      "js_heap_used_bytes": 129795028,
+      "js_heap_total_bytes": 130760704,
+      "draft_records_in_registry": 145,
+      "placed": [
+        "shortall_gregory_house_1638_prairie_front",
+        "shortall_gregory_house_1638_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "front",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 116,
+            "triangles": 2537751,
+            "programs": 65,
+            "geometries": 103,
+            "textures": 243,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 88895872,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 7285.9,
+          "camera": [
+            1406,
+            -3075,
+            5.55
+          ],
+          "target": [
+            1378,
+            -3075,
+            8.88
+          ]
+        },
+        {
+          "name": "south-wing",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 111,
+            "triangles": 2484016,
+            "programs": 65,
+            "geometries": 103,
+            "textures": 243,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 88895872,
+            "fps": 0,
+            "cameraNear": 0.2,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 5949.6,
+          "camera": [
+            1391,
+            -3082.6,
+            8.86
+          ],
+          "target": [
+            1367,
+            -3080.5,
+            7.42
+          ]
+        },
+        {
+          "name": "south-east-walk",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 117,
+            "triangles": 2637082,
+            "programs": 65,
+            "geometries": 107,
+            "textures": 251,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 88895872,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 6068.7,
+          "camera": [
+            1400,
+            -3092,
+            5.57
+          ],
+          "target": [
+            1372,
+            -3080,
+            8.9
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 35033,
+      "js_heap_used_bytes": 224559108,
+      "js_heap_total_bytes": 225861632,
+      "draft_records_in_registry": 145,
+      "placed": [
+        "shortall_gregory_house_1638_prairie_front",
+        "shortall_gregory_house_1638_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "front",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 85,
+            "triangles": 865093,
+            "programs": 40,
+            "geometries": 101,
+            "textures": 251,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 62426924,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1928.4,
+          "camera": [
+            1406,
+            -3075,
+            5.55
+          ],
+          "target": [
+            1378,
+            -3075,
+            8.88
+          ]
+        },
+        {
+          "name": "south-wing",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 95,
+            "triangles": 832891,
+            "programs": 40,
+            "geometries": 101,
+            "textures": 251,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 62426924,
+            "fps": 0,
+            "cameraNear": 0.2,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1569.5,
+          "camera": [
+            1391,
+            -3082.6,
+            8.86
+          ],
+          "target": [
+            1367,
+            -3080.5,
+            7.42
+          ]
+        },
+        {
+          "name": "south-east-walk",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 103,
+            "triangles": 882830,
+            "programs": 40,
+            "geometries": 103,
+            "textures": 255,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 62426924,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1867.2,
+          "camera": [
+            1400,
+            -3092,
+            5.57
+          ],
+          "target": [
+            1372,
+            -3080,
+            8.9
+          ]
+        }
+      ]
+    }
+  ]
+}
