@@ -9,6 +9,14 @@
   "asset": "gltf/law_house_1620_prairie__restored_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-cgy-landowner-1874-1620-law",
+      "a16-cgy-tribune-1898-prairie-widows"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1904-07-01",

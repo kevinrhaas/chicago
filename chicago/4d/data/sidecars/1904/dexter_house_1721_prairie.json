@@ -10,6 +10,17 @@
   "asset": "gltf/dexter_house_1721_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 5 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-chm-clark-ichi-071912-dexter-c1905",
+      "a16-ghm-blog-1721-dexter-c1888",
+      "a16-inland-1891-dexter-residence",
+      "a16-pullman-det-4a08065",
+      "cgn-1721-dexter-winter-photo-copy"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

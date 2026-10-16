@@ -62,12 +62,12 @@ async function bootCase(name, { slow=false, reduced=false, fail=null } = {}) {
     await page.waitForFunction(()=>window.__chicago4d?.ready && document.getElementById('arrival-year').dataset.year==='1835',{},{timeout:180000});
   }
   await page.waitForTimeout(400);
-  const data=await page.evaluate(()=>({probe:window.arrivalProbe,state:window.__chicago4d.arrival.state,phases:window.__chicago4d.boot.timings(),readyAt:window.__chicago4d.boot.readyAt,copy:document.getElementById('gate-sub').textContent,button:document.getElementById('gate-btn').textContent,disabled:document.getElementById('gate-btn').disabled,hidden:document.getElementById('arrival-year').getAttribute('aria-hidden'),animations:document.getElementById('arrival-year').getAnimations({subtree:true}).length}));
+  const data=await page.evaluate(()=>({probe:window.arrivalProbe,state:window.__chicago4d.arrival.state,phases:window.__chicago4d.boot.timings(),readyAt:window.__chicago4d.boot.readyAt,copy:document.getElementById('gate-sub').textContent,detail:document.getElementById('gate-detail')?.textContent,button:document.getElementById('gate-btn').textContent,disabled:document.getElementById('gate-btn').disabled,hidden:document.getElementById('arrival-year').getAttribute('aria-hidden'),animations:document.getElementById('arrival-year').getAnimations({subtree:true}).length}));
   const ys=data.probe.filter(x=>Number.isFinite(x.year)&&x.year>0);
   assert.ok(ys.every((x,i)=>!i || x.year<=ys[i-1].year),'year never rolls forward');
   assert.ok(ys.every(x=>x.year>=1836||x.ready),'1835 requires api.ready');
   assert.equal(data.hidden,'true'); assert.deepEqual(errors,[]);
-  if(fail==='terrain'){assert.match(data.copy,/forced terrain failure/);assert.doesNotMatch(data.copy,/arrived/);assert.equal(data.button,'Retry'); assert.ok(data.state.year>=1836);}
+  if(fail==='terrain'){assert.match(data.copy,/^The jump stalled somewhere around \d{4}\.$/);assert.match(data.detail,/forced terrain failure/);assert.doesNotMatch(data.copy,/arrived/);assert.equal(data.button,'Try again'); assert.ok(data.state.year>=1836);}
   else {if(fail==='people') assert.ok(data.phases.find(p=>p.id==='people').error,'optional failure was actually injected');assert.equal(data.copy,'Ready to explore.');assert.equal(data.state.year,1835);assert.equal(data.disabled,false);}
   if(reduced){assert.ok(new Set(ys.map(x=>x.year)).size<=5);assert.equal(data.animations,0);}
   await page.screenshot({path:path.join(out,`${name}-6.png`)});

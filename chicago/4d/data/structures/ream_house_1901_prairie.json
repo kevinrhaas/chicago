@@ -116,7 +116,7 @@
               {
                 "id": "r3",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   -4.75,
@@ -129,7 +129,7 @@
               {
                 "id": "r4",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   -1.75,
@@ -145,7 +145,7 @@
                 "storeys": 3,
                 "roof": "flat",
                 "rect": [
-                  21.75,
+                  20.75,
                   5.75,
                   23.75,
                   9.75
@@ -155,7 +155,7 @@
               {
                 "id": "r6",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   3.75,

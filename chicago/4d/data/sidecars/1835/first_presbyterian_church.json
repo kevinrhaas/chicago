@@ -9,6 +9,11 @@
   "asset": "gltf/first_presbyterian_church__frame_1834.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1834-01-04",
     "to": "1837-12-31",

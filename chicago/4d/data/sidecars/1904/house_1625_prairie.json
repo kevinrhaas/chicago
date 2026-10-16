@@ -9,6 +9,15 @@
   "asset": "gltf/house_1625_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-inland-1890-hj-mcbirney-residence",
+      "cgn-1619-1625-building-budget-hamline-farwell",
+      "cgn-1625-mcbirney-inland-1890-copy"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

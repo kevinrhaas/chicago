@@ -97,6 +97,11 @@ step "The device profile chooses per device, and a stored choice still wins (T-2
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
+step "The grade colours are one set — gold, silver, bronze — legible on every machine's panel and apart under colour-vision deficiency (T-2671)" \
+  node tools/check_grade_colors.mjs
+selftest "…and a bronze that is a darker gold, a drifted token or an unreadable ink is refused (T-2671)" \
+  node tools/check_grade_colors.mjs --self-test
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
@@ -3668,6 +3673,14 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# The frontage's timber ships prebuilt (T-2677): publish.sh builds it in Node with the
+# page's own createFrontage and the page uploads it. This refuses a prebuild whose
+# inputs — the records, the heightfield, every module the build loaded — have moved
+# since it was written, or a buffer its index did not hash. check_published.mjs asks
+# the same of the mirror; this is the tool's own --check, run where the mirror is.
+step "the published prebuilt frontage is current against every file it was built from (T-2677)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt
+
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a
 # file the site no longer has. The self-test holds who is in which year's pack,
@@ -7112,6 +7125,17 @@ step "the cards' pictures join the library and the sources to their buildings" \
 
 selftest "…and the joins still keep out what is not a picture of this building" \
   python3 tools/compile_pictures.py --self-test
+
+# T-2686, AGENTS.md rule 12. A structure's own grade: attested when a reasonable picture of it
+# exists, inferred when maps or text record it and nothing shows it, reconstructed when our
+# model of the town placed it. compile_scene writes it into each sidecar (its --check above
+# holds the committed grades to the rule); this holds the rulings file — every entry names its
+# structure, its picture and why — and the self-test breaks each branch of the rule.
+step "every structure's grade follows its pictures, and every ruling says why (T-2686)" \
+  python3 tools/grade_structures.py --check
+
+selftest "…and a picture, a camera, a ruling or an invention still decides what it should" \
+  python3 tools/grade_structures.py --self-test
 
 # T-2635. The building summary record: data/summaries/<id>.json, the authored front page
 # the Inspect app reads (design doc section 12), shaped by data/summary.schema.json and

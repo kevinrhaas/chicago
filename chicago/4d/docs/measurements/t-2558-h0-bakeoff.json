@@ -1,0 +1,1011 @@
+{
+  "ticket": "T-2558",
+  "measured": "2026-10-16T21:34:14.884Z",
+  "tool": "tools/measure_hd_spike.mjs",
+  "note": "SwiftShader rasterises every page on the steward runner: frame times are a software stand-in, read as ratios.",
+  "verdict": "NO-GO on a named criterion",
+  "criteria": {
+    "K1": {
+      "pass": true,
+      "detail": {
+        "gpu/phone": {
+          "ready": true,
+          "backend": "webgpu",
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "bootMs": 3438
+        },
+        "gpu/desktop": {
+          "ready": true,
+          "backend": "webgpu",
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "bootMs": 5105
+        },
+        "gl/phone": {
+          "ready": true,
+          "backend": "webgl2-fallback",
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "bootMs": 2595
+        },
+        "gl/desktop": {
+          "ready": true,
+          "backend": "webgl2-fallback",
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "bootMs": 3360
+        },
+        "classic/phone": {
+          "ready": true,
+          "backend": "webgl-classic",
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "bootMs": 3171
+        },
+        "classic/desktop": {
+          "ready": true,
+          "backend": "webgl-classic",
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "bootMs": 3910
+        }
+      }
+    },
+    "K2": {
+      "pass": true,
+      "detail": {
+        "gpu/phone": {
+          "loaded": 11,
+          "problems": []
+        },
+        "gpu/desktop": {
+          "loaded": 11,
+          "problems": []
+        },
+        "gl/phone": {
+          "loaded": 11,
+          "problems": []
+        },
+        "gl/desktop": {
+          "loaded": 11,
+          "problems": []
+        },
+        "classic/phone": {
+          "loaded": 11,
+          "problems": []
+        },
+        "classic/desktop": {
+          "loaded": 11,
+          "problems": []
+        }
+      }
+    },
+    "K3": {
+      "pass": true,
+      "detail": [
+        {
+          "page": "gpu",
+          "viewport": "phone",
+          "stand": "spawn",
+          "view": "on",
+          "a": "gpu-phone-spawn-on.png",
+          "b": "classic-phone-spawn-on.png",
+          "meanAbs255": 4.19,
+          "over40Pct": 0.85
+        },
+        {
+          "page": "gpu",
+          "viewport": "phone",
+          "stand": "oblique-ne",
+          "view": "on",
+          "a": "gpu-phone-oblique-ne-on.png",
+          "b": "classic-phone-oblique-ne-on.png",
+          "meanAbs255": 5.67,
+          "over40Pct": 0.55
+        },
+        {
+          "page": "gl",
+          "viewport": "phone",
+          "stand": "spawn",
+          "view": "on",
+          "a": "gl-phone-spawn-on.png",
+          "b": "classic-phone-spawn-on.png",
+          "meanAbs255": 4.15,
+          "over40Pct": 0.82
+        },
+        {
+          "page": "gl",
+          "viewport": "phone",
+          "stand": "oblique-ne",
+          "view": "on",
+          "a": "gl-phone-oblique-ne-on.png",
+          "b": "classic-phone-oblique-ne-on.png",
+          "meanAbs255": 5.5,
+          "over40Pct": 0.39
+        },
+        {
+          "page": "gpu",
+          "viewport": "desktop",
+          "stand": "spawn",
+          "view": "on",
+          "a": "gpu-desktop-spawn-on.png",
+          "b": "classic-desktop-spawn-on.png",
+          "meanAbs255": 3.79,
+          "over40Pct": 0.53
+        },
+        {
+          "page": "gpu",
+          "viewport": "desktop",
+          "stand": "oblique-ne",
+          "view": "on",
+          "a": "gpu-desktop-oblique-ne-on.png",
+          "b": "classic-desktop-oblique-ne-on.png",
+          "meanAbs255": 5.34,
+          "over40Pct": 0.26
+        },
+        {
+          "page": "gl",
+          "viewport": "desktop",
+          "stand": "spawn",
+          "view": "on",
+          "a": "gl-desktop-spawn-on.png",
+          "b": "classic-desktop-spawn-on.png",
+          "meanAbs255": 3.74,
+          "over40Pct": 0.48
+        },
+        {
+          "page": "gl",
+          "viewport": "desktop",
+          "stand": "oblique-ne",
+          "view": "on",
+          "a": "gl-desktop-oblique-ne-on.png",
+          "b": "classic-desktop-oblique-ne-on.png",
+          "meanAbs255": 5.21,
+          "over40Pct": 0.15
+        }
+      ]
+    },
+    "K4": {
+      "pass": true,
+      "detail": [
+        {
+          "page": "gpu",
+          "viewport": "phone",
+          "stand": "spawn",
+          "view": "off",
+          "a": "gpu-phone-spawn-off.png",
+          "b": "classic-phone-spawn-off.png",
+          "meanAbs255": 2.57,
+          "over40Pct": 0.1
+        },
+        {
+          "page": "gpu",
+          "viewport": "phone",
+          "stand": "oblique-ne",
+          "view": "off",
+          "a": "gpu-phone-oblique-ne-off.png",
+          "b": "classic-phone-oblique-ne-off.png",
+          "meanAbs255": 4.89,
+          "over40Pct": 0.21
+        },
+        {
+          "page": "gl",
+          "viewport": "phone",
+          "stand": "spawn",
+          "view": "off",
+          "a": "gl-phone-spawn-off.png",
+          "b": "classic-phone-spawn-off.png",
+          "meanAbs255": 2.51,
+          "over40Pct": 0.08
+        },
+        {
+          "page": "gl",
+          "viewport": "phone",
+          "stand": "oblique-ne",
+          "view": "off",
+          "a": "gl-phone-oblique-ne-off.png",
+          "b": "classic-phone-oblique-ne-off.png",
+          "meanAbs255": 4.6,
+          "over40Pct": 0.02
+        },
+        {
+          "page": "gpu",
+          "viewport": "desktop",
+          "stand": "spawn",
+          "view": "off",
+          "a": "gpu-desktop-spawn-off.png",
+          "b": "classic-desktop-spawn-off.png",
+          "meanAbs255": 2.21,
+          "over40Pct": 0.1
+        },
+        {
+          "page": "gpu",
+          "viewport": "desktop",
+          "stand": "oblique-ne",
+          "view": "off",
+          "a": "gpu-desktop-oblique-ne-off.png",
+          "b": "classic-desktop-oblique-ne-off.png",
+          "meanAbs255": 5.03,
+          "over40Pct": 0.21
+        },
+        {
+          "page": "gl",
+          "viewport": "desktop",
+          "stand": "spawn",
+          "view": "off",
+          "a": "gl-desktop-spawn-off.png",
+          "b": "classic-desktop-spawn-off.png",
+          "meanAbs255": 2.13,
+          "over40Pct": 0.05
+        },
+        {
+          "page": "gl",
+          "viewport": "desktop",
+          "stand": "oblique-ne",
+          "view": "off",
+          "a": "gl-desktop-oblique-ne-off.png",
+          "b": "classic-desktop-oblique-ne-off.png",
+          "meanAbs255": 4.76,
+          "over40Pct": 0.04
+        }
+      ]
+    },
+    "K5": {
+      "pass": false,
+      "detail": {
+        "gpu/phone": {
+          "atBootTotalMiB": 492,
+          "totalMiB": 494,
+          "jsHeapMiB": 11.7,
+          "arrayBuffersMiB": 41,
+          "gpuBuffersMiB": 16.5,
+          "gpuTexturesMiB": 424.8,
+          "gpuRenderbuffersMiB": 0,
+          "meter": "webgpu createBuffer/createTexture"
+        },
+        "gpu/desktop": {
+          "atBootTotalMiB": 543.9,
+          "totalMiB": 543.9,
+          "jsHeapMiB": 12.7,
+          "arrayBuffersMiB": 41,
+          "gpuBuffersMiB": 16.9,
+          "gpuTexturesMiB": 473.3,
+          "gpuRenderbuffersMiB": 0,
+          "meter": "webgpu createBuffer/createTexture"
+        },
+        "gl/phone": {
+          "atBootTotalMiB": 488.8,
+          "totalMiB": 490.8,
+          "jsHeapMiB": 11.5,
+          "arrayBuffersMiB": 39.5,
+          "gpuBuffersMiB": 15,
+          "gpuTexturesMiB": 410.9,
+          "gpuRenderbuffersMiB": 13.9,
+          "meter": "measure_memory GL meter"
+        },
+        "gl/desktop": {
+          "atBootTotalMiB": 540.6,
+          "totalMiB": 540.6,
+          "jsHeapMiB": 12.3,
+          "arrayBuffersMiB": 39.5,
+          "gpuBuffersMiB": 15.4,
+          "gpuTexturesMiB": 426.4,
+          "gpuRenderbuffersMiB": 46.9,
+          "meter": "measure_memory GL meter"
+        },
+        "classic/phone": {
+          "atBootTotalMiB": 433,
+          "totalMiB": 447.7,
+          "jsHeapMiB": 8.3,
+          "arrayBuffersMiB": 48,
+          "gpuBuffersMiB": 17.2,
+          "gpuTexturesMiB": 359.1,
+          "gpuRenderbuffersMiB": 15.1,
+          "meter": "measure_memory GL meter"
+        },
+        "classic/desktop": {
+          "atBootTotalMiB": 490.7,
+          "totalMiB": 490.7,
+          "jsHeapMiB": 8.3,
+          "arrayBuffersMiB": 48,
+          "gpuBuffersMiB": 17.2,
+          "gpuTexturesMiB": 366.4,
+          "gpuRenderbuffersMiB": 50.8,
+          "meter": "measure_memory GL meter"
+        }
+      }
+    },
+    "K6": {
+      "pass": true,
+      "band": "go",
+      "gpuOverClassicPhone": 0.31,
+      "glOverClassicPhone": 0.67,
+      "gpuOverClassicDesktop": 0.33,
+      "finishedGpuOverClassicPhone": 0.6,
+      "finishedGlOverClassicPhone": 0.71,
+      "detail": {
+        "gpu/phone": {
+          "frames": 40,
+          "throttle": 4,
+          "interval": {
+            "p50": 1283.3,
+            "p95": 1466.5,
+            "sd": 275.8
+          },
+          "render": {
+            "p50": 40,
+            "p95": 53.3
+          },
+          "finished": {
+            "p50": 1344.5,
+            "p95": 1480.5,
+            "sd": 361.3
+          }
+        },
+        "gpu/desktop": {
+          "frames": 40,
+          "throttle": 1,
+          "interval": {
+            "p50": 2449.9,
+            "p95": 2649.8,
+            "sd": 404.3
+          },
+          "render": {
+            "p50": 12.5,
+            "p95": 17.8
+          },
+          "finished": {
+            "p50": 2463.4,
+            "p95": 2649.1,
+            "sd": 752.5
+          }
+        },
+        "gl/phone": {
+          "frames": 40,
+          "throttle": 4,
+          "interval": {
+            "p50": 1116.6,
+            "p95": 3149.9,
+            "sd": 981.3
+          },
+          "render": {
+            "p50": 43.4,
+            "p95": 70.9
+          },
+          "finished": {
+            "p50": 1534.5,
+            "p95": 1739.9,
+            "sd": 4966.2
+          }
+        },
+        "gl/desktop": {
+          "frames": 40,
+          "throttle": 1,
+          "interval": {
+            "p50": 2833.1,
+            "p95": 6066.4,
+            "sd": 2173.4
+          },
+          "render": {
+            "p50": 14.3,
+            "p95": 21.7
+          },
+          "finished": {
+            "p50": 2877.4,
+            "p95": 3090.4,
+            "sd": 10243.4
+          }
+        },
+        "classic/phone": {
+          "frames": 40,
+          "throttle": 4,
+          "interval": {
+            "p50": 1933.3,
+            "p95": 4683.1,
+            "sd": 1585.9
+          },
+          "render": {
+            "p50": 31.7,
+            "p95": 47.4
+          },
+          "finished": {
+            "p50": 2212.8,
+            "p95": 2463.2,
+            "sd": 6407.9
+          }
+        },
+        "classic/desktop": {
+          "frames": 40,
+          "throttle": 1,
+          "interval": {
+            "p50": 3966.5,
+            "p95": 8149.8,
+            "sd": 2853.6
+          },
+          "render": {
+            "p50": 14,
+            "p95": 26
+          },
+          "finished": {
+            "p50": 4160,
+            "p95": 4502.8,
+            "sd": 15417.5
+          }
+        }
+      }
+    },
+    "K7": {
+      "pass": true,
+      "detail": "the gl runs: a browser launched with no WebGPU adapter; the backend each reported is in K1"
+    }
+  },
+  "runs": [
+    {
+      "page": "classic",
+      "viewport": "desktop",
+      "backend": "webgl-classic",
+      "bootMs": 3910,
+      "loadMs": 1417,
+      "bytes": 40224436,
+      "info": {
+        "backend": "webgl-classic",
+        "calls": 371,
+        "renderedTriangles": 960883,
+        "meshes": 134,
+        "triangles": 331403
+      },
+      "materials": null,
+      "loaded": [
+        {
+          "id": "glessner_house",
+          "asset": "gltf/glessner_house__as_built_1887.light.glb",
+          "bytes": 32534812,
+          "dist": 0
+        },
+        {
+          "id": "wheeler_house_1812_prairie_coach_house",
+          "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
+          "bytes": 26408,
+          "dist": 16
+        },
+        {
+          "id": "keith_house_1808_prairie",
+          "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "bytes": 3752112,
+          "dist": 32.8
+        },
+        {
+          "id": "wheeler_house_1812_prairie",
+          "asset": "gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+          "bytes": 3697944,
+          "dist": 37.1
+        },
+        {
+          "id": "henderson_house_1816_prairie",
+          "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
+          "bytes": 60340,
+          "dist": 38.5
+        },
+        {
+          "id": "henderson_house_1816_prairie_coach_house",
+          "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb",
+          "bytes": 23528,
+          "dist": 41.9
+        },
+        {
+          "id": "house_1736_prairie_coach_house",
+          "asset": "gltf/house_1736_prairie_coach_house__draft_1904.glb",
+          "bytes": 12408,
+          "dist": 43.1
+        },
+        {
+          "id": "house_1736_prairie",
+          "asset": "gltf/house_1736_prairie__draft_1904.glb",
+          "bytes": 41500,
+          "dist": 48.3
+        },
+        {
+          "id": "house_1730_prairie_coach_house",
+          "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb",
+          "bytes": 20396,
+          "dist": 50.3
+        },
+        {
+          "id": "marsh_house_1824_prairie",
+          "asset": "gltf/marsh_house_1824_prairie__draft_1904.glb",
+          "bytes": 32328,
+          "dist": 58.3
+        },
+        {
+          "id": "marsh_house_1824_prairie_coach_house",
+          "asset": "gltf/marsh_house_1824_prairie_coach_house__draft_1904.glb",
+          "bytes": 22660,
+          "dist": 59
+        }
+      ],
+      "wallS": 473,
+      "args": [
+        "--enable-unsafe-swiftshader",
+        "--use-angle=swiftshader"
+      ],
+      "errors": [],
+      "console": []
+    },
+    {
+      "page": "classic",
+      "viewport": "phone",
+      "backend": "webgl-classic",
+      "bootMs": 3171,
+      "loadMs": 1301,
+      "bytes": 40224436,
+      "info": {
+        "backend": "webgl-classic",
+        "calls": 193,
+        "renderedTriangles": 750613,
+        "meshes": 134,
+        "triangles": 331403
+      },
+      "materials": null,
+      "loaded": [
+        {
+          "id": "glessner_house",
+          "asset": "gltf/glessner_house__as_built_1887.light.glb",
+          "bytes": 32534812,
+          "dist": 0
+        },
+        {
+          "id": "wheeler_house_1812_prairie_coach_house",
+          "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
+          "bytes": 26408,
+          "dist": 16
+        },
+        {
+          "id": "keith_house_1808_prairie",
+          "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "bytes": 3752112,
+          "dist": 32.8
+        },
+        {
+          "id": "wheeler_house_1812_prairie",
+          "asset": "gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+          "bytes": 3697944,
+          "dist": 37.1
+        },
+        {
+          "id": "henderson_house_1816_prairie",
+          "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
+          "bytes": 60340,
+          "dist": 38.5
+        },
+        {
+          "id": "henderson_house_1816_prairie_coach_house",
+          "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb",
+          "bytes": 23528,
+          "dist": 41.9
+        },
+        {
+          "id": "house_1736_prairie_coach_house",
+          "asset": "gltf/house_1736_prairie_coach_house__draft_1904.glb",
+          "bytes": 12408,
+          "dist": 43.1
+        },
+        {
+          "id": "house_1736_prairie",
+          "asset": "gltf/house_1736_prairie__draft_1904.glb",
+          "bytes": 41500,
+          "dist": 48.3
+        },
+        {
+          "id": "house_1730_prairie_coach_house",
+          "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb",
+          "bytes": 20396,
+          "dist": 50.3
+        },
+        {
+          "id": "marsh_house_1824_prairie",
+          "asset": "gltf/marsh_house_1824_prairie__draft_1904.glb",
+          "bytes": 32328,
+          "dist": 58.3
+        },
+        {
+          "id": "marsh_house_1824_prairie_coach_house",
+          "asset": "gltf/marsh_house_1824_prairie_coach_house__draft_1904.glb",
+          "bytes": 22660,
+          "dist": 59
+        }
+      ],
+      "wallS": 236,
+      "args": [
+        "--enable-unsafe-swiftshader",
+        "--use-angle=swiftshader"
+      ],
+      "errors": [],
+      "console": []
+    },
+    {
+      "page": "gl",
+      "viewport": "desktop",
+      "backend": "webgl2-fallback",
+      "bootMs": 3360,
+      "loadMs": 1240,
+      "bytes": 40224436,
+      "info": {
+        "backend": "webgl2-fallback",
+        "calls": 0,
+        "renderedTriangles": 0,
+        "meshes": 134,
+        "triangles": 331403
+      },
+      "materials": {
+        "converted": 134,
+        "unconverted": 0
+      },
+      "loaded": [
+        {
+          "id": "glessner_house",
+          "asset": "gltf/glessner_house__as_built_1887.light.glb",
+          "bytes": 32534812,
+          "dist": 0
+        },
+        {
+          "id": "wheeler_house_1812_prairie_coach_house",
+          "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
+          "bytes": 26408,
+          "dist": 16
+        },
+        {
+          "id": "keith_house_1808_prairie",
+          "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "bytes": 3752112,
+          "dist": 32.8
+        },
+        {
+          "id": "wheeler_house_1812_prairie",
+          "asset": "gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+          "bytes": 3697944,
+          "dist": 37.1
+        },
+        {
+          "id": "henderson_house_1816_prairie",
+          "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
+          "bytes": 60340,
+          "dist": 38.5
+        },
+        {
+          "id": "henderson_house_1816_prairie_coach_house",
+          "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb",
+          "bytes": 23528,
+          "dist": 41.9
+        },
+        {
+          "id": "house_1736_prairie_coach_house",
+          "asset": "gltf/house_1736_prairie_coach_house__draft_1904.glb",
+          "bytes": 12408,
+          "dist": 43.1
+        },
+        {
+          "id": "house_1736_prairie",
+          "asset": "gltf/house_1736_prairie__draft_1904.glb",
+          "bytes": 41500,
+          "dist": 48.3
+        },
+        {
+          "id": "house_1730_prairie_coach_house",
+          "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb",
+          "bytes": 20396,
+          "dist": 50.3
+        },
+        {
+          "id": "marsh_house_1824_prairie",
+          "asset": "gltf/marsh_house_1824_prairie__draft_1904.glb",
+          "bytes": 32328,
+          "dist": 58.3
+        },
+        {
+          "id": "marsh_house_1824_prairie_coach_house",
+          "asset": "gltf/marsh_house_1824_prairie_coach_house__draft_1904.glb",
+          "bytes": 22660,
+          "dist": 59
+        }
+      ],
+      "wallS": 331,
+      "args": [
+        "--enable-unsafe-swiftshader",
+        "--use-angle=swiftshader"
+      ],
+      "errors": [],
+      "console": []
+    },
+    {
+      "page": "gl",
+      "viewport": "phone",
+      "backend": "webgl2-fallback",
+      "bootMs": 2595,
+      "loadMs": 1256,
+      "bytes": 40224436,
+      "info": {
+        "backend": "webgl2-fallback",
+        "calls": 0,
+        "renderedTriangles": 0,
+        "meshes": 134,
+        "triangles": 331403
+      },
+      "materials": {
+        "converted": 134,
+        "unconverted": 0
+      },
+      "loaded": [
+        {
+          "id": "glessner_house",
+          "asset": "gltf/glessner_house__as_built_1887.light.glb",
+          "bytes": 32534812,
+          "dist": 0
+        },
+        {
+          "id": "wheeler_house_1812_prairie_coach_house",
+          "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
+          "bytes": 26408,
+          "dist": 16
+        },
+        {
+          "id": "keith_house_1808_prairie",
+          "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "bytes": 3752112,
+          "dist": 32.8
+        },
+        {
+          "id": "wheeler_house_1812_prairie",
+          "asset": "gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+          "bytes": 3697944,
+          "dist": 37.1
+        },
+        {
+          "id": "henderson_house_1816_prairie",
+          "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
+          "bytes": 60340,
+          "dist": 38.5
+        },
+        {
+          "id": "henderson_house_1816_prairie_coach_house",
+          "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb",
+          "bytes": 23528,
+          "dist": 41.9
+        },
+        {
+          "id": "house_1736_prairie_coach_house",
+          "asset": "gltf/house_1736_prairie_coach_house__draft_1904.glb",
+          "bytes": 12408,
+          "dist": 43.1
+        },
+        {
+          "id": "house_1736_prairie",
+          "asset": "gltf/house_1736_prairie__draft_1904.glb",
+          "bytes": 41500,
+          "dist": 48.3
+        },
+        {
+          "id": "house_1730_prairie_coach_house",
+          "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb",
+          "bytes": 20396,
+          "dist": 50.3
+        },
+        {
+          "id": "marsh_house_1824_prairie",
+          "asset": "gltf/marsh_house_1824_prairie__draft_1904.glb",
+          "bytes": 32328,
+          "dist": 58.3
+        },
+        {
+          "id": "marsh_house_1824_prairie_coach_house",
+          "asset": "gltf/marsh_house_1824_prairie_coach_house__draft_1904.glb",
+          "bytes": 22660,
+          "dist": 59
+        }
+      ],
+      "wallS": 165,
+      "args": [
+        "--enable-unsafe-swiftshader",
+        "--use-angle=swiftshader"
+      ],
+      "errors": [],
+      "console": []
+    },
+    {
+      "page": "gpu",
+      "viewport": "desktop",
+      "backend": "webgpu",
+      "bootMs": 5105,
+      "loadMs": 1268,
+      "bytes": 40224436,
+      "info": {
+        "backend": "webgpu",
+        "calls": 0,
+        "renderedTriangles": 0,
+        "meshes": 134,
+        "triangles": 331403
+      },
+      "materials": {
+        "converted": 134,
+        "unconverted": 0
+      },
+      "loaded": [
+        {
+          "id": "glessner_house",
+          "asset": "gltf/glessner_house__as_built_1887.light.glb",
+          "bytes": 32534812,
+          "dist": 0
+        },
+        {
+          "id": "wheeler_house_1812_prairie_coach_house",
+          "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
+          "bytes": 26408,
+          "dist": 16
+        },
+        {
+          "id": "keith_house_1808_prairie",
+          "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "bytes": 3752112,
+          "dist": 32.8
+        },
+        {
+          "id": "wheeler_house_1812_prairie",
+          "asset": "gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+          "bytes": 3697944,
+          "dist": 37.1
+        },
+        {
+          "id": "henderson_house_1816_prairie",
+          "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
+          "bytes": 60340,
+          "dist": 38.5
+        },
+        {
+          "id": "henderson_house_1816_prairie_coach_house",
+          "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb",
+          "bytes": 23528,
+          "dist": 41.9
+        },
+        {
+          "id": "house_1736_prairie_coach_house",
+          "asset": "gltf/house_1736_prairie_coach_house__draft_1904.glb",
+          "bytes": 12408,
+          "dist": 43.1
+        },
+        {
+          "id": "house_1736_prairie",
+          "asset": "gltf/house_1736_prairie__draft_1904.glb",
+          "bytes": 41500,
+          "dist": 48.3
+        },
+        {
+          "id": "house_1730_prairie_coach_house",
+          "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb",
+          "bytes": 20396,
+          "dist": 50.3
+        },
+        {
+          "id": "marsh_house_1824_prairie",
+          "asset": "gltf/marsh_house_1824_prairie__draft_1904.glb",
+          "bytes": 32328,
+          "dist": 58.3
+        },
+        {
+          "id": "marsh_house_1824_prairie_coach_house",
+          "asset": "gltf/marsh_house_1824_prairie_coach_house__draft_1904.glb",
+          "bytes": 22660,
+          "dist": 59
+        }
+      ],
+      "wallS": 291,
+      "args": [
+        "--enable-unsafe-webgpu",
+        "--enable-features=Vulkan,CDPScreenshotNewSurface",
+        "--use-vulkan=swiftshader",
+        "--use-webgpu-adapter=swiftshader",
+        "--enable-unsafe-swiftshader",
+        "--use-angle=swiftshader"
+      ],
+      "errors": [],
+      "console": []
+    },
+    {
+      "page": "gpu",
+      "viewport": "phone",
+      "backend": "webgpu",
+      "bootMs": 3438,
+      "loadMs": 1254,
+      "bytes": 40224436,
+      "info": {
+        "backend": "webgpu",
+        "calls": 0,
+        "renderedTriangles": 0,
+        "meshes": 134,
+        "triangles": 331403
+      },
+      "materials": {
+        "converted": 134,
+        "unconverted": 0
+      },
+      "loaded": [
+        {
+          "id": "glessner_house",
+          "asset": "gltf/glessner_house__as_built_1887.light.glb",
+          "bytes": 32534812,
+          "dist": 0
+        },
+        {
+          "id": "wheeler_house_1812_prairie_coach_house",
+          "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
+          "bytes": 26408,
+          "dist": 16
+        },
+        {
+          "id": "keith_house_1808_prairie",
+          "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "bytes": 3752112,
+          "dist": 32.8
+        },
+        {
+          "id": "wheeler_house_1812_prairie",
+          "asset": "gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+          "bytes": 3697944,
+          "dist": 37.1
+        },
+        {
+          "id": "henderson_house_1816_prairie",
+          "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
+          "bytes": 60340,
+          "dist": 38.5
+        },
+        {
+          "id": "henderson_house_1816_prairie_coach_house",
+          "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb",
+          "bytes": 23528,
+          "dist": 41.9
+        },
+        {
+          "id": "house_1736_prairie_coach_house",
+          "asset": "gltf/house_1736_prairie_coach_house__draft_1904.glb",
+          "bytes": 12408,
+          "dist": 43.1
+        },
+        {
+          "id": "house_1736_prairie",
+          "asset": "gltf/house_1736_prairie__draft_1904.glb",
+          "bytes": 41500,
+          "dist": 48.3
+        },
+        {
+          "id": "house_1730_prairie_coach_house",
+          "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb",
+          "bytes": 20396,
+          "dist": 50.3
+        },
+        {
+          "id": "marsh_house_1824_prairie",
+          "asset": "gltf/marsh_house_1824_prairie__draft_1904.glb",
+          "bytes": 32328,
+          "dist": 58.3
+        },
+        {
+          "id": "marsh_house_1824_prairie_coach_house",
+          "asset": "gltf/marsh_house_1824_prairie_coach_house__draft_1904.glb",
+          "bytes": 22660,
+          "dist": 59
+        }
+      ],
+      "wallS": 151,
+      "args": [
+        "--enable-unsafe-webgpu",
+        "--enable-features=Vulkan,CDPScreenshotNewSurface",
+        "--use-vulkan=swiftshader",
+        "--use-webgpu-adapter=swiftshader",
+        "--enable-unsafe-swiftshader",
+        "--use-angle=swiftshader"
+      ],
+      "errors": [],
+      "console": []
+    }
+  ]
+}

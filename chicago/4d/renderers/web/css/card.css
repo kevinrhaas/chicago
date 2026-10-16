@@ -157,12 +157,9 @@
   background: currentColor;
 }
 .fact-tail { white-space: nowrap; }   /* last word + dot: the dot never orphans */
-.fact-attested { color: var(--doc); }
-.fact-inferred { color: var(--inf); }
-.fact-reconstructed { color: var(--con); }
-[data-theme="light"] .fact-attested { color: #4f7a3a; }
-[data-theme="light"] .fact-inferred { color: #b0721a; }
-[data-theme="light"] .fact-reconstructed { color: #6b7480; }
+.fact-attested { color: var(--grade-attested); }
+.fact-inferred { color: var(--grade-inferred); }
+.fact-reconstructed { color: var(--grade-reconstructed); }
 
 .popup .pop-residents { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
 .popup .pop-lodging { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }

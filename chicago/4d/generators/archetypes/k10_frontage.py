@@ -107,6 +107,12 @@ def spec(params) -> dict | None:
                            or not all(0.0 < float(x) <= 1.5 for x in st.values())):
         raise ValueError(f"wall_head.stops_m stops {STONE!r} short of the south and/or north corner, "
                          f"0-1.5 m, capped there")
+    # T-2680: a stone cornice may stand higher than the eave's soffit, its top lifted to the
+    # foot of a stone finish's lattice (1808's crown, where the pictures seat the lattice on it)
+    lf = t.get("lift_m")
+    if lf is not None and (t.get("cornice") != STONE or not getattr(params, "stone_finish", None)
+                           or not 0.0 < float(lf) <= 0.5):
+        raise ValueError(f"wall_head.lift_m lifts {STONE!r} under a stone finish's lattice, 0-0.5 m")
     paint = t.get("paint")
     if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
         raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
@@ -557,7 +563,7 @@ def _stone_cornice(a, K, data, bays, conf):
     v = next(x for x in data["variants"] if x["id"] == STONE)
     prof = [tuple(q) for q in data["parts"]["profiles"][v["profile"]]["points"]]
     pj, ch = max(n for n, _ in prof), max(u for _, u in prof)
-    y_s = a.soffit_m
+    y_s = a.soffit_m + float(p.wall_head.get("lift_m", 0.0))
     y_c = y_s - ch
     front = runs(p)[0]
     if pj > p.eave_overhang_m - 0.02:
@@ -590,6 +596,8 @@ def _stone_cornice(a, K, data, bays, conf):
             "bays_carrying_it": len(cut)}
     if stops:
         info["stops_m"] = {k: float(x) for k, x in sorted(stops.items())}
+    if p.wall_head.get("lift_m"):
+        info["lift_m"] = float(p.wall_head["lift_m"])
     seed = a.instance(STONE, "cornice", info, {"soffit": (p.depth_m, y_s, 0.0)})
     var = K.Variant({"id": STONE, "kind": "moulded", "material": "stone"}, data)
     var.seed, var.rng = seed, random.Random(seed)

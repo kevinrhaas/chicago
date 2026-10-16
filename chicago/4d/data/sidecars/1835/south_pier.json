@@ -9,6 +9,11 @@
   "asset": "gltf/south_pier__crib_1835.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1835-06-01",
     "to": "1835-07-31",

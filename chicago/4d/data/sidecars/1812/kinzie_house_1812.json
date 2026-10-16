@@ -11,6 +11,19 @@
   "asset": "gltf/kinzie_house_1812__kinzie_1804.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 7 of the pictures on the Images tab show it.",
+    "pictures": [
+      "chicago_magazine_1857_kinzie_house_engraving",
+      "cram_1893_old_kinzie_mansion_1832_engraving",
+      "eastman_schoolcraft_chicago_1820_engraving",
+      "gemmell_chicago_in_1820_lithograph",
+      "lossing_1869_kinzie_mansion_engraving",
+      "sarony_kinzie_residence_currey_1912_plate",
+      "teich_old_kinzie_house_postcard"
+    ]
+  },
   "documented_range": {
     "from": "1804-10-01",
     "to": "1833-12-31",
