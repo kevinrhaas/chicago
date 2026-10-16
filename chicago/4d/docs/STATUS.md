@@ -1,3 +1,32 @@
+## T-2552 — the prairie from the air: the plaid broken (2026-10-16)
+
+The owner, from 1,197 ft up: the ground "looks like an even plaid". Two causes, both in
+`PRAIRIE_FRAGMENT` (terrain.js): the 11 m colour tile repeated on a square lattice, and the
+"community mosaic" over it was `sin(x) * sin(z)` plus a diagonal — an egg-crate of 42 x 48 m
+cells square to the compass. Triangles had nothing to do with it.
+
+The mosaic is replaced by one fetch of a seeded variation map (`prairie-macro.js`, 512 px over
+3,072 m, longer than the 2,660 m haze reach, turned 27 degrees off the compass): lush and thin
+stands, a zero-mean dry lean, and a variant index. The index draws the colour tile from two
+staggered offsets of itself and cross-fades them (Quilez's two-fetch repeat break). Each
+variant's offset jumps only where its weight is zero, so plain `texture2D` leaves no seam.
+Past 150 m the tile's contrast eases a third of the way to its measured mean by 600 m, and the
+stands' tone doubles. Every channel is read over its own measured mean: the July mean albedo
+and the substrate zones are unmoved. The strip and the bank paint the same prairie (shared
+uniforms). Liberty `L-prairie-variation-2552`.
+
+**Cost, software rasteriser, desktop 1280x800, median of three steps** (relative figures,
+not GPU fps): 787 -> 883 ms at 60 m up over open prairie (+12 %), 6,801 -> 7,214 ms at the
+owner's aerial stand (+6 %); mobile walking stand 286 -> ~290-400 ms across runs. Measured
+and rejected on the way: explicit-gradient fetches (+30 % alone) and a branch to one fetch
+(saved nothing in software). No triangle or draw-call change; the map is 1 MiB of texture
+(1.33 with mips), one copy for the session.
+
+**Not done:** within one variant band (about 22 m) the tile is still the tile, so a careful
+eye at 50-150 m can find a local repeat; hex-tiling (three fetches) is the stronger form if
+that is wanted. The patchiness is noise, not a community map: the slot is there for a
+plant-community record when one exists.
+
 ## T-1883 — Keith house photographic finish (2026-10-16)
 
 The owner-approved 1888 Inland Architect photograph now drives the pierced parapet,

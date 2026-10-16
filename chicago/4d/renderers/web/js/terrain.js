@@ -52,7 +52,8 @@ import { adaptiveGroundGrid } from './terrain-base.js';
 import { contextSample, replaceApron } from './coast-extension.js';
 import { apronGeometry, apronCut } from './terrain-apron.js';
 import { floraInScene } from './flora.js';
-import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
+import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma, srgbToLinear } from './prairie-tile.js';
+import { MACRO_PX, MACRO_M, macroPixels, macroStats } from './prairie-macro.js';
 import { GRASS_GRAIN_PX, GRASS_GRAIN_M, grassGrainPixels, grassGrainMean } from './grass-grain.js';
 import { TURF_TILE_PX, TURF_TILE_M, turfTilePixels, turfTileMeanGrain, bareCut } from './turf-tile.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -1577,9 +1578,9 @@ const swardOff = (z) => (zoneIsSward(z) ? '' : '\n    chiSwardW *= 1.0 - w;');
  * recorded triple itself — the record is not scaled, tinted or approached, it is
  * what the ground averages.
  *
- * The community mosaic (`chiPatch`) is deliberately NOT carried onto a zone: its
- * own comment calls it "a swale-and-rise business at tens of metres", which is a
- * statement about prairie relief and not about sand.
+ * The patch tone (`chiPatch`, the variation map's since T-2552 retired the
+ * community mosaic) is deliberately NOT carried onto a zone: it is a statement
+ * about prairie stands, not about sand.
  *
  * Clamped at 1.0 because an albedo cannot exceed it — a GUARD, and on the
  * committed records it never binds: the tile's brightest texel is 1.378 times
@@ -1645,36 +1646,69 @@ ${blocks}
  * leaves `chiTex`, `chiPatch`, `chiWet` and `chiPrairie` declared.
  */
 export const PRAIRIE_FRAGMENT = /* glsl */`
-  // ONE texture fetch, deliberately. The ground covers most of the screen, so
-  // every instruction here is paid a million times a frame; a second octave
-  // fetched from the same texture at a different scale looked slightly better
-  // and halved the frame rate under software rasterisation. The finer octaves
-  // are therefore baked INTO that one texture (see prairieTexture) and the
-  // patch-scale variation above the tile is arithmetic, which costs a fraction
-  // of a filtered fetch. The fetch itself sits below the mosaic, which it
-  // borrows.
+  // The prairie's texture budget. The ground covers most of the screen, so
+  // every instruction here is paid a million times a frame. The finer octaves
+  // are baked INTO the colour tile (see prairieTexture); the sward grain below
+  // is the second fetch (T-2089); the variation map is the third (T-2552), and
+  // it paid for itself by retiring the three sines that stood where it does.
 
-  // Community mosaic — 42 m by 48 m, broken by a 15 m diagonal. The two sines
-  // this replaces beat at ~200 m, a soft blur the size of a city block that read
-  // as cloud shadow rather than as ground; prairie patchiness is a
-  // swale-and-rise business at tens of metres, which is the scale the
-  // heightfield's own relief works at. THREE sines total, one more than before
-  // and no more: this runs once per ground fragment and the ground is most of
-  // the screen, so the count is a budget, not a taste (the same reason there is
-  // exactly one texture fetch below). Amplitude is held near +/-14 % — past that
-  // the pattern competes with the sward instead of sitting under it.
-  float chiPatch = sin(vChiWorld.x * 0.1496 + 1.7) * sin(vChiWorld.z * 0.1309)
-                 + 0.6 * sin(vChiWorld.x * 0.3307 - vChiWorld.z * 0.2712 + 4.1);
+  // THE VARIATION MAP (T-2552) — lush and thin stands at 16-256 m, a dry lean,
+  // the tile's variant index and its lookup shear, one fetch of prairie-macro.js's 512 px map over
+  // 3,072 m. It replaces a "community mosaic" that was sin(x) * sin(z) plus one
+  // diagonal: an egg-crate of 42 x 48 m cells square to the compass, which is a
+  // plaid by construction, and from 1,197 ft up the owner saw exactly that
+  // (2026-10-16). The map's repeat is longer than the haze reach, and it is
+  // turned 27 degrees off the compass so no residue of its noise lattice lines
+  // up with the streets. Every channel is read over its own measured mean, so
+  // it moves light and colour around the ground and adds none.
+  vec2 chiMacroUV = mat2(0.8910, -0.4540, 0.4540, 0.8910) * vChiWorld.xz / uMacroM;
+  vec4 chiMacro = texture2D(uMacro, chiMacroUV) - uMacroMean;
+  // chiPatch keeps its old role, sign and spread (MOSAIC_STD), so everything
+  // tuned against the mosaic — the tone below, the sward's shear — reads it as
+  // it did. Only the regularity is gone.
+  float chiPatch = chiMacro.r * uMacroGain;
 
-  // The one fetch, made AFTER the mosaic so it can borrow it (T-1825). The tile
-  // repeats every 11 m and now carries 1.4-2.75 m patches of growth and thatch,
-  // which a strict 11 m lattice would show as rows across the middle distance.
-  // Offsetting the lookup by the mosaic already in hand shears each repeat
-  // against its neighbours by up to about 1.5 m. That costs no fetch and no
-  // sine, and it stretches the tile locally by at most a fifth, because the
-  // mosaic changes over 15-48 m and the tile over 11 m.
-  vec3 chiTex = texture2D(uGround,
-    vChiWorld.xz * 0.0909 + vec2(0.090, 0.070) * chiPatch).rgb;
+  // How far the eye is. Walking ground (under 150 m) is drawn as it was; by
+  // 600 m the tile has eased a third of the way to its mean and the stands have
+  // doubled their say, so from the air the ground is mottled by stands rather
+  // than by the tile.
+  float chiFar = smoothstep(150.0, 600.0, distance(vChiWorld, cameraPosition));
+
+  // THE COLOUR TILE, WITH ITS REPEAT BROKEN (T-2552). The map's G channel is a
+  // variant index, and the tile is drawn from two offsets of itself picked by
+  // it (the R2 low-discrepancy sequence, so neighbouring variants never agree
+  // and no sine is spent) and cross-faded, the darker texel winning a little
+  // early so a seam reads as a clump's edge rather than a dissolve. That is
+  // Inigo Quilez's two-fetch repeat break, with one change: the two variants
+  // are STAGGERED half a band apart, so each one's offset jumps only where its
+  // own weight is exactly zero (A's at a whole band, where wB = 1; B's at a
+  // half band, where wB = 0; the darker-texel bias moves the fade by at most
+  // 0.079, 0.6 x the tile's measured spread of linear channel means, so it
+  // cannot reach either end). A jump does break the implicit derivative of
+  // the fetch it lands in, but that fetch is weighted out there, so plain
+  // texture2D draws no seam and needs neither explicit gradients nor a branch
+  // (both measured slower: textureGrad cost a software frame 30 %, and the
+  // branch saved nothing). A band runs about 22 m (measured), so the 11 m lattice that
+  // read as rows to the haze, and as a plaid from the air, no longer lines up.
+  //
+  // The only shear left is the B channel's, along a diagonal and smooth over
+  // 100 m and more. T-1825's shear by the mosaic is retired with it: riding on
+  // a field with 16 m detail it bent the tile into visible swirls, and the
+  // variants now do the job it was doing.
+  vec2 chiTileUV = vChiWorld.xz * 0.0909 + vec2(0.7071, 0.7071) * (chiMacro.b * 0.5);
+  float chiVk = (chiMacro.g + uMacroMean.g) * 8.0;
+  vec2 chiOffA = fract(floor(chiVk) * vec2(0.7548777, 0.5698403));
+  vec2 chiOffB = fract((floor(chiVk + 0.5) + 0.5) * vec2(0.7548777, 0.5698403));
+  vec3 chiTexA = texture2D(uGround, chiTileUV + chiOffA).rgb;
+  vec3 chiTexB = texture2D(uGround, chiTileUV + chiOffB).rgb;
+  float chiWB = abs(2.0 * fract(chiVk) - 1.0);
+  vec3 chiTex = mix(chiTexA, chiTexB,
+    smoothstep(0.3, 0.7, chiWB - 0.6 * dot(chiTexB - chiTexA, vec3(0.3333))));
+
+  // And past ~150 m the tile's own contrast eases toward its measured mean,
+  // so the stands carry the ground from the air and the tile is grain within
+  // them. A mix toward the mean moves no albedo.
+  chiTex = mix(chiTex, uPrairieMean, 0.35 * chiFar);
 
   // Wet ground: the marshy shore strip, keyed on height above the datum.
   // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
@@ -1692,7 +1726,11 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
   // weight is 0.0, and mix(a, b, 0.0) is a exactly, so "nothing outside the
   // zones moves" is a property of the code rather than a claim about a
   // screenshot. (No backticks in here: this is a JS template literal.)
-  vec3 chiPrairie = diffuseColor.rgb * chiTex * (1.0 + 0.088 * chiPatch);
+  // The patch tone grows with distance as the tile's contrast eases. The dry lean
+  // is zero-mean: yellower here, fresher there, the July mean unmoved.
+  vec3 chiPrairie = diffuseColor.rgb * chiTex
+                  * (1.0 + mix(0.10, 0.20, chiFar) * chiPatch)
+                  * (vec3(1.0) + vec3(0.07, 0.035, -0.13) * mix(1.0, 1.3, chiFar) * chiMacro.a);
   chiPrairie = mix(chiPrairie,
                    chiPrairie * vec3(0.46, 0.42, 0.30) + vec3(0.042, 0.034, 0.020),
                    chiWet);
@@ -1731,15 +1769,21 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
 `;
 
 /**
- * What `PRAIRIE_FRAGMENT` needs declared beside `uGround` and `uPrairieLuma`
- * (T-2089): the grass grain. Every material that splices the
- * prairie in splices this into its fragment head too, and binds `uSward*` from
- * `swardUniforms()`.
+ * What `PRAIRIE_FRAGMENT` needs declared beside `uGround` and `uPrairieLuma`:
+ * the grass grain (T-2089) and the variation map (T-2552). Every material that
+ * splices the prairie in splices this into its fragment head too, and binds
+ * `uSward*` from `swardUniforms()` and `uMacro*` / `uPrairieMean` from
+ * `variationUniforms()`.
  */
 export const SWARD_HEAD = /* glsl */`
 uniform sampler2D uSward;
 uniform float uSwardM;
 uniform float uSwardMean;
+uniform sampler2D uMacro;
+uniform float uMacroM;
+uniform vec4 uMacroMean;
+uniform float uMacroGain;
+uniform vec3 uPrairieMean;
 `;
 
 /**
@@ -2018,7 +2062,7 @@ function groundMaterial(zones = [], lakeShore = null,
     shader.uniforms.uChiCut = cut.tex;
     shader.uniforms.uChiCutBox = cut.box;
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
-    Object.assign(shader.uniforms, swardUniforms(sward));
+    Object.assign(shader.uniforms, swardUniforms(sward), variationUniforms(tex));
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     if (nearHole) shader.uniforms.uChiNearHole = nearHole;
     if (turf) Object.assign(shader.uniforms, turf.uniforms);
@@ -2202,6 +2246,13 @@ export function prairieTexture() {
   // The divisor that makes a substrate zone average exactly the triple its flora
   // record states — see zoneGlsl. Measured from the pixels, not a constant.
   tex.userData.meanLinearLuma = prairieTileMeanLuma(img.data);
+  // And its mean linear COLOUR: what the tile fades toward with distance
+  // (T-2552), so the fade moves contrast and never the July mean.
+  const sum = [0, 0, 0];
+  for (let i = 0; i < img.data.length; i += 4) {
+    for (let ch = 0; ch < 3; ch++) sum[ch] += srgbToLinear(img.data[i + ch]);
+  }
+  tex.userData.meanLinear = sum.map((v) => v / (img.data.length / 4));
   tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
   // Anisotropy stays at 4. Eight taps on a 512 px tile looked slightly cleaner
   // on the grazing mid-field and cost the software rasteriser half its frame
@@ -2236,6 +2287,45 @@ export function swardTexture() {
   tex.anisotropy = 4;
   tex.userData.mean = grassGrainMean(data);
   return tex;
+}
+
+let macroTex = null;
+/**
+ * The variation map as a texture (T-2552) — `prairie-macro.js`'s pixels, one
+ * DataTexture for the whole session: 1 MiB, a third more with its mips, shared
+ * by every surface that paints the prairie so the strip and the bank cannot
+ * drift from the terrain they feather into. Never disposed: a DataTexture keeps
+ * its pixels, so even a caller that disposed it would only cost a re-upload.
+ * Data, not colour. No anisotropy: at 6 m a texel it is magnified nearly
+ * everywhere, so the extra taps would buy nothing.
+ */
+export function macroTexture() {
+  if (macroTex) return macroTex;
+  const data = macroPixels();
+  const tex = new THREE.DataTexture(data, MACRO_PX, MACRO_PX, THREE.RGBAFormat);
+  tex.name = 'prairie-variation';
+  tex.colorSpace = THREE.NoColorSpace;
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.magFilter = THREE.LinearFilter;
+  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  tex.generateMipmaps = true;
+  tex.userData.stats = macroStats(data);
+  tex.needsUpdate = true;
+  macroTex = tex;
+  return tex;
+}
+
+/** The `uMacro*` and `uPrairieMean` uniforms `SWARD_HEAD` declares (T-2552). */
+export function variationUniforms(prairieTex) {
+  const tex = macroTexture();
+  const { mean, gain } = tex.userData.stats;
+  return {
+    uMacro: { value: tex },
+    uMacroM: { value: MACRO_M },
+    uMacroMean: { value: new THREE.Vector4(...mean) },
+    uMacroGain: { value: gain },
+    uPrairieMean: { value: new THREE.Vector3(...prairieTex.userData.meanLinear) },
+  };
 }
 
 /** The `uSward*` uniforms `SWARD_HEAD` declares, bound to one sward texture. */
