@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1835, ts: '2026-10-15T23:40:26.560Z', date: 'Oct 15, 2026, 6:40 PM CT', title: '1638 Prairie\'s lower south wing, built from its photograph', kind: 'improvement',
+    items: [
+      'The block south of 1638 Prairie\'s gable in its photograph is the house\'s own wing, not the neighbour, and it is now built that way: a metre lower than the house, under a steep gable roof facing the street.',
+      'Its two upper windows and the lights below them stand where the photograph shows them.',
+      'The photograph puts the wing about 0.6 m wider than the 1911 fire-insurance map draws it; the photograph is followed and the difference is listed among the liberties.',
+    ] },
+  { v: 1834, ts: '2026-10-15T23:37:41.072Z', date: 'Oct 15, 2026, 6:37 PM CT', title: 'Phones draw Prairie Avenue\'s east row inside their detail limit', kind: 'fix',
+    items: [
+      'Nothing you can see changed: the picture is the same, pixel for pixel.',
+      'On the Light setting a house now casts into the sun\'s shadow pass only when its shadow can fall somewhere on screen. Houses beside and behind you, whose shadows fall away from the view, are left out.',
+      'Looking down Prairie\'s east row from 1613 to 1621, a phone drew 1.37 million triangles against its 1.27 million limit. It now draws 0.98 million.',
+    ] },
   { v: 1833, ts: '2026-10-15T23:01:40.517Z', date: 'Oct 15, 2026, 6:01 PM CT', title: '1638 Prairie\'s tower gets its smooth stage and the gate caps flare', kind: 'improvement',
     items: [
       'The corner tower\'s upper stage at 1638 Prairie is smooth, as its photograph shows, not clapboarded: a shallow frieze under the cornice, and each light\'s casing carried round its pointed head.',

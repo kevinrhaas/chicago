@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 584,
+  "count": 585,
   "liberties": [
     {
       "id": "L1",
@@ -39057,6 +39057,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-15 (T-2521)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-wing-2532",
+      "title": "1638 Prairie's south wing from its photograph: the sheet's projection as a lower wing under a street-facing gable, its south wall taken past the sheet's line, its sash and unseen walls reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.body"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the projection sheet 20 draws on the south flank of the Shortall-Gregory house (T-2397 built it to the flanks' wall top under a lean-to) is rebuilt as the photograph shows it (T-2532, piece 1 of T-2522): a wing a metre lower than the house, its wall top 5.03 m over the basement's top where the flanks' is 6.03 m, under a 50-degree gable that faces the street, its ridge running north on the plan's middle into the main roof's south slope and its south end a gable under a 0.42 m verge. Its south wall stands at v -3.0 m, 0.6 m south of the sheet's -2.4 m. On its east face two upper lights 0.5 m wide and, under them, a light 0.58 m wide and a narrow one 0.22 m wide; the south and west walls keep two and one bays a storey, re-spaced to the lower storeys. **What is read, not invented.** That the block south of the gable is this house's wing and not the neighbour's: sheet 20 puts 1700 Prairie's north wall 4.4 m south of the front's south end, so through the camera all of 1700 falls left of the frame. From the photograph (`chicagology_1638_prairie_photo`), through the camera T-2523 solved, on the sheet's east face: the eave's drip at 482 px (the wall top), the ridge at 264 px and level (a ridge running north, so a roof facing the street), its height and so the 50-degree pitch, the rake's foot at 88.5 px (the verge, so the south wall), and the four lights' places and heads. Rendered, the ridge lands at 263 px, the drip at 480-483 px, its corner at 88 px and the lights within 3 px. **What is invented.** That the ridge stands on the plan's middle (the camera sees only the east slope; the print's rake leans a little more steeply than this draws, its top 5-7 px south, which a ridge 0.8 m further back would close); the west slope and the west and south walls' openings, which no picture shows; every opening's sash, the kit's two-over-two; the lower lights' sills and the wing's floors, their feet hidden by the planting; the clapboard, the boxed eave and the verge's soffit and fascia, the kit's; and the wing standing on the house's basement like the rest. The print's wing face is dark, in 1700's shadow; the scene lights it as its sun does. **What disagrees.** The sheet draws the projection 2.40 m out of the south flank (row 3770); the print puts its verge at -3.42 m, so a wall about 0.6 m further out, a dozen sheet pixels. The print is the picture the house is matched to, so it is taken; the sheet's east face and west end are kept."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a second view of the south side, or the sheet's earlier edition, settles the wing's width and depth; a view of its south face settles its openings."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2532 (piece 1 of T-2522)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-wing-2532/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2532)."
         }
       ]
     },

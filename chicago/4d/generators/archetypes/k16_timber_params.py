@@ -259,8 +259,9 @@ def porch_errors(pv: dict) -> list[str]:
     return out
 
 
-#: T-2397: the roofs an annex may take — a deck, or a lean-to up into the main roof
-ANNEX_ROOFS = ("flat", "lean_to")
+#: T-2397: the roofs an annex may take — a deck, or a lean-to up into the main roof; T-2522 a
+#: gable whose ridge runs north into it
+ANNEX_ROOFS = ("flat", "lean_to", "gable")
 
 
 def annex_errors(body: dict, gable_width: float) -> list[str]:
@@ -292,6 +293,14 @@ def annex_errors(body: dict, gable_width: float) -> list[str]:
             out.append(f"{bid}: roof.kind must be one of {', '.join(ANNEX_ROOFS)}")
         if kind == "lean_to" and b.get("against") != "north":
             out.append(f"{bid}: a lean-to rises against the body's south flank, so stands against north")
+        if kind == "gable":     # T-2522: a gable whose ridge runs north into the main roof
+            rf = b["roof"]
+            if b.get("against") != "north" or rf.get("ridge") != "v":
+                out.append(f"{bid}: a gabled annex stands against north with its ridge along v")
+            if not (_num(rf.get("pitch_deg")) and 20 <= rf["pitch_deg"] <= 65):
+                out.append(f"{bid}: a gabled annex's roof.pitch_deg must lie in 20-65")
+            if b.get("wall_top_m") == "flank":
+                out.append(f"{bid}: a gabled annex's eave stands under the flanks', so its wall_top_m is a number")
         against = b.get("against")
         if against not in SIDES:
             out.append(f"{bid}: an annex names the side it stands against")
