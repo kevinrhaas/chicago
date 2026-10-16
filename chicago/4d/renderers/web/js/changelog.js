@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1847, ts: '2026-10-16T05:37:55.472Z', date: 'Oct 16, 2026, 12:37 AM CT', title: 'The prairie no longer looks like a plaid from the air', kind: 'improvement',
+    items: [
+      'Flying over 1835, the open prairie used to read as an even grid of light and dark squares. It now breaks into irregular stands of lush and thin grass, with yellower and fresher patches.',
+      'At 50–150 m up, the grass no longer lines up in rows toward the horizon.',
+      'Up close, at walking height, the grass looks as it did. The patchiness is a reconstruction, listed under Liberties.',
+    ] },
   { v: 1846, ts: '2026-10-16T05:02:51.854Z', date: 'Oct 16, 2026, 12:02 AM CT', title: 'A phone that ran out of memory comes back at lower detail', kind: 'fix',
     items: [
       'If the walk closed while loading last time, as a phone does when it runs out of memory, the next visit starts one Scene detail level lower at Sharpness Low, and a card says so. Settings can raise either again.',
