@@ -223,6 +223,57 @@ async function fetchAsset(url) {
 }
 
 /**
+ * HOW MANY STRUCTURES LOAD AT ONCE — T-2597. Every one, still, and on purpose.
+ *
+ * `loadScene` starts every structure of the year together: 686 sidecars and GLB
+ * fetches on 1835, 151 on 1904. T-2554 asked for a pool of 6 to 8, on the theory
+ * that every GLB arriving before its parse finished was held beside every other
+ * one, so the boot's peak was the whole town's files at once. T-2597 measured it
+ * (`tools/measure_boot_peak.mjs`, HTTP/2 at a 60 ms round trip, 2026-10-16) and
+ * the theory does not hold where it matters:
+ *
+ *   - on 1904 the most GLB bytes ever held unparsed are ONE file, Glessner's
+ *     (56.4 MB at full, 31.1 MB light): the small houses parse as they land. A
+ *     pool of 24 held 63.6 / 38.3 MB, because it holds two dozen files beside
+ *     Glessner instead of none. No count pool can go under the largest file;
+ *     T-2596 (Glessner in KTX2, light capped at 1024) is what shrinks it.
+ *   - on 1835 the pile is 13.4 MB of a boot that peaks above 400 MB of
+ *     ArrayBuffers, and a pool of 8 cut it to 0.2 MB for 5 s more boot on a
+ *     phone (686 loads in 8 lanes is ~86 round trips end to end).
+ *
+ * So the default stays unbounded. `?boot-pool=N` runs the loads N at a time, in
+ * index order, and `?boot-pool=0` is the unbounded default named, so the meter
+ * reads any pool against today in one build; `bootPool` on the harness handle
+ * says what the boot held.
+ */
+export const BOOT_POOL = Infinity;
+
+/** The pool a page address asks for: a positive N, or BOOT_POOL (0, absent, or malformed). */
+export function bootPoolFromSearch(search) {
+  const raw = new URLSearchParams(search).get('boot-pool');
+  const n = raw === null ? NaN : Number(raw);
+  return Number.isInteger(n) && n > 0 ? n : BOOT_POOL;
+}
+
+/**
+ * Run `work(item, index)` over `items` with at most `limit` running at once, in
+ * index order; resolves when all have, rejects with the first error (as
+ * `Promise.all` did). `limit` of Infinity is every item at once.
+ */
+export async function pooled(items, limit, work) {
+  const lanes = Math.max(1, Math.min(items.length, Number.isFinite(limit) ? Math.floor(limit) : items.length));
+  let next = 0;
+  const lane = async () => {
+    while (next < items.length) {
+      const at = next;
+      next += 1;
+      await work(items[at], at);
+    }
+  };
+  await Promise.all(Array.from({ length: items.length ? lanes : 0 }, lane));
+}
+
+/**
  * Load one scene.
  *
  * `version` is `readVersionRequest(location.search)` — `?structure=<id>&version=<label>`
@@ -238,6 +289,7 @@ async function fetchAsset(url) {
  */
 export async function loadScene(year, bases = resolveBases(), {
   onProgress = () => {}, version = null, detail = 'full', keepAssetBytes = true,
+  pool = BOOT_POOL,
   keepEncodedImages = false,
 } = {}) {
   const { dataBase, assetBase } = bases;
@@ -322,13 +374,22 @@ export async function loadScene(year, bases = resolveBases(), {
   // light GLB held for a switch that, when it comes, the HTTP cache answers.
   const assetBytes = new Map();
   const bank = (record) => keepAssetBytes && hasInspectionLod(record);
+  // T-2597: GLB bytes fetched and not yet parsed, now and at their most — the pile
+  // a pool would bound. The harness reads the peak as `bootPool`.
+  const held = { bytes: 0, assets: 0, peakBytes: 0, peakAssets: 0 };
   async function loadDetailAsset(record, level) {
     const assetUrl = detailAssetUrl(record, level, bases);
     const key = String(assetUrl);
     let got = bank(record) ? assetBytes.get(key) : null;
+    let holding = 0;
     if (!got) {
       got = await fetchAsset(assetUrl);
       bytes += got.buffer.byteLength;
+      holding = got.buffer.byteLength;
+      held.bytes += holding;
+      held.assets += 1;
+      held.peakBytes = Math.max(held.peakBytes, held.bytes);
+      held.peakAssets = Math.max(held.peakAssets, held.assets);
     }
     try {
       const header = glbHeader(got.buffer);
@@ -351,12 +412,14 @@ export async function loadScene(year, bases = resolveBases(), {
     } catch (error) {
       assetBytes.delete(key);
       throw error;
+    } finally {
+      if (holding) { held.bytes -= holding; held.assets -= 1; }
     }
   }
 
   let completed = 0;
   onProgress(0, entries.length);
-  const loads = entries.map(async ({ id, sidecar: sidecarPath, version: chosen = null }, at) => {
+  const loadOne = async ({ id, sidecar: sidecarPath, version: chosen = null }, at) => {
     const sidecarUrl = new URL(sidecarPath ?? `sidecars/${year}/${id}.json`, dataBase);
     let sidecar;
     try {
@@ -469,11 +532,19 @@ export async function loadScene(year, bases = resolveBases(), {
       instanceId: null,
       node: null,
     });
-  });
+  };
 
-  await Promise.all(loads.map(p => p.finally(() => onProgress(++completed, entries.length))));
+  // T-2597: unbounded unless the address asks for a pool — see BOOT_POOL.
+  await pooled(entries, pool, async (row, at) => {
+    try { await loadOne(row, at); } finally { onProgress(++completed, entries.length); }
+  });
   return { year, scene, datum, registry, problems, get bytes() { return bytes; },
     index, versionState, loadDetailAsset, sharedImages: sharedImages.stats,
     /** T-2548: how many GLBs are banked for a detail switch — the harness reads it. */
-    get bankedAssets() { return assetBytes.size; } };
+    get bankedAssets() { return assetBytes.size; },
+    /** T-2597: the pool size, and the most GLB bytes (and files) held unparsed at once. */
+    get bootPool() {
+      return { size: Number.isFinite(pool) ? pool : 0,
+        peakBytes: held.peakBytes, peakAssets: held.peakAssets };
+    } };
 }

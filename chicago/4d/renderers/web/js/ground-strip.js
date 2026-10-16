@@ -111,11 +111,24 @@ function meanLinearLuma(image) {
   return sum / (S * S);
 }
 
+const SAND = 'lake_michigan_dune_sand';
+
+/** The sand's mean linear luma as the converter derived it, or null if it did not arrive. */
+async function derivedLuma(url) {
+  try {
+    const res = await fetch(url);
+    const v = res.ok ? Number((await res.json()).mean_linear_luma) : NaN;
+    return v > 0 ? v : null;
+  } catch {
+    return null;
+  }
+}
+
 async function loadMap(loader, url, colour, { ktx2 = false } = {}) {
   let tex;
   try {
     // `ktx2` only where nothing reads the pixels back: a compressed texture has
-    // no image to draw into a canvas, and the sand's mean luma is read that way.
+    // no image to draw into a canvas (the sand's luma comes from its sidecar).
     tex = await loadSheet(ktx2 ? ktx2Beside(url) : null, url, loader, { srgb: colour });
   } catch {
     throw new Error(`ground strip map did not load — ${url}`);
@@ -246,10 +259,13 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
       const sheet = await res.json();
       if (!(Number(sheet.span_m) > 0)) throw new Error(`${id}: material.json states no span_m`);
       const cUrl = new URL(`${id}_basecolor.png`, here).href;
-      // The muck is sampled and nothing more, so it may arrive as KTX2; the sand's
-      // pixels are read for its mean luma below, so it stays an image (T-2583).
-      const colour = await loadMap(loader, cUrl, true, { ktx2: id !== 'lake_michigan_dune_sand' });
-      return { id, span: Number(sheet.span_m), colour };
+      // The sand's mean luma was once read from its pixels, which a compressed
+      // texture does not have; tools/ktx2_sheets.py now derives it from the master
+      // beside the sheet (T-2590). Without that number the sand stays an image and
+      // the luma is read from it as before, so a missing sidecar costs memory only.
+      const luma = id === SAND ? await derivedLuma(new URL(`${id}_basecolor.luma.json`, here).href) : null;
+      const colour = await loadMap(loader, cUrl, true, { ktx2: id !== SAND || luma !== null });
+      return { id, span: Number(sheet.span_m), colour, luma };
     }));
   } catch (err) {
     problems.push(`ground strip: not drawn — ${err.message}`);
@@ -287,7 +303,7 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
   mat.polygonOffset = true;
   mat.polygonOffsetFactor = -2;
   mat.polygonOffsetUnits = -2;
-  const sandLuma = meanLinearLuma(sand.colour.image);
+  const sandLuma = sand.luma ?? meanLinearLuma(sand.colour.image);
   mat.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, {
       uGround: { value: prairie },

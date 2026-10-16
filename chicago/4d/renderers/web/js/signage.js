@@ -890,7 +890,7 @@ const WOOD = {
   board: 'textures/chicago_1835_pbr/props/signboard_weathered/',
   timber: 'textures/chicago_1835_pbr/timber/heavy_timber_weathered/',
 };
-const WOOD_TILE_PX = 512;     // each library map is read down from 1024 to this
+const WOOD_TILE_PX = 512;     // each library map is read down from 1024 to this (at convert time)
 
 /**
  * HOW MUCH OF THE WOOD A COAT OF PAINT LETS THROUGH. Reconstructed, and from the
@@ -903,7 +903,6 @@ const WOOD_TILE_PX = 512;     // each library map is read down from 1024 to this
  */
 const GRAIN_PAINTED = 0.55;
 const GRAIN_BARE = 0.95;
-const GRAIN_STD = 30;         // the grain tile normalised to this spread about mid-grey
 
 /**
  * THE BOARD A SIGN IS MADE OF, by width. A hung board 0.6 m deep was two or
@@ -944,63 +943,13 @@ function tileCanvas() {
   return c;
 }
 
-/**
- * A library map turned a quarter: (x, y) → (N − y, x), so grain that ran up the
- * tile runs across it. For a NORMAL map the vectors turn with the pixels, and in
- * the GL convention (+x right, +y up the image) a quarter turn clockwise sends
- * (X, Y) to (Y, −X) — so R takes G, and G takes the inverse of R.
+/*
+ * The quarter turn (grain that ran up the tile runs across it, and a normal's
+ * vectors turned with it) and the grain itself (the basecolor's luminance as a
+ * grey about mid-grey, its spread normalised to 30) are made at convert time
+ * since T-2590: `wood_grain` and `wood_normal` in tools/web_textures.py, which
+ * says why each step is what it is.
  */
-function turned(img, isNormal) {
-  const c = tileCanvas();
-  const ctx = c.getContext('2d', { willReadFrequently: true });
-  ctx.translate(WOOD_TILE_PX, 0);
-  ctx.rotate(Math.PI / 2);
-  ctx.drawImage(img, 0, 0, WOOD_TILE_PX, WOOD_TILE_PX);
-  if (isNormal) {
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    const d = ctx.getImageData(0, 0, WOOD_TILE_PX, WOOD_TILE_PX);
-    const p = d.data;
-    for (let i = 0; i < p.length; i += 4) {
-      const r = p[i];
-      p[i] = p[i + 1];
-      p[i + 1] = 255 - r;
-    }
-    ctx.putImageData(d, 0, 0);
-  }
-  return c;
-}
-
-/**
- * The basecolor's luminance as a grey modulation about mid-grey — `soft-light`
- * leaves a 50 % grey untouched, so this carries only the grain's variation and
- * none of the library's tone. Normalised to `GRAIN_STD` because the library's
- * own contrast is low (it was made to be seen as albedo, full strength).
- */
-function grainOf(colour) {
-  const ctx = colour.getContext('2d', { willReadFrequently: true });
-  const d = ctx.getImageData(0, 0, WOOD_TILE_PX, WOOD_TILE_PX);
-  const p = d.data;
-  const n = p.length / 4;
-  const lum = new Float32Array(n);
-  let sum = 0;
-  for (let i = 0; i < n; i += 1) {
-    lum[i] = 0.299 * p[4 * i] + 0.587 * p[4 * i + 1] + 0.114 * p[4 * i + 2];
-    sum += lum[i];
-  }
-  const mean = sum / n;
-  let sq = 0;
-  for (let i = 0; i < n; i += 1) sq += (lum[i] - mean) ** 2;
-  const k = GRAIN_STD / Math.max(1, Math.sqrt(sq / n));
-  const out = tileCanvas();
-  const octx = out.getContext('2d');
-  const od = octx.createImageData(WOOD_TILE_PX, WOOD_TILE_PX);
-  for (let i = 0; i < n; i += 1) {
-    const v = Math.max(0, Math.min(255, Math.round(128 + (lum[i] - mean) * k)));
-    od.data[4 * i] = v; od.data[4 * i + 1] = v; od.data[4 * i + 2] = v; od.data[4 * i + 3] = 255;
-  }
-  octx.putImageData(od, 0, 0);
-  return out;
-}
 
 /**
  * Bare weathered wood as a tile: a tone with the grain whole. Where paint has
@@ -1040,15 +989,16 @@ async function loadWood(assetBase, problems) {
     const sheet = async (dir) => {
       const meta = await getJSON(new URL(`${dir}material.json`, assetBase));
       const id = meta.id;
-      const [colour, normal] = await Promise.all([
-        loadBitmap(new URL(`${dir}${id}_basecolor.webp`, assetBase)),
-        loadBitmap(new URL(`${dir}${id}_normal_gl.webp`, assetBase)),
+      // The grain and the turned normal arrive READY (T-2590): tools/web_textures.py
+      // derives both from the library's masters, as this module once did on the main
+      // thread, and holds them to that derivation pixel for pixel. Two
+      // 512² tiles a sheet instead of two 1024² maps decoded and walked on the main
+      // thread at every boot: 612 KB on the wire became 244 KB.
+      const [grain, normal] = await Promise.all([
+        loadBitmap(new URL(`${dir}${id}_grain.webp`, assetBase)),
+        loadBitmap(new URL(`${dir}${id}_normal_turned.webp`, assetBase)),
       ]);
-      const grain = grainOf(turned(colour, false));
-      colour.close?.();
-      const n = turned(normal, true);
-      normal.close?.();
-      return { id, span: Number(meta.span_m) || 2, grain, normal: n, bare: bareWoodOf(grain, WORN_HEX) };
+      return { id, span: Number(meta.span_m) || 2, grain, normal, bare: bareWoodOf(grain, WORN_HEX) };
     };
     const [board, timber] = await Promise.all([sheet(WOOD.board), sheet(WOOD.timber)]);
     return { board, timber };

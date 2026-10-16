@@ -391,9 +391,44 @@ own sheets do (AO and roughness in R and G, and L / mean in B, from which the gr
 1 + GRAIN_STRENGTH x (2B - 1), over GRAIN_HEADROOM). A frontage shader that read the grain
 from the `orl` would fetch no clapboard file of its own and save another 0.144 MB.
 
+### 4e. Signage's wood prepared at convert time, and the sand as KTX2, re-measured 2026-10-16 (T-2590)
+
+`renderers/web/js/signage.js` fetched two 1024² library maps per wood sheet (the signboard
+and the heavy timber: basecolor and normal, 612 KB of WebP) only to read each one down to
+512², turn it a quarter and, for the basecolor, normalise its grain — on the main thread,
+at every boot. `tools/web_textures.py` now writes those four results as DERIVED tiles
+(`_grain.webp`, `_normal_turned.webp`, 244 KB together) and holds each pixel-identical to
+the transform of its master; the four plain WebPs nothing else loaded are gone. Read in
+Chromium against the old in-browser derivation: the normals within one level, the grain
+within one level on average (eight at most, of 255) — the area mean of an exact halving
+reads the same texels a canvas's half-size draw does.
+
+Measured with `tools/measure_boot_payload.mjs --json`, dev and this branch each published
+and read on the same runner: **13,484,865 B (12.860 MB) → 13,120,204 B (12.512 MB)**, the
+same 971 requests; WebP 2.010 → 1.646 MB. That is **0.488 MB of room** where § 4c left
+0.142 MB, and it is the room the wall sheets' KTX2 (T-2588) was named as lacking.
+T-2588 landed first, so the two were measured together after `dev` was merged in:
+`measure_boot_payload.mjs --check` reads **12.567 MB of 13.000** across 976 requests, WebP
+0.646 MB and KTX2 2.107 MB. That leaves 0.433 MB of room, where T-2588 alone left 0.094 MB.
+With T-2589 (§ 4d) merged in as well, re-measured on that merge with `--check`: **12.292 MB
+of 13.000** across 975 requests, WebP 0.233 MB and KTX2 2.243 MB, which leaves 0.708 MB of
+room where § 4d left 0.361 MB.
+
+The sand's mean luma, which `ground-strip.js` read from the image's pixels, is derived by
+`tools/ktx2_sheets.py` into `lake_michigan_dune_sand_basecolor.luma.json` (0.256117, from
+every texel of the master; the old 256² canvas read was within 0.3 % of it), and the sand
+ships as KTX2 beside the muck. The strip draws only under `?proof=ground`, so neither the
+boot payload nor the memory meter's 1835 boot sees it.
+
+**What this piece does NOT move: GPU memory at a normal boot.** The signage library maps
+were never uploaded — they are painted into the sign atlas, a canvas built from the town's
+own records, and that atlas is the layer's GPU cost before and after. No sheet's GPU
+bytes fell, so `tools/memory_ceilings.json` is left where it stands; its lowering is the
+wall-relief and frontage pieces' (T-2588, T-2589), which do upload their sheets.
+
 ## 5. What the gate does now
 
-- **Refuses** over 288 MiB (T-2226; measured re-budget in §8) — the repository-hygiene guard, not the visitor-cost
+- **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
   budget; the visitor-cost budget is the 13 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
@@ -464,7 +499,48 @@ changes still need their own gate and measured visitor costs. Exact byte counts,
 alternatives and limitations are in
 `docs/RESEARCH/glessner-finish-T-2226/site-budget-reprice.json`.
 
-## 9. Texture residency — T-2598
+## 9. The Prairie houses in KTX2 — measured storage allowance, T-2595
+
+T-2595 re-encodes the images in the 20 textured Prairie house web GLBs from JPEG to
+KTX2 (`tools/ktx2_glb.py`, run by `tools/web_derivatives.sh`): UASTC level 2 with RDO
+and zstd 18 for normal maps, ETC1S for colour, the recipe `tools/ktx2_sheets.py` uses for
+the library sheets. The point is the phone's GPU memory, and the wire pays for it.
+
+| | before (JPEG) | after (KTX2) |
+|---|---:|---:|
+| the 20 derivatives on the wire | 28,806,824 B | 53,759,924 B (+23.797 MiB) |
+| their textures on a phone's GPU, by format (RGBA8 + mips → ETC2/ASTC + mips) | 1,074.6 MiB | 159.3 MiB (6.7×) |
+| the published tree | ≈ 274.2 MiB | 297.968 MiB |
+| `/1904/` on the phone at spawn, GPU textures, `tools/measure_memory.mjs` with and without `--ktx2-off` on one build | 510.2 MB | 384.0 MB |
+| the same, whole resident estimate | 1,329.4 MB | 1,105.6 MB |
+
+The by-format figure counts every texture of every house; the meter counts only what the
+GPU was asked to upload, which at spawn on Prairie and 18th is the houses in view. Of the
+126.2 MB the meter sees fall, 46.2 MB is the library sheets `--ktx2-off` also turns back
+into images (T-2582's, already shipped), so about 80 MB is these houses. The 1904 phone
+ceiling in `tools/memory_ceilings.json` comes down 1,450 → 1,225 MiB by its own rule,
+and the desktop one 2,175 → 1,750 MiB (desktop reads 1,587.5 MB, zero page errors).
+
+Every derivative is still smaller than its master (assertion 6 of
+`tools/measure_web_derivatives.py`). Rendered at each house's reference camera from
+the old and the new derivative, the ten houses that have one read 41.7-51.9 dB PSNR, the
+difference visible only at 8× gain on the brick colour.
+
+**Why not ETC1S for the normal maps too.** On one 1024² sandstone normal map (463 KB as
+JPEG): UASTC with RDO is 1.14 MB at 39.2 dB, UASTC at RDO λ 4 is 919 KB at 37.1 dB, and
+ETC1S at qlevel 255 is 218 KB at 31.4 dB. ETC1S would pay for itself on the wire and cost
+the relief the maps exist for; the roof sheets were refused ETC1S on the same reading
+(§4c). gltf-transform's own `uastc` command never applies RDO to a normal map, which is
+why the encode is a tool of ours: through the CLI the same 20 houses came to 67.9 MB.
+
+The whole-tree **repository-hygiene** allowance is now **320 MiB**, with **22.032 MiB**
+of headroom. Two 320 MiB app allowances plus the 129.136 MiB of other site content total
+**769.136 MiB**, below the 1 GiB platform limit. The 13 MB boot payload is untouched: no
+textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) is expected to
+hand some of this back, since its 28 PNG maps are larger than their UASTC equivalents —
+expected, not measured.
+
+## 10. Texture residency — T-2598
 
 The bytes above are what a visitor downloads; this is what a phone keeps on its GPU
 once they are open. Each house picture a GLB brings in is resident only within its

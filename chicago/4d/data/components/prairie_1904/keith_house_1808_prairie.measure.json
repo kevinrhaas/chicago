@@ -261,12 +261,13 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2464452,
-      "sha256": "e0797bc8a2864390b358a801bcf2f53ef829920452d408d77e142396ba5f901f",
+      "bytes": 3705620,
+      "sha256": "4257dd9a0168c7ef7ee4e007c45a609c257cc60df4b59bc67e55a4c31f08ce49",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
-        "KHR_mesh_quantization"
+        "KHR_mesh_quantization",
+        "KHR_texture_basisu"
       ],
       "nodes": [
         {
@@ -286,9 +287,9 @@
       "texture": {
         "images": 12,
         "textures": 12,
-        "encoded_bytes": 1112258,
-        "pixels": 9410176,
-        "gpu_rgba8_mip_bytes": 50187605,
+        "encoded_bytes": 2352905,
+        "pixels": 9437184,
+        "gpu_rgba8_mip_bytes": 50331648,
         "largest_px": 1024
       },
       "bbox_m": {
