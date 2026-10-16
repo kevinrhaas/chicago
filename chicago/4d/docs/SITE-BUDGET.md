@@ -355,32 +355,41 @@ bind this KTX2 pair (its grain is a function of the `orl`'s B) and the 0.433 MB 
 boot (T-2589). On the phone the walls' maps fall from 5.4 MB of GPU memory to 1.4 MB
 (`measure_memory.mjs`, structures' textures 6.7 → 2.7 MB with the roofs' 1.3 MB in both).
 
-### 4d. The frontage timber's KTX2, measured 2026-10-16 (T-2589) — it does not fit yet
+### 4d. The frontage timber's KTX2, measured 2026-10-16 (T-2589) — it fits once the walls left the WebPs
 
-T-2589 ships the board face `frontage.js` binds (and the yard goods share) as three KTX2
-sheets: `normal_gl` (UASTC, 289 KB), `orm` (ETC1S, 56 KB) and the grain the layer used to pack
-on the CPU (ETC1S, 89 KB) — 434 KB against the 433 KB of the three WebPs it read. The codecs
-were chosen to make that trade even (`tools/ktx2_sheets.py` § THE FRONTAGE TIMBER). **It does
-not stay even, because the wall layer reads the same three WebPs** (`wall-relief.js`, the
-clapboard face), so while the walls stay on their image path the WebPs are fetched anyway and
-the KTX2s are pure addition. Measured with `tools/measure_boot_payload.mjs --check` on one
-published tree, the three `.ktx2` removed for the before:
+T-2589 ships the board face `frontage.js` binds (and the yard goods share) as KTX2: the
+`normal_gl` the wall relief already ships (T-2588, one file that both layers bind), and two of
+its own, the `orm` (ETC1S, 56 KB) and the grain the layer used to pack on the CPU (ETC1S,
+89 KB). The codecs are `tools/ktx2_sheets.py` § THE FRONTAGE TIMBER.
+
+**It did not fit while the walls stayed on their images.** `wall-relief.js` read the same
+three clapboard WebPs, so they were fetched anyway and the frontage KTX2s were pure addition.
+Measured then with `tools/measure_boot_payload.mjs --check` on one published tree, the
+frontage `.ktx2` removed for the before: 12.861 MB before, **13.273 MB after, 0.273 over**.
+The budget was not raised for it, because the bytes over were a duplicate and not the town,
+and the piece waited for T-2588.
+
+**With T-2588 merged, the frontage was the last layer reading those WebPs.** Once frontage
+moves to KTX2 they leave the boot. Re-measured on the merge of this branch with `dev` at
+d7dd58ce9:
 
 | reading | boot payload |
 |---|---:|
-| before (frontage on its WebPs) | 12.861 MB |
-| after (frontage on its KTX2) | **13.273 MB — 0.273 over 13 MB** |
+| `dev` (walls on KTX2, frontage on the clapboard WebPs; § 4c above) | 12.906 MB |
+| this branch (frontage on the wall's normal plus its own `orm` and grain) | **12.639 MB, within 13.000** |
 
-So the budget is not raised to fit it: the bytes over are a duplicate, not the town. The
-piece waits for the walls to leave those WebPs (T-2588). The clapboard face's wall needs
-nothing the trio lacks: AO and roughness are the `orm`'s R and G, and its albedo ratio is the
-grain read back, L / mean = 1 + (grain x GRAIN_HEADROOM - 1) / GRAIN_STRENGTH — so a wall that
-binds these three fetches no new clapboard file, and the pair costs the boot about 1 KB.
+That is 0.433 MB of WebPs out and 0.144 MB of `orm` and grain in. The shared normal is
+fetched once.
 
-What it buys, from `tools/measure_memory.mjs --year 1835 --only mobile` on the same two trees:
-total resident **628.4 → 610.3 MB**; GPU textures 100.9 → 85.9 MB; the frontage layer's
-textures 16.0 → 1.0 MB and the yard's 14.8 → 4.8 MB; ArrayBuffers 241.3 → 238.3 MB, the
-grain's CPU copy no longer kept.
+What it buys, from `tools/measure_memory.mjs --year 1835 --only mobile` (the before/after on
+one tree, taken before the merge): total resident **628.4 → 610.3 MB**; GPU textures 100.9 →
+85.9 MB; the frontage layer's textures 16.0 → 1.0 MB and the yard's 14.8 → 4.8 MB;
+ArrayBuffers 241.3 → 238.3 MB, because the grain's CPU copy is no longer kept.
+
+A further lever, not taken here: the wall's `orl` already carries what the frontage's two
+own sheets do (AO and roughness in R and G, and L / mean in B, from which the grain is
+1 + GRAIN_STRENGTH x (2B - 1), over GRAIN_HEADROOM). A frontage shader that read the grain
+from the `orl` would fetch no clapboard file of its own and save another 0.144 MB.
 
 ## 5. What the gate does now
 

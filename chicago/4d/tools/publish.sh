@@ -219,8 +219,9 @@ for face in clapboard_board_face hewn_log_face; do
         "$src/${face}_orl.ktx2" \
         "$src/${face}_orl.json" \
         "$dst/"
-  # Each face's KTX2 sheets (T-2589: the board face's normal, orm and the grain
-  # frontage.js used to pack from the basecolor), whichever tools/ktx2_sheets.py writes.
+  # And every other KTX2 sheet tools/ktx2_sheets.py writes for the face: since T-2589
+  # the board face's `orm` and the grain frontage.js used to pack from the basecolor,
+  # beside the normal it shares with the wall.
   for k in "$src"/*.ktx2; do [ -f "$k" ] && cp -f "$k" "$dst/"; done
 done
 
