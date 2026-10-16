@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1875, ts: '2026-10-16T17:01:11.482Z', date: 'Oct 16, 2026, 12:01 PM CT', title: 'The ground is cut up on spare cores while the town loads', kind: 'improvement',
+    items: [
+      'Nothing you can see changed: the ground is the same ground, triangle for triangle.',
+      'The town now keeps a small pool of background workers, and the ground\'s tiles are divided into their 40 m pieces there, all at once, instead of one after another on the thread that draws the frame.',
+      'Where a browser cannot start a worker, or with ?jobs=0 in the address, the same work runs as before.',
+    ] },
   { v: 1874, ts: '2026-10-16T16:17:09.055Z', date: 'Oct 16, 2026, 11:17 AM CT', title: 'Prairie Avenue\'s photographed houses use far less phone graphics memory', kind: 'improve',
     items: [
       'Nothing you can see changed. The twenty textured houses on Prairie Avenue now ship their brick, stone, slate and trim pictures as GPU-compressed textures instead of JPEGs.',
