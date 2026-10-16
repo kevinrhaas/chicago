@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-ia-1888-keith-1808",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "589e34370553820032ffb0dc52f48659e1f52d9b8d47c86cf4f495352d32e0cf",
+  "glb_sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
   "camera_sha256": "827bd615261d24c09a5bfec80f4afc053a3c779ab36e02d99e83fd5f2f6ebd8f",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-ia-1888-keith-1808-side-by-side.jpg",
   "verdict": "differs",
@@ -57,6 +57,10 @@
     },
     {
       "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2680: with the front and loggia in register, the lattice rows and coping stood 7-10 px (about 0.25 m) high over the checker band. With the crown 0.2 m lower, both rows and the coping read within about 2 px of the plate.",
       "status": "fixed"
     }
   ],

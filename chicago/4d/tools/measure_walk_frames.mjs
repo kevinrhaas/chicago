@@ -293,6 +293,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   };
   const digests = [];
   const rows = [];
+  const longs = [];
   // A digest is taken between passes, never across one in flight: a spread
   // pass has written part of its sets and committed none of them.
   let digestDue = false;
@@ -320,6 +321,16 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     const t0 = now();
     a.step();
     rows.push({ frame: now() - t0, ...t });
+    // T-2605: a frame over 50 ms is named — its index along the move, its flora
+    // milliseconds and what the spread passes had done by then — because a count
+    // of them cannot say WHICH pass it was. That is how the walk's grade-change
+    // re-deal was told apart from its right turn's.
+    if (rows[rows.length - 1].frame > 50) {
+      const sp = a.flora.stats?.spread ?? {};
+      longs.push({ frame: i, ms: Math.round(rows[rows.length - 1].frame * 10) / 10,
+        flora: Math.round((t['flora.update'] ?? 0) * 10) / 10,
+        landings: sp.landings, drained: sp.drained, abandoned: sp.abandoned });
+    }
     if (rows.length % 150 === 0) digestDue = true;
     if (digestDue && !a.flora.inFlight?.()) {
       if (profile) console.profileEnd(`${tier}/${move}`);
@@ -405,7 +416,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, verified,
+    frames: rows.length, rebuilds, digests, spread, verified, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -637,6 +648,10 @@ for (const vp of VIEWPORTS) {
         + ` ${f(L['flora.update'].p95)} ${f(L['flora.update'].max)} | ${f(L['trees.update'].p95)} ${f(L['trees.update'].max)} | ${others || '-'}`
         + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped`
           + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker` : ''));
+      for (const l of r.longs ?? []) {
+        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}),`
+          + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);
+      }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
         console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
         if (!v.same) failed++;

@@ -1,4 +1,43 @@
 export const CHANGELOG = [ // newest first
+  { v: 1890, ts: '2026-10-16T21:52:42.846Z', date: 'Oct 16, 2026, 4:52 PM CT', title: 'Keith\'s rooftop lattice sits down on its moulded course', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the pierced lattice, its coping and the corner pinnacles now stand 0.2 m lower, seated on the moulded course just above the carved boss.',
+      'Before, a deep plain box stood between the course and the lattice. Three photographs read through their own cameras show the lattice sitting almost directly on the course.',
+      'The checker band, the boss and everything below them are where they were.',
+      'The north-east corner pier was checked against the photograph beside Glessner. It already stands as the picture shows it, so it is unchanged.',
+    ] },
+  { v: 1889, ts: '2026-10-16T21:44:03.470Z', date: 'Oct 16, 2026, 4:44 PM CT', title: 'A checked format for each building\'s front-page summary', kind: 'chore',
+    items: [
+      'Nothing you can see changes yet. This lays the ground for the new building dossier, which will open on a short written summary of each notable house.',
+      'Each summary will be written by hand, and every fact on it will carry its grade: Attested, Inferred or Reconstructed.',
+      'Before a summary can reach you, a check refuses any fact with no grade, any Attested fact with no source, any line that runs too long, and any internal label left in the words.',
+    ] },
+  { v: 1888, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'The arrival says where you are going, and the year rolls there', kind: 'fix',
+    items: [
+      'A small line over the ticker now reads where you are headed, such as DESTINATION 1904 · PRAIRIE AVE, from the moment the page appears.',
+      '1835 reads RIVER SETTLEMENT and 1812 reads FORT DEARBORN.',
+      'The big ticker is the year you are passing: it starts at today\'s year and rolls down to your destination, and it never climbs back up.',
+      'The old "Destination year" label is gone. It sat over today\'s year, which made the readout look wrong.',
+    ] },
+  { v: 1887, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'Walking up a slope no longer stalls the grass', kind: 'fix',
+    items: [
+      'Climbing or dropping more than 0.6 metres on foot used to make the grass and flowers around you be laid out again all at once, in a single frame.',
+      'On a slowed-down phone profile that frame took about 130 milliseconds on the walk from Lake Street into the block. It now spreads over frames like every other step.',
+      'A sharp turn on the spot can still cause one such frame; that is next.',
+      'Every plant stands exactly where it did before.',
+    ] },
+  { v: 1886, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'The jump\'s ring carries through to the arrival', kind: 'feature',
+    items: [
+      'Jump from the Observatory and the arrival screen opens with the departure\'s dashed ring still widening behind the card, so leaving and landing read as one move.',
+      'It only plays at the far end of a jump: opening a year\'s link directly, or more than 10 seconds after leaving, opens plain.',
+      'With reduced motion on, the ring is skipped.',
+    ] },
+  { v: 1885, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'Keith\'s crown matches its photographs: pointed stones and a carved boss', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the band under the rooftop lattice is now five rows of small pointed stones set in a checker, as the 1888 and 1948 photographs show it. The taller band of large rough blocks is gone, and plain stone runs below it down to a moulding.',
+      'A carved round boss now stands on the north-east corner where the moulding under the lattice ends.',
+      'The lattice\'s openings sit lower under a deeper solid top, and the deep projecting band beneath the lattice is now a thin ledge.',
+    ] },
   { v: 1884, ts: '2026-10-16T20:28:59.829Z', date: 'Oct 16, 2026, 3:28 PM CT', title: 'Cards stop printing "[object Object]" and quoting 1835 law in 1904', kind: 'fix',
     items: [
       'A measured shape like the Glessner house\'s dining bay used to read "[object Object]" under Attributes. Its row now shows how sure we are, its sources and why, and no garbled value.',

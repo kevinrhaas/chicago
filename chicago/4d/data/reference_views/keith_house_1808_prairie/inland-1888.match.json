@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "589e34370553820032ffb0dc52f48659e1f52d9b8d47c86cf4f495352d32e0cf",
+  "glb_sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
   "camera_sha256": "aa73292751ab8c79534ce99cd81e0979f29aba52b020ab6481b8be3c4e3eac14",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
   "verdict": "differs",
@@ -61,6 +61,10 @@
     },
     {
       "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2679: the checker band is laid in diamond-pointed units read from Florian 1948 and the 1888 Glessner plate; at this plate's grain they read as the rough lumps T-2566 described, so the points wear the front's rock-faced stone, and the lattice's openings sit lower under a deeper head (0.27 m rows under 0.32 m), as the plate draws them.",
       "status": "fixed"
     }
   ],

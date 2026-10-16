@@ -7124,6 +7124,20 @@ step "every structure's grade follows its pictures, and every ruling says why (T
 selftest "…and a picture, a camera, a ruling or an invention still decides what it should" \
   python3 tools/grade_structures.py --self-test
 
+# T-2635. The building summary record: data/summaries/<id>.json, the authored front page
+# the Inspect app reads (design doc section 12), shaped by data/summary.schema.json and
+# compiled into data/inspect/<scene>.json at publish (GENERATED, not committed, like the
+# pictures above). The app shows these strings exactly as written, so this refuses a fact
+# with no grade, an Attested fact with no source, an Inferred or Reconstructed one with no
+# note, any id that does not resolve (source, person, liberty, the structure in its scene),
+# a string over its length limit, and an id, snake_case word, path, link or ticket number
+# in anything a visitor reads. It gates the Inspect app (T-2638) and its fallback (T-2636).
+step "every building summary record is graded, sourced, within its lengths and free of ids" \
+  python3 tools/compile_summaries.py --check
+
+selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
+  python3 tools/compile_summaries.py --self-test
+
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
 # an impression: both shapes stand until the last record moves, and a half-migrated layer
