@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1855, ts: '2026-10-16T08:48:27.483Z', date: 'Oct 16, 2026, 3:48 AM CT', title: '1812 Prairie rises under its shaped Flemish gable, built from Levy\'s photograph', kind: 'feature',
+    items: [
+      'George H. Wheeler\'s 1884 house at 1812 Prairie Avenue is no longer a rough draft: it stands three storeys over a raised stone basement at the heights Albert Levy\'s photograph of its front shows.',
+      'Its front is carried up as the tall shaped gable the photograph shows, swelling from a pinnacle at each corner to a pointed head under a stone finial, edged in stone, with its attic window. The draft\'s stepped boxes are gone.',
+      'The south part of the front projects through two storeys with its large round-arched window and its paired window above. The arched entrance and its stair are on the north.',
+      'Still to come from the same photograph: the balcony, the third storey\'s arched windows, the brick upper walls over the stone, and the roof behind the gable.',
+    ] },
   { v: 1854, ts: '2026-10-16T08:15:32.079Z', date: 'Oct 16, 2026, 3:15 AM CT', title: 'Keith\'s loggia carved as the 1888 photograph shows it', kind: 'improve',
     items: [
       'At 1808 Prairie, each pair of entrance columns now shares one carved Ionic capital, rolled into volutes. The balcony above sits level on a deep cornice, with a stepped stone finial on its stair-side corner.',
