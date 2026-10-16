@@ -99,8 +99,12 @@ def validate(f, width):
     if not f:
         return f
     expected={'lattice','diaper','colonnettes','pinnacles','deck_drop_m','stone_return_m'}
-    if set(f)-{'return_ashlar','ventilator'}!=expected:
-        raise ValueError(f'stone_finish takes {sorted(expected)} and optionally return_ashlar and ventilator')
+    if set(f)-{'return_ashlar','ventilator','cornice_box_m'}!=expected:
+        raise ValueError(f'stone_finish takes {sorted(expected)} and optionally return_ashlar, ventilator'
+                         ' and cornice_box_m')
+    # T-2679: the street cornice box under the lattice, as a fillet proud of the front
+    if 'cornice_box_m' in f and not .02<=f['cornice_box_m']<=.35:
+        raise ValueError('stone_finish.cornice_box_m: a fillet 0.02-0.35 m proud of the front')
     ra=f.get('return_ashlar')
     if ra is not None and (set(ra)!={'course_m','bond_m','rise_m','sweep_m'} or not (
             .25<=ra['course_m']<=.7 and len(ra['bond_m'])==2 and .5<=ra['bond_m'][0]<ra['bond_m'][1]<=2.5
@@ -274,7 +278,8 @@ def dress(a):
         # T-2679: Florian 1948 and the 1888 Glessner plate show the band as small units in
         # staggered rows, each cut to a pyramid point that the sun lights on its upper faces
         # and shades below, standing on a dressed ground in a checker: one row's points over
-        # the gaps of the row below. The ground runs plain down to the head band.
+        # the gaps of the row below. The 1888 plate reads them as rough lumps, so the points
+        # wear the front's rock-faced stone. The ground runs plain down to the head band.
         g=.07
         box(.25,W-.25,y0-gap,y1,-.02,g)
         rise=(y1-y0)/rows
@@ -290,8 +295,8 @@ def dress(a):
                 for (sa,ya),(sb,yb) in zip(quad,quad[1:]+quad[:1]):
                     # a short square plinth, then the point
                     emit([oriented([(sa,ya,g),(sb,yb,g),(sb,yb,sk),(sa,ya,sk)],
-                                   ((yb-ya),-(sb-sa),0))])
-                    emit([oriented([(sa,ya,sk),(sb,yb,sk),tip],((yb-ya),-(sb-sa),di['proud_m']))])
+                                   ((yb-ya),-(sb-sa),0))],'rough_stone_trim')
+                    emit([oriented([(sa,ya,sk),(sb,yb,sk),tip],((yb-ya),-(sb-sa),di['proud_m']))],'rough_stone_trim')
         rows=0
     for row in range(rows):
         # T-2566: the photographs lay the band as rows of rough lumps, each row's joints
