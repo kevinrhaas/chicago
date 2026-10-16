@@ -336,6 +336,33 @@ what those maps are for. T-2583 (the wall, frontage and signboard sheets) adds m
 the 1835 boot and will not fit beside this without a lever: the household seats in the
 boot sidecars (§ 4b) are the one already named.
 
+### 4d. The frontage timber's KTX2, measured 2026-10-16 (T-2589) — it does not fit yet
+
+T-2589 ships the board face `frontage.js` binds (and the yard goods share) as three KTX2
+sheets: `normal_gl` (UASTC, 289 KB), `orm` (ETC1S, 56 KB) and the grain the layer used to pack
+on the CPU (ETC1S, 89 KB) — 434 KB against the 433 KB of the three WebPs it read. The codecs
+were chosen to make that trade even (`tools/ktx2_sheets.py` § THE FRONTAGE TIMBER). **It does
+not stay even, because the wall layer reads the same three WebPs** (`wall-relief.js`, the
+clapboard face), so while the walls stay on their image path the WebPs are fetched anyway and
+the KTX2s are pure addition. Measured with `tools/measure_boot_payload.mjs --check` on one
+published tree, the three `.ktx2` removed for the before:
+
+| reading | boot payload |
+|---|---:|
+| before (frontage on its WebPs) | 12.861 MB |
+| after (frontage on its KTX2) | **13.273 MB — 0.273 over 13 MB** |
+
+So the budget is not raised to fit it: the bytes over are a duplicate, not the town. The
+piece waits for the walls to leave those WebPs (T-2588). The clapboard face's wall needs
+nothing the trio lacks: AO and roughness are the `orm`'s R and G, and its albedo ratio is the
+grain read back, L / mean = 1 + (grain x GRAIN_HEADROOM - 1) / GRAIN_STRENGTH — so a wall that
+binds these three fetches no new clapboard file, and the pair costs the boot about 1 KB.
+
+What it buys, from `tools/measure_memory.mjs --year 1835 --only mobile` on the same two trees:
+total resident **628.4 → 610.3 MB**; GPU textures 100.9 → 85.9 MB; the frontage layer's
+textures 16.0 → 1.0 MB and the yard's 14.8 → 4.8 MB; ArrayBuffers 241.3 → 238.3 MB, the
+grain's CPU copy no longer kept.
+
 ## 5. What the gate does now
 
 - **Refuses** over 288 MiB (T-2226; measured re-budget in §8) — the repository-hygiene guard, not the visitor-cost
