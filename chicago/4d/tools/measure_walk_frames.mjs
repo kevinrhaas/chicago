@@ -318,17 +318,27 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     // the frame — so a driven move yields between frames too. Outside the timing.
     if (a.jobs?.mode === 'workers') await new Promise((r) => setTimeout(r, 0));
     for (const k in t) t[k] = 0;
+    const sp0 = a.flora.stats?.spread;
+    const before = sp0 && [sp0.passes.near + sp0.passes.far, sp0.landings, sp0.drained];
     const t0 = now();
     a.step();
+    const sp1 = a.flora.stats?.spread;
+    // T-2683: what kind of pass a frame finished, so a long one can be named:
+    // `one-frame` (dealt where it was needed), `drained` (a spread pass
+    // finished late) or `landed` (a spread pass landing on time).
+    const kind = !before ? null
+      : sp1.drained > before[2] ? 'drained'
+        : sp1.landings > before[1] ? 'landed'
+          : sp1.passes.near + sp1.passes.far > before[0] ? 'one-frame' : null;
     rows.push({ frame: now() - t0, ...t });
     // T-2605: a frame over 50 ms is named — its index along the move, its flora
     // milliseconds and what the spread passes had done by then — because a count
     // of them cannot say WHICH pass it was. That is how the walk's grade-change
     // re-deal was told apart from its right turn's.
     if (rows[rows.length - 1].frame > 50) {
-      const sp = a.flora.stats?.spread ?? {};
+      const sp = sp1 ?? {};
       longs.push({ frame: i, ms: Math.round(rows[rows.length - 1].frame * 10) / 10,
-        flora: Math.round((t['flora.update'] ?? 0) * 10) / 10,
+        flora: Math.round((t['flora.update'] ?? 0) * 10) / 10, pass: kind,
         landings: sp.landings, drained: sp.drained, abandoned: sp.abandoned });
     }
     if (rows.length % 150 === 0) digestDue = true;
@@ -401,6 +411,10 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     msPerPass: ((s1.ms ?? 0) - (spread0.ms ?? 0))
       / Math.max(1, (s1.landings ?? 0) - (spread0.landings ?? 0)),
     waits: (s1.waits ?? 0) - (spread0.waits ?? 0),
+    // T-2683: the passes a snap turn or an arrival started, dealt over frames
+    // where they used to be dealt in one.
+    jumps: (s1.jumps ?? 0) - (spread0.jumps ?? 0),
+    jumpFrames: (s1.jumpFrames ?? 0) - (spread0.jumpFrames ?? 0),
   } : null;
   const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
   a.setAnimationHold(false);
@@ -647,9 +661,11 @@ for (const vp of VIEWPORTS) {
         + ` ${f(r.scripted.median)} ${f(r.scripted.p95)} ${f(r.scripted.max)} ${n(r.scripted.over16)} ${n(r.scripted.over33)} ${n(r.scripted.over50)} |`
         + ` ${f(L['flora.update'].p95)} ${f(L['flora.update'].max)} | ${f(L['trees.update'].p95)} ${f(L['trees.update'].max)} | ${others || '-'}`
         + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped`
-          + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker` : ''));
+          + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker`
+          + `, ${r.spread.jumps} after a jump`
+          + (r.spread.jumps ? ` (landing in ${r.spread.jumpFrames} frames between them)` : '') : ''));
       for (const l of r.longs ?? []) {
-        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}),`
+        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
           + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);
       }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
