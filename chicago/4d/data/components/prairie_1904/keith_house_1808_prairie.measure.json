@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 7914436,
-      "sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
+      "bytes": 7911756,
+      "sha256": "c69d636400e3973604616eb18d2b520333390c5bfaf01fc363fec69e2fcc2d31",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 67378,
-        "vertices": 144021
+        "triangles": 67358,
+        "vertices": 143957
       },
       "texture": {
         "images": 12,
@@ -261,8 +261,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 3656724,
-      "sha256": "2907eda2c6347db88d3cbeff589792114ecb60e152dfa47519d9ae126279c3ab",
+      "bytes": 3655632,
+      "sha256": "0b33488d80d774f26c89169147d1b225677cd6efb9460bedea461e6d3add56b6",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -281,8 +281,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 67378,
-        "vertices": 116416
+        "triangles": 67358,
+        "vertices": 116352
       },
       "texture": {
         "images": 12,
@@ -404,7 +404,7 @@
           "uv_per_m_times_tile_m": 1.0003
         },
         "limestone_trim": {
-          "median_uv_per_m": 1.1203,
+          "median_uv_per_m": 1.1204,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
@@ -440,13 +440,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "stoop_stone": {
-          "median_uv_per_m": 1.1113,
+          "median_uv_per_m": 1.1114,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 1.0001
+          "uv_per_m_times_tile_m": 1.0003
         },
         "yard_cinder": {
           "median_uv_per_m": 0.4995,
