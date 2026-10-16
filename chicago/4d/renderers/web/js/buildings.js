@@ -23,10 +23,12 @@
  *     building is or how rough it is.** `BatchedMesh` renders one material, so
  *     the buildings become one batch per distinct material. Materials identical
  *     in every rendered respect are collapsed, and BASE COLOUR (R-W5a) and
- *     ROUGHNESS (R-W5a2) ARE CARRIED PER VERTEX rather than per material (see
- *     `materialKey`), so two walls that differ only in paint or finish share a
- *     draw call. The whole untextured town is one draw call in the colour pass
- *     and one in the shadow pass, and it stays one as blocks land.
+ *     ROUGHNESS (R-W5a2) ARE CARRIED PER INSTANCE OR PER VERTEX rather than per
+ *     material (see `materialKey`), so two walls that differ only in paint or
+ *     finish share a draw call. The whole untextured town is one draw call in
+ *     the colour pass and one in the shadow pass, and it stays one as blocks land.
+ *     Since T-2568 the colour is the instance's (`setColorAt`) and the
+ *     normals, uvs and piece tones are stored compact (compact-attributes.js).
  */
 
 import * as THREE from 'three';
@@ -44,6 +46,7 @@ import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
+import { compactPlan, compactGeometry } from './compact-attributes.js';
 
 /** Walk up until something claims a structure_id. Returns null if nothing does. */
 export function structureIdOf(object) {
@@ -158,8 +161,10 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
   const base = [c ? c.r : 1, c ? c.g : 1, c ? c.b : 1];
   const factors = toneFactors(base[0], base[1], base[2], tone ?? NEUTRAL_TONE);
   geo.setAttribute('position', toFloatAttribute(position, 3));
-  geo.setAttribute('color', albedoAttribute(base, factors, position.count));
-  applyPieceTone(geo.getAttribute('color'), src.getAttribute('_tone'));
+  // T-2568: the paint is the INSTANCE's colour (see albedoOf); a vertex colour
+  // is written only where a generator varies it piece by piece.
+  const pieceTone = src.getAttribute('_tone');
+  if (pieceTone) geo.setAttribute('color', pieceToneAttribute(pieceTone));
   geo.setAttribute('_roughness', roughnessAttribute(material, position.count));
   geo.setAttribute('normal', src.getAttribute('normal')
     ? toFloatAttribute(src.getAttribute('normal'), 3)
@@ -197,16 +202,18 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
 }
 
 /**
- * The material's base colour, written once per vertex — times its building's
- * own facade tone.
+ * The material's base colour times its building's own facade tone — written
+ * ONCE PER INSTANCE since T-2568, where it used to be written once per vertex.
  *
  * `material.color` is already in the renderer's linear working space (three
  * converts on assignment, and glTF's `baseColorFactor` is linear to begin
- * with), and three's `<color_fragment>` chunk multiplies `diffuseColor.rgb` by
- * the `color` attribute with no colour-space conversion of its own. So copying
- * `.r/.g/.b` straight in and leaving the shared material white is EXACTLY the
- * arithmetic that was happening before — the same product, in a different
- * order.
+ * with), and three multiplies `diffuseColor` by the batch's instance colour
+ * (`setColorAt`, a float32 texture in the working space) with no colour-space
+ * conversion of its own. So writing `.r/.g/.b` there and leaving the shared
+ * material white is EXACTLY the arithmetic of the material's own uniform — the
+ * same product, in a different order. Every mesh is its own instance in its
+ * batch, and the colour never varied within one, so the per-vertex copy was
+ * twelve bytes a vertex of one repeated number.
  *
  * **T-0002 puts one more factor in that product and nothing else changes.**
  * `facades.js` returns a per-channel factor for this structure — silvering by
@@ -215,46 +222,48 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
  * its record claims, to the bit, because `toneFor` hands an attested paint the
  * identity tone and 1 x 1 is 1. See `facades.js` for what is invented and
  * `docs/LIBERTIES.md` L126 for its bounds.
+ *
+ * `t` is how much of the tone is applied — see `setWeathering`. At 1 it is the
+ * plain product, not `1 + (f - 1) * 1`, which need not round back to `f`.
  */
-function albedoAttribute(base, factors, count) {
-  const r = base[0] * factors[0], g = base[1] * factors[1], b = base[2] * factors[2];
-  const out = new Float32Array(count * 3);
-  for (let i = 0; i < count; i += 1) {
-    out[i * 3] = r; out[i * 3 + 1] = g; out[i * 3 + 2] = b;
-  }
-  return new THREE.BufferAttribute(out, 3);
+function albedoOf(base, factors, t = 1) {
+  const f = t === 1 ? factors : factors.map((x) => 1 + (x - 1) * t);
+  return [base[0] * f[0], base[1] * f[1], base[2] * f[2]];
 }
 
 /**
  * EACH PIECE OF WOOD ITS OWN WEATHERING (T-2123). A generator that builds a
  * run of separate timbers — the fort's log courses and pickets — can write a
- * `_TONE` per vertex, and it multiplies into the colour here, after the
- * building's facade tone: the plank walk's per-board rule (frontage.js
- * § THE WALK'S OWN TIMBER) carried to a log wall, so one course reads as one
- * log and the next as another. Folded into `color` rather than kept as an
- * attribute, so a batch's attribute set does not depend on which mesh came
- * first, and `setWeathering` keeps it because it rescales by ratio.
+ * `_TONE` per vertex, and it multiplies into the colour, after the building's
+ * facade tone: the plank walk's per-board rule (frontage.js § THE WALK'S OWN
+ * TIMBER) carried to a log wall, so one course reads as one log and the next
+ * as another. It is the one colour that does vary within a mesh, so it is the
+ * one kept per vertex: the `color` attribute holds the piece tone alone, three
+ * multiplies it by the instance's paint, and `setWeathering` never has to
+ * touch it. A batch holding no toned mesh carries no `color` at all.
  * A mesh without the attribute is untouched; the bounds are the generator's
  * (fort_structure.py LOG_SPAN, palisade.py PICKET_SPAN; L390).
  */
-function applyPieceTone(color, tone) {
-  if (!tone) return;
-  const a = color.array;
+function pieceToneAttribute(tone) {
+  const out = new Float32Array(tone.count * 3);
   for (let i = 0; i < tone.count; i += 1) {
     const k = tone.getX(i);
-    a[i * 3] *= k; a[i * 3 + 1] *= k; a[i * 3 + 2] *= k;
+    out[i * 3] = k; out[i * 3 + 1] = k; out[i * 3 + 2] = k;
   }
+  return new THREE.BufferAttribute(out, 3);
 }
 
 /**
  * The material's roughness, written once per vertex — R-W5a2.
  *
- * The same trick as `albedoAttribute`, one step further, and it is exact for
- * the same reason: a triangle never spans two source meshes, so all three of
- * its vertices carry the identical float and the rasteriser's interpolation of
- * three equal values is that value. What it replaces is `roughnessFactor =
- * roughness` reading a per-material uniform — see `PER_VERTEX_ROUGHNESS`, which
- * substitutes the attribute for the uniform and nothing else.
+ * The trick the colour used to play per vertex, one step further: a triangle
+ * never spans two source meshes, so all three of its vertices carry the
+ * identical value and the rasteriser's interpolation of three equal values is
+ * that value. What it replaces is `roughnessFactor = roughness` reading a
+ * per-material uniform — see `PER_VERTEX_ROUGHNESS`, which substitutes the
+ * attribute for the uniform and nothing else. (It stays per vertex and float32
+ * after T-2568, because wall-relief.js's patch reads `_roughness` too and a
+ * lone narrower scalar is a misaligned stride on Metal — compact-attributes.js.)
  *
  * Why this needed a shader patch when colour did not: `vertexColors` is a stock
  * three feature with a `<color_fragment>` chunk behind it; roughness has no such
@@ -421,7 +430,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // visitor can see away from one they cannot.
     .filter((r) => r.gltf)
     .map((r) => r.sidecar));
-  /** The colour ranges `setWeathering` rewrites: one row per source mesh. */
+  /** The instance colours `setWeathering` rewrites: one row per source mesh. */
   const toneRanges = [];
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
@@ -515,10 +524,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       let bucket = groups.get(key);
       if (!bucket) {
         material.side = material.side ?? THREE.FrontSide;
-        // The batch's own colour is now the identity, and every vertex carries
-        // its building's paint. Whitening the shared material is what makes the
-        // multiply come out unchanged — see albedoAttribute.
-        material.vertexColors = true;
+        // The batch's own colour is now the identity, and every instance
+        // carries its building's paint. Whitening the shared material is what
+        // makes the multiply come out unchanged — see albedoOf. Whether the
+        // batch also reads a per-vertex piece tone is settled once all of its
+        // meshes are in (T-2568).
         material.color = new THREE.Color(1, 1, 1);
         material.name = 'merged';
         // Roughness now arrives per vertex too (R-W5a2). The material's own
@@ -560,7 +570,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         && !material.polygonOffset && material.depthWrite && material.depthTest
         && material.colorWrite && !material.wireframe && !material.stencilWrite
         && !material.clippingPlanes?.length;
-      for (const geo of pieces) bucket.entries.push({ record, geo, factors: prepared.factors, occludesView });
+      for (const geo of pieces) {
+        bucket.entries.push({
+          record, geo, base: prepared.base, factors: prepared.factors, occludesView,
+        });
+      }
       if (cells) prepared.geo.dispose();
     }
   }
@@ -657,6 +671,21 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   for (const [, bucket] of groups) {
     const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
     const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
+    // T-2568. A vertex colour only where some mesh in the batch varies it piece
+    // by piece; the rest of that batch reads a tone of 1. A batch takes its
+    // attribute set from its first geometry, so this is decided for all of it.
+    const toned = bucket.entries.some((e) => e.geo.getAttribute('color'));
+    if (toned) {
+      for (const e of bucket.entries) {
+        if (e.geo.getAttribute('color')) continue;
+        const n = e.geo.getAttribute('position').count;
+        e.geo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(n * 3).fill(1), 3));
+      }
+    }
+    bucket.material.vertexColors = toned;
+    // And the normals, uvs and piece tone stored compact, in one format across
+    // the batch (compact-attributes.js).
+    const plan = compactPlan(bucket.entries.map((e) => e.geo));
     const batch = new THREE.BatchedMesh(bucket.entries.length, verts, idx, bucket.material);
     batch.name = `structures:${bucket.material.name || bucket.material.type}`;
     batch.castShadow = true;
@@ -668,20 +697,30 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.userData.batchIndex = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, factors, occludesView } of bucket.entries) {
+    for (const { record, geo, base, factors, occludesView } of bucket.entries) {
       const pause = checkpoint(); if (pause) await pause;
+      compactGeometry(geo, plan);
+      // The piece tone as the batch stores it, summed for facadeTones' readback.
+      const tone = toned ? geo.getAttribute('color') : null;
+      let toneSum = 0;
+      if (tone) for (let i = 0; i < tone.count; i += 1) toneSum += tone.getX(i);
       const geometryId = batch.addGeometry(geo);
       const instanceId = batch.addInstance(geometryId);
-      // T-0002. Where this mesh's colours ended up inside the batch, so the
-      // tone can be wound back and forth at runtime — see setWeathering.
-      const range = batch.getGeometryRangeAt(geometryId);
-      toneRanges.push({
+      // T-0002. The mesh's paint is its instance's colour, so the tone can be
+      // wound back and forth at runtime — see setWeathering.
+      const count = geo.getAttribute('position').count;
+      const row = {
         batch,
         id: record.id,
-        start: range.vertexStart,
-        count: range.vertexCount,
+        instanceId,
+        count,
+        base,
         factors,
-      });
+        toneSum: tone ? toneSum : count,
+        toneFirst: tone && count ? tone.getX(0) : 1,
+      };
+      toneRanges.push(row);
+      batch.setColorAt(instanceId, new THREE.Color(...albedoOf(base, factors)));
       batch.setMatrixAt(instanceId, placements.get(record.id));
       if (occludesView) {
         const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=new THREE.Matrix4();
@@ -761,10 +800,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * measures the difference, which is the only evidence that the tone reaches
    * the render rather than merely reaching an array.
    *
-   * The rewrite is exact enough to restore: each range is scaled by the ratio
-   * between the factor it should carry now and the one it carries, so a round
-   * trip to 0 and back leaves float dust rather than a changed frame — and the
-   * gate asserts the restored frame, not just the changed one.
+   * The rewrite is exact: each instance's colour is recomputed from its base
+   * and its factors at the new strength (T-2568), not rescaled from the one it
+   * carries, so a round trip to 0 and back restores the very same floats — and
+   * the gate asserts the restored frame, not just the changed one.
    *
    * A visitor never calls it. It is not a setting; the tone is what the town
    * looks like.
@@ -773,25 +812,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   function setWeathering(value) {
     const t = Math.max(0, Math.min(1, Number(value)));
     if (!Number.isFinite(t) || t === weathering) return weathering;
-    const touched = new Set();
+    const colour = new THREE.Color();
     for (const row of toneRanges) {
-      const attr = row.batch.geometry.getAttribute('color');
-      if (!attr) continue;
-      const a = attr.array;
-      const scale = [0, 1, 2].map((i) => {
-        const target = 1 + (row.factors[i] - 1) * t;
-        const applied = 1 + (row.factors[i] - 1) * weathering;
-        return applied === 0 ? 1 : target / applied;
-      });
-      const end = row.start + row.count;
-      for (let v = row.start; v < end; v += 1) {
-        a[v * 3] *= scale[0];
-        a[v * 3 + 1] *= scale[1];
-        a[v * 3 + 2] *= scale[2];
-      }
-      touched.add(attr);
+      row.batch.setColorAt(row.instanceId, colour.setRGB(...albedoOf(row.base, row.factors, t)));
     }
-    for (const attr of touched) attr.needsUpdate = true;
     weathering = t;
     return weathering;
   }
@@ -889,22 +913,20 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * mistake K24 found in R-A1's own gate; a gate that reads both can.
      */
     facadeTones() {
+      // The drawn colour of a vertex is its instance's paint times its piece
+      // tone (1 where it has none), read back from the batch's own colours.
       const sums = new Map();
+      const colour = new THREE.Color();
       for (const row of toneRanges) {
-        const attr = row.batch.geometry.getAttribute('color');
-        if (!attr) continue;
-        const a = attr.array;
+        const c = row.batch.getColorAt(row.instanceId, colour);
         let seen = sums.get(row.id);
         if (!seen) { seen = { sum: [0, 0, 0], n: 0, surfaces: new Set() }; sums.set(row.id, seen); }
-        const end = row.start + row.count;
-        for (let v = row.start; v < end; v += 1) {
-          seen.sum[0] += a[v * 3];
-          seen.sum[1] += a[v * 3 + 1];
-          seen.sum[2] += a[v * 3 + 2];
-        }
+        seen.sum[0] += c.r * row.toneSum;
+        seen.sum[1] += c.g * row.toneSum;
+        seen.sum[2] += c.b * row.toneSum;
         seen.n += row.count;
         if (row.count) {
-          seen.surfaces.add([a[row.start * 3], a[row.start * 3 + 1], a[row.start * 3 + 2]]
+          seen.surfaces.add([c.r * row.toneFirst, c.g * row.toneFirst, c.b * row.toneFirst]
             .map((v) => v.toFixed(6)).join(','));
         }
       }

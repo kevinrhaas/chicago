@@ -51,8 +51,9 @@ export const RELEASE_KEEP = {
   frontage: ['position', 'index'],
   enclosures: ['position', 'index'],
   yard: ['position', 'index'],
-  // The weathering slider rewrites the buildings' colour in place.
-  structures: ['position', 'index', 'color'],
+  // The weathering handle rewrites the buildings' INSTANCE colours, which are
+  // not vertex attributes (T-2568), so nothing more is kept for it.
+  structures: ['position', 'index'],
 };
 
 function dropArray() { this.array = null; }
