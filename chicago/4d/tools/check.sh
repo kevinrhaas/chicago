@@ -55,6 +55,9 @@ step "The image gate refuses to close a building that does not match its picture
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
+  node tools/check_compact_attributes.mjs
+
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 

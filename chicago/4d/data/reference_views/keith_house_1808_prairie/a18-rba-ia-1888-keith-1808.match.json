@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-ia-1888-keith-1808",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c1773d5ab5ea6e955db43e130047b1e1cc163466ef9a75bf2ec95d6372f65dbb",
+  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
   "camera_sha256": "827bd615261d24c09a5bfec80f4afc053a3c779ab36e02d99e83fd5f2f6ebd8f",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-ia-1888-keith-1808-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,15 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections and stair-head scrolls are schematic rather than the photographed profiles.",
+      "what": "T-2565: one carved capital spans each pair of columns, rolled into a volute at each end; the balcony has a level coping between square dies, the flight-side die carrying the stepped stone finial; a deep three-step cornice carries it; and both stair cheeks end in a rolled foot, as this plate shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2565: the bow's second-storey lights run up to just under its moulded cap (2.5 m on a 0.75 m sill), as the plate draws them; they were 2.2 m and stopped well short of it.",
+      "status": "fixed"
+    },
+    {
+      "what": "The volutes' turns, the egg row and the panels' foliage are drawn to the plate's shadows rather than read; the bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
       "status": "open"
     },
     {

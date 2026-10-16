@@ -28149,6 +28149,18 @@ even courses. The tint stays reconstructed: the neutral-light reading in
 `docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json` (T-2566) shows the
 material and the 1965 print's patches differ, and records it rather than tuning to a
 blue-cast, shaded print.
+**T-2565 (2026-10-16), the carved loggia:** what is read now, from the 1888 plate at its
+native 1559 px and the 1965 close view: ONE capital over each pair of columns (a carved
+band spanning both shafts with a volute at each end), a balcony with a LEVEL coping
+between two square dies (the curved top T-1883 drew is in neither picture), a stepped
+stone finial on the flight-side die only (1888; gone by 1965), a deep three-step cornice
+under the balcony, both stair cheeks ending at the street in a rolled stone foot, and the
+bow's second-storey lights running up to just under its cap (about 2.5 m on the plate,
+where 2.2 m stood). What is still invented: the volutes' turns and eye, the egg row's
+pitch, the finial's step sizes, the cornice's fillets and the roll's 0.2 m radius, all
+drawn to the pictures' shadows below their grain; the panels' foliage stays the low
+relief scrolls T-1883 laid. The principal-storey lights and the basement lights keep
+their T-1883 heights: the plate's reading of them sits inside the camera fit's error.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
