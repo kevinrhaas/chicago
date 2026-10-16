@@ -161,3 +161,43 @@ the unchanged assertions passed. Mobile took 14m52s. Both receipts identify
 pre-rebase smoke tree `sha256:95aa65b69bca4e67`; the desktop receipt was filed
 after rebase, so its provenance is restored from the captured test-time hash
 and the matching mobile receipt rather than attributed to the later tree.
+
+## T-2566 — the granite surface (piece 3 of 4)
+
+**Read off the photograph.** The Glessner House archive print of the 1888 photograph
+(`a18-gh-1808-keith-field-front`, the clearest reproduction) was read at full
+resolution. From the basement to the third-floor line, the front runs a deep
+rock-faced course of about 0.5 m and a thin one of about 0.2 m in turn. The basement
+courses are the tallest. The third storey is laid in even, much shallower-faced
+courses. The 1965 close view shows the same alternation on the south pier and on the
+bow. The checker band is not a square grid: it is rows of rough lumps whose joints
+break over the row below, standing out by different amounts, with a moulded head
+band under it and corbelled bands over it.
+
+**What changed.** `stone_front.coursing` (new, opt-in, Keith alone) lays the walling
+high and low in turn (low = 0.4 of high, or the profile's 0.19 m least) below 9.8 m,
+and evenly above. Deep courses take the upper half of the granite profile's
+rock-face range, thin courses the lower half, and the even upper courses the bottom
+35%. Every value stays inside `k02_stone_profiles.json`, whose `course_rule` already
+allowed alternating courses. The checker rows are staggered by half a stone, with
+each proud stone's projection and every face's rock height drawn from its seed. The
+three plain bands became stepped mouldings of the same heights. The upper
+colonnettes' capitals gained a neck ring under a flaring bell. Other houses do not
+opt in, so their masters re-emit byte-identically; only their manifest input hashes
+moved. Keith grew from 68,535 to 71,003 triangles (master 8,260,408 bytes; web
+2,471,040).
+
+**The tint, under neutral light.** Texture mean × load tint, with no sky or shade:
+the old tint made the granite r/g 0.898, b/g 1.044, a green-grey. The 1965 print's
+shaded bow reads r/g 1.007 even under its blue cast, and sky shade raises blue
+without lowering red against green. Both stones are now neutral at the same
+lightness (granite r/g 1.000, b/g 1.001). The reading is recorded with its tier,
+`reconstructed`, in [stone-colour-measurement.json](stone-colour-measurement.json).
+
+**Comparisons.** All sixteen views were re-rendered. The new rows are `fixed` only in
+views that show them: the four reproductions of the 1888 front, and the 1965 close
+view for the south pier. In the 1967 view they are below resolution (`not shown`).
+The other oblique views keep an `open` row until someone compares them at their own
+scale. Still open everywhere: the bow's own masonry keeps even courses, and the
+joints, capital carving and moulding sections are drawn to the photograph's shadows
+rather than read. No view is `matches`.
