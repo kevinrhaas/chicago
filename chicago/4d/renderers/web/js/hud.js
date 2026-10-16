@@ -9,6 +9,7 @@
  * looking at, and it is styled as the primary one for that reason.
  */
 
+import { describeProfile } from './device-profile.js';
 import { markSeen, renderWhatsNew, unseenCount } from './whatsnew.js';
 import { isTyping } from './controls/pointerlock.js';
 import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSystem } from './units.js';
@@ -32,6 +33,11 @@ const DEFAULT_SETTINGS = {
   // owner's pick on T-2110, where Low drew a phone's frame 26-29 % faster. A
   // stored number is the visitor's own choice and is never overridden.
   quality: '',
+  // T-2555: Frame pacing — 'adaptive' lets the frame governor draw a moving
+  // frame at fewer pixels or a steady 30 fps on a device that cannot hold 60,
+  // and is back at the Sharpness above the moment the camera rests; 'fixed'
+  // draws every frame exactly at that Sharpness.
+  governor: 'adaptive',
   // R-A1. The road-legibility aid is OFF by default and off is the frame that
   // shipped before it existed. It is a viewing accommodation, not an
   // alternative reconstruction — see streets.js § R-A1 and ROADMAP R-A1.
@@ -83,7 +89,7 @@ function store(key, value) {
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
-  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, structureVersion = null,
+  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
   const badgeYear = root.querySelector('.badge-year');
@@ -545,6 +551,14 @@ export function createHud({
     });
   }
 
+  // T-2559: what the device profile chose, and that a choice above beats it.
+  const deviceLine = $('device-line');
+  if (deviceLine && device) {
+    deviceLine.textContent = `${describeProfile(device)} A choice you make above overrides it.`;
+    deviceLine.title = device.why || '';
+    deviceLine.hidden = false;
+  }
+
   const qual = $('s-quality');
   if (qual) {
     // Like Scene detail: show the ratio in force, which for a visitor who never
@@ -577,6 +591,7 @@ export function createHud({
       store(SET_KEY, JSON.stringify(settings));
     });
   };
+  wireSelect('s-governor', 'governor', 'adaptive');
   wireSelect('s-season', 'season', 'summer');
   wireSelect('s-street-trees', 'streetTrees', 'shown');
   wireToggle('s-compass', 'compass');

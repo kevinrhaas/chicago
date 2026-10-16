@@ -1,0 +1,10 @@
+{
+  "title": "Steadier frames while you move on a slow device",
+  "kind": "improvement",
+  "items": [
+    "On a phone or slow computer that can't keep up while you walk, turn or fly, the town is now drawn at fewer pixels, down to about two-thirds of your Image sharpness, to keep frames coming at an even pace instead of stuttering.",
+    "A device that can't hold 60 frames a second even then is held at a steady 30. On Light detail the sun's shadows refresh every other frame while you move.",
+    "Stop and everything is back at full sharpness at once, so a still view looks exactly as before.",
+    "Settings → Performance has a new Frame pacing choice, Adaptive or Fixed, and a line saying what it is doing right now. Fixed turns all of this off."
+  ]
+}

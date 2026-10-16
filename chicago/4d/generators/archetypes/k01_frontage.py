@@ -205,6 +205,9 @@ MATERIALS = {
     "k04_zinc_sheet": {"fabric": "zinc_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6, "metallic": 0.3},
     "k04_painted_tin_sheet": {"fabric": "painted_tin_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6},
     "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},
+    # T-2578: a roof ventilator's galvanized sheet, pale as the 1887-89 prints show it beside
+    # the granite; a plain colour, so a pipe costs no texture (the colour is reconstructed)
+    "vent_galvanized": {"color": (0.60, 0.61, 0.60), "roughness": 0.5},
     # T-2406: a yard's close-boarded fence, weathered timber (k11_frontage `side_fence`)
     "fence_boards": {"color": (0.40, 0.36, 0.30), "roughness": 0.92},
     # T-2366: what stands proud of a stone front (keystones, pilasters, a hood, a portico):
@@ -1189,8 +1192,7 @@ class Assembly:
             elif yb - ya < lo_c - 1e-9:
                 courses.append((ya, yb, "band"))   # too thin for the walling: a dressed band
             else:
-                n_ = math.ceil((yb - ya) / hi_c - 1e-9)
-                courses += [(ya + (yb - ya) * i / n_, ya + (yb - ya) * (i + 1) / n_, "walling") for i in range(n_)]
+                courses += [(a_, b_, "walling") for a_, b_ in self._walling(ya, yb)]
         rects = holes + arches
         quoins, prev_joints, parity = [], [], 0
         for ya, yb, kind in courses:
@@ -1268,7 +1270,7 @@ class Assembly:
                         else:
                             dressed = trim or flush
                             brng = random.Random(bseed ^ 0x5EED)
-                            rock = brng.uniform(*k["rock_face_m"]) if not dressed else 0.0
+                            rock = brng.uniform(*self._rock_range(ya, yb)) if not dressed else 0.0
                             skip = self.stone(frame, [(s0, fy0), (s1, fy0), (s1, fy1), (s0, fy1)], joints,
                                               "limestone_trim" if dressed else "rough_stone_trim",
                                               bseed, conf, recess=r, bevel=(tk if dressed else wk)["bevel_m"],
@@ -1294,6 +1296,54 @@ class Assembly:
                                                N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
         return frame, quoins
 
+    def _walling(self, ya, yb):
+        """The walling courses between two struck lines. Equal courses, as few as the
+        profile's tallest allows; or, where the record's `coursing` reads the photograph's
+        rhythm (T-2566), a high course and a low one in turn from the bed up, the low one
+        `low_ratio` of the high (or the profile's least course, if that is more), both
+        inside the profile's course range. Every span from `even_above_m` up is laid even."""
+        k = self.p.stone
+        lo_c, hi_c = k["course_m"]
+        h = yb - ya
+        c = k.get("coursing")
+        if c and ya < c["even_above_m"] - 1e-6:
+            r = c["low_ratio"]
+            for n in range(1, 64):
+                high, low = (n + 1) // 2, n // 2
+                th = h / (high + r * low)
+                tl = r * th
+                if low and tl < lo_c:   # the low course at the profile's least, the high ones take the rest
+                    tl = lo_c
+                    th = (h - low * tl) / high
+                if th > hi_c + 1e-9:
+                    continue
+                if th < tl - 1e-9:
+                    break
+                out, y = [], ya
+                for i in range(n):
+                    step = th if i % 2 == 0 else tl
+                    out.append((y, yb if i == n - 1 else y + step))
+                    y += step
+                return out
+        n_ = math.ceil(h / hi_c - 1e-9)
+        return [(ya + h * i / n_, ya + h * (i + 1) / n_) for i in range(n_)]
+
+    def _rock_range(self, ya, yb):
+        """The rock face a walling stone may rise, inside the profile's range: the whole
+        range without a `coursing`; with one (T-2566), the upper half on a high course
+        and the lower half on a low one, as the photograph's deep and shallow courses
+        read, and the bottom `even_rock_share` of it on the even courses above
+        `even_above_m`."""
+        lo, hi = self.p.stone["rock_face_m"]
+        c = self.p.stone.get("coursing")
+        if not c or hi <= lo:
+            return lo, hi
+        if ya >= c["even_above_m"] - 1e-6:
+            return lo, lo + (hi - lo) * c["even_rock_share"]
+        mid = (lo + hi) / 2
+        lo_c, hi_c = self.p.stone["course_m"]
+        return (mid, hi) if yb - ya >= (lo_c + hi_c) / 2 else (lo, mid)
+
     @staticmethod
     def _seated(seats, s0, s1, y0=None, y1=None) -> bool:
         """Does any kit stand on the cell [s0, s1] x [y0, y1] (any height if y is None)?"""
@@ -1316,7 +1366,7 @@ class Assembly:
                                  {"corner": P(length, ya, 0.0)})
             inst = len(self.components[cid]["instances"]) - 1
             s0 = length - ret
-            rock = random.Random(seed ^ 0x5EED).uniform(*k["rock_face_m"])
+            rock = random.Random(seed ^ 0x5EED).uniform(*self._rock_range(ya, yb))
             self.stone(frame, [(s0, ya), (length, ya), (length, yb), (s0, yb)],
                        [0.0 if ya <= 1e-9 else jh, 0.0, jh, jv], "rough_stone_trim",
                        self._stone_seed(cid, inst, 0), conf, recess=r, bevel=k["wall"]["bevel_m"],
@@ -1838,6 +1888,10 @@ class Assembly:
                                      (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
                                     zc - sw / 2, zc + sw / 2, P,
                                     lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+        if p.shaped_gable:   # T-2543: the front carried up as a shaped gable, joined like a stack
+            from . import k01_shaped_gable
+            solids.append(k01_shaped_gable.element(self, k5, ye))
+            recesses += k01_shaped_gable.cutters(self, k5)
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
             if "k15" in c or "k15_head" in c:
@@ -1903,6 +1957,9 @@ class Assembly:
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
         if d:
             self.dormer_sash(seed)
+        if p.shaped_gable:
+            from . import k01_shaped_gable
+            k01_shaped_gable.dress(self, seed)
         for g in self.round_dormers:
             self.round_dormer_sash(g, conf)
         if k:
@@ -1951,14 +2008,23 @@ class Assembly:
         zf = D - tw / 2
         deck = k5.extrude([(0.0, deck_bottom), (zf, deck_bottom), (zf, er + zf * t), (0.0, er)], -W + tw / 2, -tw / 2, P,
                           lambda i, p_, q_: ("soffit", "hidden", "covering", "fascia")[i], "hidden", "hidden")
+        # T-2564: where the stone finish lays the north return in dressed courses, the brick
+        # parapet stops at the return's back rather than running across its face, and the
+        # wall head it stood on is the return's (the stone core caps it, so it is no roof face)
+        north_end = D - finish["lattice"]["return_m"] if finish and finish.get("return_ashlar") else D
         solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)] if not finish else [deck,
             k5.body_box(0, D, -tw, 0, deck_bottom-.2, E),
-            k5.body_box(0, D, -W, -W+tw, deck_bottom-.2, E),
+            k5.body_box(0, north_end, -W, -W+tw, deck_bottom-.2, E),
             k5.body_box(0, tw, -W, 0, deck_bottom-.2, E),
             k5.body_box(D-tw, D, -W, 0, deck_bottom-.2, E)]
+        if north_end < D:
+            solids.append(k5.extrude([(north_end, deck_bottom-.2), (D, deck_bottom-.2), (D, E), (north_end, E)],
+                                     -W, -W+tw+.05, k5.frame("z"), lambda i, p_, q_: "base" if i == 0 else "wall",
+                                     "wall", "wall"))   # 5 cm wider than the wall: the north stack
+                                                        # joins it as it joined the coping's drip
         cp, dr = fl["coping_m"], fl["drip_m"]
-        for ends in ((-tw, 0.0), (-W, -W + tw)):      # the south and north parapets, on the side walls
-            solids += k5.parapet_element({}, [(0.0, top), (D, top)], ends, "z", tw, E, cp, dr, 0.0, 0.0)
+        for ends, end in (((-tw, 0.0), D), ((-W, -W + tw), north_end)):   # the south and north parapets
+            solids += k5.parapet_element({}, [(0.0, top), (end, top)], ends, "z", tw, E, cp, dr, 0.0, 0.0)
         # the blocking course over the street front
         solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
         if finish:
@@ -1987,6 +2053,9 @@ class Assembly:
         self.roof_graph = k5.graph(pts, tris, kit)
         self.dressed = {"ridge": 0, "hip": 0, "valley": 0}   # a deck has no line for K04 to cap
         self.front_parapet_u = D - tw - 1e-6          # _emit_shell: the blocking course is the front's
+        # T-2577: under a stone finish the street cornice box is the front's dressed stone, as
+        # every picture of the front shows it under the lattice, not the eave's painted timber
+        self.stone_cornice_u = D - 1e-6 if finish else math.inf
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)
         return yf
 
@@ -2037,6 +2106,9 @@ class Assembly:
             elif role == "parapet" and self.p.stone and min(q[0] for q in (pts[a], pts[b], pts[c])) \
                     >= getattr(self, "front_parapet_u", math.inf):
                 mat = "rough_stone_trim"                  # T-2350: the blocking course, in the front's stone
+            elif role in ("soffit", "fascia") and min(q[0] for q in (pts[a], pts[b], pts[c])) \
+                    >= getattr(self, "stone_cornice_u", math.inf):
+                mat = "dress_stone"                       # T-2577: the cornice box, in the front's stone
             elif role not in self.SHELL:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:

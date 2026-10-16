@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
+  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
   "camera_sha256": "aa73292751ab8c79534ce99cd81e0979f29aba52b020ab6481b8be3c4e3eac14",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
   "verdict": "differs",
@@ -16,11 +16,31 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections, pinnacle caps and stair-head scrolls are schematic rather than the photographed profiles.",
+      "what": "T-2565: one carved capital spans each pair of columns; the balcony has a level coping between square dies, the flight-side die carrying the stepped stone finial; a deep three-step cornice carries it; and both stair cheeks end in a rolled foot, as this plate shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2565: the bow's second-storey lights run up to just under its moulded cap (2.5 m on a 0.75 m sill), as the plate draws them; they were 2.2 m and stopped well short of it.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2585: read at the plate's native 1559 px, each paired capital is a square-edged block with no volutes and no egg row: its face carries a running zigzag of six strokes between plain end blocks under a thin abacus (T-2565 had read the zigzag's dark triangles as an egg row and the plain end blocks as volutes). The balcony's panel carries one continuous running scroll of foliage over a plain base strip, and its die a plain sunk panel in a raised border. The scroll's leaves and each curl's turns are below the plate's grain.",
+      "status": "fixed"
+    },
+    {
+      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
       "status": "open"
     },
     {
-      "what": "Granite courses and rock-face variation remain too regular; the checker stones and upper capital/head-band profiles need further photographic refinement.",
+      "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2584: the bow is laid as the front is below the third floor, a deep rock-faced course and a thin one in turn (about 0.49 m and 0.2 m) from the plinth to its moulded cap, as this picture shows it on the bow's piers and south flank; it ran even 0.38 m courses.",
+      "status": "fixed"
+    },
+    {
+      "what": "The individual joints (the bow's beds are the rhythm's, not struck on the front's), the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
       "status": "open"
     },
     {
@@ -34,6 +54,14 @@
     {
       "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

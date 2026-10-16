@@ -55,8 +55,10 @@ import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
+import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
-import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
+import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
+  closeUploadedImages } from './upload-release.js';
 import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
@@ -65,6 +67,7 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
+import { initKTX2, ktx2State } from './ktx2.js';
 import { createStreetTrees } from './street-trees.js';
 import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
 import { createContext } from './context.js';
@@ -84,7 +87,9 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
-import { resolveSharpness, sharpnessGuess } from './sharpness.js';
+import { resolveSharpness } from './sharpness.js';
+import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
 
@@ -1446,11 +1451,15 @@ try { bootStorage = window.localStorage; } catch { /* private mode */ }
 // T-2547: if the last session died loading (a phone out of memory), this one boots a
 // detail tier lower and at Sharpness Low, and says so. Resolved here, before the
 // forecast and the GLB fetch, so nothing is downloaded for the tier that died.
+// T-2559: the guess it steps down from is the device profile a previous visit
+// cached (boot() re-reads it); a first visit guesses the platform default.
 const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
 api.crashGuard = crashGuard.state;
+const bootProfile = cachedDeviceProfile(bootStorage, null);
+const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
 const crashBoot = crashGuard.boot({
-  detail: readDetailPreference() || (prefersTouch() ? 'light' : 'full'),
-  quality: resolveSharpness(readQualityPreference(), prefersTouch()),
+  detail: readDetailPreference() || bootGuess?.detail || (prefersTouch() ? 'light' : 'full'),
+  quality: resolveSharpness(readQualityPreference(), prefersTouch(), bootGuess?.sharpness),
 });
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
@@ -1512,13 +1521,26 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  // T-2559: read what the device offers and choose per device — see
+  // device-profile.js. Before the scene is fetched, so a weak machine's tier
+  // decides what is downloaded; a repeat visit reads its cached profile and pays
+  // no benchmark. The touch screen still picks the controls and `lowSpec`; the
+  // profile picks only the defaults below, and a stored choice beats both.
+  const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
+    search: location.search });
+  api.device = device;
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
-  // T-2547: the stored choice or the device guess, unless the crash guard stepped it down.
-  let detailLevel = crashBoot.detail;
-  // Image sharpness for a visitor who never chose one: Low on a phone, Medium
-  // on a desktop (T-2110 — see sharpness.js).
-  const qualityGuess = sharpnessGuess(coarse);
+  // T-2547's step-down outranks everything; then the stored choice; then the
+  // device profile (T-2559).
+  let detailLevel = crashBoot.lowered.detail ? crashBoot.detail : (readDetailPreference() || device.choice.detail);
+  api.bootDetail = detailLevel;
+  // Image sharpness for a visitor who never chose one: the profile's choice —
+  // on a standard device the T-2110 default, Low on a phone and Medium on a
+  // desktop (see sharpness.js).
+  const qualityGuess = device.choice.sharpness;
+  const bootQuality = crashBoot.lowered.quality ? crashBoot.quality
+    : resolveSharpness(readQualityPreference(), coarse, qualityGuess);
   const detailOpts = () => ({ detail: detailLevel });
 
   /**
@@ -1586,10 +1608,40 @@ async function boot() {
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, crashBoot.quality));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, bootQuality));
+  /**
+   * T-2555, THE FRAME GOVERNOR (frame-governor.js). The visitor's Sharpness is
+   * the CEILING: `sharpnessCap` is the ratio they chose, and the ratio drawn is
+   * that times the governor's scale, which is 1 at rest and under Fixed. Every
+   * place that used to set the pixel ratio sets the cap through
+   * `applySharpness`, and the ratio itself is only ever written when it changes
+   * — `setPixelRatio` resizes the drawing buffer even to the same size.
+   */
+  let sharpnessCap = renderer.getPixelRatio();
+  const governorLine = document.getElementById('governor-line');
+  const governor = createFrameGovernor({ tier: detailLevel, onChange: (state) => {
+    if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
+  } });
+  function applySharpness(value) {
+    if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
+    const ratio = sharpnessCap * governor.scale;
+    if (Math.abs(ratio - renderer.getPixelRatio()) > 1e-9) renderer.setPixelRatio(ratio);
+  }
+  // T-2572: a tap on the plank walks, fences and yard goods is answered by a
+  // one-pixel id pass on this renderer, so a phone need not keep their triangles.
+  setPickRenderer(renderer);
+  // T-2582: GPU-compressed library sheets. One KTX2 loader, detected once against
+  // this renderer before any layer loads (ktx2.js); the `light` texture tier drops
+  // each sheet's top mip. `?ktx2=0` keeps every sheet on its image path.
+  initKTX2(renderer, { textures: device.choice?.textures, disabled: params.get('ktx2') === '0' });
+  api.ktx2 = ktx2State;
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
-  crashGuard.watchContext(renderer.domElement, { needsReload: () => uploadReleaseState().attributes > 0 });
+  // T-2548: a closed building image is gone from the page as a released array is.
+  crashGuard.watchContext(renderer.domElement, { needsReload: () => {
+    const released = uploadReleaseState();
+    return released.attributes > 0 || released.images > 0;
+  } });
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -1601,6 +1653,8 @@ async function boot() {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
     detail: detailLevel,
+    // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
+    keepAssetBytes: !coarse,
   });
   const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
   const detailLevels = inspectionLod ? { ...DETAIL,
@@ -1738,6 +1792,12 @@ async function boot() {
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
   settleOnGpu(buildings.group);
+  // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
+  // of the source geometry and the decoded images (upload-release.js).
+  if (coarse) {
+    releaseSources(loaded.registry);
+    closeUploadedImages(buildings.group, renderer);
+  }
   bootController.end('buildings');
   bootController.start('ground');
   await yieldToPaint();
@@ -2428,6 +2488,26 @@ async function boot() {
     next.flora?.dispose?.();
     next.trees?.dispose?.();
     if (next.asset) disposeLoadedAsset(next.asset.gltf);
+    for (const gltf of next.reread ?? []) disposeLoadedAsset(gltf);
+  };
+  /**
+   * T-2548: a phone let go of every building's source geometry once its batch
+   * held a copy, so a rebuild re-reads the GLBs of the rows it released — the
+   * HTTP cache answers — into the candidate registry. The gltfs those rows held
+   * are retired at commit (`next.retired`), the ones read here at discard.
+   */
+  const rereadReleased = async (next, skipId) => {
+    next.reread = [];
+    next.retired = [];
+    const rows = [...next.registry.values()].filter((row) => row.sourceReleased && row.id !== skipId);
+    const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
+    got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
+    const failed = got.find((r) => r.status === 'rejected');
+    if (failed) throw failed.reason;
+    rows.forEach((row, i) => {
+      next.retired.push(row.gltf);
+      Object.assign(row, got[i].value, { node: null, instanceId: null, sourceReleased: false });
+    });
   };
   const inspectionSwitch = inspectionLod ? createLatestDetailSwitch({
     initial: detailLevel,
@@ -2439,7 +2519,9 @@ async function boot() {
           next.asset = await loaded.loadDetailAsset(record, level);
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
-          Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          Object.assign(next.registry.get(record.id), next.asset,
+            { node: null, instanceId: null, sourceReleased: false });
+          await rereadReleased(next, record.id);
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
@@ -2499,6 +2581,12 @@ async function boot() {
         api.roll = buildings.roll;
         previous.dispose();
         disposeLoadedAsset(oldAsset);
+        for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
+        if (coarse) {
+          settleOnGpu(buildings.group);
+          releaseSources(loaded.registry);
+          closeUploadedImages(buildings.group, renderer);
+        }
       }
       if (next.contextCity) {
         const previous = contextCity;
@@ -2833,6 +2921,7 @@ async function boot() {
     resolvedDetail: detailLevel,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
     lowered: crashBoot.lowered,
+    device,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -2867,7 +2956,10 @@ async function boot() {
         world.setBrightness(value);
       } else if (key === 'quality') {
         crashGuard.chosen('quality');
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, value));
+        applySharpness(value);
+      } else if (key === 'governor') {
+        governor.setEnabled(value !== 'fixed');
+        applySharpness();
       } else if (key === 'detail') {
         crashGuard.chosen('detail');
         applyDetail(value);
@@ -3120,8 +3212,8 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1,
-    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse)));
+  applySharpness(crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess));
+  governor.setEnabled(hud.settings.governor !== 'fixed');
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -3851,8 +3943,37 @@ async function boot() {
     const pause = bootCheckpoint(); if (pause) await pause;
   }
   await yieldToPaint();
-  renderer.setAnimationLoop(() => {
-    try { tick(); } catch (err) {
+  // T-2555. Whether the camera moved in the frame just drawn — position or
+  // facing, so a turn in place is moving too. The governor reads only this and
+  // the interval between drawn frames.
+  const lastPose = { position: new THREE.Vector3(), quaternion: new THREE.Quaternion(), seen: false };
+  function cameraMoved() {
+    const moved = !lastPose.seen
+      || camera.position.distanceToSquared(lastPose.position) > 1e-8
+      || 1 - Math.abs(camera.quaternion.dot(lastPose.quaternion)) > 1e-10;
+    lastPose.position.copy(camera.position);
+    lastPose.quaternion.copy(camera.quaternion);
+    lastPose.seen = true;
+    return moved;
+  }
+  /** The governor's decision for the frame about to be drawn, put in force. */
+  function applyGovernor() {
+    applySharpness();
+    const shadow = renderer.shadowMap;
+    shadow.autoUpdate = governor.shadowFresh;
+    if (!governor.shadowFresh) shadow.needsUpdate = false;
+  }
+  renderer.setAnimationLoop((t) => {
+    try {
+      governor.setTier(detailLevel);
+      // A capture, the welcome and a held clock are still frames by definition,
+      // and are drawn exactly as they were before the governor existed.
+      if (pendingCapture || gateOpen || animationHold) governor.rest();
+      else if (!governor.shouldDraw(t)) return;
+      applyGovernor();
+      tick();
+      governor.frameDrawn(t, cameraMoved());
+    } catch (err) {
       renderer.setAnimationLoop(null);
       if (bootController.readyAt === null) rejectFirstFrame(err);
       else throw err;
@@ -4029,7 +4150,13 @@ async function boot() {
       return state;
     },
     /** Force one frame — for tests that must not race the animation loop. */
-    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
+    step() { governor.rest(); applyGovernor(); tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
+    /** T-2555: Adaptive (true) or Fixed (false), as Settings' Frame pacing sets
+     *  it; the live reading is `governor` below. */
+    setGovernor(on) { const v = governor.setEnabled(on); applyGovernor(); return v; },
+    /** T-2555, HARNESS ONLY: force the governor's scale and pace, as a slow
+     *  moving window would, so a GPU-less runner can ask what a rest does. */
+    forceGovernor(state) { return governor.force(state); },
     /** T-2106. Let `step()` spread the flora rebuild as the animation loop
      *  does — for `tools/measure_walk_frames.mjs`, which times that loop. */
     setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },
@@ -4065,6 +4192,11 @@ async function boot() {
     farWalkTops: { get: () => frontage.farWalkTops ?? null, enumerable: true },
     /** The level the visitor is actually on, now rather than at boot (T-0115). */
     detail: { get: () => detailLevel, enumerable: true },
+    /** T-2555: what the frame governor is doing now — its mode, the scale of the
+     *  Sharpness ceiling and the pixel ratio drawn, the paced rate, the shadow's
+     *  cadence and whether the camera is moving. */
+    governor: { get: () => ({ ...governor.state, ceiling: sharpnessCap, ratio: renderer.getPixelRatio() }),
+      enumerable: true },
     /** The ride in progress — phase, destination, distance left — live. */
     travelState: { get: () => travel?.state ?? { phase: 'idle' }, enumerable: true },
     /**
@@ -4160,6 +4292,8 @@ async function boot() {
     exposure: { get: () => renderer.toneMappingExposure, enumerable: true },
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
     uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
+    /** T-2548: GLBs banked for a detail switch — none on a phone. */
+    bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.

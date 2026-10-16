@@ -261,6 +261,7 @@ const COVERAGE = [
   // --- PART 2: the trading frontages, the river's edge and what floats on it
   ['renderers/web/js/frontage.js', [2], 'the frontage layer (T-0082, T-0090)'],
   ['renderers/web/js/yard.js', [2], 'the yard goods at the trading frontages (T-0040)'],
+  ['renderers/web/js/compact-streams.js', [1, 2], 'the compact vertex streams the fences (1), the walks and the yard goods (2) are laid in (T-2569)'],
   ['renderers/web/js/wharves.js', [2], 'the river wharves (T-0041) and walking one (T-0058)'],
   ['renderers/web/js/working-bank.js', [2], 'the worked river bank and its landing aprons (T-1771)'],
   ['renderers/web/js/boats.js', [2], 'the boats on the river (T-0063)'],
@@ -279,6 +280,9 @@ const COVERAGE = [
   // T-2089. The grass grain the prairie's fine relief is read from: the same
   // ground, so the same part.
   ['renderers/web/js/grass-grain.js', [3], 'the grass grain the prairie\'s relief is lit from'],
+  // T-2552. The prairie's world-scale variation map, imported only by terrain.js:
+  // the same ground, so the same part.
+  ['renderers/web/js/prairie-macro.js', [3], 'the variation map the prairie\'s stands are drawn from'],
   ['renderers/web/js/turf-tile.js', [3, 10, 11, 12], 'the town turf: painted by the ground, thinned in the sward'],
   // T-1797. The ground-strip proof: imported only under `?proof=ground`, which
   // no part loads, so the boot chain never reaches it. Part 1 boots the scene

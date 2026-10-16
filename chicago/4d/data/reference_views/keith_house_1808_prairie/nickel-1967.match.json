@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "nickel-1967",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
+  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
   "camera_sha256": "4cde10e103c3052890d4f2945bb1b9bd504261479d28aa56d46004171c482fff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/nickel-1967-side-by-side.jpg",
   "verdict": "differs",
@@ -16,24 +16,36 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections, pinnacle caps and stair-head scrolls are schematic rather than the photographed profiles.",
-      "status": "open"
+      "what": "T-2565's loggia, compared at this view's scale (T-2577): the balcony's level top just under the bow's second-storey sills, the paired columns at each end and the pierced balustrade below agree with the photograph; the carving is below its resolution.",
+      "status": "fixed"
     },
     {
-      "what": "Granite courses and rock-face variation remain too regular; the checker stones and upper capital/head-band profiles need further photographic refinement.",
-      "status": "open"
+      "what": "T-2566's course rhythm, checker relief and head-band profiles are below this photograph's resolution of Keith; they are compared in the 1888 front and the 1965 close view.",
+      "status": "not shown"
     },
     {
       "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
       "status": "not shown"
     },
     {
-      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph\u2019s date and are not automatically backdated to 1904.",
+      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph’s date and are not automatically backdated to 1904.",
       "status": "not shown"
     },
     {
       "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "Found in T-2577's re-review: the checker band under the cornice reads here as a narrower band of finer, diagonal (lozenge) units than the build's staggered rock blocks, about two-thirds of the build's band height; T-2580 reads it against the 1888 plate.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1,0 +1,97 @@
+{
+  "ticket": "T-2546",
+  "what": "A ceiling on the RESIDENT ESTIMATE of each year x release viewport: JS heap + ArrayBuffer backing store + GPU buffers + GPU textures (renderbuffers included), read after the welcome is entered at spawn and two forced GCs. Gated by `node tools/measure_memory.mjs --gate`; .github/workflows/chicago-4d-frame-time.yml runs it beside the still-frame gate, one job per year x viewport.",
+  "unit": "bytes (MiB = 1048576). Not per machine: bytes are the page's, not the CPU's. GPU bytes are MEASURED by a WebGL allocation meter (bufferData / texImage2D / texStorage2D / renderbufferStorage, less deletes), so the total is a floor on what a phone pays, not a ceiling on it: a driver's own copies and alignment are not counted.",
+  "rule": "each reading plus 10 %, rounded up to 25 MiB. The first ceilings are today's figures: they hold the line while T-2547..T-2554 bring the figures down, and each of those lowers its ceiling to its own reading by the same rule in its own PR. A parcel that adds memory argues its new number here, with its reading, in the same commit.",
+  "self_test": "`node tools/measure_memory.mjs --self-test` boots /1835/ on the phone with ?keep-geometry=1 (every page array kept, as before T-2158) and must read OVER the 1835 mobile ceiling.",
+  "reading": "docs/measurements/T-2546-memory.json",
+  "measured": {
+    "on": "2026-10-16T06:02:28.913Z",
+    "build": "8bbb1c670",
+    "machine": "AMD EPYC 7763 64-Core Processor ×4",
+    "seconds": 1191,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter",
+    "note": "five invocations on one build, one per year x viewport (1812 both in one); /1835/ mobile re-read after the never-uploaded column was added (total identical, 795.7 MB, both reads)"
+  },
+  "ceilings": {
+    "1812": {
+      "desktop": {
+        "total_bytes": 734003200,
+        "reading_bytes": 657224329,
+        "tier": "full",
+        "reading_mb": {
+          "total": 626.8,
+          "js_heap": 24.4,
+          "arraybuffers": 246.6,
+          "gpu_buffers": 156.7,
+          "gpu_textures": 199.1
+        }
+      },
+      "mobile": {
+        "total_bytes": 288358400,
+        "reading_bytes": 257589262,
+        "tier": "light",
+        "reading_mb": {
+          "total": 245.7,
+          "js_heap": 24.2,
+          "arraybuffers": 95.1,
+          "gpu_buffers": 55.2,
+          "gpu_textures": 71.1
+        }
+      }
+    },
+    "1835": {
+      "desktop": {
+        "total_bytes": 1835008000,
+        "reading_bytes": 1654252328,
+        "tier": "full",
+        "reading_mb": {
+          "total": 1577.6,
+          "js_heap": 110.9,
+          "arraybuffers": 706.7,
+          "gpu_buffers": 417.3,
+          "gpu_textures": 342.8
+        }
+      },
+      "mobile": {
+        "total_bytes": 734003200,
+        "reading_bytes": 660620391,
+        "tier": "light",
+        "reading_mb": {
+          "total": 630.0,
+          "js_heap": 105.5,
+          "arraybuffers": 223.0,
+          "gpu_buffers": 180.5,
+          "gpu_textures": 120.9
+        },
+        "lowered": "T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+      }
+    },
+    "1904": {
+      "desktop": {
+        "total_bytes": 2280652800,
+        "reading_bytes": 2060592956,
+        "tier": "full",
+        "reading_mb": {
+          "total": 1965.1,
+          "js_heap": 124.9,
+          "arraybuffers": 912.1,
+          "gpu_buffers": 346.4,
+          "gpu_textures": 581.8
+        }
+      },
+      "mobile": {
+        "total_bytes": 1520435200,
+        "reading_bytes": 1362629762,
+        "tier": "light",
+        "reading_mb": {
+          "total": 1299.5,
+          "js_heap": 215.3,
+          "arraybuffers": 415,
+          "gpu_buffers": 213.1,
+          "gpu_textures": 456
+        }
+      }
+    }
+  }
+}

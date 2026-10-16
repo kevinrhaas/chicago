@@ -99,6 +99,10 @@
 import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { loadTimberRelief } from './frontage.js';
+import { layerPick } from './gpu-pick.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals, compactColors, compactUnitUvs } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -3461,11 +3465,13 @@ export async function createYardGoods({
   for (const chunk of [...built, ...woodBuilt]) {
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
-    geo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
+    // Normals, tones and the atlas cell in compact normalized formats (T-2569,
+    // compact-streams.js); the grain's `uv1` is metres and stays float32.
+    geo.setAttribute('normal', compactNormals(chunk.buf.nrm));
     geo.setAttribute('_confidence',
       new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
-    geo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
-    if (atlas) geo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
+    geo.setAttribute('color', compactColors(chunk.buf.col));
+    if (atlas) geo.setAttribute('uv', compactUnitUvs(chunk.buf.uv));
     if (!grain.problem) {
       geo.setAttribute('uv1', new THREE.Float32BufferAttribute(chunk.buf.uv1, 2));
     }
@@ -3496,26 +3502,25 @@ export async function createYardGoods({
   out.census.chunks = meshes.length - out.census.woodChunks;
   group.userData.census = out.census;
 
-  const raycaster = new THREE.Raycaster();
-  /** The business these goods stand at, or null. Same ray budget as the boards. */
-  out.pickAt = (ndc, camera) => {
-    if (!camera) return null;
-    raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-    raycaster.far = Math.max(400, camera.position.y * 4);
-    // A raycast does not skip what is hidden, so the woodpiles' group, which the
-    // `light` tier hides (main.js, T-1959), is left out of it while it is hidden.
-    const hits = raycaster.intersectObjects(
-      meshes.filter((m) => !m.parent?.userData.woodpiles || m.parent.visible), false);
-    if (!hits.length) return null;
-    const hit = hits[0];
-    // The span table is the CHUNK's, so a hit resolves against the objects that
-    // chunk actually holds and a face index cannot be read against another
-    // block's table.
-    const spans = hit.object?.userData?.spans ?? [];
-    const span = spans.find((sp) => hit.faceIndex >= sp.from && hit.faceIndex < sp.to);
-    if (!span) return null;
-    return { id: span.id, point: hit.point.clone(), distance: hit.distance };
-  };
+  /**
+   * The business these goods stand at, or null. Same ray budget as the boards,
+   * and drawn rather than raycast (gpu-pick.js, T-2572). The woodpiles' group,
+   * which the `light` tier hides (main.js, T-1959), is left out while it is
+   * hidden: a pick draws exactly the list it is handed, as the raycast tested it.
+   */
+  const pick = layerPick(
+    () => meshes.filter((m) => !m.parent?.userData.woodpiles || m.parent.visible),
+    (hit) => {
+      // The span table is the CHUNK's, so a hit resolves against the objects that
+      // chunk actually holds and a face index cannot be read against another
+      // block's table.
+      const spans = hit.object?.userData?.spans ?? [];
+      const span = spans.find((sp) => hit.face >= sp.from && hit.face < sp.to);
+      if (!span) return null;
+      return { id: span.id, point: hit.point, distance: hit.distance };
+    });
+  out.pickAt = pick.pickAt;
+  out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {
     for (const m of meshes) m.geometry.dispose();

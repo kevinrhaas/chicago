@@ -77,6 +77,10 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { gateBoxes } from './gates.js';
 import { packGrain } from './relief-pack.js';
+import { layerPick } from './gpu-pick.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals, compactColors } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -1881,9 +1885,10 @@ export async function createFrontage({
 
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
-  geo.setAttribute('normal', new THREE.BufferAttribute(buf.nrm.float32(), 3));
+  // Normals and tones in compact normalized formats (T-2569, compact-streams.js).
+  geo.setAttribute('normal', compactNormals(buf.nrm.view()));
   geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
-  geo.setAttribute('color', new THREE.BufferAttribute(buf.col.float32(), 3));
+  geo.setAttribute('color', compactColors(buf.col.view()));
   geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
   geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
   geo.computeBoundingSphere();
@@ -1980,9 +1985,9 @@ export async function createFrontage({
   for (const chunk of chunks) {
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
-    cgeo.setAttribute('normal', new THREE.BufferAttribute(chunk.buf.nrm.float32(), 3));
+    cgeo.setAttribute('normal', compactNormals(chunk.buf.nrm.view()));
     cgeo.setAttribute('_confidence', new THREE.BufferAttribute(chunk.buf.conf.float32(), 1));
-    cgeo.setAttribute('color', new THREE.BufferAttribute(chunk.buf.col.float32(), 3));
+    cgeo.setAttribute('color', compactColors(chunk.buf.col.view()));
     cgeo.setAttribute('uv', new THREE.BufferAttribute(chunk.buf.uv.float32(), 2));
     cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();
@@ -2046,31 +2051,29 @@ export async function createFrontage({
   out.updateFarWalks = farWalkTops.update;
   out.farWalkTops = farWalkTops.state;
 
-  const raycaster = new THREE.Raycaster();
   /**
    * What a pick on this layer answers: the id of the building (or, for a
    * record that is its own subject, the walk) the timber belongs to — plus,
    * when the layer holds its own card for that id, the registry-shaped record
    * main.js hands the popup when the registry has nothing under it (T-0119).
+   * The tap is drawn, not raycast (gpu-pick.js, T-2572): the face it names is
+   * the face the raycast named, so the spans below read it unchanged.
    */
-  out.pickAt = (ndc, camera) => {
-    if (!camera) return null;
-    raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-    raycaster.far = Math.max(400, camera.position.y * 4);
-    const hits = raycaster.intersectObjects([mesh, ...chunkMeshes], false);
-    if (!hits.length) return null;
-    const hit = hits[0];
+  // A cross street's walk the tier hides is not drawn, so it is not tapped (T-0192).
+  const pick = layerPick(() => [mesh, ...chunkMeshes.filter((c) => c.visible || !c.userData.crossStreet)], (hit) => {
     let id = hit.object.userData.pickId ?? null;
     if (!id) {
-      const span = spans.find((sp) => hit.faceIndex >= sp.from && hit.faceIndex < sp.to);
+      const span = spans.find((sp) => hit.face >= sp.from && hit.face < sp.to);
       if (!span) return null;
       id = span.id;
     }
     return {
-      id, point: hit.point.clone(), distance: hit.distance,
+      id, point: hit.point, distance: hit.distance,
       record: cards.get(id) ?? null,
     };
-  };
+  });
+  out.pickAt = pick.pickAt;
+  out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {
     geo.dispose();

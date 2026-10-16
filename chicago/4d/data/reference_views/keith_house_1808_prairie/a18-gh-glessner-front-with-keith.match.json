@@ -2,30 +2,54 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-glessner-front-with-keith",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
-  "camera_sha256": "9b6c4df136d0b7499f3564a8f62cd6bd6abab70752fa83711bc1302cdbe23e97",
+  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
+  "camera_sha256": "c4c1ae3424cd45e764b4e828f6f74c8651c959276baa8cd786642f482c9124cb",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-glessner-front-with-keith-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "The visible short north stone return is too smooth: the photograph shows large horizontal ashlar courses, which the current return material does not reproduce.",
-      "status": "open"
+      "what": "T-2564: the north return is laid in large dressed courses (about 0.46 m) with staggered joints, 5.5 m long as the course counts in the 1887-89 and 1948 views give it, where it was a smooth 2.8 m slab.",
+      "status": "fixed"
     },
     {
-      "what": "Pinnacle caps and the curved top of the north return remain simplified; the photographic profiles are not yet matched.",
-      "status": "open"
+      "what": "T-2564: the pinnacle caps are ogival with a moulded collar and ball finial, the rear one seated on the coping, and the rounded coping sweeps up into the corner pinnacle on the return and at both front corners.",
+      "status": "fixed"
     },
     {
       "what": "Most of Keith is occluded by Glessner or outside this frame. Its bow, stair, lower ornament and rear cannot be accepted from this view. The isolated render does not include the occluding neighbour.",
       "status": "not shown"
     },
     {
-      "what": "The independent camera calibration retains visible corner/height residuals; see the solve. Relative height and return depth need a stronger fit before this view can pass.",
-      "status": "open"
+      "what": "T-2579: the camera is re-fitted to Keith's own slice (both pinnacle apexes and three lattice-opening jambs): RMS 0.9 px. With it, what remains is the building and its placement, below.",
+      "status": "fixed"
     },
     {
       "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2578 ruling: the stone parapet stops at the rear pinnacle. Every picture that sees that corner (1887, Taylor 2135, the 1888 Glessner plate, the c. 1888 view looking SW, the Glessner front, 1948) shows sky straight behind it, or in 1948 a darker wall about a course lower; the model drops it there.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2578, re-read at T-2579's camera (0.9 px): the ventilator's cap and the hall stack's top stand clear over the return's coping in the render, where the print shows clean sky over it; with the camera's residual ruled out, either they stand too tall or too far forward for this picture, or the picture (undated here) postdates the ventilator.",
+      "status": "open"
+    },
+    {
+      "what": "T-2579: the north-east corner pier is wider than the model's: with the lattice jambs and the pinnacles in register, the photograph's arris (front meets return) stands 23 px, about 0.3 m, further north than the model's, the pinnacle standing on the middle of the pier rather than at its arris.",
+      "status": "open"
+    },
+    {
+      "what": "T-2579: the lattice openings sit lower, under a deeper coping that sweeps up into the pinnacle (photograph's rows at y 101-113 and 133-146 under a coping near y 70; the render's at 65-82 and 93-110 under one near y 52), and the carved boss at the pier's foot (y 155-180) is missing; the Florian record has the band below.",
+      "status": "open"
+    },
+    {
+      "what": "T-2579: Keith's slice and Glessner's front do not fit one level camera as the two models are placed: the Keith-only fit puts Glessner's north-east corner 54 px aside and 71 px low (its Taylor-fit corners, translated), and no level camera holds both buildings within 20 px (best joint RMS 22 px). So Keith's height or set-back relative to Glessner differs from the placement, which is the relative-height question this view was kept for.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

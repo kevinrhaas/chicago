@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
+  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
   "verdict": "differs",
@@ -16,11 +16,11 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections, pinnacle caps and stair-head scrolls are schematic rather than the photographed profiles.",
-      "status": "open"
+      "what": "T-2565's loggia, compared at this view's scale (T-2577): the level balcony with its corner pedestal, the column pair at each end and the pierced balustrade under them stand where the photograph has them, the balcony's top just under the bow's second-storey sills; the carving is below this photograph's resolution.",
+      "status": "fixed"
     },
     {
-      "what": "Granite courses and rock-face variation remain too regular; the checker stones and upper capital/head-band profiles need further photographic refinement.",
+      "what": "T-2566's granite at this view's scale (T-2577): the front's courses and head bands agree; the checker band's units are below this photograph's resolution (nickel-1967 reads them finer than the build's); and the bow's lower storey reads in alternately deep and thin courses where the build runs even ones (T-2580).",
       "status": "open"
     },
     {
@@ -28,12 +28,24 @@
       "status": "not shown"
     },
     {
-      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph\u2019s date and are not automatically backdated to 1904.",
+      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph’s date and are not automatically backdated to 1904.",
       "status": "not shown"
     },
     {
       "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "The south face's front strip, from the corner back about a third of the visible face and the full height, reads as smooth light dressed stone; the build lays toothed rock-faced quoins on brick there. Found in T-2577's re-review; filed as its own ticket. The camera fit has not been re-solved, so how far back the stone runs is not yet measured.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

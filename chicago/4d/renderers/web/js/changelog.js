@@ -1,4 +1,110 @@
 export const CHANGELOG = [ // newest first
+  { v: 1865, ts: '2026-10-16T12:45:45.685Z', date: 'Oct 16, 2026, 7:45 AM CT', title: 'Keith\'s loggia carving read again from the 1888 photograph', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the capitals over the paired entrance columns are now what the 1888 plate shows: square stone blocks carved with a running zigzag. The volutes and egg row drawn earlier are gone; a close look at the photograph shows neither.',
+      'The balcony\'s front panel now carries one continuous carved scroll of foliage over a plain base strip, and its corner piers have plain sunk panels.',
+    ] },
+  { v: 1864, ts: '2026-10-16T12:45:45.685Z', date: 'Oct 16, 2026, 7:45 AM CT', title: 'Phones keep less of the town twice when you tap', kind: 'improve',
+    items: [
+      'Nothing you can see changed. A tap on a plank walk, a fence or the goods at a door is now answered by the graphics chip, which draws the spot under your finger once and reads back what is there.',
+      'So a phone no longer keeps a second copy of those boards and pales in page memory once they are drawn: about 16 MB less on arrival in 1835, and more as you walk.',
+      'A tap no longer opens the card of a walk or fence too far away to be drawn.',
+    ] },
+  { v: 1863, ts: '2026-10-16T11:58:24.797Z', date: 'Oct 16, 2026, 6:58 AM CT', title: 'Keith\'s bow laid in deep and thin courses, as photographed', kind: 'improvement',
+    items: [
+      '1808 Prairie\'s round south bay now alternates a deep rock-faced course with a thin one, as the street front does. The 1888 photographs show this on the bay\'s piers.',
+      'It ran even courses before. Where each joint falls is still a liberty, because the pictures don\'t resolve the bay\'s beds against the front\'s.',
+    ] },
+  { v: 1862, ts: '2026-10-16T11:35:13.811Z', date: 'Oct 16, 2026, 6:35 AM CT', title: 'Roofs and 1904 streets load as GPU-compressed textures', kind: 'improvement',
+    items: [
+      'The roof relief maps and every 1904 street, curb, walk and parkway surface now ship as KTX2, which the graphics card keeps compressed instead of unpacking to full size.',
+      'On a phone those sheets hold about a sixteenth of the memory they did: 21 MB to 1.3 MB in 1835, 49 MB to 3.1 MB in 1904. Phones load each sheet one step down in resolution.',
+      'A device whose graphics card cannot take compressed textures falls back to the images it loaded before.',
+    ] },
+  { v: 1861, ts: '2026-10-16T11:11:51.161Z', date: 'Oct 16, 2026, 6:11 AM CT', title: 'Keith\'s five old photographs now line up with the model', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The cameras behind five of 1808 Prairie\'s reference photographs (1888, 1941, 1948 and 1965) were re-fitted to the house itself, so each side-by-side now lines the model up with the picture to within a few pixels.',
+      'Lined up, the photographs show what still differs: a band of small diamond-pointed stones directly under the pierced parapet, a carved boss on the north corner, a wider corner pier, taller porch columns, and a stone strip on the south face. Those are the next building work.',
+    ] },
+  { v: 1860, ts: '2026-10-16T11:06:05.817Z', date: 'Oct 16, 2026, 6:06 AM CT', title: 'Buildings take less phone memory: positions stored at half precision', kind: 'change',
+    items: [
+      'Every building\'s corners are now stored as 16-bit numbers instead of 32-bit, scaled per building, so each vertex carries 20 bytes instead of 24. That frees about 5 MB of graphics memory on the 1835 phone view, and the town looks the same.',
+      'Wall and roof textures still line up exactly where they did, and tapping a building still opens its card.',
+    ] },
+  { v: 1859, ts: '2026-10-16T10:37:24.231Z', date: 'Oct 16, 2026, 5:37 AM CT', title: 'Keith house\'s rooftop cowl ventilator, as the 1887–89 photographs show it', kind: 'feature',
+    items: [
+      'A pale galvanized ventilator now stands on the deck behind Keith\'s north return: an inclined pipe rising to a bowl-and-disc cowl, matched against four period photographs.',
+      'The stone parapet stops at the rear pinnacle, as every picture that sees that corner shows.',
+    ] },
+  { v: 1858, ts: '2026-10-16T09:44:29.356Z', date: 'Oct 16, 2026, 4:44 AM CT', title: 'Keith\'s roofline crowned in stone, as the photographs show it', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the cornice under the pierced stone parapet is now granite like the rest of the front. The brown timber-coloured band that ran beneath the lattice is gone, so the crown reads as one stone mass from the top-floor windows to the sky, as it does in the 1888 plate and the later photographs.',
+    ] },
+  { v: 1857, ts: '2026-10-16T09:41:43.490Z', date: 'Oct 16, 2026, 4:41 AM CT', title: 'Buildings\' surface details packed four to a slot', kind: 'improve',
+    items: [
+      'Nothing you can see changed. Each building corner\'s sheen, evidence grade, wood grain and log tone now share one four-byte slot instead of taking four each, so the 1835 town\'s buildings hold 30.4 MB of corner data instead of 41.0 MB, 24 bytes a corner.',
+      'It is more of the memory phones were running out of. Storing the corners\' positions in smaller numbers comes next.',
+    ] },
+  { v: 1856, ts: '2026-10-16T09:06:51.286Z', date: 'Oct 16, 2026, 4:06 AM CT', title: 'A phone in 1835 holds about 50 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1835 town now holds about 50 MB less once it is drawn (796 MB to 746 MB), which is where phones were running out of memory.',
+      'The plank walks, fences and yard goods now store their shading directions, colours and painted marks in smaller number formats. That is 12 to 16 fewer bytes for every corner of every board, and the graphics card reads the new formats directly.',
+      'The same views draw the same frame as before on a phone and on a computer, with the evidence colours on or off. Tapping a walk, fence or yard still opens the same card.',
+    ] },
+  { v: 1855, ts: '2026-10-16T08:48:27.483Z', date: 'Oct 16, 2026, 3:48 AM CT', title: '1812 Prairie rises under its shaped Flemish gable, built from Levy\'s photograph', kind: 'feature',
+    items: [
+      'George H. Wheeler\'s 1884 house at 1812 Prairie Avenue is no longer a rough draft: it stands three storeys over a raised stone basement at the heights Albert Levy\'s photograph of its front shows.',
+      'Its front is carried up as the tall shaped gable the photograph shows, swelling from a pinnacle at each corner to a pointed head under a stone finial, edged in stone, with its attic window. The draft\'s stepped boxes are gone.',
+      'The south part of the front projects through two storeys with its large round-arched window and its paired window above. The arched entrance and its stair are on the north.',
+      'Still to come from the same photograph: the balcony, the third storey\'s arched windows, the brick upper walls over the stone, and the roof behind the gable.',
+    ] },
+  { v: 1854, ts: '2026-10-16T08:15:32.079Z', date: 'Oct 16, 2026, 3:15 AM CT', title: 'Keith\'s loggia carved as the 1888 photograph shows it', kind: 'improve',
+    items: [
+      'At 1808 Prairie, each pair of entrance columns now shares one carved Ionic capital, rolled into volutes. The balcony above sits level on a deep cornice, with a stepped stone finial on its stair-side corner.',
+      'Both stone stair cheeks now end at the street in a rolled scroll foot. The bow\'s second-floor windows are taller, reaching up under its moulded cap as they do in the 1888 plate.',
+    ] },
+  { v: 1853, ts: '2026-10-16T08:06:58.094Z', date: 'Oct 16, 2026, 3:06 AM CT', title: 'Buildings take about a third less phone memory', kind: 'improve',
+    items: [
+      'Nothing you can see changed. Each building\'s paint is now stored once per piece instead of once per corner, and its surface directions and texture positions in smaller numbers, so the 1835 town\'s buildings hold 48.6 MB on the graphics chip instead of 74.4 MB.',
+      'That memory is where phones were running out and closing the tab. Fences, plank walks and yards come next.',
+    ] },
+  { v: 1852, ts: '2026-10-16T07:20:19.811Z', date: 'Oct 16, 2026, 2:20 AM CT', title: '1808 Prairie\'s north parapet is laid in stone courses', kind: 'improvement',
+    items: [
+      'The Keith house\'s short north return over Glessner is now big dressed stone courses, as the 1887 to 1948 photographs show, instead of a smooth slab.',
+      'It runs about 5.5 m back, about twice its old length, with a pinnacle at each end.',
+      'The rounded coping sweeps up into the corner pinnacles, on the front and on the return.',
+      'The pinnacle caps are ogival with a collar and a ball finial, not plain spikes.',
+    ] },
+  { v: 1851, ts: '2026-10-16T06:57:35.071Z', date: 'Oct 16, 2026, 1:57 AM CT', title: 'A memory meter now watches what each year holds on a phone', kind: 'chore',
+    items: [
+      'Nothing you can see changed. Each year is now weighed for the memory it keeps once you are in the town: page memory, geometry and textures on the graphics chip, layer by layer.',
+      'Every year and screen size has a ceiling, checked every night, so a change that makes a phone more likely to run out of memory is caught before it ships.',
+      'This is the measuring half of the work on phones closing the tab; the changes that bring the figures down come next.',
+    ] },
+  { v: 1850, ts: '2026-10-16T06:36:22.691Z', date: 'Oct 16, 2026, 1:36 AM CT', title: 'Keith\'s granite front reads like the 1888 photograph', kind: 'improve',
+    items: [
+      '1808 Prairie\'s granite is now laid as the 1888 photograph shows: a deep rock-faced course and a thin one in turn up to the third floor, with finer, flatter courses above.',
+      'The rough checker band under the parapet is laid in staggered rows of lumps that stand out by different amounts, between stepped mouldings. The upper colonnettes have flared capitals.',
+    ] },
+  { v: 1849, ts: '2026-10-16T06:08:11.925Z', date: 'Oct 16, 2026, 1:08 AM CT', title: 'The town chooses its detail and sharpness for your device', kind: 'feature',
+    items: [
+      'At start-up the walkthrough now reads what your browser and graphics chip offer and runs a check of well under a second, then picks Scene detail and Image sharpness to suit: a capable computer is drawn at High sharpness, a modest one at Balanced detail, and a strong phone or tablet a little sharper than before.',
+      'Settings › Performance says what it chose — for example "Your device: standard computer, chosen Full detail at Medium sharpness" — and anything you pick there still overrides it.',
+      'A return visit remembers the result and skips the check. Only flora, shadows and sharpness change between devices; the reconstruction itself is the same everywhere.',
+    ] },
+  { v: 1848, ts: '2026-10-16T05:40:10.065Z', date: 'Oct 16, 2026, 12:40 AM CT', title: 'A phone on Prairie Avenue holds about 78 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1904 Prairie Avenue door now holds about 78 MB less in its page memory once the street is drawn. That memory is where phones were running out and closing the tab.',
+      'Every house\'s original model data is let go once the street has its own copy, and Glessner\'s whole downloaded model is no longer kept for a detail change. Changing detail on a phone fetches the houses again, normally from the browser\'s cache.',
+      'Each house\'s decoded pictures are also closed once the graphics card has them, rather than being held twice.',
+      'The same houses draw the same frame before and after a detail change. Tapping a house still opens its card. A computer keeps everything, so its detail changes stay instant.',
+    ] },
+  { v: 1847, ts: '2026-10-16T05:37:55.472Z', date: 'Oct 16, 2026, 12:37 AM CT', title: 'The prairie no longer looks like a plaid from the air', kind: 'improvement',
+    items: [
+      'Flying over 1835, the open prairie used to read as an even grid of light and dark squares. It now breaks into irregular stands of lush and thin grass, with yellower and fresher patches.',
+      'At 50–150 m up, the grass no longer lines up in rows toward the horizon.',
+      'Up close, at walking height, the grass looks as it did. The patchiness is a reconstruction, listed under Liberties.',
+    ] },
   { v: 1846, ts: '2026-10-16T05:02:51.854Z', date: 'Oct 16, 2026, 12:02 AM CT', title: 'A phone that ran out of memory comes back at lower detail', kind: 'fix',
     items: [
       'If the walk closed while loading last time, as a phone does when it runs out of memory, the next visit starts one Scene detail level lower at Sharpness Low, and a card says so. Settings can raise either again.',

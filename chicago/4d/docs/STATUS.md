@@ -3,23 +3,160 @@
 The north ridge now runs straight through the west crossing; its cross-gable and
 cupola move 3.8 ft north. The omitted northeast copper return follows the existing
 roof plane. The ca. 1887 Cornell northwest photograph supports moving the southern
-upper west slit 2 ft north; other seven centers remain. These changes are baked and
-directly reviewed at fixed cameras, with reconstructed-eave uncertainty recorded.
-All eight west windows remain clear beneath the roof.
+upper west slit 2 ft north; the other seven centers remain. All eight west windows
+remain clear beneath the roof.
 
-The same pass lowers the north cone connector, clears courtyard dormer glazing,
-and refines section eaves, finials, basement grille and coping. Full/Web contain
-1,364,944 triangles and Light 193,697, with no coincident faces and no budget raise.
-The approved flat north facade, staggered tower stone, finish and dark glass remain.
+The Prairie entrance is rebuilt from native HABS sheet 5 and the original Richardson
+office doorway drawing 23A: a recessed doorway within the outward-sloping lower wall,
+angular cutback sides, a shaped header, one broad inset step and a carved field set
+behind stepped mouldings. The modern wreath is excluded. The same pass lowers the
+north cone connector, clears courtyard dormer glazing, and refines section eaves,
+finials, basement grille and coping. Full/Web contain 1,369,074 triangles and Light
+194,245, with no coincident faces and no budget raise. The approved flat north
+facade, staggered tower stone, finish and dark glass remain.
 
-**Photographic acceptance remains open:** all eleven canonical comparisons differ.
-Terrace termination, west courtyard areaway, and elevation/material correspondence
-remain on T-2228. Fresh published desktop/mobile checks pass six stands each and
-all credited mobile image tiles load. Repository preflight, current-dev integration
-and exact-head CI are required before the correction PR merges; no merge is claimed here.
+**Photographic acceptance remains open:** all twelve canonical comparisons differ.
+Cupola body and roof-height calibration, terrace termination, west courtyard access,
+further opening/carving details and surface correspondence remain on T-2228, which
+stays open after this correction merges.
 
 [Evidence and outstanding differences](RESEARCH/glessner-final-comparison-T-2228/README.md).
 [Owner aerial and west-window review](RESEARCH/glessner-final-comparison-T-2228/owner-overhead/README.md).
+
+## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
+
+Piece 1 of T-2580 (which was split into this, T-2585 for the loggia's carving and T-2586 for
+closing the image gate). The south bow ran even 0.38 m rock-faced courses where the 1888 Inland
+Architect plate (read at its native 1559 px) and the Glessner House print of it show a deep course
+and a thin one in turn on its piers and south flank, the rhythm T-2566 already gave the street
+front. The K08 bay's `masonry` now takes an optional `coursing` (`rhythm: alternating`,
+`low_ratio`), refused outside [0.25, 1) or under a 0.15 m thin course; each storey between the
+bow's bands is laid in the fewest courses whose deep one is at most `course_m` (0.55 m), so the
+basement's 1.85 m and each 3.9 m storey come out 0.49 m deep and 0.195 m thin, the deep courses on
+the upper half of the rock-face relief and the thin on the lower, as the front's are. The bow's
+beds are the rhythm's, not struck on the front's (L-k08-keith-bow-coursing-2584). Only Keith's mesh
+changed (76,224 to 76,228 triangles, full and web); the other 19 K01 masters, which hash the K08
+and K01-params code, re-emit byte-identical. The `inland-1888` and `a18-gh-1808-keith-field-front`
+side-by-sides were re-rendered and their match records carry the bow's coursing as `fixed`; the
+other 14 views still name the previous GLB, so T-2586 re-renders them before it can close (the
+image gate refuses a match taken on another GLB).
+
+## T-2578 — Keith house's cowl ventilator, and the parapet behind the rear pinnacle ruled (2026-10-16)
+
+Piece 2 of T-2567. The deck behind Keith's north return now carries the cowl ventilator that
+four period pictures show over the return (the 1887 construction view, Taylor 2135, the 1888
+Inland Architect Glessner plate, the c. 1888 view looking south-west): a pale galvanized pipe
+inclined forward from just inside the rear pinnacle to an upright neck under a bowl and a broad
+disc. Its place along the return (about 0.5 to 0.6 of it in all four) and its height over the
+coping against the rear pinnacle's agree with the pictures in the re-rendered side-by-sides; the
+riser behind the parapet, its 0.6 m set-back and its colour are reconstructed
+(L-k01-keith-ventilator-2578). It is a new optional `stone_finish.ventilator` in the K01 kit, so
+the other 19 K01 masters re-emit byte-identical; the pale grey is a plain untextured slot
+(`vent_galvanized`), so the pipe adds no texture memory. Keith full and web: 76,224 triangles
+(+536), zero coincident faces.
+
+The corner behind the rear pinnacle is ruled: every picture that sees it (the five above save the
+plate's neighbours, plus the Glessner front and 1948) shows sky straight behind the pinnacle, or in
+1948 a darker wall about a course lower, so the stone parapet stops there as modelled. All 16
+match records re-rendered and stay `differs`. NEW, and left for T-2580: the hall stack stands over
+the coping beside the ventilator in five renders, where every one of those pictures shows sky — the
+cowl pipe plausibly terminates that flue, with the stack below the coping; and the c. 1888 view
+puts the cap higher over the coping than its render does, which T-2579's re-fitted cameras decide.
+
+## T-2572 — a tap on the walks, fences and yard goods is answered by the GPU (2026-10-16)
+
+Piece 1 of T-2550. `renderers/web/js/gpu-pick.js` draws the candidate chunks into one
+`RGBA32UI` pixel under the tap (slot, `gl_VertexID` of the provoking vertex, eye distance)
+and reads it back; the three layers are non-indexed, so the vertex names the face and the
+face spans they already keep resolve it as they resolved the raycast's `faceIndex`. So
+`RELEASE_KEEP` keeps nothing for `frontage`, `enclosures` and `yard`. On the desktop, which
+releases nothing, `check_upload_release.mjs` taps a fixed list of 12 faces per layer through
+both engines and holds them to the same id at the same distance (36 of 36 agree); on the
+phone each layer still answers a tap with its triangles gone. A chunk the reach holds back
+(`reachCulled`) is no longer tappable by either engine: the raycast opened its card unseen,
+and drawing it would upload what the walk never asked for.
+
+**The saving is 16.5 MB at spawn, not the 151 MB the ticket priced** (1835 phone, read
+after merging T-2569's compact formats and T-2574: dev 661.8 to this change 645.3 MB, same
+machine, same hour; GPU buffers unchanged at 185.4 MB; `docs/measurements/T-2572-memory.json`;
+ceiling 825 to 725 MiB). Most of those layers' page bytes are chunks the reach has never
+uploaded, which keep every array until walked to (frontage 52.8, enclosures 26.8, yard
+19.7 MB in the meter's never-uploaded column); the release only ever reached the drawn
+ones. That remainder is building-then-holding, which T-2560 (ship the town prebuilt) is
+placed to remove. The structures half, with weathering as a uniform, is T-2573.
+
+Re-read once T-2575's Int16x4 structures positions had landed on `dev` (merge `c2b6ad1c7`):
+the two savings add, 630.0 MB on the 1835 phone (arraybuffers 223.0, GPU buffers 180.5),
+so its ceiling is 725 to 700 MiB by the rule; `?keep-geometry=1` still reads over it at 776.2 MB.
+
+## T-2564 — Keith house's north return in stone courses (2026-10-16)
+
+T-1883's remaining photographic convergence was split into four pieces (T-2564 to
+T-2567); this is the first. The short north return over Glessner was a smooth 2.8 m
+slab with spike pinnacles. It is now a 5.5 m parapet and wall face of large dressed
+courses (about 0.46 m) under a rounded coping that sweeps up into the corner pinnacle,
+as the front coping now does at both corners; the caps are ogival with a collar and a
+finial, the rear one seated on the coping. The length comes from course counts in the
+c. 1889 Taylor and 1948 views and from the c. 1888 view's lattice; the street cameras
+still carry residuals, so it is bounded 4.5 to 7 m (L-k01-keith-return-2564). The
+brick side parapet now stops at the return's back instead of running across its face.
+Only Keith's mesh changed: every other K01 master re-emits byte-identical. Integrated with T-2566's granite surface (#862): Keith full and web 74,160 triangles, zero coincident faces.
+
+All 16 match records were re-rendered and stay `differs`. Still open: the carving
+(T-2565), the brownish cornice-box band under the lattice (still there after T-2566's surface pass),
+the camera re-fits (T-2567), a cowl ventilator on the deck in the 1887-89 pictures, and
+where the full-height stone stops behind the rear pinnacle, which no picture resolves.
+
+## T-2559 — a device profile chooses detail and sharpness per device (2026-10-16)
+
+`renderers/web/js/device-profile.js` runs once at boot, before the scene is fetched. It
+reads WebGPU (adapter info and limits), the WebGL2 renderer string, MAX_TEXTURE_SIZE, the
+compressed formats (ASTC / ETC2 / BC7 / S3TC), cores, `deviceMemory`, screen and dpr; runs a
+fill and a vertex pass under a hard 0.9 s deadline (timer query where exposed, else the wall
+clock across a pixel read); and classes the device weak / standard / strong. The class picks
+Scene detail and Image sharpness (desktop: balanced·Low / full·Medium / full·High; touch:
+light at every class, Medium sharpness when strong — a phone earns no geometry until T-2546
+prices it) and records a texture tier, worker count and WebGPU presence for T-2551/T-2553,
+T-2556 and T-2558, which do not read them yet. A stored choice still wins; Settings ›
+Performance says what was chosen. Cached per renderer string and build; a forced
+`?device=` (harness only) or crash-stepped profile is never cached.
+
+Measured on the runner's SwiftShader: the boot's own profile costs 34-172 ms (no benchmark —
+see below), a forced cold benchmark 104-152 ms, a warm (cached) read under 50 ms by the smoke's
+gate. **The thresholds are a first setting, not a calibration** — no reading from real phone or
+laptop silicon set them; `api.device.bench` keeps the raw rates so T-2546's field readings
+can move them. **A software rasteriser is not benchmarked and keeps the platform default** as
+`standard`: it measures the CPU, and it is the machine every frame and triangle ceiling here is
+gated on. Benchmarked, SwiftShader reads ~0.02 Mpx/ms and would class weak.
+
+## T-2552 — the prairie from the air: the plaid broken (2026-10-16)
+
+The owner, from 1,197 ft up: the ground "looks like an even plaid". Two causes, both in
+`PRAIRIE_FRAGMENT` (terrain.js): the 11 m colour tile repeated on a square lattice, and the
+"community mosaic" over it was `sin(x) * sin(z)` plus a diagonal — an egg-crate of 42 x 48 m
+cells square to the compass. Triangles had nothing to do with it.
+
+The mosaic is replaced by one fetch of a seeded variation map (`prairie-macro.js`, 512 px over
+3,072 m, longer than the 2,660 m haze reach, turned 27 degrees off the compass): lush and thin
+stands, a zero-mean dry lean, and a variant index. The index draws the colour tile from two
+staggered offsets of itself and cross-fades them (Quilez's two-fetch repeat break). Each
+variant's offset jumps only where its weight is zero, so plain `texture2D` leaves no seam.
+Past 150 m the tile's contrast eases a third of the way to its measured mean by 600 m, and the
+stands' tone doubles. Every channel is read over its own measured mean: the July mean albedo
+and the substrate zones are unmoved. The strip and the bank paint the same prairie (shared
+uniforms). Liberty `L-prairie-variation-2552`.
+
+**Cost, software rasteriser, desktop 1280x800, median of three steps** (relative figures,
+not GPU fps): 787 -> 883 ms at 60 m up over open prairie (+12 %), 6,801 -> 7,214 ms at the
+owner's aerial stand (+6 %); mobile walking stand 286 -> ~290-400 ms across runs. Measured
+and rejected on the way: explicit-gradient fetches (+30 % alone) and a branch to one fetch
+(saved nothing in software). No triangle or draw-call change; the map is 1 MiB of texture
+(1.33 with mips), one copy for the session.
+
+**Not done:** within one variant band (about 22 m) the tile is still the tile, so a careful
+eye at 50-150 m can find a local repeat; hex-tiling (three fetches) is the stronger form if
+that is wanted. The patchiness is noise, not a community map: the slot is there for a
+plant-community record when one exists.
 
 ## T-1883 — Keith house photographic finish (2026-10-16)
 

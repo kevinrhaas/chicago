@@ -12,10 +12,12 @@
  * exactly this). Nothing on screen changes: the GPU buffer is the one that was
  * always drawn. What is kept is what something still reads:
  *
- *  - `position` (and the index) of a layer that answers a tap, because
- *    `pickAt` raycasts the chunk's own triangles (and the uv and normal three
- *    would interpolate at the hit are set aside for the raycast — no pick
- *    reads them);
+ *  - `position` (and the index) of a layer that answers a tap by raycasting
+ *    the chunk's own triangles — today only `structures` (and the uv and
+ *    normal three would interpolate at the hit are set aside for the raycast —
+ *    no pick reads them). The plank walks, fences and yard goods are picked by
+ *    a one-pixel id pass on the GPU instead (gpu-pick.js, T-2572), so they keep
+ *    nothing;
  *  - any attribute uploaded as DYNAMIC, because its layer rewrites it (the
  *    frontage's far walk index, the horizon's timber), and the whole geometry
  *    of anything whose position is dynamic;
@@ -40,6 +42,7 @@
  */
 
 import * as THREE from 'three';
+import { isSharedImage, retireSharedImage } from './shared-images.js';
 
 /** Layer → attributes it must keep for a tap. Unlisted layers keep nothing. */
 export const RELEASE_KEEP = {
@@ -47,11 +50,13 @@ export const RELEASE_KEEP = {
   trees: [],
   'yard-ground': [],
   streets: [],
-  frontage: ['position', 'index'],
-  enclosures: ['position', 'index'],
-  yard: ['position', 'index'],
-  // The weathering slider rewrites the buildings' colour in place.
-  structures: ['position', 'index', 'color'],
+  // T-2572: picked on the GPU (gpu-pick.js), so their triangles go too.
+  frontage: [],
+  enclosures: [],
+  yard: [],
+  // The weathering handle rewrites the buildings' INSTANCE colours, which are
+  // not vertex attributes (T-2568), so nothing more is kept for it.
+  structures: ['position', 'index'],
 };
 
 function dropArray() { this.array = null; }
@@ -66,7 +71,9 @@ const KEEP_ARRAYS = (() => {
   try { return new URLSearchParams(window.location.search).get('keep-geometry') === '1'; } catch { return false; }
 })();
 
-const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_ARRAYS };
+const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_ARRAYS,
+  // T-2548: the buildings' source glTF geometry, and their decoded images.
+  sources: 0, sourceBytes: 0, images: 0, imageBytes: 0 };
 
 function release(attr) {
   if (!attr || !attr.array || attr.userData?.uploadReleased) return;
@@ -74,6 +81,9 @@ function release(attr) {
   if (attr.isInterleavedBufferAttribute || attr.isInstancedBufferAttribute) return;
   attr.userData = attr.userData || {};
   attr.userData.uploadReleased = true;
+  // What the GPU holds once the array is gone, at its own layout: a compact
+  // attribute (T-2569) is not the float32 the meter would otherwise assume.
+  attr.userData.uploadBytes = attr.array.byteLength;
   census.attributes += 1;
   census.bytes += attr.array.byteLength;
   if (!KEEP_ARRAYS) attr.onUpload(dropArray);
@@ -191,6 +201,81 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
     shadow.autoUpdate = auto;
     shadow.needsUpdate = needs;
     for (const [o, key, value] of restore) o[key] = value;
+  }
+}
+
+/**
+ * T-2548. A PHONE LETS GO OF EACH BUILDING'S SOURCE GEOMETRY ONCE ITS BATCH HOLDS
+ * A COPY. `createBuildings` normalises every source mesh into a float32 copy in
+ * the batch, and the source — the GLB's quantized, interleaved arrays — was then
+ * kept in the registry for nothing but a detail rebuild: about 49 MB of the 1904
+ * phone's ArrayBuffers, 12.5 MB of it Glessner's. The scene graph, materials and
+ * textures stay (the batch draws with those textures, and the card reads the
+ * record); the attributes and the index go. A released row is marked
+ * `sourceReleased`, and a rebuild re-reads its GLB first (main.js, from the HTTP
+ * cache). Idempotent: a row already released is passed over.
+ */
+export function releaseSources(registry) {
+  for (const row of registry.values()) {
+    if (!row.gltf || row.sourceReleased) continue;
+    const buffers = new Set();
+    row.gltf.scene?.traverse((o) => {
+      const geo = o.geometry;
+      if (!geo) return;
+      for (const attr of [...Object.values(geo.attributes), geo.index]) {
+        const array = attr?.isInterleavedBufferAttribute ? attr.data.array : attr?.array;
+        if (array?.buffer) buffers.add(array.buffer);
+      }
+      for (const name of Object.keys(geo.attributes)) geo.deleteAttribute(name);
+      geo.setIndex(null);
+      geo.dispose();
+    });
+    row.sourceReleased = true;
+    census.sources += 1;
+    for (const buffer of buffers) census.sourceBytes += buffer.byteLength;
+  }
+}
+
+/**
+ * T-2548. A PHONE CLOSES A BUILDING'S DECODED IMAGE ONCE THE GPU HOLDS IT. Three
+ * keeps every `texture.image` (an ImageBitmap) after upload, so each picture a
+ * house is painted with was held twice, decoded in the page and again on the GPU.
+ *
+ * Only an image that came out of a GLB through the shared-image cache is closed
+ * (shared-images.js), and only when EVERY texture of the structures batch that
+ * draws from it has its GPU texture and the source is uploaded — three uploads
+ * once per source and sampler setup, and a second sampler on a source would
+ * otherwise read a closed bitmap. The image also leaves the cache, so a GLB
+ * parsed later (a detail rebuild) decodes its own copy rather than being handed
+ * this closed one. Anything not yet uploaded is left open: nothing re-uploads a
+ * building texture after the build, and a restored context needs the page back,
+ * which crash-guard.js reloads for when the census counts a closed image.
+ */
+export function closeUploadedImages(group, renderer) {
+  const bySource = new Map();
+  group.traverse((o) => {
+    // A shadow's own depth material can sample the same map with its own sampler.
+    for (const material of [].concat(o.material ?? [], o.customDepthMaterial ?? [],
+      o.customDistanceMaterial ?? [])) {
+      for (const value of Object.values(material)) {
+        if (!value?.isTexture || !value.source) continue;
+        if (!bySource.has(value.source)) bySource.set(value.source, new Set());
+        bySource.get(value.source).add(value);
+      }
+    }
+  });
+  const props = renderer.properties;
+  for (const [source, textures] of bySource) {
+    const image = source.data;
+    if (typeof ImageBitmap === 'undefined' || !(image instanceof ImageBitmap)) continue;
+    if (!isSharedImage(image)) continue;
+    const uploaded = props.get(source).__version === source.version
+      && [...textures].every((t) => props.get(t).__webglTexture !== undefined);
+    if (!uploaded) continue;
+    retireSharedImage(image);
+    census.images += 1;
+    census.imageBytes += image.width * image.height * 4;
+    image.close();
   }
 }
 

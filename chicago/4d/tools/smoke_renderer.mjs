@@ -2281,6 +2281,132 @@ for (const [label, viewport, touch] of [
       `antialias=${multisample.asked} SAMPLES=${multisample.samples} `
       + `pointer:coarse=${multisample.coarse}`);
 
+    // --- the device profile chose this boot's defaults (T-2559) -------------
+    // The owner, 2026-10-16: tap the device's own resources. device-profile.js
+    // reads the platform, benchmarks a real GPU for at most a second, and picks a
+    // class; the class picks the boot's Scene detail and Image sharpness. This
+    // asks the live page what it chose and whether the boot obeyed: the tier
+    // the scene was fetched at, the pixel ratio in force and the Settings
+    // sentence. No stored setting exists at this point of a fresh context, so
+    // the profile's choice is the one in force. A software rasteriser — this
+    // runner — is `standard` by rule and pays no benchmark, so the second
+    // reading forces the benchmark to price what a real GPU's cold boot pays.
+    const deviceProfile = await page.evaluate(async (isTouch) => {
+      const a = window.__chicago4d;
+      const dp = await import(window.__MODULE_BASE + 'device-profile.js');
+      const d = a.device;
+      const line = document.getElementById('device-line');
+      const warm = await dp.profileDevice({ touch: isTouch, build: d && d.key ? d.key.split('|').pop() : '',
+        storage: window.localStorage });
+      return {
+        cls: d?.cls ?? null, why: d?.why ?? '', forced: d?.forced ?? null, touch: d?.touch,
+        choice: d?.choice ?? null, want: d ? dp.decide(d.cls, { touch: isTouch, cores: d.signals?.cores,
+          webgpu: d.choice?.webgpu }) : null,
+        costMs: d?.costMs ?? null, renderer: d?.signals?.renderer ?? '',
+        bootDetail: a.bootDetail, ratio: a.renderer.getPixelRatio(), dpr: window.devicePixelRatio || 1,
+        line: line?.textContent ?? null, lineHidden: line?.hidden ?? null,
+        want_line: d ? `${dp.describeProfile(d)} A choice you make above overrides it.` : null,
+        warmCached: warm.cached, warmMs: warm.costMs,
+      };
+    }, touch);
+    // The cold price, on a page with no town drawing behind it — the boot runs the
+    // profile before the renderer exists, so a town's frames are not part of it.
+    {
+      const bctx = await browser.newContext({ viewport, hasTouch: touch, isMobile: false,
+        deviceScaleFactor: touch ? 2 : 1 });
+      const bp = await bctx.newPage();
+      const moduleUrl = new URL(`${MODULE_BASE}device-profile.js`, base).href;
+      await bp.goto(moduleUrl, { waitUntil: 'domcontentloaded' });
+      const cold = await bp.evaluate(async ([url, isTouch]) => {
+        const dp = await import(url);
+        const r = await dp.profileDevice({ touch: isTouch, storage: null, forceBench: true });
+        return { costMs: r.costMs, bench: r.bench };
+      }, [moduleUrl, touch]);
+      await bctx.close();
+      deviceProfile.coldMs = cold.costMs;
+      deviceProfile.coldBench = cold.bench;
+    }
+    check(`${label}: the device profile classed this device and the class chose its defaults (T-2559)`,
+      ['weak', 'standard', 'strong'].includes(deviceProfile.cls) && !deviceProfile.forced
+        && deviceProfile.touch === touch
+        && JSON.stringify(deviceProfile.choice) === JSON.stringify(deviceProfile.want),
+      `${deviceProfile.cls} — ${deviceProfile.why}; chose ${JSON.stringify(deviceProfile.choice)} `
+      + `on "${deviceProfile.renderer}" in ${Math.round(deviceProfile.costMs)} ms`);
+    check(`${label}: the boot fetched the profile's tier and draws at its sharpness (T-2559)`,
+      deviceProfile.bootDetail === deviceProfile.choice?.detail
+        && Math.abs(deviceProfile.ratio - Math.min(deviceProfile.dpr, deviceProfile.choice?.sharpness)) < 1e-6,
+      `boot detail '${deviceProfile.bootDetail}', pixel ratio ${deviceProfile.ratio} at dpr ${deviceProfile.dpr}`);
+    check(`${label}: Settings says what the device profile chose (T-2559)`,
+      deviceProfile.lineHidden === false && deviceProfile.line === deviceProfile.want_line,
+      `"${deviceProfile.line}"`);
+    check(`${label}: the benchmark costs at most a second cold and nothing warm (T-2559)`,
+      deviceProfile.coldMs <= 1000 && deviceProfile.warmCached === true && deviceProfile.warmMs < 50,
+      `cold ${Math.round(deviceProfile.coldMs)} ms (fill ${deviceProfile.coldBench?.fill?.toFixed?.(3)} Mpx/ms, `
+      + `verts ${deviceProfile.coldBench?.verts?.toFixed?.(3)} Mvert/ms, ${deviceProfile.coldBench?.method}); `
+      + `warm cached=${deviceProfile.warmCached} in ${deviceProfile.warmMs?.toFixed?.(1)} ms`);
+
+    // A forced class boots its tier. `?device=` is harness only and is never
+    // cached; each is a fresh context, read the moment the profile lands and
+    // closed — the tier is decided before the scene is fetched, so nothing after
+    // it is this check's subject.
+    const forcedWant = touch
+      ? { weak: ['light', 1], strong: ['light', 1.5] }
+      : { weak: ['balanced', 1], strong: ['full', 2] };
+    for (const [cls, [detail, sharp]] of Object.entries(forcedWant)) {
+      const fctx = await browser.newContext({ viewport, hasTouch: touch, isMobile: false,
+        deviceScaleFactor: touch ? 2 : 1 });
+      const fp = await fctx.newPage();
+      const ferrors = [];
+      fp.on('pageerror', (e) => ferrors.push(String(e.message || e)));
+      await fp.goto(`${base}&device=${cls}`, { waitUntil: 'domcontentloaded' });
+      const got = await fp.waitForFunction(() => {
+        const a = window.__chicago4d;
+        return a?.device && a.bootDetail ? { cls: a.device.cls, forced: a.device.forced,
+          detail: a.bootDetail, sharp: a.device.choice.sharpness,
+          stored: localStorage.getItem('chicago4d.device') } : null;
+      }, null, { polling: 250, timeout: 60_000 }).then((h) => h.jsonValue());
+      await fctx.close();
+      check(`${label}: ?device=${cls} boots '${detail}' at sharpness ${sharp}, uncached (T-2559)`,
+        got.cls === cls && got.forced === cls && got.detail === detail && got.sharp === sharp
+          && got.stored === null && ferrors.length === 0,
+        `${JSON.stringify({ ...got, stored: got.stored ? 'cached!' : null })}${ferrors.length ? ` errors: ${ferrors.join('; ')}` : ''}`);
+    }
+
+    // --- the frame governor says what it is doing, and rests at the ceiling (T-2555)
+    // The governor draws a MOVING frame at fewer pixels, or paced to 30, on a
+    // device that cannot hold 60, and is neutral the moment the camera rests.
+    // This asks the live page for its state API, that a still page sits at the
+    // Sharpness ceiling with a shadow every frame, that Fixed and Adaptive both
+    // reach the page and the Settings line, and that Settings' Frame pacing is
+    // there with both choices.
+    const governor = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const still = () => new Promise((r) => setTimeout(r, 400));
+      await still();
+      const atRest = a.governor;
+      const shadowAuto = a.renderer.shadowMap.autoUpdate;
+      a.setGovernor(false);
+      await still();
+      const fixed = { ...a.governor, line: document.getElementById('governor-line')?.textContent ?? null };
+      a.setGovernor(true);
+      await still();
+      const adaptive = { ...a.governor, line: document.getElementById('governor-line')?.textContent ?? null };
+      const sel = document.getElementById('s-governor');
+      return { atRest, shadowAuto, fixed, adaptive,
+        options: sel ? [...sel.options].map((o) => o.value) : null, selected: sel?.value ?? null };
+    });
+    check(`${label}: the frame governor reports its state and rests at the Sharpness ceiling (T-2555)`,
+      ['mode', 'scale', 'pace', 'fps', 'moving', 'shadowEvery', 'ratio', 'ceiling'].every((k) => k in governor.atRest)
+        && governor.atRest.mode === 'adaptive' && governor.atRest.moving === false
+        && governor.atRest.scale === 1 && governor.atRest.pace === 1 && governor.atRest.fps === 60
+        && Math.abs(governor.atRest.ratio - governor.atRest.ceiling) < 1e-9 && governor.shadowAuto === true,
+      JSON.stringify(governor.atRest) + ` shadowMap.autoUpdate=${governor.shadowAuto}`);
+    check(`${label}: Frame pacing offers Adaptive and Fixed, and each reaches the page and Settings (T-2555)`,
+      JSON.stringify(governor.options) === JSON.stringify(['adaptive', 'fixed']) && governor.selected === 'adaptive'
+        && governor.fixed.mode === 'fixed' && /^Fixed/.test(governor.fixed.line || '')
+        && governor.adaptive.mode === 'adaptive' && /^Adaptive/.test(governor.adaptive.line || ''),
+      `options ${JSON.stringify(governor.options)}; fixed "${governor.fixed.line}"; adaptive "${governor.adaptive.line}"`);
+
     // --- the scene-detail ladder is a ladder, and every rung says what it is
     // --- for (T-0135, the owner's ruling of 2026-09-21) ---------------------
     //
@@ -10833,11 +10959,13 @@ for (const [label, viewport, touch] of [
       const bs = window.__chicago4d.buildings.batches;
       const seen = new Set();
       let min = Infinity, max = -Infinity;
+      // T-2574: roughness is lane x of the packed scalars, a byte over 200
+      // (compact-attributes.js SCALAR_CODES).
       for (const b of bs) {
-        const a = b.geometry.getAttribute('_roughness');
+        const a = b.geometry.getAttribute('_chiScalars');
         if (!a) continue;
-        for (let i = 0; i < a.array.length; i += 1) {
-          const v = a.array[i];
+        for (let i = 0; i < a.array.length; i += 4) {
+          const v = a.array[i] / 200;
           seen.add(v.toFixed(3));
           if (v < min) min = v;
           if (v > max) max = v;
@@ -10862,15 +10990,15 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const roughFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     await page.evaluate(() => {
-      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_roughness');
+      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_chiScalars');
       window.__chiRoughSaved = a.array.slice();
-      a.array.fill(0.02);
+      for (let i = 0; i < a.array.length; i += 4) a.array[i] = 4;   // 0.02 x 200
       a.needsUpdate = true;
     });
     const roughFlat = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dRough = signatureDistance(roughFull, roughFlat);
     await page.evaluate(() => {
-      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_roughness');
+      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_chiScalars');
       a.array.set(window.__chiRoughSaved);
       a.needsUpdate = true;
       delete window.__chiRoughSaved;

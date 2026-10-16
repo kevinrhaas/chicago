@@ -55,6 +55,9 @@ step "The image gate refuses to close a building that does not match its picture
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
+  node tools/check_compact_attributes.mjs
+
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 
@@ -76,6 +79,9 @@ step "Glessner's granite is retinted to grey-greige, and nothing else is (T-2446
 step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
   node tools/check_sharpness_default.mjs
 
+step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
+  node tools/check_device_profile.mjs
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
@@ -93,6 +99,8 @@ step "The arrival clock forecasts downloads and never sits still on a slow link 
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
+step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
+  node tools/test_frame_governor.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
@@ -816,6 +824,14 @@ step "the WebP maps the renderer binds decode pixel-identical to their PNG maste
 
 selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
   python3 tools/web_textures.py --self-test
+
+# T-2582. The KTX2 beside each drop-in sheet (roof relief, 1904 streets, the ground strip's
+# muck), which js/ktx2.js loads in place of the image where the GPU takes a block format.
+# KTX2 is lossy by design, so this reads what the renderer relies on, not pixels: the file
+# is there and is a KTX2, it is its web map's size, it carries the full mip chain the
+# light tier drops the top of, and no .ktx2 sits in the library that no sheet names.
+step "every drop-in library sheet carries its KTX2: its web map's size, a full mip chain, no orphans (T-2582)" \
+  python3 tools/ktx2_sheets.py --check
 
 # T-2299. ...and the relief in them points the way its name says. The 1835 library's
 # generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` and filed

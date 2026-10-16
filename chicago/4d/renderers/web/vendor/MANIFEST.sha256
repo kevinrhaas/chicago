@@ -1,8 +1,15 @@
 40d58db8018b85038939d4d8bff7112d4b8a0ad0367b37ae6f969eeee4310c25  three-0.185.1/addons/controls/PointerLockControls.js
+8478b5b6d6b74e7d3082b89f6417321d8d1dc0307f2b30d4484bb11b441696a1  three-0.185.1/addons/libs/basis/basis_transcoder.js
+6cf17dc889352c42e9acf8897107978d127005fe3386c36a0e3845e27967630a  three-0.185.1/addons/libs/basis/basis_transcoder.wasm
+f40c491f6c44dde511268121f778a0050e73b1a15fd844c1ae2c78c73213eafc  three-0.185.1/addons/libs/ktx-parse.module.js
 d428e73a000057c6c94bfcedc3412d0c2dc14ca8800e88553aab05113ad2bf19  three-0.185.1/addons/libs/meshopt_decoder.module.js
+5cbf818e842628a4464e748594a6deae18ceddda3c2f541e7b3a0ff5fc7611e2  three-0.185.1/addons/libs/zstddec.module.js
 97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2  three-0.185.1/addons/loaders/GLTFLoader.js
+3a3233ce3409443076d3414b78832e1405fcfac5ecb34d367365fd0781127d6c  three-0.185.1/addons/loaders/KTX2Loader.js
+cc35c01c793cd17ccded7bc8142abffd3ce0d60dd6de8d5d216983bd05aee262  three-0.185.1/addons/math/ColorSpaces.js
 1dd7ee025607f425e15d5d9fe9850502905c837f1110c49b376a2501399dbf56  three-0.185.1/addons/objects/Sky.js
 5c552223a9309883743b80538d6e9cdb45e3227f30d3ec56fb2c39b46e78d595  three-0.185.1/addons/utils/BufferGeometryUtils.js
 b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f  three-0.185.1/addons/utils/SkeletonUtils.js
+5ac7095fd566bc9ae48376055fd66edf27cb9ebbf9e1269dc206bfd4933ae9eb  three-0.185.1/addons/utils/WorkerPool.js
 3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759  three-0.185.1/three.core.js
 bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7  three-0.185.1/three.module.js

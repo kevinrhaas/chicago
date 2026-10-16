@@ -14473,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 105 structures (106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 104 structures (105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -24055,7 +24055,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`, `wheeler_house_1812_prairie.draft_1904.form.draft_elevation`, `wheeler_house_1812_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24082,6 +24082,7 @@ share one. A wall within 0.9 m of a lot line is left blind as a party wall.
 1911 sheet carried to 1904 on T-1841's ruling), never the parcel; the full storeys are the sheet's
 printed notation (attested); the fabric is the sheet's colour as the register reads it. No source
 is claimed for any form, and no house's draft copies another's.
+**1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
 plate, plan or measured drawing; the alley buildings are T-1935's.
@@ -28136,6 +28137,42 @@ and dark sash paint; the unseen rear openings and existing rear canted bay; path
 The 1965 print has a blue cast and cannot give a calibrated granite colour. The generic
 Lemont stone, tall spear fence, urn gate piers, south wall and nine-step stair previously
 used by the kit proof are superseded. The later iron infill is not carried into 1904.
+**T-2566 (2026-10-16), the granite surface:** what is read now is the coursing's RHYTHM
+(a deep course of about 0.5 m and a thin one of about 0.2 m in turn, basement to the
+third-floor line at 9.8 m, then even, shallower-faced courses), and the checker band laid
+in staggered rows of rough lumps, read off the Glessner House archive print of the 1888
+photograph at full resolution. What is still invented: every individual joint (the
+street tree hides most of them, so the joints laid are the rhythm's), each stone's rock
+height inside the profile's range, the mouldings' fillet sizes and the capitals' neck and
+bell, drawn to the plate's shadows rather than measured. The bow's own masonry keeps its
+even courses. The tint stays reconstructed: the neutral-light reading in
+`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json` (T-2566) shows the
+material and the 1965 print's patches differ, and records it rather than tuning to a
+blue-cast, shaded print.
+**T-2565 (2026-10-16), the carved loggia:** what is read now, from the 1888 plate at its
+native 1559 px and the 1965 close view: ONE capital over each pair of columns (a carved
+band spanning both shafts with a volute at each end), a balcony with a LEVEL coping
+between two square dies (the curved top T-1883 drew is in neither picture), a stepped
+stone finial on the flight-side die only (1888; gone by 1965), a deep three-step cornice
+under the balcony, both stair cheeks ending at the street in a rolled stone foot, and the
+bow's second-storey lights running up to just under its cap (about 2.5 m on the plate,
+where 2.2 m stood). What is still invented: the volutes' turns and eye, the egg row's
+pitch, the finial's step sizes, the cornice's fillets and the roll's 0.2 m radius, all
+drawn to the pictures' shadows below their grain; the panels' foliage stays the low
+relief scrolls T-1883 laid. The principal-storey lights and the basement lights keep
+their T-1883 heights: the plate's reading of them sits inside the camera fit's error.
+**T-2585 (2026-10-16), the loggia carving read:** what is read now, from the 1888 plate at
+its native 1559 px (both capitals at x 860-945 and 1100-1165, y 1385-1405; the balcony at
+x 930-1150, y 1260-1330) and the 1965 close view: each paired capital is a square-edged
+block about 0.2 m deep on the 0.89 m pair, with NO volutes and no egg row, its face
+carrying a running zigzag of six strokes between a plain block at each end, the triangles
+between the strokes sunk, under a thin abacus. T-2565 read the zigzag's dark triangles as
+an egg row and the plain end blocks as volutes; both are gone. The balcony's panel carries
+one continuous running scroll of foliage over a plain base strip about a third of the
+panel, and its dies plain sunk panels in a raised border. What is still invented: the
+zigzag's 22 mm sink and the strap's width, every leaf's cut, each curl's two and a half
+turns and the scroll's 0.3 m pitch (the 1965 view counts about four loops along the
+front), all below both pictures' grain; the pedestals' panels keep T-1883's low relief.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
@@ -28242,6 +28279,150 @@ on the range's north wall. All are open on the match record.
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
 **Recorded:** 2026-10-16 (T-2541).
 
+### L-prairie-variation-2552 — the prairie's patchiness from the air: an invented world-scale variation map in place of the egg-crate mosaic
+
+**What:** the open prairie's lush and thin stands (16-256 m), a zero-mean dry-against-fresh
+lean in its colour, and which of eight offsets of the 11 m ground tile a stretch of ground
+draws all come from one seeded noise map (`renderers/web/js/prairie-macro.js`, 512 px over
+3,072 m, turned 27 degrees off the compass). It replaces the "community mosaic", which was
+`sin(x) * sin(z)` plus one diagonal: an egg-crate of 42 by 48 m cells square to the compass,
+which the owner saw from 1,197 ft up as "an even plaid" (2026-10-16). Past 150 m from the eye
+the tile's own contrast eases toward its measured mean, a third of the way by 600 m, and the
+stands carry more of the ground's variation. L337's sentence that the tile's lookup is sheared
+by the community mosaic no longer holds: that shear is retired, and the tile's repeat is broken
+by the offsets instead.
+**Why:** a pattern regular enough to read as a grid from the air says "generated" louder than
+any colour. The prairie needs patchiness at the scale an aerial view resolves, and no record in
+`data/` states where a stand was lush or thin, so the pattern is reconstructed, as the mosaic was.
+**Bounds:** every channel is read over its own measured mean, so the prairie's mean albedo is
+the July calibration's, unchanged. The patch channel is scaled to the mosaic's standard
+deviation (0.656), so at walking range its tone has the mosaic's spread (6.6 % standard
+deviation, 14 % at the extremes, measured) and at 600 m and beyond twice that (13 %, 28 %). The
+dry lean moves red up by at most 3.5 %, green by 1.8 % and blue down by 6.5 % where the map is
+highest, the opposite where it is lowest, and 1.3 times that from the air. The substrate zones take none of it, as
+they took none of the mosaic. The wet shore band and the mesic rise are keyed on the heightfield
+as before.
+**Consequence:** a visitor reading a light or dark stand of prairie, or a yellower patch, as a
+record of that spot is reading this pattern. Nothing a record states has moved.
+**How to resolve:** a plant-community record for the 1835 plain (wet prairie, mesic prairie,
+sloughs), such as one read from the federal land survey's field notes, would replace the noise
+with evidence. The map's role is the slot such a record would fill.
+**Ticket:** T-2552.
+**Recorded:** 2026-10-16.
+
+
+### L-k01-1812-wheeler-front-2543 — 1812 Prairie refined from the district draft to a K01 house built from Albert Levy's photograph: its massing, south projection and shaped Flemish gable read through a solved camera, the rest the kits' until T-2544 and T-2545
+
+**Decision:** George H. Wheeler's house at 1812 Prairie Avenue (Burnham & Root, 1884; T-2543, piece 1
+of T-1884) is no longer a district draft. It stands, under the draft's own id
+`wheeler_house_1812_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`, built
+toward Albert Levy's photograph of its front (`levy_1812_prairie_photo`, c. 1885-1900), whose camera
+is solved at `data/reference_views/wheeler_house_1812_prairie/levy_front.json`. The front's signature,
+the tall shaped gable over the whole front, is a new K01 element (`generators/archetypes/k01_shaped_gable.py`),
+so the house is not given a generic triangular gable (the register's phase guard).
+**What is read, not invented.** From the 1911 sheet 28 trace (s28fp-1812-b1) and the T-1841 census: the
+plan (a main body 15.1 m by 8.5 m, the rear range 10.6 m deep behind it), three storeys and the brick
+walls (`inferred`, `attested` for the storeys). From the photograph, through its camera: the principal
+floor (1.65 m), the storey heights (3.95, 3.85 and 3.0 m), the south projection's width (4.75 m, where
+the sheet's own step is 3.9 m) and height, its round-arched window, basement light and paired window,
+the entrance's place on the north, the main wall's windows' places, and the shaped gable's outline at
+ten points, its apex at 17.0 m, its finial and its grid window's place and size (`inferred`).
+**What is invented.** The stone (K02's rock-faced brown sandstone; the print is monochrome); the wall
+thicknesses; the sides' and rear's brick, windows and the rear range's deck; the hip roof behind the
+gable, its pitch, slate and the single stack's place; the eave and its brackets; the downpipes' places;
+the K09 dressings and K07's door.
+**What is built otherwise than read.** The whole street front is stone where the photograph's upper
+storeys are brick dressed in stone (K02 faces a front in one fabric); the projection stands 0.3 m in from
+the south corner and 1.2 m out (K08's limits) where the photograph has it flush and the sheet 1.3 m; the
+third storey's two arched windows are flat-headed and smaller, under the soffit; the second storey's
+wide pair is K01's widest single sash; the porch's broad arch is K07's deep-arched door; the grid window
+is three tall lights for nine; the gable's face stands 0.5 m in front of the wall below on a square base
+so the hip's eave dies into it, its kneelers are plain pinnacles for carved scrolls, and the roof behind
+it is a hip where the photograph shows flat-topped steep slopes.
+**What is not built.** The balcony on the projection, the carved frieze, bosses and bands, the stair's
+balustrade panels, the downpipes on the front.
+**How to resolve:** T-2544 (the front's detail: the balcony, the arched third storey, the stone lower
+storeys under a brick upper wall) and T-2545 (the flanks, the rear, the roof behind the gable and the
+c. 1955 and 1915 views) replace these choices in place, each against the same camera.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_form`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.basement_lights`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`.
+**Ticket:** T-2543 (piece 1 of T-1884).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-16 (T-2543).
+
+### L-k01-keith-return-2564 — Keith's north return: its length, course heights and bond, coping and pinnacle sections
+
+**Decision:** the short north return over Glessner (T-2564, piece 1 of T-1883) is laid as the
+1887 construction photograph, the c. 1888 view beside Glessner, J. W. Taylor's c. 1889 view and
+the 1948 view show it: a solid parapet and wall face of large dressed courses under a rounded
+coping that sweeps up into the corner pinnacle, with a second pinnacle at its rear end, and the
+brick parapet beyond it.
+**What is read, not invented:** that the return is dressed ashlar in large horizontal courses and
+not a smooth face or lattice; that its coping is a rounded moulding rising into the corner
+pinnacle, as the front coping does; that the caps are ogival with a collar and a finial; and its
+length, about 5.5 m, from course counts along it in the Taylor and 1948 views (about twelve
+course heights, at least ten) and from its length against the 1.12 m lattice in the c. 1888 view.
+**What is invented:** the 0.46 m course height and the 0.9 to 1.5 m bond, rounded readings; every
+joint position; the coping's section and its 0.35 m rise over 0.85 m; the rear pinnacle's size;
+the south corner's coping sweep, which is assumed to match the north; and where the full-height
+stone stops behind the rear pinnacle, which no picture resolves (the model drops it to the brick
+there). The 5.5 m length is bounded at 4.5 to 7 m because the street cameras still carry residuals.
+**How to resolve:** a sharper print or a view along the north wall from Glessner's court; the
+camera re-fits in T-2567.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
+**Ticket:** T-2564 (piece 1 of T-1883).
+**Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
+**Recorded:** 2026-10-16 (T-2564).
+
+### L-k01-keith-ventilator-2578 — Keith's cowl ventilator: its hidden riser, its set-back and its sections
+
+**Decision:** the deck behind Keith's north return (T-2578, piece 2 of T-2567) carries the cowl
+ventilator that the 1887 construction photograph, J. W. Taylor's c. 1887-89 view (2135), the 1888
+Inland Architect Glessner plate and the c. 1888 view looking south-west all show over the
+return: a galvanized pipe inclined forward from just inside the rear pinnacle to an upright neck
+under a bowl and a broad flat disc. It is built for the 1886 phase; by 1948 only a low stub
+stands at its foot. The same pictures rule the corner behind the rear pinnacle: the stone parapet
+stops there (sky straight behind it in every view that sees it), so the model's drop stands.
+**What is read, not invented:** that the ventilator exists, is a single inclined pipe with an
+upright cowl of bowl and disc, rises near the rear pinnacle and leans forward; its place along the
+return (about 0.5 to 0.6 of it in all four views, built at 3.3 m behind the front); its height over
+the coping against the rear pinnacle's (about 1.85 times it in Taylor 2135, built at 0.95 m); and
+the pipe's and cap's widths against the 0.46 m courses (about 0.28 m and 0.58 m).
+**What is invented:** the riser hidden behind the parapet and where it meets the deck; its depth
+behind the north face (0.6 m), which sets its foot inside the hall stack's plan and so reads as
+that flue's termination — plausible, not shown; the elbow's height under the coping; the bowl's
+and the disc's sections; and its colour, a plain pale grey standing for galvanized iron, which the
+monochrome prints show only as paler than its cap and close to the granite; and that it
+still stands in the 1904 scene this phase serves (it is there in 1887-89 and gone by 1948, and
+when it went is not known).
+**How to resolve:** the re-fitted cameras of T-2579, which decide whether the c. 1888 view's
+higher-seeming cap is a residual or a shallower set-back; and the hall stack's height (left for
+T-2580), which the same pictures show below the coping where the model stands it above.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
+**Ticket:** T-2578 (piece 2 of T-2567).
+**Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
+**Recorded:** 2026-10-16 (T-2578).
+
+### L-k08-keith-bow-coursing-2584 — Keith's bow laid deep and thin in turn: the rhythm read, the joints laid to it
+
+**Decision:** lay the south bow's rock-faced granite in the street front's T-2566 rhythm, a deep
+course and a thin one in turn from each storey's bed up, where it ran even 0.38 m courses. The 1888
+Inland Architect plate (read at its native 1559 px) and the Glessner House print of it
+(a18-gh-1808-keith-field-front) both show the alternation on the bow's piers and its south flank,
+from the plinth to the moulded cap under the third storey.
+**What is read, not invented:** the alternation itself, and the two heights to within a course:
+deep courses about 0.5 m, thin ones about 0.2 m, the front's own ratio (0.4).
+**What is invented:** where each joint falls. Each storey between the bow's bands is laid in the
+fewest courses whose deep one is at most 0.55 m (the basement's 1.85 m in five and each 3.9 m
+storey in eleven, every one 0.49 m deep and 0.195 m thin), so the bow's joints are the rhythm's and are not
+carried course for course from the front's, which the pictures do not resolve behind the street
+tree; and which half of the rock-face relief each course takes (deep on the upper half, thin on the
+lower), the front's T-2566 rule carried round the bow.
+**How to resolve:** a sharper print of the front, or a reading of the bow and the front side by side
+in the re-fitted cameras of T-2579, that lets the bow's beds be struck on the front's.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
+**Ticket:** T-2584 (piece 1 of T-2580).
+**Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
+**Recorded:** 2026-10-16 (T-2584).
 
 ### L-glessner-final-roof-2228 — north cone and lower connecting roof
 
