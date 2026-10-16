@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "nickel-1967",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
+  "glb_sha256": "c79a9c8d5112ebfb8f0306a7c128cbe90840ccc06ba5f52fb7f7ac1585aa60f8",
   "camera_sha256": "4cde10e103c3052890d4f2945bb1b9bd504261479d28aa56d46004171c482fff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/nickel-1967-side-by-side.jpg",
   "verdict": "differs",
@@ -16,8 +16,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2565 re-carved the loggia from the 1888 plate and the 1965 view (paired capitals, a level balcony with its finial, rolled cheek feet, taller second-storey bow lights); not yet compared at this view's scale.",
-      "status": "open"
+      "what": "T-2565's loggia, compared at this view's scale (T-2577): the balcony's level top just under the bow's second-storey sills, the paired columns at each end and the pierced balustrade below agree with the photograph; the carving is below its resolution.",
+      "status": "fixed"
     },
     {
       "what": "T-2566's course rhythm, checker relief and head-band profiles are below this photograph's resolution of Keith; they are compared in the 1888 front and the 1965 close view.",
@@ -40,7 +40,11 @@
       "status": "fixed"
     },
     {
-      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "Found in T-2577's re-review: the checker band under the cornice reads here as a narrower band of finer, diagonal (lozenge) units than the build's staggered rock blocks, about two-thirds of the build's band height; T-2580 reads it against the 1888 plate.",
       "status": "open"
     }
   ],
