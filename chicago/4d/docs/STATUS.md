@@ -42,6 +42,10 @@ uploaded, which keep every array until walked to (frontage 52.8, enclosures 26.8
 ones. That remainder is building-then-holding, which T-2560 (ship the town prebuilt) is
 placed to remove. The structures half, with weathering as a uniform, is T-2573.
 
+Re-read once T-2575's Int16x4 structures positions had landed on `dev` (merge `c2b6ad1c7`):
+the two savings add, 630.0 MB on the 1835 phone (arraybuffers 223.0, GPU buffers 180.5),
+so its ceiling is 725 to 700 MiB by the rule; `?keep-geometry=1` still reads over it at 776.2 MB.
+
 ## T-2564 — Keith house's north return in stone courses (2026-10-16)
 
 T-1883's remaining photographic convergence was split into four pieces (T-2564 to
