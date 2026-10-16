@@ -313,7 +313,7 @@ check('a mesh added later with a patched material is reached when the object lis
   v.render(r, t.scene, cam);
   const late = new THREE.Mesh(graded(0), t.patchedMat);
   t.scene.add(late);
-  for (let i = 0; i < 30; i++) v.render(r, t.scene, cam);
+  for (let i = 0; i < C.REBUILD_FRAMES; i++) v.render(r, t.scene, cam);
   assert.ok(r.seen.at(-1).drawn.includes(late));
 });
 

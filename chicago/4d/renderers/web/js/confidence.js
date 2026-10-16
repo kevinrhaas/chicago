@@ -104,6 +104,9 @@ export const GRADE_LOOK_TINT = GRADE_TINT_STRENGTH.reconstructed;
 
 /** The camera layer the ghost pass draws on (renderGhost). */
 export const GHOST_LAYER = 31;
+/** How many ghosted frames pass before the ghost pass walks the scene again for
+ * meshes added with a material that was already patched (two seconds at 60 fps). */
+export const REBUILD_FRAMES = 120;
 
 const GRADE_NAMES = ['attested', 'inferred', 'reconstructed'];
 const GRADE_NAMES_BY_MODE = Object.fromEntries(Object.entries(GRADE_MODES).map(([k, v]) => [v, k]));
@@ -748,14 +751,17 @@ export function createConfidenceView({
      * both passes), renders no shadow and no background, wears each patched
      * material's twin, and puts back every material, visibility, layer mask and
      * renderer setting it touched. The object list is rebuilt when a material has
-     * been patched since and every 30 frames, so a mesh added with an
+     * been patched since and every REBUILD_FRAMES frames, so a mesh added with an
      * already-patched material is reached too; the plan, when a look or a hidden
-     * grade changes.
+     * grade changes. The rebuild walks the whole scene, which is why it is not
+     * every frame: measured with tools/measure_walk_frames.mjs --xray (390x780,
+     * light, 4× CPU throttle), a 30-frame cadence put X-RAY's p95 scripted frame
+     * 2-4 ms over the plain one, and 120 frames puts it under 1 ms over.
      */
     render(renderer, scene, camera) {
       if (!this.ghosting) { renderer.render(scene, camera); return 0; }
       framesSinceBuild += 1;
-      if (builtFor !== scene || builtAtPatch !== patchCount || framesSinceBuild >= 30) collectGhostTargets(scene);
+      if (builtFor !== scene || builtAtPatch !== patchCount || framesSinceBuild >= REBUILD_FRAMES) collectGhostTargets(scene);
       const key = JSON.stringify([this.modes, hidden]);
       if (key !== planKey) { buildPlan(); planKey = key; }
       const putBack = leaveOut(plan.opaqueObjects, plan.opaqueInstances);
