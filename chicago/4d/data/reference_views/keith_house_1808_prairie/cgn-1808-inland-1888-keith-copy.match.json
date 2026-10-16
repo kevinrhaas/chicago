@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "e39a46317d078813df5e4c199df9d1df7ffa4b7c64d653a3a030682d7a77f00a",
+  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
   "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
@@ -24,7 +24,7 @@
       "status": "fixed"
     },
     {
-      "what": "Pinnacle caps, the volutes' turns, the egg row and the panels' foliage are drawn to the plate's shadows rather than read; the bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
+      "what": "The volutes' turns, the egg row and the panels' foliage are drawn to the plate's shadows rather than read; the bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
       "status": "open"
     },
     {
@@ -46,6 +46,14 @@
     {
       "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
+      "status": "fixed"
+    },
+    {
+      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

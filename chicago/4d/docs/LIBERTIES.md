@@ -28296,3 +28296,27 @@ sloughs), such as one read from the federal land survey's field notes, would rep
 with evidence. The map's role is the slot such a record would fill.
 **Ticket:** T-2552.
 **Recorded:** 2026-10-16.
+
+### L-k01-keith-return-2564 — Keith's north return: its length, course heights and bond, coping and pinnacle sections
+
+**Decision:** the short north return over Glessner (T-2564, piece 1 of T-1883) is laid as the
+1887 construction photograph, the c. 1888 view beside Glessner, J. W. Taylor's c. 1889 view and
+the 1948 view show it: a solid parapet and wall face of large dressed courses under a rounded
+coping that sweeps up into the corner pinnacle, with a second pinnacle at its rear end, and the
+brick parapet beyond it.
+**What is read, not invented:** that the return is dressed ashlar in large horizontal courses and
+not a smooth face or lattice; that its coping is a rounded moulding rising into the corner
+pinnacle, as the front coping does; that the caps are ogival with a collar and a finial; and its
+length, about 5.5 m, from course counts along it in the Taylor and 1948 views (about twelve
+course heights, at least ten) and from its length against the 1.12 m lattice in the c. 1888 view.
+**What is invented:** the 0.46 m course height and the 0.9 to 1.5 m bond, rounded readings; every
+joint position; the coping's section and its 0.35 m rise over 0.85 m; the rear pinnacle's size;
+the south corner's coping sweep, which is assumed to match the north; and where the full-height
+stone stops behind the rear pinnacle, which no picture resolves (the model drops it to the brick
+there). The 5.5 m length is bounded at 4.5 to 7 m because the street cameras still carry residuals.
+**How to resolve:** a sharper print or a view along the north wall from Glessner's court; the
+camera re-fits in T-2567.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
+**Ticket:** T-2564 (piece 1 of T-1883).
+**Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
+**Recorded:** 2026-10-16 (T-2564).

@@ -705,7 +705,7 @@ class Entrance(Opening):
         k = 40
         pts = []
         for i in range(k + 1):
-            q, rr = 5.0 * math.pi * i / k, r * (1 - .78 * i / k)
+            q, rr = 5.0 * math.pi * i / k, r * (1 - .6 * i / k)
             u, v = side * rr * math.cos(q), rr * math.sin(q)
             pts.append((cs + u, cy + v, co) if axis[0] == 0 else (cs, cy + v, co + u))
         self._tube(role, pts, .014, axis, 6)

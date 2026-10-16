@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 1852, ts: '2026-10-16T07:20:19.811Z', date: 'Oct 16, 2026, 2:20 AM CT', title: '1808 Prairie\'s north parapet is laid in stone courses', kind: 'improvement',
+    items: [
+      'The Keith house\'s short north return over Glessner is now big dressed stone courses, as the 1887 to 1948 photographs show, instead of a smooth slab.',
+      'It runs about 5.5 m back, about twice its old length, with a pinnacle at each end.',
+      'The rounded coping sweeps up into the corner pinnacles, on the front and on the return.',
+      'The pinnacle caps are ogival with a collar and a ball finial, not plain spikes.',
+    ] },
+  { v: 1851, ts: '2026-10-16T06:57:35.071Z', date: 'Oct 16, 2026, 1:57 AM CT', title: 'A memory meter now watches what each year holds on a phone', kind: 'chore',
+    items: [
+      'Nothing you can see changed. Each year is now weighed for the memory it keeps once you are in the town: page memory, geometry and textures on the graphics chip, layer by layer.',
+      'Every year and screen size has a ceiling, checked every night, so a change that makes a phone more likely to run out of memory is caught before it ships.',
+      'This is the measuring half of the work on phones closing the tab; the changes that bring the figures down come next.',
+    ] },
+  { v: 1850, ts: '2026-10-16T06:36:22.691Z', date: 'Oct 16, 2026, 1:36 AM CT', title: 'Keith\'s granite front reads like the 1888 photograph', kind: 'improve',
+    items: [
+      '1808 Prairie\'s granite is now laid as the 1888 photograph shows: a deep rock-faced course and a thin one in turn up to the third floor, with finer, flatter courses above.',
+      'The rough checker band under the parapet is laid in staggered rows of lumps that stand out by different amounts, between stepped mouldings. The upper colonnettes have flared capitals.',
+    ] },
   { v: 1849, ts: '2026-10-16T06:08:11.925Z', date: 'Oct 16, 2026, 1:08 AM CT', title: 'The town chooses its detail and sharpness for your device', kind: 'feature',
     items: [
       'At start-up the walkthrough now reads what your browser and graphics chip offer and runs a check of well under a second, then picks Scene detail and Image sharpness to suit: a capable computer is drawn at High sharpness, a modest one at Balanced detail, and a strong phone or tablet a little sharper than before.',

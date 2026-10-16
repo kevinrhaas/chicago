@@ -645,7 +645,7 @@
           "pitch_m": 0.42,
           "bar_m": 0.13,
           "thickness_m": 0.28,
-          "return_m": 2.8
+          "return_m": 5.5
         },
         "diaper": {
           "bottom_m": 13.25,
@@ -675,13 +675,22 @@
           "radius_m": 0.28
         },
         "deck_drop_m": 1.45,
-        "stone_return_m": 2.8
+        "stone_return_m": 5.5,
+        "return_ashlar": {
+          "course_m": 0.46,
+          "bond_m": [
+            0.9,
+            1.5
+          ],
+          "rise_m": 0.35,
+          "sweep_m": 0.85
+        }
       },
       "confidence": "reconstructed",
       "sources": [
         "inland_architect_1888_02_keith_plate"
       ],
-      "note": "T-1883: The approved 1888 plate shows two staggered rows of square openings at the parapet, stone corner pinnacles, a deep diaper band and five colonnettes between the six third-storey lights. Dimensions are rounded readings against the accepted 10.4 m front; lattice bar and carving sections, rear pinnacle section and hidden deck fall are reconstructed. The front lattice ends at the corner; the north return is solid stone under a coping and a rear pinnacle, as the oblique street photographs show. The deck sits below the wall head so the lattice opens to sky. Fine foliage is represented by low relief scrolls; exact tooling is not resolved by this microfilm. Liberty L-k01-keith-finish-1883. T-2566: the checker band is laid as both photographs of 1888 show it, rows of rough lumps whose joints break over the row below (stagger 0.5 of a stone), the proud stones standing out by differing amounts and every face rock-faced within relief_m (inside the granite profile's rock-face range); the head band under it and the corbelled bands above are stepped mouldings, and the upper colonnettes' capitals a neck ring under a flaring bell. The profiles are drawn to the plate's shadows at its resolution, not measured sections."
+      "note": "T-1883: The approved 1888 plate shows two staggered rows of square openings at the parapet, stone corner pinnacles, a deep diaper band and five colonnettes between the six third-storey lights. Dimensions are rounded readings against the accepted 10.4 m front; lattice bar and carving sections, rear pinnacle section and hidden deck fall are reconstructed. The front lattice ends at the corner; the north return is solid stone under a coping and a rear pinnacle, as the oblique street photographs show. The deck sits below the wall head so the lattice opens to sky. Fine foliage is represented by low relief scrolls; exact tooling is not resolved by this microfilm. Liberty L-k01-keith-finish-1883. T-2566: the checker band is laid as both photographs of 1888 show it, rows of rough lumps whose joints break over the row below (stagger 0.5 of a stone), the proud stones standing out by differing amounts and every face rock-faced within relief_m (inside the granite profile's rock-face range); the head band under it and the corbelled bands above are stepped mouldings, and the upper colonnettes' capitals a neck ring under a flaring bell. The profiles are drawn to the plate's shadows at its resolution, not measured sections. T-2564: the north return is laid as the 1887 construction photograph and the c. 1888 view beside Glessner show it, a solid parapet and wall face of large dressed courses (about 0.46 m, read against the 1.12 m lattice) bonded with staggered joints, about 5.5 m long rather than 2.8 m (the c. 1888 view beside Glessner shows the stone return about twice the length the 2.8 m model renders from the same camera, and the 1887 construction view longer still; bounded 4.5 to 7 m, the camera fits being loose), under a rounded coping that sweeps up about 0.35 m over 0.85 m (read against the lattice in the c. 1888 view) into the corner pinnacle's base, as the front coping does at both corners; the pinnacle caps are ogival with a collar and ball finial, the rear one smaller and seated on the coping. Course heights and bond lengths are rounded readings; the individual joint positions are reconstructed."
     },
     "function": {
       "value": "residence",

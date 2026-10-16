@@ -2,18 +2,18 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gho-house-under-construction-1887",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "e39a46317d078813df5e4c199df9d1df7ffa4b7c64d653a3a030682d7a77f00a",
+  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
   "camera_sha256": "58459d896bcda17e77a1d65e99b5f75388ece26d2bfab249167f85a0beaabbe2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gho-house-under-construction-1887-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "The visible short north stone return is too smooth: the photograph shows large horizontal ashlar courses, which the current return material does not reproduce.",
-      "status": "open"
+      "what": "T-2564: the north return is laid in large dressed courses (about 0.46 m) with staggered joints, 5.5 m long as the course counts in the 1887-89 and 1948 views give it, where it was a smooth 2.8 m slab.",
+      "status": "fixed"
     },
     {
-      "what": "Pinnacle caps and the curved top of the north return remain simplified; the photographic profiles are not yet matched.",
-      "status": "open"
+      "what": "T-2564: the pinnacle caps are ogival with a moulded collar and ball finial, the rear one seated on the coping, and the rounded coping sweeps up into the corner pinnacle on the return and at both front corners.",
+      "status": "fixed"
     },
     {
       "what": "Most of Keith is occluded by Glessner or outside this frame. Its bow, stair, lower ornament and rear cannot be accepted from this view. The isolated render does not include the occluding neighbour.",
@@ -22,6 +22,18 @@
     {
       "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
       "status": "not shown"
+    },
+    {
+      "what": "A cowl ventilator stands on the deck behind the return in the 1887-89 pictures and is not built.",
+      "status": "open"
+    },
+    {
+      "what": "Whether the stone parapet continues at full height behind the rear pinnacle, or drops there to the brick, is not resolved by this picture; the model drops it.",
+      "status": "open"
+    },
+    {
+      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
