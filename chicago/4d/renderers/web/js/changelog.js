@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1842, ts: '2026-10-16T03:25:48.356Z', date: 'Oct 15, 2026, 10:25 PM CT', title: '1801 Prairie\'s Kimball house reshaped from an 1890s photograph', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s round tower now stands on the 18th Street side, about 8 m back from the front, where J. W. Taylor\'s c. 1895 photograph and the 1911 fire map put it. Before, it stood at the corner.',
+      'The house is two storeys of stone to a cornice about 8 m up, under a very steep slate roof that rises to a flat top, instead of three plain storeys under a low hip.',
+      'The front\'s south end rises a storey higher under a steep stone gable. The 18th Street side steps down to a lower east wing with a small round turret at its far corner.',
+      'Its arched corner porch, curved stair, bowed bay and carved stonework come next; what is still estimated is listed among the liberties.',
+    ] },
+  { v: 1841, ts: '2026-10-16T02:41:37.040Z', date: 'Oct 15, 2026, 9:41 PM CT', title: '1808 Prairie gains its pierced stone parapet and Ionic entrance', kind: 'improvement',
+    items: [
+      'The Keith house now has an open stone lattice, corner pinnacles, checkerwork and upper colonnettes, with paired Ionic capitals, carved balcony details and curved stair cheeks.',
+      'The south bow gains basement lights, tall transom windows and granite courses. A low stone boundary replaces the later iron fence; a separate pale granite tint preserves Glessner’s colour.',
+      'Historical comparisons and remaining photographic differences are recorded; this is a refinement, with photographic acceptance still open.',
+    ] },
   { v: 1840, ts: '2026-10-16T02:21:42.859Z', date: 'Oct 15, 2026, 9:21 PM CT', title: '1638 Prairie\'s entrance board cut as open fretwork, as photographed', kind: 'improvement',
     items: [
       'Under the tower at 1638 Prairie, the board over the trefoil arch is no longer solid: each corner is open fretwork, a ring round the quatrefoil tied down to the arch\'s point with a small round eye through the tie, and the porch\'s shade showing through the openings beside it.',

@@ -90,7 +90,7 @@ PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
 PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
-                                       "k10_frontage.py", "k10_cornices.py",
+                                       "k10_frontage.py", "k10_cornices.py", "k01_stone_finish.py",
                                        "k11_frontage.py", "k11_ironwork.py",
                                        # T-2360: K14 lays the yard, from the condition kit's ground layers
                                        "k14_yard.py", "k14_condition.py",

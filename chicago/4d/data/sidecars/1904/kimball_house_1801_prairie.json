@@ -1,7 +1,7 @@
 {
   "id": "kimball_house_1801_prairie",
   "phase": "draft_1904",
-  "name": "1801 Prairie Avenue — Kimball Chateauesque (district draft; refined by T-1889, T-1890)",
+  "name": "1801 Prairie Avenue — W. W. Kimball's Chateauesque house, its massing read off J. W. Taylor's c. 1895 photograph (T-2538; refined by T-2539, T-2540, T-1890)",
   "aka": [
     "1801 S. Prairie Avenue"
   ],
@@ -66,7 +66,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+      "note": "'3B' printed on the 1911 sheet: 3 storeys over a basement. The photograph shows the third of them as a storey in the roof over the main block (two storeys of wall under the cornice at about 8 m) and as a wall storey only in the south pavilion and the flank's sections, so the plan's parts below carry their own wall storeys."
     },
     "construction": {
       "value": "stone",
@@ -82,41 +82,71 @@
           {
             "id": "r1",
             "role": "main",
-            "storeys": 3,
-            "roof": "hip_steep",
+            "storeys": 2,
+            "roof": "mansard",
             "rect": [
               0.0,
               0.0,
               20.5,
               9.75
             ],
-            "from": "s28fp-1801-b1 p1 (main, stone), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
+            "from": "s28fp-1801-b1 p1 (main, stone), rectangle 1 of that part (the draft's fit); two storeys of wall under the cornice and the steep roof the Taylor photograph shows"
           },
           {
-            "id": "r2",
+            "id": "p_south",
+            "role": "bay",
+            "storeys": 3,
+            "roof": "gable",
+            "pitch_deg": 58,
+            "rect": [
+              16.0,
+              7.6,
+              20.8,
+              11.2
+            ],
+            "from": "the Taylor photograph's south pavilion: three storeys of wall under a steep coped gable facing the avenue, at the south end of the front, which the sheet carries to v 11.2 (y -3228.7); its depth back from the front is reconstructed"
+          },
+          {
+            "id": "p_flank",
             "role": "wing",
             "storeys": 3,
-            "roof": "hip",
+            "roof": "hip_steep",
+            "pitch_deg": 55,
             "rect": [
-              -17.0,
-              0.0,
-              -8.5,
-              17.25
+              2.2,
+              -0.3,
+              10.0,
+              4.0
             ],
-            "from": "s28fp-1801-b1 p1 (main, stone), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
+            "from": "the Taylor photograph's three-storey section of the 18th Street flank east of the tower (print x 430-600, u 2.2-10 at the camera), its corbel table and third storey; stood 0.3 m proud of the north wall; its depth into the house is reconstructed"
           },
           {
             "id": "r3",
             "role": "wing",
             "storeys": 3,
             "roof": "hip",
+            "pitch_deg": 45,
             "rect": [
               -8.5,
               0.5,
               0.0,
               5.5
             ],
-            "from": "s28fp-1801-b1 p1 (main, stone), rectangle 3 of that part; the part's rectangles cover 84% of its fill"
+            "from": "s28fp-1801-b1 p1, rectangle 3 of that part (the draft's fit): the photograph's gabled section with the balcony (print x 280-430), its apex about 16.3 m"
+          },
+          {
+            "id": "r2",
+            "role": "wing",
+            "storeys": 2,
+            "roof": "hip",
+            "pitch_deg": 40,
+            "rect": [
+              -17.0,
+              0.0,
+              -8.5,
+              17.25
+            ],
+            "from": "s28fp-1801-b1 p1, rectangle 2 of that part (the draft's fit): the photograph's lower two-storey east range, its eaves about 8.2 m"
           }
         ],
         "lot_v": [
@@ -127,25 +157,25 @@
       },
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "taylor_c1895_kimball_residence_1801"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1801-b1 p1 (main, stone), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s28fp-1801-b1 p1 (main, stone), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s28fp-1801-b1 p1 (main, stone), rectangle 3 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The rectangles r1, r2 and r3 are the draft's fit inside the 1911 sheet's traced part (cell 0.25 m, 84% cover) and stay as fitted. Their wall storeys, and the two added parts, are read off the Taylor photograph through its solved camera: p_south is the front's three-storey gabled pavilion, carried to the sheet's own south line at the front (v 11.2), and p_flank the flank's three-storey section east of the tower. The two parts' depths into the house, and every roof's form behind what the camera sees, are reconstructed (L-kimball-1801-massing-2538)."
     },
     "draft_elevation": {
       "value": {
         "kind": "house",
         "seed": 2174725828,
-        "principal_floor_m": 1.4,
+        "principal_floor_m": 1.45,
         "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
+          3.55,
+          3.1,
+          5.8
         ],
         "roof_pitch_deg": 56,
-        "mansard_lower_m": 3.0,
-        "front_bays": 4,
-        "entrance": "centre",
+        "mansard_lower_m": 7.2,
+        "front_bays": 3,
+        "entrance": "north",
         "side_spacing_m": 2.6,
         "chimneys": 2,
         "brackets": false,
@@ -154,47 +184,60 @@
         "features": [
           {
             "kind": "corner_tower",
-            "radius_m": 2.4,
-            "above_eave_m": 3.6,
-            "cap_m": 6.5,
+            "radius_m": 1.45,
+            "above_eave_m": 4.8,
+            "cap_m": 5.8,
             "at": [
-              19.66,
-              0.84
+              12.6,
+              0.35
+            ],
+            "window_rows_m": [
+              1.45,
+              5.0,
+              8.6
+            ],
+            "window_bearings_deg": [
+              270,
+              315,
+              225
+            ]
+          },
+          {
+            "kind": "corner_tower",
+            "radius_m": 1.3,
+            "above_eave_m": 0.0,
+            "cap_m": 4.7,
+            "at": [
+              -16.6,
+              0.7
+            ],
+            "window_rows_m": [
+              1.45,
+              5.0
+            ],
+            "window_bearings_deg": [
+              270,
+              315,
+              225
             ]
           }
         ],
         "draft_label": {
-          "pass": "T-2330",
+          "pass": "T-2538",
+          "refines": "T-2330",
           "refined_by": [
-            "T-1889",
+            "T-2539",
+            "T-2540",
             "T-1890"
           ]
         },
         "v_toward": "south"
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'Chateauesque' overlaid with the frontage row: Chateauesque in Bedford stone, not brownstone: the register's 'tall hip/slate roofs, corner tower and conical cap, elaborate gabled dormers' and 'broad curved entry stair'. The tower is drawn at the 18th Street corner, where the corner lot shows it to the intersection; the sheet does not place it, so its corner is reconstructed. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2174725828 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2330",
-        "liberty": "L-draft-prairie-18-20-east-2330",
-        "register_row": "frontage-28-049",
-        "census_ids": [
-          "s28-1801-front",
-          "s28-1801-wing"
-        ],
-        "trace_building": "s28fp-1801-b1",
-        "seed": 2174725828,
-        "replaceable_by": [
-          "T-1889",
-          "T-1890"
-        ],
-        "card": "District draft — refined by T-1889, T-1890."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "confidence": "inferred",
+      "note": "READ OFF J. W. Taylor's c. 1895 photograph through its solved camera (data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json; heights good to about +-0.5 m near the front, +-1 m on the far flank). Principal floor 1.45 m (the stair's nine risers); the principal storey to about 5.0 m and the second to the main cornice at 8.1 m; the pavilion's and the flank's third storey to about 13.9 m, where the south gable springs (its apex about 17 m at a 58-degree pitch). The main roof: steep slate faces from the cornice to a crested deck whose front edge reads about 15.5-17 m up at the camera (the builder's 72-degree mansard with a 7.2 m lower face, its curb at 15.3 m, set so the rendered deck meets the photograph's). The tower: on the 18th Street flank, its axis 12.6 m back from the rear of the main body (8 m back from the front), between the photograph's x 698 (u 13.0) and the sheet's bump (u 12.0), its outer face 1.1 m proud of the north wall as the sheet draws it; eaves 12.9 m, cone 5.8 m to 18.7 m, finial over it; windows on its north, north-west and north-east faces. The east turret: at the flank's north-east corner on the sheet's second bump (u -15.2 to -17.9, 0.6 m proud), eaves 8.0 m with the range's, cone to 12.7 m. RECONSTRUCTED within this attribute: one radius for each tower (the photograph's tower is a shaft about 2.4 m across under a corbelled upper stage about 3.6 m across; 1.45 m splits them), the eight-sided rings, the builder's sash, dormers, stoop, chimneys and the seeded tint of its flat stand-in stone; the entrance is put at the north end of the front, under the photograph's corner loggia, which this builder cannot draw (L-kimball-1801-massing-2538).",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ]
     },
     "function": {
       "value": "residence",
@@ -226,9 +269,30 @@
         "Architecture above the footprint beyond its story count, material colour and roof symbol",
         "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
       ]
+    },
+    {
+      "source_id": "taylor_c1895_kimball_residence_1801",
+      "citation": "J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie Ave.)', photograph no. 19825, c. 1895. Art Institute of Chicago, Ryerson & Burnham Art and Architecture Archives, Historic Architecture and Landscape Image Collection (Architecture Photograph Collection), MPDrawer 5; gift of Thomas E. Tallmadge, 1918.",
+      "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/28957",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the massing as built: the front, the flank and the east range, their storeys and heights at the photograph's scale",
+        "the round tower's place on the 18th Street flank (not at the corner), its girth, its eaves and the height of its cone",
+        "the steep slate roof over the main block, its deck and cresting, its dormers",
+        "the south pavilion's stone gable, the bowed bay and the corner loggia with its arches and stair",
+        "the east turret at the far end of the flank"
+      ],
+      "what_it_does_not_supply": [
+        "the plan: the 1911 Sanborn sheet 28's trace controls it",
+        "the south and east sides and the rear, which the camera does not see",
+        "colour (monochrome print); 'Bedford stone' is the register's reading",
+        "anything changed between c. 1895 and 1 July 1904"
+      ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1889, T-1890 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1801-b1), the T-1841 census (s28-1801-front, s28-1801-wing) and the T-1837 register row frontage-28-049 (Kimball Chateauesque); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "REFINED IN PLACE FROM THE DISTRICT DRAFT (T-2538, piece 1 of T-1889). The draft of T-2330 stood a three-storey stone box with a round tower at the 18th Street corner, every height and feature the draft rules' reconstruction. J. W. Taylor's photograph of the house, c. 1895 (taylor_c1895_kimball_residence_1801, camera data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json), shows a different building, and this record is now written from it and from the 1911 sheet 28 trace (s28fp-1801-b1), not by the draft rules (which skip s28-1801-front): two storeys of wall under a very steep slate roof whose faces rise to a crested deck about 17 m up; the round tower standing on the 18th Street flank about 8 m back from the front, where the sheet's bump in the north wall puts it, with its cone to about 18.7 m; a three-storey pavilion under a steep stone gable at the south end of the front; a three-storey section of the flank east of the tower and a gabled section beyond it; a lower two-storey range at the east end with a small round turret at its north-east corner, where the sheet draws a second bump. It is still built by the draft builder (generators/archetypes/prairie_draft.py), because K01 cannot yet lay an all-stone house or carry a tower: T-2539 moves it onto K01 with the photograph's openings, arches and stair; T-2540 brings the roof, the flank and the rear to the photograph; T-1890 finishes the architecture. What the photograph does not show, and what this builder cannot draw, is recorded in docs/LIBERTIES.md (L-kimball-1801-massing-2538) and open in the match record.",
   "research_doc": "",
   "review_required": false
 }
