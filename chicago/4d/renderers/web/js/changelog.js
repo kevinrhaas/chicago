@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1866, ts: '2026-10-16T13:30:30.805Z', date: 'Oct 16, 2026, 8:30 AM CT', title: 'Steadier frames while you move on a slow device', kind: 'improvement',
+    items: [
+      'On a phone or slow computer that can\'t keep up while you walk, turn or fly, the town is now drawn at fewer pixels, down to about two-thirds of your Image sharpness, to keep frames coming at an even pace instead of stuttering.',
+      'A device that can\'t hold 60 frames a second even then is held at a steady 30. On Light detail the sun\'s shadows refresh every other frame while you move.',
+      'Stop and everything is back at full sharpness at once, so a still view looks exactly as before.',
+      'Settings → Performance has a new Frame pacing choice, Adaptive or Fixed, and a line saying what it is doing right now. Fixed turns all of this off.',
+    ] },
   { v: 1865, ts: '2026-10-16T12:45:45.685Z', date: 'Oct 16, 2026, 7:45 AM CT', title: 'Keith\'s loggia carving read again from the 1888 photograph', kind: 'improve',
     items: [
       'At 1808 Prairie, the capitals over the paired entrance columns are now what the 1888 plate shows: square stone blocks carved with a running zigzag. The volutes and egg row drawn earlier are gone; a close look at the photograph shows neither.',
