@@ -28,15 +28,15 @@
         "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
       },
       "position": {
-        "utm_e": 448519.274,
-        "utm_n": 4634095.795,
+        "utm_e": 448519.257,
+        "utm_n": 4634097.545,
         "rotation_deg": 179.449,
         "symbolic_location": "1827 S. Prairie Avenue, parcel prairie_1827 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 15.000, v -8.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.449 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the main body's rectangle (lot frame u 15.000, v -10.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.449 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -54,11 +54,11 @@
           ],
           [
             24.25,
-            13.75
+            15.5
           ],
           [
             0.0,
-            13.75
+            15.5
           ]
         ],
         "confidence": "inferred",
@@ -96,7 +96,7 @@
                   0.0,
                   0.0,
                   24.25,
-                  13.75
+                  15.5
                 ],
                 "from": "s28fp-1827-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
               },
@@ -106,43 +106,30 @@
                 "storeys": 3,
                 "roof": "flat",
                 "rect": [
-                  3.0,
-                  -1.75,
-                  24.25,
-                  0.0
+                  -2.75,
+                  1.75,
+                  0.0,
+                  10.5
                 ],
                 "from": "s28fp-1827-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 89% of its fill"
               },
               {
                 "id": "r3",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  -2.75,
-                  0.0,
-                  0.0,
-                  8.75
-                ],
-                "from": "s28fp-1827-b1 p2 (main, stone), rectangle 3 of that part; the part's rectangles cover 89% of its fill"
-              },
-              {
-                "id": "r4",
                 "role": "bay",
                 "storeys": 3,
                 "roof": "flat",
                 "rect": [
-                  24.5,
-                  -1.5,
+                  24.25,
+                  0.25,
                   27.25,
-                  3.25
+                  5.0
                 ],
                 "from": "s28fp-1827-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 93% of its fill"
               }
             ],
             "lot_v": [
-              -3.721,
-              20.721
+              -1.971,
+              22.471
             ],
             "street_u": 33.87
           },
@@ -150,7 +137,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1827-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1827-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 89% of its fill; s28fp-1827-b1 p2 (main, stone), rectangle 3 of that part; the part's rectangles cover 89% of its fill; s28fp-1827-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 93% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1827-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1827-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 89% of its fill; s28fp-1827-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 93% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
         },
         "draft_elevation": {
           "value": {
@@ -165,7 +152,7 @@
             ],
             "roof_pitch_deg": 38,
             "mansard_lower_m": 3.0,
-            "front_bays": 5,
+            "front_bays": 6,
             "entrance": "south",
             "side_spacing_m": 2.6,
             "chimneys": 2,
@@ -191,7 +178,7 @@
                 "cap_m": 3.6,
                 "at": [
                   23.69,
-                  13.19
+                  14.94
                 ]
               }
             ],

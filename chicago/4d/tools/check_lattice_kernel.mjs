@@ -18,10 +18,11 @@
  * them), imports the kernel module itself, and walks every layer's own lattice
  * and several hundred random ones — every draw, cones of every width with and
  * without a margin, an aerial frustum, no cone at all, negative coordinates. Each
- * walk is driven three ways: `scatter` in the frame; `scatterOnPool` with its job
- * answered on a later task and resumed with MAY_WAIT, as `runPass` drives it; and
+ * walk is driven four ways: `scatter` in the frame; `scatterOnPool` with its job
+ * answered on a later task and resumed with MAY_WAIT, as `runPass` drives it;
  * `scatterOnPool` drained by `for…of` with the job never answered, as `settle`
- * and a late slice drive it. A slot is compared bit for bit — position, distance,
+ * and a late slice drive it; and (T-2683) `scatterOnPool` handed the reply to a
+ * walk its pass sent ahead, which it must take without sending the walk again. A slot is compared bit for bit — position, distance,
  * rank, cell seed and the next three draws of its stream — and so is every yield.
  *
  * `--self-test` proves the gate can fail: a kernel that is one ulp off in one
@@ -42,7 +43,8 @@ const SELF_TEST = argv.includes('--self-test');
 const CAMERAS = Number(argv[argv.indexOf('--cameras') + 1]) || 300;
 
 const WANT_FN = ['scatter', 'scatterOnPool', 'outsideFrustum', 'rngFrom', 'hash3', 'frac',
-  'feistel', 'stratum', 'blockPhase', 'morton', 'spread16', 'vdc', 'stratumHalf'];
+  'feistel', 'stratum', 'blockPhase', 'morton', 'spread16', 'vdc', 'stratumHalf',
+  'walkJob', 'walkKey'];
 const WANT_CONST = ['CONE_KEEP_M', 'STRAT_SALT', 'STRAT_BLOCK_SHIFT', 'WALK_WAIT', 'MAY_WAIT'];
 
 /** `function NAME(` or `function* NAME(` at column 0, to its own closing brace. */
@@ -88,7 +90,7 @@ function loadFlora(latticeSlots) {
     console.error(`REFUSING TO CHECK — not found in renderers/web/js/flora.js: ${missing.join(', ')}`);
     process.exit(2);
   }
-  const body = `${parts.join('\n\n')}\nreturn { scatter, scatterOnPool, WALK_WAIT, MAY_WAIT };`;
+  const body = `${parts.join('\n\n')}\nreturn { scatter, scatterOnPool, walkJob, walkKey, WALK_WAIT, MAY_WAIT };`;
   // eslint-disable-next-line no-new-func
   return new Function('latticeSlots', 'pool', `
     const runJob = (kind, job) => pool.runJob(kind, job);
@@ -142,6 +144,15 @@ async function drive(flora, mode, args, kernel) {
   POOL.runJob = (kind, job) => new Promise((resolve) => {
     setImmediate(() => resolve(structuredClone(kernel(structuredClone(job)))));
   });
+  if (mode === 'ahead') {
+    // T-2683: the walk was sent ahead by the pass (`begin`), from the walk the
+    // last pass wrote down; the deal must take THAT reply and send nothing.
+    const w = { cell, perCell, radius, inner, salt, draw };
+    const job = flora.walkJob(camE, camN, w, marked);
+    marked.ahead = new Map([[flora.walkKey(job), POOL.runJob('latticeSlots', job)]]);
+    marked.walks = [];
+    POOL.runJob = () => { throw new Error('a walk sent ahead was sent again'); };
+  }
   const gen = flora.scatter(camE, camN, cell, perCell, radius, inner, salt, draw, marked, emit);
   let waits = 0;
   for (;;) {
@@ -154,7 +165,10 @@ async function drive(flora, mode, args, kernel) {
     }
     rec.push(['yield', s.value.done, s.value.total]);
   }
-  if (!waits) throw new Error('a pool walk that never waited — the job was not sent');
+  if (mode === 'ahead') {
+    if (marked.ahead.size) throw new Error('the walk sent ahead was never taken');
+    if (marked.walks.length !== 1) throw new Error('the walk was not written down for the next pass');
+  } else if (!waits) throw new Error('a pool walk that never waited — the job was not sent');
   return rec;
 }
 
@@ -227,7 +241,7 @@ async function check(kernel, walks) {
   for (const [i, args] of walks.entries()) {
     const ref = await drive(flora, 'frame', args, kernel);
     slots += ref.filter((x) => x[0] === 'slot').length;
-    for (const mode of args[8] ? ['pool', 'drain'] : []) {
+    for (const mode of args[8] ? ['pool', 'drain', 'ahead'] : []) {
       const got = await drive(flora, mode, args, kernel);
       const diff = same(ref, got);
       if (diff) return { walk: i, mode, diff, args };
@@ -295,4 +309,4 @@ if (!r.ok) {
   process.exit(1);
 }
 console.log(`PASS — ${walks.length} walks (${layerWalks().length} of the layers' own lattices), `
-  + `${r.slots} slots, identical in the frame, on the pool and drained`);
+  + `${r.slots} slots, identical in the frame, on the pool, drained and sent ahead`);

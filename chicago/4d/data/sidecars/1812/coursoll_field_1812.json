@@ -10,6 +10,11 @@
   "asset": "gltf/coursoll_field_1812__coursoll_1808.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1808-01-25",
     "to": "1812-08-16",

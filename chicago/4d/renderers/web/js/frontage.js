@@ -1510,6 +1510,111 @@ async function getJSON(url) {
   return res.json();
 }
 
+/* -------------------------------------------------------------------------- */
+/* THE TOWN'S TIMBER, PREBUILT (T-2677)                                        */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * T-2677, the second piece of T-2560 ("ship the town prebuilt"). Laying the
+ * frontage's boards (1.95 million vertices) over the terrain is one main-thread task: 0.9 s on
+ * the steward runner, 3.3 s at its 4x CPU throttle. `tools/publish.sh` now runs
+ * this same function in Node (`tools/prebuild_layers.mjs`, byte-equal to the
+ * page's build since T-2676) and writes `data/prebuilt/<year>/frontage.{json,bin}`,
+ * and the page uploads those buffers instead of building them.
+ *
+ * WHAT IS PREBUILT AND WHAT IS NOT. Only the board geometry. The records are
+ * still fetched and walked in the browser, so the walks, decks, keep-outs, cards
+ * and census are built by the same loop as ever; the one thing that changes is
+ * that each geometry call (`buildWalk`, `laySegment`, `buildFence`, `buildPost`,
+ * `buildFitting`) is not made. Its answer — laid or not, and a post's board
+ * frame — is read off a TAPE the Node build recorded, in call order, and the
+ * buffers come from the file. The pick spans and the walk-top ranges the far
+ * tops are cut from ride in the index beside the meshes.
+ *
+ * WHEN IT IS USED. Only when every one of these holds, and otherwise the page
+ * builds in the browser exactly as before (the source tree always does):
+ *   - the page carries a build stamp, and the prebuild was written by the same
+ *     publish (`index.build`): the code and terrain it was built from are the
+ *     page's own, not a cached file from another release;
+ *   - every frontage record file the page fetched hashes (SHA-256) to what the
+ *     index lists for it, and the index lists no other: the data is the same;
+ *   - no host building is missing (`hostMissing`), because a missing host
+ *     drops its fences and posts, which a recorded build did not;
+ *   - the buffer is the length the index says.
+ * `tools/check_published.mjs` refuses a published prebuild whose inputs have
+ * moved, so the page's check is the second line, for a visitor whose cache holds
+ * one release's prebuild beside another's page.
+ */
+export const PREBUILT_FORMAT = 2;
+
+/** The page's own build id, from the stamp publish.sh writes into it. */
+export function pageBuild(doc = globalThis.document) {
+  const text = doc?.getElementById?.('gate-build')?.textContent ?? '';
+  return /^\s*build\s+(\S+)/.exec(text)?.[1] ?? null;
+}
+
+/**
+ * Fetch `data/prebuilt/<year>/frontage.{json,bin}` for this page, or say why
+ * not. Started early by main.js, so the download overlaps the boot phases ahead
+ * of this layer. Resolves `{ index, bin }` or `{ why }`; it never rejects.
+ */
+export async function fetchPrebuiltFrontage({ dataBase, year, build }) {
+  if (!dataBase || !year) return { why: 'this scene draws no frontage' };
+  if (!build) return { why: 'this page carries no build stamp, so it builds its own (the source tree)' };
+  const base = new URL(`prebuilt/${year}/`, dataBase);
+  try {
+    const res = await fetch(new URL('frontage.json', base));
+    if (!res.ok) return { why: `no prebuilt frontage (${res.status})` };
+    const index = await res.json();
+    if (index.format !== PREBUILT_FORMAT) return { why: `prebuilt format ${index.format}, this page reads ${PREBUILT_FORMAT}` };
+    if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
+    const binRes = await fetch(new URL(index.bin, base));
+    if (!binRes.ok) return { why: `no prebuilt buffer (${binRes.status})` };
+    let bin = await binRes.arrayBuffer();
+    // Shipped gzipped (the tree budget, prebuild_layers.mjs). A server that sent
+    // it with Content-Encoding has already inflated it, so read the magic bytes.
+    const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));
+    if (index.encoding === 'gzip' && head[0] === 0x1f && head[1] === 0x8b) {
+      if (typeof DecompressionStream !== 'function') return { why: 'this browser cannot inflate the prebuilt buffer' };
+      // On a pool worker: 78 MB inflated on the main thread was a second of long
+      // tasks at the phone profile (jobs/inflate-kernel.js).
+      // Imported here, not at the top: the node harnesses that load this file as a
+      // data: URL (check_plank_*.mjs) never reach it, and the page already holds it.
+      const { runJob } = await import('./jobs/pool.js');
+      const { bytes } = await runJob('inflateGzip', { bytes: new Uint8Array(bin), passes: index.passes ?? 1 },
+        { transfer: [bin] });
+      bin = bytes.byteOffset === 0 && bytes.byteLength === bytes.buffer.byteLength
+        ? bytes.buffer : bytes.slice().buffer;
+    }
+    if (bin.byteLength !== index.bytes) return { why: `prebuilt buffer is ${bin.byteLength} bytes, its index says ${index.bytes}` };
+    return { index, bin };
+  } catch (err) {
+    return { why: `prebuilt frontage did not load: ${err.message}` };
+  }
+}
+
+/** A record fetched as bytes, so its hash can be compared with the prebuild's. */
+async function getJSONHashed(url) {
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
+  const bytes = await res.arrayBuffer();
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+  return { json: JSON.parse(new TextDecoder().decode(bytes)),
+    sha256: Array.from(digest, (b) => b.toString(16).padStart(2, '0')).join('') };
+}
+
+/** One prebuilt mesh's geometry: typed-array views over the shared buffer. */
+function prebuiltGeometry(m, bin) {
+  const geo = new THREE.BufferGeometry();
+  const view = (a) => new globalThis[a.type](bin, a.offset, a.byteLength / globalThis[a.type].BYTES_PER_ELEMENT);
+  for (const a of m.attributes) geo.setAttribute(a.name, new THREE.BufferAttribute(view(a), a.itemSize, a.normalized));
+  if (m.index) geo.setIndex(new THREE.BufferAttribute(view(m.index), 1));
+  const s = m.bounding_sphere;
+  if (s) geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(...s.center), s.radius);
+  else geo.computeBoundingSphere();
+  return geo;
+}
+
 /**
  * @param {object} o dataBase (data/ root) · terrain · confidence · problems
  * @returns {Promise<{group: THREE.Group, records: object[], census: object,
@@ -1533,6 +1638,13 @@ export async function createFrontage({
    * hole in the town, which trades a false claim for a worse one.
    */
   hostMissing = () => false,
+  /**
+   * T-2677: `{ index, bin }` from `fetchPrebuiltFrontage` (or a promise of it),
+   * used when it is current against what this page read (see THE TOWN'S TIMBER,
+   * PREBUILT above); `record` keeps the tape a prebuild writes.
+   */
+  prebuilt = null,
+  record = false,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'frontage';
@@ -1570,6 +1682,8 @@ export async function createFrontage({
       /** The substrate whose grain the timber carries (T-1815), or null. */
       relief: null,
     },
+    /** T-2677: whether the timber came prebuilt, and if not, why not. */
+    prebuilt: { used: false, why: prebuilt ? null : 'none offered' },
     pickAt: () => null,
     dispose: () => {},
   };
@@ -1580,9 +1694,19 @@ export async function createFrontage({
   }
   // The grain's maps load beside the records; the material waits for them.
   const reliefP = loadTimberRelief(resolveBases().assetBase);
+  const offered = prebuilt ? await prebuilt : null;
+  const read = offered?.index && globalThis.crypto?.subtle ? new Map() : null;
+  if (offered && !offered.index) out.prebuilt.why = offered.why ?? 'none offered';
+  else if (offered && !read) out.prebuilt.why = 'this page cannot hash what it read (no SubtleCrypto)';
+  const fetchJSON = async (file) => {
+    if (!read) return getJSON(new URL(file, dataBase));
+    const { json, sha256 } = await getJSONHashed(new URL(file, dataBase));
+    read.set(`data/${file}`, sha256);
+    return json;
+  };
   let index;
   try {
-    index = await getJSON(new URL('frontage/index.json', dataBase));
+    index = await fetchJSON('frontage/index.json');
   } catch (err) {
     // Degrade to NOTHING drawn plus a recorded problem, never to an invented
     // walk: the same contract the enclosure, signage and yard layers keep.
@@ -1593,9 +1717,32 @@ export async function createFrontage({
   const loaded = await Promise.all(wanted.map(async (f) => {
     if (!f.file) return [f.id, null, 'the manifest gave no file'];
     try {
-      return [f.id, await getJSON(new URL(`frontage/${f.file}`, dataBase)), null];
+      return [f.id, await fetchJSON(`frontage/${f.file}`), null];
     } catch (err) { return [f.id, null, err.message]; }
   }));
+
+  // T-2677: the prebuild is replayed only over exactly the records it was built
+  // from, with every host standing.
+  let replay = null;
+  if (read) {
+    const built = offered.index.inputs.files.filter((f) => f.path.startsWith('data/frontage/'));
+    const moved = built.filter((f) => read.get(f.path) !== f.sha256).map((f) => f.path)
+      .concat([...read.keys()].filter((p) => !built.some((f) => f.path === p)));
+    const orphan = loaded.some(([, record]) => record && ['fences', 'posts', 'fittings']
+      .some((k) => (record[k] ?? []).some((item) => hostMissing(item.belongs_to))));
+    if (moved.length) out.prebuilt.why = `built from other frontage data (${moved.slice(0, 3).join(', ')})`;
+    else if (orphan) out.prebuilt.why = 'a host building is missing, so its timber is not the recorded build';
+    else replay = offered;
+  }
+  /** Each geometry call's answer: made and recorded, or read off the tape. */
+  const tape = [];
+  let step = 0;
+  const lay = (build) => {
+    if (replay) return replay.index.tape[step++];
+    const r = build();
+    if (record) tape.push(r ?? null);
+    return r;
+  };
 
   const buf = timberBuf();
   const spans = [];
@@ -1629,7 +1776,7 @@ export async function createFrontage({
     const key = standing ? `${chunk}__standing` : chunk;
     let hit = named.get(key);
     if (!hit) {
-      hit = { buf: timberBuf(), pickId, standing };
+      hit = { buf: replay ? null : timberBuf(), pickId, standing };
       named.set(key, hit);
     }
     return hit;
@@ -1706,17 +1853,17 @@ export async function createFrontage({
       let ok;
       if (named0) {
         // A named chunk: lay straight into the face's own buffer (T-0069).
-        ok = inWalkTone(named0.buf, walk, () => (crossing
+        ok = lay(() => inWalkTone(named0.buf, walk, () => (crossing
           ? buildCrossing(named0.buf, walk, terrain, level, problems)
-          : buildWalk(named0.buf, walk, terrain, level, problems, edgeStats)));
+          : buildWalk(named0.buf, walk, terrain, level, problems, edgeStats))));
       } else if (chunked) {
         // One chunk per segment; the walk is laid iff any segment laid boards.
         let laid = 0;
         for (let i = 0; i + 1 < line.length; i += 1) {
-          const cbuf = timberBuf();
-          const boardsLaid = inWalkTone(cbuf, walk, () => laySegment(cbuf, walk,
+          const cbuf = replay ? null : timberBuf();
+          const boardsLaid = lay(() => inWalkTone(cbuf, walk, () => laySegment(cbuf, walk,
             line[i][0], line[i][1], line[i + 1][0], line[i + 1][1], terrain, level,
-            edgeStats));
+            edgeStats)));
           if (!boardsLaid) continue;
           chunks.push({ buf: cbuf, pickId: walk.belongs_to });
           laid += boardsLaid;
@@ -1728,9 +1875,9 @@ export async function createFrontage({
         }
       } else {
         const from = buf.pos.length / 9;
-        ok = inWalkTone(buf, walk, () => (crossing
+        ok = lay(() => inWalkTone(buf, walk, () => (crossing
           ? buildCrossing(buf, walk, terrain, level, problems)
-          : buildWalk(buf, walk, terrain, level, problems, edgeStats)));
+          : buildWalk(buf, walk, terrain, level, problems, edgeStats))));
         if (ok) spans.push({ id: walk.belongs_to, from, to: buf.pos.length / 9 });
       }
       if (!ok) continue;
@@ -1825,7 +1972,7 @@ export async function createFrontage({
       const bucket = bufFor(standingChunk(record, fence), fence.belongs_to, true);
       const target = bucket ? bucket.buf : buf;
       const from = buf.pos.length / 9;
-      if (!buildFence(target, fence, terrain, level, problems)) continue;
+      if (!lay(() => buildFence(target, fence, terrain, level, problems))) continue;
       if (!bucket) spans.push({ id: fence.belongs_to, from, to: buf.pos.length / 9 });
       out.fences.push(fence);
       out.census.fences += 1;
@@ -1845,10 +1992,10 @@ export async function createFrontage({
       // A hitching post is street-edge timber and takes the weathered palette,
       // keyed on the house it stands at (T-1815); a sign post keeps `TIMBER`,
       // the tone it shares with the board it carries.
-      const board = post.kind === 'hitching_post'
+      const board = lay(() => (post.kind === 'hitching_post'
         ? inOwnerTone(target, post.stands_at ?? post.belongs_to ?? post.id,
           () => buildPost(target, post, terrain, level, problems))
-        : buildPost(target, post, terrain, level, problems);
+        : buildPost(target, post, terrain, level, problems)));
       if (!board) continue;
       if (!bucket) spans.push({ id: post.belongs_to, from, to: buf.pos.length / 9 });
       out.posts.push(post);
@@ -1866,8 +2013,8 @@ export async function createFrontage({
       const bucket = bufFor(standingChunk(record, fit), fit.belongs_to, true);
       const target = bucket ? bucket.buf : buf;
       const from = buf.pos.length / 9;
-      if (!inOwnerTone(target, fit.serves ?? fit.belongs_to ?? fit.id,
-        () => buildFitting(target, fit, terrain, level, problems))) continue;
+      if (!lay(() => inOwnerTone(target, fit.serves ?? fit.belongs_to ?? fit.id,
+        () => buildFitting(target, fit, terrain, level, problems)))) continue;
       if (!bucket) spans.push({ id: fit.belongs_to, from, to: buf.pos.length / 9 });
       out.fittings.push(fit);
       // A stoop or an apron is a floor like the walk, and a block or a rail stands
@@ -1903,28 +2050,36 @@ export async function createFrontage({
   // The named chunks join the polyline ones: same material, same render order,
   // one bounding sphere each (T-0069).
   for (const [id, hit] of named) {
-    if (hit.buf.pos.length) {
+    if (hit.buf?.pos.length) {
       chunks.push({ buf: hit.buf, pickId: hit.pickId, id, standing: hit.standing,
         crossStreet: !!hit.crossStreet });
     }
   }
-  if (!buf.pos.length && !chunks.length) {
+  if (replay && step !== replay.index.tape.length) {
+    problems.push(`frontage: the prebuilt tape ran ${step} of ${replay.index.tape.length} steps — `
+      + 'the page and the prebuild disagree about the records');
+  }
+  if (replay) releaseTimberBuf(buf);
+  else if (!buf.pos.length && !chunks.length) {
     if (out.census.records) {
       problems.push('frontage: the records loaded and not one board was laid');
     }
     return out;
   }
 
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
-  // Normals and tones in compact normalized formats (T-2569, compact-streams.js).
-  geo.setAttribute('normal', compactNormals(buf.nrm.view()));
-  geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
-  geo.setAttribute('color', compactColors(buf.col.view()));
-  geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
-  geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
-  geo.computeBoundingSphere();
-  releaseTimberBuf(buf);
+  // T-2677: a replay takes every mesh's buffers from the prebuild instead.
+  const geo = replay ? prebuiltGeometry(replay.index.meshes[0], replay.bin) : new THREE.BufferGeometry();
+  if (!replay) {
+    geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
+    // Normals and tones in compact normalized formats (T-2569, compact-streams.js).
+    geo.setAttribute('normal', compactNormals(buf.nrm.view()));
+    geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
+    geo.setAttribute('color', compactColors(buf.col.view()));
+    geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
+    geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
+    geo.computeBoundingSphere();
+    releaseTimberBuf(buf);
+  }
 
   const mat = new THREE.MeshStandardMaterial({
     // The colour is on the vertex since T-1800: the walks carry their owners'
@@ -2013,8 +2168,20 @@ export async function createFrontage({
   // pick carries the owner on the mesh itself — a chunk is one walk's timber
   // and nothing else, so it needs no face-span arithmetic.
   const chunkMeshes = [];
-  const walkTopSources = [{ mesh, ranges: buf.walkTopRanges }];
-  for (const chunk of chunks) {
+  const walkTopSources = [{ mesh,
+    ranges: replay ? replay.index.meshes[0].walk_top_ranges : buf.walkTopRanges }];
+  for (const m of replay ? replay.index.meshes.slice(1) : []) {
+    const cmesh = new THREE.Mesh(prebuiltGeometry(m, replay.bin), mat);
+    cmesh.renderOrder = m.renderOrder;
+    cmesh.name = m.name;
+    cmesh.castShadow = m.castShadow;
+    cmesh.receiveShadow = m.receiveShadow;
+    Object.assign(cmesh.userData, m.userData);
+    group.add(cmesh);
+    chunkMeshes.push(cmesh);
+    walkTopSources.push({ mesh: cmesh, ranges: m.walk_top_ranges });
+  }
+  for (const chunk of replay ? [] : chunks) {
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
     cgeo.setAttribute('normal', compactNormals(chunk.buf.nrm.view()));
@@ -2042,8 +2209,18 @@ export async function createFrontage({
     walkTopSources.push({ mesh: cmesh, ranges: chunk.buf.walkTopRanges });
   }
   out.census.meshes = group.children.length;
-  out.census.kerb = edgeStats.kerb;
-  out.census.kerbStep_m = Math.round(edgeStats.kerbStep * 1000) / 1000;
+  out.census.kerb = replay ? replay.index.census.kerb : edgeStats.kerb;
+  out.census.kerbStep_m = replay ? replay.index.census.kerbStep_m
+    : Math.round(edgeStats.kerbStep * 1000) / 1000;
+  if (replay) {
+    spans.splice(0, spans.length, ...replay.index.spans);
+    out.prebuilt = { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes };
+  }
+  // What a prebuild writes beside the buffers (tools/prebuild_layers.mjs).
+  if (record) {
+    out.prebuild = { tape, spans: spans.map((sp) => ({ ...sp })),
+      walkTopRanges: walkTopSources.map((w) => w.ranges.map((r) => ({ ...r }))) };
+  }
   terrain.protectGroundUnder?.(crossingFootprints);
 
   const letters = makeLettering(boards);

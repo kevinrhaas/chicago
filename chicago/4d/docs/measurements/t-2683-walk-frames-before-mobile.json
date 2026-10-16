@@ -1,0 +1,281 @@
+{
+  "year": "1835",
+  "source": "source",
+  "throttle": 4,
+  "rebuild": "spread",
+  "ceilingMs": {
+    "full": 60,
+    "balanced": 32,
+    "light": 21
+  },
+  "p95CeilingMs": {
+    "full": 15,
+    "balanced": 9,
+    "light": 7
+  },
+  "readings": [
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "tier": "full",
+      "move": "walk",
+      "frames": 2234,
+      "rebuilds": 174,
+      "digests": [
+        "d021cf14",
+        "eab79ab3",
+        "60c78d2f",
+        "ca75e061",
+        "e9803621",
+        "92c5c3d2",
+        "aa9e9bcd",
+        "8c9bf710",
+        "28d53db6",
+        "be7b24d3",
+        "ec9106e4",
+        "33f7f30",
+        "7381c171",
+        "bcd2f198",
+        "bee06128"
+      ],
+      "spread": {
+        "landings": 185,
+        "drained": 5,
+        "abandoned": 0,
+        "framesPerPass": 9.58,
+        "msPerPass": 16.58,
+        "waits": 1275,
+        "jumps": 0,
+        "jumpFrames": 0,
+        "oneFrame": 10
+      },
+      "verified": {
+        "near": {
+          "spread": "b303546e",
+          "sync": "b303546e",
+          "same": true
+        },
+        "far": {
+          "spread": "5fc16663",
+          "sync": "5fc16663",
+          "same": true
+        }
+      },
+      "longs": [
+        {
+          "frame": 1655,
+          "ms": 145.2,
+          "flora": 140.5,
+          "pass": "one-frame",
+          "landings": 137,
+          "drained": 1,
+          "abandoned": 0
+        }
+      ],
+      "scripted": {
+        "median": 2.9,
+        "p95": 7,
+        "p99": 8.6,
+        "max": 145.2,
+        "mean": 3.41,
+        "over16": 2,
+        "over33": 1,
+        "over50": 1
+      },
+      "layers": {
+        "flora.update": {
+          "median": 0,
+          "p95": 4.2,
+          "p99": 5.7,
+          "max": 140.5,
+          "mean": 0.77,
+          "over16": 2,
+          "over33": 1,
+          "over50": 1
+        },
+        "trees.update": {
+          "median": 0,
+          "p95": 0.1,
+          "p99": 0.8,
+          "max": 5.6,
+          "mean": 0.04,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.update": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0.1,
+          "max": 0.7,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.updateGroundReach": {
+          "median": 2.1,
+          "p95": 2.6,
+          "p99": 2.9,
+          "max": 3.5,
+          "mean": 2.1,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "world.aim": {
+          "median": 0,
+          "p95": 0.1,
+          "p99": 0.6,
+          "max": 0.9,
+          "mean": 0.02,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.setHaze": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "renderer.render": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        }
+      },
+      "heapMB": 1459.12
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "tier": "full",
+      "move": "turn",
+      "frames": 480,
+      "rebuilds": 63,
+      "digests": [
+        "916b3532",
+        "26949f8c",
+        "979ca390",
+        "f7242ce9"
+      ],
+      "spread": {
+        "landings": 118,
+        "drained": 41,
+        "abandoned": 0,
+        "framesPerPass": 11.96,
+        "msPerPass": 66.73,
+        "waits": 742,
+        "jumps": 0,
+        "jumpFrames": 0
+      },
+      "verified": {
+        "near": {
+          "spread": "315c24bd",
+          "sync": "315c24bd",
+          "same": true
+        },
+        "far": {
+          "spread": "b8b09849",
+          "sync": "b8b09849",
+          "same": true
+        }
+      },
+      "longs": [],
+      "scripted": {
+        "median": 2.4,
+        "p95": 9.4,
+        "p99": 17.1,
+        "max": 19,
+        "mean": 4.26,
+        "over16": 6,
+        "over33": 0,
+        "over50": 0
+      },
+      "layers": {
+        "flora.update": {
+          "median": 0.7,
+          "p95": 7.8,
+          "p99": 15.3,
+          "max": 17.5,
+          "mean": 2.68,
+          "over16": 1,
+          "over33": 0,
+          "over50": 0
+        },
+        "trees.update": {
+          "median": 0,
+          "p95": 0.1,
+          "p99": 0.8,
+          "max": 1.6,
+          "mean": 0.03,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.update": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0.1,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.updateGroundReach": {
+          "median": 1.2,
+          "p95": 2,
+          "p99": 2.2,
+          "max": 2.7,
+          "mean": 1.24,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "world.aim": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0.7,
+          "max": 0.9,
+          "mean": 0.01,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.setHaze": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0.1,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "renderer.render": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        }
+      },
+      "heapMB": 1459.12
+    }
+  ],
+  "note": "T-2683 before: dev at 115f9d096 (T-2682 merged). walk from one run, turn from another; the snap at frame 1655 is a one-frame pass in the walk run (140.5 ms flora) and was not long in the run the turn comes from."
+}

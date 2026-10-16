@@ -9,6 +9,28 @@
   "asset": "gltf/marshall_field_house_1905_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 16 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a19-cgy-1905-field-1893-engraving",
+      "a19-cgy-1905-field-1955",
+      "a19-cgy-1905-field-923",
+      "a19-cgy-1905-field-school",
+      "a19-cgy-1905-field-tribune-1955",
+      "a19-cgy-1905-field-winter",
+      "a19-field-cdn-dn0003324",
+      "a19-gh-1981-donnelley-warehouse-1905-site",
+      "a19-gh-field-g85-1-15-38",
+      "a19-gh-prairie-1800-1900-elevations",
+      "a19-nby-newchicagoalbum-1883-residences",
+      "a19-pictorial-1893-field",
+      "a19-pictorial-1896-field",
+      "cgs-1905-tribune-1955-remnants",
+      "cgs-tribune-1898-01-09-death-strip",
+      "nps-1905-tribune-1928-06-03-famous-homes-field-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +42,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1443.695,
-    "local_n": -3358.346,
+    "local_e": 1443.678,
+    "local_n": -3356.596,
     "rotation_deg": 179.444,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 24.250, v -12.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 24.250, v -14.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1905 S. Prairie Avenue, parcel prairie_1905 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -46,11 +68,11 @@
       ],
       [
         21.0,
-        13.5
+        15.25
       ],
       [
         0.0,
-        13.5
+        15.25
       ]
     ],
     "confidence": "inferred",
@@ -88,7 +110,7 @@
               0.0,
               0.0,
               21.0,
-              13.5
+              15.25
             ],
             "from": "s28fp-1905-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
           },
@@ -98,43 +120,30 @@
             "storeys": 3,
             "roof": "flat",
             "rect": [
-              3.5,
-              -1.75,
-              20.5,
-              0.0
+              -2.5,
+              4.75,
+              0.0,
+              15.25
             ],
             "from": "s28fp-1905-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill"
           },
           {
             "id": "r3",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              -2.5,
-              3.0,
-              0.0,
-              13.5
-            ],
-            "from": "s28fp-1905-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 86% of its fill"
-          },
-          {
-            "id": "r4",
             "role": "range",
             "storeys": 2,
             "roof": "flat",
             "rect": [
               -2.5,
-              -6.25,
+              -4.5,
               4.25,
-              -1.75
+              0.0
             ],
             "from": "s28fp-1905-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill"
           }
         ],
         "lot_v": [
-          -12.911,
-          37.911
+          -11.161,
+          39.661
         ],
         "street_u": 30.401
       },
@@ -142,7 +151,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1905-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill; s28fp-1905-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill; s28fp-1905-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 86% of its fill; s28fp-1905-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1905-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill; s28fp-1905-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill; s28fp-1905-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -157,7 +166,7 @@
         ],
         "roof_pitch_deg": 18,
         "mansard_lower_m": 3.0,
-        "front_bays": 5,
+        "front_bays": 6,
         "entrance": "centre",
         "side_spacing_m": 2.6,
         "chimneys": 2,

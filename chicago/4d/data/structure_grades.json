@@ -1,0 +1,59 @@
+{
+  "_doc": "Rulings for the structure grade (AGENTS.md rule 12, T-2686; tools/grade_structures.py). The rule decides most structures on its own: a library picture showing the building whole (front, oblique, side or rear) or any picture an image-gate camera was solved on makes it attested. These entries are the judgements the rule cannot make by itself. `pictured` brings in a picture that shows the building well but carries no view tag (a data/sources/ illustration) or a street view where the house is the subject; `not_pictured` takes out a picture the library tags as a front of this building that does not show it. Every entry names its scene, structure and picture and says why, and the gate refuses one that does not. `street_maps` lists, per scene, the plats and surveys whose drawing of a street is the picture of its line and width: a street whose own record cites one is attested.",
+  "pictured": [
+    {
+      "scene": "1835",
+      "structure": "sauganash_hotel",
+      "picture": "trowbridge_sauganash_hotel",
+      "why": "Trowbridge's drawing shows the whole hotel from the road: the two-storey clapboard block with its shutters and the log wing beside it (read 2026-08-22, data/sources/trowbridge_sauganash_hotel.json)."
+    },
+    {
+      "scene": "1835",
+      "structure": "sauganash_hotel",
+      "picture": "kurz_allison_1893",
+      "why": "Panel 14 of the Kurz & Allison sheet is the Sauganash whole, the clapboard block with its log wing; probably after the Braunhold engraving, so it adds a picture rather than an independent witness."
+    },
+    {
+      "scene": "1835",
+      "structure": "green_tree_tavern",
+      "picture": "chm_green_tree_1859",
+      "why": "The 1859 photograph is of the tavern itself at its original corner of Canal and Lake, before the 1880 move."
+    },
+    {
+      "scene": "1835",
+      "structure": "dearborn_street_drawbridge",
+      "picture": "dearborn_street_bridge_1834_engraving",
+      "why": "The engraving draws the bridge whole, its twin timber leaves over the reach with the moored schooners below it."
+    },
+    {
+      "scene": "1812",
+      "structure": "lees_place_field_fence_1812",
+      "picture": "currey_1912_hardscrabble_plate",
+      "why": "The Hardscrabble plate draws the worm fence along the bank in front of the house and back round the field behind it, the fence this record builds."
+    },
+    {
+      "scene": "1812",
+      "structure": "kinzie_house_1812_green",
+      "picture": "chicago_magazine_1857_kinzie_house_engraving",
+      "why": "The 1857 engraving draws the picket fence enclosing a green before the piazza, toward the water, with the row of poplars along its river side (data/sources/chicago_magazine_1857_kinzie_house_engraving.json)."
+    },
+    {
+      "scene": "1812",
+      "structure": "kinzie_house_1812_green",
+      "picture": "lossing_1869_kinzie_mansion_engraving",
+      "why": "Lossing's engraving draws a low picket fence before the house enclosing a green to the water, with the row of poplars beside it (data/sources/lossing_1869_kinzie_mansion_engraving.json)."
+    }
+  ],
+  "not_pictured": [],
+  "street_maps": {
+    "1835": {
+      "maps": [
+        "thompson_plat_1830",
+        "wright_1834",
+        "wright_1834_nara_hup",
+        "hathaway_1834"
+      ],
+      "why": "The owner, 2026-10-16: \"for 1835, all the streets should be attested\". A street's form is its line and its width, and these are the plat and the surveys that draw them: James Thompson's 1830 plat of the Original Town and J. S. Wright's and Hathaway's 1834 surveys, which carry the additions and the School Section. A street record cites the sheet its line was read from. Where the line was then carried onto modern control, that is a grade on its position (`geometry_confidence`), not on whether the street was there or how wide it was."
+    }
+  }
+}
