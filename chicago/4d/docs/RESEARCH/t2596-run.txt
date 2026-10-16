@@ -1,0 +1,11 @@
+T-2596 one-shot producer sentinel.
+
+This file exists to be pushed: a push to steward/t2596-glessner-v4-ktx2 that touches
+it fires .github/workflows/t2596-glessner-ktx2.yml, which re-encodes the Glessner v4
+full and light derivatives in KTX2, re-packs the three-file recovery package with new
+hashes, renders and records the photo-match evidence, refreshes the audit and budget
+note, and commits the result back to the branch in three pushed commits. Its final
+commit deletes this sentinel and the workflow, so the pull request diff carries neither.
+
+If the run dies halfway, every commit it made is already on the branch; re-add this
+file with any content change to start over from a clean tree.
