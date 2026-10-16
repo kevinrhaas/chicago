@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1844, ts: '2026-10-16T04:14:13.302Z', date: 'Oct 15, 2026, 11:14 PM CT', title: '1621 Prairie\'s door arch, shelf and basement heads match its drawing', kind: 'feature',
+    items: [
+      'The front door of John H. Hamline\'s house at 1621 Prairie now stands deep in its round arch, under a ring of voussoirs with a curved outer edge and a stone band over its crown, as the 1886 Building Budget drawing shows it.',
+      'The small carved light above the door stands out from the wall on a moulded stone shelf, with the carved panel hung beneath it.',
+      'Each barred basement light in the bow gets its fan of splayed stone voussoirs up to the string course.',
+      'With these the house\'s drawing comparison is marked as matching. The depths and stone sections are reconstructed and recorded as a liberty.',
+    ] },
   { v: 1843, ts: '2026-10-16T03:37:47.097Z', date: 'Oct 15, 2026, 10:37 PM CT', title: '1637 Prairie\'s wing opens onto a balcony through a French window', kind: 'improvement',
     items: [
       '1637 Prairie\'s principal-floor windows stand about 2.95 m tall, as its engraving draws them, instead of 2.4 m: their heads now line up near 6 m across the front, the swell bay and the north side.',

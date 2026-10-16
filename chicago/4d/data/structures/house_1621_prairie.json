@@ -136,10 +136,15 @@
             "apron_storeys": [
               1
             ],
-            "apron_over_belt": true
+            "apron_over_belt": true,
+            "shelf": {
+              "height_m": 0.3,
+              "proud_m": 0.16,
+              "tablet_m": 0.08
+            }
           },
           "confidence": "reconstructed",
-          "note": "The light over the door at the second floor (T-2526): K09's restrained surround, an architrave, a frieze block and a cornice hood on two consoles, for the drawing's framed and capped light, and under it on the second-floor belt course K09's carved foliate panel (`apron_over_belt`), for the drawing's carved panel. Through the drawing's camera the light's head and sill land within about 2 px of the drawn ones, its hood within about 5 px, and the panel within about 5 px of the drawn one's top and foot; the panel is about 43 px wide against about 54 px drawn. The carving is the kit's generic motif, the drawing's being illegible at its size (L-k01-1621-entrance-2526). The door's own head is its voussoir block (entrance_kit.arch); the principal storey's entry names nothing on this front, whose strip has no other window."
+          "note": "The light over the door at the second floor (T-2526): K09's restrained surround, an architrave, a frieze block and a cornice hood on two consoles, for the drawing's framed and capped light, and under it on the second-floor belt course K09's carved foliate panel (`apron_over_belt`), for the drawing's carved panel. Through the drawing's camera the light's head and sill land within about 2 px of the drawn ones, its hood within about 5 px, and the panel within about 5 px of the drawn one's top and foot; the panel is about 43 px wide against about 54 px drawn. The carving is the kit's generic motif, the drawing's being illegible at its size (L-k01-1621-entrance-2526). T-2531 stands the light on the drawing's moulded shelf (`shelf`): the light and its surround 0.08 m before the wall on a stone tablet as wide as the surround's seat, whose sides are its returns, over a shelf of two stepped courses 0.3 m deep under its sill, the upper 0.16 m proud and 0.05 m past the tablet each side; the carved panel now hangs from the shelf's foot, as the drawing draws it, rather than standing centred over the belt. Through the camera the shelf's foot lands within about 2 px of the drawn one and its top about 8 px under it (the build keeps K06's sill on the shelf). The tablet's and shelf's projections and the shelf's section are reconstructed (L-k01-1621-last-drawn-2531). The door's own head is its voussoir block (entrance_kit.arch); the principal storey's entry names nothing on this front, whose strip has no other window."
         },
         "wall_head": {
           "value": {
@@ -233,7 +238,14 @@
                         "set_back_m": 0.04,
                         "ring_radius_m": 0.25
                       },
-                      "why_not_ordinary": "a basement light under the bow, read off the Building Budget drawing: about 0.9 m high and barred, under a flat head (T-2525)"
+                      "why_not_ordinary": "a basement light under the bow, read off the Building Budget drawing: about 0.9 m high and barred, under a flat head (T-2525)",
+                      "voussoirs": {
+                        "stones": 5,
+                        "splay_m": 0.08,
+                        "proud_m": 0.04,
+                        "joint_m": 0.01,
+                        "bevel_m": 0.015
+                      }
                     }
                   ]
                 },
@@ -296,7 +308,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1621-b1 bulges about 1.02 m from the front at the south end of the front, a 2.3 m chord about 0.1-0.2 m from the front's south corner; K01 keeps a bay 0.3 m clear of a corner, so it is built over s 3.6-5.9, about 0.15 m north of the trace); its HEIGHT and LIGHTS are the drawing's, as T-2420 and T-2460 read them: it rises from grade through the principal and second storeys (5.3 m and 2.94 m) to the foot of the moulded stone cornice at 8.24 m, and its eaves ARE that cornice, the same K10 section swept round its plan (eaves.cornice). Two lights a storey either side of a central pier, laid in the front's stone, under a nearly flat painted-tin deck. T-2525 builds the rest of the bow from the drawing: its basement is a storey of its own, 1.4 m to the principal floor, with the string course the drawing draws there and its two basement lights under the principal lights, 0.92 m high over a 0.1 m plinth and barred with iron (seven uprights, and the arched ring the drawing draws over them as a plain ring); their heads are flat, as the drawing's openings are under their splayed voussoirs; and on the cornice an iron balcony rail round the bow from the wall to the wall, 0.6 m high (the drawing's rail stands about 29 px over the cornice's top, about 48 px a metre at that height), square bars about 0.08 m apart between a foot rail and a top rail. The lights' widths follow the principal lights' (0.75 m at -30 and +30 degrees on the sheet's chord, against about 0.95 m drawn); the bar pitch, the rail's sections and the grille's set-back are reconstructed (L-k08-1621-bow-iron-2525). The drawing's bow is about 3.7 m across at the plate's scale and its lights 1.1 m wide at -25 and +25 degrees; on the sheet's 2.3 m chord two such lights would overlap, so they are 0.75 m wide at -30 and +30 degrees, their heights and sills the drawing's (reconstructed widths, L-k01-1621-hamline-front-2440). Either the bow was built narrower than drawn, or the sheet's bay is a later one; no picture after 1886 is known that would say."
+          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1621-b1 bulges about 1.02 m from the front at the south end of the front, a 2.3 m chord about 0.1-0.2 m from the front's south corner; K01 keeps a bay 0.3 m clear of a corner, so it is built over s 3.6-5.9, about 0.15 m north of the trace); its HEIGHT and LIGHTS are the drawing's, as T-2420 and T-2460 read them: it rises from grade through the principal and second storeys (5.3 m and 2.94 m) to the foot of the moulded stone cornice at 8.24 m, and its eaves ARE that cornice, the same K10 section swept round its plan (eaves.cornice). Two lights a storey either side of a central pier, laid in the front's stone, under a nearly flat painted-tin deck. T-2525 builds the rest of the bow from the drawing: its basement is a storey of its own, 1.4 m to the principal floor, with the string course the drawing draws there and its two basement lights under the principal lights, 0.92 m high over a 0.1 m plinth and barred with iron (seven uprights, and the arched ring the drawing draws over them as a plain ring); their heads are flat, as the drawing's openings are, and over each T-2531 lays the drawing's splayed voussoirs (`voussoirs`): five dressed stones from the head to the string course, the block 0.08 m wider each side at its top than at the jambs, their joints fanned, each stone 0.04 m proud with a 0.015 m chamfer; the drawn blocks reach about 0.3 m to the band, the built ones 0.19 m, under the build's lower string course (L-k01-1621-last-drawn-2531); and on the cornice an iron balcony rail round the bow from the wall to the wall, 0.6 m high (the drawing's rail stands about 29 px over the cornice's top, about 48 px a metre at that height), square bars about 0.08 m apart between a foot rail and a top rail. The lights' widths follow the principal lights' (0.75 m at -30 and +30 degrees on the sheet's chord, against about 0.95 m drawn); the bar pitch, the rail's sections and the grille's set-back are reconstructed (L-k08-1621-bow-iron-2525). The drawing's bow is about 3.7 m across at the plate's scale and its lights 1.1 m wide at -25 and +25 degrees; on the sheet's 2.3 m chord two such lights would overlap, so they are 0.75 m wide at -30 and +30 degrees, their heights and sills the drawing's (reconstructed widths, L-k01-1621-hamline-front-2440). Either the bow was built narrower than drawn, or the sheet's bay is a later one; no picture after 1886 is known that would say."
         },
         "side_bays": {
           "value": [],
@@ -493,13 +505,19 @@
             "k01.opening.door_leaf": {
               "variant": "k07.entrance.double_door_deep_arch",
               "front_yard_m": 3.8,
-              "reveal_depth_m": 0.32,
+              "reveal_depth_m": 0.95,
               "arch": {
                 "ring_m": 0.3,
                 "keystone_top_m": 4.4,
                 "keystone_m": [
                   0.24,
                   0.3
+                ],
+                "extrados": "curved",
+                "ring_proud_m": 0.04,
+                "band_m": [
+                  4.4,
+                  4.55
                 ]
               },
               "side_stoop": {
@@ -514,7 +532,7 @@
             }
           },
           "confidence": "reconstructed",
-          "note": "K07's deep-arch entrance, its round-headed hole the K01 door's 1.2 m by 2.7 m to the crown, a pair of panelled leaves under a radial fanlight set 0.32 m back in the 0.45 m front (the wall less its 0.13 m frame), and round it the front's stone cut into a voussoir block 0.3 m beyond the arch (`arch`, laid as 1612's arched groups are): the Building Budget drawing's recessed round-arched doorway in the north strip (T-2526). Through the drawing's camera the arch's crown lands about 7 px under the drawn one and its spring about 3 px; the opening is about 7 px narrower than drawn. The leaves, fanlight, reveal and ring are reconstructed (L-k01-1621-entrance-2526). The stoop is the drawing's side stoop (T-2530, `side_stoop`): the door opens on a stone landing that runs south along the north strip from v 1.0 to the bow's north junction at v 3.6, and from its south end the K01 stair's eight equal risers run on south, parallel to the front and 1.2 m clear of it so that the flight passes in front of the bow (1.02 m proud), down to grade at v 5.56, behind a solid stone cheek on the street side whose top rakes with the nosings and which returns to the wall across the landing's north end. The plate's inset plan draws the steps running along the front in front of the bow's north end, between it and the enclosing cheek, and its perspective rakes the cheek's top high at the north and falling south; the riser count is the K01 stair's, the 0.28 m going the record's, and the landing's length and depth follow from the sheet's wider strip and the bow's projection (L-k01-1621-side-stoop-2530). It all stands inside a front yard of about 3.85 m (the sheet's front at u 35.15 against the street line at 39.0): the cheek's face is 2.7 m out."
+          "note": "K07's deep-arch entrance, its round-headed hole the K01 door's 1.2 m by 2.7 m to the crown, a pair of panelled leaves under a radial fanlight set 0.32 m back in the 0.45 m front (the wall less its 0.13 m frame; since T-2531, 0.95 m back, below), and round it the front's stone cut into a voussoir block 0.3 m beyond the arch (`arch`, laid as 1612's arched groups are): the Building Budget drawing's recessed round-arched doorway in the north strip (T-2526). Through the drawing's camera the arch's crown lands about 7 px under the drawn one and its spring about 3 px; the opening is about 7 px narrower than drawn. The leaves, fanlight, reveal and ring are reconstructed (L-k01-1621-entrance-2526). T-2531 turns the ring as the drawing draws it: each voussoir cut between the arch and a curved extrados 0.3 m beyond it and standing 0.04 m before the wall (`extrados`, `ring_proud_m`), the block's spandrels round it laid flush in the front's stone, and over the crown a band 0.15 m deep laid as one more belt course (`band_m`, 4.4-4.55 m); and it sets the door at the back of a recess deeper than the wall, 0.95 m, K07's own reveal for its deep-arch variant, whose vestibule carries the recess past the 0.45 m front (`reveal_depth_m`). Through the camera the band lands about 5 px under the drawn one and the ring's crown within about 5 px, and the lit north jamb of the recess reads about 20 px wide against about 25 px drawn. The ring's projection, the band's depth and the recess's depth are reconstructed (L-k01-1621-last-drawn-2531). The stoop is the drawing's side stoop (T-2530, `side_stoop`): the door opens on a stone landing that runs south along the north strip from v 1.0 to the bow's north junction at v 3.6, and from its south end the K01 stair's eight equal risers run on south, parallel to the front and 1.2 m clear of it so that the flight passes in front of the bow (1.02 m proud), down to grade at v 5.56, behind a solid stone cheek on the street side whose top rakes with the nosings and which returns to the wall across the landing's north end. The plate's inset plan draws the steps running along the front in front of the bow's north end, between it and the enclosing cheek, and its perspective rakes the cheek's top high at the north and falling south; the riser count is the K01 stair's, the 0.28 m going the record's, and the landing's length and depth follow from the sheet's wider strip and the bow's projection (L-k01-1621-side-stoop-2530). It all stands inside a front yard of about 3.85 m (the sheet's front at u 35.15 against the street line at 39.0): the cheek's face is 2.7 m out."
         },
         "gable_roof": {
           "value": {

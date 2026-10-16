@@ -976,6 +976,20 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"0.08 m) and ring_radius_m, not {g}")
                 w["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
                                "ring_radius_m": float(g["ring_radius_m"])}
+        # T-2531: a light's dressed head of splayed voussoirs, up to the string course over it
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                h = w.get("voussoirs")
+                if h is None:
+                    continue
+                if set(h) != {"stones", "splay_m", "proud_m", "joint_m", "bevel_m"} \
+                        or not 3 <= int(h["stones"]) <= 11 or not 0.0 <= float(h["splay_m"]) <= 0.3 \
+                        or not 0.0 < float(h["proud_m"]) <= 0.06 or not 0.0 < float(h["joint_m"]) <= 0.02 \
+                        or not 0.0 < float(h["bevel_m"]) < min(float(h["proud_m"]), 0.03):
+                    raise ParamError(f"bays: {e['id']}'s voussoirs take stones (3-11), splay_m (0-0.3 m), "
+                                     f"proud_m (at most 0.06 m), joint_m (at most 0.02 m) and bevel_m "
+                                     f"(under the proud and 0.03 m), not {h}")
+                w["voussoirs"] = {k: (int(h[k]) if k == "stones" else float(h[k])) for k in sorted(h)}
         # T-2525: a plinth read off a picture: its height only, the kit's proud and stone kept
         if "plinth_m" in e:
             ph = float(e["plinth_m"])
@@ -1152,7 +1166,8 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
                     "piers": tuple((a[1], b[0]) for a, b in zip(lights, lights[1:])),
                     "keystone": {"s_m": round((cuts[0] + cuts[-1]) / 2, 5),
                                  "bed_m": round(spring + max(q[3] for q in lights), 5),
-                                 "top_m": g["keystone_top_m"], "width_m": g["keystone_m"]}})
+                                 "top_m": g["keystone_top_m"], "width_m": g["keystone_m"]},
+                    **({"extrados": g["extrados"], "ring_proud_m": g["ring_proud_m"]} if "extrados" in g else {})})
     blocks = sorted((g["cuts"][0], g["cuts"][-1], g["sill_m"], g["top_m"]) for g in out)
     for a, b in zip(blocks, blocks[1:]):
         if a[1] > b[0] and a[3] > b[2] and b[3] > a[2]:
@@ -1626,14 +1641,21 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not val("stone_front"):
             raise ParamError("entrance_kit.arch: a door's voussoirs are laid in a K02 stone front's courses")
         need = {"ring_m", "keystone_top_m", "keystone_m"}
-        if set(da) != need:
-            raise ParamError(f"entrance_kit.arch takes {sorted(need)}")
+        # T-2531: optionally the ring's curved extrados (`extrados`, the ring `ring_proud_m`
+        # before the wall) and a band over its crown (`band_m`, a belt course [foot, top])
+        if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m"}:
+            raise ParamError(f"entrance_kit.arch takes {sorted(need)}, and extrados, ring_proud_m and band_m")
         if not 0.15 <= float(da["ring_m"]) <= 0.6:
             raise ParamError("entrance_kit.arch.ring_m: a voussoir block 0.15-0.6 m outside the arch")
+        if da.get("extrados", "curved") != "curved" or ("ring_proud_m" in da) != ("extrados" in da) \
+                or not 0.0 <= float(da.get("ring_proud_m", 0.0)) <= 0.06:
+            raise ParamError("entrance_kit.arch.extrados is 'curved', with ring_proud_m 0-0.06 m beside it")
         di = next(i for i, o in enumerate(openings) if o.component == "k01.opening.door_leaf")
         arched_groups.append({"component": "k01.opening.door_leaf", "bay": front_bays.index(door_s), "ops": [di],
                               "ring_m": float(da["ring_m"]), "keystone_top_m": float(da["keystone_top_m"]),
-                              "keystone_m": tuple(float(x) for x in da["keystone_m"])})
+                              "keystone_m": tuple(float(x) for x in da["keystone_m"]),
+                              **({"extrados": "curved", "ring_proud_m": float(da["ring_proud_m"])}
+                                 if "extrados" in da else {})})
     arched = _arched_front(arched_groups, openings, variants, kit, val("street_front_dress") or {},
                            pf, floors, width, door_s,
                            # T-2528: the soffit the roof builds; a mansard's stands on the wall head
@@ -1642,6 +1664,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if sfo or da else {}
     if da and not sfo:
         arched["belts"] = None    # a door's arch alone keeps K01's own belts (k01_frontage.stone_front)
+        if "band_m" in da:
+            # T-2531: K01's own belts, and a band laid on the arch's crown as one more
+            b0, b1 = (float(y) for y in da["band_m"])
+            top = max(g["top_m"] for g in arched["groups"] if g["component"] == "k01.opening.door_leaf")
+            if not (abs(b0 - top) < 1e-6 and 0.08 <= b1 - b0 <= 0.3 and b1 < floors[1] - 0.2 - 0.3):
+                raise ParamError(f"entrance_kit.arch.band_m {da['band_m']}: a band 0.08-0.3 m deep on the "
+                                 f"voussoirs' top ({top} m), a course clear of the second floor's belt")
+            arched["belts"] = ((floors[1] - 0.20, floors[1]), *([(floors[2] - 0.15, floors[2])] if len(floors) > 2 else []),
+                               (b0, b1))
     if val("street_front_dress") and not sfo:
         raise ParamError("street_front_dress dresses a street front laid by street_front_openings")
     # T-2304: the door and its stoop are a K07 entrance. The K01 wall cuts a rectangular
@@ -1737,9 +1768,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if "reveal_depth_m" in door_kit_in:
         rev = float(door_kit_in["reveal_depth_m"])
         fd = ekit["parts"]["frame"]["depth_m"]
-        if not ekit["parts"]["reveal_depth_m"]["range"][0] <= rev <= ft - fd:
+        # T-2531: a variant with a vestibule sets its door at the back of a recess deeper than
+        # the wall, as deep as the kit's own reveal for it
+        deepest = max(ft - fd, float(ev["reveal_depth_m"]) if ev.get("vestibule_m") else 0.0)
+        if not ekit["parts"]["reveal_depth_m"]["range"][0] <= rev <= deepest:
             raise ParamError(f"entrance_kit: the door's reveal {rev} m and its {fd} m frame do not fit "
-                             f"the {ft} m front wall")
+                             f"the {ft} m front wall" + (f", or the kit's {deepest} m vestibule" if deepest > ft - fd else ""))
         door_kit["reveal_depth_m"] = rev
     # T-2480: a bracketed timber hood over the door, in a K08 bay hood's joinery (its consoles
     # and modillions), its flat top railed as a small balcony; k01_frontage.door_hood builds it

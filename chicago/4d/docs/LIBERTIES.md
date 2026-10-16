@@ -28169,6 +28169,38 @@ photographs and the match records to `matches`.
 **Ticket:** T-2538 (piece 1 of T-1889).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-16 (T-2538).
+
+### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
+
+**Decision:** John H. Hamline's house at 1621 Prairie (T-2531, piece 2 of T-2527) takes the three
+things Treat & Foltz's Building Budget drawing still showed differently after T-2525, T-2526 and
+T-2530. **The door's arch:** its voussoirs are cut between the round head and a curved extrados
+0.3 m beyond it (the ring T-2526 cut out to a rectangle), the ring standing 0.04 m before the wall,
+the block's spandrels laid flush in the front's stone, and over its crown a band 0.15 m deep
+(4.4-4.55 m) laid as one more belt course across the front; the door stands at the back of a recess
+0.95 m deep, K07's own reveal for its deep-arch variant, whose vestibule carries the recess past the
+0.45 m front. **The light over the door:** it and its K09 surround stand 0.08 m before the wall on a
+stone tablet as wide as the surround's seat, whose sides are its returns, over a moulded shelf of
+two stepped courses 0.3 m deep under its sill (the upper 0.16 m proud); the carved panel hangs from
+the shelf's foot. **The basement lights:** over each, five splayed voussoirs from its head to the
+bow's string course, the block 0.08 m wider each side at its top, their joints fanned, each stone
+0.04 m proud with a 0.015 m chamfer. **What is read, not invented.** From the drawing
+(`building_budget_1886_06_hamline_farwell_houses`), through the camera T-2440 carried to 1621: that
+the door's ring has a curved outer edge under a horizontal band (the band at about y 463 in the
+panel, built at about 468); that the door is set far back, its north jamb drawn lit inside the
+opening about 25 px wide (built about 20 px, which a reveal within the 0.45 m wall, about 6 px,
+could not give); that the light over the door stands on a heavy moulded shelf with the carved panel
+directly under it (the shelf's foot at about y 392, built at about 394); and that the basement
+lights have blocks of fanned voussoirs over them. **What is invented.** The ring's and the stones'
+projections, the band's depth, the recess's exact depth (the kit's reveal, not a measurement), the
+tablet's projection, the shelf's two-course section and its projection, the voussoirs' count and
+splay, and the chamfers; the drawing's lines are too coarse at its size to give any of them closer
+than about 0.1 m. The basement blocks are 0.19 m tall against about 0.3 m drawn, because the build's
+string course stands lower than the drawn band.
+**How to resolve:** a photograph of the house after 1886 settles the arch's ring, the recess, the
+shelf and the basement heads; the architects' drawings would settle their sections.
+**Ticket:** T-2531 (piece 2 of T-2527).
+**Recorded:** 2026-10-16 (T-2531).
 ### L-k01-1811-ames-front-2541 — 1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable and pyramid not yet raised
 
 **Decision:** the house at 1811 Prairie Avenue (T-2541, piece 1 of T-1891) is no longer a district
