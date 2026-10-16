@@ -1,0 +1,9 @@
+{
+  "title": "Wall wood grain now loads GPU-compressed, using less phone memory",
+  "kind": "improvement",
+  "items": [
+    "Nothing you can see changed. The wood grain on every clapboard and log wall now arrives ready for the graphics chip, instead of being decoded and repacked in the page at every visit.",
+    "On a phone those walls hold 1.4 MB of graphics memory instead of 5.4 MB, and the page no longer repacks those images while it loads.",
+    "Close up, the walls match the old ones to within what the eye can tell apart."
+  ]
+}
