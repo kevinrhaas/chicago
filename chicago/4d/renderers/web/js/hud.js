@@ -83,7 +83,7 @@ function store(key, value) {
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
-  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, structureVersion = null,
+  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
   const badgeYear = root.querySelector('.badge-year');
@@ -535,7 +535,9 @@ export function createHud({
     // '' means the visitor has never chosen, and the level in force is the
     // device guess main.js made. Show THAT, not the first option in the list:
     // a phone running `light` must not display `Full`.
-    detail.value = settings.detail || resolvedDetail;
+    // T-2547: after a crash the guard's step-down outranks the stored choice until
+    // the visitor picks again, so show the level actually in force.
+    detail.value = (lowered?.detail ? '' : settings.detail) || resolvedDetail;
     detail.addEventListener('change', () => {
       settings.detail = detail.value;
       onSetting?.('detail', settings.detail);
@@ -547,7 +549,7 @@ export function createHud({
   if (qual) {
     // Like Scene detail: show the ratio in force, which for a visitor who never
     // chose is main.js's device guess — a phone at Low must not display Medium.
-    qual.value = String(settings.quality || resolvedQuality);
+    qual.value = String((lowered?.quality ? '' : settings.quality) || resolvedQuality);
     qual.addEventListener('change', () => {
       settings.quality = Number(qual.value);
       onSetting?.('quality', settings.quality);

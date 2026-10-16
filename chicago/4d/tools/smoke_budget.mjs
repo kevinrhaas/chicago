@@ -227,6 +227,7 @@ const COVERAGE = [
   ['data/exclusions.json', ALL, 'what the scene declares it is NOT drawing'],
   ['renderers/web/js/main.js', ALL, 'the boot chain'],
   ['renderers/web/js/scene-loader.js', ALL, 'the boot chain'],
+  ['renderers/web/js/crash-guard.js', ALL, 'imported by the boot chain (main.js), which it can step down a tier; its card and its lost-context reloads are asserted in part 6 at 390x780 (T-2547)'],
   ['renderers/web/js/structure-versions.js', ALL, 'imported by the boot chain (scene-loader.js); the version switch itself is asserted in part 3 (T-1727)'],
   ['renderers/web/js/world.js', ALL, 'the world the parts all measure against'],
   ['renderers/web/js/geometry.js', ALL, 'shared geometry the parts all read'],
