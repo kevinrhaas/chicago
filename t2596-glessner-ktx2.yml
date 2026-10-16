@@ -1,0 +1,556 @@
+# T-2596 — ONE-SHOT PRODUCER. Not a standing workflow.
+#
+# The steward working this ticket has a text-only push channel, and the ticket's
+# deliverables are binary: the re-encoded full and light Glessner v4 derivatives and
+# their re-packed three-file recovery package. So the encode happens HERE, on the
+# runner, by the repo's own canonical producer (tools/web_derivatives.sh, edited below
+# by exact-anchor replacement to the bytes the steward fixture-tested locally), and the
+# result is committed back to the ticket branch with GITHUB_TOKEN — the same pattern
+# chicago-4d-bake.yml uses.
+#
+# Fires exactly once: on a push to the ticket branch that touches the sentinel
+# chicago/4d/docs/RESEARCH/t2596-run.txt (or by hand). The final commits DELETE the
+# sentinel, so no later push can refire this; the run also tries to delete THIS file,
+# but GITHUB_TOKEN holds no workflows permission, so a refusal there is expected and
+# not fatal — the file then stays on the branch, owner-visible in the pull request,
+# and can never fire again (its push trigger names only this branch, and the sentinel
+# is gone). If the run dies halfway, every commit it made is already pushed — re-add
+# the sentinel (any content change) and it starts over from a clean tree.
+name: T-2596 — Glessner v4 in KTX2 (one-shot)
+
+on:
+  push:
+    branches: [steward/t2596-glessner-v4-ktx2]
+    paths: ['chicago/4d/docs/RESEARCH/t2596-run.txt']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: t2596-glessner-ktx2
+  cancel-in-progress: false
+
+env:
+  BRANCH: steward/t2596-glessner-v4-ktx2
+  VIEWS: habs-01-northwest habs-14-north-inclined habs04-hood-section habs04-terrace-section taylor-2135-ne
+  LIGHT_VIEW: habs-01-northwest
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: steward/t2596-glessner-v4-ktx2
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /chicago/4d/tools/
+            /chicago/4d/generators/common/
+            /chicago/4d/data/structures/
+            /chicago/4d/data/comparisons/glessner/
+            /chicago/4d/data/reference_views/glessner_house/
+            /chicago/4d/data/sidecars/1904/glessner_house.json
+            /chicago/4d/docs/RESEARCH/glessner-v4-recovery/
+            /chicago/4d/docs/RESEARCH/t2596-run.txt
+            /chicago/4d/docs/SITE-BUDGET.md
+            /chicago/4d/renderers/web/vendor/
+            /chicago/4d/renderers/web/js/
+            /chicago/4d/assets/manifest.json
+            /chicago/4d/assets/manifest.web.json
+            /chicago/4d/assets/manifest.versions.json
+            /chicago/prairie_1904_v1/research/public/glessner-habs-photo-01.jpg
+            /chicago/prairie_1904_v1/research/public/glessner-habs-photo-14.jpg
+            /chicago/prairie_1904_v1/research/public/glessner-habs-sheet-4.png
+            /chicago/prairie_1904_v1/research/public/glessner-houghton-gle-e5y.jpg
+            /.github/workflows/t2596-glessner-ktx2.yml
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+
+      # photo_match.mjs resolves playwright by createRequire from tools/, so the
+      # package must sit under chicago/4d/node_modules — not the global root.
+      - name: Install Playwright (chromium only)
+        working-directory: chicago/4d
+        run: |
+          set -e
+          npm install --no-save --no-package-lock playwright@1.56.1
+          node node_modules/playwright/cli.js install --with-deps chromium
+
+      # The steward's edits to the two producer/gate files, applied by exact anchor.
+      # Every anchor must match exactly once, and the RESULT must be the byte pair the
+      # steward's fixture run passed on (the git blob hashes below). Anything else —
+      # a dev that moved under the branch, a re-typed character — stops the run here,
+      # before a single derivative is produced.
+      - name: Apply the steward's text edits (exact anchors, fail loudly on drift)
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 - <<'PYEDITS'
+          import pathlib, sys
+
+          EDITS = {
+            'tools/web_derivatives.sh': [
+              ('''  local light="${1%.glb}.light.glb" source optimized output
+            source="$(mktemp -t gltflight-source.XXXXXX.glb)"
+            optimized="$(mktemp -t gltflight-opt.XXXXXX.glb)"
+            output="$(mktemp -t gltflight-web.XXXXXX.glb)"
+            if ! python3 tools/structure_versions.py build-light "$1" "$source" \\
+              || ! "${GT_NPX[@]}" gltf-transform optimize "$source" "$optimized" --compress false --simplify false --palette false 2>&1 | tail -2 \\
+              || ! "${GT_NPX[@]}" gltf-transform meshopt "$optimized" "$output" --quantize-position 16 2>&1 | tail -2; then
+              rm -f "$source" "$optimized" "$output"''',
+               '''  local light="${1%.glb}.light.glb" source optimized ktxed output
+            source="$(mktemp -t gltflight-source.XXXXXX.glb)"
+            optimized="$(mktemp -t gltflight-opt.XXXXXX.glb)"
+            ktxed="$(mktemp -t gltflight-ktx2.XXXXXX.glb)"
+            output="$(mktemp -t gltflight-web.XXXXXX.glb)"
+            # T-2596: the light tier takes the same KTX2 recipe as the full derivative,
+            # its textures capped at 1024 (a quarter of the 2048 tier's GPU residency).
+            # --texture-compress false for the main loop's own reason: optimize's default
+            # re-encodes every image, and the encode starts from the master's own pixels.
+            # An image-free source (the producer fixture's) skips the encode; the encode
+            # itself is FATAL-on-failure, so a light derivative that still carries a PNG
+            # or JPEG never reaches the tree.
+            if ! python3 tools/structure_versions.py build-light "$1" "$source" \\
+              || ! "${GT_NPX[@]}" gltf-transform optimize "$source" "$optimized" --compress false --simplify false --palette false --texture-compress false 2>&1 | tail -2 \\
+              || ! { [ "$(glb_images "$optimized" | cut -d' ' -f1)" = "0" ] || { encode_textures "$optimized" "$ktxed" 1024 && mv -f "$ktxed" "$optimized"; }; } \\
+              || ! "${GT_NPX[@]}" gltf-transform meshopt "$optimized" "$output" --quantize-position 16 2>&1 | tail -2; then
+              rm -f "$source" "$optimized" "$ktxed" "$output"'''),
+              ('''  if [ "$stamp" != "glTF-Transform v$GT_CORE_VERSION" ]; then
+              rm -f "$source" "$optimized" "$output"
+              echo "   FATAL: v4 light derivative has an unpinned transform stamp." >&2
+              return 1
+            fi
+            mv "$output" "$OUT/$light"
+            rm -f "$source" "$optimized"''',
+               '''  if [ "$stamp" != "glTF-Transform v$GT_CORE_VERSION" ]; then
+              rm -f "$source" "$optimized" "$ktxed" "$output"
+              echo "   FATAL: v4 light derivative has an unpinned transform stamp." >&2
+              return 1
+            fi
+            mv "$output" "$OUT/$light"
+            rm -f "$source" "$optimized" "$ktxed"'''),
+              ('''  # The Glessner v4 set is not encoded here yet: its full and light files ship
+            # inside a three-file recovery package with its own hashes and a baseline page
+            # that reads them, and T-2596 owns that. measure_web_derivatives.py names it.''',
+               '''  # The Glessner v4 master joined this path in T-2596: the full derivative
+            # encodes at the same 2048 cap as every textured master, the light one at
+            # 1024 (produce_light_version), and the three-file recovery package, the
+            # manifest record and the baseline page's audit moved in the same run.'''),
+              ('''    # and the encode runs between `optimize` and `meshopt`. Untextured masters and
+              # the Glessner v4 set (T-2596) take exactly the path they always took.''',
+               '''    # and the encode runs between `optimize` and `meshopt`. Untextured masters take
+              # exactly the path they always took. The Glessner v4 master joined this path in
+              # T-2596; the older Glessner versions (pre-v4, v2, v3) stay off it — their
+              # derivatives are not part of that ticket's three-file package.'''),
+              ('''    if [ "$rel" != "$GLESSNER_V4" ] && [ "$glessner" = "0" ] && [ "$(glb_images "$f" | cut -d' ' -f1)" != "0" ]; then''',
+               '''    if { [ "$glessner" = "0" ] || [ "$rel" = "$GLESSNER_V4" ]; } && [ "$(glb_images "$f" | cut -d' ' -f1)" != "0" ]; then'''),
+            ],
+            'tools/measure_web_derivatives.py': [
+              ('''    JPEGs between them until T-2595. The Glessner v4 set is exempt by name
+              (`RASTER_EXEMPT`) until T-2596 re-encodes it.''',
+               '''    JPEGs between them until T-2595. The Glessner v4 set was the last exemption, by name,
+              until T-2596 re-encoded it; there is no exception now.'''),
+              ('''# to a byte. The Glessner v4 set is the one exception, named here rather than by a size
+          # rule, and T-2596 is the ticket that re-encodes it and deletes this line.
+          RASTER_MIMES = ("image/png", "image/jpeg")
+          RASTER_EXEMPT = {"glessner_house__as_built_1887.glb": "T-2596",
+                           "glessner_house__as_built_1887.light.glb": "T-2596"}''',
+               '''# to a byte. The Glessner v4 set was the one exception, named here rather than by a size
+          # rule, until T-2596 re-encoded it and deleted the exemption.
+          RASTER_MIMES = ("image/png", "image/jpeg")'''),
+              ('''        if n and row["name"] not in RASTER_EXEMPT:''',
+               '''        if n:'''),
+            ],
+          }
+          for name, pairs in EDITS.items():
+              p = pathlib.Path(name)
+              text = p.read_text(encoding='utf-8')
+              applied = skipped = 0
+              for old, new in pairs:
+                  n = text.count(old)
+                  if n == 1:
+                      text = text.replace(old, new)
+                      applied += 1
+                  elif n == 0 and text.count(new) >= 1:
+                      skipped += 1  # refire path: this edit already landed
+                  else:
+                      sys.exit(f'{name}: anchor matched {n} times (need exactly 1): {old[:80]!r}...')
+              p.write_text(text, encoding='utf-8')
+              print(f'{name}: {applied} edits applied, {skipped} already in place')
+          PYEDITS
+          bash -n tools/web_derivatives.sh
+          python3 -m py_compile tools/measure_web_derivatives.py
+          # The exact bytes the steward's fixture run passed on:
+          [ "$(git hash-object tools/web_derivatives.sh)" = "a25f11fa4f50bd1fa46ac400efec875c0a2f63ae" ] || { echo "FATAL: web_derivatives.sh is not the fixture-tested byte stream" >&2; exit 1; }
+          [ "$(git hash-object tools/measure_web_derivatives.py)" = "807d39a2c0fd16ded869e067e3806b3d8ecbddf7" ] || { echo "FATAL: measure_web_derivatives.py is not the fixture-tested byte stream" >&2; exit 1; }
+          python3 tools/test_glessner_v4_package_producer.py
+
+      - name: Commit the producer and gate edits
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add chicago/4d/tools/web_derivatives.sh chicago/4d/tools/measure_web_derivatives.py
+          if git diff --cached --quiet; then echo "edits already committed (refire)"; else
+          git commit -m "T-2596: encode the Glessner v4 set in KTX2 (producer + gate)" \
+                     -m "web_derivatives.sh: the v4 master joins the T-2595 KTX2 path (full cap 2048), and produce_light_version gains the same encode at cap 1024 between optimize and meshopt, with --texture-compress false for the main loop's own reason. The older Glessner versions (pre-v4, v2, v3) keep the path they had. measure_web_derivatives.py: assertion 10's RASTER_EXEMPT is deleted — the Glessner v4 set was the last named exception, and there is no exception now. Anchors and resulting bytes verified by the one-shot workflow against the steward's fixture run." \
+                     -m "Changelog: chicago/4d/changelog.d/T-2596.json"
+          fi
+          for i in 1 2 3 4 5; do
+            git push origin "HEAD:$BRANCH" && exit 0
+            echo "push refused (attempt $i) — rebasing on the moved branch"
+            git pull --rebase origin "$BRANCH"
+          done
+          exit 1
+
+      - name: Materialize the v4 package and bank the current derivatives
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          rm -f assets/gltf/glessner_house__as_built_1887.glb                 assets/web/glessner_house__as_built_1887.glb                 assets/web/glessner_house__as_built_1887.light.glb
+          python3 tools/recover_glessner_v4.py --materialize
+          mkdir -p "$RUNNER_TEMP/old"
+          cp assets/gltf/glessner_house__as_built_1887.glb "$RUNNER_TEMP/old/master.glb"
+          cp assets/web/glessner_house__as_built_1887.glb "$RUNNER_TEMP/old/full.glb"
+          cp assets/web/glessner_house__as_built_1887.light.glb "$RUNNER_TEMP/old/light.glb"
+          sha256sum "$RUNNER_TEMP/old/"*.glb
+          python3 tools/recover_glessner_v4.py --check
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib
+          rec = pathlib.Path('docs/RESEARCH/glessner-v4-recovery')
+          parts = sorted(rec.glob('part-*'))
+          json.dump({
+              'parts': len(parts),
+              'bytes': sum(p.stat().st_size for p in parts),
+              'manifest_sha256': hashlib.sha256((rec / 'manifest.json').read_bytes()).hexdigest(),
+          }, (pathlib.Path(os.environ['RUNNER_TEMP']) / 'old/package.json').open('w'))
+          print(f"current package: {len(parts)} parts, {sum(p.stat().st_size for p in parts):,} B")
+          PY
+
+      # Old first: the renders the CURRENT derivatives make from each reference camera.
+      # The side-by-sides go to the runner's temp dir — the committed photo-match
+      # side-by-sides are T-2228's review surface (PR #851), not this ticket's.
+      - name: Render the current derivatives from every reference camera
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/renders/old" "$RUNNER_TEMP/sbs/old"
+          for v in $VIEWS; do
+            echo "== current full: $v"
+            node tools/photo_match.mjs "data/reference_views/glessner_house/$v.json" \
+              --glb assets/web/glessner_house__as_built_1887.glb --out "$RUNNER_TEMP/sbs/old" | tee "$RUNNER_TEMP/pm.log"
+            cp "$(grep -oE '/[^ ]+-render\.png' "$RUNNER_TEMP/pm.log" | head -1)" "$RUNNER_TEMP/renders/old/$v.png"
+          done
+          echo "== current light: $LIGHT_VIEW"
+          node tools/photo_match.mjs "data/reference_views/glessner_house/$LIGHT_VIEW.json" \
+            --glb assets/web/glessner_house__as_built_1887.light.glb --out "$RUNNER_TEMP/sbs/old" | tee "$RUNNER_TEMP/pm.log"
+          cp "$(grep -oE '/[^ ]+-render\.png' "$RUNNER_TEMP/pm.log" | head -1)" "$RUNNER_TEMP/renders/old/$LIGHT_VIEW.light.png"
+
+      # THE PRODUCER. optimize -> KTX2 (cap 2048) -> meshopt 16-bit for the full file;
+      # build-light -> optimize -> KTX2 (cap 1024) -> meshopt 16-bit for the light one;
+      # then record-web and the recovery repack, all inside the canonical script.
+      - name: Re-encode the v4 set and repack the recovery package
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          ./tools/web_derivatives.sh --only glessner_house__as_built_1887.glb
+          ls -l assets/web/glessner_house__as_built_1887*.glb
+          ls -l docs/RESEARCH/glessner-v4-recovery/
+
+      - name: Render the new derivatives from every reference camera
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/renders/new" "$RUNNER_TEMP/sbs/new"
+          for v in $VIEWS; do
+            echo "== new full: $v"
+            node tools/photo_match.mjs "data/reference_views/glessner_house/$v.json" \
+              --glb assets/web/glessner_house__as_built_1887.glb --out "$RUNNER_TEMP/sbs/new" | tee "$RUNNER_TEMP/pm.log"
+            cp "$(grep -oE '/[^ ]+-render\.png' "$RUNNER_TEMP/pm.log" | head -1)" "$RUNNER_TEMP/renders/new/$v.png"
+          done
+          echo "== new light: $LIGHT_VIEW"
+          node tools/photo_match.mjs "data/reference_views/glessner_house/$LIGHT_VIEW.json" \
+            --glb assets/web/glessner_house__as_built_1887.light.glb --out "$RUNNER_TEMP/sbs/new" | tee "$RUNNER_TEMP/pm.log"
+          cp "$(grep -oE '/[^ ]+-render\.png' "$RUNNER_TEMP/pm.log" | head -1)" "$RUNNER_TEMP/renders/new/$LIGHT_VIEW.light.png"
+
+      # The match records are HUMAN REVIEW STATE (verdicts, differences, T-2228's
+      # open review in PR #851). photo_match rewrites them on every run; the renders
+      # here are evidence, not a re-review, so the committed records are restored
+      # byte-for-byte and NOTHING under data/reference_views or docs/RESEARCH/
+      # photo-match is committed.
+      - name: Restore the human match records
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          git checkout -- data/reference_views/glessner_house
+          if [ -n "$(git status --porcelain -- data/reference_views docs/RESEARCH/photo-match)" ]; then
+            echo "FATAL: a match record or committed side-by-side moved" >&2
+            git status --porcelain -- data/reference_views docs/RESEARCH/photo-match >&2
+            exit 1
+          fi
+          echo "match records restored; human review state untouched"
+
+      # Evidence: sizes and hashes old->new, the KTX2 headers proving the caps and the
+      # required extension, and per-camera PSNR between the old and the new render.
+      - name: Measure and write the evidence record
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, shutil, struct
+          import numpy as np
+          from PIL import Image
+
+          tmp = pathlib.Path(os.environ['RUNNER_TEMP'])
+          views = os.environ['VIEWS'].split()
+          light_view = os.environ['LIGHT_VIEW']
+
+          def sha(p): return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+          def size(p): return pathlib.Path(p).stat().st_size
+
+          def ktx2_scan(glb):
+              b = pathlib.Path(glb).read_bytes()
+              jl = struct.unpack('<I', b[12:16])[0]
+              doc = json.loads(b[20:20 + jl])
+              off = 20 + jl
+              bl, _kind = struct.unpack('<II', b[off:off + 8])
+              bin_ = b[off + 8:off + 8 + bl]
+              imgs = doc.get('images', [])
+              sides, mimes = [], sorted({i.get('mimeType') for i in imgs})
+              for i in imgs:
+                  v = doc['bufferViews'][i['bufferView']]
+                  o = v.get('byteOffset', 0)
+                  blob = bin_[o:o + 28]
+                  assert blob[:12] == b'\xabKTX 20\xbb\r\n\x1a\n', f'{glb}: an image is not KTX2'
+                  # KTX2 header: 12 B identifier, vkFormat, typeSize, then pixelWidth/pixelHeight.
+                  w, h = struct.unpack('<II', blob[20:28])
+                  sides.append(max(w, h))
+              req = doc.get('extensionsRequired', [])
+              return {'images': len(imgs), 'mime_types': mimes,
+                      'max_side': max(sides) if sides else 0,
+                      'requires_basisu': 'KHR_texture_basisu' in req}
+
+          def psnr(a, b):
+              xa = np.asarray(Image.open(a).convert('RGB'), dtype=np.float64)
+              xb = np.asarray(Image.open(b).convert('RGB'), dtype=np.float64)
+              assert xa.shape == xb.shape, f'shape mismatch {xa.shape} vs {xb.shape}'
+              mse = float(np.mean((xa - xb) ** 2))
+              return None if mse == 0 else round(10 * np.log10(255.0 ** 2 / mse), 2)
+
+          old_pkg = json.loads((tmp / 'old/package.json').read_text())
+          rec = pathlib.Path('docs/RESEARCH/glessner-v4-recovery')
+          parts = sorted(rec.glob('part-*'))
+          evidence = {
+              'ticket': 'T-2596',
+              'run': f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              'producer': 'tools/web_derivatives.sh --only glessner_house__as_built_1887.glb (KTX2 cap 2048; light via produce_light_version cap 1024)',
+              'master': {'path': 'assets/gltf/glessner_house__as_built_1887.glb',
+                         'sha256': sha('assets/gltf/glessner_house__as_built_1887.glb'),
+                         'bytes': size('assets/gltf/glessner_house__as_built_1887.glb'),
+                         'unchanged': sha('assets/gltf/glessner_house__as_built_1887.glb') == sha(tmp / 'old/master.glb')},
+              'files': {
+                  'assets/web/glessner_house__as_built_1887.glb': {
+                      'old': {'sha256': sha(tmp / 'old/full.glb'), 'bytes': size(tmp / 'old/full.glb')},
+                      'new': {'sha256': sha('assets/web/glessner_house__as_built_1887.glb'),
+                              'bytes': size('assets/web/glessner_house__as_built_1887.glb')}},
+                  'assets/web/glessner_house__as_built_1887.light.glb': {
+                      'old': {'sha256': sha(tmp / 'old/light.glb'), 'bytes': size(tmp / 'old/light.glb')},
+                      'new': {'sha256': sha('assets/web/glessner_house__as_built_1887.light.glb'),
+                              'bytes': size('assets/web/glessner_house__as_built_1887.light.glb')}},
+              },
+              'textures': {
+                  'full': {'cap': 2048, **ktx2_scan('assets/web/glessner_house__as_built_1887.glb')},
+                  'light': {'cap': 1024, **ktx2_scan('assets/web/glessner_house__as_built_1887.light.glb')},
+              },
+              'package': {
+                  'old': old_pkg,
+                  'new': {'parts': len(parts), 'bytes': sum(p.stat().st_size for p in parts),
+                          'manifest_sha256': sha(rec / 'manifest.json')},
+              },
+              'renders': {},
+              'match_records': 'untouched — photo_match rewrites were restored with git checkout; verdicts stay human review state',
+          }
+          assert evidence['master']['unchanged'], 'the master moved — this ticket encodes derivatives only'
+          assert evidence['textures']['full']['requires_basisu'] and evidence['textures']['light']['requires_basisu']
+          assert evidence['textures']['full']['max_side'] <= 2048, evidence['textures']['full']
+          assert evidence['textures']['light']['max_side'] <= 1024, evidence['textures']['light']
+          assert evidence['textures']['full']['mime_types'] == ['image/ktx2']
+          assert evidence['textures']['light']['mime_types'] == ['image/ktx2']
+          for v in views + [light_view + ' (light)']:
+              suffix = '.light' if v.endswith('(light)') else ''
+              name = v.replace(' (light)', '')
+              a, b = tmp / f'renders/old/{name}{suffix}.png', tmp / f'renders/new/{name}{suffix}.png'
+              evidence['renders'][v] = {'old_render_sha256': sha(a), 'new_render_sha256': sha(b),
+                                        'psnr_db': psnr(a, b)}
+          out = pathlib.Path('docs/RESEARCH/ktx2-v4')
+          (out / 'glessner').mkdir(parents=True, exist_ok=True)
+          (out / 'glessner-v4-ktx2.json').write_text(json.dumps(evidence, indent=1) + '\n', encoding='utf-8')
+          for v in views:
+              shutil.copy(tmp / f'sbs/old/{v}-side-by-side.jpg', out / f'glessner/{v}-old.jpg')
+              shutil.copy(tmp / f'sbs/new/{v}-side-by-side.jpg', out / f'glessner/{v}-new.jpg')
+          shutil.copy(tmp / f'sbs/old/{light_view}-side-by-side.jpg', out / f'glessner/{light_view}-light-old.jpg')
+          shutil.copy(tmp / f'sbs/new/{light_view}-side-by-side.jpg', out / f'glessner/{light_view}-light-new.jpg')
+          print(json.dumps({k: evidence[k] for k in ('files', 'textures', 'package')}, indent=1))
+          print(json.dumps(evidence['renders'], indent=1))
+          PY
+
+      - name: Verify the new package and the freshness record
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/recover_glessner_v4.py --check
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          def sha(p): return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+          m = json.loads(pathlib.Path('assets/manifest.json').read_text())
+          entry = m['assets']['glessner_house__as_built_1887.glb']
+          light = entry['web_lods']['light']
+          assert light['output_sha256'] == sha('assets/web/glessner_house__as_built_1887.light.glb'), 'manifest light hash disagrees with the file'
+          assert light['master_sha256'] == sha('assets/gltf/glessner_house__as_built_1887.glb'), 'manifest master hash disagrees with the file'
+          print('manifest record agrees with the bytes on disk')
+          PY
+
+      - name: Commit the derivatives package and evidence
+        run: |
+          set -euo pipefail
+          git add chicago/4d/docs/RESEARCH/glessner-v4-recovery \
+                  chicago/4d/docs/RESEARCH/ktx2-v4 \
+                  chicago/4d/assets/manifest.json \
+                  chicago/4d/assets/manifest.web.json
+          if git diff --cached --quiet; then echo "artifacts already committed (refire)"; else
+          git commit -m "T-2596: Glessner v4 derivatives in KTX2, package repacked, evidence" \
+                     -m "Full and light web derivatives re-encoded by the canonical producer (KTX2: ETC1S colour, UASTC+RDO data, light tier capped at 1024), the three-file recovery package repacked with its new hashes, assets/manifest.json re-recorded by record-web, and the old-vs-new render evidence (per-camera PSNR) under docs/RESEARCH/ktx2-v4/." \
+                     -m "Changelog: chicago/4d/changelog.d/T-2596.json"
+          fi
+          for i in 1 2 3 4 5; do
+            git push origin "HEAD:$BRANCH" && exit 0
+            echo "push refused (attempt $i) — rebasing on the moved branch"
+            git pull --rebase origin "$BRANCH"
+          done
+          exit 1
+
+      # The audit's assets block must name the NEW bytes — the baseline page verifies
+      # the loaded model against it. Regenerated by its own tool; the diff is printed
+      # in full so the review sees exactly what moved (expected: the assets block and
+      # the candidate hash; anything more is pre-existing master drift between the
+      # audit-era master and the recovery package's, and the PR says so, not hides it).
+      - name: Regenerate the proportion audit against the new files
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/glessner_proportion_audit.py
+          python3 tools/glessner_proportion_audit.py --check
+          git --no-pager diff --stat -- data/comparisons/glessner/audit-report.json
+          git --no-pager diff -- data/comparisons/glessner/audit-report.json | head -80
+
+      # The final commit's content is fully regenerable (the audit from the GLBs on
+      # disk — untracked, they survive a reset — the budget sentence from the evidence
+      # file, the sentinel deletion by git rm), so the push loop can drop and redo it.
+      - name: Commit the audit, the budget note, and the sentinel's removal
+        run: |
+          set -euo pipefail
+          commit_w3() {
+            (cd chicago/4d && python3 tools/glessner_proportion_audit.py)
+            (cd chicago/4d && python3 - <<'PY'
+          import json, pathlib, re, sys
+          ev = json.loads(pathlib.Path('docs/RESEARCH/ktx2-v4/glessner-v4-ktx2.json').read_text())
+          p = pathlib.Path('docs/SITE-BUDGET.md')
+          doc = p.read_text(encoding='utf-8')
+          if 'has now handed it back' in doc:
+              print('SITE-BUDGET.md already carries the measured sentence')
+              sys.exit(0)
+          full = ev['files']['assets/web/glessner_house__as_built_1887.glb']
+          light = ev['files']['assets/web/glessner_house__as_built_1887.light.glb']
+          psnrs = [r['psnr_db'] for r in ev['renders'].values() if r['psnr_db'] is not None]
+          psnr_txt = ('identical renders' if not psnrs else
+                      f"{min(psnrs):.2f}–{max(psnrs):.2f} dB PSNR")
+          new = (f"T-2596 (the Glessner v4 set in KTX2) has now handed it back, measured on the "
+                 f"ticket's own runner run: the full derivative is "
+                 f"{full['old']['bytes']:,} → {full['new']['bytes']:,} B and the light "
+                 f"{light['old']['bytes']:,} → {light['new']['bytes']:,} B with its "
+                 f"{ev['textures']['light']['images']} textures capped at 1024; the three-file "
+                 f"recovery package is {ev['package']['old']['bytes']:,} → {ev['package']['new']['bytes']:,} "
+                 f"B, so the headroom above is now conservative. Rendered from the five reference "
+                 f"cameras, old files against new, the re-encode reads {psnr_txt} "
+                 f"(docs/RESEARCH/ktx2-v4/glessner-v4-ktx2.json).")
+          pat = re.compile(r"T-2596 \(the Glessner v4 set in KTX2\) is expected to\s+hand some of "
+                           r"this back, since its 28 PNG maps are larger than their UASTC equivalents\s+—\s+"
+                           r"expected, not measured\.")
+          doc, n = pat.subn(new, doc)
+          if n != 1:
+              sys.exit(f'SITE-BUDGET.md: the T-2596 sentence matched {n} times (need exactly 1)')
+          p.write_text(doc, encoding='utf-8')
+          print('SITE-BUDGET.md §9 now carries the measured numbers')
+          PY
+            )
+            git add chicago/4d/data/comparisons/glessner/audit-report.json chicago/4d/docs/SITE-BUDGET.md
+            git rm -q --ignore-unmatch chicago/4d/docs/RESEARCH/t2596-run.txt
+            if git diff --cached --quiet; then echo "final commit already landed (refire)"; return 0; fi
+            git commit -m "T-2596: audit reads the new files; budget note measured; one-shot removed" \
+                       -m "data/comparisons/glessner/audit-report.json regenerated by its own tool so the baseline page's current-audit verification names the shipped bytes; docs/SITE-BUDGET.md §9's expected-not-measured sentence replaced with the measured sizes and PSNR. The sentinel leaves the branch so the producer cannot refire on a later push; the workflow file is retired by the next step where the token holds the workflows permission." \
+                       -m "Changelog: chicago/4d/changelog.d/T-2596.json"
+          }
+          commit_w3
+          for i in 1 2 3 4 5; do
+            git push origin "HEAD:$BRANCH" && exit 0
+            echo "push refused (attempt $i) — taking the moved branch and redoing the regenerable commit"
+            git fetch origin "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            commit_w3
+          done
+          exit 1
+
+      # GITHUB_TOKEN may not create, update or delete files under .github/workflows/
+      # (the platform's workflows-permission rule), so this file's removal is its own
+      # commit, AFTER the sentinel's, and green either way. A refusal leaves the file
+      # on the branch, owner-visible in the pull request; the owner deletes it in the
+      # web UI before merging, or merges with it — either way it can never fire again,
+      # because its push trigger names only this branch and the sentinel is gone.
+      - name: Retire the one-shot workflow file (best effort)
+        run: |
+          set -uo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [ ! -f .github/workflows/t2596-glessner-ktx2.yml ]; then
+            echo 'workflow file already absent — nothing to do'
+            exit 0
+          fi
+          git rm -q .github/workflows/t2596-glessner-ktx2.yml
+          if ! git commit -m "T-2596: retire the one-shot producer workflow" \
+                 -m "Added to run the binary-producing half of the ticket on a runner. Its work is committed, and it cannot refire (the sentinel is gone), so it leaves the branch before the pull request."; then
+            echo 'nothing to commit'
+            exit 0
+          fi
+          if git push origin "HEAD:$BRANCH"; then
+            echo 'one-shot workflow removed from the branch'
+          else
+            echo '::warning::push refused — GITHUB_TOKEN holds no workflows permission, so the workflow file stays on the branch.'
+            echo '::warning::Owner: delete .github/workflows/t2596-glessner-ktx2.yml on this branch in the web UI before merging, or merge with it — it cannot fire again (the push trigger names only this branch, and the sentinel is gone).'
+            git fetch origin "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+          fi
+
+      - name: Run summary
+        if: always()
+        run: |
+          set -uo pipefail
+          EV=chicago/4d/docs/RESEARCH/ktx2-v4/glessner-v4-ktx2.json
+          if [ -f "$EV" ]; then
+            {
+              echo "### T-2596 evidence"
+              echo '```json'
+              python3 -c "import json;d=json.load(open('$EV'));print(json.dumps({'files':d['files'],'textures':d['textures'],'package':d['package'],'renders':d['renders']},indent=1))"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
