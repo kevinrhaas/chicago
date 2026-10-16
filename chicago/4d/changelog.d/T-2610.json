@@ -1,0 +1,10 @@
+{
+  "title": "The arrival says where you are going, and the year rolls there",
+  "kind": "fix",
+  "items": [
+    "A small line over the ticker now reads where you are headed, such as DESTINATION 1904 · PRAIRIE AVE, from the moment the page appears.",
+    "1835 reads RIVER SETTLEMENT and 1812 reads FORT DEARBORN.",
+    "The big ticker is the year you are passing: it starts at today's year and rolls down to your destination, and it never climbs back up.",
+    "The old \"Destination year\" label is gone. It sat over today's year, which made the readout look wrong."
+  ]
+}

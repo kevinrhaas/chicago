@@ -293,6 +293,12 @@ body:is(.is-touch, .touch-first) .gate-touch { display: block; }
 .arrival-label {
   margin: 0 0 6px; color: var(--ink-dim); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
 }
+/* T-2610: the small line over the ticker, across the deck — where you are going. */
+.arrival-destination {
+  grid-column: 1 / -1; margin: 0 0 -6px; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.arrival-destination b { color: var(--ink); font-weight: inherit; }
 .arrival-lamps {
   list-style: none; margin: 0; padding: 0; display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 10px;

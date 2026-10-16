@@ -188,7 +188,9 @@ export function createArrival({
 
   function showYear(value, animate = true) {
     const rounded = Math.round(value);
-    if (rounded === lastShown) return;
+    // T-2610: the ticker is the year you are passing; once rolling it never climbs back
+    // towards the present, whatever the forecast or a late event says.
+    if (rounded === lastShown || (lastShown != null && rounded > lastShown)) return;
     lastShown = rounded;
     setDigits(yearEl, rounded, animate && !reducedMotion);
   }
