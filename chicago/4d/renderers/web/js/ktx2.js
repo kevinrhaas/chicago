@@ -30,8 +30,10 @@ import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 
 let loader = null;
 let dropTopMip = false;
+let rendererRef = null;
+let glbLoader = null;
 /** What the boot found, for `__chicago4d.ktx2` and the memory meter's report. */
-export const ktx2State = { enabled: false, reason: 'not initialised', dropTopMip: false,
+export const ktx2State = { enabled: false, reason: 'not initialised', dropTopMip: false, glb: 'shared',
   formats: null, sheets: { ktx2: 0, fallback: 0, gpuBytes: 0, failed: [] } };
 
 /**
@@ -58,6 +60,7 @@ function anyTarget(cfg) {
 export function initKTX2(renderer, { textures = 'full', disabled = false } = {}) {
   dropTopMip = textures === 'light';
   ktx2State.dropTopMip = dropTopMip;
+  rendererRef = renderer;
   if (disabled) { ktx2State.reason = 'off (?ktx2=0)'; return null; }
   try {
     const l = new KTX2Loader();
@@ -80,10 +83,35 @@ export function initKTX2(renderer, { textures = 'full', disabled = false } = {})
   return loader;
 }
 
-/** Hand the shared loader to a GLTFLoader, so a KHR_texture_basisu GLB decodes. */
+/**
+ * Hand a KTX2 loader to a GLTFLoader, so a KHR_texture_basisu GLB decodes.
+ *
+ * Since T-2595 a textured web GLB REQUIRES the extension: it carries no PNG or JPEG to
+ * fall back to, so a GLTFLoader with no KTX2 loader cannot open it at all. A sheet has
+ * its image path; a GLB does not. So where the shared loader is off — `?ktx2=0`, or a
+ * GPU with no block format — the GLB loader gets one of its own that transcodes every
+ * texture to RGBA8: exactly what the JPEG cost on the GPU, which is the honest "before"
+ * the kill switch is for, and never a missing house.
+ */
 export function registerKTX2(gltfLoader) {
-  if (loader) gltfLoader.setKTX2Loader(loader);
+  const l = loader || rgbaGlbLoader();
+  if (l) gltfLoader.setKTX2Loader(l);
   return gltfLoader;
+}
+
+function rgbaGlbLoader() {
+  if (glbLoader || !rendererRef) return glbLoader;
+  try {
+    const l = new KTX2Loader();
+    l.detectSupport(rendererRef);
+    // No block format: the transcoder falls through to RGBA32 for every texture.
+    for (const k of Object.keys(l.workerConfig || {})) l.workerConfig[k] = false;
+    glbLoader = l;
+    ktx2State.glb = 'rgba8';
+  } catch (err) {
+    ktx2State.glb = `unavailable — ${err.message}`;
+  }
+  return glbLoader;
 }
 
 /** The light tier's residency: upload from mip 1, a quarter of the bytes. */
