@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## T-2588 — the wall relief ships GPU-compressed (2026-10-16)
 
 Piece 1 of T-2583. The clapboard and hewn-log walls' relief pair (the normal, and the `orl` the
@@ -17,6 +18,25 @@ acceptance). **Found, and filed as T-2593:** a KTX2 written top row first, as T-
 roofs, the 1904 streets and the muck, is the image mirrored along v in three. A two-band test
 sheet proved it, and the roof band reads 29-30 dB against its WebP where the walls, written
 bottom row first, read 50-51.
+=======
+## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
+
+Piece 1 of T-2580 (which was split into this, T-2585 for the loggia's carving and T-2586 for
+closing the image gate). The south bow ran even 0.38 m rock-faced courses where the 1888 Inland
+Architect plate (read at its native 1559 px) and the Glessner House print of it show a deep course
+and a thin one in turn on its piers and south flank, the rhythm T-2566 already gave the street
+front. The K08 bay's `masonry` now takes an optional `coursing` (`rhythm: alternating`,
+`low_ratio`), refused outside [0.25, 1) or under a 0.15 m thin course; each storey between the
+bow's bands is laid in the fewest courses whose deep one is at most `course_m` (0.55 m), so the
+basement's 1.85 m and each 3.9 m storey come out 0.49 m deep and 0.195 m thin, the deep courses on
+the upper half of the rock-face relief and the thin on the lower, as the front's are. The bow's
+beds are the rhythm's, not struck on the front's (L-k08-keith-bow-coursing-2584). Only Keith's mesh
+changed (76,224 to 76,228 triangles, full and web); the other 19 K01 masters, which hash the K08
+and K01-params code, re-emit byte-identical. The `inland-1888` and `a18-gh-1808-keith-field-front`
+side-by-sides were re-rendered and their match records carry the bow's coursing as `fixed`; the
+other 14 views still name the previous GLB, so T-2586 re-renders them before it can close (the
+image gate refuses a match taken on another GLB).
+>>>>>>> origin/dev
 
 ## T-2578 — Keith house's cowl ventilator, and the parapet behind the rear pinnacle ruled (2026-10-16)
 
@@ -39,6 +59,32 @@ match records re-rendered and stay `differs`. NEW, and left for T-2580: the hall
 the coping beside the ventilator in five renders, where every one of those pictures shows sky — the
 cowl pipe plausibly terminates that flue, with the stack below the coping; and the c. 1888 view
 puts the cap higher over the coping than its render does, which T-2579's re-fitted cameras decide.
+
+## T-2572 — a tap on the walks, fences and yard goods is answered by the GPU (2026-10-16)
+
+Piece 1 of T-2550. `renderers/web/js/gpu-pick.js` draws the candidate chunks into one
+`RGBA32UI` pixel under the tap (slot, `gl_VertexID` of the provoking vertex, eye distance)
+and reads it back; the three layers are non-indexed, so the vertex names the face and the
+face spans they already keep resolve it as they resolved the raycast's `faceIndex`. So
+`RELEASE_KEEP` keeps nothing for `frontage`, `enclosures` and `yard`. On the desktop, which
+releases nothing, `check_upload_release.mjs` taps a fixed list of 12 faces per layer through
+both engines and holds them to the same id at the same distance (36 of 36 agree); on the
+phone each layer still answers a tap with its triangles gone. A chunk the reach holds back
+(`reachCulled`) is no longer tappable by either engine: the raycast opened its card unseen,
+and drawing it would upload what the walk never asked for.
+
+**The saving is 16.5 MB at spawn, not the 151 MB the ticket priced** (1835 phone, read
+after merging T-2569's compact formats and T-2574: dev 661.8 to this change 645.3 MB, same
+machine, same hour; GPU buffers unchanged at 185.4 MB; `docs/measurements/T-2572-memory.json`;
+ceiling 825 to 725 MiB). Most of those layers' page bytes are chunks the reach has never
+uploaded, which keep every array until walked to (frontage 52.8, enclosures 26.8, yard
+19.7 MB in the meter's never-uploaded column); the release only ever reached the drawn
+ones. That remainder is building-then-holding, which T-2560 (ship the town prebuilt) is
+placed to remove. The structures half, with weathering as a uniform, is T-2573.
+
+Re-read once T-2575's Int16x4 structures positions had landed on `dev` (merge `c2b6ad1c7`):
+the two savings add, 630.0 MB on the 1835 phone (arraybuffers 223.0, GPU buffers 180.5),
+so its ceiling is 725 to 700 MiB by the rule; `?keep-geometry=1` still reads over it at 776.2 MB.
 
 ## T-2564 — Keith house's north return in stone courses (2026-10-16)
 

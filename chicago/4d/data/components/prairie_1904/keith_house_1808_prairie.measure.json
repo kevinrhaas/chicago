@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 8702440,
-      "sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
+      "bytes": 8139660,
+      "sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 76224,
-        "vertices": 162427
+        "triangles": 69628,
+        "vertices": 149347
       },
       "texture": {
         "images": 12,
@@ -261,8 +261,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2595408,
-      "sha256": "9af4e6972688552c661ac5c622a96efb3a502721e4a66470ec498604ce2bcfe8",
+      "bytes": 2464452,
+      "sha256": "e0797bc8a2864390b358a801bcf2f53ef829920452d408d77e142396ba5f901f",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -280,8 +280,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 76224,
-        "vertices": 133026
+        "triangles": 69628,
+        "vertices": 120009
       },
       "texture": {
         "images": 12,
@@ -340,13 +340,13 @@
           "uv_per_m_times_tile_m": 1.0001
         },
         "bay_stone": {
-          "median_uv_per_m": 0.6223,
+          "median_uv_per_m": 0.6224,
           "fabric": "granite_rock_faced",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9957
+          "uv_per_m_times_tile_m": 0.9959
         },
         "brick": {
           "median_uv_per_m": 1.2028,
@@ -439,13 +439,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "stoop_stone": {
-          "median_uv_per_m": 1.1106,
+          "median_uv_per_m": 1.1116,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 0.9995
+          "uv_per_m_times_tile_m": 1.0004
         },
         "yard_cinder": {
           "median_uv_per_m": 0.4995,

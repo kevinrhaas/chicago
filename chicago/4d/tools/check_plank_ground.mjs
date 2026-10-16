@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 /** T-2037: protect emitted crossings from the coarse far-ground mesh.
  * node tools/check_plank_ground.mjs [--json] [--baseline]
  * --baseline deliberately exits 1 after reporting the original burial witness.
@@ -42,6 +43,10 @@ const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '
  .replace("from './gates.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/gates.js')).href}'`)
  .replace("from './relief-pack.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/relief-pack.js')).href}'`)
  .replace("from './compact-streams.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/compact-streams.js')).href}'`)
+ // T-2572: the pick module, loaded as itself with its own `three` import pointed home.
+ .replace("from './gpu-pick.js'", `from 'data:text/javascript;base64,${Buffer.from(
+   readFileSync(path.join(sourceRoot,'renderers/web/js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
+   .toString('base64')}'`)
  +'\nexport {timberBuf,plainTimber,buildWalk,buildCrossing};'));
 globalThis.fetch=async(url)=>{const file=fileURLToPath(url);if(!file.startsWith(path.join(sourceRoot,'data/')))return {ok:false,status:404};
  return {ok:true,json:async()=>JSON.parse(await readFile(file,'utf8'))};};

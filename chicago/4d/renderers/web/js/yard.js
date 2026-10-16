@@ -99,6 +99,7 @@
 import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { loadTimberRelief } from './frontage.js';
+import { layerPick } from './gpu-pick.js';
 import { compactStreams } from './compact-streams.js';
 
 const { compactNormals, compactColors, compactUnitUvs } = compactStreams(THREE);
@@ -3501,26 +3502,25 @@ export async function createYardGoods({
   out.census.chunks = meshes.length - out.census.woodChunks;
   group.userData.census = out.census;
 
-  const raycaster = new THREE.Raycaster();
-  /** The business these goods stand at, or null. Same ray budget as the boards. */
-  out.pickAt = (ndc, camera) => {
-    if (!camera) return null;
-    raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-    raycaster.far = Math.max(400, camera.position.y * 4);
-    // A raycast does not skip what is hidden, so the woodpiles' group, which the
-    // `light` tier hides (main.js, T-1959), is left out of it while it is hidden.
-    const hits = raycaster.intersectObjects(
-      meshes.filter((m) => !m.parent?.userData.woodpiles || m.parent.visible), false);
-    if (!hits.length) return null;
-    const hit = hits[0];
-    // The span table is the CHUNK's, so a hit resolves against the objects that
-    // chunk actually holds and a face index cannot be read against another
-    // block's table.
-    const spans = hit.object?.userData?.spans ?? [];
-    const span = spans.find((sp) => hit.faceIndex >= sp.from && hit.faceIndex < sp.to);
-    if (!span) return null;
-    return { id: span.id, point: hit.point.clone(), distance: hit.distance };
-  };
+  /**
+   * The business these goods stand at, or null. Same ray budget as the boards,
+   * and drawn rather than raycast (gpu-pick.js, T-2572). The woodpiles' group,
+   * which the `light` tier hides (main.js, T-1959), is left out while it is
+   * hidden: a pick draws exactly the list it is handed, as the raycast tested it.
+   */
+  const pick = layerPick(
+    () => meshes.filter((m) => !m.parent?.userData.woodpiles || m.parent.visible),
+    (hit) => {
+      // The span table is the CHUNK's, so a hit resolves against the objects that
+      // chunk actually holds and a face index cannot be read against another
+      // block's table.
+      const spans = hit.object?.userData?.spans ?? [];
+      const span = spans.find((sp) => hit.face >= sp.from && hit.face < sp.to);
+      if (!span) return null;
+      return { id: span.id, point: hit.point, distance: hit.distance };
+    });
+  out.pickAt = pick.pickAt;
+  out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {
     for (const m of meshes) m.geometry.dispose();

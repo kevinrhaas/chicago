@@ -1004,8 +1004,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         v["id"] = f"{structure_id}|{e['id']}"
         if e.get("masonry"):
             m = e["masonry"]
-            if set(m) != {"course_m", "block_m", "joint_m", "relief_m"} or not (.2 <= m["course_m"] <= .6 and .4 <= m["block_m"] <= 1.5 and .004 <= m["joint_m"] <= .02 and .008 <= m["relief_m"] <= .06):
+            if set(m) - {"coursing"} != {"course_m", "block_m", "joint_m", "relief_m"} or not (.2 <= m["course_m"] <= .6 and .4 <= m["block_m"] <= 1.5 and .004 <= m["joint_m"] <= .02 and .008 <= m["relief_m"] <= .06):
                 raise ParamError("bays.masonry: bounded coursed rock-faced ashlar")
+            # T-2584: a bay read off its photograph may lay its courses deep and thin in turn,
+            # as the street front's T-2566 coursing does; course_m is then the deep course's
+            # most, and the thin one stays at least the K02 profiles' least course (0.19 m)
+            c = m.get("coursing")
+            if c is not None and (set(c) != {"rhythm", "low_ratio"} or c["rhythm"] != "alternating"
+                                  or not (.25 <= float(c["low_ratio"]) < 1.0)
+                                  or float(c["low_ratio"]) * m["course_m"] < .15):
+                raise ParamError("bays.masonry.coursing takes rhythm 'alternating' and a low_ratio in "
+                                 "[0.25, 1) whose thin course is at least 0.15 m")
             v["masonry"] = m
         if "plan" in e and v["kind"] == "projection":
             # T-2404: a full-height projection read off a picture keeps the picture's width

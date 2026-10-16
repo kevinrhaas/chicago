@@ -28161,6 +28161,18 @@ pitch, the finial's step sizes, the cornice's fillets and the roll's 0.2 m radiu
 drawn to the pictures' shadows below their grain; the panels' foliage stays the low
 relief scrolls T-1883 laid. The principal-storey lights and the basement lights keep
 their T-1883 heights: the plate's reading of them sits inside the camera fit's error.
+**T-2585 (2026-10-16), the loggia carving read:** what is read now, from the 1888 plate at
+its native 1559 px (both capitals at x 860-945 and 1100-1165, y 1385-1405; the balcony at
+x 930-1150, y 1260-1330) and the 1965 close view: each paired capital is a square-edged
+block about 0.2 m deep on the 0.89 m pair, with NO volutes and no egg row, its face
+carrying a running zigzag of six strokes between a plain block at each end, the triangles
+between the strokes sunk, under a thin abacus. T-2565 read the zigzag's dark triangles as
+an egg row and the plain end blocks as volutes; both are gone. The balcony's panel carries
+one continuous running scroll of foliage over a plain base strip about a third of the
+panel, and its dies plain sunk panels in a raised border. What is still invented: the
+zigzag's 22 mm sink and the strap's width, every leaf's cut, each curl's two and a half
+turns and the scroll's 0.3 m pitch (the 1965 view counts about four loops along the
+front), all below both pictures' grain; the pedestals' panels keep T-1883's low relief.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
@@ -28389,3 +28401,25 @@ T-2580), which the same pictures show below the coping where the model stands it
 **Ticket:** T-2578 (piece 2 of T-2567).
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
 **Recorded:** 2026-10-16 (T-2578).
+
+### L-k08-keith-bow-coursing-2584 — Keith's bow laid deep and thin in turn: the rhythm read, the joints laid to it
+
+**Decision:** lay the south bow's rock-faced granite in the street front's T-2566 rhythm, a deep
+course and a thin one in turn from each storey's bed up, where it ran even 0.38 m courses. The 1888
+Inland Architect plate (read at its native 1559 px) and the Glessner House print of it
+(a18-gh-1808-keith-field-front) both show the alternation on the bow's piers and its south flank,
+from the plinth to the moulded cap under the third storey.
+**What is read, not invented:** the alternation itself, and the two heights to within a course:
+deep courses about 0.5 m, thin ones about 0.2 m, the front's own ratio (0.4).
+**What is invented:** where each joint falls. Each storey between the bow's bands is laid in the
+fewest courses whose deep one is at most 0.55 m (the basement's 1.85 m in five and each 3.9 m
+storey in eleven, every one 0.49 m deep and 0.195 m thin), so the bow's joints are the rhythm's and are not
+carried course for course from the front's, which the pictures do not resolve behind the street
+tree; and which half of the rock-face relief each course takes (deep on the upper half, thin on the
+lower), the front's T-2566 rule carried round the bow.
+**How to resolve:** a sharper print of the front, or a reading of the bow and the front side by side
+in the re-fitted cameras of T-2579, that lets the bow's beds be struck on the front's.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
+**Ticket:** T-2584 (piece 1 of T-2580).
+**Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
+**Recorded:** 2026-10-16 (T-2584).
