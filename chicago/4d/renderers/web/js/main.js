@@ -54,7 +54,7 @@ import { createFencedGround } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
-import { createFrontage } from './frontage.js';
+import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
 import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
@@ -1727,6 +1727,13 @@ async function boot() {
   const layerBase = (layer) => (draws(layer) ? bases.dataBase : null);
   const layerProblems = (layer) => (draws(layer) ? problems : []);
   api.sceneLayers = [...sceneLayers];
+  // T-2677: the frontage's timber, prebuilt at publish, starts downloading now so
+  // it arrives under the phases ahead of the layer instead of after them. It
+  // resolves `{ why }` rather than rejecting, and the layer builds its own then.
+  const frontagePrebuilt = draws('frontage')
+    ? fetchPrebuiltFrontage({ dataBase: bases.dataBase,
+      year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
+    : null;
   /**
    * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
    * below read the 1835 town's records just as the drawn layers do — its residents,
@@ -2099,9 +2106,13 @@ async function boot() {
   // half-width out of data/streets/1835.json. Mounted after the yard because the
   // two divide one building's ground between them — the yard layer owns what
   // stands on its own lot and this owns what lies in the street outside it.
+  performance.mark('frontage:start');
   const frontage = await createFrontage({
     dataBase: layerBase('frontage'), terrain, confidence, problems: layerProblems('frontage'), hostMissing,
+    prebuilt: frontagePrebuilt,
   });
+  // Read by tools/measure_boot_phases.mjs: the layer has no boot phase of its own.
+  performance.measure('frontage', 'frontage:start');
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;

@@ -3666,6 +3666,14 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# The frontage's timber ships prebuilt (T-2677): publish.sh builds it in Node with the
+# page's own createFrontage and the page uploads it. This refuses a prebuild whose
+# inputs — the records, the heightfield, every module the build loaded — have moved
+# since it was written, or a buffer its index did not hash. check_published.mjs asks
+# the same of the mirror; this is the tool's own --check, run where the mirror is.
+step "the published prebuilt frontage is current against every file it was built from (T-2677)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt
+
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with
 # that shape: a <base> that is not the first child of <head>, or a planned year with
