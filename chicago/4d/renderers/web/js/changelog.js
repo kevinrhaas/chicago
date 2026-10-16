@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1846, ts: '2026-10-16T05:02:51.854Z', date: 'Oct 16, 2026, 12:02 AM CT', title: 'A phone that ran out of memory comes back at lower detail', kind: 'fix',
+    items: [
+      'If the walk closed while loading last time, as a phone does when it runs out of memory, the next visit starts one Scene detail level lower at Sharpness Low, and a card says so. Settings can raise either again.',
+      'When the display is lost, the page reloads at most once. If it is lost again, the card offers a Reload at a lower detail level, so a phone no longer gets stuck reloading.',
+    ] },
   { v: 1845, ts: '2026-10-16T04:50:44.479Z', date: 'Oct 15, 2026, 11:50 PM CT', title: '1811 Prairie rises as the Ames house, built from its 1888 photograph', kind: 'feature',
     items: [
       '1811 Prairie Avenue, Miner T. Ames\'s house by Cobb & Frost, now stands as a three-storey rock-faced brownstone house in place of its draft box, built against the Inland Architect\'s 1888 photograph of it.',

@@ -34,7 +34,9 @@
  *
  * A lost WebGL context would need the page copies to re-upload. iOS drops a
  * context under memory pressure, so if one is lost after anything was let go,
- * the page reloads on restore rather than drawing nothing.
+ * the page reloads on restore rather than drawing nothing — once a session, and
+ * never in a loop: crash-guard.js owns the context events (T-2547) and reads
+ * `uploadReleaseState().attributes` to know whether a reload is needed.
  */
 
 import * as THREE from 'three';
@@ -65,7 +67,6 @@ const KEEP_ARRAYS = (() => {
 })();
 
 const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_ARRAYS };
-let watching = false;
 
 function release(attr) {
   if (!attr || !attr.array || attr.userData?.uploadReleased) return;
@@ -129,27 +130,16 @@ function pickWithoutReleased(o) {
   };
 }
 
-function watchContext(renderer) {
-  if (watching || !renderer?.domElement || !census.attributes) return;
-  watching = true;
-  let lost = false;
-  renderer.domElement.addEventListener('webglcontextlost', () => { lost = true; });
-  renderer.domElement.addEventListener('webglcontextrestored', () => {
-    if (lost) window.location.reload();
-  });
-}
-
 /**
  * Mark every listed layer under `scene` to let go of its page arrays once they
  * are uploaded. Idempotent: a layer built later (the trees) is picked up by
  * calling it again, and a geometry already marked is passed over.
  */
-export function releaseAfterUpload(scene, renderer, keepByLayer = RELEASE_KEEP) {
+export function releaseAfterUpload(scene, keepByLayer = RELEASE_KEEP) {
   for (const [name, keep] of Object.entries(keepByLayer)) {
     const layer = scene.getObjectByName(name);
     if (layer) markLayer(layer, keep);
   }
-  watchContext(renderer);
   return { ...census };
 }
 
@@ -173,7 +163,6 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
   const keep = RELEASE_KEEP[layer?.name];
   if (!keep || !layer.visible) return;
   markLayer(layer, keep);
-  watchContext(renderer);
   const restore = [];
   for (const c of scene.children) {
     if (c !== layer && !c.isLight && c.visible) { restore.push([c, 'visible', true]); c.visible = false; }

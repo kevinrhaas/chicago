@@ -57,6 +57,7 @@ import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
+import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
@@ -1364,6 +1365,15 @@ function readDetailPreference() {
   }
 }
 
+/** The visitor's stored Sharpness, '' when never chosen (hud.js stores '' for that). */
+function readQualityPreference() {
+  try {
+    return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.quality ?? '';
+  } catch {
+    return '';
+  }
+}
+
 const params = new URLSearchParams(location.search);
 /**
  * The year a visitor asked for. `?year=` wins; otherwise the page's own path
@@ -1433,9 +1443,18 @@ window.__chicago4d = api;
 document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
+// T-2547: if the last session died loading (a phone out of memory), this one boots a
+// detail tier lower and at Sharpness Low, and says so. Resolved here, before the
+// forecast and the GLB fetch, so nothing is downloaded for the tier that died.
+const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
+api.crashGuard = crashGuard.state;
+const crashBoot = crashGuard.boot({
+  detail: readDetailPreference() || (prefersTouch() ? 'light' : 'full'),
+  quality: resolveSharpness(readQualityPreference(), prefersTouch()),
+});
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
-  detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
+  detail: crashBoot.detail,
   build: document.getElementById('gate-build')?.textContent || VERSION,
   storage: bootStorage,
 };
@@ -1469,6 +1488,7 @@ api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
 if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
 bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
+bootController.on('ready', () => crashGuard.live());
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -1494,7 +1514,8 @@ async function boot() {
   const coarse = prefersTouch();
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
-  let detailLevel = readDetailPreference() || (coarse ? 'light' : 'full');
+  // T-2547: the stored choice or the device guess, unless the crash guard stepped it down.
+  let detailLevel = crashBoot.detail;
   // Image sharpness for a visitor who never chose one: Low on a phone, Medium
   // on a desktop (T-2110 — see sharpness.js).
   const qualityGuess = sharpnessGuess(coarse);
@@ -1565,7 +1586,10 @@ async function boot() {
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, qualityGuess));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, crashBoot.quality));
+  // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
+  // once a session — only when the page has let go of what a restore would need.
+  crashGuard.watchContext(renderer.domElement, { needsReload: () => uploadReleaseState().attributes > 0 });
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -2511,7 +2535,7 @@ async function boot() {
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
-      if (coarse) releaseAfterUpload(scene3d, renderer);
+      if (coarse) releaseAfterUpload(scene3d);
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -2585,7 +2609,7 @@ async function boot() {
         ...detailOpts(),
       });
       scene3d.add(trees.group);
-      if (coarse) releaseAfterUpload(scene3d, renderer);
+      if (coarse) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
       confidence.set(confidence.enabled);
@@ -2807,7 +2831,8 @@ async function boot() {
     onTravelStop: () => travel?.stop('button'),
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
-    resolvedQuality: qualityGuess,
+    resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
+    lowered: crashBoot.lowered,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -2841,8 +2866,10 @@ async function boot() {
         // the next frame carries it.
         world.setBrightness(value);
       } else if (key === 'quality') {
+        crashGuard.chosen('quality');
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, value));
       } else if (key === 'detail') {
+        crashGuard.chosen('detail');
         applyDetail(value);
       } else if (key === 'compass') {
         navigation.setCompassVisible(value);
@@ -3093,7 +3120,8 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, resolveSharpness(hud.settings.quality, coarse)));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1,
+    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse)));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -3812,7 +3840,7 @@ async function boot() {
   }
   // T-2158: before anything is uploaded, a phone marks the layers that may let
   // go of their page arrays once the GPU has them (upload-release.js).
-  if (coarse) releaseAfterUpload(scene3d, renderer);
+  if (coarse) releaseAfterUpload(scene3d);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);
