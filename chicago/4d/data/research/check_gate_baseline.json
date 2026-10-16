@@ -4,9 +4,9 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here — --write carries that field forward — and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 291,
-    "gated": 281,
-    "ungated": 10
+    "check_capable": 335,
+    "gated": 324,
+    "ungated": 11
   },
   "ungated": [
     {
@@ -66,6 +66,14 @@
       "other_modes_in_check_sh": [],
       "why_not_gated": "T-1246. --check boots the published mirror in real Chromium for the device/tier cold/warm timing matrix and 250 ms flora paint heartbeat. check.sh deliberately has no browser dependency; tools/test_boot_phases.mjs gates the deterministic phase/readiness/history contract there. The published browser check and failure/resume cases are run explicitly for this ticket, with the measured receipt in tools/boot_phase_measurements.json. A timing run must use a quiet browser host rather than concurrent per-commit gate jobs.",
       "owner_ticket": "T-1246"
+    },
+    {
+      "tool": "tools/prebuild_layers.mjs",
+      "other_modes_in_check_sh": [
+        "--self-test"
+      ],
+      "why_not_gated": "--check DIR reads a prebuild directory, and nothing writes one into the tree yet: T-2676 builds frontage in Node into a temp dir only, and T-2677 is the piece that makes publish.sh write site/4d/data/prebuilt/<year>/ and check_published.mjs refuse a stale one. Until then the refusal itself is proven by `prebuild_layers.mjs --self-test`, which check.sh runs: it builds, accepts the fresh build, and refuses an index from changed inputs and a buffer its index did not hash.",
+      "owner_ticket": "T-2677"
     }
   ]
 }
