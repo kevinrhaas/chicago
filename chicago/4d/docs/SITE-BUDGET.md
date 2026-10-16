@@ -410,6 +410,9 @@ same 971 requests; WebP 2.010 → 1.646 MB. That is **0.488 MB of room** where �
 T-2588 landed first, so the two were measured together after `dev` was merged in:
 `measure_boot_payload.mjs --check` reads **12.567 MB of 13.000** across 976 requests, WebP
 0.646 MB and KTX2 2.107 MB. That leaves 0.433 MB of room, where T-2588 alone left 0.094 MB.
+With T-2589 (§ 4d) merged in as well, re-measured on that merge with `--check`: **12.292 MB
+of 13.000** across 975 requests, WebP 0.233 MB and KTX2 2.243 MB, which leaves 0.708 MB of
+room where § 4d left 0.361 MB.
 
 The sand's mean luma, which `ground-strip.js` read from the image's pixels, is derived by
 `tools/ktx2_sheets.py` into `lake_michigan_dune_sand_basecolor.luma.json` (0.256117, from
