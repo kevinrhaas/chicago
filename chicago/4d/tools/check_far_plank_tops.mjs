@@ -18,6 +18,7 @@ const mod = await import(moduleURL(source.replace("from 'three'", `from '${three
     "const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
   .replace("from './relief-pack.js'", `from '${pathToFileURL(path.join(web, 'js/relief-pack.js')).href}'`)
+  .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`)
   + '\nexport { timberBuf, plainTimber, inWalkTone, laySegment, pushBox, plankGapAttribute, createFarWalkTops };'));
 const checks = [];
 function check(name, run) { run(); checks.push(name); }

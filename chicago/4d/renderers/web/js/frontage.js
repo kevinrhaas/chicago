@@ -77,7 +77,9 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { gateBoxes } from './gates.js';
 import { packGrain } from './relief-pack.js';
-import { compactNormals, compactColors } from './compact-streams.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals, compactColors } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };

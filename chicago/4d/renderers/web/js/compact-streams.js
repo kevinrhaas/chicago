@@ -37,54 +37,58 @@
  * is a different picture.
  */
 
-import * as THREE from 'three';
+/**
+ * The three builders, bound to the caller's three. This module imports nothing,
+ * so the node checks that load a layer from source (check_plank_gap_filter.mjs
+ * and its neighbours) resolve it as a plain file.
+ */
+export function compactStreams(THREE) {
+  const EPS = 1e-6;
 
-const EPS = 1e-6;
+  /** The values as a Float32 attribute: the fallback, and today's layout. */
+  const float32 = (src, size) => new THREE.BufferAttribute(
+    src instanceof Float32Array ? src : Float32Array.from(src), size);
 
-/** The values as a Float32 attribute: the fallback, and today's layout. */
-function float32(src, size) {
-  return new THREE.BufferAttribute(src instanceof Float32Array ? src : Float32Array.from(src), size);
-}
+  /** Unit normals, xyz per vertex, as Int8 x 4 normalized (w = 0). */
+  function compactNormals(src) {
+    for (let i = 0; i < src.length; i += 1) {
+      if (!(Math.abs(src[i]) <= 1 + EPS)) return float32(src, 3);
+    }
+    const out = new Int8Array((src.length / 3) * 4);
+    for (let i = 0, j = 0; i < src.length; i += 3, j += 4) {
+      out[j] = Math.round(Math.max(-1, Math.min(1, src[i])) * 127);
+      out[j + 1] = Math.round(Math.max(-1, Math.min(1, src[i + 1])) * 127);
+      out[j + 2] = Math.round(Math.max(-1, Math.min(1, src[i + 2])) * 127);
+    }
+    return new THREE.BufferAttribute(out, 4, true);
+  }
 
-/** Unit normals, xyz per vertex, as Int8 x 4 normalized (w = 0). */
-export function compactNormals(src) {
-  for (let i = 0; i < src.length; i += 1) {
-    if (!(Math.abs(src[i]) <= 1 + EPS)) return float32(src, 3);
+  /** Linear rgb per vertex, as Uint16 x 4 normalized (a = 1). */
+  function compactColors(src) {
+    for (let i = 0; i < src.length; i += 1) {
+      if (!(src[i] >= -EPS && src[i] <= 1 + EPS)) return float32(src, 3);
+    }
+    const out = new Uint16Array((src.length / 3) * 4);
+    for (let i = 0, j = 0; i < src.length; i += 3, j += 4) {
+      out[j] = Math.round(Math.max(0, Math.min(1, src[i])) * 65535);
+      out[j + 1] = Math.round(Math.max(0, Math.min(1, src[i + 1])) * 65535);
+      out[j + 2] = Math.round(Math.max(0, Math.min(1, src[i + 2])) * 65535);
+      out[j + 3] = 65535;
+    }
+    return new THREE.BufferAttribute(out, 4, true);
   }
-  const n = src.length / 3;
-  const out = new Int8Array(n * 4);
-  for (let i = 0, j = 0; i < src.length; i += 3, j += 4) {
-    out[j] = Math.round(Math.max(-1, Math.min(1, src[i])) * 127);
-    out[j + 1] = Math.round(Math.max(-1, Math.min(1, src[i + 1])) * 127);
-    out[j + 2] = Math.round(Math.max(-1, Math.min(1, src[i + 2])) * 127);
-  }
-  return new THREE.BufferAttribute(out, 4, true);
-}
 
-/** Linear rgb per vertex, as Uint16 x 4 normalized (a = 1). */
-export function compactColors(src) {
-  for (let i = 0; i < src.length; i += 1) {
-    if (!(src[i] >= -EPS && src[i] <= 1 + EPS)) return float32(src, 3);
+  /** Texture coordinates already in [0, 1], as Uint16 x 2 normalized. */
+  function compactUnitUvs(src) {
+    for (let i = 0; i < src.length; i += 1) {
+      if (!(src[i] >= -EPS && src[i] <= 1 + EPS)) return float32(src, 2);
+    }
+    const out = new Uint16Array(src.length);
+    for (let i = 0; i < src.length; i += 1) {
+      out[i] = Math.round(Math.max(0, Math.min(1, src[i])) * 65535);
+    }
+    return new THREE.BufferAttribute(out, 2, true);
   }
-  const n = src.length / 3;
-  const out = new Uint16Array(n * 4);
-  for (let i = 0, j = 0; i < src.length; i += 3, j += 4) {
-    out[j] = Math.round(Math.max(0, Math.min(1, src[i])) * 65535);
-    out[j + 1] = Math.round(Math.max(0, Math.min(1, src[i + 1])) * 65535);
-    out[j + 2] = Math.round(Math.max(0, Math.min(1, src[i + 2])) * 65535);
-    out[j + 3] = 65535;
-  }
-  return new THREE.BufferAttribute(out, 4, true);
-}
 
-/** Texture coordinates already in [0, 1], as Uint16 x 2 normalized. */
-export function compactUnitUvs(src) {
-  for (let i = 0; i < src.length; i += 1) {
-    if (!(src[i] >= -EPS && src[i] <= 1 + EPS)) return float32(src, 2);
-  }
-  const out = new Uint16Array(src.length);
-  for (let i = 0; i < src.length; i += 1) {
-    out[i] = Math.round(Math.max(0, Math.min(1, src[i])) * 65535);
-  }
-  return new THREE.BufferAttribute(out, 2, true);
+  return { compactNormals, compactColors, compactUnitUvs };
 }

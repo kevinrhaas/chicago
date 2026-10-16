@@ -96,7 +96,9 @@
 
 import * as THREE from 'three';
 import { gateBoxes } from './gates.js';
-import { compactNormals } from './compact-streams.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
