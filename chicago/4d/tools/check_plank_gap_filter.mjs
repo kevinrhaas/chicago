@@ -32,6 +32,7 @@ const mod = await import(moduleURL(source
     "const resolveBases = () => { throw new Error('scene loading outside this check'); };")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
   .replace("from './relief-pack.js'", `from '${pathToFileURL(path.join(web, 'js/relief-pack.js')).href}'`)
+  .replace("import { ktx2State, loadSheet } from './ktx2.js';", "const ktx2State = { enabled: false }; const loadSheet = null;")
   .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`)
   + '\nexport { timberBuf, plainTimber, laySegment, pushBox, plankGapAttribute, filterPlankGaps, PLANK_GAP_M };'));
 const confidenceSource = await readFile(path.join(web, 'js/confidence.js'), 'utf8');

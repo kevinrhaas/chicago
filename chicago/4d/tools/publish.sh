@@ -212,6 +212,9 @@ for face in clapboard_board_face hewn_log_face; do
         "$src/${face}_orm.webp" \
         "$src/${face}_basecolor.webp" \
         "$dst/"
+  # Each face's KTX2 sheets (T-2589: the board face's normal, orm and the grain
+  # frontage.js used to pack from the basecolor), whichever tools/ktx2_sheets.py writes.
+  for k in "$src"/*.ktx2; do [ -f "$k" ] && cp -f "$k" "$dst/"; done
 done
 
 # The T-1797 ground strip's two library substrates — `renderers/web/js/ground-strip.js`,

@@ -41,6 +41,7 @@ const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '
  .replace("import { resolveBases } from './scene-loader.js';","const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
  .replace("from './gates.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/gates.js')).href}'`)
  .replace("from './relief-pack.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/relief-pack.js')).href}'`)
+ .replace("import { ktx2State, loadSheet } from './ktx2.js';","const ktx2State={enabled:false};const loadSheet=null;")
  .replace("from './compact-streams.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/compact-streams.js')).href}'`)
  +'\nexport {timberBuf,plainTimber,buildWalk,buildCrossing};'));
 globalThis.fetch=async(url)=>{const file=fileURLToPath(url);if(!file.startsWith(path.join(sourceRoot,'data/')))return {ok:false,status:404};
