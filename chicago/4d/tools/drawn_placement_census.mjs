@@ -82,6 +82,11 @@ export const CENSUS = () => {
     const instanceInfo = batch._instanceInfo ?? [];
     const geometryInfo = batch._geometryInfo ?? [];
     const ids = batch.userData.batchIndex ?? [];
+    // T-2575: the stored positions are quantized, and the instance matrix
+    // carries their scale. The DATA's transform is asked of the structure's
+    // frame, so each vertex is scaled back by the scale buildings.js recorded —
+    // and a matrix whose scale disagrees with it lands in the wrong place.
+    const scales = batch.userData.positionScale ?? [];
     if (!matrices) continue;
     for (let i = 0; i < instanceInfo.length; i++) {
       if (instanceInfo[i].active === false) continue;
@@ -105,16 +110,19 @@ export const CENSUS = () => {
       // recorded plot corner need not be occupied by a tent or a wagon.
       const yaw = -(p.rotation_deg ?? 0) * Math.PI / 180;
       const cos = Math.cos(yaw); const sin = Math.sin(yaw);
+      const scale = scales[i] ?? 1;
       let transformError = 0;
       let e0 = Infinity; let e1 = -Infinity;
       let n0 = Infinity; let n1 = -Infinity;
       for (let k = gi.start, l = gi.start + gi.count; k < l; k++) {
         const iv = index ? index.getX(k) : k;
-        const vx = pos.getX(iv);
-        const vy = pos.getY(iv);
-        const vz = pos.getZ(iv);
-        const x = m0 * vx + m4 * vy + m8 * vz + m12;
-        const z = m2 * vx + m6 * vy + m10 * vz + m14;
+        const qx = pos.getX(iv);
+        const qy = pos.getY(iv);
+        const qz = pos.getZ(iv);
+        const x = m0 * qx + m4 * qy + m8 * qz + m12;
+        const z = m2 * qx + m6 * qy + m10 * qz + m14;
+        const vx = qx * scale;
+        const vz = qz * scale;
         // terrain.js worldToEnu: e = x, n = -z.
         const e = x;
         const n = -z;

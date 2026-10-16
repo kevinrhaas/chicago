@@ -1,0 +1,8 @@
+{
+  "title": "Buildings take less phone memory: positions stored at half precision",
+  "kind": "change",
+  "items": [
+    "Every building's corners are now stored as 16-bit numbers instead of 32-bit, scaled per building, so each vertex carries 20 bytes instead of 24. That frees about 5 MB of graphics memory on the 1835 phone view, and the town looks the same.",
+    "Wall and roof textures still line up exactly where they did, and tapping a building still opens its card."
+  ]
+}
