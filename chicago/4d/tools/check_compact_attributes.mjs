@@ -168,6 +168,8 @@ console.log('PASS structure frame: the relief patches read metres in the structu
 const box = new THREE.BoxGeometry(6, 9, 4).toNonIndexed();
 box.translate(0, 4.5, 0);
 box.deleteAttribute('uv');
+box.computeBoundingBox(); // in metres, as buildings.js leaves it — and stale once quantized
+box.computeBoundingSphere();
 const boxScale = positionScale([box]);
 quantizePositions(box, boxScale);
 const one = new THREE.BatchedMesh(1, box.getAttribute('position').count, 0, new THREE.MeshBasicMaterial());
@@ -175,6 +177,8 @@ one.setMatrixAt(one.addInstance(one.addGeometry(box)),
   placement.clone().multiply(new THREE.Matrix4().makeScale(boxScale, boxScale, boxScale)));
 assert.ok(one.geometry.getAttribute('position').array instanceof Int16Array);
 assert.ok(one.geometry.getAttribute('position').normalized);
+const held = one.getBoundingBoxAt(0, new THREE.Box3());
+assert.ok(held.max.y <= 1 && held.min.y >= -1, `the batch holds the piece's bounds in stored units, not metres: ${held.max.y}`);
 one.updateMatrixWorld(true);
 const centre = new THREE.Vector3(0, 4.5, 0).applyMatrix4(placement);
 const ray = new THREE.Raycaster(centre.clone().add(new THREE.Vector3(0, 20, 0)), new THREE.Vector3(0, -1, 0));

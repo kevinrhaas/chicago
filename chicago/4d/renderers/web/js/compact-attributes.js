@@ -178,6 +178,12 @@ export function quantizePositions(geometry, scale) {
     }
   }
   geometry.setAttribute('position', new THREE.BufferAttribute(out, 4, true));
+  // Bounds measured in metres are now wrong by `scale`, and a BatchedMesh COPIES
+  // a geometry's cached bounds at addGeometry and culls and picks by them. Left
+  // in place, picking missed 10 of 40 structures. Drop them so they are re-read
+  // off the stored positions.
+  geometry.boundingBox = null;
+  geometry.boundingSphere = null;
   return geometry;
 }
 
