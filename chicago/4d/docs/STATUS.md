@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2636 — a building's card opens with its address once, in plain words (2026-10-16)
 
 Design doc "Field Navigator Mk II" §12, the fallback for a structure with no summary record;
@@ -23,8 +22,6 @@ the template rather than print; their words are still in the sidecar and should 
 the source. The Go to list and other surfaces still print the raw names with their working
 asides — that is NAV-1003's lint, not this card.
 
-=======
->>>>>>> origin/dev
 ## T-2635 — the building summary record and its gate (2026-10-16)
 
 Design doc "Field Navigator Mk II" §12. `data/summary.schema.json` shapes the authored
