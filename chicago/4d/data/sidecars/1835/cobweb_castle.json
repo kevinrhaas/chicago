@@ -11,6 +11,11 @@
   "asset": "gltf/cobweb_castle__log_1820.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1820-01-01",
     "to": "1835-12-31",

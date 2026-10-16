@@ -11,6 +11,28 @@
   "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 16 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-gh-1800-block-looking-sw-c1888",
+      "a18-gh-1808-keith-field-front",
+      "a18-gh-1808-porch-1965",
+      "a18-gh-1812-1808-1800-mid1950s",
+      "a18-gh-florian-1948-northeast-overall",
+      "a18-gh-glessner-front-with-keith",
+      "a18-gh-nickel-1967-1812-1808-1800",
+      "a18-gho-house-under-construction-1887",
+      "a18-inland-architect-1888-02-glessner-plate",
+      "a18-inland-architect-1888-02-keith-plate",
+      "a18-owner-1800-block-looking-sw",
+      "a18-rba-ia-1888-keith-1808",
+      "a18-rba-reed-1941-prairie-north-from-1820",
+      "a18-rba-taylor-2135-glessner-ne",
+      "cgn-1804-landowner-1874-double-house",
+      "cgn-1808-inland-1888-keith-copy"
+    ]
+  },
   "documented_range": {
     "from": "1886-01-01",
     "to": "1968-12-31",

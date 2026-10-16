@@ -9,6 +9,15 @@
   "asset": "gltf/doane_house_1827_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-cgy-1827-fire-1927",
+      "a18-gh-doane-exterior",
+      "cgn-1827-doane-exterior"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

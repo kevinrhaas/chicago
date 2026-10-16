@@ -9,6 +9,14 @@
   "asset": "gltf/kinzie_house_1812_green__kinzie_1804.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "chicago_magazine_1857_kinzie_house_engraving",
+      "lossing_1869_kinzie_mansion_engraving"
+    ]
+  },
   "documented_range": {
     "from": "1804-10-01",
     "to": "1833-12-31",
