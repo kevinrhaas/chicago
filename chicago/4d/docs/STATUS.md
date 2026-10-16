@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2636 — a building's card opens with its address once, in plain words (2026-10-16)
 
 Design doc "Field Navigator Mk II" §12, the fallback for a structure with no summary record;
@@ -22,7 +21,7 @@ location) and part 14 gains QA-08 on the Glessner card.
 the template rather than print; their words are still in the sidecar and should be cleaned at
 the source. The Go to list and other surfaces still print the raw names with their working
 asides — that is NAV-1003's lint, not this card.
-=======
+
 ## T-2558 — H0, the WebGPU bake-off, measured (2026-10-16)
 
 Nothing in the town changed. RENDERING.md's H0 spike ran for the first time: three's
@@ -43,7 +42,6 @@ so K6's 0.31× is a ratio on the steward runner and not a phone's frame time. TR
 motion was not built and is moved to H1's entry. The spike (`renderers/web-hd/`) is not
 published. [The memo](RENDERING.md#h0--the-bake-off-memo-t-2558-2026-10-16) ·
 [the reading](measurements/t-2558-h0-bakeoff.json).
->>>>>>> origin/dev
 
 ## T-2635 — the building summary record and its gate (2026-10-16)
 
