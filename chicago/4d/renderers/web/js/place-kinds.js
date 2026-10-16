@@ -45,8 +45,14 @@ export function presenceGrade(s) {
   return s?.documented_range?.confidence || s?.placement?.position_confidence || 'reconstructed';
 }
 
+/** The structure's own grade (T-2686, AGENTS.md rule 12): attested when pictured,
+ *  inferred when maps or text record it, reconstructed when our model placed it. */
+export function structureGrade(s) {
+  return s?.grade?.value || presenceGrade(s);
+}
+
 /** A roof the menu hides until the visitor asks for it. */
-export const isReconstructed = (s) => presenceGrade(s) === 'reconstructed';
+export const isReconstructed = (s) => structureGrade(s) === 'reconstructed';
 
 /** Ordered: the first table whose pattern matches wins. */
 const FUNCTION_TABLE = [

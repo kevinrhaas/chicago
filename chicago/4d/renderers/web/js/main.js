@@ -55,7 +55,7 @@ import { createFencedGround } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
-import { createFrontage } from './frontage.js';
+import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
 import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
@@ -1503,6 +1503,9 @@ const arrival = createArrival({
   logEl: document.getElementById('arrival-log'),
   lampsEl: document.getElementById('arrival-lamps'),
   readoutEl: document.getElementById('arrival-readout'),
+  observatoryEl: document.getElementById('gate-observatory'),
+  detailsEl: document.getElementById('gate-details'),
+  detailEl: document.getElementById('gate-detail'),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
@@ -1517,13 +1520,15 @@ boot().catch((err) => {
   bootController.fail(active?.id || 'scene', err);
   api.error = String(err?.message || err);
   problems.push(`boot: ${api.error}`);
-  // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
-  // is not a broken build, and should not read like one.
-  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
+  // A year with no scene yet (a door such as /4d/1880/ that is ahead of the data)
+  // is not a broken build, and should not read like one. T-2616: a year the Observatory
+  // offers HAS a scene, so its scene file missing is a stalled jump, not an unbuilt year.
+  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`)
+    && !['1812', '1835', '1904'].includes(YEAR);
+  // T-2616: the visitor reads "the jump stalled"; what failed goes under the folded details.
   arrival.fail(err, {
-    message: unbuilt
-      ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
-      : `Could not load the scene — ${api.error}`,
+    message: `Could not load the scene — ${api.error}`,
+    headline: unbuilt ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.` : undefined,
   });
   console.error('[4D Chicago] boot failed', err);
 });
@@ -1733,6 +1738,13 @@ async function boot() {
   const layerBase = (layer) => (draws(layer) ? bases.dataBase : null);
   const layerProblems = (layer) => (draws(layer) ? problems : []);
   api.sceneLayers = [...sceneLayers];
+  // T-2677: the frontage's timber, prebuilt at publish, starts downloading now so
+  // it arrives under the phases ahead of the layer instead of after them. It
+  // resolves `{ why }` rather than rejecting, and the layer builds its own then.
+  const frontagePrebuilt = draws('frontage')
+    ? fetchPrebuiltFrontage({ dataBase: bases.dataBase,
+      year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
+    : null;
   /**
    * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
    * below read the 1835 town's records just as the drawn layers do — its residents,
@@ -2105,9 +2117,13 @@ async function boot() {
   // half-width out of data/streets/1835.json. Mounted after the yard because the
   // two divide one building's ground between them — the yard layer owns what
   // stands on its own lot and this owns what lies in the street outside it.
+  performance.mark('frontage:start');
   const frontage = await createFrontage({
     dataBase: layerBase('frontage'), terrain, confidence, problems: layerProblems('frontage'), hostMissing,
+    prebuilt: frontagePrebuilt,
   });
+  // Read by tools/measure_boot_phases.mjs: the layer has no boot phase of its own.
+  performance.measure('frontage', 'frontage:start');
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;

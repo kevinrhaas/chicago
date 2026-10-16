@@ -9,6 +9,13 @@
   "asset": "gltf/lees_place_field_fence_1812__lees_place_1812.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "currey_1912_hardscrabble_plate"
+    ]
+  },
   "documented_range": {
     "from": "1812-04-06",
     "to": "1822-12-31",

@@ -9,6 +9,19 @@
   "asset": "gltf/reid_house_2013_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 7 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a20-aic-ia-reid-plate",
+      "a20-chicagology-2013-reid-ia1895",
+      "a20-ia-1895-02-reid-plate",
+      "a20-reid-nrhp-2003-photo-front",
+      "a20-reid-nrhp-2003-photo-north-side",
+      "a20-reid-nrhp-2003-photo-rear",
+      "a20-reid-nrhp-2003-photo-rear-garden"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

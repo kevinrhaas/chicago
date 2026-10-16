@@ -9,6 +9,15 @@
   "asset": "gltf/sherman_house_2100_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a20-aic-taylor-sherman-residence",
+      "a20-chicagology-2100-sherman-photo",
+      "dw-aabn-1876-09-30-sherman-2100-plate"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

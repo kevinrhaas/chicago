@@ -9,6 +9,11 @@
   "asset": "gltf/fort_dearborn_shop__shop_1830.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1830-02-24",
     "to": "1836-12-29",

@@ -38,10 +38,22 @@ from exclusion_scope import ruled_for  # noqa: E402
 from associations import HOME_KINDS, WORK_KINDS, read_bounds  # noqa: E402
 sys.path.insert(0, str(ROOT / "generators"))
 from common.materials import fabric_tone  # noqa: E402
+from grade_structures import grade_street  # noqa: E402
 
 
 CHECK = False
 DRIFT: list[str] = []
+
+_GRADER = None
+
+
+def structure_grader():
+    """The structure grade (AGENTS.md rule 12, T-2686): one picture join for the whole run."""
+    global _GRADER
+    if _GRADER is None:
+        from grade_structures import grader
+        _GRADER = grader()
+    return _GRADER
 
 # Which write-up a reconstructed building's card points at, by the programme that
 # raised it. A record with no reconstruction block is a researched building and
@@ -2060,6 +2072,9 @@ def compile_streets(scene_id: str, target_date: str,
             "surface": raw["surface"],
             "traffic": raw["traffic"],
             "geometry_confidence": raw.get("geometry_confidence", "reconstructed"),
+            # The street's own grade (T-2686): attested where a plat or survey of the
+            # time draws it, else its line's. The ribbon stands on this one.
+            "grade": grade_street(raw, scene_id, structure_grader()[1], sources),
             "surface_confidence": raw.get("surface_confidence", "reconstructed"),
             "wear_confidence": raw.get("wear_confidence", "reconstructed"),
             "note": raw.get("note", ""),
@@ -2788,6 +2803,12 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                      else f"gltf/{st['id']}__{phase['id']}.glb",
             "scene": scene_id,
             "target_date": scene["target_date"],
+            # THE STRUCTURE'S OWN GRADE (T-2686, AGENTS.md rule 12): attested when a
+            # reasonable picture of it exists, inferred when maps or text record it and
+            # nothing shows it, reconstructed when our model of the town placed it. One
+            # word for the building, beside the per-attribute grades below, which it
+            # neither replaces nor overrides. tools/grade_structures.py is the rule.
+            "grade": structure_grader()[0](scene_id, st["id"], rng.get("confidence", "reconstructed")),
             # Was it here at all? The scene date falls inside this span by
             # construction — resolve_phase would not have returned the phase
             # otherwise — so what the card has to show is not the fact but the

@@ -121,7 +121,7 @@
   top: 10px; bottom: 10px;
   width: 3px;
   border-radius: 3px;
-  background: linear-gradient(var(--accent), var(--inf));
+  background: linear-gradient(var(--accent), var(--amber));
 }
 /* Unread marker on the What's new item: a dot at the icon's shoulder, not a
    suffix on the label, now that the label sits under the icon. */
@@ -412,7 +412,7 @@ details.why > .legend-note { margin: 6px 0 0; line-height: 1.55; }
     top: auto; bottom: 0;
     width: auto; height: 3px;
     border-radius: 3px 3px 0 0;
-    background: linear-gradient(90deg, var(--accent), var(--inf));
+    background: linear-gradient(90deg, var(--accent), var(--amber));
   }
   .tab-dot { top: 5px; }
   .panel-body { padding: 12px 14px 22px; }

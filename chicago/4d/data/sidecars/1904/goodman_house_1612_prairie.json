@@ -9,6 +9,13 @@
   "asset": "gltf/goodman_house_1612_prairie__as_built_1869.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "a16-cgy-1612-studebaker-photo"
+    ]
+  },
   "documented_range": {
     "from": "1869-01-01",
     "to": "1960-12-31",

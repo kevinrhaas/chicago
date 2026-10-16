@@ -9,6 +9,16 @@
   "asset": "gltf/george_glessner_house_1706_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 4 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-cgy-1700-1706-townhouses",
+      "a16-ghm-blog-1700-1706-construction-1901",
+      "a16-ghm-blog-1708-1706-1700-christmas",
+      "st-ghm-1700-1706-under-construction-1901"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
