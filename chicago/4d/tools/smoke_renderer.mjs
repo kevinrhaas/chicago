@@ -10230,9 +10230,11 @@ for (const [label, viewport, touch] of [
       JSON.stringify(cmRestored));
 
     // T-2547: a clean boot carries no crash card (this page's session never died).
-    const cleanBoot = await page.evaluate(() => ({ notice: window.__chicago4d.crashGuard?.notice ?? 'no guard',
+    const cleanBoot = await page.evaluate(() => ({ guard: !!window.__chicago4d.crashGuard,
+      notice: window.__chicago4d.crashGuard?.notice, found: window.__chicago4d.crashGuard?.found,
       card: !!document.querySelector('#crash-notice:not([hidden])') }));
-    check(`${label}: a clean boot shows no crash card`, cleanBoot.notice === null && !cleanBoot.card,
+    check(`${label}: a clean boot shows no crash card`,
+      cleanBoot.guard && cleanBoot.notice === null && cleanBoot.found === null && !cleanBoot.card,
       JSON.stringify(cleanBoot));
 
     // T-2547 — CRASH-AWARE BOOT, at 390x780: the phone the owner's report is about.
@@ -10279,6 +10281,9 @@ for (const [label, viewport, touch] of [
         const lost = new Promise((r) => gl.canvas.addEventListener('webglcontextlost', r, { once: true }));
         ext.loseContext();
         await lost;
+        // Chrome allows restoration only once the lost event's dispatch has finished,
+        // which a microtask inside it has not: a task later, it has.
+        await new Promise((r) => setTimeout(r, 50));
         const notice = window.__chicago4d.crashGuard.notice;
         ext.restoreContext();
         return { notice };
@@ -10298,11 +10303,9 @@ for (const [label, viewport, touch] of [
       const firstLoss = await loseAndRestore();
       await pc.waitForFunction(() => window.__chicago4d?.crashGuard?.watching === true
         && window.__chicago4d.crashGuard.reloads === 1, null, { timeout: 120_000, polling: 500 });
-      const t1 = Date.now();
-      await pc.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 240_000, polling: 500 });
-      console.log(`        part 6: the reload after the first lost context ready in ${((Date.now() - t1) / 1000).toFixed(1)} s`);
       const reloaded = await guardState();
-      // The second loss: no reload of its own; the next boot is lowered, the card offers Reload.
+      // The second loss, while the reloaded page is still loading — where the owner's
+      // phones die: no reload of its own; the next boot is lowered, the card offers Reload.
       const secondLoss = await loseAndRestore();
       await pc.waitForTimeout(3000);
       const after = await guardState();
