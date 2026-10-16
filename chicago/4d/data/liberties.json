@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 597,
+  "count": 598,
   "liberties": [
     {
       "id": "L1",
@@ -39844,6 +39844,58 @@
         {
           "label": "Recorded",
           "text": "2026-10-16 (T-2564)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-keith-ventilator-2578",
+      "title": "Keith's cowl ventilator: its hidden riser, its set-back and its sections",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.stone_finish"
+        }
+      ],
+      "recorded": "2026-10-16",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the deck behind Keith's north return (T-2578, piece 2 of T-2567) carries the cowl ventilator that the 1887 construction photograph, J. W. Taylor's c. 1887-89 view (2135), the 1888 Inland Architect Glessner plate and the c. 1888 view looking south-west all show over the return: a galvanized pipe inclined forward from just inside the rear pinnacle to an upright neck under a bowl and a broad flat disc. It is built for the 1886 phase; by 1948 only a low stub stands at its foot. The same pictures rule the corner behind the rear pinnacle: the stone parapet stops there (sky straight behind it in every view that sees it), so the model's drop stands."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "that the ventilator exists, is a single inclined pipe with an upright cowl of bowl and disc, rises near the rear pinnacle and leans forward; its place along the return (about 0.5 to 0.6 of it in all four views, built at 3.3 m behind the front); its height over the coping against the rear pinnacle's (about 1.85 times it in Taylor 2135, built at 0.95 m); and the pipe's and cap's widths against the 0.46 m courses (about 0.28 m and 0.58 m)."
+        },
+        {
+          "label": "What is invented",
+          "text": "the riser hidden behind the parapet and where it meets the deck; its depth behind the north face (0.6 m), which sets its foot inside the hall stack's plan and so reads as that flue's termination — plausible, not shown; the elbow's height under the coping; the bowl's and the disc's sections; and its colour, a plain pale grey standing for galvanized iron, which the monochrome prints show only as paler than its cap and close to the granite; and that it still stands in the 1904 scene this phase serves (it is there in 1887-89 and gone by 1948, and when it went is not known)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the re-fitted cameras of T-2579, which decide whether the c. 1888 view's higher-seeming cap is a residual or a shallower set-back; and the hall stack's height (left for T-2580), which the same pictures show below the coping where the model stands it above."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.stone_finish`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2578 (piece 2 of T-2567)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k01-1808-keith-1883/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-16 (T-2578)."
         }
       ]
     },

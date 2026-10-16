@@ -90,6 +90,7 @@
 
 import * as THREE from 'three';
 import { captureHooks, registerPatch } from './batch-material.js';
+import { structureFrameGLSL } from './compact-attributes.js';
 import { resolveBases } from './scene-loader.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 
@@ -134,7 +135,8 @@ function metricRoofUv(material, tileM) {
         '#include <project_vertex>',
         `#include <project_vertex>
   {
-    vec3 chiWorldPos = ( modelMatrix * vec4( transformed, 1.0 ) ).xyz;
+    ${structureFrameGLSL('chiRoofLocal')}
+    vec3 chiWorldPos = ( modelMatrix * vec4( chiRoofLocal, 1.0 ) ).xyz;
     vec3 chiWorldNrm = normalize( mat3( modelMatrix ) * objectNormal );
     vec3 chiAlongEave = cross( chiWorldNrm, vec3( 0.0, 1.0, 0.0 ) );
     float chiEaveLen = length( chiAlongEave );
@@ -156,7 +158,7 @@ function metricRoofUv(material, tileM) {
   }`,
       );
   };
-  registerPatch(material, batchHooks, 'metric-roof-uv-v1', { tileM });
+  registerPatch(material, batchHooks, 'metric-roof-uv-v2', { tileM });
   material.needsUpdate = true;
 }
 
