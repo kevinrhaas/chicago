@@ -2771,7 +2771,17 @@ def build(params, structure_id: str):
             if x["wall"] == bay["wall"] and x["s_m"] + rp + 0.03 > s0 and x["s_m"] - rp - 0.03 < s1:
                 raise ValueError(f"{bay['id']} reaches s {s0:.3f}..{s1:.3f} along {x['wall']}, into the "
                                  f"downpipe at s {x['s_m']}")
+        # T-2541: an oriel stands on its corbels, so an opening wholly under its lowest
+        # course is in front of nothing (1811's door, under the arch its oriel is carried
+        # over) — the clearance k01_frontage_params._bays already reads its host openings by
+        under = None
+        if bay["variant"]["kind"] == "oriel":
+            course = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json")
+                                .read_text())["parts"]["corbel"]["course_height_m"]
+            under = float(bay["variant"]["base"]) - bay["variant"]["corbel"]["courses"] * float(course)
         for o in p.openings:
+            if under is not None and o.head_m + 0.30 <= under:
+                continue
             if o.wall == bay["wall"] and bay["span_m"][0] < o.s_m < bay["span_m"][1] \
                     and o.sill_m - 0.15 < top:
                 raise ValueError(f"{bay['id']}'s roof meets {o.wall} at {top:.3f} m, under the "

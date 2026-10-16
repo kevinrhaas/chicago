@@ -1,0 +1,28 @@
+{
+ "id": "inland_architect_1888_10_ames_residence",
+ "type": "photograph",
+ "citation": "\"Residence of Miner T. Ames, Chicago. Cobb & Frost, Architects.\" Photographic plate. The Inland Architect and News Record, vol. XII, no. 3 (October 1888), plate section ('Our Illustrations').",
+ "author": "Inland Architect Press (photographer not named); Cobb & Frost, architects",
+ "date": "1888-10",
+ "describes_date": "c. 1887-1888 (the photograph); the house as built about 1886-1887",
+ "repository": "Art Institute of Chicago, Ryerson & Burnham Art and Architecture Archives, Archival Image Collection (Inland Architect plates, clipped), call number mqc 4518; the Prairie library's image dw-rb-inland-ames-coleman-1811-plate (chicago/prairie_1904_v1/research/images/stream-drawings.json).",
+ "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/4518",
+ "locator": "The whole plate: the photograph of 1811 Prairie Avenue's street front and south flank from the roadway south-west of the house, captioned beneath. The library's display copy, 711 x 1056 px.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A photograph published in a US architectural periodical in October 1888, in the public domain; the Art Institute's reproduction carries a permissions contact (archives@artic.edu), not a copyright claim. Read for forms, counts and proportions; no texture or mesh is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-16 from the Prairie image store's display copy (https://kevinrhaas.github.io/chicago-images/prairie-1904/files/dw-rb-inland-ames-coleman-1811-plate.jpg), fetched by the library from https://artic.contentdm.oclc.org/iiif/2/mqc:4518/full/full/0/default.jpg on 2026-10-02; committed byte for byte as data/sources/assets/ames_1811_plate_t2541/inland_architect_1888_ames_1811.jpg (T-2541).",
+ "note": "The photograph is a level view camera's: the verticals stand vertical, the street front's horizontals run level across the plate, and the south flank's horizontals meet at about (689, 774) px, so the camera stood square to the front, south of the house's south wall, with its principal point well right of the plate's centre (a shifted front). It shows the rock-faced brown-stone street front of three storeys under steep slate roofs: at the north end a projecting bay carried to the third storey, with a canted north face, under a stone gable with a group of round-arched lights and a pierced balcony; at the south end the entrance block, its deep round arch on clustered columns over a broad stair between scrolled cheek walls, with a corbelled oriel over the arch under a steep pyramid and finial; and behind them the long brick south flank of three storeys over a basement, with stacks. The Chicagology print (cgn-1811-coleman-ames-photo) is a different negative of the same front from nearly the same place.",
+ "what_it_supplies": [
+  "the street front's composition: the north bay, the entrance block, the oriel, their storey lines and openings, read at the scale the 1911 sheet's width gives the front",
+  "the south flank's storeys and that it is brick",
+  "the roof forms seen from the street: the gable over the bay, the pyramid over the oriel, the main roof behind, two stacks"
+ ],
+ "what_it_does_not_supply": [
+  "the north flank, the rear and the plan behind the front: the 1911 Sanborn sheet 28 supplies the plan",
+  "dimensions: no scale is printed; lengths come from the 1911 sheet",
+  "colour: a monochrome print"
+ ]
+}
