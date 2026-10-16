@@ -8,7 +8,7 @@
   "measured": {
     "on": "2026-10-16T06:02:28.913Z",
     "build": "8bbb1c670",
-    "machine": "AMD EPYC 7763 64-Core Processor ×4",
+    "machine": "AMD EPYC 7763 64-Core Processor \u00d74",
     "seconds": 1191,
     "method": "published year door, welcome entered at spawn, 3 frames + 1 s, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter",
     "note": "five invocations on one build, one per year x viewport (1812 both in one); /1835/ mobile re-read after the never-uploaded column was added (total identical, 795.7 MB, both reads)"
@@ -55,16 +55,16 @@
       },
       "mobile": {
         "total_bytes": 681574400,
-        "reading_bytes": 614726355,
+        "reading_bytes": 609765033,
         "tier": "light",
         "reading_mb": {
-          "total": 586.2,
-          "js_heap": 105.9,
-          "arraybuffers": 198.9,
+          "total": 581.5,
+          "js_heap": 105.8,
+          "arraybuffers": 198.3,
           "gpu_buffers": 180.5,
-          "gpu_textures": 100.9
+          "gpu_textures": 96.9
         },
-        "lowered": "T-2573, 2026-10-16: the buildings' batches picked on the GPU, keeping no position or index once uploaded; read on this branch (a98d32f5c + the change) and on dev (a98d32f5c) on the same machine the same hour, one invocation each: 586.2 MB against dev's 612.2 MB (arraybuffers 225.0 -> 198.9, gpu buffers 180.5 unchanged; docs/measurements/T-2573-memory.json and T-2573-memory-dev.json). 586.2 x 1.1 rounded up to 25 MiB = 650 MiB. Before: T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+        "lowered": "T-2573, 2026-10-16: the buildings' batches picked on the GPU, keeping no position or index once uploaded. Read on this branch merged with dev after T-2588 landed, d6a7c1f60, one invocation: 581.5 MB (js heap 105.8, arraybuffers 198.3, gpu buffers 180.5, gpu textures 96.9; docs/measurements/T-2573-memory-merged.json). The change alone, on a98d32f5c the same hour on the same machine: 586.2 MB against dev's 612.2 (arraybuffers 225.0 -> 198.9; T-2573-memory.json, T-2573-memory-dev.json). 581.5 x 1.1 rounded up to 25 MiB = 650 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2588, 2026-10-16: the wall relief's normal and orl as KTX2 (library sheets 4 KTX2 = 1.3 MB -> 8 KTX2 = 2.7 MB; structures' textures 6.7 -> 2.7 MB). Read on this branch merged with dev after T-2572 landed, ddb9e66d7, one invocation: 607.5 MB (js heap 105.7, arraybuffers 224.3, gpu buffers 180.5, gpu textures 96.9). The change alone, on 6679f7374 the same hour: 624.9 MB against dev's 628.5 (gpu textures 100.9 -> 96.9). 607.5 x 1.1 rounded up to 25 MiB = 675 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
       }
     },
     "1904": {

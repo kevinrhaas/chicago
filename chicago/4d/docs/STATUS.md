@@ -17,12 +17,33 @@ buildings come back from the GPU with the raycast's id at its distance; on the 1
 batches hold neither array and a tap aimed by an instance's kept sphere still resolves; on the
 1904 phone the switch to full and back still answers a tap on Glessner. **1835 phone: 612.2 to
 586.2 MB** (dev and this branch, same machine, same hour; ArrayBuffers 225.0 to 198.9, GPU buffers
-unchanged at 180.5; `docs/measurements/T-2573-memory*.json`); ceiling 700 to 650 MiB by the rule.
-1904 was not re-read and its ceiling is unchanged.
+unchanged at 180.5; `docs/measurements/T-2573-memory*.json`); merged with dev after T-2588 it reads
+581.5 MB, so the ceiling goes 675 to 650 MiB by the rule. 1904 was not re-read and its ceiling is
+unchanged.
 
 **The weathering half of the ticket was already done.** Since T-2568 the handle rewrites the
 batches' instance colours (a small texture), and since T-2570 no vertex colour reaches a batch, so
 there was no `color` array left to keep or release; nothing in the weathering path changed here.
+
+## T-2588 — the wall relief ships GPU-compressed (2026-10-16)
+
+Piece 1 of T-2583. The clapboard and hewn-log walls' relief pair (the normal, and the `orl` the
+page packed from the `orm` and the basecolor at every boot) is now packed at convert time by
+`tools/ktx2_sheets.py` and shipped as KTX2: the normal on UASTC, the `orl` on ETC1S at qlevel 255
+(35.5-40.6 dB per channel against the packed master), with `<id>_orl.json` stating the mean
+roughness the shader divides by and the masters' hashes, which `--check` holds. Where the GPU
+takes no KTX2, the page falls back to the three WebPs and packs as before. On the phone the walls'
+maps fall from 5.4 MB of GPU memory to 1.4 MB; `/1835/` mobile reads 624.9 MB against dev's
+628.5 MB, and merged with dev after T-2572 it reads 607.5 MB and its ceiling comes down 700 → 675 MiB. Measured against the image path with
+`wall_relief_shots.mjs --compare ktx2`: the wall band reads 39-56 dB at 390x780 (five close
+stands, two wide) and 50-51 dB at 1280x800 (two close stands); the boot payload is +48 KB at
+12.906 of 13.000 MiB, because frontage still fetches the clapboard's WebPs (T-2589's lever).
+
+What is not done: the desktop memory reading and its ceiling were not re-taken (the phone was the
+acceptance). **Found, and filed as T-2593:** a KTX2 written top row first, as T-2582 wrote the
+roofs, the 1904 streets and the muck, is the image mirrored along v in three. A two-band test
+sheet proved it, and the roof band reads 29-30 dB against its WebP where the walls, written
+bottom row first, read 50-51.
 
 ## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
 

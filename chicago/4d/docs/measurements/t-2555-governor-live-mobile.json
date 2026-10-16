@@ -1,0 +1,422 @@
+{
+  "year": "1835",
+  "source": "published",
+  "throttle": 1,
+  "rebuild": "spread",
+  "ceilingMs": {
+    "full": 60,
+    "balanced": 32,
+    "light": 21
+  },
+  "p95CeilingMs": {
+    "full": 15,
+    "balanced": 9,
+    "light": 7
+  },
+  "readings": [
+    {
+      "viewport": "mobile",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "walk",
+      "mode": "fixed",
+      "draws": 5,
+      "mean": 3226.8,
+      "sd": 25.08,
+      "median": 3241.6,
+      "p95": 3251.2,
+      "max": 3251.2,
+      "over33": 4,
+      "over50": 4,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 9.1
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "walk",
+      "mode": "adaptive",
+      "draws": 5,
+      "mean": 3217.82,
+      "sd": 36.99,
+      "median": 3229.7,
+      "p95": 3256,
+      "max": 3256,
+      "over33": 4,
+      "over50": 4,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 9.7
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "turn",
+      "mode": "fixed",
+      "draws": 6,
+      "mean": 2289.82,
+      "sd": 549.63,
+      "median": 2443.1,
+      "p95": 3147.1,
+      "max": 3147.1,
+      "over33": 5,
+      "over50": 5,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 8.8
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "turn",
+      "mode": "adaptive",
+      "draws": 6,
+      "mean": 2274.74,
+      "sd": 550.76,
+      "median": 2440.7,
+      "p95": 3118.8,
+      "max": 3118.8,
+      "over33": 5,
+      "over50": 5,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 8.5
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "flight",
+      "mode": "fixed",
+      "draws": 6,
+      "mean": 2371.16,
+      "sd": 108.49,
+      "median": 2351.4,
+      "p95": 2541.7,
+      "max": 2541.7,
+      "over33": 5,
+      "over50": 5,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 7.7
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "flight",
+      "mode": "adaptive",
+      "draws": 6,
+      "mean": 2356.36,
+      "sd": 99.88,
+      "median": 2313.2,
+      "p95": 2513.6,
+      "max": 2513.6,
+      "over33": 5,
+      "over50": 5,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 6.9
+    }
+  ],
+  "stills": [
+    {
+      "viewport": "mobile",
+      "id": "sauganash",
+      "lowered": 0.67,
+      "restMs": 12162.6,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "sauganash_wing",
+      "lowered": 0.67,
+      "restMs": 13263,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "lake_market",
+      "lowered": 0.67,
+      "restMs": 10718.9,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "first_post_office",
+      "lowered": 0.67,
+      "restMs": 9856.4,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "forks",
+      "lowered": 0.67,
+      "restMs": 16230.1,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "north_branch_bridge_deck",
+      "lowered": 0.67,
+      "restMs": 13862.6,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "lake_at_canal",
+      "lowered": 0.67,
+      "restMs": 18421.5,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "green_tree",
+      "lowered": 0.67,
+      "restMs": 10230.5,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "south_water",
+      "lowered": 0.67,
+      "restMs": 12103,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "newberry_dole_wharf",
+      "lowered": 0.67,
+      "restMs": 7940.4,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "from_above",
+      "lowered": 0.67,
+      "restMs": 12191.2,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "kinzie_block",
+      "lowered": 0.67,
+      "restMs": 4263,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "fort_dearborn",
+      "lowered": 0.67,
+      "restMs": 6113.8,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "lake_shore_south",
+      "lowered": 0.67,
+      "restMs": 4591.6,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "sixteenth_prairie",
+      "lowered": 0.67,
+      "restMs": 3286.5,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "battle_reach_1812",
+      "lowered": 0.67,
+      "restMs": 14202.2,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "eighteenth_prairie",
+      "lowered": 0.67,
+      "restMs": 11518.2,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "cermak_prairie",
+      "lowered": 0.67,
+      "restMs": 5370.3,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    }
+  ]
+}

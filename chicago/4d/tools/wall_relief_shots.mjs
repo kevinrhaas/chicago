@@ -5,6 +5,13 @@
  *   node tools/wall_relief_shots.mjs --viewport mobile    one viewport, while iterating
  *   node tools/wall_relief_shots.mjs --out DIR            default /tmp/wall-relief
  *   node tools/wall_relief_shots.mjs --root DIR           the published root (default ../../site)
+ *   node tools/wall_relief_shots.mjs --compare ktx2       the image path against the KTX2 path
+ *   node tools/wall_relief_shots.mjs --shots close-log,wide-lake_market   only these stands
+ *
+ * `--compare ktx2` (T-2588) shoots the same stands with `?ktx2=0` (before: the WebPs
+ * decoded and the `orl` packed in the page) and without it (after: the converter's
+ * KTX2 pair), as lossless PNGs, skips the benchmark, and writes each pair's per-channel
+ * PSNR into the review, so "the walls look the same" is a number and not a glance.
  *
  * Serves the PUBLISHED mirror (run ./tools/publish.sh first) and shoots, at 390x780
  * and 1280x800, the town with `?walls=flat` (before: every wall the flat colour it
@@ -46,6 +53,11 @@ const flag = (k, d) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] 
 const ROOT = path.resolve(flag('--root', path.join(HERE, '..', '..', '..', 'site')));
 const OUT = path.resolve(flag('--out', '/tmp/wall-relief'));
 const ONLY = flag('--viewport', null);
+const COMPARE = flag('--compare', null);
+if (COMPARE && COMPARE !== 'ktx2') throw new Error(`--compare ${COMPARE}: only ktx2 is known`);
+const EXT = COMPARE ? 'png' : 'jpg';
+const SHOTS = flag('--shots', null)?.split(',') ?? null;
+const wanted = (name) => !SHOTS || SHOTS.includes(name);
 mkdirSync(OUT, { recursive: true });
 
 const VIEWPORTS = { mobile: { width: 390, height: 780 }, desktop: { width: 1280, height: 800 } };
@@ -63,7 +75,8 @@ const WIDE = ['lake_market', 'south_water'];
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',
   '.css': 'text/css', '.json': 'application/json', '.glb': 'model/gltf-binary',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.woff2': 'font/woff2',
-  '.bin': 'application/octet-stream', '.webp': 'image/webp' };
+  '.bin': 'application/octet-stream', '.webp': 'image/webp', '.ktx2': 'image/ktx2',
+  '.wasm': 'application/wasm' };
 const server = createServer(async (req, res) => {
   try {
     let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
@@ -94,10 +107,21 @@ async function boot(vp, query) {
   page.setDefaultTimeout(240000);
   await page.goto(`${base}/4d/?${query}`, { waitUntil: 'load' });
   await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 240000 });
-  await page.evaluate(() => {
-    for (const b of document.querySelectorAll('button')) {
-      if (/got it|^\s*(tap to )?enter chicago\s*$/i.test(b.textContent ?? '')) b.click();
+  // Through the welcome the way the smoke enters the town (smoke_renderer.mjs
+  // `enterTown`, T-2186): the welcome refuses an entry until the arrival has settled,
+  // so retry until it says the town is entered. Clicking its buttons by label stopped
+  // working when the welcome became a choice of three, and every shot was the welcome.
+  await page.evaluate(async () => {
+    const welcome = window.__chicago4d.welcome;
+    const deadline = Date.now() + 90_000;
+    while (welcome && welcome.state !== 'world' && Date.now() < deadline) {
+      if (welcome.state === 'welcome') welcome.enter('spawn');
+      if (welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
     }
+    if (!welcome) document.getElementById('gate-btn')?.click();
+    document.exitPointerLock?.();
+    const help = document.getElementById('control-help');
+    if (help && !help.hasAttribute('hidden')) document.getElementById('control-help-gotit')?.click();
   });
   await page.waitForTimeout(800);
   await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
@@ -110,16 +134,20 @@ async function settle(page) {
   return page.evaluate(() => new Promise((resolve) => {
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const s = window.__chicago4d.stats();
+      const k = window.__chicago4d.ktx2;
       resolve({ drawCalls: s.drawCalls, triangles: s.triangles, textures: s.textures,
-        programs: s.programs, batches: s.batches, wallRelief: s.wallRelief });
+        programs: s.programs, batches: s.batches, wallRelief: s.wallRelief,
+        ktx2: k ? { reason: k.reason, sheets: k.sheets.ktx2, fallback: k.sheets.fallback,
+          gpuBytes: k.sheets.gpuBytes, failed: k.sheets.failed } : null });
     }));
   }));
 }
 
 async function shoot(page, vp, mode, name, extra = {}) {
   const stats = await settle(page);
-  const file = `${vp}-${name}-${mode}.jpg`;
-  await page.screenshot({ path: path.join(OUT, file), type: 'jpeg', quality: 86 });
+  const file = `${vp}-${name}-${mode}.${EXT}`;
+  await page.screenshot(COMPARE ? { path: path.join(OUT, file), type: 'png' }
+    : { path: path.join(OUT, file), type: 'jpeg', quality: 86 });
   review.shots.push({ viewport: vp, mode, shot: name, file, ...stats, ...extra });
   console.log(`  ${file}: ${stats.drawCalls} calls, ${stats.triangles} tris, ${stats.batches} batches`);
 }
@@ -127,8 +155,10 @@ async function shoot(page, vp, mode, name, extra = {}) {
 for (const vp of Object.keys(VIEWPORTS)) {
   if (ONLY && ONLY !== vp) continue;
   for (const mode of ['before', 'after']) {
-    const { ctx, page } = await boot(vp, `year=1835${mode === 'before' ? '&walls=flat' : ''}`);
+    const off = COMPARE ? '&ktx2=0' : '&walls=flat';
+    const { ctx, page } = await boot(vp, `year=1835${mode === 'before' ? off : ''}`);
     for (const [name, id] of CLOSE) {
+      if (!wanted(name)) continue;
       const ok = await page.evaluate((sid) => window.__chicago4d.spawnAtDestination({ kind: 'structure', id: sid }), id);
       await page.waitForTimeout(1200);
       // Step in along the line of sight until the wall the centre ray meets is CLOSE_M off.
@@ -149,11 +179,13 @@ for (const vp of Object.keys(VIEWPORTS)) {
       await shoot(page, vp, mode, name, { structure: id, arrived: ok, stood });
     }
     for (const anchor of WIDE) {
+      if (!wanted(`wide-${anchor}`)) continue;
       await page.evaluate((a) => window.__chicago4d.goTo(a), anchor);
       await shoot(page, vp, mode, `wide-${anchor}`, { anchor });
     }
     await ctx.close();
   }
+  if (COMPARE) continue;
   // The benchmark, from its own arrival, in its own year.
   const { ctx, page } = await boot(vp, 'year=1904');
   await page.evaluate(() => window.__chicago4d.spawnAtDestination({ kind: 'structure', id: 'glessner_house' }));
