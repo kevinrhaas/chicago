@@ -1,3 +1,26 @@
+## T-2228 — Glessner photographic corrections (2026-10-16)
+
+The north ridge now runs straight through the west crossing; its cross-gable and
+cupola move 3.8 ft north. The omitted northeast copper return follows the existing
+roof plane. The ca. 1887 Cornell northwest photograph supports moving the southern
+upper west slit 2 ft north; other seven centers remain. These changes are baked and
+directly reviewed at fixed cameras, with reconstructed-eave uncertainty recorded.
+All eight west windows remain clear beneath the roof.
+
+The same pass lowers the north cone connector, clears courtyard dormer glazing,
+and refines section eaves, finials, basement grille and coping. Full/Web contain
+1,364,944 triangles and Light 193,697, with no coincident faces and no budget raise.
+The approved flat north facade, staggered tower stone, finish and dark glass remain.
+
+**Photographic acceptance remains open:** all eleven canonical comparisons differ.
+Terrace termination, west courtyard areaway, and elevation/material correspondence
+remain on T-2228. Fresh published desktop/mobile checks pass six stands each and
+all credited mobile image tiles load. Repository preflight, current-dev integration
+and exact-head CI are required before the correction PR merges; no merge is claimed here.
+
+[Evidence and outstanding differences](RESEARCH/glessner-final-comparison-T-2228/README.md).
+[Owner aerial and west-window review](RESEARCH/glessner-final-comparison-T-2228/owner-overhead/README.md).
+
 ## T-2227 — Glessner browser quality and performance (2026-10-15)
 
 The completed house exceeded the unchanged scene ceilings at eight of fifteen

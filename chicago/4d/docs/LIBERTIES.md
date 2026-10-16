@@ -27670,3 +27670,85 @@ fixes the light's head and its glazing; T-2523 builds the steps.
 **Ticket:** T-2520 (piece 2 of T-2458).
 **Review:** `docs/RESEARCH/k16-1638-steps-transom-2520/README.md`.
 **Recorded:** 2026-10-15 (T-2520).
+
+
+### L-glessner-final-roof-2228 — north cone and lower connecting roof
+
+**Decision:** The surviving cone and lower roof between it and the north gable are read from HABS photographs 01 and 14 (`habs_glessner_photo_01_nw_1963`, `habs_glessner_photo_14_north_inclined_1965`). Carrying this form back to 1904 is inferred from the surviving masonry and documented alteration history; its hidden construction is reconstructed. The connector's **39.2 ft above north grade** is a bounded reconstruction, not a printed dimension. Approximate crest-foot points in photograph 14, intersected with an assumed transverse plane through the tower axis using the existing camera, suggest about 11.93–11.97 m. Camera/depth uncertainty remains substantially larger than that numerical spread; a surveyed roof section would replace this choice. Photograph 01 confirms the pointed silhouette but does not independently measure the connector height: its visible receding ridge belongs to the main roof.
+
+The existing flat north facade, staggered curved masonry, flared lower roof, eave datum and finial position are retained. The upper cone meets two lower pitches on their actual intersections, and those pitches follow both host-roof planes behind the gable coping. Ridge-cap stock follows the house's existing reconstructed terracotta profile.
+
+For the canonical Light model, the exposed collar profiles and valley-flashing top outlines are retained. Collar corners entirely inside the closed barrel and the 2.5-mm flashing sides/undersides are omitted; the opaque supporting roof closes the reverse in the assembled scene. This is a declared detail simplification, not a historical difference. Full retains solid flashing stock. The Light ceiling remains 200,000 triangles.
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2228.
+**Recorded:** 2026-10-15.
+
+### L-glessner-court-section-2228 — reconciled bow, garden light and terminal
+
+**Decision:** The unrestricted HABS sheet4 section (`habs_glessner_house_il_1015_drawings`) places the bow hood eave at27.33ft above the retained north-grade origin, using native y3188 against grade5858 at97.7px/ft. Its1.8ft relative rise remains. This scaled1963fabric is inferred for1904, with approximately0.15ft reading uncertainty; it is not a printed height. The stair tower centre moves fromS55 toS56.1 on the independently rectified sheet2 plan. The section's S56.73/r5.55 reading still differs from the plan; the change does not pretend both agree.
+
+The east-court basement light beside the stair drum follows the native section clear bounds x5841..6294/y5374..5604, horizontal origin1165 at100.6px/ft and the same vertical datum: S46.48..50.98,z2.60..4.95ft, approximately±12px. Its six intermediate bars and two rails follow the drawing; exact iron diameter, frame stock, glazing recess, head/sill depth and1904finish are reconstructed.
+
+Every previously traced terrace coping knot is retained. Beyond the last visible control atS45.35288ft the cap now descends into the terminal's4.35ft crown spring byS46.8, instead of carrying a flat shelf above its rounded outline. That concealed return is reconstructed, not another traced measurement. Stair levels, threshold and terminal plan stay fixed.
+
+Light omits only stair-drum wall patches inside the east-wing envelope, inset40mm from its faces and below both eaves. The omitted volume stops before adjacent aperture corridors, and refuses a centrally pierced wall. Full retains the interior patches; both retain all exterior wall points. This is a declared removal of concealed detail within the existing200,000-triangle ceiling.
+
+**Covers:** `glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2228.
+**Recorded:** 2026-10-15.
+
+### L-glessner-court-roof-2228 — courtyard eave, dormers and bell finials
+
+**Decision:** T-2228 re-reads cleared HABS sheet4 from the fixed grade5858/97.7px per ft
+control. Its visible courtyard eave27.33ft and retained ridge require a reconstructed
+wall-plane28.83ft with20cm overhang. The north street facade retains26.5ft and
+returns through the existing concealed shoulder. Dormer frontsW25.9 seat the
+section body-foot30.24ft; backW21 is retained reconstruction. Frame margins.166,
+eave33.37ft and light30.63..32.87ft follow the drawn silhouette; hidden pyramid
+apex37.74ft is extrapolated. The stair cone uses sectioneave33.21ft and a hidden
+extrapolated apex41.60ft. Their revolved bell finials use reconstructed radial
+stock bounded by native silhouettes, +/-0.15ft; they are not surveyed3D ornaments.
+The HABS2 tower plan position/radius is retained despite the stated HABS4 difference.
+No HABS05 rights clearance or1904 RGB claim is implied. See
+[controls and remaining differences](RESEARCH/glessner-final-comparison-T-2228/README.md).
+
+The two east-court leaders are reconstructed at S61.61 and S42.4 ft within their gutter fragments, on clear wall strips beside the revised tower and garden light. Their previous tangent offsets crossed photographed openings after the section changes. These positions are clearance-driven, not measured 1904 downpipe coordinates; stock and gutter endpoints remain unchanged.
+
+The dormer side overhang is reconstructed at144mm from the native section's approximately445px body and540px roof width, with about30mm reading uncertainty. An85mm apron run over130mm rise retains a gentle flare; hidden front/back depths remain separately reconstructed. Licensed w_lemay2024 courtyard views corroborate the form, not exact1904 dimensions.
+
+**Covers:** `glessner_house.as_built_1887.form.ridge_east_wing`, `glessner_house.as_built_1887.form.dormers`, `glessner_house.as_built_1887.form.rainwater_details`.
+**Ticket:** T-2228.
+**Recorded:** 2026-10-15.
+
+### L-glessner-north-ridge-2228 — straighten the north roof through the west crossing
+
+**Decision:** The owner's 2026-10-15 overhead review supersedes the isolated west-elevation study's cross-gable apex at S18.4 ft. Align the west cross-gable and dovecote at the retained HABS section's north-range ridge S14.6 ft, moving them 3.8 ft north. The perpendicular stable ridge stays at W141 ft and 38.6 ft above north grade; the north ridge stays at 34.1 ft, locally hidden by the higher crossing. Preserve the corrected street service door/window, north gable axis, west courtyard overhang and rear ridge. This is reconstructed alignment, not a surveyed roof plan or an independently measured modern aerial height. The earlier study remains recorded as superseded. The owner-supplied aerial is compared privately with a camera fitted to outer footprint/eave corners; no ridge points enter the camera fit and no third-party image pixels are redistributed or used as textures. The camera's approximately 2.5 px corner residual and reconstructed west eave heights limit dimensional claims. HABS street views still require direct review after baking; overhead alignment alone does not accept the house.
+
+**Covers:** glessner_house.as_built_1887.form.v4_detail, glessner_house.as_built_1887.form.turret_stable
+
+**Ticket:** T-2228.
+
+**Recorded:** 2026-10-15.
+
+
+### L-glessner-copper-return-2228 — Northeast courtyard copper return
+
+**Decision:** The owner's 2026-10-15 aerial shows a chamfered copper strip west of the hall-bow hood that the radial-only T-2220 correction omitted. Restore sheet cladding directly on the existing north roof plane, with upper boundary approximately S19 ft from W26.5 to W50, chamfering to W55/S22. The lower outline extends to S31 only as a clipping bound; the actual north overhang owns the eave. The unchanged four-corner diagnostic camera projects the observed upper boundary near S18.6–18.8, and the western corner near W54.8/S22.1; rounding and approximately +/-1 ft reconstruction uncertainty are explicit. This is not an aerial height survey. The north roof pitch, radial hood and existing copper finish remain; no raised rectangular canopy returns. Copper facets and removed tile share exactly the same planar coverage; the hood footprint is subtracted to avoid overlapping sheets. Sheet seams at 0.48 m spacing and 12 mm height are bounded construction stock, not individually measured seams. The owner screenshot is retained privately, not redistributed or used as a texture; the owner reconstruction brief records the instruction, not a grant of third-party image rights. Modern patina and other modern features are not carried back to 1904.
+
+**Covers:** glessner_house.as_built_1887.form.v4_detail
+
+**Ticket:** T-2228
+
+**Recorded:** 2026-10-15
+
+
+### L-glessner-west-slit-2228 — West upper light located from the northwest photograph
+
+**Decision:** Move only the southern of the two upper west slits two feet north, from S21.8 to S19.8; retain its 1.8-ft width and head/sill heights. The owner asked for historical northwest comparison to confirm window locations. Cornell's ca.1887 stable photograph, accession15/5/3090.00156 (ss:3874294; same exposure as Prairie audit104), clearly shows all eight west lights. A fixed west-wall homography uses four corner/eave points, the HABS59.75-ft frontage and the retained reconstructed25.2/16.5-ft eaves; all windows are withheld. It places the southern upper slit near S19.8, while alternate eave interpretations move the reading across approximately S17.8–20.5. The former S21.8 lies beyond that range. The other seven centers are within approximately1ft of the retained locations and are not moved for artificial symmetry. This is a photo-bounded reconstruction, not a new survey. Earlier HABS loft-gap interpretations remain documented in archived versions and were already superseded by the T-1999 owner elevation. The new datum overrides only this upper slit. Cornell's catalog explicitly clears the collection as public domain; its direct scan and museum copy were both viewed and are the same witness, not two corroborating photographs.
+
+**Covers:** glessner_house.as_built_1887.form.openings_alley
+
+**Ticket:** T-2228
+
+**Recorded:** 2026-10-15

@@ -1,0 +1,49 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_photo_17_ne_angled_1965",
+  "library_image": "a18-glessner-habs-photo-17",
+  "photo": "../../../../prairie_1904_v1/research/public/glessner-habs-photo-17.jpg",
+  "image_px": [
+    1800,
+    1279
+  ],
+  "principal_px": [
+    892.0,
+    670.0
+  ],
+  "focal_px": 1602.33333333,
+  "eye": [
+    93.20202773,
+    40.70686731,
+    1.37976532
+  ],
+  "yaw_deg": 0,
+  "basis_right_up_forward": [
+    [
+      -0.5470596775,
+      0.8370713528,
+      -0.0061040621
+    ],
+    [
+      -0.0001236529,
+      0.0072111628,
+      0.9999739916
+    ],
+    [
+      -0.8370935993,
+      -0.5470462041,
+      0.0038414301
+    ]
+  ],
+  "solve": {
+    "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
+    "record": "data/comparisons/glessner/report.json#habs-ne",
+    "fit_controls": 6,
+    "withheld_checks": 4,
+    "baseline_fit_rms_px": 8.3351,
+    "baseline_check_rms_px": 33.7111,
+    "bounds_active": [],
+    "limitations": "1965 altered doors, signs, air conditioners, road and adjoining houses are excluded; masonry envelope only. Northwest corner partly obscured; use its picking uncertainty, not as a survey coordinate. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+  }
+}

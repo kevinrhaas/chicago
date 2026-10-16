@@ -1,0 +1,20 @@
+{
+  "master_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
+  "reviewed_views": [
+    "cornell-northwest-west-windows",
+    "habs04-court-exterior",
+    "habs04-hood-section",
+    "habs04-terrace-section",
+    "habs-14-north-inclined",
+    "habs-01-northwest",
+    "habs-13-north-level",
+    "habs-15-stable-detail",
+    "habs-16-prairie-front",
+    "habs-17-habs-ne",
+    "taylor-2135-ne"
+  ],
+  "all_actual_side_by_sides_viewed": true,
+  "verdict": "differs",
+  "camera_refit": false,
+  "closure_authorized": false
+}

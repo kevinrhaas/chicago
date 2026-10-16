@@ -1,0 +1,20 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs-16-prairie-front",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
+  "camera_sha256": "bec121ee8010af48834f2402a7f11b5b6b8fe66ea9ae5786e31cc59288fe03f9",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Actual master reviewed in the imported unchanged T2200 camera. Prairie aperture/entry/ground correspondence, roof framing and stone/course/lighting differences remain; baseline model-vertex associations are not automatically valid after geometry revisions.",
+      "status": "open"
+    },
+    {
+      "what": "The neighboring house, signs, modern air conditioners, cars and mature1965 vine extent are not1904 house geometry. Roof portions outside the plate cannot be accepted from this crop.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

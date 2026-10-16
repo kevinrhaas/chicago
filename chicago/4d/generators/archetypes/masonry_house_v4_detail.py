@@ -831,6 +831,10 @@ def opening(b,o,courtyard=False):
     for i in range(len(poly)):
         j=(i+1)%len(poly)
         b.raw([front[i],back[i],back[j],front[j]],conf,ROUGH_TRIM if courtyard else GRANITE)
+    if o.get('style')=='court_garden_grille':
+        from archetypes.masonry_house_v4_court import garden_light
+        garden_light(b,o,b.params.detail['court_garden_grille'])
+        return
     if kind=='arch':
         if o.get('style')=='gable_slit' and o.get('transom_z'):
             # T-2211: a glazed round head, a stone transom and a sash, not a black slot.
@@ -1439,7 +1443,10 @@ def louvred_turret(b,t):
 def dormer(b,d):
     f,bk=d['front'],d['back'];a,c=sorted((d['u0'],d['u1']));z0,ze,za=d['z0'],d['eave_z'],d['apex_z']
     sign=-1 if bk>f else 1;pl={'axis':'x','sign':sign,'at':f}
-    margin=(c-a)*.22;lo,hi=d['light'];conf=d['conf']
+    margin=(c-a)*d.get('light_margin_fraction',.22);lo,hi=d['light'];conf=d['conf']
+    from archetypes.masonry_house_v4_court import dormer_roof,above_host,court_finial
+    joined=b.params.detail.get('court_dormer_union')
+    def visible(pts):return above_host(pts,b.params) if joined else pts
     reconstructed=1.0  # Exact stock/edge dimensions below are reconstructed.
     op={**pl,'face':'west' if sign<0 else 'east','kind':'window','u0':a+margin,'u1':c-margin,'z0':lo,'z1':hi,'conf':conf}
     poly=[(a,z0),(c,z0),(c,ze),(a,ze)]
@@ -1447,7 +1454,8 @@ def dormer(b,d):
         b.raw([legacy._plane_point(pl,u,z) for u,z in frag],conf,PAINTED_WOOD,legacy._plane_dir(pl))
     for u in (a,c):
         pts=[(f,u,z0),(bk,u,z0),(bk,u,ze),(f,u,ze)]
-        legacy._poly_facing(b,pts,conf,ROOF,(0,-1 if u==a else 1,0))
+        pts=visible(pts)
+        if pts:legacy._poly_facing(b,pts,conf,ROOF,(0,-1 if u==a else 1,0))
     # HABS photo05 shows one undivided light in timber, not the masonry
     # reveals, granite sill and meeting rail used by a house-wall window.
     la,lc=op['u0'],op['u1'];outline=aperture(op);normal=legacy._plane_dir(pl)
@@ -1466,24 +1474,30 @@ def dormer(b,d):
     linen_shade(b,la,lc,lo,hi,lambda u,z,off:legacy._plane_point(pl,u,z,off),
                 normal,reconstructed,int((a*17+c*31+f*7+lo)*10003))
 
-    # Both HABS05 and owner image(10) show a flared projecting foot, dark
-    # soffit and raised clay hip edges. These small dimensions are bounded
-    # reconstructions, not sheet measurements; ze/za and the body stay fixed.
-    xa,xb=sorted((f,bk));xa,xb=(xa-.30,xb+.10) if sign<0 else (xa-.10,xb+.30)
-    ring=[(xa,a-.26,ze),(xb,a-.26,ze),(xb,c+.26,ze),(xa,c+.26,ze)]
-    kick=[(xa+.18,a-.08,ze+.13),(xb-.18,a-.08,ze+.13),
-          (xb-.18,c+.08,ze+.13),(xa+.18,c+.08,ze+.13)]
-    apex=((f+bk)/2,(a+c)/2,za)
-    for i in range(4):
-        j=(i+1)%4;p,q=ring[i],ring[j];v,w=kick[i],kick[j]
-        legacy._up(b,[p,q,w,v],reconstructed,ROOF)
-        legacy._up(b,[v,w,apex],conf,ROOF)
+    # Cleared HABS4 and the licensed modern courtyard views bound the flared
+    # foot and narrow side projection. Hidden depth and clay hip stock remain
+    # reconstructions; the record keeps their uncertainty separate.
+    ring,kick,apex,patches=dormer_roof(d)
+    for index,poly in enumerate(patches):
+        poly=visible(poly)
+        if poly:legacy._up(b,poly,reconstructed if index%2==0 else conf,ROOF)
+    for p,q in zip(ring,ring[1:]+ring[:1]):
         lowp=(p[0],p[1],ze-.075);lowq=(q[0],q[1],ze-.075)
         facing=norm((p[0]+q[0]-2*apex[0],p[1]+q[1]-2*apex[1],0))
-        b.raw([lowp,lowq,q,p],reconstructed,PAINTED_WOOD,facing)
-    b.raw([(p[0],p[1],ze-.075) for p in ring],reconstructed,PAINTED_WOOD,(0,0,-1))
+        poly=visible([lowp,lowq,q,p])
+        if poly:b.raw(poly,reconstructed,PAINTED_WOOD,facing)
+    poly=visible([(p[0],p[1],ze-.075) for p in ring])
+    if poly:b.raw(poly,reconstructed,PAINTED_WOOD,(0,0,-1))
 
     def hip_cap(p,q):
+        if joined:
+            from archetypes.masonry_house_v4_court import roof_height
+            dp,dq=[v[2]-roof_height(b.params,v[0]) for v in (p,q)]
+            if max(dp,dq)<=0:return
+            if min(dp,dq)<0:
+                intersection=tuple(p[k]+dp/(dp-dq)*(q[k]-p[k]) for k in range(3))
+                if dp<0:p=intersection
+                else:q=intersection
         if b.params.detail.get('roof_edges'):
             from archetypes.masonry_house_v4_roof_edges import hip_caps
             return hip_caps(b,p,q)
@@ -1507,9 +1521,10 @@ def dormer(b,d):
         hip_cap(p,v);hip_cap(v,apex)
     # HABS05 shows the cap/finial form; owner image(10) confirms their clay
     # material. A green copper vent was not supported by either comparison.
-    legacy._finial(b,apex[0],apex[1],za,.35,reconstructed,ROOF)
+    if b.params.detail.get('court_finial'):court_finial(b,apex[0],apex[1],'dormer',ROOF)
+    else:legacy._finial(b,apex[0],apex[1],za,.35,reconstructed,ROOF)
 
-def curved_masonry(b,cx,cy,r,z0,z1,conf,mat,windows,a0=0,a1=2*math.pi):
+def curved_masonry(b,cx,cy,r,z0,z1,conf,mat,windows,a0=0,a1=2*math.pi,hidden_box=None):
     """Continuous cylindrical face with windows removed in angular coordinates."""
     breaks={a0,a1,*[a0+(a1-a0)*i/48 for i in range(49)]}
     for w in windows:breaks.update((max(a0,w['a0']),min(a1,w['a1'])))
@@ -1523,7 +1538,10 @@ def curved_masonry(b,cx,cy,r,z0,z1,conf,mat,windows,a0=0,a1=2*math.pi):
             p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
             pts=[(*p,lo),(*q,lo),(*q,hi),(*p,hi)]
             if dot(legacy._normal(pts),(math.cos(mid),math.sin(mid),0))<0:pts.reverse()
-            b.wall(pts,conf,mat)
+            if hidden_box:
+                from archetypes.masonry_house_v4_court import outside_box
+                for part in outside_box(pts,hidden_box):b.wall(part,conf,mat)
+            else:b.wall(pts,conf,mat)
 
 
 def tower(b,t,params):
@@ -1538,7 +1556,11 @@ def tower(b,t,params):
     for w in data['openings']:
         half=w['width_m']/(2*r)
         windows.append({**w,'a0':w['angle']-half,'a1':w['angle']+half})
-    curved_masonry(b,cx,cy,r,t['z0'],t['wall_top_z'],conf,BRICK,windows)
+    hidden=None
+    if getattr(b,'reduced_sash',False) and params.detail.get('light_hidden_stair_wall'):
+        from archetypes.masonry_house_v4_court import concealed_stair_box
+        hidden=concealed_stair_box(params,t)
+    curved_masonry(b,cx,cy,r,t['z0'],t['wall_top_z'],conf,BRICK,windows,hidden_box=hidden)
     for w in windows:
         a,c=w['a0'],w['a1'];p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
         lantern=w['z0']>=data['bands'][0][0]
@@ -1548,7 +1570,10 @@ def tower(b,t,params):
     for z0,z1 in data['bands']:
         add_rough_band(b,cx,cy,r+.06,z0,z1,conf)
     legacy._cone(b,cx,cy,t['eave_r'],t['wall_top_z'],t['apex_z'],t['conf_roof'],ROOF,72,soffit=r)
-    legacy._finial(b,cx,cy,t['apex_z'],t['finial_m'],t['conf_roof'],COPPER)
+    if t['name']=='stair' and params.detail.get('court_finial'):
+        from archetypes.masonry_house_v4_court import court_finial
+        court_finial(b,cx,cy,'stair',COPPER)
+    else:legacy._finial(b,cx,cy,t['apex_z'],t['finial_m'],t['conf_roof'],COPPER)
 
 
 def terrace(b,params):
@@ -1906,8 +1931,9 @@ def supplemental(b,p):
         for tri in dining(p)[0]:
             legacy._two_sided_roof(b,list(tri),1.0,ROOF)
     if p.detail.get('continuous_copper_corner'):
-        from archetypes.masonry_house_v4_copper import add_hood
+        from archetypes.masonry_house_v4_copper import add_hood, add_north_cladding
         add_hood(b,p)
+        add_north_cladding(b,p)
 
 
 

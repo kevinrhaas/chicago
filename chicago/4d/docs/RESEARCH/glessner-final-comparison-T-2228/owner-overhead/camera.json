@@ -1,0 +1,130 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "owner_glessner_v4_reconstruction_brief_2026",
+  "image_px": [
+    1113,
+    604
+  ],
+  "principal_px": [
+    556.5,
+    302.0
+  ],
+  "focal_px": 7298.913845201834,
+  "eye": [
+    61.44832725885445,
+    -89.86380918737218,
+    393.10071267688863
+  ],
+  "yaw_deg": 0,
+  "basis_right_up_forward": [
+    [
+      0.9957633128433896,
+      0.012079411834826559,
+      -0.09115652804315377
+    ],
+    [
+      0.011572952946978752,
+      0.9669884035067413,
+      0.2545574478257716
+    ],
+    [
+      -0.09122220976957665,
+      0.25453391776580203,
+      -0.9627517816922215
+    ]
+  ],
+  "near_m": 350,
+  "sun_uvy": [
+    -1,
+    -0.5,
+    1
+  ],
+  "solve": {
+    "source": "Owner-supplied modern aerial, 2026-10-15; third-party image retained privately, not redistributed.",
+    "sha256": "500505fbd6ed9115d6f2348026c9396e068ef15400498f63424f4c2c72894f30",
+    "image_px": [
+      1113,
+      604
+    ],
+    "control_names": [
+      "west-north wall/eave",
+      "west-south wall/eave",
+      "east-north wall/eave",
+      "east-south wall/eave"
+    ],
+    "model_uvz_m": [
+      [
+        0.0,
+        22.555200000000003,
+        7.68096
+      ],
+      [
+        0.0,
+        4.3434,
+        5.0292
+      ],
+      [
+        49.149,
+        22.555200000000003,
+        8.4856
+      ],
+      [
+        49.149,
+        0.0,
+        8.4856
+      ]
+    ],
+    "image_controls_px": [
+      [
+        111.0,
+        121.0
+      ],
+      [
+        111.0,
+        457.0
+      ],
+      [
+        998.0,
+        109.0
+      ],
+      [
+        998.0,
+        507.0
+      ]
+    ],
+    "control_uncertainty_px": 5,
+    "parameters": [
+      24.959443351023783,
+      11.949757918948634,
+      14.810427455996747,
+      5.230144784239552,
+      0.6950099107336536,
+      18.247284613004584
+    ],
+    "predicted_px": [
+      [
+        111.73059080502372,
+        123.97215198523509
+      ],
+      [
+        109.82685495318964,
+        454.06675876708357
+      ],
+      [
+        997.5256612836531,
+        107.51637386480544
+      ],
+      [
+        998.9037059638075,
+        508.43848196392696
+      ]
+    ],
+    "rms_px": 2.4829258111893537,
+    "limitation": "Approximate pinhole diagnostic of a potentially orthorectified aerial. Footprint is HABS; west eave heights retain reconstructions. These controls do not independently survey roof peaks. Ridge and cupola withheld from fitting. Trees, labels, shadows and modern garden fabric excluded."
+  },
+  "external_photo": {
+    "sha256": "500505fbd6ed9115d6f2348026c9396e068ef15400498f63424f4c2c72894f30",
+    "filename": "owner-aerial-2026-10-15.jpg",
+    "availability": "Owner attachment retained privately; supply local file to reproduce comparison."
+  }
+}

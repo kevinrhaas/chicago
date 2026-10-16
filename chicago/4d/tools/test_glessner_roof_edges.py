@@ -24,6 +24,7 @@ class Capture:
 # closed but floating barrel. Exercise both emitted profiles independently of
 # the main building and its roof bed.
 from types import SimpleNamespace
+from copy import deepcopy
 for reduced in (False,True):
     stock=Capture();stock.reduced_roof_details=reduced
     recipe=SimpleNamespace(detail=params.detail,chimneys=[],turrets=[])
@@ -31,6 +32,53 @@ for reduced in (False,True):
     floor=min(p[2] for face in stock.faces for p in face)
     crown=max(p[2] for face in stock.faces for p in face)
     assert floor<10.<crown,(reduced,'ridge stock floats above its host',floor)
+
+# T-2228's canonical Light recipe removes only the collar corners buried in
+# the closed barrel. Clip the actual old/new emitted faces at its chord and
+# compare the complete exposed surface, not just their highest vertices.
+from archetypes.masonry_house_v4_north_tower import _half
+from archetypes.masonry_house import _normal as area_normal
+def above_chord(faces,z):
+    result=Counter()
+    for face in faces:
+        polygon=_half(face,lambda p:p[2]-z)
+        if len(polygon)<3 or math.sqrt(sum(v*v for v in area_normal(polygon)))<1e-8:continue
+        result[tuple(sorted(set(tuple(round(v,8) for v in p) for p in polygon)))]+=1
+    return result
+
+for reduced in (False,True):
+    variants=[]
+    for enabled in (False,True):
+        recipe=SimpleNamespace(detail=deepcopy(params.detail),chimneys=[],turrets=[])
+        recipe.detail['roof_edges']['light_surface_stock']=enabled
+        stock=Capture();stock.reduced_roof_details=reduced
+        ridge_chain(stock,recipe,{'axis':'y','ridge_at':0.,'ridge_z':10.},0.,2.)
+        variants.append(stock.faces)
+    assert above_chord(variants[0],10.+params.detail['roof_edges']['cap_seat_m'])==above_chord(variants[1],10.+params.detail['roof_edges']['cap_seat_m'])
+    if not reduced:assert variants[0]==variants[1], 'Full stock changed with a Light setting'
+    else:assert sum(len(f)-2 for f in variants[1])<sum(len(f)-2 for f in variants[0])
+
+# The reduced valley sheet retains every top point and its outward winding;
+# Full retains the closed stock, and archived recipes keep their old output.
+from archetypes.masonry_house_v4_roof_edges import add_edges
+class RoofCapture(Capture):
+    def raw(self,points,confidence,material,want=None):
+        if want and sum(a*b for a,b in zip(_normal(points),want))<0:points=list(reversed(points))
+        super().raw(points,confidence,material)
+valley=[[(0,0,0),(1,0,1),(1,1,2),(0,1,1)],
+        [(0,-1,1),(1,-1,2),(1,0,1),(0,0,0)]]
+variants={}
+for reduced,enabled in ((False,False),(False,True),(True,False),(True,True)):
+    recipe=SimpleNamespace(detail=deepcopy(params.detail),chimneys=[])
+    recipe.detail['roof_edges']['light_surface_stock']=enabled
+    stock=RoofCapture();stock.reduced_roof_details=reduced
+    stock.roof_surfaces=[{'points':q,'normal':_normal(q)} for q in valley]
+    add_edges(stock,recipe);variants[reduced,enabled]=stock.faces
+assert variants[False,False]==variants[False,True]==variants[True,False]
+tops=[f for f in variants[False,False] if all(abs(p[2]-p[0]-abs(p[1])-.010)<1e-8 for p in f)]
+canonical=lambda fs:Counter(tuple(sorted(tuple(round(v,8) for v in p) for p in f)) for f in fs)
+assert canonical(tops)==canonical(variants[True,True]) and len(tops)==2
+assert all(_normal(f)[2]>0 for f in variants[True,True])
 
 # A concave flashing section cannot use centroid-based face winding. Its
 # signed volume and every edge prove the actual swept stock is closed/outward.

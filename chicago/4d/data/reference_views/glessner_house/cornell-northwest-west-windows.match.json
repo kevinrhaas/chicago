@@ -1,0 +1,24 @@
+{
+  "structure_id": "glessner_house",
+  "view": "cornell-northwest-west-windows",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
+  "camera_sha256": "0594fb5e78cce8ce5dddef6754b10f2d8b1fffd0868e596be904ffb32bf04fb1",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Southern upper west slit moves from S21.8 to S19.8, retaining width/heights. Actual candidate compared with ca.1887 Cornell photograph at the frozen west-plane camera; other seven aperture positions remain.",
+      "status": "fixed"
+    },
+    {
+      "what": "West/north gable, cupola, portal, framing and surface/lighting residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry.",
+      "status": "open"
+    },
+    {
+      "what": "The Cornell scan and museum reproduction are one exposure. Monochrome tones do not establish1904 RGB; street poles, temporary pavement and neighbors are not house geometry.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

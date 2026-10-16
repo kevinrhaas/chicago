@@ -1,55 +1,27 @@
 {
   "structure_id": "glessner_house",
   "view": "habs04-terrace-section",
-  "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
   "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "T-2218: paired grille clear heights, sill/head positions and narrow jambs now follow the rectified section controls. Eleven intermediate bars and two rails are present; dark glazing retains the owner-selected treatment. Stock depths remain bounded reconstructions.",
+      "what": "Actual master reviewed: the adjacent garden opening is now a broad barred light at the independently read section bounds; the former flat shelf beyond the traced coping turn is removed.",
       "status": "fixed"
     },
     {
-      "what": "T-2218: the high cap and its descending upper/lower edges follow independent section traces, including the deep band at the steep turn. Emitted Full/Light geometry agrees with four independent section ordinates within 40 mm. The rounded terminal and nine fan treads are present; the lower hidden tread plan remains reconstructed.",
-      "status": "fixed"
-    },
-    {
-      "what": "The neighboring stair-tower basement opening to the right is narrower/taller than the surveyed grille and its lintel overlaps the terminal in this projection. It is outside the terrace grille pair; reconcile its dated opening and the terminal/tower overlap in T-2228.",
+      "what": "The coping still continues across the rounded post in projection. Its circular plan tail reaches the plan-centred post beyond the section endpoint; reconcile HABS2 terminal wall path with HABS4 rather than hiding the mismatch with a cap extension.",
       "status": "open"
     },
     {
-      "what": "Exact brick bond, individual stone texture and weathering are not established by this line drawing; later survey fabric is inferred for 1904, with hidden stair boundaries explicitly reconstructed.",
+      "what": "Local grille surround/trim and exact terminal/court-ground correspondence remain different. No camera translation or source-pick revision has concealed these residuals.",
+      "status": "open"
+    },
+    {
+      "what": "Iron/frame stock and masonry color/weathering remain bounded reconstructions.",
       "status": "not shown"
-    },
-    {
-      "what": "T-2218 terminal shoulder: the section edge traces stop at S45.35 ft. The subsequent short level shoulder joins the plan-located cylindrical post; it reads longer in the west projection than the drawn silhouette. Reconcile this bounded three-dimensional join with the neighboring tower opening in T-2228; it is not an exact source match.",
-      "status": "open"
-    },
-    {
-      "what": "T-2221: re-rendered and reviewed on the final Full web asset. The broader bow leader and its wall straps appear at the section edge; the terrace, grille openings and stair profile are preserved. This section does not establish the pipe section, and the earlier cap-terminal and stair-tower opening differences remain open for T-2228.",
-      "status": "not shown"
-    },
-    {
-      "what": "T-2222: Re-viewed canonical Full web: retained continuous terrace stair profile and lower support remain. Section still differs at cap shoulder, upper wall/opening and absolute alignment; chimney changes are outside this crop. No acceptance promotion.",
-      "status": "not shown"
-    },
-    {
-      "what": "T-2223: Re-rendered and visually reviewed on the final T-2223 canonical web asset. The curved hall-terrace stair is separate from the service stair refined here; its continuous cap and lower stair support are retained. The cap shoulder, paired opening proportions and section alignment still differ from the drawing. These remain T-2228 issues; no acceptance promotion.",
-      "status": "open"
-    },
-    {
-      "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The narrow ground band now retains turf beside, rather than beneath, the paved approach and stair. The terrace rail/cheek, curved coping, full tread run and barred paired opening remain. The drawing supplies no 1904 paving layout; the path finish is separately reconstructed. Coping/section correspondence and material differences remain open. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
-    },
-    {
-      "what": "T-2225: Re-rendered and visually reviewed on the final canonical Full web asset. The new vines do not cover this paired barred opening or terrace coping. The curved coping and complete stair remain; coping shoulder, opening/section proportions and materials still differ. The drawing does not specify July planting coverage. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
-    },
-    {
-      "what": "T-2226: Re-rendered and visually reviewed on the final canonical Full web asset. The paired barred openings and curved coping remain visible. Coping shoulder, low stair-tower opening and section proportions still differ; the new service-surface joints do not resolve them. The drawing does not establish 1904 material colour or weathering. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

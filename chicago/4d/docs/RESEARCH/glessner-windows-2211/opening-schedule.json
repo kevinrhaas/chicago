@@ -1525,13 +1525,14 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  },
  {
   "face": "west",
   "record": "openings_alley",
-  "what": "two upper slits in high west gable, owner west elevation",
+  "what": "two upper slits in high west gable, checked against Cornell northwest photograph",
   "at_ft": [
    9.8,
    11.6
@@ -1549,16 +1550,17 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  },
  {
   "face": "west",
   "record": "openings_alley",
-  "what": "two upper slits in high west gable, owner west elevation",
+  "what": "two upper slits in high west gable, checked against Cornell northwest photograph",
   "at_ft": [
-   20.9,
-   22.7
+   18.9,
+   20.7
   ],
   "z_ft": [
    21.5,
@@ -1573,7 +1575,8 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  },
  {
@@ -1597,7 +1600,8 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  },
  {
@@ -1621,7 +1625,8 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  },
  {
@@ -1645,7 +1650,8 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  },
  {
@@ -1669,7 +1675,8 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  },
  {
@@ -1693,7 +1700,8 @@
   "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "owner_glessner_v4_reconstruction_brief_2026"
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "cornell_adw_glessner_stable_1887"
   ]
  }
 ]

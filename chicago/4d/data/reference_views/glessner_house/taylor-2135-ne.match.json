@@ -1,51 +1,19 @@
 {
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
-  "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
   "camera_sha256": "c194faa26abdb9b7aa27f3946e795205a7856e80a6d59d10f5b4d46c2d51c6f9",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "T-2221: the two Prairie corners now have framed receiver heads, narrow necks, continuous wall-offset leaders and broad straps. The north head close-up was reviewed on the final canonical web asset; raised framing is readable under the bounded matte finish. Exact small casting ornament, stock dimensions and hidden connections remain reconstructed.",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2222: the middle and south stacks expose substantially longer shafts below the main ridge than Taylor shows. Their footprint positions retained the earlier ridge datum and require independent early-photo/elevation reconciliation.",
+      "what": "Actual master reviewed: the early photograph still differs in street opening/entry alignment, roof/stack silhouette and stone/course lighting. The new north-cone/courtyard corrections do not constitute full photographic acceptance.",
       "status": "open"
     },
     {
-      "what": "T-2228: whole-house masonry relief/coursing and tone, window profiles and placement, roof/coping silhouette and absolute eave/head placement still differ. The five-control camera is fitted to current house geometry, not an independent survey; no exact photographic match is claimed.",
-      "status": "open"
-    },
-    {
-      "what": "The monochrome early photograph cannot establish the July 1904 rainwater colour, unseen court runs or concealed sockets. Reconstructed grey-green finish is not a sampled historical colour.",
+      "what": "The early streetscape and neighbor geometry are separate context work; monochrome/sepia reproduction does not establish exact1904 RGB, and the courtyard is not visible.",
       "status": "not shown"
-    },
-    {
-      "what": "The isolated-building comparison omits the street, planted trees and adjoining Keith house. The far-left ornate tower belongs to that neighboring parcel, not to Glessner.",
-      "status": "not shown"
-    },
-    {
-      "what": "T-2222: the unchanged early Taylor camera now shows middle and south shafts near the ridge with short exposed fronts and flush masonry cap courses, replacing the overly long roof-front projections. North-gable top, stack count and roof geometry remain unchanged. Cap joints and flue depths remain bounded reconstruction; existing whole-house differences are not resolved by this component review.",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2223: Re-rendered and visually reviewed on the final T-2223 canonical web asset in the unchanged early Taylor camera. The service-access work is hidden from this view. Ridge-near chimney shafts, flush caps and the retained Prairie facade details remain. Roof/eave and opening correspondence, north-face masonry relief, tone and wider photographic agreement remain unresolved for T-2228; this monochrome view does not establish 1904 colour.",
-      "status": "open"
-    },
-    {
-      "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The courtyard paths are concealed from this early north-east exterior camera. Prairie entrance, gate, stone window divisions and roof stacks remain. Window correspondence, stone relief, chimney/roof silhouettes and facade proportions still require final reconciliation. The bare early-season planting state does not determine July 1904 coverage. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
-    },
-    {
-      "what": "T-2225: Re-rendered and visually reviewed on the final canonical Full web asset. Two selective Prairie climbers now flank the frontage without hiding openings. Their green July coverage is explicitly reconstructed; the early bare-season photograph is not a July 1904 planting map. Window positions/proportions, roof/chimney silhouettes and repeated stone relief still differ. Bare diagnostic GLB colour does not include the app owner-selected granite retint. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
-    },
-    {
-      "what": "T-2226: Re-rendered and visually reviewed on the final canonical Full web asset. The Prairie street facade retains the existing selective vines, roof tiles, entry and dark-glass geometry. Whole-house window positions/proportions, roof/chimney silhouette and rounded repetitive stone relief still differ. The new courtyard/gate materials are not visible. This bare-GLB diagnostic does not apply the app owner-selected granite tint, and the early bare-season image is not a July 1904 planting map. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

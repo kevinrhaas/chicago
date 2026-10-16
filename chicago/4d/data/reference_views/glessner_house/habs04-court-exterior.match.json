@@ -1,0 +1,32 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs04-court-exterior",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
+  "camera_sha256": "7ccd4571592b31439e969f77d078d8e835fd8b2ba0e963b25dbd8b2ecc5346b3",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Actual master reviewed: main roof no longer crosses any of the three dormer panes or the upper wall opening. Eave, body/window heights, bell finials and broad basement grille follow the fixed section more closely.",
+      "status": "fixed"
+    },
+    {
+      "what": "Dormer side projection is reduced from0.26m to0.144m, bounded by the native body about445px and roof540px. The revised actual render follows the drawn roof width more closely, with an85mm inset preserving the outward lower flare.",
+      "status": "fixed"
+    },
+    {
+      "what": "Exact apron/finial silhouette, frame stock and local section correspondence still require reconciliation with the licensed photographic references.",
+      "status": "open"
+    },
+    {
+      "what": "Stair tower retains the independently read HABS2 plan centre/radius; HABS4 differs by about0.63ft in S and about0.30ft in radius. Terminal coping return and remaining local aperture/trim correspondence still differ.",
+      "status": "open"
+    },
+    {
+      "what": "This1963 measured section does not establish1904 RGB color, exact stock, weathering or hidden dormer depth. Camera controls are unchanged; finite perspective introduces about1% depth sensitivity.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
