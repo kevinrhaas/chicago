@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1869, ts: '2026-10-16T14:35:17.330Z', date: 'Oct 16, 2026, 9:35 AM CT', title: 'Phones keep the buildings once, not twice', kind: 'improve',
+    items: [
+      'Nothing you can see changed. A tap on a building is now answered by the graphics chip, which draws the spot under your finger once and reads back which building is there.',
+      'So a phone no longer keeps a second copy of every building\'s shape in page memory once it is drawn: about 26 MB less on arrival in 1835.',
+    ] },
   { v: 1868, ts: '2026-10-16T13:50:39.612Z', date: 'Oct 16, 2026, 8:50 AM CT', title: 'The Wabansia outline check agrees on every Python', kind: 'fix',
     items: [
       'Nothing you can see changed. The check that re-derives Wabansia\'s tract outline from Wright\'s sheet was red on Python 3.13 and green on 3.11, over the same committed file.',

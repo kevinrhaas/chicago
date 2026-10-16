@@ -1,8 +1,0 @@
-{
-  "title": "Phones keep the buildings once, not twice",
-  "kind": "improve",
-  "items": [
-    "Nothing you can see changed. A tap on a building is now answered by the graphics chip, which draws the spot under your finger once and reads back which building is there.",
-    "So a phone no longer keeps a second copy of every building's shape in page memory once it is drawn: about 26 MB less on arrival in 1835."
-  ]
-}
