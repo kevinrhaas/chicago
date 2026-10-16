@@ -3,7 +3,7 @@
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
   "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
-  "camera_sha256": "1511b9132d93f17646f0cc437e1547f930a1219b6f39534f91eebdcda5507b9e",
+  "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -44,11 +44,11 @@
       "status": "fixed"
     },
     {
-      "what": "The close-view fit still has an 18.47px coordinate residual. At this fit the bow's principal lights read shorter than the model's (about 2.5 m against 2.95 m), their heads lower under the string course; the 1888 plate reads them at the model's height, so a later change to their transoms and the fit's own error are not yet told apart. The cheeks' exact curve is likewise inside the residual.",
-      "status": "open"
+      "what": "T-2579: the camera is re-fitted to seven controls (a column base and a capital of the loggia, the bow's north junction, the south bow light's head and sill, the next light's head, the basement light's head): RMS 1.7 px, about 0.04 m at 16 m. At this fit the bow's principal lights land within 2.5 px of the model's at head and sill, so their reading 'shorter' was the old fit's 18 px error, as the 1888 plate implied.",
+      "status": "fixed"
     },
     {
-      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887–88 photographs.",
+      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887\u201388 photographs.",
       "status": "not shown"
     },
     {
@@ -62,6 +62,14 @@
     {
       "what": "The cornice under the lattice is out of this close view's frame (T-2577 laid it in stone, compared in the front views).",
       "status": "not shown"
+    },
+    {
+      "what": "T-2579: with the bases, the bow lights and the basement heads in register, the loggia's columns stand taller than the model's: the capital tops read 12-16 px (about 0.4 m) higher on both pairs, with the beam over them correspondingly higher under a shallower balcony front; the south pair also stands about 0.4 m further south.",
+      "status": "open"
+    },
+    {
+      "what": "T-2579: left of the bow's south light the photograph's bow masonry runs on to the frame's edge (x 0-60), where the model turns its south-east corner at x 61 onto brick and toothed quoins; the south end of the front differs (read with T-2581, the south face's stone strip).",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
