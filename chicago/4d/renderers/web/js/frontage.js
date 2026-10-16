@@ -1516,7 +1516,7 @@ async function getJSON(url) {
 
 /**
  * T-2677, the second piece of T-2560 ("ship the town prebuilt"). Laying the
- * frontage's ~54,000 boards over the terrain is one main-thread task: 0.9 s on
+ * frontage's boards (1.95 million vertices) over the terrain is one main-thread task: 0.9 s on
  * the steward runner, 3.3 s at its 4x CPU throttle. `tools/publish.sh` now runs
  * this same function in Node (`tools/prebuild_layers.mjs`, byte-equal to the
  * page's build since T-2676) and writes `data/prebuilt/<year>/frontage.{json,bin}`,
