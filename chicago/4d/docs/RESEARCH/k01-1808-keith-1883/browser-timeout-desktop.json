@@ -1,0 +1,6 @@
+{
+  "asset_sha256": "434f38162008cd087494f51c73d0ba2c0044a8826458598f07f7f3d832c038fb",
+  "method": "Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [],
+  "failure": "page.waitForFunction timed out at 240000 ms during initial scene readiness while repository checks were running; no completed stands"
+}

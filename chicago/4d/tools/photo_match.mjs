@@ -69,6 +69,7 @@ const page_html = `<!doctype html><meta charset=utf-8><style>html,body{margin:0;
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
+import {tintKeithStone} from '/renderers/web/js/keith-stone.js';
 const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, clips: cam.clip_planes || [], glb: '/' + glb.replace(/\\/g, '/')})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
@@ -95,7 +96,7 @@ if(c.basis){
  cam.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(right,up,forward.negate()));
 }
 const l=new GLTFLoader();l.setMeshoptDecoder(MeshoptDecoder);
-l.load(c.glb,x=>{x.scene.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true;}});s.add(x.scene);
+l.load(c.glb,x=>{x.scene.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true;for(const m of (Array.isArray(o.material)?o.material:[o.material]))tintKeithStone(m,{id:${JSON.stringify(cam.structure_id)}});}});s.add(x.scene);
 r.render(s,cam);window.__done=true;},undefined,e=>{window.__error=String(e);});
 </script>`;
 const types = {'.js': 'text/javascript', '.mjs': 'text/javascript', '.glb': 'model/gltf-binary', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.ktx2': 'image/ktx2', '.webp': 'image/webp'};

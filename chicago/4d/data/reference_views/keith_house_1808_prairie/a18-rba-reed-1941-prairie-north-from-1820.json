@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-rba-reed-1941-prairie-north-from-1820",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-rba-reed-1941-prairie-north-from-1820.jpg",
+  "image_px": [
+    1056,
+    783
+  ],
+  "principal_px": [
+    391.3218880969783,
+    456.3669284273341
+  ],
+  "focal_px": 1087.943712550652,
+  "eye": [
+    31.69819964423485,
+    -53.59913969071072,
+    1.7
+  ],
+  "yaw_deg": 350.1217619028909,
+  "basis_right_up_forward": [
+    [
+      0.9851738367067095,
+      0.17155480138759896,
+      -0.0012089621347568789
+    ],
+    [
+      0.0011910387351367073,
+      0.000207403410482717,
+      0.9999992692050114
+    ],
+    [
+      -0.1715549267590797,
+      0.9851745566673384,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 4.52px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 0.0, 16.44], [18.0, 10.4, 16.44], [18.0, 0.0, 9.8], [18.0, 10.4, 9.8], [18.0, 0.0, 0.0], [18.0, 10.4, 0.0]]; pixels [[306.0, 160.0], [348.0, 210.0], [306.0, 305.0], [350.0, 325.0], [307.0, 480.0], [350.0, 490.0]]; projected [[306.15, 165.72], [349.18, 211.22], [306.31, 296.69], [349.31, 321.67], [306.54, 490.0], [349.51, 484.7]]. 1941\u201342, Earl H. Reed (Chicago Plan Commission), Ryerson & Burnham collection via Ryerson & Burnham. Distant view; cars and trees obscure lower detail. Only silhouette and broad opening bands can be compared; fine carving and colour are not shown."
+}
