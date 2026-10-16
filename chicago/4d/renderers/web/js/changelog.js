@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1900, ts: '2026-10-16T23:54:44.859Z', date: 'Oct 16, 2026, 6:54 PM CT', title: 'Prairie Avenue runs straight across 18th Street', kind: 'fix',
+    items: [
+      'North of Glessner, Prairie Avenue no longer steps west at 18th Street. Both 1911 atlas sheets draw it straight, so the 16th-18th sheet is now joined to the Glessner sheet at the crossing they share.',
+      'Curbs, walks, lots, parkway trees, 54 houses and the lakefront tracks on that sheet moved with it, about 1.1 m east and 1.4 m north.',
+      'The thin light line running up the roadway between 16th and 18th Streets is gone.',
+    ] },
+  { v: 1899, ts: '2026-10-16T23:54:44.859Z', date: 'Oct 16, 2026, 6:54 PM CT', title: 'A phone in 1835 holds about 14 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1835 town now holds about 14 MB less once it is drawn (583 MB to 569 MB), which is where phones were running out of memory.',
+      'Most of the plank walks, all of the fences and most of the yard goods now store each corner\'s position in 8 bytes instead of 12, measured from the middle of its own patch of town. The rounding moves a corner by at most a millimetre, and the long walks that would move more keep their old format for now.',
+      'The same views draw the same frame as before. A handful of single pixels flicker on far board edges, and a tapped walk, fence or yard still opens the same card.',
+    ] },
   { v: 1898, ts: '2026-10-16T23:35:13.357Z', date: 'Oct 16, 2026, 6:35 PM CT', title: 'The home page\'s destination cards show live footage from each year', kind: 'feature',
     items: [
       'Each destination card now plays a short looping clip filmed in the app itself, in place of its old engraving or photograph.',
