@@ -99,13 +99,19 @@ def validate(f, width):
     if not f:
         return f
     expected={'lattice','diaper','colonnettes','pinnacles','deck_drop_m','stone_return_m'}
-    if set(f)-{'return_ashlar'}!=expected:
-        raise ValueError(f'stone_finish takes {sorted(expected)} and optionally return_ashlar')
+    if set(f)-{'return_ashlar','ventilator'}!=expected:
+        raise ValueError(f'stone_finish takes {sorted(expected)} and optionally return_ashlar and ventilator')
     ra=f.get('return_ashlar')
     if ra is not None and (set(ra)!={'course_m','bond_m','rise_m','sweep_m'} or not (
             .25<=ra['course_m']<=.7 and len(ra['bond_m'])==2 and .5<=ra['bond_m'][0]<ra['bond_m'][1]<=2.5
             and 0<=ra['rise_m']<=.4 and .2<=ra['sweep_m']<=1.5)):
         raise ValueError('stone_finish.return_ashlar: bounded courses, bond lengths and coping sweep')
+    v=f.get('ventilator')
+    if v is not None and (ra is None or set(v)!={'cap_s_m','foot_s_m','behind_m','pipe_radius_m','cap_radius_m','cap_above_m'}
+            or not (0<v['cap_s_m']<v['foot_s_m']<f['stone_return_m'] and .3<=v['behind_m']<=1.5
+                    and .06<=v['pipe_radius_m']<=.25 and v['pipe_radius_m']<v['cap_radius_m']<=.45
+                    and .4<=v['cap_above_m']<=1.6)):
+        raise ValueError('stone_finish.ventilator: a cowl on the deck behind the coursed return, bounded')
     l=f['lattice']
     if set(l)!={'height_m','pitch_m','bar_m','thickness_m','return_m'} or not (.6<=l['height_m']<=1.6 and
             .25<=l['pitch_m']<=.7 and .08<=l['bar_m']<l['pitch_m']/2 and .15<=l['thickness_m']<=.5 and
@@ -212,6 +218,21 @@ def dress(a):
     elif ret:
         emit(turned_faces(ret-.16,-t/2,[(r*.8,base-.45),(r*.8,top),(r,top+.08),
                   (r*.7,top+.15),(.018,top+ph)],24,.04),transform=side)
+    v=f.get('ventilator')
+    if ret and ra and v:
+        # T-2578: the cowl ventilator the 1887 construction view and Taylor 2135 show on the
+        # deck behind the return: a pipe rising from the deck just inside the rear pinnacle
+        # (the stub the 1948 view still shows there), inclined forward over the coping to a
+        # short upright neck under a bowl and a broad flat disc. Galvanized sheet; the hidden
+        # riser and the depth behind the face are reconstructed (L-k01-keith-ventilator-2578).
+        cop=top+.2; pr=v['pipe_radius_m']; cr=v['cap_radius_m']; dd=-v['behind_m']
+        cap_top=cop+v['cap_above_m']; neck=cap_top-.4; elbow=cop-.15
+        emit(tube_faces([(v['foot_s_m'],E-f['deck_drop_m'],dd),(v['foot_s_m'],elbow-pr,dd),
+                         (v['foot_s_m']-pr*.6,elbow,dd),(v['cap_s_m']+pr*.6,neck-pr*.4,dd),
+                         (v['cap_s_m'],neck,dd),(v['cap_s_m'],neck+.06,dd)],pr,12),'vent_galvanized',side)
+        emit(turned_faces(v['cap_s_m'],dd,[(pr,neck+.04),(pr*1.05,neck+.08),(cr*.82,neck+.2),(cr*.82,neck+.26),
+                          (cr*.42,neck+.3),(cr*.42,neck+.33),(cr,neck+.34),(cr,neck+.38),(cr*.5,cap_top-.005),
+                          (.02,cap_top)],20),'vent_galvanized',side)
     di=f['diaper']; y0,y1,pitch=di['bottom_m'],di['top_m'],di['pitch_m']
     rows=max(1,round((y1-y0)/pitch)); cols=max(1,round((W-.5)/pitch))
     step=(W-.5)/cols

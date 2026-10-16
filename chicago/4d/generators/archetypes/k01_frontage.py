@@ -205,6 +205,9 @@ MATERIALS = {
     "k04_zinc_sheet": {"fabric": "zinc_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6, "metallic": 0.3},
     "k04_painted_tin_sheet": {"fabric": "painted_tin_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6},
     "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},
+    # T-2578: a roof ventilator's galvanized sheet, pale as the 1887-89 prints show it beside
+    # the granite; a plain colour, so a pipe costs no texture (the colour is reconstructed)
+    "vent_galvanized": {"color": (0.60, 0.61, 0.60), "roughness": 0.5},
     # T-2406: a yard's close-boarded fence, weathered timber (k11_frontage `side_fence`)
     "fence_boards": {"color": (0.40, 0.36, 0.30), "roughness": 0.92},
     # T-2366: what stands proud of a stone front (keystones, pilasters, a hood, a portico):

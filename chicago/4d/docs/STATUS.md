@@ -1,3 +1,25 @@
+## T-2578 — Keith house's cowl ventilator, and the parapet behind the rear pinnacle ruled (2026-10-16)
+
+Piece 2 of T-2567. The deck behind Keith's north return now carries the cowl ventilator that
+four period pictures show over the return (the 1887 construction view, Taylor 2135, the 1888
+Inland Architect Glessner plate, the c. 1888 view looking south-west): a pale galvanized pipe
+inclined forward from just inside the rear pinnacle to an upright neck under a bowl and a broad
+disc. Its place along the return (about 0.5 to 0.6 of it in all four) and its height over the
+coping against the rear pinnacle's agree with the pictures in the re-rendered side-by-sides; the
+riser behind the parapet, its 0.6 m set-back and its colour are reconstructed
+(L-k01-keith-ventilator-2578). It is a new optional `stone_finish.ventilator` in the K01 kit, so
+the other 19 K01 masters re-emit byte-identical; the pale grey is a plain untextured slot
+(`vent_galvanized`), so the pipe adds no texture memory. Keith full and web: 76,224 triangles
+(+536), zero coincident faces.
+
+The corner behind the rear pinnacle is ruled: every picture that sees it (the five above save the
+plate's neighbours, plus the Glessner front and 1948) shows sky straight behind the pinnacle, or in
+1948 a darker wall about a course lower, so the stone parapet stops there as modelled. All 16
+match records re-rendered and stay `differs`. NEW, and left for T-2580: the hall stack stands over
+the coping beside the ventilator in five renders, where every one of those pictures shows sky — the
+cowl pipe plausibly terminates that flue, with the stack below the coping; and the c. 1888 view
+puts the cap higher over the coping than its render does, which T-2579's re-fitted cameras decide.
+
 ## T-2564 — Keith house's north return in stone courses (2026-10-16)
 
 T-1883's remaining photographic convergence was split into four pieces (T-2564 to

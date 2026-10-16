@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-taylor-2135-glessner-ne",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
+  "glb_sha256": "2078a66d9544ad050ee0a3fb8d142633f6ae76e1104f95c30166ca208ed416a2",
   "camera_sha256": "dc4e1a7812b60eace9cda3f7604d2041cc4ebe3f220702acb9491764f6101874",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-taylor-2135-glessner-ne-side-by-side.jpg",
   "verdict": "differs",
@@ -24,16 +24,24 @@
       "status": "not shown"
     },
     {
-      "what": "A cowl ventilator stands on the deck behind the return in the 1887-89 pictures and is not built.",
-      "status": "open"
+      "what": "T-2578: the cowl ventilator stands on the deck behind the return, a galvanized pipe inclined forward from just inside the rear pinnacle to an upright neck under a bowl and a broad disc; its height over the coping against the rear pinnacle's agrees with the picture.",
+      "status": "fixed"
     },
     {
-      "what": "Whether the stone parapet continues at full height behind the rear pinnacle, or drops there to the brick, is not resolved by this picture; the model drops it.",
-      "status": "open"
+      "what": "T-2578 ruling: the stone parapet stops at the rear pinnacle. Every picture that sees that corner (1887, Taylor 2135, the 1888 Glessner plate, the c. 1888 view looking SW, the Glessner front, 1948) shows sky straight behind it, or in 1948 a darker wall about a course lower; the model drops it there.",
+      "status": "fixed"
     },
     {
       "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
       "status": "open"
+    },
+    {
+      "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580).",
+      "status": "open"
+    },
+    {
+      "what": "T-2578: the ventilator's pipe reads pale beside the granite, as the print shows it (the colour itself is reconstructed: the print is monochrome).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
