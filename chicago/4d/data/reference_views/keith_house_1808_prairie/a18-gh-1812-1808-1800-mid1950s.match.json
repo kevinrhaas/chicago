@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
+  "glb_sha256": "c69d636400e3973604616eb18d2b520333390c5bfaf01fc363fec69e2fcc2d31",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
   "verdict": "differs",
@@ -28,7 +28,7 @@
       "status": "not shown"
     },
     {
-      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph\u2019s date and are not automatically backdated to 1904.",
+      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph’s date and are not automatically backdated to 1904.",
       "status": "not shown"
     },
     {
@@ -46,6 +46,10 @@
     {
       "what": "T-2581: the south face's front strip is built as this view shows it, the front's stone turned onto the south face as a straight strip from grade to the parapet, 2.1 m deep to the downpipe's line (read 2.1 to 2.2 m behind the corner at the parapet and at the third-floor band), in place of the toothed quoins on brick; behind the pipe the face reads only slightly darker in this print, so the strip's end is read from the pipe.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2681: the loggia's columns 0.2 m taller and its coping 0.3 m higher. At this view's scale the print and both builds agree within its camera's error: capital tops at y 273 in the print, 273 before and 268 now; the coping at 241, 244 before and 239 now; the coping still sits just under the bow's second-storey sills, as in the print. This view cannot choose between the two heights.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

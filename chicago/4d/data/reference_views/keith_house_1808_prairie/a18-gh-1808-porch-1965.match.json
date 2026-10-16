@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
+  "glb_sha256": "c69d636400e3973604616eb18d2b520333390c5bfaf01fc363fec69e2fcc2d31",
   "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -52,7 +52,7 @@
       "status": "fixed"
     },
     {
-      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887\u201388 photographs.",
+      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887–88 photographs.",
       "status": "not shown"
     },
     {
@@ -68,7 +68,7 @@
       "status": "not shown"
     },
     {
-      "what": "T-2579: with the bases, the bow lights and the basement heads in register, the loggia's columns stand taller than the model's: the capital tops read 12-16 px (about 0.4 m) higher on both pairs, with the beam over them correspondingly higher under a shallower balcony front; the south pair also stands about 0.4 m further south.",
+      "what": "T-2579: with the bases, the bow lights and the basement heads in register, the loggia's columns stand taller than the model's: the capital tops read 12-16 px (about 0.4 m) higher on both pairs, with the beam over them correspondingly higher under a shallower balcony front; the south pair also stands about 0.4 m further south. T-2681: re-read with the camera re-fitted without the north capital (it had been paired with a point 0.39 m over the model's capital): the capital tops still read 17 px (south pair) and 13 px (north) high, so the reading does not rest on that control. With the pedestal as the ruler the columns read 2.5 m, the beam and cornice 0.95-1.0 m and the balcony's front 0.7 m. Built at 2.45, 0.9 and 0.75 m: the capital tops now read at y 147 against the print's 136 (154 before) and the coping at about y 89 against 78 (93 before). Still open: about 11 px (0.3 m) at both, which the 1888 plate does not support (it reads the columns about 0.2 m shorter than now; see inland-1888). The south pair's position re-reads within 3 px.",
       "status": "open"
     },
     {
