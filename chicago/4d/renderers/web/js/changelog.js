@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1849, ts: '2026-10-16T06:08:11.925Z', date: 'Oct 16, 2026, 1:08 AM CT', title: 'The town chooses its detail and sharpness for your device', kind: 'feature',
+    items: [
+      'At start-up the walkthrough now reads what your browser and graphics chip offer and runs a check of well under a second, then picks Scene detail and Image sharpness to suit: a capable computer is drawn at High sharpness, a modest one at Balanced detail, and a strong phone or tablet a little sharper than before.',
+      'Settings › Performance says what it chose — for example "Your device: standard computer, chosen Full detail at Medium sharpness" — and anything you pick there still overrides it.',
+      'A return visit remembers the result and skips the check. Only flora, shadows and sharpness change between devices; the reconstruction itself is the same everywhere.',
+    ] },
   { v: 1848, ts: '2026-10-16T05:40:10.065Z', date: 'Oct 16, 2026, 12:40 AM CT', title: 'A phone on Prairie Avenue holds about 78 MB less', kind: 'fix',
     items: [
       'Nothing you can see changed. On a phone, the 1904 Prairie Avenue door now holds about 78 MB less in its page memory once the street is drawn. That memory is where phones were running out and closing the tab.',
