@@ -69,27 +69,41 @@
     },
     "1904": {
       "desktop": {
-        "total_bytes": 2280652800,
-        "reading_bytes": 2060592956,
+        "total_bytes": 1835008000,
+        "reading_bytes": 1664648636,
         "tier": "full",
         "reading_mb": {
-          "total": 1965.1,
-          "js_heap": 124.9,
-          "arraybuffers": 912.1,
-          "gpu_buffers": 346.4,
-          "gpu_textures": 581.8
+          "total": 1587.5,
+          "js_heap": 128.0,
+          "arraybuffers": 710.9,
+          "gpu_buffers": 224.3,
+          "gpu_textures": 524.4
+        },
+        "lowered_by": {
+          "ticket": "T-2595",
+          "on": "2026-10-16T14:34:11.434Z",
+          "build": "3f772e396",
+          "reading": "docs/measurements/T-2595-memory-desktop.json",
+          "note": "the 20 textured Prairie houses in KTX2"
         }
       },
       "mobile": {
-        "total_bytes": 1520435200,
-        "reading_bytes": 1362629762,
+        "total_bytes": 1284505600,
+        "reading_bytes": 1159352756,
         "tier": "light",
         "reading_mb": {
-          "total": 1299.5,
-          "js_heap": 215.3,
-          "arraybuffers": 415,
-          "gpu_buffers": 213.1,
-          "gpu_textures": 456
+          "total": 1105.6,
+          "js_heap": 211.5,
+          "arraybuffers": 358.5,
+          "gpu_buffers": 151.6,
+          "gpu_textures": 384.0
+        },
+        "lowered_by": {
+          "ticket": "T-2595",
+          "on": "2026-10-16T14:26:23.387Z",
+          "build": "3f772e396",
+          "reading": "docs/measurements/T-2595-memory.json",
+          "note": "the 20 textured Prairie houses in KTX2; the same build with --ktx2-off reads 1329.4 MB total and 510.2 MB of GPU textures against 1105.6 and 384.0 (docs/measurements/T-2595-memory-ktx2-off.json)"
         }
       }
     }

@@ -6,6 +6,8 @@ Write the runtime library sheets as KTX2 (Basis Universal), next to their source
     python3 tools/ktx2_sheets.py --check    # the gate: every sheet's .ktx2 present, a KTX2,
                                             # its web map's size, a full mip chain; no orphans
     python3 tools/ktx2_sheets.py --list     # what it would write
+    python3 tools/ktx2_sheets.py --rows     # decode each sheet and say which row it starts
+                                            # on (needs `ktx`, so not in check.sh; T-2593)
     python3 tools/ktx2_sheets.py --only walls/   # only the sheets under one directory
 
 WHY (T-2551, split to T-2582): a WebP/PNG/JPEG sheet is decoded on the CPU and uploaded as
@@ -43,8 +45,11 @@ written straight from a PNG is the image mirrored along v — measured in Chromi
 two-band test sheet, the band at the top of the PNG came back at the bottom. The derived
 wall sheets are therefore written BOTTOM ROW FIRST (`rows='bottom'`), which puts every
 texel where the flipY'd WebP beside it puts it, as `relief-pack.js` does for the
-DataTexture it replaces. The drop-ins are still written top first, as T-2582 shipped them;
-that is the mirror T-2591 is filed to correct.
+DataTexture it replaces. Since T-2593 EVERY sheet is written bottom row first, the
+drop-ins included: T-2582 shipped them top first, so on the KTX2 path the roofs' shingle
+relief, the 1904 streets and the shore's muck and sand lay mirrored along v against their WebPs (the roof
+band read 29-30 dB between `?ktx2=0` and KTX2 where the walls read 50-51), and a mirrored
+`normal_gl` is lit from the wrong side along v as well.
 
 A DERIVED SHEET CARRIES A STATEMENT (`<id>_orl.json`): the mean roughness the shader
 divides by, which the page used to sum from the pixels it no longer reads, and the sha256
@@ -143,7 +148,8 @@ def frontage_sheets():
 
 def sheets():
     """(directory, id, map, web file, rows) for every sheet the renderer loads by URL."""
-    return [(*t, 'top') for t in drop_in_sheets()] + wall_sheets() + frontage_sheets()
+    # Bottom row first, like every derived sheet: see ROWS in the header (T-2593).
+    return [(*t, 'bottom') for t in drop_in_sheets()] + wall_sheets() + frontage_sheets()
 
 
 def drop_in_sheets():
@@ -394,15 +400,61 @@ def check(todo):
           f' {sid} luma sidecar matches its master')
 
 
+def rows_check(todo):
+    """Decode each sheet's top level and say which way up it is, against its master.
+
+    The ROWS rule above cannot be read from a header, so this reads the texels: the
+    decoded level against the sized master, and against the master flipped, and calls
+    the sheet by the larger correlation. A re-encode drops nothing a tile's own
+    symmetry cannot hide, so it is a reading, never a proof; it failed every drop-in
+    T-2582 wrote and passes every sheet written since T-2593. A derived map (`orl`,
+    `grain`) has no master image to read against, and `ktx extract` 4.3.2 refuses
+    some ETC1S files outright; both are printed as unread, never as passed."""
+    import numpy as np
+    exe, env = ktx_binary()
+
+    def corr(a, b):
+        a, b = a - a.mean(), b - b.mean()
+        return float((a * b).sum() / max(np.sqrt((a * a).sum() * (b * b).sum()), 1e-12))
+
+    top = []
+    with tempfile.TemporaryDirectory() as t:
+        for d, sid, m, web, rows in todo:
+            f = d / f'{sid}_{m}.ktx2'
+            rel = f.relative_to(ROOT)
+            if m in ('orl', 'grain'):
+                print(f'unread  {rel}  (derived; no master image to read against)')
+                continue
+            png = Path(t) / f'{sid}_{m}.png'
+            r = subprocess.run([exe, 'extract', '--level', '0', '--transcode', 'rgba8', str(f), str(png)],
+                               env=env, capture_output=True)
+            if r.returncode or not png.exists():
+                print(f'unread  {rel}  (ktx extract exit {r.returncode})')
+                continue
+            got = np.asarray(Image.open(png).convert('RGB'), dtype=float)
+            src = np.asarray(sized(d, sid, m, web).convert('RGB'), dtype=float)
+            up, down = corr(got, src), corr(got, src[::-1])
+            first = 'bottom' if down > up else 'top'
+            print(f'{"ok  " if first == rows else "BAD "}    {rel}  {first} row first '
+                  f'(r {up:.3f} as the master, {down:.3f} flipped; wanted {rows})')
+            if first != rows:
+                top.append(rel)
+    if top:
+        sys.exit(f'{len(top)} sheet(s) in the wrong row order — run python3 tools/ktx2_sheets.py')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--check', action='store_true')
     ap.add_argument('--list', action='store_true')
+    ap.add_argument('--rows', action='store_true')
     ap.add_argument('--only', help='convert only the sheets whose directory contains this')
     a = ap.parse_args()
     todo = sheets()
     if a.check:
         return check(todo)
+    if a.rows:
+        return rows_check(todo)
     if a.list:
         for d, sid, m, web, rows in todo:
             print(f'{(d / f"{sid}_{m}.ktx2").relative_to(ROOT)}  <-  {web}  ({rows} row first)')
