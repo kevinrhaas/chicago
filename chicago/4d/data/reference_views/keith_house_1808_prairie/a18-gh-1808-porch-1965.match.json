@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
+  "glb_sha256": "578108e0455746a4e9fb52bd02af4bf5e2cc7d9e3d82fa6300c63629dc10b568",
   "camera_sha256": "1511b9132d93f17646f0cc437e1547f930a1219b6f39534f91eebdcda5507b9e",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -24,7 +24,11 @@
       "status": "not shown"
     },
     {
-      "what": "The volutes' turns, the egg row, the balcony panel's foliage and the pedestals' sunk panels are schematic rather than the photographed carving.",
+      "what": "T-2585: the capitals are square-edged blocks carrying a running zigzag (the 1888 plate's reading; this view shows them plain at its grain), and the balcony's front and return panels carry one continuous running scroll in a sunk field, as this view shows them; the leaves' cut is below its grain.",
+      "status": "fixed"
+    },
+    {
+      "what": "The pedestals' sunk panels are schematic rather than the photographed carving.",
       "status": "open"
     },
     {
