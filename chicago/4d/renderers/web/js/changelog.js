@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 1888, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'The arrival says where you are going, and the year rolls there', kind: 'fix',
+    items: [
+      'A small line over the ticker now reads where you are headed, such as DESTINATION 1904 · PRAIRIE AVE, from the moment the page appears.',
+      '1835 reads RIVER SETTLEMENT and 1812 reads FORT DEARBORN.',
+      'The big ticker is the year you are passing: it starts at today\'s year and rolls down to your destination, and it never climbs back up.',
+      'The old "Destination year" label is gone. It sat over today\'s year, which made the readout look wrong.',
+    ] },
+  { v: 1887, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'Walking up a slope no longer stalls the grass', kind: 'fix',
+    items: [
+      'Climbing or dropping more than 0.6 metres on foot used to make the grass and flowers around you be laid out again all at once, in a single frame.',
+      'On a slowed-down phone profile that frame took about 130 milliseconds on the walk from Lake Street into the block. It now spreads over frames like every other step.',
+      'A sharp turn on the spot can still cause one such frame; that is next.',
+      'Every plant stands exactly where it did before.',
+    ] },
   { v: 1886, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'The jump\'s ring carries through to the arrival', kind: 'feature',
     items: [
       'Jump from the Observatory and the arrival screen opens with the departure\'s dashed ring still widening behind the card, so leaving and landing read as one move.',
