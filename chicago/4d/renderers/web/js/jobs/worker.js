@@ -4,12 +4,13 @@
  */
 import { KERNELS, transferablesOf } from './kernels.js';
 
-self.onmessage = ({ data: { id, kind, payload } }) => {
+self.onmessage = async ({ data: { id, kind, payload } }) => {
   let result;
   try {
     const kernel = KERNELS[kind];
     if (!kernel) throw new Error(`no job named ${kind}`);
-    result = kernel(payload);
+    // A kernel may answer with a promise (inflate-kernel.js, T-2677).
+    result = await kernel(payload);
   } catch (err) {
     self.postMessage({ id, error: String(err?.message ?? err) });
     return;

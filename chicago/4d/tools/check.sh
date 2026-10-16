@@ -3673,6 +3673,14 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# The frontage's timber ships prebuilt (T-2677): publish.sh builds it in Node with the
+# page's own createFrontage and the page uploads it. This refuses a prebuild whose
+# inputs — the records, the heightfield, every module the build loaded — have moved
+# since it was written, or a buffer its index did not hash. check_published.mjs asks
+# the same of the mirror; this is the tool's own --check, run where the mirror is.
+step "the published prebuilt frontage is current against every file it was built from (T-2677)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt
+
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a
 # file the site no longer has. The self-test holds who is in which year's pack,
