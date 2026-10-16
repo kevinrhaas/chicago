@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1894, ts: '2026-10-16T22:31:30.529Z', date: 'Oct 16, 2026, 5:31 PM CT', title: 'The plank walks and fences arrive ready-made', kind: 'improvement',
+    items: [
+      'The town\'s plank walks, crossings, fences, posts and stoops are now built once, when the site is published, and downloaded ready to draw. Your device used to build them itself at every visit.',
+      'On a phone-speed processor that part of opening the town drops from about 3.3 seconds to under one, and the page stops freezing while it happens.',
+      'A first visit downloads about 7 MB more to pay for it. If the ready-made copy is missing or does not match this version of the town, the page builds its own as before.',
+    ] },
   { v: 1893, ts: '2026-10-16T22:26:23.026Z', date: 'Oct 16, 2026, 5:26 PM CT', title: 'Every building is graded by whether a picture of it exists', kind: 'change',
     items: [
       'A building is now Attested when a photograph, print or drawing shows it whole, Inferred when only maps or written records say it stood, and Reconstructed when our reconstruction of the town placed it.',
