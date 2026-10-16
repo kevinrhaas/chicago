@@ -885,6 +885,54 @@ existed, which is the point of taking the measurement first):
 
 Decision log additions (H0's bake-off memo, budget sign-offs) append here.
 
+### H0 — kill criteria, written before the spike (T-2558, 2026-10-16)
+
+The owner opened H0 on 2026-10-16 (T-2558, answer (a): once T-2546's memory meter had
+landed, which it had). These criteria were committed to this section before any spike
+code was written, and the memo below answers them one by one without moving them.
+
+**The scene.** "The Glessner block" is every 1904 structure whose placement lies within
+60 m of `glessner_house`'s: 12 structures, Glessner House at its `light` level as a phone
+boots it. All 12 are meshopt + `KHR_mesh_quantization`; three (Keith, Wheeler, Glessner's
+maps) carry `KHR_texture_basisu`. They stand on the 1904 heightfield (`e1871_postfire`)
+under the NOAA sun at the scene's own 10:30 local mean time on 1904-07-01, read from the
+SAME published GLBs and sidecars walk/ reads.
+
+**Three pages draw that identical block** (`renderers/web-hd/`):
+
+- **HD-GPU** — three's `WebGPURenderer` on a WebGPU adapter, the confidence view as a TSL
+  node composed onto every material;
+- **HD-GL** — the same page and the same code on `WebGPURenderer`'s automatic WebGL2
+  fallback, on a browser that offers no WebGPU adapter (no flag forces it);
+- **CLASSIC** — three's `WebGLRenderer` with walk/'s own `confidence.js` patch: walk/'s
+  engine on the same block. walk/ itself has no block-only mode, and a whole-1904 reading
+  would flatter the spike by everything else the town holds.
+
+Viewports: the phone profile (390×780, ratio 1) and desktop (1280×800).
+
+| # | criterion | bar |
+|---|---|---|
+| K1 | boots | HD-GPU and HD-GL reach ready at both viewports, zero page errors, zero console errors |
+| K2 | assets | every block GLB loads in both HD backends: meshopt, quantized positions and KTX2 (transcoded, not dropped) |
+| K3 | confidence node | captures with the view ON, from the same camera: HD vs CLASSIC mean abs. difference ≤ 6/255 and ≤ 4 % of pixels with a channel off by more than 40/255 |
+| K4 | capture parity | the same test with the view OFF |
+| K5 | memory | phone-profile resident estimate (JS heap after GC + ArrayBuffer backing + GPU buffer bytes + GPU texture bytes, each counted at the API the backend calls) of HD-GPU ≤ CLASSIC's |
+| K6 | moving frame time | p95 of the frame interval over a scripted dolly at the phone profile: ≤ 1.0× CLASSIC is a go, 1.0-1.5× a go with conditions, > 1.5× a no-go |
+| K7 | fallback | HD-GL is K1 on a browser with no WebGPU at all — boots with no code path of its own |
+
+**Decision rule.** GO for H1 if K1-K5 and K7 pass and K6 is under 1.5×. A failure of K1,
+K2 or K3 means the engine cannot carry the data contract, and the recommendation flips to
+Babylon (§3's named fallback). Any other failure is named in the memo with what it costs.
+
+**What H0 does not gate, and why.** §4's H0 also named "TRAA stable under free-camera
+motion". This spike does not vendor three's TSL display addons, and a post chain is a
+second demonstration; TRAA is therefore moved to H1's entry: H1 does not start until a
+TRAA reading under motion is taken. **Frame time on the steward runner is software**
+(SwiftShader rasterises all three pages, measured in T-2592's finding), so K6 is answered
+on that stand-in and re-read on hardware before anything ships. And §4's "delete the spike
+in the same PR" is not followed: the ticket placed the spike in `renderers/web-hd/`, and it
+stays as the instrument that reproduces the memo. It is not published.
+
 ---
 
 ## Appendix A — the current renderer, inventoried
