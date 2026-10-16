@@ -143,6 +143,13 @@ and comparing material tables costs about a second for all 334 assets.
     vertices than their masters, because the palette pass K36(b) turned off was welding
     them as a side effect nobody had measured. Assertion 9 is silent on all 14, and
     correctly so: their master is the right master.
+
+10. **No PNG or JPEG in a web derivative** (absolute, T-2595). A textured derivative
+    ships `KHR_texture_basisu`: a JPEG goes up to the GPU as RGBA8, about 5.6 MB for a
+    1024² sheet with its mips, and a Basis texture stays in a block format at a quarter
+    to an eighth of that. Measured on the 20 textured Prairie houses, which carried 232
+    JPEGs between them until T-2595. The Glessner v4 set is exempt by name
+    (`RASTER_EXEMPT`) until T-2596 re-encodes it.
 """
 
 from __future__ import annotations
@@ -190,6 +197,15 @@ CONTRACT_ATTRIBUTES = ("POSITION", "NORMAL", "_CONFIDENCE")
 # which is the assertion whose absence let a 14-bit ground ship with every gate
 # here green. See the docstring.
 EPOCH_PREFIXES = ("terrain__", "water__")
+
+# Assertion 10 (T-2595). A web derivative ships its images as KTX2 (KHR_texture_basisu),
+# never as PNG or JPEG: a JPEG is decoded to RGBA8 on the GPU, four bytes a texel and a
+# third again for its mips, where a Basis texture stays in a block format at half a byte
+# to a byte. The Glessner v4 set is the one exception, named here rather than by a size
+# rule, and T-2596 is the ticket that re-encodes it and deletes this line.
+RASTER_MIMES = ("image/png", "image/jpeg")
+RASTER_EXEMPT = {"glessner_house__as_built_1887.glb": "T-2596",
+                 "glessner_house__as_built_1887.light.glb": "T-2596"}
 
 # glTF component types that carry a normalised integer, and their divisor.
 NORMALISED = {5120: 127.0, 5121: 255.0, 5122: 32767.0, 5123: 65535.0}
@@ -328,6 +344,13 @@ def materials(doc: dict) -> dict:
     return {"names": names, "colours": colours, "textures": len(doc.get("textures", []))}
 
 
+def raster_images(doc: dict) -> int:
+    """Images a GPU can only take as uncompressed RGBA8: PNG or JPEG, by type or URI."""
+    return sum(1 for im in doc.get("images", [])
+               if im.get("mimeType") in RASTER_MIMES
+               or str(im.get("uri", "")).lower().endswith((".png", ".jpg", ".jpeg")))
+
+
 # ---------------------------------------------------------------- the measurement
 
 def measure() -> dict:
@@ -380,6 +403,7 @@ def measure() -> dict:
             "shipped_materials": len(b.get("materials", [])),
             "textures_master": ma["textures"],
             "textures_shipped": mb["textures"],
+            "raster_images": raster_images(b),
             "bytes": (master_bytes, shipped_bytes),
             "uncompressed_copy": master_files[name].read_bytes()
                                  == shipped_files[name].read_bytes(),
@@ -493,6 +517,17 @@ def assertions(result: dict, baseline: dict) -> list[str]:
                         f"it is compressed now. That is a repair, not a discovery — re-run "
                         f"tools/measure_web_derivatives.py --write-baseline in the commit that "
                         f"made it (K38)")
+
+    # Assertion 10 (T-2595). No PNG or JPEG in a web derivative.
+    for row in result["rows"]:
+        n = row.get("raster_images", 0)
+        if n and row["name"] not in RASTER_EXEMPT:
+            problems.append(
+                f"{row['name']}: the shipped derivative carries {n} PNG/JPEG image(s), which a "
+                f"GPU holds as uncompressed RGBA8. tools/web_derivatives.sh encodes every "
+                f"textured derivative to KTX2 (UASTC for normal, ORM and occlusion, ETC1S for "
+                f"colour) with the pinned ktx it fetches itself; regenerate it with "
+                f"tools/web_derivatives.sh --only {row['name']} (T-2595)")
 
     # Assertion 9 (K39). Staleness answered from CONTENT, in both directions.
     recorded = result.get("record", {})
@@ -690,6 +725,9 @@ def self_test() -> int:
                  lambda r: _rebuild_master(r))
     ok &= mutate("a derivative nothing recorded a master for",
                  lambda r: _forget_master(r))
+    # T-2595: a textured derivative written with its JPEGs still in it.
+    ok &= mutate("a textured derivative shipped its images as JPEG",
+                 lambda r: r["rows"][0].__setitem__("raster_images", 3))
     print("SELF-TEST PASS" if ok else "SELF-TEST FAIL")
     return 0 if ok else 1
 

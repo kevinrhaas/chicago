@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 1875, ts: '2026-10-16T17:01:11.482Z', date: 'Oct 16, 2026, 12:01 PM CT', title: 'The ground is cut up on spare cores while the town loads', kind: 'improvement',
+    items: [
+      'Nothing you can see changed: the ground is the same ground, triangle for triangle.',
+      'The town now keeps a small pool of background workers, and the ground\'s tiles are divided into their 40 m pieces there, all at once, instead of one after another on the thread that draws the frame.',
+      'Where a browser cannot start a worker, or with ?jobs=0 in the address, the same work runs as before.',
+    ] },
+  { v: 1874, ts: '2026-10-16T16:17:09.055Z', date: 'Oct 16, 2026, 11:17 AM CT', title: 'Prairie Avenue\'s photographed houses use far less phone graphics memory', kind: 'improve',
+    items: [
+      'Nothing you can see changed. The twenty textured houses on Prairie Avenue now ship their brick, stone, slate and trim pictures as GPU-compressed textures instead of JPEGs.',
+      'A phone\'s graphics chip keeps them compressed, at roughly a sixth of the memory the JPEGs took once unpacked, which is what was pushing phones over the edge on /1904/.',
+      'Rendered side by side from the same camera, every house matches its old self to within 42-52 dB. The download is larger, about 25 MB more across the twenty houses.',
+    ] },
+  { v: 1873, ts: '2026-10-16T16:03:05.391Z', date: 'Oct 16, 2026, 11:03 AM CT', title: 'Roof shingles and 1904 streets no longer lie upside down', kind: 'fix',
+    items: [
+      'On most devices the shingle and board roofs drew their texture mirrored, with the shadow lines under each course lit from the wrong side. They now sit the way they were drawn, matching the page with compressed textures turned off.',
+      'The same flip is fixed on the 1904 roadways, alleys, walks, curbs and grass plats, and on the wet prairie mud and dune sand along the 1835 shore.',
+      'Measured at a roof close-up, the two ways of drawing it now agree as closely as the walls already did.',
+    ] },
+  { v: 1872, ts: '2026-10-16T15:27:10.592Z', date: 'Oct 16, 2026, 10:27 AM CT', title: 'Signboards and the sand strip load lighter', kind: 'improvement',
+    items: [
+      'Nothing you can see changed. The grain and relief under every hanging signboard are now prepared once, ahead of time, instead of in your browser at every visit: the boards look the same and the walk downloads about 360 KB less to stand in the street.',
+      'The dune sand on the ground-strip proof view now loads as a GPU-compressed texture, as the muck beside it already did.',
+    ] },
+  { v: 1871, ts: '2026-10-16T15:13:07.305Z', date: 'Oct 16, 2026, 10:13 AM CT', title: 'The town still loads every building at once, now measured', kind: 'chore',
+    items: [
+      'Nothing you can see changed. A phone was thought to hold every building\'s file at once while the town loaded, so a cap on how many load together was planned.',
+      'Measured, that is not where the memory goes: on Prairie Avenue 1904 the most ever held is the Glessner house\'s own file, and a cap only adds others beside it.',
+      'So the town loads as it did. The test switch and the meter stay, for the work that shrinks the Glessner file.',
+    ] },
   { v: 1870, ts: '2026-10-16T14:51:45.566Z', date: 'Oct 16, 2026, 9:51 AM CT', title: 'Plank walks and yard goods hold their wood grain compressed', kind: 'improvement',
     items: [
       'Nothing you can see changed: the walks, stoops, posts, casks and crates look as they did, side by side within a level of brightness.',

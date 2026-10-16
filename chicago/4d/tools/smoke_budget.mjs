@@ -274,6 +274,13 @@ const COVERAGE = [
   // --- PART 3: the ground you stand on, and the card that says why
   ['renderers/web/js/ground.js', [3], 'the ground faces the sky (R-BUG3c)'],
   ['renderers/web/js/terrain.js', [3], 'the ground the town stands on'],
+  // T-2599. The job pool and the spatial partition its workers run. Only terrain's
+  // boot ground tiles go through the pool so far, so part 3 is where it is read;
+  // T-2600 moves the other spatialBatch callers and widens this with them.
+  ['renderers/web/js/jobs/', [3], 'the job pool, which partitions the ground tiles off the main thread'],
+  // Every layer that batches through spatial-batch.js: yards (1), streets (2, 7, 8,
+  // 10-12), the ground (3), building cells (8, 9) and the 1904 railway (14).
+  ['renderers/web/js/spatial-batch.js', [1, 2, 3, 7, 8, 9, 10, 11, 12, 14], 'the 40 m ground pieces and building cells every batched layer is cut into'],
   // T-1055. terrain.js's ground tile, lifted into its own module so a tool can
   // measure it without a browser. Same part as the file it was lifted out of.
   ['renderers/web/js/prairie-tile.js', [3], 'the ground tile the prairie is painted from'],

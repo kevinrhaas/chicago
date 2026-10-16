@@ -68,6 +68,7 @@ import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
+import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
 import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
 import { createContext } from './context.js';
@@ -1635,6 +1636,8 @@ async function boot() {
   // each sheet's top mip. `?ktx2=0` keeps every sheet on its image path.
   initKTX2(renderer, { textures: device.choice?.textures, disabled: params.get('ktx2') === '0' });
   api.ktx2 = ktx2State;
+  // T-2599: whether procedural geometry is being built on workers, and how much.
+  api.jobs = jobsState;
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
   // T-2548: a closed building image is gone from the page as a released array is.

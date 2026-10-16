@@ -146,6 +146,11 @@ function nodeTransform(node) {
 }
 
 function imageSize(bytes) {
+  // a KTX2 (T-2595: every textured web derivative): pixelWidth, pixelHeight at 20 and 24
+  if (bytes[0] === 0xab && bytes[1] === 0x4b && bytes[2] === 0x54 && bytes[3] === 0x58) {
+    const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+    return [dv.getUint32(20, true), dv.getUint32(24, true)];
+  }
   if (bytes[0] === 0x89 && bytes[1] === 0x50) {
     const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
     return [dv.getUint32(16), dv.getUint32(20)];
@@ -282,7 +287,8 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
     for (const [m, n] of row.medians) { acc += n; if (acc >= row.triangles / 2) { median = m; break; } }
     // the fabric is the library entry the material's base-colour image is named for
     const info = (json.materials || []).find((m) => m.name === mat)?.pbrMetallicRoughness?.baseColorTexture;
-    const image = info ? json.images?.[json.textures[info.index].source]?.name ?? '' : '';
+    const tex = info ? json.textures[info.index] : null;
+    const image = tex ? json.images?.[tex.source ?? tex.extensions?.KHR_texture_basisu?.source]?.name ?? '' : '';
     const fabric = library.filter((l) => image.startsWith(l.name)).sort((x, y) => y.name.length - x.name.length)[0];
     // TEXCOORD_0 = (metres along, metres up) / (tile u, tile v), so its area density is
     // 1 / sqrt(tile u * tile v) per metre

@@ -6,6 +6,8 @@ Write the runtime library sheets as KTX2 (Basis Universal), next to their source
     python3 tools/ktx2_sheets.py --check    # the gate: every sheet's .ktx2 present, a KTX2,
                                             # its web map's size, a full mip chain; no orphans
     python3 tools/ktx2_sheets.py --list     # what it would write
+    python3 tools/ktx2_sheets.py --rows     # decode each sheet and say which row it starts
+                                            # on (needs `ktx`, so not in check.sh; T-2593)
     python3 tools/ktx2_sheets.py --only walls/   # only the sheets under one directory
 
 WHY (T-2551, split to T-2582): a WebP/PNG/JPEG sheet is decoded on the CPU and uploaded as
@@ -33,8 +35,9 @@ re-encoded. THE DERIVED SHEETS are maps the renderer used to compute from decode
 which a compressed texture cannot feed, so the KTX2 is the derived map itself, computed
 here from the masters by the same recipe as the page's packer. T-2583 owns them, in
 pieces: the wall relief's `orl` and its normal are T-2588 (`wall_sheets` below); the
-frontage timber is T-2589 (`frontage_sheets` below); the signboard grain (T-2590) is
-still canvas-packed.
+frontage timber is T-2589 (`frontage_sheets` below); the signboard grain (T-2590) is a
+derived WebP tile written by `tools/web_textures.py`, since signage paints it into an atlas
+canvas and never uploads it.
 
 ROWS (T-2588). three uploads a KTX2 with its first row at v = 0, and it cannot flip a
 compressed texture; an image texture goes up `flipY`, its top row at v = 1. So a KTX2
@@ -42,12 +45,22 @@ written straight from a PNG is the image mirrored along v — measured in Chromi
 two-band test sheet, the band at the top of the PNG came back at the bottom. The derived
 wall sheets are therefore written BOTTOM ROW FIRST (`rows='bottom'`), which puts every
 texel where the flipY'd WebP beside it puts it, as `relief-pack.js` does for the
-DataTexture it replaces. The drop-ins are still written top first, as T-2582 shipped them;
-that is the mirror T-2591 is filed to correct.
+DataTexture it replaces. Since T-2593 EVERY sheet is written bottom row first, the
+drop-ins included: T-2582 shipped them top first, so on the KTX2 path the roofs' shingle
+relief, the 1904 streets and the shore's muck and sand lay mirrored along v against their WebPs (the roof
+band read 29-30 dB between `?ktx2=0` and KTX2 where the walls read 50-51), and a mirrored
+`normal_gl` is lit from the wrong side along v as well.
 
 A DERIVED SHEET CARRIES A STATEMENT (`<id>_orl.json`): the mean roughness the shader
 divides by, which the page used to sum from the pixels it no longer reads, and the sha256
 of each master it was packed from, so `--check` refuses a sheet whose master moved.
+
+WHAT A RENDERER READ FROM PIXELS IS DERIVED HERE (T-2590). The ground strip's sand used
+to stay an image because `ground-strip.js` drew it into a canvas for one number, its mean
+linear Rec. 709 luminance, which normalises the sand's grain in the shader. That number
+is now written beside the sheet as `<id>_basecolor.luma.json` (LUMA below), from the
+lossless master, and the sheet ships as KTX2 like the muck. `--check` recomputes it and
+refuses a sidecar that has drifted from its master, so the two cannot disagree silently.
 
 THE FRONTAGE TIMBER (T-2589). `frontage.js` binds the board face's `normal_gl` and `orm`
 and a GRAIN map: each texel's linear luminance over the basecolor's mean, pulled toward 1
@@ -135,7 +148,8 @@ def frontage_sheets():
 
 def sheets():
     """(directory, id, map, web file, rows) for every sheet the renderer loads by URL."""
-    return [(*t, 'top') for t in drop_in_sheets()] + wall_sheets() + frontage_sheets()
+    # Bottom row first, like every derived sheet: see ROWS in the header (T-2593).
+    return [(*t, 'bottom') for t in drop_in_sheets()] + wall_sheets() + frontage_sheets()
 
 
 def drop_in_sheets():
@@ -146,9 +160,9 @@ def drop_in_sheets():
         sid = d.split('/')[-1]
         for m in ('normal_gl', 'orm'):
             out.append((ASSETS / 'chicago_1835_pbr' / d, sid, m, f'{sid}_{m}.webp'))
-    # ground-strip.js SUBSTRATES: basecolour only, and the muck only — the sand's pixels
-    # are read on the CPU for its mean luma, so it is T-2583's.
-    for sid in ('wet_prairie_muck',):
+    # ground-strip.js SUBSTRATES: basecolour only. The sand's mean luma, which the strip
+    # once read from its pixels, comes from its LUMA sidecar (T-2590).
+    for sid in ('wet_prairie_muck', 'lake_michigan_dune_sand'):
         out.append((ASSETS / 'chicago_1835_pbr' / 'ground' / sid, sid, 'basecolor', f'{sid}_basecolor.png'))
     # street-grid.js: every material any street_surfaces file names, its `web` maps.
     seen = set()
@@ -162,6 +176,40 @@ def drop_in_sheets():
             for k in ('basecolor', 'normal_gl', 'orm'):
                 out.append((d, sheet['id'], k, sheet['web'][k]))
     return out
+
+
+# The sheets whose mean linear luma a renderer needs and can no longer read from a
+# compressed texture: ground-strip.js's sand (`uSandLuma`, T-2590).
+LUMA = (ASSETS / 'chicago_1835_pbr' / 'ground' / 'lake_michigan_dune_sand', 'lake_michigan_dune_sand')
+
+
+def srgb_to_linear(u8: int) -> float:
+    v = u8 / 255
+    return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+
+
+def mean_linear_luma(png: Path) -> float:
+    """Mean linear Rec. 709 luminance over every texel of the master, exactly: the mean is
+    linear in each channel, so it is read from the channel histograms, with no sampling."""
+    im = Image.open(png).convert('RGB')
+    n = im.size[0] * im.size[1]
+    lut = [srgb_to_linear(v) for v in range(256)]
+    hist = im.histogram()
+    return sum(w * sum(c * lut[v] for v, c in enumerate(hist[256 * k:256 * (k + 1)]))
+               for k, w in enumerate((0.2126, 0.7152, 0.0722))) / n
+
+
+def luma_sidecar(d: Path, sid: str):
+    return d / f'{sid}_basecolor.luma.json'
+
+
+def luma_record(d: Path, sid: str) -> dict:
+    src = d / f'{sid}_basecolor.png'
+    return {'mean_linear_luma': round(mean_linear_luma(src), 6),
+            'from': src.name,
+            'method': 'mean linear Rec. 709 luminance over every texel of the lossless master '
+                      '(tools/ktx2_sheets.py, T-2590); ground-strip.js divides the sand\'s sampled '
+                      'luma by it to normalise the grain'}
 
 
 def ktx_binary():
@@ -330,8 +378,17 @@ def check(todo):
         # ktx2.js drops the top level on the light tier, which needs one beneath it.
         if levels != max(w, h).bit_length():
             bad.append(f'{rel}: {levels} mip level(s), wanted the full chain of {max(w, h).bit_length()}')
-    # An orphan ships a file nothing loads (the sand basecolor, whose pixels are read on
-    # the CPU, must not grow one until T-2583 derives what is read from it).
+    # The derived luma, recomputed from its master: a sidecar that drifted would mis-scale
+    # the sand's grain with nothing to show for it.
+    d, sid = LUMA
+    side = luma_sidecar(d, sid)
+    if not side.exists():
+        bad.append(f'{side.relative_to(ROOT)}: missing — run python3 tools/ktx2_sheets.py')
+    else:
+        got, want_v = json.loads(side.read_text()).get('mean_linear_luma'), luma_record(d, sid)['mean_linear_luma']
+        if got != want_v:
+            bad.append(f'{side.relative_to(ROOT)}: mean_linear_luma {got}, but its master reads {want_v}')
+    # An orphan ships a file nothing loads.
     for f in sorted(ASSETS.rglob('*.ktx2')):
         if f not in want:
             bad.append(f'{f.relative_to(ROOT)}: no sheet in tools/ktx2_sheets.py names it')
@@ -339,21 +396,69 @@ def check(todo):
         print(f'BAD: {b}')
     if bad:
         sys.exit(1)
-    print(f'ok   {len(want)} KTX2 sheet(s): present, their web map\'s size, full mip chains, no orphans')
+    print(f'ok   {len(want)} KTX2 sheet(s): present, their web map\'s size, full mip chains, no orphans;'
+          f' {sid} luma sidecar matches its master')
+
+
+def rows_check(todo):
+    """Decode each sheet's top level and say which way up it is, against its master.
+
+    The ROWS rule above cannot be read from a header, so this reads the texels: the
+    decoded level against the sized master, and against the master flipped, and calls
+    the sheet by the larger correlation. A re-encode drops nothing a tile's own
+    symmetry cannot hide, so it is a reading, never a proof; it failed every drop-in
+    T-2582 wrote and passes every sheet written since T-2593. A derived map (`orl`,
+    `grain`) has no master image to read against, and `ktx extract` 4.3.2 refuses
+    some ETC1S files outright; both are printed as unread, never as passed."""
+    import numpy as np
+    exe, env = ktx_binary()
+
+    def corr(a, b):
+        a, b = a - a.mean(), b - b.mean()
+        return float((a * b).sum() / max(np.sqrt((a * a).sum() * (b * b).sum()), 1e-12))
+
+    top = []
+    with tempfile.TemporaryDirectory() as t:
+        for d, sid, m, web, rows in todo:
+            f = d / f'{sid}_{m}.ktx2'
+            rel = f.relative_to(ROOT)
+            if m in ('orl', 'grain'):
+                print(f'unread  {rel}  (derived; no master image to read against)')
+                continue
+            png = Path(t) / f'{sid}_{m}.png'
+            r = subprocess.run([exe, 'extract', '--level', '0', '--transcode', 'rgba8', str(f), str(png)],
+                               env=env, capture_output=True)
+            if r.returncode or not png.exists():
+                print(f'unread  {rel}  (ktx extract exit {r.returncode})')
+                continue
+            got = np.asarray(Image.open(png).convert('RGB'), dtype=float)
+            src = np.asarray(sized(d, sid, m, web).convert('RGB'), dtype=float)
+            up, down = corr(got, src), corr(got, src[::-1])
+            first = 'bottom' if down > up else 'top'
+            print(f'{"ok  " if first == rows else "BAD "}    {rel}  {first} row first '
+                  f'(r {up:.3f} as the master, {down:.3f} flipped; wanted {rows})')
+            if first != rows:
+                top.append(rel)
+    if top:
+        sys.exit(f'{len(top)} sheet(s) in the wrong row order — run python3 tools/ktx2_sheets.py')
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--check', action='store_true')
     ap.add_argument('--list', action='store_true')
+    ap.add_argument('--rows', action='store_true')
     ap.add_argument('--only', help='convert only the sheets whose directory contains this')
     a = ap.parse_args()
     todo = sheets()
     if a.check:
         return check(todo)
+    if a.rows:
+        return rows_check(todo)
     if a.list:
         for d, sid, m, web, rows in todo:
             print(f'{(d / f"{sid}_{m}.ktx2").relative_to(ROOT)}  <-  {web}  ({rows} row first)')
+        print(f'{luma_sidecar(*LUMA).relative_to(ROOT)}  <-  {LUMA[1]}_basecolor.png (mean linear luma)')
         return
     exe, env = ktx_binary()
     with tempfile.TemporaryDirectory() as t:
@@ -363,6 +468,10 @@ def main():
             out = convert(exe, env, d, sid, m, web, rows, Path(t))
             w = (d / web).stat().st_size
             print(f'{str(out.relative_to(ROOT)):88s} {out.stat().st_size:>8,d} B  (web {w:,d} B)')
+    side = luma_sidecar(*LUMA)
+    rec = luma_record(*LUMA)
+    side.write_text(json.dumps(rec, indent=2) + '\n')
+    print(f'{str(side.relative_to(ROOT)):88s} mean linear luma {rec["mean_linear_luma"]}')
 
 
 if __name__ == '__main__':

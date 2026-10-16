@@ -10,12 +10,15 @@
  * the material in one multi-draw, as buildings.js already does for roofs.
  */
 import * as THREE from 'three';
+import { partitionTriangles } from './jobs/spatial-kernel.js';
+import { jobsOnWorkers, runJob } from './jobs/pool.js';
 
 const CELL_M = 40;
 
-// Buildings can use tighter 3D cells inside their existing material batches.
-// Partition whole triangles, preserving their exact attributes and winding.
-export function spatialPieces(geometry, { cellM = CELL_M, heightM = Infinity } = {}) {
+// The partition itself is jobs/spatial-kernel.js, a pure typed-array kernel the
+// main thread and the job pool's workers share (T-2599). This side validates the
+// geometry, hands the kernel its arrays and wraps the arrays it returns.
+function partitionJob(geometry, { cellM = CELL_M, heightM = Infinity } = {}) {
   if (!(cellM > 0 && Number.isFinite(cellM)) || !(heightM > 0)) {
     throw new Error('spatialPieces requires positive cell dimensions');
   }
@@ -33,40 +36,59 @@ export function spatialPieces(geometry, { cellM = CELL_M, heightM = Infinity } =
     // `userData.rereadBeforeRelease` where it is built (T-2180).
     throw new Error('spatialBatch needs page arrays a phone has already released');
   }
-  const chunks = new Map();
-  for (let i = 0; i < count; i += 3) {
-    const ids = [0, 1, 2].map((j) => index ? index.getX(i + j) : i + j);
-    const x = ids.reduce((sum, j) => sum + position.getX(j), 0) / 3;
-    const z = ids.reduce((sum, j) => sum + position.getZ(j), 0) / 3;
-    const y = ids.reduce((sum, j) => sum + position.getY(j), 0) / 3;
-    const key = `${Math.floor(x / cellM)}:${Math.floor(z / cellM)}:${Math.floor(y / heightM)}`;
-    let chunk = chunks.get(key);
-    if (!chunk) { chunk = []; chunks.set(key, chunk); }
-    chunk.push(...ids);
-  }
-  const pieces = [];
-  for (const ids of chunks.values()) {
-    const unique = index ? [...new Set(ids)] : ids;
-    const piece = new THREE.BufferGeometry();
-    for (const [name, source] of Object.entries(geometry.attributes)) {
-      const data = new source.array.constructor(unique.length * source.itemSize);
-      for (let i = 0; i < unique.length; i++) {
-        const from = unique[i] * source.itemSize;
-        data.set(source.array.subarray(from, from + source.itemSize), i * source.itemSize);
-      }
-      piece.setAttribute(name, new THREE.BufferAttribute(data, source.itemSize, source.normalized));
-    }
-    if (index) {
-      const local = new Map(unique.map((id, i) => [id, i]));
-      piece.setIndex(ids.map((id) => local.get(id)));
-    }
-    pieces.push(piece);
-  }
-  return pieces;
+  const entries = Object.entries(geometry.attributes);
+  return {
+    entries,
+    job: {
+      attributes: entries.map(([name, a]) => ({ name, array: a.array, itemSize: a.itemSize })),
+      positionAt: entries.findIndex(([name]) => name === 'position'),
+      positionNormalized: position.normalized,
+      index: index ? index.array : null,
+      count, cellM, heightM,
+    },
+  };
 }
 
-export function spatialBatch(geometry, material) {
-  const pieces = spatialPieces(geometry);
+function piecesOf(entries, { pieces }) {
+  return pieces.map(({ arrays, index }) => {
+    const piece = new THREE.BufferGeometry();
+    entries.forEach(([name, source], i) => {
+      piece.setAttribute(name, new THREE.BufferAttribute(arrays[i], source.itemSize, source.normalized));
+    });
+    if (index) piece.setIndex(new THREE.BufferAttribute(index, 1));
+    return piece;
+  });
+}
+
+// Buildings can use tighter 3D cells inside their existing material batches.
+// Partition whole triangles, preserving their exact attributes and winding.
+export function spatialPieces(geometry, cells = {}) {
+  const { entries, job } = partitionJob(geometry, cells);
+  return piecesOf(entries, partitionTriangles(job));
+}
+
+/**
+ * `spatialPieces` on the job pool: the same pieces, partitioned off the main thread
+ * where the page has workers. The inputs go over as COPIES (a geometry here may be
+ * a view on a buffer another geometry shares) and the pieces come back by transfer.
+ * A worker that fails costs this call nothing but time: it partitions here instead.
+ */
+export async function spatialPiecesAsync(geometry, cells = {}) {
+  const { entries, job } = partitionJob(geometry, cells);
+  if (!jobsOnWorkers()) return piecesOf(entries, await runJob('partitionTriangles', job));
+  const transfer = [];
+  const own = (array) => { const copy = array.slice(); transfer.push(copy.buffer); return copy; };
+  const sent = { ...job,
+    attributes: job.attributes.map((a) => ({ ...a, array: own(a.array) })),
+    index: job.index && own(job.index) };
+  try {
+    return piecesOf(entries, await runJob('partitionTriangles', sent, { transfer }));
+  } catch {
+    return piecesOf(entries, partitionTriangles(job));
+  }
+}
+
+function batchOf(geometry, pieces, material) {
   const index = geometry.getIndex();
   const count = index ? index.count : geometry.getAttribute('position').count;
   const vertices = pieces.reduce((sum, p) => sum + p.getAttribute('position').count, 0);
@@ -79,4 +101,13 @@ export function spatialBatch(geometry, material) {
   batch.computeBoundingSphere();
   batch.userData.spatialBatch = { cellM: CELL_M, pieces: pieces.length, triangles: count / 3 };
   return batch;
+}
+
+export function spatialBatch(geometry, material) {
+  return batchOf(geometry, spatialPieces(geometry), material);
+}
+
+/** `spatialBatch` with its partition on the job pool; the same batch, resolved. */
+export async function spatialBatchAsync(geometry, material) {
+  return batchOf(geometry, await spatialPiecesAsync(geometry), material);
 }
