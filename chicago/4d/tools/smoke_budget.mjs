@@ -186,6 +186,14 @@ const COVERAGE = [
   // exemplar, and moves this row to the parts that draw it then); publish.sh ships none
   // of it. tools/k02_stone_study.mjs captures it at both viewports on its own page.
   ['assets/textures/prairie_1904_stone/', NONE, 'K02 stone library, bound by no scene yet: k02_stone_study.mjs'],
+  // T-2635: the building summary records and their schema. No module fetches the compiled
+  // data/inspect/ yet (T-2638's Inspect app will, and moves these rows to the part that
+  // draws it then); tools/compile_summaries.py --check and --self-test hold them in check.sh.
+  ['data/summaries/', NONE, 'building summary records, read by no scene yet: compile_summaries.py'],
+  ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // Which files git tracks. What publish.sh writes into the untracked mirror is held by
+  // check_published.mjs in check.sh, not by the renderer.
+  ['.gitignore', NONE, 'which files git tracks — the mirror is held by check_published.mjs'],
   // The licence register is prose a gate reads (validate.py); no module fetches it.
   ['assets/LICENSES.md', NONE, 'the licence register: validate.py, not the renderer'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
