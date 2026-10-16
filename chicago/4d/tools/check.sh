@@ -67,7 +67,7 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
 
-step "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
+selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
 
 step "The working bank never hides the timber standing on it (T-2098)" \
