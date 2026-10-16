@@ -16,9 +16,10 @@
  *
  * How each level renders when the view is on:
  *
- *   documented   unchanged
- *   inferred     lerped toward amber
- *   inferred     screen-door dithered translucent massing — an ordered 4x4
+ *   attested       lerped toward gold
+ *   inferred       lerped toward silver
+ *   reconstructed  lerped toward bronze, and screen-door dithered translucent
+ *                massing — an ordered 4x4
  *                Bayer threshold against gl_FragCoord with a `discard`, IN THE
  *                OPAQUE PASS. No blending, no depth sorting, no per-object
  *                render order. That is what lets it work inside one BatchedMesh,
@@ -27,6 +28,50 @@
  */
 
 import * as THREE from 'three';
+
+/**
+ * THE GRADE COLOURS (T-2671) — the one definition every place a grade shows reads.
+ * Owner, 2026-10-16: "gold silver bronze and bronze is obviously browner than gold.
+ * Gold being attested of course."
+ *
+ *   scene  the Confidence view's tint on the world, which is always daylight, so it
+ *          has one value in either theme. A 0x hex, read once into a THREE.Color.
+ *   dark / light  the interface's two themes. `fill` is a dot, a swatch, a bar or a
+ *          border and holds 3:1 on every machine's panel; `ink` is grade TEXT and
+ *          holds 4.5:1 there and on a chip's 12% wash of its fill.
+ *
+ * css/walk.css carries the interface pairs as `--grade-<level>` / `--grade-<level>-ink`
+ * (:root dark, [data-theme="light"] light), because a stylesheet cannot import a
+ * module; tools/check_grade_colors.mjs refuses the two drifting apart, re-measures
+ * every contrast against all four machines' panels in both themes, and holds the
+ * three distinct under simulated deuteranopia, protanopia and tritanopia. Bronze is
+ * kept apart from gold in hue AND a clear step down in lightness: it is the lightness
+ * step that still separates them once a colour-vision deficiency has taken the hue.
+ */
+export const GRADE_COLORS = Object.freeze({
+  attested: Object.freeze({
+    scene: 0xd4af37,
+    dark: Object.freeze({ fill: '#d4ae38', ink: '#e2c25a' }),
+    light: Object.freeze({ fill: '#a07c10', ink: '#775a08' }),
+  }),
+  inferred: Object.freeze({
+    scene: 0xb8c0c8,
+    dark: Object.freeze({ fill: '#c9d0d8', ink: '#d3d9e0' }),
+    light: Object.freeze({ fill: '#737d88', ink: '#4e5761' }),
+  }),
+  reconstructed: Object.freeze({
+    scene: 0x8c5a2b,
+    dark: Object.freeze({ fill: '#a86a3a', ink: '#d29262' }),
+    light: Object.freeze({ fill: '#8a5228', ink: '#633819' }),
+  }),
+});
+
+/**
+ * How far BY GRADE pulls each level's surface toward its colour (0 untouched, 1 the
+ * flat colour). Attested is pulled least, so the house a source describes still reads
+ * as its own stone and brick under the gold; reconstructed most, under its dither.
+ */
+export const GRADE_TINT_STRENGTH = Object.freeze({ attested: 0.5, inferred: 0.72, reconstructed: 0.8 });
 
 export const LEVELS = {
   attested: 0.0,
@@ -93,8 +138,12 @@ uniform float uReconAlpha;
 // One component per level — x attested, y inferred, z reconstructed — 1.0 to
 // hide. See setHidden() for why hiding is independent of the colour mode.
 uniform vec3 uHideLevel;
-uniform vec3 uInferredTint;
-uniform vec3 uReconTint;
+// The grade colours, one uniform per level (GRADE_COLORS.*.scene), and how far each
+// is mixed in — x attested, y inferred, z reconstructed, as uHideLevel.
+uniform vec3 uTintAttested;
+uniform vec3 uTintInferred;
+uniform vec3 uTintReconstructed;
+uniform vec3 uTintStrength;
 
 // Ordered 4x4 Bayer matrix. Screen-door translucency: a stable per-pixel
 // threshold means no sorting, no blending, and no order dependence between the
@@ -115,6 +164,7 @@ float chicago_bayer4(vec2 fragXY) {
 
 // Crisp bands, because the contract's values are exactly 0.0 / 0.5 / 1.0 — but
 // they degrade sanely if a generator ever emits something in between.
+float chicago_wAttested(float c) { return 1.0 - clamp(c * 4.0, 0.0, 1.0); }
 float chicago_wInferred(float c)  { return 1.0 - min(abs(c - 0.5) * 4.0, 1.0); }
 float chicago_wRecon(float c) { return clamp((c - 0.75) * 4.0, 0.0, 1.0); }
 `;
@@ -126,7 +176,7 @@ const FRAGMENT_DISCARD = /* glsl */`
   // questions, and the second is the more searching one: it answers "show me
   // only the Chicago somebody actually wrote down", which is this dataset's
   // strongest claim about itself. Tying it to the colour mode would mean you
-  // could only ask it while the whole town was amber and dithered, and the
+  // could only ask it while the whole town was tinted and dithered, and the
   // answer is far more legible in ordinary daylight.
   //
   // Banded from the same thresholds as levelOf() so the shader and the labels
@@ -165,10 +215,12 @@ const FRAGMENT_TINT = /* glsl */`
   // Same guard as the discard: when the view is off, diffuseColor is not touched
   // by a single instruction. See VERTEX_ASSIGN for why that is load-bearing.
   if (uConfMode > 0.0) {
-    float wDer = chicago_wInferred(vConfidence) * uConfMode;
-    float wInf = chicago_wRecon(vConfidence) * uConfMode;
-    diffuseColor.rgb = mix(diffuseColor.rgb, uInferredTint, wDer * 0.72);
-    diffuseColor.rgb = mix(diffuseColor.rgb, uReconTint, wInf * 0.80);
+    float wAtt = chicago_wAttested(vConfidence) * uConfMode;
+    float wInf = chicago_wInferred(vConfidence) * uConfMode;
+    float wRec = chicago_wRecon(vConfidence) * uConfMode;
+    diffuseColor.rgb = mix(diffuseColor.rgb, uTintAttested, wAtt * uTintStrength.x);
+    diffuseColor.rgb = mix(diffuseColor.rgb, uTintInferred, wInf * uTintStrength.y);
+    diffuseColor.rgb = mix(diffuseColor.rgb, uTintReconstructed, wRec * uTintStrength.z);
   }
 `;
 
@@ -191,13 +243,15 @@ export function programKeyOf(material) {
  * a single assignment no matter how many materials exist.
  */
 export function createConfidenceView({
-  derived = 0xe2a63f,
-  inferred = 0x93a6bb,
-  inferredAlpha = 0.34,
+  colors = {},
+  strength = {},
+  reconstructedAlpha = 0.34,
 } = {}) {
+  const sceneHex = (level) => colors[level] ?? GRADE_COLORS[level].scene;
+  const mixOf = (level) => strength[level] ?? GRADE_TINT_STRENGTH[level];
   const uniforms = {
     uConfMode: { value: 0 },
-    uReconAlpha: { value: inferredAlpha },
+    uReconAlpha: { value: reconstructedAlpha },
     uHideLevel: { value: new THREE.Vector3(0, 0, 0) },
     // ONE conversion, not two — and here it matters more than anywhere else in
     // the renderer, because these two colours are the confidence view itself.
@@ -207,18 +261,20 @@ export function createConfidenceView({
     // default since three r152). The `.convertSRGBToLinear()` that used to
     // follow applied the transfer function a second time, and the error is not
     // a uniform darkening: squaring the transfer scales the three channels by
-    // DIFFERENT factors, so 0x93a6bb reached the shader at 0.237 / 0.315 /
+    // DIFFERENT factors, so the old 0x93a6bb reached the shader at 0.237 / 0.315 /
     // 0.425 of its intended radiance — a quarter as bright in red, nearly half
     // in blue. The tint was both far too dark and visibly skewed toward blue.
     //
-    // What makes that a provenance bug rather than a cosmetic one: `reconstructed`
-    // is the SAME hex as `--inf` in css/walk.css, which paints the legend
-    // swatch (`.sw-rec`) and the three-part gradient in the confidence key. The
-    // tint on the wall is supposed to be the colour of the chip the visitor is
-    // reading it against. Double-converted, it could not be, so the one view
-    // that exists to say which parts we made up disagreed with its own legend.
-    uInferredTint: { value: new THREE.Color(derived) },
-    uReconTint: { value: new THREE.Color(inferred) },
+    // What makes that a provenance bug rather than a cosmetic one: the tint on
+    // the wall is supposed to be the colour of the legend swatch (`.sw-*`) and
+    // the HUD chip's three-part dot the visitor is reading it against — both
+    // painted from the same GRADE_COLORS, by way of walk.css's --grade-* tokens.
+    // Double-converted, it could not be, so the one view that exists to say
+    // which parts we made up disagreed with its own legend.
+    uTintAttested: { value: new THREE.Color(sceneHex('attested')) },
+    uTintInferred: { value: new THREE.Color(sceneHex('inferred')) },
+    uTintReconstructed: { value: new THREE.Color(sceneHex('reconstructed')) },
+    uTintStrength: { value: new THREE.Vector3(mixOf('attested'), mixOf('inferred'), mixOf('reconstructed')) },
   };
 
   const patched = new WeakSet();
@@ -349,7 +405,7 @@ export function createConfidenceView({
      * show — which is exactly why it should be one click away.
      *
      * It works with the colour mode off, on purpose: the answer reads far better
-     * in ordinary daylight than through an amber filter.
+     * in ordinary daylight than through the grade tint.
      */
     setHidden(level, on) {
       if (!(level in hidden)) return null;
