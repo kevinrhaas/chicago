@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1890, ts: '2026-10-16T21:52:42.846Z', date: 'Oct 16, 2026, 4:52 PM CT', title: 'Keith\'s rooftop lattice sits down on its moulded course', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the pierced lattice, its coping and the corner pinnacles now stand 0.2 m lower, seated on the moulded course just above the carved boss.',
+      'Before, a deep plain box stood between the course and the lattice. Three photographs read through their own cameras show the lattice sitting almost directly on the course.',
+      'The checker band, the boss and everything below them are where they were.',
+      'The north-east corner pier was checked against the photograph beside Glessner. It already stands as the picture shows it, so it is unchanged.',
+    ] },
+  { v: 1889, ts: '2026-10-16T21:44:03.470Z', date: 'Oct 16, 2026, 4:44 PM CT', title: 'A checked format for each building\'s front-page summary', kind: 'chore',
+    items: [
+      'Nothing you can see changes yet. This lays the ground for the new building dossier, which will open on a short written summary of each notable house.',
+      'Each summary will be written by hand, and every fact on it will carry its grade: Attested, Inferred or Reconstructed.',
+      'Before a summary can reach you, a check refuses any fact with no grade, any Attested fact with no source, any line that runs too long, and any internal label left in the words.',
+    ] },
   { v: 1888, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'The arrival says where you are going, and the year rolls there', kind: 'fix',
     items: [
       'A small line over the ticker now reads where you are headed, such as DESTINATION 1904 · PRAIRIE AVE, from the moment the page appears.',

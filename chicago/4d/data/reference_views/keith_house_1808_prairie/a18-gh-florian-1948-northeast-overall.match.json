@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-florian-1948-northeast-overall",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
-  "camera_sha256": "bc94b1f203059d99e619a27b5b09d8bcdec0ee3b81f041873fbc3052b155b143",
+  "glb_sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
+  "camera_sha256": "8f47b3a1f6768f52ee223bc5907e0249e56f50abe75f7b1297182e363dde1503",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-florian-1948-northeast-overall-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -50,6 +50,10 @@
     {
       "what": "T-2679: the units read bulkier here, filling more of each row with less ground between the points; their section is below the picture's grain and is drawn, not read.",
       "status": "open"
+    },
+    {
+      "what": "T-2680: the lattice and coping stood high over the moulded course. With the third-storey light in register, the lower row read at 15.48-15.74 m against the photograph's 15.25-15.53 m and the upper row 0.2 m high likewise, with the moulded course standing as a deep stack between the lattice and the boss. The crown is now 0.2 m lower, and the course stays level with the boss as it is here. The rows read within 3-5 px (about 0.1 m, near this camera's 2.7 px RMS), and the coping, band and head band within a few pixels.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
