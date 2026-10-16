@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
+  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
   "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2565: one carved capital spans each pair of columns, rolled into a volute at each end; the balcony has a level coping between square dies, the flight-side die carrying the stepped stone finial; a deep three-step cornice carries it; and both stair cheeks end in a rolled foot, as this plate shows.",
+      "what": "T-2565: one carved capital spans each pair of columns; the balcony has a level coping between square dies, the flight-side die carrying the stepped stone finial; a deep three-step cornice carries it; and both stair cheeks end in a rolled foot, as this plate shows.",
       "status": "fixed"
     },
     {
@@ -24,7 +24,11 @@
       "status": "fixed"
     },
     {
-      "what": "The volutes' turns, the egg row and the panels' foliage are drawn to the plate's shadows rather than read; the bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
+      "what": "T-2585: read at the plate's native 1559 px, each paired capital is a square-edged block with no volutes and no egg row: its face carries a running zigzag of six strokes between plain end blocks under a thin abacus (T-2565 had read the zigzag's dark triangles as an egg row and the plain end blocks as volutes). The balcony's panel carries one continuous running scroll of foliage over a plain base strip, and its die a plain sunk panel in a raised border. The scroll's leaves and each curl's turns are below the plate's grain.",
+      "status": "fixed"
+    },
+    {
+      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
       "status": "open"
     },
     {

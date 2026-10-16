@@ -28161,6 +28161,18 @@ pitch, the finial's step sizes, the cornice's fillets and the roll's 0.2 m radiu
 drawn to the pictures' shadows below their grain; the panels' foliage stays the low
 relief scrolls T-1883 laid. The principal-storey lights and the basement lights keep
 their T-1883 heights: the plate's reading of them sits inside the camera fit's error.
+**T-2585 (2026-10-16), the loggia carving read:** what is read now, from the 1888 plate at
+its native 1559 px (both capitals at x 860-945 and 1100-1165, y 1385-1405; the balcony at
+x 930-1150, y 1260-1330) and the 1965 close view: each paired capital is a square-edged
+block about 0.2 m deep on the 0.89 m pair, with NO volutes and no egg row, its face
+carrying a running zigzag of six strokes between a plain block at each end, the triangles
+between the strokes sunk, under a thin abacus. T-2565 read the zigzag's dark triangles as
+an egg row and the plain end blocks as volutes; both are gone. The balcony's panel carries
+one continuous running scroll of foliage over a plain base strip about a third of the
+panel, and its dies plain sunk panels in a raised border. What is still invented: the
+zigzag's 22 mm sink and the strap's width, every leaf's cut, each curl's two and a half
+turns and the scroll's 0.3 m pitch (the 1965 view counts about four loops along the
+front), all below both pictures' grain; the pedestals' panels keep T-1883's low relief.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
