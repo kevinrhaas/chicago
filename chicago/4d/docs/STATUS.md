@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2588 — the wall relief ships GPU-compressed (2026-10-16)
 
 Piece 1 of T-2583. The clapboard and hewn-log walls' relief pair (the normal, and the `orl` the
@@ -18,7 +17,7 @@ acceptance). **Found, and filed as T-2593:** a KTX2 written top row first, as T-
 roofs, the 1904 streets and the muck, is the image mirrored along v in three. A two-band test
 sheet proved it, and the roof band reads 29-30 dB against its WebP where the walls, written
 bottom row first, read 50-51.
-=======
+
 ## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
 
 Piece 1 of T-2580 (which was split into this, T-2585 for the loggia's carving and T-2586 for
@@ -36,7 +35,6 @@ and K01-params code, re-emit byte-identical. The `inland-1888` and `a18-gh-1808-
 side-by-sides were re-rendered and their match records carry the bow's coursing as `fixed`; the
 other 14 views still name the previous GLB, so T-2586 re-renders them before it can close (the
 image gate refuses a match taken on another GLB).
->>>>>>> origin/dev
 
 ## T-2578 — Keith house's cowl ventilator, and the parapet behind the rear pinnacle ruled (2026-10-16)
 
