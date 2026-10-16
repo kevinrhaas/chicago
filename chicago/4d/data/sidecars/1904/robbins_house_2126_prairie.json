@@ -100,23 +100,10 @@
             "rect": [
               -10.25,
               2.25,
-              -2.0,
+              0.0,
               9.75
             ],
             "from": "s35fp-2126-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
-          },
-          {
-            "id": "r3",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              -2.0,
-              3.75,
-              0.0,
-              9.5
-            ],
-            "from": "s35fp-2126-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 84% of its fill"
           }
         ],
         "lot_v": [
@@ -129,7 +116,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2126-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2126-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s35fp-2126-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2126-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2126-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {

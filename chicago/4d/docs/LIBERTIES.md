@@ -24082,6 +24082,19 @@ share one. A wall within 0.9 m of a lot line is left blind as a party wall.
 1911 sheet carried to 1904 on T-1841's ruling), never the parcel; the full storeys are the sheet's
 printed notation (attested); the fabric is the sheet's colour as the register reads it. No source
 is claimed for any form, and no house's draft copies another's.
+**Swept by T-2690 (2026-10-16), for every block drafted under these rules:** the owner, looking
+at 1729 from 18th Street, found houses flanked by "several tall towers". They were the fit's own
+leftovers, built full height: strips under 2.5 m thick that a slightly skewed outline
+leaves along a part's sides, a portico or bay standing clear of the street wall, and street
+bodies three or four metres wide. So, still with no source claimed: a strip under 2.5 m is
+folded into the rectangle it lies against when the box over both is at least 85 % inside the
+traced fill (so a rectangle may now reach up to 15 % past the drawn outline, where the
+outline steps), and a strip nothing can take stands one storey under a flat roof; a piece
+standing more than 2 m clear in front of the street wall is a one-storey porch; a bay or porch
+the fit left short of that wall, and any stone front, stands against it; a piece under 15 m²
+touching nothing else of its building is one storey; and a street body narrower than 5.5 m is
+widened about its middle to 5.5 m inside its own lot. The rules carry these as `fit.sliver_m`,
+`sliver_fill`, `sliver_overlap`, `detached_front_m`, `stray_m2` and `min_body_m`.
 **1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,

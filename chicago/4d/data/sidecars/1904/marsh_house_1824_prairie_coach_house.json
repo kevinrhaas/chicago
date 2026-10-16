@@ -20,14 +20,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1339.688,
-    "local_n": -3299.436,
+    "local_e": 1339.704,
+    "local_n": -3300.936,
     "rotation_deg": -0.627,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.750, v -5.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.627 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.750, v -7.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.627 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1824 S. Prairie Avenue, parcel prairie_1824 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -46,11 +46,11 @@
       ],
       [
         9.75,
-        15.75
+        17.25
       ],
       [
         0.0,
-        15.75
+        17.25
       ]
     ],
     "confidence": "inferred",
@@ -88,27 +88,14 @@
               0.0,
               0.0,
               9.75,
-              15.75
+              17.25
             ],
             "from": "s28fp-1824-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 87% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              5.5,
-              -1.5,
-              9.75,
-              0.0
-            ],
-            "from": "s28fp-1824-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 87% of its fill"
           }
         ],
         "lot_v": [
-          -4.616,
-          16.116
+          -3.116,
+          17.616
         ],
         "street_u": 53.202
       },
@@ -116,7 +103,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1824-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 87% of its fill; s28fp-1824-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 87% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1824-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 87% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {

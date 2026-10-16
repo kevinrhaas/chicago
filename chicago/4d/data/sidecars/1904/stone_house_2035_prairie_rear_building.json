@@ -20,14 +20,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1469.109,
-    "local_n": -3589.169,
+    "local_e": 1469.609,
+    "local_n": -3589.164,
     "rotation_deg": 179.364,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.250, v -3.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.364 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.750, v -3.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.364 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "2035 S. Prairie Avenue, parcel prairie_2035 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -41,16 +41,16 @@
         0.0
       ],
       [
-        18.5,
+        19.0,
         0.0
       ],
       [
-        18.5,
-        5.75
+        19.0,
+        7.0
       ],
       [
         0.0,
-        5.75
+        7.0
       ]
     ],
     "confidence": "inferred",
@@ -87,36 +87,23 @@
             "rect": [
               0.0,
               0.0,
-              18.5,
-              5.75
-            ],
-            "from": "s35fp-2035-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              -0.5,
-              5.75,
-              4.75,
+              19.0,
               7.0
             ],
-            "from": "s35fp-2035-b2 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 81% of its fill"
+            "from": "s35fp-2035-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
           }
         ],
         "lot_v": [
           -0.63,
           7.13
         ],
-        "street_u": 53.241
+        "street_u": 53.741
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2035-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill; s35fp-2035-b2 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2035-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -130,7 +117,7 @@
         ],
         "roof_pitch_deg": 40,
         "mansard_lower_m": 3.0,
-        "front_bays": 2,
+        "front_bays": 3,
         "entrance": "south",
         "side_spacing_m": 2.6,
         "chimneys": 0,
