@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 1880, ts: '2026-10-16T19:08:54.907Z', date: 'Oct 16, 2026, 2:08 PM CT', title: 'Glessner rooflines, courtyard and entrance follow the references', kind: 'fix',
+    items: [
+      'The north roof ridge continues straight through the west-wing crossing; the west peak and cupola align with it.',
+      'The northeast courtyard copper return follows the roof slope and joins the low bow hood without the raised fold.',
+      'The southern upper west window moves north to follow the historical northwest photograph.',
+      'The north tower has a pointed roof, and courtyard dormer windows are clear of roof tiles.',
+      'Eaves, finials, the basement grille and terrace coping follow the historic sections more closely. Photographic comparison continues.',
+      'The front entrance gains angled lower reveals, a shaped stone header, one inset threshold and deeper recessed carving.',
+    ] },
+  { v: 1879, ts: '2026-10-16T19:08:54.907Z', date: 'Oct 16, 2026, 2:08 PM CT', title: 'Roads, yards, railway and far ground cut up on spare cores', kind: 'improvement',
+    items: [
+      'Nothing you can see changed: every road, yard, railway bed and stretch of distant ground is the same, triangle for triangle.',
+      'The background workers that took the ground\'s tiles last time now also divide the streets, the fenced yards, the railway\'s cinders and ballast, the distant ground and, on Prairie Avenue, the houses into their pieces, instead of the thread that draws the frame doing it.',
+      'Changing the detail setting lays the new road on those workers too; the old road stays on screen until the new one is ready.',
+    ] },
   { v: 1878, ts: '2026-10-16T18:16:12.781Z', date: 'Oct 16, 2026, 1:16 PM CT', title: 'Distant houses on Prairie Avenue no longer hold their full pictures', kind: 'improvement',
     items: [
       'A house\'s photographic textures stay on the graphics card only while you are near enough to see them; farther off it is drawn with the same picture at a small size, which looks the same at that distance.',
