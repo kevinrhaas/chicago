@@ -191,12 +191,12 @@ export function fallbackSummary(sidecar, { kind = '', today = '' } = {}) {
   const what = [tall, mat, noun || ((tall || mat) ? 'building' : '')].filter(Boolean).join(' ');
   sentences.push(what ? `It was ${article(what)} ${what}.` : 'It stood here.');
 
-  // 2. How long it had stood like this, from the phase's own dates.
+  // 2. How long it had stood like this, from the phase's own dates. The phase's start,
+  // not the building's: a cabin turned barn in 1817 is older than 1817, so the sentence
+  // never says when it was built.
   const from = ISO_YEAR.exec(sidecar?.documented_range?.from ?? '')?.[1];
   const scene = /^\d{4}/.exec(sidecar?.target_date ?? sidecar?.scene ?? '')?.[0];
-  if (from && scene && Number(from) <= Number(scene)) {
-    sentences.push(from === scene ? `It went up in ${from}.` : `It had stood like this since ${from}.`);
-  }
+  if (from && scene && Number(from) <= Number(scene)) sentences.push(`It had stood like this since ${from}.`);
 
   // 3. Who lived here, as the record's first household says it, or else what it is today.
   const h = Array.isArray(sidecar?.residents) ? sidecar.residents[0] : null;
