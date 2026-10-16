@@ -238,25 +238,30 @@ for ground in wet_prairie_muck lake_michigan_dune_sand; do
   cp -f "$src/material.json" \
         "$src/${ground}_basecolor.png" \
         "$dst/"
-  # The muck's KTX2 (T-2582); the sand has none, its pixels are read on the CPU.
+  # Each one's KTX2 (T-2582, the sand's T-2590), and the sand's mean luma, derived
+  # from its master by tools/ktx2_sheets.py because a compressed texture has no
+  # pixels for ground-strip.js to read it from.
   [ -f "$src/${ground}_basecolor.ktx2" ] && cp -f "$src/${ground}_basecolor.ktx2" "$dst/"
+  [ -f "$src/${ground}_basecolor.luma.json" ] && cp -f "$src/${ground}_basecolor.luma.json" "$dst/"
 done
 
 # The signboards' wood (T-1836). `renderers/web/js/signage.js` lays the grain of
 # these two library sheets under the lettering atlas and builds its relief and
 # roughness atlases from their normals, resolving them against the same asset
-# base as the roof relief above. THREE FILES OF EACH SHEET: basecolor (read for its
-# grain only, never its tone) and normal_gl, plus material.json for the metric
-# span. Missing on the deployed site, the boards fall back to flat paint with a
-# recorded problem — a loss nobody would see as an error, which is why it is here.
+# base as the roof relief above. THREE FILES OF EACH SHEET: the grain tile (the
+# basecolor's grain only, never its tone) and the quarter-turned normal, both
+# derived from the masters by tools/web_textures.py (T-2590), plus material.json
+# for the metric span. Missing on the deployed site, the boards fall back to flat
+# paint with a recorded problem — a loss nobody would see as an error, which is
+# why it is here.
 for sheet in props/signboard_weathered timber/heavy_timber_weathered; do
   name="${sheet#*/}"
   src="assets/textures/chicago_1835_pbr/$sheet"
   dst="$SITE/data/textures/chicago_1835_pbr/$sheet"
   mkdir -p "$dst"
   cp -f "$src/material.json" \
-        "$src/${name}_basecolor.webp" \
-        "$src/${name}_normal_gl.webp" \
+        "$src/${name}_grain.webp" \
+        "$src/${name}_normal_turned.webp" \
         "$dst/"
 done
 

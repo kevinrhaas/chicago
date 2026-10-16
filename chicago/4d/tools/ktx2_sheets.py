@@ -33,8 +33,9 @@ re-encoded. THE DERIVED SHEETS are maps the renderer used to compute from decode
 which a compressed texture cannot feed, so the KTX2 is the derived map itself, computed
 here from the masters by the same recipe as the page's packer. T-2583 owns them, in
 pieces: the wall relief's `orl` and its normal are T-2588 (`wall_sheets` below); the
-frontage timber is T-2589 (`frontage_sheets` below); the signboard grain (T-2590) is
-still canvas-packed.
+frontage timber is T-2589 (`frontage_sheets` below); the signboard grain (T-2590) is a
+derived WebP tile written by `tools/web_textures.py`, since signage paints it into an atlas
+canvas and never uploads it.
 
 ROWS (T-2588). three uploads a KTX2 with its first row at v = 0, and it cannot flip a
 compressed texture; an image texture goes up `flipY`, its top row at v = 1. So a KTX2
@@ -48,6 +49,13 @@ that is the mirror T-2591 is filed to correct.
 A DERIVED SHEET CARRIES A STATEMENT (`<id>_orl.json`): the mean roughness the shader
 divides by, which the page used to sum from the pixels it no longer reads, and the sha256
 of each master it was packed from, so `--check` refuses a sheet whose master moved.
+
+WHAT A RENDERER READ FROM PIXELS IS DERIVED HERE (T-2590). The ground strip's sand used
+to stay an image because `ground-strip.js` drew it into a canvas for one number, its mean
+linear Rec. 709 luminance, which normalises the sand's grain in the shader. That number
+is now written beside the sheet as `<id>_basecolor.luma.json` (LUMA below), from the
+lossless master, and the sheet ships as KTX2 like the muck. `--check` recomputes it and
+refuses a sidecar that has drifted from its master, so the two cannot disagree silently.
 
 THE FRONTAGE TIMBER (T-2589). `frontage.js` binds the board face's `normal_gl` and `orm`
 and a GRAIN map: each texel's linear luminance over the basecolor's mean, pulled toward 1
@@ -146,9 +154,9 @@ def drop_in_sheets():
         sid = d.split('/')[-1]
         for m in ('normal_gl', 'orm'):
             out.append((ASSETS / 'chicago_1835_pbr' / d, sid, m, f'{sid}_{m}.webp'))
-    # ground-strip.js SUBSTRATES: basecolour only, and the muck only — the sand's pixels
-    # are read on the CPU for its mean luma, so it is T-2583's.
-    for sid in ('wet_prairie_muck',):
+    # ground-strip.js SUBSTRATES: basecolour only. The sand's mean luma, which the strip
+    # once read from its pixels, comes from its LUMA sidecar (T-2590).
+    for sid in ('wet_prairie_muck', 'lake_michigan_dune_sand'):
         out.append((ASSETS / 'chicago_1835_pbr' / 'ground' / sid, sid, 'basecolor', f'{sid}_basecolor.png'))
     # street-grid.js: every material any street_surfaces file names, its `web` maps.
     seen = set()
@@ -162,6 +170,40 @@ def drop_in_sheets():
             for k in ('basecolor', 'normal_gl', 'orm'):
                 out.append((d, sheet['id'], k, sheet['web'][k]))
     return out
+
+
+# The sheets whose mean linear luma a renderer needs and can no longer read from a
+# compressed texture: ground-strip.js's sand (`uSandLuma`, T-2590).
+LUMA = (ASSETS / 'chicago_1835_pbr' / 'ground' / 'lake_michigan_dune_sand', 'lake_michigan_dune_sand')
+
+
+def srgb_to_linear(u8: int) -> float:
+    v = u8 / 255
+    return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+
+
+def mean_linear_luma(png: Path) -> float:
+    """Mean linear Rec. 709 luminance over every texel of the master, exactly: the mean is
+    linear in each channel, so it is read from the channel histograms, with no sampling."""
+    im = Image.open(png).convert('RGB')
+    n = im.size[0] * im.size[1]
+    lut = [srgb_to_linear(v) for v in range(256)]
+    hist = im.histogram()
+    return sum(w * sum(c * lut[v] for v, c in enumerate(hist[256 * k:256 * (k + 1)]))
+               for k, w in enumerate((0.2126, 0.7152, 0.0722))) / n
+
+
+def luma_sidecar(d: Path, sid: str):
+    return d / f'{sid}_basecolor.luma.json'
+
+
+def luma_record(d: Path, sid: str) -> dict:
+    src = d / f'{sid}_basecolor.png'
+    return {'mean_linear_luma': round(mean_linear_luma(src), 6),
+            'from': src.name,
+            'method': 'mean linear Rec. 709 luminance over every texel of the lossless master '
+                      '(tools/ktx2_sheets.py, T-2590); ground-strip.js divides the sand\'s sampled '
+                      'luma by it to normalise the grain'}
 
 
 def ktx_binary():
@@ -330,8 +372,17 @@ def check(todo):
         # ktx2.js drops the top level on the light tier, which needs one beneath it.
         if levels != max(w, h).bit_length():
             bad.append(f'{rel}: {levels} mip level(s), wanted the full chain of {max(w, h).bit_length()}')
-    # An orphan ships a file nothing loads (the sand basecolor, whose pixels are read on
-    # the CPU, must not grow one until T-2583 derives what is read from it).
+    # The derived luma, recomputed from its master: a sidecar that drifted would mis-scale
+    # the sand's grain with nothing to show for it.
+    d, sid = LUMA
+    side = luma_sidecar(d, sid)
+    if not side.exists():
+        bad.append(f'{side.relative_to(ROOT)}: missing — run python3 tools/ktx2_sheets.py')
+    else:
+        got, want_v = json.loads(side.read_text()).get('mean_linear_luma'), luma_record(d, sid)['mean_linear_luma']
+        if got != want_v:
+            bad.append(f'{side.relative_to(ROOT)}: mean_linear_luma {got}, but its master reads {want_v}')
+    # An orphan ships a file nothing loads.
     for f in sorted(ASSETS.rglob('*.ktx2')):
         if f not in want:
             bad.append(f'{f.relative_to(ROOT)}: no sheet in tools/ktx2_sheets.py names it')
@@ -339,7 +390,8 @@ def check(todo):
         print(f'BAD: {b}')
     if bad:
         sys.exit(1)
-    print(f'ok   {len(want)} KTX2 sheet(s): present, their web map\'s size, full mip chains, no orphans')
+    print(f'ok   {len(want)} KTX2 sheet(s): present, their web map\'s size, full mip chains, no orphans;'
+          f' {sid} luma sidecar matches its master')
 
 
 def main():
@@ -354,6 +406,7 @@ def main():
     if a.list:
         for d, sid, m, web, rows in todo:
             print(f'{(d / f"{sid}_{m}.ktx2").relative_to(ROOT)}  <-  {web}  ({rows} row first)')
+        print(f'{luma_sidecar(*LUMA).relative_to(ROOT)}  <-  {LUMA[1]}_basecolor.png (mean linear luma)')
         return
     exe, env = ktx_binary()
     with tempfile.TemporaryDirectory() as t:
@@ -363,6 +416,10 @@ def main():
             out = convert(exe, env, d, sid, m, web, rows, Path(t))
             w = (d / web).stat().st_size
             print(f'{str(out.relative_to(ROOT)):88s} {out.stat().st_size:>8,d} B  (web {w:,d} B)')
+    side = luma_sidecar(*LUMA)
+    rec = luma_record(*LUMA)
+    side.write_text(json.dumps(rec, indent=2) + '\n')
+    print(f'{str(side.relative_to(ROOT)):88s} mean linear luma {rec["mean_linear_luma"]}')
 
 
 if __name__ == '__main__':

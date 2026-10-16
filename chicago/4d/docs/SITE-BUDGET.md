@@ -391,6 +391,41 @@ own sheets do (AO and roughness in R and G, and L / mean in B, from which the gr
 1 + GRAIN_STRENGTH x (2B - 1), over GRAIN_HEADROOM). A frontage shader that read the grain
 from the `orl` would fetch no clapboard file of its own and save another 0.144 MB.
 
+### 4e. Signage's wood prepared at convert time, and the sand as KTX2, re-measured 2026-10-16 (T-2590)
+
+`renderers/web/js/signage.js` fetched two 1024² library maps per wood sheet (the signboard
+and the heavy timber: basecolor and normal, 612 KB of WebP) only to read each one down to
+512², turn it a quarter and, for the basecolor, normalise its grain — on the main thread,
+at every boot. `tools/web_textures.py` now writes those four results as DERIVED tiles
+(`_grain.webp`, `_normal_turned.webp`, 244 KB together) and holds each pixel-identical to
+the transform of its master; the four plain WebPs nothing else loaded are gone. Read in
+Chromium against the old in-browser derivation: the normals within one level, the grain
+within one level on average (eight at most, of 255) — the area mean of an exact halving
+reads the same texels a canvas's half-size draw does.
+
+Measured with `tools/measure_boot_payload.mjs --json`, dev and this branch each published
+and read on the same runner: **13,484,865 B (12.860 MB) → 13,120,204 B (12.512 MB)**, the
+same 971 requests; WebP 2.010 → 1.646 MB. That is **0.488 MB of room** where § 4c left
+0.142 MB, and it is the room the wall sheets' KTX2 (T-2588) was named as lacking.
+T-2588 landed first, so the two were measured together after `dev` was merged in:
+`measure_boot_payload.mjs --check` reads **12.567 MB of 13.000** across 976 requests, WebP
+0.646 MB and KTX2 2.107 MB. That leaves 0.433 MB of room, where T-2588 alone left 0.094 MB.
+With T-2589 (§ 4d) merged in as well, re-measured on that merge with `--check`: **12.292 MB
+of 13.000** across 975 requests, WebP 0.233 MB and KTX2 2.243 MB, which leaves 0.708 MB of
+room where § 4d left 0.361 MB.
+
+The sand's mean luma, which `ground-strip.js` read from the image's pixels, is derived by
+`tools/ktx2_sheets.py` into `lake_michigan_dune_sand_basecolor.luma.json` (0.256117, from
+every texel of the master; the old 256² canvas read was within 0.3 % of it), and the sand
+ships as KTX2 beside the muck. The strip draws only under `?proof=ground`, so neither the
+boot payload nor the memory meter's 1835 boot sees it.
+
+**What this piece does NOT move: GPU memory at a normal boot.** The signage library maps
+were never uploaded — they are painted into the sign atlas, a canvas built from the town's
+own records, and that atlas is the layer's GPU cost before and after. No sheet's GPU
+bytes fell, so `tools/memory_ceilings.json` is left where it stands; its lowering is the
+wall-relief and frontage pieces' (T-2588, T-2589), which do upload their sheets.
+
 ## 5. What the gate does now
 
 - **Refuses** over 288 MiB (T-2226; measured re-budget in §8) — the repository-hygiene guard, not the visitor-cost
