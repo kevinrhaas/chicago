@@ -3652,6 +3652,16 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# T-2561: a kept year is served from the device, so its pack has to list exactly
+# what ships — every entry the file at its hash — or an offline visitor gets a
+# file the site no longer has. The self-test holds who is in which year's pack,
+# the update diff the page fetches by, and the one-line kill switch.
+selftest "year packs: membership, the update diff and the kill switch (T-2561)" \
+  node tools/write_year_packs.mjs --self-test
+
+step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
+  node tools/write_year_packs.mjs --check
+
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with
 # that shape: a <base> that is not the first child of <head>, or a planned year with
