@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1856, ts: '2026-10-16T09:06:51.286Z', date: 'Oct 16, 2026, 4:06 AM CT', title: 'A phone in 1835 holds about 50 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1835 town now holds about 50 MB less once it is drawn (796 MB to 746 MB), which is where phones were running out of memory.',
+      'The plank walks, fences and yard goods now store their shading directions, colours and painted marks in smaller number formats. That is 12 to 16 fewer bytes for every corner of every board, and the graphics card reads the new formats directly.',
+      'The same views draw the same frame as before on a phone and on a computer, with the evidence colours on or off. Tapping a walk, fence or yard still opens the same card.',
+    ] },
   { v: 1855, ts: '2026-10-16T08:48:27.483Z', date: 'Oct 16, 2026, 3:48 AM CT', title: '1812 Prairie rises under its shaped Flemish gable, built from Levy\'s photograph', kind: 'feature',
     items: [
       'George H. Wheeler\'s 1884 house at 1812 Prairie Avenue is no longer a rough draft: it stands three storeys over a raised stone basement at the heights Albert Levy\'s photograph of its front shows.',
