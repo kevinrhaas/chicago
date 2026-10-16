@@ -100,6 +100,9 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals, compactColors, compactUnitUvs } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -3462,11 +3465,13 @@ export async function createYardGoods({
   for (const chunk of [...built, ...woodBuilt]) {
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
-    geo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
+    // Normals, tones and the atlas cell in compact normalized formats (T-2569,
+    // compact-streams.js); the grain's `uv1` is metres and stays float32.
+    geo.setAttribute('normal', compactNormals(chunk.buf.nrm));
     geo.setAttribute('_confidence',
       new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
-    geo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
-    if (atlas) geo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
+    geo.setAttribute('color', compactColors(chunk.buf.col));
+    if (atlas) geo.setAttribute('uv', compactUnitUvs(chunk.buf.uv));
     if (!grain.problem) {
       geo.setAttribute('uv1', new THREE.Float32BufferAttribute(chunk.buf.uv1, 2));
     }

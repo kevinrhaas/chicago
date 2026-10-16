@@ -66,6 +66,7 @@ import { captureHooks, registerPatch } from './batch-material.js';
 import { resolveBases } from './scene-loader.js';
 import { wallRelief } from './wall-grain.js';
 import { packOrl } from './relief-pack.js';
+import { SCALARS_GLSL } from './compact-attributes.js';
 
 const LIBRARY = 'textures/chicago_1835_pbr/';
 
@@ -160,8 +161,9 @@ function patch(material, set) {
     if (typeof prior === 'function') prior(shader, renderer);
     shader.uniforms.chiWallTileM = { value: set.tileM };
     shader.uniforms.chiWallMeanRough = { value: set.meanRough };
-    shader.vertexShader = 'uniform float chiWallTileM;\n'
-      + 'attribute float _roughness;\nattribute float _grain;\n'
+    // Roughness and grain arrive packed with confidence and the piece tone in
+    // one four-byte attribute (T-2574, compact-attributes.js).
+    shader.vertexShader = SCALARS_GLSL.declare('uniform float chiWallTileM;\n'
       + 'varying float vChiWallRough;\nvarying float vChiWallGrain;\n'
       + shader.vertexShader.replace(
         '#include <project_vertex>',
@@ -175,14 +177,15 @@ function patch(material, set) {
     vec3 chiWallB = cross( chiWallT, chiWallN );
     vec2 chiWallUv = vec2( dot( chiWallP, chiWallT ), dot( chiWallP, chiWallB ) ) / chiWallTileM;
     // A negative grain is a STANDING timber (T-2123): the grain runs up it.
-    if ( _grain < 0.0 ) chiWallUv = chiWallUv.yx;
+    float chiWallGrainV = ${SCALARS_GLSL.grain};
+    if ( chiWallGrainV < 0.0 ) chiWallUv = chiWallUv.yx;
     vNormalMapUv = chiWallUv;
     vRoughnessMapUv = chiWallUv;
     vAoMapUv = chiWallUv;
-    vChiWallRough = _roughness;
-    vChiWallGrain = abs( _grain );
+    vChiWallRough = ${SCALARS_GLSL.roughness};
+    vChiWallGrain = abs( chiWallGrainV );
   }`,
-      );
+      ));
     shader.fragmentShader = 'uniform float chiWallMeanRough;\n'
       + 'varying float vChiWallRough;\nvarying float vChiWallGrain;\n'
       + shader.fragmentShader
@@ -191,7 +194,7 @@ function patch(material, set) {
         .replace('#include <roughnessmap_fragment>', `float roughnessFactor = vChiWallRough
     * clamp( texture2D( roughnessMap, vRoughnessMapUv ).g / chiWallMeanRough, 0.0, 1.6 );`);
   };
-  registerPatch(material, batchHooks, 'metric-wall-uv-v1', { tileM: set.tileM, meanRough: set.meanRough });
+  registerPatch(material, batchHooks, 'metric-wall-uv-v2', { tileM: set.tileM, meanRough: set.meanRough });
   material.needsUpdate = true;
 }
 

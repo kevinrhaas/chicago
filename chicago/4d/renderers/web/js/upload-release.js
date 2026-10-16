@@ -81,6 +81,9 @@ function release(attr) {
   if (attr.isInterleavedBufferAttribute || attr.isInstancedBufferAttribute) return;
   attr.userData = attr.userData || {};
   attr.userData.uploadReleased = true;
+  // What the GPU holds once the array is gone, at its own layout: a compact
+  // attribute (T-2569) is not the float32 the meter would otherwise assume.
+  attr.userData.uploadBytes = attr.array.byteLength;
   census.attributes += 1;
   census.bytes += attr.array.byteLength;
   if (!KEEP_ARRAYS) attr.onUpload(dropArray);

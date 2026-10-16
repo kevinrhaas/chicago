@@ -155,7 +155,10 @@ function mergeGeometries(members, group) {
   const dst = {};
   for (const name of names) {
     const src = first.attributes[name];
-    dst[name] = { array: new src.array.constructor(verts * src.itemSize), at: 0, src };
+    const array = new src.array.constructor(verts * src.itemSize);
+    // Written through an attribute so a compact normal (Int8 x 4 normalized,
+    // T-2569) is re-encoded at its own stride, not overwritten as float xyz.
+    dst[name] = { array, at: 0, src, attr: new THREE.BufferAttribute(array, src.itemSize, src.normalized) };
   }
   const idx = indexed
     ? (verts > 65535 ? new Uint32Array(indices) : new Uint16Array(indices))
@@ -179,9 +182,7 @@ function mergeGeometries(members, group) {
           p.fromBufferAttribute(src, i);
           if (name === 'position') p.applyMatrix4(rel);
           else p.applyMatrix3(nrm).normalize();
-          slot.array[slot.at + i * 3] = p.x;
-          slot.array[slot.at + i * 3 + 1] = p.y;
-          slot.array[slot.at + i * 3 + 2] = p.z;
+          slot.attr.setXYZ(slot.at / src.itemSize + i, p.x, p.y, p.z);
         }
       } else {
         slot.array.set(src.array.subarray(0, count * src.itemSize), slot.at);
@@ -197,8 +198,7 @@ function mergeGeometries(members, group) {
   }
   for (const name of names) {
     const slot = dst[name];
-    out.setAttribute(name, new THREE.BufferAttribute(
-      slot.array, slot.src.itemSize, slot.src.normalized));
+    out.setAttribute(name, slot.attr);
   }
   if (indexed) out.setIndex(new THREE.BufferAttribute(idx, 1));
   out.computeBoundingSphere();

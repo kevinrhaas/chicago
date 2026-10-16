@@ -33,6 +33,7 @@ const mod = await import(moduleURL(source
     "const resolveBases = () => { throw new Error('scene loading outside this check'); };")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
   .replace("from './relief-pack.js'", `from '${pathToFileURL(path.join(web, 'js/relief-pack.js')).href}'`)
+  .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`)
   // T-2572: the pick module, loaded as itself with its own `three` import pointed home.
   .replace("from './gpu-pick.js'", `from 'data:text/javascript;base64,${Buffer.from(
     readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
