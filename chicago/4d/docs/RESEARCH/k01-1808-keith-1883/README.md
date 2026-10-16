@@ -287,3 +287,19 @@ triangles inside the K07 budget. All sixteen views were re-rendered. The new row
 view. The smaller views keep an `open` row until someone compares them at their own
 scale. No view is `matches` yet: the volutes' turns, the egg row and the panels'
 foliage are still drawn to the pictures' shadows.
+
+## T-2578 — the cowl ventilator and the corner behind the rear pinnacle (piece 2 of T-2567)
+
+Read from the pictures themselves, cropped at full resolution: the 1887 construction view and
+Taylor 2135 show an inclined pipe rising from just inside the rear pinnacle to an upright cowl,
+a bowl under a broad flat disc; the rotated 1888 Glessner plate and the c. 1888 view looking SW
+show the same cowl over the return; the 1948 view shows only a low dark stub at its foot. Sizes
+are read against the return's 0.46 m courses and the rear pinnacle in Taylor 2135 (cap about 1.85
+times the pinnacle's height over the coping; pipe about 0.28 m, cap about 0.58 m across). The
+cap's place along the return reads 0.48 (Taylor 2135), 0.62 (1887) and 0.58 (c. 1888); it is built
+at 3.3 m of the 5.5 m return and renders at 0.51 to 0.59 in the same cameras.
+
+Every view that sees the corner behind the rear pinnacle shows sky straight behind it (1948: a
+darker wall about a course lower), so the stone parapet stops there; the model's drop stands.
+Left open for T-2580 and T-2579: the hall stack showing over the coping beside the cowl in the
+renders where the pictures show sky, and the c. 1888 view's higher-seeming cap.
