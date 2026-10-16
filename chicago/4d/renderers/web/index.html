@@ -24,6 +24,10 @@
   has no build step and site/ is a straight copy.
 -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316150f'/%3E%3Cpath d='M30 16H17M17 16L7 6M17 16L7 26' stroke='%23d8a24a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="4D Chicago">
 
 <link rel="stylesheet" href="./css/walk.css">
 <!-- One sheet per feature of the right-hand drawer, so the people who own a
@@ -116,6 +120,7 @@
         <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>Starting at…</strong><span>Pick a place</span></button>
         <button id="welcome-back" class="welcome-back" type="button" aria-label="Back to the arrival choices" title="Back"></button>
       </div>
+      <div id="welcome-pack" class="welcome-pack" role="group" aria-label="Keep this year on this device" hidden></div>
       <section id="welcome-jaunts-region" class="welcome-region" aria-label="Jaunts" hidden>
         <div id="welcome-jaunts-content"><p>Choose Jaunts to see the first route preview.</p></div>
       </section>
