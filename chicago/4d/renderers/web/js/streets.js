@@ -1236,7 +1236,12 @@ function addRecord(buffers, record, terrain, stats, ridge = true, fades = null) 
   // file still carries `wear_confidence: reconstructed`, so under the old max()
   // the whole platted town would have gone on dithering as invention. The layer
   // is no longer degenerate and `tools/test_street_confidence.mjs` measures it.
-  const confidence = LEVEL[record.geometry_confidence] ?? 1;
+  //
+  // T-2686 adds the street's own GRADE in front of the line's, and it answers the same
+  // question better: a street the 1830 plat or an 1834 survey draws was there, at its
+  // platted width, whatever control its line was later carried onto. A record without
+  // one still falls to its line, and a record with neither to `reconstructed`.
+  const confidence = LEVEL[record.grade?.value ?? record.geometry_confidence] ?? 1;
   // The track's own grade, carried to the shader on its own channel so it can
   // fade the worn texture WITHOUT touching whether the ribbon is drawn. See
   // meshOf(): it is read only while the confidence view is on, so the ordinary

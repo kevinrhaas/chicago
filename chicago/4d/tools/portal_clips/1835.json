@@ -1,0 +1,100 @@
+{
+  "shots": [
+    {
+      "id": "town-swing",
+      "label": "The whole town from the south-west, swinging slowly over the forks",
+      "orbit": {
+        "center": [
+          150,
+          -40
+        ],
+        "radius": 320,
+        "alt": 150,
+        "look_y": 0,
+        "bearing": 45,
+        "swing": 35
+      }
+    },
+    {
+      "id": "sauganash",
+      "label": "The Sauganash at Lake and Market, a low swing round its Lake Street front",
+      "orbit": {
+        "center": [
+          106,
+          -127
+        ],
+        "radius": 34,
+        "alt": 9,
+        "look_y": 5,
+        "bearing": 160,
+        "swing": 25
+      }
+    },
+    {
+      "id": "river-drift",
+      "label": "Down the main river between the wharves, drifting east",
+      "pose": {
+        "from": [
+          110,
+          40
+        ],
+        "to": [
+          170,
+          40
+        ],
+        "alt": 22,
+        "yaw": 80,
+        "pitch": -12
+      }
+    },
+    {
+      "id": "town-above",
+      "label": "Looking down on the town and the main stem of the river",
+      "pose": {
+        "from": [
+          -40,
+          -120
+        ],
+        "to": [
+          80,
+          -120
+        ],
+        "alt": 220,
+        "yaw": 0,
+        "pitch": -60
+      }
+    },
+    {
+      "id": "fort-dearborn",
+      "label": "Fort Dearborn and the lighthouse at the river mouth, a slow swing from the south-west",
+      "orbit": {
+        "center": [
+          1120,
+          205
+        ],
+        "radius": 110,
+        "alt": 35,
+        "look_y": 6,
+        "bearing": 30,
+        "swing": 20
+      }
+    },
+    {
+      "id": "lake-street",
+      "label": "Lake Street west of the river, drifting east towards the South Branch and the town",
+      "pose": {
+        "from": [
+          -82,
+          -112
+        ],
+        "to": [
+          -62,
+          -112
+        ],
+        "alt": 9,
+        "yaw": 92,
+        "pitch": -5
+      }
+    }
+  ]
+}

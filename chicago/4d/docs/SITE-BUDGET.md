@@ -159,7 +159,8 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 13 MB**, re-set on 2026-10-02 by T-1973 for the reasons in
+**The boot payload budget is 20 MB**, re-set on 2026-10-16 by T-2677 for the prebuilt
+frontage timber (§ 4f). T-1973 had set it at 13 MB on 2026-10-02 for the reasons in
 § 4a. It was set at 12 MB, 1.66× the measured 7.223 MB:
 tight enough that a careless import into `walk/js/` or an unmetered new boot
 fetches cannot accumulate silently (each is visible against 60 % spent), and
@@ -170,7 +171,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 13 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 20 MB budget
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -426,10 +427,55 @@ own records, and that atlas is the layer's GPU cost before and after. No sheet's
 bytes fell, so `tools/memory_ceilings.json` is left where it stands; its lowering is the
 wall-relief and frontage pieces' (T-2588, T-2589), which do upload their sheets.
 
+### 4f. The frontage timber ships prebuilt, re-measured 2026-10-16 (T-2677) — and the budget is 20 MB
+
+The owner, on T-2560: *"a big package app download that happens up front so the app is
+lightning fast rendering when you are walking or flying"*; that ticket's acceptance asks for
+this budget re-measured with the prebuilt files counted. Laying the frontage's boards (1.95 million vertices)
+over the terrain was one main-thread task at every boot, the same for every visitor.
+`tools/publish.sh` now runs the page's own `createFrontage` in Node
+(`tools/prebuild_layers.mjs`, byte-equal to the page since T-2676) and writes
+`data/prebuilt/1835/frontage.json` (the index: 0.28 MB) and `frontage.bin.gz`; the page
+uploads those buffers instead of building them (frontage.js § THE TOWN'S TIMBER, PREBUILT).
+
+**What the visitor downloads.** Measured with `tools/measure_boot_payload.mjs` on this
+branch and on `dev` @ `2bcd059fe`, the same runner: **12.311 MB → 19.010 MB**, 981 → 984
+requests; the prebuilt folder is 6.695 MB of it. The buffer is 74.5 MiB raw. It is
+gzipped TWICE on disk, because deflate's 32 KB window is far shorter than the runs the timber
+repeats over: one pass is 10.76 MB, the second 6.93 MB, a third no smaller. GitHub Pages
+serves `.gz` as it is, so 6.65 MB is also what the live origin sends. That is half again what
+a first visit carried, on purpose. On the measure tools' slow-phone network (1.6 Mbit/s) it
+is about 35 s more download, started as the scene phase ends so it runs under terrain and
+buildings, which take 15 s at the phone profile's CPU.
+
+**What it buys**, `tools/measure_boot_phases.mjs --quick --phone` (4x CPU throttle, network
+unthrottled, steward runner, one reading per cell; `--no-prebuilt` is the before):
+
+| mobile · light | frontage | longest task in it | boot's longest task | ready |
+|---|---|---|---|---|
+| cold, built in the browser | 3,209 ms | 3,318 ms | 16,187 ms | 84.3 s |
+| cold, prebuilt | 796 ms | 914 ms | 15,816 ms | 80.2 s |
+| warm, built in the browser | 3,318 ms | 3,360 ms | 15,805 ms | 85.8 s |
+| warm, prebuilt | 753 ms | 884 ms | 15,421 ms | 82.0 s |
+
+The boot's longest task is not frontage's and did not move (it is in `ground`, about
+16 s here). The frontage's share is now 0.9 s where it was 3.3 s. The first cut inflated
+the buffer on the main thread and gave about a second of that back to `terrain`;
+it inflates on a job-pool worker now (`jobs/inflate-kernel.js`).
+
+**The tree.** 74.5 MiB raw would have taken the published tree to 373.7 MiB of its 320.
+Gzipped twice it is 6.65 MiB, and the tree reads 305.9 MiB of 320.
+
+**Why 20 MB.** 19.010 MB measured plus about the 0.7 MB of room the 13 MB budget left over
+12.3 MB. The rule § 4b set still holds for everything else: a careless import or an
+unmetered boot fetch still shows against under 1 MB of room. The next prebuilt layer
+(T-2678, the spatial-batch chunks) has to measure its own bytes against this number and
+argue its own re-set.
+
 ## 5. What the gate does now
 
 - **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 13 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 20 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.

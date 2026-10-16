@@ -9,6 +9,33 @@
   "asset": "gltf/pullman_house_1729_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 21 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-aic-lowe-pullman-conservatory-c1897",
+      "a16-aic-taylor-album-pullman-p69",
+      "a16-aic-taylor-pullman-from-nw",
+      "a16-aic-taylor-pullman-from-sw-palm-house",
+      "a16-albertype-1890-pullman-residence",
+      "a16-cgy-1729-beman-addition",
+      "a16-cgy-1729-dailynews-photo",
+      "a16-cgy-tribune-1922-pullman-wrecked",
+      "a16-chm-clark-i70232-pullman-addition",
+      "a16-chm-clark-ichi-071913-pullman-1905",
+      "a16-ghm-blog-pullman-completed",
+      "a16-ghm-blog-pullman-terrace",
+      "a16-inland-1891-dexter-residence",
+      "a16-inland-1894-pullman-conservatory",
+      "a16-inland-1894-pullman-palm-house-stable",
+      "a16-kirkland-1893-massacre-tree-pullman-house",
+      "a16-pullman-det-4a08065",
+      "a16-pullman-det-4a08066",
+      "cgn-1729-pullman-1901-detroit-copy",
+      "cgn-1729-pullman-1902",
+      "st-randmcnally-1910-pullman-corner-18th"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -121,7 +148,7 @@
           {
             "id": "r4",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               15.5,
@@ -133,8 +160,8 @@
           },
           {
             "id": "r5",
-            "role": "bay",
-            "storeys": 3,
+            "role": "porch",
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               31.25,

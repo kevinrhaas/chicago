@@ -178,6 +178,8 @@ const COVERAGE = [
   ['renderers/web/glessner-baseline.html', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  // T-2685: the Observatory home page is not the walk; no smoke part loads it.
+  ['renderers/web/portal/', NONE, 'the Observatory home page: test_portal_clips.mjs --browser, write_entry_pages --self-test'],
   ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
   // T-2265: the K01 component contract and the Glessner baseline measured against it.
   // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
@@ -226,6 +228,11 @@ const COVERAGE = [
   // and on the PR `changelog-entries.mjs --check` holds its shape and budget. Without
   // this row every PR, which now always carries one, would price at the whole gate.
   ['changelog.d/', NONE, 'changelog entry files — folded into changelog.js on dev, not served'],
+  // T-2558: the H0 WebGPU spike (RENDERING.md section 8). publish.sh copies
+  // renderers/web/ alone, so nothing here reaches the mirror, and walk/ imports nothing
+  // from it (it reads walk/'s published files, never the reverse). The smoke body cannot
+  // load it; tools/measure_hd_spike.mjs is the instrument that boots it.
+  ['renderers/web-hd/', NONE, 'the unpublished H0 spike — booted by measure_hd_spike.mjs, never by walk/'],
   ['tools/smoke_renderer.mjs', ALL, 'the gate itself'],
 
   // --- the whole scene: geometry, the scene graph, the boot chain, the mirror

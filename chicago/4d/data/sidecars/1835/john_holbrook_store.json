@@ -10,6 +10,11 @@
   "asset": "gltf/john_holbrook_store__frame_1835.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1835-06-10",
     "to": "1835-12-31",

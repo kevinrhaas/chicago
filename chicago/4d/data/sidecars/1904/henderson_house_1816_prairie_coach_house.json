@@ -9,6 +9,11 @@
   "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -95,7 +100,7 @@
           {
             "id": "r2",
             "role": "wing",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -1.25,
@@ -108,7 +113,7 @@
           {
             "id": "r3",
             "role": "wing",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -1.25,

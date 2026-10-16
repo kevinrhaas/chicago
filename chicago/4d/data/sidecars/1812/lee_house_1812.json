@@ -10,6 +10,11 @@
   "asset": "gltf/lee_house_1812__lee_1812.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "reconstructed",
+    "why": "Placed by our reconstruction of the town; no source pictures or records it here.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1812-04-07",
     "to": "1817-12-31",

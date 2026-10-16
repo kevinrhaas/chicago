@@ -92,6 +92,25 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    `ticket.mjs done` refuses it while any view is not `matches`. A summary of a picture is not
    the picture: read the image itself. `data/reference_views/README.md` is the page.
 
+12. **A structure's own grade says whether we know what it looked like** (T-2686). The owner,
+   2026-10-16: *"for a structure if there is an image of it that is reasonable, not just like a
+   corner or side ... that is attested, something inferred would be like we only have the sanborn
+   map level description, or some text description of it, but nothing to visually depict its size
+   or scope or appearance, and then reconstructed will be where we made a determined choice that
+   there should have been [one], based on model of town or other guiding research"*. So every
+   structure carries one `grade` beside its per-attribute grades, which it never overrides:
+   **attested** when a reasonable picture of it exists (a photograph, print or drawing showing it
+   whole — front, oblique, side or rear — or any picture an image-gate camera is solved on);
+   **inferred** when a map or a text records it and no picture shows it (a Sanborn footprint alone
+   is inferred); **reconstructed** when it is unpictured and our model of the town placed it.
+   A detail, an interior, a plan, or a street view the building stands in the corner of does not
+   attest it. The grade is derived, never typed: `tools/grade_structures.py` is the rule,
+   `data/structure_grades.json` holds the rulings it cannot make itself (each with its reason), and
+   `compile_scene.py` writes it into the sidecar, so adding a picture or solving a camera means
+   compiling again in the same change. **A street drawn on a plat or survey of its time is
+   attested** — a map is the picture of a street's line and width (the owner: *"for 1835, all the
+   streets should be attested"*). `docs/PROVENANCE.md` § "The grade of a structure" is the page.
+
 ## Standing constraint — 1835 and Indigenous history
 
 The final removal of the Potawatomi from Chicago occurred in **August 1835** — inside the

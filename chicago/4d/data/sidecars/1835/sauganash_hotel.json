@@ -11,6 +11,14 @@
   "asset": "gltf/sauganash_hotel__frame_1831.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "kurz_allison_1893",
+      "trowbridge_sauganash_hotel"
+    ]
+  },
   "documented_range": {
     "from": "1831-01-01",
     "to": "1851-03-04",
