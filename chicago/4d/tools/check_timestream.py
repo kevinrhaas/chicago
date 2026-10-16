@@ -236,7 +236,7 @@ def self_test():
     failures = []
 
     def expect(cond, what):
-        print(f"   self-test | {'ok  ' if cond else 'FAIL'} {what}")
+        print(f"   {'ok  ' if cond else 'FAIL'} {what}")
         if not cond:
             failures.append(what)
 
@@ -286,8 +286,8 @@ def self_test():
     cap(flagged).update(text="The Potawatomi leave Chicago.", review_required=True, touches_removal=True,
                         review_note="Held for review by Native scholars: it touches the removal.")
     expect(not gate("1904", flagged, world), "a flagged caption with its reason passes the gate")
-    print(f"   self-test | {len(failures)} of the planted faults got through" if failures
-          else "   self-test | every planted fault refused")
+    print(f"   {len(failures)} of the planted faults got through" if failures
+          else "   every planted fault refused")
     return 1 if failures else 0
 
 
