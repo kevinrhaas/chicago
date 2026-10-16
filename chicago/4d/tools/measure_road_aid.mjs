@@ -132,8 +132,8 @@ await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { tim
 // The entry gate and the first-run guide, dismissed the way `critic_shots.mjs`
 // does it — a signature taken through the intro overlay is a reading of the
 // overlay, and the overlay does not carry a road.
-const gate = await page.$('#gate-btn');
-if (gate) await page.click('#gate-btn');
+const gate = await page.$('#home-roam');
+if (gate) await page.click('#home-roam');
 await page.evaluate(() => {
   for (const b of document.querySelectorAll('button')) {
     if (/got it|dismiss|close/i.test(b.textContent ?? '')) b.click();

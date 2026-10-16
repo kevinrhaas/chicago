@@ -127,6 +127,16 @@ export function createArrival({
   logEl = null,
   lampsEl = null,
   readoutEl = null,
+  // T-2613: the landing. `journey` hears landing › landed; the device turns over to its
+  // Home (onWelcome) halfway through the flip. All optional: without a device the Home
+  // opens at once, as before.
+  journey = null,
+  deviceEl = null,
+  destinationEl = null,
+  announceEl = null,
+  targetDate = () => null,
+  wait = (fn, ms) => setTimeout(fn, ms),
+  vibrate = () => { try { globalThis.navigator?.vibrate?.(30); } catch { /* optional */ } },
 } = {}) {
   if (!boot) throw new Error('createArrival requires api.boot');
   const presentation = scenePresentation(targetYear);
@@ -272,20 +282,17 @@ export function createArrival({
     });
     const from = Math.max(targetYear + 1, lastShown ?? Math.round(yearForProgress(
       bootProgress(boot.phases, boot.expected, event?.at ?? now()), currentYear, false, targetYear)));
-    if (buttonEl && duration > 0) buttonEl.disabled = true;
     const finish = () => {
-      showYear(targetYear, false);
+      // T-2613: the last digit drops into place (a flap and a buzz, no Tap to enter).
+      showYear(targetYear, true);
+      vibrate();
       content?.land();
       setBar(barEl, 1);
       barEl?.classList.add('done');
       paintReadout(now(), true);
       if (phaseEl) phaseEl.textContent = content ? 'Ready to explore.'
         : presentation.arrivalLine;
-      if (buttonEl) {
-        buttonEl.textContent = 'Tap to enter';
-        buttonEl.disabled = false;
-      }
-      onWelcome();
+      land();
     };
     if (!duration || !requestFrame) {
       finish();
@@ -301,6 +308,33 @@ export function createArrival({
       } else finish();
     };
     settleRaf = requestFrame(frame);
+  }
+
+  /** T-2613 (§05 "Landing, not Tap to enter"): the ARRIVED stamp and phosphor flash
+   * (180 ms), then the device turns over (520 ms, rotateY; a crossfade with reduced
+   * motion) and its back face is Home. Home takes taps from the flip's midpoint, so
+   * the scene is interactive well inside 900 ms of ready. */
+  const LANDING_MS = { flash: 180, half: 260, fade: 120 };
+  function land() {
+    const arrived = scenePresentation(targetYear, targetDate?.());
+    if (destinationEl) destinationEl.textContent = arrived.stamp;
+    yearEl?.classList?.add('is-arrived');
+    if (announceEl) announceEl.textContent = arrived.announce;
+    journey?.land();
+    const done = () => { if (deviceEl) delete deviceEl.dataset.landing; journey?.landed(); };
+    if (!deviceEl) { onWelcome(); done(); return; }
+    const half = reducedMotion ? LANDING_MS.fade : LANDING_MS.half;
+    const turn = () => {
+      deviceEl.dataset.landing = reducedMotion ? 'fade-out' : 'flip-out';
+      wait(() => {
+        onWelcome();
+        deviceEl.dataset.landing = reducedMotion ? 'fade-in' : 'flip-in';
+        wait(done, half);
+      }, half);
+    };
+    if (reducedMotion) { turn(); return; }
+    deviceEl.dataset.landing = 'flash';
+    wait(turn, LANDING_MS.flash);
   }
 
   for (const type of ['phasestart', 'phaseprogress', 'phaseend']) boot.on(type, sync);

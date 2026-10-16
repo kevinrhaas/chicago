@@ -1736,6 +1736,48 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
   .arrival-digit-half span { height: 62px; line-height: 62px; }
 }
 
+/* T-2613 (§05 "Landing, not Tap to enter"). No Tap to enter: #gate-btn shows only as
+   TRY AGAIN on a stalled jump. The scene behind the device is blurred during the trip
+   and comes into focus as the device turns over to Home, with the scrim easing off. */
+#gate-btn:not([data-arrival-retry]) { display: none; }
+.gate {
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  transition: backdrop-filter .52s var(--ease-machine, ease), -webkit-backdrop-filter .52s var(--ease-machine, ease), background .52s ease;
+}
+.gate[data-state="welcome"] {
+  -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0);
+  background: radial-gradient(120% 90% at 50% 0%, rgba(8, 10, 14, 0.12), rgba(8, 10, 14, 0.5));
+}
+.gate-card { perspective: 1200px; }
+/* The ARRIVED stamp and phosphor flash (180 ms), then the turn: the front face goes
+   edge-on (260 ms), Home comes round from the far side (260 ms) — 520 ms in all. */
+.gate-card[data-landing="flash"] .arrival-window { position: relative; }
+.gate-card[data-landing="flash"] .arrival-window::after {
+  content: 'Arrived'; position: absolute; inset: 0; display: grid; place-items: center;
+  font: 600 22px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .28em; text-transform: uppercase;
+  color: var(--ok, #8CF5A8); text-shadow: 0 0 12px var(--ok, #8CF5A8);
+  background: color-mix(in srgb, var(--ok, #8CF5A8) 18%, var(--screen, #07130F)); border-radius: var(--r-control, 4px);
+  animation: landing-flash 180ms ease-out both; pointer-events: none;
+}
+.gate .gate-card[data-landing="flip-out"] { animation: landing-flip-out 260ms var(--ease-machine, ease-in) both; }
+.gate[data-state] .gate-card[data-landing="flip-in"] { animation: landing-flip-in 260ms var(--ease-machine, ease-out) both; }
+.gate .gate-card[data-landing="fade-out"] { animation: landing-fade-out 120ms linear both; }
+.gate[data-state] .gate-card[data-landing="fade-in"] { animation: landing-fade-in 120ms linear both; }
+@keyframes landing-flash { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: .85; } }
+@keyframes landing-flip-out { from { transform: rotateY(0deg); } to { transform: rotateY(90deg); } }
+@keyframes landing-flip-in { from { transform: rotateY(-90deg); } to { transform: rotateY(0deg); } }
+@keyframes landing-fade-out { to { opacity: 0; } }
+@keyframes landing-fade-in { from { opacity: 0; } }
+/* On landing the ticker's digits turn from amber to phosphor green. */
+html[data-skin] .arrival-year.is-arrived .arrival-digit,
+html[data-skin] .arrival-year.is-arrived .arrival-digit-flap,
+.arrival-year.is-arrived .arrival-digit { color: var(--ok, #8CF5A8); text-shadow: 0 0 8px color-mix(in srgb, var(--ok, #8CF5A8) 70%, transparent); }
+/* Precision Brass prints its digits on ivory: the arrived green is its verdigris ink. */
+html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit-flap { color: #2F6B3A; text-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  .gate { transition: none; }
+}
+
 /* T-1278: the same arrival dialog becomes a quiet, bounded welcome.
    T-2120: three equal choices at the top level; inside a choice the three shrink to one
    row of tabs led by a back arrow, and the choice's own list scrolls inside the card. */

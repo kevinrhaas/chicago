@@ -1472,7 +1472,7 @@ for (const [label, viewport, touch] of [
           if (welcome.state === 'welcome') welcome.enter('spawn');
           if (welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
         }
-      } else document.getElementById('gate-btn')?.click();
+      } else document.getElementById('home-roam')?.click();
       await new Promise((r) => setTimeout(r, 150));
       document.exitPointerLock?.();
     }
@@ -10258,7 +10258,7 @@ for (const [label, viewport, touch] of [
       await clickChrome(sel);
       console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
     };
-    await timedChrome('#gate-btn');
+    await timedChrome('#home-roam');
     await page.waitForTimeout(150);
     // Entry leaves the pointer free; release defensively for older builds.
     await page.evaluate(() => document.exitPointerLock?.());
@@ -14828,7 +14828,7 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
-    await clickChrome('#gate-btn');
+    await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
 
@@ -14875,7 +14875,7 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
-    await clickChrome('#gate-btn');
+    await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
     await clickChrome('#btn-help');
