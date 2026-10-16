@@ -12,7 +12,10 @@ const web = path.join(root, 'renderers/web');
 const threeURL = pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href;
 const THREE = await import(threeURL);
 const source = await readFile(path.join(web, 'js/compact-attributes.js'), 'utf8');
-const { compactPlan, compactGeometry, bytesPerVertex, strideOf, RULES } = await import('data:text/javascript;base64,'
+const {
+  compactPlan, compactGeometry, bytesPerVertex, strideOf, RULES,
+  packScalars, unpackScalar, toneScaleOf, SCALARS, SCALAR_CODES, SCALARS_GLSL,
+} = await import('data:text/javascript;base64,'
   + Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64'));
 
 function building(n, { uv = 1, tone = 0.9 } = {}) {
@@ -101,3 +104,77 @@ const back = batch.getColorAt(0, new THREE.Color());
 assert.deepEqual([back.r, back.g, back.b], [0.25, 0.5, 0.75], 'instance colour is stored exactly');
 batch.dispose();
 console.log('PASS batch: BatchedMesh keeps the compact formats and the instance colour is exact');
+
+// 4. T-2574: roughness, confidence, grain and the piece tone packed into ONE
+//    four-byte attribute. Every value the dataset writes comes back exact, the
+//    tone within half a step of its batch's scale, and the GLSL the shaders
+//    decode with reads the same number as the readback.
+const f32 = Math.fround;
+function scalars(n, { tone = null, grain = null } = {}) {
+  const g = building(n);
+  g.deleteAttribute('color');
+  const f = (fn) => new THREE.BufferAttribute(Float32Array.from({ length: n }, (_, i) => fn(i)), 1);
+  g.setAttribute('_roughness', f((i) => [0.85, 0.9, 0.3, 0.95, 0.62, 1][i % 6]));
+  if (tone) g.setAttribute('_tone', f(tone));
+  if (grain) g.setAttribute('_grain', f(grain));
+  return g;
+}
+const plain = scalars(30);
+const toned = scalars(30, { tone: (i) => 0.8 + (i % 7) * 0.05, grain: (i) => [1, -1, 0.3, -0.3, 0][i % 5] });
+const src = (g, name) => g.getAttribute(name)?.array.slice();
+const kept = { plain: Object.fromEntries(['_roughness', '_confidence'].map((k) => [k, src(plain, k)])),
+  toned: Object.fromEntries(['_roughness', '_confidence', '_grain', '_tone'].map((k) => [k, src(toned, k)])) };
+assert.equal(toneScaleOf([plain]), 255, 'no tone: a scale of 255, so 1 is exactly 1');
+const scale = toneScaleOf([plain, toned]);
+assert.equal(scale, 231, 'the batch scale: the largest whole number fitting 1.1 in a byte');
+packScalars(plain, scale);
+packScalars(toned, scale);
+for (const g of [plain, toned]) {
+  for (const name of Object.keys(SCALAR_CODES)) assert.equal(g.getAttribute(name), undefined, `${name} source deleted`);
+  const p = g.getAttribute(SCALARS);
+  assert.ok(p.array instanceof Uint8Array && p.itemSize === 4 && !p.normalized);
+}
+for (const [g, k] of [[plain, kept.plain], [toned, kept.toned]]) {
+  const p = g.getAttribute(SCALARS);
+  for (let i = 0; i < p.count; i += 1) {
+    for (const name of ['_roughness', '_confidence', '_grain']) {
+      const want = k[name] ? k[name][i] : 0;
+      assert.equal(f32(unpackScalar(p, name, i, scale)), want, `${name}[${i}] exact`);
+    }
+    const tone = k._tone ? k._tone[i] : 1;
+    assert.ok(Math.abs(unpackScalar(p, '_tone', i, scale) - tone) <= 0.5 / scale + 1e-9, `_tone[${i}]`);
+  }
+}
+assert.equal(unpackScalar(plain.getAttribute(SCALARS), '_tone', 0, scale), 1, 'untoned in a toned batch: exactly 1');
+// NaN and the clamps the shader already applied.
+const odd = scalars(3);
+odd.getAttribute('_confidence').array.set([NaN, 1.4, -0.2]);
+odd.getAttribute('_roughness').array.set([1.6, -1, 0.5]);
+packScalars(odd, 255);
+const o = odd.getAttribute(SCALARS);
+assert.deepEqual([0, 1, 2].map((i) => unpackScalar(o, '_confidence', i)), [0, 1, 0]);
+assert.deepEqual([0, 1, 2].map((i) => unpackScalar(o, '_roughness', i)), [1, 0, 0.5]);
+// The shaders' GLSL and the readback are one decode.
+const glsl = (expr, bytes, s) => Function(`return ${expr
+  .replace(/_chiScalars\.([xyzw])/g, (_, l) => bytes['xyzw'.indexOf(l)])
+  .replace(/chiToneScale/g, s)};`)();
+const t = toned.getAttribute(SCALARS);
+for (let i = 0; i < t.count; i += 1) {
+  const bytes = [...t.array.slice(i * 4, i * 4 + 4)];
+  for (const [lane, name] of [['roughness', '_roughness'], ['confidence', '_confidence'], ['grain', '_grain'], ['tone', '_tone']]) {
+    assert.equal(glsl(SCALARS_GLSL[lane], bytes, scale), unpackScalar(t, name, i, scale), `${lane} GLSL = readback`);
+  }
+}
+assert.match(SCALARS_GLSL.declare('void main(){}'), /^attribute vec4 _chiScalars;\n/);
+assert.equal(SCALARS_GLSL.declare(SCALARS_GLSL.declare('x')), SCALARS_GLSL.declare('x'), 'declared once');
+const both = compactPlan([plain, toned]);
+for (const g of [plain, toned]) compactGeometry(g, both);
+// 12 position + 4 normal + 4 uv + 4 packed scalars.
+assert.equal(bytesPerVertex(toned), 24);
+const sb = new THREE.BatchedMesh(2, 60, 60, new THREE.MeshStandardMaterial());
+for (const g of [plain, toned]) sb.addInstance(sb.addGeometry(g));
+const sa = sb.geometry.getAttribute(SCALARS);
+assert.ok(sa.array instanceof Uint8Array && !sa.normalized && sa.itemSize === 4);
+assert.deepEqual([...sa.array.slice(30 * 4, 30 * 4 + 4)], [...t.array.slice(0, 4)], 'the batch keeps the bytes');
+sb.dispose();
+console.log(`PASS packed scalars: four channels in four bytes (24 a vertex here), exact where the data is, GLSL = readback`);

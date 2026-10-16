@@ -137,8 +137,22 @@ check('three builds its program key from material.customProgramCacheKey()', () =
   assert.match(threeSource, /array\.push\( parameters\.customProgramCacheKey \)/);
 });
 const buildings = await readFile(path.join(web, 'js/buildings.js'), 'utf8');
-check('buildings.js installs its roughness hook beneath the confidence patch', () => {
-  assert.match(buildings, /perVertexRoughness\(material\);\s*\n\s*confidence\.patch\(material\);/);
+check('buildings.js installs its scalars hook beneath the confidence patch, reading the packed channel', () => {
+  assert.match(buildings,
+    /perVertexScalars\(material\);\s*\n\s*confidence\.patch\(material, \{ packed: PACKED_CONFIDENCE \}\);/);
+});
+// T-2574: the structures batch's confidence is a lane of a packed attribute, so
+// a packed patch writes different GLSL from a float one over the same hooks.
+check('a packed confidence patch is never handed the float channel\'s program', () => {
+  const packed = { read: '(_chiScalars.y / 254.0)', declare: (v) => `attribute vec4 _chiScalars;\n${v}` };
+  const a = view.patch(new THREE.MeshDepthMaterial());
+  const b = view.patch(new THREE.MeshDepthMaterial(), { packed });
+  assert.notEqual(key(a), key(b));
+  const shader = { vertexShader: '#include <begin_vertex>', fragmentShader: '', uniforms: {} };
+  b.onBeforeCompile(shader);
+  assert.match(shader.vertexShader, /^attribute vec4 _chiScalars;/);
+  assert.match(shader.vertexShader, /vConfidence = \(_chiScalars\.y \/ 254\.0\);/);
+  assert.doesNotMatch(shader.vertexShader, /attribute float _confidence/);
 });
 
 if (failures) {
