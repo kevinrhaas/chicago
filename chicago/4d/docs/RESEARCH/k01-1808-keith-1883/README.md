@@ -201,3 +201,39 @@ The other oblique views keep an `open` row until someone compares them at their 
 scale. Still open everywhere: the bow's own masonry keeps even courses, and the
 joints, capital carving and moulding sections are drawn to the photograph's shadows
 rather than read. No view is `matches`.
+
+## T-2564 — the north return (piece 1 of the split)
+
+T-1883 was split on 2026-10-16 into T-2564 (this north return and the pinnacle caps),
+T-2565 (the carved loggia), T-2566 (the granite surface and tint) and T-2567 (the
+camera re-fits and the image gate, which carries the house's `## Image gate`).
+
+* **What the pictures show.** The 1887 construction view, the c. 1888 view beside
+  Glessner, Taylor's c. 1889 view and the 1948 view all show the return as a solid
+  block of large dressed courses, not a smooth face: a rounded coping on top that rises
+  in a concave sweep into the corner pinnacle (the front coping does the same), a second,
+  similar pinnacle at the rear end, and a lower brick parapet beyond.
+* **Its length.** Course counts along the return give about twelve course heights in
+  the Taylor view and at least ten in the 1948 view, and the c. 1888 view shows it about
+  twice as long as the 2.8 m model from the same camera, so it is now 5.5 m, bounded
+  4.5 to 7 m while the cameras carry residuals.
+* **What was built.** `stone_finish.return_ashlar` (course 0.46 m, bond 0.9 to 1.5 m,
+  coping rise 0.35 m over 0.85 m) lays one bonded field of K02 stones from the third
+  floor to the coping, its face 15 mm inside the lot line; a swept rounded coping; ogival
+  caps with collar and finial on all three pinnacles. The brick north parapet and its
+  wall head stop at the return's back (`k01_frontage.py`), so no brick crosses the stone.
+  A record without `return_ashlar` builds exactly as before; every other K01 master
+  re-emits byte-identical.
+* **Measured.** Keith full and web, integrated with T-2566's surface (#862): 74,160 triangles, 25 primitives, zero
+  coincident faces; scale, origin and metric UV ok (`k01_contract.mjs --measure-asset`).
+* **Still differs**, written into each match record: the carving (T-2565), the brown
+  cornice-box band under the lattice where the pictures show stone (still there after T-2566), the camera
+  residuals (T-2567), a cowl ventilator on the deck in the 1887-89 pictures, and where the
+  full-height stone ends behind the rear pinnacle.
+* **Browser receipts (T-2564).** The published `/1904/` app, `QA_VIEWS=front,roof,northeast
+  node tools/qa_k01_t1883.mjs`: desktop 1280x800 full and mobile 390x780 light both PASS,
+  zero page errors and zero bad loads, serving asset `2cf09f8b92e9…` (re-taken after merging T-2566, #862)
+  (`browser-validation-after.json`; the `after-*-front|roof|northeast.jpg` captures are
+  re-taken). Smoke: desktop part 1 PASS (87/0); mobile part 14 PASS (128/0, the 1904
+  door); desktop part 14 passed 102 checks before the 590 s cap, without reaching its 1904
+  section (dev's last reading of that part took 29 min), so the app QA above stands for it.

@@ -2005,14 +2005,23 @@ class Assembly:
         zf = D - tw / 2
         deck = k5.extrude([(0.0, deck_bottom), (zf, deck_bottom), (zf, er + zf * t), (0.0, er)], -W + tw / 2, -tw / 2, P,
                           lambda i, p_, q_: ("soffit", "hidden", "covering", "fascia")[i], "hidden", "hidden")
+        # T-2564: where the stone finish lays the north return in dressed courses, the brick
+        # parapet stops at the return's back rather than running across its face, and the
+        # wall head it stood on is the return's (the stone core caps it, so it is no roof face)
+        north_end = D - finish["lattice"]["return_m"] if finish and finish.get("return_ashlar") else D
         solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)] if not finish else [deck,
             k5.body_box(0, D, -tw, 0, deck_bottom-.2, E),
-            k5.body_box(0, D, -W, -W+tw, deck_bottom-.2, E),
+            k5.body_box(0, north_end, -W, -W+tw, deck_bottom-.2, E),
             k5.body_box(0, tw, -W, 0, deck_bottom-.2, E),
             k5.body_box(D-tw, D, -W, 0, deck_bottom-.2, E)]
+        if north_end < D:
+            solids.append(k5.extrude([(north_end, deck_bottom-.2), (D, deck_bottom-.2), (D, E), (north_end, E)],
+                                     -W, -W+tw+.05, k5.frame("z"), lambda i, p_, q_: "base" if i == 0 else "wall",
+                                     "wall", "wall"))   # 5 cm wider than the wall: the north stack
+                                                        # joins it as it joined the coping's drip
         cp, dr = fl["coping_m"], fl["drip_m"]
-        for ends in ((-tw, 0.0), (-W, -W + tw)):      # the south and north parapets, on the side walls
-            solids += k5.parapet_element({}, [(0.0, top), (D, top)], ends, "z", tw, E, cp, dr, 0.0, 0.0)
+        for ends, end in (((-tw, 0.0), D), ((-W, -W + tw), north_end)):   # the south and north parapets
+            solids += k5.parapet_element({}, [(0.0, top), (end, top)], ends, "z", tw, E, cp, dr, 0.0, 0.0)
         # the blocking course over the street front
         solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
         if finish:

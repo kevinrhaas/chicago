@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "48fbf44c632e46bd69c919dd12659f45952f21fd08a9d19cc4d6592896ad457e",
+  "glb_sha256": "c1773d5ab5ea6e955db43e130047b1e1cc163466ef9a75bf2ec95d6372f65dbb",
   "camera_sha256": "1511b9132d93f17646f0cc437e1547f930a1219b6f39534f91eebdcda5507b9e",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,7 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections, pinnacle caps and stair-head scrolls are schematic rather than the photographed profiles.",
+      "what": "Balcony and pedestal carving, Ionic volute sections and stair-head scrolls are schematic rather than the photographed profiles.",
       "status": "open"
     },
     {
@@ -41,6 +41,14 @@
     },
     {
       "what": "T-2566 re-read the tint under neutral light: the stone is now a neutral grey at the old lightness, not the green-grey it was. The source is shaded and blue-cast, so exact colour agreement is not established.",
+      "status": "open"
+    },
+    {
+      "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
+      "status": "fixed"
+    },
+    {
+      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
       "status": "open"
     }
   ],
