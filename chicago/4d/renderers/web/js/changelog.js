@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1851, ts: '2026-10-16T06:57:35.071Z', date: 'Oct 16, 2026, 1:57 AM CT', title: 'A memory meter now watches what each year holds on a phone', kind: 'chore',
+    items: [
+      'Nothing you can see changed. Each year is now weighed for the memory it keeps once you are in the town: page memory, geometry and textures on the graphics chip, layer by layer.',
+      'Every year and screen size has a ceiling, checked every night, so a change that makes a phone more likely to run out of memory is caught before it ships.',
+      'This is the measuring half of the work on phones closing the tab; the changes that bring the figures down come next.',
+    ] },
   { v: 1850, ts: '2026-10-16T06:36:22.691Z', date: 'Oct 16, 2026, 1:36 AM CT', title: 'Keith\'s granite front reads like the 1888 photograph', kind: 'improve',
     items: [
       '1808 Prairie\'s granite is now laid as the 1888 photograph shows: a deep rock-faced course and a thin one in turn up to the third floor, with finer, flatter courses above.',
