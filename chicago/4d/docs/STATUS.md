@@ -7,7 +7,7 @@ page packed from the `orm` and the basecolor at every boot) is now packed at con
 roughness the shader divides by and the masters' hashes, which `--check` holds. Where the GPU
 takes no KTX2, the page falls back to the three WebPs and packs as before. On the phone the walls'
 maps fall from 5.4 MB of GPU memory to 1.4 MB; `/1835/` mobile reads 624.9 MB against dev's
-628.5 MB, and its ceiling comes down 725 → 700 MiB. Measured against the image path with
+628.5 MB, and merged with dev after T-2572 it reads 607.5 MB and its ceiling comes down 700 → 675 MiB. Measured against the image path with
 `wall_relief_shots.mjs --compare ktx2`: the wall band reads 39-56 dB at 390x780 (five close
 stands, two wide) and 50-51 dB at 1280x800 (two close stands); the boot payload is +48 KB at
 12.906 of 13.000 MiB, because frontage still fetches the clapboard's WebPs (T-2589's lever).
