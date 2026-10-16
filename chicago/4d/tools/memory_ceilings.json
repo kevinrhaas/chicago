@@ -54,17 +54,17 @@
         }
       },
       "mobile": {
-        "total_bytes": 865075200,
-        "reading_bytes": 781704808,
+        "total_bytes": 760217600,
+        "reading_bytes": 676681367,
         "tier": "light",
         "reading_mb": {
-          "total": 745.5,
+          "total": 645.3,
           "js_heap": 106.3,
-          "arraybuffers": 298.2,
-          "gpu_buffers": 220.1,
+          "arraybuffers": 232.7,
+          "gpu_buffers": 185.4,
           "gpu_textures": 120.9
         },
-        "lowered": "T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+        "lowered": "T-2572, 2026-10-16: the plank walks, fences and yard goods are picked on the GPU and keep no position or index once uploaded. Read on this branch's mirror (59cbcf474) and on dev's (143c9318a), same machine, same hour: 645.3 MB against dev's 661.8 MB (arraybuffers 249.0 -> 232.7, gpu buffers unchanged at 185.4). 645.3 x 1.1 rounded up to 25 MiB = 725 MiB. docs/measurements/T-2572-memory.json."
       }
     },
     "1904": {

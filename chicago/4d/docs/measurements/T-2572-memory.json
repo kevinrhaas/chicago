@@ -1,10 +1,10 @@
 {
-  "ticket": "T-2546",
+  "ticket": "T-2572",
   "measured": {
-    "on": "2026-10-16T08:20:07.223Z",
-    "build": "833c870ac",
-    "machine": "AMD EPYC 7763 64-Core Processor ×4",
-    "seconds": 280,
+    "on": "2026-10-16T10:26:19.635Z",
+    "build": "59cbcf474",
+    "machine": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz ×4",
+    "seconds": 398,
     "method": "published year door, welcome entered at spawn, 3 frames + 1 s, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
   },
   "rows": [
@@ -16,22 +16,22 @@
       "pixelRatio": 1,
       "keepGeometry": false,
       "totals": {
-        "jsHeap": 111426236,
-        "arrayBuffers": 331680988,
-        "gpuBuffers": 247445134,
-        "gpuTextures": 126734841,
+        "jsHeap": 111514492,
+        "arrayBuffers": 243997176,
+        "gpuBuffers": 194360298,
+        "gpuTextures": 126809401,
         "gpuRenderbuffers": 3145728,
-        "total": 817287199
+        "total": 676681367
       },
       "gl": {
-        "gpuBuffers": 247445134,
-        "gpuTextures": 123589113,
+        "gpuBuffers": 194360298,
+        "gpuTextures": 123663673,
         "gpuRenderbuffers": 3145728,
-        "liveBuffers": 1150,
-        "liveTextures": 280,
+        "liveBuffers": 1138,
+        "liveTextures": 285,
         "liveRenderbuffers": 1
       },
-      "heapTotal": 114872320,
+      "heapTotal": 115134464,
       "shadowMapBytes": 8388608,
       "textures": {
         "distinct": 21,
@@ -40,17 +40,17 @@
       "layers": [
         {
           "name": "frontage",
-          "cpuKept": 73299528,
-          "gpuGeometry": 51897936,
+          "cpuKept": 56692944,
+          "gpuGeometry": 37452144,
           "textureBytes": 16777215,
           "textures": 3,
           "geometries": 129,
-          "cpuNeverUploaded": 71961864
+          "cpuNeverUploaded": 55355280
         },
         {
           "name": "structures",
-          "cpuKept": 37921788,
-          "gpuGeometry": 74397112,
+          "cpuKept": 22737864,
+          "gpuGeometry": 37921788,
           "textureBytes": 27962024,
           "textures": 8,
           "geometries": 5,
@@ -67,21 +67,12 @@
         },
         {
           "name": "yard",
-          "cpuKept": 28932288,
-          "gpuGeometry": 11252640,
+          "cpuKept": 20665920,
+          "gpuGeometry": 8037600,
           "textureBytes": 15510186,
           "textures": 3,
           "geometries": 79,
-          "cpuNeverUploaded": 28932288
-        },
-        {
-          "name": "enclosures",
-          "cpuKept": 39308976,
-          "gpuGeometry": 8960448,
-          "textureBytes": 0,
-          "textures": 0,
-          "geometries": 198,
-          "cpuNeverUploaded": 39308976
+          "cpuNeverUploaded": 20665920
         },
         {
           "name": "terrain",
@@ -91,6 +82,15 @@
           "textures": 1,
           "geometries": 225,
           "cpuNeverUploaded": 12406408
+        },
+        {
+          "name": "enclosures",
+          "cpuKept": 28077840,
+          "gpuGeometry": 6400320,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 198,
+          "cpuNeverUploaded": 28077840
         },
         {
           "name": "signage",
@@ -184,15 +184,15 @@
         }
       ],
       "layerSum": {
-        "cpuKept": 213205856,
-        "gpuGeometry": 255380884,
+        "cpuKept": 161917844,
+        "gpuGeometry": 198684600,
         "textureBytes": 103647911,
-        "cpuNeverUploaded": 152609536
+        "cpuNeverUploaded": 116505448
       },
       "uploadRelease": {
         "geometries": 645,
-        "attributes": 2594,
-        "bytes": 343782652,
+        "attributes": 2587,
+        "bytes": 269777652,
         "keptForHarness": false,
         "sources": 685,
         "sourceBytes": 24163754,
@@ -201,8 +201,49 @@
       },
       "errors": [],
       "seconds": {
-        "boot": 279
+        "boot": 398
       }
     }
-  ]
+  ],
+  "paired_dev_reading": {
+    "build": "143c9318a",
+    "note": "origin/dev read on the same machine within the hour, same method",
+    "totals": {
+      "jsHeap": 111734096,
+      "arrayBuffers": 261071799,
+      "gpuBuffers": 194360298,
+      "gpuTextures": 126809401,
+      "gpuRenderbuffers": 3145728,
+      "total": 693975594
+    },
+    "layers": {
+      "frontage": {
+        "name": "frontage",
+        "cpuKept": 67527288,
+        "gpuGeometry": 54058728,
+        "textureBytes": 16777215,
+        "textures": 3,
+        "geometries": 129,
+        "cpuNeverUploaded": 38748696
+      },
+      "enclosures": {
+        "name": "enclosures",
+        "cpuKept": 31918032,
+        "gpuGeometry": 23247024,
+        "textureBytes": 0,
+        "textures": 0,
+        "geometries": 198,
+        "cpuNeverUploaded": 11231136
+      },
+      "yard": {
+        "name": "yard",
+        "cpuKept": 23077200,
+        "gpuGeometry": 14237376,
+        "textureBytes": 15510186,
+        "textures": 3,
+        "geometries": 79,
+        "cpuNeverUploaded": 14466144
+      }
+    }
+  }
 }

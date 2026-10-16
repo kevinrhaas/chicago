@@ -11,11 +11,12 @@ phone each layer still answers a tap with its triangles gone. A chunk the reach 
 (`reachCulled`) is no longer tappable by either engine: the raycast opened its card unseen,
 and drawing it would upload what the walk never asked for.
 
-**The saving is 16.2 MB at spawn, not the 151 MB the ticket priced** (1835 phone, 795.7 to
-779.4 MB; GPU buffers unchanged at 236.0 MB; `docs/measurements/T-2572-memory.json`;
-ceiling 900 to 875 MiB). Most of those layers' page bytes are chunks the reach has never
-uploaded, which keep every array until walked to (frontage 68.6, enclosures 37.5, yard
-27.6 MB in the meter's never-uploaded column); the release only ever reached the drawn
+**The saving is 16.5 MB at spawn, not the 151 MB the ticket priced** (1835 phone, read
+after merging T-2569's compact formats and T-2574: dev 661.8 to this change 645.3 MB, same
+machine, same hour; GPU buffers unchanged at 185.4 MB; `docs/measurements/T-2572-memory.json`;
+ceiling 825 to 725 MiB). Most of those layers' page bytes are chunks the reach has never
+uploaded, which keep every array until walked to (frontage 52.8, enclosures 26.8, yard
+19.7 MB in the meter's never-uploaded column); the release only ever reached the drawn
 ones. That remainder is building-then-holding, which T-2560 (ship the town prebuilt) is
 placed to remove. The structures half, with weathering as a uniform, is T-2573.
 
