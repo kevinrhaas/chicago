@@ -3,6 +3,37 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 128,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 436,
+      "takenAt": "2026-10-16T07:48:15.762Z",
+      "ref": "steward/t2565-keith-carved-loggia",
+      "commit": "4ecbe3f0847f",
+      "devCommit": "283a356d82c3",
+      "treeHash": "sha256:353bc506b82b2826",
+      "treeDirty": false,
+      "changelogHash": "sha256:750edfdda5d7073e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          4.2,
+          4.2
+        ]
+      },
+      "source": "/tmp/smoke-m14.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "3",
       "parts": [
         3
@@ -1731,37 +1762,6 @@
       "verdict": "pass",
       "target": "published",
       "passed": 24,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-08T07:23:34.258Z",
-      "ref": "steward/t-2157-validation",
-      "commit": "b3515147c382",
-      "devCommit": "1ab737cb4ff7",
-      "treeHash": "sha256:72bf73a190cba101",
-      "treeDirty": true,
-      "changelogHash": "sha256:72c127e049132ad1",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          15.8,
-          14.8,
-          13.4
-        ]
-      },
-      "source": "/tmp/t2157-smoke-both-14.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "14",
-      "parts": [
-        14
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 22,
       "failed": 0,
       "failures": [],
       "wallSeconds": null,
