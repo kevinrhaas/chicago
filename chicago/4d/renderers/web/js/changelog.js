@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1901, ts: '2026-10-16T23:57:32.008Z', date: 'Oct 16, 2026, 6:57 PM CT', title: 'Keith\'s porch columns stand taller under a deeper beam', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the paired columns of the north porch now rise 2.45 m from their pedestals, 0.2 m taller than before.',
+      'The beam and its stepped cornice over them are deeper, and the carved balcony front above is shallower, as the 1965 close photograph and the 1888 plate both show them.',
+      'The balcony now tops out 0.3 m higher. The two pictures still disagree about the columns by about half a metre, so that question stays open.',
+    ] },
   { v: 1900, ts: '2026-10-16T23:54:44.859Z', date: 'Oct 16, 2026, 6:54 PM CT', title: 'Prairie Avenue runs straight across 18th Street', kind: 'fix',
     items: [
       'North of Glessner, Prairie Avenue no longer steps west at 18th Street. Both 1911 atlas sheets draw it straight, so the 16th-18th sheet is now joined to the Glessner sheet at the crossing they share.',
