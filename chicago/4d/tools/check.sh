@@ -115,6 +115,8 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
   node tools/test_frame_governor.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
+  node tools/test_claim_value.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
   node tools/test_repo_file.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \

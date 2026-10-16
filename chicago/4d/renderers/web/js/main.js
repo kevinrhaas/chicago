@@ -3098,7 +3098,9 @@ async function boot() {
   // town ended — and nothing is drawn in the scene for it, because a legal limit is
   // not a fence. The card carries it: pick a building and it says which side of the
   // line it stood on. A failed fetch leaves the row off rather than guessing a side.
-  api.ordinances = await loadOrdinanceLimits({ dataBase: bases.dataBase, problems });
+  // It is 1835's law, so it rides 1835's cards and no other scene's (T-2609).
+  api.ordinances = await loadOrdinanceLimits({ dataBase: bases.dataBase,
+    sceneDate: loaded.scene.target_date ?? YEAR, problems });
   popup.setOrdinanceLimits(api.ordinances);
 
   // And a relation, which belongs to no attribute at all. A house or a man could hold
