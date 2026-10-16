@@ -205,6 +205,57 @@ check('far merging retains every seam displacement and the shared material', () 
   merger.dispose();
 });
 
+// T-2687: the chunks may arrive quantized — Int16 x 4 over each one's own box,
+// the box in its matrix — and the merge must write them out as float32 metres
+// in the group's frame, with the normals copied rather than turned and rounded.
+const { compactStreams } = await import(pathToFileURL(path.join(web, 'js/compact-streams.js')).href);
+const { quantizeMeshPositions } = compactStreams(THREE);
+check('far merging decodes quantized chunks into metres in the group frame (T-2687)', () => {
+  const scene = new THREE.Scene(), group = new THREE.Group();
+  group.name = 'frontage'; scene.add(group);
+  const camera = new THREE.PerspectiveCamera(62, 1.6, 0.1, 3000);
+  camera.position.set(0, 10, 0); camera.lookAt(0, 0, -500);
+  camera.updateMatrixWorld();
+  const banked = [];
+  const metres = [];
+  const normals = [];
+  for (let i = 0; i < 4; i++) {
+    const buf = mod.timberBuf(Float64Array);
+    mod.laySegment(buf, { width_m: 1.83 }, i * 3, 500, i * 3 + 2.6, 500,
+      { surfaceHeight: () => 0.7 }, 1);
+    mod.plainTimber(buf);
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
+    const nrm = new Int8Array((buf.nrm.length / 3) * 4);
+    for (let k = 0, j = 0; k < buf.nrm.length; k += 3, j += 4) {
+      for (let c = 0; c < 3; c++) nrm[j + c] = Math.round(buf.nrm[k + c] * 127);
+    }
+    geometry.setAttribute('normal', new THREE.BufferAttribute(nrm, 4, true));
+    geometry.setAttribute('aChiPlankGap', mod.plankGapAttribute(buf.seam));
+    metres.push(...geometry.attributes.position.array);
+    normals.push(...nrm);
+    const mesh = new THREE.Mesh(geometry, material); mesh.renderOrder = 1;
+    assert.ok(quantizeMeshPositions(mesh), 'a 2.6 m segment keeps the millimetre');
+    assert.ok(geometry.attributes.position.array instanceof Int16Array);
+    group.add(mesh);
+    mesh.updateMatrixWorld(true);
+    const sphere = geometry.boundingSphere.clone().applyMatrix4(mesh.matrixWorld);
+    banked.push({ mesh, c: sphere.center, r: sphere.radius });
+  }
+  const merger = createFarMerge({ scene, camera, layers: ['frontage'] });
+  merger.rebuild(banked); merger.update();
+  const merged = group.children.find((m) => m.userData.farMerged);
+  assert.ok(merged?.visible, 'fixture actually exercises a visible merged batch');
+  const pos = merged.geometry.attributes.position;
+  assert.ok(pos.array instanceof Float32Array && pos.itemSize === 3 && !pos.normalized);
+  assert.equal(pos.count * 3, metres.length);
+  let worst = 0;
+  for (let k = 0; k < metres.length; k++) worst = Math.max(worst, Math.abs(pos.array[k] - metres[k]));
+  assert.ok(worst <= 0.001, `a merged vertex moved ${worst} m`);
+  assert.deepEqual(Array.from(merged.geometry.attributes.normal.array), normals);
+  merger.dispose();
+});
+
 const report = { pass: true, checks, fixtures, pixelReadings,
   scope: 'source geometry, material composition, projected seam size and far-merge compatibility',
   pending: 'GLSL compilation and moving-camera pixel/occlusion comparisons in desktop and mobile browsers',

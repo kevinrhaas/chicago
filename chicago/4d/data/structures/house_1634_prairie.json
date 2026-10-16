@@ -28,15 +28,15 @@
         "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
       },
       "position": {
-        "utm_e": 448436.941,
-        "utm_n": 4634332.866,
+        "utm_e": 448438.076,
+        "utm_n": 4634334.256,
         "rotation_deg": -0.58,
         "symbolic_location": "1634 S. Prairie Avenue, parcel prairie_1634 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The south-west corner of the K01 footprint: the rear corner of the main body on the party line with 1636 (lot frame u 30.750, v -3.700 m from the middle of the rear lot line), where T-2392 re-read the line once for the pair: the traced shared edge of s20fp-1634-b1 and s20fp-1636-b1 stands at v -0.70 in this record's former frame (its median vertex -0.695), so the origin moved 0.70 m south of the draft's corner and 1636's north wall stands on the same line. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed; the pair's relative place is the trace's, about 0.1 m. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The south-west corner of the K01 footprint: the rear corner of the main body on the party line with 1636 (lot frame u 30.750, v -3.700 m from the middle of the rear lot line), where T-2392 re-read the line once for the pair: the traced shared edge of s20fp-1634-b1 and s20fp-1636-b1 stands at v -0.70 in this record's former frame (its median vertex -0.695), so the origin moved 0.70 m south of the draft's corner and 1636's north wall stands on the same line. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed; the pair's relative place is the trace's, about 0.1 m. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is read from the traced sheet and the 1904 parcel with tools/draft_prairie_1904.py's lot_frame and to_uv (T-2392: the pair's party line and front line, docs/RESEARCH/k01-prairie-1634-1636-pair-lines-2392/)."

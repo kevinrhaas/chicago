@@ -60,6 +60,12 @@ GCP_DIR = ROOT / "data" / "traces" / "gcp"
 OUT = ROOT / "data" / "street_grid" / "1904.json"
 LIBRARY_FRONTAGES = REPO / "chicago" / "prairie_1904_v1" / "data" / "map_frontages.csv"
 FT = 0.3048
+# Sheet 20's fit holds its control to 3.08 m RMS (data/traces/gcp/): two sheets' lines for one
+# edge closer than this are one edge (T-2691).
+SHEET_JOIN_TOL_M = 2.5
+# A band's end meets its neighbour edge at under this angle only where two sheets' lines for
+# one edge run side by side; it is cut square there instead (T-2691).
+SQUARE_CUT_DEG = 10.0
 
 SHEET_KEY = {"20": "sanborn_1911_v3_sheet_20", "28": "sanborn_1911_v3_sheet_28", "35": "sanborn_1911_v3_sheet_35"}
 SHEET_SOURCE = {"20": "sanborn_1911_chicago_v3_sheet_20", "28": "sanborn_1911_chicago_v3_sheet_28",
@@ -773,7 +779,15 @@ def poly_line_x(poly, line, prefer: str):
         if lo - 1e-9 <= t <= hi + 1e-9:
             hits.append((i + t, x))
     if not hits:
-        raise SystemExit(f"a polyline does not meet the line it is cut by (prefer {prefer})")
+        # T-2691: two sheets' readings of one edge -- sheet 28's Calumet east line along
+        # the Illinois Central fan, sheet 20's right-of-way line -- run side by side within
+        # the sheets' fit residual and need not cross. Then the corner is the polyline's
+        # own bend nearest the line, if one stands within that residual of it.
+        near = [(i, v) for i, v in enumerate(poly) if abs(cross(lu, sub(v, line[0]))) <= SHEET_JOIN_TOL_M]
+        if not near:
+            raise SystemExit(f"a polyline does not meet the line it is cut by (prefer {prefer})")
+        i, v = near[0] if prefer == "start" else near[-1]
+        return v, float(i)
     hits.sort(key=lambda h: h[0])
     s, x = hits[0] if prefer == "start" else hits[-1]
     return x, s
@@ -958,6 +972,11 @@ def ring_bands(geo: Geo, block: dict):
                 else:
                     other = nseg
                 x = line_x(me, other)
+                # T-2691: a neighbour all but parallel (Calumet's east line along the IC
+                # row) meets the offset line far down the block, if anywhere; cut square.
+                if x is not None and nb["kind"] != "street" and abs(cross(unit(sub(me[1], me[0])), unit(sub(other[1], other[0])))) \
+                        < math.sin(math.radians(SQUARE_CUT_DEG)):
+                    x = None
                 pts.append(x if x is not None else me[0 if j == 0 else 1])
             return pts
 
