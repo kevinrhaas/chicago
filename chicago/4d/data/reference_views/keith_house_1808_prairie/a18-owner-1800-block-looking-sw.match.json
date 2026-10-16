@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-owner-1800-block-looking-sw",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c79a9c8d5112ebfb8f0306a7c128cbe90840ccc06ba5f52fb7f7ac1585aa60f8",
+  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
   "camera_sha256": "ec76219695e974bfab898ea1f04c31f6114296274b9ea9d4e3eb63358c8ed2fa",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-owner-1800-block-looking-sw-side-by-side.jpg",
   "verdict": "differs",
@@ -40,7 +40,7 @@
       "status": "not shown"
     },
     {
-      "what": "Whether the stone parapet continues at full height behind the rear pinnacle, or drops there to the brick, is not resolved by this picture; the model drops it.",
+      "what": "T-2578: this print does not resolve the corner behind the rear pinnacle (trees and grain); the stone parapet's stop there is ruled from the views that see it.",
       "status": "not shown"
     },
     {
