@@ -6,6 +6,7 @@ The small carving sections are reconstructed; see L-k01-keith-finish-1883.
 """
 from __future__ import annotations
 import math
+import random
 
 
 def box_faces(x0, x1, y0, y1, z0, z1):
@@ -67,8 +68,10 @@ def validate(f, width):
     if not .8<=f['deck_drop_m']<=2 or not 0<=f['stone_return_m']<=5:
         raise ValueError('stone_finish: concealed deck and side stone return outside bounds')
     d=f['diaper']
-    if set(d)!={'bottom_m','top_m','pitch_m','proud_m'} or not (d['bottom_m']<d['top_m'] and .2<=d['pitch_m']<=.6 and .02<=d['proud_m']<=.15):
-        raise ValueError('stone_finish.diaper: measured band with bounded rock relief')
+    if set(d)!={'bottom_m','top_m','pitch_m','proud_m','stagger','relief_m'} or not (d['bottom_m']<d['top_m'] and
+            .2<=d['pitch_m']<=.6 and .02<=d['proud_m']<=.15 and 0<=d['stagger']<=.5 and
+            .008<=d['relief_m'][0]<=d['relief_m'][1]<=.046):
+        raise ValueError('stone_finish.diaper: measured band, staggered rows and bounded rock relief')
     c=f['colonnettes']
     if set(c)!={'axes_m','bottom_m','top_m','radius_m'} or not (.06<=c['radius_m']<=.2 and c['bottom_m']<c['top_m'] and
             all(0<s<width for s in c['axes_m'])):
@@ -138,19 +141,37 @@ def dress(a):
                   (r*.7,top+.15),(.018,top+ph)],24,.04),transform=side)
     di=f['diaper']; y0,y1,pitch=di['bottom_m'],di['top_m'],di['pitch_m']
     rows=max(1,round((y1-y0)/pitch)); cols=max(1,round((W-.5)/pitch))
+    step=(W-.5)/cols
+    rng=random.Random(seed^0xD1A9)
     for row in range(rows):
-        for col in range(cols):
-            x0=.25+col*(W-.5)/cols+.012; x1=.25+(col+1)*(W-.5)/cols-.012
-            lo=y0+row*(y1-y0)/rows+.01; hi=y0+(row+1)*(y1-y0)/rows-.01
+        # T-2566: the photographs lay the band as rows of rough lumps, each row's joints
+        # broken over the row below's (`stagger` of a stone), not one square grid; the
+        # proud stones stand out by differing amounts and every face is rock-faced
+        shift=di['stagger']*step if row%2 else 0
+        edges=sorted({.25,W-.25,*[.25+shift+col*step for col in range(cols+1) if .25<.25+shift+col*step<W-.25]})
+        lo=y0+row*(y1-y0)/rows+.01; hi=y0+(row+1)*(y1-y0)/rows-.01
+        for col,(e0,e1) in enumerate(zip(edges,edges[1:])):
+            if e1-e0<.06:
+                continue
+            x0,x1=e0+.012,e1-.012
+            out=di['proud_m']*(rng.uniform(.55,1.0) if (row+col)%2 else rng.uniform(0,.25))
             # The same rock-face builder as the main K02 courses: metric joints and bevels.
-            a.stone(frame,[(x0,lo),(x1,lo),(x1,hi),(x0,hi)],[False]*4,'rough_stone_trim',seed+row*cols+col,conf,
-                    recess=0,bevel=.009,F=.055+(di['proud_m'] if (row+col)%2 else 0),rock=.012)
-    for yy,height,proud in ((y0-.18,.18,.12),(y1,.12,.14),(E,.12,.22)):
-        box(0,W,yy,yy+height,-.03,proud)
+            a.stone(frame,[(x0,lo),(x1,lo),(x1,hi),(x0,hi)],[False]*4,'rough_stone_trim',seed+row*(cols+1)+col,conf,
+                    recess=0,bevel=.009,F=.055+out,rock=rng.uniform(*di['relief_m']))
+    # T-2566: the head band under the checker and the corbelled bands over it are moulded,
+    # stepped out in fillets (bottom up: height, projection), not one plain block each
+    for yy,steps in ((y0-.18,((.04,.07),(.05,.10),(.09,.14))),(y1,((.04,.08),(.04,.11),(.04,.14))),
+                     (E,((.04,.14),(.08,.22)))):
+        for height,proud in steps:
+            box(0,W,yy,yy+height,-.03,proud)
+            yy+=height
     c=f['colonnettes']; low,high,r=c['bottom_m'],c['top_m'],c['radius_m']
     for s in c['axes_m']:
-        emit(turned_faces(s,.13,[(r*1.5,low),(r*1.5,low+.08),(r,low+.18),
-                    (r*.87,high-.25),(r*1.5,high-.16),(r*1.7,high)],20))
+        # T-2566: the capital is a neck ring under a flaring bell, as the 1888 plate's
+        # upper colonnettes spread into the lintel band
+        emit(turned_faces(s,.13,[(r*1.5,low),(r*1.5,low+.08),(r,low+.18),(r*.87,high-.32),
+                    (r*1.08,high-.31),(r*1.08,high-.26),(r*.9,high-.25),(r*1.2,high-.15),
+                    (r*1.55,high-.06),(r*1.7,high)],20))
         box(s-r*1.8,s+r*1.8,high-.04,high+.07,-.02,.34)
     box(min(c['axes_m'])-.65,max(c['axes_m'])+.65,high+.07,high+.23,-.03,.2)
     # The short visible north return above Glessner is stone-faced in the street views.

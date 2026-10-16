@@ -83,5 +83,71 @@
       "r_over_g": 1.00673,
       "b_over_g": 1.13162
     }
-  ]
+  ],
+  "neutral_light_reading_T2566": {
+    "tier": "reconstructed",
+    "method": "A neutral-light swatch: the mean linear colour of each K02 base-colour texture as baked into assets/web/keith_house_1808_prairie__as_built_1886.glb, times the load tint, with no sky, sun, shade or tone mapping. Ratios are of linear albedo. The 1965 patch is the only colour evidence; it is shaded and blue-cast, so its b/g says little about the stone, while its r/g near 1.0 rules out a green cast (sky shade raises blue, it does not lower red against green).",
+    "before": {
+      "granite_rock_faced": {
+        "tint": [
+          1.95,
+          2.15,
+          2.45
+        ],
+        "albedo_linear": [
+          0.4005,
+          0.4459,
+          0.4655
+        ],
+        "r_over_g": 0.8982,
+        "b_over_g": 1.0439
+      },
+      "dressed_trim": {
+        "tint": [
+          0.72,
+          0.9,
+          1.23
+        ],
+        "albedo_linear": [
+          0.4234,
+          0.4834,
+          0.5114
+        ],
+        "r_over_g": 0.876,
+        "b_over_g": 1.058
+      }
+    },
+    "after": {
+      "granite_rock_faced": {
+        "tint": [
+          2.17,
+          2.15,
+          2.35
+        ],
+        "albedo_linear": [
+          0.4457,
+          0.4459,
+          0.4465
+        ],
+        "r_over_g": 0.9996,
+        "b_over_g": 1.0013
+      },
+      "dressed_trim": {
+        "tint": [
+          0.82,
+          0.9,
+          1.16
+        ],
+        "albedo_linear": [
+          0.4822,
+          0.4834,
+          0.4823
+        ],
+        "r_over_g": 0.9976,
+        "b_over_g": 0.9978
+      }
+    },
+    "source_patch": "1965_shaded_bow, r/g 1.00673, b/g 1.13162 (above)",
+    "reading": "Before, the granite read green-grey under neutral light (r/g 0.898). Both stones are now neutral grey at the same green-channel lightness. This is a reconstruction consistent with the one colour print, not a measured quarry colour; the tier stays reconstructed under L-k01-keith-finish-1883."
+  }
 }
