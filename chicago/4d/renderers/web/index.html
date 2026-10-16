@@ -106,6 +106,15 @@
         <p id="arrival-headline" class="arrival-headline" aria-hidden="true">Preparing your arrival</p>
         <ol id="arrival-log" class="arrival-log" aria-hidden="true"><li></li><li></li><li></li></ol>
         <p id="arrival-card" class="arrival-card" aria-live="polite">Drawing on previously researched sources</p>
+        <!-- T-2611: the time-stream. As the ticker passes a landmark year this screen cuts to
+             its caption for about 2 s (js/time-stream.js, from data/timestream/<year>.json),
+             over the headline and log rows, so the device does not change size. The words
+             are spoken once, by the polite line under it; the visible copy stays silent. -->
+        <div id="arrival-timestream" class="arrival-timestream" data-state="off" aria-hidden="true">
+          <p class="arrival-timestream-head"><span>Time-stream</span><b data-ts="year"></b><span data-ts="grade"></span></p>
+          <p class="arrival-timestream-text" data-ts="text"></p>
+        </div>
+        <p id="arrival-timestream-say" class="visually-hidden" aria-live="polite"></p>
       </div>
       <dl id="arrival-readout" class="arrival-readout" aria-hidden="true">
         <div><dt>Payload</dt><dd data-read="bytes">— MB</dd></div>

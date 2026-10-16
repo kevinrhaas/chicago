@@ -65,6 +65,8 @@ const COPIES = [
   ['data/terrain/', 'data/terrain/'],
   ['data/sidecars/', 'data/sidecars/'],
   ['data/loading/statuses.json', 'data/loading/statuses.json'],
+  // The arrival's time-stream decks (T-2611); js/time-stream.js fetches them on arrival.
+  ['data/timestream/', 'data/timestream/'],
   ['data/residents/', 'data/residents/'],
   ['data/enclosures/', 'data/enclosures/'],
   ['data/signage/', 'data/signage/'],

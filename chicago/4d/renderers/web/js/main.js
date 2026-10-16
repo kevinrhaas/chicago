@@ -67,6 +67,7 @@ import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
+import { createTimeStream } from './time-stream.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -1498,11 +1499,18 @@ const arrival = createArrival({
   logEl: document.getElementById('arrival-log'),
   lampsEl: document.getElementById('arrival-lamps'),
   readoutEl: document.getElementById('arrival-readout'),
+  onYear: year => api.timeStream?.pass(year),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
 if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
+// T-2611: the time-stream captions — this destination's deck of landmark years, shown as
+// the ticker passes each (3 at most on a fast load, up to 8 on a slow one). Optional:
+// the fetch never joins the ready barrier, and no deck simply shows no caption.
+api.timeStream = createTimeStream({ boot: bootController, forecast: bootForecast,
+  el: document.getElementById('arrival-timestream'), sayEl: document.getElementById('arrival-timestream-say') });
+void api.timeStream.load(new URL(`timestream/${YEAR}.json`, resolveBases().dataBase));
 bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
 bootController.on('ready', () => crashGuard.live());
 const bootCheckpoint = createCheckpoint();

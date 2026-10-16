@@ -2892,6 +2892,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_timestream.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_tool_browser.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5631,6 +5635,10 @@
       "wrote_ignored": []
     },
     "tools/test_ticket_stale_block.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_time_stream.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
