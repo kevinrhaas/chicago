@@ -45,6 +45,7 @@ WHAT IS NOT SEATED, and why each is somebody else's:
 from __future__ import annotations
 
 import argparse
+import inspect
 import json
 import math
 import re
@@ -569,7 +570,10 @@ def _tract(seat, south_row, tiers, margin, east, wedge, wl, cbank, m_per_px):
         "polygon_local_enu_m": ring,
         "area_m2": round(_area_m2(ring), 1),
         "area_acres": round(_area_m2(ring) / 4046.856, 2),
-        "sides": _tract.__doc__,
+        # T-2562: cleandoc, because Python 3.13 strips a docstring's common indent at
+        # compile time and 3.11 does not, so the raw `__doc__` re-derived on one
+        # interpreter never matched the file written on the other.
+        "sides": inspect.cleandoc(_tract.__doc__),
         "grid_east_rule_vs_committed_bank": grid_east,
         "block_grid_polygon_is": ("the same file's `block_grid_polygon_local_enu_m`, the "
                                   "blocks alone. It is a subset of this outline and is kept "
