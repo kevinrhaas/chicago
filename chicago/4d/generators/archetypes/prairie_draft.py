@@ -585,11 +585,17 @@ def build(params, structure_id: str):
                 m.box("cornice", cu - 0.06, cu + 0.06, cv - 0.06, cv + 0.06, y1 + float(feat.get("cap_m", 5.5)) - 0.2,
                       y1 + float(feat.get("cap_m", 5.5)) + 0.9)
                 tower_top = y1 + float(feat.get("cap_m", 5.5))
-            # sash on the three faces that look out over the street and the side
-            for k in range(int(params.stories) + 1):
-                base = pf + _seqsum(hs[:k]) if k < len(hs) else main_eave + 0.4
-                for j in (0, 1, 7):
-                    ang = math.radians(step * (j if j < 2 else ns - 1))
+            # sash on the three faces that look out over the street and the side; a refined
+            # record (T-2538) may name the floors its rows stand on and the faces they look
+            # out of, as bearings in the plan (0 toward the street, 90 along +v)
+            rows = ([float(b) for b in feat["window_rows_m"]] if "window_rows_m" in feat else
+                    [pf + _seqsum(hs[:k]) if k < len(hs) else main_eave + 0.4
+                     for k in range(int(params.stories) + 1)])
+            faces = ([round(float(b) / step) % ns for b in feat["window_bearings_deg"]]
+                     if "window_bearings_deg" in feat else [0, 1, ns - 1])
+            for base in rows:
+                for j in faces:
+                    ang = math.radians(step * j)
                     nu, nv = math.cos(ang), math.sin(ang)
                     du_ = r * math.cos(math.radians(half))
                     gu, gv = cu + nu * (du_ + 0.02), cv + nv * (du_ + 0.02)

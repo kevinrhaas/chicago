@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 1844, ts: '2026-10-16T04:14:13.302Z', date: 'Oct 15, 2026, 11:14 PM CT', title: '1621 Prairie\'s door arch, shelf and basement heads match its drawing', kind: 'feature',
+    items: [
+      'The front door of John H. Hamline\'s house at 1621 Prairie now stands deep in its round arch, under a ring of voussoirs with a curved outer edge and a stone band over its crown, as the 1886 Building Budget drawing shows it.',
+      'The small carved light above the door stands out from the wall on a moulded stone shelf, with the carved panel hung beneath it.',
+      'Each barred basement light in the bow gets its fan of splayed stone voussoirs up to the string course.',
+      'With these the house\'s drawing comparison is marked as matching. The depths and stone sections are reconstructed and recorded as a liberty.',
+    ] },
+  { v: 1843, ts: '2026-10-16T03:37:47.097Z', date: 'Oct 15, 2026, 10:37 PM CT', title: '1637 Prairie\'s wing opens onto a balcony through a French window', kind: 'improvement',
+    items: [
+      '1637 Prairie\'s principal-floor windows stand about 2.95 m tall, as its engraving draws them, instead of 2.4 m: their heads now line up near 6 m across the front, the swell bay and the north side.',
+      'The south wing\'s principal window is now a French window down to the floor: two glazed leaves under a transom, 1.9 m wide, where a single sash stood.',
+      'It opens onto a bowed stone balcony with a balustrade about 0.9 m high, at the height and width the engraving shows. How far the balcony stands out is a liberty.',
+    ] },
+  { v: 1842, ts: '2026-10-16T03:25:48.356Z', date: 'Oct 15, 2026, 10:25 PM CT', title: '1801 Prairie\'s Kimball house reshaped from an 1890s photograph', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s round tower now stands on the 18th Street side, about 8 m back from the front, where J. W. Taylor\'s c. 1895 photograph and the 1911 fire map put it. Before, it stood at the corner.',
+      'The house is two storeys of stone to a cornice about 8 m up, under a very steep slate roof that rises to a flat top, instead of three plain storeys under a low hip.',
+      'The front\'s south end rises a storey higher under a steep stone gable. The 18th Street side steps down to a lower east wing with a small round turret at its far corner.',
+      'Its arched corner porch, curved stair, bowed bay and carved stonework come next; what is still estimated is listed among the liberties.',
+    ] },
   { v: 1841, ts: '2026-10-16T02:41:37.040Z', date: 'Oct 15, 2026, 9:41 PM CT', title: '1808 Prairie gains its pierced stone parapet and Ionic entrance', kind: 'improvement',
     items: [
       'The Keith house now has an open stone lattice, corner pinnacles, checkerwork and upper colonnettes, with paired Ionic capitals, carved balcony details and curved stair cheeks.',
