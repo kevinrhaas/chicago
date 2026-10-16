@@ -11,5 +11,6 @@ If the run dies halfway, every commit it made is already on the branch; re-add t
 file with any content change to start over from a clean tree.
 
 Fired: 2026-10-16T19:55Z — run 38958149973 died in the render step (2m 4s).
-Refired: 2026-10-16T20:55Z — same step passes on a local replica of the runner's
-sparse tree; treating it as transient and starting over from the pushed tree.
+Refired: 2026-10-16T20:55Z — run 38964627094 died the same way: three section-view
+cameras read photos outside the sparse checkout (ENOENT). The workflow's sparse list
+now carries the three files; refiring 2026-10-16T21:05Z from the pushed tree.
