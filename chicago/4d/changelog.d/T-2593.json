@@ -1,0 +1,9 @@
+{
+  "title": "Roof shingles and 1904 streets no longer lie upside down",
+  "kind": "fix",
+  "items": [
+    "On most devices the shingle and board roofs drew their texture mirrored, with the shadow lines under each course lit from the wrong side. They now sit the way they were drawn, matching the page with compressed textures turned off.",
+    "The same flip is fixed on the 1904 roadways, alleys, walks, curbs and grass plats, and on the wet prairie mud and dune sand along the 1835 shore.",
+    "Measured at a roof close-up, the two ways of drawing it now agree as closely as the walls already did."
+  ]
+}
