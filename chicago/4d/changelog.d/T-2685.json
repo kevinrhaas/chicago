@@ -1,0 +1,10 @@
+{
+  "title": "The home page's destination cards show live footage from each year",
+  "kind": "feature",
+  "items": [
+    "Each destination card now plays a short looping clip filmed in the app itself, in place of its old engraving or photograph.",
+    "Every year has a small library of views (aerials, a slow swing around a landmark, drifts along the river or street), and one is picked at random each time the page loads.",
+    "The feed is low resolution on purpose and comes through an unstable connection: now and then it blocks up, tears, flickers or drops to static, then settles again.",
+    "With reduced motion or Data Saver on, the card shows its still picture as before."
+  ]
+}

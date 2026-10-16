@@ -3359,6 +3359,12 @@ step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)"
 step "source browser counts and filters" \
   node tools/test_sources_view.mjs
 
+# The home page's destination clips (T-2685): every clip a card names ships in both
+# formats, nothing ships unnamed, and the weight stays capped. `--browser` drives the
+# page itself; no smoke part loads the Observatory.
+step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
+  node tools/test_portal_clips.mjs
+
 step "shared destinations and safe stand-offs (T-1277)" \
   node tools/test_destinations.mjs
 

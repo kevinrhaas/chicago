@@ -1,0 +1,29 @@
+{
+  "shots": [
+    {
+      "id": "corner-swing",
+      "label": "Glessner House at Prairie and Eighteenth, swinging round its corner below the elms",
+      "orbit": { "center": [1366, -3229], "radius": 40, "alt": 4, "look_y": 6, "bearing": 240, "swing": 12 }
+    },
+    {
+      "id": "prairie-fronts",
+      "label": "The Prairie Avenue fronts of Wheeler, Keith and Glessner, swinging gently",
+      "orbit": { "center": [1372, -3238], "radius": 33, "alt": 4, "look_y": 7, "bearing": 280, "swing": 15 }
+    },
+    {
+      "id": "glessner-overhead",
+      "label": "Looking down on the Glessner roofs and courtyard",
+      "orbit": { "center": [1366, -3229], "radius": 25, "alt": 60, "look_y": 0, "bearing": 250, "swing": 15 }
+    },
+    {
+      "id": "prairie-elms",
+      "label": "Up Prairie Avenue under the parkway elms toward Eighteenth",
+      "pose": { "from": [1403, -3305], "to": [1403, -3280], "alt": 6, "yaw": 359, "pitch": -2 }
+    },
+    {
+      "id": "district-lake",
+      "label": "The Prairie Avenue district, the Illinois Central yard and the lake from high to the south-east",
+      "orbit": { "center": [1400, -3220], "radius": 230, "alt": 110, "look_y": 0, "bearing": 315, "swing": 18 }
+    }
+  ]
+}
