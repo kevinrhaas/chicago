@@ -155,7 +155,7 @@ export function createHud({
     onConfidence?.(confidenceOn);
     if (announce) {
       say(confidenceOn
-        ? 'Confidence view — amber is inferred, dithered massing is a guess'
+        ? 'Confidence view — gold is Attested, silver Inferred, dithered bronze Reconstructed'
         : 'Confidence view off');
     }
     return confidenceOn;
