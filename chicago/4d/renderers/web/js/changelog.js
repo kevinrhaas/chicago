@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1883, ts: '2026-10-16T20:16:18.457Z', date: 'Oct 16, 2026, 3:16 PM CT', title: 'Keep a year on your device and walk it offline', kind: 'feature',
+    items: [
+      'The welcome now offers "Keep 1835 on this device", with the download\'s size (149 MB for 1835) and a progress bar.',
+      'A kept year opens from your device, with or without a connection: the town boots and walks offline.',
+      'When the town is updated, a kept year downloads only the files that changed.',
+      'On a phone, Add to Home Screen now gives a full-screen app for that year.',
+      'Remove takes the year off the device again.',
+    ] },
   { v: 1882, ts: '2026-10-16T20:02:36.702Z', date: 'Oct 16, 2026, 3:02 PM CT', title: 'Nothing you can see yet: 1835 plank walks built ahead of time', kind: 'chore',
     items: [
       'Nothing in the scene changed. This is the first step toward phones downloading the town instead of building it at every visit.',
