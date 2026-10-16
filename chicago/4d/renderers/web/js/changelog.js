@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1877, ts: '2026-10-16T18:03:02.187Z', date: 'Oct 16, 2026, 1:03 PM CT', title: 'Picking a building no longer inflates the frame\'s draw count', kind: 'fix',
+    items: [
+      'Nothing you can see changed: the town draws exactly as before.',
+      'A tap or click that picks a building no longer leaves its hidden picking pass in the frame statistics, so the draw budget at the 1904 spawn reads the frame a visitor actually sees again.',
+    ] },
+  { v: 1876, ts: '2026-10-16T18:03:02.187Z', date: 'Oct 16, 2026, 1:03 PM CT', title: 'Keith house\'s south corner turns in stone, as photographed', kind: 'improvement',
+    items: [
+      'At 1808 Prairie Avenue the granite front now turns the south corner as a straight strip of the same coursed stone, about 2 m deep, from the ground to the parapet. The brick side wall starts behind it.',
+      'It replaces the toothed corner stones that were laid into the brick. The Reed photograph of 1941 and a mid-1950s view both show the strip, and the downpipe in the 1950s view marks where it ends.',
+    ] },
   { v: 1875, ts: '2026-10-16T17:01:11.482Z', date: 'Oct 16, 2026, 12:01 PM CT', title: 'The ground is cut up on spare cores while the town loads', kind: 'improvement',
     items: [
       'Nothing you can see changed: the ground is the same ground, triangle for triangle.',

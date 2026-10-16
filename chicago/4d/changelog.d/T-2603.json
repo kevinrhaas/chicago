@@ -1,8 +1,0 @@
-{
-  "title": "Picking a building no longer inflates the frame's draw count",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see changed: the town draws exactly as before.",
-    "A tap or click that picks a building no longer leaves its hidden picking pass in the frame statistics, so the draw budget at the 1904 spawn reads the frame a visitor actually sees again."
-  ]
-}
