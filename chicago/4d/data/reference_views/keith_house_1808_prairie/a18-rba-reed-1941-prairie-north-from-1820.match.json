@@ -1,0 +1,28 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "view": "a18-rba-reed-1941-prairie-north-from-1820",
+  "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
+  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
+  "camera_sha256": "15638a5bd1199b2dfa10a143f6924341502a1fda618ff7e0d6269d5108b33bda",
+  "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The distant south-front proportions and window bands have not converged with the photograph; the camera still has a 4.52px coordinate residual on a very narrow visible frontage.",
+      "status": "open"
+    },
+    {
+      "what": "Flat top, south bow ending below the continuous third-storey arcade, and pierced parapet are present.",
+      "status": "fixed"
+    },
+    {
+      "what": "Fine carving, granite colour and lower details behind cars are below resolution or hidden. The demolished neighbours and later street are not the 1904 target.",
+      "status": "not shown"
+    },
+    {
+      "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-gh-florian-1948-northeast-overall",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-gh-florian-1948-northeast-overall.jpg",
+  "image_px": [
+    1800,
+    1192
+  ],
+  "principal_px": [
+    1232.3096944505141,
+    874.872949347784
+  ],
+  "focal_px": 848.9596517187299,
+  "eye": [
+    32.499129684227775,
+    36.421563562273015,
+    1.7
+  ],
+  "yaw_deg": 260.3698564870381,
+  "basis_right_up_forward": [
+    [
+      -0.16725116764270434,
+      0.9856942762833425,
+      0.020828841168188263
+    ],
+    [
+      0.0034844039260074878,
+      -0.020535324533350763,
+      0.9997830561554794
+    ],
+    [
+      -0.9859081629905659,
+      -0.167287459627336,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 27.33px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 10.42, 0.0], [18.0, 32.9752, 0.0], [18.0, 10.42, 8.4856], [18.0, 32.9752, 8.4856], [18.0, 10.4, 16.44], [15.2, 10.4, 16.44]]; pixels [[145.0, 955.0], [1200.0, 957.0], [148.0, 513.0], [1164.0, 482.0], [240.0, 218.0], [350.0, 260.0]]; projected [[174.1, 930.25], [1174.8, 970.74], [182.15, 543.95], [1184.89, 486.43], [188.98, 181.94], [342.09, 271.68]]. July 1948, Robert C. Florian via Glessner House Museum. Trees and Glessner conceal most of Keith; later weathering and ivy are not dated to 1904."
+}

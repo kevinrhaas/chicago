@@ -41,6 +41,7 @@ import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
 import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
+import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 
@@ -484,6 +485,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       filterGlessnerRoof(material, record, mesh.geometry);
       // T-2446/T-2469: Glessner's granite to grey-greige; it rides the albedo multiply.
       tintGlessnerGranite(material, record);
+      tintKeithStone(material, record);
       let prepared;
       try {
         prepared = normalizeGeometry(mesh.geometry, matrix, material, confidence, label, tone);
