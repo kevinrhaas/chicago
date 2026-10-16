@@ -1,0 +1,10 @@
+{
+  "status": "Historical optional-parameter compatibility check before the owner ridge/window/copper changes; not acceptance of the final candidate.",
+  "applies_to_master_sha256": "916c15966f359c23dff23b5951ebbd255662c8dcc39c68e70ba9450913da8295",
+  "full_and_web_identical": true,
+  "light_bytes_identical": true,
+  "light_geometry_materials_and_binary_identical": true,
+  "light_metadata_changes": [],
+  "params_identical": true,
+  "derived_data": "At that earlier stage only an optional-parameter guard changed and the measured assets stayed identical. The current candidate has separate asset-receipt.json, visual-review.json and published-review.json receipts."
+}

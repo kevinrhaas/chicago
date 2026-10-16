@@ -1,0 +1,38 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_house_il_1015_drawings",
+  "library_image": "a18-glessner-habs-sheet-4",
+  "photo": "../../../docs/RESEARCH/glessner-copper-T-2220/habs4-hood-section.png",
+  "image_px": [
+    1600,
+    533
+  ],
+  "principal_px": [
+    800,
+    266.5
+  ],
+  "focal_px": 135593.33024548402,
+  "eye": [
+    -400,
+    12.602237773359843,
+    8.682276356192427
+  ],
+  "yaw_deg": 90,
+  "sun_uvy": [
+    -1,
+    -0.35,
+    1
+  ],
+  "near_m": 350,
+  "clip_planes": [
+    {
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "constant": -33.4518
+    }
+  ],
+  "solve": "T-2220 hood detail of the same unrestricted HABS sheet-4 section used by T-2218. Native crop [3600,2800,5300,3350], width1600 and vertical rectification100.6/97.7. Shared north-wall origin x1165 and grade y5858; independent scales100.6px/ft horizontal,97.7 vertical. Far-field eye400mwest, nominal face x36.5m; residual curved-depth perspective about1%. Section cutW51.5ft keeps east side; near350m preserves fine depth. Hood peak approximately native3862,3014; eave3188, picks +/-12px. This camera retains the shared ground datum: the section eave reads about27.33ft versus retained model26.5ft, so the roughly0.25m absolute-height disagreement remains visible forT-2228. It is not aligned away. Relative rise1.78ft is compared separately; reconstructed target1.8ft. The1963 drawing is not direct proof of1904 sheet stock or patina."
+}

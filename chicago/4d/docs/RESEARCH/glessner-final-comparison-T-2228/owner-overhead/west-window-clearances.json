@@ -1,0 +1,105 @@
+{
+  "scope": "Eight existing west-wall windows; unchanged apertures, updated roof envelope. Clearance is vertical to tile host, not a survey of lintel detailing.",
+  "new_peak_S_ft": 14.6,
+  "old_peak_S_ft": 18.4,
+  "upper_pair_midpoint_S_ft": 16.250000000000004,
+  "lower_front_pair_midpoint_S_ft": 17.599983595800527,
+  "windows": [
+    {
+      "station_S_ft": [
+        8.100065616797906,
+        13.299868766404202
+      ],
+      "sill_head_ft": [
+        8.749999999999998,
+        13.499999999999998
+      ],
+      "minimum_roof_clearance_m": 5.832155432462193,
+      "centre_S_ft": 10.699967191601054
+    },
+    {
+      "station_S_ft": [
+        21.8999343832021,
+        27.100065616797906
+      ],
+      "sill_head_ft": [
+        8.749999999999998,
+        13.499999999999998
+      ],
+      "minimum_roof_clearance_m": 3.5229744688721265,
+      "centre_S_ft": 24.5
+    },
+    {
+      "station_S_ft": [
+        38.225065616797906,
+        40.0249343832021
+      ],
+      "sill_head_ft": [
+        8.749999999999998,
+        12.75
+      ],
+      "minimum_roof_clearance_m": 1.1430000000000002,
+      "centre_S_ft": 39.12500000000001
+    },
+    {
+      "station_S_ft": [
+        43.725065616797906,
+        45.5249343832021
+      ],
+      "sill_head_ft": [
+        8.749999999999998,
+        12.75
+      ],
+      "minimum_roof_clearance_m": 1.1430000000000002,
+      "centre_S_ft": 44.625
+    },
+    {
+      "station_S_ft": [
+        49.225065616797906,
+        51.0249343832021
+      ],
+      "sill_head_ft": [
+        8.749999999999998,
+        12.75
+      ],
+      "minimum_roof_clearance_m": 1.1430000000000002,
+      "centre_S_ft": 50.125
+    },
+    {
+      "station_S_ft": [
+        54.725065616797906,
+        56.5249343832021
+      ],
+      "sill_head_ft": [
+        8.749999999999998,
+        12.75
+      ],
+      "minimum_roof_clearance_m": 1.1430000000000002,
+      "centre_S_ft": 55.625
+    },
+    {
+      "station_S_ft": [
+        9.799868766404202,
+        11.600065616797899
+      ],
+      "sill_head_ft": [
+        21.5,
+        25.5
+      ],
+      "minimum_roof_clearance_m": 2.6500674052268502,
+      "centre_S_ft": 10.699967191601054
+    },
+    {
+      "station_S_ft": [
+        20.89993438320211,
+        22.700131233595805
+      ],
+      "sill_head_ft": [
+        21.5,
+        25.5
+      ],
+      "minimum_roof_clearance_m": 1.3182417890284492,
+      "centre_S_ft": 21.800032808398953
+    }
+  ]
+}

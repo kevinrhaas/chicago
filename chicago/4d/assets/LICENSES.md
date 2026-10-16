@@ -1103,3 +1103,6 @@ The additional comparison photographs retain the credits, source links and unres
 rights recorded in [the reference credit ledger](../data/sources/assets/inland_architect_1888_02_keith/README.md).
 They are research copies under the owner’s library instruction, not material textures or
 a claim that the plate approval covers later photographs.
+
+
+Glessner T-2228 entrance-section update (2026-10-16): generated geometry additionally cites public-domain Richardson office doorway23A, `artic_glessner_sheet_23a_entrance_detail`, corroborated by U.S. Government HABS IL-1015 sheet5. No photographic or drawing pixels are embedded in the asset; exact relief dimensions remain reconstructed.

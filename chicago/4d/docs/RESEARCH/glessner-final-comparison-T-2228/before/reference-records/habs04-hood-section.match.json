@@ -1,0 +1,48 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs04-hood-section",
+  "glb": "assets/web/glessner_house__as_built_1887.glb",
+  "glb_sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
+  "camera_sha256": "2229a228b90863f49d0a93094d0c79d385aa880fd39815501996e9b61e7a046f",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "T-2220: the former high folded connector is replaced by a low hood whose peak shares the measured ell position. Relative rise is 1.8 ft against the independent HABS reading 1.78 +/-0.17 ft; both host intersections are planar and continuous. The broad copper rectangle over the north windows is removed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The entire hood remains about 0.25-0.28 m below the section in this shared ground-calibrated camera. The retained 26.5-ft bow eave differs from the section reading about27.33ft; no camera translation conceals it. Reconcile the absolute bow/eave/grade datum and neighboring openings in T-2228.",
+      "status": "open"
+    },
+    {
+      "what": "Individual panel widths, folded seam stock, low transverse laps and the 1904 brown/green patina are bounded reconstructions. The 1963 drawing does not establish original sheet stock or historical colour.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2221: re-rendered and reviewed on the final Full web asset. The curved bow trough follows the retained low copper edge; gutter stock and its bracket shadows are reconstructed and are not dimensioned by this section. The previously recorded absolute eave/grade discrepancy remains open.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2222: Re-viewed canonical Full web: retained copper polygon/slope and seams remain, with no chimney intervention in this crop. Existing hood absolute elevation and local alignment differ from measured drawing; retained for T2228, no new match claim.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2223: Re-rendered and visually reviewed on the final T-2223 canonical web asset. The retained low copper hood slope, polygon and seams remain. Service-access changes are outside this crop. Hood absolute elevation and the alignment of its peak and edge with the measured section still differ; retain for T-2228 without a local camera refit.",
+      "status": "open"
+    },
+    {
+      "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The courtyard ground is outside this cropped measured section. The connected, unfolded hood remains; the earlier hood section/profile residual and surrounding opening/material differences are not resolved by this ground pass. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2225: Re-rendered and visually reviewed on the final canonical Full web asset. No vines enter this hood crop or conceal the roof junction. The connected copper surface remains, but its section/profile and surrounding wall/opening correspondence still differ from the measured drawing. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2226: Re-rendered and visually reviewed on the final canonical Full web asset. The connected copper hood remains visible and unchanged by the surface pass. Its section height/profile and adjacent wall/window correspondence still differ from the measured drawing. The new plain brick and gate-grain treatment does not resolve those dimensional differences. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

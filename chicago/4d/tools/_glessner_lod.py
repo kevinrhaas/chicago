@@ -146,16 +146,20 @@ def _construct(root, *, roof_details_reduced=True):
                     tz=max(-1.0,min(1.0,(q[1]-cz)/max(.01,(y1-y0)/2)))
                     return d.norm(tuple(normal[k]+PILLOW_LEAN*(tu*along[k]+tz*up[k]) for k in range(3)))
             for fragment in d.subtract(polygon,holes or []):
-                pts=[point(q,depth) for q in fragment]
-                if pillow is None:
-                    self.raw(pts,confidence,variant,normal)
-                else:
-                    normals=[pillow(q) for q in fragment]
-                    if d.dot(d.legacy._normal(pts),normal)<0:
-                        pts.reverse();normals.reverse()
-                    for index,n in zip(self.raw(pts,confidence,variant),normals):
-                        self.pillow_normals[index]=n
-                emitted=True
+                parts=getattr(point,'partition',lambda poly,conf,mat:[(poly,point)])(
+                    [(*q,depth) for q in fragment],confidence,variant)
+                for piece,mapper in parts:
+                    piece_conf=max(confidence,getattr(mapper,'confidence',confidence))
+                    pts=[mapper(q[:2],q[2]) for q in piece]
+                    if pillow is None:
+                        self.raw(pts,piece_conf,variant,normal)
+                    else:
+                        normals=[pillow(q) for q in piece]
+                        if d.dot(d.legacy._normal(pts),normal)<0:
+                            pts.reverse();normals.reverse()
+                        for index,n in zip(self.raw(pts,piece_conf,variant),normals):
+                            self.pillow_normals[index]=n
+                    emitted=True
             if emitted:self.masonry_blocks+=1
 
         def tiles(self,pts,confidence):
@@ -236,6 +240,8 @@ def _construct(root, *, roof_details_reduced=True):
     from archetypes.masonry_house_v4_foundation import stair_tower_plinth
     from archetypes.masonry_house_v4_rainwater import add_courtyard_rainwater
     stair_tower_plinth(b,params)
+    from archetypes.masonry_house_v4_entry import end_returns
+    end_returns(b,params)
     add_courtyard_rainwater(b,params)
     b.components.update({'axial_opening_records':len(params.openings),'ground':len(params.ground),
                          'service_stairs':int(bool(params.detail.get('north_court_service_stair'))),
@@ -293,10 +299,13 @@ def _low_relief(d):
 
 def _fan(b,o,d):
     orn=d.ornament
-    r=_low_relief(d)(b,o,b.params.detail.get('conf',o['conf']),orn.CARVED_GRANITE)
     cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
+    from archetypes.masonry_house_v4_entry import settings,relief_profile,recessed_bed
+    spec=settings(b);profile=relief_profile(spec,cx,cz,rad+.04) if spec else None
+    r=_low_relief(d)(b,o,b.params.detail.get('conf',o['conf']),orn.CARVED_GRANITE,profile=profile)
     d.rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,b.params.detail.get('conf',o['conf']),90211)
-    r.solid([(cx+o['r_out']*math.cos(math.pi*i/20),cz+o['r_out']*math.sin(math.pi*i/20)) for i in range(21)],-.065,-.045)
+    if spec:recessed_bed(r,cx,cz,rad+.04,o['r_out'],spec,reduced=True)
+    else:r.solid([(cx+o['r_out']*math.cos(math.pi*i/20),cz+o['r_out']*math.sin(math.pi*i/20)) for i in range(21)],-.065,-.045)
     R=rad+.04
     # The bands of ornament.fan, outside in, at the same radii and depths.
     r.arc(cx,cz,R-.012,.034,.012)

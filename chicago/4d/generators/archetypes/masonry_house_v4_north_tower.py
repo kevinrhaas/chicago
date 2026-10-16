@@ -20,21 +20,62 @@ def chimney_foot(params,x):
     return e['eave_hi_z']+(e['x1']-x)*(e['ridge_z']-e['eave_hi_z'])/(e['x1']-e['ridge_at'])-.06
 
 
-def _join_x(params,z,y=None):
+def _join_values(params,z,y=None,guard=None):
     e=_east(params)
     original=e['x0']+(z-e['eave_lo_z'])*(e['ridge_at']-e['x0'])/(e['ridge_z']-e['eave_lo_z'])
-    if y is None or not e.get('north_roof_shoulder'):return original
+    if y is None or not e.get('north_roof_shoulder'):return [original]
     g=e['north_roof_shoulder'];west=g['x']
-    front=west+(e['y1']-y)*(e['x0']-west)/(e['y1']-g['back_y'])
-    front+=(z-e['eave_lo_z'])*(e['ridge_at']-west)/(e['ridge_z']-e['eave_lo_z'])
-    join=min(original,front)
-    if y>=e['y1']-.08:
+    if 'front_eave_z' in g:
+        # Exact plane of the actual shoulder triangle, including its overhang.
+        over=e.get('eave_lo_overhang',.20)
+        front_z=g.get('front_eave_z',e['eave_lo_z'])
+        front_z-=over*(e['ridge_z']-front_z)/(e['ridge_at']-e['x0'])
+        corner_z=e['eave_lo_z']-over*(e['ridge_z']-e['eave_lo_z'])/(e['ridge_at']-e['x0'])
+        sx=(e['ridge_z']-front_z)/(e['ridge_at']-west)
+        sy=(corner_z-front_z-sx*(e['x0']-over-west))/(g['back_y']-e['y1'])
+        front=west+(z-front_z-sy*(y-e['y1']))/sx
+    else:
+        front=west+(e['y1']-y)*(e['x0']-west)/(e['y1']-g['back_y'])
+        front+=(z-e['eave_lo_z'])*(e['ridge_at']-west)/(e['ridge_z']-e['eave_lo_z'])
+    values=[original,front]
+    behind_coping=guard if guard is not None else y>=e['y1']-.08
+    if behind_coping:
         # The north coping is in front of the roof. Its sloping face remains
         # visible; a connector must not project across it as a horizontal shelf.
         lift=e['parapet_m'].get('north',0)
-        facade=west+(z-lift-e['eave_lo_z'])*(e['ridge_at']-west)/(e['ridge_z']-e['eave_lo_z'])
-        join=min(join,facade-.08)
-    return join
+        face_z=g.get('front_eave_z',e['eave_lo_z'])
+        facade=west+(z-lift-face_z)*(e['ridge_at']-west)/(e['ridge_z']-face_z)
+        values.append(facade-.08)
+    return values
+
+
+def _join_x(params,z,y=None):
+    return min(_join_values(params,z,y))
+
+
+def _join_boundary(params,y0,z0,y1,z1):
+    """Follow every host-plane change, including the tuck behind the coping.
+
+    Joining only the two end points cuts across the host's change of pitch
+    and leaves a triangular opening. Intersections are linear in this roof's
+    own plane, so the break points can be evaluated without sampling a curve.
+    """
+    e=_east(params);breaks=[0.,1.];result=[]
+    boundary=(e['y1']-.08-y0)/(y1-y0)
+    if 0<boundary<1:breaks.append(boundary)
+    breaks.sort()
+    for a,b in zip(breaks,breaks[1:]):
+        guard=y0+(a+b)/2*(y1-y0)>=e['y1']-.08
+        def values(u):return _join_values(params,z0+u*(z1-z0),y0+u*(y1-y0),guard)
+        va,vb=values(a),values(b);knots=[a,b]
+        for i in range(len(va)):
+            for j in range(i):
+                da,db=va[i]-va[j],vb[i]-vb[j]
+                if da*db<0:knots.append(a+(b-a)*da/(da-db))
+        for u in sorted(set(knots)):
+            point=(min(values(u)),y0+u*(y1-y0),z0+u*(z1-z0))
+            if not result or math.dist(point,result[-1])>1e-8:result.append(point)
+    return result
 
 
 def clip_host(points,params,source='north_range'):
@@ -73,7 +114,8 @@ def facade(b,t,params):
     pl={'axis':'y','sign':1,'at':e['y1']}
     # The gable coping disappears into the cone connector at the shoulder.
     west=e['north_roof_shoulder']['x']
-    join=west+(z-lift-e['eave_lo_z'])*(e['ridge_at']-west)/(e['ridge_z']-e['eave_lo_z'])
+    face_z=e['north_roof_shoulder'].get('front_eave_z',e['eave_lo_z'])
+    join=west+(z-lift-face_z)*(e['ridge_at']-west)/(e['ridge_z']-face_z)
     profile=[(t['cx'],z),(join,z),(e['ridge_at'],e['ridge_z']+lift),
              (e['x1'],e['eave_hi_z']+lift)]
     stack=e['stacks']['north'];a,c,base=stack
@@ -114,6 +156,59 @@ def _half(poly, distance):
             f=da/(da-dc)
             out.append(tuple(a[k]+f*(c[k]-a[k]) for k in range(len(a))))
     return out if len(out)>=3 else []
+
+
+def _roof_polygon(points):
+    """Drop repeated clipping vertices and zero-area roof fragments."""
+    from archetypes.masonry_house_v4_detail import area
+    result=[]
+    for point in points:
+        if not result or math.dist(point,result[-1])>1e-8:result.append(point)
+    if len(result)>1 and math.dist(result[0],result[-1])<1e-8:result.pop()
+    return result if len(result)>=3 and abs(area(result))>1e-10 else []
+
+
+def _upper_profile(t,params):
+    s=params.detail['north_tower_roof'];dr,dz=s['flare_profile_ft'][-1]
+    return t['eave_r']-dr*.3048,t['wall_top_z']+dz*.3048,s['connector_ridge_z']
+
+
+def upper_roof(t,params,n):
+    """Unite a pointed cone with a lower pitched connector at their intersection.
+
+    The eastern cone facets end on the connector. Its concave western outline
+    follows those same intersections; ear clipping avoids hidden overlap and
+    unnecessary fragments. Lower skirts and the flat facade are unchanged.
+    """
+    from archetypes.masonry_house_v4_ground import triangulate
+    radius,base,ridge=_upper_profile(t,params);cx,cy=t['cx'],t['cy']
+    if not base<ridge<t['apex_z']:
+        raise ValueError('North connector ridge must lie between flare and cone apex')
+    if n%4:raise ValueError('Cone sampling must include all four tangent points')
+    pitch=(ridge-base)/radius;apex=(cx,cy,t['apex_z'])
+    cone=[];connector=[]
+    for i in range(n):
+        a,c=math.pi/2+2*math.pi*i/n,math.pi/2+2*math.pi*(i+1)/n
+        triangle=[(cx+radius*math.cos(a),cy+radius*math.sin(a),base),
+                  (cx+radius*math.cos(c),cy+radius*math.sin(c),base),apex]
+        if i>=n//2:
+            sign=1 if math.sin((a+c)/2)>0 else -1
+            triangle=_roof_polygon(_half(triangle,lambda p:p[2]-ridge+pitch*sign*(p[1]-cy)))
+        if triangle:cone.append(triangle)
+    for sign in (-1,1):
+        boundary=[]
+        for i in range(n//4+1):
+            angle=sign*(math.pi/2-2*math.pi*i/n)
+            dx,dy=radius*math.cos(angle),radius*math.sin(angle)
+            fraction=(t['apex_z']-ridge)/(t['apex_z']-base-pitch*sign*dy)
+            boundary.append((cx+fraction*dx,cy+fraction*dy,
+                             t['apex_z']+fraction*(base-t['apex_z'])))
+        y=cy+sign*radius
+        outline=[boundary[0],*_join_boundary(params,y,base,cy,ridge),*boundary[:0:-1]]
+        connector.extend(q for q in triangulate(_roof_polygon(outline)) if _roof_polygon(q))
+    if any(p[0]>_join_x(params,p[2],p[1])+1e-7 for polygon in cone for p in polygon):
+        raise ValueError('North cone reaches the host roof; revise the intersection')
+    return cone,connector
 
 
 def wrapped_stone(b,t,params):
@@ -166,6 +261,7 @@ def build(b,t,params):
     n=32 if getattr(b,'reduced_roof_details',False) else 48
     cx,cy,r,z=t['cx'],t['cy'],t['r'],t['wall_top_z']
     integrated=s.get('integrated_north_facade')
+    separate_apex=integrated and 'connector_ridge_z' in s
     if integrated:
         facade(b,t,params)
         # Only the west half turns away from the flat north facade. The former
@@ -179,11 +275,11 @@ def build(b,t,params):
     # cone and the gently flattening skirt therefore meet without cracks.
     profile=[(t['eave_r']-dr*.3048,z+dz*.3048) for dr,dz in s['flare_profile_ft']]
     rr,zz=profile[-1]
-    if integrated:
+    if integrated and not separate_apex:
         # A half-cone with its eastern slopes continuing into the main roof:
         # the flat wall is enclosed by this roof, not a free-standing screen.
         profile.append((0,t['apex_z']))
-    else:
+    elif not integrated:
         legacy._cone(b,cx,cy,rr,zz,t['apex_z'],t['conf_roof'],legacy.ROOF,n)
     for (ra,za),(rb,zb) in zip(profile,profile[1:]):
         for i in range(n//2 if integrated else n):
@@ -197,6 +293,17 @@ def build(b,t,params):
             for sign in (-1,1):
                 legacy._up(b,[(cx,cy+sign*ra,za),(_join_x(params,za,cy+sign*ra),cy+sign*ra,za),
                     (_join_x(params,zb,cy+sign*rb),cy+sign*rb,zb),(cx,cy+sign*rb,zb)],t['conf_roof'],legacy.ROOF)
+    if separate_apex:
+        cone,connector=upper_roof(t,params,n)
+        for polygon in cone+connector:legacy._up(b,polygon,t['conf_roof'],legacy.ROOF)
+        from archetypes.masonry_house_v4_roof_edges import ridge_chain
+        radius,base,ridge=_upper_profile(t,params)
+        cap_radius=params.detail['roof_edges']['cap_radius_m']
+        # Bury both ends in their adjoining roof, without a free end cap
+        # standing above the cone or projecting through the north gable.
+        start=cx+radius*(t['apex_z']-ridge)/(t['apex_z']-base)-cap_radius
+        end=_join_x(params,ridge,cy)+.015
+        ridge_chain(b,params,{'axis':'x','ridge_at':cy,'ridge_z':ridge},start,end)
     # A dark, closed 35 mm eave edge and soffit, tied to the new eave datum.
     er=t['eave_r'];depth=s['edge_depth_m']
     for i in range(n//2 if integrated else n):

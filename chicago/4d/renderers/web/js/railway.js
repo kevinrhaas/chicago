@@ -47,7 +47,7 @@
  */
 
 import * as THREE from 'three';
-import { spatialBatch } from './spatial-batch.js';
+import { spatialBatchAsync } from './spatial-batch.js';
 
 const LIBRARY = 'textures/prairie_1904_rail/';
 const MAPS = {
@@ -240,7 +240,7 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
   }
 }
 
-function groundMesh(name, out, kind, lib, confidence) {
+async function groundMesh(name, out, kind, lib, confidence) {
   const g = GROUND[kind];
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
@@ -266,7 +266,8 @@ function groundMesh(name, out, kind, lib, confidence) {
   // T-2219: a courtyard view was submitting all 74k ballast/cinder triangles
   // whenever any part of the kilometre-long yard entered the frustum. Use the
   // same exact 40-m ground cells as terrain; keep UVs, alpha and pick surfaces.
-  const mesh = spatialBatch(geo, mat);
+  // T-2600: the cells are cut on the job pool; the batch is the same one.
+  const mesh = await spatialBatchAsync(geo, mat);
   mesh.sortObjects = false;
   geo.dispose();
   mesh.name = name;
@@ -655,7 +656,9 @@ export async function createRailway({
       level: Math.max(tierLevel(spec.ballast?.tier ?? 'inferred'), tierLevel(t.geometry_tier)), out: bed,
     });
   });
-  const groundMeshes = [
+  // T-2600: each surface is laid here and partitioned on the job pool, all five
+  // at once; they are awaited below, in this order, so the group is the same.
+  const groundJobs = [
     groundMesh('railway-cinders', cinders, 'cinders', ground, confidence),
     groundMesh('railway-verges', verge, 'verge', vergeLib, confidence),
     groundMesh('railway-ballast-beds', bed, 'bed', bedLib, confidence),
@@ -664,7 +667,7 @@ export async function createRailway({
   /* ---- the lake edge (T-2479): the stone face and the made ground ---- */
   const edgeSpec = spec.edge ?? null;
   const lake = data.lake_edge ?? null;
-  const edgeMeshes = [];
+  const edgeJobs = [];
   if (edgeSpec && lake && (lake.face ?? []).length >= 2) {
     const wetBelow = edgeSpec.face?.wet_below_m ?? 0.35;
     const face = buffers();
@@ -685,7 +688,7 @@ export async function createRailway({
       terrain, lift: GROUND.made.lift, fade: GROUND.made.fade, axis, span: madeLib?.along ?? 4,
       level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), out: made, across: 0.6, fineNear: 1.2,
     });
-    edgeMeshes.push(
+    edgeJobs.push(
       groundMesh('railway-lake-face', face, 'face', faceLib, confidence),
       groundMesh('railway-made-ground', made, 'made', madeLib, confidence),
     );
@@ -694,6 +697,10 @@ export async function createRailway({
     }
     out.census.edge_m = Math.round(out.census.edge_m);
   }
+  // One await over both, so a surface that fails leaves no other one unheard.
+  const laid = await Promise.all([...groundJobs, ...edgeJobs]);
+  const groundMeshes = laid.slice(0, groundJobs.length);
+  const edgeMeshes = laid.slice(groundJobs.length);
   for (const m of [...groundMeshes, ...edgeMeshes]) {
     group.add(m); meshes.push(m); materials.push(m.material); geometries.push(m);
   }

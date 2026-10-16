@@ -30,7 +30,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
   if(!m)throw Error('Glessner placement matrix missing');
   a.scene3d.updateMatrixWorld(true);
   const samples=[];
-  for(const [name,x,y] of [['entry-sill',49.3,12.5273],['entry-step',49.6,12.5273],['entry-approach',52,12.5273],['entry-walk-join',53.92,12.5273],['carriage-approach',52,2.34],['porte-threshold',49.149,2.34],['passage-front',48,2.30],['passage-middle',45,2.13],['passage-exit',41.1,1.80]]){
+  for(const [name,x,y] of [['entry-sill',49.3,12.5273],['entry-step',49.6,12.5273],['entry-inner-floor',49.0,12.5273],['entry-left-threshold',49.25,11.3],['entry-right-threshold',49.25,13.75],['entry-former-upper-tread',49.45,12.5273],['entry-approach',52,12.5273],['entry-walk-join',53.92,12.5273],['carriage-approach',52,2.34],['porte-threshold',49.149,2.34],['passage-front',48,2.30],['passage-middle',45,2.13],['passage-exit',41.1,1.80]]){
    const origin=new THREE.Vector3(x,.8,-y).applyMatrix4(m);
    const ray=new THREE.Raycaster(origin,new THREE.Vector3(0,-1,0),0,1.1);
    // Building batches retain CPU geometry for picking. Some unrelated light
@@ -40,7 +40,9 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
    const material=Array.isArray(hit.object.material)?hit.object.material[hit.face.materialIndex]:hit.object.material;
    const terrain=a.terrain.surfaceHeight(hit.point.x,-hit.point.z);
    const structure=hit.object.userData.batchIndex?.[hit.batchId]??hit.object.userData.structure_id;
-   const expected=name==='entry-sill'?.2256:name==='entry-step'?.1448:x<48.9966?.064+(48.9966-x)/(48.9966-41.0718)*(.0366-.064):.064;
+   // T-2228: the owner/HABS5 single inset threshold replaces both projecting risers.
+   // Probe its full width and demand approach height where the extra treads stood.
+   const expected=['entry-sill','entry-inner-floor','entry-left-threshold','entry-right-threshold'].includes(name)?.2256:x<48.9966?.064+(48.9966-x)/(48.9966-41.0718)*(.0366-.064):.064;
    samples.push({name,material:material?.name,structure,height:hit.point.y,expectedLocalZ:expected,
     heightError:hit.point.y-m.elements[13]-expected,terrain,clearance:hit.point.y-terrain});
   }

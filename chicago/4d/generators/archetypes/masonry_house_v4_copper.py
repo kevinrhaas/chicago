@@ -72,6 +72,68 @@ def surface(params):
     return faces, [_hull([(p[0], p[1]) for face in faces for p in face])]
 
 
+def north_cladding(params):
+    """Copper replaces tiles on the existing plane, never a raised canopy.
+
+    The owner aerial bounds the chamfered return. Its lower edge follows the
+    real overhang. Subtract the radial hood so the two coverings meet once.
+    Returning convex fragments also gives the tile cutter exact shared edges.
+    """
+    spec = params.detail.get('north_copper_cladding')
+    if not spec:
+        return []
+    from archetypes.masonry_house_v4_detail import subtract
+    from archetypes.masonry_house_v4_west_roof import area
+    north = next(r for r in params.ranges if r['name'] == 'north_range')
+    _, _, hosts = controls(params)
+    poly = list(spec['outline'])
+    if area(poly) < 0:
+        poly.reverse()
+    # Outline's south end is deliberately beyond the eave: the actual roof,
+    # not another guessed datum, owns the visible lower edge.
+    low = north['y0'] - north.get('eave_lo_overhang', .20)
+    for plane in ((1,0,-north['x0']),(-1,0,north['x1']),
+                  (0,1,-low),(0,-1,north['ridge_at'])):
+        poly = clip(poly, plane)
+    pieces = subtract(poly, surface(params)[1])
+    return [[(x,y,z(hosts[0],x,y)) for x,y in part] for part in pieces]
+
+
+def add_north_cladding(b, params):
+    faces = north_cladding(params)
+    if not faces:
+        return
+    _, _, hosts = controls(params)
+    normal = _unit((-hosts[0][0],-hosts[0][1],1))
+    conf = params.detail['north_copper_cladding']['conf']
+    for pts in faces:
+        ids = b.raw(pts, conf, COPPER, normal)
+        # Metric UVs keep sheet stock at the same scale as the adjoining hood.
+        for idx, p in zip(ids, pts):
+            b.roof_uvs[idx] = (p[0], p[1]*math.sqrt(1+hosts[0][1]**2))
+        b.raw([(x,y,h-.012) for x,y,h in reversed(pts)],conf,COPPER,
+              tuple(-v for v in normal))
+    # Standing seams follow the fall, clipped independently to each fragment.
+    # No folds are placed on internal subtraction/triangulation edges.
+    xmin = min(p[0] for face in faces for p in face)
+    xmax = max(p[0] for face in faces for p in face)
+    x = math.ceil(xmin/.48)*.48
+    while x < xmax-1e-6:
+        for face in faces:
+            ys=[]
+            for a,c in zip(face,face[1:]+face[:1]):
+                if abs(c[0]-a[0]) < 1e-9:
+                    continue
+                t=(x-a[0])/(c[0]-a[0])
+                if 0 <= t <= 1:
+                    ys.append(a[1]+t*(c[1]-a[1]))
+            if len(ys)>1 and max(ys)-min(ys)>.05:
+                a=(x,min(ys)+.02,z(hosts[0],x,min(ys)+.02))
+                c=(x,max(ys)-.02,z(hosts[0],x,max(ys)-.02))
+                fold(b,a,c,normal)
+        x += .48
+
+
 def _unit(p):
     length = math.sqrt(sum(x*x for x in p))
     return tuple(x/length for x in p)

@@ -1,0 +1,55 @@
+{
+  "purpose": "Additional height check using previously held-out aperture-center picks, unchanged camera and master; not a new independent measurement. Height scale depends on reconstructed eaves.",
+  "windows": [
+    {
+      "name": "upper north",
+      "photo_z_ft": 24.301287867763484,
+      "model_z_ft": 23.5,
+      "offset_ft": -0.8012878677634845
+    },
+    {
+      "name": "upper south",
+      "photo_z_ft": 23.443902160530484,
+      "model_z_ft": 23.5,
+      "offset_ft": 0.05609783946951552
+    },
+    {
+      "name": "lower north",
+      "photo_z_ft": 11.046465267723068,
+      "model_z_ft": 11.125,
+      "offset_ft": 0.07853473227693186
+    },
+    {
+      "name": "lower south",
+      "photo_z_ft": 10.661505607761594,
+      "model_z_ft": 11.125,
+      "offset_ft": 0.46349439223840605
+    },
+    {
+      "name": "rear1",
+      "photo_z_ft": 10.493607819919596,
+      "model_z_ft": 10.75,
+      "offset_ft": 0.2563921800804039
+    },
+    {
+      "name": "rear2",
+      "photo_z_ft": 10.336596537444754,
+      "model_z_ft": 10.75,
+      "offset_ft": 0.4134034625552463
+    },
+    {
+      "name": "rear3",
+      "photo_z_ft": 10.274702989230091,
+      "model_z_ft": 10.75,
+      "offset_ft": 0.4752970107699088
+    },
+    {
+      "name": "rear4",
+      "photo_z_ft": 10.260951362331596,
+      "model_z_ft": 10.75,
+      "offset_ft": 0.4890486376684038
+    }
+  ],
+  "max_abs_offset_ft": 0.8012878677634845,
+  "geometry_changed": false
+}

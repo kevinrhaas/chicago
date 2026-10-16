@@ -1,0 +1,78 @@
+{
+  "master_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "views": {
+    "cornell-northwest-west-windows": {
+      "verdict": "differs",
+      "observations": "Reviewed full side-by-side. Eight west apertures remain clear and the shifted upper slit remains; cupola/host ridge height and stone-course/texture correspondence still differ. The door pass is beyond this view.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
+      "image_sha256": "74dc783cad32fe1b958766e6272c2abd7f2a2e4e28f1886a540c3e5eb1f9c45b"
+    },
+    "habs-01-northwest": {
+      "verdict": "differs",
+      "observations": "Reviewed full side-by-side. Continuous north ridge and flat facade retained; cupola height, north-elevation proportions and stone/roof appearance still differ. Later garage infill and street objects are excluded from 1904.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
+      "image_sha256": "32c08083fc72653dfc3f49b239b0b60aa86124ecef1c16e7119f5ea0b8518c21"
+    },
+    "habs-13-north-level": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Flat north face and paired upper openings retained; opening proportions, sill/lintel details, masonry courses and ground relation still differ. The entrance lower-wall change does not create a crack at the east corner.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
+      "image_sha256": "4b8cbe3c56341d2dc58efa6ed6d8e82d113cc6bd98bac4c130ee51d7476c2862"
+    },
+    "habs-14-north-inclined": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Gable/tower union stays flat on the north; cone and lower connector remain. Precise crown/profile, aperture proportions and stone correspondence still differ under the retained camera.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
+      "image_sha256": "a7666f9bd6f7abdf4d45f7156d7883b89c6b16816cfd3e6443f4b7deb977185d"
+    },
+    "habs-15-stable-detail": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Service door and upper aperture are whole beside the gable, and roof junction stays closed. North opening rhythm/transom treatment, stone joints and precise gable/header shape still differ; modern garage infill is intentionally excluded.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
+      "image_sha256": "b7d32c56aa4538bf81c700343f9b5275962db72ee7996b70df870262c55c754a"
+    },
+    "habs-16-prairie-front": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Recessed entry and single threshold visible in the broader Prairie facade; outward lower slope stays continuous. Exact window/door trim, fan carving and masonry texture still differ. Later utility equipment, signage and garage closure are excluded.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
+      "image_sha256": "5e7d5371c080a2a69b5be9e4f8b9ed4b26585bff9ed71beefc2e2a9510fda825"
+    },
+    "habs-17-habs-ne": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Broad Prairie facade and flat north corner remain intact after the entrance pass. Exact roof/elevation alignment, window trim and masonry/lighting correspondence remain open; isolated-building rendering omits surrounding streetscape.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-17-habs-ne-side-by-side.jpg",
+      "image_sha256": "fe90589a04ea61108c2e2602eb35a5aafdf1b2e3b028bbdd85adf5ecac38d161"
+    },
+    "habs04-court-exterior": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Dormers remain clear of host tiles, bell finial/eave corrections and lower bow roof retained. Tower center/radius disagreement, individual window geometry, coping terminal and material correspondence remain open.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
+      "image_sha256": "77395f33feffc89d429bdea0ae2ff8e772bca25ea26379f72e3edf33fc785c7f"
+    },
+    "habs04-hood-section": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Roof peak and eave remain near the independent section controls. Exact fascia, moulding and attachment profiles still differ; no new entrance-related change here.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
+      "image_sha256": "47925c4e1b7ede9b1e2c87b7523a785744a53900d16f1237240faeccee01a399"
+    },
+    "habs04-terrace-section": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Broad garden grille and descending coping remain. Coping still crosses in front of the rounded terminal, unlike the section; this is retained as an explicit next correction, not accepted as matching.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
+      "image_sha256": "d981f1f35b88c4e767b2c51bcd762db263c20ab9484fb7d151a224e551a79146"
+    },
+    "habs5-entry": {
+      "verdict": "differs",
+      "observations": "Directly reviewed full side-by-side and separate frontal/oblique views. Lower wall batter and cutback sides, shaped lintel, single inset threshold and recessed carving are present. HABS arch proportion, individual carved leaves, stone joints, door panels and hardware still differ; this is not a depth survey or whole-entry photographic acceptance.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
+      "image_sha256": "1930825f73708b6858da872772600dcbed8e376ec4c4b9df0bdfdf5800406197"
+    },
+    "taylor-2135-ne": {
+      "verdict": "differs",
+      "observations": "Directly reviewed. Entry and continuous lower-wall treatment remain intact; main roof and flat north corner retain the prior corrections. Exact window proportions and lintel/carving profiles, cupola height and stone surface correspondence still differ; photograph tone does not establish 1904 color.",
+      "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
+      "image_sha256": "2d9b56e66f583a8d481508c5ca4788d90dfa8d43d223bd22d75df8f7419eafa8"
+    }
+  },
+  "method": "Every new actual-master side-by-side opened and visually compared, fixed existing cameras plus independent HABS5 door diagnostic. No camera refit to hide a difference."
+}

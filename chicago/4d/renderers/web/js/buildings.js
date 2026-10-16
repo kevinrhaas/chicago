@@ -33,7 +33,7 @@
  */
 
 import * as THREE from 'three';
-import { spatialPieces } from './spatial-batch.js';
+import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
 import { backingTriangles } from './view-occlusion.js';
 import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
@@ -460,6 +460,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
   const localXZ = new Map();
+  /** T-2600: the building cells being cut on the job pool, awaited after the loop. */
+  const partitions = [];
   let totalTris = 0;
 
   let completed = 0;
@@ -584,7 +586,6 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // Repartitioning it changes transparent blending/depth order at the ridge.
       const cells = spatialCells || (preserveMaterials && record.id === 'glessner_house'
         && !material.transparent ? { cellM: 4, heightM: 2 } : null);
-      const pieces = cells ? spatialPieces(prepared.geo, cells) : [prepared.geo];
       // Actual opaque building faces can hide geometry behind them. Neighboring
       // houses matter in the elevated courtyard view too. Registered patches
       // change surface shading, not vertex positions; unknown hooks fail open.
@@ -594,14 +595,29 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         && !material.polygonOffset && material.depthWrite && material.depthTest
         && material.colorWrite && !material.wireframe && !material.stencilWrite
         && !material.clippingPlanes?.length;
-      for (const geo of pieces) {
-        bucket.entries.push({
-          record, geo, base: prepared.base, factors: prepared.factors, occludesView,
+      const { geo: source, base, factors } = prepared;
+      const entryOf = (geo) => ({ record, geo, base, factors, occludesView });
+      if (!cells) {
+        bucket.entries.push(entryOf(source));
+      } else {
+        // T-2600: the cells are cut on the job pool while the next mesh is
+        // prepared. The pieces land in a slot held at this mesh's place in the
+        // bucket, so the batch is laid in the order it always was.
+        const slot = [];
+        bucket.entries.push(slot);
+        const job = spatialPiecesAsync(source, cells).then((pieces) => {
+          slot.push(...pieces.map(entryOf));
+          source.dispose();
         });
+        // Heard at the await below; marked handled now, so a refusal while the
+        // loop is still yielding at a checkpoint is not reported as unhandled.
+        job.catch(() => {});
+        partitions.push(job);
       }
-      if (cells) prepared.geo.dispose();
     }
   }
+  await Promise.all(partitions);
+  for (const [, bucket] of groups) bucket.entries = bucket.entries.flat();
 
   onProgress(completed, registry.size);
 

@@ -1,0 +1,84 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs-01-northwest",
+  "glb": "assets/web/glessner_house__as_built_1887.glb",
+  "glb_sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
+  "camera_sha256": "914f653e5bce5182ea25206d155249d462225db4901e887ca44492971275591a",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "T-2470: the north street wall now runs flat into the tower; the separate exposed cylindrical north-east face is removed. Only the western return is curved, with staggered rough-faced courses instead of angular-strip mortar grids.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2470: the upper north pairs retain plan positions and now have the photographed taller proportions and round central columns; the attic slit is present and the unsupported third lower slit is removed. Small carved capitals remain bounded stock reconstructions.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2470: tower centre W41/S7.35, 33.3-ft eave, 43.4-ft apex and 1.5-ft finial reconcile the photographic placement and section rise. The 9.35-ft-radius flared eave shades the short western drum band. The flat facade conceals the former front drum.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2470: the north roof meets the curved drum without an open seam; no host-roof strip crosses a window. The cone connector ends behind the sloping gable coping, and the short pipe drains onto the host. Reviewed on final Full web geometry; Full/Light geometry checks cover contact and clearance.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2228: photographic tone, exact masonry coursing, remaining whole-house roof/chimney silhouettes and other elevations still require reconciliation; procedural stone and these fitted cameras are not a survey-exact whole-house match.",
+      "status": "open"
+    },
+    {
+      "what": "1904 colour and precise weathering cannot be established by this monochrome 1963\u201365 evidence; unseen courtyard faces are not judged here.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2470: with the same fitted camera and observed tip across both models, actual-master finial-tip residual falls 25.873\u21921.523 px. This improves placement but does not validate every dimension independently.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2219: full service-door and upper-sash widths are restored from plans 2/3 and photographs 01/15. The independently located gable foot clears both openings; its roof return meets the north roof without the former triangular shelf. Two reconstructed stone steps and the gable-foot pipe follow the visible arrangement. Reviewed on the rebuilt Full web asset at the unchanged HABS01 camera; whole-house differences remain below.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2228: other opening positions/proportions and stable loft/carriage alterations require date-specific reconciliation; a later alteration must not be copied merely to match the 1963 plate.",
+      "status": "open"
+    },
+    {
+      "what": "T-2217: re-rendered and reviewed on the rebuilt carriage-door asset. These north views do not expose the Prairie carriage leaf faces; their panel/hardware review is the separate HABS sheet-6 closed diagnostic and published passage cameras. Existing whole-house differences remain open for T-2228.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2218 regression review on the final terrace asset: the courtyard stair is hidden from this north camera. Prior north facade repairs remain visible; the recorded whole-house tone, roof/cone and opening discrepancies are still open for T-2228.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2221: reviewed final Full web asset. The small service head and north-facing alley-corner leader now connect to their short eaves; the service pipe remains beside the full door and upper sash. Fitting stock and hidden connections are reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2226/T-2228: whole-house roof silhouettes, exact stone relief/coursing and other previously recorded photographic differences remain unresolved. The rainwater stock has a separate readable matte finish; monochrome later fitting tone is not established as its 1904 colour.",
+      "status": "open"
+    },
+    {
+      "what": "T-2222: Re-viewed after T2222 canonical web rebuild: seven-stack package retains visible northern street/roof stacks, thick flush cap courses and existing top levels. Both roof-pitch seating changes are retained. Whole view still differs in tower cone/eave silhouette, north-wing/stable proportions, openings and masonry relief; later garage alterations remain excluded from1904. No camera refit or acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2223: Re-rendered and visually reviewed on the final T-2223 canonical web asset. The north facade retains complete service openings and the repaired roof junction. The court stair and rear gate are hidden from this camera. Whole-house cone/eave silhouette, north-wing/stable proportions, window correspondence and pillowed masonry relief still differ; the later garage alteration remains excluded from 1904. No camera refit or acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The courtyard paving is hidden from this north-west street camera. Complete service openings and the repaired gable junction remain. Cone/eave silhouette, north-wing/stable proportions, openings and pillowed masonry relief still differ; later garage changes remain excluded from 1904. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2225: Re-rendered and visually reviewed on the final canonical Full web asset. The new planting is hidden from this north-west street camera. Full service openings and the repaired west-gable junction remain visible. Cone/eave silhouette, stable and north-wing proportions, opening correspondence and repeated stone relief still differ. Later garage alterations are excluded from the 1904 target. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    },
+    {
+      "what": "T-2226: Re-rendered and visually reviewed on the final canonical Full web asset. The plain court brick and rear gate are hidden from this street camera. Complete service openings and the repaired west-gable junction remain visible. Tower cone/eave silhouette, stable and north-wing proportions, opening correspondence and rounded repetitive masonry relief still differ. Later garage alterations remain excluded from the 1904 target. No camera refit or whole-house acceptance promotion.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
