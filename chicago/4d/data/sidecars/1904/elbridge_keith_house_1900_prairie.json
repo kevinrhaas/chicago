@@ -58,11 +58,11 @@
       ],
       [
         19.75,
-        10.75
+        12.0
       ],
       [
         0.0,
-        10.75
+        12.0
       ]
     ],
     "confidence": "inferred",
@@ -100,25 +100,12 @@
               0.0,
               0.0,
               19.75,
-              10.75
+              12.0
             ],
             "from": "s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
           },
           {
             "id": "r2",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              6.75,
-              10.75,
-              19.75,
-              12.0
-            ],
-            "from": "s28fp-1900-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 89% of its fill"
-          },
-          {
-            "id": "r3",
             "role": "porch",
             "storeys": 1,
             "roof": "flat",
@@ -141,7 +128,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1900-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 89% of its fill; s28fp-1900-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1900-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -156,7 +143,7 @@
         ],
         "roof_pitch_deg": 18,
         "mansard_lower_m": 3.0,
-        "front_bays": 4,
+        "front_bays": 5,
         "entrance": "south",
         "side_spacing_m": 2.6,
         "chimneys": 2,

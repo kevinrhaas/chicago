@@ -148,7 +148,7 @@
           {
             "id": "r4",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               15.5,
@@ -160,8 +160,8 @@
           },
           {
             "id": "r5",
-            "role": "bay",
-            "storeys": 3,
+            "role": "porch",
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               31.25,

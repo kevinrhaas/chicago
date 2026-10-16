@@ -28,15 +28,15 @@
         "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
       },
       "position": {
-        "utm_e": 448513.454,
-        "utm_n": 4633872.473,
+        "utm_e": 448513.441,
+        "utm_n": 4633873.678,
         "rotation_deg": 179.383,
         "symbolic_location": "2013 S. Prairie Avenue, parcel prairie_2013 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 29.000, v -0.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.383 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the main body's rectangle (lot frame u 29.000, v -1.455 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.383 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -54,18 +54,18 @@
           ],
           [
             18.0,
-            3.0
+            5.5
           ],
           [
             0.0,
-            3.0
+            5.5
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
       },
       "form": {
         "stories": {
@@ -96,61 +96,61 @@
                   0.0,
                   0.0,
                   18.0,
-                  3.0
+                  5.5
                 ],
                 "from": "s35fp-2013-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 71% of its fill"
               },
               {
                 "id": "r2",
                 "role": "wing",
-                "storeys": 3,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
-                  0.0,
-                  3.0,
-                  7.5,
-                  4.25
+                  12.75,
+                  -0.545,
+                  17.5,
+                  1.205
                 ],
                 "from": "s35fp-2013-b1 p1 (main, frame), rectangle 2 of that part; the part's rectangles cover 71% of its fill"
               },
               {
                 "id": "r3",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  12.75,
-                  -1.75,
-                  17.5,
-                  0.0
-                ],
-                "from": "s35fp-2013-b1 p1 (main, frame), rectangle 3 of that part; the part's rectangles cover 71% of its fill"
-              },
-              {
-                "id": "r4",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   -5.25,
-                  -2.5,
+                  -1.295,
                   6.75,
-                  -1.25
+                  -0.045
                 ],
                 "from": "s35fp-2013-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 60% of its fill"
               },
               {
-                "id": "r5",
+                "id": "r4",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   7.5,
-                  -2.0,
+                  -0.795,
                   10.25,
-                  -0.75
+                  0.455
                 ],
                 "from": "s35fp-2013-b1 p2 (range, frame), rectangle 2 of that part; the part's rectangles cover 60% of its fill"
+              },
+              {
+                "id": "r5",
+                "role": "porch",
+                "storeys": 1,
+                "roof": "flat",
+                "rect": [
+                  -9.0,
+                  1.705,
+                  -5.75,
+                  2.955
+                ],
+                "from": "s35fp-2013-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 45% of its fill"
               },
               {
                 "id": "r6",
@@ -158,30 +158,17 @@
                 "storeys": 1,
                 "roof": "flat",
                 "rect": [
-                  -9.0,
-                  0.5,
-                  -5.75,
-                  1.75
-                ],
-                "from": "s35fp-2013-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 45% of its fill"
-              },
-              {
-                "id": "r7",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
                   -8.0,
-                  -2.75,
+                  -1.545,
                   -5.5,
-                  -1.25
+                  -0.045
                 ],
                 "from": "s35fp-2013-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 61% of its fill"
               }
             ],
             "lot_v": [
-              -3.795,
-              4.295
+              -2.59,
+              5.5
             ],
             "street_u": 25.382
           },
@@ -189,7 +176,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2013-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 71% of its fill; s35fp-2013-b1 p1 (main, frame), rectangle 2 of that part; the part's rectangles cover 71% of its fill; s35fp-2013-b1 p1 (main, frame), rectangle 3 of that part; the part's rectangles cover 71% of its fill; s35fp-2013-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 60% of its fill; s35fp-2013-b1 p2 (range, frame), rectangle 2 of that part; the part's rectangles cover 60% of its fill; s35fp-2013-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 45% of its fill; s35fp-2013-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 61% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2013-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 71% of its fill; s35fp-2013-b1 p1 (main, frame), rectangle 2 of that part; the part's rectangles cover 71% of its fill; s35fp-2013-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 60% of its fill; s35fp-2013-b1 p2 (range, frame), rectangle 2 of that part; the part's rectangles cover 60% of its fill; s35fp-2013-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 45% of its fill; s35fp-2013-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 61% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
         },
         "draft_elevation": {
           "value": {

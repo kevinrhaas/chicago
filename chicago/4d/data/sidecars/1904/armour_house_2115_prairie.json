@@ -119,7 +119,7 @@
             "storeys": 2,
             "roof": "flat",
             "rect": [
-              -4.25,
+              -6.0,
               0.25,
               -0.5,
               7.0
@@ -129,20 +129,7 @@
           {
             "id": "r4",
             "role": "range",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              -6.0,
-              1.75,
-              -4.25,
-              6.0
-            ],
-            "from": "s35fp-2115-b1 p6 (range, brick), rectangle 2 of that part; the part's rectangles cover 88% of its fill"
-          },
-          {
-            "id": "r5",
-            "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -1.75,
@@ -150,38 +137,25 @@
               -0.25,
               10.5
             ],
-            "from": "s35fp-2115-b1 p6 (range, brick), rectangle 3 of that part; the part's rectangles cover 88% of its fill"
+            "from": "s35fp-2115-b1 p6 (range, brick), rectangle 2 of that part; the part's rectangles cover 88% of its fill"
           },
           {
-            "id": "r6",
+            "id": "r5",
             "role": "bay",
             "storeys": 1,
             "roof": "flat",
             "rect": [
               9.5,
               10.25,
-              12.25,
-              14.0
+              13.5,
+              14.5
             ],
             "from": "s35fp-2115-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
           },
           {
-            "id": "r7",
-            "role": "bay",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              12.25,
-              11.5,
-              13.5,
-              14.5
-            ],
-            "from": "s35fp-2115-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
-          },
-          {
-            "id": "r8",
+            "id": "r6",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               7.0,
@@ -189,12 +163,12 @@
               9.5,
               13.0
             ],
-            "from": "s35fp-2115-b1 p3 (range, brick), rectangle 3 of that part; the part's rectangles cover 84% of its fill"
+            "from": "s35fp-2115-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
           },
           {
-            "id": "r9",
+            "id": "r7",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -7.75,
@@ -205,9 +179,9 @@
             "from": "s35fp-2115-b1 p8 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
           },
           {
-            "id": "r10",
+            "id": "r8",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -6.0,
@@ -218,9 +192,9 @@
             "from": "s35fp-2115-b1 p7 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
           },
           {
-            "id": "r11",
+            "id": "r9",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               1.5,
@@ -231,9 +205,9 @@
             "from": "s35fp-2115-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill"
           },
           {
-            "id": "r12",
+            "id": "r10",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               3.5,
@@ -244,7 +218,7 @@
             "from": "s35fp-2115-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
           },
           {
-            "id": "r13",
+            "id": "r11",
             "role": "bay",
             "storeys": 1,
             "roof": "flat",
@@ -267,7 +241,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2115-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 94% of its fill; s35fp-2115-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 94% of its fill; s35fp-2115-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill; s35fp-2115-b1 p6 (range, brick), rectangle 2 of that part; the part's rectangles cover 88% of its fill; s35fp-2115-b1 p6 (range, brick), rectangle 3 of that part; the part's rectangles cover 88% of its fill; s35fp-2115-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2115-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s35fp-2115-b1 p3 (range, brick), rectangle 3 of that part; the part's rectangles cover 84% of its fill; s35fp-2115-b1 p8 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2115-b1 p7 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s35fp-2115-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s35fp-2115-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s35fp-2115-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2115-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 94% of its fill; s35fp-2115-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 94% of its fill; s35fp-2115-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill; s35fp-2115-b1 p6 (range, brick), rectangle 2 of that part; the part's rectangles cover 88% of its fill; s35fp-2115-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2115-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s35fp-2115-b1 p8 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2115-b1 p7 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s35fp-2115-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s35fp-2115-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s35fp-2115-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
