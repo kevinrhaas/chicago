@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1889, ts: '2026-10-16T21:44:03.470Z', date: 'Oct 16, 2026, 4:44 PM CT', title: 'A checked format for each building\'s front-page summary', kind: 'chore',
+    items: [
+      'Nothing you can see changes yet. This lays the ground for the new building dossier, which will open on a short written summary of each notable house.',
+      'Each summary will be written by hand, and every fact on it will carry its grade: Attested, Inferred or Reconstructed.',
+      'Before a summary can reach you, a check refuses any fact with no grade, any Attested fact with no source, any line that runs too long, and any internal label left in the words.',
+    ] },
   { v: 1888, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'The arrival says where you are going, and the year rolls there', kind: 'fix',
     items: [
       'A small line over the ticker now reads where you are headed, such as DESTINATION 1904 · PRAIRIE AVE, from the moment the page appears.',
