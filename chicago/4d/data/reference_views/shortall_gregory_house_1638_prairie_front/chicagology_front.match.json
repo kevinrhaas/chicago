@@ -2,10 +2,10 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "02c7fb4f8fb4e4fcbb3c372cc94fd2d2e9fc33fd6f572e0170441b8a47d2691a",
+  "glb_sha256": "5b86a83102dfd5158bc85b078c9187eb0f4ebeb84a4203315c74be9bc6dc4769",
   "camera_sha256": "a8fbf32f4f70b529f9438469cfb333941f8cef958c6681562df40b1a5b643891",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Gable: the twin windows' heads are pointed, two lights 0.63 m wide with their points at 5.87 m, not the kit's flat-headed pair (T-2423)",
@@ -92,8 +92,12 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: in the print the board's field round each quatrefoil is dark, open fretwork between the quatrefoil's ring, the head's band and the post; the model's board is solid, its quatrefoils 2-3 px under the print's, and the print's opening stands some 5 px inside the post's face below the side foils, a moulding not built",
-      "status": "open"
+      "what": "Entrance: in the print the board's field round each quatrefoil is open fretwork, dark between the quatrefoil's ring, the head's band and the post, where the model's board was solid. Built (T-2533) as what stands of the board: a band round the head foil 0.155 m broad and round each side foil 0.05 m, a ring out to 0.215 m round each quatrefoil, a tie 0.24 m broad from the ring to the cusp pierced by a round eye 0.05 m across, and a 0.045 m frame on the post and plate, the rest cut away. Rendered, each spandrel's wedge under the plate (print 718.6/788.8 px, 564-572 px high), its eye (710.6/797.2, 585.6 px) and its opening by the post (691.3/815.9, 592-593 px) land within 2.5 px at their middles, and the quatrefoils within 1.6 px; the item's 'moulding some 5 px inside the post's face below the side foils' is not in the print: read across 700-760 px, its opening's edge stands at 685-686 and 822 px, on the posts' faces as built",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: over the trefoil's crown the print shows a strip of board under the plate's shadow line (557-560 px), and over that the porch's fascia 21 px deep (535-556 px); the model's fascia stood at 555-564 px and its board's top at 570 px. Re-read through T-2523's camera (T-2533): the plate 3.0 m clear, the fascia 0.26 m, the spring 0.78 m under the plate and the quatrefoils 0.23 m down, so the arch and quatrefoils stay where they stood; rendered, the fascia 534-554 px and the board's top 562 px, each within 2 px",
+      "status": "fixed"
     },
     {
       "what": "Entrance: the print's steps run on down past the model's foot, their nosings at 813, 834, 850, 865.5, 879.5, 892, 908 and 922.5 px (about 15 px apart) to where the fence's rail cuts them off; T-2520 settled it through the camera as the floor's height. T-2523 builds it: the house on a 0.95 m basement (the sheet's '2BB'), the floor 1.55 m over the walk, the stoop ten risers of 0.155 m on 0.36 m goings, and the camera re-solved on those steps and the fence's base (the eye 30.71 m out on the far walk, 3.25 m over it, f 2242 px); rendered, the treads land on the eight nosings within 3.7 px rms, the print's wider top gap (813 to 834 px) the one the stair does not draw",
@@ -128,8 +132,20 @@
       "status": "fixed"
     },
     {
-      "what": "South of the gable the print shows a two-storey block with a hipped roof, a pale stack and a two-light window over a door: the register's 'separate lower wing' or the neighbour, not yet identified; the model shows the gable range's south flank and projection there",
-      "status": "open"
+      "what": "South of the gable: the print's block is the sheet's south projection, not the neighbour (sheet 20 puts 1700 Prairie's north wall 4.4 m south of the front's south end and its front 1.5 m forward of 1638's, so through this camera all of 1700 falls left of the frame), and it is a lower wing: on the sheet's east face (u -6.67 m) its eave's drip reads at 482 px, a wall top 5.03 m over the basement's top (5.98 m over the walk) where the house's flanks stand at 6.03 m; its roof faces the street, a 50-degree gable whose ridge (264 px, horizontal) runs north on the plan's middle into the main roof, its south rake seen edge-on against the sky; and the drip's south corner (88.5 px) puts its verge at v -3.42 m, so its south wall at v -3.0 m, 0.6 m south of the sheet's -2.4 m line (T-2532). On its face two upper lights 0.5 m wide (179-209 and 224-256 px, 522-592 px) and, under them, a light 0.58 m wide and a narrow one 0.22 m wide (190-225 and 154-167 px, 677-737 px), their feet lost in the planting. Rendered: ridge 263 px, drip 480-483 px, the drip's corner 88 px, the four lights within 3 px; the rake's top lands 5-7 px south of the print's (118 against 125 px at 275 px), the print's rake leaning more steeply than a ridge on the plan's middle can draw",
+      "status": "fixed"
+    },
+    {
+      "what": "South of the gable, at the wing's south corner: a pale upright about 0.6 m wide from under the eave (502 px) to 655 px with a soft south edge, and a third narrow lower light at 110-124 px, at or just past the wall's line; neither is identified (a lit corner, a downpipe or a tree's trunk), and neither is built; the wing's face in the print is dark, in 1700 Prairie's shadow, where the render lights it. Read again (T-2533): both straddle the wing's corner line, which through the camera falls at 117 px (the upright 95-135 px, the light 110-124 px), so neither can stand on the wing's east face, nor on its south face, which an eye 5.7 m north of that wall does not see; and the upright stops under the eave, so it is no chimney. Both are pale where the wall behind is in shade, and the upright's south edge is ragged like the planting's: something in the yard, catching the sun in front of the corner (a trunk or a creeper on a post), not the house. The wing's face is dark because 1700 Prairie, 4.4 m south and outside this record, shades it; the scene, which does not build 1700 here, lights it. So the picture does not show the house at that corner",
+      "status": "not shown"
+    },
+    {
+      "what": "Left of the wing, the dark mass to the frame's edge and the tree over it: 1700 Prairie's north flank and its yard, outside this record",
+      "status": "not shown"
+    },
+    {
+      "what": "Planting: the shrubs in front of the bay and along the stoop, and the creeper at the stoop's foot, stand in the yard in front of the basement and the stoop's lowest risers, so the picture does not show how those meet the ground; the planting is the yard's, outside this record",
+      "status": "not shown"
     },
     {
       "what": "Colour of every surface: the print is a monochrome halftone",

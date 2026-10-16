@@ -1,3 +1,17 @@
+## T-1883 — Keith house photographic finish (2026-10-16)
+
+The owner-approved 1888 Inland Architect photograph now drives the pierced parapet,
+pinnacles, diaper band, upper colonnettes, Ionic loggia, carved balcony, curved stair
+cheeks, basement lights, transom sashes and early low stone boundary. Principal floor
+is 2.0 m; the accepted footprint, second/third floor levels and north clearance remain.
+A September 1886 trade notice explicitly calls the front granite; neither it nor the
+other two inspected notices names a quarry or establishes its exact colour. Keith has
+its own pale neutral stone tint; Glessner's is unchanged.
+
+The photographic gate remains open. Comparison cameras, source credits and explicit
+remaining differences accompany the model; procedural carving is still an approximation,
+not a claim of photographic equivalence. See [the evidence and validation record](RESEARCH/k01-1808-keith-1883/README.md).
+
 ## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
 
 Service posts now seat on actual treads, rail bars join continuously, and brick
@@ -5493,3 +5507,5 @@ T-2228 owner roof follow-up, 2026-10-15: rebuilt fixed-camera overhead and west 
 T-2228 window-location clarification: the owner explicitly requested historical northwest photos. The recovered Cornell ca.1887 stable catalog ss:3874294 is public domain; a four-corner west-plane comparison with all eight openings withheld supports moving the southern upper slit from S21.8 to S19.8. Other seven centers remain within roughly1ft of the photo-derived positions at retained eaves. Width/heights remain. L-glessner-west-slit-2228 records uncertainty. The copper-only bake was interrupted before completion to include this correction; a new combined bake and actual-asset comparisons are underway.
 
 T-2228 (2026-10-16): final roof/window correction assets reviewed at eleven canonical cameras plus owner overhead; all remain differs. Southern upper west slit moved two feet north from the ca. 1887 Cornell northwest photo, other seven retained. Straight ridge and seated northeast copper return verified. Correction PR needs green integration; final photographic signoff stays open.
+
+T-2228 follow-up2026-10-16: owner front-entry section/threshold/header/carving pass remains active; fixed-camera validation and green dev merge required.

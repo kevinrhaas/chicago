@@ -167,14 +167,14 @@
           "note": "The cornice's projection, inside the draft rules' range; the engraving's cornice stands about half a metre proud."
         },
         "stair_tread_m": {
-          "value": 0.3,
+          "value": 0.25,
           "confidence": "reconstructed",
-          "note": "Inside the K01 contract's tread range."
+          "note": "The floor of the K01 contract's tread range, a steep stoop (T-2535; RECONSTRUCTED, bounded by the drawn foot): the engraving draws the flight's foot at the fence's first post (x 557 px), and through its camera that column at the stoop's north cheek (s 5.05) stands at u 15.35, 4.35 m before the main front. Fourteen risers of 0.164 m (K07's whole-riser solve of the 2.3 m principal floor) on thirteen 0.25 m goings and a 1.1 m landing reach exactly that far; at 0.3 m the foot stood at 5.1 m (x 586 px). The going itself is not drawn: it is the shortest the contract allows, chosen because the engraving's foot asks for it."
         },
         "stair_landing_depth_m": {
-          "value": 1.2,
+          "value": 1.1,
           "confidence": "reconstructed",
-          "note": "A landing at the door, as 1620's."
+          "note": "A landing at the door, 1.1 m deep (T-2535, RECONSTRUCTED and bounded by the drawn foot; 1.2 m, as 1620's, until then): with the 0.25 m going it puts the flight's foot 4.35 m before the front, under the engraving's first fence post (x 557 px) on the stoop's north cheek. The engraving draws the landing's rail but not its depth."
         },
         "stoop_width_m": {
           "value": 1.8,
@@ -231,7 +231,7 @@
             {
               "sill_above_floor_m": 0.7,
               "width_m": 1.0,
-              "height_m": 2.4
+              "height_m": 2.95
             },
             {
               "sill_above_floor_m": 0.6,
@@ -243,7 +243,7 @@
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving"
           ],
-          "note": "The engraving's windows read about 1 m wide; the principal storey's about 2.9 m tall over a 0.7 m sill, held to the K01 contract's 2.4 m clear height (listed open), the second storey's 2.3 m over a 0.6 m sill."
+          "note": "The engraving's windows read about 1 m wide; the principal storey's 2.95 m tall over a 0.7 m sill, past the K01 contract's 2.4 m starting height on this source (T-2534: the bay's heads at y 500-503 px read 5.96-6.03 m and their sills at y 632-636 px 3.1-3.2 m through the engraving's camera, and the north flank's head at y 500 px 6.1 m, so the principal storey's heads stand about 6.0 m over grade); the second storey's 2.3 m over a 0.6 m sill."
         },
         "basement_lights": {
           "value": {
@@ -255,7 +255,7 @@
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving"
           ],
-          "note": "The basement's lights stand nearly a storey at the walk in the engraving (about 0.5-1.9 m over grade under the bay); the round heads it draws under the wing are listed open."
+          "note": "The basement's lights stand nearly a storey at the walk in the engraving (about 0.5-1.9 m over grade under the bay). The front's own two outer bays stand behind the swell bay and the wing, so K01 cuts none of these: the bay and the wing carry the engraving's basement lights themselves (T-2535, form.bays)."
         },
         "roof_covering": {
           "value": {
@@ -508,18 +508,39 @@
               },
               "storeys": [
                 {
-                  "height_m": 6.6,
+                  "height_m": 2.3,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 1.0,
-                      "clear_height_m": 2.4,
-                      "sill_m": 3.0,
+                      "clear_height_m": 1.3,
+                      "sill_m": 0.5,
+                      "at_deg": [
+                        2
+                      ],
+                      "grille": {
+                        "bars": 5,
+                        "set_back_m": 0.04,
+                        "ring_radius_m": 0.25
+                      },
+                      "why_not_ordinary": "the basement light under the bow, read off the engraving: about 1.3 m tall over a 0.5 m sill, barred, under a flat head, under the middle window (T-2535)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.3,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.95,
+                      "sill_m": 0.7,
                       "at_deg": [
                         -36,
                         2,
                         40
-                      ]
+                      ],
+                      "why_not_ordinary": "a principal-storey sash read off the engraving: about 2.95 m tall, its head on the storey's line near 6.0 m (T-2534)"
                     }
                   ]
                 },
@@ -547,7 +568,8 @@
               },
               "eaves": {
                 "cornice": "k10.cornice.bracketed_timber"
-              }
+              },
+              "plinth_m": 0.1
             },
             {
               "id": "south_wing",
@@ -562,16 +584,33 @@
               "fabric": "brick",
               "storeys": [
                 {
-                  "height_m": 6.6,
+                  "height_m": 2.15,
                   "windows": [
                     {
-                      "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 1.15,
-                      "clear_height_m": 2.4,
-                      "sill_m": 3.0,
+                      "opening": "k06.opening.sash_round_fanlight_wide",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 1.4,
+                      "sill_m": 0.3,
+                      "at": [
+                        0.38235,
+                        0.61765
+                      ],
+                      "why_not_ordinary": "the wing's two round-headed basement lights, read off the engraving: each about 0.9 m wide and 1.4 m to its crown over a 0.3 m sill, 0.7 m apart, under the French window; each drawn with an upright bar and a cross bar, so a two-light sash under a fanlight, K06's round-headed parlour window at a basement light's size (T-2535)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.45,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.french_pair_transom",
+                      "clear_width_m": 1.9,
+                      "clear_height_m": 3.35,
+                      "sill_m": 0.2,
                       "at": [
                         0.5
-                      ]
+                      ],
+                      "why_not_ordinary": "the engraving's French window: two leaves under a transom, 1.9 m wide, from the balcony's floor to its head at 5.7 m (T-2534)"
                     }
                   ]
                 },
@@ -579,13 +618,15 @@
                   "height_m": 4.75,
                   "windows": [
                     {
-                      "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 1.1,
+                      "opening": "k06.opening.sash_paired_flat",
+                      "clear_width_m": 1.8,
                       "clear_height_m": 2.1,
                       "sill_m": 0.75,
                       "at": [
                         0.5
-                      ]
+                      ],
+                      "mullion_m": 0.04,
+                      "why_not_ordinary": "a grouped window, read off the engraving: two one-over-one sashes 0.88 m wide, each inside the ordinary range, on a 0.04 m mullion, 1.8 m across as the print draws the opening (T-2537)"
                     }
                   ]
                 }
@@ -594,7 +635,24 @@
                 "kind": "hip",
                 "pitch": 0.0,
                 "covering": "tin_flat_seam_painted"
-              }
+              },
+              "floor_balcony": {
+                "floor_m": 2.3,
+                "at": 0.5,
+                "chord_m": 3.4,
+                "rise_m": 0.6,
+                "slab_m": 0.2,
+                "height_m": 0.9,
+                "inset_m": 0.06,
+                "post_m": 0.18,
+                "bar_m": 0.08,
+                "pitch_m": 0.17,
+                "rail_m": [
+                  0.14,
+                  0.1
+                ]
+              },
+              "plinth_m": 0.1
             }
           ],
           "confidence": "inferred",
@@ -602,7 +660,7 @@
             "glessner_blog_1637_spalding_remodel_engraving",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). The bay rises from grade to the cornice itself, as the engraving carries it (T-2472): its upper storey 4.64 m, so its wall top stands at 11.24 m, the foot of K10's bed moulding (T-2528: 4.552 m and 11.152 m until the soffit was read off the mansard's wall head), and its eaves ARE the cornice, carried round the bow (`eaves.cornice`): the bed moulding swept round its plan under the house's soffit (11.3 m) and fascia (to 11.5 m), 0.5 m out from the bow's face as the main eave stands from the wall, in the same painted timber; the wall's bed moulding stops at the bow's junctions and its brackets stand clear of them. The bow carries no brackets of its own: the engraving draws its top as one plain band, and its brackets would be K10's, not the engraving's. Through the camera that band lands at y 245-267 px on the bow's crown, the engraving's at about 255-270; until T-2472 the bay stopped at 10.7 m under a plain K08 eave (y 270-287 px). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks."
+          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre (the second storey's a pair of one-over-one sashes on a mullion, 1.8 m across, T-2537). The principal storey's is the engraving's French window over a balcony (T-2534): its opening at x 672-745 px reads 1.9 m wide on the wing's face (v 9.71-11.63 m, centred on the wing), its head at y 518 px 5.71 m and its transom bar about 4.8-4.9 m, and it runs down to the balcony's floor, the principal floor (y 668 px, 2.3 m); built as K06's French pair under a transom, its threshold 0.05 m over the balcony's floor. The wing's storey line stands 0.15 m under that floor, at 2.15 m, so that the French pair's frame, which K08 holds clear of the stone string course every storey line carries, can come down to the balcony: the course stands at 2.07-2.23 m, behind the balcony's 0.2 m slab (2.1-2.3 m), and the wing's principal storey is 4.45 m to the same 11.35 m wall top. The balcony's rail tops at y 630 px, 0.87 m over that floor, and its bowed front spans x 651-779 px, about 3.4 m along the wing at the wall; its rise off the face the engraving's nearly frontal view does not give, so it is reconstructed at 0.6 m, and its balusters, which the engraving draws pale between dark gaps about 0.17 m apart as it draws the stoop's stone balustrade, are square stone balusters here under a stone coping (L-k01-1637-wing-balcony-2534). The bay rises from grade to the cornice itself, as the engraving carries it (T-2472): its upper storey 4.64 m, so its wall top stands at 11.24 m, the foot of K10's bed moulding (T-2528: 4.552 m and 11.152 m until the soffit was read off the mansard's wall head), and its eaves ARE the cornice, carried round the bow (`eaves.cornice`): the bed moulding swept round its plan under the house's soffit (11.3 m) and fascia (to 11.5 m), 0.5 m out from the bow's face as the main eave stands from the wall, in the same painted timber; the wall's bed moulding stops at the bow's junctions and its brackets stand clear of them. The bow carries no brackets of its own: the engraving draws its top as one plain band, and its brackets would be K10's, not the engraving's. Through the camera that band lands at y 245-267 px on the bow's crown, the engraving's at about 255-270; until T-2472 the bay stopped at 10.7 m under a plain K08 eave (y 270-287 px). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks. Under each, the engraving's basement lights (T-2535), each bay's basement a storey of its own up to the principal floor (2.3 m), as 1621's bow's is, over a 0.1 m plinth (the kit's 0.6 m plinth would stand over the lights' sills; reconstructed), read through its camera on the bay's and the wing's faces: under the bow one barred, flat-headed light at x 388-439 px, y 696-757 px, which reads s 2.57-3.78 and 0.52-1.82 m over grade, so 1.0 m wide and 1.3 m tall over a 0.5 m sill, set under the middle window at the same 2 degrees (the engraving's column, x 413 px, is the middle window's own, x 412); under the wing two round-headed lights at x 675-710 and 736-771 px, y 692-757 px, each about 0.9 m wide on the wing's face with a 0.7 m pier between, 1.4 m to the crown over a 0.3 m sill. The pair's centre reads about 0.35 m south of the wing's (x 723 px against the window's 708), the draughtsman's perspective converging faster than the camera's (the solve's own note), so the pair is centred under the window above, 0.8 m either side. Their glazing bars and the bow light's iron are K06's and K08's, RECONSTRUCTED (L-k01-1637-basement-lights-2535). T-2537: the wing's second-storey window is the engraving's pair, read off the print itself: its dark opening spans x 675-745 px (70 px; the build's 1.1 m sash spanned 688-730, 42 px, so about 38 px a metre on this face through the camera, and 70 px is about 1.83 m), a pale bar down its middle at x 704-707 px, and in each half a meeting rail and no bars, so two one-over-one sashes. It is built as K06's paired sash, 1.8 m clear, two 0.88 m lights on a 0.04 m mullion; through the camera it now spans x 675-743 px. The mullion's width is reconstructed (L-k01-1637-wing-pair-2537): the print draws it as a single 3 px line, as it draws every bar, and the kit's 0.2 m stone mullion stood as an 8 px brick pier between two holes where the print draws one opening. Its height was read and left: the right light is dark from y 353 to 445 px on the print and on the build alike, so the 2.1 m sash at 0.75 m over the floor stands."
         },
         "rear_wings": {
           "value": [

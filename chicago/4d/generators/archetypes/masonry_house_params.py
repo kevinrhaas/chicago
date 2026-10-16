@@ -700,6 +700,20 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "conf": cf("prairie_frontage"),
             }
         raw = val("v4_detail", {})
+        es = raw.get("prairie_entry")
+        if es:
+            door=next(o for o in p.openings if o.get('style')=='prairie_front_door')
+            p.detail['prairie_entry']={
+                'centre_u':(door['u0']+door['u1'])/2,'sill_z':door['z0'],
+                'grade_z':0.,'batter_top_z':door['z0']+es['batter_top_door_ft']*FT,
+                'batter_m':es['batter_at_grade_ft']*FT,
+                **{k.replace('_ft','_m'):es[k]*FT for k in
+                   ('recess_base_width_ft','recess_top_width_ft','lintel_crown_rise_ft','lintel_end_inset_ft')},
+                'relief_section':es['relief_section_m'],
+                'threshold_front_x':fr.x(es['threshold_front_W']),
+                'threshold_back_x':fr.x(es['threshold_back_W']),
+                'conf':cf('v4_detail'),
+            }
         p.detail["roof_tiles"] = raw.get("roof_tiles")
         p.detail["roof_edges"] = raw.get("roof_edges")
         p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)

@@ -1,0 +1,82 @@
+{
+  "structure_id": "kimball_house_1801_prairie",
+  "view": "taylor_c1895_northwest",
+  "glb": "assets/gltf/kimball_house_1801_prairie__draft_1904.glb",
+  "glb_sha256": "bba79601398bcc60d759d2225bf26f4ea0c91590c4de71caa1e67302a321055f",
+  "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
+  "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the round tower: the photograph's stands on the 18th Street flank about 8 m back from the front, where the 1911 sheet draws a bump in the north wall, its eaves about 12.9 m and its cone to about 18.7 m; the draft put it at the front's north-west corner under an eave about 16 m up",
+      "status": "fixed",
+      "how": "T-2538: the tower stood at u 12.6 on the flank, 1.1 m proud as the sheet draws it, eaves 12.9 m, cone 5.8 m; its axis within about 20 px of the photograph's x 698, its apex within about 25 px"
+    },
+    {
+      "what": "the main block's height: two storeys of wall to a heavy cornice at about 8.1 m (principal floor 1.45 m up a stair of nine risers), the third storey in the roof; the draft stood three full storeys to an eave at about 12 m",
+      "status": "fixed",
+      "how": "T-2538: principal floor 1.45 m, storeys 3.55 and 3.1 m to the cornice at 8.1 m"
+    },
+    {
+      "what": "the roof: very steep slate faces rising from the cornice to a flat deck ringed with cresting at about 16-19 m; the draft had a hip about 56 degrees off a 12 m eave",
+      "status": "fixed",
+      "how": "T-2538: the builder's 72-degree mansard with a 7.2 m lower face and a low deck, its deck line within about 25 px of the photograph's"
+    },
+    {
+      "what": "the south pavilion: three storeys of wall at the south end of the front under a steep coped stone gable, its apex about 17 m",
+      "status": "fixed",
+      "how": "T-2538: part p_south, three storeys to 13.9 m under a 58-degree gable facing the avenue; its gable within about 30 px of the photograph's"
+    },
+    {
+      "what": "the 18th Street flank: a three-storey section east of the tower and a gabled section beyond it, then a lower two-storey east range; the draft ran the whole flank at one height",
+      "status": "fixed",
+      "how": "T-2538: parts p_flank and r3 at three storeys, r2 at two, eaves 13.9 and 8.1 m"
+    },
+    {
+      "what": "the east turret: a small round turret under a cone at the flank's north-east corner, its eaves about 8 m and its apex about 12.7 m; the draft had none",
+      "status": "fixed",
+      "how": "T-2538: a 1.3 m turret on the sheet's second bump, eaves 8.1 m, cone to 12.8 m; its axis within about 20 px of the photograph's"
+    },
+    {
+      "what": "the corner entrance: an open loggia at the front's north-west corner, one round arch on each face, and a broad stair of about nine risers between curved cheek walls coming down the front; the build has a flat door and a straight stoop",
+      "status": "open",
+      "how": "T-2539"
+    },
+    {
+      "what": "the bowed bay in the middle of the front, two storeys under a balcony, and the front's openings: paired and mullioned windows in carved surrounds, the carved frieze over the principal storey; the build has the draft's evenly spaced sash. The sheet's bulge (v 4.8-10.2) and the photograph's bay (about 60 px further north) disagree about where it stands",
+      "status": "open",
+      "how": "T-2539"
+    },
+    {
+      "what": "all-stone walls: Bedford stone laid in courses on the front and the flank alike, with string courses and the corbel table; the build is the draft's flat stand-in stone",
+      "status": "open",
+      "how": "T-2539"
+    },
+    {
+      "what": "the tower's form: a shaft about 2.4 m across under a corbelled upper stage about 3.6 m across, its cone flaring from the stage; the build is one eight-sided prism 2.9 m across",
+      "status": "open",
+      "how": "T-2539"
+    },
+    {
+      "what": "the roof's dormers and deck: tall hooded dormers in the steep faces, the iron cresting and finials round the deck, the pavilion's and flank's tall stacks; the build's dormers sit sunk in the face and show only their gables, and it has no cresting",
+      "status": "open",
+      "how": "T-2540"
+    },
+    {
+      "what": "the gabled section on the flank: a gable facing 18th Street with a balcony at about 11.5 m; the build has a hip there",
+      "status": "open",
+      "how": "T-2540"
+    },
+    {
+      "what": "the south and east sides and the rear",
+      "status": "not shown",
+      "how": "the camera looks from the north-west; T-2540 reads the HABS photographs for them"
+    },
+    {
+      "what": "colour: the stone's tone and the slate's",
+      "status": "not shown",
+      "how": "a monochrome print"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

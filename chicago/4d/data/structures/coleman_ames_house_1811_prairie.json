@@ -1,10 +1,10 @@
 {
   "id": "coleman_ames_house_1811_prairie",
-  "name": "1811 Prairie Avenue — Coleman/Ames Romanesque (district draft; refined by T-1891, T-1892)",
+  "name": "1811 Prairie Avenue — the Miner T. Ames (Coleman) house, Cobb & Frost's rock-faced stone front from the 1888 Inland Architect plate, K01 frontage assembly",
   "aka": [
     "1811 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,10 +14,10 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B; section2B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1891, T-1892 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1811-b1), the T-1841 census (s28-1811-front, s28-1811-wing) and the T-1837 register row frontage-28-050 (Coleman/Ames Romanesque); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "T-2541 (piece 1 of T-1891) refines the district draft (T-2330) in place under the same id from the Inland Architect plate of October 1888, 'Residence of Miner T. Ames, Chicago. Cobb & Frost, Architects.' (inland_architect_1888_10_ames_residence), read against the 1911 Sanborn sheet 28, which controls the plan. The draft's 7.25 m box (the largest rectangle its fit found inside the trace) becomes the sheet's own plan: a front block 10.4 m along the street and 7.57 m deep on K01 with a K02 rock-faced brown-stone front, its north bay standing 1.0 m proud on K08 and its corbelled oriel over the entrance arch, and behind it the 8.4 m brick range of three storeys and the two-storey rear section on K01's rear wings, 18.4 m back. The camera is solved into data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json; what the plate still shows differently is on its match record, and the roofs (the bay's gable, the oriel's pyramid) are T-2542's. docs/RESEARCH/k01-1811-ames-2541/README.md.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -28,15 +28,15 @@
         "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
       },
       "position": {
-        "utm_e": 448518.437,
-        "utm_n": 4634151.096,
+        "utm_e": 448500.017,
+        "utm_n": 4634153.017,
         "rotation_deg": 179.444,
         "symbolic_location": "1811 S. Prairie Avenue, parcel prairie_1811 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 12.250, v -4.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The front block's rear north corner: the draft's frame point u 18.40, v -2.10 (draft position note: The rear corner of the main body's rectangle (lot frame u 12.250, v -4.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line.) Moved by T-2541 from the corner of the draft's fitted rectangle to the corner of the sheet's own plan: the front block's north wall is the trace's at v -2.1, its rear the line where the trace's north wall steps in, 7.57 m behind the entrance block's stone face.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -49,136 +49,512 @@
             0.0
           ],
           [
-            24.5,
+            7.57,
             0.0
           ],
           [
-            24.5,
-            7.25
+            7.57,
+            10.4
           ],
           [
             0.0,
-            7.25
+            10.4
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The front block read off the 1911 sheet's trace (s28fp-1811-b1) in the lot frame: the entrance block's stone face 7.57 m in front of the line where the trace's north wall steps in from v -2.1 to v -0.1 (18.4 m from the trace's rear), so 7.57 m deep; 10.4 m along the front from the north wall to the south wall's straight line, the trace's own width. The bay's 1.0 m and the stair stand in front of it; the rear range is in rear_wings."
       },
       "form": {
         "stories": {
           "value": 3,
-          "confidence": "attested",
+          "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_architect_1888_10_ames_residence"
           ],
-          "note": "'3B; section2B' printed on the 1911 sheet: 3 full storeys."
+          "note": "'3B; section 2B' on the 1911 sheet: three storeys over a basement, with a two-storey section; the 1888 plate shows three storeys on the street front, the third in the gable over the north bay, and three rows of windows on the brick south flank."
         },
         "construction": {
           "value": "brick_with_stone_front",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "The register reads the map's colours as 'brick with stone front'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  24.5,
-                  7.25
-                ],
-                "from": "s28fp-1811-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "bay",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  24.75,
-                  0.0,
-                  26.0,
-                  7.0
-                ],
-                "from": "s28fp-1811-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 55% of its fill"
-              }
-            ],
-            "lot_v": [
-              -2.972,
-              10.972
-            ],
-            "street_u": 33.589
-          },
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_architect_1888_10_ames_residence"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1811-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s28fp-1811-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 55% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "The sheet's 'brick with stone front'; the plate shows the rock-faced stone street front and the brick south flank behind it."
         },
-        "draft_elevation": {
+        "principal_floor_m": {
+          "value": 1.35,
+          "confidence": "reconstructed",
+          "note": "Nine risers of 0.15 m, the stair's count on the plate, so 1.35 m; bounded by the bay's ground-floor sills at 2.0 m over grade, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), and low enough that the door's head clears the oriel's three corbel courses."
+        },
+        "storey_heights_m": {
+          "value": [
+            3.65,
+            3.4,
+            3.3
+          ],
+          "confidence": "reconstructed",
+          "note": "Read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the bay's ground-floor heads at 4.3 m and its first-floor sills at 5.5 m put the second floor near 5.0 m, 3.65 m over the 1.35 m principal floor; the first-floor heads at 7.6 m and the bay's cornice at 8.3 m put the third near 8.4 m; the third is a 3.3 m storey under the main roof's eave at 11.7 m, whose own height the plate does not show (the gable and the oriel's pyramid stand in front of it): high enough that its lights (8.85-10.35 m; the plate's read 9.0-9.9 m) stand clear of the bay's deck below and keep their lintels clear of the stone cornice under the soffit."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "A rock-faced stone front on a brick backing: the K01 contract's thickest masonry front."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "A brick side wall of three storeys: the district's K03 default."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "The south flank is brick on the plate and on the 1911 sheet; its colour and bond are not shown (a monochrome print), so the district's common brick."
+        },
+        "stone_front": {
           "value": {
-            "kind": "house",
-            "seed": 1822021033,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 45,
-            "mansard_lower_m": 3.0,
-            "front_bays": 3,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "brownstone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2330",
-              "refined_by": [
-                "T-1891",
-                "T-1892"
-              ]
+            "fabric": "sandstone_brown",
+            "dressing": "rock_faced",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 1,
+            "coping_height_m": 0.23,
+            "corner_bond": []
+          },
+          "confidence": "reconstructed",
+          "note": "The plate's front is rock-faced ashlar in large courses with dressed trim; the T-1837 register reads it brown sandstone (frontage-28-050). The colour is the register's, not the plate's. The smooth ashlar of the bay's upper stage is T-2542's."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k01.flat_lintel",
+              "k01.flat_lintel",
+              "k01.flat_lintel"
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The plate's windows are square-headed in plain stone surrounds; their carved heads and the transoms are the finishing ticket's (T-1892)."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "confidence": "reconstructed",
+          "note": "A moulded stone cornice at the main eave, where the plate shows the roofs springing from a stone course; its section is the K10 kit's."
+        },
+        "roof_form": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "A ridge along the street front, its street slope rising behind the bay's gable and the oriel's pyramid, and the front block's south wall carried up in brick as a coped gable end to the tall stack, as the plate and the Chicagology print show it; the north end, unseen, the same. The bay's own stone gable and the oriel's pyramid are T-2542's."
+        },
+        "roof_pitch_deg": {
+          "value": 45,
+          "confidence": "reconstructed",
+          "note": "The K01 contract's steepest pitch (45 degrees): the street slope to a ridge 3.78 m back, about 15.2 m over grade. The plate's slopes read steeper and the apex about 16 m through the T-2541 camera; that difference is open on the match record for T-2542, which owns the roofs."
+        },
+        "eave_overhang_m": {
+          "value": 0.4,
+          "confidence": "reconstructed",
+          "note": "0.4 m: enough eave for K10's moulded stone cornice (0.32 m proud) under the slate, as on 1621; the plate shows a stone eave course, not a deep soffit."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "The K01 contract's middle tread."
+        },
+        "stair_landing_depth_m": {
+          "value": 0.6,
+          "confidence": "reconstructed",
+          "note": "A landing at the door's sill inside the arch."
+        },
+        "stoop_width_m": {
+          "value": 2.2,
+          "confidence": "reconstructed",
+          "note": "The broad stair between its cheek walls, about 2.7 m over the cheeks on the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), so about 2.2 m of tread."
+        },
+        "entrance_bay": {
+          "value": "north",
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1888_10_ames_residence"
+          ],
+          "note": "The door is in the south part of the front, under the deep round arch (the plate). K01 names its ends in the footprint frame, whose v runs south on this side of the avenue, so its 'north' end is the street's south end."
+        },
+        "front_bays": {
+          "value": [
+            0.9,
+            3.6,
+            7.9
+          ],
+          "confidence": "reconstructed",
+          "note": "Centres along the front from its north end (v 0): 0.9 m, the narrow strip north of the bay that the plate shows as a canted face with one narrow window a storey; 3.6 m, behind the bay, whose own windows are the bay's; 7.9 m, the entrance arch's centre, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) at x 400 px."
+        },
+        "front_bays_by_storey": {
+          "value": {
+            "2": [
+              2.55,
+              3.6,
+              4.65
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The third storey's three lights over the bay, behind its balcony, read off the plate between x 147 and 250 px. Their round-arched heads and the gable they stand in are T-2542's."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "north_bay",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.street_front",
+              "s_m": 3.6,
+              "fabric": "front_stone",
+              "plan": {
+                "width_m": 3.7,
+                "proud_m": 1.0
+              },
+              "storeys": [
+                {
+                  "height_m": 5.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.05,
+                      "clear_height_m": 2.2,
+                      "sill_m": 2.05,
+                      "at": [
+                        0.3702,
+                        0.6825
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.05,
+                      "clear_height_m": 2.1,
+                      "sill_m": 0.46,
+                      "at": [
+                        0.3702,
+                        0.6825
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.0,
+                "covering": "tin_flat_seam_painted"
+              }
             },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Romanesque' overlaid with the frontage row: Romanesque: the register's 'rock-faced brown sandstone front' over 'brick side and rear', so the stone front is brownstone and the walls behind it brick; the steep Romanesque hip stands for the upper gable, whose arched lights are T-1891's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1822021033 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
+            {
+              "id": "oriel",
+              "variant": "k08.oriel.canted_corbelled",
+              "wall": "k01.wall.street_front",
+              "s_m": 7.9,
+              "fabric": "front_stone",
+              "base_m": 5.0,
+              "corbel": {
+                "courses": 3
+              },
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.4,
+                    0.0
+                  ],
+                  [
+                    -1.2,
+                    0.5
+                  ],
+                  [
+                    1.2,
+                    0.5
+                  ],
+                  [
+                    1.4,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 3.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_transom_flat",
+                      "clear_width_m": 0.48,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.95,
+                      "at": [
+                        0.2843,
+                        0.5,
+                        0.7157
+                      ],
+                      "why_not_ordinary": "the oriel's three tall narrow transomed lights, read off the 1888 plate at about 0.5 m each between stone mullions over a 2.8 m front"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 1.0,
+                "covering": "slate_pennsylvania"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_architect_1888_10_ames_residence"
+          ],
+          "note": "Read off the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json). NORTH BAY: the front block's north part stands forward of the entrance block (the sheet's stone part p1 draws it about 1.0 m proud); its front, x 112-287 px, is about 3.7 m wide at the bay's own scale (47.4 px/m), with two windows a storey at about 0.3 and 0.78 of its front, iron-grilled basement lights under them (not built: K08 stacks no second window in a storey, so they are the finishing ticket's), and a cornice at about 8.3 m over which the third storey stands back behind a balcony. Built as K08's square-cornered full-height projection, two storeys from grade to 8.4 m: the plate shows (and the sheet draws) its north face CANTED, which K08 has no shape for; that, the bay's smooth upper stage and its balcony are open on the match record. ORIEL: over the entrance arch, corbelled out from about 5.2 m, its front x 340-465 px (about 2.8 m) with three tall transomed lights and a window in each return, its cornice at about 9.1 m; built as K08's corbelled oriel 0.5 m out on three corbel courses from 4.4 m, its returns canted 0.2 m (the plate's are square, and stand further out: K08's oversail rule holds three courses to 0.52 m, and a fourth would bring the corbel down onto the arch). Its steep pyramid and finial (apex about 12 m) are T-2542's: here it carries the kit's hip."
         },
-        "draft": {
+        "side_bays": {
+          "value": [
+            2.0,
+            5.5
+          ],
+          "confidence": "reconstructed",
+          "note": "The north wall (K01's 'south'): not seen on any picture; two windows a storey, reconstructed."
+        },
+        "north_bays": {
+          "value": [
+            2.5
+          ],
+          "confidence": "reconstructed",
+          "note": "The front block's south wall (K01's 'north'), seen on the plate behind the entrance block's stone return: one window a storey, reconstructed at the plate's spacing."
+        },
+        "rear_bays": {
+          "value": [],
+          "confidence": "reconstructed",
+          "note": "The front block's rear wall is covered by the rear range across all but its north 2.0 m."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_range",
+              "rect": [
+                -14.1,
+                0.0,
+                2.0,
+                10.4
+              ],
+              "floor_m": 1.35,
+              "storey_heights_m": [
+                3.65,
+                3.4,
+                3.0
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.6,
+                  "width_m": 1.0,
+                  "height_m": 2.2
+                },
+                {
+                  "sill_above_floor_m": 0.55,
+                  "width_m": 1.0,
+                  "height_m": 2.0
+                },
+                {
+                  "sill_above_floor_m": 0.5,
+                  "width_m": 0.9,
+                  "height_m": 1.6
+                }
+              ],
+              "windows": {
+                "north": [
+                  1.6,
+                  4.2,
+                  6.8,
+                  9.4,
+                  12.0
+                ],
+                "south": [
+                  3.0,
+                  8.0,
+                  12.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            },
+            {
+              "id": "rear_section",
+              "rect": [
+                -18.4,
+                -14.1,
+                2.0,
+                10.4
+              ],
+              "floor_m": 1.35,
+              "storey_heights_m": [
+                3.65,
+                3.4
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.6,
+                  "width_m": 1.0,
+                  "height_m": 2.2
+                },
+                {
+                  "sill_above_floor_m": 0.55,
+                  "width_m": 1.0,
+                  "height_m": 2.0
+                }
+              ],
+              "windows": {
+                "north": [
+                  2.15
+                ],
+                "rear": [
+                  2.5,
+                  6.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_architect_1888_10_ames_residence"
+          ],
+          "note": "The sheet's main part behind the front block, 8.4 m wide on the south wall's straight line (trace s28fp-1811-b1 p2, v 2.0-10.4 here), drawn as one part to its rear wall 18.4 m back with a drawn division about 4.3 m from the rear: the three-storey range ('3B') and the two-storey rear section ('section 2B'). The plate and the Chicagology print show the range's south flank in brick, three rows of windows over a basement, evenly spaced, and a flat-topped wall head; the spacing here is reconstructed at about 2.6 m. The sheet's small projection on the range's north wall (about 1.6 m out, 4.5 m long) is not built: no picture shows that side."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 2.2
+            },
+            {
+              "sill_above_floor_m": 0.46,
+              "width_m": 1.0,
+              "height_m": 2.1
+            },
+            {
+              "sill_above_floor_m": 0.45,
+              "width_m": 0.75,
+              "height_m": 1.5
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1888_10_ames_residence"
+          ],
+          "note": "The bay's windows through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): ground floor sills 2.04 m and heads 4.26 m over grade, first floor 5.46-7.57 m, about 1.05 m wide; the third storey's narrow lights about 0.45 m wide on the plate, built at K01's narrowest sash (0.75 m)."
+        },
+        "basement_lights": {
           "value": {
-            "pass": "T-2330",
-            "liberty": "L-draft-prairie-18-20-east-2330",
-            "register_row": "frontage-28-050",
-            "census_ids": [
-              "s28-1811-front",
-              "s28-1811-wing"
-            ],
-            "trace_building": "s28fp-1811-b1",
-            "seed": 1822021033,
-            "replaceable_by": [
-              "T-1891",
-              "T-1892"
-            ],
-            "card": "District draft — refined by T-1891, T-1892."
+            "sill_m": 0.1,
+            "width_m": 0.75,
+            "height_m": 0.4
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "Area lights in the strip north of the bay; the bay's own basement lights are the grilled pair above."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "slate_pennsylvania",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll"
+          },
+          "confidence": "reconstructed",
+          "note": "The plate shows slate on every roof; Pennsylvania slate is the district's."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
+            ],
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 0.8,
+                "v_m": 9.4
+              },
+              {
+                "u_m": 1.0,
+                "v_m": 0.9
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The plate's tall stack at the junction of the front block and the brick range on the south side, and one on the north wall, reconstructed; the stacks' corbelled caps and the range's second stack are T-2542's."
+        },
+        "rainwater": {
+          "value": null,
+          "confidence": "reconstructed",
+          "note": "No gutters yet: a K01 gable roof hangs none (T-2459). The plate's two downpipes on the front (at the bay's south return and the entrance block's south corner) are open on the match record."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "The district's two-over-two sash; the plate's sash is too small to count lights."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 7.6,
+              "reveal_depth_m": 0.32,
+              "arch": {
+                "ring_m": 0.4,
+                "keystone_top_m": 4.75,
+                "keystone_m": [
+                  0.3,
+                  0.45
+                ]
+              }
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "The plate's deep round arch on clustered columns, its springing about 3.3 m and its extrados about 4.5 m over grade through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), read on K07's deep-arched double door. The porch's depth, the columns and the stair's scrolled cheek walls are the finishing ticket's (T-1892)."
+        },
+        "gable_roof": {
+          "value": {
+            "ridge_back_m": 3.78,
+            "top_above_ridge_m": 0.3,
+            "ends": {
+              "north": {
+                "style": "coped"
+              },
+              "south": {
+                "style": "coped"
+              }
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "The ridge at half the front block's depth, so the two slopes fall at the same 45 degrees to the one wall head; the side walls carried up as coped parapets (K01's 'north' is the street's south end: the brick gable the plate and the Chicagology print show rising to the tall stack). The plate's roofs read steeper and about a metre higher; open on the match record."
         }
       }
     }

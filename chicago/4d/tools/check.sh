@@ -81,6 +81,8 @@ step "A patched plain lit material cannot be handed another layer's shader progr
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
+step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
+  node tools/test_crash_guard.mjs
 
 step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
   node tools/calibrate_boot_weights.mjs --check
@@ -202,6 +204,8 @@ step "Glessner carriage leaves: relief, swing and grain" \
   python3 tools/test_glessner_porte.py
 step "Glessner courtyard treads, landing and rounded terminal stay solid" \
   python3 tools/test_glessner_terrace.py
+step "Glessner entry retains its cutback, single threshold and recessed carving" \
+  python3 tools/test_glessner_entry.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \

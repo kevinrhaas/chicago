@@ -205,6 +205,11 @@ PORCH_ARCH = ("spring_below_plate_m", "rise_m", "lower_radius_ratio", "lower_swe
 PORCH_STOOP = ("max_riser_m", "going_m", "cheek_above_m")
 #: T-2519: what a cusped trefoil head needs in place of the pointed arch's rise and arcs
 PORCH_TREFOIL = ("spring_below_plate_m", "foil_radius_m", "head_radius_m", "head_over_spring_m", "lobe_m")
+#: T-2533: an open-fretwork spandrel, what stands of its board: the bands round the head and side
+#: foils, the ring round the quatrefoil (from its middle), the tie from it to the cusp and the eye
+#: through that (its breadth, its distance from the quatrefoil's middle), the frame on the post
+#: and plate, and the least opening cut.
+PORCH_FRET = ("head_band_m", "side_band_m", "ring_m", "tie_m", "eye_m", "eye_at_m", "rim_m", "min_opening_m")
 
 
 def basement_errors(bv: dict) -> list[str]:
@@ -241,7 +246,15 @@ def porch_errors(pv: dict) -> list[str]:
             out.append("plate may set only clear_m and height_m")
         elif not all(_num(x) and x > 0 for x in pl.values()):
             out.append("plate's clear_m and height_m must be positive")
+    if "roof_m" in pv and not (_num(pv["roof_m"]) and 0.05 <= pv["roof_m"] <= 0.5):
+        out.append("roof_m (T-2533: the porch's fascia) must lie in 0.05-0.5 m")
     ar = pv.get("arch")
+    fr = (ar or {}).get("fret")
+    if fr is not None and (ar or {}).get("kind") != "trefoil":
+        out.append("arch.fret (T-2533) is tied to a trefoil's cusp, so it needs kind: trefoil")
+    elif fr is not None and not (isinstance(fr, dict) and set(fr) == set(PORCH_FRET)
+                               and all(_num(fr[k]) and 0 < fr[k] <= 0.5 for k in PORCH_FRET)):
+        out.append(f"arch.fret (T-2533) needs exactly {', '.join(PORCH_FRET)}, each 0-0.5 m")
     if ar is not None and ar.get("kind") == "trefoil":     # T-2519: a cusped trefoil head
         out += [f"arch needs a positive {k}" for k in PORCH_TREFOIL if not (_num(ar.get(k)) and ar[k] > 0)]
         qi = ar.get("quatrefoil_inset_m")

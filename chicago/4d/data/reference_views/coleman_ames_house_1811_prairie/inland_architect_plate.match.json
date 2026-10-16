@@ -1,0 +1,85 @@
+{
+  "structure_id": "coleman_ames_house_1811_prairie",
+  "view": "inland_architect_plate",
+  "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
+  "glb_sha256": "2d1c109c6aebc907aec68b1839f7476359c807bdf2e67dae1af86aaf7b59f696",
+  "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
+  "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a front block of three storeys the width of the lot's building (10.4 m on the 1911 sheet) with a long brick range behind it running back along the south flank; the draft stood a 7.25 m flat-topped box with no bay, oriel or entrance, its front 1.2 m short of the sheet's width",
+      "status": "fixed",
+      "how": "T-2541: K01 front block at the sheet's own 10.4 m width and 7.57 m depth; the 8.4 m brick range of three storeys and the two-storey rear section on K01's rear wings, 18.4 m back; the front's edges land at x 50 and 625 px against the plate's 50 and 615"
+    },
+    {
+      "what": "the north bay: the front's north part stands forward of the entrance block, its front about 3.7 m wide with two windows a storey, iron-grilled basement lights, and a cornice at about 8.3 m; nothing in the draft",
+      "status": "fixed",
+      "how": "T-2541: K08 full-height projection 3.7 m wide and 1.0 m proud, two storeys to 8.4 m; its front lands at x 85-295 px against the plate's 112-287, its windows about 20 px north of the plate's"
+    },
+    {
+      "what": "storey lines: the bay's ground-floor sills 2.0 m and heads 4.3 m, first-floor 5.5-7.6 m; the third storey's lights over the bay at about 9.0-9.9 m",
+      "status": "fixed",
+      "how": "T-2541: principal floor 1.35 m, storeys 3.65, 3.4 and 3.3 m; the ground and first-floor windows within about 15 px of the plate's; the third storey's three lights over the bay at 8.85-10.35 m"
+    },
+    {
+      "what": "the entrance: the door under a round arch in the south part of the front, reached by a broad straight stair of about nine risers",
+      "status": "fixed",
+      "how": "T-2541: K07's deep-arched double door at s 7.9 m (x 380-425 px against the arch's 360-440), its stair of nine 0.15 m risers between low cheeks"
+    },
+    {
+      "what": "the oriel over the entrance arch: corbelled out from about 5.2 m, three tall transomed lights in front and one in each return, its cornice about 9.1 m",
+      "status": "fixed",
+      "how": "T-2541: K08 corbelled oriel, 2.8 m across at the wall and 0.5 m out on three corbel courses from 4.4 m, three transomed lights 6.0-8.2 m; it lands at x 310-470 px against the plate's 340-500"
+    },
+    {
+      "what": "the bay's north face is CANTED (the sheet draws it, and the plate shows it dark and foreshortened at x 60-112 px, a narrow window a storey); the build stands it flat, as the main wall's north strip with one window a storey, K08 having no canted pavilion",
+      "status": "open"
+    },
+    {
+      "what": "the bay's stone gable: its rake from about 10.2 m to an apex about 13.2 m with a finial, a group of three round-arched lights in an arched recess, corner pinnacles, and the pierced (fretwork) balcony on the bay's top in front of the third storey; the build has a flat deck on the bay and the three lights in the main wall behind it, flat-headed (T-2542)",
+      "status": "open"
+    },
+    {
+      "what": "the oriel's steep pyramid with its finial, apex about 12.0 m; the build carries the K08 kit's low hip (T-2542)",
+      "status": "open"
+    },
+    {
+      "what": "the main roof: the plate's slopes are steeper and rise to about 16 m behind the gable and the pyramid; the build's gable roof is at K01's steepest 45 degrees, its ridge about 15.5 m, its street eave and stone cornice in full view at 11.7 m where the plate shows the roofs coming down behind the gable and the oriel (T-2542)",
+      "status": "open"
+    },
+    {
+      "what": "the brick south flank's front end: the plate and the Chicagology print show its wall carried up as a raking brick gable to the tall stack, standing a little behind the entrance block's stone return; the build's parapet end is the front block's own, and its stacks are reconstructed (T-2542)",
+      "status": "open"
+    },
+    {
+      "what": "the oriel's depth and returns: the plate's oriel stands about 0.6 m out on square returns with a light in each; the build's stands 0.5 m out on canted returns with none, K08's corbel rule holding three courses to 0.52 m",
+      "status": "open"
+    },
+    {
+      "what": "the bay's basement lights: two large iron-grilled lights under its windows, about 0.1-1.1 m over grade; not built (K08 stacks no second window in a storey; the ironwork is T-1892's)",
+      "status": "open"
+    },
+    {
+      "what": "the entrance porch: the plate's arch is an open porch, about 1.8 m wide, deep, on clustered columns with carved capitals, the door far back in it; its stair runs between scrolled stone cheek walls; the build has a door in a shallow reveal under a small arch (T-1892)",
+      "status": "open"
+    },
+    {
+      "what": "the stone's dressing: the bay's upper stage (above about 5.5 m) and the oriel are smooth ashlar, the rest rock-faced in large courses; the build lays the whole front rock-faced brown sandstone",
+      "status": "open"
+    },
+    {
+      "what": "downpipes: two on the front, at the bay's south return and the entrance block's south corner; the build hangs none (a K01 gable roof carries no gutter yet)",
+      "status": "open"
+    },
+    {
+      "what": "colour: a monochrome print. The brown sandstone is the T-1837 register's reading",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank and the rear: the plate does not see them; built from the 1911 sheet's plan at the reconstructed tier",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

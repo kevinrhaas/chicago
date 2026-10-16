@@ -43,9 +43,9 @@
     },
     {
       "id": "coleman_ames_house_1811_prairie",
-      "name": "1811 Prairie Avenue — Coleman/Ames Romanesque (district draft; refined by T-1891, T-1892)",
+      "name": "1811 Prairie Avenue — the Miner T. Ames (Coleman) house, Cobb & Frost's rock-faced stone front from the 1888 Inland Architect plate, K01 frontage assembly",
       "sidecar": "sidecars/1904/coleman_ames_house_1811_prairie.json",
-      "asset": "gltf/coleman_ames_house_1811_prairie__draft_1904.glb"
+      "asset": "gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb"
     },
     {
       "id": "coleman_ames_house_1811_prairie_coach_house",
@@ -607,7 +607,7 @@
     },
     {
       "id": "kimball_house_1801_prairie",
-      "name": "1801 Prairie Avenue — Kimball Chateauesque (district draft; refined by T-1889, T-1890)",
+      "name": "1801 Prairie Avenue — W. W. Kimball's Chateauesque house, its massing read off J. W. Taylor's c. 1895 photograph (T-2538; refined by T-2539, T-2540, T-1890)",
       "sidecar": "sidecars/1904/kimball_house_1801_prairie.json",
       "asset": "gltf/kimball_house_1801_prairie__draft_1904.glb"
     },

@@ -24,14 +24,16 @@ CARVED_GRANITE = 0
 class Relief:
     """A sculptor's (horizontal, vertical, outward-depth) work plane."""
 
-    def __init__(self, builder, plane, confidence, mat=TRIM):
+    def __init__(self, builder, plane, confidence, mat=TRIM, profile=None):
         self.b = builder
         self.p = plane
         self.conf = confidence
         # The stone the carving is cut in; faces asking for no slot take it.
         self.mat = mat
+        self.profile = profile
 
     def point(self, u, z, d):
+        if self.profile: d += self.profile(u,z)
         at = self.p['at'] + self.p['sign'] * d
         return (at, u, z) if self.p['axis'] == 'x' else (u, at, z)
 
@@ -40,6 +42,11 @@ class Relief:
 
     def face(self, pts, mat=None, normal=(0, 0, 1)):
         mat = self.mat if mat is None else mat
+        if self.profile and normal:
+            u=sum(p[0] for p in pts)/len(pts);z=sum(p[1] for p in pts)/len(pts);h=.0001
+            du=(self.profile(u+h,z)-self.profile(u-h,z))/(2*h)
+            dz=(self.profile(u,z+h)-self.profile(u,z-h))/(2*h)
+            normal=(normal[0]-du*normal[2],normal[1]-dz*normal[2],normal[2])
         self.b.raw([self.point(*p) for p in pts], self.conf, mat,
                    self.vector(*normal) if normal else None)
 
@@ -192,10 +199,13 @@ def _boss(r, poly, back, front, inset):
 
 def _annulus(r, cx, cz, r0, r1, back, front, n=48, mat=None):
     """A half-annulus moulding floor between two radii, in convex sectors."""
-    for i in range(n):
-        a,c=math.pi*i/n,math.pi*(i+1)/n
-        r.face([(cx+r0*math.cos(c),cz+r0*math.sin(c),front),(cx+r1*math.cos(c),cz+r1*math.sin(c),front),
-                (cx+r1*math.cos(a),cz+r1*math.sin(a),front),(cx+r0*math.cos(a),cz+r0*math.sin(a),front)][::-1],mat)
+    steps=math.ceil((r1-r0)/.03) if r.profile else 1
+    for j in range(steps):
+        lo=r0+(r1-r0)*j/steps;hi=r0+(r1-r0)*(j+1)/steps
+        for i in range(n):
+            a,c=math.pi*i/n,math.pi*(i+1)/n
+            r.face([(cx+lo*math.cos(c),cz+lo*math.sin(c),front),(cx+hi*math.cos(c),cz+hi*math.sin(c),front),
+                    (cx+hi*math.cos(a),cz+hi*math.sin(a),front),(cx+lo*math.cos(a),cz+lo*math.sin(a),front)][::-1],mat)
     for rr,sign in ((r0,-1),(r1,1)):
         for i in range(n):
             a,c=math.pi*i/n,math.pi*(i+1)/n
@@ -230,8 +240,11 @@ def fan(b, o):
     conf=b.params.detail.get('conf',o['conf'])
     # The colour photographs show the tympanum cut in the wall's own pink granite,
     # a shade lighter where it is dressed, not in the grey limestone of the trim.
-    r=Relief(b,o,conf,CARVED_GRANITE)
     cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
+    from archetypes.masonry_house_v4_entry import settings,relief_profile
+    spec=settings(b)
+    profile=relief_profile(spec,cx,cz,rad+.04) if spec else None
+    r=Relief(b,o,conf,CARVED_GRANITE,profile=profile)
     from archetypes.masonry_house_v4_detail import rock_voussoirs
     # The structural arch keeps the opening record's measured outline.
     rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,conf,90211)
@@ -239,8 +252,12 @@ def fan(b, o):
     # The wall builder removes the entire arch; overlap the voussoirs' inner
     # radius by 1 mm so their recessed carving bed cannot reveal the sky.
     bed_radius=o['r_out']
-    r.solid([(cx+bed_radius*math.cos(math.pi*i/80),cz+bed_radius*math.sin(math.pi*i/80))
-             for i in range(81)],-.065,-.045)
+    if profile:
+        from archetypes.masonry_house_v4_entry import recessed_bed
+        recessed_bed(r,cx,cz,rad+.04,bed_radius,spec)
+    else:
+        r.solid([(cx+bed_radius*math.cos(math.pi*i/80),cz+bed_radius*math.sin(math.pi*i/80))
+                 for i in range(81)],-.065,-.045)
     R=rad+.04
     # Outer frame: a fillet, the billet channel, a fillet.
     r.arc(cx,cz,R-.012,.034,.012)

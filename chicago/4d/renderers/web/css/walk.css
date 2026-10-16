@@ -982,6 +982,58 @@ body.is-touch .crosshair { display: none; }
 }
 .hint.on { opacity: 1; }
 
+/* T-2547: the crash guard's card — detail lowered after a memory crash, or a lost
+   display. Above the gate (40) so it reads during the arrival too; hung below the
+   HUD chips; the visitor can always shut it. */
+.crash-notice {
+  position: fixed;
+  top: calc(var(--safe-t) + var(--hud-row) + 18px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  width: min(440px, calc(100vw - 24px));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px 10px 14px;
+  color: var(--ink);
+  background: var(--panel-solid);
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  font-size: 13px;
+  line-height: 1.4;
+  pointer-events: auto;
+  animation: crash-notice-in .32s cubic-bezier(.2, .8, .2, 1);
+}
+.crash-notice[hidden] { display: none; }
+.crash-notice-icon { flex: none; width: 20px; height: 20px; color: var(--accent); }
+.crash-notice-text { margin: 0; flex: 1; }
+.crash-notice button {
+  flex: none;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 36px;
+}
+body:is(.is-touch, .touch-first) .crash-notice button { min-height: 44px; }
+.crash-notice-reload { padding: 0 14px; font-weight: 600; color: var(--accent); }
+.crash-notice-reload[hidden] { display: none; }
+.crash-notice-close { width: 36px; display: grid; place-items: center; border-color: transparent; }
+body:is(.is-touch, .touch-first) .crash-notice-close { width: 44px; }
+.crash-notice-close svg { width: 16px; height: 16px; }
+.crash-notice button:hover { background: rgba(216, 162, 74, .12); }
+.crash-notice button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@keyframes crash-notice-in {
+  from { opacity: 0; transform: translate(-50%, -8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .crash-notice { animation: none; } }
+
 /* --------------------------------------------------------- touch stick --- */
 
 .touch-layer { position: absolute; inset: 0; pointer-events: none; }

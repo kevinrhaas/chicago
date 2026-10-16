@@ -440,6 +440,8 @@ class DetailBuilder(MeshBuilder):
             polygon.reverse()
         def point(q,off=0):
             return (u[0]*q[0]+n[0]*(d+off),u[1]*q[0]+n[1]*(d+off),q[1])
+        from archetypes.masonry_house_v4_entry import wall_mapping
+        point=wall_mapping(self,point,n,d,mat)
         holes = []
         for o in self.openings:
             on = legacy._plane_dir(o)
@@ -453,7 +455,8 @@ class DetailBuilder(MeshBuilder):
                       o['spring_z']+radius*math.sin(math.pi*i/80)) for i in range(81)]
             elif o['kind']=='band':
                 if o.get('style')=='rock_faced_lintel':
-                    cut=aperture(o)
+                    from archetypes.masonry_house_v4_entry import lintel_outline,settings
+                    cut=lintel_outline(o,settings(self))
                 elif not (o.get('face')=='east' and o['z0']>5 and o['u1']-o['u0']>3):
                     continue
                 else:
@@ -473,7 +476,10 @@ class DetailBuilder(MeshBuilder):
         for h in custom_holes or []:
             holes.append([(dot(p,u),p[2]) for p in h])
         for fragment in subtract(polygon,holes):
-            self.raw([point(q,-.012) for q in fragment],confidence,MORTAR,n)
+            fragments=getattr(point,'partition',lambda poly,conf,mat:[(poly,point)])(
+                [(*q,-.012) for q in fragment],confidence,MORTAR)
+            for piece,mapper in fragments:
+                self.raw([mapper(q[:2],q[2]) for q in piece],max(confidence,getattr(mapper,'confidence',confidence)),MORTAR,n)
         x0,z0,x1,z1 = bounds(polygon)
         courses = []
         z = getattr(self, 'course_origin', 0.0)
@@ -585,24 +591,28 @@ class DetailBuilder(MeshBuilder):
             pieces=([poly] if not nearby else
                     [part for i in range(1,len(poly)-1)
                      for part in subtract([poly[0],poly[i],poly[i+1]],nearby)])
+            partitions=[]
             for piece in pieces:
+                partitions.extend(getattr(point,'partition',lambda poly,conf,mat:[(poly,point)])(piece,confidence,variant))
+            for piece,mapper_point in partitions:
+                piece_conf=max(confidence,getattr(mapper_point,'confidence',confidence))
                 if not emitted:
                     self.masonry_blocks+=1
                     emitted=True
-                pts=[point((q[0],q[1]),q[2]) for q in piece]
+                pts=[mapper_point((q[0],q[1]),q[2]) for q in piece]
                 if len(piece[0])>3:
-                    mapper=getattr(point,'normal',None)
+                    mapper=getattr(mapper_point,'normal',None)
                     if mapper:
                         normals=[mapper(q) for q in piece]
                     else:
-                        origin=point((0,0),0)
-                        basis=(sub(point((1,0),0),origin),sub(point((0,1),0),origin),
-                               sub(point((0,0),1),origin))
+                        origin=mapper_point((0,0),0)
+                        basis=(sub(mapper_point((1,0),0),origin),sub(mapper_point((0,1),0),origin),
+                               sub(mapper_point((0,0),1),origin))
                         normals=[tuple(sum(q[j+3]*basis[j][k] for j in range(3))
                                        for k in range(3)) for q in piece]
-                    self.raw_with_normals(pts,normals,confidence,variant,facing)
+                    self.raw_with_normals(pts,normals,piece_conf,variant,facing)
                 else:
-                    self.raw(pts,confidence,variant,facing)
+                    self.raw(pts,piece_conf,variant,facing)
 
         cx,cy = sum(p[0] for p in polygon)/len(polygon),sum(p[1] for p in polygon)/len(polygon)
         bevel = .005 if mat==BRICK else .012
@@ -826,10 +836,14 @@ def opening(b,o,courtyard=False):
         ring(b,o,(a+c)/2,o['spring_z'],(c-a)/2,o['r_out'],o.get('voussoirs') or 15,conf)
         return
     poly=aperture(o)
-    front=[legacy._plane_point(o,u,z,.016) for u,z in poly]
+    from archetypes.masonry_house_v4_entry import front_offset
+    front=[legacy._plane_point(o,u,z,.016+front_offset(b,o,u,z)) for u,z in poly]
     back=[legacy._plane_point(o,u,z,-.29) for u,z in poly]
     for i in range(len(poly)):
         j=(i+1)%len(poly)
+        if (o.get('style')=='prairie_front_door' and b.params.detail.get('prairie_entry')
+                and abs(poly[i][1]-z0)<1e-8 and abs(poly[j][1]-z0)<1e-8):
+            continue  # the single integral threshold owns this horizontal face
         b.raw([front[i],back[i],back[j],front[j]],conf,ROUGH_TRIM if courtyard else GRANITE)
     if o.get('style')=='court_garden_grille':
         from archetypes.masonry_house_v4_court import garden_light
@@ -1016,8 +1030,13 @@ def rock_lintel(b,o):
     a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']
     half=VOUSSOIR_JOINT/2
     def point(q,off=0):return legacy._plane_point(o,q[0],q[1],off)
-    b.raw([point(q,-.012) for q in [(a,z0),(c,z0),(c,z1),(a,z1)]],o['conf'],MORTAR,legacy._plane_dir(o))
-    b.block([(a+half,z0+half),(c-half,z0+half),(c-half,z1-half),(a+half,z1-half)],point,
+    from archetypes.masonry_house_v4_entry import lintel_outline,settings
+    poly=lintel_outline(o,settings(b))
+    b.raw([point(q,-.012) for q in poly],o['conf'],MORTAR,legacy._plane_dir(o))
+    centre=((a+c)/2,(z0+z1)/2)
+    face=[(x+math.copysign(half,centre[0]-x) if abs(x-centre[0])>half else x,
+           z+math.copysign(half,centre[1]-z)) for x,z in poly]
+    b.block(face,point,
             legacy._plane_dir(o),o['conf'],GRANITE,random.Random(int((o['at']*977+a*7919+z0*104729)*1000)))
 
 
@@ -2020,6 +2039,8 @@ def build(params,name):
     underpass(b,params)
     date_stones(b,params)
     stair_tower_plinth(b,params)
+    from archetypes.masonry_house_v4_entry import end_returns
+    end_returns(b,params)
     add_courtyard_rainwater(b,params)
     if params.detail.get("roof_edges"):
         from archetypes.masonry_house_v4_roof_edges import add_edges

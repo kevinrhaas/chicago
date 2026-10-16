@@ -1,4 +1,60 @@
 export const CHANGELOG = [ // newest first
+  { v: 1846, ts: '2026-10-16T05:02:51.854Z', date: 'Oct 16, 2026, 12:02 AM CT', title: 'A phone that ran out of memory comes back at lower detail', kind: 'fix',
+    items: [
+      'If the walk closed while loading last time, as a phone does when it runs out of memory, the next visit starts one Scene detail level lower at Sharpness Low, and a card says so. Settings can raise either again.',
+      'When the display is lost, the page reloads at most once. If it is lost again, the card offers a Reload at a lower detail level, so a phone no longer gets stuck reloading.',
+    ] },
+  { v: 1845, ts: '2026-10-16T04:50:44.479Z', date: 'Oct 15, 2026, 11:50 PM CT', title: '1811 Prairie rises as the Ames house, built from its 1888 photograph', kind: 'feature',
+    items: [
+      '1811 Prairie Avenue, Miner T. Ames\'s house by Cobb & Frost, now stands as a three-storey rock-faced brownstone house in place of its draft box, built against the Inland Architect\'s 1888 photograph of it.',
+      'Its front is the photograph\'s: a bay standing forward at the north end, the door under a round arch at the south end up a broad stair, and a corbelled oriel with three tall lights over the arch.',
+      'Behind it the long brick wing runs back along the south side, three storeys and then two, at the length the 1911 fire-insurance map draws it. The house is now the map\'s full width.',
+      'Not yet built: the bay\'s stone gable and balcony, the oriel\'s steep pyramid, the steeper roofs and the open porch on columns. Those come next, and the reconstructions are recorded as liberty L-k01-1811-ames-front-2541.',
+    ] },
+  { v: 1844, ts: '2026-10-16T04:14:13.302Z', date: 'Oct 15, 2026, 11:14 PM CT', title: '1621 Prairie\'s door arch, shelf and basement heads match its drawing', kind: 'feature',
+    items: [
+      'The front door of John H. Hamline\'s house at 1621 Prairie now stands deep in its round arch, under a ring of voussoirs with a curved outer edge and a stone band over its crown, as the 1886 Building Budget drawing shows it.',
+      'The small carved light above the door stands out from the wall on a moulded stone shelf, with the carved panel hung beneath it.',
+      'Each barred basement light in the bow gets its fan of splayed stone voussoirs up to the string course.',
+      'With these the house\'s drawing comparison is marked as matching. The depths and stone sections are reconstructed and recorded as a liberty.',
+    ] },
+  { v: 1843, ts: '2026-10-16T03:37:47.097Z', date: 'Oct 15, 2026, 10:37 PM CT', title: '1637 Prairie\'s wing opens onto a balcony through a French window', kind: 'improvement',
+    items: [
+      '1637 Prairie\'s principal-floor windows stand about 2.95 m tall, as its engraving draws them, instead of 2.4 m: their heads now line up near 6 m across the front, the swell bay and the north side.',
+      'The south wing\'s principal window is now a French window down to the floor: two glazed leaves under a transom, 1.9 m wide, where a single sash stood.',
+      'It opens onto a bowed stone balcony with a balustrade about 0.9 m high, at the height and width the engraving shows. How far the balcony stands out is a liberty.',
+    ] },
+  { v: 1842, ts: '2026-10-16T03:25:48.356Z', date: 'Oct 15, 2026, 10:25 PM CT', title: '1801 Prairie\'s Kimball house reshaped from an 1890s photograph', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s round tower now stands on the 18th Street side, about 8 m back from the front, where J. W. Taylor\'s c. 1895 photograph and the 1911 fire map put it. Before, it stood at the corner.',
+      'The house is two storeys of stone to a cornice about 8 m up, under a very steep slate roof that rises to a flat top, instead of three plain storeys under a low hip.',
+      'The front\'s south end rises a storey higher under a steep stone gable. The 18th Street side steps down to a lower east wing with a small round turret at its far corner.',
+      'Its arched corner porch, curved stair, bowed bay and carved stonework come next; what is still estimated is listed among the liberties.',
+    ] },
+  { v: 1841, ts: '2026-10-16T02:41:37.040Z', date: 'Oct 15, 2026, 9:41 PM CT', title: '1808 Prairie gains its pierced stone parapet and Ionic entrance', kind: 'improvement',
+    items: [
+      'The Keith house now has an open stone lattice, corner pinnacles, checkerwork and upper colonnettes, with paired Ionic capitals, carved balcony details and curved stair cheeks.',
+      'The south bow gains basement lights, tall transom windows and granite courses. A low stone boundary replaces the later iron fence; a separate pale granite tint preserves Glessner’s colour.',
+      'Historical comparisons and remaining photographic differences are recorded; this is a refinement, with photographic acceptance still open.',
+    ] },
+  { v: 1840, ts: '2026-10-16T02:21:42.859Z', date: 'Oct 15, 2026, 9:21 PM CT', title: '1638 Prairie\'s entrance board cut as open fretwork, as photographed', kind: 'improvement',
+    items: [
+      'Under the tower at 1638 Prairie, the board over the trefoil arch is no longer solid: each corner is open fretwork, a ring round the quatrefoil tied down to the arch\'s point with a small round eye through the tie, and the porch\'s shade showing through the openings beside it.',
+      'The porch\'s head is raised to the photograph: a strip of board now shows over the arch\'s crown, under a deeper fascia band that reads like the print\'s.',
+      'Seen through the photograph\'s own camera, the openings, eyes and fascia land within a few pixels of the print, and the house\'s match record now reads \'matches\'. The openings\' exact outlines are recorded as a liberty.',
+    ] },
+  { v: 1839, ts: '2026-10-16T01:50:56.240Z', date: 'Oct 15, 2026, 8:50 PM CT', title: '1637 Prairie\'s wing gets the engraving\'s wide paired upper window', kind: 'improvement',
+    items: [
+      'The upper window on the front of 1637 Prairie\'s south wing is now the pair of sashes the engraving draws: one opening about 1.8 m across, split down the middle, where a single narrow sash stood.',
+      'Through the engraving\'s own camera it now covers the width the print gives it; its height already matched and is unchanged.',
+      'The print can\'t show how wide the bar between the two sashes is, so that width is reconstructed and listed among the liberties.',
+    ] },
+  { v: 1838, ts: '2026-10-16T01:32:40.911Z', date: 'Oct 15, 2026, 8:32 PM CT', title: '1637 Prairie\'s basement lights, and its stoop meets the drawn fence post', kind: 'improvement',
+    items: [
+      'Under 1637 Prairie\'s swell bay a barred basement light now stands, nearly a storey tall at the walk, as the engraving of the remodel draws it.',
+      'Under its wing, two round-headed basement lights stand behind the iron fence.',
+      'The front stoop is steeper and shorter: its foot now lands where the engraving draws it, at the fence\'s first post, instead of 0.75 m further out.',
+    ] },
   { v: 1837, ts: '2026-10-16T01:04:52.832Z', date: 'Oct 15, 2026, 8:04 PM CT', title: '1621 Prairie climbs to its door by the drawing\'s side stoop', kind: 'feature',
     items: [
       'John H. Hamline\'s house at 1621 Prairie now has the stoop its 1886 drawing shows: the door opens on a stone landing along the north strip, and the steps run south along the front, past the bow, behind a low stone cheek.',

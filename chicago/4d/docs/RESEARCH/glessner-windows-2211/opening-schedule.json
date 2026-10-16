@@ -22,7 +22,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -48,7 +49,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -74,7 +76,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -100,7 +103,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -126,7 +130,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -152,7 +157,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -178,13 +184,14 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
   "face": "east",
-  "record": "openings_prairie",
-  "what": "rock-faced granite lintel over the door, about 10 ft long under the fan (owner photographs, 2026-10-12)",
+  "record": "v4_detail",
+  "what": "rock-faced granite header: shallow raised centre and sloping shoulders above the retained horizontal door head",
   "at_ft": [
    27.9,
    37.9
@@ -199,12 +206,17 @@
   "style": "rock_faced_lintel",
   "transom_ft": null,
   "built_as": "carved stone (band)",
-  "confidence": "attested",
+  "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "inland_architect_1888_02_glessner_exterior",
-   "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889",
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -230,20 +242,21 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
   "face": "east",
-  "record": "openings_prairie",
+  "record": "v4_detail",
   "what": "carved tympanum in a fan of radiating voussoirs",
   "at_ft": [
    30.4,
    35.4
   ],
   "z_ft": [
-   9.3,
-   15.7
+   9.0,
+   15.4
   ],
   "z_from": "item",
   "lights": 1,
@@ -251,12 +264,17 @@
   "style": "prairie_sash",
   "transom_ft": null,
   "built_as": "carved stone (fan)",
-  "confidence": "attested",
+  "confidence": "reconstructed",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
-   "inland_architect_1888_02_glessner_exterior",
-   "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889",
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -282,7 +300,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -308,7 +327,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -334,7 +354,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -360,7 +381,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -386,7 +408,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -412,7 +435,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -438,7 +462,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -464,7 +489,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -490,7 +516,8 @@
    "habs_glessner_house_il_1015_drawings",
    "inland_architect_1888_02_glessner_exterior",
    "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door"
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -610,7 +637,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1209,7 +1237,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1265,7 +1294,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1295,7 +1325,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1325,7 +1356,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1355,7 +1387,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1385,7 +1418,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1415,7 +1449,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1445,7 +1480,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {
@@ -1475,7 +1511,8 @@
    "habs_glessner_photo_15_north_stable_1965",
    "habs_glessner_house_il_1015_data_pages",
    "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963"
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
   ]
  },
  {

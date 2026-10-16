@@ -1,0 +1,22 @@
+{
+  "structure_id": "coleman_ames_house_1811_prairie",
+  "source_id": "inland_architect_1888_10_ames_residence",
+  "library_image": "dw-rb-inland-ames-coleman-1811-plate",
+  "photo": "../../sources/assets/ames_1811_plate_t2541/inland_architect_1888_ames_1811.jpg",
+  "image_px": [
+    711,
+    1056
+  ],
+  "principal_px": [
+    689,
+    774
+  ],
+  "focal_px": 659,
+  "eye": [
+    22.5,
+    14.45,
+    1.05
+  ],
+  "yaw_deg": -90.0,
+  "solve": "Fitted by T-2541 to the Inland Architect plate of October 1888 (the image store's 711 x 1056 display copy), in the footprint frame whose u runs toward the street and whose v runs SOUTH on this side of the avenue, from the front block's rear north corner. A view camera's photograph: the verticals stand vertical and the street front's horizontals (the bay's sills and heads, the oriel's cornice) run level across the plate, so the camera is level and square to the front (yaw -90, looking east). The south flank's horizontals do converge: its wall head, (515, 450) to (582, 575) px, and its foot, (520, 815) to (590, 798) px, meet at (689, 774), which is the principal point (a shifted front: well right of the plate's centre) and the horizon. The eye and focal length are then fitted to four vertical edges against the 1911 sheet's trace (s28fp-1811-b1): the entrance block's south corner (u 7.57, v 10.40) at x 510 px; the bay front's north corner (the trace's u 8.60, v 2.29) at x 112 px; and the north end of the bay's canted north face (u 7.51, v 0.16) at x 60 px. A grid search over the eye's place puts it at u 22.5, v 14.45 (14.9 m in front of the stone face and 4.05 m south of the south wall, in the roadway's near half), f = 659 px, those three edges within 0.4 px. Grade at the front reads y 820-825 px, so the eye stands about 1.05 m over the house's own grade. Scale at the entrance face 44.2 px/m and at the bay's front 47.4 px/m. Heights read through it: the bay's ground-floor sills 2.04 m and heads 4.26 m, first floor 5.46-7.57 m, cornice 8.3 m, the gable's rake foot about 10.2 m and its apex about 13.2 m; the arch's springing 3.3 m and crown 4.2 m; the oriel's corbel foot 5.2 m, its lights 6.0-8.2 m, its cornice 9.06 m and its pyramid's apex about 12.0 m. Uncertainty: the canted face's edges stand on the sheet's trace, drawn at 50 ft to the inch, so the eye's distance is good to about +-2 m and its place along the street to about +-1 m; heights at the front's planes depend on the scale and not much on the eye."
+}

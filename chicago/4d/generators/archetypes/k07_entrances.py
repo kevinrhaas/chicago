@@ -364,6 +364,14 @@ class Entrance(Opening):
                 # cheek on its side as far as its own front, and the cheek runs on from there,
                 # its top rising from the rake to the deck's edge
                 Dq = next((q.get("out_m", L) for q, sd in zip(porches, psides) if sd == sgn), L)
+                carved = any(q.get("loggia", {}).get("finish") == "ionic_carved" for q in porches)
+                if carved:
+                    self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L)
+                    if Dq > L:
+                        self.quad("cheek", [(si,-R,L),(si,-R,Dq),(si,0,Dq),(si,0,L)],(-sgn,0,0))
+                    else:
+                        self._box("cheek",min(si,so),max(si,so),-R,.85,0,L)
+                    continue
                 if Dq > L:
                     o0 = Dq
                     self.quad("cheek", [(si, -R, L), (si, -R, Dq), (si, 0, Dq), (si, 0, L)], (-sgn, 0.0, 0.0))
@@ -577,6 +585,7 @@ class Entrance(Opening):
         lo = lambda a, b: (min(m(a), m(b)), max(m(a), m(b)))
         # in the mirrored frame "near" is the flight's side (s_deck), "far" the terrace's end (S)
         near_face, far_face = ("left", "right") if side > 0 else ("right", "left")
+        carved = lg.get("finish") == "ionic_carved"
         P, C, E, B, W = lg["pedestal"], lg["columns"], lg["entablature"], lg["balcony"], lg["parapet"]
         pw, pd, ph = P["width_m"], P["depth_m"], P["height_m"]
         if not (2 * pw + 0.6 <= S - s_deck and pd < D):
@@ -590,7 +599,10 @@ class Entrance(Opening):
         if wh > ph:
             raise ValueError("the loggia's parapet stands over its pedestals")
         s0, s1 = lo(s_deck + pw, S - pw)
-        self._box("loggia_wall", s0, s1, 0.0, wh, D - wt, D, skip=("bottom", "left", "right"))
+        if carved:
+            self._pierced_panel(s0, s1, 0.0, wh, D-wt, D)
+        else:
+            self._box("loggia_wall", s0, s1, 0.0, wh, D - wt, D, skip=("bottom", "left", "right"))
         s0, s1 = lo(S - wt, S)
         self._box("loggia_wall", s0, s1, 0.0, wh, 0.0, D - pd, skip=("bottom", "back", "front"))
         self.probe(m((s_deck + S) / 2), wh / 2, D, ("loggia_wall",), "the loggia's front parapet")
@@ -602,18 +614,31 @@ class Entrance(Opening):
             for f in (0.25, 0.75):
                 cs, co = m(a + pw * f), D - pd / 2
                 self._turn((cs, co), [(r, ph + ch * y) for r, y in prof], C["segments"], role="column")
+                if carved:
+                    self._ionic_capital(cs, co, ph+ch)
                 cols.append([round(cs, 4), round(co, 4)])
         # the entablature over the whole plan, its soffit the ceiling
         y0, y1 = ph + ch, ph + ch + E["height_m"]
         s0, s1 = lo(s_deck, S)
         self._box("entablature", s0, s1, y0, y1, 0.0, D, skip=("back", "top"))
         self.probe(m((s_deck + S) / 2), (y0 + y1) / 2, D, ("entablature",), "the entablature's face")
+        if carved:
+            for yy, hh, proud in ((y0,.09,.06),(y1-.20,.08,.08),(y1-.12,.12,.14)):
+                self._box("entablature",s0-.03,s1+.03,yy,yy+hh,D,D+proud,skip=("back",)+(("top",) if yy==y1-.20 else ())+(("bottom",) if yy==y1-.12 else ()))
+            for a,b in ((s_deck,s_deck+pw),(S-pw,S)):
+                q0,q1=lo(a,b)
+                for yy,hh,pd_ in ((0,.1,.05),(ph-.12,.12,.08)):
+                    self._box("pedestal",q0-.03,q1+.03,yy,yy+hh,D,D+pd_,skip=("back",))
+                self._panel_relief(q0+.12,q1-.12,.23,ph-.2,D+.02,"pedestal")
         # the balcony: its floor and its parapet on the three open sides
         bt, bh = B["thickness_m"], B["height_m"]
         s0, s1 = lo(s_deck + bt, S - bt)
         self.quad("balcony", [(s0, y1, 0.0), (s1, y1, 0.0), (s1, y1, D - bt), (s0, y1, D - bt)], Y)
         s0, s1 = lo(s_deck, S)
-        self._box("balcony", s0, s1, y1, y1 + bh, D - bt, D, skip=("bottom",))
+        if carved:
+            self._carved_balcony(s0, s1, y1, bh, D, bt)
+        else:
+            self._box("balcony", s0, s1, y1, y1 + bh, D - bt, D, skip=("bottom",))
         for a in (s_deck, S - bt):
             s0, s1 = lo(a, a + bt)
             self._box("balcony", s0, s1, y1, y1 + bh, 0.0, D - bt, skip=("bottom", "back", "front"))
@@ -621,6 +646,92 @@ class Entrance(Opening):
         return {"s": [round(m(s_deck), 4), round(m(S), 4)], "out_m": D, "pedestal_top_m": ph,
                 "columns": cols, "entablature_y_m": [round(y0, 4), round(y1, 4)],
                 "balcony_top_m": round(y1 + bh, 4)}
+
+    def _finish_faces(self, role, faces):
+        for pts, hint in faces:
+            if hint is None:
+                a,b,c=pts[:3]
+                u,v=[b[i]-a[i] for i in range(3)],[c[i]-a[i] for i in range(3)]
+                hint=(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
+            if sum(x*x for x in hint)>1e-14:
+                self.quad(role,pts,hint)
+
+    def _pierced_panel(self,s0,s1,y0,h,d0,d1):
+        b=.105
+        for y in (y0,y0+h/2-b/2,y0+h-b):
+            self._box("loggia_wall",s0,s1,y,y+b,d0,d1,skip=("left","right")+(("bottom",) if y==y0 else ()))
+        n=max(2,round((s1-s0)/.30)); pitch=(s1-s0)/n
+        for row in range(2):
+            lo=y0+b if row==0 else y0+h/2+b/2
+            hi=y0+h/2-b/2 if row==0 else y0+h-b
+            for i in range(n+1):
+                x=s0+i*pitch+(pitch/2 if row else 0)
+                if x>=s1: continue
+                self._box("loggia_wall",max(s0,x-b/2),min(s1,x+b/2),lo,hi,d0,d1,
+                          skip=("top","bottom")+(("left",) if x-b/2<=s0 else ())+(("right",) if x+b/2>=s1 else ()))
+
+    def _ionic_capital(self,s,d,y):
+        from .k01_stone_finish import spiral,tube_faces
+        self._box("column",s-.22,s+.22,y-.075,y+.015,d-.22,d+.22)
+        for side in (-1,1):
+            for face in (-1,1):
+                self._finish_faces("column",tube_faces(spiral(s+side*.12,y-.14,d+face*.21,.08,side),.012))
+        self._box("column",s-.12,s+.12,y-.18,y-.09,d-.21,d+.21)
+
+    def _panel_relief(self,s0,s1,y0,y1,d,role):
+        from .k01_stone_finish import tube_faces
+        # Sunk field bounded by a narrow bead, with low relief leaf scrolls. The exact
+        # foliage is not resolved by the microfilm; this section is reconstructed.
+        for x0,x1,lo,hi in ((s0,s1,y0,y0+.035),(s0,s1,y1-.035,y1),(s0,s0+.035,y0+.035,y1-.035),(s1-.035,s1,y0+.035,y1-.035)):
+            self._box(role,x0,x1,lo,hi,d,d+.035,skip=("top","bottom") if x1-x0<.036 else ())
+        n=max(1,round((s1-s0)/.42))
+        for i in range(n):
+            x=s0+(i+.5)*(s1-s0)/n; yc=(y0+y1)/2
+            for side in (-1,1):
+                pts=[(x+side*(.025+.10*math.sin(math.pi*j/16)),yc+(y1-y0)*.38*(2*j/16-1),d+.018) for j in range(17)]
+                self._finish_faces(role,tube_faces(pts,.018,6))
+
+    def _carved_balcony(self,s0,s1,y,h,d,thick):
+        from .k01_stone_finish import turned_faces
+        n=32
+        top=lambda s:y+h*(.76+.24*(2*(s-s0)/(s1-s0)-1)**2)
+        for i in range(n):
+            a=s0+(s1-s0)*i/n; b=s0+(s1-s0)*(i+1)/n
+            ya,yb=top(a),top(b)
+            for z,normal in ((d,(0,0,1)),(d-thick,(0,0,-1))):
+                self.quad("balcony",[(a,y,z),(b,y,z),(b,yb,z),(a,ya,z)],normal)
+            self.quad("balcony",[(a,ya,d-thick),(a,ya,d),(b,yb,d),(b,yb,d-thick)],Y)
+            self._box("balcony",a,b,min(ya,yb)-.09,max(ya,yb),d,d+.07,skip=("left","right","back"))
+        self._panel_relief(s0+.4,s1-.4,y+.15,y+h*.67,d+.012,"balcony")
+        for x in (s0+.16,s1-.16):
+            self._box("balcony",x-.19,x+.19,y,y+h+.16,d-thick-.06,d+.06,skip=("bottom",))
+            self._finish_faces("balcony",turned_faces(x,d-thick/2,[(.24,y+h+.16),(.24,y+h+.23),(.12,y+h+.32),(.15,y+h+.4),(.01,y+h+.64)],20,cap_bottom=False))
+
+    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace):
+        from .k01_stone_finish import tube_faces,spiral
+        # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
+        # the concavity. End profiles meet the loggia's pedestal and the lowest riser.
+        end=-R+.30; peak=.85 if not terrace else 1.0
+        top=lambda o:end+(peak-end)*(1-(o-start)/(F-start))**2
+        N=32
+        for i in range(N):
+            a=start+(F-start)*i/N; b=start+(F-start)*(i+1)/N
+            ya,yb=top(a),top(b)
+            for x,n in ((si,-sgn),(so,sgn)):
+                self.quad("cheek",[(x,-R,a),(x,-R,b),(x,yb,b),(x,ya,a)],(n,0,0))
+            self.quad("cheek",[(si,ya,a),(so,ya,a),(so,yb,b),(si,yb,b)],(0,b-a,ya-yb))
+        self.quad("cheek",[(si,-R,F),(so,-R,F),(so,end,F),(si,end,F)],OUT)
+        mid=(si+so)/2
+        def mesh_top(o):
+            q=(o-start)/(F-start)*N; i=min(N-1,int(q)); f=q-i
+            a=start+(F-start)*i/N; b=start+(F-start)*(i+1)/N
+            return top(a)*(1-f)+top(b)*f
+        sockets=[(mid,mesh_top(start+.15),start+.15),(mid,mesh_top(F-.15),F-.15)]
+        self.sockets[f"handrail_{'left' if sgn<0 else 'right'}"]=sockets
+        for pt in sockets: self.probe(*pt,("cheek",),"a socket on the curved stone cheek")
+        # Scroll carved in the outer side at the head, its spiral lying in out/y.
+        for pts,n in tube_faces(spiral(start+.10,peak-.02,so+sgn*.025,.18),.018):
+            self.quad("cheek",[(z,y,x) for x,y,z in pts],(sgn,0,0))
 
     def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0):
         """A turned balustrade on each cheek's top, level beside the landing and raked down

@@ -2,7 +2,7 @@
 
 Target: 1904-07-01; exterior and courtyard only. **Photographic signoff remains open.**
 This pass corrects defects found while re-reading the frozen views; a green technical
-build is not a `matches` verdict. All eleven current master comparisons were directly reviewed and remain `differs`;
+build is not a `matches` verdict. All eleven comparisons of the preceding roof/window master were directly reviewed and remain `differs`;
 [the review receipt](visual-review.json) identifies their exact asset.
 
 ## Visible corrections
@@ -125,3 +125,6 @@ different lighting/material paths; software rendering does not establish GPU FPS
 Full repository preflight, integration with current dev and exact-commit CI remain
 merge gates. Their final receipts belong to the correction PR; this evidence report
 does not claim final photographic acceptance. T-2228 stays active for the open items.
+
+
+The subsequent [entrance correction and current-asset review](../glessner-entry-2228/README.md) adds a twelfth canonical view and supersedes this report’s 6b2cff4d asset acceptance. The earlier roof/window measurements remain valid as historical receipts; they do not validate a later asset.
