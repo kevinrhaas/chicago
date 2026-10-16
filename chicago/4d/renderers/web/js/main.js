@@ -55,6 +55,7 @@ import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
+import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
@@ -1626,6 +1627,9 @@ async function boot() {
     const ratio = sharpnessCap * governor.scale;
     if (Math.abs(ratio - renderer.getPixelRatio()) > 1e-9) renderer.setPixelRatio(ratio);
   }
+  // T-2572: a tap on the plank walks, fences and yard goods is answered by a
+  // one-pixel id pass on this renderer, so a phone need not keep their triangles.
+  setPickRenderer(renderer);
   // T-2582: GPU-compressed library sheets. One KTX2 loader, detected once against
   // this renderer before any layer loads (ktx2.js); the `light` texture tier drops
   // each sheet's top mip. `?ktx2=0` keeps every sheet on its image path.

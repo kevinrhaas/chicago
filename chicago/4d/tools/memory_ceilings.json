@@ -54,17 +54,17 @@
         }
       },
       "mobile": {
-        "total_bytes": 760217600,
-        "reading_bytes": 677662368,
+        "total_bytes": 734003200,
+        "reading_bytes": 660620391,
         "tier": "light",
         "reading_mb": {
-          "total": 646.3,
+          "total": 630.0,
           "js_heap": 105.5,
-          "arraybuffers": 239.3,
+          "arraybuffers": 223.0,
           "gpu_buffers": 180.5,
           "gpu_textures": 120.9
         },
-        "lowered": "T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+        "lowered": "T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
       }
     },
     "1904": {

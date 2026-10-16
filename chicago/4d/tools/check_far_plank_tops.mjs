@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 /** T-2037: exact top-face handover after the furniture reach culls a walk.
  * node tools/check_far_plank_tops.mjs [--json]
  * CPU geometry/material/state checks only. Published pixels and tier budgets
@@ -19,6 +20,10 @@ const mod = await import(moduleURL(source.replace("from 'three'", `from '${three
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
   .replace("from './relief-pack.js'", `from '${pathToFileURL(path.join(web, 'js/relief-pack.js')).href}'`)
   .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`)
+  // T-2572: the pick module, loaded as itself with its own `three` import pointed home.
+  .replace("from './gpu-pick.js'", `from 'data:text/javascript;base64,${Buffer.from(
+    readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
+    .toString('base64')}'`)
   + '\nexport { timberBuf, plainTimber, inWalkTone, laySegment, pushBox, plankGapAttribute, createFarWalkTops };'));
 const checks = [];
 function check(name, run) { run(); checks.push(name); }

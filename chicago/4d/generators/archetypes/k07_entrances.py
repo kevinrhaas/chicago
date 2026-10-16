@@ -710,35 +710,92 @@ class Entrance(Opening):
             pts.append((cs + u, cy + v, co) if axis[0] == 0 else (cs, cy + v, co + u))
         self._tube(role, pts, .014, axis, 6)
 
-    def _paired_capital(self, s0, s1, d, y):
-        """T-2565: one Ionic capital over a pair of shafts, read off the 1888 plate and the
-        1965 view: a carved band spanning both, rolled into a volute at each end of its
-        front and back, an egg row between the volutes and a thin abacus over all. The
-        volute's turns and the eggs' pitch are reconstructed below the pictures' grain."""
-        self._box("column", s0, s1, y - .06, y + .015, d - .25, d + .25)            # abacus
-        self._box("column", s0 + .01, s1 - .01, y - .20, y - .06, d - .21, d + .21, skip=("top",))  # band
-        r = .075
-        for face in (-1, 1):
-            o = d + face * .21
-            for side, x in ((-1, s0 + .01 + r), (1, s1 - .01 - r)):
-                self._volute("column", x, y - .13, o + face * .006, r, side, (0.0, 0.0, face))
-            # an egg row between the volutes, each egg an open loop (its dart the gap below)
-            n = max(2, round((s1 - s0 - .02 - 4 * r) / .085))
-            for j in range(n):
-                x = s0 + .01 + 2 * r + (j + .5) * (s1 - s0 - .02 - 4 * r) / n
-                egg = [(x + .028 * math.sin(q), y - .13 - .04 * math.cos(q), o + face * .006)
-                       for q in (math.pi / 6 + 5 * math.pi / 3 * i / 10 for i in range(11))]
-                self._tube("column", egg, .009, (0.0, 0.0, face), 5)
-        for side, x in ((-1, s0 + .01), (1, s1 - .01)):
-            self._volute("column", x + side * .006, y - .13, d, r * .9, 1, (side, 0.0, 0.0))
+    def _strap(self, role, path, w, o_in, o_out):
+        """T-2585: a flat strap of width `w` along `path` (s, y points), standing from the
+        plane `o_in` out to `o_out`; its face and its two edges, mitred at every turn so
+        no two pieces of it overlap, its ends left to whatever it runs into."""
+        face = 1.0 if o_out > o_in else -1.0
+        def nrm(p, q):
+            ts, ty = q[0] - p[0], q[1] - p[1]
+            ln = math.hypot(ts, ty) or 1.0
+            return -ty / ln, ts / ln
+        ns = [nrm(p, q) for p, q in zip(path, path[1:])]
+        off = []
+        for i, (u, v) in enumerate(path):
+            a, b = ns[max(0, i - 1)], ns[min(len(ns) - 1, i)]
+            mx, my = a[0] + b[0], a[1] + b[1]
+            ml = math.hypot(mx, my) or 1.0
+            mx, my = mx / ml, my / ml
+            k = w / 2 / max(.2, mx * b[0] + my * b[1])
+            off.append(((u + mx * k, v + my * k), (u - mx * k, v - my * k)))
+        for i, (sn, sy) in enumerate(ns):
+            (pa, ma), (pb, mb) = off[i], off[i + 1]
+            self.quad(role, [(u, v, o_out) for u, v in (pa, pb, mb, ma)], (0.0, 0.0, face))
+            for (u0, v0), (u1, v1), sg in ((pa, pb, 1), (ma, mb, -1)):
+                self.quad(role, [(u0, v0, o_in), (u1, v1, o_in), (u1, v1, o_out), (u0, v0, o_out)], (sg * sn, sg * sy, 0.0))
 
-    def _panel_relief(self,s0,s1,y0,y1,d,role):
+    def _paired_capital(self, s0, s1, d, y):
+        """T-2585: one capital over a pair of shafts, read off the 1888 plate at its native
+        1559 px (both capitals, x 860-945 and 1100-1165, y 1385-1405): a square-edged
+        block about 0.2 m deep on the 0.89 m pair (12 px on 53), with NO volutes and no
+        egg row. Its face carries a running zigzag, six strokes between a plain block at
+        each end, the triangles between them sunk; a thin abacus over all. T-2565 read
+        the zigzag's dark triangles as an egg row and the plain end blocks as volutes."""
+        e, sink, fy = .09, .022, .035                   # end block, field depth, fillet height
+        y0, y1, f = y - .20, y - .015, .21
+        self._box("column", s0 - .01, s1 + .01, y1, y + .015, d - f - .015, d + f + .015)   # abacus
+        self._box("column", s0, s1, y0, y1, d - f + sink, d + f - sink, skip=("top",))      # core
+        for face in (-1, 1):
+            oi, oo = d + face * (f - sink), d + face * f
+            lo_, hi_ = sorted((oi, oo))
+            for a, b in ((s0, s0 + e), (s1 - e, s1)):                                         # plain ends
+                self._box("column", a, b, y0, y1, lo_, hi_, skip=("top", "back" if face > 0 else "front"))
+            for v0, v1 in ((y0, y0 + fy), (y1 - fy, y1)):                                   # fillets
+                self._box("column", s0 + e, s1 - e, v0, v1, lo_, hi_,
+                          skip=("left", "right", "back" if face > 0 else "front") + (("top",) if v1 == y1 else ()))
+            n, a, b = 6, s0 + e, s1 - e
+            zz = [(a + (b - a) * i / n, (y0 + fy) if i % 2 == 0 else (y1 - fy)) for i in range(n + 1)]
+            self._strap("column", zz, .032, oi, oo - face * .003)     # 3 mm shy of the frame it meets
+        self.probe((s0 + s1) / 2, y1 - fy / 2, d + .21, ("column",), "a paired capital's fillet")
+
+    def _rinceau(self, role, s0, s1, y0, y1, d):
+        """T-2585: the balcony panel's carving as the 1888 plate (x 930-1150, y 1260-1330)
+        and the 1965 view show it: one continuous running scroll of foliage across the
+        field, a wavy stem with a tendril curling into every bay of the wave and a leaf
+        at each tendril's root. The 1965 view counts four loops along the front; the
+        leaves' cut and each curl's turns are below both pictures' grain."""
+        yc, A = (y0 + y1) / 2, (y1 - y0) * .34
+        n = max(2, round((s1 - s0) / .30))               # half-waves, each about 0.3 m
+        lam = (s1 - s0) / n
+        stem = [(s0 + (s1 - s0) * i / (8 * n), yc + A * math.sin(math.pi * i / 8), d) for i in range(8 * n + 1)]
+        self._tube(role, stem, .02, (0.0, 0.0, 1.0), 6)
+        lobe = lambda pts, r: self._tube(role, pts, r, (0.0, 0.0, 1.0), 5)
+        for j in range(n):
+            sg = 1 if j % 2 == 0 else -1                # the wave's crest side in this bay
+            cx = s0 + (j + .5) * lam
+            # the tendril leaves the stem past the crest and curls back under its arch
+            r0, ey = A * .9, yc - sg * A * .12
+            pts = [(cx + lam * .25, yc + sg * A * .7, d)]
+            for i in range(29):
+                q, rr = math.pi * 2.5 * i / 28, r0 * (1 - .8 * i / 28)
+                pts.append((cx - rr * math.sin(q), ey + sg * rr * math.cos(q), d + .004))
+            self._tube(role, pts, .02, (0.0, 0.0, 1.0), 6)
+            # leaves: one sheathing the stem over the crest, one turned down off the node
+            # where the stem crosses the field, one in the curl's mouth; each a fat lobe
+            for lx, ly, ang, ln in ((cx - lam * .05, yc + sg * (A + .05), 0.0, .16),
+                                    (cx - lam * .5, yc - sg * A * .5, -sg * 1.1, .14),
+                                    (cx + lam * .32, yc - sg * A * .4, sg * .7, .11)):
+                lobe([(lx + ln * t * math.cos(ang) - .02 * math.sin(math.pi * t) * math.sin(ang) * sg,
+                       ly + ln * t * math.sin(ang) + .02 * math.sin(math.pi * t) * math.cos(ang) * sg, d + .004)
+                      for t in (-.5 + i / 6 for i in range(7))], .026)
+
+    def _panel_relief(self,s0,s1,y0,y1,d,role,leaves=True):
         from .k01_stone_finish import tube_faces
         # Sunk field bounded by a narrow bead, with low relief leaf scrolls. The exact
         # foliage is not resolved by the microfilm; this section is reconstructed.
         for x0,x1,lo,hi in ((s0,s1,y0,y0+.035),(s0,s1,y1-.035,y1),(s0,s0+.035,y0+.035,y1-.035),(s1-.035,s1,y0+.035,y1-.035)):
             self._box(role,x0,x1,lo,hi,d,d+.035,skip=("top","bottom") if x1-x0<.036 else ())
-        n=max(1,round((s1-s0)/.42))
+        n=max(1,round((s1-s0)/.42)) if leaves else 0
         for i in range(n):
             x=s0+(i+.5)*(s1-s0)/n; yc=(y0+y1)/2
             for side in (-1,1):
@@ -754,13 +811,18 @@ class Entrance(Opening):
         a, b = s0 + dw, s1 - dw
         self._box("balcony", a, b, y, y + h - .1, d - thick, d, skip=("bottom", "top", "left", "right"))
         self._box("balcony", a, b, y + h - .1, y + h, d - thick - .04, d + .06, skip=("left", "right"))   # coping
-        self._box("balcony", a, b, y, y + .12, d, d + .04, skip=("bottom", "back", "left", "right"))      # plinth
-        self._panel_relief(a + .12, b - .12, y + .2, y + h - .2, d + .012, "balcony")
+        # T-2585: under the carved field a plain base strip, about a third of the panel in the
+        # 1888 plate, and a plain margin against each die; the scroll fills the rest
+        self._box("balcony", a, b, y, y + .22, d, d + .03, skip=("bottom", "back", "left", "right"))      # base strip
+        for x0, x1, die in ((a, a + .06, "left"), (b - .06, b, "right")):
+            self._box("balcony", x0, x1, y + .22, y + h - .1, d, d + .03, skip=("bottom", "top", "back", die))
+        self._rinceau("balcony", a + .1, b - .1, y + .24, y + h - .12, d + .014)
         for x0 in (s0, s1 - dw):
             x1 = x0 + dw
             self._box("balcony", x0, x1, y, y + h + .1, d - thick, d + .06, skip=("bottom", "top"))
             self._box("balcony", x0 - .03, x1 + .03, y + h + .1, y + h + .2, d - thick - .03, d + .09)
-            self._panel_relief(x0 + .07, x1 - .07, y + .14, y + h - .06, d + .072, "balcony")
+            # T-2585: the 1888 plate's right die carries a plain sunk panel in a raised border
+            self._panel_relief(x0 + .07, x1 - .07, y + .14, y + h - .06, d + .072, "balcony", leaves=False)
             if min(abs(x0 - near), abs(x1 - near)) < 1e-6:
                 c, o = (x0 + x1) / 2, d - thick / 2
                 # stepped base, a pyramid cap and a ball, as the plate's corner finial reads
