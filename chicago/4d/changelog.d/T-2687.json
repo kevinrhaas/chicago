@@ -1,0 +1,9 @@
+{
+  "title": "A phone in 1835 holds about 14 MB less",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changed. On a phone, the 1835 town now holds about 14 MB less once it is drawn (583 MB to 569 MB), which is where phones were running out of memory.",
+    "Most of the plank walks, all of the fences and most of the yard goods now store each corner's position in 8 bytes instead of 12, measured from the middle of its own patch of town. The rounding moves a corner by at most a millimetre, and the long walks that would move more keep their old format for now.",
+    "The same views draw the same frame as before. A handful of single pixels flicker on far board edges, and a tapped walk, fence or yard still opens the same card."
+  ]
+}

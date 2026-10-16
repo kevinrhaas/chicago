@@ -24,9 +24,30 @@
  * `BufferAttribute.getX` denormalizes the same way, so a reader on the page (a
  * pick, the smoke's probes) sees the decoded value.
  *
- * WHAT STAYS FLOAT32, AND WHY. `position` is kept on the page for a tap and read
- * as metres by everything that asks where a board is; quantizing it means a
- * matrix per chunk and every reader made to apply it. `_confidence` is 0, 0.5 or
+ * POSITIONS (T-2687) are their own case, because a position is in no fixed
+ * range: `quantizeMeshPositions` writes a mesh's float positions as Int16 x 4,
+ * normalized, relative to the mesh's own box, and puts the box's centre and its
+ * half-extent into the MESH's matrix (position and a uniform scale), so the
+ * vertex stage's own model matrix undoes it. 8 bytes for 12; the fourth lane is
+ * padding to the four-byte stride. Three things follow from that:
+ *
+ *   - ONLY WHERE THE GRID KEEPS THE MILLIMETRE. One step is half-extent / 32767,
+ *     so a vertex moves by at most half of one. A mesh is quantized when that is
+ *     within `POSITION_ERROR_M` (1 mm: a half-extent up to 65.5 m) and is left
+ *     float32 otherwise. The boards are 20 mm apart and a fence board is 22 mm
+ *     thick, so a grid of a centimetre — what a town-long walk would get — moves
+ *     the gaps a visitor can see. The long meshes are cut first (T-2688).
+ *   - THE SCALE IS UNIFORM, so three's normal matrix only shortens the normal
+ *     and the shader's normalize undoes it (compact-attributes.js says the same
+ *     of the structures batch, T-2575).
+ *   - ANYTHING THAT READS A POSITION AS METRES APPLIES THE MESH'S MATRIX, or
+ *     reads `positionsInMetres(geometry)`. `BufferAttribute.getX` decodes to the
+ *     -1..1 the GPU sees, not to metres; a raycast or a GPU pick goes through
+ *     `matrixWorld` already and is unchanged. Inside a shader, a delta authored
+ *     in metres in the mesh's frame is divided by the model matrix's scale
+ *     (frontage.js, the plank-gap filter).
+ *
+ * WHAT STAYS FLOAT32, AND WHY. `_confidence` is 0, 0.5 or
  * 1 and the shader bands on 0.5 exactly, which no 8-bit normalized value holds.
  * The grain `uv` / `uv1` are metres on a sheet a millimetre or two to the texel,
  * past what a half float holds at the board lengths laid. Each is left alone
@@ -90,5 +111,80 @@ export function compactStreams(THREE) {
     return new THREE.BufferAttribute(out, 2, true);
   }
 
-  return { compactNormals, compactColors, compactUnitUvs };
+  /**
+   * Rewrite `mesh`'s float positions as Int16 x 4 normalized over its own box,
+   * and move the box into the mesh's matrix (see the header). Leaves the mesh
+   * exactly as it was, and returns false, when the grid would move a vertex by
+   * more than `maxErrorM`, when the positions are not plain float xyz, or when
+   * the mesh already carries a transform of its own.
+   */
+  function quantizeMeshPositions(mesh, maxErrorM = POSITION_ERROR_M) {
+    const geo = mesh.geometry;
+    const src = geo.getAttribute('position');
+    if (!src || src.isInterleavedBufferAttribute || src.itemSize !== 3
+      || !(src.array instanceof Float32Array) || !src.count) return false;
+    if (mesh.position.lengthSq() !== 0 || mesh.scale.x !== 1 || mesh.scale.y !== 1
+      || mesh.scale.z !== 1 || mesh.quaternion.w !== 1) return false;
+    const a = src.array;
+    const lo = [Infinity, Infinity, Infinity];
+    const hi = [-Infinity, -Infinity, -Infinity];
+    for (let i = 0; i < a.length; i += 3) {
+      for (let c = 0; c < 3; c += 1) {
+        const v = a[i + c];
+        if (v < lo[c]) lo[c] = v;
+        if (v > hi[c]) hi[c] = v;
+      }
+    }
+    const mid = [0, 1, 2].map((c) => (lo[c] + hi[c]) / 2);
+    const half = Math.max(...[0, 1, 2].map((c) => (hi[c] - lo[c]) / 2));
+    // NaN fails the comparison, so a mesh carrying one stays float.
+    if (!(half / POSITION_STEPS / 2 <= maxErrorM)) return false;
+    const scale = half > 0 ? half : 1;
+    const k = POSITION_STEPS / scale;
+    const out = new Int16Array(src.count * 4);
+    for (let i = 0, j = 0; i < a.length; i += 3, j += 4) {
+      for (let c = 0; c < 3; c += 1) {
+        out[j + c] = Math.max(-POSITION_STEPS, Math.min(POSITION_STEPS,
+          Math.round((a[i + c] - mid[c]) * k)));
+      }
+    }
+    geo.setAttribute('position', new THREE.BufferAttribute(out, 4, true));
+    geo.userData.positionQuantized = { offset: mid, scale };
+    // Bounds in metres are wrong by the matrix now. Re-read them off the stored
+    // positions, which is the frame every reader of them applies the matrix to.
+    geo.boundingBox = null;
+    geo.computeBoundingSphere();
+    mesh.position.set(mid[0], mid[1], mid[2]);
+    mesh.scale.setScalar(scale);
+    mesh.updateMatrix();
+    return true;
+  }
+
+  /**
+   * A geometry's positions in metres in its mesh's parent frame — what they
+   * were before `quantizeMeshPositions` — as a float32 attribute. A geometry
+   * that was never quantized hands back its own attribute; one whose array has
+   * been let go of after upload (upload-release.js) hands back null.
+   */
+  function positionsInMetres(geometry) {
+    const src = geometry?.getAttribute('position');
+    const q = geometry?.userData?.positionQuantized;
+    if (!src || !q) return src ?? null;
+    if (!src.array) return null;
+    const out = new Float32Array(src.count * 3);
+    for (let i = 0; i < src.count; i += 1) {
+      out[i * 3] = src.getX(i) * q.scale + q.offset[0];
+      out[i * 3 + 1] = src.getY(i) * q.scale + q.offset[1];
+      out[i * 3 + 2] = src.getZ(i) * q.scale + q.offset[2];
+    }
+    return new THREE.BufferAttribute(out, 3);
+  }
+
+  return { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions, positionsInMetres };
 }
+
+/** Int16's normalized range: WebGL decodes `q` as `max(q / 32767, -1)`. */
+export const POSITION_STEPS = 32767;
+
+/** The most a quantized position may move a vertex (T-2687): one millimetre. */
+export const POSITION_ERROR_M = 0.001;
