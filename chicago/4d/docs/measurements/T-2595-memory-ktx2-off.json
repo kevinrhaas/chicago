@@ -1,0 +1,197 @@
+{
+  "ticket": "T-2546",
+  "measured": {
+    "on": "2026-10-16T14:28:08.663Z",
+    "build": "3f772e396",
+    "machine": "AMD EPYC 9V74 80-Core Processor ×4",
+    "seconds": 100,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 221019288,
+        "arrayBuffers": 478939816,
+        "gpuBuffers": 159007924,
+        "gpuTextures": 535029497,
+        "gpuRenderbuffers": 3145728,
+        "total": 1393996525
+      },
+      "gl": {
+        "gpuBuffers": 159007924,
+        "gpuTextures": 531883769,
+        "gpuRenderbuffers": 3145728,
+        "liveBuffers": 1114,
+        "liveTextures": 695,
+        "liveRenderbuffers": 1
+      },
+      "heapTotal": 224473088,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 319,
+        "images": 113
+      },
+      "layers": [
+        {
+          "name": "structures",
+          "cpuKept": 28151414,
+          "gpuGeometry": 58657790,
+          "textureBytes": 1129665568,
+          "textures": 270,
+          "geometries": 179,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "railway",
+          "cpuKept": 225588540,
+          "gpuGeometry": 225588540,
+          "textureBytes": 35651576,
+          "textures": 26,
+          "geometries": 126,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-grid",
+          "cpuKept": 5345580,
+          "gpuGeometry": 5345580,
+          "textureBytes": 29360121,
+          "textures": 21,
+          "geometries": 17,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "terrain",
+          "cpuKept": 9414166,
+          "gpuGeometry": 4308614,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 111,
+          "cpuNeverUploaded": 6879040
+        },
+        {
+          "name": "context",
+          "cpuKept": 3297184,
+          "gpuGeometry": 3297184,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 8,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-trees",
+          "cpuKept": 364680,
+          "gpuGeometry": 364680,
+          "textureBytes": 4194304,
+          "textures": 1,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 272162404,
+        "gpuGeometry": 297563228,
+        "textureBytes": 1198958950,
+        "cpuNeverUploaded": 6879040
+      },
+      "uploadRelease": {
+        "geometries": 290,
+        "attributes": 877,
+        "bytes": 39158904,
+        "keptForHarness": false,
+        "sources": 151,
+        "sourceBytes": 52094470,
+        "images": 37,
+        "imageBytes": 232781088
+      },
+      "ktx2": {
+        "enabled": false,
+        "reason": "off (?ktx2=0)",
+        "dropTopMip": true,
+        "glb": "rgba8",
+        "formats": null,
+        "sheets": {
+          "ktx2": 0,
+          "fallback": 25,
+          "gpuBytes": 51729741,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 71,
+        "snapshot": 29
+      },
+      "snapshot": {
+        "arrayBufferBytes": 475422539,
+        "arrayBuffers": 102307
+      },
+      "retainers": [
+        {
+          "path": "Float32BufferAttribute.array ← Object.position ← BufferGeometry.attributes ← Mesh.geometry  [in 'railway']",
+          "bytes": 30341376,
+          "count": 114
+        },
+        {
+          "path": "Float32BufferAttribute.array ← Object.normal ← BufferGeometry.attributes ← Mesh.geometry  [in 'railway']",
+          "bytes": 30341376,
+          "count": 114
+        },
+        {
+          "path": "Float32BufferAttribute.array ← Object.color ← BufferGeometry.attributes ← Mesh.geometry  [in 'railway']",
+          "bytes": 30341376,
+          "count": 114
+        },
+        {
+          "path": "InstancedBufferAttribute.array ← InstancedMesh.instanceMatrix ← Array.[] ← Group.children  [in 'railway']",
+          "bytes": 29660928,
+          "count": 228
+        },
+        {
+          "path": "Object.data ← Array.[] ← CompressedTexture.mipmaps ← MeshStandardMaterial.map  [in 'merged' › 'painted_wood_basecolor']",
+          "bytes": 22369620,
+          "count": 12
+        },
+        {
+          "path": "Object.data ← Array.[] ← CompressedTexture.mipmaps ← MeshStandardMaterial.map  [in 'merged' › 'limestone_basecolor']",
+          "bytes": 22369620,
+          "count": 12
+        },
+        {
+          "path": "BufferAttribute.array ← Object.position ← BufferGeometry.attributes ← BatchedMesh.geometry",
+          "bytes": 17465984,
+          "count": 179
+        },
+        {
+          "path": "BufferAttribute.array ← Object.position ← BufferGeometry.attributes ← Object.geo",
+          "bytes": 16982592,
+          "count": 24914
+        },
+        {
+          "path": "BufferAttribute.array ← Object.color ← BufferGeometry.attributes ← BatchedMesh.geometry  [in 'railway' › 'railway-ballast-beds']",
+          "bytes": 13754880,
+          "count": 1
+        },
+        {
+          "path": "BufferAttribute.array ← Object.uv ← BufferGeometry.attributes ← Object.geo",
+          "bytes": 12194128,
+          "count": 19667
+        }
+      ]
+    }
+  ]
+}

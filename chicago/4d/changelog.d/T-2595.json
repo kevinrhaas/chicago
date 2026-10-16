@@ -1,0 +1,9 @@
+{
+  "title": "Prairie Avenue's photographed houses use far less phone graphics memory",
+  "kind": "improve",
+  "items": [
+    "Nothing you can see changed. The twenty textured houses on Prairie Avenue now ship their brick, stone, slate and trim pictures as GPU-compressed textures instead of JPEGs.",
+    "A phone's graphics chip keeps them compressed, at roughly a sixth of the memory the JPEGs took once unpacked, which is what was pushing phones over the edge on /1904/.",
+    "Rendered side by side from the same camera, every house matches its old self to within 42-52 dB. The download is larger, about 25 MB more across the twenty houses."
+  ]
+}
