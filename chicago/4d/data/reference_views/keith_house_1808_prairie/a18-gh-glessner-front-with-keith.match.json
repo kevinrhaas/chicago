@@ -5,7 +5,7 @@
   "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
   "camera_sha256": "c4c1ae3424cd45e764b4e828f6f74c8651c959276baa8cd786642f482c9124cb",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-glessner-front-with-keith-side-by-side.jpg",
-  "verdict": "unreviewed",
+  "verdict": "differs",
   "differences": [
     {
       "what": "T-2564: the north return is laid in large dressed courses (about 0.46 m) with staggered joints, 5.5 m long as the course counts in the 1887-89 and 1948 views give it, where it was a smooth 2.8 m slab.",
@@ -44,7 +44,7 @@
       "status": "open"
     },
     {
-      "what": "T-2579: the lattice openings sit lower, under a deeper coping that sweeps up into the pinnacle (photograph's rows at y 101-113 and 133-146 under a coping near y 70; the render's at 65-82 and 93-110 under one near y 52), and the carved boss at the pier's foot (y 155-180) is missing; the Florian record has the band below.",
+      "what": "T-2579: the lattice openings sit lower, under a deeper coping that sweeps up into the pinnacle (photograph's rows at y 101-113 and 133-146 under a coping near y 70; the render's at 65-82 and 93-110 under one near y 52), and the carved boss at the pier's foot (y 155-180) is missing; the Florian record has the band below. T-2679: the openings are 0.27 m under a 0.32 m head and the boss is built; the rows now read at about y 95-112 and 125-142 against the photograph's 101-113 and 133-146. Still open: the stack between the lower row and the band reads deeper in the render than here, and this camera, fitted to the two pinnacle apexes alone in height, cannot place it apart from Keith's height against Glessner, which T-2680 re-solves.",
       "status": "open"
     },
     {

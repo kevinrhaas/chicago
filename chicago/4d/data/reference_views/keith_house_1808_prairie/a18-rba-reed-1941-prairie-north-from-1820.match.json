@@ -5,7 +5,7 @@
   "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
   "camera_sha256": "9ba76d2aa82e2c89e8877ec4e1881c55de03d6a2d06f6c89b7165d0a1572457d",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
-  "verdict": "unreviewed",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2579: the camera is re-fitted to six controls on Keith's own front (both pinnacle apexes, a third-storey jamb at head and sill, a bow light at head and sill): RMS 4.6 px, about 0.22 m at 58 m. Pinnacles, parapet, the upper lights and the bow head now register; what still differs is the building, below.",
@@ -26,6 +26,10 @@
     {
       "what": "T-2581: the south face's front strip is built: coursed stone from grade to the parapet, 2.1 m behind the south-east pinnacle, where the model laid brick with toothed quoins; the photograph's strip runs on behind the pole at x 262, so this view bounds it from below and the mid-1950s view's downpipe sets its end.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2679: re-read after the crown changed: at this distance the band, the lattice head and the north-east boss are a few pixels and the picture cannot tell the old crown from the new.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

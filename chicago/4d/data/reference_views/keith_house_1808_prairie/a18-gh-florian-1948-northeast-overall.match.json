@@ -5,7 +5,7 @@
   "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
   "camera_sha256": "bc94b1f203059d99e619a27b5b09d8bcdec0ee3b81f041873fbc3052b155b143",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-florian-1948-northeast-overall-side-by-side.jpg",
-  "verdict": "unreviewed",
+  "verdict": "differs",
   "differences": [
     {
       "what": "T-2564: the north return is laid in large dressed courses (about 0.46 m) with staggered joints, 5.5 m long as the course counts in the 1887-89 and 1948 views give it, where it was a smooth 2.8 m slab.",
@@ -40,11 +40,15 @@
       "status": "not shown"
     },
     {
-      "what": "T-2579: under the lattice the photographs show a narrow fillet and then a band of small, staggered, diamond-pointed units about 1 m deep directly below the openings; the model puts a deeper plain band and a moulding there and lays larger rock-faced blocks in five courses lower down, so its band reads taller and lower than the pictures'.",
-      "status": "open"
+      "what": "T-2579: under the lattice the photographs show a narrow fillet and then a band of small, staggered, diamond-pointed units about 1 m deep directly below the openings; the model puts a deeper plain band and a moulding there and lays larger rock-faced blocks in five courses lower down, so its band reads taller and lower than the pictures'. T-2679: built as these pictures show it: five staggered rows of diamond-pointed units (a point on each, in the front's rock-faced stone, on a dressed ground in a checker), 0.84 m deep with its top at the foot of the moulded course under the lattice, the street cornice box above that course brought back to a 0.06 m fillet, and plain ground 0.28 m down to the head band.",
+      "status": "fixed"
     },
     {
-      "what": "T-2579: a carved boss stands on the north-east corner pier at the foot of the lattice, in this view and the Glessner-front view; the model has none.",
+      "what": "T-2579: a carved boss stands on the north-east corner pier at the foot of the lattice, in this view and the Glessner-front view; the model has none. T-2679: built: a lobed boss about 0.34 m across on the north-east corner, ending the moulded course under the lattice, which now stops 0.34 m short of the corner.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2679: the units read bulkier here, filling more of each row with less ground between the points; their section is below the picture's grain and is drawn, not read.",
       "status": "open"
     }
   ],
