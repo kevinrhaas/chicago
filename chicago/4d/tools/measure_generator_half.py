@@ -633,7 +633,13 @@ STATED = {
     # T-1464 (2026-09-20): the owner-requested standalone Unreal adapter now
     # consumes the committed GLBs. The missing-layer debt has a second reader;
     # T-0252/T-1360 own the export/parity work, not a reopened wharf-only ticket.
-    "renderers": 2,
+    # T-2558 (2026-10-16): a third, `renderers/web-hd/`, the unpublished H0 spike
+    # (RENDERING.md section 8). Re-read on arrival as this gate asks: it reads the
+    # committed GLBs of eleven structures and the heightfield, and draws NONE of the
+    # layers drawn at load, so it adds no reader for the missing-layer debt and T-0252's
+    # decision stands. A walk-hd that draws those layers ports their exporting modules,
+    # as walk/'s "copy, don't couple" already requires; it does not reopen a wharf mode.
+    "renderers": 3,
 }
 
 # The data layers a renderer draws at load out of committed JSON, rather than

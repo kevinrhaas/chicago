@@ -1,0 +1,28 @@
+# Vendored third-party code for the H0 spike — pinned and hashed
+
+Nothing here is fetched from a CDN at runtime. Every file below is a byte-for-byte copy
+from the published npm tarball named in `source`, verified by the sha256 listed beside it.
+To re-verify:  cd renderers/web-hd/vendor && sha256sum -c MANIFEST.sha256
+
+package     three
+version     0.185.1
+license     MIT (Copyright 2010-2026 Three.js Authors)
+homepage    https://threejs.org/
+source      https://registry.npmjs.org/three/-/three-0.185.1.tgz
+tarball_sha256  a2143f5bf978bd3470a51024b2b6bdd581913ba8f36ff1538d433f3a95adf2df
+vendored_on 2026-10-16 (T-2558)
+
+The same pinned tarball as `renderers/web/vendor/`. three.webgpu.js imports
+`./three.core.js` by a relative path, so the core sits beside it here as well: it is
+byte-identical to `renderers/web/vendor/three-0.185.1/three.core.js` (same sha256).
+Copy, don't couple (RENDERING.md section 3): walk/'s vendor directory is not edited, and
+nothing under renderers/web/ is published with these files in it.
+
+three-0.185.1/three.core.js     package/build/three.core.js
+three-0.185.1/three.webgpu.js   package/build/three.webgpu.js   (WebGPURenderer, node materials)
+three-0.185.1/three.tsl.js      package/build/three.tsl.js      (the TSL exports, re-exported from three/webgpu)
+
+The loaders (GLTFLoader, KTX2Loader, the meshopt decoder and the basis transcoder) are
+read from walk/'s own vendored copies at `../walk/vendor/three-0.185.1/addons/`, the
+published path, through the page's import map: they import `three`, which the map points
+at the WebGPU build on index.html and at three.module.js on classic.html.

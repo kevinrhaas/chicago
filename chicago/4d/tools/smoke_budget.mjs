@@ -226,6 +226,11 @@ const COVERAGE = [
   // and on the PR `changelog-entries.mjs --check` holds its shape and budget. Without
   // this row every PR, which now always carries one, would price at the whole gate.
   ['changelog.d/', NONE, 'changelog entry files — folded into changelog.js on dev, not served'],
+  // T-2558: the H0 WebGPU spike (RENDERING.md section 8). publish.sh copies
+  // renderers/web/ alone, so nothing here reaches the mirror, and walk/ imports nothing
+  // from it (it reads walk/'s published files, never the reverse). The smoke body cannot
+  // load it; tools/measure_hd_spike.mjs is the instrument that boots it.
+  ['renderers/web-hd/', NONE, 'the unpublished H0 spike — booted by measure_hd_spike.mjs, never by walk/'],
   ['tools/smoke_renderer.mjs', ALL, 'the gate itself'],
 
   // --- the whole scene: geometry, the scene graph, the boot chain, the mirror
