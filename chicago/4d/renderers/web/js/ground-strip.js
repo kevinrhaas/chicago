@@ -40,7 +40,7 @@
 
 import * as THREE from 'three';
 import {
-  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms,
+  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms, variationUniforms,
 } from './terrain.js';
 import {
   STRIP, MASK_PX_PER_M, maskSize, stripMaskPixels, stripWeights, maskAt, stripLocal,
@@ -286,6 +286,7 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
       uGround: { value: prairie },
       uPrairieLuma: { value: prairie.userData.meanLinearLuma },
       ...swardUniforms(sward),
+      ...variationUniforms(prairie),
       uMask: { value: maskTex },
       // West feather edge, south feather edge, 1/span along, 1/span across.
       uMaskFrame: { value: new THREE.Vector4(STRIP.e0 - F, STRIP.n0 - spanV / 2, 1 / spanU, 1 / spanV) },
@@ -364,7 +365,7 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
     const img = t.image;
     return s + (img?.width ?? 0) * (img?.height ?? 0) * 4 * 4 / 3;
   }, 0));
-  stats.fetchesPerFragment = 4 /* mask, prairie, sward, grit */ + 2 /* muck, sand colour */;
+  stats.fetchesPerFragment = 5 /* mask, prairie, sward, variation map, grit */ + 2 /* muck, sand colour */;
   stats.loadMs = Math.round(performance.now() - t0);
   stats.maskPxPerM = MASK_PX_PER_M;
   stats.maskSize = maskSize();

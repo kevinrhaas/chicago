@@ -56,7 +56,8 @@ import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
-import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
+import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
+  closeUploadedImages } from './upload-release.js';
 import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
@@ -1607,7 +1608,11 @@ async function boot() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, bootQuality));
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
-  crashGuard.watchContext(renderer.domElement, { needsReload: () => uploadReleaseState().attributes > 0 });
+  // T-2548: a closed building image is gone from the page as a released array is.
+  crashGuard.watchContext(renderer.domElement, { needsReload: () => {
+    const released = uploadReleaseState();
+    return released.attributes > 0 || released.images > 0;
+  } });
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -1619,6 +1624,8 @@ async function boot() {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
     detail: detailLevel,
+    // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
+    keepAssetBytes: !coarse,
   });
   const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
   const detailLevels = inspectionLod ? { ...DETAIL,
@@ -1756,6 +1763,12 @@ async function boot() {
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
   settleOnGpu(buildings.group);
+  // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
+  // of the source geometry and the decoded images (upload-release.js).
+  if (coarse) {
+    releaseSources(loaded.registry);
+    closeUploadedImages(buildings.group, renderer);
+  }
   bootController.end('buildings');
   bootController.start('ground');
   await yieldToPaint();
@@ -2446,6 +2459,26 @@ async function boot() {
     next.flora?.dispose?.();
     next.trees?.dispose?.();
     if (next.asset) disposeLoadedAsset(next.asset.gltf);
+    for (const gltf of next.reread ?? []) disposeLoadedAsset(gltf);
+  };
+  /**
+   * T-2548: a phone let go of every building's source geometry once its batch
+   * held a copy, so a rebuild re-reads the GLBs of the rows it released — the
+   * HTTP cache answers — into the candidate registry. The gltfs those rows held
+   * are retired at commit (`next.retired`), the ones read here at discard.
+   */
+  const rereadReleased = async (next, skipId) => {
+    next.reread = [];
+    next.retired = [];
+    const rows = [...next.registry.values()].filter((row) => row.sourceReleased && row.id !== skipId);
+    const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
+    got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
+    const failed = got.find((r) => r.status === 'rejected');
+    if (failed) throw failed.reason;
+    rows.forEach((row, i) => {
+      next.retired.push(row.gltf);
+      Object.assign(row, got[i].value, { node: null, instanceId: null, sourceReleased: false });
+    });
   };
   const inspectionSwitch = inspectionLod ? createLatestDetailSwitch({
     initial: detailLevel,
@@ -2457,7 +2490,9 @@ async function boot() {
           next.asset = await loaded.loadDetailAsset(record, level);
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
-          Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          Object.assign(next.registry.get(record.id), next.asset,
+            { node: null, instanceId: null, sourceReleased: false });
+          await rereadReleased(next, record.id);
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
@@ -2517,6 +2552,12 @@ async function boot() {
         api.roll = buildings.roll;
         previous.dispose();
         disposeLoadedAsset(oldAsset);
+        for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
+        if (coarse) {
+          settleOnGpu(buildings.group);
+          releaseSources(loaded.registry);
+          closeUploadedImages(buildings.group, renderer);
+        }
       }
       if (next.contextCity) {
         const previous = contextCity;
@@ -4179,6 +4220,8 @@ async function boot() {
     exposure: { get: () => renderer.toneMappingExposure, enumerable: true },
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
     uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
+    /** T-2548: GLBs banked for a detail switch — none on a phone. */
+    bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.
