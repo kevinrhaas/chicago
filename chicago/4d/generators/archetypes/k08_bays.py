@@ -28,6 +28,9 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                wall: a post at each end against the wall, square bars between a foot rail
                and a top rail; and a window entry's `grille`, iron bars in its reveal
                clipped to its head, with an arch ring over them as 1621's drawing draws
+  heads        (T-2531) a window entry's `voussoirs`: a block of splayed stones over the
+               light from its head to the string course, their joints fanned, as 1621's
+               drawing draws over its basement lights
   floor balcony (T-2534) a projection's balcony on one of its floors, bowed out from its
                front under the window it serves: a stone slab and a stone balustrade on it
 
@@ -594,6 +597,51 @@ def grille(o, g: dict):
 IRON_BAR_M = 0.018        # T-2525: K01's guard and grille bar (k01_arched_front.IRON_BAR_M)
 
 
+def _inset(poly, b):
+    """A convex counter-clockwise (s, y) polygon with every edge moved `b` inward."""
+    lines = []
+    for i, a in enumerate(poly):
+        c = poly[(i + 1) % len(poly)]
+        dx, dy = c[0] - a[0], c[1] - a[1]
+        L = math.hypot(dx, dy)
+        nx, ny = -dy / L, dx / L
+        lines.append(((a[0] + nx * b, a[1] + ny * b), (dx, dy)))
+    out = []
+    for i in range(len(lines)):
+        (p0, d0), (p1, d1) = lines[i - 1], lines[i]
+        den = d0[0] * d1[1] - d0[1] * d1[0]
+        t = ((p1[0] - p0[0]) * d1[1] - (p1[1] - p0[1]) * d1[0]) / den
+        out.append((p0[0] + d0[0] * t, p0[1] + d0[1] * t))
+    return out
+
+
+def voussoir_head(o, vs: dict, s0: float, s1: float, y0: float, y1: float):
+    """T-2531: a block of splayed voussoirs over a light, from its head (y0) to the course
+    above it (y1): `stones` dressed stones, the block `splay_m` wider each side at its top
+    than at the light's jambs, their joints fanned so each runs from its point on the head
+    to its point on the top. Each stone stands `proud_m` before the face, `joint_m` from
+    the next, its arris chamfered `bevel_m` so the joints read as the drawing's lines. In
+    the strip's own frame, so the bay bends it."""
+    n, sp, pr, j, bv = vs["stones"], vs["splay_m"], vs["proud_m"], vs["joint_m"] / 2, vs["bevel_m"]
+    y0 += 0.001     # off the reveal's soffit, whose plane the stones' beds would otherwise share
+    bot = [s0 + (s1 - s0) * i / n for i in range(n + 1)]
+    top = [s0 - sp + (s1 - s0 + 2 * sp) * i / n for i in range(n + 1)]
+    for i in range(n):
+        ja = j if i else 0.0
+        jb = j if i < n - 1 else 0.0
+        poly = [(bot[i] + ja, y0), (bot[i + 1] - jb, y0), (top[i + 1] - jb, y1 - j), (top[i] + ja, y1 - j)]
+        face = _inset(poly, bv)
+        o.plane("head", face, -pr)
+        for k in range(4):     # the chamfer, from the arris back to the face
+            a, b, fa, fb = poly[k], poly[(k + 1) % 4], face[k], face[(k + 1) % 4]
+            mx, my = (a[0] + b[0]) / 2 - (fa[0] + fb[0]) / 2, (a[1] + b[1]) / 2 - (fa[1] + fb[1]) / 2
+            o.face("head", [o.P(*a, -(pr - bv)), o.P(*b, -(pr - bv)), o.P(*fb, -pr), o.P(*fa, -pr)],
+                   (mx, my, bv))
+        # its sides start a millimetre into the wall: on the face they would be edges
+        # `bend` cuts every wall cell at
+        o.tube("head", poly, 0.001, -(pr - bv), inward=False)
+
+
 # -- a window: a K06 opening, its recess cut to the bay ------------------------------------------
 
 def k06_variant(w: dict) -> dict:
@@ -672,13 +720,27 @@ class Bay:
                     for h in o.holes:
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
                         holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
+                    if w.get("voussoirs"):
+                        # T-2531: a dressed head over the light, up to the string course
+                        sh = [(q[0] + s, q[1] + o.O[1]) for q in o.holes[0]]
+                        y_hi = hi - band["height_m"] / 2 if k + 1 < len(v["storeys"]) else hi
+                        if y_hi - max(q[1] for q in sh) < 0.1:
+                            raise ValueError(f"no room for a voussoir head over the light at s = {s:.3f}")
+                        voussoir_head(flat, w["voussoirs"], min(q[0] for q in sh), max(q[0] for q in sh),
+                                      max(q[1] for q in sh), y_hi)
                     if v.get("masonry"):
                         for role in ("sill", "head"):
                             pts = o.prims[role].pos
                             x0, x1 = min(p[0] for p in pts)-.002, max(p[0] for p in pts)+.002
                             y0_, y1 = min(p[1] for p in pts)-.002, max(p[1] for p in pts)+.002
                             trim_holes.append((x0, x1, y0_, y1, (), True))
+                        if w.get("voussoirs"):   # T-2531: the dressed head stands where the cells would
+                            sp = w["voussoirs"]["splay_m"] + .002
+                            trim_holes.append((min(q[0] for q in sh) - sp, max(q[0] for q in sh) + sp,
+                                               max(q[1] for q in sh) - .002, y_hi + .002, (), True))
                     drop = cv.get("drop_roles", ()) if self.tier == "light" else ()
+                    if w.get("voussoirs"):     # T-2531: they are its head, in place of K06's lintel
+                        drop = (*drop, "head")
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
                 if v.get("masonry") and self.tier == "full":
