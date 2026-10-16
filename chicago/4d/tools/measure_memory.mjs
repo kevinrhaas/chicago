@@ -6,6 +6,8 @@
  *   node tools/measure_memory.mjs --from reading.json
  *   node tools/measure_memory.mjs --gate [--year …] [--only …] [--json out.json]
  *   node tools/measure_memory.mjs --self-test
+ *   node tools/measure_memory.mjs --walk prairie [--only …] [--residency-off] [--budget-mib N] [--json out.json]
+ *   node tools/measure_memory.mjs --walk prairie --captures [--only …] [--stands id,id] [--shots dir] [--json out.json]
  *
  * The owner, 2026-10-16: "I see often that in a browser on mobile we get memory
  * crashes and it's getting jittery". Frame time has ceilings
@@ -64,6 +66,22 @@
  * boots 1835 on the phone with `?keep-geometry=1` — every page array kept, as
  * before T-2158 — and must read OVER the ceiling: the gate is shown able to go red.
  * `.github/workflows/chicago-4d-frame-time.yml` runs both, beside the frame gate.
+ *
+ * `--walk prairie` (T-2598) READS ALONG A WALK instead of at spawn: /1904/, Prairie
+ * Avenue's centreline from south of the 1800 block to the 1600 block, a station every
+ * 40 m. At each the eye is stood there, texture residency is let finish what it is
+ * uploading (texture-residency.js), and the GL meter's texture bytes and residency's
+ * own resident bytes are read. It fails if residency ever holds more than its tier's
+ * budget, or a page error is thrown. `--residency-off` walks with `?residency=0`: the
+ * before, every house picture resident wherever the eye is.
+ *
+ * `--captures` stands the eye at the five Glessner stands and three street-eye stands
+ * instead, and shoots each three times in one page: with residency working (A), with
+ * every picture forced resident (C — the before), and with residency working again
+ * (D). The page has no paused clock — leaves sway, humans walk, flags fly — so A and D
+ * differ by that motion alone, across the very interval C was shot inside. It reports
+ * C against the nearer of A and D beside A against D: "residency is invisible here"
+ * is a reading, not a claim.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -87,12 +105,38 @@ const GATE = has('--gate');
 const SELF_TEST = has('--self-test');
 const jsonOut = argAt('--json');
 const ONLY = argAt('--only') || 'both';
-const YEARS = SELF_TEST ? ['1835'] : (argAt('--year') || '1812,1835,1904').split(',').filter(Boolean);
+const WALK = argAt('--walk');
+const RESIDENCY_OFF = has('--residency-off');
+const CAPTURES = has('--captures');
+/** T-2598's stands: Glessner from five sides and three street eyes, on foot unless aloft. */
+const STANDS = [
+  { id: 'glessner-ne-corner', local_e: 1410, local_n: -3200, yaw_deg: 225 },
+  { id: 'glessner-front', local_e: 1405, local_n: -3230, yaw_deg: 270 },
+  { id: 'glessner-north-18th', local_e: 1360, local_n: -3205, yaw_deg: 180 },
+  { id: 'glessner-se-prairie', local_e: 1408, local_n: -3262, yaw_deg: 315 },
+  { id: 'glessner-aloft-ne', local_e: 1440, local_n: -3170, yaw_deg: 225, altitude_m: 60, pitch_deg: -30 },
+  { id: 'street-prairie-1600-south', local_e: 1402, local_n: -3000, yaw_deg: 180 },
+  { id: 'street-prairie-1800-north', local_e: 1402, local_n: -3280, yaw_deg: 0 },
+  { id: 'street-18th-east', local_e: 1300, local_n: -3207, yaw_deg: 90 },
+];
+/**
+ * The Prairie Avenue walk (T-2598): the roadway's centreline, E 1402 — Glessner's east
+ * face stands at E 1387.6 with the 14.7 ft setback behind the street line, and the
+ * avenue is 66 ft wide — from N -3270 (south of 1808) to N -2990 (1612), every 40 m,
+ * looking north up the avenue.
+ */
+const WALKS = {
+  prairie: { year: '1904', stations: Array.from({ length: 8 }, (_, i) => ({
+    local_e: 1402, local_n: -3270 + 40 * i, yaw_deg: 0 })) },
+};
+if (WALK && !WALKS[WALK]) { console.error(`no walk named ${WALK}: ${Object.keys(WALKS).join(', ')}`); process.exit(2); }
+const YEARS = SELF_TEST ? ['1835'] : WALK ? [WALKS[WALK].year]
+  : (argAt('--year') || '1812,1835,1904').split(',').filter(Boolean);
 const KEEP_GEOMETRY = SELF_TEST || has('--keep-geometry');
 // T-2582: `--ktx2-off` boots with `?ktx2=0`, every library sheet on its image path —
 // the before to the KTX2 after, read by the same meter in the same build.
 const KTX2_OFF = has('--ktx2-off');
-const SNAPSHOT = !GATE && !SELF_TEST && !has('--no-snapshot');
+const SNAPSHOT = !GATE && !SELF_TEST && !WALK && !has('--no-snapshot');
 
 const VIEWPORTS = [
   { id: 'desktop', label: 'desktop 1280x800', width: 1280, height: 800, dsf: 1, mobile: false, tier: 'full' },
@@ -528,7 +572,9 @@ for (const year of YEARS) {
     const page = await ctx.newPage();
     const errors = [];
     page.on('pageerror', (e) => errors.push(String(e)));
-    const qs = [KEEP_GEOMETRY && 'keep-geometry=1', KTX2_OFF && 'ktx2=0'].filter(Boolean);
+    const qs = [KEEP_GEOMETRY && 'keep-geometry=1', KTX2_OFF && 'ktx2=0',
+      RESIDENCY_OFF && 'residency=0', argAt('--budget-mib') && `residency-budget=${argAt('--budget-mib')}`]
+      .filter(Boolean);
     const q = qs.length ? `?${qs.join('&')}` : '';
     await page.goto(`http://127.0.0.1:${PORT}/${year}/${q}`, { waitUntil: 'load' });
     await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 420_000 });
@@ -548,6 +594,115 @@ for (const year of YEARS) {
       for (let i = 0; i < 3; i += 1) await new Promise((r) => requestAnimationFrame(r));
       await new Promise((r) => setTimeout(r, 1000));
     });
+    if (WALK && CAPTURES) {
+      const settle = () => page.evaluate(async () => {
+        const api = window.__chicago4d;
+        const frame = () => new Promise((r) => requestAnimationFrame(r));
+        const deadline = Date.now() + 90_000;
+        await frame();
+        while ((api.residency?.pending ?? 0) > 0 && Date.now() < deadline) await frame();
+        await frame();
+        return api.residency ? { resident: api.residency.resident, sources: api.residency.sources } : null;
+      });
+      const shoot = async () => (await page.screenshot({ type: 'png', timeout: 180_000 })).toString('base64');
+      // Compared in a blank page: a pixel differs when any channel moves by more than 8.
+      const cmp = await ctx.newPage();
+      const compare = (shots) => cmp.evaluate(async ({ a, c, d }) => {
+        const load = async (b64) => {
+          const img = new Image(); img.src = `data:image/png;base64,${b64}`; await img.decode();
+          const cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height;
+          const g = cv.getContext('2d'); g.drawImage(img, 0, 0);
+          return g.getImageData(0, 0, img.width, img.height).data;
+        };
+        const [pa, pc, pd] = await Promise.all([load(a), load(c), load(d)]);
+        const count = (p, q) => {
+          let n = 0; let se = 0;
+          for (let i = 0; i < p.length; i += 4) {
+            let moved = false;
+            for (let k = 0; k < 3; k += 1) { const d = p[i + k] - q[i + k]; se += d * d; if (Math.abs(d) > 8) moved = true; }
+            if (moved) n += 1;
+          }
+          const mse = se / (p.length / 4 * 3);
+          return { pixels: n, share: n / (p.length / 4), psnr: mse ? 10 * Math.log10(255 * 255 / mse) : null };
+        };
+        const ac = count(pa, pc); const dc = count(pd, pc);
+        return { noise: count(pa, pd), residency: ac.pixels <= dc.pixels ? ac : dc };
+      }, shots);
+      const results = [];
+      const only = argAt('--stands')?.split(',');
+      for (const stand of STANDS.filter((st) => !only || only.includes(st.id))) {
+        const { id, ...at } = stand;
+        await page.evaluate((x) => window.__chicago4d.walker.teleport(x), at);
+        const working = await settle();
+        const a = await shoot();
+        await page.evaluate(() => window.__chicago4d.textureResidency?.everything());
+        const all = await settle();
+        const c = await shoot();
+        await page.evaluate(() => window.__chicago4d.textureResidency?.override(null));
+        await settle();
+        const d = await shoot();
+        const diff = await compare({ a, c, d });
+        results.push({ id, working, all, ...diff });
+        // Each stand is written as it is read: a phone stand costs minutes under
+        // SwiftShader, and a run cut off at its clock keeps what it finished.
+        if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify({ ticket: 'T-2598', partial: true, viewport: vp.id, captures: results }, null, 2)}\n`);
+        if (argAt('--shots')) {
+          fs.mkdirSync(argAt('--shots'), { recursive: true });
+          for (const [k, v] of Object.entries({ a, c })) {
+            fs.writeFileSync(path.join(argAt('--shots'), `${vp.id}-${id}-${k}.png`), Buffer.from(v, 'base64'));
+          }
+        }
+        const pct = (x) => `${(100 * x.share).toFixed(3)} %`;
+        const db = (x) => (x.psnr === null ? 'identical' : `${x.psnr.toFixed(1)} dB`);
+        console.log(`  ${id}: ${working?.resident}/${working?.sources} resident · `
+          + `C↔A|D ${diff.residency.pixels} px (${pct(diff.residency)}, ${db(diff.residency)})`
+          + ` against motion A↔D ${diff.noise.pixels} px (${pct(diff.noise)}, ${db(diff.noise)})`);
+      }
+      rows.push({ year, viewport: vp.id, label: vp.label, walk: WALK, captures: results, errors, steps: [], over: 0,
+        seconds: { captures: Math.round((Date.now() - t0) / 1000) } });
+      await ctx.close();
+      continue;
+    }
+    if (WALK) {
+      const steps = [];
+      for (const station of WALKS[WALK].stations) {
+        const step = await page.evaluate(async (at) => {
+          const api = window.__chicago4d;
+          api.walker.teleport(at);
+          const frame = () => new Promise((r) => requestAnimationFrame(r));
+          const deadline = Date.now() + 60_000;
+          await frame();
+          while ((api.residency?.pending ?? 0) > 0 && Date.now() < deadline) await frame();
+          await frame();
+          const gl = window.__memoryMeter();
+          const r = api.residency;
+          return { ...at, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers,
+            residency: r && { resident: r.resident, sources: r.sources, residentBytes: r.residentBytes,
+              budgetBytes: r.budgetBytes, wantedBytes: r.wantedBytes, pending: r.pending, uploads: r.uploads,
+              evictions: r.evictions, redecodes: r.redecodes, overBudget: r.overBudget } };
+        }, station);
+        steps.push(step);
+        console.log(`  N ${step.local_n}: gpu textures ${MB(step.gpuTextures)} MB`
+          + (step.residency ? ` · resident ${step.residency.resident}/${step.residency.sources}`
+            + ` = ${MB(step.residency.residentBytes)} of ${MB(step.residency.budgetBytes)} MB`
+            + ` (reach asks ${MB(step.residency.wantedBytes)}, ${step.residency.overBudget} turned away)`
+            + ` (pending ${step.residency.pending})` : ' · residency off'));
+      }
+      const residency = await page.evaluate(() => {
+        const r = window.__chicago4d.residency;
+        return r && { ...r, problems: [...r.problems] };
+      });
+      const over = steps.filter((st) => st.residency && st.residency.residentBytes > st.residency.budgetBytes);
+      rows.push({ year, viewport: vp.id, label: vp.label, walk: WALK, residencyOff: RESIDENCY_OFF,
+        steps, residency, errors, over: over.length,
+        maxGpuTextures: Math.max(...steps.map((st) => st.gpuTextures)),
+        maxResidentBytes: Math.max(...steps.map((st) => st.residency?.residentBytes ?? 0)),
+        seconds: { walk: Math.round((Date.now() - t0) / 1000) } });
+      console.log(`walk ${WALK} ${vp.id}: max gpu textures ${MB(rows.at(-1).maxGpuTextures)} MB, `
+        + `${over.length} station(s) over budget, ${errors.length} page error(s)`);
+      await ctx.close();
+      continue;
+    }
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('HeapProfiler.enable');
     await cdp.send('HeapProfiler.collectGarbage');
@@ -602,6 +757,21 @@ const reading = {
   },
   rows,
 };
+if (WALK) {
+  // The walk holds residency to its budget at every station, and the page to no errors.
+  reading.ticket = 'T-2598';
+  reading.measured.method = `the ${WALK} walk: /${WALKS[WALK].year}/, welcome entered, the eye stood at `
+    + 'each station, residency let finish its uploads, 3 frames; GPU from a WebGL allocation meter';
+  if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify(reading, null, 2)}\n`);
+  let red = 0;
+  for (const row of rows) {
+    if (row.over) { red += 1; console.log(`::error::${row.viewport}: residency held more than its budget at ${row.over} station(s)`); }
+    if (row.errors.length) { red += 1; console.log(`::error::${row.viewport}: ${row.errors.length} pageerror(s): ${row.errors[0]}`); }
+    if (row.residency?.problems?.length) console.log(`::warning::${row.viewport}: ${row.residency.problems.join('; ')}`);
+  }
+  console.log(`\n${rows.length} walk(s) in ${reading.measured.seconds} s`);
+  process.exit(red ? 1 : 0);
+}
 printReading(reading);
 console.log(`\n${rows.length} reading(s) in ${reading.measured.seconds} s`);
 if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify(reading, null, 2)}\n`);

@@ -1,0 +1,13 @@
+{
+  "ticket": "T-2598",
+  "viewport": "mobile",
+  "build": "steward/t2598-texture-residency (unmerged), mirror published from this branch",
+  "method": "tools/measure_memory.mjs --walk prairie --captures --only mobile: per stand A (residency working), C (every picture resident, textureResidency.everything()), D (working again), one page; a pixel differs when a channel moves > 8. C is compared with the nearer of A and D; A against D is the scene's own motion across the same interval (no paused clock).",
+  "note": "Transcribed from the two runs' console lines: both reached the 590 s timeout before the JSON was written (the tool now writes each stand as it is read). glessner-aloft-ne and the three street-eye stands were not read in this run.",
+  "stands": [
+    "glessner-ne-corner: 31/61 resident · C↔A|D 77308 px (2.824 %, 34.0 dB) against motion A↔D 100655 px (3.676 %, 33.3 dB)",
+    "glessner-front: 37/61 resident · C↔A|D 576374 px (21.052 %, 30.2 dB) against motion A↔D 833642 px (30.449 %, 27.6 dB)",
+    "glessner-north-18th: 31/61 resident · C↔A|D 322796 px (11.790 %, 29.7 dB) against motion A↔D 478202 px (17.467 %, 27.7 dB)",
+    "glessner-se-prairie: 44/61 resident · C↔A|D 480343 px (17.545 %, 30.9 dB) against motion A↔D 611711 px (22.343 %, 28.8 dB)"
+  ]
+}
