@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "1eae71eff559bb077f9ea8048e73b726074131ed399d8a418b98587b4c6cd1e4",
+  "glb_sha256": "48fbf44c632e46bd69c919dd12659f45952f21fd08a9d19cc4d6592896ad457e",
   "camera_sha256": "1511b9132d93f17646f0cc437e1547f930a1219b6f39534f91eebdcda5507b9e",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -20,7 +20,11 @@
       "status": "open"
     },
     {
-      "what": "Granite courses and rock-face variation remain too regular; the checker stones and upper capital/head-band profiles need further photographic refinement.",
+      "what": "T-2566: the south pier's granite alternates a deep rock-faced course and a thin one, as this close view shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The bow still runs even courses where the photographs' bow alternates deep and thin ones; the individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
       "status": "open"
     },
     {
@@ -32,11 +36,11 @@
       "status": "open"
     },
     {
-      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887\u201388 photographs.",
+      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887–88 photographs.",
       "status": "not shown"
     },
     {
-      "what": "The source is shaded and blue-cast. The pale neutral granite tint is reconstructed; exact colour agreement is not established.",
+      "what": "T-2566 re-read the tint under neutral light: the stone is now a neutral grey at the old lightness, not the green-grey it was. The source is shaded and blue-cast, so exact colour agreement is not established.",
       "status": "open"
     }
   ],

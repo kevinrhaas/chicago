@@ -827,6 +827,23 @@ def _k02(front: dict) -> dict:
         raise ParamError("dressed_trim declares no coping")
     coping_h = float(front.get("coping_height_m", 0.0))
     _within(coping_h, t["course_height_m"], "stone_front.coping_height_m (dressed_trim course_height_m)")
+    # T-2566: a front read off its photograph may lay its walling high and low in turn
+    # (the profile's course_rule) up to a line, and evenly above it with a shallower face;
+    # every course and rock face it lays stays inside the profile's own ranges
+    coursing = front.get("coursing")
+    if coursing is not None:
+        lo_c, hi_c = (float(x) for x in f["course_height_m"])
+        if set(coursing) != {"rhythm", "low_ratio", "even_above_m", "even_rock_share"} \
+                or coursing["rhythm"] != "alternating":
+            raise ParamError("stone_front.coursing takes rhythm 'alternating', low_ratio, even_above_m "
+                             "and even_rock_share")
+        if not (lo_c / hi_c <= float(coursing["low_ratio"]) < 1.0):
+            raise ParamError(f"stone_front.coursing.low_ratio must let a low course stand inside "
+                             f"{fab}'s course_height_m [{lo_c}, {hi_c}]")
+        if not (0.0 < float(coursing["even_rock_share"]) <= 1.0 and float(coursing["even_above_m"]) > 0.0):
+            raise ParamError("stone_front.coursing: even_rock_share in (0, 1], even_above_m above grade")
+        if f["course_rule"].find("alternating") < 0:
+            raise ParamError(f"{fab}'s profile does not allow alternating courses")
 
     def edges(x):
         return {"joint_m": x["joint"]["width_m"], "recess_m": x["joint"]["recess_m"],
@@ -843,6 +860,7 @@ def _k02(front: dict) -> dict:
         "quoin_return_m": tuple(f["corner_bond"]["return_m"]), "corners": corners,
         "base_courses": base, "channel_m": f["rusticated_base"]["channel_width_m"],
         "channel_depth_m": f["rusticated_base"]["channel_depth_m"],
+        **({"coursing": dict(coursing)} if coursing else {}),
         "coping_height_m": coping_h, "coping_fall": t["coping"]["fall"],
         "coping_overhang_m": t["coping"]["overhang_m"], "drip_groove_m": t["coping"]["drip_groove_m"],
         "fabric_roughness": lib[fab]["mean_roughness"], "trim_roughness": lib[trim]["mean_roughness"],

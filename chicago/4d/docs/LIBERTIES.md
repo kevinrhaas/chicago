@@ -28136,6 +28136,18 @@ and dark sash paint; the unseen rear openings and existing rear canted bay; path
 The 1965 print has a blue cast and cannot give a calibrated granite colour. The generic
 Lemont stone, tall spear fence, urn gate piers, south wall and nine-step stair previously
 used by the kit proof are superseded. The later iron infill is not carried into 1904.
+**T-2566 (2026-10-16), the granite surface:** what is read now is the coursing's RHYTHM
+(a deep course of about 0.5 m and a thin one of about 0.2 m in turn, basement to the
+third-floor line at 9.8 m, then even, shallower-faced courses), and the checker band laid
+in staggered rows of rough lumps, read off the Glessner House archive print of the 1888
+photograph at full resolution. What is still invented: every individual joint (the
+street tree hides most of them, so the joints laid are the rhythm's), each stone's rock
+height inside the profile's range, the mouldings' fillet sizes and the capitals' neck and
+bell, drawn to the plate's shadows rather than measured. The bow's own masonry keeps its
+even courses. The tint stays reconstructed: the neutral-light reading in
+`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json` (T-2566) shows the
+material and the 1965 print's patches differ, and records it rather than tuning to a
+blue-cast, shaded print.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
