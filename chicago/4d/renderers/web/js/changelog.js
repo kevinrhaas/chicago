@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1854, ts: '2026-10-16T08:15:32.079Z', date: 'Oct 16, 2026, 3:15 AM CT', title: 'Keith\'s loggia carved as the 1888 photograph shows it', kind: 'improve',
+    items: [
+      'At 1808 Prairie, each pair of entrance columns now shares one carved Ionic capital, rolled into volutes. The balcony above sits level on a deep cornice, with a stepped stone finial on its stair-side corner.',
+      'Both stone stair cheeks now end at the street in a rolled scroll foot. The bow\'s second-floor windows are taller, reaching up under its moulded cap as they do in the 1888 plate.',
+    ] },
   { v: 1853, ts: '2026-10-16T08:06:58.094Z', date: 'Oct 16, 2026, 3:06 AM CT', title: 'Buildings take about a third less phone memory', kind: 'improve',
     items: [
       'Nothing you can see changed. Each building\'s paint is now stored once per piece instead of once per corner, and its surface directions and texture positions in smaller numbers, so the 1835 town\'s buildings hold 48.6 MB on the graphics chip instead of 74.4 MB.',
