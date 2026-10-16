@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1870, ts: '2026-10-16T14:51:45.566Z', date: 'Oct 16, 2026, 9:51 AM CT', title: 'Plank walks and yard goods hold their wood grain compressed', kind: 'improvement',
+    items: [
+      'Nothing you can see changed: the walks, stoops, posts, casks and crates look as they did, side by side within a level of brightness.',
+      'Their board-face grain now ships as GPU-compressed textures, worked out ahead of time instead of on every visit.',
+      'On a phone in 1835 the street-edge timber holds about 1 MB of graphics memory where it held 16 MB, and the page about 18 MB less in all.',
+      'A first visit to 1835 downloads about 0.3 MB less: the walks and the walls now share one set of compressed board textures.',
+      'A device whose graphics card cannot take compressed textures falls back to the images it loaded before.',
+    ] },
   { v: 1869, ts: '2026-10-16T14:35:17.330Z', date: 'Oct 16, 2026, 9:35 AM CT', title: 'Phones keep the buildings once, not twice', kind: 'improve',
     items: [
       'Nothing you can see changed. A tap on a building is now answered by the graphics chip, which draws the spot under your finger once and reads back which building is there.',
