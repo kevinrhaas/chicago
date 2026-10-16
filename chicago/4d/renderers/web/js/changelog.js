@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1850, ts: '2026-10-16T06:36:22.691Z', date: 'Oct 16, 2026, 1:36 AM CT', title: 'Keith\'s granite front reads like the 1888 photograph', kind: 'improve',
+    items: [
+      '1808 Prairie\'s granite is now laid as the 1888 photograph shows: a deep rock-faced course and a thin one in turn up to the third floor, with finer, flatter courses above.',
+      'The rough checker band under the parapet is laid in staggered rows of lumps that stand out by different amounts, between stepped mouldings. The upper colonnettes have flared capitals.',
+    ] },
   { v: 1849, ts: '2026-10-16T06:08:11.925Z', date: 'Oct 16, 2026, 1:08 AM CT', title: 'The town chooses its detail and sharpness for your device', kind: 'feature',
     items: [
       'At start-up the walkthrough now reads what your browser and graphics chip offer and runs a check of well under a second, then picks Scene detail and Image sharpness to suit: a capable computer is drawn at High sharpness, a modest one at Balanced detail, and a strong phone or tablet a little sharper than before.',
