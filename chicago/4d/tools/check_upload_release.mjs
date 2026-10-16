@@ -20,9 +20,16 @@
  *     hides a re-read of released arrays that 1904 does not: the frontage there
  *     hands the far base a fresh geometry before `batchDistantGround()` cuts it,
  *     and 1904 has nothing to protect, so the base it cut was the one already
- *     uploaded and let go (T-2180).
+ *     uploaded and let go (T-2180);
+ *  6. on that /1904/ phone, what nothing reads again is let go (T-2548): no GLB is
+ *     banked for a detail switch, every building's source geometry goes once its
+ *     batch holds a copy, and a building's decoded images close once uploaded —
+ *     and a switch to `full` and back still rebuilds the town, re-reading the
+ *     GLBs, draws the frame it drew before, and still answers a tap.
  *
  *   node tools/check_upload_release.mjs [siteRoot]    (default ../../site/4d)
+ *   CHECK_ONLY=1835|desktop|1904   one part, each inside a 600 s foreground call
+ *                                  (the whole check runs longer; CI runs it all)
  *   PW_EXECUTABLE=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
  */
 import { createServer } from 'node:http';
@@ -63,6 +70,8 @@ const server = createServer((req, res) => {
 const PORT = Number(process.env.CHECK_PORT || 4387);
 await new Promise((r) => server.listen(PORT, r));
 
+const ONLY = process.env.CHECK_ONLY || '';
+const part = (name) => !ONLY || ONLY === name;
 const results = [];
 const check = (name, ok, detail = '') => {
   results.push(ok);
@@ -87,7 +96,7 @@ async function boot(profile, door = '/walk/?year=1835') {
 }
 
 /* ---- 1–3: the phone ---------------------------------------------------- */
-{
+if (part('1835')) {
   const { ctx, page, errors } = await boot({ viewport: { width: 390, height: 780 },
     deviceScaleFactor: 2, isMobile: true, hasTouch: true });
   const state = await page.evaluate(() => {
@@ -231,16 +240,17 @@ async function boot(profile, door = '/walk/?year=1835') {
 }
 
 /* ---- 4: the desktop ---------------------------------------------------- */
-{
+if (part('desktop')) {
   const { ctx, page, errors } = await boot({ viewport: { width: 1280, height: 800 } });
   const census = await page.evaluate(() => window.__chicago4d.uploadRelease);
   check('desktop: 1835 boots with no page error', errors.length === 0, errors.slice(0, 3).join(' | '));
-  check('desktop: nothing is released', census?.attributes === 0, JSON.stringify(census));
+  check('desktop: nothing is released', census?.attributes === 0 && census.sources === 0
+    && census.images === 0, JSON.stringify(census));
   await ctx.close();
 }
 
-/* ---- 5: the phone at the 1904 door ------------------------------------ */
-{
+/* ---- 5–6: the phone at the 1904 door ---------------------------------- */
+if (part('1904')) {
   const { ctx, page, errors } = await boot({ viewport: { width: 390, height: 780 },
     deviceScaleFactor: 2, isMobile: true, hasTouch: true }, '/1904/');
   const state = await page.evaluate(() => {
@@ -262,6 +272,71 @@ async function boot(profile, door = '/walk/?year=1835') {
     JSON.stringify(state.census));
   check('phone: /1904/ batches the far ground it has already uploaded',
     state.base?.batched && state.base.pieces > 1, JSON.stringify(state.base));
+
+  // 6. T-2548: what a phone never reads again is let go, and a switch still works.
+  const held = () => page.evaluate(() => {
+    const a = window.__chicago4d;
+    let rows = 0; let kept = 0;
+    for (const row of a.registry.values()) {
+      if (!row.gltf) continue;
+      rows += 1;
+      row.gltf.scene.traverse((o) => { if (o.geometry?.attributes.position) kept += 1; });
+    }
+    return { rows, kept, banked: a.bankedAssets, census: a.uploadRelease };
+  });
+  const before = await held();
+  check('phone: /1904/ banks no GLB for a detail switch', before.banked === 0, JSON.stringify(before));
+  check('phone: /1904/ lets go of every building\'s source geometry',
+    before.rows > 0 && before.kept === 0 && before.census.sources >= before.rows
+    && before.census.sourceBytes > 0, JSON.stringify(before));
+  check('phone: /1904/ closes the buildings\' decoded images once uploaded',
+    before.census.images > 0 && before.census.imageBytes > 0, JSON.stringify(before.census));
+  const look = () => page.evaluate(async () => {
+    const a = window.__chicago4d;
+    // Past the welcome, which holds the frame while it is up (gate-frame.js).
+    const deadline = Date.now() + 20000;
+    while (a.welcome && a.welcome.state !== 'world' && Date.now() < deadline) {
+      if (a.welcome.state === 'welcome') a.welcome.enter('spawn');
+      if (a.welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
+    }
+    a.setAnimationHold(true);
+    const p = a.buildings.positionOf('glessner_house');
+    const e = p.x + 28; const n = -p.z + 22;
+    a.walker.teleport({ local_e: e, local_n: n, pitch_deg: 8,
+      yaw_deg: ((Math.atan2(p.x - e, -p.z - n) * 180) / Math.PI + 360) % 360 });
+    const frame = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    for (let i = 0; i < 8; i += 1) await frame();
+    const sig = await a.capture(96);
+    let hit = null;
+    for (const y of [0, 0.1, 0.2, -0.1]) {
+      for (const x of [0, -0.2, 0.2]) {
+        const found = hit ? null : a.buildings.pickAt({ x, y }, a.camera);
+        hit = hit ?? found?.id ?? found?.record?.id ?? null;
+      }
+    }
+    return { cells: sig.cells, hit, detail: a.detail ?? null };
+  });
+  const shown = await look();
+  const switched = await page.evaluate(async () => {
+    const a = window.__chicago4d;
+    await a.setDetail('full');
+    const full = a.detail;
+    await a.setDetail('light');
+    return { full, back: a.detail, error: a.error ? String(a.error) : null };
+  });
+  const after = await held();
+  const again = await look();
+  const moved = shown.cells.reduce((m, v, i) => Math.max(m, Math.abs(v - again.cells[i])), 0);
+  check('phone: /1904/ switches to full and back with no page error',
+    switched.full === 'full' && switched.back === 'light' && !switched.error && errors.length === 0,
+    errors.slice(0, 3).join(' | ') || JSON.stringify(switched));
+  check('phone: /1904/ after the switch banks nothing and holds no source geometry',
+    after.banked === 0 && after.kept === 0 && after.census.sources > before.census.sources,
+    JSON.stringify(after));
+  check('phone: /1904/ draws the frame it drew before the switch', moved <= 2,
+    `largest cell change ${moved} of 255`);
+  check('phone: /1904/ still answers a tap on a building after the switch', !!again.hit,
+    JSON.stringify({ before: shown.hit, after: again.hit }));
   await ctx.close();
 }
 
