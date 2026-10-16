@@ -26250,7 +26250,39 @@ the plate's and the sheet's lines disagreeing by about 2 m here, not as a garden
 record moves.
 **Ticket:** T-2447 (piece 1 of T-2442).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
+**Revised by T-2535 (2026-10-15):** the stoop is shortened to the engraving's foot. Its going is the K01 contract's floor (0.25 m) and its landing 1.1 m, so its fourteen risers reach 4.35 m before the front, where the engraving's first fence post (x 557 px) stands on the stoop's north cheek through the camera; it reached 5.1 m (x 586 px). The fence still starts at the stoop's south cheek on the line (x 642 px): the drawn post stands in front of the flight's foot, and a fence across a flight is what the K11 kit refuses (`L-k01-1637-basement-lights-2535`).
 **Recorded:** 2026-10-13 (T-2447).
+### L-k01-1637-basement-lights-2535 — 1637 Prairie's basement lights read off the engraving under the swell bay and the wing, and its stoop shortened to the drawn foot on the steepest going the contract allows
+
+**Decision:** T-2535 (piece 2 of T-2449) builds the basement lights of the engraving of Jesse Spalding's
+remodel (`glessner_blog_1637_spalding_remodel_engraving`) on `spalding_house_1637_prairie`, and brings its
+stoop's foot to the one the engraving draws. Under the swell bay one barred, flat-headed light; under the
+wing two round-headed lights, each a two-light sash under a fanlight (K06's round-headed parlour window,
+`k06.opening.sash_round_fanlight_wide`, at a basement light's size). Each bay's basement is a storey of its own
+up to the principal floor over a 0.1 m plinth, as 1621's bow's is. The stoop keeps K07's straight flight and its fourteen whole risers, on a 0.25 m going
+and a 1.1 m landing.
+**What is read, not invented.** Through the engraving's solved camera, on each face: the bow's light at
+x 388-439 px and y 696-757 px (1.0 m wide, 0.52-1.82 m over grade) under the middle window's own column;
+the wing's lights at x 675-710 and 736-771 px and y 692-757 px (each about 0.9 m wide, 0.3-1.7 m over
+grade, a 0.7 m pier between); the bars in the bow's light; the round heads of the wing's; the flight's foot
+at the fence's first post (x 557 px), which on the stoop's north cheek is 4.35 m before the front.
+**What is invented.** The wing pair's place: it reads about 0.35 m south of the wing's centre, the
+draughtsman's perspective converging faster than the camera's, and is set centred under the French window;
+the glazing (two-over-two behind the bow's grille; under each wing head a two-light sash and a fanlight, from
+the upright and the cross bar the engraving draws in each), the 0.1 m plinth, the grille's five
+bars and its ring, the lights' stone dressings, all K06's and K08's; the going (0.25 m) and the landing
+(1.1 m), which the engraving does not draw, chosen as the shortest the K01 contract allows because the
+foot the engraving does draw asks for them.
+**What is not built.** The fence still starts at the stoop's south cheek on the garden line (x 642 px),
+where the engraving's first post stands at x 557 px: through the camera that post stands in front of the
+flight's foot, and a fence crossing a flight is what the K11 kit refuses, so the drawn post is read as the
+foot's own newel position, not the fence's start.
+**How to resolve:** a photograph of the remodelled front at ground level would fix the lights' glazing,
+the stoop's going and where the fence meets it.
+**Ticket:** T-2535 (piece 2 of T-2449).
+**Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
+**Recorded:** 2026-10-15 (T-2535).
+
 
 ### L-glessner-glazing-blinds-2213 — Glessner's dark panes given each its own set and sheen, a shallow backing, and pale roller blinds at reconstructed drops
 
@@ -27976,7 +28008,11 @@ view of the wing does not give it, and 0.6 m keeps the bow inside the drawn outl
 turned or sawn baluster would be as likely, the coping's section and the end posts; the stone itself,
 bounded by the engraving's pale tone and the stoop's stone rail beside it; the window leaves' two
 lights each, the four-light transom and the 0.05 m threshold over the balcony's floor, finer than the
-engraving resolves; and the kit's blind and curtains behind the glass.
+engraving resolves; and the kit's blind and curtains behind the glass. And, since T-2535 gave the
+wing a basement storey of its own, the wing's storey line at 2.15 m, 0.15 m under the principal
+floor it stands for: K08 holds every window clear of the stone string course each storey line
+carries, and the French pair's frame comes down to the balcony's floor, so the course is set where
+the balcony's slab (2.1-2.3 m) covers it, at 2.07-2.23 m.
 **What would replace it.** Any photograph of the remodelled front, or a second view of the wing (the
 c. 1870 Grosvenor photograph, T-2536, shows the house before the remodel, so it may not show the
 balcony at all).
@@ -28017,3 +28053,25 @@ one.
 steps; the architects' plans would settle the landing and the stand-off.
 **Ticket:** T-2530 (piece 1 of T-2527).
 **Recorded:** 2026-10-15 (T-2530).
+
+### L-k01-1637-wing-pair-2537 — 1637 Prairie's wing's second-storey window built as the engraving's pair of one-over-one sashes, 1.8 m across: the width, the pairing and the panes read, the mullion's width reconstructed
+
+**Decision:** the wing's second-storey window on Jesse Spalding's remodel (T-2537) is built as
+K06's paired flat-headed sash, 1.8 m clear, two 0.88 m lights on a 0.04 m mullion, at the sill
+and height it already had (0.75 m over the floor, 2.1 m). Until now it was a single 1.1 m sash.
+To let a picture name a pair's mullion, a K08 bay's window entry may now carry `mullion_m`
+(0.02-0.3 m, only on a grouped K06 opening, each light kept inside the ordinary sash width).
+**What is read, not invented.** From the engraving (`glessner_blog_1637_spalding_remodel_engraving`),
+read off the print itself: one dark opening from x 675 to 745 px (70 px, where the 1.1 m sash
+stood at 688-730, so about 38 px a metre on this face through the camera, and 1.83 m); a pale bar
+down its middle at x 704-707 px; and in each half a meeting rail and no bars, so two one-over-one
+sashes. Its height re-read: the right light is dark from y 353 to 445 px on the print and on the
+build alike. Through the camera the pair now spans x 675-743 px.
+**What is invented.** The mullion's width. The print draws it, as it draws every bar, as a single
+3 px line, and the two box frames and sash stiles either side of any mullion are 0.19 m of timber
+by themselves, so no width is readable. The kit's own 0.2 m stone mullion stood as an 8 px brick
+pier between two separate holes, which is not what the print shows — one opening and a pale bar —
+so the mullion is cut to 0.04 m and the two frames meet on it as a shared timber member would.
+**How to resolve:** a photograph of the wing's front, or the remodel's drawings.
+**Ticket:** T-2537 (from T-2449's reading of the engraving).
+**Recorded:** 2026-10-16 (T-2537).
