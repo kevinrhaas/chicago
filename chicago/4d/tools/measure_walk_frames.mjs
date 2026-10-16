@@ -74,9 +74,11 @@
  * it is a software rasteriser's, not a phone GPU's: the two modes are read in
  * the same page, minutes apart, and only their DIFFERENCE is the finding.
  *
- * `--stills` then asks the other half of the claim at every anchor of the year:
- * after a governed turn has lowered the ratio, three still frames put it back
- * at the ceiling, and the held frame captured under Adaptive is the same
+ * `--stills` then asks the other half of the claim at every anchor of the year
+ * (`--moves none` asks only it): with the governor put where a slow moving
+ * window puts it — this runner's frames are too slow to drive it there, see
+ * T-2592 — the loop's own still frames put the ratio back at the ceiling with a
+ * shadow every frame, and the held frame captured under Adaptive is the same
  * signature as the one captured under Fixed.
  */
 import http from 'node:http';
@@ -436,8 +438,10 @@ async function driveLive({ move, tier, mode, seconds }) {
   const draws = [];
   const render = a.renderer.render;
   a.renderer.render = function timed(...args) {
-    draws.push([performance.now(), a.renderer.getPixelRatio()]);
-    return render.apply(this, args);
+    const t = performance.now();
+    try { return render.apply(this, args); } finally {
+      draws.push([t, a.renderer.getPixelRatio(), performance.now() - t]);
+    }
   };
   const t0 = performance.now();
   let paced = 0;
@@ -461,37 +465,44 @@ async function driveLive({ move, tier, mode, seconds }) {
   const mean = iv.reduce((t, x) => t + x, 0) / Math.max(1, iv.length);
   const sd = Math.sqrt(iv.reduce((t, x) => t + (x - mean) ** 2, 0) / Math.max(1, iv.length));
   const ratios = draws.map((d) => d[1]).sort((x, y) => x - y);
+  // What the draw itself cost, so a slow interval says whose it is.
+  const renderMs = draws.map((d) => d[2]).sort((x, y) => x - y)[Math.floor(draws.length / 2)] ?? null;
   return { draws: draws.length, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
     over33: iv.filter((x) => x > 33.4).length, over50: iv.filter((x) => x > 50).length,
     ratioMin: ratios[0], ratioMedian: ratios[Math.floor(ratios.length / 2)], ceiling: g.ceiling,
-    pacedRafs: paced, decisions: g.decisions };
+    pacedRafs: paced, decisions: g.decisions, renderMs };
 }
 
-/** Runs in the page (T-2555): at one anchor, turn under Adaptive until the
- *  ratio has moved, stand still, and compare the held frame with Fixed's. */
-async function stillAt({ id, seconds }) {
+/** Runs in the page (T-2555): at one anchor, put the governor where a slow
+ *  moving window puts it (this runner's frames are too slow to drive it there),
+ *  let the loop's own still frames rest it, and compare the held frame under
+ *  Adaptive with Fixed's. */
+async function stillAt({ id }) {
   const a = window.__chicago4d;
   const s = (a.scene?.anchors ?? []).find((x) => x.id === id);
   if (!s || !a.goTo(id)) return { id, skipped: true };
   a.setGovernor(true);
-  const t0 = performance.now();
-  let ratioMin = a.renderer.getPixelRatio();
-  await new Promise((resolve) => {
-    const frame = () => {
-      const el = (performance.now() - t0) / 1000;
-      if (el >= seconds) { resolve(); return; }
-      a.walker.teleport({ local_e: s.local_e, local_n: s.local_n, yaw_deg: (s.yaw_deg ?? 0) + 45 * el,
-        ...(typeof s.altitude_m === 'number' ? { altitude_m: s.altitude_m, pitch_deg: s.pitch_deg } : {}) });
-      ratioMin = Math.min(ratioMin, a.renderer.getPixelRatio());
-      requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
-  });
-  a.goTo(id);
+  const frame = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+  await frame();
+  a.forceGovernor({ scale: 0.67, pace: 2 });
+  // The next drawn frame is drawn at the lowered ratio; read it off a draw.
+  const render = a.renderer.render;
+  let lowered = null;
+  a.renderer.render = function timed(...args) {
+    if (lowered === null) lowered = a.renderer.getPixelRatio();
+    return render.apply(this, args);
+  };
   // Still frames — the loop's own, no hold, no step — until the governor rests.
-  await new Promise((r) => setTimeout(r, 600));
+  const t0 = performance.now();
+  while (performance.now() - t0 < 30000) {
+    await new Promise((r) => setTimeout(r, 100));
+    const g = a.governor;
+    if (lowered !== null && !g.moving && Math.abs(g.ratio - g.ceiling) < 1e-9) break;
+  }
+  a.renderer.render = render;
   const rested = a.governor;
   const shadowAuto = a.renderer.shadowMap.autoUpdate;
+  const restMs = performance.now() - t0;
   a.setAnimationHold(true);
   const adaptive = await a.capture(24);
   a.setGovernor(false);
@@ -499,7 +510,7 @@ async function stillAt({ id, seconds }) {
   a.setGovernor(true);
   a.setAnimationHold(false);
   const sig = (x) => JSON.stringify(x);
-  return { id, ratioMin, rested: { ratio: rested.ratio, ceiling: rested.ceiling, scale: rested.scale,
+  return { id, lowered, restMs, rested: { ratio: rested.ratio, ceiling: rested.ceiling, scale: rested.scale,
     pace: rested.pace, moving: rested.moving, shadowAuto }, same: sig(adaptive) === sig(fixed) };
 }
 
@@ -543,9 +554,22 @@ for (const vp of VIEWPORTS) {
     prof.on('Profiler.consoleProfileFinished', (ev) => prof.profiles.push(ev.profile));
   }
   if (LIVE) {
+    // Into the town: under the welcome the loop draws only a frame that changed
+    // (T-2113) and the governor is held at rest, so nothing live is read there.
+    const entered = await page.evaluate(async () => {
+      const welcome = window.__chicago4d.welcome;
+      const deadline = Date.now() + 90_000;
+      while (welcome && welcome.state !== 'world' && Date.now() < deadline) {
+        if (welcome.state === 'welcome') welcome.enter('spawn');
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      document.exitPointerLock?.();
+      return welcome?.state ?? 'no welcome';
+    });
+    console.log(`entered the town: ${entered}`);
     console.log('tier      move    mode      draws | interval ms mean   sd  med  p95  max  >33 >50 | ratio min/med (ceiling) | paced rAFs');
     for (const tier of TIERS) {
-      for (const move of MOVES.filter((m) => m !== 'travel')) {
+      for (const move of MOVES.filter((m) => !['travel', 'none'].includes(m))) {
         const pair = {};
         for (const mode of ['fixed', 'adaptive']) {
           const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS });
@@ -553,7 +577,8 @@ for (const vp of VIEWPORTS) {
           const f = (x) => x.toFixed(1).padStart(5);
           console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
             + ` ${f(r.mean)}${f(r.sd)}${f(r.median)}${f(r.p95)}${f(r.max)} ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)} |`
-            + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`);
+            + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`
+            + ` | draw median ${r.renderMs?.toFixed(0)} ms`);
           out.readings.push({ viewport: vp.id, throttle: vp.throttle, live: true, tier, move, mode, ...r });
           if (jsonOut) writeJson();
         }
@@ -566,13 +591,15 @@ for (const vp of VIEWPORTS) {
     if (STILLS) {
       out.stills = [];
       for (const { id } of await page.evaluate(() => window.__chicago4d.scene?.anchors ?? [])) {
-        const r = await page.evaluate(stillAt, { id, seconds: 4 });
+        const r = await page.evaluate(stillAt, { id });
         out.stills.push({ viewport: vp.id, ...r });
         if (jsonOut) writeJson();
         if (r.skipped) { console.log(`  still ${id}: not an anchor of this year`); continue; }
-        const rested = Math.abs(r.rested.ratio - r.rested.ceiling) < 1e-9 && r.rested.scale === 1
+        const rested = r.lowered !== null && r.lowered < r.rested.ceiling
+          && Math.abs(r.rested.ratio - r.rested.ceiling) < 1e-9 && r.rested.scale === 1
           && r.rested.pace === 1 && r.rested.shadowAuto === true;
-        console.log(`  still ${id.padEnd(26)} turned down to ${r.ratioMin.toFixed(2)}, rested at ${r.rested.ratio.toFixed(2)}`
+        console.log(`  still ${id.padEnd(26)} drawn at ${r.lowered?.toFixed(2)}, rested at ${r.rested.ratio.toFixed(2)}`
+          + ` in ${(r.restMs / 1000).toFixed(1)} s`
           + ` (ceiling ${r.rested.ceiling.toFixed(2)})${rested ? '' : ' NOT AT REST'}; held frame Adaptive ${r.same ? '==' : '!='} Fixed`);
         if (!rested || !r.same) failed++;
       }

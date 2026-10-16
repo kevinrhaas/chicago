@@ -1,0 +1,229 @@
+{
+  "year": "1835",
+  "source": "published",
+  "throttle": 1,
+  "rebuild": "spread",
+  "ceilingMs": {
+    "full": 60,
+    "balanced": 32,
+    "light": 21
+  },
+  "p95CeilingMs": {
+    "full": 15,
+    "balanced": 9,
+    "light": 7
+  },
+  "readings": [],
+  "stills": [
+    {
+      "viewport": "mobile",
+      "id": "sauganash",
+      "lowered": null,
+      "restMs": 30041.7,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "sauganash_wing",
+      "lowered": null,
+      "restMs": 30041.1,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "lake_market",
+      "lowered": null,
+      "restMs": 30043.5,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "first_post_office",
+      "lowered": null,
+      "restMs": 30041.1,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "forks",
+      "lowered": null,
+      "restMs": 30040.7,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "north_branch_bridge_deck",
+      "lowered": null,
+      "restMs": 30044.1,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "lake_at_canal",
+      "lowered": null,
+      "restMs": 30040.9,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "green_tree",
+      "lowered": null,
+      "restMs": 30040.9,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "south_water",
+      "lowered": null,
+      "restMs": 30038.9,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "newberry_dole_wharf",
+      "lowered": null,
+      "restMs": 30040,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "from_above",
+      "lowered": null,
+      "restMs": 30039.6,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "kinzie_block",
+      "lowered": null,
+      "restMs": 30042.2,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "fort_dearborn",
+      "lowered": null,
+      "restMs": 30040.6,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    },
+    {
+      "viewport": "mobile",
+      "id": "lake_shore_south",
+      "lowered": null,
+      "restMs": 30036.9,
+      "rested": {
+        "ratio": 1,
+        "ceiling": 1,
+        "scale": 1,
+        "pace": 1,
+        "moving": false,
+        "shadowAuto": true
+      },
+      "same": true
+    }
+  ]
+}

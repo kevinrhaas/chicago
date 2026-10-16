@@ -4144,6 +4144,9 @@ async function boot() {
     /** T-2555: Adaptive (true) or Fixed (false), as Settings' Frame pacing sets
      *  it; the live reading is `governor` below. */
     setGovernor(on) { const v = governor.setEnabled(on); applyGovernor(); return v; },
+    /** T-2555, HARNESS ONLY: force the governor's scale and pace, as a slow
+     *  moving window would, so a GPU-less runner can ask what a rest does. */
+    forceGovernor(state) { return governor.force(state); },
     /** T-2106. Let `step()` spread the flora rebuild as the animation loop
      *  does — for `tools/measure_walk_frames.mjs`, which times that loop. */
     setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },

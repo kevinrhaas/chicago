@@ -539,7 +539,9 @@ visual phase in the whole program.
   60 cannot hold at the floor, and halves the shadow refresh on `light` while moving.
   At rest it is neutral, so still frames and captures are unchanged; Settings → Frame
   pacing → Fixed turns it off. `tools/test_frame_governor.mjs` (in check.sh) and
-  `measure_walk_frames.mjs --live --stills` are its gates.*
+  `measure_walk_frames.mjs --live --stills` are its gates. The measured fall in moving
+  frame-time sd and p95 is T-2592: this runner's SwiftShader frames come seconds apart,
+  far outside the range the governor acts in.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke

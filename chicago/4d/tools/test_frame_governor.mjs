@@ -156,6 +156,18 @@ ok('Fixed holds every frame neutral, however slow', () => {
   assert.ok(h.scale === 1 && h.pace === 1 && h.shadowFresh);
 });
 
+ok('a forced state (the harness) is undone by a rest like any other, and Fixed ignores it', () => {
+  const g = createFrameGovernor();
+  g.force({ scale: 0.1, pace: 2 });
+  assert.equal(g.scale, GOVERNOR.floor, 'force is clamped to the floor');
+  assert.equal(g.pace, 2);
+  drive(g, { frames: GOVERNOR.restFrames, costMs: () => 9, moving: () => false });
+  assert.ok(g.scale === 1 && g.pace === 1);
+  const f = createFrameGovernor({ enabled: false });
+  f.force({ scale: 0.67, pace: 2 });
+  assert.ok(f.scale === 1 && f.pace === 1);
+});
+
 ok('a gap (a hidden tab, a long task) is not read as a frame time', () => {
   const g = createFrameGovernor();
   let t = 0;

@@ -209,6 +209,18 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
     /** Neutral now — for a capture, a forced harness frame, a setting change. */
     rest() { rest(); tell(); },
     setEnabled(v) { on = !!v; rest(); tell(); return on; },
+    /** HARNESS ONLY: put the governor where a slow moving window would have —
+     *  `scale` (clamped to [floor, 1]) and `pace` — so a runner whose frames are
+     *  too slow to drive it there can still ask what a rest does after it. */
+    force({ scale: s = scale, pace: p = pace } = {}) {
+      if (!on) return snapshot();
+      scale = Math.min(1, Math.max(G.floor, s));
+      pace = p === 2 ? 2 : 1;
+      moving = true;
+      still = 0;
+      tell();
+      return snapshot();
+    },
     setTier(t) { level = t; },
     get enabled() { return on; },
     get scale() { return scale; },
