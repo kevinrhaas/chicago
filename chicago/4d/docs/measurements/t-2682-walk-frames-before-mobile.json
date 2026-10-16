@@ -1,0 +1,282 @@
+{
+  "year": "1835",
+  "source": "source",
+  "throttle": 4,
+  "rebuild": "spread",
+  "ceilingMs": {
+    "full": 60,
+    "balanced": 32,
+    "light": 21
+  },
+  "p95CeilingMs": {
+    "full": 15,
+    "balanced": 9,
+    "light": 7
+  },
+  "readings": [
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "tier": "full",
+      "move": "walk",
+      "frames": 2234,
+      "rebuilds": 169,
+      "digests": [
+        "66eba980",
+        "fcf09c9e",
+        "e932fe06",
+        "ad817ee5",
+        "1f636fae",
+        "fe7af1a9",
+        "9852e855",
+        "f4375bda",
+        "f340e972",
+        "a7dea3db",
+        "efa345dd",
+        "c4947a17",
+        "12743ad0",
+        "40253413",
+        "21cd16f1"
+      ],
+      "spread": {
+        "landings": 177,
+        "drained": 1,
+        "abandoned": 2,
+        "framesPerPass": 8.65,
+        "msPerPass": 12.62,
+        "waits": 1128
+      },
+      "verified": {
+        "near": {
+          "spread": "e8def7ee",
+          "sync": "e8def7ee",
+          "same": true
+        },
+        "far": {
+          "spread": "80aa4e52",
+          "sync": "80aa4e52",
+          "same": true
+        }
+      },
+      "longs": [
+        {
+          "frame": 1655,
+          "ms": 136.8,
+          "flora": 133.7,
+          "landings": 132,
+          "drained": 1,
+          "abandoned": 1
+        },
+        {
+          "frame": 2029,
+          "ms": 132.3,
+          "flora": 131,
+          "landings": 161,
+          "drained": 1,
+          "abandoned": 2
+        }
+      ],
+      "scripted": {
+        "median": 1.1,
+        "p95": 5,
+        "p99": 6.9,
+        "max": 136.8,
+        "mean": 1.7,
+        "over16": 2,
+        "over33": 2,
+        "over50": 2
+      },
+      "layers": {
+        "flora.update": {
+          "median": 0,
+          "p95": 4.1,
+          "p99": 5.9,
+          "max": 133.7,
+          "mean": 0.79,
+          "over16": 2,
+          "over33": 2,
+          "over50": 2
+        },
+        "trees.update": {
+          "median": 0,
+          "p95": 0,
+          "p99": 1.2,
+          "max": 3.4,
+          "mean": 0.03,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.update": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0.5,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.updateGroundReach": {
+          "median": 0.7,
+          "p95": 1.1,
+          "p99": 1.3,
+          "max": 1.5,
+          "mean": 0.68,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "world.aim": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0.1,
+          "max": 0.8,
+          "mean": 0.01,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.setHaze": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "renderer.render": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        }
+      },
+      "heapMB": 1640.32
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "tier": "full",
+      "move": "turn",
+      "frames": 480,
+      "rebuilds": 63,
+      "digests": [
+        "916b3532",
+        "26949f8c",
+        "979ca390",
+        "f7242ce9"
+      ],
+      "spread": {
+        "landings": 118,
+        "drained": 61,
+        "abandoned": 0,
+        "framesPerPass": 11.46,
+        "msPerPass": 63.07,
+        "waits": 759
+      },
+      "verified": {
+        "near": {
+          "spread": "315c24bd",
+          "sync": "315c24bd",
+          "same": true
+        },
+        "far": {
+          "spread": "b8b09849",
+          "sync": "b8b09849",
+          "same": true
+        }
+      },
+      "longs": [],
+      "scripted": {
+        "median": 2.2,
+        "p95": 12.8,
+        "p99": 15.8,
+        "max": 17,
+        "mean": 4.13,
+        "over16": 1,
+        "over33": 0,
+        "over50": 0
+      },
+      "layers": {
+        "flora.update": {
+          "median": 0.9,
+          "p95": 11.8,
+          "p99": 14.7,
+          "max": 15.4,
+          "mean": 3.09,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "trees.update": {
+          "median": 0,
+          "p95": 0.1,
+          "p99": 1.4,
+          "max": 2,
+          "mean": 0.04,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.update": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0.8,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.updateGroundReach": {
+          "median": 0.8,
+          "p95": 1.2,
+          "p99": 1.4,
+          "max": 1.6,
+          "mean": 0.78,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "world.aim": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0.1,
+          "max": 0.6,
+          "mean": 0.01,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "terrain.setHaze": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        },
+        "renderer.render": {
+          "median": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0,
+          "over16": 0,
+          "over33": 0,
+          "over50": 0
+        }
+      },
+      "heapMB": 1640.32
+    }
+  ]
+}
