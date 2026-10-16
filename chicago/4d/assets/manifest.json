@@ -8143,14 +8143,14 @@
       "phase_id": "stable_1834",
       "structure_id": "western_hotel_stable"
     },
-    "wheeler_house_1812_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "wheeler_house_1812_prairie__as_built_1884.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 89760,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "e623fc1c8cc16111a6f896921b436bd7fdcd1b2ee55de5308ba91135edfe0928",
+      "bytes": 4116856,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "3e151cf20ea1dc07d07dee942b0b3944df19517da30c3ca668412e9ff9995c47",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_built_1884",
       "structure_id": "wheeler_house_1812_prairie"
     },
     "wheeler_house_1812_prairie_coach_house__as_standing_1904.glb": {

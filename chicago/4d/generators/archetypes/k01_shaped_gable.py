@@ -1,0 +1,192 @@
+"""T-2543: the K01 street front's SHAPED (Flemish) GABLE — 1812 Prairie's, from Albert Levy's photograph.
+
+TICKET T-2543 (piece 1 of T-1884). The Wheeler house's front does not end at an eave: its wall
+is carried up over the whole front as a tall gable whose outline swells from a kneeler at each
+corner and draws in, in curves, to a pointed head under a finial, with a grid window lighting the
+roof storey. K01's wall gable (k01_wall_gable, T-2428) is a straight-raked pediment on a dormer;
+this is another thing, so it is its own element. The record names it as `shaped_gable`
+(k01_frontage_params._shaped_gable resolves and bounds it), and this module builds it:
+
+  element()  before the union: the gable as ONE closed slab, the record's outline extruded
+             through its thickness on the street front, its face standing just proud of the
+             hip's street eave so the eave dies into it. It is joined to the roof by the K05
+             union like a stack, so where it passes through the slates the union cuts it
+  cutters()  before the boolean: each light's recess, cut to K06's own hole
+  dress()    after it: each light's K06 sash in its recess, the stone coping band laid on the
+             face along the outline, the kneelers' pinnacles and the finial
+
+The outline's own edges (the top of the slab) are stone coping; its faces are the side walls'
+brick. Every number a piece is cut to is the record's or is named here, and docs/LIBERTIES.md
+L-k01-1812-wheeler-front-2543 says which.
+"""
+
+from __future__ import annotations
+
+import math
+
+LEDGE_OVER_FASCIA_M = 0.12  # the kneelers' ledge: this far over the street fascia's top
+JOINT_M = 0.008             # half a coping joint
+PIN_CAP_PROUD_M = 0.04      # a kneeler's cap before its shaft, all round
+FINIAL_SINK_M = 0.06        # the finial's foot let into the apex
+
+
+def _af():
+    from . import k01_arched_front
+    return k01_arched_front
+
+
+def half_width(sg, y):
+    """The outline's half-width at height y (over grade), on the record's profile."""
+    pr = sg["profile_m"]
+    if y <= pr[0][1]:
+        return pr[0][0]
+    for (w0, y0), (w1, y1) in zip(pr, pr[1:]):
+        if y0 <= y <= y1:
+            return w0 + (w1 - w0) * (y - y0) / (y1 - y0)
+    return 0.0
+
+
+def geometry(p, ye):
+    """The slab's numbers in the K01 frame (x = u toward the street, z = -v): its face and
+    back, the ledge, the base's half-width and the outline as (z, y) points, counter-clockwise
+    seen from the street."""
+    sg = p.shaped_gable
+    D, W, o = p.depth_m, p.width_m, p.eave_overhang_m
+    xf = D + o + sg["proud_m"]
+    xb = xf - sg["thickness_m"]
+    zc = -W / 2
+    ledge = ye + LEDGE_OVER_FASCIA_M
+    hb = W / 2 + o + 0.02             # the base covers the eave's corners
+    hl = half_width(sg, ledge)
+    up = [(w, y) for w, y in sg["profile_m"] if y > ledge + 1e-6]
+    right = [(hl, ledge)] + up        # foot to apex, the last on the centre line
+    side = [(zc - hb, sg["foot_m"]), (zc + hb, sg["foot_m"]), (zc + hb, ledge)]
+    pts = side + [(zc + w, y) for w, y in right[:-1]] + [(zc, right[-1][1])]
+    pts += [(zc - w, y) for w, y in reversed(right[:-1])] + [(zc - hb, ledge)]
+    return {"xf": xf, "xb": xb, "zc": zc, "ledge": ledge, "hb": hb, "right": right,
+            "apex": right[-1][1], "outline": pts}
+
+
+def element(a, k5, ye):
+    """The gable as one closed solid for the roof's union."""
+    g = geometry(a.p, ye)
+    a.shaped_gable_geom = g
+    foot = a.p.shaped_gable["foot_m"]
+
+    def role(i, p_, q_):
+        if abs(p_[1] - foot) < 1e-9 and abs(q_[1] - foot) < 1e-9:
+            return "parapet"          # its soffit, over the wall's head
+        if abs(p_[0] - q_[0]) < 1e-9:
+            return "parapet"          # the base's two ends
+        return "coping"               # the outline: the kneelers' ledges and the curves
+    return k5.extrude(g["outline"], g["xb"], g["xf"], k5.frame("x"), role, "parapet", "parapet")
+
+
+def _variant(sg, k6):
+    li = sg["lights"]
+    v = dict(next(x for x in k6.load()["variants"] if x["id"] == li["variant"]))
+    v["clear_width_m"], v["clear_height_m"] = li["width_m"], li["height_m"]
+    return v
+
+
+def cutters(a, k5) -> list:
+    """Every light's recess, cut to K06's own hole through the slab's face."""
+    from . import k06_windows as k6
+    sg, g = a.p.shaped_gable, a.shaped_gable_geom
+    li = sg["lights"]
+    v = _variant(sg, k6)
+    o = k6.Opening(v, k6.load())
+    o.build()
+    rev = v.get("overrides", {}).get("reveal_depth_m", k6.load()["parts"]["reveal_depth_m"]["value"])
+    out = []
+    for at in li["at_m"]:
+        c = g["zc"] - at               # R runs -z along the street front
+        for hole in o.holes:           # a grouped variant cuts one hole a bay
+            rec = [(c - q[0], li["sill_m"] + q[1]) for q in hole]
+            out.append(k5.extrude(rec, g["xf"] - rev, g["xf"] + 0.05, k5.frame("x"), "reveal", "window", "reveal"))
+    return out
+
+
+def _prism(a, mat, frame, poly, d0, d1, seed, conf):
+    """A stone standing proud of the face, counter-clockwise in (s, y)."""
+    area = sum(p[0] * q[1] - q[0] * p[1] for p, q in zip(poly, poly[1:] + poly[:1]))
+    if area < 0:
+        poly = list(reversed(poly))
+    from . import k01_wall_gable
+    k01_wall_gable._prism(a, mat, frame, poly, d0, d1, seed, conf)
+
+
+def dress(a, roof_seed):
+    """The lights' sashes, the coping band on the face, the kneelers and the finial."""
+    from . import k06_windows as k6
+    from archetypes.k01_frontage_params import Opening
+    from . import k01_frontage as k
+    af = _af()
+    p, sg, g = a.p, a.p.shaped_gable, a.shaped_gable_geom
+    conf = p.worst_conf("shaped_gable")
+    W = p.width_m
+    R = (0.0, 0.0, -1.0)
+    N = k._cross(R, k.Y)
+    O = (g["xf"], 0.0, 0.0)            # s along the front from its south end, y over grade
+    frame = (O, R, N)
+    gseed = a.instance("k01.roof.shaped_gable", "roof",
+                       {"foot_m": sg["foot_m"], "ledge_m": round(g["ledge"], 4), "apex_m": g["apex"],
+                        "thickness_m": sg["thickness_m"], "proud_m": sg["proud_m"],
+                        "lights": len(sg["lights"]["at_m"]), "profile_points": len(sg["profile_m"])},
+                       {"foot": (g["xf"], sg["foot_m"], g["zc"]), "apex": (g["xf"], g["apex"], g["zc"])})
+    # the lights: K06's sash in each recess
+    li = sg["lights"]
+    if not hasattr(a, "_kit"):
+        a._kit = k6.load()
+    v = _variant(sg, k6)
+    roles = {r: ("limestone_trim" if m == "stone" else (m or "dormer_stone")) for r, m in a.K06_ROLES.items()}
+    for at in li["at_m"]:
+        s = W / 2 + at
+        op = Opening("k01.opening.gable_light", "k01.wall.shaped_gable", s, li["sill_m"], li["width_m"], li["height_m"])
+        seed = a.instance(op.component, "opening", {"clear_width_m": li["width_m"], "clear_height_m": li["height_m"],
+                                                    "k06_variant": v["id"], "wall": op.wall},
+                          {"sill": k._add(O, k._add(k._mul(R, s), k._mul(k.Y, li["sill_m"])))})
+        o = k6.Opening(v, a._kit)
+        o.seed = seed
+        o.build()
+        a.graft(o, "K06", roles, frame, op, lambda role, sd=seed: (sd, conf), ("reveal",))
+    # the coping band: a dressed stone strip on the face along the outline, both sides
+    cw, cp = sg["coping"]["width_m"], sg["coping"]["proud_m"]
+    right = g["right"]
+    for sgn in (1, -1):
+        for (w0, y0), (w1, y1) in zip(right, right[1:]):
+            dx, dy = (w1 - w0) * sgn, y1 - y0
+            L = math.hypot(dx, dy)
+            nx, ny = -dy / L * sgn, dx / L * sgn          # toward the gable's inside
+            if ny > 0:
+                nx, ny = -nx, -ny
+            A_, B_ = (W / 2 + sgn * w0, y0), (W / 2 + sgn * w1, y1)
+            poly = [A_, B_, (B_[0] + nx * cw, B_[1] + ny * cw), (A_[0] + nx * cw, A_[1] + ny * cw)]
+            _prism(a, "limestone_trim", frame, poly, 0.0, cp, gseed, conf)
+    # the kneelers: a square pinnacle on each ledge, a cap and a pyramid over it
+    kn = sg["kneelers"]
+    hw = kn["shaft_m"] / 2
+    xm = g["xf"] - sg["thickness_m"] / 2
+    Fr = ((xm, 0.0, 0.0), R, N)
+    for sgn in (-1, 1):
+        s = W / 2 + sgn * kn["at_m"]
+        y0, y1 = g["ledge"], kn["top_m"]
+        pseed = a.instance("k01.roof.gable_pinnacle", "roof",
+                           {"shaft_m": kn["shaft_m"], "top_m": y1, "cap_m": kn["cap_m"], "spire_m": kn["spire_m"]},
+                           {"foot": (xm, round(y0, 4), round(-s, 4))})
+        af._box(a, "limestone_trim", Fr, s - hw, s + hw, y0, y1, -hw, hw, pseed, conf, skip=("bottom", "top"))
+        c = hw + PIN_CAP_PROUD_M
+        af._box(a, "limestone_trim", Fr, s - c, s + c, y1, y1 + kn["cap_m"], -c, c, pseed, conf)
+        from . import k01_wall_gable
+        k01_wall_gable._pyramid(a, "limestone_trim", Fr, s, 0.0, y1 + kn["cap_m"], hw,
+                                y1 + kn["cap_m"] + kn["spire_m"], pseed, conf)
+    # the finial: a turned stone on the apex, let into it
+    fn = sg["finial"]
+    ya = g["apex"] - FINIAL_SINK_M
+    fseed = a.instance("k01.roof.gable_finial", "roof", {"height_m": fn["height_m"], "radius_m": fn["radius_m"]},
+                       {"foot": (xm, round(ya, 4), g["zc"])})
+    Ff = ((xm, 0.0, g["zc"]), R, N)
+    rr, hgt = fn["radius_m"], fn["height_m"]
+    af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya, ya + 0.3 * hgt, rr, rr * 1.1, fseed, conf)
+    af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya + 0.3 * hgt, ya + 0.55 * hgt, rr * 1.1, rr * 0.5, fseed, conf)
+    af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya + 0.55 * hgt, ya + hgt, rr * 0.5, 0.004, fseed, conf)

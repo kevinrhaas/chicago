@@ -1,0 +1,84 @@
+{
+ "structure_id": "wheeler_house_1812_prairie",
+ "view": "levy_front",
+ "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+ "glb_sha256": "d59cdd1585254699a80f29002c0f1771b3d92186a52f782cf6c679c4fafef5ff",
+ "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
+ "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "Massing: three storeys over a raised basement at the photograph's heights (principal floor 1.65 m, the projection's top 9.45 m, the wall head 12.45 m) \u2014 the draft's were the rules' (T-2543)",
+   "status": "fixed"
+  },
+  {
+   "what": "Gable: the front carried up as a shaped Flemish gable over the whole front, swelling from a kneeler each side and drawn in to a pointed head under a finial at 17.0-17.5 m, in place of the draft's stepped boxes (T-2543)",
+   "status": "fixed"
+  },
+  {
+   "what": "Gable: the outline's swell still stands 10-20 px wide of the print's below the shoulders, and its shoulder stones are not built as blocks",
+   "status": "open"
+  },
+  {
+   "what": "Gable: the grid window is nine lights (three by three) between stone mullions and transoms; K06's attic group builds three tall lights",
+   "status": "open"
+  },
+  {
+   "what": "Gable: its face is the wall's own plane in the photograph; here it stands 0.5 m proud of the wall below on a square base, so the hip's eave dies into it",
+   "status": "open"
+  },
+  {
+   "what": "Gable: the kneelers are carved scrolls under small pinnacles; built as plain square pinnacles",
+   "status": "open"
+  },
+  {
+   "what": "South projection: carried through the basement and two storeys to a flat top at the third floor, with the round-arched window, the basement light and the paired window in it (T-2543)",
+   "status": "fixed"
+  },
+  {
+   "what": "South projection: flush with the south corner in the photograph; K08 stands it 0.3 m in",
+   "status": "open"
+  },
+  {
+   "what": "Balcony: the iron balcony on the projection's top",
+   "status": "open"
+  },
+  {
+   "what": "Third storey: the large round-arched window with its fanlight over the balcony and the smaller arched window to its north, with their voussoirs; built flat-headed and smaller",
+   "status": "open"
+  },
+  {
+   "what": "Second storey: the north pair is one wide window (1.66 m) under a transom; built as K01's widest single sash (1.15 m)",
+   "status": "open"
+  },
+  {
+   "what": "Entrance: the porch's broad round arch (about 3.2 m across, its crown at about 5.2 m) over the door and its side light; built as K07's deep-arched double door",
+   "status": "open"
+  },
+  {
+   "what": "Stair: a straight stair to the walk between solid stone balustrades with a pierced panel at the landing; K07's stoop has plain cheeks",
+   "status": "open"
+  },
+  {
+   "what": "Fabric: rock-faced stone basement and a stone first storey under brick upper storeys banded and dressed in stone, the carved frieze and bosses; the whole street front is built in stone",
+   "status": "open"
+  },
+  {
+   "what": "Downpipes down both ends of the front",
+   "status": "open"
+  },
+  {
+   "what": "Roof: the steep slated slopes the photograph shows behind the gable's shoulders, flat-topped like a mansard's; built as K01's hip (T-2545)",
+   "status": "open"
+  },
+  {
+   "what": "Colour: the print is monochrome, so every stone, brick and paint colour",
+   "status": "not shown"
+  },
+  {
+   "what": "The side and rear walls, which the photograph does not see",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
