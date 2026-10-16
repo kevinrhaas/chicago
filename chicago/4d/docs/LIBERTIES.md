@@ -24091,7 +24091,7 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `dent_house_1823_prairie.draft_1904.form.draft_elevation`, `dent_house_1823_prairie.draft_1904.form.draft`, `doane_house_1827_prairie.draft_1904.form.draft_elevation`, `doane_house_1827_prairie.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `dent_house_1823_prairie.draft_1904.form.draft_elevation`, `dent_house_1823_prairie.draft_1904.form.draft`, `doane_house_1827_prairie.draft_1904.form.draft_elevation`, `doane_house_1827_prairie.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24118,6 +24118,9 @@ back. Its record says the 1904 use is inferred from the register's family row.
 **How to resolve:** each house's per-building ticket (T-1889 to T-1908, named on its card and in
 its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the
 alley buildings are T-1936's.
+**1811 retired from this liberty by T-2541 (2026-10-16):** the house now stands as the K01
+stone-front house under `L-k01-1811-ames-front-2541`, under the same id; its draft attributes are
+gone, and its stable keeps `coleman_ames_house_1811_prairie_coach_house` here.
 **Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
 **Recorded:** 2026-10-11 (T-2330).
@@ -28198,3 +28201,43 @@ string course stands lower than the drawn band.
 shelf and the basement heads; the architects' drawings would settle their sections.
 **Ticket:** T-2531 (piece 2 of T-2527).
 **Recorded:** 2026-10-16 (T-2531).
+### L-k01-1811-ames-front-2541 — 1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable and pyramid not yet raised
+
+**Decision:** the house at 1811 Prairie Avenue (T-2541, piece 1 of T-1891) is no longer a district
+draft. It stands, under the draft's own id `coleman_ames_house_1811_prairie`, as a `k01_frontage`
+record built by `generators/k01_emit.py`, against the Inland Architect plate of October 1888,
+"Residence of Miner T. Ames, Chicago. Cobb & Frost, Architects." (`inland_architect_1888_10_ames_residence`):
+a K02 rock-faced brown-stone front block of three storeys over a raised basement, its north bay
+standing 1.0 m proud on K08's full-height projection, a corbelled K08 oriel over the K07 deep-arched
+door, a broad straight stair; behind it the K03 brick range of three storeys and the two-storey rear
+section on K01's rear wings; a 45-degree slated roof with its ridge along the front and coped side
+walls; two plain stacks.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1811-b1, census
+s28-1811-front): the plan — the front block 10.4 m along the street (the trace's own width, where
+the draft's fit had stopped at 7.25 m) and 7.57 m deep to the line where the trace's north wall steps
+in, the bay's 1.0 m, the 8.4 m range 18.4 m back on the south wall's straight line with its drawn
+division 4.3 m from the rear; brick with a stone front; the storeys ('3B; section 2B'). From the
+plate, through its solved camera (`data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json`):
+the bay's front width and its windows' places, sills and heads within about 15 px; the entrance's
+place under its arch; the oriel's place, width, base and lights; the third storey's three lights over
+the bay; the brick south flank's three storeys over a basement and its flat-topped wall head.
+**What is invented.** The principal floor (1.35 m, from the stair's nine risers counted on the plate) and
+the third storey's height, which the plate cannot show; the walls' thickness; the stone's colour (the
+T-1837 register's brown sandstone) and the brick's; every window's kind (K06 two-over-two sash under
+flat lintels) and the third storey's lights at K01's narrowest sash, about 0.3 m wider than the
+plate's; the north wall's windows and the range's window spacing, which no picture shows; the roof's
+form, pitch and parapet ends; the eave's 0.4 m, which the stone cornice needs; the stacks' places; the
+slate.
+**What is not built.** The bay's canted north face (built flat, as the main wall's north strip); the
+bay's stone gable with its arched lights, pinnacles and pierced balcony; the oriel's steep pyramid and
+finial; the main roof's steeper slopes and higher ridge; the brick south flank's raking gable to the
+tall stack; the open porch on clustered columns and the stair's scrolled cheek walls; the smooth
+ashlar of the bay's upper stage and the oriel; the oriel's full depth and its square returns; the
+bay's iron-grilled basement lights; the downpipes; the small projection the sheet draws
+on the range's north wall. All are open on the match record.
+**How to resolve:** T-2542 raises the gable, the pyramid and the roofs and brings the match record to
+`matches`; T-1892 finishes the porch, the carving and the ironwork.
+**Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_pitch_deg`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays_by_storey`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
+**Ticket:** T-2541 (piece 1 of T-1891).
+**Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
+**Recorded:** 2026-10-16 (T-2541).
