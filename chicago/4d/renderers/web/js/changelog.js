@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1892, ts: '2026-10-16T22:18:30.015Z', date: 'Oct 16, 2026, 5:18 PM CT', title: 'Grades now read gold, silver and bronze everywhere', kind: 'change',
+    items: [
+      'Attested is gold, Inferred is silver and Reconstructed is bronze, a clear brown that no longer looks like a darker gold. The same three colours mark every grade: the dots on a building card, the chips on a person, the legend, the census bars and the Confidence chip and menu in the HUD.',
+      'With the Confidence view on, the town is tinted to match. Attested buildings and ground turn gold, Inferred ones silver, and Reconstructed ones bronze under their dither.',
+      'Each colour has a light-theme and a dark-theme value that stays readable on every machine\'s panel, and the three stay apart for the common kinds of colour blindness.',
+      'A person card\'s Attested and Inferred chips no longer sit on a solid block of their own colour, which had made their words hard to read.',
+    ] },
   { v: 1891, ts: '2026-10-16T21:58:45.833Z', date: 'Oct 16, 2026, 4:58 PM CT', title: 'A stalled jump says where it stopped, and offers two ways on', kind: 'fix',
     items: [
       'If the town fails to load, the arrival now reads "The jump stalled somewhere around 1992.", using the year the ticker had reached.',
