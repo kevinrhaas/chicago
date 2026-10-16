@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const { shareImageSources, releaseSharedImage } = await import(
+const { shareImageSources, releaseSharedImage, glbImageSource } = await import(
   pathToFileURL(path.join(ROOT, 'renderers/web/js/shared-images.js')).href);
 
 let failures = 0;
@@ -16,11 +16,12 @@ function check(label, ok, detail) {
   if (!ok) failures++;
 }
 
-// A texture with what the module reads: `image`, and `clone()` sharing it.
+// A texture with what the module reads: `image`, and `clone()` sharing it — and, as
+// three's Texture does, a `source` every clone shares (T-2598 keys on it).
 let decodes = 0;
 class FakeTexture {
-  constructor(image) { this.image = image; }
-  clone() { return new FakeTexture(this.image); }
+  constructor(image, source = { data: image }) { this.image = image; this.source = source; }
+  clone() { return new FakeTexture(this.image, this.source); }
 }
 // GLTFParser's image path, reduced: the bytes of a bufferView become one decoded image
 // per call, and a source already in `sourceCache` is answered from it.
@@ -78,6 +79,29 @@ check('an image the module never shared may always be closed', releaseSharedImag
   const x = await l2.parser(['granite1']).loadImageSource(0);
   const y = await l2.parser(['granite2']).loadImageSource(0);
   check('same length, different bytes: two decodes', decodes === before + 2 && x.image !== y.image);
+}
+
+// T-2598: texture residency learns from the module which pictures a GLB brought in, and
+// on a phone (keepEncoded) the bytes to decode one again after its bitmap was closed.
+{
+  check('a GLB picture is recorded against the source its clones share',
+    glbImageSource(a0.source) !== null && glbImageSource(b0.source) === glbImageSource(a0.source));
+  check('…without its bytes by default', glbImageSource(a0.source).encoded === null);
+  check('a texture the module never saw has no record', glbImageSource({}) === null);
+  const lk = new FakeLoader(); shareImageSources(lk, { keepEncoded: true });
+  const k = await lk.parser(['marble']).loadImageSource(0);
+  const rec = glbImageSource(k.source)?.encoded;
+  check('keepEncoded keeps the bytes and their mime type to decode from again',
+    rec && rec.view.byteLength === 'marble'.length && rec.mimeType === 'image/png');
+  const lt = new FakeLoader(); shareImageSources(lt);
+  // A parser whose own path yields a texture with no `source`, wrapped by the plugin.
+  const p2 = new FakeParser(['sourceless']);
+  const raw = p2.loadImageSource.bind(p2);
+  p2.loadImageSource = (i, il) => raw(i, il).then((t) => { t.source = undefined; return t; });
+  for (const cb of lt.plugins) cb(p2);
+  let threw = null;
+  try { await p2.loadImageSource(0); } catch (e) { threw = e; }
+  check('a texture with no source is shared, not a TypeError', threw === null, String(threw));
 }
 
 console.log(`${failures} failure(s)`);

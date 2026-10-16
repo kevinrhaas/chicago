@@ -59,6 +59,7 @@ import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
+import { createTextureResidency } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
@@ -1441,6 +1442,10 @@ const api = {
   // T-1727: {requested, active, explicitDefault, notice, available, name} for
   // `?structure=&version=`, from structure-versions.js. Null until the scene loads.
   structureVersion: null,
+  // T-2598: texture residency's counters (`residency`) and its handle
+  // (`textureResidency`, for a tool's override). Null with `?residency=0`.
+  residency: null,
+  textureResidency: null,
 };
 window.__chicago4d = api;
 // The gate is up exactly when no control backend is live, so its hint row cannot wait
@@ -1536,6 +1541,27 @@ async function boot() {
   // device profile (T-2559).
   let detailLevel = crashBoot.lowered.detail ? crashBoot.detail : (readDetailPreference() || device.choice.detail);
   api.bootDetail = detailLevel;
+  /**
+   * T-2598: texture residency — a house picture is on the GPU only within its tier's
+   * reach of the eye and under its tier's budget (texture-residency.js). `?residency=0`
+   * keeps every picture resident from boot, as before: the way the before is read.
+   */
+  const RESIDENCY_ON = params.get('residency') !== '0';
+  let residency = null;
+  const attachResidency = (group, eye, options) => {
+    residency = null;
+    api.residency = null;
+    api.textureResidency = null;
+    if (!RESIDENCY_ON) return;
+    // `?residency-budget=<MiB>` overrides the tier's budget, for a tool reading what
+    // the reach alone would hold.
+    const budget = Number(params.get('residency-budget'));
+    residency = createTextureResidency({ group, renderer, tier: detailLevel, closeImages: coarse,
+      settings: budget > 0 ? { budgetBytes: budget * 1048576 } : null });
+    residency.prime(eye, options);
+    api.residency = residency.state;
+    api.textureResidency = residency;
+  };
   // Image sharpness for a visitor who never chose one: the profile's choice —
   // on a standard device the T-2110 default, Low on a phone and Medium on a
   // desktop (see sharpness.js).
@@ -1658,6 +1684,9 @@ async function boot() {
     detail: detailLevel,
     // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
     keepAssetBytes: !coarse,
+    // T-2598: and keeps each house picture's encoded bytes, so one that went distant
+    // and had its decoded copy closed can be decoded again (texture-residency.js).
+    keepEncodedImages: coarse && RESIDENCY_ON,
     // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
     pool: bootPoolFromSearch(location.search),
   });
@@ -1796,6 +1825,15 @@ async function boot() {
   });
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
+  // T-2598: before anything is uploaded, each house picture farther than its tier's
+  // reach from where the visitor will arrive is swapped for its stand-in, so it never
+  // goes up at all; the walk brings it in when it comes near (texture-residency.js).
+  {
+    // Where the walker will stand: the walker is made after the batches, and its
+    // height is the terrain's, so this first decision reads plan distance only.
+    const at = anchorFor(loaded.scene, params.get('anchor')) ?? loaded.scene.spawn ?? {};
+    attachResidency(buildings.group, enuToWorld(at.local_e ?? 0, at.local_n ?? 0), { flat: true });
+  }
   settleOnGpu(buildings.group);
   // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
   // of the source geometry and the decoded images (upload-release.js).
@@ -2586,8 +2624,10 @@ async function boot() {
         scene3d.remove(previous.group);
         api.buildings = buildings;
         api.roll = buildings.roll;
+        residency?.dispose();
         previous.dispose();
         disposeLoadedAsset(oldAsset);
+        attachResidency(buildings.group, camera.position);
         for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
         if (coarse) {
           settleOnGpu(buildings.group);
@@ -2620,6 +2660,7 @@ async function boot() {
       api.flora = flora;
       api.trees = trees;
       detailLevel = level;
+      residency?.setTier(level);
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
       // T-2600: the road's new cells are cut on the job pool and swapped in when
@@ -2662,6 +2703,7 @@ async function boot() {
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
+    residency?.setTier(level);
     BUDGET.triangles = detailLevels[level].triangles;
     // The fence's half of the level, first: `light` draws a pale as a plank and
     // the other two as a prism (T-0067), and the layer rebuilds its own meshes
@@ -3904,6 +3946,9 @@ async function boot() {
     streetTrees.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
+    // T-2598: which house pictures are on the GPU, from where the eye ended up; at
+    // most a frame's allowance of them is uploaded here, before the draw.
+    residency?.tick(camera.position);
     api.humans?.update(dt, camera, walker.state);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one

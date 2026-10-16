@@ -24,6 +24,17 @@
 
 /** image -> { users: number of loaded assets holding it, forget(): drop it from its cache } */
 const shared = new WeakMap();
+/** texture source -> { encoded: { view, mimeType, imageLoader } | null } — T-2598. */
+const glbSources = new WeakMap();
+
+/**
+ * T-2598. The record of a picture that came out of a GLB through this cache, or null
+ * for anything else (a library sheet, a URI image). Keyed by the texture's `source`,
+ * which every clone shares and which outlives the image a phone closes.
+ */
+export function glbImageSource(source) {
+  return glbSources.get(source) ?? null;
+}
 
 async function digest(view) {
   const subtle = globalThis.crypto?.subtle;
@@ -53,7 +64,7 @@ function entryFor(byKey, key) {
  * every file it parses. Returns `{ stats }`, which counts images decoded and
  * images shared, for the tools that measure it.
  */
-export function shareImageSources(loader) {
+export function shareImageSources(loader, { keepEncoded = false } = {}) {
   const byKey = new Map();
   const stats = { decoded: 0, shared: 0 };
   loader.register((parser) => {
@@ -78,6 +89,15 @@ export function shareImageSources(loader) {
           delete parser.sourceCache[sourceIndex];
           original = own(sourceIndex, imageLoader).then((texture) => {
             shared.set(texture.image, entryFor(byKey, key));
+            // T-2598: which pictures a GLB brought in, and — on a phone, where the
+            // decoded copy is closed once uploaded — the bytes to decode it again
+            // from (texture-residency.js). A KTX2 keeps its transcoded levels, so
+            // its bytes are not kept twice.
+            // A texture with no `source` (never one of three's) has nothing to key on.
+            if (texture.source) {
+              glbSources.set(texture.source, { encoded: keepEncoded && !texture.isCompressedTexture
+                ? { view, mimeType: def.mimeType, imageLoader } : null });
+            }
             return texture;
           });
           byKey.set(key, original);

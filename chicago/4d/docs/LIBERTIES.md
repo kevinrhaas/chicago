@@ -28402,6 +28402,29 @@ T-2580), which the same pictures show below the coping where the model stands it
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
 **Recorded:** 2026-10-16 (T-2578).
 
+### L-k01-keith-south-strip-2581 — Keith's south corner: a straight strip of the front's stone, 2.1 m deep
+
+**Decision:** the south-east corner of 1808 Prairie is not quoined into brick. The front's stone
+turns onto the south face as a straight strip, every course from grade to the parapet returned
+2.1 m, and the brick side wall and its second-floor string course start behind it (T-2581).
+**What is read, not invented:** that the strip exists, is the front's own coursed stone and runs
+the full height, from the Reed photograph of 1941-42 (coursed stone across all of the south face
+it sees, about 2 m behind the south-east pinnacle, its camera re-fitted in T-2579 at 0.22 m RMS)
+and the mid-1950s view (smooth light stone from the corner to a downpipe; no toothing against
+brick anywhere on the face); and its depth, from the downpipe's line, 2.1 to 2.2 m behind the
+front corner read at the parapet and at the third-floor band against that camera's 14.8 px/m.
+**What is invented:** that the stone stops at the downpipe. Behind the pipe the face reads only
+slightly darker in a monochrome print at about 15 px/m, so the end of the strip is taken from the
+pipe and not from a change of material seen; the depth is bounded 2.0 to about 2.6 m. Every joint
+on the strip is the generator's, laid in the front's block lengths with rising joints kept off the
+course below's; the trim courses (base coping, belts, bands) turn the corner as the front's trim.
+The 1965 porch view sees the south face nearly edge-on (its eye 4.1 m off the plane), so it shows
+stone at the corner and cannot measure how far it runs.
+**How to resolve:** a view along the south passage, or a sharper print of the mid-1950s view.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_front`.
+**Ticket:** T-2581.
+**Recorded:** 2026-10-16 (T-2581).
+
 ### L-k08-keith-bow-coursing-2584 — Keith's bow laid deep and thin in turn: the rhythm read, the joints laid to it
 
 **Decision:** lay the south bow's rock-faced granite in the street front's T-2566 rhythm, a deep

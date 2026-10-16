@@ -540,3 +540,36 @@ textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) is expe
 hand some of this back, since its 28 PNG maps are larger than their UASTC equivalents —
 expected, not measured.
 
+## 10. Texture residency — T-2598
+
+The bytes above are what a visitor downloads; this is what a phone keeps on its GPU
+once they are open. Each house picture a GLB brings in is resident only within its
+tier's reach of the eye and under its tier's budget, nearest first
+(`renderers/web/js/texture-residency.js`, `RESIDENCY`); farther off it draws a
+64-texel stand-in of itself in the same slot, so no shader recompiles.
+
+| tier | enter | leave | budget | uploads a frame |
+|---|---|---|---|---|
+| full, balanced | 160 m | 200 m | 512 MiB | 16 MiB |
+| light (a phone) | 70 m | 90 m | 256 MiB | 4 MiB |
+
+The budgets come from the Prairie Avenue walk
+(`node tools/measure_memory.mjs --walk prairie`, eight stations, N -3270 to N -2990):
+
+- **phone, at the figures above** (`docs/measurements/T-2598-walk-mobile.json`):
+  residency held 90.5–256.0 MiB, never over; the GL meter's textures peaked at
+  **316.1 MB**, against **456.0 MB** at spawn before residency (T-2546) and 414.0 MB
+  with the budget lifted at a 90/120 m reach (`T-2598-walk-mobile-reach.json`).
+  At the 1800 block the reach asks about 352 MB, so the budget turns the farthest
+  pictures in reach away there.
+- **desktop, budget lifted** (`T-2598-walk-desktop-reach.json`): every one of the 61
+  house pictures (477.2 MB) is within 200 m of the walk's middle, so 512 MiB keeps all
+  of today's houses resident there and holds the line as more are refined. 384 MiB was
+  tried first and turned near houses away; it was raised rather than shipped.
+
+Captures (`--captures`, `T-2598-captures-mobile.json`): at four Glessner stands on
+the phone, the frame with every picture forced resident differs from the working
+frames by less than the scene's own motion between them (2.8 / 21.1 / 11.8 / 17.5 %
+of pixels against 3.7 / 30.4 / 17.5 / 22.3 %). The aerial stand, the street-eye
+stands and the moving p95 frame time are not yet read; the steward runner's
+SwiftShader draws one frame in seconds, so the p95 needs a GPU.
