@@ -615,19 +615,41 @@ export function createConfidenceView({
   function leaveOut(objects, instances) {
     const shown = objects.filter((o) => o.visible);
     for (const o of shown) o.visible = false;
+    // A batch's instance flags are flipped in three's own table when it has one:
+    // this runs twice a frame over thousands of instances, and the public
+    // setVisibleAt validates its id every call — measured, at a phone's 4×
+    // throttle, as 2.3 ms of every X-RAY frame. It is the same write setVisibleAt
+    // makes (the flag, and `_visibilityChanged` so the draw list is rebuilt).
     const hiddenNow = [];
     for (const [batch, ids] of instances) {
+      const info = batch._instanceInfo;
       const was = [];
-      for (const i of ids) {
-        let visible;
-        try { visible = batch.getVisibleAt(i); } catch { continue; }
-        if (visible) { batch.setVisibleAt(i, false); was.push(i); }
+      if (Array.isArray(info)) {
+        for (const i of ids) {
+          const row = info[i];
+          if (row && row.active !== false && row.visible) { row.visible = false; was.push(i); }
+        }
+        if (was.length) batch._visibilityChanged = true;
+      } else {
+        for (const i of ids) {
+          let visible;
+          try { visible = batch.getVisibleAt(i); } catch { continue; }
+          if (visible) { batch.setVisibleAt(i, false); was.push(i); }
+        }
       }
       if (was.length) hiddenNow.push([batch, was]);
     }
     return () => {
       for (const o of shown) o.visible = true;
-      for (const [batch, ids] of hiddenNow) for (const i of ids) batch.setVisibleAt(i, true);
+      for (const [batch, ids] of hiddenNow) {
+        const info = batch._instanceInfo;
+        if (Array.isArray(info)) {
+          for (const i of ids) info[i].visible = true;
+          batch._visibilityChanged = true;
+        } else {
+          for (const i of ids) batch.setVisibleAt(i, true);
+        }
+      }
     };
   }
   const twinOf = (m) => (ghostable(m) ? ghostTwin(m) : m);
