@@ -93,8 +93,11 @@ export function shareImageSources(loader, { keepEncoded = false } = {}) {
             // decoded copy is closed once uploaded — the bytes to decode it again
             // from (texture-residency.js). A KTX2 keeps its transcoded levels, so
             // its bytes are not kept twice.
-            glbSources.set(texture.source, { encoded: keepEncoded && !texture.isCompressedTexture
-              ? { view, mimeType: def.mimeType, imageLoader } : null });
+            // A texture with no `source` (never one of three's) has nothing to key on.
+            if (texture.source) {
+              glbSources.set(texture.source, { encoded: keepEncoded && !texture.isCompressedTexture
+                ? { view, mimeType: def.mimeType, imageLoader } : null });
+            }
             return texture;
           });
           byKey.set(key, original);
