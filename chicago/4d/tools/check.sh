@@ -97,6 +97,11 @@ step "The device profile chooses per device, and a stored choice still wins (T-2
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
+step "The grade colours are one set — gold, silver, bronze — legible on every machine's panel and apart under colour-vision deficiency (T-2671)" \
+  node tools/check_grade_colors.mjs
+selftest "…and a bronze that is a darker gold, a drifted token or an unreadable ink is refused (T-2671)" \
+  node tools/check_grade_colors.mjs --self-test
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
@@ -7112,6 +7117,20 @@ step "the cards' pictures join the library and the sources to their buildings" \
 
 selftest "…and the joins still keep out what is not a picture of this building" \
   python3 tools/compile_pictures.py --self-test
+
+# T-2635. The building summary record: data/summaries/<id>.json, the authored front page
+# the Inspect app reads (design doc section 12), shaped by data/summary.schema.json and
+# compiled into data/inspect/<scene>.json at publish (GENERATED, not committed, like the
+# pictures above). The app shows these strings exactly as written, so this refuses a fact
+# with no grade, an Attested fact with no source, an Inferred or Reconstructed one with no
+# note, any id that does not resolve (source, person, liberty, the structure in its scene),
+# a string over its length limit, and an id, snake_case word, path, link or ticket number
+# in anything a visitor reads. It gates the Inspect app (T-2638) and its fallback (T-2636).
+step "every building summary record is graded, sourced, within its lengths and free of ids" \
+  python3 tools/compile_summaries.py --check
+
+selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
+  python3 tools/compile_summaries.py --self-test
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than

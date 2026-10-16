@@ -2788,6 +2788,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_grade_colors.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_haze_reach.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -2957,6 +2961,10 @@
       "wrote_ignored": []
     },
     "tools/compile_source_use.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/compile_summaries.py": {
       "wrote": [],
       "wrote_ignored": []
     },

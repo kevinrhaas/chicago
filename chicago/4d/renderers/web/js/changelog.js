@@ -1,4 +1,44 @@
 export const CHANGELOG = [ // newest first
+  { v: 1892, ts: '2026-10-16T22:18:30.015Z', date: 'Oct 16, 2026, 5:18 PM CT', title: 'Grades now read gold, silver and bronze everywhere', kind: 'change',
+    items: [
+      'Attested is gold, Inferred is silver and Reconstructed is bronze, a clear brown that no longer looks like a darker gold. The same three colours mark every grade: the dots on a building card, the chips on a person, the legend, the census bars and the Confidence chip and menu in the HUD.',
+      'With the Confidence view on, the town is tinted to match. Attested buildings and ground turn gold, Inferred ones silver, and Reconstructed ones bronze under their dither.',
+      'Each colour has a light-theme and a dark-theme value that stays readable on every machine\'s panel, and the three stay apart for the common kinds of colour blindness.',
+      'A person card\'s Attested and Inferred chips no longer sit on a solid block of their own colour, which had made their words hard to read.',
+    ] },
+  { v: 1891, ts: '2026-10-16T21:58:45.833Z', date: 'Oct 16, 2026, 4:58 PM CT', title: 'A stalled jump says where it stopped, and offers two ways on', kind: 'fix',
+    items: [
+      'If the town fails to load, the arrival now reads "The jump stalled somewhere around 1992.", using the year the ticker had reached.',
+      'TRY AGAIN reloads your destination; BACK TO THE OBSERVATORY takes you home to pick another.',
+      'What failed to load is folded away under "Details for your teacher", so the screen no longer shows file addresses or error text.',
+    ] },
+  { v: 1890, ts: '2026-10-16T21:52:42.846Z', date: 'Oct 16, 2026, 4:52 PM CT', title: 'Keith\'s rooftop lattice sits down on its moulded course', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the pierced lattice, its coping and the corner pinnacles now stand 0.2 m lower, seated on the moulded course just above the carved boss.',
+      'Before, a deep plain box stood between the course and the lattice. Three photographs read through their own cameras show the lattice sitting almost directly on the course.',
+      'The checker band, the boss and everything below them are where they were.',
+      'The north-east corner pier was checked against the photograph beside Glessner. It already stands as the picture shows it, so it is unchanged.',
+    ] },
+  { v: 1889, ts: '2026-10-16T21:44:03.470Z', date: 'Oct 16, 2026, 4:44 PM CT', title: 'A checked format for each building\'s front-page summary', kind: 'chore',
+    items: [
+      'Nothing you can see changes yet. This lays the ground for the new building dossier, which will open on a short written summary of each notable house.',
+      'Each summary will be written by hand, and every fact on it will carry its grade: Attested, Inferred or Reconstructed.',
+      'Before a summary can reach you, a check refuses any fact with no grade, any Attested fact with no source, any line that runs too long, and any internal label left in the words.',
+    ] },
+  { v: 1888, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'The arrival says where you are going, and the year rolls there', kind: 'fix',
+    items: [
+      'A small line over the ticker now reads where you are headed, such as DESTINATION 1904 · PRAIRIE AVE, from the moment the page appears.',
+      '1835 reads RIVER SETTLEMENT and 1812 reads FORT DEARBORN.',
+      'The big ticker is the year you are passing: it starts at today\'s year and rolls down to your destination, and it never climbs back up.',
+      'The old "Destination year" label is gone. It sat over today\'s year, which made the readout look wrong.',
+    ] },
+  { v: 1887, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'Walking up a slope no longer stalls the grass', kind: 'fix',
+    items: [
+      'Climbing or dropping more than 0.6 metres on foot used to make the grass and flowers around you be laid out again all at once, in a single frame.',
+      'On a slowed-down phone profile that frame took about 130 milliseconds on the walk from Lake Street into the block. It now spreads over frames like every other step.',
+      'A sharp turn on the spot can still cause one such frame; that is next.',
+      'Every plant stands exactly where it did before.',
+    ] },
   { v: 1886, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'The jump\'s ring carries through to the arrival', kind: 'feature',
     items: [
       'Jump from the Observatory and the arrival screen opens with the departure\'s dashed ring still widening behind the card, so leaving and landing read as one move.',
