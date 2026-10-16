@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1838, ts: '2026-10-16T01:32:40.911Z', date: 'Oct 15, 2026, 8:32 PM CT', title: '1637 Prairie\'s basement lights, and its stoop meets the drawn fence post', kind: 'improvement',
+    items: [
+      'Under 1637 Prairie\'s swell bay a barred basement light now stands, nearly a storey tall at the walk, as the engraving of the remodel draws it.',
+      'Under its wing, two round-headed basement lights stand behind the iron fence.',
+      'The front stoop is steeper and shorter: its foot now lands where the engraving draws it, at the fence\'s first post, instead of 0.75 m further out.',
+    ] },
   { v: 1837, ts: '2026-10-16T01:04:52.832Z', date: 'Oct 15, 2026, 8:04 PM CT', title: '1621 Prairie climbs to its door by the drawing\'s side stoop', kind: 'feature',
     items: [
       'John H. Hamline\'s house at 1621 Prairie now has the stoop its 1886 drawing shows: the door opens on a stone landing along the north strip, and the steps run south along the front, past the bow, behind a low stone cheek.',
