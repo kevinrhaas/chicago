@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1873, ts: '2026-10-16T16:03:05.391Z', date: 'Oct 16, 2026, 11:03 AM CT', title: 'Roof shingles and 1904 streets no longer lie upside down', kind: 'fix',
+    items: [
+      'On most devices the shingle and board roofs drew their texture mirrored, with the shadow lines under each course lit from the wrong side. They now sit the way they were drawn, matching the page with compressed textures turned off.',
+      'The same flip is fixed on the 1904 roadways, alleys, walks, curbs and grass plats, and on the wet prairie mud and dune sand along the 1835 shore.',
+      'Measured at a roof close-up, the two ways of drawing it now agree as closely as the walls already did.',
+    ] },
   { v: 1872, ts: '2026-10-16T15:27:10.592Z', date: 'Oct 16, 2026, 10:27 AM CT', title: 'Signboards and the sand strip load lighter', kind: 'improvement',
     items: [
       'Nothing you can see changed. The grain and relief under every hanging signboard are now prepared once, ahead of time, instead of in your browser at every visit: the boards look the same and the walk downloads about 360 KB less to stand in the street.',
