@@ -63,18 +63,27 @@ the measurements that say which maps may be bound to a surface are in
 **Not published.** `tools/publish.sh` copies named files and `assets/web/*.glb`; it does not
 walk `assets/`, so this directory stays in the repository and off the live site. It is carried
 for the web renderer's relief maps and for the Unreal target's DirectX normals, packed ORM and
-16-bit displacement. The `.webp` beside fourteen of the maps is a lossless derivative of
+16-bit displacement. The `.webp` beside ten of the maps is a lossless derivative of
 its PNG master, the same pixels in fewer bytes, written and held pixel-identical by
-`tools/web_textures.py` (T-1973). Those fourteen are the one exception to "not published":
-`tools/publish.sh` copies them by name to `data/textures/`, where the relief modules bind them.
-They carry the library's licence and its one condition unchanged.
+`tools/web_textures.py` (T-1973). Beside the two signboard-wood sheets the same tool writes
+four DERIVED tiles instead (T-2590): `_grain.webp`, the basecolor's grain read down to 512²,
+turned a quarter and normalised about mid-grey, and `_normal_turned.webp`, the normal read
+down and turned with its vectors — what `renderers/web/js/signage.js` used to compute from
+the maps at every boot, now computed once and held to that computation pixel for pixel.
+Those fourteen are the one exception to "not published": `tools/publish.sh` copies them by
+name to `data/textures/`, where the relief modules bind them. They carry the library's
+licence and its one condition unchanged.
 
-**The `.ktx2` beside five of them (T-2582)** — the two roof coverings' `normal_gl` and `orm`
-and the wet prairie muck's basecolor — is the same map GPU-compressed by
+**The `.ktx2` beside six of them (T-2582, T-2590)** — the two roof coverings' `normal_gl`
+and `orm` and the wet prairie muck's and the dune sand's basecolor — is the same map
+GPU-compressed by
 `tools/ktx2_sheets.py` with KTX-Software 4.3.2 (Basis Universal: ETC1S for the colour, UASTC
 for the data maps), from the PNG master. It is lossy where the `.webp` is not, a derivative
 for the GPU and not a new map, and `tools/publish.sh` copies it by name beside its `.webp`
-or `.png`. It carries the library's licence and its one condition unchanged.
+or `.png`. It carries the library's licence and its one condition unchanged. The sand's
+`_basecolor.luma.json` beside it is one number derived from its master by the same tool
+— the mean linear luminance the ground strip once read from the image's pixels — and
+carries no pixels at all.
 
 Every file, as the checker matches them one by one:
 
@@ -84,6 +93,8 @@ textures/chicago_1835_pbr/README.md
 textures/chicago_1835_pbr/RESEARCH_NOTES.md
 textures/chicago_1835_pbr/contact_sheet.jpg
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_ao.png
+textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_basecolor.ktx2
+textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_basecolor.luma.json
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_basecolor.png
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_height16.png
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_metallic.png
@@ -169,12 +180,12 @@ textures/chicago_1835_pbr/props/blue_painted_shutter/material.json
 textures/chicago_1835_pbr/props/signboard_weathered/material.json
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_ao.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_basecolor.png
-textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_basecolor.webp
+textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_grain.webp
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_height16.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_metallic.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_dx.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_gl.png
-textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_gl.webp
+textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_turned.webp
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_orm.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_roughness.png
 textures/chicago_1835_pbr/props/wrought_iron_forged/material.json
@@ -223,12 +234,12 @@ textures/chicago_1835_pbr/timber/fresh_sawn_framing/fresh_sawn_framing_roughness
 textures/chicago_1835_pbr/timber/fresh_sawn_framing/material.json
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_ao.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_basecolor.png
-textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_basecolor.webp
+textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_grain.webp
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_height16.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_metallic.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_dx.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_gl.png
-textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_gl.webp
+textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_turned.webp
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_orm.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_roughness.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/material.json
