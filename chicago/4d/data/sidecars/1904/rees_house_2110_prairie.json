@@ -9,6 +9,22 @@
   "asset": "gltf/rees_house_2110_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 10 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a20-aic-rees-2009-parks-photos",
+      "a20-aic-rees-c1980s-photo",
+      "a20-glessner-prairie-house-cafe-postcard",
+      "a20-glessner-rees-coach-house-2014",
+      "a20-glessner-rees-house-move-2014",
+      "a20-rees-nrhp-2007-photo-coach-house",
+      "a20-rees-nrhp-2007-photo-front",
+      "a20-rees-nrhp-2007-photo-rear",
+      "a20-rees-nrhp-2007-photo-south-side",
+      "cgs-2110-tribune-2014-move-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

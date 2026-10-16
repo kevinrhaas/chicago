@@ -9,6 +9,14 @@
   "asset": "gltf/otis_house_2033_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a20-aic-walker-evans-2033",
+      "a20-chicagology-2033-walker-evans"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

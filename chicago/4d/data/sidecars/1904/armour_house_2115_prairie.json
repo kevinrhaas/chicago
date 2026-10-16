@@ -9,6 +9,14 @@
   "asset": "gltf/armour_house_2115_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a20-chicagology-2115-armour-photo",
+      "nps-2115-tribune-1928-07-08-famous-homes-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

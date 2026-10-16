@@ -7118,6 +7118,17 @@ step "the cards' pictures join the library and the sources to their buildings" \
 selftest "…and the joins still keep out what is not a picture of this building" \
   python3 tools/compile_pictures.py --self-test
 
+# T-2686, AGENTS.md rule 12. A structure's own grade: attested when a reasonable picture of it
+# exists, inferred when maps or text record it and nothing shows it, reconstructed when our
+# model of the town placed it. compile_scene writes it into each sidecar (its --check above
+# holds the committed grades to the rule); this holds the rulings file — every entry names its
+# structure, its picture and why — and the self-test breaks each branch of the rule.
+step "every structure's grade follows its pictures, and every ruling says why (T-2686)" \
+  python3 tools/grade_structures.py --check
+
+selftest "…and a picture, a camera, a ruling or an invention still decides what it should" \
+  python3 tools/grade_structures.py --self-test
+
 # T-2635. The building summary record: data/summaries/<id>.json, the authored front page
 # the Inspect app reads (design doc section 12), shaped by data/summary.schema.json and
 # compiled into data/inspect/<scene>.json at publish (GENERATED, not committed, like the

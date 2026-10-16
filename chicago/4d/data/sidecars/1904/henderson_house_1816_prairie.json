@@ -9,6 +9,14 @@
   "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-cgy-1816-henderson-photo",
+      "cgn-1816-landowner-1874-henderson"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

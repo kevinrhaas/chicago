@@ -11,6 +11,11 @@
   "asset": "gltf/burns_house_1812__burns_1812.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1812-04-07",
     "to": "1819-12-31",

@@ -505,6 +505,12 @@
       "finding": "Reproduces: run bare after deleting data/pictures/, it wrote data/pictures/1812.json, 1835.json and 1904.json and git status did not move — its only output is git-ignored (T-2389).",
       "placed": "not to be placed: its output is a build product, not a committed derivation. publish.sh writes it from the Prairie library and data/sources/ at the moment it ships, so it cannot go stale on dev, and no manifest step reads it. It joins the manifest only if data/pictures/ is ever committed."
     },
+    "grade_structures.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-16",
+      "finding": "Run bare it prints every structure's grade by scene; --check validates data/structure_grades.json and prints the counts; --self-test runs on in-memory fixtures. All three write nothing (git status --porcelain identical before and after). It declares no write mode: the grades it derives are written into the sidecars by tools/compile_scene.py, which imports its grader (T-2686)."
+    },
     "compile_summaries.py": {
       "placement": "pending",
       "write_mode": "--build",

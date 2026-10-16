@@ -9,6 +9,21 @@
   "asset": "gltf/marshall_field_jr_house_1919_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 9 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a19-bluebook-1912-gatlin-1919",
+      "a19-cdnalmanac-1913-gatlin-1919",
+      "a19-cgy-1919-before-1902",
+      "a19-cgy-1919-later",
+      "a19-commons-fieldjr-2004",
+      "a19-field-cdn-dn0003324",
+      "a19-gh-1981-fieldjr-1919",
+      "a19-gh-prairie-1800-1900-elevations",
+      "cgs-1919-gatlin-program-1919"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
