@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1878, ts: '2026-10-16T18:16:12.781Z', date: 'Oct 16, 2026, 1:16 PM CT', title: 'Distant houses on Prairie Avenue no longer hold their full pictures', kind: 'improvement',
+    items: [
+      'A house\'s photographic textures stay on the graphics card only while you are near enough to see them; farther off it is drawn with the same picture at a small size, which looks the same at that distance.',
+      'Walking up Prairie Avenue on a phone, texture memory now peaks around 316 MB, down from 456 MB, so 1904 is less likely to crash a phone browser.',
+    ] },
   { v: 1877, ts: '2026-10-16T18:03:02.187Z', date: 'Oct 16, 2026, 1:03 PM CT', title: 'Picking a building no longer inflates the frame\'s draw count', kind: 'fix',
     items: [
       'Nothing you can see changed: the town draws exactly as before.',

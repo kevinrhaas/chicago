@@ -1,8 +1,0 @@
-{
-  "title": "Distant houses on Prairie Avenue no longer hold their full pictures",
-  "kind": "improvement",
-  "items": [
-    "A house's photographic textures stay on the graphics card only while you are near enough to see them; farther off it is drawn with the same picture at a small size, which looks the same at that distance.",
-    "Walking up Prairie Avenue on a phone, texture memory now peaks around 316 MB, down from 456 MB, so 1904 is less likely to crash a phone browser."
-  ]
-}
