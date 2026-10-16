@@ -377,8 +377,11 @@ if [ -n "$resolved_cli" ]; then
   glb_images() {
     python3 - "$1" <<'PY'
 import json, struct, sys
-b = open(sys.argv[1], 'rb').read()
-doc = json.loads(b[20:20 + struct.unpack('<I', b[12:16])[0]])
+try:
+    b = open(sys.argv[1], 'rb').read()
+    doc = json.loads(b[20:20 + struct.unpack('<I', b[12:16])[0]]) if b[:4] == b'glTF' else {}
+except (OSError, ValueError, struct.error):
+    doc = {}  # not a GLB this step can read: it has no images to encode, and gltf-transform says the rest
 imgs = doc.get('images', [])
 raster = [i for i in imgs if i.get('mimeType') in ('image/png', 'image/jpeg')]
 print(len(imgs), len(raster))
@@ -592,7 +595,8 @@ PY
     # and the encode runs between `optimize` and `meshopt`. Untextured masters and
     # the Glessner v4 set (T-2596) take exactly the path they always took.
     ktx=0; texflags=()
-    if [ "$rel" != "$GLESSNER_V4" ] && [ "$(glb_images "$f" | cut -d' ' -f1)" != "0" ]; then
+    case "$(basename "$f")" in glessner_house__as_built_1887*) glessner=1 ;; *) glessner=0 ;; esac
+    if [ "$rel" != "$GLESSNER_V4" ] && [ "$glessner" = "0" ] && [ "$(glb_images "$f" | cut -d' ' -f1)" != "0" ]; then
       ktx=1; texflags=(--texture-compress false)
     fi
     if "${GT_NPX[@]}" gltf-transform optimize "$f" "$tmp" "${compress[@]}" "${texflags[@]}" 2>&1 | tail -2 \

@@ -218,7 +218,19 @@ WIDE_RANGE_YEARS = 12
 # content total 705.136 MiB, below the documented 1 GiB platform ceiling.
 # This is storage hygiene only: boot-payload, frame/Light limits and the 90%
 # warning/duplicate guard are unchanged. Measurements and limits: §8.
-SITE_BUDGET_MB = 288
+# T-2595, 2026-10-16: measured whole-tree re-budget, 288 -> 320 MiB. The 20 textured
+# Prairie houses' web GLBs moved from JPEG to KTX2 (UASTC data maps, ETC1S colour) to
+# cut what a phone holds on the GPU about 6.7x (1,074.6 -> 159.3 MiB by format), and
+# the wire pays for it: 28,806,824 -> 53,759,924 bytes, +23.797 MiB. The tree read
+# 297.968 MiB against 288, where dev stood near 274.2. UASTC normal maps keep about a
+# byte a texel before Zstandard; ETC1S normals would be a fifth of the bytes at 31 dB
+# against UASTC's 39 dB on the same sheet, and the photo-match is what they are for.
+# Two 320 MiB app allowances plus the 129.136 MiB of other site content total
+# 769.136 MiB, below the 1 GiB platform ceiling. Storage hygiene only, as above: the
+# boot payload is untouched (no textured house is in the 1835 boot). §9 of
+# docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) is expected to
+# hand some back, since its 28 PNG maps are larger than their UASTC equivalents.
+SITE_BUDGET_MB = 320
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).

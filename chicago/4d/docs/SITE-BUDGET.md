@@ -338,7 +338,7 @@ boot sidecars (§ 4b) are the one already named.
 
 ## 5. What the gate does now
 
-- **Refuses** over 288 MiB (T-2226; measured re-budget in §8) — the repository-hygiene guard, not the visitor-cost
+- **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
   budget; the visitor-cost budget is the 13 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
@@ -408,3 +408,36 @@ checkout, not a claim that both deployment branches were rebuilt here. Future
 changes still need their own gate and measured visitor costs. Exact byte counts,
 alternatives and limitations are in
 `docs/RESEARCH/glessner-finish-T-2226/site-budget-reprice.json`.
+
+## 9. The Prairie houses in KTX2 — measured storage allowance, T-2595
+
+T-2595 re-encodes the images in the 20 textured Prairie house web GLBs from JPEG to
+KTX2 (`tools/ktx2_glb.py`, run by `tools/web_derivatives.sh`): UASTC level 2 with RDO
+and zstd 18 for normal maps, ETC1S for colour, the recipe `tools/ktx2_sheets.py` uses for
+the library sheets. The point is the phone's GPU memory, and the wire pays for it.
+
+| | before (JPEG) | after (KTX2) |
+|---|---:|---:|
+| the 20 derivatives on the wire | 28,806,824 B | 53,759,924 B (+23.797 MiB) |
+| their textures on a phone's GPU, by format (RGBA8 + mips → ETC2/ASTC + mips) | 1,074.6 MiB | 159.3 MiB (6.7×) |
+| the published tree | ≈ 274.2 MiB | 297.968 MiB |
+
+Every derivative is still smaller than its master (assertion 6 of
+`tools/measure_web_derivatives.py`). Rendered at each house's reference camera from
+the old and the new derivative, the ten houses that have one read 41.7-51.9 dB PSNR, the
+difference visible only at 8× gain on the brick colour.
+
+**Why not ETC1S for the normal maps too.** On one 1024² sandstone normal map (463 KB as
+JPEG): UASTC with RDO is 1.14 MB at 39.2 dB, UASTC at RDO λ 4 is 919 KB at 37.1 dB, and
+ETC1S at qlevel 255 is 218 KB at 31.4 dB. ETC1S would pay for itself on the wire and cost
+the relief the maps exist for; the roof sheets were refused ETC1S on the same reading
+(§4c). gltf-transform's own `uastc` command never applies RDO to a normal map, which is
+why the encode is a tool of ours: through the CLI the same 20 houses came to 67.9 MB.
+
+The whole-tree **repository-hygiene** allowance is now **320 MiB**, with **22.032 MiB**
+of headroom. Two 320 MiB app allowances plus the 129.136 MiB of other site content total
+**769.136 MiB**, below the 1 GiB platform limit. The 13 MB boot payload is untouched: no
+textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) is expected to
+hand some of this back, since its 28 PNG maps are larger than their UASTC equivalents —
+expected, not measured.
+

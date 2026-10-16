@@ -244,12 +244,13 @@
     },
     "web": {
       "path": "assets/web/goodman_house_1612_prairie__as_built_1869.glb",
-      "bytes": 1631716,
-      "sha256": "8475fc213aee4843e9e6ed3178065d46e51fc2787fc1842e2428fba4d6b1ed46",
+      "bytes": 3435840,
+      "sha256": "e77c301ac202d9474140ab722181a0587b717999b31fc3ed1033e9d31c7606fc",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
-        "KHR_mesh_quantization"
+        "KHR_mesh_quantization",
+        "KHR_texture_basisu"
       ],
       "nodes": [
         {
@@ -269,9 +270,9 @@
       "texture": {
         "images": 13,
         "textures": 13,
-        "encoded_bytes": 1132886,
-        "pixels": 12031616,
-        "gpu_rgba8_mip_bytes": 64168619,
+        "encoded_bytes": 2936456,
+        "pixels": 12058624,
+        "gpu_rgba8_mip_bytes": 64312661,
         "largest_px": 2048
       },
       "bbox_m": {
