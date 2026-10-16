@@ -7,20 +7,20 @@
     1501
   ],
   "principal_px": [
-    584,
-    1191.4498882644596
+    584.0,
+    1175.8077686210972
   ],
-  "focal_px": 2612.5603810411585,
+  "focal_px": 2573.322996671928,
   "eye": [
-    50.85816461101878,
-    21.49655652571782,
+    50.38255373045074,
+    21.356248121896574,
     1.7
   ],
-  "yaw_deg": 261.0773540429012,
+  "yaw_deg": 261.190779030217,
   "basis_right_up_forward": [
     [
-      -0.15510086189744882,
-      0.987898639860724,
+      -0.15314487610455324,
+      0.9882037476770269,
       0.0
     ],
     [
@@ -29,8 +29,8 @@
       1.0
     ],
     [
-      -0.987898639860724,
-      -0.15510086189744882,
+      -0.9882037476770269,
+      -0.15314487610455324,
       0.0
     ]
   ],
@@ -39,5 +39,5 @@
     -0.7,
     1.4
   ],
-  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll 0), eye height 1.7 m reconstructed, least squares over 5 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, f, cy; fixed: h=1.7, roll=0, cx=584. Read: the north-east and rear pinnacle apexes (dark finials on sky, located to a pixel), and the north jambs of the three northernmost bottom-row lattice openings (x only: the openings' heights differ from the model, see the match record). Roll held at 0. Controls world [u, v, y] -> pixels (free = coordinate not used): [17.86, 10.252, 17.27] -> [129.5, 7]; [12.729, 10.18, 17.468] -> [235, 146.5]; [18, 9.96, 15.66] -> [102, 'free']; [18, 9.535, 15.67] -> [72, 'free']; [18, 9.11, 15.69] -> [42, 'free']. Projected [[128.3, 7.0], [235.0, 146.5], [103.4, 126.6], [72.4, 127.9], [41.4, 128.4]]. Per-control residual px [1.2, 0.0, 1.4, 0.4, 0.6]; coordinate RMS 0.88 px, max 1.39 px. Scale at the subject: 76.1 px/m at 34.3 m, so the RMS is about 0.01 m. CHECK, not fitted: the north arris of the front pier (front meets the north return) at the checker band [18.1, 10.4, 13.3] reads at [156, None], the fit projects it at [133.2, 302.3] (dx -22.8, dy None px, so about 0.30 m at the subject). CHECK, not fitted: Glessner's north-east eave corner (the Taylor fit's control, translated by (-31.149, +10.42)) [18, 32.9752, 8.4856] reads at [1919, 601], the fit projects it at [1983.6, 613.6] (dx 64.6, dy 12.6 px, so about 0.76 m at the subject). CHECK, not fitted: Glessner's north-east corner at grade (same) [18, 32.9752, 0] reads at [1930, 1265], the fit projects it at [1983.6, 1336.2] (dx 53.6, dy 71.2 px, so about 0.84 m at the subject). Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). Only a narrow Keith north-front slice is visible; compare that slice and its height relative to Glessner, not its occluded bow or stair. Monochrome colour not shown."
+  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll 0), eye height 1.7 m reconstructed, least squares over 5 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, f, cy; fixed: h=1.7, roll=0, cx=584. Read: the north-east and rear pinnacle apexes (dark finials on sky, located to a pixel), and the north jambs of the three northernmost bottom-row lattice openings (x only: the openings' heights differ from the model, see the match record). Roll held at 0. Controls world [u, v, y] -> pixels (free = coordinate not used): [17.86, 10.252, 17.27] -> [129.5, 7]; [12.729, 10.18, 17.468] -> [235, 146.5]; [18, 9.96, 15.66] -> [102, 'free']; [18, 9.535, 15.67] -> [72, 'free']; [18, 9.11, 15.69] -> [42, 'free']. Projected [[128.3, 7.0], [235.0, 146.5], [103.4, 126.6], [72.4, 127.9], [41.4, 128.4]]. Per-control residual px [1.2, 0.0, 1.4, 0.4, 0.6]; coordinate RMS 0.88 px, max 1.39 px. Scale at the subject: 76.1 px/m at 34.3 m, so the RMS is about 0.01 m. CHECK, not fitted: the north arris of the front pier (front meets the north return) at the checker band [18.1, 10.4, 13.3] reads at [156, None], the fit projects it at [133.2, 302.3] (dx -22.8, dy None px, so about 0.30 m at the subject). CHECK, not fitted: Glessner's north-east eave corner (the Taylor fit's control, translated by (-31.149, +10.42)) [18, 32.9752, 8.4856] reads at [1919, 601], the fit projects it at [1983.6, 613.6] (dx 64.6, dy 12.6 px, so about 0.76 m at the subject). CHECK, not fitted: Glessner's north-east corner at grade (same) [18, 32.9752, 0] reads at [1930, 1265], the fit projects it at [1983.6, 1336.2] (dx 53.6, dy 71.2 px, so about 0.84 m at the subject). Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). Only a narrow Keith north-front slice is visible; compare that slice and its height relative to Glessner, not its occluded bow or stair. Monochrome colour not shown. T-2680 re-solve: the crown stands 0.2 m lower (keith storey_heights_m), so the controls on it moved to [17.86, 10.252, 17.07], [12.729, 10.18, 17.268], read at the same pixels as above. Same level camera, free: u, v, yaw, f, cy; held at the previous solve: roll, cx (eye height 1.7 m). Per-coordinate residual px [-1.2, -0.0, 0.0, 0.0, 1.4, 0.3, -0.6]; coordinate RMS 0.74 px, max 1.39 px (the previous camera on the previous controls, counted the same way: 0.74 px)."
 }

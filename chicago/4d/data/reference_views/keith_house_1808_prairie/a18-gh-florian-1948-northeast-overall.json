@@ -7,20 +7,20 @@
     1192
   ],
   "principal_px": [
-    900,
-    835.5324811680192
+    900.0,
+    848.1994257622523
   ],
-  "focal_px": 2610.1398323494936,
+  "focal_px": 2798.3077090696806,
   "eye": [
-    71.51981573831279,
-    40.80112189467185,
+    74.03933779087642,
+    40.86555994675113,
     1.7
   ],
-  "yaw_deg": 254.58563894838352,
+  "yaw_deg": 254.69367450140584,
   "basis_right_up_forward": [
     [
-      -0.26579775737534905,
-      0.9640288129377851,
+      -0.26397953624581705,
+      0.9645282807898602,
       0.0
     ],
     [
@@ -29,8 +29,8 @@
       1.0
     ],
     [
-      -0.9640288129377851,
-      -0.26579775737534905,
+      -0.9645282807898602,
+      -0.26397953624581705,
       0.0
     ]
   ],
@@ -39,5 +39,5 @@
     -0.7,
     1.4
   ],
-  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll 0), eye height 1.7 m reconstructed, least squares over 6 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, f, cy; fixed: h=1.7, roll=0, cx=900. Read: the north-east and rear pinnacle apexes on the north return; the northernmost third-storey light's head and sill at its north jamb and its south jamb head; the lattice coping at its north end. Roll held at 0 (verticals vertical). Controls world [u, v, y] -> pixels (free = coordinate not used): [17.86, 10.252, 17.27] -> [237.5, 160.6]; [12.729, 10.18, 17.468] -> [342.5, 200]; [17.873, 8.244, 12.634] -> [159, 362.5]; [17.9, 8.24, 10.45] -> [159, 455]; [17.885, 7.679, 12.677] -> [131, 362.5]; [17.968, 9.578, 16.31] -> [214, 197.5]. Projected [[237.6, 156.5], [340.5, 200.5], [159.5, 362.8], [158.7, 457.1], [137.6, 362.0], [208.9, 199.2]]. Per-control residual px [4.1, 2.1, 0.6, 2.1, 6.6, 5.3]; coordinate RMS 4.04 px, max 6.60 px. Scale at the subject: 43.2 px/m at 60.4 m, so the RMS is about 0.09 m. Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). July 1948, Robert C. Florian via Glessner House Museum. Trees and Glessner conceal most of Keith; later weathering and ivy are not dated to 1904."
+  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll 0), eye height 1.7 m reconstructed, least squares over 6 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, f, cy; fixed: h=1.7, roll=0, cx=900. Read: the north-east and rear pinnacle apexes on the north return; the northernmost third-storey light's head and sill at its north jamb and its south jamb head; the lattice coping at its north end. Roll held at 0 (verticals vertical). Controls world [u, v, y] -> pixels (free = coordinate not used): [17.86, 10.252, 17.27] -> [237.5, 160.6]; [12.729, 10.18, 17.468] -> [342.5, 200]; [17.873, 8.244, 12.634] -> [159, 362.5]; [17.9, 8.24, 10.45] -> [159, 455]; [17.885, 7.679, 12.677] -> [131, 362.5]; [17.968, 9.578, 16.31] -> [214, 197.5]. Projected [[237.6, 156.5], [340.5, 200.5], [159.5, 362.8], [158.7, 457.1], [137.6, 362.0], [208.9, 199.2]]. Per-control residual px [4.1, 2.1, 0.6, 2.1, 6.6, 5.3]; coordinate RMS 4.04 px, max 6.60 px. Scale at the subject: 43.2 px/m at 60.4 m, so the RMS is about 0.09 m. Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). July 1948, Robert C. Florian via Glessner House Museum. Trees and Glessner conceal most of Keith; later weathering and ivy are not dated to 1904. T-2680 re-solve: the crown stands 0.2 m lower (keith storey_heights_m), so the controls on it moved to [17.86, 10.252, 17.07], [12.729, 10.18, 17.268], [17.968, 9.578, 16.11], read at the same pixels as above. Same level camera, free: u, v, yaw, f, cy; held at the previous solve: roll, cx (eye height 1.7 m). Per-coordinate residual px [2.0, -3.1, -0.7, 0.3, -0.5, -1.6, -1.3, 3.1, 4.7, -2.5, -4.2, 3.9]; coordinate RMS 2.73 px, max 4.72 px (the previous camera on the previous controls, counted the same way: 2.86 px)."
 }

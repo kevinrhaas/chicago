@@ -505,6 +505,13 @@
       "finding": "Reproduces: run bare after deleting data/pictures/, it wrote data/pictures/1812.json, 1835.json and 1904.json and git status did not move — its only output is git-ignored (T-2389).",
       "placed": "not to be placed: its output is a build product, not a committed derivation. publish.sh writes it from the Prairie library and data/sources/ at the moment it ships, so it cannot go stale on dev, and no manifest step reads it. It joins the manifest only if data/pictures/ is ever committed."
     },
+    "compile_summaries.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-10-16",
+      "finding": "Reproduces: --build after deleting data/inspect/ wrote data/inspect/1812.json, 1835.json and 1904.json and git status did not move — its only output is git-ignored (T-2635).",
+      "placed": "not to be placed: its output is a build product, not a committed derivation. publish.sh writes it from data/summaries/, data/sources/ and the scenes' people directories at the moment it ships, so it cannot go stale on dev, and no manifest step reads it. It joins the manifest only if data/inspect/ is ever committed."
+    },
     "compile_register.py": {
       "placement": "manifest",
       "write_mode": null,
