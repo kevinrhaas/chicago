@@ -182,9 +182,22 @@ export async function runSpike({ renderer, backend, prepare, setView, finish }) 
           row.texels += w * h;
           row.formats ??= {};
           row.formats[v.format] = (row.formats[v.format] ?? 0) + 1;
+          // Whether three will give it a mip chain: a mipmapped minification filter.
+          const mipFilter = v.minFilter !== THREE.LinearFilter && v.minFilter !== THREE.NearestFilter;
+          const key = `${mipFilter ? 'mip filter' : 'no mip filter'}${v.generateMipmaps ? ', generateMipmaps' : ''}`;
+          row.sampling ??= {};
+          row.sampling[key] ??= { count: 0, texels: 0 };
+          row.sampling[key].count += 1;
+          row.sampling[key].texels += w * h;
+          row.sizes ??= {};
+          row.sizes[`${w}x${h}`] = (row.sizes[`${w}x${h}`] ?? 0) + 1;
         }
       }
     });
+    const b = renderer.backend;
+    rows.maxTextureSize = renderer.capabilities?.maxTextureSize
+      ?? b?.device?.limits?.maxTextureDimension2D
+      ?? b?.gl?.getParameter(b.gl.MAX_TEXTURE_SIZE) ?? null;
     return rows;
   }
 
@@ -252,9 +265,22 @@ export function fail(err) {
           row.texels += w * h;
           row.formats ??= {};
           row.formats[v.format] = (row.formats[v.format] ?? 0) + 1;
+          // Whether three will give it a mip chain: a mipmapped minification filter.
+          const mipFilter = v.minFilter !== THREE.LinearFilter && v.minFilter !== THREE.NearestFilter;
+          const key = `${mipFilter ? 'mip filter' : 'no mip filter'}${v.generateMipmaps ? ', generateMipmaps' : ''}`;
+          row.sampling ??= {};
+          row.sampling[key] ??= { count: 0, texels: 0 };
+          row.sampling[key].count += 1;
+          row.sampling[key].texels += w * h;
+          row.sizes ??= {};
+          row.sizes[`${w}x${h}`] = (row.sizes[`${w}x${h}`] ?? 0) + 1;
         }
       }
     });
+    const b = renderer.backend;
+    rows.maxTextureSize = renderer.capabilities?.maxTextureSize
+      ?? b?.device?.limits?.maxTextureDimension2D
+      ?? b?.gl?.getParameter(b.gl.MAX_TEXTURE_SIZE) ?? null;
     return rows;
   }
 

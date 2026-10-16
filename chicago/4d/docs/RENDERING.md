@@ -894,7 +894,10 @@ code was written, and the memo below answers them one by one without moving them
 **The scene.** "The Glessner block" is every 1904 structure whose placement lies within
 60 m of `glessner_house`'s: 12 structures, Glessner House at its `light` level as a phone
 boots it. All 12 are meshopt + `KHR_mesh_quantization`; three (Keith, Wheeler, Glessner's
-maps) carry `KHR_texture_basisu`. They stand on the 1904 heightfield (`e1871_postfire`)
+maps) carry `KHR_texture_basisu`. *(Corrected after the reading, the definition unchanged:
+the 60 m radius holds **11** structures, not 12, a miscount in this description; and the
+KTX2 maps are Keith's and Wheeler's only, 27 of them, while Glessner's light level ships
+46 image maps. No bar below depended on either number.)* They stand on the 1904 heightfield (`e1871_postfire`)
 under the NOAA sun at the scene's own 10:30 local mean time on 1904-07-01, read from the
 SAME published GLBs and sidecars walk/ reads.
 
@@ -932,6 +935,84 @@ TRAA reading under motion is taken. **Frame time on the steward runner is softwa
 on that stand-in and re-read on hardware before anything ships. And §4's "delete the spike
 in the same PR" is not followed: the ticket placed the spike in `renderers/web-hd/`, and it
 stays as the instrument that reproduces the memo. It is not published.
+
+### H0 — the bake-off memo (T-2558, 2026-10-16)
+
+**Verdict: NO-GO for H1 as measured, on K5 alone — and not a flip to Babylon.** K1, K2, K3,
+K4, K6 and K7 pass; WebGPURenderer + TSL carried the data contract (every GLB, the
+confidence view, the fallback). K5 fails by 46 MiB at the phone profile. Two allocations
+WebGPU makes and walk/ does not (33 MiB, named below) and a 40 MiB shortfall in the WebGL
+meter's reading of the baseline account for all of it. The next step is to re-read K5 with
+both settled, not H1 and not the fallback engine.
+
+Reading: `node tools/measure_hd_spike.mjs --dir <d>` (six runs, one per page × viewport,
+each under the 600 s ceiling), then `--evaluate <d>`; the record is
+`docs/measurements/t-2558-h0-bakeoff.json`. Steward runner, headless Chromium,
+**SwiftShader on every page**: milliseconds are software, read as ratios only.
+
+| # | answer | the numbers |
+|---|---|---|
+| K1 | **PASS** | all six runs ready, zero page errors, zero console errors. Boot to ready: phone HD-GPU 3.4 s, HD-GL 2.6 s, CLASSIC 3.2 s; desktop 5.1 / 3.4 / 3.9 s |
+| K2 | **PASS** | 11 of 11 structures in every run: meshopt, quantized positions, 27 KTX2 maps transcoded (ETC2/ASTC on WebGPU, BPTC on WebGL; none dropped to RGBA) |
+| K3 | **PASS** | view ON, against CLASSIC: mean 3.7-5.7/255, at most 0.85 % of pixels over 40/255 (bar 6/255 and 4 %), both HD backends, both stands, both viewports |
+| K4 | **PASS** | view OFF: mean 2.1-5.0/255, at most 0.21 % over 40/255 |
+| K5 | **FAIL** | phone, every block texture resident: HD-GPU **494.0 MiB**, HD-GL 490.8, CLASSIC **447.7** (+46.3 MiB, +10.3 %). Desktop 543.9 / 540.6 / 490.7 |
+| K6 | **PASS, go** | phone dolly at 4× CPU throttle, frame-interval p95: HD-GPU 1,467 ms, CLASSIC 4,683 ms (**0.31×**); HD-GL 3,150 ms (0.67×). Each frame waited to completion, p95: 1,481 / 1,740 / 2,463 ms (0.60× / 0.71×) |
+| K7 | **PASS** | HD-GL ran on a browser offering no adapter; `WebGPURenderer` chose WebGL2 by itself on both viewports, no code of the page's own |
+
+**Where K5's 46 MiB is.** Textures are +65.7 MiB on HD-GPU (424.8 against 359.1); the JS
+heap, ArrayBuffers and vertex buffers are 3.6 MiB *lighter* there. Of the texture gap:
+
+- **16.0 MiB — a 2048² RGBA8 colour attachment beside the shadow map.** WebGPU's shadow
+  pass holds it; walk/'s WebGL shadow holds a depth map only. Price or drop it in H1.
+- **17.0 MiB — the output pipeline at 390×780:** a 4× MSAA RGBA16F target (9.3), its MSAA
+  depth (4.6) and a mipped half-float resolve (3.1). three's WebGPU pipeline draws into a
+  half-float target before tone mapping. WebGL draws into the canvas's own buffer, which no
+  meter sees, so part of this is an ACCOUNTING asymmetry and part is real: the half-float
+  target is twice an RGBA8 one.
+- **39.5 MiB — unexplained, and on the baseline's side.** All 46 image maps are mip-filtered
+  on both pages, at the same sizes (max 2048, nothing resized: both renderers report an
+  8192 limit). The WebGPU meter reads them at exactly what three's arithmetic gives (354.7
+  MiB against 354.6). The GL meter (measure_memory.mjs's own, read out of that file so the
+  tools cannot drift) reads CLASSIC's whole texture total at 359.1 MiB, 39.5 MiB less than
+  those images plus the 28.0 MiB of BPTC and the 16 MiB shadow depth that three's arithmetic
+  says WebGL was asked for. So either WebGL
+  holds less than three asked for, or the GL meter misses an upload path. That is a
+  question about the instrument walk/'s ceilings stand on as well, and it is filed as one.
+- **−10.4 MiB in HD-GPU's favour:** the KTX2 maps transcode to ETC2 RGB / ASTC there
+  (17.6 MiB measured), against BPTC at a byte a texel on WebGL (28.0 MiB by arithmetic).
+  The remaining +3.5 MiB is small targets and the canvas depth.
+
+**What else the spike found, for H1.**
+
+1. **The TSL node is the improvement §3 promised.** About sixty lines of nodes, no string
+   patch against chunk names, and the same pixels as walk/'s patch (K3). It also dithers
+   the SHADOWS by itself: the shadow pass runs the material's `colorNode`, so a dithered
+   wall casts a dithered shadow with no second material, where walk/ carries a separately
+   patched `MeshDepthMaterial` (and the baseline had to be given one to match it).
+2. **A flat `scene.background` is tone-mapped by WebGPURenderer** and not by WebGLRenderer.
+   walk/ already draws its sky as an untone-mapped dome (`world.js`); walk-hd must too. The
+   spike does.
+3. **On this runner a WebGPU canvas presents only with `--use-angle=swiftshader`**, and
+   `--enable-features` must name `CDPScreenshotNewSurface` again because it replaces
+   Playwright's list. Without both, the device is up but nothing presents, and seconds later
+   it is lost ("Instance dropped in popErrorScope"). The meter's header records the flags.
+4. **The main-thread render call is not cheaper here**: p50 40.0 ms HD-GPU against 31.7 ms
+   CLASSIC at the throttled phone, 12.5 against 14.0 ms on desktop. §3's "lower CPU cost per
+   draw" is not shown on 134 meshes; it is a claim for batching and render bundles, which
+   H0 did not build.
+
+**Not answered here, and why.** TRAA under motion (moved to H1's entry, see the criteria
+above). Any frame time on a real GPU: K6's ratio is SwiftShader's, and the moving reading on
+hardware stays with T-2592.
+
+**What would change the verdict.** K5 re-read with the shadow attachment and the half-float
+output target priced or dropped, and the GL meter's 39.5 MiB shortfall explained. The meter
+question is written onto T-2602, which re-reads the 1904 ceilings on that same meter; the
+WebGPU half is the H track's next step and waits on the owner, as every H phase does (the
+queue was over its ceiling, so no new line was filed for it). If HD-GPU then reads at or
+under CLASSIC, H0 is a GO. If it still reads over, the excess is H1's to justify against the
+phone ceilings in `tools/memory_ceilings.json`.
 
 ---
 
