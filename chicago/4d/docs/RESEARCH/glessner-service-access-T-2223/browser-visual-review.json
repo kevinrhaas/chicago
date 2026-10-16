@@ -1,0 +1,18 @@
+{
+  "method": "Human-model visual inspection of actual published app screenshots; fixed before/after cameras. No hardware FPS conclusion.",
+  "full": {
+    "service-stair-overview": "Viewed: the ten-tread flight, seated posts, two lower rail lines, landing returns, pale capitals and brick piers are present. Footings meet the modeled lawn. Door glazing/proportions are outside this service-access change and remain final opening-review work.",
+    "service-stair-seats": "Viewed close: visible plate corners rest on tread stone, the cheek follows the undersides, and nosing overhangs are closed. No floating foot or new open cheek edge identified.",
+    "service-landing-joints": "Viewed: continuous closed rail bends, outer edge returns, seated intermediate feet and capital-to-slab contact. No gap at the rail transitions identified.",
+    "gate-courtyard": "Viewed: paired boarded leaves, central latch, four attached straps, dressed reveals and sill above the drive. Subtle brace/ledge readability and member-specific wood grain remain T-2226 material review.",
+    "gate-alley": "Viewed: outward board faces remain inside the opening, sill meets grade, no exposed hinge floating outside stone. Shade remains dark; T-2226 retains lighting review."
+  },
+  "light": {
+    "service-stair-overview": "Viewed: same stair, rail returns, caps and ground contacts. Light replaces individual brick geometry with flat clay-grain faces; those faces visibly lack the Full model mortar coursing. This is an explicit T-2226 material follow-up, not photographic parity.",
+    "service-stair-seats": "Viewed: plate seats and closed tread noses persist. Flat cheek and pier clay surfaces need a dedicated flat-brick mortar pattern in T-2226; existing brick normal map encodes clay grain only, not joint courses. No new geometric gap identified.",
+    "service-landing-joints": "Viewed: continuous rails and all exposed landing returns, seated posts and capitals preserved. Plain clay-grain support finish remains the T-2226 mortar-pattern follow-up.",
+    "gate-courtyard": "Viewed: both leaves, attached straps and latch, clear centre joint and sill above the drive. Member-specific wood grain remains T-2226 material work.",
+    "gate-alley": "Viewed: outward boards and threshold fit the opening and grade; no new gap or contact defect. Dark shade is retained for T-2226 lighting review."
+  },
+  "ui": "Viewed mobile Images, Liberty and confidence screenshots. New reference loaded with w_lemay / CC BY-SA 2.0 credit; 124 image tiles load. Service-access liberty is visible; confidence display tags the gate reconstructed."
+}

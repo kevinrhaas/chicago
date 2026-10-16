@@ -5,6 +5,8 @@
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
  *                                      [--sync] [--verify] [--gate]
+ *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
+ *                                      [--seconds 12] [--stills] [--json f]
  *
  * Every other frame budget in this project is read at a STAND: T-0135's five
  * cameras, T-1975's triangle ceilings, T-1976's light trim. A stand is a still
@@ -56,6 +58,28 @@
  * below, per tier, on the desktop reading. It is a seven-minute browser run, so
  * it is NOT in check.sh: since T-2106 it is its own CI leg,
  * .github/workflows/chicago-4d-moving-frames.yml.
+ *
+ * ## `--live`: the frame the visitor gets, governed and Fixed (T-2555)
+ *
+ * The driven moves above cannot see the frame governor: they call `step()`,
+ * which bypasses the animation loop the governor sits in, and they skip the
+ * draw, which is the cost the governor trims. So `--live` drives each move
+ * through the page's OWN loop instead — the walker posed from the wall clock on
+ * every rAF, the draw on — for `--seconds` of real time, once with Frame
+ * pacing at Adaptive and once at Fixed (Fixed is the renderer as it was before
+ * T-2555: the Sharpness ratio, every rAF, a shadow every frame). The reading is
+ * the interval between drawn frames: its standard deviation and p95, which are
+ * what "uneven" means. On this runner the draw is SwiftShader rasterising on
+ * the CPU, whose cost goes as the pixels drawn, so the comparison is real but
+ * it is a software rasteriser's, not a phone GPU's: the two modes are read in
+ * the same page, minutes apart, and only their DIFFERENCE is the finding.
+ *
+ * `--stills` then asks the other half of the claim at every anchor of the year
+ * (`--moves none` asks only it): with the governor put where a slow moving
+ * window puts it — this runner's frames are too slow to drive it there, see
+ * T-2592 — the loop's own still frames put the ratio back at the ceiling with a
+ * shadow every frame, and the held frame captured under Adaptive is the same
+ * signature as the one captured under Fixed.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -95,6 +119,9 @@ const RENDER = process.argv.includes('--render');
 const PROFILE = Number(argAt('--profile') || 0);
 const SYNC = process.argv.includes('--sync');
 const VERIFY = process.argv.includes('--verify');
+const LIVE = process.argv.includes('--live');
+const STILLS = process.argv.includes('--stills');
+const SECONDS = Number(argAt('--seconds') || 12);
 
 /**
  * THE CEILINGS, T-2096 § 3, per tier, on the desktop viewport unthrottled —
@@ -266,6 +293,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   };
   const digests = [];
   const rows = [];
+  const longs = [];
   // A digest is taken between passes, never across one in flight: a spread
   // pass has written part of its sets and committed none of them.
   let digestDue = false;
@@ -284,10 +312,25 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     } else {
       a.walker.teleport(path[i]);
     }
+    // T-2604: the page's own loop gives the event loop a turn between frames, and
+    // a spread flora pass's walk comes back from its worker in one. Driven back to
+    // back, no reply could ever land and every such pass would finish late, in
+    // the frame — so a driven move yields between frames too. Outside the timing.
+    if (a.jobs?.mode === 'workers') await new Promise((r) => setTimeout(r, 0));
     for (const k in t) t[k] = 0;
     const t0 = now();
     a.step();
     rows.push({ frame: now() - t0, ...t });
+    // T-2605: a frame over 50 ms is named — its index along the move, its flora
+    // milliseconds and what the spread passes had done by then — because a count
+    // of them cannot say WHICH pass it was. That is how the walk's grade-change
+    // re-deal was told apart from its right turn's.
+    if (rows[rows.length - 1].frame > 50) {
+      const sp = a.flora.stats?.spread ?? {};
+      longs.push({ frame: i, ms: Math.round(rows[rows.length - 1].frame * 10) / 10,
+        flora: Math.round((t['flora.update'] ?? 0) * 10) / 10,
+        landings: sp.landings, drained: sp.drained, abandoned: sp.abandoned });
+    }
     if (rows.length % 150 === 0) digestDue = true;
     if (digestDue && !a.flora.inFlight?.()) {
       if (profile) console.profileEnd(`${tier}/${move}`);
@@ -353,6 +396,11 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     abandoned: (s1.abandoned ?? 0) - (spread0.abandoned ?? 0),
     framesPerPass: ((s1.frames ?? 0) - (spread0.frames ?? 0))
       / Math.max(1, (s1.landings ?? 0) - (spread0.landings ?? 0)),
+    // T-2604: what a landed pass spent on the main thread, and the frames the
+    // passes let go by while a walk was on a worker.
+    msPerPass: ((s1.ms ?? 0) - (spread0.ms ?? 0))
+      / Math.max(1, (s1.landings ?? 0) - (spread0.landings ?? 0)),
+    waits: (s1.waits ?? 0) - (spread0.waits ?? 0),
   } : null;
   const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
   a.setAnimationHold(false);
@@ -368,11 +416,123 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, verified,
+    frames: rows.length, rebuilds, digests, spread, verified, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
   };
+}
+
+/** Runs in the page (T-2555): one move through the animation loop itself, for
+ *  `seconds` of wall clock, with Frame pacing at `mode`, timing every draw. */
+async function driveLive({ move, tier, mode, seconds }) {
+  const a = window.__chicago4d;
+  await a.setDetail(tier);
+  a.setGovernor(mode === 'adaptive');
+  const anchors = new Map((a.scene?.anchors ?? []).map((x) => [x.id, x]));
+  const pick = (...ids) => ids.map((id) => anchors.get(id)).find(Boolean) ?? a.scene?.anchors?.[0];
+  const rad = (d) => d * Math.PI / 180;
+  let pose;
+  if (move === 'walk') {
+    const v = a.walkBudget?.speed ?? 1.4;
+    const s = pick('lake_at_canal', 'spawn');
+    const b = s.yaw_deg ?? 90;
+    pose = (t) => {
+      const d = Math.min(40, v * t);
+      const d2 = Math.max(0, v * t - 40);
+      return { local_e: s.local_e + Math.sin(rad(b)) * d + Math.sin(rad(b + 90)) * d2,
+        local_n: s.local_n + Math.cos(rad(b)) * d + Math.cos(rad(b + 90)) * d2,
+        yaw_deg: d2 > 0 ? b + 90 : b };
+    };
+  } else if (move === 'turn') {
+    const s = pick('lake_market', 'lake_at_canal', 'spawn');
+    pose = (t) => ({ local_e: s.local_e, local_n: s.local_n, yaw_deg: (s.yaw_deg ?? 0) + 45 * t });
+  } else {
+    const s = pick('from_above', 'aerial');
+    pose = (t) => ({ local_e: s.local_e + 12 * t, local_n: s.local_n, yaw_deg: s.yaw_deg ?? 0,
+      altitude_m: s.altitude_m ?? 120, pitch_deg: s.pitch_deg ?? -30 });
+  }
+  a.setFly(move === 'flight');
+  a.walker.teleport(pose(0));
+  // At rest first, so both modes start from the same neutral state.
+  await new Promise((r) => setTimeout(r, 800));
+  const draws = [];
+  const render = a.renderer.render;
+  a.renderer.render = function timed(...args) {
+    const t = performance.now();
+    try { return render.apply(this, args); } finally {
+      draws.push([t, a.renderer.getPixelRatio(), performance.now() - t]);
+    }
+  };
+  const t0 = performance.now();
+  let paced = 0;
+  await new Promise((resolve) => {
+    const frame = () => {
+      const el = (performance.now() - t0) / 1000;
+      if (el >= seconds) { resolve(); return; }
+      a.walker.teleport(pose(el));
+      if (a.governor.pace === 2) paced += 1;
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  });
+  a.renderer.render = render;
+  const g = a.governor;
+  a.setGovernor(true);
+  const iv = [];
+  for (let i = 1; i < draws.length; i++) iv.push(draws[i][0] - draws[i - 1][0]);
+  const sorted = iv.slice().sort((x, y) => x - y);
+  const q = (p) => sorted[Math.min(sorted.length - 1, Math.floor(p * sorted.length))];
+  const mean = iv.reduce((t, x) => t + x, 0) / Math.max(1, iv.length);
+  const sd = Math.sqrt(iv.reduce((t, x) => t + (x - mean) ** 2, 0) / Math.max(1, iv.length));
+  const ratios = draws.map((d) => d[1]).sort((x, y) => x - y);
+  // What the draw itself cost, so a slow interval says whose it is.
+  const renderMs = draws.map((d) => d[2]).sort((x, y) => x - y)[Math.floor(draws.length / 2)] ?? null;
+  return { draws: draws.length, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
+    over33: iv.filter((x) => x > 33.4).length, over50: iv.filter((x) => x > 50).length,
+    ratioMin: ratios[0], ratioMedian: ratios[Math.floor(ratios.length / 2)], ceiling: g.ceiling,
+    pacedRafs: paced, decisions: g.decisions, renderMs };
+}
+
+/** Runs in the page (T-2555): at one anchor, put the governor where a slow
+ *  moving window puts it (this runner's frames are too slow to drive it there),
+ *  let the loop's own still frames rest it, and compare the held frame under
+ *  Adaptive with Fixed's. */
+async function stillAt({ id }) {
+  const a = window.__chicago4d;
+  const s = (a.scene?.anchors ?? []).find((x) => x.id === id);
+  if (!s || !a.goTo(id)) return { id, skipped: true };
+  a.setGovernor(true);
+  const frame = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+  await frame();
+  a.forceGovernor({ scale: 0.67, pace: 2 });
+  // The next drawn frame is drawn at the lowered ratio; read it off a draw.
+  const render = a.renderer.render;
+  let lowered = null;
+  a.renderer.render = function timed(...args) {
+    if (lowered === null) lowered = a.renderer.getPixelRatio();
+    return render.apply(this, args);
+  };
+  // Still frames — the loop's own, no hold, no step — until the governor rests.
+  const t0 = performance.now();
+  while (performance.now() - t0 < 30000) {
+    await new Promise((r) => setTimeout(r, 100));
+    const g = a.governor;
+    if (lowered !== null && !g.moving && Math.abs(g.ratio - g.ceiling) < 1e-9) break;
+  }
+  a.renderer.render = render;
+  const rested = a.governor;
+  const shadowAuto = a.renderer.shadowMap.autoUpdate;
+  const restMs = performance.now() - t0;
+  a.setAnimationHold(true);
+  const adaptive = await a.capture(24);
+  a.setGovernor(false);
+  const fixed = await a.capture(24);
+  a.setGovernor(true);
+  a.setAnimationHold(false);
+  const sig = (x) => JSON.stringify(x);
+  return { id, lowered, restMs, rested: { ratio: rested.ratio, ceiling: rested.ceiling, scale: rested.scale,
+    pace: rested.pace, moving: rested.moving, shadowAuto }, same: sig(adaptive) === sig(fixed) };
 }
 
 const browser = await chromium.launch({
@@ -414,6 +574,64 @@ for (const vp of VIEWPORTS) {
     prof.profiles = [];
     prof.on('Profiler.consoleProfileFinished', (ev) => prof.profiles.push(ev.profile));
   }
+  if (LIVE) {
+    // Into the town: under the welcome the loop draws only a frame that changed
+    // (T-2113) and the governor is held at rest, so nothing live is read there.
+    const entered = await page.evaluate(async () => {
+      const welcome = window.__chicago4d.welcome;
+      const deadline = Date.now() + 90_000;
+      while (welcome && welcome.state !== 'world' && Date.now() < deadline) {
+        if (welcome.state === 'welcome') welcome.enter('spawn');
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      document.exitPointerLock?.();
+      return welcome?.state ?? 'no welcome';
+    });
+    console.log(`entered the town: ${entered}`);
+    console.log('tier      move    mode      draws | interval ms mean   sd  med  p95  max  >33 >50 | ratio min/med (ceiling) | paced rAFs');
+    for (const tier of TIERS) {
+      for (const move of MOVES.filter((m) => !['travel', 'none'].includes(m))) {
+        const pair = {};
+        for (const mode of ['fixed', 'adaptive']) {
+          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS });
+          pair[mode] = r;
+          const f = (x) => x.toFixed(1).padStart(5);
+          console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
+            + ` ${f(r.mean)}${f(r.sd)}${f(r.median)}${f(r.p95)}${f(r.max)} ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)} |`
+            + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`
+            + ` | draw median ${r.renderMs?.toFixed(0)} ms`);
+          out.readings.push({ viewport: vp.id, throttle: vp.throttle, live: true, tier, move, mode, ...r });
+          if (jsonOut) writeJson();
+        }
+        const fell = pair.adaptive.sd < pair.fixed.sd && pair.adaptive.p95 < pair.fixed.p95;
+        console.log(`  ${fell ? 'FELL' : 'DID NOT FALL'}: sd ${pair.fixed.sd.toFixed(1)} → ${pair.adaptive.sd.toFixed(1)} ms,`
+          + ` p95 ${pair.fixed.p95.toFixed(1)} → ${pair.adaptive.p95.toFixed(1)} ms`);
+        if (!fell) failed++;
+      }
+    }
+    if (STILLS) {
+      out.stills = [];
+      for (const { id } of await page.evaluate(() => window.__chicago4d.scene?.anchors ?? [])) {
+        const r = await page.evaluate(stillAt, { id });
+        out.stills.push({ viewport: vp.id, ...r });
+        if (jsonOut) writeJson();
+        if (r.skipped) { console.log(`  still ${id}: not an anchor of this year`); continue; }
+        const rested = r.lowered !== null && r.lowered < r.rested.ceiling
+          && Math.abs(r.rested.ratio - r.rested.ceiling) < 1e-9 && r.rested.scale === 1
+          && r.rested.pace === 1 && r.rested.shadowAuto === true;
+        console.log(`  still ${id.padEnd(26)} drawn at ${r.lowered?.toFixed(2)}, rested at ${r.rested.ratio.toFixed(2)}`
+          + ` in ${(r.restMs / 1000).toFixed(1)} s`
+          + ` (ceiling ${r.rested.ceiling.toFixed(2)})${rested ? '' : ' NOT AT REST'}; held frame Adaptive ${r.same ? '==' : '!='} Fixed`);
+        if (!rested || !r.same) failed++;
+      }
+    }
+    if (errors.length) {
+      console.log(`pageerrors: ${JSON.stringify(errors.slice(0, 5))}`);
+      failed++;
+    }
+    await ctx.close();
+    continue;
+  }
   console.log('tier      move    frames rebuilds | scripted ms med/p95/max  >16 >33 >50 | flora p95/max | trees p95/max | other hooks max');
   for (const tier of TIERS) {
     for (const move of MOVES) {
@@ -428,7 +646,12 @@ for (const vp of VIEWPORTS) {
       console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${String(r.frames).padStart(6)} ${String(r.rebuilds).padStart(8)} |`
         + ` ${f(r.scripted.median)} ${f(r.scripted.p95)} ${f(r.scripted.max)} ${n(r.scripted.over16)} ${n(r.scripted.over33)} ${n(r.scripted.over50)} |`
         + ` ${f(L['flora.update'].p95)} ${f(L['flora.update'].max)} | ${f(L['trees.update'].p95)} ${f(L['trees.update'].max)} | ${others || '-'}`
-        + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped` : ''));
+        + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped`
+          + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker` : ''));
+      for (const l of r.longs ?? []) {
+        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}),`
+          + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);
+      }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
         console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
         if (!v.same) failed++;
@@ -477,6 +700,10 @@ for (const vp of VIEWPORTS) {
 await browser.close();
 server.close();
 if (jsonOut) console.log(`\nwrote ${jsonOut}`);
+if (LIVE) {
+  console.log(failed ? `\nFAIL — ${failed} live reading(s) did not hold` : '\nPASS — governed moves steadier, still frames unchanged');
+  process.exit(failed ? 1 : 0);
+}
 if (VERIFY && !GATE) {
   console.log(failed ? `\nFAIL — ${failed} move(s) failed verification or threw` : '\nPASS — every spread pass landed the one-frame pass');
   process.exit(failed ? 1 : 0);

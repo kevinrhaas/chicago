@@ -1,0 +1,11 @@
+
+[1m1/3  the gate a run already runs[0m
+[32m  ok  [0m  check.sh
+
+[1m2/3  does this change carry a changelog entry? (PR-event only in CI)[0m
+[32m  ok  [0m  changelog entry: not required — this change touches nothing under renderers/, data/, tools/, generators/, assets/
+
+[1m3/3  did a sibling slice take a ticket id this branch minted?[0m
+[32m  ok  [0m  ticket ids: not applicable — tickets/ is a repository of its own (kevinrhaas/chicago-tickets). Ids are allocated on the tickets repository's main by ticket.mjs, which renumbers a collision as it pushes; a code branch carries no ticket file, so there is nothing here to renumber.
+
+[32mPREFLIGHT PASS[0m — CI has nothing left to ask. Open the PR.

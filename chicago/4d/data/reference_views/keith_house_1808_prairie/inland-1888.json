@@ -1,0 +1,44 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "source_id": "inland_architect_1888_02_keith_plate",
+  "library_image": "a18-inland-architect-1888-02-keith-plate",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/plate.jpg",
+  "image_px": [
+    1559,
+    2400
+  ],
+  "principal_px": [
+    779.5,
+    1217.96875
+  ],
+  "focal_px": 2333.2783186802635,
+  "eye": [
+    47.672462621342696,
+    -0.549256780892961,
+    0.5000000000000001
+  ],
+  "yaw_deg": 270,
+  "basis_right_up_forward": [
+    [
+      0.23171069632859861,
+      0.9727450923898676,
+      -0.008782849101727372
+    ],
+    [
+      0.21180831724062865,
+      -0.04163728965384441,
+      0.9764238694634492
+    ],
+    [
+      -0.9494458330808604,
+      0.22810813519405573,
+      0.21568330650210554
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883: least-squares perspective fit to six manually picked wall/parapet corners in the 1280x1971 inspection display; camera intrinsics are scaled by 1559/1280 to the native 1559x2400 raster. Fixed principal point [640,1000]; solved camera eye, rotation and focal length. Pixel-coordinate RMS 14.19px; scan distortion and obscured grade corners limit precision. World control points [[18.0, 0.0, 0.0], [18.0, 10.4, 0.0], [18.0, 0.0, 15.2], [18.0, 10.4, 15.2], [18.0, 0.17, 16.44], [18.0, 10.23, 16.44]]; photograph pixels [[211, 1450], [884, 1440], [224, 514], [867, 591], [241, 435], [848, 513]]; projected [[209.37, 1461.84], [876.93, 1453.13], [246.11, 510.2], [846.42, 569.05], [259.22, 442.35], [835.12, 503.46]]. The ground corners are partly hidden by the early low stone rail. This is an approximate camera calibration, not an assertion of image agreement."
+}

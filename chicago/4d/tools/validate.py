@@ -20,6 +20,7 @@ cannot be generated while the datum origin is unverified.
 from __future__ import annotations
 
 import argparse
+import array
 import datetime as dt
 import hashlib
 import json
@@ -30,6 +31,7 @@ from pathlib import Path
 
 from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION, HOME_KINDS, WORK_KINDS,
                          check_association_rows, home_of, workplace_of)
+from exclusion_scope import ruled_for, scenes_of
 from heightfield import Heightfield
 from migrate_attribute_tiers import check_tier_block
 from reconstruct_residents_1835 import (PROGRAMME as RECONSTRUCTION_PROGRAMME,
@@ -207,7 +209,28 @@ WIDE_RANGE_YEARS = 12
 # Raising it removes the recurring "pay for the budget out of the record" raises
 # (32 -> 36 -> 40, each bought with a doc edit); the honest guard on visitor cost
 # is the boot budget now.
-SITE_BUDGET_MB = 256
+# T-2226, 2026-10-15: measured whole-tree re-budget, 256 -> 288 MiB.
+# The published surface pass is 262.262 MiB, including 7,413,840 new bytes in
+# the Full/Light assets. No duplicate files over 64 KiB remain; minifying ALL
+# JSON would save only 5.435 MiB and would change the readable-record contract
+# (docs/SITE-BUDGET.md §6). Keep the original material maps and record the cost.
+# Two 288 MiB app allowances plus this checkout's 129.136 MiB of other site
+# content total 705.136 MiB, below the documented 1 GiB platform ceiling.
+# This is storage hygiene only: boot-payload, frame/Light limits and the 90%
+# warning/duplicate guard are unchanged. Measurements and limits: §8.
+# T-2595, 2026-10-16: measured whole-tree re-budget, 288 -> 320 MiB. The 20 textured
+# Prairie houses' web GLBs moved from JPEG to KTX2 (UASTC data maps, ETC1S colour) to
+# cut what a phone holds on the GPU about 6.7x (1,074.6 -> 159.3 MiB by format), and
+# the wire pays for it: 28,806,824 -> 53,759,924 bytes, +23.797 MiB. The tree read
+# 297.968 MiB against 288, where dev stood near 274.2. UASTC normal maps keep about a
+# byte a texel before Zstandard; ETC1S normals would be a fifth of the bytes at 31 dB
+# against UASTC's 39 dB on the same sheet, and the photo-match is what they are for.
+# Two 320 MiB app allowances plus the 129.136 MiB of other site content total
+# 769.136 MiB, below the 1 GiB platform ceiling. Storage hygiene only, as above: the
+# boot payload is untouched (no textured house is in the 1835 boot). §9 of
+# docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) is expected to
+# hand some back, since its 28 PNG maps are larger than their UASTC equivalents.
+SITE_BUDGET_MB = 320
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
@@ -561,8 +584,11 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
         # T-1739: asked only of a scene that lists `exclusions`. The record is the 1835
         # town's; the 1904 scene stands on Prairie Avenue, where none of it is, and an
         # 1837 brick block on Clark Street is not an exclusion from that ground at all.
+        # T-2489: and of a scene that lists it, only the entries ruled FOR that scene —
+        # an entry names its scenes, and one naming none is the 1835 town's. The identity
+        # check above stays unscoped: an id excluded anywhere may not stand anywhere.
         earliest = str(ex.get("earliest_scene") or "")
-        if ("exclusions" in scene.get("layers", []) and earliest.isdigit()
+        if ("exclusions" in scene.get("layers", []) and ruled_for(ex, sid) and earliest.isdigit()
                 and int(earliest) <= target.year):
             rep.error(where, f"'{ex.get('id')}' is excluded, but its own earliest_scene "
                              f"({earliest}) is on or before this scene ({target.year}) — "
@@ -605,6 +631,10 @@ def check_exclusions(exclusions: dict, source_ids: set, rep: Report) -> None:
         for s in srcs:
             if s not in source_ids:
                 rep.error(where, f"source '{s}' does not resolve in data/sources/")
+        # T-2489: a ruling scoped to a scene that does not exist is a ruling nobody reads.
+        for sc in scenes_of(ex):
+            if not (DATA / "scenes" / f"{sc}.json").exists():
+                rep.error(where, f"scenes names '{sc}', which is not a scene in data/scenes/")
 
 
 # The claims the provenance card renders, as a RECORD names them mapped to the
@@ -1794,7 +1824,7 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             except Exception:  # noqa: BLE001 — reported by the param check
                 continue
 
-    targets = sorted((d, sc.get("terrain_epoch")) for d, sc in
+    targets = sorted((d, scene_ground_key(sc)) for d, sc in
                      ((parse_date(sc.get("target_date", "")), sc) for sc in scenes.values()) if d)
     town_field = field
     for name, st in sorted(structures.items()):
@@ -1860,6 +1890,39 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             if abs(worst) > GROUND_CONTACT_TOL_M:
                 found.append((sid, pid, "ground_contact", f"structure {sid}/{pid}", worst))
     return found
+
+
+def scene_ground_key(sc: dict):
+    """The ground a scene stands on: its terrain epoch, or the epoch with its apron."""
+    ep, apron = sc.get("terrain_epoch"), sc.get("terrain_apron")
+    return f"{ep}+{apron}" if ep and apron else ep
+
+
+def load_apron(meta_path: Path) -> Heightfield:
+    """A scene's apron field (T-2502): the heightfield layout, in its own JSON and bin."""
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    samples = array.array({"int16": "h", "float32": "f"}[meta.get("encoding", "int16")])
+    samples.frombytes((meta_path.parent / meta["bin"]).read_bytes())
+    if len(samples) != int(meta["cols"]) * int(meta["rows"]):
+        raise ValueError(f"{meta['bin']} holds {len(samples)} samples, but "
+                         f"{meta_path.name} declares {meta['cols']}x{meta['rows']}")
+    return Heightfield(meta, samples)
+
+
+class ApronedField:
+    """An epoch's box with a scene's apron beside it, sampled as the renderer does:
+    the box wherever it reaches, the apron where the box does not (terrain.js `sample`)."""
+
+    def __init__(self, box: Heightfield, apron: Heightfield) -> None:
+        self.box, self.apron = box, apron
+
+    def covers(self, e: float, n: float) -> bool:
+        return self.box.covers(e, n) or self.apron.covers(e, n)
+
+    def height(self, e: float, n: float) -> float:
+        if not self.box.covers(e, n) and self.apron.covers(e, n):
+            return self.apron.height(e, n)
+        return self.box.height(e, n)
 
 
 def check_ground_contact(structures: dict, unlanded: list[tuple], rep: Report) -> None:
@@ -6516,6 +6579,18 @@ def main() -> int:
             fields[ep] = Heightfield.load(DATA / "terrain" / "epochs" / ep)
         except Exception as e:  # noqa: BLE001
             rep.error("ground contact", f"cannot read the {ep} heightfield: {e}")
+    # T-2509: a scene that names a `terrain_apron` (T-2502) stands on its epoch's box AND
+    # that apron, which the renderer samples wherever the box does not reach
+    # (terrain.js `sample`). Measured against the box alone, Lee's Place stood "outside
+    # the modelled terrain box altogether" on ground the visitor walks on.
+    for sc in scenes.values():
+        key, ep, apron = scene_ground_key(sc), sc.get("terrain_epoch"), sc.get("terrain_apron")
+        if not apron or key in fields or fields.get(ep) is None:
+            continue
+        try:
+            fields[key] = ApronedField(fields[ep], load_apron(DATA / "terrain" / "epochs" / apron))
+        except Exception as e:  # noqa: BLE001
+            rep.error("ground contact", f"cannot read the {apron} apron: {e}")
     town = next((sc.get("terrain_epoch") for sc in scenes.values() if sc.get("id") == "1835"), None)
     field = fields.get(town) or next(iter(fields.values()), None)
     datum_origin = None

@@ -1,0 +1,29 @@
+{
+  "method": "Decode actual master, meshopt Full and meshopt Light; apply node scale/translation; compare each expected gate member corner and metric UV through glTF V flip. Web tolerances 2 mm position and 0.002 UV cycles; master 0.01 mm and 0.00001 cycles.",
+  "rows": [
+    {
+      "tier": "master",
+      "checkedCorners": 112,
+      "maxPositionError": 9.817104785402702e-8,
+      "maxUvError": 2.6585728122855892e-8,
+      "positionTolerance": 0.00001,
+      "uvTolerance": 0.00001
+    },
+    {
+      "tier": "web",
+      "checkedCorners": 112,
+      "maxPositionError": 0.0005711362413321013,
+      "maxUvError": 2.6585728122855892e-8,
+      "positionTolerance": 0.002,
+      "uvTolerance": 0.002
+    },
+    {
+      "tier": "light",
+      "checkedCorners": 112,
+      "maxPositionError": 0.00047391076497593646,
+      "maxUvError": 1.8895646572626766e-8,
+      "positionTolerance": 0.002,
+      "uvTolerance": 0.002
+    }
+  ]
+}

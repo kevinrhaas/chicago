@@ -1,0 +1,316 @@
+{
+  "status": "T-2218 reviewed plan calibration; nine rises and the obscured lower turn remain bounded reconstructions.",
+  "native_dimensions": [
+    9624,
+    7584
+  ],
+  "control_NE": [
+    2145,
+    4988
+  ],
+  "control_NW": [
+    8152,
+    4967
+  ],
+  "control_SE": [
+    2130,
+    2216
+  ],
+  "controls_ft": [
+    161.25,
+    74
+  ],
+  "crop_origin": [
+    2742,
+    2578
+  ],
+  "points_crop_pixels": {
+    "bow_radius_centre": [
+      434,
+      1329
+    ],
+    "newel": [
+      650,
+      675
+    ],
+    "tower_centre": [
+      412,
+      305
+    ],
+    "parapet_north_end": [
+      1131,
+      1400
+    ],
+    "parapet_inner_north_end": [
+      1064,
+      1400
+    ],
+    "upper_tread_inner": [
+      633,
+      1007
+    ],
+    "upper_tread_outer": [
+      827,
+      799
+    ],
+    "lower_fan_inner": [
+      391,
+      812
+    ],
+    "lower_fan_outer": [
+      637,
+      706
+    ]
+  },
+  "points_WS_ft": {
+    "bow_radius_centre": [
+      27.8323,
+      28.7611
+    ],
+    "newel": [
+      33.7255,
+      46.1995
+    ],
+    "tower_centre": [
+      27.3905,
+      56.0989
+    ],
+    "parapet_north_end": [
+      46.5317,
+      26.8007
+    ],
+    "parapet_inner_north_end": [
+      44.7332,
+      26.807
+    ],
+    "upper_tread_inner": [
+      33.2209,
+      37.3383
+    ],
+    "upper_tread_outer": [
+      38.4587,
+      42.8728
+    ],
+    "lower_fan_inner": [
+      26.7532,
+      42.5664
+    ],
+    "lower_fan_outer": [
+      33.372,
+      45.3732
+    ]
+  },
+  "upper_tread_lines_crop_pixels": [
+    [
+      [
+        633,
+        1007
+      ],
+      [
+        827,
+        799
+      ]
+    ],
+    [
+      [
+        592,
+        981
+      ],
+      [
+        788,
+        778
+      ]
+    ],
+    [
+      [
+        550,
+        968
+      ],
+      [
+        753,
+        755
+      ]
+    ],
+    [
+      [
+        508,
+        954
+      ],
+      [
+        720,
+        739
+      ]
+    ],
+    [
+      [
+        467,
+        943
+      ],
+      [
+        687,
+        723
+      ]
+    ],
+    [
+      [
+        395,
+        936
+      ],
+      [
+        657,
+        713
+      ]
+    ],
+    [
+      [
+        391,
+        812
+      ],
+      [
+        637,
+        706
+      ]
+    ]
+  ],
+  "lower_turn_WS_ft": [
+    [
+      [
+        26.8,
+        46.4
+      ],
+      [
+        32.83,
+        46.25
+      ]
+    ],
+    [
+      [
+        28.2,
+        49.4
+      ],
+      [
+        33.1,
+        46.83
+      ]
+    ],
+    [
+      [
+        31.8,
+        51.8
+      ],
+      [
+        33.9,
+        47.1
+      ]
+    ]
+  ],
+  "bounds": "Plan scan readings \u00b10.25 ft, bow radius \u00b10.2 ft; lower turn reconstructed from section/tower clearance, nine\u00b1one riser. See report.",
+  "final_stair_boundaries_WS": [
+    [
+      [
+        33.22,
+        37.34
+      ],
+      [
+        38.46,
+        42.87
+      ]
+    ],
+    [
+      [
+        32.12,
+        38.04
+      ],
+      [
+        37.41,
+        43.44
+      ]
+    ],
+    [
+      [
+        31.0,
+        38.39
+      ],
+      [
+        36.48,
+        44.05
+      ]
+    ],
+    [
+      [
+        29.87,
+        38.76
+      ],
+      [
+        35.6,
+        44.48
+      ]
+    ],
+    [
+      [
+        28.77,
+        39.06
+      ],
+      [
+        34.71,
+        44.91
+      ]
+    ],
+    [
+      [
+        26.84,
+        39.26
+      ],
+      [
+        33.91,
+        45.18
+      ]
+    ],
+    [
+      [
+        26.75,
+        42.57
+      ],
+      [
+        33.37,
+        45.37
+      ]
+    ],
+    [
+      [
+        26.8,
+        46.4
+      ],
+      [
+        32.99076,
+        46.09076
+      ]
+    ],
+    [
+      [
+        28.2,
+        49.4
+      ],
+      [
+        33.21087,
+        46.56359
+      ]
+    ],
+    [
+      [
+        31.8,
+        51.8
+      ],
+      [
+        33.86304,
+        46.7837
+      ]
+    ]
+  ],
+  "final_newel_WS": [
+    33.7,
+    46.05
+  ],
+  "final_newel_radius_ft": 0.75,
+  "section_reconciliation": "Final cap-section-controls.json reconciles terminal diameter/crown; centreS46.05 differs by1.8in from the initial plan S46.2 reading. Last three reconstructed tread endpoints follow the final terminal."
+}

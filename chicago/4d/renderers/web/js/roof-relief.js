@@ -89,7 +89,10 @@
  */
 
 import * as THREE from 'three';
+import { captureHooks, registerPatch } from './batch-material.js';
+import { structureFrameGLSL } from './compact-attributes.js';
 import { resolveBases } from './scene-loader.js';
+import { ktx2Beside, loadSheet } from './ktx2.js';
 
 /**
  * Material name -> the library directory that covers it.
@@ -122,6 +125,7 @@ const LIBRARY = 'textures/chicago_1835_pbr/';
  * is the whole of the transform.
  */
 function metricRoofUv(material, tileM) {
+  const batchHooks = captureHooks(material);
   const prior = material.onBeforeCompile;
   material.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior(shader, renderer);
@@ -131,7 +135,8 @@ function metricRoofUv(material, tileM) {
         '#include <project_vertex>',
         `#include <project_vertex>
   {
-    vec3 chiWorldPos = ( modelMatrix * vec4( transformed, 1.0 ) ).xyz;
+    ${structureFrameGLSL('chiRoofLocal')}
+    vec3 chiWorldPos = ( modelMatrix * vec4( chiRoofLocal, 1.0 ) ).xyz;
     vec3 chiWorldNrm = normalize( mat3( modelMatrix ) * objectNormal );
     vec3 chiAlongEave = cross( chiWorldNrm, vec3( 0.0, 1.0, 0.0 ) );
     float chiEaveLen = length( chiAlongEave );
@@ -153,26 +158,32 @@ function metricRoofUv(material, tileM) {
   }`,
       );
   };
+  registerPatch(material, batchHooks, 'metric-roof-uv-v2', { tileM });
   material.needsUpdate = true;
 }
 
-/** A linear (non-colour) map, tiling, off the vendored library. */
-function reliefTexture(loader, url) {
-  return new Promise((resolve, reject) => {
-    loader.load(url, (tex) => {
-      tex.wrapS = THREE.RepeatWrapping;
-      tex.wrapT = THREE.RepeatWrapping;
-      // Every one of these is data, not colour — the library's material.json
-      // records `normal_gl` and `orm` as linear. Tagging one sRGB would decode
-      // a normal vector through a gamma curve.
-      tex.colorSpace = THREE.NoColorSpace;
-      // The same 8 the water ripple uses (terrain.js): a roof seen from the
-      // street is a grazing surface, and without anisotropy its courses turn to
-      // aliased mush at the ridge.
-      tex.anisotropy = 8;
-      resolve(tex);
-    }, undefined, () => reject(new Error(`roof relief map did not load — ${url}`)));
-  });
+/**
+ * A linear (non-colour) map, tiling, off the vendored library: the `.ktx2` beside
+ * the `.webp` where this GPU takes one (ktx2.js), else the `.webp` itself.
+ */
+async function reliefTexture(loader, url) {
+  let tex;
+  try {
+    tex = await loadSheet(ktx2Beside(url), url, loader);
+  } catch {
+    throw new Error(`roof relief map did not load — ${url}`);
+  }
+  tex.wrapS = THREE.RepeatWrapping;
+  tex.wrapT = THREE.RepeatWrapping;
+  // Every one of these is data, not colour — the library's material.json
+  // records `normal_gl` and `orm` as linear. Tagging one sRGB would decode
+  // a normal vector through a gamma curve.
+  tex.colorSpace = THREE.NoColorSpace;
+  // The same 8 the water ripple uses (terrain.js): a roof seen from the
+  // street is a grazing surface, and without anisotropy its courses turn to
+  // aliased mush at the ridge.
+  tex.anisotropy = 8;
+  return tex;
 }
 
 /**

@@ -1,0 +1,52 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "cram_1893",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "83bf2d011381d98ac86f57644381f1a190f66caffc5195c669c69d3a3d987f4b",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/cram_1893-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a long, low, single-storey house on the north bank, its ridge along the river and a gable at each end, the west gable toward the eye; the build's west gable apex lands within about 4 px of the drawn (613, 340) and its roof outline on the drawn one on the red-edge overlay",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, at x 671 and 735 px, 0.44 and 0.92 of the ridge from the west gable, the second by the east gable; the build's (0.45 and 0.92) land within 1 and 6 px. The plate agrees with the 1857 engraving and the Teich postcard against Lossing, as the Lossing match record rules",
+      "status": "fixed"
+    },
+    {
+      "what": "front windows: two sash each side of the central door under the piazza; the build's two each side of the door land between the same posts",
+      "status": "fixed"
+    },
+    {
+      "what": "walls: drawn light and smooth, with a corner board at the west end, as weatherboard or whitewash reads, 'in 1832' as the caption says. The same reading as the 1857 engraving's, and the same ruling: the 1812 house is built of squared logs (Moses and Kirkland) as Lossing's 1812 view draws it, and the plate is evidence of its own date, twenty years later. Not built for 1812",
+      "status": "open"
+    },
+    {
+      "what": "the picket fence round the green before the piazza, running east to the poplars, the four poplars in a row east of the house toward the river, and the great tree behind its middle: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "the two-storey house and the low shed behind the house to the north-west (x 530-600 px, y 325-375 px): buildings of the 1832 establishment that no 1812 source places; Ouilmette's and Pettell's houses behind the Kinzie house are T-2484's other pieces, and the plate dates itself to 1832",
+      "status": "not shown"
+    },
+    {
+      "what": "colour: a monochrome wood engraving",
+      "status": "not shown"
+    },
+    {
+      "what": "piazza roof: the plate carries the roof down over the piazza in one plane from the ridge to an eave at y 370 px. Rebuilt (T-2516): the main roof now runs down over the piazza and breaks to a flatter pitch above the front wall, as Sarony's and Eastman's views draw it, and from this camera it reads as the plate's one plane, the eave on the drawn one within 3-6 px",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza height: on the rebuilt piazza (2.95 m plate, Sarony's reading) every post's foot lands 3-7 px above the drawn foot and every head 3-6 px below the drawn head, so the plate still draws the piazza about 1.2 times as tall as the build (1.7 times before T-2516). Sarony's lithograph, drawn by a member of the household, governs the height",
+      "status": "open"
+    },
+    {
+      "what": "the west gable end: an upright pale mark low on the end wall at x 597-603 px: the door Sarony draws there, now built (end_openings), with the light high in the gable",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

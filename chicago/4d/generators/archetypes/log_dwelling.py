@@ -69,8 +69,10 @@ from common import materials  # noqa: E402
 from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, simple_material  # noqa: E402
 from archetypes.log_dwelling_params import (  # noqa: E402
+    LIGHT_HALF_W_M, LIGHT_HALF_H_M,
     ADDITION_WIN_HALF_M, DOOR_HALF_M, WIN_AT_FRAC, WIN_HALF_M, LogDwellingParams,
     addition_extent, addition_front_rects, core_extent, core_front_rects,
+    lean_to_extent,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
@@ -154,8 +156,17 @@ def build(params: LogDwellingParams, name: str):
 
     _core_openings(b, params, cx0, cy0, cx1, cy1, wall_z,
                    params.conf("fenestration", "reconstructed"))
+    if params.end_openings:
+        _end_openings(b, params, cx0, cy0, cx1, cy1, wall_z)
 
     addition_ridge_z = _frame_addition(b, params) if params.frame_addition else None
+
+    if params.lean_to:
+        _lean_to(b, params, params.conf("lean_to", "reconstructed"),
+                 params.worst_conf("roof_type", "lean_to"))
+
+    if params.piazza:
+        _piazza(b, params, cx0, cy0, cx1, cy1, wall_z, params.conf("piazza", "reconstructed"))
 
     painted = bool(params.sign and params.sign_device)
     _chimneys(b, params, cx0, cy0, cx1, cy1, ridge_z, addition_ridge_z,
@@ -190,11 +201,19 @@ def build(params: LogDwellingParams, name: str):
     frame_finish = materials.wall_finish(params.frame_paint, params.finish_key)
     frame_rgba, frame_rough = materials.resolve(
         materials.wall_substrate(cladding="clapboard"), frame_finish)
+    # A STATED COATING ON THE LOGS (T-2511) coats the chinking with them: whitewash
+    # goes on the whole wall, and a white log over dark daub would be two finishes.
+    # The daub keeps its own roughness under the coat, which also keeps the two slots
+    # apart — two identical materials are folded into one by the web derivative.
+    log_rgba, log_rough = HEWN_RGBA, materials.SUBSTRATES["hewn_log"].roughness
+    chink_rgba, chink_rough = CHINK_RGBA, materials.SUBSTRATES["chinking"].roughness
+    if params.log_finish is not None:
+        coat = materials.FINISHES[params.log_finish]
+        log_rgba = chink_rgba = coat.rgba
+        log_rough = coat.roughness
     mats = [
-        simple_material("log", HEWN_RGBA,
-                        roughness=materials.SUBSTRATES["hewn_log"].roughness),
-        simple_material("chinking", CHINK_RGBA,
-                        roughness=materials.SUBSTRATES["chinking"].roughness),
+        simple_material("log", log_rgba, roughness=log_rough),
+        simple_material("chinking", chink_rgba, roughness=chink_rough),
         # A shingle field on a LOG cabin, and that is the half of the dealing rule
         # §2.2 does not grade — it grades shingle for a FRAMED building. L266 is the
         # liberty: the two coverings this project can argue split on what a roof is
@@ -469,6 +488,19 @@ def _core_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     # are not stated there, but they take their band from the storey's front windows
     # rather than recomputing it.
     rects = core_front_rects(p)
+    if p.front_set_out is not None:
+        # A STATED SET-OUT (T-2511): the record's openings in its own order, one
+        # storey, and the back window hung on the band its first window takes.
+        shut = (x1 - x0) >= 5.2 if p.front_shutters is None else p.front_shutters
+        for kind, u0, u1, z0, z1 in rects:
+            _opening(b, "y", y1, u0, u1, z0, z1, 1, conf, kind=kind, shutters=shut)
+        wins = [r for r in rects if r[0] == "window"]
+        z0, z1 = (wins[0][3], wins[0][4]) if wins else (0.82, 1.54)
+        if gable_front:
+            _opening(b, "x", x0, ym - _WIN_HALF, ym + _WIN_HALF, z0, z1, -1, conf)
+        else:
+            _opening(b, "y", y0, xm - _WIN_HALF, xm + _WIN_HALF, z0, z1, -1, conf)
+        return
     i = 0
     if not front_taken:
         kind, u0, u1, z0, z1 = rects[i]
@@ -476,11 +508,13 @@ def _core_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
         _opening(b, "y", y1, u0, u1, z0, z1, 1, conf, kind=kind)
 
     for story in range(p.stories):
-        band = rects[i:i + (3 if front_taken and story == 0 else 2)]
+        per = 2 * p.front_windows_per_side
+        band = rects[i:i + (per + 1 if front_taken and story == 0 else per)]
         i += len(band)
         for kind, u0, u1, z0, z1 in band:
             _opening(b, "y", y1, u0, u1, z0, z1, 1, conf, kind=kind,
-                     shutters=(x1 - x0) >= 5.2)
+                     shutters=((x1 - x0) >= 5.2 if p.front_shutters is None
+                               else p.front_shutters))
         z0, z1 = band[0][3], band[0][4]
         # ONE WINDOW BEHIND, AND NEVER IN A GABLE. The rule this line has always stated
         # is "none on the gable ends: the gables carry the chimney at one end and the
@@ -495,6 +529,175 @@ def _core_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
             _opening(b, "x", x0, ym - _WIN_HALF, ym + _WIN_HALF, z0, z1, -1, conf)
         else:
             _opening(b, "y", y0, xm - _WIN_HALF, xm + _WIN_HALF, z0, z1, -1, conf)
+
+
+# --------------------------------------------------------------------- piazza
+
+PIAZZA_DECK_M = 0.12        # plank floor on sleepers: one low step, under the door's sill
+PIAZZA_PITCH_DEG = 12.0     # a porch roof is flatter than the house's own
+PIAZZA_UNDER_EAVE_M = 0.30  # it hangs below the main eave, as the pictures draw it
+PIAZZA_POST_M = 0.13        # square posts, a hewn or sawn four inches
+PIAZZA_RAIL_Z = 0.82        # the rail's top over the deck
+
+
+def _piazza(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
+            wall_z: float, conf: float) -> None:
+    """A full-front piazza: a plank deck, a row of posts and a shed roof (T-2497).
+
+    It runs the whole log front, which is what "a piazza extending along its front"
+    says, and its roof is a separate, flatter plane hung under the main eave rather
+    than the main slope carried down — every picture of the Kinzie house draws that
+    break. The posts divide the front into equal bays; a rail, when the record asks
+    for one, runs between them except in the bay the door opens into. Every number
+    here is this module's own (see the dataclass), so the record that turns it on
+    carries a liberty for all of them.
+    """
+    d = p.piazza_depth_m
+    yf = y1 + d
+    pitch = PIAZZA_PITCH_DEG if p.piazza_pitch_deg is None else p.piazza_pitch_deg
+    tp = math.tan(math.radians(pitch))
+    swept = p.piazza_roof == "swept"
+    if swept:
+        plate_z = p.piazza_plate_m
+        head = plate_z + d * tp
+    else:
+        head = wall_z - PIAZZA_UNDER_EAVE_M
+        plate_z = head - d * tp
+    xm = (x0 + x1) / 2.0
+
+    # the deck, its face against the wall left off (add_box's y0 face)
+    b.add_box(x0, y1, 0.0, x1, yf, PIAZZA_DECK_M, conf, M_FRAME, skip=("bottom", "front"))
+
+    # posts, the end ones just in from the corners
+    n = p.piazza_posts
+    half = PIAZZA_POST_M / 2.0
+    py = yf - 0.10
+    xs = [x0 + 0.12 + i * (x1 - x0 - 0.24) / (n - 1) for i in range(n)]
+    for x in xs:
+        b.add_box(x - half, py - half, PIAZZA_DECK_M, x + half, py + half, plate_z - 0.14,
+                  conf, M_FRAME, skip=("bottom",))
+    # the plate the rafters sit on, post to post
+    b.add_box(x0, py - half, plate_z - 0.14, x1, py + half, plate_z, conf, M_FRAME)
+
+    if p.piazza_rail:
+        door_bay = next((i for i in range(n - 1) if xs[i] <= xm <= xs[i + 1]), None)
+        for i in range(n - 1):
+            if i == door_bay:
+                continue
+            a, c = xs[i] + half, xs[i + 1] - half
+            top = PIAZZA_DECK_M + PIAZZA_RAIL_Z
+            b.add_box(a, py - 0.035, top - 0.06, c, py + 0.035, top, conf, M_FRAME)
+            b.add_box(a, py - 0.03, PIAZZA_DECK_M + 0.08, c, py + 0.03,
+                      PIAZZA_DECK_M + 0.13, conf, M_FRAME)
+            k = max(1, int((c - a) / 0.16))
+            for j in range(1, k):
+                u = a + j * (c - a) / k
+                b.add_box(u - 0.02, py - 0.02, PIAZZA_DECK_M + 0.13, u + 0.02, py + 0.02,
+                          top - 0.06, conf, M_FRAME, skip=("bottom", "top"))
+
+    # the shed roof, overhanging the plate and the gable ends as the main roof does
+    rx0, rx1, ry = x0 - 0.25, x1 + 0.25, yf + 0.25
+    rz = plate_z - 0.25 * tp
+    t = 0.07
+    if swept:
+        _swept_piazza_roof(b, p, rx0, rx1, y1, yf, ry, rz, plate_z, tp, t, wall_z, conf)
+        return
+    b.add_poly([(rx0, ry, rz), (rx1, ry, rz), (rx1, y1, head), (rx0, y1, head)], conf, M_ROOF)
+    b.add_poly([(rx0, y1, head - t), (rx1, y1, head - t), (rx1, ry, rz - t),
+                (rx0, ry, rz - t)], conf, M_ROOF)
+    b.add_poly([(rx0, ry, rz - t), (rx1, ry, rz - t), (rx1, ry, rz), (rx0, ry, rz)],
+               conf, M_ROOF)
+    for x, sgn in ((rx0, -1), (rx1, 1)):
+        pts = [(ry, rz - t), (ry, rz), (y1, head), (y1, head - t)]
+        if sgn > 0:
+            pts.reverse()
+        b.add_poly([(x, y, z) for y, z in pts], conf, M_ROOF)
+
+
+def _end_poly(b: MeshBuilder, x: float, outward: int, pts_yz, conf: float,
+              mat: int) -> None:
+    """A flat polygon in the y-z plane at `x`, wound to face +x or -x."""
+    area = sum(ya * zb - yb * za for (ya, za), (yb, zb)
+               in zip(pts_yz, pts_yz[1:] + pts_yz[:1]))
+    if (area > 0) != (outward > 0):      # counter-clockwise in (y, z) faces +x
+        pts_yz = list(reversed(pts_yz))
+    b.add_poly([(x, y, z) for y, z in pts_yz], conf, mat)
+
+
+def _swept_piazza_roof(b: MeshBuilder, p: LogDwellingParams, rx0, rx1, y1, yf, ry, rz,
+                       plate_z, tp, t, wall_z, conf) -> None:
+    """The main roof carried down over the piazza at a break (T-2516).
+
+    A flatter plane rises from the plate at the piazza's pitch until it meets the main
+    roof's front slope, which it does above the front wall rather than under the eave:
+    from afar the two read as one plane run down to the posts, and close to as a break,
+    which is what the Kinzie house's pictures draw between them. The main roof is left
+    whole beneath it; the part the piazza roof covers cannot be seen, and a board along
+    the wall line closes the space between the piazza's ceiling and the main eave, so
+    that eave does not show as a ledge under the piazza.
+    """
+    tm = math.tan(math.radians(p.roof_pitch_deg))
+    ye = y1 + 0.25                          # the main roof's front eave edge, at wall_z
+    yb = (wall_z + ye * tm - plate_z - yf * tp) / (tm - tp)
+    zb = plate_z + (yf - yb) * tp
+    if yb >= ye:
+        raise ValueError(f"a swept piazza roof from a {plate_z} m plate meets the main "
+                         f"roof beyond its eave; lower the pitch or raise the plate")
+    yw = ye + 0.01                          # the wall-line board, just proud of the eave
+    zw = plate_z + (yf - yw) * tp
+
+    b.add_poly([(rx0, ry, rz), (rx1, ry, rz), (rx1, yb, zb), (rx0, yb, zb)], conf, M_ROOF)
+    b.add_poly([(rx0, yw, zw - t), (rx1, yw, zw - t), (rx1, ry, rz - t),
+                (rx0, ry, rz - t)], conf, M_ROOF)
+    b.add_poly([(rx0, ry, rz - t), (rx1, ry, rz - t), (rx1, ry, rz), (rx0, ry, rz)],
+               conf, M_ROOF)
+    _panel(b, "y", yw, rx0, rx1, wall_z - 0.18, zw - t, 1, conf, M_FRAME)
+    for x, sgn in ((rx0, -1), (rx1, 1)):
+        _end_poly(b, x, sgn, [(ry, rz - t), (ry, rz), (yw, zw), (yw, zw - t)], conf, M_ROOF)
+        _end_poly(b, x, sgn, [(yw, zw - t), (yw, zw), (yb, zb), (ye, wall_z)], conf, M_ROOF)
+
+
+# ---------------------------------------------------------------- gable ends
+
+LIGHT_HALF_W = LIGHT_HALF_W_M   # a small sash in a gable end, about two feet wide
+LIGHT_HALF_H = LIGHT_HALF_H_M
+GABLE_FACE_OUT = 0.25 + 0.04    # add_gable_roof's overhang, where it closes the gable, and
+#                                 0.04 m off that board face, so the sash, which the kit
+#                                 sets back into a log wall's relief, stands in front of it
+
+
+def _end_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
+                  wall_z: float) -> None:
+    """Doors, windows and small lights in the gable ends (T-2516).
+
+    The archetype's rule is that a log gable end is not pierced (`_core_openings`),
+    and it still is everywhere a record does not say otherwise: these are built only
+    where a record states them, because a picture draws them. A door takes the front
+    door's size and a window the front windows' size and band, so the end matches the
+    front it turns the corner from. A light above the eave is in the GABLE, which
+    `add_gable_roof` closes with a board triangle flush with its rake, 0.25 m outboard
+    of the log end, so it is set on that face; a light below the eave is in the log
+    wall like any window.
+    """
+    plane = {"+x": (x1, 1), "-x": (x0, -1)}
+    rects = core_front_rects(p)
+    win = next(r for r in rects if r[0] == "window")
+    whalf, wz0, wz1 = (win[2] - win[1]) / 2.0, win[3], win[4]
+    c = p.conf("end_openings", "reconstructed")
+    for end, kind, at, z in p.end_openings:
+        x, out = plane[end]
+        yc = y0 + at * (y1 - y0)
+        if kind == "light":
+            if z - LIGHT_HALF_H >= wall_z:
+                x += out * GABLE_FACE_OUT
+            _opening(b, "x", x, yc - LIGHT_HALF_W, yc + LIGHT_HALF_W, z - LIGHT_HALF_H,
+                     z + LIGHT_HALF_H, out, c, shutters=False)
+        elif kind == "door":
+            _opening(b, "x", x, yc - _DOOR_HALF, yc + _DOOR_HALF, 0.02, 1.95, out, c,
+                     kind="door")
+        else:
+            z0, z1 = (wz0, wz1) if z is None else (z - (wz1 - wz0) / 2.0, z + (wz1 - wz0) / 2.0)
+            _opening(b, "x", x, yc - whalf, yc + whalf, z0, z1, out, c, shutters=False)
 
 
 # ------------------------------------------------------------- frame addition
@@ -546,6 +749,39 @@ def _frame_addition(b: MeshBuilder, p: LogDwellingParams) -> float:
     return add_ridge_z
 
 
+#: The lean-to's plank battens (T-2511): the vertical strokes the Currey plate draws
+#: on its gable, at about a board's width apart, standing just proud of the wall.
+LEAN_TO_BATTEN_M = 0.30
+LEAN_TO_BATTEN_W = 0.06
+
+
+def _lean_to(b: MeshBuilder, p: LogDwellingParams, conf: float, c_roof: float) -> None:
+    """A low plank shed against the stack's gable, gable to the street (T-2511).
+
+    Its walls are the frame slot — boards are what `frame_paint` dresses — and its
+    gable roof runs its ridge across the house's, so the end a visitor sees from the
+    street is a gable, as the plate draws it. A board door is hung in that gable.
+    """
+    lx0, ly0, lx1, ly1 = lean_to_extent(p)
+    wz = p.lean_to_wall_m
+    # The face against the gable is not built: it would lie in the log wall.
+    inner = "left" if p.chimney_end == "max" else "right"
+    b.add_box(lx0, ly0, 0.0, lx1, ly1, wz, conf, M_FRAME, skip=("bottom", "top", inner))
+    pitch = p.roof_pitch_deg if p.lean_to_pitch_deg is None else p.lean_to_pitch_deg
+    b.add_gable_roof(lx0, ly0, lx1, ly1, wz, pitch, c_roof, M_ROOF, ridge_along_x=False)
+    # The front gable's boards, eave to grade and up into the triangle.
+    xm = (lx0 + lx1) / 2.0
+    half = (lx1 - lx0) / 2.0
+    n = int((lx1 - lx0) / LEAN_TO_BATTEN_M)
+    for k in range(1, n):
+        x = lx0 + k * (lx1 - lx0) / n
+        top = wz + (half - abs(x - xm)) * math.tan(math.radians(pitch)) - 0.04
+        b.add_box(x - LEAN_TO_BATTEN_W / 2, ly1, 0.0, x + LEAN_TO_BATTEN_W / 2,
+                  ly1 + 0.02, top, conf, M_FRAME, skip=("bottom",))
+    _opening(b, "y", ly1 + 0.02, xm - 0.42, xm + 0.42, 0.02, min(1.8, wz - 0.1), 1,
+             conf, kind="door", relief=0.026, frame_wall=False)
+
+
 def _clapboard(b: MeshBuilder, x0, y0, x1, y1, wall_z: float, conf: float) -> None:
     """Horizontal lap courses as a thin proud lip per course, on the two elevations
     that face the town. Same treatment as frame_tavern, so a frame addition and a
@@ -595,8 +831,16 @@ def _chimneys(b: MeshBuilder, p: LogDwellingParams, cx0, cy0, cx1, cy1,
     """
     if p.chimneys <= 0:
         return
+    if p.chimney_ridge_at is not None:
+        for f in p.chimney_ridge_at:
+            _ridge_stack(b, p, cx0, cy0, cx1, cy1, ridge_z, f, conf, mat)
+        return
     axis = _gable_axis(p, cx0, cy0, cx1, cy1)
-    _stack(b, cx0, cy0, cx1, cy1, ridge_z, conf, mat, at_min=True, gable_axis=axis)
+    # `chimney_end` (T-2511) turns the first stack to the other gable where a record's
+    # picture puts it there; "min" is the end it has always stood on.
+    first_min = p.chimney_end == "min"
+    _stack(b, cx0, cy0, cx1, cy1, ridge_z, conf, mat, at_min=first_min, gable_axis=axis,
+           cross=p.chimney_cross_m, head_z=p.chimney_head_m)
     if p.chimneys < 2:
         return
     if p.frame_addition and add_ridge_z is not None:
@@ -604,9 +848,31 @@ def _chimneys(b: MeshBuilder, p: LogDwellingParams, cx0, cy0, cx1, cy1,
         _stack(b, ax0, ay0, ax1, ay1, add_ridge_z, conf, mat, at_min=False,
                gable_axis="x")
     else:
-        _stack(b, cx0, cy0, cx1, cy1, ridge_z, conf, mat, at_min=False,
+        _stack(b, cx0, cy0, cx1, cy1, ridge_z, conf, mat, at_min=not first_min,
                gable_axis=axis,
                cross=_facade_stack_cross(cx1 - cx0) if axis == "y" else 0.0)
+
+
+def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: float,
+                 f: float, conf: float, mat: int) -> None:
+    """One stack rising through the ridge at fraction `f` of it (T-2497).
+
+    Straddling the ridge, its foot below the roof's lowest point where it meets the
+    shaft, so no gap shows on either slope, and its head the archetype's usual height
+    over the ridge. Placed where a record says a picture puts it, never by default.
+    """
+    half = _STACK_HALF
+    if _ridge_along_x(x0, y0, x1, y1):
+        c = x0 + f * (x1 - x0)
+        ym = (y0 + y1) / 2.0
+        bx = (c - half, ym - half, c + half, ym + half)
+    else:
+        c = y0 + f * (y1 - y0)
+        xm = (x0 + x1) / 2.0
+        bx = (xm - half, c - half, xm + half, c + half)
+    run = half * math.tan(math.radians(p.roof_pitch_deg))
+    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], ridge_z + 0.95, conf, mat,
+              skip=("bottom",))
 
 
 def _facade_stack_cross(span: float) -> float:
@@ -632,7 +898,8 @@ def _facade_stack_cross(span: float) -> float:
 
 
 def _stack(b: MeshBuilder, x0, y0, x1, y1, ridge_z: float, conf: float, mat: int,
-           at_min: bool, gable_axis: str = "x", cross: float = 0.0) -> None:
+           at_min: bool, gable_axis: str = "x", cross: float = 0.0,
+           head_z: float | None = None) -> None:
     """One exterior stack against a gable end — the low end of `gable_axis`, or
     mirrored to the high end.
 
@@ -674,11 +941,13 @@ def _stack(b: MeshBuilder, x0, y0, x1, y1, ridge_z: float, conf: float, mat: int
         else:
             b.add_box(c0, g0, z0, c1, g1, z1, conf, mat, skip=("bottom",))
 
+    # `head_z` (T-2511) is a stated head over grade; None is 0.72 m over the ridge.
+    top = ridge_z + 0.72 if head_z is None else head_z
     sg0, sg1 = span(0.08, 0.72)
-    box(sg0, sg1, cc - half, cc + half, 0.0, ridge_z + 0.55)
+    box(sg0, sg1, cc - half, cc + half, 0.0, top - 0.17)
     # a slight corbel at the head, so it reads as a chimney rather than a post
     hg0, hg1 = span(0.12, 0.82)
-    box(hg0, hg1, cc - half - 0.08, cc + half + 0.08, ridge_z + 0.55, ridge_z + 0.72)
+    box(hg0, hg1, cc - half - 0.08, cc + half + 0.08, top - 0.17, top)
 
 
 def _sign(b: MeshBuilder, p: LogDwellingParams, conf: float) -> None:

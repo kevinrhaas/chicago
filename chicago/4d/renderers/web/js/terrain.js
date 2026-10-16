@@ -47,15 +47,20 @@
  */
 
 import * as THREE from 'three';
-import { spatialBatch } from './spatial-batch.js';
+import { spatialBatch, spatialBatchAsync } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
+import { contextSample, replaceApron } from './coast-extension.js';
+import { apronGeometry, apronCut } from './terrain-apron.js';
 import { floraInScene } from './flora.js';
-import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
+import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma, srgbToLinear } from './prairie-tile.js';
+import { MACRO_PX, MACRO_M, macroPixels, macroStats } from './prairie-macro.js';
 import { GRASS_GRAIN_PX, GRASS_GRAIN_M, grassGrainPixels, grassGrainMean } from './grass-grain.js';
 import { TURF_TILE_PX, TURF_TILE_M, turfTilePixels, turfTileMeanGrain, bareCut } from './turf-tile.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { registerKTX2 } from './ktx2.js';
 import { HORIZON_HAZE } from './world.js';
 import { loadMeshoptDecoder } from './scene-loader.js';
+import { SEASON_HEAD, seasonShaderUniforms } from './season.js';
 
 // DEG and the bearing/yaw conversions are pure arithmetic and live in angles.js,
 // so a caller that needs only those does not load three behind them (T-1257).
@@ -283,6 +288,10 @@ export class Heightfield {
     this.originN = 0;
     this.data = null;
     this.meta = null;
+    this.contextCoast = null;
+    /** T-2502: a scene's apron field (terrain-apron.js) — a second Heightfield
+     *  answered outside this one's grid, before the fallback. */
+    this.apron = null;
     /** Height used outside the grid and before anything is loaded. */
     this.fallbackY = 0;
   }
@@ -351,7 +360,11 @@ export class Heightfield {
     if (!this.loaded) return this.fallbackY;
     const gx = (e - this.originE) / this.cellM;
     const gy = (n - this.originN) / this.cellM;
-    if (gx < 0 || gy < 0 || gx > this.cols - 1 || gy > this.rows - 1) return this.fallbackY;
+    if (gx < 0 || gy < 0 || gx > this.cols - 1 || gy > this.rows - 1) {
+      if (this.apron?.contains(e, n)) return this.apron.sample(e, n);
+      if (this.contextCoast) return contextSample(this, e, n, (ce, cn) => this.sample(ce, cn));
+      return this.fallbackY;
+    }
 
     const x0 = Math.min(Math.floor(gx), this.cols - 2);
     const y0 = Math.min(Math.floor(gy), this.rows - 2);
@@ -395,7 +408,7 @@ export class Heightfield {
  */
 export async function createTerrain({
   dataBase, assetBase, epochId, substrateBase = dataBase, confidence = null, problems = [],
-  sceneId = null,
+  sceneId = null, apronPath = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'terrain';
@@ -429,6 +442,7 @@ export async function createTerrain({
   // when the sward hands over where it stopped drawing cards (`setTurf`).
   const turf = turfGround();
   const groundMat = groundMaterial(zones, lakeShore, { turf });
+  let walkOffset = null;
   /** The radius around the eye inside which the 15 m base is not drawn. See
    *  the base below, and `baseHoleM()` for how it follows the reach. */
   const baseHole = { value: baseHoleM(Infinity) };
@@ -470,6 +484,50 @@ export async function createTerrain({
     groundFit = { vertices: ground.geometry.attributes.position.count, moved: 0,
                   correction_max_m: 0, residual_max_m: 0 };
   }
+  // T-2495: replace the straight extrusion outside Prairie Avenue with the
+  // generated historical-map apron. Adopt its sampler only once both files load.
+  if (sceneId === '1904' && heightfield.loaded) {
+    try {
+      const url = new URL(`terrain/epochs/${epochId}/context.json`, dataBase);
+      const coast = await (await fetchOk(url)).json();
+      const apron = await loadGlbMesh(new URL(coast.ground_glb, url));
+      const old = ground.geometry;
+      ground.geometry = replaceApron(old, apron.geometry, heightfield);
+      old.dispose(); apron.geometry.dispose();
+      heightfield.contextCoast = coast;
+    } catch (err) {
+      problems.push(`terrain 1904 context coast: ${err.message}`);
+    }
+  }
+  // T-2502: the scene's apron field (its `terrain_apron`), ground off the box.
+  // Sampled outside the box before the fallback, drawn from its own samples, and
+  // the box's carried apron cut out from under it. Adopted only once it loads; a
+  // failure leaves the carried apron standing and says so.
+  let apronMesh = null;
+  let apronGroundCut = null;
+  if (apronPath && dataBase && heightfield.loaded) {
+    try {
+      const url = new URL(`terrain/epochs/${apronPath}`, dataBase);
+      const apronMeta = await (await fetchOk(url)).json();
+      const bin = await (await fetchOk(new URL(apronMeta.bin, url))).arrayBuffer();
+      const apron = new Heightfield().adopt(apronMeta, bin);
+      const mat = groundMaterial(zones, lakeShore, { groundTex: groundMat.userData.groundTex,
+        swardTex: groundMat.userData.swardTex, turf });
+      confidence?.patch(mat);
+      apronMesh = new THREE.Mesh(apronGeometry(apron, apronMeta.skirt_to_n_m ?? apron.originN), mat);
+      apronMesh.name = `terrain_apron__${apronPath.replace(/\W+/g, '_')}`;
+      apronMesh.receiveShadow = true;
+      apronMesh.castShadow = false;
+      apronGroundCut = apronCut(apronMeta.cut_local_enu_m);
+      disposables.push(mat, apronMesh.geometry, apronGroundCut.mask);
+      heightfield.apron = apron;
+    } catch (err) {
+      problems.push(`terrain apron ${apronPath}: ${err.message} — the box's carried apron stands `
+        + 'there instead, and the ground off the box is the fallback');
+      apronMesh = null;
+      apronGroundCut = null;
+    }
+  }
   ground.material = groundMat;
   ground.receiveShadow = true;
   ground.castShadow = false;
@@ -485,15 +543,18 @@ export async function createTerrain({
   // every original triangle/attribute and the same reach; the continuous base
   // already carries everything beyond it. The small apron remainder stays one
   // mesh: it is deliberately outside the detailed heightfield's reach policy.
-  const tiles = sourceTiles?.map((tile) => {
+  // T-2599: the tiles are partitioned on the job pool, all at once, so the
+  // densest ground in the town is cut into pieces off the main thread and on as
+  // many cores as the pool has; the batches are the same, in the same order.
+  const tiles = sourceTiles && await Promise.all(sourceTiles.map(async (tile) => {
     if (tile.name.endsWith('__tthin')) return tile;
-    const batch = spatialBatch(tile.geometry, tile.material);
+    const batch = await spatialBatchAsync(tile.geometry, tile.material);
     batch.name = tile.name;
     batch.receiveShadow = tile.receiveShadow;
     batch.castShadow = tile.castShadow;
     tile.geometry.dispose();
     return batch;
-  });
+  }));
   /** One banked WORLD bounding box per ground tile, for the reach below.
    *  Empty when the ground was too coarse to tile, which is the case the reach
    *  has nothing to say about: one mesh around the camera is always near. */
@@ -511,6 +572,11 @@ export async function createTerrain({
     ground.frustumCulled = false;
     group.add(ground);
     disposables.push(ground.geometry);
+  }
+
+  if (apronMesh) {
+    group.add(apronMesh);
+    applyCut(groundMat, apronGroundCut);
   }
 
   // One continuous, modest ground under the detailed tiles. The detail tiles
@@ -695,11 +761,18 @@ export async function createTerrain({
     },
     /** Batch the protected continuous base too: one draw call, with original
      *  triangles behind the eye or beyond the frustum omitted per piece. Called
-     *  after frontage publishes its accepted crossing protection at boot. */
-    batchDistantGround() {
+     *  after frontage publishes its accepted crossing protection at boot.
+     *  T-2600: the cells are cut on the job pool, so this resolves; the base it
+     *  read draws until then, and if the base or its geometry was replaced
+     *  meanwhile the batch is dropped, unseen, and this resolves false.
+     *  (protectGroundUnder's batched branch above stays synchronous: it runs
+     *  only on a second frontage publication, which no page path makes.) */
+    async batchDistantGround() {
       if (!groundBase || groundBase.isBatchedMesh) return false;
       const previous = groundBase;
-      const batch = spatialBatch(previous.geometry, previous.material);
+      const read = previous.geometry;
+      const batch = await spatialBatchAsync(read, previous.material);
+      if (groundBase !== previous || previous.geometry !== read) { batch.dispose(); return false; }
       batch.name = previous.name;
       batch.position.copy(previous.position);
       batch.receiveShadow = previous.receiveShadow;
@@ -817,6 +890,7 @@ export async function createTerrain({
     /** The one rendered terrain surface in metres at local ENU (e, n).
      * Buildings, streets, trees and plant roots all anchor to this sampler. */
     surfaceHeight(e, n) { return heightfield.sample(e, n); },
+    get contextCoast() { return heightfield.contextCoast ?? null; },
 
     /**
      * The WALKABLE surface: the rendered terrain on land, with the documented
@@ -824,7 +898,24 @@ export async function createTerrain({
      */
     walkHeight(e, n) {
       const h = heightfield.sample(e, n);
-      return h < SHORE_Y ? WATER_BARRIER_Y : h;
+      if (h < SHORE_Y) return WATER_BARRIER_Y;
+      return walkOffset ? h + walkOffset(e, n) : h;
+    },
+
+    /**
+     * T-2474: a layer that draws the ground lower than the field (the 1904
+     * roadway below its curbs) cuts the field's own mesh out there — `mask` is a
+     * coverage texture over the world box `x0, z0, width, depth` — and tells the
+     * walker how far down it put the surface: `offset(e, n)` in metres, 0 off it.
+     * `surfaceHeight()` keeps reporting the field; only the walk follows the cut.
+     */
+    setGroundCut({ mask, x0, z0, width, depth, offset = null } = {}) {
+      for (const m of [groundMat, groundBase?.material]) {
+        // Clearing a street's cut hands the tiles back to the apron field's (T-2502).
+        if (!mask && m === groundMat && apronGroundCut) applyCut(m, apronGroundCut);
+        else applyCut(m, { mask, x0, z0, width, depth });
+      }
+      walkOffset = typeof offset === 'function' ? offset : null;
     },
 
     /** Backward-compatible names for older harnesses and external consumers. */
@@ -1054,7 +1145,7 @@ export function dequantizeGeometry(geo) {
 /** Load a GLB and hand back its first mesh, detached from the loaded scene. */
 async function loadGlbMesh(url) {
   const buffer = await (await fetchOk(url)).arrayBuffer();
-  const loader = new GLTFLoader();
+  const loader = registerKTX2(new GLTFLoader());
   // THE GROUND AND THE RIVER ARE COMPRESSED TOO, and this loader is not the one
   // scene-loader.js configures for the buildings.
   //
@@ -1498,9 +1589,9 @@ const swardOff = (z) => (zoneIsSward(z) ? '' : '\n    chiSwardW *= 1.0 - w;');
  * recorded triple itself — the record is not scaled, tinted or approached, it is
  * what the ground averages.
  *
- * The community mosaic (`chiPatch`) is deliberately NOT carried onto a zone: its
- * own comment calls it "a swale-and-rise business at tens of metres", which is a
- * statement about prairie relief and not about sand.
+ * The patch tone (`chiPatch`, the variation map's since T-2552 retired the
+ * community mosaic) is deliberately NOT carried onto a zone: it is a statement
+ * about prairie stands, not about sand.
  *
  * Clamped at 1.0 because an albedo cannot exceed it — a GUARD, and on the
  * committed records it never binds: the tile's brightest texel is 1.378 times
@@ -1566,36 +1657,69 @@ ${blocks}
  * leaves `chiTex`, `chiPatch`, `chiWet` and `chiPrairie` declared.
  */
 export const PRAIRIE_FRAGMENT = /* glsl */`
-  // ONE texture fetch, deliberately. The ground covers most of the screen, so
-  // every instruction here is paid a million times a frame; a second octave
-  // fetched from the same texture at a different scale looked slightly better
-  // and halved the frame rate under software rasterisation. The finer octaves
-  // are therefore baked INTO that one texture (see prairieTexture) and the
-  // patch-scale variation above the tile is arithmetic, which costs a fraction
-  // of a filtered fetch. The fetch itself sits below the mosaic, which it
-  // borrows.
+  // The prairie's texture budget. The ground covers most of the screen, so
+  // every instruction here is paid a million times a frame. The finer octaves
+  // are baked INTO the colour tile (see prairieTexture); the sward grain below
+  // is the second fetch (T-2089); the variation map is the third (T-2552), and
+  // it paid for itself by retiring the three sines that stood where it does.
 
-  // Community mosaic — 42 m by 48 m, broken by a 15 m diagonal. The two sines
-  // this replaces beat at ~200 m, a soft blur the size of a city block that read
-  // as cloud shadow rather than as ground; prairie patchiness is a
-  // swale-and-rise business at tens of metres, which is the scale the
-  // heightfield's own relief works at. THREE sines total, one more than before
-  // and no more: this runs once per ground fragment and the ground is most of
-  // the screen, so the count is a budget, not a taste (the same reason there is
-  // exactly one texture fetch below). Amplitude is held near +/-14 % — past that
-  // the pattern competes with the sward instead of sitting under it.
-  float chiPatch = sin(vChiWorld.x * 0.1496 + 1.7) * sin(vChiWorld.z * 0.1309)
-                 + 0.6 * sin(vChiWorld.x * 0.3307 - vChiWorld.z * 0.2712 + 4.1);
+  // THE VARIATION MAP (T-2552) — lush and thin stands at 16-256 m, a dry lean,
+  // the tile's variant index and its lookup shear, one fetch of prairie-macro.js's 512 px map over
+  // 3,072 m. It replaces a "community mosaic" that was sin(x) * sin(z) plus one
+  // diagonal: an egg-crate of 42 x 48 m cells square to the compass, which is a
+  // plaid by construction, and from 1,197 ft up the owner saw exactly that
+  // (2026-10-16). The map's repeat is longer than the haze reach, and it is
+  // turned 27 degrees off the compass so no residue of its noise lattice lines
+  // up with the streets. Every channel is read over its own measured mean, so
+  // it moves light and colour around the ground and adds none.
+  vec2 chiMacroUV = mat2(0.8910, -0.4540, 0.4540, 0.8910) * vChiWorld.xz / uMacroM;
+  vec4 chiMacro = texture2D(uMacro, chiMacroUV) - uMacroMean;
+  // chiPatch keeps its old role, sign and spread (MOSAIC_STD), so everything
+  // tuned against the mosaic — the tone below, the sward's shear — reads it as
+  // it did. Only the regularity is gone.
+  float chiPatch = chiMacro.r * uMacroGain;
 
-  // The one fetch, made AFTER the mosaic so it can borrow it (T-1825). The tile
-  // repeats every 11 m and now carries 1.4-2.75 m patches of growth and thatch,
-  // which a strict 11 m lattice would show as rows across the middle distance.
-  // Offsetting the lookup by the mosaic already in hand shears each repeat
-  // against its neighbours by up to about 1.5 m. That costs no fetch and no
-  // sine, and it stretches the tile locally by at most a fifth, because the
-  // mosaic changes over 15-48 m and the tile over 11 m.
-  vec3 chiTex = texture2D(uGround,
-    vChiWorld.xz * 0.0909 + vec2(0.090, 0.070) * chiPatch).rgb;
+  // How far the eye is. Walking ground (under 150 m) is drawn as it was; by
+  // 600 m the tile has eased a third of the way to its mean and the stands have
+  // doubled their say, so from the air the ground is mottled by stands rather
+  // than by the tile.
+  float chiFar = smoothstep(150.0, 600.0, distance(vChiWorld, cameraPosition));
+
+  // THE COLOUR TILE, WITH ITS REPEAT BROKEN (T-2552). The map's G channel is a
+  // variant index, and the tile is drawn from two offsets of itself picked by
+  // it (the R2 low-discrepancy sequence, so neighbouring variants never agree
+  // and no sine is spent) and cross-faded, the darker texel winning a little
+  // early so a seam reads as a clump's edge rather than a dissolve. That is
+  // Inigo Quilez's two-fetch repeat break, with one change: the two variants
+  // are STAGGERED half a band apart, so each one's offset jumps only where its
+  // own weight is exactly zero (A's at a whole band, where wB = 1; B's at a
+  // half band, where wB = 0; the darker-texel bias moves the fade by at most
+  // 0.079, 0.6 x the tile's measured spread of linear channel means, so it
+  // cannot reach either end). A jump does break the implicit derivative of
+  // the fetch it lands in, but that fetch is weighted out there, so plain
+  // texture2D draws no seam and needs neither explicit gradients nor a branch
+  // (both measured slower: textureGrad cost a software frame 30 %, and the
+  // branch saved nothing). A band runs about 22 m (measured), so the 11 m lattice that
+  // read as rows to the haze, and as a plaid from the air, no longer lines up.
+  //
+  // The only shear left is the B channel's, along a diagonal and smooth over
+  // 100 m and more. T-1825's shear by the mosaic is retired with it: riding on
+  // a field with 16 m detail it bent the tile into visible swirls, and the
+  // variants now do the job it was doing.
+  vec2 chiTileUV = vChiWorld.xz * 0.0909 + vec2(0.7071, 0.7071) * (chiMacro.b * 0.5);
+  float chiVk = (chiMacro.g + uMacroMean.g) * 8.0;
+  vec2 chiOffA = fract(floor(chiVk) * vec2(0.7548777, 0.5698403));
+  vec2 chiOffB = fract((floor(chiVk + 0.5) + 0.5) * vec2(0.7548777, 0.5698403));
+  vec3 chiTexA = texture2D(uGround, chiTileUV + chiOffA).rgb;
+  vec3 chiTexB = texture2D(uGround, chiTileUV + chiOffB).rgb;
+  float chiWB = abs(2.0 * fract(chiVk) - 1.0);
+  vec3 chiTex = mix(chiTexA, chiTexB,
+    smoothstep(0.3, 0.7, chiWB - 0.6 * dot(chiTexB - chiTexA, vec3(0.3333))));
+
+  // And past ~150 m the tile's own contrast eases toward its measured mean,
+  // so the stands carry the ground from the air and the tile is grain within
+  // them. A mix toward the mean moves no albedo.
+  chiTex = mix(chiTex, uPrairieMean, 0.35 * chiFar);
 
   // Wet ground: the marshy shore strip, keyed on height above the datum.
   // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
@@ -1613,7 +1737,11 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
   // weight is 0.0, and mix(a, b, 0.0) is a exactly, so "nothing outside the
   // zones moves" is a property of the code rather than a claim about a
   // screenshot. (No backticks in here: this is a JS template literal.)
-  vec3 chiPrairie = diffuseColor.rgb * chiTex * (1.0 + 0.088 * chiPatch);
+  // The patch tone grows with distance as the tile's contrast eases. The dry lean
+  // is zero-mean: yellower here, fresher there, the July mean unmoved.
+  vec3 chiPrairie = diffuseColor.rgb * chiTex
+                  * (1.0 + mix(0.10, 0.20, chiFar) * chiPatch)
+                  * (vec3(1.0) + vec3(0.07, 0.035, -0.13) * mix(1.0, 1.3, chiFar) * chiMacro.a);
   chiPrairie = mix(chiPrairie,
                    chiPrairie * vec3(0.46, 0.42, 0.30) + vec3(0.042, 0.034, 0.020),
                    chiWet);
@@ -1652,15 +1780,21 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
 `;
 
 /**
- * What `PRAIRIE_FRAGMENT` needs declared beside `uGround` and `uPrairieLuma`
- * (T-2089): the grass grain. Every material that splices the
- * prairie in splices this into its fragment head too, and binds `uSward*` from
- * `swardUniforms()`.
+ * What `PRAIRIE_FRAGMENT` needs declared beside `uGround` and `uPrairieLuma`:
+ * the grass grain (T-2089) and the variation map (T-2552). Every material that
+ * splices the prairie in splices this into its fragment head too, and binds
+ * `uSward*` from `swardUniforms()` and `uMacro*` / `uPrairieMean` from
+ * `variationUniforms()`.
  */
 export const SWARD_HEAD = /* glsl */`
 uniform sampler2D uSward;
 uniform float uSwardM;
 uniform float uSwardMean;
+uniform sampler2D uMacro;
+uniform float uMacroM;
+uniform vec4 uMacroMean;
+uniform float uMacroGain;
+uniform vec3 uPrairieMean;
 `;
 
 /**
@@ -1924,33 +2058,49 @@ function groundMaterial(zones = [], lakeShore = null,
   const sward = swardTex ?? swardTexture();
   mat.userData.swardTex = sward;
   mat.userData.substrateZones = zones.map((z) => z.id);
+  // T-2474: a street layer may cut the ground out where it draws its own lower
+  // surfaces (the 1904 roadway below its curbs). A uniform switch, off until
+  // `setGroundCut` turns it on: the program key is fixed when confidence.js
+  // patches this material, so the cut cannot be a second program.
+  const cut = { on: { value: 0 }, tex: { value: null }, box: { value: new THREE.Vector4() } };
+  mat.userData.cut = cut;
 
   const prior = mat.onBeforeCompile;
   mat.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior(shader, renderer);
     shader.uniforms.uGround = { value: tex };
+    shader.uniforms.uChiCutOn = cut.on;
+    shader.uniforms.uChiCut = cut.tex;
+    shader.uniforms.uChiCutBox = cut.box;
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
-    Object.assign(shader.uniforms, swardUniforms(sward));
+    Object.assign(shader.uniforms, swardUniforms(sward), variationUniforms(tex));
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     if (nearHole) shader.uniforms.uChiNearHole = nearHole;
     if (turf) Object.assign(shader.uniforms, turf.uniforms);
+    seasonShaderUniforms(shader);
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );
     shader.fragmentShader = `
 varying vec3 vChiWorld;
+${SEASON_HEAD}
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
 ${SWARD_HEAD}
 ${nearHole ? 'uniform float uChiNearHole;' : ''}
+uniform float uChiCutOn;
+uniform sampler2D uChiCut;
+uniform vec4 uChiCutBox;
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
 ${turf ? TURF_HEAD : ''}
 ` + shader.fragmentShader.replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
-${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}`)
+${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}
+${GROUND_CUT_FRAGMENT}`)
       .replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones, lakeShore)}
 ${turf ? TURF_FRAGMENT : ''}
   diffuseColor.rgb = chiPrairie;
+  diffuseColor.rgb = chiSeason(diffuseColor.rgb, vChiWorld.xz, 1.0, 1.0);
 `)
       .replace('#include <normal_fragment_maps>', SWARD_NORMAL + (turf ? TURF_NORMAL : ''));
   };
@@ -1961,6 +2111,25 @@ ${turf ? TURF_FRAGMENT : ''}
   mat.needsUpdate = true;
   return mat;
 }
+
+/** Set a ground material's T-2474 cut: `mask` over the world box, or off without one. */
+function applyCut(m, { mask, x0, z0, width, depth } = {}) {
+  const cut = m?.userData?.cut;
+  if (!cut) return;
+  cut.tex.value = mask ?? null;
+  cut.box.value.set(x0 ?? 0, z0 ?? 0, width ? 1 / width : 0, depth ? 1 / depth : 0);
+  cut.on.value = mask ? 1 : 0;
+}
+
+/** T-2474: drop the ground where the cut mask says a layer draws its own surface.
+ *  The mask is 0..1 coverage over a world box (x0, z0, 1/width, 1/depth). */
+const GROUND_CUT_FRAGMENT = /* glsl */`
+  if (uChiCutOn > 0.5) {
+    vec2 chiCutUv = (vChiWorld.xz - uChiCutBox.xy) * uChiCutBox.zw;
+    if (chiCutUv.x > 0.0 && chiCutUv.y > 0.0 && chiCutUv.x < 1.0 && chiCutUv.y < 1.0
+        && texture2D(uChiCut, chiCutUv).r > 0.5) discard;
+  }
+`;
 
 /**
  * Water: a silty prairie river, not a swimming pool.
@@ -2088,6 +2257,13 @@ export function prairieTexture() {
   // The divisor that makes a substrate zone average exactly the triple its flora
   // record states — see zoneGlsl. Measured from the pixels, not a constant.
   tex.userData.meanLinearLuma = prairieTileMeanLuma(img.data);
+  // And its mean linear COLOUR: what the tile fades toward with distance
+  // (T-2552), so the fade moves contrast and never the July mean.
+  const sum = [0, 0, 0];
+  for (let i = 0; i < img.data.length; i += 4) {
+    for (let ch = 0; ch < 3; ch++) sum[ch] += srgbToLinear(img.data[i + ch]);
+  }
+  tex.userData.meanLinear = sum.map((v) => v / (img.data.length / 4));
   tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
   // Anisotropy stays at 4. Eight taps on a 512 px tile looked slightly cleaner
   // on the grazing mid-field and cost the software rasteriser half its frame
@@ -2122,6 +2298,45 @@ export function swardTexture() {
   tex.anisotropy = 4;
   tex.userData.mean = grassGrainMean(data);
   return tex;
+}
+
+let macroTex = null;
+/**
+ * The variation map as a texture (T-2552) — `prairie-macro.js`'s pixels, one
+ * DataTexture for the whole session: 1 MiB, a third more with its mips, shared
+ * by every surface that paints the prairie so the strip and the bank cannot
+ * drift from the terrain they feather into. Never disposed: a DataTexture keeps
+ * its pixels, so even a caller that disposed it would only cost a re-upload.
+ * Data, not colour. No anisotropy: at 6 m a texel it is magnified nearly
+ * everywhere, so the extra taps would buy nothing.
+ */
+export function macroTexture() {
+  if (macroTex) return macroTex;
+  const data = macroPixels();
+  const tex = new THREE.DataTexture(data, MACRO_PX, MACRO_PX, THREE.RGBAFormat);
+  tex.name = 'prairie-variation';
+  tex.colorSpace = THREE.NoColorSpace;
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.magFilter = THREE.LinearFilter;
+  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  tex.generateMipmaps = true;
+  tex.userData.stats = macroStats(data);
+  tex.needsUpdate = true;
+  macroTex = tex;
+  return tex;
+}
+
+/** The `uMacro*` and `uPrairieMean` uniforms `SWARD_HEAD` declares (T-2552). */
+export function variationUniforms(prairieTex) {
+  const tex = macroTexture();
+  const { mean, gain } = tex.userData.stats;
+  return {
+    uMacro: { value: tex },
+    uMacroM: { value: MACRO_M },
+    uMacroMean: { value: new THREE.Vector4(...mean) },
+    uMacroGain: { value: gain },
+    uPrairieMean: { value: new THREE.Vector3(...prairieTex.userData.meanLinear) },
+  };
 }
 
 /** The `uSward*` uniforms `SWARD_HEAD` declares, bound to one sward texture. */

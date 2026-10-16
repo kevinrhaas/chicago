@@ -33,15 +33,19 @@ The figures are written onto the object (`stone_occlusion`), so they travel into
 GLB's node extras; generators/build.py reads them back to record `baked_ao` and to hold
 the exported map to the bake with `ao_export.assert_ao_survived_export`.
 
-The atlas is the one part of this that a CPU can change (T-2431). Cycles AO is not
+Cycles AO is not
 bit-reproducible across hardware: the same mesh, seed and samples baked in a cloud
 container and on an Actions runner differed in 2,471 of 4,194,304 texels (T-2427), so
 every off-runner bake of Glessner moved the master's bytes and redded the bake check's
 K01 hashes. So the quantised atlas and its written-texel mask are committed beside the
 models, in assets/bakes/stone-occlusion/, keyed by a sha256 of everything the bake
 reads — the mesh's vertices, faces and slots, its OcclusionUV, the figures below and
-the Blender version (none of which the CPU moves: T-2427 found every accessor identical
-across the two machines). A bake whose key matches takes the committed atlas and runs
+the Blender version. T-2494 also found that Blender's welded smart projection / packing
+changes OcclusionUV with the host math library: Debian glibc 2.41 and Ubuntu glibc 2.39
+produce identical mesh inputs but different UV layouts. The atlas therefore retains
+its UV coordinates too, keyed separately by the exact pre-unwrap mesh, mask, Blender
+version and unwrap recipe. A changed mesh or recipe cannot reuse that layout. A bake
+whose complete atlas key matches takes the committed atlas and runs
 no Cycles at all, so it writes the same bytes on any CPU. A bake whose key does not
 match bakes fresh, says so, and rewrites the file: geometry that moves carries its new
 atlas in the same commit, and the next bake anywhere reproduces it. STONE_OCCLUSION_REBAKE=1
@@ -56,6 +60,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import tempfile
 from pathlib import Path
 
 from archetypes.masonry_house_v4_materials import GRANITE, GRANITE_VARIANTS, ROUGH_TRIM
@@ -73,6 +78,9 @@ IMAGE_NAME = "granite_stone_occlusion"
 # One committed atlas a size: the master bakes at 2048, the light tier (T-2401) at 1024.
 ATLAS_DIR = Path(__file__).resolve().parents[2] / "assets" / "bakes" / "stone-occlusion"
 ATLAS_RECIPE = 1       # bump when the bake below changes in a way the key cannot see
+UNWRAP_RECIPE = 1      # bump for an unwrap/transfer algorithm change
+PACK_OPTIONS = dict(udim_source="CLOSEST_UDIM", rotate=True, shape_method="AABB",
+                    scale=True, margin_method="FRACTION")
 
 
 def _welded_unwrap(bpy, bmesh, np, ob, mask):
@@ -100,8 +108,7 @@ def _welded_unwrap(bpy, bmesh, np, ob, mask):
     bpy.ops.mesh.select_all(action="SELECT")
     bpy.ops.uv.smart_project(angle_limit=ANGLE_LIMIT, island_margin=0.0)
     bpy.ops.uv.select_all(action="SELECT")
-    bpy.ops.uv.pack_islands(udim_source="CLOSEST_UDIM", rotate=True, shape_method="AABB",
-                            scale=True, margin_method="FRACTION", margin=PACK_MARGIN)
+    bpy.ops.uv.pack_islands(**PACK_OPTIONS, margin=PACK_MARGIN)
     bpy.ops.object.mode_set(mode="OBJECT")
 
     def ints(seq, attr, n):
@@ -150,6 +157,13 @@ def _welded_unwrap(bpy, bmesh, np, ob, mask):
     bpy.data.meshes.remove(tmp)
     bpy.context.view_layer.objects.active = ob
     ob.select_set(True)
+    return _uv_area(np, me, mask, out)
+
+
+def _uv_area(np, me, mask, out):
+    ols, olt = np.zeros(len(me.polygons), np.int32), np.zeros(len(me.polygons), np.int32)
+    me.polygons.foreach_get("loop_start", ols)
+    me.polygons.foreach_get("loop_total", olt)
     # Coverage: the share of the atlas the granite faces' UV triangles occupy.
     uv_area = 0.0
     for k in np.unique(olt[mask]):
@@ -177,27 +191,86 @@ def _fill_holes(np, value, covered):
     return np.where(covered, value, fill)
 
 
-def _atlas_key(bpy, np, me, mask):
-    """sha256 of everything the AO and coverage bakes read (see module doc)."""
-    h = hashlib.sha256(json.dumps({
-        "recipe": ATLAS_RECIPE, "blender": bpy.app.version_string, "size": SIZE,
-        "samples": SAMPLES, "distance_m": DISTANCE_M, "margin_px": BAKE_MARGIN_PX,
-        "slots": list(GRANITE_SLOTS)}, sort_keys=True).encode())
-    for seq, attr, n, dtype in ((me.vertices, "co", len(me.vertices) * 3, np.float32),
-                                (me.loops, "vertex_index", len(me.loops), np.int32),
-                                (me.polygons, "loop_start", len(me.polygons), np.int32),
-                                (me.polygons, "loop_total", len(me.polygons), np.int32),
-                                (me.uv_layers[OCCLUSION_UV].data, "uv", len(me.loops) * 2,
-                                 np.float32)):
+def _mesh_digest(np, me, mask, recipe, include_uv):
+    h = hashlib.sha256(json.dumps(recipe, sort_keys=True).encode())
+    fingerprints = {}
+    inputs = [(me.vertices, "co", len(me.vertices) * 3, np.float32),
+              (me.loops, "vertex_index", len(me.loops), np.int32),
+              (me.polygons, "loop_start", len(me.polygons), np.int32),
+              (me.polygons, "loop_total", len(me.polygons), np.int32)]
+    if include_uv:
+        inputs.append((me.uv_layers[OCCLUSION_UV].data, "uv", len(me.loops) * 2, np.float32))
+    for seq, attr, n, dtype in inputs:
         a = np.zeros(n, dtype)
         seq.foreach_get(attr, a)
-        h.update(a.tobytes())
-    h.update(np.packbits(mask).tobytes())
-    return h.hexdigest()
+        raw = a.tobytes()
+        h.update(raw)
+        fingerprints[attr] = {"values": n, "sha256": hashlib.sha256(raw).hexdigest()}
+    raw_mask = np.packbits(mask).tobytes()
+    h.update(raw_mask)
+    fingerprints["mask"] = {"faces": len(mask), "sha256": hashlib.sha256(raw_mask).hexdigest()}
+    return h.hexdigest(), fingerprints
+
+
+def _unwrap_key(bpy, np, me, mask):
+    """Exact inputs before the host-dependent unwrap; never a rounded geometry key."""
+    recipe = {"recipe": UNWRAP_RECIPE, "blender": bpy.app.version_string,
+              "weld_m": WELD_M, "angle_limit": ANGLE_LIMIT,
+              "pack": {**PACK_OPTIONS, "margin": PACK_MARGIN},
+              "slots": list(GRANITE_SLOTS)}
+    return _mesh_digest(np, me, mask, recipe, False)[0]
+
+
+def _atlas_key(bpy, np, me, mask):
+    """sha256 of everything the AO and coverage bakes read (see module doc)."""
+    recipe = {
+        "recipe": ATLAS_RECIPE, "blender": bpy.app.version_string, "size": SIZE,
+        "samples": SAMPLES, "distance_m": DISTANCE_M, "margin_px": BAKE_MARGIN_PX,
+        "slots": list(GRANITE_SLOTS)}
+    foliage_slots={i for i,m in enumerate(me.materials)
+                   if m and m.get('texture_generator')=='tools/generate_glessner_vines.py'}
+    if foliage_slots:
+        # Masked foliage changes AO even if Light's panel vertices stay fixed.
+        # Cache the actual alpha image and UVs, not just its opaque carrier mesh.
+        atlas=Path(__file__).resolve().parents[2]/'assets/textures/glessner-v4/vines_atlas.png'
+        uv=np.zeros(len(me.loops)*2,np.float32)
+        me.uv_layers['SurfaceUV'].data.foreach_get('uv',uv)
+        foliage_loops=np.zeros(len(me.loops),bool)
+        for polygon in me.polygons:
+            if polygon.material_index in foliage_slots:
+                foliage_loops[polygon.loop_start:polygon.loop_start+polygon.loop_total]=True
+        recipe['masked_foliage']={'atlas_sha256':hashlib.sha256(atlas.read_bytes()).hexdigest(),
+                                  'uv_sha256':hashlib.sha256(uv.reshape(-1,2)[foliage_loops].tobytes()).hexdigest(),
+                                  'alpha_cutoff':.5}
+    key, fingerprints = _mesh_digest(np, me, mask, recipe, True)
+    # T-2494: report the actual producer inputs when a runner gets a different
+    # key. The digest and all baked/exported values remain unchanged; a key alone
+    # cannot distinguish changed geometry from changed unwrap or recipe inputs.
+    print("stone occlusion inputs: " + json.dumps({
+        "key": key, "recipe": recipe, "components": fingerprints}, sort_keys=True), flush=True)
+    return key
 
 
 def _atlas_path():
     return ATLAS_DIR / f"{IMAGE_NAME}_{SIZE}.npz"
+
+
+def _load_unwrap(np, key, loops):
+    """A validated canonical UV layout for these exact mesh/recipe inputs, or None."""
+    path = _atlas_path()
+    if not path.is_file():
+        return None
+    with np.load(path, allow_pickle=False) as atlas:
+        if not {"unwrap_key", "uv", "uv_sha256"}.issubset(atlas.files):
+            return None  # T-2431 cache: unwrap once, retaining its existing AO if it matches
+        if str(atlas["unwrap_key"]) != key:
+            return None
+        uv, digest = atlas["uv"], str(atlas["uv_sha256"])
+    if uv.shape != (loops, 2) or uv.dtype != np.float32 or not np.isfinite(uv).all():
+        return None
+    if hashlib.sha256(uv.tobytes()).hexdigest() != digest:
+        return None
+    return uv
 
 
 def _load_atlas(np, key):
@@ -215,11 +288,21 @@ def _load_atlas(np, key):
     return q, covered
 
 
-def _store_atlas(np, key, q, covered):
+def _store_atlas(np, key, q, covered, unwrap_key, uv):
     path = _atlas_path()
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "wb") as fh:
-        np.savez_compressed(fh, key=np.str_(key), ao=q, covered=np.packbits(covered.ravel()))
+    # A failed serialization must not truncate the last usable cache.
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=path.parent, suffix=".tmp", delete=False) as fh:
+            temporary = Path(fh.name)
+            np.savez_compressed(fh, key=np.str_(key), ao=q, covered=np.packbits(covered.ravel()),
+                                unwrap_key=np.str_(unwrap_key), uv=uv,
+                                uv_sha256=np.str_(hashlib.sha256(uv.tobytes()).hexdigest()))
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
     return path
 
 
@@ -235,7 +318,19 @@ def bake_stone_occlusion(ob):
     mask = np.isin(slots, GRANITE_SLOTS)
     granite_area = sum(p.area for p in me.polygons if p.material_index in GRANITE_SLOTS)
     keep_active = me.uv_layers.active.name
-    uv_area = _welded_unwrap(bpy, bmesh, np, ob, mask)
+    unwrap_key = _unwrap_key(bpy, np, me, mask)
+    uv_coordinates = _load_unwrap(np, unwrap_key, len(me.loops))
+    restored_uv = uv_coordinates is not None
+    if restored_uv:
+        layer = me.uv_layers.new(name=OCCLUSION_UV)
+        layer.data.foreach_set("uv", uv_coordinates.ravel())
+        uv_area = _uv_area(np, me, mask, uv_coordinates)
+        print(f"stone occlusion: restored canonical UV layout ({unwrap_key[:16]})", flush=True)
+    else:
+        uv_area = _welded_unwrap(bpy, bmesh, np, ob, mask)
+        uv_coordinates = np.zeros(len(me.loops) * 2, np.float32)
+        me.uv_layers[OCCLUSION_UV].data.foreach_get("uv", uv_coordinates)
+        uv_coordinates = uv_coordinates.reshape(-1, 2)
     me.uv_layers.active = me.uv_layers[keep_active]   # emit.unwrap still edits BakeUV
 
     # Bake into a float buffer whose alpha says which texels a face wrote.
@@ -285,9 +380,11 @@ def bake_stone_occlusion(ob):
         covered = px.reshape(SIZE, SIZE, 4)[..., 2] > 0.25
         value = np.clip(_fill_holes(np, ao, covered), 0.0, 1.0)
         q = np.round(value * 255.0).astype(np.uint8)
-        path = _store_atlas(np, key, q, covered)
         print(f"stone occlusion: BAKED FRESH on this CPU ({key[:12]}) and wrote "
-              f"{path.relative_to(ATLAS_DIR.parents[2])}; commit it with the model (T-2431)")
+              f"{_atlas_path().relative_to(ATLAS_DIR.parents[2])}; commit it with the model (T-2431)")
+    if cached is None or not restored_uv:
+        _store_atlas(np, key, q, covered, unwrap_key, uv_coordinates)
+        print("stone occlusion: retained validated UV layout with its atlas (T-2494)")
     # Quantised, so the mean recorded is the mean of the bytes the exporter writes.
     value = q.astype(np.float32) / np.float32(255.0)
     written = value[covered]

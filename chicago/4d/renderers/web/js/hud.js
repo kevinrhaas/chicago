@@ -9,6 +9,7 @@
  * looking at, and it is styled as the primary one for that reason.
  */
 
+import { describeProfile } from './device-profile.js';
 import { markSeen, renderWhatsNew, unseenCount } from './whatsnew.js';
 import { isTyping } from './controls/pointerlock.js';
 import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSystem } from './units.js';
@@ -32,6 +33,11 @@ const DEFAULT_SETTINGS = {
   // owner's pick on T-2110, where Low drew a phone's frame 26-29 % faster. A
   // stored number is the visitor's own choice and is never overridden.
   quality: '',
+  // T-2555: Frame pacing — 'adaptive' lets the frame governor draw a moving
+  // frame at fewer pixels or a steady 30 fps on a device that cannot hold 60,
+  // and is back at the Sharpness above the moment the camera rests; 'fixed'
+  // draws every frame exactly at that Sharpness.
+  governor: 'adaptive',
   // R-A1. The road-legibility aid is OFF by default and off is the frame that
   // shipped before it existed. It is a viewing accommodation, not an
   // alternative reconstruction — see streets.js § R-A1 and ROADMAP R-A1.
@@ -42,6 +48,11 @@ const DEFAULT_SETTINGS = {
   // § BASE_EXPOSURE and ROADMAP K24.
   brightness: 0,
   compass: true, overviewMap: true, streetNames: true, units: 'imperial',
+  // T-2481: the 1904 Season — 'summer' (1 July, the scene's own date and the
+  // default), 'spring', 'fall' or 'winter': ground, trees and sun. A viewing choice.
+  season: 'summer',
+  // T-2473: the 1904 parkway elms, 'shown' or 'hidden'.
+  streetTrees: 'shown',
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, wagon, horse) and
@@ -56,7 +67,14 @@ const DEFAULT_SETTINGS = {
 
 function readSettings() {
   try {
-    return { ...DEFAULT_SETTINGS, ...JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') };
+    const saved = JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') ?? {};
+    // T-2481: T-2473 kept the season in `streetTrees` ('summer' | 'spring' |
+    // 'winter' | 'hidden'); it is now its own setting and the trees are shown or hidden.
+    if (['summer', 'spring', 'winter'].includes(saved.streetTrees)) {
+      saved.season ??= saved.streetTrees;
+      saved.streetTrees = 'shown';
+    }
+    return { ...DEFAULT_SETTINGS, ...saved };
   } catch { return { ...DEFAULT_SETTINGS }; }
 }
 
@@ -71,7 +89,7 @@ function store(key, value) {
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
-  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, structureVersion = null,
+  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
   const badgeYear = root.querySelector('.badge-year');
@@ -523,7 +541,9 @@ export function createHud({
     // '' means the visitor has never chosen, and the level in force is the
     // device guess main.js made. Show THAT, not the first option in the list:
     // a phone running `light` must not display `Full`.
-    detail.value = settings.detail || resolvedDetail;
+    // T-2547: after a crash the guard's step-down outranks the stored choice until
+    // the visitor picks again, so show the level actually in force.
+    detail.value = (lowered?.detail ? '' : settings.detail) || resolvedDetail;
     detail.addEventListener('change', () => {
       settings.detail = detail.value;
       onSetting?.('detail', settings.detail);
@@ -531,11 +551,19 @@ export function createHud({
     });
   }
 
+  // T-2559: what the device profile chose, and that a choice above beats it.
+  const deviceLine = $('device-line');
+  if (deviceLine && device) {
+    deviceLine.textContent = `${describeProfile(device)} A choice you make above overrides it.`;
+    deviceLine.title = device.why || '';
+    deviceLine.hidden = false;
+  }
+
   const qual = $('s-quality');
   if (qual) {
     // Like Scene detail: show the ratio in force, which for a visitor who never
     // chose is main.js's device guess — a phone at Low must not display Medium.
-    qual.value = String(settings.quality || resolvedQuality);
+    qual.value = String((lowered?.quality ? '' : settings.quality) || resolvedQuality);
     qual.addEventListener('change', () => {
       settings.quality = Number(qual.value);
       onSetting?.('quality', settings.quality);
@@ -553,6 +581,19 @@ export function createHud({
       store(SET_KEY, JSON.stringify(settings));
     });
   }
+  const wireSelect = (id, key, fallback) => {
+    const sel = $(id);
+    if (!sel) return;
+    sel.value = settings[key] || fallback;
+    sel.addEventListener('change', () => {
+      settings[key] = sel.value;
+      onSetting?.(key, settings[key]);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  };
+  wireSelect('s-governor', 'governor', 'adaptive');
+  wireSelect('s-season', 'season', 'summer');
+  wireSelect('s-street-trees', 'streetTrees', 'shown');
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');

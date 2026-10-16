@@ -1,0 +1,350 @@
+{
+  "library": "Prairie Avenue 1904 lakefront railway PBR materials",
+  "version": "1.1.0",
+  "ticket": "T-2478, T-2479",
+  "materials": [
+    {
+      "id": "cinder_ballast",
+      "group": "ballast",
+      "span_m": 2.0,
+      "span_across_m": 2.0,
+      "kind": "ballast",
+      "mean_roughness": 0.96,
+      "colors": [
+        [
+          74,
+          70,
+          66
+        ],
+        [
+          22,
+          21,
+          21
+        ]
+      ],
+      "note": "Locomotive cinders as track ballast, filled up round the ties: coarse clinker in a fine black-grey ash, a few rust-brown and glassy lumps and pale ash where the sun has dried it. The darkness and fineness are what both Glessner photographs at 18th Street show; grain and colour are reconstructed (L-ic-tracks-2478).",
+      "span_along_m": 2.0,
+      "resolution_px": 512,
+      "px_per_m": 256.0,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the track (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "cinder_ballast_basecolor_web.jpg",
+        "normal_gl": "cinder_ballast_normal_gl_web.jpg",
+        "orm": "cinder_ballast_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19040714,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "trodden_cinders",
+      "group": "ground",
+      "span_m": 4.0,
+      "span_across_m": 4.0,
+      "kind": "trodden",
+      "mean_roughness": 0.93,
+      "colors": [
+        [
+          92,
+          87,
+          81
+        ],
+        [
+          36,
+          34,
+          33
+        ]
+      ],
+      "note": "The same cinders trodden and rolled flat between and beside the tracks: finer, dustier, a faint path worn along the track, oil drips and a little moss and grass in the low places. Reconstructed (L-ic-tracks-2478).",
+      "span_along_m": 4.0,
+      "resolution_px": 512,
+      "px_per_m": 128.0,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the track (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "trodden_cinders_basecolor_web.jpg",
+        "normal_gl": "trodden_cinders_normal_gl_web.jpg",
+        "orm": "trodden_cinders_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19040815,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "weedy_verge",
+      "group": "verge",
+      "span_m": 3.0,
+      "span_across_m": 3.0,
+      "kind": "verge",
+      "mean_roughness": 0.95,
+      "colors": [
+        [
+          104,
+          116,
+          62
+        ],
+        [
+          56,
+          66,
+          36
+        ]
+      ],
+      "note": "A railway verge in July: patchy grass and weeds over cinder ground, bare ash showing through, dry straw-coloured stalks. The grass tufts drawn over it are the alpha card grass_tuft. Reconstructed (L-ic-tracks-2478).",
+      "span_along_m": 3.0,
+      "resolution_px": 512,
+      "px_per_m": 170.67,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the track (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "weedy_verge_basecolor_web.jpg",
+        "normal_gl": "weedy_verge_normal_gl_web.jpg",
+        "orm": "weedy_verge_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19040916,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "tie_timber",
+      "group": "timber",
+      "span_m": 2.44,
+      "span_across_m": 0.229,
+      "kind": "timber",
+      "mean_roughness": 0.88,
+      "colors": [
+        [
+          104,
+          94,
+          80
+        ],
+        [
+          52,
+          46,
+          40
+        ]
+      ],
+      "note": "The top of an untreated hewn-oak crosstie a few seasons in the track, weathered silver-brown: grain along its length, end and season checks, cinder dust packed into the grain and a darker band where each rail sits. Untreated because creosoting was still unusual on Midwestern lines before about 1910; that, the wood and its colour are reconstructed (L-ic-tracks-2478).",
+      "span_along_m": 2.44,
+      "resolution_px": 512,
+      "px_per_m": 209.84,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the track (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "tie_timber_basecolor_web.jpg",
+        "normal_gl": "tie_timber_normal_gl_web.jpg",
+        "orm": "tie_timber_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041017,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "riprap_limestone",
+      "group": "edge",
+      "span_m": 4.0,
+      "span_across_m": 4.0,
+      "seed": 19041320,
+      "kind": "riprap",
+      "mean_roughness": 0.86,
+      "colors": [
+        [
+          178,
+          170,
+          152
+        ],
+        [
+          92,
+          88,
+          80
+        ]
+      ],
+      "note": "Rough quarry stone dumped on the embankment's lakeward face, seen from above: angular blocks from a fifth to most of a metre across, buff-grey limestone of the kind Lemont and Joliet quarried for every Chicago lake work, weathered, stained and spotted with lichen, with dark voids between them. The renderer darkens it toward the water. Reconstructed (L-ic-lake-edge-2479).",
+      "span_along_m": 4.0,
+      "resolution_px": 512,
+      "px_per_m": 128.0,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the shore (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "riprap_limestone_basecolor_web.jpg",
+        "normal_gl": "riprap_limestone_normal_gl_web.jpg",
+        "orm": "riprap_limestone_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041320,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "limestone_block",
+      "group": "edge",
+      "span_m": 1.0,
+      "span_across_m": 1.0,
+      "seed": 19041421,
+      "kind": "stone",
+      "mean_roughness": 0.84,
+      "colors": [
+        [
+          182,
+          174,
+          156
+        ],
+        [
+          104,
+          99,
+          89
+        ]
+      ],
+      "note": "The broken face of one riprap stone, for the blocks the renderer stands on the face near the eye: split limestone with its bedding lines, pits, rust stains and lichen. Reconstructed (L-ic-lake-edge-2479).",
+      "span_along_m": 1.0,
+      "resolution_px": 512,
+      "px_per_m": 512.0,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the shore (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "limestone_block_basecolor_web.jpg",
+        "normal_gl": "limestone_block_normal_gl_web.jpg",
+        "orm": "limestone_block_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041421,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "cap_timber",
+      "group": "edge",
+      "span_m": 3.0,
+      "span_across_m": 0.3,
+      "seed": 19041522,
+      "kind": "timber",
+      "seats": false,
+      "mean_roughness": 0.86,
+      "colors": [
+        [
+          112,
+          104,
+          92
+        ],
+        [
+          50,
+          46,
+          42
+        ]
+      ],
+      "note": "A 12-inch timber laid along the embankment's crest as a cap over the piles, weathered grey by the lake: grain along its length, season checks, no rail seats. Reconstructed (L-ic-lake-edge-2479).",
+      "span_along_m": 3.0,
+      "resolution_px": 512,
+      "px_per_m": 170.67,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the shore (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "cap_timber_basecolor_web.jpg",
+        "normal_gl": "cap_timber_normal_gl_web.jpg",
+        "orm": "cap_timber_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041522,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "made_ground",
+      "group": "edge",
+      "span_m": 4.0,
+      "span_across_m": 4.0,
+      "seed": 19041623,
+      "kind": "made",
+      "mean_roughness": 0.94,
+      "colors": [
+        [
+          132,
+          122,
+          106
+        ],
+        [
+          52,
+          49,
+          46
+        ]
+      ],
+      "note": "The made ground between the last track and the stone: cinders, lake sand and builders' rubble dumped behind the edge, with brick and stone bits and patchy weeds. Reconstructed (L-ic-lake-edge-2479).",
+      "span_along_m": 4.0,
+      "resolution_px": 512,
+      "px_per_m": 128.0,
+      "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+      "orientation": "image x = along the shore (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "height16": "linear 16-bit",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "made_ground_basecolor_web.jpg",
+        "normal_gl": "made_ground_normal_gl_web.jpg",
+        "orm": "made_ground_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041623,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    },
+    {
+      "id": "grass_tuft",
+      "group": "foliage",
+      "width_px": 256,
+      "height_px": 512,
+      "height_m": 0.55,
+      "note": "An alpha card of grass and weed blades with a few seed heads, drawn upright; the renderer stands two crossed at each tuft. Species, height and colour are reconstructed (L-ic-tracks-2478).",
+      "width_m": 0.275,
+      "web": {
+        "basecolor_alpha": "grass_tuft_web.png"
+      },
+      "color_space": {
+        "basecolor_alpha": "sRGB colour, linear alpha"
+      },
+      "confidence": "reconstructed appearance",
+      "generator_seed": 19041118,
+      "generation_method": "deterministic procedural drawing (tools/generate_prairie_1904_rail.py); no photograph sampled"
+    }
+  ]
+}

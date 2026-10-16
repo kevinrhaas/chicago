@@ -125,10 +125,15 @@ def box(s0, s1, y0, y1):
 class Head:
     """The top of a clear opening s0..s1 whose jambs rise to `spring`."""
 
-    def __init__(self, kind: str, s0: float, s1: float, spring: float, rise_over_span: float = 0.125):
+    def __init__(self, kind: str, s0: float, s1: float, spring: float, rise_over_span: float = 0.125,
+                 radius_ratio: float = 1.0):
         self.kind, self.s0, self.s1, self.spring = kind, s0, s1, spring
         span = s1 - s0
         self.cx, half = (s0 + s1) / 2, span / 2
+        # each half's arc is centred on the springing line: on the opposite jamb for the
+        # equilateral head, nearer the middle (T-2457: a blunter, drop head) for a radius
+        # under the span; 0.5 would be round
+        self.cl, self.cr = s0, s1
         if kind == "flat":
             self.rise = 0.0
         elif kind == "segmental":
@@ -137,6 +142,12 @@ class Head:
             self.cy = spring - (self.R - self.rise)
         elif kind == "round":
             self.rise, self.R, self.cy = half, half, spring
+        elif kind == "pointed" and radius_ratio != 1.0:
+            if not 0.5 < radius_ratio < 1.0:
+                raise ValueError(f"a drop head's radius_ratio must lie between 0.5 and 1, not {radius_ratio}")
+            self.R = span * radius_ratio
+            self.cl, self.cr = s1 - self.R, s0 + self.R
+            self.rise = math.sqrt(self.R * self.R - (self.R - half) ** 2)
         elif kind == "pointed":
             self.R = span
             self.rise = math.sqrt(span * span - half * half)
@@ -159,13 +170,14 @@ class Head:
                     for i in range(n + 1)]
         r, n = self.R - inset, 6
         out = []
-        # right half: the arc centred on the LEFT jamb's spring
+        # right half: the arc centred on the LEFT jamb's spring (the drop head's left centre)
         ac = lambda q: math.acos(max(-1.0, min(1.0, q)))
-        ta, tb = ac((xa - self.s0) / r), ac((self.cx - self.s0) / r)
-        out += [(self.s0 + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
+        cl, cr = self.cl, self.cr
+        ta, tb = ac((xa - cl) / r), ac((self.cx - cl) / r)
+        out += [(cl + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
                 for i in range(n + 1)]
-        ta, tb = ac((self.cx - self.s1) / r), ac((xb - self.s1) / r)
-        out += [(self.s1 + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
+        ta, tb = ac((self.cx - cr) / r), ac((xb - cr) / r)
+        out += [(cr + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
                 for i in range(1, n + 1)]
         return out
 
@@ -278,8 +290,9 @@ class Opening:
                 head = Head("flat", s0, s1, H)
             else:
                 ros = self.data["arch"]["segmental"]["working_rise_over_span"]
-                h0 = Head(kind, s0, s1, 0.0, ros)
-                head = Head(kind, s0, s1, H - h0.rise, ros)
+                rr = v.get("head_radius_ratio", 1.0)    # T-2457: a drop head, its radius under the span
+                h0 = Head(kind, s0, s1, 0.0, ros, rr)
+                head = Head(kind, s0, s1, H - h0.rise, ros, rr)
             holes.append((s0, s1, head))
         self.meta["heads"] = [{"kind": h.kind, "span_m": round(h.span, 4), "rise_m": round(h.rise, 4),
                                "spring_m": round(h.spring, 4)} for _, _, h in holes]
@@ -390,15 +403,7 @@ class Opening:
                 fan = Region(day.s0, day.s1, head.spring, head=head, head_inset=fr["face_m"])
                 self._fanlight(fan, head, d_out, v.get("fanlight_bars", 5), mu)
             if op == "double_hung_transom":
-                tb = 0.06
-                t_bot = day.top_y - v["transom_m"]
-                sash_top = t_bot - tb
-                self.plane("frame", box(day.s0, day.s1, sash_top, t_bot), rev + stop)
-                self.face("frame", [self.P(day.s0, sash_top, rev + stop), self.P(day.s1, sash_top, rev + stop),
-                                    self.P(day.s1, sash_top, rev + fr["depth_m"]),
-                                    self.P(day.s0, sash_top, rev + fr["depth_m"])], (0.0, -1.0, 0.0))
-                self._sash("sash_outer", Region(day.s0, day.s1, t_bot, top_y=day.top_y), d_out, sa, mu,
-                           (v.get("transom_lights", 3), 1), (st, st, st, st), "transom")
+                sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
             arched_upper = op == "double_hung" and not flat
             meet = (day.y0 + (sash_top if not arched_upper else head.spring)) / 2
             up = Region(day.s0, day.s1, meet - mr, top_y=None if arched_upper else sash_top,
@@ -407,11 +412,34 @@ class Opening:
             low = Region(day.s0, day.s1, day.y0, top_y=meet)
             inner_glass = self._sash("sash_inner", low, d_in, sa, mu, panes, (st, st, br, mr), "lower")
             self.meta["meeting_rail_m"] = round(meet, 4)
+        elif op == "casement_pair_transom":
+            # T-2534: a French window — two casement leaves meeting at its middle, down to the
+            # floor it opens onto, under a transom bar and a fixed transom light
+            sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
+            mid = (day.s0 + day.s1) / 2
+            for a, b, key in ((day.s0, mid, "leaf_left"), (mid, day.s1, "leaf_right")):
+                inner_glass = self._sash("sash_outer", Region(a, b, day.y0, top_y=sash_top), d_out, sa, mu,
+                                         panes, (st, st, br, tr), key)
         else:  # fixed, casement, fixed_leaded: one sash in the outer track
             inner_glass = self._sash("sash_outer", day, d_out, sa, mu, panes, (st, st, br, tr), "fixed")
             if op == "fixed_leaded":
                 self._cames(day, (st, st, br, tr), inner_glass)
         self._room(day, head, rev, fr, inner_glass, p, top_flat)
+
+    def _transom(self, day: Region, rev, stop, fr, sa, mu, d_out):
+        """A transom bar `transom_m` under the daylight's top and the fixed light over it;
+        returns the top of what opens under the bar."""
+        v, st = self.v, sa["stile_m"]
+        tb = 0.06
+        t_bot = day.top_y - v["transom_m"]
+        sash_top = t_bot - tb
+        self.plane("frame", box(day.s0, day.s1, sash_top, t_bot), rev + stop)
+        self.face("frame", [self.P(day.s0, sash_top, rev + stop), self.P(day.s1, sash_top, rev + stop),
+                            self.P(day.s1, sash_top, rev + fr["depth_m"]),
+                            self.P(day.s0, sash_top, rev + fr["depth_m"])], (0.0, -1.0, 0.0))
+        self._sash("sash_outer", Region(day.s0, day.s1, t_bot, top_y=day.top_y), d_out, sa, mu,
+                   (v.get("transom_lights", 3), 1), (st, st, st, st), "transom")
+        return sash_top
 
     def _fanlight(self, fan: Region, head, d, bars, mu):
         outer = fan.outline()

@@ -35,7 +35,8 @@ PILLOW_LEAN=.45
 MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass','oak',
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
- 'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light')
+ 'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light',
+ 'rainwater_metal','glessner_vines','flat_brick')
 
 
 def _left_to_right_sum(iterable,start=0):
@@ -110,6 +111,7 @@ def _construct(root, *, roof_details_reduced=True):
             self.reduced_roof_details=roof_details_reduced
             # T-2211's two-plane street sash costs more triangles than this tier has left.
             self.reduced_sash=True
+            self.reduced_service_access=True
             self.components=Counter()
 
         def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
@@ -144,25 +146,32 @@ def _construct(root, *, roof_details_reduced=True):
                     tz=max(-1.0,min(1.0,(q[1]-cz)/max(.01,(y1-y0)/2)))
                     return d.norm(tuple(normal[k]+PILLOW_LEAN*(tu*along[k]+tz*up[k]) for k in range(3)))
             for fragment in d.subtract(polygon,holes or []):
-                pts=[point(q,depth) for q in fragment]
-                if pillow is None:
-                    self.raw(pts,confidence,variant,normal)
-                else:
-                    normals=[pillow(q) for q in fragment]
-                    if d.dot(d.legacy._normal(pts),normal)<0:
-                        pts.reverse();normals.reverse()
-                    for index,n in zip(self.raw(pts,confidence,variant),normals):
-                        self.pillow_normals[index]=n
-                emitted=True
+                parts=getattr(point,'partition',lambda poly,conf,mat:[(poly,point)])(
+                    [(*q,depth) for q in fragment],confidence,variant)
+                for piece,mapper in parts:
+                    piece_conf=max(confidence,getattr(mapper,'confidence',confidence))
+                    pts=[mapper(q[:2],q[2]) for q in piece]
+                    if pillow is None:
+                        self.raw(pts,piece_conf,variant,normal)
+                    else:
+                        normals=[pillow(q) for q in piece]
+                        if d.dot(d.legacy._normal(pts),normal)<0:
+                            pts.reverse();normals.reverse()
+                        for index,n in zip(self.raw(pts,piece_conf,variant),normals):
+                            self.pillow_normals[index]=n
+                    emitted=True
             if emitted:self.masonry_blocks+=1
 
         def tiles(self,pts,confidence):
             # Every course and joint is mapped at the full model's physical
-            # module. Keep the existing alternate-course geometric sampling.
+            # module. T-2219's full service junction took Light to 200,465 tris.
+            # With the restored court bars, sample relief every sixth course; the
+            # metric texture still shows every course and joint. Silhouettes,
+            # apertures and roof planes stay exact, under the unchanged 200k cap.
             normal,poly,point,coords=self.roof_frame(pts)
             self.roof_raw(pts,confidence,d.ROOF,normal,coords)
             spec=self.params.detail['roof_tiles']
-            step=2*spec['exposure_in']*.0254
+            step=6*spec['exposure_in']*.0254
             relief=spec['lap_relief_m']
             a,z0,c,z1=d.bounds(poly)
             for row in range(math.floor(z0/step),math.ceil(z1/step)):
@@ -189,7 +198,16 @@ def _construct(root, *, roof_details_reduced=True):
                 # Its reduced stone back must close that whole same aperture.
                 d.slab(b,o,o['u0']-.435,o['u1']+.435,o['z0']-.025,o['z1']+.045,-.02,.095,o['conf'],d.TRIM)
             else:d.slab(b,o,o['u0'],o['u1'],o['z0'],o['z1'],0,.095,o['conf'],d.TRIM)
-        else:d.opening(b,o,courtyard)
+        else:
+            d.opening(b,o,courtyard)
+            # The reduced sash path omits Full's axial garden bars. Preserve
+            # their count, centres and diameter with four-sided cylinders.
+            a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']
+            if courtyard and o['kind']=='window' and z1<1.8 and min(c-a,z1-z0)>=.45:
+                count=max(3,round((c-a)/.115))
+                for i in range(1,count):
+                    x,y,_=legacy._plane_point(o,a+(c-a)*i/count,0,-.10)
+                    d.cylinder(b,x,y,z0+.02,z1-.02,.011,o['conf'],d.IRON,4)
     b.decorate=False
     for n in params.bands:
         legacy._band(b,n)
@@ -199,10 +217,11 @@ def _construct(root, *, roof_details_reduced=True):
         # T-2201: the courtyard's boundary runs are 30 m of brick; per-course relief on
         # them would spend the reduced tier's triangle cap, so they stay flat here.
         b.decorate='ends' not in w
-        legacy._gate_piece(b,w)
+        d.gate_piece(b,w)
     b.decorate=True
     b.decorate=False
-    for g in params.ground:legacy._ground(b,g)
+    from archetypes.masonry_house_v4_ground import build as build_ground
+    build_ground(b,params)
     from archetypes.masonry_house_v4_frontage import add_frontage
     add_frontage(b,params,reduced=True)
     _columns(b,params,d)
@@ -221,6 +240,8 @@ def _construct(root, *, roof_details_reduced=True):
     from archetypes.masonry_house_v4_foundation import stair_tower_plinth
     from archetypes.masonry_house_v4_rainwater import add_courtyard_rainwater
     stair_tower_plinth(b,params)
+    from archetypes.masonry_house_v4_entry import end_returns
+    end_returns(b,params)
     add_courtyard_rainwater(b,params)
     b.components.update({'axial_opening_records':len(params.openings),'ground':len(params.ground),
                          'service_stairs':int(bool(params.detail.get('north_court_service_stair'))),
@@ -229,6 +250,10 @@ def _construct(root, *, roof_details_reduced=True):
     if params.detail.get("roof_edges"):
         from archetypes.masonry_house_v4_roof_edges import add_edges
         add_edges(b,params)
+    from archetypes.masonry_house_v4_vines import add_vines
+    vines=add_vines(b,params,reduced=True)
+    b.components['vine_plants']=len(vines['plants'])
+    b.components['vine_panels']=vines['added_faces']
     return b,params,materials
 
 
@@ -274,10 +299,13 @@ def _low_relief(d):
 
 def _fan(b,o,d):
     orn=d.ornament
-    r=_low_relief(d)(b,o,b.params.detail.get('conf',o['conf']),orn.CARVED_GRANITE)
     cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
+    from archetypes.masonry_house_v4_entry import settings,relief_profile,recessed_bed
+    spec=settings(b);profile=relief_profile(spec,cx,cz,rad+.04) if spec else None
+    r=_low_relief(d)(b,o,b.params.detail.get('conf',o['conf']),orn.CARVED_GRANITE,profile=profile)
     d.rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,b.params.detail.get('conf',o['conf']),90211)
-    r.solid([(cx+o['r_out']*math.cos(math.pi*i/20),cz+o['r_out']*math.sin(math.pi*i/20)) for i in range(21)],-.065,-.045)
+    if spec:recessed_bed(r,cx,cz,rad+.04,o['r_out'],spec,reduced=True)
+    else:r.solid([(cx+o['r_out']*math.cos(math.pi*i/20),cz+o['r_out']*math.sin(math.pi*i/20)) for i in range(21)],-.065,-.045)
     R=rad+.04
     # The bands of ornament.fan, outside in, at the same radii and depths.
     r.arc(cx,cz,R-.012,.034,.012)
@@ -534,10 +562,13 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     full,master_bin,master_sha=_read_glb(master)
     materials=full.get('materials',[])
     names={m.get('name'):i for i,m in enumerate(materials)}
-    if any(n not in names for n in MATERIAL_NAMES):raise ValueError('Full master does not contain the expected v4 material library')
     owner=next((n for n in full.get('nodes',[]) if n.get('extras',{}).get('detail_profile')=='glessner_v4'),None)
     if owner is None:raise ValueError('Source master is not the detailed Glessner v4')
     b,params,uv_module=_construct(root)
+    required=MATERIAL_NAMES[:29] if params.detail.get('rainwater') else MATERIAL_NAMES[:28]
+    if params.detail.get('vines'):required+=MATERIAL_NAMES[29:30]
+    if params.detail.get('surface_finish'):required+=MATERIAL_NAMES[30:31]
+    if any(n not in names for n in required):raise ValueError('Full master does not contain the expected v4 material library')
     counts=_apertures(params)
     if counts!=owner['extras'].get('aperture_counts'):
         raise ValueError('Reduced source aperture schedule differs from full master')
@@ -605,6 +636,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     extras.update({'lod':'light','grass_blades':0,'roof_tiles':0,'masonry_blocks':b.masonry_blocks,
                    'openings_recessed':sum(counts.values()),'aperture_counts':counts,
                    'stone_occlusion':occlusion_record})
+    extras['vine_panels']=b.components['vine_panels']
     bounds=[[min(p[k] for p in b.verts),max(p[k] for p in b.verts)] for k in range(3)]
     receipt={'master_sha256':master_sha,'recipe_sha256':recipe_sha256,'triangles':triangle_count,
              'openings_recessed':sum(counts.values()),'bounds_zup_m':bounds,

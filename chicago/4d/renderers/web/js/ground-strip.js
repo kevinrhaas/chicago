@@ -39,8 +39,9 @@
  */
 
 import * as THREE from 'three';
+import { ktx2Beside, loadSheet } from './ktx2.js';
 import {
-  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms,
+  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms, variationUniforms,
 } from './terrain.js';
 import {
   STRIP, MASK_PX_PER_M, maskSize, stripMaskPixels, stripWeights, maskAt, stripLocal,
@@ -110,17 +111,34 @@ function meanLinearLuma(image) {
   return sum / (S * S);
 }
 
-function loadMap(loader, url, colour) {
-  return new Promise((resolve, reject) => {
-    loader.load(url, (tex) => {
-      tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
-      tex.colorSpace = colour ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      // Four, as the prairie tile: the ground is most of the screen, and
-      // terrain.js measured eight taps halving the software rasteriser's frame.
-      tex.anisotropy = 4;
-      resolve(tex);
-    }, undefined, () => reject(new Error(`ground strip map did not load — ${url}`)));
-  });
+const SAND = 'lake_michigan_dune_sand';
+
+/** The sand's mean linear luma as the converter derived it, or null if it did not arrive. */
+async function derivedLuma(url) {
+  try {
+    const res = await fetch(url);
+    const v = res.ok ? Number((await res.json()).mean_linear_luma) : NaN;
+    return v > 0 ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+async function loadMap(loader, url, colour, { ktx2 = false } = {}) {
+  let tex;
+  try {
+    // `ktx2` only where nothing reads the pixels back: a compressed texture has
+    // no image to draw into a canvas (the sand's luma comes from its sidecar).
+    tex = await loadSheet(ktx2 ? ktx2Beside(url) : null, url, loader, { srgb: colour });
+  } catch {
+    throw new Error(`ground strip map did not load — ${url}`);
+  }
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.colorSpace = colour ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+  // Four, as the prairie tile: the ground is most of the screen, and
+  // terrain.js measured eight taps halving the software rasteriser's frame.
+  tex.anisotropy = 4;
+  return tex;
 }
 
 const FRAGMENT_HEAD = /* glsl */`
@@ -241,8 +259,13 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
       const sheet = await res.json();
       if (!(Number(sheet.span_m) > 0)) throw new Error(`${id}: material.json states no span_m`);
       const cUrl = new URL(`${id}_basecolor.png`, here).href;
-      const colour = await loadMap(loader, cUrl, true);
-      return { id, span: Number(sheet.span_m), colour };
+      // The sand's mean luma was once read from its pixels, which a compressed
+      // texture does not have; tools/ktx2_sheets.py now derives it from the master
+      // beside the sheet (T-2590). Without that number the sand stays an image and
+      // the luma is read from it as before, so a missing sidecar costs memory only.
+      const luma = id === SAND ? await derivedLuma(new URL(`${id}_basecolor.luma.json`, here).href) : null;
+      const colour = await loadMap(loader, cUrl, true, { ktx2: id !== SAND || luma !== null });
+      return { id, span: Number(sheet.span_m), colour, luma };
     }));
   } catch (err) {
     problems.push(`ground strip: not drawn — ${err.message}`);
@@ -280,12 +303,13 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
   mat.polygonOffset = true;
   mat.polygonOffsetFactor = -2;
   mat.polygonOffsetUnits = -2;
-  const sandLuma = meanLinearLuma(sand.colour.image);
+  const sandLuma = sand.luma ?? meanLinearLuma(sand.colour.image);
   mat.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, {
       uGround: { value: prairie },
       uPrairieLuma: { value: prairie.userData.meanLinearLuma },
       ...swardUniforms(sward),
+      ...variationUniforms(prairie),
       uMask: { value: maskTex },
       // West feather edge, south feather edge, 1/span along, 1/span across.
       uMaskFrame: { value: new THREE.Vector4(STRIP.e0 - F, STRIP.n0 - spanV / 2, 1 / spanU, 1 / spanV) },
@@ -361,10 +385,12 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
   stats.textures = textures.length;
   // Decoded GPU bytes with a full mip chain — arithmetic, as the map's § 5 is.
   stats.gpuBytes = Math.round(textures.reduce((s, t) => {
+    // A KTX2 sheet is its blocks, mips included, at the size it went up.
+    if (t.isCompressedTexture) return s + (t.mipmaps ?? []).reduce((a, m) => a + (m.data?.byteLength ?? 0), 0);
     const img = t.image;
     return s + (img?.width ?? 0) * (img?.height ?? 0) * 4 * 4 / 3;
   }, 0));
-  stats.fetchesPerFragment = 4 /* mask, prairie, sward, grit */ + 2 /* muck, sand colour */;
+  stats.fetchesPerFragment = 5 /* mask, prairie, sward, variation map, grit */ + 2 /* muck, sand colour */;
   stats.loadMs = Math.round(performance.now() - t0);
   stats.maskPxPerM = MASK_PX_PER_M;
   stats.maskSize = maskSize();

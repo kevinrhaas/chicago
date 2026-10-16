@@ -1,0 +1,306 @@
+{
+  "machine": "x86_64 Intel Xeon Platinum 8573C; four-core CPU quota",
+  "method": "Read actual Blender mesh arrays immediately before the AO cache lookup. Stop before AO, export or manifest writes. Selected and full cases use two threads unless named otherwise; canonical uses the bake.sh launch flags and default thread count.",
+  "cases": [
+    {
+      "case": "selected-t2218",
+      "source_revision": "d1c38de067dba8c24a0fe4771463a5de7e88495e",
+      "key": "447b6297e787dc037465faa19424b0c229735836e626e4c1bd96a54973dea4fc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            9068592
+          ],
+          "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202"
+        },
+        "loop_vertex": {
+          "shape": [
+            3022864
+          ],
+          "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705"
+        },
+        "loop_start": {
+          "shape": [
+            855038
+          ],
+          "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54"
+        },
+        "loop_total": {
+          "shape": [
+            855038
+          ],
+          "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940"
+        },
+        "uv": {
+          "shape": [
+            6045728
+          ],
+          "sha256": "c62bb0e5f32042b80f573574bc537350782c72ad67e9ab9eb235d7fb5d9bc50a"
+        },
+        "material": {
+          "shape": [
+            855038
+          ],
+          "sha256": "f78a6c31ee89fedbd40dfee49bb3c868ce43c471275973a5230c156570b4aa3f"
+        },
+        "mask": {
+          "shape": [
+            855038
+          ],
+          "sha256": "1caf263c7b6d2fe2937a1d8b94beeeed434f3439a18d9ea68e3df89a21248378"
+        }
+      }
+    },
+    {
+      "case": "full-t2218",
+      "source_revision": "d1c38de067dba8c24a0fe4771463a5de7e88495e",
+      "key": "447b6297e787dc037465faa19424b0c229735836e626e4c1bd96a54973dea4fc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            9068592
+          ],
+          "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202"
+        },
+        "loop_vertex": {
+          "shape": [
+            3022864
+          ],
+          "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705"
+        },
+        "loop_start": {
+          "shape": [
+            855038
+          ],
+          "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54"
+        },
+        "loop_total": {
+          "shape": [
+            855038
+          ],
+          "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940"
+        },
+        "uv": {
+          "shape": [
+            6045728
+          ],
+          "sha256": "c62bb0e5f32042b80f573574bc537350782c72ad67e9ab9eb235d7fb5d9bc50a"
+        },
+        "material": {
+          "shape": [
+            855038
+          ],
+          "sha256": "f78a6c31ee89fedbd40dfee49bb3c868ce43c471275973a5230c156570b4aa3f"
+        },
+        "mask": {
+          "shape": [
+            855038
+          ],
+          "sha256": "1caf263c7b6d2fe2937a1d8b94beeeed434f3439a18d9ea68e3df89a21248378"
+        }
+      }
+    },
+    {
+      "case": "selected-four-threads",
+      "source_revision": "d1c38de067dba8c24a0fe4771463a5de7e88495e",
+      "key": "447b6297e787dc037465faa19424b0c229735836e626e4c1bd96a54973dea4fc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            9068592
+          ],
+          "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202"
+        },
+        "loop_vertex": {
+          "shape": [
+            3022864
+          ],
+          "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705"
+        },
+        "loop_start": {
+          "shape": [
+            855038
+          ],
+          "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54"
+        },
+        "loop_total": {
+          "shape": [
+            855038
+          ],
+          "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940"
+        },
+        "uv": {
+          "shape": [
+            6045728
+          ],
+          "sha256": "c62bb0e5f32042b80f573574bc537350782c72ad67e9ab9eb235d7fb5d9bc50a"
+        },
+        "material": {
+          "shape": [
+            855038
+          ],
+          "sha256": "f78a6c31ee89fedbd40dfee49bb3c868ce43c471275973a5230c156570b4aa3f"
+        },
+        "mask": {
+          "shape": [
+            855038
+          ],
+          "sha256": "1caf263c7b6d2fe2937a1d8b94beeeed434f3439a18d9ea68e3df89a21248378"
+        }
+      }
+    },
+    {
+      "case": "selected-old",
+      "source_revision": "0b233706c8ee3307933f6442543c18b40119e499",
+      "key": "6e0d3cbb766041797a058b5dd2ead7a168b79a1f06747e40ea2cb595fadb5cfc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            8972064
+          ],
+          "sha256": "c5f4924038dd23c5d3147032cabfe7a3c1d69a5fec553d30944a6b078dde9e53"
+        },
+        "loop_vertex": {
+          "shape": [
+            2990688
+          ],
+          "sha256": "f6228642e61551993d89eaa49902d36d9b34b8459836d6a6ba9d517b080f01e7"
+        },
+        "loop_start": {
+          "shape": [
+            846970
+          ],
+          "sha256": "bdd7d9ae23acdc9f454d1b188f9fdc4badab8f49421bdd646a8818dfc5ddae81"
+        },
+        "loop_total": {
+          "shape": [
+            846970
+          ],
+          "sha256": "00ab548d7bb52fd33a21c34bb0ee3a28fd5601b4ff00c52cccfe2a387a8354e5"
+        },
+        "uv": {
+          "shape": [
+            5981376
+          ],
+          "sha256": "e068ac31b30c421f4ba3ea39a5a261e8a0b425d4da81a7c11ef5bec35391cafb"
+        },
+        "material": {
+          "shape": [
+            846970
+          ],
+          "sha256": "8f982dc0852e978b9846bbed6ac72ab1c16b4398ce9ba996464d1a5c5d5e2c57"
+        },
+        "mask": {
+          "shape": [
+            846970
+          ],
+          "sha256": "03151eba8537644e19bcbd2f5d973d005cf74b46871e16b533523b53473e347a"
+        }
+      }
+    },
+    {
+      "case": "full-old",
+      "source_revision": "0b233706c8ee3307933f6442543c18b40119e499",
+      "key": "6e0d3cbb766041797a058b5dd2ead7a168b79a1f06747e40ea2cb595fadb5cfc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            8972064
+          ],
+          "sha256": "c5f4924038dd23c5d3147032cabfe7a3c1d69a5fec553d30944a6b078dde9e53"
+        },
+        "loop_vertex": {
+          "shape": [
+            2990688
+          ],
+          "sha256": "f6228642e61551993d89eaa49902d36d9b34b8459836d6a6ba9d517b080f01e7"
+        },
+        "loop_start": {
+          "shape": [
+            846970
+          ],
+          "sha256": "bdd7d9ae23acdc9f454d1b188f9fdc4badab8f49421bdd646a8818dfc5ddae81"
+        },
+        "loop_total": {
+          "shape": [
+            846970
+          ],
+          "sha256": "00ab548d7bb52fd33a21c34bb0ee3a28fd5601b4ff00c52cccfe2a387a8354e5"
+        },
+        "uv": {
+          "shape": [
+            5981376
+          ],
+          "sha256": "e068ac31b30c421f4ba3ea39a5a261e8a0b425d4da81a7c11ef5bec35391cafb"
+        },
+        "material": {
+          "shape": [
+            846970
+          ],
+          "sha256": "8f982dc0852e978b9846bbed6ac72ab1c16b4398ce9ba996464d1a5c5d5e2c57"
+        },
+        "mask": {
+          "shape": [
+            846970
+          ],
+          "sha256": "03151eba8537644e19bcbd2f5d973d005cf74b46871e16b533523b53473e347a"
+        }
+      }
+    },
+    {
+      "case": "selected-old-canonical",
+      "source_revision": "0b233706c8ee3307933f6442543c18b40119e499",
+      "key": "6e0d3cbb766041797a058b5dd2ead7a168b79a1f06747e40ea2cb595fadb5cfc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            8972064
+          ],
+          "sha256": "c5f4924038dd23c5d3147032cabfe7a3c1d69a5fec553d30944a6b078dde9e53"
+        },
+        "loop_vertex": {
+          "shape": [
+            2990688
+          ],
+          "sha256": "f6228642e61551993d89eaa49902d36d9b34b8459836d6a6ba9d517b080f01e7"
+        },
+        "loop_start": {
+          "shape": [
+            846970
+          ],
+          "sha256": "bdd7d9ae23acdc9f454d1b188f9fdc4badab8f49421bdd646a8818dfc5ddae81"
+        },
+        "loop_total": {
+          "shape": [
+            846970
+          ],
+          "sha256": "00ab548d7bb52fd33a21c34bb0ee3a28fd5601b4ff00c52cccfe2a387a8354e5"
+        },
+        "uv": {
+          "shape": [
+            5981376
+          ],
+          "sha256": "e068ac31b30c421f4ba3ea39a5a261e8a0b425d4da81a7c11ef5bec35391cafb"
+        },
+        "material": {
+          "shape": [
+            846970
+          ],
+          "sha256": "8f982dc0852e978b9846bbed6ac72ab1c16b4398ce9ba996464d1a5c5d5e2c57"
+        },
+        "mask": {
+          "shape": [
+            846970
+          ],
+          "sha256": "03151eba8537644e19bcbd2f5d973d005cf74b46871e16b533523b53473e347a"
+        }
+      }
+    }
+  ]
+}

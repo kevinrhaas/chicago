@@ -13,6 +13,9 @@ Its phase's `form` carries each as an attested-shaped entry:
     canted_bay   optional: a plain bay standing on the gable front's ground storey; with
                  `lights` (T-2424) built in kit timber, a pointed light in each face
     roof_covering optional: the roof's colour
+    basement     optional (T-2523): `height_m`, the basement storey the whole house stands
+                 on; every other height in the record is over its top, the porch floor and
+                 stoop come down to grade, and the foundations run on down to grade
 
 OR, since T-2357, a WHOLE small frame house closed on every face from the kit:
 
@@ -28,12 +31,13 @@ returns, so every field the builder reads is in it.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
 REQUIRED = ("layout", "gable", "wing_wall", "porch", "body")
-OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary")
+OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary", "basement")
 #: The form attributes that reach the mesh. `stories` and `construction` are stated on a
 #: record for the card and declare `geometry: simplified`.
 # T-2357: the whole-house layout, read instead of the front's five
@@ -64,6 +68,7 @@ class K16TimberParams:
     roof_covering: dict | None = None
     tower: dict | None = None
     boundary: dict | None = None
+    basement: dict | None = None
     frame_house: dict | None = None
     confidence: dict = field(default_factory=dict)
 
@@ -118,10 +123,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         bad = boundary_errors(form["boundary"]["value"])
         if bad:
             raise ParamError(f"{rid}: boundary: {'; '.join(bad)}")
+    if "basement" in form:     # T-2523
+        bad = basement_errors(form["basement"]["value"])
+        if bad:
+            raise ParamError(f"{rid}: basement: {'; '.join(bad)}")
     if "canted_bay" in form and "lights" in form["canted_bay"]["value"]:     # T-2424
         bad = bay_errors(form["canted_bay"]["value"])
         if bad:
             raise ParamError(f"{rid}: canted_bay: {'; '.join(bad)}")
+    for k, fv in form.items():     # T-2520: a door's transom light
+        doors = fv["value"].get("doors") if isinstance(fv, dict) and isinstance(fv.get("value"), dict) else None
+        for d in doors or []:
+            bad = transom_errors(d)
+            if bad:
+                raise ParamError(f"{rid}: {k}: door transom: {'; '.join(bad)}")
     if not isinstance(form["porch"]["value"].get("half_width_m"), (int, float)):
         raise ParamError(f"{rid}: porch needs half_width_m")
     bad = porch_errors(form["porch"]["value"])
@@ -153,6 +168,9 @@ def boundary_errors(bv: dict) -> list[str]:
         out.append("bars need bar_m (0.01-0.05) and rail_m")
     elif not (_num(f.get("height_m")) and _num(b.get("height_m")) and f["height_m"] - f["rail_m"] > b["height_m"]):
         out.append("bars.height_m must stand a rail over the base")
+    if "first_m" in f and not (_num(f["first_m"]) and _num(f.get("bar_m")) and _num(f.get("pitch_m"))
+                               and f["bar_m"] / 2 <= f["first_m"] <= f["pitch_m"]):
+        out.append("bars.first_m (T-2524) puts the first bar off its pier's plinth: half a bar to one pitch")
     out += [f"pier needs a positive {k}" for k in PIER_NUMS if not (_num(pv.get(k)) and pv[k] > 0)]
     if out:
         return out
@@ -160,9 +178,19 @@ def boundary_errors(bv: dict) -> list[str]:
         out.append("pier: plinth, shaft, cap and finial must rise in that order")
     if pv["section_m"] > pv["plinth_m"] or pv["cap"]["half_m"] * 2 < pv["section_m"]:
         out.append("pier: the plinth and the cap are at least as broad as the shaft")
-    hv = pv["cap"]["heart"]
-    if not (pv["shaft_top_m"] < hv["lobe_y_m"] - hv["lobe_r_m"] and hv["apex_y_m"] < pv["cap"]["top_m"]
-            and hv["lobe_off_m"] + hv["lobe_r_m"] < pv["cap"]["half_m"] - pv["cap"]["board_m"]):
+    cp, hv = pv["cap"], pv["cap"]["heart"]
+    if cp.get("flare") is not None:      # T-2521: the cap's lower corners flared out under it
+        fl, h0 = cp["flare"], cp.get("top_half_m")
+        if not (_num(h0) and pv["section_m"] / 2 <= h0 < cp["half_m"]):
+            out.append("pier: a flared cap needs top_half_m, at least the shaft's half and under half_m")
+        elif not all(_num(fl.get(k)) for k in ("foot_m", "widest_m", "from_m")) or not (
+                pv["shaft_top_m"] < fl["foot_m"] < fl["widest_m"] < fl["from_m"] < cp["top_m"]):
+            out.append("pier: the cap's flare needs shaft top < foot_m < widest_m < from_m < the cap's top")
+        if out:
+            return out
+    board_half = cp.get("top_half_m", cp["half_m"])
+    if not (pv["shaft_top_m"] < hv["lobe_y_m"] - hv["lobe_r_m"] and hv["apex_y_m"] < cp["top_m"]
+            and hv["lobe_off_m"] + hv["lobe_r_m"] < board_half - cp["board_m"]):
         out.append("pier: the cap's heart must stand inside its board")
     ps = sorted(q.get("centre_m", 0) for q in bv.get("piers") or [])
     if len(ps) != 2:
@@ -175,14 +203,64 @@ def boundary_errors(bv: dict) -> list[str]:
 #: T-2425: what a porch's arched head, broader post and stoop need
 PORCH_ARCH = ("spring_below_plate_m", "rise_m", "lower_radius_ratio", "lower_sweep_deg", "lobe_m")
 PORCH_STOOP = ("max_riser_m", "going_m", "cheek_above_m")
+#: T-2519: what a cusped trefoil head needs in place of the pointed arch's rise and arcs
+PORCH_TREFOIL = ("spring_below_plate_m", "foil_radius_m", "head_radius_m", "head_over_spring_m", "lobe_m")
+#: T-2533: an open-fretwork spandrel, what stands of its board: the bands round the head and side
+#: foils, the ring round the quatrefoil (from its middle), the tie from it to the cusp and the eye
+#: through that (its breadth, its distance from the quatrefoil's middle), the frame on the post
+#: and plate, and the least opening cut.
+PORCH_FRET = ("head_band_m", "side_band_m", "ring_m", "tie_m", "eye_m", "eye_at_m", "rim_m", "min_opening_m")
+
+
+def basement_errors(bv: dict) -> list[str]:
+    """T-2523: the basement a house stands on is one height, a storey's worth at most."""
+    if set(bv) != {"height_m"}:
+        return ["sets height_m and nothing else"]
+    if not (_num(bv["height_m"]) and 0 < bv["height_m"] <= 2.5):
+        return ["height_m must lie in 0-2.5 m"]
+    return []
+
+
+def transom_errors(door: dict) -> list[str]:
+    """T-2520: a transom is a bar on the leaves' head and one light under a low gable, its
+    sides at the jambs no higher than its apex at the middle."""
+    tm = door.get("transom")
+    if tm is None:
+        return []
+    if not all(_num(tm.get(k)) and tm[k] > 0 for k in ("bar_m", "side_m", "apex_m")):
+        return ["needs positive bar_m, side_m and apex_m"]
+    if tm["side_m"] > tm["apex_m"]:
+        return ["side_m (at the jambs) cannot stand over apex_m (the middle)"]
+    return []
 
 
 def porch_errors(pv: dict) -> list[str]:
     out = []
     if "post_m" in pv and not (_num(pv["post_m"]) and 0.08 <= pv["post_m"] <= 0.4):
         out.append("post_m must be a post section of 0.08-0.4 m")
+    if "post_inset_m" in pv and not (_num(pv["post_inset_m"]) and 0.0 <= pv["post_inset_m"] <= 0.3):
+        out.append("post_inset_m (the post's outer face in from the floor's end) must lie in 0-0.3 m")
+    pl = pv.get("plate")
+    if pl is not None:      # T-2519: a house's own plate
+        if not isinstance(pl, dict) or not pl or set(pl) - {"clear_m", "height_m"}:
+            out.append("plate may set only clear_m and height_m")
+        elif not all(_num(x) and x > 0 for x in pl.values()):
+            out.append("plate's clear_m and height_m must be positive")
+    if "roof_m" in pv and not (_num(pv["roof_m"]) and 0.05 <= pv["roof_m"] <= 0.5):
+        out.append("roof_m (T-2533: the porch's fascia) must lie in 0.05-0.5 m")
     ar = pv.get("arch")
-    if ar is not None:
+    fr = (ar or {}).get("fret")
+    if fr is not None and (ar or {}).get("kind") != "trefoil":
+        out.append("arch.fret (T-2533) is tied to a trefoil's cusp, so it needs kind: trefoil")
+    elif fr is not None and not (isinstance(fr, dict) and set(fr) == set(PORCH_FRET)
+                               and all(_num(fr[k]) and 0 < fr[k] <= 0.5 for k in PORCH_FRET)):
+        out.append(f"arch.fret (T-2533) needs exactly {', '.join(PORCH_FRET)}, each 0-0.5 m")
+    if ar is not None and ar.get("kind") == "trefoil":     # T-2519: a cusped trefoil head
+        out += [f"arch needs a positive {k}" for k in PORCH_TREFOIL if not (_num(ar.get(k)) and ar[k] > 0)]
+        qi = ar.get("quatrefoil_inset_m")
+        if not (isinstance(qi, list) and len(qi) == 2 and all(_num(x) and x > 0 for x in qi)):
+            out.append("arch needs quatrefoil_inset_m [in from the post, down from the plate]")
+    elif ar is not None:
         out += [f"arch needs a positive {k}" for k in PORCH_ARCH if not (_num(ar.get(k)) and ar[k] > 0)]
         qi = ar.get("quatrefoil_inset_m")
         if not (isinstance(qi, list) and len(qi) == 2 and all(_num(x) and x > 0 for x in qi)):
@@ -197,8 +275,9 @@ def porch_errors(pv: dict) -> list[str]:
     return out
 
 
-#: T-2397: the roofs an annex may take — a deck, or a lean-to up into the main roof
-ANNEX_ROOFS = ("flat", "lean_to")
+#: T-2397: the roofs an annex may take — a deck, or a lean-to up into the main roof; T-2522 a
+#: gable whose ridge runs north into it
+ANNEX_ROOFS = ("flat", "lean_to", "gable")
 
 
 def annex_errors(body: dict, gable_width: float) -> list[str]:
@@ -230,6 +309,14 @@ def annex_errors(body: dict, gable_width: float) -> list[str]:
             out.append(f"{bid}: roof.kind must be one of {', '.join(ANNEX_ROOFS)}")
         if kind == "lean_to" and b.get("against") != "north":
             out.append(f"{bid}: a lean-to rises against the body's south flank, so stands against north")
+        if kind == "gable":     # T-2522: a gable whose ridge runs north into the main roof
+            rf = b["roof"]
+            if b.get("against") != "north" or rf.get("ridge") != "v":
+                out.append(f"{bid}: a gabled annex stands against north with its ridge along v")
+            if not (_num(rf.get("pitch_deg")) and 20 <= rf["pitch_deg"] <= 65):
+                out.append(f"{bid}: a gabled annex's roof.pitch_deg must lie in 20-65")
+            if b.get("wall_top_m") == "flank":
+                out.append(f"{bid}: a gabled annex's eave stands under the flanks', so its wall_top_m is a number")
         against = b.get("against")
         if against not in SIDES:
             out.append(f"{bid}: an annex names the side it stands against")
@@ -330,6 +417,34 @@ def gable_errors(gv: dict) -> list[str]:
             out.append("oculus needs positive centre_m, centre_y_m, width_m, height_m, ring_m, field_z_m and ring_z_m")
         elif ov["ring_z_m"] <= ov["field_z_m"] or 2 * ov["ring_m"] >= min(ov["width_m"], ov["height_m"]):
             out.append("oculus: the ring must stand proud of its field and leave a field inside it")
+    # T-2457: a plain verge board, a cluster of pinnacles, the hood's volute stops and tracery
+    vg = gv.get("verge")
+    if vg is not None:
+        if not all(_num(vg.get(k)) and vg[k] > 0 for k in ("depth_m", "thickness_m", "bead_m", "bead_proud_m")):
+            out.append("verge needs positive depth_m, thickness_m, bead_m and bead_proud_m")
+        elif vg["bead_m"] >= vg["depth_m"]:
+            out.append("verge: the bead must be shallower than the board")
+    pn = gv.get("pinnacles")
+    if pn is not None:
+        if not isinstance(pn, list) or not pn:
+            out.append("pinnacles must be a list of pinnacles")
+        else:
+            for q in pn:
+                if not all(_num(q.get(k)) for k in ("offset_m", "section_m", "shaft_top_m", "top_m")) \
+                        or q["offset_m"] < 0 or q["section_m"] <= 0 or q["top_m"] <= q["shaft_top_m"]:
+                    out.append("a pinnacle needs offset_m >= 0, a positive section_m, and top_m over shaft_top_m")
+    if hv is not None:
+        st = hv.get("stop") or {}
+        if st.get("kind", "block") not in ("block", "volute"):
+            out.append("hood.stop.kind must be block or volute")
+        elif st.get("kind") == "volute" and not (_num(st.get("radius_m")) and _num(st.get("eye_m"))
+                                                 and 0 < st["eye_m"] < st["radius_m"]):
+            out.append("a volute stop needs radius_m and a smaller positive eye_m")
+        tr = hv.get("tracery")
+        if tr is not None and not (all(_num(tr.get(k)) and tr[k] > 0 for k in
+                                       ("centre_y_m", "lobe_r_m", "lobe_off_m", "ring_m", "projection_m"))
+                                   and tr["ring_m"] < tr["lobe_r_m"]):
+            out.append("hood.tracery needs positive centre_y_m, lobe_r_m, lobe_off_m, projection_m and a ring_m under lobe_r_m")
     return out
 
 
@@ -346,6 +461,17 @@ def tower_errors(tv: dict) -> list[str]:
             out.append(f"{k} must be a positive number")
     if not out and tv["spire_apex_m"] <= tv["wall_top_m"] + 1.0:
         out.append("spire_apex_m must stand at least 1 m over wall_top_m")
+    sg = tv.get("stage")
+    if sg is not None:     # T-2521: a smooth stage under a shallower frieze, a trefoil incised over each light
+        if not (_num(sg.get("frieze_m")) and 0.05 <= sg["frieze_m"] <= 0.5):
+            out.append("stage.frieze_m must be 0.05-0.5 m")
+        inc = sg.get("incised")
+        if inc is not None and not (all(_num(inc.get(k)) and inc[k] > 0 for k in
+                                        ("centre_y_m", "lobe_r_m", "lobe_off_m", "groove_m", "depth_m"))
+                                    and inc["lobe_r_m"] - inc["groove_m"] > inc["lobe_off_m"] * math.sqrt(3) / 2
+                                    and inc["depth_m"] < 0.015):
+            out.append("stage.incised needs positive centre_y_m, lobe_r_m, lobe_off_m, groove_m and depth_m "
+                       "(under 0.015 m), the lobes inside the groove overlapping")
     seen = set()
     for w in tv.get("windows", []):
         faces = w.get("faces") or []
@@ -373,6 +499,11 @@ def bay_errors(bv: dict) -> list[str]:
     lt = bv.get("lights") or {}
     if not all(_num(lt.get(x)) for x in ("clear_width_m", "clear_height_m", "sill_m")) or not lt.get("k06_variant"):
         out.append("lights needs k06_variant, clear_width_m, clear_height_m and sill_m")
+    elif "head_radius_ratio" in lt and not (_num(lt["head_radius_ratio"]) and 0.5 < lt["head_radius_ratio"] <= 1.0):
+        out.append("lights.head_radius_ratio must lie over 0.5 and at most 1 (T-2457: a drop head)")
+    elif lt.get("stops") is not None and not all(_num(lt["stops"].get(k)) and lt["stops"][k] > 0
+                                                 for k in ("width_m", "height_m", "projection_m")):
+        out.append("lights.stops needs positive width_m, height_m and projection_m")
     elif not out and lt["sill_m"] + lt["clear_height_m"] >= bv["wall_top_m"] - bv["frieze_m"]:
         out.append("the lights must stand under the frieze")
     return out

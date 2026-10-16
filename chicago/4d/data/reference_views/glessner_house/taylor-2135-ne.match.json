@@ -1,0 +1,20 @@
+{
+  "structure_id": "glessner_house",
+  "view": "taylor-2135-ne",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "camera_sha256": "c194faa26abdb9b7aa27f3946e795205a7856e80a6d59d10f5b4d46c2d51c6f9",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Actual master reviewed: the early photograph still differs in street opening/entry alignment, roof/stack silhouette and stone/course lighting. The new north-cone/courtyard corrections do not constitute full photographic acceptance.",
+      "status": "open"
+    },
+    {
+      "what": "The early streetscape and neighbor geometry are separate context work; monochrome/sepia reproduction does not establish exact1904 RGB, and the courtyard is not visible.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

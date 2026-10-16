@@ -1,0 +1,41 @@
+{
+  "id": "made_ground",
+  "group": "edge",
+  "span_m": 4.0,
+  "span_across_m": 4.0,
+  "seed": 19041623,
+  "kind": "made",
+  "mean_roughness": 0.94,
+  "colors": [
+    [
+      132,
+      122,
+      106
+    ],
+    [
+      52,
+      49,
+      46
+    ]
+  ],
+  "note": "The made ground between the last track and the stone: cinders, lake sand and builders' rubble dumped behind the edge, with brick and stone bits and patchy weeds. Reconstructed (L-ic-lake-edge-2479).",
+  "span_along_m": 4.0,
+  "resolution_px": 512,
+  "px_per_m": 128.0,
+  "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+  "orientation": "image x = along the shore (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "height16": "linear 16-bit",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "made_ground_basecolor_web.jpg",
+    "normal_gl": "made_ground_normal_gl_web.jpg",
+    "orm": "made_ground_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041623,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+}

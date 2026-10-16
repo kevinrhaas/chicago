@@ -28,7 +28,7 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
-  createLatestDetailSwitch, disposeLoadedAsset } from './scene-loader.js';
+  createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
@@ -43,6 +43,7 @@ import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { createPopup } from './popup.js';
 import { createWelcome } from './welcome.js';
+import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
 import { createHud } from './hud.js';
 import { createNavigation } from './navigation.js';
@@ -55,8 +56,12 @@ import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
+import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
-import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
+import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
+  closeUploadedImages } from './upload-release.js';
+import { createTextureResidency } from './texture-residency.js';
+import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
@@ -64,6 +69,13 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
+import { initKTX2, ktx2State } from './ktx2.js';
+import { jobsState } from './jobs/pool.js';
+import { createStreetTrees } from './street-trees.js';
+import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
+import { createContext } from './context.js';
+import { createRailway } from './railway.js';
+import { createViewOcclusion } from './view-occlusion.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
 import { mountOrderBook } from './orderbook.js';
@@ -78,7 +90,9 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
-import { resolveSharpness, sharpnessGuess } from './sharpness.js';
+import { resolveSharpness } from './sharpness.js';
+import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
 
@@ -1007,6 +1021,11 @@ const DETAIL_DECLARED = {
   // 90-call cap, the reaches and the shadow tier are unchanged; nothing in
   // the scene moves. A later trim can still bring this back down, as T-0672 did.
   light:    { triangles: 1190000, shadowReachM: 120, furnitureCastsShadow: false,
+              // T-2529: a structure piece casts only if its shadow can reach the
+              // view (shadow-casters.js). Conservative, so the frame is the same
+              // picture; the sun's pass stops drawing houses whose shadows fall
+              // away from the screen. `full` and `balanced` are unchanged.
+              castersTowardView: true,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -1144,7 +1163,33 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // rendered passes, not the master inventory of 1,070,689 triangles. Final
 // all-viewport validation still checks the released bytes. The ordinary town,
 // balanced 1,280,000, light 825,000 and 215 draw calls are unchanged.
-const GLESSNER_V4_FULL_TRIANGLES = 3800000;
+// T-2219, 2026-10-13: the existing T-2470 Full asset renders 3,890,920 /
+// 3,836,612 / 3,655,925 triangles at the fixed service-junction / front /
+// elevated-junction stands (1280x800, 225 calls maximum). The original 3.8M
+// T-1730 allowance predates the completed masonry and roof detail and already
+// fails before this repair. After integrating T-2473, the same stand with summer
+// street trees reads 4,274,524 triangles / 229 calls. The final 4.6M allowance
+// leaves 7.6% over that integrated reading. Keep the ordinary town, Balanced,
+// Light and draw-call ceilings unchanged. Before/after receipts and cameras:
+// docs/RESEARCH/glessner-service-junction-T-2219/ . This is a spot measurement,
+// not a frame-rate guarantee; the existing Scene detail control selects Light.
+const GLESSNER_V4_FULL_TRIANGLES = 4600000;
+// T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
+// already draws 340 calls on dev, before the door change (4,443,344 tris).
+// The rebuilt door draws the SAME 340 calls (4,465,836 tris); the other four
+// passage stands peak at 238. Price this Full inspection at 360 calls, 5.9%
+// above the observed maximum, under the owner's explicit headroom ruling.
+// This is a declared Full-only re-budget, not a mesh or rendering change.
+// Balanced, Light and non-inspection scenes retain BUDGET.drawCalls (330).
+// Receipts: docs/RESEARCH/glessner-porte-cochere-T-2217/.
+const GLESSNER_V4_FULL_DRAW_CALLS = 360;
+// T-2218: the new courtyard stair-bottom stand already renders 1,224,656
+// triangles / 213 calls in Light before the geometry change, exceeding the
+// older 1.19M allowance. Price this Glessner inspection at 1.27M (3.7% margin),
+// below Balanced's 1.28M. Other scenes retain 1.19M and all Light scenes retain
+// 330 calls. This is a measured allowance under the owner's headroom ruling;
+// it is not a frame-rate claim. Before/after: glessner-courtyard-steps-T-2218.
+const GLESSNER_V4_LIGHT_TRIANGLES = 1270000;
 /**
  * THE DRAW-CALL BUDGET, RAISED FROM 80 TO 120 ON 2026-08-21 — a conscious
  * re-budget, written down here where the number is set, and never a silent one.
@@ -1300,6 +1345,21 @@ const FURNITURE_LAYERS = ['enclosures', 'yard', 'frontage', 'wharves', 'boats', 
  */
 const NEAR = { min: 0.1, max: 8, divisor: 25, step: 0.05 };
 
+/** T-2481: the Season setting and whether the street trees show, from the
+ *  chicago4d.settings blob. T-2473 stored the season in `streetTrees` itself
+ *  ('summer' | 'spring' | 'winter' | 'hidden'); such a blob still reads right. */
+function readSeasonPreference() {
+  let saved = {};
+  try { saved = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { /* none */ }
+  const legacy = SEASONS.includes(saved.streetTrees) ? saved.streetTrees : null;
+  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
+  return { season, treesShown: saved.streetTrees !== 'hidden' };
+}
+/** The street elms' mode for a season, or hidden. */
+function streetTreeMode(season, treesShown) {
+  return treesShown ? (SEASON_TREE_MODE[season] ?? 'summer') : 'hidden';
+}
+
 /** The visitor's stored choice, read straight from the HUD's own settings blob so
  *  the two cannot disagree about which level is selected. Returns '' when they
  *  have never chosen, which is what lets the device guess stand. */
@@ -1308,6 +1368,15 @@ function readDetailPreference() {
     const raw = window.localStorage.getItem('chicago4d.settings');
     const level = raw ? JSON.parse(raw).detail : '';
     return DETAIL[level] ? level : '';
+  } catch {
+    return '';
+  }
+}
+
+/** The visitor's stored Sharpness, '' when never chosen (hud.js stores '' for that). */
+function readQualityPreference() {
+  try {
+    return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.quality ?? '';
   } catch {
     return '';
   }
@@ -1374,6 +1443,10 @@ const api = {
   // T-1727: {requested, active, explicitDefault, notice, available, name} for
   // `?structure=&version=`, from structure-versions.js. Null until the scene loads.
   structureVersion: null,
+  // T-2598: texture residency's counters (`residency`) and its handle
+  // (`textureResidency`, for a tool's override). Null with `?residency=0`.
+  residency: null,
+  textureResidency: null,
 };
 window.__chicago4d = api;
 // The gate is up exactly when no control backend is live, so its hint row cannot wait
@@ -1382,9 +1455,22 @@ window.__chicago4d = api;
 document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
+// T-2547: if the last session died loading (a phone out of memory), this one boots a
+// detail tier lower and at Sharpness Low, and says so. Resolved here, before the
+// forecast and the GLB fetch, so nothing is downloaded for the tier that died.
+// T-2559: the guess it steps down from is the device profile a previous visit
+// cached (boot() re-reads it); a first visit guesses the platform default.
+const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
+api.crashGuard = crashGuard.state;
+const bootProfile = cachedDeviceProfile(bootStorage, null);
+const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
+const crashBoot = crashGuard.boot({
+  detail: readDetailPreference() || bootGuess?.detail || (prefersTouch() ? 'light' : 'full'),
+  quality: resolveSharpness(readQualityPreference(), prefersTouch(), bootGuess?.sharpness),
+});
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
-  detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
+  detail: crashBoot.detail,
   build: document.getElementById('gate-build')?.textContent || VERSION,
   storage: bootStorage,
 };
@@ -1418,6 +1504,7 @@ api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
 if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
 bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
+bootController.on('ready', () => crashGuard.live());
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -1441,12 +1528,47 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  // T-2559: read what the device offers and choose per device — see
+  // device-profile.js. Before the scene is fetched, so a weak machine's tier
+  // decides what is downloaded; a repeat visit reads its cached profile and pays
+  // no benchmark. The touch screen still picks the controls and `lowSpec`; the
+  // profile picks only the defaults below, and a stored choice beats both.
+  const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
+    search: location.search });
+  api.device = device;
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
-  let detailLevel = readDetailPreference() || (coarse ? 'light' : 'full');
-  // Image sharpness for a visitor who never chose one: Low on a phone, Medium
-  // on a desktop (T-2110 — see sharpness.js).
-  const qualityGuess = sharpnessGuess(coarse);
+  // T-2547's step-down outranks everything; then the stored choice; then the
+  // device profile (T-2559).
+  let detailLevel = crashBoot.lowered.detail ? crashBoot.detail : (readDetailPreference() || device.choice.detail);
+  api.bootDetail = detailLevel;
+  /**
+   * T-2598: texture residency — a house picture is on the GPU only within its tier's
+   * reach of the eye and under its tier's budget (texture-residency.js). `?residency=0`
+   * keeps every picture resident from boot, as before: the way the before is read.
+   */
+  const RESIDENCY_ON = params.get('residency') !== '0';
+  let residency = null;
+  const attachResidency = (group, eye, options) => {
+    residency = null;
+    api.residency = null;
+    api.textureResidency = null;
+    if (!RESIDENCY_ON) return;
+    // `?residency-budget=<MiB>` overrides the tier's budget, for a tool reading what
+    // the reach alone would hold.
+    const budget = Number(params.get('residency-budget'));
+    residency = createTextureResidency({ group, renderer, tier: detailLevel, closeImages: coarse,
+      settings: budget > 0 ? { budgetBytes: budget * 1048576 } : null });
+    residency.prime(eye, options);
+    api.residency = residency.state;
+    api.textureResidency = residency;
+  };
+  // Image sharpness for a visitor who never chose one: the profile's choice —
+  // on a standard device the T-2110 default, Low on a phone and Medium on a
+  // desktop (see sharpness.js).
+  const qualityGuess = device.choice.sharpness;
+  const bootQuality = crashBoot.lowered.quality ? crashBoot.quality
+    : resolveSharpness(readQualityPreference(), coarse, qualityGuess);
   const detailOpts = () => ({ detail: detailLevel });
 
   /**
@@ -1514,7 +1636,42 @@ async function boot() {
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, qualityGuess));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, bootQuality));
+  /**
+   * T-2555, THE FRAME GOVERNOR (frame-governor.js). The visitor's Sharpness is
+   * the CEILING: `sharpnessCap` is the ratio they chose, and the ratio drawn is
+   * that times the governor's scale, which is 1 at rest and under Fixed. Every
+   * place that used to set the pixel ratio sets the cap through
+   * `applySharpness`, and the ratio itself is only ever written when it changes
+   * — `setPixelRatio` resizes the drawing buffer even to the same size.
+   */
+  let sharpnessCap = renderer.getPixelRatio();
+  const governorLine = document.getElementById('governor-line');
+  const governor = createFrameGovernor({ tier: detailLevel, onChange: (state) => {
+    if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
+  } });
+  function applySharpness(value) {
+    if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
+    const ratio = sharpnessCap * governor.scale;
+    if (Math.abs(ratio - renderer.getPixelRatio()) > 1e-9) renderer.setPixelRatio(ratio);
+  }
+  // T-2572: a tap on the plank walks, fences and yard goods is answered by a
+  // one-pixel id pass on this renderer, so a phone need not keep their triangles.
+  setPickRenderer(renderer);
+  // T-2582: GPU-compressed library sheets. One KTX2 loader, detected once against
+  // this renderer before any layer loads (ktx2.js); the `light` texture tier drops
+  // each sheet's top mip. `?ktx2=0` keeps every sheet on its image path.
+  initKTX2(renderer, { textures: device.choice?.textures, disabled: params.get('ktx2') === '0' });
+  api.ktx2 = ktx2State;
+  // T-2599: whether procedural geometry is being built on workers, and how much.
+  api.jobs = jobsState;
+  // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
+  // once a session — only when the page has let go of what a restore would need.
+  // T-2548: a closed building image is gone from the page as a released array is.
+  crashGuard.watchContext(renderer.domElement, { needsReload: () => {
+    const released = uploadReleaseState();
+    return released.attributes > 0 || released.images > 0;
+  } });
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -1526,12 +1683,22 @@ async function boot() {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
     detail: detailLevel,
+    // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
+    keepAssetBytes: !coarse,
+    // T-2598: and keeps each house picture's encoded bytes, so one that went distant
+    // and had its decoded copy closed can be decoded again (texture-residency.js).
+    keepEncodedImages: coarse && RESIDENCY_ON,
+    // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
+    pool: bootPoolFromSearch(location.search),
   });
   const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
   const detailLevels = inspectionLod ? { ...DETAIL,
     full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
       declared: GLESSNER_V4_FULL_TRIANGLES,
-      measured: 'Selected Glessner v4 inspection; see T-1730 at GLESSNER_V4_FULL_TRIANGLES.' },
+      measured: 'Selected Glessner v4 inspection; see T-1730/T-2219 at GLESSNER_V4_FULL_TRIANGLES.' },
+    light: { ...DETAIL.light, triangles: GLESSNER_V4_LIGHT_TRIANGLES,
+      declared: GLESSNER_V4_LIGHT_TRIANGLES,
+      measured: 'Glessner courtyard inspection; see T-2218 at GLESSNER_V4_LIGHT_TRIANGLES.' },
   } : DETAIL;
   // Which structure version the address asked for and what it got — the HUD chip and
   // the smoke both read it. A fallback is carried here as `notice`, NOT pushed onto
@@ -1603,6 +1770,8 @@ async function boot() {
     // The sand belt and the marsh are painted from the 1835 plant zones' extents.
     substrateBase: layerBase('flora'),
     sceneId: loaded.scene.id ?? YEAR,
+    // T-2502: ground off the box, where the scene names one (1812: down the South Branch).
+    apronPath: loaded.scene.terrain_apron ?? null,
     confidence,
     problems,
   });
@@ -1639,8 +1808,17 @@ async function boot() {
   bootController.end('terrain');
   bootController.start('buildings', loaded.registry.size);
   await yieldToPaint();
+  // T-2529: one switch for every structure batch, old and rebuilt alike; the
+  // detail tier sets it (applyShadowTier) and the sun is read when the shadow
+  // map is drawn. See shadow-casters.js for the test and the reading behind it.
+  const shadowCasters = { on: false, culled: 0, sun: () => world.direction };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
+    shadowCasters,
     preserveMaterials: inspectionLod,
+    collectViewBackings: inspectionLod && detailLevel!=='full',
+    // Balanced and Light share the reduced asset and its batches. Keep their
+    // cells identical so a same-asset Balanced -> Light switch stays culled.
+    spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
     lowSpec: coarse,
     glass: glassForDetail(detailLevel, GLASS_REQUEST),
     checkpoint: bootCheckpoint,
@@ -1648,7 +1826,22 @@ async function boot() {
   });
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
+  // T-2598: before anything is uploaded, each house picture farther than its tier's
+  // reach from where the visitor will arrive is swapped for its stand-in, so it never
+  // goes up at all; the walk brings it in when it comes near (texture-residency.js).
+  {
+    // Where the walker will stand: the walker is made after the batches, and its
+    // height is the terrain's, so this first decision reads plan distance only.
+    const at = anchorFor(loaded.scene, params.get('anchor')) ?? loaded.scene.spawn ?? {};
+    attachResidency(buildings.group, enuToWorld(at.local_e ?? 0, at.local_n ?? 0), { flat: true });
+  }
   settleOnGpu(buildings.group);
+  // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
+  // of the source geometry and the decoded images (upload-release.js).
+  if (coarse) {
+    releaseSources(loaded.registry);
+    closeUploadedImages(buildings.group, renderer);
+  }
   bootController.end('buildings');
   bootController.start('ground');
   await yieldToPaint();
@@ -1711,7 +1904,8 @@ async function boot() {
   // The dated street layer is a skin on the heightfield, never a replacement
   // for it.  Mount it before vegetation so the travelled strips can clear only
   // the plants that would otherwise grow through the visible wagon tracks.
-  const streets = createStreets({
+  // T-2600: its surfaces are partitioned on the job pool, so the layer resolves.
+  const streets = await createStreets({
     terrain,
     records: draws('streets') ? (loaded.index?.streets ?? []) : [],
     confidence,
@@ -1739,6 +1933,93 @@ async function boot() {
   });
   scene3d.add(streetGrid.group);
   api.streetGrid = streetGrid;
+
+  // T-2473 — the parkway elms of the 1904 district (data/street_trees/<scene>.json),
+  // built with trees.js's own tree and drawn as one instanced batch. Only a scene
+  // listing `street_trees` is handed a data base. The Season and Street trees
+  // settings (T-2481) are read here so the first frame already shows the visitor's pick.
+  const seasonPref = readSeasonPreference();
+  const streetTrees = await createStreetTrees({
+    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_trees'), lowSpec: coarse,
+    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
+    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+  });
+  scene3d.add(streetTrees.group);
+  api.streetTrees = streetTrees;
+
+  // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
+  // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
+  // projected past them), so Prairie Avenue reads in full colour against a sketch of the
+  // city around it. Each gives way to any placed structure whose footprint it touches.
+  let contextCity = await createContext({
+    dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR, terrain, footprints,
+    confidence, problems: layerProblems('context'), detail: detailLevel,
+  });
+  scene3d.add(contextCity.group);
+  api.contextCity = contextCity;
+
+  // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
+  // the 1911 sheets draw, on cinder ballast, with ties, rails and weedy verges
+  // (data/railway/<scene>.json; maps from textures/prairie_1904_rail/). Only a scene
+  // listing `railway` is handed a data base.
+  const railway = await createRailway({
+    dataBase: layerBase('railway'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
+    terrain, confidence, problems: layerProblems('railway'), ...detailOpts(),
+  });
+  scene3d.add(railway.group);
+  api.railway = railway;
+
+  let glessnerOcclusion=null;
+  function refreshGlessnerOcclusion() {
+    glessnerOcclusion?.dispose();glessnerOcclusion=null;
+    if (!inspectionLod || detailLevel!=='light') return;
+    const batches=[...buildings.batches];
+    for(const group of [railway.group,terrain.group,streets.group])
+      group.traverse(o=>{if(o.isBatchedMesh)batches.push(o);});
+    glessnerOcclusion=createViewOcclusion({camera,renderer,triangles:buildings.viewOccluders,batches,
+      // Each backing triangle checks its own actual confidence range. Tinting
+      // opaque stone is safe; a hidden or dithered backing fails open.
+      // The pixel proof covers the scene's July appearance. Winter's on/off
+      // comparison has a repeatable raster difference; alternate seasons retain
+      // the complete draw list, then summer can safely restore this filter.
+      allow:()=>buildings.group.visible && api.season?.current==='summer'});
+  }
+
+  // T-2481 — the Season setting, offered where there are street trees (1904): the
+  // ground's snow, sward and leaves (season.js uniforms), the elms, the context
+  // city's crowns and the sun's date. A viewing choice; the scene stays 1 July.
+  const seasonal = streetTrees.records.length > 0;
+  const seasonState = { season: 'summer', treesShown: seasonPref.treesShown };
+  let structuresSeasoned = false;
+  const applySeason = (season) => {
+    const s = seasonal && SEASONS.includes(season) ? season : 'summer';
+    // The lawns, steps and roofs inside the building GLBs take the season too.
+    // Their materials learn it the first time a season other than summer is
+    // chosen, so a summer visit compiles nothing for it.
+    if (s !== 'summer' && !structuresSeasoned) {
+      structuresSeasoned = true;
+      scene3d.traverse((o) => {
+        if (!o.isMesh) return;
+        for (const m of [].concat(o.material)) if (m?.name === 'merged') patchSeason(m);
+      });
+      // The faded city's roofs and streets, and the railway's ballast, the same way.
+      for (const g of [contextCity.group, railway.group]) g.traverse((o) => {
+        if (!o.isMesh || /crowns/.test(o.name)) return;
+        for (const m of [].concat(o.material)) if (m && !m.transparent) patchSeason(m, /street/.test(o.name) ? 0.3 : 1);
+      });
+    }
+    seasonState.season = applySeasonLook(s);
+    world.setSunDate(seasonDate(s, loaded.scene.target_date));
+    contextCity.setSeason?.(s);
+    return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
+  };
+  if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
+  api.season = {
+    get current() { return seasonState.season; },
+    set: (s) => applySeason(s),
+    get sunDate() { return world.sunDate; },
+  };
 
   // WHICH DETAIL LEVEL, resolved here rather than beside the vegetation because
   // the fence layer is the first thing that needs it: a pale is 10 triangles at
@@ -1776,7 +2057,7 @@ async function boot() {
    * not take the ground with it. It takes the enclosure records straight off the
    * layer above rather than re-fetching them.
    */
-  const yards = createFencedGround({
+  const yards = await createFencedGround({
     records: enclosures.records, terrain, confidence, problems,
   });
   scene3d.add(yards.group);
@@ -1825,7 +2106,8 @@ async function boot() {
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;
-  terrain.batchDistantGround();
+  // T-2600: the distant base's cells are cut on the job pool.
+  await terrain.batchDistantGround();
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
    * walker stands on (T-0119): the river walk's crossing footway lies over the
@@ -1973,6 +2255,7 @@ async function boot() {
     const want = DETAIL[level] ?? DETAIL.full;
     world.setShadowRig(want.shadowReachM);
     const casts = want.furnitureCastsShadow !== false;
+    shadowCasters.on = want.castersTowardView === true;
     for (const name of FURNITURE_LAYERS) {
       const group = scene3d.getObjectByName(name);
       // A layer that drew nothing (a record that failed to load, a fence whose
@@ -1999,7 +2282,8 @@ async function boot() {
         o.castShadow = casts && !o.userData.groundHugging && !o.userData.farMerged;
       });
     }
-    return { reachM: want.shadowReachM, furnitureCastsShadow: casts };
+    return { reachM: want.shadowReachM, furnitureCastsShadow: casts,
+      castersTowardView: shadowCasters.on };
   }
   applyShadowTier(detailLevel);
 
@@ -2246,9 +2530,30 @@ async function boot() {
   // budget is rendered between the two. Ordinary scenes keep their existing path.
   const discardDetail = (next) => {
     next.buildings?.dispose();
+    next.contextCity?.dispose?.();
     next.flora?.dispose?.();
     next.trees?.dispose?.();
     if (next.asset) disposeLoadedAsset(next.asset.gltf);
+    for (const gltf of next.reread ?? []) disposeLoadedAsset(gltf);
+  };
+  /**
+   * T-2548: a phone let go of every building's source geometry once its batch
+   * held a copy, so a rebuild re-reads the GLBs of the rows it released — the
+   * HTTP cache answers — into the candidate registry. The gltfs those rows held
+   * are retired at commit (`next.retired`), the ones read here at discard.
+   */
+  const rereadReleased = async (next, skipId) => {
+    next.reread = [];
+    next.retired = [];
+    const rows = [...next.registry.values()].filter((row) => row.sourceReleased && row.id !== skipId);
+    const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
+    got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
+    const failed = got.find((r) => r.status === 'rejected');
+    if (failed) throw failed.reason;
+    rows.forEach((row, i) => {
+      next.retired.push(row.gltf);
+      Object.assign(row, got[i].value, { node: null, instanceId: null, sourceReleased: false });
+    });
   };
   const inspectionSwitch = inspectionLod ? createLatestDetailSwitch({
     initial: detailLevel,
@@ -2260,17 +2565,34 @@ async function boot() {
           next.asset = await loaded.loadDetailAsset(record, level);
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
-          Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          Object.assign(next.registry.get(record.id), next.asset,
+            { node: null, instanceId: null, sourceReleased: false });
+          await rereadReleased(next, record.id);
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
+            shadowCasters,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
+            collectViewBackings: level!=='full',
+            spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
             throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
           }
           next.buildings.setWeathering(buildings.weathering);
           next.buildings.group.visible = buildings.group.visible;
+        }
+        // The background city selects a nearer ring at Light during creation.
+        // Rebuild at that boundary too: otherwise entering Light retains the
+        // larger ring from boot and can exceed the phone's frame allowance.
+        if ((level === 'light') !== (detailLevel === 'light')) {
+          const contextProblems = [];
+          next.contextCity = await createContext({
+            dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR,
+            terrain, footprints, confidence, problems: contextProblems, detail: level,
+          });
+          if (contextProblems.length) throw new Error(contextProblems.join('; '));
+          next.contextCity.group.visible = contextCity.group.visible;
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
@@ -2303,8 +2625,29 @@ async function boot() {
         scene3d.remove(previous.group);
         api.buildings = buildings;
         api.roll = buildings.roll;
+        residency?.dispose();
         previous.dispose();
         disposeLoadedAsset(oldAsset);
+        attachResidency(buildings.group, camera.position);
+        for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
+        if (coarse) {
+          settleOnGpu(buildings.group);
+          releaseSources(loaded.registry);
+          closeUploadedImages(buildings.group, renderer);
+        }
+      }
+      if (next.contextCity) {
+        const previous = contextCity;
+        contextCity = next.contextCity;
+        scene3d.add(contextCity.group);
+        scene3d.remove(previous.group);
+        api.contextCity = contextCity;
+        previous.dispose();
+      }
+      if (next.buildings || next.contextCity) {
+        // New materials must inherit the selected seasonal view too.
+        structuresSeasoned = false;
+        void applySeason(seasonState.season);
       }
       loaded.registry.get('glessner_house').assetDetail = level;
       const previousFlora = flora;
@@ -2318,14 +2661,26 @@ async function boot() {
       api.flora = flora;
       api.trees = trees;
       detailLevel = level;
+      residency?.setTier(level);
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
-      streets.setDetail?.(level);
+      // T-2600: the road's new cells are cut on the job pool and swapped in when
+      // they land, after this commit; a phone lets go of their page arrays then.
+      const streetsRebuilt = streets.setDetail?.(level);
+      void streetTrees.setDetail(level);
+      railway.setDetail(level);
+      refreshGlessnerOcclusion();
       api.humans?.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
-      if (coarse) releaseAfterUpload(scene3d, renderer);
+      if (coarse) releaseAfterUpload(scene3d);
+      void Promise.resolve(streetsRebuilt).then((rebuilt) => {
+        if (rebuilt && coarse) releaseAfterUpload(scene3d);
+      }, (error) => {
+        problems.push(`streets: the ${level} road could not be laid: ${error?.message ?? error}`);
+        console.error('[4D Chicago] streets detail', error);
+      });
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -2349,6 +2704,7 @@ async function boot() {
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
+    residency?.setTier(level);
     BUDGET.triangles = detailLevels[level].triangles;
     // The fence's half of the level, first: `light` draws a pale as a plank and
     // the other two as a prism (T-0067), and the layer rebuilds its own meshes
@@ -2357,9 +2713,15 @@ async function boot() {
     // `applyShadowTier` below is what settles that, and settling it first would
     // settle it on meshes that are about to be thrown away.
     enclosures.setDetail?.(level);
+    // T-2473: the parkway elms rebuild their dozen crowns at the new spray count.
+    void streetTrees.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
-    streets.setDetail?.(level);
+    // T-2600: cut on the job pool; awaited in the serialised run below, before
+    // a phone's release, so the arrays it lets go of are the new road's.
+    const streetsRebuilt = streets.setDetail?.(level);
+    // The yard's weeds thin with the tier (T-2478).
+    railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
@@ -2395,7 +2757,8 @@ async function boot() {
         ...detailOpts(),
       });
       scene3d.add(trees.group);
-      if (coarse) releaseAfterUpload(scene3d, renderer);
+      await streetsRebuilt;
+      if (coarse) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
       confidence.set(confidence.enabled);
@@ -2550,11 +2913,13 @@ async function boot() {
   // the binding, which is settled long before the first frame.
   const router = createRouter({
     terrain, streets, footprints, decks, surfaceAt: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
+    streetGrid: streetGrid.grid, walks: frontage.walks,
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
-    radius: WALK.radius, stepUp: WALK.stepUp,
+    radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
   });
   let travel = null;
   api.router = router;
+  const buildingBounds = buildings.instanceBounds();
 
   /**
    * Where the last arrival stood (T-0824). While its card is up the building is
@@ -2570,7 +2935,7 @@ async function boot() {
     const id = lastArrival.id;
     lastArrival = null;
     if (moved || st.flying) return;
-    const aim = focusPoint(id);
+    const aim = framing(id, { card: false })?.aim ?? focusPoint(id);
     if (!aim) return;
     const de = aim.x - st.e, dn = -aim.z - st.n;
     walker.teleport({
@@ -2615,7 +2980,9 @@ async function boot() {
     onTravelStop: () => travel?.stop('button'),
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
-    resolvedQuality: qualityGuess,
+    resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
+    lowered: crashBoot.lowered,
+    device,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -2649,8 +3016,13 @@ async function boot() {
         // the next frame carries it.
         world.setBrightness(value);
       } else if (key === 'quality') {
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, value));
+        crashGuard.chosen('quality');
+        applySharpness(value);
+      } else if (key === 'governor') {
+        governor.setEnabled(value !== 'fixed');
+        applySharpness();
       } else if (key === 'detail') {
+        crashGuard.chosen('detail');
         applyDetail(value);
       } else if (key === 'compass') {
         navigation.setCompassVisible(value);
@@ -2658,6 +3030,12 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'season') {
+        void applySeason(value).then(() => gateFrame.invalidate());
+      } else if (key === 'streetTrees') {
+        seasonState.treesShown = value !== 'hidden';
+        void streetTrees.setMode(streetTreeMode(seasonState.season, seasonState.treesShown))
+          .then(() => gateFrame.invalidate());
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -2678,6 +3056,9 @@ async function boot() {
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
   hud.omitTabs(api.drawerOmitted.tabs);
+  // The Trees setting is offered only where there are parkway trees to set (T-2473).
+  document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
+  document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     omit: api.drawerOmitted.topics,
@@ -2717,7 +3098,9 @@ async function boot() {
   // town ended — and nothing is drawn in the scene for it, because a legal limit is
   // not a fence. The card carries it: pick a building and it says which side of the
   // line it stood on. A failed fetch leaves the row off rather than guessing a side.
-  api.ordinances = await loadOrdinanceLimits({ dataBase: bases.dataBase, problems });
+  // It is 1835's law, so it rides 1835's cards and no other scene's (T-2609).
+  api.ordinances = await loadOrdinanceLimits({ dataBase: bases.dataBase,
+    sceneDate: loaded.scene.target_date ?? YEAR, problems });
   popup.setOrdinanceLimits(api.ordinances);
 
   // And a relation, which belongs to no attribute at all. A house or a man could hold
@@ -2892,7 +3275,8 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, resolveSharpness(hud.settings.quality, coarse)));
+  applySharpness(crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess));
+  governor.setEnabled(hud.settings.governor !== 'fixed');
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -2912,9 +3296,9 @@ async function boot() {
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
     focusPoint, structurePosition,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
-    standFor: (id) => framing(id, { card: true }),
+    standFor: (id, options) => framing(id, { card: true, ...options }),
     registry: loaded.registry,
-    frame: (id) => frame(id, { card: true }),
+    frame: (id, options) => frame(id, { card: true, ...options }),
     teleport: (where) => walker.teleport(where),
     goToAnchor: (id) => api.goTo(id),
     setFly: (on) => hud.setFly(on, { announce: false }),
@@ -3091,6 +3475,23 @@ async function boot() {
     if (gridHit && gridHit.record && (!hit || gridHit.distance < hit.distance)) {
       hit = { ...gridHit };
     }
+    // And a parkway elm's trunk (T-2473), with its own card.
+    const treeHit = streetTrees.pickAt(ndc, camera);
+    if (treeHit && treeHit.record && (!hit || treeHit.distance < hit.distance)) {
+      hit = { ...treeHit };
+    }
+    // ...and a stand-in of the context city (T-2477) answers with what it is and what it
+    // rests on: a sheet's outline or a projection, and the rule its height came from.
+    const contextHit = contextCity.pickAt(ndc, camera);
+    if (contextHit && contextHit.record && (!hit || contextHit.distance < hit.distance)) {
+      hit = { ...contextHit };
+    }
+    // And the lakefront railway (T-2478): its ground answers with the track nearest
+    // the point, or the right-of-way's own card.
+    const railHit = railway.pickAt(ndc, camera);
+    if (railHit && railHit.record && (!hit || railHit.distance < hit.distance)) {
+      hit = { ...railHit };
+    }
     // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
     // `open` event takes the visitor to the resident card the directory already draws.
     const figure = api.humans?.pickAt(ndc, camera);
@@ -3131,7 +3532,7 @@ async function boot() {
    * height the record carries and from the camera's live field of view, never
    * from a fixed number, so a privy and a long store are each framed to fit.
    */
-  function framing(id, { card = popup.openId !== null } = {}) {
+  function framing(id, { card = popup.openId !== null, mode = travel?.mode ?? 'walk' } = {}) {
     const centre = structurePosition(id);
     const aim = focusPoint(id);
     if (!centre || !aim) return null;
@@ -3145,7 +3546,8 @@ async function boot() {
     const record = loaded.registry.get(id);
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
     // A gabled roof adds roughly half a wall above the eaves.
-    const h = record?.sidecar?.drawn_by ? (aim.y - terrain.surfaceHeight(centre.e, centre.n)) / 0.55 : wallH * 1.55;
+    const h = buildingBounds[id]?.size[1]
+      ?? (record?.sidecar?.drawn_by ? (aim.y - terrain.surfaceHeight(centre.e, centre.n)) / 0.55 : wallH * 1.55);
     // The sphere that holds the whole building — centred at half its height,
     // reaching its furthest footprint corner — has to fit inside the NARROWER of
     // the two fields of view, with a margin of air around it. `sin`, not `tan`:
@@ -3170,7 +3572,7 @@ async function boot() {
       const aHi = Math.atan(hi * tanHalf);
       return { centre: (aLo + aHi) / 2, half: Math.max((aHi - aLo) / 2, 2 * DEG) };
     };
-    const ax = axis(Math.tan(H_FOV_DEG * DEG / 2), free.x[0], free.x[1]);
+    const ax = axis(Math.tan(camera.fov * DEG / 2) * camera.aspect, free.x[0], free.x[1]);
     const ay = axis(Math.tan(camera.fov * DEG / 2), free.y[0], free.y[1]);
     const fit = (a) => (R * 1.25) / Math.sin(Math.min(a.half, 89 * DEG));
     const distance = THREE.MathUtils.clamp(Math.max(fit(ax), fit(ay), 10), 10, 90);
@@ -3178,10 +3580,14 @@ async function boot() {
     // pitching DOWN (a smaller pitch) moves it UP.
     const yawOffsetDeg = -ax.centre / DEG;
     const pitchOffsetDeg = -ay.centre / DEG;
-    const stand = router.standOff(id, centre, r, { distance }) ?? centre;
+    const stand = router.standOff(id, centre, r, { distance, mode });
+    if (!stand) return null;
+    // Aim at the street facade rather than the footprint centroid, which can
+    // be deep in a courtyard. The parcel supplies the front on corner lots.
+    if (stand.front) { aim.x = stand.front.e; aim.z = -stand.front.n; }
     const bearingDeg = ((Math.atan2(stand.e - centre.e, stand.n - centre.n) / DEG) + 360) % 360;
-    return { e: stand.e, n: stand.n, distance, bearingDeg, aim, radius: r, height: h,
-      yawOffsetDeg, pitchOffsetDeg, free };
+    return { e: stand.e, n: stand.n, distance: Math.hypot(stand.e - centre.e, stand.n - centre.n), bearingDeg, aim, radius: r, height: h,
+      yawOffsetDeg, pitchOffsetDeg, free, front: stand.front ?? null };
   }
 
   /**
@@ -3202,8 +3608,8 @@ async function boot() {
   }
 
   /** Stand back and look at a structure, framed whole — used by Go to, the rides and the harness. */
-  function frame(id, { card = false } = {}) {
-    return applyFraming(framing(id, { card }));
+  function frame(id, { card = false, mode = travel?.mode ?? 'walk' } = {}) {
+    return applyFraming(framing(id, { card, mode }));
   }
 
   function applyFraming(f) {
@@ -3252,7 +3658,9 @@ async function boot() {
       n = p.local_n ?? 0;
     }
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
-    return enuToWorld(e, n, terrain.surfaceHeight(e, n) + wallH * 0.55);
+    const drawn = buildingBounds[id];
+    const aimH = drawn ? (drawn.min[1] + drawn.max[1]) / 2 : wallH * 0.55;
+    return enuToWorld(e, n, terrain.surfaceHeight(e, n) + aimH);
   }
 
   /** One route for the complete search: frame a structure, stand at a verified
@@ -3345,12 +3753,12 @@ async function boot() {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
       };
-      const estimateOptions = () => ({ resolve: target => {
-        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved);
+      const estimateOptions = mode => ({ resolve: target => {
+        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved, { mode, card: false });
       }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
-        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
+        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
@@ -3366,7 +3774,7 @@ async function boot() {
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
         },
-        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(),
+        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode),
           startIndex: state.stopIndex, includeOpening: state.stopIndex === 0,
           from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
         enter(target, { resume = false } = {}) {
@@ -3391,6 +3799,9 @@ async function boot() {
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
+  // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
+  // Storage behind a service worker, so a kept year boots from disk, offline too.
+  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
@@ -3502,11 +3913,9 @@ async function boot() {
 
     if (!gateOpen) backends.active?.update?.(dt);
     else intent.clear();
-    // After the backend has written what the visitor is doing and before the
-    // walker reads it: a ride in progress either yields to that input or steers.
-    if (!gateOpen) travel.update(dt, intent);
     terrain.update(dt);
     const asked = intent.takeInteract();
+    if (asked && !gateOpen) travel.stop('input');
     // The inspect KEY toggles: the reach that opened the card also closes it
     // (T-0108). A click or tap always re-inspects — aiming at a second
     // building with a card open should open that building, not shut the first.
@@ -3514,10 +3923,13 @@ async function boot() {
     else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
-    if (!gateOpen) for (let i = 0; i < walkSteps; i++) walker.update(walkDt, intent);
-    // The ride's bookkeeping, after the walker has consumed the intent: its own
-    // writes are zeroed, the gait's head movement applied, arrival tested.
-    if (!gateOpen) travel.afterWalk(intent, frameDt);
+    if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
+      // Steering and movement consume the same time step. Reusing one steering
+      // decision for five walker steps on a slow frame overshot street corners.
+      travel.update(walkDt, intent);
+      walker.update(walkDt, intent);
+      travel.afterWalk(intent, walkDt);
+    }
     // Before the render, after the walker: the near plane is a function of where
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
@@ -3537,7 +3949,12 @@ async function boot() {
     terrain.updateGroundReach(camera.position);
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
+    streetTrees.update(dt, camera);
+    railway.update(camera);
     flags.update(dt);
+    // T-2598: which house pictures are on the GPU, from where the eye ended up; at
+    // most a frame's allowance of them is uploaded here, before the draw.
+    residency?.tick(camera.position);
     api.humans?.update(dt, camera, walker.state);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
@@ -3584,7 +4001,7 @@ async function boot() {
   }
   // T-2158: before anything is uploaded, a phone marks the layers that may let
   // go of their page arrays once the GPU has them (upload-release.js).
-  if (coarse) releaseAfterUpload(scene3d, renderer);
+  if (coarse) releaseAfterUpload(scene3d);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);
@@ -3595,8 +4012,37 @@ async function boot() {
     const pause = bootCheckpoint(); if (pause) await pause;
   }
   await yieldToPaint();
-  renderer.setAnimationLoop(() => {
-    try { tick(); } catch (err) {
+  // T-2555. Whether the camera moved in the frame just drawn — position or
+  // facing, so a turn in place is moving too. The governor reads only this and
+  // the interval between drawn frames.
+  const lastPose = { position: new THREE.Vector3(), quaternion: new THREE.Quaternion(), seen: false };
+  function cameraMoved() {
+    const moved = !lastPose.seen
+      || camera.position.distanceToSquared(lastPose.position) > 1e-8
+      || 1 - Math.abs(camera.quaternion.dot(lastPose.quaternion)) > 1e-10;
+    lastPose.position.copy(camera.position);
+    lastPose.quaternion.copy(camera.quaternion);
+    lastPose.seen = true;
+    return moved;
+  }
+  /** The governor's decision for the frame about to be drawn, put in force. */
+  function applyGovernor() {
+    applySharpness();
+    const shadow = renderer.shadowMap;
+    shadow.autoUpdate = governor.shadowFresh;
+    if (!governor.shadowFresh) shadow.needsUpdate = false;
+  }
+  renderer.setAnimationLoop((t) => {
+    try {
+      governor.setTier(detailLevel);
+      // A capture, the welcome and a held clock are still frames by definition,
+      // and are drawn exactly as they were before the governor existed.
+      if (pendingCapture || gateOpen || animationHold) governor.rest();
+      else if (!governor.shouldDraw(t)) return;
+      applyGovernor();
+      tick();
+      governor.frameDrawn(t, cameraMoved());
+    } catch (err) {
       renderer.setAnimationLoop(null);
       if (bootController.readyAt === null) rejectFirstFrame(err);
       else throw err;
@@ -3687,6 +4133,8 @@ async function boot() {
     setGroundReach(m) { return terrain.setGroundReach(m); },
     stats() {
       const info = renderer.info;
+      const budget = inspectionLod && detailLevel === 'full'
+        ? { ...BUDGET, drawCalls: GLESSNER_V4_FULL_DRAW_CALLS } : BUDGET;
       return {
         drawCalls: info.render.calls,
         triangles: info.render.triangles,
@@ -3706,9 +4154,9 @@ async function boot() {
         // R-BUG1: the near plane is no longer a constant, so a harness asking
         // why an edge is or is not stable can read the number that decides it.
         cameraNear: camera.near,
-        budget: BUDGET,
-        withinBudget: info.render.calls <= BUDGET.drawCalls
-          && info.render.triangles <= BUDGET.triangles,
+        budget,
+        withinBudget: info.render.calls <= budget.drawCalls
+          && info.render.triangles <= budget.triangles,
       };
     },
     /**
@@ -3752,6 +4200,16 @@ async function boot() {
      *  changes the call count and not the triangle count, and the only honest
      *  way to read that is the same frame with it off and with it on.
      *  `tools/measure_far_merge.mjs` is what does. */
+    /** T-2529, HARNESS ONLY, for the same reason: the cull's claim is that it
+     *  changes the triangle count and not the picture, and the only honest way
+     *  to read that is the same frame with it off and on
+     *  (`tools/qa_shadow_casters_t2529.mjs`). The tier sets it back on change.
+     *  Returns what took effect and how many pieces it has left out so far;
+     *  called with no argument it only reads. */
+    setCastersTowardView(on) {
+      if (on !== undefined) shadowCasters.on = Boolean(on);
+      return { on: shadowCasters.on, culled: shadowCasters.culled };
+    },
     setFarMerge(on) {
       const state = farMerge.setEnabled(on);
       // The merge only ever hides a chunk; the reach is what makes one visible
@@ -3761,13 +4219,22 @@ async function boot() {
       return state;
     },
     /** Force one frame — for tests that must not race the animation loop. */
-    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
+    step() { governor.rest(); applyGovernor(); tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
+    /** T-2555: Adaptive (true) or Fixed (false), as Settings' Frame pacing sets
+     *  it; the live reading is `governor` below. */
+    setGovernor(on) { const v = governor.setEnabled(on); applyGovernor(); return v; },
+    /** T-2555, HARNESS ONLY: force the governor's scale and pace, as a slow
+     *  moving window would, so a GPU-less runner can ask what a rest does. */
+    forceGovernor(state) { return governor.force(state); },
     /** T-2106. Let `step()` spread the flora rebuild as the animation loop
      *  does — for `tools/measure_walk_frames.mjs`, which times that loop. */
     setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },
     /** Keep rendering, advance nothing — for tests comparing two frames of the
      *  same scene. Never set by the application. */
     setAnimationHold(on) { animationHold = !!on; return animationHold; },
+    /** Same-camera on/off proof, like setFarMerge; no visitor setting. */
+    setGlessnerOcclusion(on) { return glessnerOcclusion?.setEnabled(on) ?? false; },
+    glessnerOcclusionStats() { return glessnerOcclusion?.stats ?? {active:false}; },
     walkBudget: WALK,
   });
 
@@ -3794,6 +4261,11 @@ async function boot() {
     farWalkTops: { get: () => frontage.farWalkTops ?? null, enumerable: true },
     /** The level the visitor is actually on, now rather than at boot (T-0115). */
     detail: { get: () => detailLevel, enumerable: true },
+    /** T-2555: what the frame governor is doing now — its mode, the scale of the
+     *  Sharpness ceiling and the pixel ratio drawn, the paced rate, the shadow's
+     *  cadence and whether the camera is moving. */
+    governor: { get: () => ({ ...governor.state, ceiling: sharpnessCap, ratio: renderer.getPixelRatio() }),
+      enumerable: true },
     /** The ride in progress — phase, destination, distance left — live. */
     travelState: { get: () => travel?.state ?? { phase: 'idle' }, enumerable: true },
     /**
@@ -3889,11 +4361,18 @@ async function boot() {
     exposure: { get: () => renderer.toneMappingExposure, enumerable: true },
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
     uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
+    /** T-2548: GLBs banked for a detail switch — none on a phone. */
+    bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
+    /** T-2597: the boot pool, and the most GLB bytes it held unparsed at once. */
+    bootPool: { get: () => loaded.bootPool, enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;
   bootController.end('interaction');
+  // Ground protection can replace terrain batches while later layers build.
+  // Install the hooks only after the final startup geometry is in the scene.
+  refreshGlessnerOcclusion();
   api.ready = true;
   if (!bootController.finish()) {
     api.ready = false;

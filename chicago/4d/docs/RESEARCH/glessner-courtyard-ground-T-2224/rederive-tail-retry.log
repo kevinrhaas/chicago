@@ -1,0 +1,7 @@
+  [189/194] python3 tools/synthesize_resident_research.py --shrink-baseline
+  [190/194] python3 tools/export_resident_research_package.py --index
+  [191/194] python3 tools/report_census_1840_residue.py --write
+  [192/194] python3 tools/report_letter_list_collisions.py --write
+  [193/194] python3 tools/measure_west_farm_ground_1835.py --build
+  [194/194] python3 tools/rebuild_closing_set.py --build
+derived layer rebuilt from step 189 — 6 step(s) in manifest order, 1 lap(s), and the last one moved nothing; no second pass (it sits above this tail)

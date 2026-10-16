@@ -1,6 +1,6 @@
 {
   "scene": "1812",
-  "target_date": "1812-08-01",
+  "target_date": "1812-08-14",
   "intersections": [
     {
       "id": "fulton_canal",
@@ -103,6 +103,42 @@
   "streets": [],
   "structures": [
     {
+      "id": "burns_house_1812",
+      "name": "The Burns house, on the north bank at the later foot of State Street",
+      "sidecar": "sidecars/1812/burns_house_1812.json",
+      "asset": "gltf/burns_house_1812__burns_1812.glb"
+    },
+    {
+      "id": "coursoll_field_1812",
+      "name": "Coursoll's inclosed field, north of the river, 1812",
+      "sidecar": "sidecars/1812/coursoll_field_1812.json",
+      "asset": "gltf/coursoll_field_1812__coursoll_1808.glb"
+    },
+    {
+      "id": "first_fort_covered_way_bank_lower",
+      "name": "First Fort Dearborn — the covered way to the river, down the bank, to the water",
+      "sidecar": "sidecars/1812/first_fort_covered_way_bank_lower.json",
+      "asset": "gltf/first_fort_covered_way_bank_lower__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_covered_way_bank_middle",
+      "name": "First Fort Dearborn — the covered way to the river, down the bank, middle step",
+      "sidecar": "sidecars/1812/first_fort_covered_way_bank_middle.json",
+      "asset": "gltf/first_fort_covered_way_bank_middle__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_covered_way_bank_upper",
+      "name": "First Fort Dearborn — the covered way to the river, down the bank, upper step",
+      "sidecar": "sidecars/1812/first_fort_covered_way_bank_upper.json",
+      "asset": "gltf/first_fort_covered_way_bank_upper__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_covered_way_terrace",
+      "name": "First Fort Dearborn — the covered way to the river, across the terrace",
+      "sidecar": "sidecars/1812/first_fort_covered_way_terrace.json",
+      "asset": "gltf/first_fort_covered_way_terrace__first_fort_1803.glb"
+    },
+    {
       "id": "first_fort_dearborn_blockhouse_nw",
       "name": "First Fort Dearborn — north-west blockhouse",
       "sidecar": "sidecars/1812/first_fort_dearborn_blockhouse_nw.json",
@@ -193,10 +229,34 @@
       "asset": "gltf/first_fort_outer_agents_house__first_fort_1803.glb"
     },
     {
+      "id": "first_fort_outer_armourers_shop",
+      "name": "First Fort Dearborn — the armourer's shop",
+      "sidecar": "sidecars/1812/first_fort_outer_armourers_shop.json",
+      "asset": "gltf/first_fort_outer_armourers_shop__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_bake_house",
+      "name": "First Fort Dearborn — the bake house",
+      "sidecar": "sidecars/1812/first_fort_outer_bake_house.json",
+      "asset": "gltf/first_fort_outer_bake_house__first_fort_1803.glb"
+    },
+    {
       "id": "first_fort_outer_factory",
       "name": "First Fort Dearborn — the United States factory (the factor's house)",
       "sidecar": "sidecars/1812/first_fort_outer_factory.json",
       "asset": "gltf/first_fort_outer_factory__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_interpreters_house",
+      "name": "First Fort Dearborn — the interpreter's house",
+      "sidecar": "sidecars/1812/first_fort_outer_interpreters_house.json",
+      "asset": "gltf/first_fort_outer_interpreters_house__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_merchants_shop",
+      "name": "First Fort Dearborn — the merchant's shop",
+      "sidecar": "sidecars/1812/first_fort_outer_merchants_shop.json",
+      "asset": "gltf/first_fort_outer_merchants_shop__first_fort_1803.glb"
     },
     {
       "id": "first_fort_outer_officers_garden",
@@ -206,7 +266,7 @@
     },
     {
       "id": "first_fort_outer_stable_middle",
-      "name": "First Fort Dearborn — stable, middle of three",
+      "name": "First Fort Dearborn — the house in the factor's department",
       "sidecar": "sidecars/1812/first_fort_outer_stable_middle.json",
       "asset": "gltf/first_fort_outer_stable_middle__first_fort_1803.glb"
     },
@@ -227,6 +287,114 @@
       "name": "First Fort Dearborn — the sutler's garden",
       "sidecar": "sidecars/1812/first_fort_outer_sutlers_garden.json",
       "asset": "gltf/first_fort_outer_sutlers_garden__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_wharf",
+      "name": "First Fort Dearborn — the wharf",
+      "sidecar": "sidecars/1812/first_fort_wharf.json",
+      "asset": "gltf/first_fort_wharf__first_fort_1803.glb"
+    },
+    {
+      "id": "forks_company_cornfield_1812",
+      "name": "The first fort's company garden and public cornfield at the forks, 1812",
+      "sidecar": "sidecars/1812/forks_company_cornfield_1812.json",
+      "asset": "gltf/forks_company_cornfield_1812__cornfield_1808.glb"
+    },
+    {
+      "id": "forks_house_clark_1812",
+      "name": "Clark's house at the forks, 1812",
+      "sidecar": "sidecars/1812/forks_house_clark_1812.json",
+      "asset": "gltf/forks_house_clark_1812__clark_1812.glb"
+    },
+    {
+      "id": "forks_house_soldier_1812",
+      "name": "The discharged soldier's house at the forks, 1812",
+      "sidecar": "sidecars/1812/forks_house_soldier_1812.json",
+      "asset": "gltf/forks_house_soldier_1812__soldier_1812.glb"
+    },
+    {
+      "id": "kinzie_house_1812",
+      "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
+      "sidecar": "sidecars/1812/kinzie_house_1812.json",
+      "asset": "gltf/kinzie_house_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_house_1812_green",
+      "name": "The Kinzie house's fenced green",
+      "sidecar": "sidecars/1812/kinzie_house_1812_green.json",
+      "asset": "gltf/kinzie_house_1812_green__kinzie_1804.glb"
+    },
+    {
+      "id": "lalime_house_1812",
+      "name": "La Lime's house, the middle of the three houses west of the Kinzie house",
+      "sidecar": "sidecars/1812/lalime_house_1812.json",
+      "asset": "gltf/lalime_house_1812__lalime_1812.glb"
+    },
+    {
+      "id": "lee_house_1812",
+      "name": "The Lee family's house, on the shore at the river's mouth south of the fort",
+      "sidecar": "sidecars/1812/lee_house_1812.json",
+      "asset": "gltf/lee_house_1812__lee_1812.glb"
+    },
+    {
+      "id": "lees_place_cabin_1812",
+      "name": "Lee's Place (Hardscrabble): the farm cabin on the South Branch",
+      "sidecar": "sidecars/1812/lees_place_cabin_1812.json",
+      "asset": "gltf/lees_place_cabin_1812__lees_place_1812.glb"
+    },
+    {
+      "id": "lees_place_field_fence_1812",
+      "name": "Lee's Place (Hardscrabble): the field's worm fence along the South Branch",
+      "sidecar": "sidecars/1812/lees_place_field_fence_1812.json",
+      "asset": "gltf/lees_place_field_fence_1812__lees_place_1812.glb"
+    },
+    {
+      "id": "lees_place_haystack_1812_a",
+      "name": "Lee's Place (Hardscrabble): haystack 1 of 4, on the bank opposite the cabin",
+      "sidecar": "sidecars/1812/lees_place_haystack_1812_a.json",
+      "asset": "gltf/lees_place_haystack_1812_a__lees_place_1812.glb"
+    },
+    {
+      "id": "lees_place_haystack_1812_b",
+      "name": "Lee's Place (Hardscrabble): haystack 2 of 4, on the bank opposite the cabin",
+      "sidecar": "sidecars/1812/lees_place_haystack_1812_b.json",
+      "asset": "gltf/lees_place_haystack_1812_b__lees_place_1812.glb"
+    },
+    {
+      "id": "lees_place_haystack_1812_c",
+      "name": "Lee's Place (Hardscrabble): haystack 3 of 4, on the bank opposite the cabin",
+      "sidecar": "sidecars/1812/lees_place_haystack_1812_c.json",
+      "asset": "gltf/lees_place_haystack_1812_c__lees_place_1812.glb"
+    },
+    {
+      "id": "lees_place_haystack_1812_d",
+      "name": "Lee's Place (Hardscrabble): haystack 4 of 4, on the bank opposite the cabin",
+      "sidecar": "sidecars/1812/lees_place_haystack_1812_d.json",
+      "asset": "gltf/lees_place_haystack_1812_d__lees_place_1812.glb"
+    },
+    {
+      "id": "lemai_house_1812",
+      "name": "Le Mai's house, the westernmost of the three houses west of the Kinzie house, at the field the draught letters 'Mr Coursell'",
+      "sidecar": "sidecars/1812/lemai_house_1812.json",
+      "asset": "gltf/lemai_house_1812__lemai_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_middle",
+      "name": "The Potawatomi camp of August 1812: the lodges at the creek's middle reach",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_middle.json",
+      "asset": "gltf/potawatomi_camp_1812_middle__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_mouth",
+      "name": "The Potawatomi camp of August 1812: the lodges by the creek's mouth",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_mouth.json",
+      "asset": "gltf/potawatomi_camp_1812_mouth__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_upper",
+      "name": "The Potawatomi camp of August 1812: the lodges up the creek",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_upper.json",
+      "asset": "gltf/potawatomi_camp_1812_upper__camp_1812.glb"
     }
   ],
   "excluded_by_date": [

@@ -1,0 +1,32 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs5-entry",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "camera_sha256": "527197a4970943eaadca69f2b69ee0d464337acabbca3b9db2ca7122d4e8029d",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Lower surrounding wall slopes outward while doorway stays recessed behind vertical cutback sides.",
+      "status": "fixed"
+    },
+    {
+      "what": "Header now has shallow sloped shoulders and raised center rather than a rectangular top.",
+      "status": "fixed"
+    },
+    {
+      "what": "One broad threshold sits inside the entrance; both former projecting treads are removed.",
+      "status": "fixed"
+    },
+    {
+      "what": "Foliate field is physically recessed behind a hollow archivolt and stepped mouldings.",
+      "status": "fixed"
+    },
+    {
+      "what": "Exact HABS arch proportion, individual carved leaves, stone joints, and door leaf/hardware correspondence. Depth remains bounded reconstruction, not determined by the elevation.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

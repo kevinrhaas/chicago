@@ -23,20 +23,37 @@
  *     building is or how rough it is.** `BatchedMesh` renders one material, so
  *     the buildings become one batch per distinct material. Materials identical
  *     in every rendered respect are collapsed, and BASE COLOUR (R-W5a) and
- *     ROUGHNESS (R-W5a2) ARE CARRIED PER VERTEX rather than per material (see
- *     `materialKey`), so two walls that differ only in paint or finish share a
- *     draw call. The whole untextured town is one draw call in the colour pass
- *     and one in the shadow pass, and it stays one as blocks land.
+ *     ROUGHNESS (R-W5a2) ARE CARRIED PER INSTANCE OR PER VERTEX rather than per
+ *     material (see `materialKey`), so two walls that differ only in paint or
+ *     finish share a draw call. The whole untextured town is one draw call in
+ *     the colour pass and one in the shadow pass, and it stays one as blocks land.
+ *     Since T-2568 the colour is the instance's (`setColorAt`) and the
+ *     normals and uvs are stored compact; since T-2574 roughness, confidence,
+ *     grain and the piece tone share one four-byte attribute (compact-attributes.js).
  */
 
 import * as THREE from 'three';
+import { spatialPiecesAsync } from './spatial-batch.js';
+import { castOnlyTowardView } from './shadow-casters.js';
+import { backingTriangles } from './view-occlusion.js';
+import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
+import { seasonPreservesSurface } from './season.js';
+import { materialKey as inspectionMaterialKey, captureHooks } from './batch-material.js';
 import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
 import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
+import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
+import { layerPick } from './gpu-pick.js';
+import {
+  compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
+} from './compact-attributes.js';
+
+/** How the confidence view reads this batch's packed channel (T-2574). */
+const PACKED_CONFIDENCE = { read: SCALARS_GLSL.confidence, declare: SCALARS_GLSL.declare };
 
 /** Walk up until something claims a structure_id. Returns null if nothing does. */
 export function structureIdOf(object) {
@@ -151,8 +168,10 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
   const base = [c ? c.r : 1, c ? c.g : 1, c ? c.b : 1];
   const factors = toneFactors(base[0], base[1], base[2], tone ?? NEUTRAL_TONE);
   geo.setAttribute('position', toFloatAttribute(position, 3));
-  geo.setAttribute('color', albedoAttribute(base, factors, position.count));
-  applyPieceTone(geo.getAttribute('color'), src.getAttribute('_tone'));
+  // T-2568: the paint is the INSTANCE's colour (see albedoOf); a vertex colour
+  // is written only where a generator varies it piece by piece.
+  const pieceTone = src.getAttribute('_tone');
+  if (pieceTone) geo.setAttribute('_tone', toFloatAttribute(pieceTone, 1));
   geo.setAttribute('_roughness', roughnessAttribute(material, position.count));
   geo.setAttribute('normal', src.getAttribute('normal')
     ? toFloatAttribute(src.getAttribute('normal'), 3)
@@ -190,16 +209,18 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
 }
 
 /**
- * The material's base colour, written once per vertex — times its building's
- * own facade tone.
+ * The material's base colour times its building's own facade tone — written
+ * ONCE PER INSTANCE since T-2568, where it used to be written once per vertex.
  *
  * `material.color` is already in the renderer's linear working space (three
  * converts on assignment, and glTF's `baseColorFactor` is linear to begin
- * with), and three's `<color_fragment>` chunk multiplies `diffuseColor.rgb` by
- * the `color` attribute with no colour-space conversion of its own. So copying
- * `.r/.g/.b` straight in and leaving the shared material white is EXACTLY the
- * arithmetic that was happening before — the same product, in a different
- * order.
+ * with), and three multiplies `diffuseColor` by the batch's instance colour
+ * (`setColorAt`, a float32 texture in the working space) with no colour-space
+ * conversion of its own. So writing `.r/.g/.b` there and leaving the shared
+ * material white is EXACTLY the arithmetic of the material's own uniform — the
+ * same product, in a different order. Every mesh is its own instance in its
+ * batch, and the colour never varied within one, so the per-vertex copy was
+ * twelve bytes a vertex of one repeated number.
  *
  * **T-0002 puts one more factor in that product and nothing else changes.**
  * `facades.js` returns a per-channel factor for this structure — silvering by
@@ -208,46 +229,42 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
  * its record claims, to the bit, because `toneFor` hands an attested paint the
  * identity tone and 1 x 1 is 1. See `facades.js` for what is invented and
  * `docs/LIBERTIES.md` L126 for its bounds.
+ *
+ * `t` is how much of the tone is applied — see `setWeathering`. At 1 it is the
+ * plain product, not `1 + (f - 1) * 1`, which need not round back to `f`.
  */
-function albedoAttribute(base, factors, count) {
-  const r = base[0] * factors[0], g = base[1] * factors[1], b = base[2] * factors[2];
-  const out = new Float32Array(count * 3);
-  for (let i = 0; i < count; i += 1) {
-    out[i * 3] = r; out[i * 3 + 1] = g; out[i * 3 + 2] = b;
-  }
-  return new THREE.BufferAttribute(out, 3);
+function albedoOf(base, factors, t = 1) {
+  const f = t === 1 ? factors : factors.map((x) => 1 + (x - 1) * t);
+  return [base[0] * f[0], base[1] * f[1], base[2] * f[2]];
 }
 
 /**
  * EACH PIECE OF WOOD ITS OWN WEATHERING (T-2123). A generator that builds a
  * run of separate timbers — the fort's log courses and pickets — can write a
- * `_TONE` per vertex, and it multiplies into the colour here, after the
- * building's facade tone: the plank walk's per-board rule (frontage.js
- * § THE WALK'S OWN TIMBER) carried to a log wall, so one course reads as one
- * log and the next as another. Folded into `color` rather than kept as an
- * attribute, so a batch's attribute set does not depend on which mesh came
- * first, and `setWeathering` keeps it because it rescales by ratio.
- * A mesh without the attribute is untouched; the bounds are the generator's
- * (fort_structure.py LOG_SPAN, palisade.py PICKET_SPAN; L390).
+ * `_TONE` per vertex, and it multiplies into the colour, after the building's
+ * facade tone: the plank walk's per-board rule (frontage.js § THE WALK'S OWN
+ * TIMBER) carried to a log wall, so one course reads as one log and the next
+ * as another. It is the one colour that does vary within a mesh, so it is the
+ * one kept per vertex: since T-2574 it rides lane w of the packed scalars
+ * (compact-attributes.js), `perVertexScalars` multiplies it into the colour
+ * where three's vertex colour used to, and `setWeathering` never has to touch
+ * it. A mesh without the attribute reads a tone of exactly 1.
+ * The bounds are the generator's (fort_structure.py LOG_SPAN, palisade.py
+ * PICKET_SPAN; L390).
  */
-function applyPieceTone(color, tone) {
-  if (!tone) return;
-  const a = color.array;
-  for (let i = 0; i < tone.count; i += 1) {
-    const k = tone.getX(i);
-    a[i * 3] *= k; a[i * 3 + 1] *= k; a[i * 3 + 2] *= k;
-  }
-}
 
 /**
  * The material's roughness, written once per vertex — R-W5a2.
  *
- * The same trick as `albedoAttribute`, one step further, and it is exact for
- * the same reason: a triangle never spans two source meshes, so all three of
- * its vertices carry the identical float and the rasteriser's interpolation of
- * three equal values is that value. What it replaces is `roughnessFactor =
- * roughness` reading a per-material uniform — see `PER_VERTEX_ROUGHNESS`, which
- * substitutes the attribute for the uniform and nothing else.
+ * The trick the colour used to play per vertex, one step further: a triangle
+ * never spans two source meshes, so all three of its vertices carry the
+ * identical value and the rasteriser's interpolation of three equal values is
+ * that value. What it replaces is `roughnessFactor = roughness` reading a
+ * per-material uniform — see `PER_VERTEX_ROUGHNESS`, which substitutes the
+ * attribute for the uniform and nothing else. (It stays per vertex and float32
+ * after T-2568, because a lone narrower scalar is a misaligned stride on Metal;
+ * since T-2574 it is packed with confidence, grain and the piece tone into one
+ * four-byte attribute, and every patch reads it from there — compact-attributes.js.)
  *
  * Why this needed a shader patch when colour did not: `vertexColors` is a stock
  * three feature with a `<color_fragment>` chunk behind it; roughness has no such
@@ -272,31 +289,54 @@ function roughnessAttribute(material, count) {
 }
 
 /**
- * Carry `_roughness` from the attribute buffer to `roughnessFactor`.
+ * Carry the packed scalars' roughness to `roughnessFactor` and their piece
+ * tone into the colour (T-2574; the roughness half is R-W5a2's).
  *
  * Chained the way `confidence.patch` chains — prior first, then ours — so the
- * two patches compose on the same material in either order. The fragment
- * substitution is the whole of it: three's `<roughnessmap_fragment>` is
+ * patches compose on the same material in either order. The roughness
+ * substitution is the whole of that half: three's `<roughnessmap_fragment>` is
  * `float roughnessFactor = roughness;` plus a `USE_ROUGHNESSMAP` branch, so
  * with no map this is the same statement with the uniform swapped for the
- * varying.
+ * varying. A MAPPED material keeps three's chunk, and the choice is made by
+ * three's own `USE_ROUGHNESSMAP` define rather than by this function, so every
+ * structures material carries the same hook text and the program cache cannot
+ * hand one kind the other's program. A wall bound by wall-relief.js has
+ * already replaced the chunk with its own, which reads the same lane.
+ *
+ * The tone multiplies `diffuseColor` immediately BEFORE `<color_fragment>`,
+ * which is where three's vertex colour multiplied it, so the confidence tint
+ * and the wall grain that follow the chunk still follow the tone.
+ *
+ * ITS PROGRAM KEY NAMES WHAT IS BENEATH IT (T-0053's rule). This hook is on
+ * every structures material, so `confidence.patch`, which keys a program by
+ * the hook it finds, would otherwise read the same key on a roof, a wall and
+ * the plain batch, and three would hand a shingled roof the clapboard wall's
+ * compiled program — measured on the first build of T-2574: both roofs at the
+ * spawn ~10 % dark.
  */
-function perVertexRoughness(material) {
-  if (material.roughnessMap) return material;
+function perVertexScalars(material) {
   const prior = material.onBeforeCompile;
+  const priorKey = programKeyOf(material);
   material.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior(shader, renderer);
-    shader.vertexShader = 'attribute float _roughness;\nvarying float vChiRough;\n'
+    shader.uniforms.chiToneScale = { value: material.userData.chiToneScale ?? 255 };
+    shader.vertexShader = SCALARS_GLSL.declare('uniform float chiToneScale;\n'
+      + 'varying float vChiRough;\nvarying float vChiTone;\n'
       + shader.vertexShader.replace(
         '#include <begin_vertex>',
-        '#include <begin_vertex>\n  vChiRough = _roughness;',
-      );
-    shader.fragmentShader = 'varying float vChiRough;\n'
-      + shader.fragmentShader.replace(
-        '#include <roughnessmap_fragment>',
-        'float roughnessFactor = vChiRough;',
-      );
+        `#include <begin_vertex>\n  vChiRough = ${SCALARS_GLSL.roughness};\n`
+        + `  vChiTone = ${SCALARS_GLSL.tone};`,
+      ));
+    shader.fragmentShader = 'varying float vChiRough;\nvarying float vChiTone;\n'
+      + shader.fragmentShader
+        .replace('#include <roughnessmap_fragment>', `#ifdef USE_ROUGHNESSMAP
+#include <roughnessmap_fragment>
+#else
+  float roughnessFactor = vChiRough;
+#endif`)
+        .replace('#include <color_fragment>', 'diffuseColor.rgb *= vChiTone;\n#include <color_fragment>');
   };
+  material.customProgramCacheKey = () => `chicago4d-scalars${priorKey ? `|over:${priorKey}` : ''}`;
   material.needsUpdate = true;
   return material;
 }
@@ -322,7 +362,7 @@ function perVertexRoughness(material) {
  * likes without adding a batch.
  *
  * **R-W5a2, 2026-08-17: roughness is out of the key too, and 16 became 1.** It
- * is the shader patch R-W5a declined to write (`perVertexRoughness`), and the
+ * is the shader patch R-W5a declined to write (`perVertexScalars`), and the
  * reason it was worth writing is not the colour pass: every batch that enters
  * the sun's shadow box is a second draw call in the SHADOW pass, so the town's
  * batch count was setting how far the sun could reach. R-W3b(a) measured the
@@ -341,7 +381,7 @@ function perVertexRoughness(material) {
  * altogether; nothing in the dataset uses two roughness values closer than 0.01
  * on purpose, which is why the quantisation was safe while it lasted.)
  *
- * `roughnessMap` stays in the key because `perVertexRoughness` cannot substitute
+ * `roughnessMap` stays in the key because `perVertexScalars` cannot substitute
  * for a chunk that samples a texture — so a mapped material must not be merged
  * with an unmapped one. It was a precaution against an asset that might one day
  * carry a map; since T-1488 it is what SEPARATES the town's three batches, and
@@ -370,13 +410,15 @@ function materialKey(m) {
  * @param {object} o.terrain                from createTerrain (for ground height)
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
-  onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS }) {
+  onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS,
+  spatialCells = null, collectViewBackings = false, shadowCasters = null }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
 
   // material key -> { material, entries: [{ record, geo, factors }] }
   const groups = new Map();
+  const viewOccluders = [];
   /** structure id -> the facade tone applied to every one of its surfaces. */
   const tones = new Map();
   /**
@@ -412,12 +454,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // visitor can see away from one they cannot.
     .filter((r) => r.gltf)
     .map((r) => r.sidecar));
-  /** The colour ranges `setWeathering` rewrites: one row per source mesh. */
+  /** The instance colours `setWeathering` rewrites: one row per source mesh. */
   const toneRanges = [];
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
   const localXZ = new Map();
+  /** T-2600: the building cells being cut on the job pool, awaited after the loop. */
+  const partitions = [];
   let totalTris = 0;
 
   let completed = 0;
@@ -476,6 +520,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       filterGlessnerRoof(material, record, mesh.geometry);
       // T-2446/T-2469: Glessner's granite to grey-greige; it rides the albedo multiply.
       tintGlessnerGranite(material, record);
+      tintKeithStone(material, record);
       let prepared;
       try {
         prepared = normalizeGeometry(mesh.geometry, matrix, material, confidence, label, tone);
@@ -497,28 +542,32 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       if (prepared.warning) problems.push(prepared.warning);
 
-      const key = materialKey(material);
+      // Inspection sources are immutable clones; other scenes retain their
+      // established in-place material lifecycle and batching policy.
+      const stableSurface = [THREE.MeshStandardMaterial, THREE.MeshPhysicalMaterial].includes(material.constructor)
+        && !JSON.stringify(captureHooks(material)).includes('opaque-hooks');
+      const key = preserveMaterials ? inspectionMaterialKey(material) : materialKey(material);
       let bucket = groups.get(key);
       if (!bucket) {
         material.side = material.side ?? THREE.FrontSide;
-        // The batch's own colour is now the identity, and every vertex carries
-        // its building's paint. Whitening the shared material is what makes the
-        // multiply come out unchanged — see albedoAttribute.
-        material.vertexColors = true;
+        // The batch's own colour is now the identity, and every instance
+        // carries its building's paint. Whitening the shared material is what
+        // makes the multiply come out unchanged — see albedoOf. A per-vertex
+        // piece tone rides the packed scalars (T-2574), scaled once all of the
+        // batch's meshes are in.
         material.color = new THREE.Color(1, 1, 1);
         material.name = 'merged';
         // Roughness now arrives per vertex too (R-W5a2). The material's own
         // value is left where it is rather than whitened the way colour is:
         // it is a straight substitution, not a multiply, so the uniform is
         // simply never read once the patch is installed.
-        perVertexRoughness(material);
-        confidence.patch(material);
+        perVertexScalars(material);
+        confidence.patch(material, { packed: PACKED_CONFIDENCE });
         bucket = { material, entries: [] };
         groups.set(key, bucket);
       } else if (preserveMaterials) {
         material.dispose();
       }
-      bucket.entries.push({ record, geo: prepared.geo, factors: prepared.factors });
       totalTris += prepared.geo.getIndex().count / 3;
 
       // Grow this structure's local footprint as its parts arrive — see
@@ -530,8 +579,45 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         minX: Math.min(seen.minX, gb.min.x), maxX: Math.max(seen.maxX, gb.max.x),
         minZ: Math.min(seen.minZ, gb.min.z), maxZ: Math.max(seen.maxZ, gb.max.z),
       } : { minX: gb.min.x, maxX: gb.max.x, minZ: gb.min.z, maxZ: gb.max.z });
+      // T-2219: a narrow phone courtyard view need not submit an entire
+      // building's material primitive. Keep every triangle/attribute, but let
+      // the existing BatchedMesh cull smaller pieces in each camera/shadow pass.
+      // Full's alpha-faded tile relief keeps its original three draw groups.
+      // Repartitioning it changes transparent blending/depth order at the ridge.
+      const cells = spatialCells || (preserveMaterials && record.id === 'glessner_house'
+        && !material.transparent ? { cellM: 4, heightM: 2 } : null);
+      // Actual opaque building faces can hide geometry behind them. Neighboring
+      // houses matter in the elevated courtyard view too. Registered patches
+      // change surface shading, not vertex positions; unknown hooks fail open.
+      const occludesView = collectViewBackings && preserveMaterials && stableSurface
+        && !material.transparent && !material.transmission && material.opacity===1 && !material.alphaTest
+        && !material.alphaHash && !material.alphaMap && !material.displacementMap
+        && !material.polygonOffset && material.depthWrite && material.depthTest
+        && material.colorWrite && !material.wireframe && !material.stencilWrite
+        && !material.clippingPlanes?.length;
+      const { geo: source, base, factors } = prepared;
+      const entryOf = (geo) => ({ record, geo, base, factors, occludesView });
+      if (!cells) {
+        bucket.entries.push(entryOf(source));
+      } else {
+        // T-2600: the cells are cut on the job pool while the next mesh is
+        // prepared. The pieces land in a slot held at this mesh's place in the
+        // bucket, so the batch is laid in the order it always was.
+        const slot = [];
+        bucket.entries.push(slot);
+        const job = spatialPiecesAsync(source, cells).then((pieces) => {
+          slot.push(...pieces.map(entryOf));
+          source.dispose();
+        });
+        // Heard at the await below; marked handled now, so a refusal while the
+        // loop is still yielding at a checkpoint is not reported as unhandled.
+        job.catch(() => {});
+        partitions.push(job);
+      }
     }
   }
+  await Promise.all(partitions);
+  for (const [, bucket] of groups) bucket.entries = bucket.entries.flat();
 
   onProgress(completed, registry.size);
 
@@ -615,57 +701,155 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // `<clipping_planes_fragment>` anchor to hang the discard on.
   const depthMaterial = confidence.patch(new THREE.MeshDepthMaterial({
     depthPacking: THREE.RGBADepthPacking,
-  }));
+  }), { packed: PACKED_CONFIDENCE });
 
   const batches = [];
   /** structure id -> its union bounding box, in the structure's own frame. */
   const localBoxes = new Map();
   /** structure id -> the confidence channel the shader will actually read. */
   const channels = new Map();
+  // T-2575. Positions go into the batch as Int16 over one uniform scale per
+  // STRUCTURE (every piece of it, across every batch, on one grid), and the
+  // instance matrix is its placement times that scale — compact-attributes.js
+  // says why it is uniform and why the offset is the structure's own origin.
+  // So everything that reads batch positions reads them through the instance
+  // matrix (backingTriangles, picking, the census), never through `placements`.
+  const geometriesOf = new Map();
+  for (const [, bucket] of groups) {
+    for (const { record, geo } of bucket.entries) {
+      if (!geometriesOf.has(record.id)) geometriesOf.set(record.id, []);
+      geometriesOf.get(record.id).push(geo);
+    }
+  }
+  /** structure id -> { scale, matrix }: the dequantize and the instance matrix. */
+  const instanceFrames = new Map();
+  for (const [id, geos] of geometriesOf) {
+    const scale = positionScale(geos);
+    instanceFrames.set(id, {
+      scale,
+      matrix: placements.get(id).clone().multiply(new THREE.Matrix4().makeScale(scale, scale, scale)),
+    });
+  }
+  geometriesOf.clear();
   for (const [, bucket] of groups) {
     const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
     const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
+    // The normals and uvs stored compact, in one format across the batch, and
+    // roughness, confidence, grain and the piece tone packed into one four-byte
+    // attribute (T-2568, T-2574; compact-attributes.js). The tone's scale is the
+    // batch's: a batch takes its attribute set from its first geometry, and every
+    // geometry in it must be packed to the one scale its shader divides by.
+    const plan = compactPlan(bucket.entries.map((e) => e.geo));
+    const toneScale = toneScaleOf(bucket.entries.map((e) => e.geo));
+    bucket.material.userData.chiToneScale = toneScale;
+    // No vertex colour reaches a structures batch any more: the paint is the
+    // instance's and the piece tone is lane w. A source material can still
+    // arrive from GLTFLoader asking for one, and an unbound `color` would then
+    // darken the batch, so it is turned off here for all of them.
+    bucket.material.vertexColors = false;
     const batch = new THREE.BatchedMesh(bucket.entries.length, verts, idx, bucket.material);
     batch.name = `structures:${bucket.material.name || bucket.material.type}`;
     batch.castShadow = true;
     batch.receiveShadow = true;
     batch.customDepthMaterial = depthMaterial;
+    // T-2529: at `light`, a piece whose shadow cannot reach the view is left
+    // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
+    if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
     batch.userData.batchIndex = [];
+    // Each instance's dequantize scale, for a reader that needs the structure's
+    // frame back off the batch (tools/drawn_placement_census.mjs).
+    batch.userData.positionScale = [];
+    let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, factors } of bucket.entries) {
+    for (const { record, geo, base, factors, occludesView } of bucket.entries) {
       const pause = checkpoint(); if (pause) await pause;
+      compactGeometry(geo, plan);
+      const frame = instanceFrames.get(record.id);
+      quantizePositions(geo, frame.scale);
+      packScalars(geo, toneScale);
+      // Every reading below is of the bytes the shader decodes, not of the
+      // floats they were packed from.
+      const scalars = geo.getAttribute(SCALARS);
+      const scalar = (name, i) => unpackScalar(scalars, name, i, toneScale);
+      // The piece tone as the batch stores it, summed for facadeTones' readback.
+      let toneSum = 0;
+      for (let i = 0; i < scalars.count; i += 1) toneSum += scalar('_tone', i);
       const geometryId = batch.addGeometry(geo);
       const instanceId = batch.addInstance(geometryId);
-      // T-0002. Where this mesh's colours ended up inside the batch, so the
-      // tone can be wound back and forth at runtime — see setWeathering.
-      const range = batch.getGeometryRangeAt(geometryId);
-      toneRanges.push({
+      // T-0002. The mesh's paint is its instance's colour, so the tone can be
+      // wound back and forth at runtime — see setWeathering.
+      const count = geo.getAttribute('position').count;
+      const row = {
         batch,
         id: record.id,
-        start: range.vertexStart,
-        count: range.vertexCount,
+        instanceId,
+        count,
+        base,
         factors,
-      });
-      batch.setMatrixAt(instanceId, placements.get(record.id));
+        toneSum,
+        toneFirst: count ? scalar('_tone', 0) : 1,
+      };
+      toneRanges.push(row);
+      batch.setColorAt(instanceId, new THREE.Color(...albedoOf(base, factors)));
+      batch.setMatrixAt(instanceId, frame.matrix);
+      batch.userData.positionScale[instanceId] = frame.scale;
+      // `placement` below is the INSTANCE matrix, dequantize included, which is
+      // the one that turns this geometry's positions into the world (T-2575).
+      if (occludesView) {
+        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=new THREE.Matrix4();
+        const identity=new THREE.Matrix4(), m=batch.material;
+        const hooks=[m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey], side=m.side;
+        // Only the existing opaque, aperture-cut backing, under its known
+        // position-preserving shaders. Visibility/transform changes fail open.
+        const active=()=> {
+          for(let o=batch;o;o=o.parent)if(!o.visible)return false;
+          return batch.getVisibleAt(instanceId) && batch.getGeometryIdAt(instanceId)===geometryId
+            && batch.material===m && m.side===side && batch.matrixWorld.equals(identity)
+            && batch.getMatrixAt(instanceId,current).equals(placement)
+            && batch.geometry.attributes.position.version===backingPositionVersion
+            && batch.geometry.index.version===backingIndexVersion
+            && batch.geometry.attributes[SCALARS].version===backingConfidenceVersion
+            && ([m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey].every((fn,i)=>fn===hooks[i])
+              || seasonPreservesSurface(m,hooks))
+            && m.visible && m.opacity===1 && !m.transparent && !m.transmission && m.depthWrite && m.depthTest
+            && m.colorWrite && !m.wireframe && !m.alphaTest && !m.alphaHash && !m.alphaMap
+            && !m.displacementMap && !m.polygonOffset && !m.stencilWrite
+            && [THREE.LessDepth,THREE.LessEqualDepth].includes(m.depthFunc)
+            && !m.clippingPlanes?.length;
+        };
+        const ranges=new Map();
+        for(const triangle of backingTriangles(geo,placement,m.side,(k)=>scalar('_confidence',k))) {
+          // Small distant facade details are expensive candidates with little
+          // coverage; the inspected house keeps its finer backing faces.
+          if(record.id!=='glessner_house' && triangle.area<4)continue;
+          const key=JSON.stringify(triangle.confidenceRange);
+          if(!ranges.has(key))ranges.set(key,()=>active()
+            && opaqueConfidenceRange(triangle.confidenceRange,confidence));
+          viewOccluders.push({...triangle,active:ranges.get(key)});
+        }
+      }
       batch.userData.batchIndex[instanceId] = record.id;
       record.instanceId = instanceId;
       // Measure BEFORE dispose, and union across every material a structure
       // uses: a building is walls plus roof plus trim, and any one of those
       // alone is not the building. This is what `instanceBounds()` reports and
       // what the size gate reads — see the note on that method.
+      // The box is measured on the stored positions and scaled back to metres
+      // in the structure's frame, so it is what the GPU draws, quantizing and all.
       geo.computeBoundingBox();
+      geo.boundingBox.min.multiplyScalar(frame.scale);
+      geo.boundingBox.max.multiplyScalar(frame.scale);
       let box = localBoxes.get(record.id);
       if (!box) { box = new THREE.Box3(); localBoxes.set(record.id, box); }
       box.union(geo.boundingBox);
       // The confidence the SHADER will see, after the existence floor, recorded
       // per structure so a gate can ask the question a visitor asked: does this
       // building dither, and does it dither all over?
-      const conf = geo.getAttribute('_confidence');
-      if (conf) {
+      {
         let seen = channels.get(record.id);
         if (!seen) { seen = { min: Infinity, max: -Infinity, dithered: 0, total: 0 }; channels.set(record.id, seen); }
-        for (let i = 0; i < conf.array.length; i += 1) {
-          const v = conf.array[i];
+        for (let i = 0; i < count; i += 1) {
+          const v = scalar('_confidence', i);
           seen.min = Math.min(seen.min, v);
           seen.max = Math.max(seen.max, v);
           seen.total += 1;
@@ -674,6 +858,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       geo.dispose();
     }
+    backingPositionVersion=batch.geometry.attributes.position.version;
+    backingIndexVersion=batch.geometry.index.version;
+    backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
     group.add(batch);
@@ -689,10 +876,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * measures the difference, which is the only evidence that the tone reaches
    * the render rather than merely reaching an array.
    *
-   * The rewrite is exact enough to restore: each range is scaled by the ratio
-   * between the factor it should carry now and the one it carries, so a round
-   * trip to 0 and back leaves float dust rather than a changed frame — and the
-   * gate asserts the restored frame, not just the changed one.
+   * The rewrite is exact: each instance's colour is recomputed from its base
+   * and its factors at the new strength (T-2568), not rescaled from the one it
+   * carries, so a round trip to 0 and back restores the very same floats — and
+   * the gate asserts the restored frame, not just the changed one.
    *
    * A visitor never calls it. It is not a setting; the tone is what the town
    * looks like.
@@ -701,25 +888,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   function setWeathering(value) {
     const t = Math.max(0, Math.min(1, Number(value)));
     if (!Number.isFinite(t) || t === weathering) return weathering;
-    const touched = new Set();
+    const colour = new THREE.Color();
     for (const row of toneRanges) {
-      const attr = row.batch.geometry.getAttribute('color');
-      if (!attr) continue;
-      const a = attr.array;
-      const scale = [0, 1, 2].map((i) => {
-        const target = 1 + (row.factors[i] - 1) * t;
-        const applied = 1 + (row.factors[i] - 1) * weathering;
-        return applied === 0 ? 1 : target / applied;
-      });
-      const end = row.start + row.count;
-      for (let v = row.start; v < end; v += 1) {
-        a[v * 3] *= scale[0];
-        a[v * 3 + 1] *= scale[1];
-        a[v * 3 + 2] *= scale[2];
-      }
-      touched.add(attr);
+      row.batch.setColorAt(row.instanceId, colour.setRGB(...albedoOf(row.base, row.factors, t)));
     }
-    for (const attr of touched) attr.needsUpdate = true;
     weathering = t;
     return weathering;
   }
@@ -764,12 +936,27 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       + `${[...missing].join(', ')}`);
   }
 
-  const raycaster = new THREE.Raycaster();
-  raycaster.far = 400;
+  /*
+   * A tap is drawn, not raycast (gpu-pick.js, T-2573): each batch is drawn into
+   * one pixel under its id material and the instance it names is the instance
+   * the raycast's `batchId` named, so a phone need keep none of the batches'
+   * triangles. The reach is the one this pick always had — as far as you can
+   * see, which depends on how high you are (`pickReach`): a fixed 400 m was
+   * short from the air along any shallow sightline, so a roof on the far side
+   * of the town from the aerial anchor could not be picked. `pickAtRaycast` is
+   * the old path, the oracle while the arrays exist.
+   */
+  const pick = layerPick(() => batches, (hit) => {
+    const id = (hit.batchId != null ? hit.object.userData.batchIndex?.[hit.batchId] : null)
+      ?? structureIdOf(hit.object);
+    if (!id) return null;
+    return { id, record: registry.get(id), point: hit.point, distance: hit.distance };
+  });
 
   return {
     group,
     batches,
+    viewOccluders,
     problems,
     triangles: totalTris,
 
@@ -816,22 +1003,20 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * mistake K24 found in R-A1's own gate; a gate that reads both can.
      */
     facadeTones() {
+      // The drawn colour of a vertex is its instance's paint times its piece
+      // tone (1 where it has none), read back from the batch's own colours.
       const sums = new Map();
+      const colour = new THREE.Color();
       for (const row of toneRanges) {
-        const attr = row.batch.geometry.getAttribute('color');
-        if (!attr) continue;
-        const a = attr.array;
+        const c = row.batch.getColorAt(row.instanceId, colour);
         let seen = sums.get(row.id);
         if (!seen) { seen = { sum: [0, 0, 0], n: 0, surfaces: new Set() }; sums.set(row.id, seen); }
-        const end = row.start + row.count;
-        for (let v = row.start; v < end; v += 1) {
-          seen.sum[0] += a[v * 3];
-          seen.sum[1] += a[v * 3 + 1];
-          seen.sum[2] += a[v * 3 + 2];
-        }
+        seen.sum[0] += c.r * row.toneSum;
+        seen.sum[1] += c.g * row.toneSum;
+        seen.sum[2] += c.b * row.toneSum;
         seen.n += row.count;
         if (row.count) {
-          seen.surfaces.add([a[row.start * 3], a[row.start * 3 + 1], a[row.start * 3 + 2]]
+          seen.surfaces.add([c.r * row.toneFirst, c.g * row.toneFirst, c.b * row.toneFirst]
             .map((v) => v.toFixed(6)).join(','));
         }
       }
@@ -878,35 +1063,19 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     },
 
     /**
-     * Raycast into the batches.
+     * The structure under a tap.
      * @param {THREE.Vector2} ndc  normalised device coords, or null for centre
      * @param {THREE.Camera} camera
      */
-    pickAt(ndc, camera) {
-      raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-      // The ray reaches as far as you can see, and how far that is depends on
-      // how high you are.
-      //
-      // A fixed 400 m is generous at eye level and short from the air along any
-      // shallow sightline: from the aerial anchor at 175 m looking out at -30°,
-      // a roof on the far side of the town is past 400 m and simply cannot be
-      // picked. Straight down it was never the limit — measured, not assumed:
-      // 200 m of altitude at -80° is only ~203 m of ray — so this is not the
-      // reason inspecting from the air felt broken. It is a real ceiling on a
-      // real sightline, and lifting it costs nothing at eye level, where
-      // camera.position.y * 4 stays well under the old constant.
-      raycaster.far = Math.max(400, camera.position.y * 4);
-      const hits = raycaster.intersectObjects(batches, false);
-      if (!hits.length) return null;
-      const hit = hits[0];
-      const id = hit.object.userData.batchIndex?.[hit.batchId]
-        ?? structureIdOf(hit.object);
-      if (!id) return null;
-      return { id, record: registry.get(id), point: hit.point.clone(), distance: hit.distance };
-    },
+    pickAt: pick.pickAt,
+    /** The raycast it replaced, kept as the oracle (tools/check_upload_release.mjs). */
+    pickAtRaycast: pick.pickAtRaycast,
 
-    /** The instance matrix a structure was placed with — for gates that need to
-     *  measure the RENDERED result rather than re-derive it. */
+    /** The placement a structure was given: its own frame (metres) to the world —
+     *  for gates that need to measure the RENDERED result rather than re-derive
+     *  it. Since T-2575 the batch's instance matrix is this times the structure's
+     *  uniform dequantize scale; a point in the structure's frame goes through
+     *  this one, a stored batch position through the instance matrix. */
     matrixOf(id) { return placements.get(id) ?? null; },
 
     /** Where a structure stands, in world space — for framing and popups. */

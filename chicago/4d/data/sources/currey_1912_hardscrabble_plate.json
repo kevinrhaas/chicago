@@ -1,0 +1,30 @@
+{
+ "id": "currey_1912_hardscrabble_plate",
+ "type": "illustration",
+ "citation": "'Hardscrabble.' Halftone plate facing p. 74 of J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912), the eighth of the book's eleven illustrations; maker not named, undated. A wash drawing of Lee's Place on the South Branch, with a printed caption beneath it.",
+ "author": "unnamed illustrator (the book credits no maker for this plate)",
+ "date": "1912 (published; the drawing's own date is not stated)",
+ "describes_date": "Lee's Place before the attack of 7 April 1812 (the caption's own frame: a farmhouse 'built some time after Fort Dearborn had been established')",
+ "repository": "Project Gutenberg, eBook #52346, illustrated HTML edition, image file images/hardscrabble.png; committed with its attribution at data/sources/assets/currey_1912_hardscrabble_t2509/ (T-2509).",
+ "url": "https://www.gutenberg.org/cache/epub/52346/images/hardscrabble.png",
+ "locator": "The whole plate, 659 x 362 px as Gutenberg scanned it; its caption is printed in the book's text at https://www.gutenberg.org/cache/epub/52346/pg52346-images.html (the caption under the img tag images/hardscrabble.png) and in the plain text at lines 1482-1493 (currey_1912_old_fort_dearborn).",
+ "tier": 5,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1912 in a book now in the public domain there. The Gutenberg licence binds Gutenberg's own files and trademark, not the 1912 picture. The committed copy is Gutenberg's scan, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Fetched 2026-10-15 for T-2509 (piece 1 of T-2503) from the run's container: images/hardscrabble.png, 659 x 362 px 8-bit greyscale palette PNG, sha256 56677f4e75126a5211409d45b5e09f0007e35f3e538a76119a8b979c69a4d747. The list of illustrations reads 'Hardscrabble ... 74'. Read as a picture, at 6x on the house.",
+ "note": "A retrospective picture, drawn about a century after the farm by a maker the book does not name, and graded tier 5 as the ladder grades every such reconstruction: it informs form and cross-checks, and is never the sole evidence for anything documented nor traced for a coordinate. What it draws, read off the image: a river in the foreground running away to the right; across it, on the far bank, a long, low single-storey house with a dark gable roof, a tall exterior stack against its left-hand gable and a lower gabled lean-to beyond that stack; along its river front three doors and six small windows in the order window, door, window, window, door, window, window, door, window; a worm (zigzag) rail fence along the bank in front of the house that turns and runs back round a large field behind it; three small gabled outbuildings in the field behind, a scatter of stumps, a dark belt of woods along the far side of the field, a canoe drawn up on the bank below the house, trees in the foreground on both sides, and two small standing figures at the house's right-hand end. It shows no haystacks.",
+ "what_it_supplies": [
+  "the house's form as one illustrator imagined it in 1912: long, low, one storey, a gable roof running along the river front, an exterior stack at one gable end and a lean-to beyond it",
+  "the river front's opening set-out: three doors and six windows",
+  "the field's fence: a worm (zigzag) rail fence along the bank and round the field",
+  "the house standing close to the bank inside the fence, with the field behind it and woods beyond"
+ ],
+ "what_it_does_not_supply": [
+  "a maker, a date of drawing or a stated basis: nothing says the picture was drawn from a witness's description, and it may as well show the later trading house on the same premises (Hurlbut: Crafts's, 1817-1822) as the farm of 1812",
+  "any dimension, position or bearing: it is tier 5 and gives form only",
+  "colour: the plate is a monochrome halftone",
+  "haystacks: Wau-Bun puts them on the bank opposite the cabin, and the plate draws none"
+ ]
+}

@@ -43,6 +43,17 @@ if g.get('level_courtyard_gable'):
     south=profile(r,'south')
     assert len(south)==3 and abs(south[1][0]-r['ridge_at'])<1e-4
     assert abs(south[1][1]-38.6*.3048)<1e-4
+    # North section control S14.6 must continue across the west crossing.
+    # The older S18.4 cross-gable can be watertight yet visibly kink in plan.
+    assert abs(g['cross_y']-(74-14.6)*.3048)<1e-4
+    assert abs(g['cross_y']-n['ridge_at'])<1e-4
+    assert abs((p.turrets[0]['y0']+p.turrets[0]['y1'])/2-n['ridge_at'])<1e-4
+    from archetypes.masonry_house_v4_west_roof import ridge_ranges
+    east_west=[(run,a,b) for run,a,b in ridge_ranges(r) if run['axis']=='x' and abs(run['ridge_z']-p.detail['west_dormer']['apex_z'])>.01]
+    assert east_west
+    for run,a,b in east_west:
+        assert abs(run['ridge_at']-n['ridge_at'])<1e-4
+        assert abs(run.get('ridge_skew',0))<1e-10
     # Matching 2.36-ft awning, continuous at the 24-ft north courtyard edge.
     edge=r['x1']+2.36*.3048
     ny=n['y0']-n['eave_lo_overhang']
@@ -64,9 +75,9 @@ if g.get('level_courtyard_gable'):
         if o['face']=='east' and abs(o['at']-r['x1'])<1e-5:
             for y in (o['u0'],o['u1']):
                 assert height(r,r['x1'],y)>o['z1']+.27,(o,y)
-    # Preserve the two owner west-elevation slopes and rear frontage, while
-    # giving the separate north-south roof its full-height rear peak.
-    for station,roof_z in ((0,25.2),(18.4,38.6),(35,16.5),(59.75,16.5)):
+    # The 2026-10-15 owner aerial priority supersedes the west-study peak
+    # at S18.4. Preserve end eaves and the full-height north-south ridge.
+    for station,roof_z in ((0,25.2),(14.6,38.6),(35,16.5),(59.75,16.5)):
         assert abs(height(r,r['x0'],(74-station)*.3048)-roof_z*.3048)<1e-4
     for _,pts in patches(r,False):
         for a,b in zip(pts,pts[1:]+pts[:1]):
@@ -181,6 +192,16 @@ for face in ['west','east','south']:
             u=a[0]+(b[0]-a[0])*t
             expected=height(r,r['x0'] if face=='west' else r['x1'],u) if face!='south' else height(r,u,r['y0'])
             assert abs(expected-(a[1]+(b[1]-a[1])*t))<1e-5,(face,u,expected)
+# The owner specifically requested the west windows after moving the peak.
+# Probe the complete opening width rather than just its centre: a gable can
+# leave the centre clear while clipping an upper corner.
+west_lights=[o for o in p.openings if o['face']=='west' and abs(o['at']-r['x0'])<1e-5]
+assert len(west_lights)==8
+for o in west_lights:
+    for j in range(13):
+        y=o['u0']+(o['u1']-o['u0'])*j/12
+        assert height(r,r['x0'],y)>o['z1']+.25, ('west light meets roof',o,y)
+print('PASS: all eight west lights remain complete below both gable slopes')
 d=p.detail['west_dormer']
 for y in [d['u0'],(d['u0']+d['u1'])/2,d['u1']]:
     assert d['eave_z']-1.35>height(r,d['front'],y)
@@ -235,7 +256,10 @@ if p.detail.get('dining_crested_connection'):
         assert profile_points[0][0]==n['x0'] and abs(profile_points[0][1]-left_height)<1e-4
     else:
         assert profile_points[0]==(n['x0'],n['eave_lo_z'])
-    assert profile_points[-1]==(n['x1'],n['eave_lo_z'])
+    # T-2220 moves the hood peak to the actual ell endpoint. The final wall
+    # control must reach that roof, not drop to the unrelated north eave.
+    assert abs(profile_points[-1][0]-n['x1'])<1e-7
+    assert abs(profile_points[-1][1]-(p.bows[0]['wall_top_z']+p.bows[0]['roof_rise_m']))<1e-7
     assert all(h>=n['eave_lo_z'] for x,h in profile_points)
     if n.get('eave_lo_overhang',.20)>.21:
         assert max(h for x,h in profile_points)>p.bows[0]['wall_top_z']

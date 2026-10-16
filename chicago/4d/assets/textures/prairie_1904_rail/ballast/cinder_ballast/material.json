@@ -1,0 +1,40 @@
+{
+  "id": "cinder_ballast",
+  "group": "ballast",
+  "span_m": 2.0,
+  "span_across_m": 2.0,
+  "kind": "ballast",
+  "mean_roughness": 0.96,
+  "colors": [
+    [
+      74,
+      70,
+      66
+    ],
+    [
+      22,
+      21,
+      21
+    ]
+  ],
+  "note": "Locomotive cinders as track ballast, filled up round the ties: coarse clinker in a fine black-grey ash, a few rust-brown and glassy lumps and pale ash where the sun has dried it. The darkness and fineness are what both Glessner photographs at 18th Street show; grain and colour are reconstructed (L-ic-tracks-2478).",
+  "span_along_m": 2.0,
+  "resolution_px": 512,
+  "px_per_m": 256.0,
+  "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+  "orientation": "image x = along the track (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "height16": "linear 16-bit",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "cinder_ballast_basecolor_web.jpg",
+    "normal_gl": "cinder_ballast_normal_gl_web.jpg",
+    "orm": "cinder_ballast_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19040714,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+}

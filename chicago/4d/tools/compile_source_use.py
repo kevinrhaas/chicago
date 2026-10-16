@@ -8,11 +8,13 @@ from pathlib import Path
 import re
 from collections import defaultdict
 from compile_scene import cite, resolve_phase
+from exclusion_scope import ruled_for
 
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
-# The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728 — see outputs().
-INDEX_BUDGET = 136_000
+# The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
+# T-2334; 144 000 from T-2473; 152 000 from T-2498 — see outputs().
+INDEX_BUDGET = 152_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -145,10 +147,11 @@ class Compiler:
                 continue
             scene = read(path)
             layers = set(scene.get('layers', []))
-            # Residents, firms, animals and the excluded-buildings record are authored for
-            # 1835 alone; a scene that starts listing one needs its own reading of it here
-            # first, rather than a Sources list that silently leaves those citations out.
-            unread = sorted(layers & {'residents', 'businesses', 'fauna', 'exclusions'})
+            # Residents, firms and animals are authored for 1835 alone; a scene that starts
+            # listing one needs its own reading of it here first, rather than a Sources list
+            # that silently leaves those citations out. The excluded-buildings record is read
+            # per scene since T-2489: an entry is a ruling for the scenes its `scenes` names.
+            unread = sorted(layers & {'residents', 'businesses', 'fauna'})
             if unread:
                 raise ValueError(f"scene {path.stem} lists {', '.join(unread)}: the per-scene source index cannot read them yet")
             scenes[path.stem] = dict(target=dt.date.fromisoformat(scene['target_date']), layers=layers,
@@ -230,8 +233,19 @@ class Compiler:
                 row = read(data / folder / f'{s}.json')
                 if row is not None:
                     self.record(family, kind, f'{folder}/{s}', row, 'other_scene', elsewhere=(s,))
+        # The 1904 lakefront railway (T-2478), the same way.
+        for s, o in others.items():
+            if 'railway' not in o['layers']:
+                continue
+            row = read(data / 'railway' / f'{s}.json')
+            if row is not None:
+                self.record('railway', 'railway', f'railway/{s}', row, 'other_scene', elsewhere=(s,))
+        # T-2489: a ruling is the 1835 town's exclusion when it is ruled for 1835, and
+        # another scene's when that scene lists the layer and the ruling names it.
         for row in read(data / 'exclusions.json', {}).get('excluded', []):
-            self.record('exclusions', 'exclusion', row['id'], row, 'exclusion')
+            listed = tuple(s for s, o in others.items() if 'exclusions' in o['layers'] and ruled_for(row, s))
+            self.record('exclusions', 'exclusion', row['id'], row,
+                        'exclusion' if ruled_for(row, '1835') else 'other_scene', elsewhere=listed)
         for row in read(data / 'liberties.json', {}).get('liberties', []):
             self.record('liberties (structured citations)', 'liberty', row['id'], row, 'research', grade='reconstructed')
         for row in read(data / 'loading/statuses.json', {}).get('entries', []):
@@ -309,6 +323,17 @@ class Compiler:
         # district drafts (T-2329, T-2330, T-2334) grew the use counts of the sheets they cite, and
         # the 16th-18th west side's drafts put the index at 128 001 bytes. The gzipped first open
         # is still held at 120 KB by measure_sources.mjs; this is the raw file only.
+        # 144 000 SINCE 2026-10-13 (T-2473): the owner's streetscape (T-2473's two Prairie Avenue
+        # views) and the day's other 1904 parcels (T-2476's Inter Ocean notice, T-2477's context
+        # city, T-2478's railway) took it to 136 530 bytes with every citation kept whole. Same
+        # bargain as before: about twenty sources of room, the gzipped first open still held at
+        # 120 KB by measure_sources.mjs.
+        # 152 000 SINCE 2026-10-15 (T-2498): the 1812 Kinzie house's pictures (T-2497's two and
+        # T-2498's six: the Cram plate, the Teich postcard, the Eastman and Gemmell 1820 views and
+        # Sarony's lithograph in Currey and Kirkland), each a source record the image gate and the
+        # card's Images tab need, took it to 144 165 bytes with every citation kept whole. Same
+        # bargain: about twenty sources of room, the gzipped first open still held at 120 KB by
+        # measure_sources.mjs; this is the raw file only.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs
@@ -365,7 +390,7 @@ class Compiler:
                   '- Unmodelled flora/fauna zones are research, not scene use. Out-of-scene structure phases are other_scene; this does not claim they are visible in 1835.',
                   '- Jaunt evidence claims are validated and registered as typed jaunt backlinks (T-1253); source-free reconstructed narrative has no fabricated source edge. Unavailable jaunts are research use. Loading facts carry decision/loading_fact backlinks. No PDF/image bytes or asset derivation is produced.',
                   '- The compact index holds citation text and explicit type/date/tier metadata. Full public citations, links and source limits are lazy per-source data. Internal source fields and raw research paths are not exported.',
-                  '- Other scenes (T-2079) get their own use map over the one catalog: a source is `scene` there when a record that scene draws cites it — a structure standing on its date, its terrain epoch, flora zones its layer scope admits, its street grid and paving, its available jaunts. Edges keep their 1835 `use` and add `scenes` naming the other scenes that draw them. A scene that lists residents, businesses, fauna or exclusions is refused until this compiler reads those for it; plantings and loading facts are not read for other scenes.', '']
+                  '- Other scenes (T-2079) get their own use map over the one catalog: a source is `scene` there when a record that scene draws cites it — a structure standing on its date, its terrain epoch, flora zones its layer scope admits, its street grid and paving, its available jaunts. Edges keep their 1835 `use` and add `scenes` naming the other scenes that draw them. A scene that lists residents, businesses or fauna is refused until this compiler reads those for it; exclusions are read per scene, from the `scenes` each entry names (T-2489); plantings and loading facts are not read for other scenes.', '']
         return '\n'.join(lines)
 
 

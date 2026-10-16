@@ -1,0 +1,29 @@
+{
+  "method": "7,500 deterministic synthetic world boxes, slanting opaque triangles and the fifteen measured camera matrices; exact Boolean equality to the preserved pre-optimization function. CPU microbenchmark only, not browser frame time.",
+  "cases": 7500,
+  "hidden": 6365,
+  "visible": 1135,
+  "allDecisionsExact": true,
+  "runs": [
+    {
+      "before": 13.747205000000008,
+      "after": 3.7228489999999965
+    },
+    {
+      "after": 3.5696189999999888,
+      "before": 13.288491999999906
+    },
+    {
+      "before": 13.56824400000005,
+      "after": 2.7588810000000876
+    },
+    {
+      "after": 3.9484319999999116,
+      "before": 56.28445399999998
+    },
+    {
+      "before": 47.70721800000001,
+      "after": 2.9829180000000406
+    }
+  ]
+}

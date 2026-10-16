@@ -1,0 +1,115 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `light`; animation paused after readiness; each stand renders the same held frame with the cull off (setCastersTowardView(false)) and on, reads triangles from renderer.info and every pixel with gl.readPixels in the same task. Software GL on this machine.",
+  "result": {
+    "viewport": {
+      "width": 390,
+      "height": 780
+    },
+    "detail": "light",
+    "boot": {
+      "scene": "1904",
+      "detail": "light",
+      "ceiling": 1270000,
+      "build": "0.1.0"
+    },
+    "errors": [],
+    "bad": [],
+    "stands": [
+      {
+        "name": "front",
+        "tierHadItOn": true,
+        "off": {
+          "triangles": 904727,
+          "drawCalls": 87
+        },
+        "on": {
+          "triangles": 437501,
+          "drawCalls": 73,
+          "withinBudget": true
+        },
+        "piecesLeftOutOfSunPass": 33367,
+        "pixels": 304200,
+        "controlPixelsDifferingWithNoShadows": 97077,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "problems": 0
+      },
+      {
+        "name": "oblique-north",
+        "tierHadItOn": true,
+        "off": {
+          "triangles": 1370993,
+          "drawCalls": 134
+        },
+        "on": {
+          "triangles": 981989,
+          "drawCalls": 126,
+          "withinBudget": true
+        },
+        "piecesLeftOutOfSunPass": 30422,
+        "pixels": 304200,
+        "controlPixelsDifferingWithNoShadows": 120230,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "problems": 0
+      },
+      {
+        "name": "oblique-south",
+        "tierHadItOn": true,
+        "off": {
+          "triangles": 1006608,
+          "drawCalls": 121
+        },
+        "on": {
+          "triangles": 585037,
+          "drawCalls": 119,
+          "withinBudget": true
+        },
+        "piecesLeftOutOfSunPass": 32192,
+        "pixels": 304200,
+        "controlPixelsDifferingWithNoShadows": 85329,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "problems": 0
+      },
+      {
+        "name": "rear",
+        "tierHadItOn": true,
+        "off": {
+          "triangles": 1045246,
+          "drawCalls": 96
+        },
+        "on": {
+          "triangles": 862867,
+          "drawCalls": 96,
+          "withinBudget": true
+        },
+        "piecesLeftOutOfSunPass": 26490,
+        "pixels": 304200,
+        "controlPixelsDifferingWithNoShadows": 29848,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "problems": 0
+      },
+      {
+        "name": "roof",
+        "tierHadItOn": true,
+        "off": {
+          "triangles": 1110949,
+          "drawCalls": 116
+        },
+        "on": {
+          "triangles": 756990,
+          "drawCalls": 115,
+          "withinBudget": true
+        },
+        "piecesLeftOutOfSunPass": 30299,
+        "pixels": 304200,
+        "controlPixelsDifferingWithNoShadows": 83019,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "problems": 0
+      }
+    ]
+  }
+}

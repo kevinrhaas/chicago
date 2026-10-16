@@ -1,0 +1,64 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "view": "cgn-1808-inland-1888-keith-copy",
+  "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
+  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
+  "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
+  "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The south bow has three basement lights, three principal transom openings and four second-storey sashes; the north loggia has paired Ionic columns and a pierced lower panel.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2565: one carved capital spans each pair of columns; the balcony has a level coping between square dies, the flight-side die carrying the stepped stone finial; a deep three-step cornice carries it; and both stair cheeks end in a rolled foot, as this plate shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2565: the bow's second-storey lights run up to just under its moulded cap (2.5 m on a 0.75 m sill), as the plate draws them; they were 2.2 m and stopped well short of it.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2585: read at the plate's native 1559 px, each paired capital is a square-edged block with no volutes and no egg row: its face carries a running zigzag of six strokes between plain end blocks under a thin abacus (T-2565 had read the zigzag's dark triangles as an egg row and the plain end blocks as volutes). The balcony's panel carries one continuous running scroll of foliage over a plain base strip, and its die a plain sunk panel in a raised border. The scroll's leaves and each curl's turns are below the plate's grain.",
+      "status": "fixed"
+    },
+    {
+      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
+      "status": "open"
+    },
+    {
+      "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The bow still runs even courses where the photographs' bow alternates deep and thin ones; the individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
+      "status": "open"
+    },
+    {
+      "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
+      "status": "not shown"
+    },
+    {
+      "what": "The earlier low stone boundary replaces the generic iron fence with urns. Its exact post/rail sections remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

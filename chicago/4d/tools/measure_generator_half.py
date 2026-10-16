@@ -572,16 +572,58 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 862 -> 863 on 2026-10-13 (T-2443): the 1635 Forsyth house, ruled standing in 1904 and drafted
 # from Robinson 1886's outline, emitted the same way and restaling on none of the rows below either.
 #
+# 863 -> 865, 713 -> 715 and 707 -> 709 on 2026-10-15 (T-2487): the Burns house and the Lee family's
+# house of 1812, two log_dwelling roofs emitted the same way as T-2062's, restaling on the same rows.
+#
+# 865 -> 869, 715 -> 719 and 709 -> 713 on 2026-10-15 (T-2507): four more buildings outside the
+# first Fort Dearborn's stockade in 1812, the interpreter's house (`log_dwelling`) and the
+# armourer's shop, merchant's shop and bake house (`outbuilding`), emitted the same way as T-2062's,
+# restaling on the same rows.
+#
+# 869 -> 874, 719 -> 724, 713 -> 718 and pier_crib 2 -> 3 on 2026-10-15 (T-2508): the first
+# fort's wharf (`pier_crib`, the archetype's first river wharf beside the two harbour piers) and
+# its covered way to the river in four runs (`palisade`), restaling on the same rows.
+#
+# 874 -> 876, 724 -> 726 and 718 -> 720 on 2026-10-15 (T-2497, landing after T-2508): the Kinzie
+# house and its fenced green in the 1812 scene (kinzie_house_1812, kinzie_house_1812_green), through
+# emit.py and the common modules.
+#
+# 876 -> 880 on 2026-10-15 (T-2510, landing after T-2497): four haystacks at
+# Lee's Place in 1812, the first records of the new `haystack` archetype. It writes its glTF in pure
+# Python (generators/haystack_emit.py, the K12/K16 route), so it restales on none of the shared rows
+# below: registering it in emit.py instead would have re-staled every mesh on that row for want of
+# one dict entry.
+#
+# 880 -> 883, 726 -> 729 and 720 -> 723 on 2026-10-15 (T-2515, landing after T-2510): the three
+# groups of the Potawatomi camp of August 1812 (potawatomi_camp_1812_mouth, _middle, _upper), on the
+# `camp` archetype's new mat lodge, emitted the same way and restaling on the same rows.
+#
+# 883 -> 885, 729 -> 731 and 723 -> 725 on 2026-10-15 (T-2504, landing after T-2515): La Lime's
+# and Le Mai's log houses on the 1812 north bank (lalime_house_1812, lemai_house_1812), through
+# emit.py and the common modules.
+#
+# 885 -> 886, 731 -> 732 and 725 -> 726 on 2026-10-15 (T-2513, landing after T-2504): Coursoll's
+# worm-fenced field west of the no. 31 houses on the 1812 north bank (coursoll_field_1812,
+# `palisade`), emitted the same way and restaling on the same rows.
+#
+# 886 -> 888, 732 -> 734 and 726 -> 728 on 2026-10-15 (T-2509, landing after T-2513): Lee's Place's
+# cabin (log_dwelling) and its field's worm fence (palisade) of 1812, emitted through emit.py and the
+# common modules, so restaling on those two rows.
+#
+# 888 -> 891, 734 -> 737 and 728 -> 731 on 2026-10-15 (T-2512, landing after T-2509): the two
+# houses at the forks of 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`),
+# emitted the same way as T-2062's, restaling on the same rows.
+#
 STATED = {
-    "assets": 863,
+    "assets": 891,
     "restales": {
-        "generators/common/*.py": 713,
+        "generators/common/*.py": 737,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 707,
+        "generators/emit.py": 731,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
-        "generators/archetypes/pier_crib.py": 2,
+        "generators/archetypes/pier_crib.py": 3,
     },
     "layers_drawn_at_load": 10,
     # T-0252 (2026-10-03): this zero is the decision in docs/GLB-CONTRACT.md § "Layers

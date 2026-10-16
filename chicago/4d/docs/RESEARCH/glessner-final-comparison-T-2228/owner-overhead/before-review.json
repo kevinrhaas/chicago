@@ -1,0 +1,22 @@
+{
+  "asset_sha256": "916c15966f359c23dff23b5951ebbd255662c8dcc39c68e70ba9450913da8295",
+  "render_sha256": "87885f0cc82ebf6a81ecd328607d5e8303968b3db33b173364c6aa70e08320cf",
+  "source_sha256": "500505fbd6ed9115d6f2348026c9396e068ef15400498f63424f4c2c72894f30",
+  "directly_reviewed": true,
+  "verdict": "differs",
+  "differences": [
+    {
+      "status": "open",
+      "what": "The west cross crest/cupola is displaced south of the long north-range ridge. Source S18.4 vsS14.6 explains the visible plan jog."
+    },
+    {
+      "status": "open",
+      "what": "Copper roof coverage in the northeast courtyard is too limited in the model, and dining roof footprint and other roof-feature correspondence remain different."
+    },
+    {
+      "status": "not shown",
+      "what": "Modern aerial colors, vegetation, service fabric and map labels do not establish1904 details. Camera is an approximate roof-inspection pose, not an independently surveyed reconstruction."
+    }
+  ],
+  "side_by_side": "Private review workspace; source pixels not redistributed."
+}

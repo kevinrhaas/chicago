@@ -2,35 +2,6 @@
  "courtyard": [
   {
    "face": "west",
-   "record": "v4_detail",
-   "what": "east-wing courtyard garden light beside the stair tower, HABS sheet 4",
-   "at_ft": [
-    43.0,
-    48.5
-   ],
-   "z_ft": [
-    1.0,
-    4.5
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": null,
-   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
-   "confidence": "reconstructed",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923",
-    "owner_glessner_v4_reconstruction_brief_2026",
-    "habs_glessner_photo_14_north_inclined_1965",
-    "habs_glessner_photo_15_north_stable_1965",
-    "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
-   ]
-  },
-  {
-   "face": "west",
    "record": "openings_court",
    "what": "first-floor window",
    "at_ft": [
@@ -75,6 +46,37 @@
    "sources": [
     "habs_glessner_house_il_1015_drawings",
     "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "v4_detail",
+   "what": "east-wing courtyard barred basement light beside the stair tower, native HABS sheet4 clear aperture",
+   "at_ft": [
+    46.48,
+    50.98
+   ],
+   "z_ft": [
+    2.6,
+    4.95
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "court_garden_grille",
+   "sash": null,
+   "built_as": "recessed dark light behind 6 vertical iron bars and 2 rails, narrow frame, stone head and sill",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -748,7 +750,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -777,7 +781,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -806,7 +812,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -835,7 +843,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -864,7 +874,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -893,7 +905,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -922,7 +936,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -951,7 +967,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -980,7 +998,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1009,7 +1029,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1038,7 +1060,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1067,7 +1091,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1096,7 +1122,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1125,7 +1153,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1154,7 +1184,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   }
  ],
@@ -1213,8 +1245,8 @@
    "what": "garden-level lights in the terrace wall",
    "count": 2,
    "z_ft": [
-    1.0,
-    3.8
+    1.8,
+    4.68
    ],
    "built_as": "dark recessed light behind vertical iron bars",
    "confidence": "reconstructed",
@@ -1225,7 +1257,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1263,7 +1297,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1301,7 +1337,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1322,7 +1360,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1343,7 +1383,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1364,7 +1406,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1385,7 +1429,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1406,7 +1452,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1427,7 +1475,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   },
   {
@@ -1436,11 +1486,11 @@
    "what": "pyramid-roofed dormers, centres S 32.3, 45, 66.8",
    "count": 3,
    "z_ft": [
-    30.0,
-    32.4
+    30.63,
+    32.87
    ],
    "built_as": "one undivided light in a timber frame",
-   "confidence": "attested",
+   "confidence": "reconstructed",
    "sources": [
     "habs_glessner_house_il_1015_drawings",
     "habs_glessner_photo_05_court_c1923",
@@ -1462,7 +1512,9 @@
     "habs_glessner_photo_14_north_inclined_1965",
     "habs_glessner_photo_15_north_stable_1965",
     "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889"
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail"
    ]
   }
  ]

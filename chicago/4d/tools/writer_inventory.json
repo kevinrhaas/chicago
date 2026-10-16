@@ -7,6 +7,27 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "generate_glessner_finish.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: two bare write runs in a clean isolated Git fixture with exact current modules, numeric structure record and original texture inputs/outputs advance all three target mtimes with identical bytes and clean Git status. All deliberately perturbed outputs are repaired. The fixture is not a claim that the active application tree was clean. See docs/RESEARCH/glessner-finish-T-2226/finish-writer-measurement.json.",
+      "placed": "The original flat-brick maps read authored surface_finish and existing committed original clay/mortar maps, before the Blender master and reduced derivative. Generated explicitly before those bakes and checked read-only in check.sh. Eventual manifest placement must follow the original-fabric writer and precede asset baking; this ordering is not appended blindly."
+    },
+    "generate_glessner_vines.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: two bare write runs in a clean isolated Git fixture containing the exact current generator modules, tool, numeric Glessner input and candidate atlas advance the target mtime, preserve its SHA-256 and leave git status clean. A deliberately perturbed atlas is also restored byte for byte. This was an isolated generator measurement, not a claim that the active application checkout was clean. See docs/RESEARCH/glessner-vines-T-2225/vine-writer-measurement.json (T-2225).",
+      "placed": "The atlas reads the authored Glessner record and shared numeric vine layout, and is consumed by the Blender master and reduced masked-occlusion bake. It is generated explicitly before those bakes and checked read-only in check.sh. Manifest ordering must place it before asset baking after any eventual writer of those numeric inputs; no existing reconstruction stage currently writes them. That ordering is not appended blindly here."
+    },
+    "extend_ic_lakefront_1904.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-14",
+      "finding": "Reproduces: a second bare run wrote its three generated context outputs with identical SHA-256 hashes (T-2495).",
+      "placed": "Requires the core heightfield, shoreline and railway writers before it, and build_context_1904.py after it. Manifest ordering remains a separate measured pass."
+    },
     "glessner_opening_schedule.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -199,12 +220,33 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
     },
+    "build_context_1904.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: run bare on a clean tree it rewrote its one output, data/context/1904.json, byte for byte and moved nothing else; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "not yet \u2014 measured to reproduce. It reads the committed Sanborn rasters, Robinson's 1886 plate 10 (T-2491) and their GCP fits, the school section's corner GCPs, data/street_grid/1904.json (tools/trace_prairie_1904_grid.py) and the e1871 heightfield, and nothing reads its output but the renderer, so it belongs after the grid; the manifest's order is its own measured pass, so it is not appended blind (T-2477)."
+    },
     "trace_prairie_1904_footprints.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-10-10",
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/traces/prairie_1904_footprints_s28.json, (since T-2328) prairie_1904_footprints_s20.json and (since T-2340) prairie_1904_footprints_s35.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
       "placed": "by layer, 2026-10-10 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parcel lots it clips to (T-2327); see the manifest step"
+    },
+    "lay_prairie_1904_street_section.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_section/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-10-13 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose faces and parcels it lays on, and before tools/plant_prairie_1904_street_trees.py, which keeps clear of its carriage walks (T-2474); see the manifest step"
+    },
+    "plant_prairie_1904_street_trees.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_trees/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-10-13 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parkway bands it plants along (T-2473), and tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of (T-2474); see the manifest step"
     },
     "trace_prairie_1904_grid.py": {
       "placement": "manifest",
@@ -219,6 +261,13 @@
       "measured": "2026-09-28",
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
+    },
+    "trace_ic_tracks_1904.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/railway/1904.json byte for byte, changed no committed byte.",
+      "placed": "by layer, 2026-10-13 — after generators/terrain_gen_graded.py, whose heightfield it reads, and the georeference, edge and grid tracers before it (T-2478); see the manifest step"
     },
     "adjudicate_wright_na_fit.py": {
       "placement": "not_derivable",
@@ -390,11 +439,18 @@
       "measured": "2026-10-02",
       "finding": "Run bare on the working tree it prints its verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: it runs renderers/web/js/wall-grain.js under node over the committed sidecars and compares it with generators/common/materials.py. A checker (T-1963)."
     },
+    "ktx2_sheets.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-16",
+      "finding": "Reproduces: with its 26 .ktx2 sheets committed, ran it bare (the write mode; it fetches the pinned KTX-Software 4.3.2 and re-encodes every sheet) and git status reported no byte moved. Its --check reads only the files' headers, so it needs no ktx binary (T-2582). T-2589 added the frontage timber's three (clapboard_board_face normal_gl, orm and the derived grain); converted twice from a clean temp dir they came out byte-identical (sha256), so the 29 still reproduce. T-2590 added the dune sand's basecolor (33 sheets with the wall relief's and the frontage's) and its luma sidecar, a number derived from the PNG master; re-run bare, the sheets already committed came back byte-identical, and --check recomputes the luma from the master.",
+      "placed": "not yet \u2014 it reads only the committed PNG masters under assets/textures/chicago_1835_pbr/ and prairie_1904_pbr/, which no manifest step writes, so it has no ordering hazard; it needs a network fetch of the KTX-Software release, which the manifest's derivations do not, and joining it is its own measured pass"
+    },
     "web_textures.py": {
       "placement": "pending",
       "write_mode": "--write",
       "measured": "2026-10-02",
-      "finding": "Reproduces: staged its 14 .webp derivatives, ran --write, and git status reported no byte moved (libwebp's lossless encoder is deterministic at method 6). Its --check holds each derivative pixel-identical to its PNG master, so even an encoder that changed bytes could not change a pixel (T-1973).",
+      "finding": "Reproduces: staged its 14 .webp derivatives, ran --write, and git status reported no byte moved (libwebp's lossless encoder is deterministic at method 6). Its --check holds each derivative pixel-identical to its PNG master, so even an encoder that changed bytes could not change a pixel (T-1973). Since T-2590 four of the 14 are DERIVED tiles (signage's grain and quarter-turned normal), held pixel-identical to the transform of their master; the ten plain ones re-wrote byte-identical.",
       "placed": "not yet — it reads only the committed PNG masters under assets/textures/chicago_1835_pbr/, which no manifest step writes (the library's generator is not in the manifest), so it has no ordering hazard; the manifest covers data/ derivations and joining it is its own measured pass"
     },
     "check_unique_ids.py": {
@@ -614,6 +670,27 @@
       "measured": "2026-10-04",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its one output, changed no committed byte; `--check` reads and writes nothing in-tree.",
       "placed": "after measure_shore_1812_harrison.py, beside the 1812 shore whose output it reads (T-0470)"
+    },
+    "derive_apron_south_branch_1812.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s with numpy installed, wrote its two outputs, changed no other committed byte; `--check` and `--self-test` read and write nothing in-tree.",
+      "placed": "after derive_hardscrabble_1812.py, whose site it reads, and after terrain_gen_e1830.py, whose box it carries (T-2502)"
+    },
+    "derive_hardscrabble_1812.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its one output, changed no committed byte; `--check` reads and writes nothing in-tree.",
+      "placed": "after derive_evacuation_1812.py, beside the 1812 shore whose output it reads (T-2501)"
+    },
+    "trace_south_branch_bridgeport_rees_1849.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-15",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 2s with the Rees 1849 raster at /tmp/rees_rucker_1849.jpg (sha256-checked against the GCP file) and numpy, scipy and Pillow installed; it wrote its one output and changed no committed byte.",
+      "placed": "Not placed, because it needs the uncommitted Rees 1849 raster, fetched over the network, as its sibling trace_south_branch_rees_1849.py does, and a rederive must run offline. Its offline half, --check-properties, gates the committed file in check.sh. It can join the manifest only once a rederive can reach the raster."
     },
     "derive_shore_1812.py": {
       "placement": "manifest",

@@ -214,7 +214,7 @@
    "1800 S. Prairie Avenue"
   ],
   "streetscape": false,
-  "view": "interior",
+  "view": "rear",
   "facing": "north",
   "camera_position": "inside the south courtyard",
   "date": "c. 1923 (copied for HABS)",
@@ -236,19 +236,19 @@
   },
   "verified": "viewed",
   "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-05); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
-  "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views. T-2228 correction,2026-10-15: this is the exterior courtyard, not a furnished interior. The HABS bibliography identifies The Story of a House as an unpublished typescript; the earlier wording published in1923 is not evidence of publication or a basis for clearing the copied photograph rights.",
   "measurements": [],
   "evidence_review": {
-   "ticket": "T-2198",
+   "ticket": "T-2228",
    "audit_number": 118,
-   "reviewed_on": "2026-10-08",
+   "reviewed_on": "2026-10-15",
    "review_state": "visually inspected",
    "target_date": "1904-07-01",
    "phase": "after target year",
    "date_basis": "c. 1923 (copied for HABS); distinguish design date from reproduction date; neither proves construction.",
-   "evidence_role": "interior context",
-   "geometry_use": "excluded",
-   "reason": "Interior reference excluded from exterior/courtyard geometry.",
+   "evidence_role": "exterior reference",
+   "geometry_use": "context only",
+   "reason": "Actual courtyard photograph re-viewed. Supersedes T-2198 interior exclusion: courtyard is within the exterior audit. Copied-photograph rights remain unresolved; use cleared HABS measured sheets and separately licensed photographs for geometry, with chronology stated. No new rights clearance or1904dating is asserted.",
    "source_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
    "family": null,
    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
@@ -3051,8 +3051,8 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0W8l_hxJ6n-OD0Pm1I3no0LL8nG6Wc5cuPM8tFyfjCgwZFhqNKqJ1V9mA8aM0nMrH9VLEY_e63y-eARCWVNYNWF1ZuDZIKoTWPlqlf-ROIec_L44cPx6NAyLJwU_Gk8w9-VxYPAIWMQAPxR83FXJF-ca7gNHUnDwQFnpfx6W16n2M07UcFqnIBOUo/s1800/Cornell%20rear.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Albumen print c. 1887 (public domain by age); reproduced by Glessner House Museum",
+  "rights": "public domain",
+  "rights_basis": "Cornell catalog ss:3874294, accession15/5/3090.00156, explicitly places collection images in the public domain; direct catalog-linked scan viewed2026-10-15 and confirmed the same exposure as this museum reproduction.",
   "local": {
    "display": "research/images/files/a18-gh-cornell-glessner-rear-c1887.jpg",
    "display_bytes": 294513,
@@ -3069,7 +3069,7 @@
   },
   "verified": "viewed",
   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
-  "notes": "The west (alley) end of the 18th Street front: the stable gable with hay door and small ventilator cupola, carriage doors, arched opening, utility pole; dirt street. Shows the service wing that bounds the courtyard on the west — essential for the 1904 alley/stable massing.",
+  "notes": "The west (alley) end of the 18th Street front: the stable gable with hay door and small ventilator cupola, carriage doors, arched opening, utility pole; dirt street. Shows the service wing that bounds the courtyard on the west — essential for the 1904 alley/stable massing. T-2228: official Cornell catalog https://digital.library.cornell.edu/catalog/ss:3874294 recovered2026-10-15 (Detail, Glessner House, ca.1887; accession15/5/3090.00156). Direct scan is the same exposure, with Cornell stamp and number352. Rights statement now independently checked. West upper/lower openings are used for the owner-requested positioning comparison; no new audit number or independent-witness count.",
   "measurements": [],
   "evidence_review": {
    "ticket": "T-2198",
@@ -3094,7 +3094,7 @@
     "creator": "Unknown photographer",
     "date": "c. 1887",
     "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
-    "rights": "unknown — link only",
+    "rights": "public domain",
     "title": "Glessner House stable/coach-house end on 18th Street, c. 1887 (Cornell A. D. White collection; as reproduced by the museum)"
    }
   }
@@ -4073,6 +4073,65 @@
   }
  },
  {
+  "id": "a18-owner-1800-block-looking-sw",
+  "kind": "photograph",
+  "title": "The 1800 block of Prairie Avenue looking south-west from beside the Glessner house: Glessner (1800), the O. R. Keith house (1808), 1812 and 1816",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1816-33"
+  ],
+  "addresses": [
+   "1800, 1808, 1812, 1816 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "southwest",
+  "camera_position": "Prairie Avenue roadway near the east side's kerb, north-east of 1808 and close to Glessner's Prairie Avenue front",
+  "date": "undated (after 1887: Glessner complete)",
+  "date_earliest": 1887,
+  "date_latest": null,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Supplied by the owner (project thread, 2026-10-13); original holder not identified",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": null,
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Supplied by the owner on 2026-10-13 as a reference picture for 1808 Prairie; where it was published and who holds it are not established. Hosted here at the owner's direction as a reference copy, like the Houghton drawings in research/public/: read for the building's form, never made into a texture or traced. Deleted if a holder asks.",
+  "local": {
+   "display": "research/public/a18-owner-1800-block-looking-sw.jpg",
+   "thumb": "research/public/a18-owner-1800-block-looking-sw-thumb.jpg",
+   "original_px": [
+    482,
+    328
+   ],
+   "original_sha256": "12b9f8ca6c1b0e76bcd07d34aab116de6f7d2da08baab3f2d92213b7c96d5872",
+   "note": "the owner's upload, committed as received (482 x 328 JPEG); thumbnail made here"
+  },
+  "verified": "viewed",
+  "found_via": "owner upload in the project thread, 2026-10-13 (tickets T-1882, T-1883)",
+  "notes": "A different exposure from a18-gh-1800-block-looking-sw-c1888 / a18-gh-1800-block-sw-george-glessner: taken closer to Glessner's front, so the Keith house fills more of the frame; the trees and their leaves differ. Right: Glessner's Prairie Avenue front, smooth-looking in this print, no ivy. Centre: the O. R. Keith house (1808), pale rock-faced front, third-storey window arcade, the bow seen obliquely, the loggia's balustrade and the stair's scrolled stone cheek wall. Left of it: 1812's tall pointed gable with its round-arched window, then 1816's mansard with dormers and a high stoop. Date not established; Glessner complete fixes 1887 as the earliest.",
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-1882",
+   "audit_number": null,
+   "reviewed_on": "2026-10-13",
+   "review_state": "visually inspected",
+   "target_date": "1904-07-01",
+   "phase": "date not established (after 1887)",
+   "date_basis": "Glessner house complete in the picture; no other dating evidence",
+   "evidence_role": "streetscape or site context",
+   "geometry_use": "context only",
+   "reason": "Street context for Glessner's south end and its neighbours; the picture's subject for this project is 1808 Prairie (T-1882, T-1883).",
+   "source_url": "owner-supplied, project thread 2026-10-13 (no catalog page known)",
+   "family": null,
+   "family_relationship": "Independence not established; a different exposure from a18-gh-1800-block-looking-sw-c1888, same vantage area."
+  }
+ },
+ {
   "id": "a18-gh-1935-donnelley-aerial",
   "kind": "aerial",
   "title": "Aerial view from the tower of the R. R. Donnelley building, 1935",
@@ -4891,8 +4950,8 @@
   ],
   "streetscape": true,
   "view": "street view",
-  "facing": "southwest",
-  "camera_position": "east side of Prairie Avenue roadway, north-east of 1808",
+  "facing": "northwest",
+  "camera_position": "east side of Prairie Avenue roadway, south-east of 1808; 1812 is foreground left and Glessner recedes right (T-1883 photographic review)",
   "date": "mid-1950s",
   "date_earliest": 1953,
   "date_latest": 1958,

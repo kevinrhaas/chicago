@@ -1,0 +1,42 @@
+{
+  "target": "1904-07-01",
+  "status": "component geometry and browser checks passed; material follow-ups T-2226; final house acceptance T-2228",
+  "components": [
+    {
+      "id": "north_courtyard_service_stair",
+      "action": "retain layout; refine rails, capitals and ground contacts",
+      "dating": "reconstructed for 1904 from later measured and surviving fabric; no independent early date",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "wlemay_glessner_courtyard_2024_159537058",
+        "wlemay_glessner_courtyard_2024_159537051"
+      ]
+    },
+    {
+      "id": "stable_rear_wood_stair_1955",
+      "action": "excluded from 1904",
+      "dating": "HABS sheet 2 explicitly labels 1955 addition",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ]
+    },
+    {
+      "id": "rear_alley_gate",
+      "action": "retain opening and top; reconstruct paired boarded leaves and connected hardware",
+      "dating": "HABS plan supports location/pair; exact 1904 height, boards and hardware unverified",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ]
+    },
+    {
+      "id": "north_street_steps",
+      "action": "retain prior geometry",
+      "dating": "existing sourced record; no new date claim"
+    },
+    {
+      "id": "east_courtyard_terrace_steps",
+      "action": "retain T-2218 geometry",
+      "dating": "existing HABS section record; no new date claim"
+    }
+  ]
+}

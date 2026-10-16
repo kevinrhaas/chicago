@@ -1,0 +1,84 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "view": "a18-gh-1808-porch-1965",
+  "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
+  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
+  "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
+  "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The south bow has three basement lights, three principal transom openings and four second-storey sashes; the north loggia has paired Ionic columns and a pierced lower panel.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2565: one carved capital spans each pair of columns, and the balcony has a level coping between square dies over a deep moulded cornice, as this view shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The model's stepped finial on the balcony's flight-side die is the 1888 plate's; by 1965 that die is capped flat. The 1904 state follows the earlier picture.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2585: the capitals are square-edged blocks carrying a running zigzag (the 1888 plate's reading; this view shows them plain at its grain), and the balcony's front and return panels carry one continuous running scroll in a sunk field, as this view shows them; the leaves' cut is below its grain.",
+      "status": "fixed"
+    },
+    {
+      "what": "The pedestals' sunk panels are schematic rather than the photographed carving.",
+      "status": "open"
+    },
+    {
+      "what": "T-2566: the south pier's granite alternates a deep rock-faced course and a thin one, as this close view shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The bow still runs even courses where the photographs' bow alternates deep and thin ones; the individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
+      "status": "open"
+    },
+    {
+      "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2565: both stair cheeks now end at the street in a rolled stone foot standing proud of the cheek, and sweep down onto it from the deck, as this view shows them.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2579: the camera is re-fitted to seven controls (a column base and a capital of the loggia, the bow's north junction, the south bow light's head and sill, the next light's head, the basement light's head): RMS 1.7 px, about 0.04 m at 16 m. At this fit the bow's principal lights land within 2.5 px of the model's at head and sill, so their reading 'shorter' was the old fit's 18 px error, as the 1888 plate implied.",
+      "status": "fixed"
+    },
+    {
+      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887–88 photographs.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2566 re-read the tint under neutral light: the stone is now a neutral grey at the old lightness, not the green-grey it was. The source is shaded and blue-cast, so exact colour agreement is not established.",
+      "status": "open"
+    },
+    {
+      "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
+      "status": "fixed"
+    },
+    {
+      "what": "The cornice under the lattice is out of this close view's frame (T-2577 laid it in stone, compared in the front views).",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2579: with the bases, the bow lights and the basement heads in register, the loggia's columns stand taller than the model's: the capital tops read 12-16 px (about 0.4 m) higher on both pairs, with the beam over them correspondingly higher under a shallower balcony front; the south pair also stands about 0.4 m further south.",
+      "status": "open"
+    },
+    {
+      "what": "T-2581: the south-east corner no longer turns onto brick and toothed quoins at x 61: the front's stone turns it as a straight strip, 2.1 m deep, seen here from about x 49 to x 71.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2581: left of x 49, by the stair and its pierced balustrade at the neighbouring house's north end, the photograph shows rock-faced stone to the frame's edge. This camera stands 4.1 m off Keith's south plane, so it sees that face almost edge-on and cannot say whose wall the masonry there is or how far Keith's strip runs; the depth is read from the Reed and mid-1950s views.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

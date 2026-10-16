@@ -1,0 +1,28 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs04-terrace-section",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Actual master reviewed: the adjacent garden opening is now a broad barred light at the independently read section bounds; the former flat shelf beyond the traced coping turn is removed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The coping still continues across the rounded post in projection. Its circular plan tail reaches the plan-centred post beyond the section endpoint; reconcile HABS2 terminal wall path with HABS4 rather than hiding the mismatch with a cap extension.",
+      "status": "open"
+    },
+    {
+      "what": "Local grille surround/trim and exact terminal/court-ground correspondence remain different. No camera translation or source-pick revision has concealed these residuals.",
+      "status": "open"
+    },
+    {
+      "what": "Iron/frame stock and masonry color/weathering remain bounded reconstructions.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

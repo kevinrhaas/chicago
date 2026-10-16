@@ -1,0 +1,51 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_photo_13_north_1965",
+  "library_image": "a18-glessner-habs-photo-13",
+  "photo": "../../../../prairie_1904_v1/research/public/glessner-habs-photo-13.jpg",
+  "image_px": [
+    1800,
+    1268
+  ],
+  "principal_px": [
+    901.0,
+    607.5
+  ],
+  "focal_px": 1600.22222222,
+  "eye": [
+    51.02181996,
+    43.176735,
+    2.5
+  ],
+  "yaw_deg": 0,
+  "basis_right_up_forward": [
+    [
+      -0.971589903,
+      0.2328895214,
+      -0.0421370514
+    ],
+    [
+      -0.0527199656,
+      -0.0394028131,
+      0.9978316609
+    ],
+    [
+      -0.2307242196,
+      -0.9717046306,
+      -0.0505613029
+    ]
+  ],
+  "solve": {
+    "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
+    "record": "data/comparisons/glessner/report.json#north-level",
+    "fit_controls": 6,
+    "withheld_checks": 4,
+    "baseline_fit_rms_px": 17.1726,
+    "baseline_check_rms_px": 21.6342,
+    "bounds_active": [
+      "height"
+    ],
+    "limitations": "1965 coplanar bay; roof is cropped and utility poles obscure the western pair. Lens/distance are not independently identifiable. No whole-north-elevation sign-off. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+  }
+}

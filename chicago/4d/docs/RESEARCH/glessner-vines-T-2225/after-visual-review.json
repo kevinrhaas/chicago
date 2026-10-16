@@ -1,0 +1,50 @@
+{
+  "full": [
+    {
+      "view": "prairie-front",
+      "observation": "Selective vines remain visible beside the entrance and along the frontage. Existing district-tree leaves obscure much of this unchanged camera, as in the baseline; entrance, windows and railings stay legible in the remaining view."
+    },
+    {
+      "view": "front-close",
+      "observation": "Actual revised Full capture inspected against the rejected flat-normal capture: the harsh fan-facet shade boundaries are reduced and continuous gradients show over curled leaves. Pointed lobed outlines, thin stems and clear stone-grille/door surrounds remain. Profiles and coverage are original botanical reconstructions, not a traced 1904 photograph."
+    },
+    {
+      "view": "court-south",
+      "observation": "Selective compound-leaf growth is visible against the shaded south brick wall, with woody roots at the wall base and coverage below the coping. No opaque foliage panels or new blanket of overgrowth; the neighbouring architecture and original wall remain visible."
+    },
+    {
+      "view": "court-west",
+      "observation": "The wall climber is rooted beside the walk and rises between clear lower grilles and narrow sash openings. Leaves read as grouped foliage at this distance; no floating panels or broad rectangular shadows. Rainwater pipe, service door and access path remain unobstructed."
+    },
+    {
+      "view": "court-north",
+      "observation": "The new climber stays on the north-wall pier to the left of the stair tower, clear of adjacent sash and basement grilles. The tower, limestone bands and roof geometry remain exposed. North-court scene-budget failure is retained separately; this is a visual planting review."
+    }
+  ],
+  "light": [
+    {
+      "view": "prairie-front",
+      "observation": "Actual final phone capture inspected: original district tree foliage obscures the upper frontage as in the baseline. New small rooted climbers flank the visible entry area; entrance and ramp remain clear."
+    },
+    {
+      "view": "front-close",
+      "observation": "The same Boston ivy lobes and connected root/stems are visible against the granite. Transparent spaces expose masonry without rectangular panel outlines. Flat Light foliage is an intentional reduced representation, not Full curled-leaf geometry."
+    },
+    {
+      "view": "court-south",
+      "observation": "Compound-leaf groups stay below the south wall coping and above the rooted wall base. Wall and walking surface remain visible; no opaque foliage cards. Existing plain Light wall finish is separate T-2226 work."
+    },
+    {
+      "view": "court-west",
+      "observation": "The tall rooted climber fits between the paired lower grilles and narrow sash openings. Windows, rainwater pipe and walking route remain clear; silhouette and coverage agree with Full at this unchanged camera."
+    },
+    {
+      "view": "court-north",
+      "observation": "The tower and adjacent sash/grilles remain visible. This portrait crop places most of the pier climber off the left edge; the fixed camera is retained. The separate Full capture shows its opening clearance. Scene budget failure is retained."
+    }
+  ],
+  "final_asset_review": "All ten final app captures, both confidence displays and both phone panels actually viewed. Accept reconstructed planting component; no claim of whole-house photographic completion or all-view performance pass.",
+  "confidence": "Both final Full and Light court-west confidence captures actually viewed. Foliage remains masked and is shown in the reconstructed gold category; nearby openings remain readable.",
+  "phone_panels": "Final mobile Liberties text actually viewed and identifies seven reconstructed planting areas, opening margins, stems and coverage. Images panel actually viewed: 170 on file, 124 tiled, 46 link-only; loaded credited tiles verified by browser assertions.",
+  "web_sha256": "11a82664b658a340cf6a663981042dd311e52bb6f548aa2ffdf14fd7ef68e972"
+}

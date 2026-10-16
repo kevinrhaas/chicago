@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 156845134,
+ "bytes": 159606282,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -612,6 +612,70 @@
   "a18-chm-clark-c1905-prairie-west-side-north-from-1936.jpg": {
    "bytes": 96863,
    "sha256": "be1c39794fe71d84dff1e465215fc1a1cc0e730f1367ece701db20665a4cb6a7"
+  },
+  "a18-commons-wlemay-glessner-dining-copper-2024-thumb.jpg": {
+   "bytes": 26302,
+   "sha256": "5eb2e1b9d7ad8c7003e8ae82deb41aa696021c7bed013828e7d8ccd9bab8436d"
+  },
+  "a18-commons-wlemay-glessner-dining-copper-2024.jpg": {
+   "bytes": 317419,
+   "sha256": "adb819f15614ab99f788f4b2394890df521a098fe4be82047ef5eee1fff84416"
+  },
+  "a18-commons-wlemay-glessner-east-court-2024-thumb.jpg": {
+   "bytes": 24233,
+   "sha256": "6169bbc7498f3f78bbf44013f053f37c421e3e49419abf5c8c9684eb8833f6a7"
+  },
+  "a18-commons-wlemay-glessner-east-court-2024.jpg": {
+   "bytes": 268962,
+   "sha256": "a9bb3b67507ab6e401763264eae0fba080d3ba9ca068978f9b0d5b5493aef1f3"
+  },
+  "a18-commons-wlemay-glessner-hall-bow-2024-thumb.jpg": {
+   "bytes": 28781,
+   "sha256": "a1e022e301630f6615d7ff7cbb5cf44937c469aa97d916bee54b35fa9efeb428"
+  },
+  "a18-commons-wlemay-glessner-hall-bow-2024.jpg": {
+   "bytes": 312278,
+   "sha256": "b8b9be3164b22034df4471ede9199482a77efd5848cabd416688632a113d67ab"
+  },
+  "a18-commons-wlemay-glessner-north-court-stacks-2024-thumb.jpg": {
+   "bytes": 25585,
+   "sha256": "abfb569146fc47684ba2e6aa3fe782a47682ae0c31992523f2de5f8a1a3fcde4"
+  },
+  "a18-commons-wlemay-glessner-north-court-stacks-2024.jpg": {
+   "bytes": 352522,
+   "sha256": "892513525a595b4d5e2138c14117002e2d8c119c88ac3458d5dde5e7250f8e79"
+  },
+  "a18-commons-wlemay-glessner-overview-2024-thumb.jpg": {
+   "bytes": 27919,
+   "sha256": "9f958540d9e3173e8d677e22ec7151cf7f2ae24c9875d3b7f480cfab9f5c6e4d"
+  },
+  "a18-commons-wlemay-glessner-overview-2024.jpg": {
+   "bytes": 321580,
+   "sha256": "8e2f05bdf5e185f4c687f243a73617e69bd10c74f64273d0af578ca5183645c8"
+  },
+  "a18-commons-wlemay-glessner-service-stack-2024-thumb.jpg": {
+   "bytes": 25257,
+   "sha256": "2d38d8198397c5e342b266f8747a56435243eedf5281a7bad21790e0c0b29d48"
+  },
+  "a18-commons-wlemay-glessner-service-stack-2024.jpg": {
+   "bytes": 320951,
+   "sha256": "2d8e3dcf0e98990c208a656ecf238df16abf46143492576f599d6e9e2ef17532"
+  },
+  "a18-commons-wlemay-glessner-service-stairs-2024-thumb.jpg": {
+   "bytes": 26089,
+   "sha256": "3d79c02f351c6f73bd0ea0926561e1828cb4ff160a4663299d3cea168e87ca06"
+  },
+  "a18-commons-wlemay-glessner-service-stairs-2024.jpg": {
+   "bytes": 363505,
+   "sha256": "e7831752ef1ef30f7eba4eb8aeec884d52f79adf08ecc8f3263bfab756d634e7"
+  },
+  "a18-commons-wlemay-glessner-stair-tower-2024-thumb.jpg": {
+   "bytes": 24902,
+   "sha256": "0a7de05e7f01e10abeb82b6227ac8db472b0fd7d5841f89021184eef9eb844ac"
+  },
+  "a18-commons-wlemay-glessner-stair-tower-2024.jpg": {
+   "bytes": 294863,
+   "sha256": "2f687626bfa8c7f04e5bba73749e33e5590ed99082434adad144f1dac65831e9"
   },
   "a18-cornell-adw-glessner-thumb.jpg": {
    "bytes": 21277,

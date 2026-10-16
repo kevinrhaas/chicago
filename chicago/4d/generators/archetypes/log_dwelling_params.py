@@ -38,6 +38,8 @@ parameter.
 
 from __future__ import annotations
 
+import math
+
 from dataclasses import dataclass, field
 
 # Confidence values as they are written into the _CONFIDENCE glTF attribute.
@@ -103,6 +105,11 @@ SIGN_MOUNTS = ("bracket", "sapling_pole")
 SIGN_DEVICES = (None, "wolf")
 
 ADDITION_SIDES = ("front", "end")
+PIAZZA_ROOFS = ("hung", "swept")
+GABLE_ENDS = ("+x", "-x")
+END_OPENING_KINDS = ("door", "window", "light")
+LIGHT_HALF_W_M = 0.35   # an end wall's or gable's small light (T-2516): 0.7 x 0.8 m
+LIGHT_HALF_H_M = 0.40
 
 # The form attributes whose VALUE this archetype reads. See the same set in
 # frame_tavern_params for the argument; the short version is that an attribute
@@ -134,7 +141,21 @@ CONSUMED = frozenset({
     "loft", "chimneys", "sign", "sign_mount", "sign_device", "frame_paint",
     "frame_addition", "frame_addition_side", "frame_addition_width_m",
     "frame_addition_depth_m", "frame_addition_stories", "frame_addition_height_m",
+    "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
+    "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
+    "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings",
+    "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
+    "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
+    "roof_condition",
 })
+
+#: The coatings a log wall can be stated to wear (T-2511). Whitewash is the one a
+#: picture here has asked for; a record that wants another argues it in here first.
+LOG_FINISHES = (None, "whitewash")
+CHIMNEY_ENDS = ("min", "max")
+#: Half a gable stack's shaft across its gable — the builder's `_STACK_HALF` — so a
+#: lean-to can be held clear of the stack it stands beside.
+STACK_HALF_M = 0.48
 
 # See frame_tavern_params for the argument. `perimeter`: the footprint outline
 # meets the terrain at local z = 0, the base of the walls.
@@ -193,6 +214,95 @@ class LogDwellingParams:
     frame_addition_stories: int = 2
     frame_addition_height_m: float | None = None
     frame_paint: str = "unpainted"
+
+    # THE PIAZZA (T-2497): a full-front porch on posts under its own shed roof, the
+    # word the Kinzie house's one near-contemporary description uses ("a long, low
+    # building, with a piazza extending along its front" — Wau-Bun ch. XVII). It
+    # stands OUTSIDE the footprint, as frame_dwelling's stoop does, because a piazza
+    # is not a room and the polygon is the walls. Off by default, so no other log
+    # building gains one; a record that turns it on owes docs/LIBERTIES.md its depth,
+    # its posts and its rail, which no source here measures.
+    piazza: bool = False
+    piazza_depth_m: float = 2.1
+    piazza_posts: int = 6
+    piazza_rail: bool = False
+    # HOW THE PIAZZA IS ROOFED (T-2516). "hung" is T-2497's: its own flatter shed hung
+    # 0.30 m under the main eave at 12 degrees, the plate wherever that leaves it.
+    # "swept" carries the main roof down over the piazza at a break: a flatter plane
+    # that rises from the plate, stated as `piazza_plate_m`, at `piazza_pitch_deg`
+    # until it meets the main slope above the front wall, which is how the Kinzie
+    # house's later pictures draw it (one plane from afar, a break close to). The
+    # defaults build exactly what "hung" always built.
+    piazza_roof: str = "hung"
+    piazza_plate_m: float | None = None
+    piazza_pitch_deg: float | None = None
+    # DOORS, WINDOWS AND LIGHTS IN THE GABLE ENDS (T-2516), each (end, kind, at, z):
+    # end "+x" or "-x"; kind "door", "window" or "light"; `at` the opening's centre as
+    # a fraction of the end wall from its -y (back) corner. A door takes the front
+    # door's size, with z None; a window the front windows' size, in their band unless
+    # z states its centre's height; a light is a small sash about 0.7 x 0.8 m whose
+    # centre stands `z` metres up, which is how a light high in a gable or under its
+    # foot is stated. Empty, every other record,
+    # keeps the archetype's rule that a log gable end is not pierced.
+    end_openings: tuple = ()
+    # INTERIOR STACKS ON THE RIDGE (T-2497), as fractions of the ridge from the core's
+    # -x end, one per chimney. None keeps the archetype's gable-end placement (L26),
+    # which is every other record; a record sets it only where a picture puts a stack
+    # through the roof rather than against a gable.
+    chimney_ridge_at: tuple | None = None
+    # THE FRONT'S WINDOWS (T-2497). One small light each side of the door is the log
+    # type and stays the default; a long house a picture draws with more and larger
+    # sash states how many stand each side of the door and their size.
+    front_windows_per_side: int = 1
+    window_w_m: float | None = None
+    window_h_m: float | None = None
+    # None keeps the archetype's rule (shutters on a front 5.2 m or wider); a record
+    # whose picture draws the sash bare says False (T-2497).
+    front_shutters: bool | None = None
+    # THE FRONT'S SET-OUT, STATED (T-2511). None keeps the archetype's rule above —
+    # one door at the middle, `front_windows_per_side` windows each side — which is
+    # every record but the ones a picture draws otherwise. A record that states it
+    # gives every opening on the front in order, each `[kind, at_m]`: "door" or
+    # "window", centred `at_m` along the front from the core's -x corner. Doors take
+    # `door_w_m` x `door_h_m` (None: the archetype's 1.04 x 1.93 m) and windows
+    # `window_w_m` x `window_h_m`, their heads level with the doors' — the line a
+    # long front with several doors is drawn on. One storey and no front addition
+    # only: a set-out for an upper storey or an addition's facade is not stated here.
+    front_set_out: tuple | None = None
+    door_w_m: float | None = None
+    door_h_m: float | None = None
+    # WHICH GABLE THE STACK STANDS AGAINST (T-2511). "min" is the low end of the
+    # ridge's axis, where `_chimneys` has always put the first stack (L26); "max" is
+    # the other gable, for a record whose picture draws it there. The facade of a
+    # gable-fronted cabin is the "max" end, and a stack is refused there.
+    chimney_end: str = "min"
+    # How far the gable stack slides along its gable from the centre, toward the
+    # front (+) or the back (-), in metres (T-2511). 0 keeps it centred, as every
+    # stack has stood; the builder never lets it past the wall's corner.
+    chimney_cross_m: float = 0.0
+    # The gable stack's head over grade, in metres (T-2511). None keeps the
+    # archetype's 0.72 m over the ridge; a stack slid toward the eave clears the roof
+    # beside it at much less, and a record whose picture draws it lower says so.
+    chimney_head_m: float | None = None
+    # A LEAN-TO AGAINST THE STACK'S GABLE (T-2511): a low plank shed built onto the
+    # gable the stack stands on, tucked in behind the stack, under its own gable roof
+    # whose ridge runs across the house's, so its gable faces the street as the
+    # Currey plate draws Lee's Place's. `lean_to_length_m` runs out along the ridge's
+    # axis and `lean_to_width_m` across it, back from the stack's back face (from the
+    # back wall where there is no stack), and it may not pass the back wall;
+    # `lean_to_wall_m` is its eave. It stands outside the
+    # footprint, as the stack beside it does: the polygon is the log house's walls.
+    # Its planks wear `frame_paint`. Off by default.
+    lean_to: bool = False
+    lean_to_length_m: float = 2.4
+    lean_to_width_m: float = 3.0
+    lean_to_wall_m: float = 2.0
+    # None roofs it at the house's own pitch.
+    lean_to_pitch_deg: float | None = None
+    # WHAT THE LOGS WEAR (T-2511). None is the town's bare hewn log and chinking;
+    # "whitewash" coats both, for a record whose picture draws the walls pale and
+    # smooth. A coating is a claim about the building and owes its confidence.
+    log_finish: str | None = None
 
     # A hanging signboard, as a string naming what was painted on it. The value
     # exists so the sidecar can say what the board carried; whether the mesh draws
@@ -311,6 +421,147 @@ class LogDwellingParams:
                              f"addition would stand within a metre of each other")
         if self.frame_addition:
             self._validate_addition()
+        if self.chimney_end not in CHIMNEY_ENDS:
+            raise ParamError(f"chimney_end {self.chimney_end!r} not in {CHIMNEY_ENDS}")
+        if self.chimney_end == "max":
+            cx0, cy0, cx1, cy1 = core_extent(self)
+            if self.frame_addition:
+                raise ParamError("chimney_end 'max' with a frame addition: the addition "
+                                 "already owns the stack at that end")
+            if self.roof_type != "shed" and (cx1 - cx0) < (cy1 - cy0):
+                raise ParamError("chimney_end 'max' on a gable-fronted cabin is its "
+                                 "facade, and a stack is not what that elevation carries")
+        if self.chimney_head_m is not None:
+            if self.chimney_ridge_at is not None or self.chimneys == 0:
+                raise ParamError("chimney_head_m is a gable stack's head; this record has "
+                                 "none, or its stacks are on the ridge")
+            if not self.wall_height_m + 0.9 <= self.chimney_head_m <= 12.0:
+                raise ParamError(f"chimney_head_m {self.chimney_head_m} must clear the "
+                                 f"{self.wall_height_m} m eave by 0.9 m")
+        if self.log_finish not in LOG_FINISHES:
+            raise ParamError(f"log_finish {self.log_finish!r} not in {LOG_FINISHES}")
+        if self.front_set_out is not None:
+            self._validate_set_out()
+        if self.lean_to:
+            if self.chimney_ridge_at is not None or self.frame_addition:
+                raise ParamError("lean_to stands beyond a gable stack, and this record's "
+                                 "stack is on the ridge or its end is an addition")
+            if self.roof_type != "gable":
+                raise ParamError("lean_to needs a gable roof to stand against a gable")
+            if not 0.8 <= self.lean_to_length_m <= 6.0:
+                raise ParamError(f"lean_to_length_m {self.lean_to_length_m} outside 0.8..6.0")
+            if not 1.0 <= self.lean_to_width_m <= self.depth_m:
+                raise ParamError(f"lean_to_width_m {self.lean_to_width_m} outside "
+                                 f"1.0..{self.depth_m} (the gable it stands against)")
+            if self.lean_to_pitch_deg is not None and not 15 <= self.lean_to_pitch_deg <= 55:
+                raise ParamError(f"lean_to_pitch_deg {self.lean_to_pitch_deg} outside 15..55")
+            if self.chimneys > 0:
+                room = max(self.depth_m / 2.0 - STACK_HALF_M, 0.0)
+                cross = max(-room, min(room, self.chimney_cross_m))
+                stack_back = self.depth_m / 2.0 + cross - STACK_HALF_M
+                if self.lean_to_width_m > stack_back + 1e-6:
+                    raise ParamError(f"lean_to_width_m {self.lean_to_width_m} runs past "
+                                     f"the back wall from behind the stack, whose back "
+                                     f"is {stack_back:.2f} m from it: slide the stack "
+                                     f"(chimney_cross_m) or narrow the lean-to")
+            if not 1.5 <= self.lean_to_wall_m <= self.wall_height_m:
+                raise ParamError(f"lean_to_wall_m {self.lean_to_wall_m} outside "
+                                 f"1.5..{self.wall_height_m}: a lean-to is lower than the house")
+        if self.chimney_ridge_at is not None:
+            if len(self.chimney_ridge_at) != self.chimneys:
+                raise ParamError(f"chimney_ridge_at names {len(self.chimney_ridge_at)} stacks "
+                                 f"for a record that counts {self.chimneys}")
+            if any(not 0.05 <= f <= 0.95 for f in self.chimney_ridge_at):
+                raise ParamError(f"chimney_ridge_at {self.chimney_ridge_at}: each stack "
+                                 f"stands between 0.05 and 0.95 of the ridge")
+            if self.roof_type != "gable":
+                raise ParamError("chimney_ridge_at needs a gable roof to have a ridge")
+        if not 1 <= self.front_windows_per_side <= 3:
+            raise ParamError(f"front_windows_per_side {self.front_windows_per_side} outside 1..3")
+        if self.window_w_m is not None and not 0.4 <= self.window_w_m <= 1.2:
+            raise ParamError(f"window_w_m {self.window_w_m} outside 0.4-1.2 m")
+        if self.window_h_m is not None and not 0.5 <= self.window_h_m <= 1.8:
+            raise ParamError(f"window_h_m {self.window_h_m} outside 0.5-1.8 m")
+        if self.piazza:
+            if self.frame_addition and self.frame_addition_side == "front":
+                raise ParamError("a piazza and a front addition both claim the facade")
+            if not 1.2 <= self.piazza_depth_m <= 3.5:
+                raise ParamError(f"piazza_depth_m {self.piazza_depth_m} outside 1.2-3.5 m: "
+                                 f"shallower is a stoop, deeper a room")
+            if not 2 <= self.piazza_posts <= 12:
+                raise ParamError(f"piazza_posts {self.piazza_posts} outside 2..12")
+            if self.wall_height_m < 2.6:
+                raise ParamError(f"a piazza roof hung under a {self.wall_height_m} m eave "
+                                 f"leaves no headroom at its posts; it needs 2.6 m of wall")
+            if self.piazza_roof not in PIAZZA_ROOFS:
+                raise ParamError(f"piazza_roof '{self.piazza_roof}' not in {PIAZZA_ROOFS}")
+            if self.piazza_pitch_deg is not None and not (
+                    5.0 <= self.piazza_pitch_deg < self.roof_pitch_deg):
+                raise ParamError(f"piazza_pitch_deg {self.piazza_pitch_deg} outside 5 degrees "
+                                 f"to the main roof's {self.roof_pitch_deg}: a piazza roof "
+                                 f"is flatter than the house's own")
+            if self.piazza_roof == "swept":
+                if self.roof_type != "gable":
+                    raise ParamError("a swept piazza roof breaks from a gable's front slope")
+                if self.piazza_plate_m is None:
+                    raise ParamError("a swept piazza roof states its plate, piazza_plate_m")
+                if not 2.2 <= self.piazza_plate_m <= self.wall_height_m + 0.3:
+                    raise ParamError(f"piazza_plate_m {self.piazza_plate_m} outside 2.2 m to "
+                                     f"0.3 m over the {self.wall_height_m} m eave")
+            elif self.piazza_plate_m is not None:
+                raise ParamError("piazza_plate_m is a swept roof's; a hung roof's plate "
+                                 "falls where its eave and pitch leave it")
+        elif (self.piazza_roof != "hung" or self.piazza_plate_m is not None
+              or self.piazza_pitch_deg is not None):
+            raise ParamError("piazza_roof, piazza_plate_m and piazza_pitch_deg need a piazza")
+        if self.end_openings:
+            if self.roof_type != "gable" or self.width_m < self.depth_m:
+                raise ParamError("end_openings stand in the +/-x gable ends, so they need "
+                                 "a gable roof whose ridge runs along x")
+            if self.frame_addition and self.frame_addition_side == "end":
+                raise ParamError("an end addition covers a gable end")
+        apex = self.wall_height_m + self.depth_m / 2.0 * math.tan(
+            math.radians(self.roof_pitch_deg))
+        for end, kind, at, z in self.end_openings:
+            if end not in GABLE_ENDS or kind not in END_OPENING_KINDS:
+                raise ParamError(f"end_openings entry ({end}, {kind}, {at}): end is one of "
+                                 f"{GABLE_ENDS} and kind one of {END_OPENING_KINDS}")
+            if not 0.15 <= at <= 0.85:
+                raise ParamError(f"end_openings at {at} outside 0.15-0.85 of the end wall")
+            if kind == "light" and z is None or kind == "door" and z is not None:
+                raise ParamError(f"end_openings {kind} at {at}: a light states its centre "
+                                 f"height z, and a door does not")
+            if kind == "window" and z is not None:
+                half = (self.window_h_m or 0.72) / 2.0
+                if not 0.5 <= z - half and z + half <= self.wall_height_m - 0.1:
+                    raise ParamError(f"end_openings window at z {z} does not stand in the "
+                                     f"log wall under the {self.wall_height_m} m eave")
+            if z is not None and not 1.0 <= z <= apex - 0.6:
+                raise ParamError(f"end_openings light at z {z} outside 1.0 m to 0.6 m "
+                                 f"under the {apex:.2f} m apex")
+            if z is not None and z - LIGHT_HALF_H_M < self.wall_height_m < z + LIGHT_HALF_H_M:
+                raise ParamError(f"end_openings light at z {z} straddles the "
+                                 f"{self.wall_height_m} m eave: it is in the log wall or "
+                                 f"in the gable above it, not both")
+
+    def _validate_set_out(self) -> None:
+        if self.stories != 1 or self.frame_addition:
+            raise ParamError("front_set_out states a one-storey log front; this record "
+                             "has an upper storey or a frame addition")
+        x0, _y0, x1, _y1 = core_extent(self)
+        rects = core_front_rects(self)
+        if not any(k == "door" for k, *_ in rects):
+            raise ParamError("front_set_out has no door, and a cabin has to have one")
+        last = x0
+        for kind, u0, u1, z0, z1 in rects:
+            if kind not in ("door", "window"):
+                raise ParamError(f"front_set_out kind {kind!r} is not door or window")
+            if u0 < last + 0.15 or u1 > x1 - 0.15:
+                raise ParamError(f"front_set_out {kind} at {u0:.2f}..{u1:.2f} m overlaps "
+                                 f"its neighbour or the corner: give them in order, apart")
+            if z0 < 0.0 or z1 > self.wall_height_m - 0.15:
+                raise ParamError(f"front_set_out {kind} head {z1:.2f} m reaches the eave")
+            last = u1
 
     def _validate_addition(self) -> None:
         if self.frame_addition_side not in ADDITION_SIDES:
@@ -406,6 +657,39 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         frame_addition_height_m=(None if val("frame_addition_height_m") is None
                                  else float(val("frame_addition_height_m"))),
         frame_paint=str(val("frame_paint", "unpainted")),
+        piazza=bool(val("piazza", False)),
+        piazza_depth_m=float(val("piazza_depth_m", 2.1)),
+        piazza_posts=int(val("piazza_posts", 6)),
+        piazza_rail=bool(val("piazza_rail", False)),
+        piazza_roof=str(val("piazza_roof", "hung")),
+        piazza_plate_m=(None if val("piazza_plate_m") is None
+                        else float(val("piazza_plate_m"))),
+        piazza_pitch_deg=(None if val("piazza_pitch_deg") is None
+                          else float(val("piazza_pitch_deg"))),
+        end_openings=tuple((str(o["end"]), str(o["kind"]), float(o["at"]),
+                            None if o.get("z") is None else float(o["z"]))
+                           for o in (val("end_openings") or ())),
+        front_windows_per_side=int(val("front_windows_per_side", 1)),
+        window_w_m=(None if val("window_w_m") is None else float(val("window_w_m"))),
+        window_h_m=(None if val("window_h_m") is None else float(val("window_h_m"))),
+        front_shutters=(None if val("front_shutters") is None else bool(val("front_shutters"))),
+        front_set_out=(None if val("front_set_out") is None
+                       else tuple((str(k), float(a)) for k, a in val("front_set_out"))),
+        door_w_m=(None if val("door_w_m") is None else float(val("door_w_m"))),
+        door_h_m=(None if val("door_h_m") is None else float(val("door_h_m"))),
+        chimney_end=str(val("chimney_end", "min")),
+        chimney_cross_m=float(val("chimney_cross_m", 0.0)),
+        chimney_head_m=(None if val("chimney_head_m") is None
+                        else float(val("chimney_head_m"))),
+        lean_to=bool(val("lean_to", False)),
+        lean_to_length_m=float(val("lean_to_length_m", 2.4)),
+        lean_to_width_m=float(val("lean_to_width_m", 3.0)),
+        lean_to_wall_m=float(val("lean_to_wall_m", 2.0)),
+        lean_to_pitch_deg=(None if val("lean_to_pitch_deg") is None
+                           else float(val("lean_to_pitch_deg"))),
+        log_finish=(None if val("log_finish") is None else str(val("log_finish"))),
+        chimney_ridge_at=(None if val("chimney_ridge_at") is None
+                          else tuple(float(f) for f in val("chimney_ridge_at"))),
         sign=(None if sign is None else str(sign)),
         sign_mount=str(val("sign_mount", "bracket")),
         sign_device=(None if val("sign_device") is None
@@ -414,7 +698,9 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         # phase. `wall_finish` in `common/materials.py` states the order these are
         # applied in and why a stated coating outranks them.
         finish_key=recon.get("finish_key"),
-        roof_condition=recon.get("roof_condition"),
+        # A record that states its roof's condition (T-2511: a picture draws it dark)
+        # outranks the programme's deal, which no named building carries anyway.
+        roof_condition=val("roof_condition", recon.get("roof_condition")),
         confidence=confidences,
     )
     p.validate()
@@ -474,6 +760,8 @@ def core_front_rects(p: "LogDwellingParams") -> list[tuple]:
     where its door would have been.
     """
     x0, _y0, x1, _y1 = core_extent(p)
+    if p.front_set_out is not None:
+        return _stated_front_rects(p, x0)
     front_taken = p.frame_addition and p.frame_addition_side == "front"
     story_h = p.wall_height_m / max(p.stories, 1)
     xm = (x0 + x1) / 2.0
@@ -481,13 +769,62 @@ def core_front_rects(p: "LogDwellingParams") -> list[tuple]:
     out: list[tuple] = []
     if not front_taken:
         out.append(("door", xm - DOOR_HALF_M, xm + DOOR_HALF_M, 0.02, 1.95))
+    whalf = WIN_HALF_M if p.window_w_m is None else p.window_w_m / 2.0
+    wh = 0.72 if p.window_h_m is None else p.window_h_m
+    n = p.front_windows_per_side
+    if n == 1:
+        us = (xm - span * WIN_AT_FRAC, xm + span * WIN_AT_FRAC)
+    else:
+        # T-2497: n sash each side, evenly in the wall between the door and the corner
+        step = (span / 2.0 - DOOR_HALF_M) / n
+        offs = [DOOR_HALF_M + (k + 0.5) * step for k in range(n)]
+        us = tuple(xm - o for o in reversed(offs)) + tuple(xm + o for o in offs)
     for story in range(p.stories):
         z0 = story * story_h + story_h * 0.34
-        for u in (xm - span * WIN_AT_FRAC, xm + span * WIN_AT_FRAC):
-            out.append(("window", u - WIN_HALF_M, u + WIN_HALF_M, z0, z0 + 0.72))
+        if p.window_h_m is not None:
+            z0 = story * story_h + max(0.6, min(story_h * 0.34, story_h - wh - 0.45))
+        for u in us:
+            out.append(("window", u - whalf, u + whalf, z0, z0 + wh))
         if front_taken and story == 0:
             out.append(("window", xm - WIN_HALF_M, xm + WIN_HALF_M, z0, z0 + 0.72))
     return out
+
+
+def _stated_front_rects(p: "LogDwellingParams", x0: float) -> list[tuple]:
+    """A front a record sets out opening by opening (T-2511), in its own order.
+
+    The doors stand on the sill the archetype's door does; every window hangs from
+    the doors' head, so a long front reads on one line as the picture draws it.
+    """
+    dhalf = DOOR_HALF_M if p.door_w_m is None else p.door_w_m / 2.0
+    head = 1.95 if p.door_h_m is None else 0.02 + p.door_h_m
+    whalf = WIN_HALF_M if p.window_w_m is None else p.window_w_m / 2.0
+    wh = 0.72 if p.window_h_m is None else p.window_h_m
+    out: list[tuple] = []
+    for kind, at in p.front_set_out:
+        u = x0 + at
+        if kind == "door":
+            out.append(("door", u - dhalf, u + dhalf, 0.02, head))
+        else:
+            out.append((kind, u - whalf, u + whalf, head - wh, head))
+    return out
+
+
+def lean_to_extent(p: "LogDwellingParams") -> tuple[float, float, float, float] | None:
+    """The lean-to's rectangle (T-2511), against the gable at `chimney_end`, from the
+    back wall forward — or None where the record builds none."""
+    if not p.lean_to:
+        return None
+    cx0, cy0, cx1, cy1 = core_extent(p)
+    y0, y1 = cy0, cy0 + p.lean_to_width_m
+    if p.chimneys > 0:
+        room = max((cy1 - cy0) / 2.0 - STACK_HALF_M, 0.0)
+        cross = max(-room, min(room, p.chimney_cross_m))
+        y1 = (cy0 + cy1) / 2.0 + cross - STACK_HALF_M
+        y0 = y1 - p.lean_to_width_m
+    if p.chimney_end == "max":
+        return cx1, y0, cx1 + p.lean_to_length_m, y1
+    return cx0 - p.lean_to_length_m, y0, cx0, y1
 
 
 def addition_front_rects(p: "LogDwellingParams") -> list[tuple]:

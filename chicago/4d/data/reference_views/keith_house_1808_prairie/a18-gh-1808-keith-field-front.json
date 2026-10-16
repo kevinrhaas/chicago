@@ -1,0 +1,44 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "source_id": "inland_architect_1888_02_keith_plate",
+  "library_image": "a18-gh-1808-keith-field-front",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-gh-1808-keith-field-front.jpg",
+  "image_px": [
+    707,
+    900
+  ],
+  "principal_px": [
+    395.06024919337614,
+    481.8618651639006
+  ],
+  "focal_px": 1406.3572802675737,
+  "eye": [
+    47.672462621342696,
+    -0.549256780892961,
+    0.5000000000000001
+  ],
+  "yaw_deg": 270,
+  "basis_right_up_forward": [
+    [
+      0.2380135357998944,
+      0.9709139388458468,
+      -0.02599384794284357
+    ],
+    [
+      0.20466473337729485,
+      -0.023974314469717945,
+      0.9785384914030248
+    ],
+    [
+      -0.949453476315524,
+      0.23822543021380055,
+      0.20441805378150046
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883: this is another reproduction/crop of the same 1888 photograph. SIFT/RANSAC registration to inland-1888: 322/347 accepted feature pairs. Intrinsic/rotation fit to the registered reference camera over front and loggia control points: 2.71px coordinate RMS. The underlying camera retains the primary view's approximate manually read controls and their 14.19px RMS uncertainty; registration is not an independent survey. Homography [[0.6156660033428157, 0.01192573131228232, -111.26807300133997], [-0.010062233618072364, 0.6040669672432777, -259.7077310170418], [-4.136359863304692e-06, 6.434535938250102e-06, 0.9999999999999999]]. Monochrome: colour not shown."
+}

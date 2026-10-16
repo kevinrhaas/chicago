@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-gh-1808-porch-1965",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-gh-1808-porch-1965.jpg",
+  "image_px": [
+    675,
+    456
+  ],
+  "principal_px": [
+    337,
+    277.44142182381574
+  ],
+  "focal_px": 612.4332336429509,
+  "eye": [
+    33.84605828221899,
+    -4.0703412247158335,
+    1.7
+  ],
+  "yaw_deg": 308.1500374806577,
+  "basis_right_up_forward": [
+    [
+      0.6175976247607969,
+      0.7862363897512604,
+      0.02013736131487839
+    ],
+    [
+      -0.0124393089254973,
+      -0.015835937426688828,
+      0.9997972227803366
+    ],
+    [
+      -0.7863958529158696,
+      0.6177228848899174,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll fitted), eye height 1.7 m reconstructed, least squares over 7 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, roll, f, cy; fixed: h=1.7, cx=337. Read: the south loggia column pair's base; the north pair's capital; the bow's north junction with the flat front (x only); the south bow light's head and sill; the next light's head; the basement light's head (y only). Roll fitted (prior 0 +/- 1.5): the 1965 slide is mounted about 1.2 degrees off level. Controls world [u, v, y] -> pixels (free = coordinate not used): [20.37, 7.033, 3.086] -> [352.6, 226.8]; [20.7, 9.846, 5.641] -> [431.6, 153]; [18.0, 6.283, 3.979] -> [284.2, 'free']; [18.523, 1.926, 2.373] -> [152.6, 245.3]; [18.51, 1.878, 5.198] -> [152.6, 137.4]; [19.186, 3.169, 5.179] -> [211.6, 143.7]; [18.566, 1.986, 1.272] -> ['free', 292]. Projected [[352.3, 229.1], [430.9, 151.8], [285.0, 202.4], [152.9, 247.6], [153.1, 137.6], [211.0, 141.7], [155.0, 290.4]]. Per-control residual px [2.3, 1.4, 0.8, 2.3, 0.5, 2.1, 1.6]; coordinate RMS 1.71 px, max 2.34 px. Scale at the subject: 38.3 px/m at 16.0 m, so the RMS is about 0.04 m. CHECK, not fitted: the south pair of loggia columns, capital top [20.343, 7.005, 5.216] reads at [352.6, 134.7], the fit projects it at [352.4, 154.4] (dx -0.2, dy 19.7 px, so about 0.56 m at the subject). Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). 1965 colour photograph, Glessner House Museum. The print is blue-cast and the fa\u00e7ade in shade; ratios constrain a pale neutral granite, not a calibrated quarry colour. Later iron infill and ivy are not copied into 1904."
+}

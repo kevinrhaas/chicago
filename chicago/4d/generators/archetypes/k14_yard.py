@@ -60,7 +60,7 @@ def spec(params) -> dict | None:
         return None
     if not getattr(params, "boundary", None):
         raise ValueError("a yard is laid inside a K11 boundary, and this record names none")
-    if not params.boundary.get("side_gate"):
+    if not params.boundary.get("side_gate") and params.boundary.get("layout") != "stone_posts_rails":
         raise ValueError("a yard's service walk runs through the K11 side gate, and this boundary names none")
     if y.get("lawn") != "turf":
         raise ValueError("yard.lawn builds 'turf' alone")
@@ -162,7 +162,7 @@ def dress(a):
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == k11_frontage.STREET_FRONT)
     # the stoop as built: its steps and cheeks (a splash stone is 0.04 m high, a step is not)
     stoop = [-q[2] for q in a.prim("stoop_stone").pos
-             if D + 0.05 < q[0] <= foot + 1e-6 and q[1] > 0.1 and abs(-q[2] - door.s_m) < 2.0]
+             if D + 0.05 < q[0] <= foot + 1e-6 and q[1] > 0.1 and abs(-q[2] - p.stoop_s_m(door.s_m)) < 2.0]
     st0, st1 = min(stoop), max(stoop)
     ea, eb = b["entrance_s_m"]
     w0, w1 = ea + JOINT_M, eb - JOINT_M
@@ -245,7 +245,7 @@ def dress(a):
     for j in range(nf):
         u0 = foot + j * (fl + JOINT_M)
         u1 = u0 + fl
-        flag_tris += _up_grid(a, mat, walk_rows(u0, u1, w0, w1, "front_walk", door.s_m, fk, foffs, top), conf)
+        flag_tris += _up_grid(a, mat, walk_rows(u0, u1, w0, w1, "front_walk", p.stoop_s_m(door.s_m), fk, foffs, top), conf)
         # the flag's edges, down to its bed: its long sides, its joints and its street end
         bs = a.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), UP, seed)
         be = a.basis(mat, (0.0, 0.0, 0.0), (0.0, 0.0, -1.0), UP, seed)
@@ -266,7 +266,7 @@ def dress(a):
     a.instance(FRONT_WALK, "yard", {"flags": nf, "flag_m": round(fl, 4), "width_m": round(w1 - w0, 4),
                                     "wear_tone_min": round(1.0 - fk * float(cond.path_wear(0.0, foot, use="front_walk", built=built, seed=seed)), 4),
                                     "triangles": flag_tris},
-               {"stoop_foot": (foot, top, -door.s_m), "public_walk": (public, top, -door.s_m)})
+               {"stoop_foot": (foot, top, -p.stoop_s_m(door.s_m)), "public_walk": (public, top, -p.stoop_s_m(door.s_m))})
     a.instance(SERVICE_WALK, "yard", {"length_m": round(public - to_u, 4), "width_m": round(-wall_face, 4),
                                       "triangles": service_tris},
                {"rear_end": (to_u, LAWN_Y, -c), "gate": (pier_in, LAWN_Y, -(sa + sb) / 2)})

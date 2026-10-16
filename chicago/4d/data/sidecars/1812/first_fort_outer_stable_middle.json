@@ -1,14 +1,15 @@
 {
   "id": "first_fort_outer_stable_middle",
   "phase": "first_fort_1803",
-  "name": "First Fort Dearborn — stable, middle of three",
+  "name": "First Fort Dearborn — the house in the factor's department",
   "aka": [
-    "Whistler's index no. 24, 'Stables'"
+    "Whistler's index no. 23, 'House in Factors Dept.'",
+    "Built at T-2062 as the middle of three stables (index no. 24); re-labelled at T-2507"
   ],
   "archetype": "outbuilding",
   "asset": "gltf/first_fort_outer_stable_middle__first_fort_1803.glb",
   "scene": "1812",
-  "target_date": "1812-08-01",
+  "target_date": "1812-08-14",
   "documented_range": {
     "from": "1808-01-25",
     "to": "1812-08-16",
@@ -85,12 +86,12 @@
       "note": "Unattested."
     },
     "function": {
-      "value": "stable",
+      "value": "outbuilding",
       "confidence": "inferred",
       "sources": [
         "whistler_1808_fort_dearborn_draught"
       ],
-      "note": "The second of the column of three small buildings south of the agent's house. The register reads numeral 24, 'Stables', beside the column and cannot say which of the three it covers, so all three are built as stables. At 3x its own numeral reads more like '23' (House in Factors Dept.) than '24', and that is NOT asserted."
+      "note": "Index no. 23, 'House in Factors Dept.', read at T-2507 at 8x from the numeral '23' beside its front; its neighbours north and south read '24', Stables. It belongs to the factory (the United States trading house, no. 18), and what the department used it for is not read, so it is recorded as an outbuilding. Its id is kept from T-2062, when it was built as a stable: it is re-labelled, not moved (L391)."
     }
   },
   "residents": [],
@@ -123,7 +124,7 @@
       ]
     }
   ],
-  "research_note": "A STABLE OUTSIDE THE FIRST FORT, the second of three in a column on the road west of the gardens (T-2062).",
+  "research_note": "THE HOUSE IN THE FACTOR'S DEPARTMENT, no. 23, the middle of the column of three small buildings south of the agent's house. T-2062 built it as a stable and noted its numeral 'reads more like 23'; T-2507 read it so at 8x and re-labelled it without moving it.",
   "research_doc": "",
   "review_required": false
 }

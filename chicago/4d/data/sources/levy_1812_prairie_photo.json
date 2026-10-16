@@ -1,0 +1,29 @@
+{
+ "id": "levy_1812_prairie_photo",
+ "type": "photograph",
+ "citation": "Wheeler, George H., Residence (1812 S. Prairie Ave.). Albert Levy, Architectural Photographic Series (New York), nos. 31, 33; photograph of the street front, c. 1885-1900. Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago, Special 779.4 L66a no. 31, 33.",
+ "author": "Albert Levy (New York)",
+ "date": "c. 1885-1900",
+ "describes_date": "c. 1885-1900",
+ "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago (CONTENTdm collection mqc, item 13492). Prairie library image a18-rba-levy-1812-wheeler; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a18-rba-levy-1812-wheeler.jpg), committed since T-2543 at data/sources/assets/wheeler_1812_levy_t2543/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/13492",
+ "locator": "The whole print: the street front of 1812 from the walk to the gable's finial, the front steps, and the edges of the neighbours' walls either side.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A photograph published in Albert Levy's Architectural Photographic Series in the 1880s; the Prairie library records it as public domain (holder's statement: 'For Rights information please contact the Ryerson and Burnham Archives'). Only forms, counts and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the committed copy is the store's, unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-16 (T-2543) from the image store's reference copy, 1267 x 1600 px sepia, sha256 084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2 (the archive's 1600 px original is 1600 x 2021).",
+ "note": "The key in-period view of 1812, the house George H. Wheeler built in 1884 (the Real Estate and Building Journal's permit of June 7, 1884: '3-story dwelling, 30x80'). Taken square to the front from across Prairie Avenue: its verticals are vertical and its horizontals level. It shows a raised basement of rock-faced stone and a stone first storey with a large round-arched window in a two-storey projection on the south and an arched entrance porch reached by a straight stair with solid balustrades on the north; brick second and third storeys banded and dressed in stone; a paired window a storey in the projection and over the entrance; an iron balcony on the projection's top under a large round-arched window with a fanlight, and a smaller arched window to its north; and a tall shaped (Flemish) gable over the whole front, its outline swelling from a kneeler at each corner to a pointed head under a finial, with a grid window of nine lights. A camera is solved from it: data/reference_views/wheeler_house_1812_prairie/levy_front.json.",
+ "what_it_supplies": [
+  "the front's storey heights, the raised basement and the stair's rise, read at the front's plane",
+  "the south projection's width and height and its windows",
+  "the entrance's place on the north and the openings' places and sizes",
+  "the shaped gable's outline, its grid window and finial"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome, so every stone, brick and paint colour stays reconstructed",
+  "the side and rear walls, and the roof behind the gable except its two front corners",
+  "depth: how far the projection stands out is the 1911 sheet's"
+ ]
+}

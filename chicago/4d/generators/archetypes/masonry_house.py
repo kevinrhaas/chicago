@@ -251,6 +251,8 @@ def _range(b, r) -> None:
         "south": ({"axis": "y", "sign": -1, "at": y0}, (x0, x1)),
     }
     for face, (pl, (u0, u1)) in faces.items():
+        if face == "north" and "north_wall_min" in r:
+            u0 = r["north_wall_min"]
         kind = r["walls"][face]
         if kind == "none":
             continue
@@ -349,9 +351,25 @@ def _range(b, r) -> None:
     for (ca, za), (cb, zb2) in zip(ov_prof, ov_prof[1:]):
         pts=[P(ca, a0, za), P(cb, a0, zb2), P(cb, a1, zb2), P(ca, a1, za)]
         fragments=[pts]
-        if r['name']=='north_range' and getattr(b,'params',None) and b.params.detail.get('dining_roof_junction'):
+        if r.get('north_roof_shoulder') and cb<=ra+1e-8:
+            # The photographed north gable spans the adjoining north range.
+            # Its wider western pitch returns to the courtyard pitch behind
+            # the tower, within the host range rather than over the courtyard.
+            g=r['north_roof_shoulder'];back=g['back_y']
+            front_z=g.get('front_eave_z', r['eave_lo_z'])
+            front_z-=low_overhang*(rz-front_z)/(ra-c0)
+            front=(g['x'],a1,front_z);corner=P(ca,back,za);ridge=P(cb,a1,zb2)
+            fragments=[[P(ca,a0,za),P(cb,a0,zb2),P(cb,back,zb2),corner],
+                       [corner,P(cb,back,zb2),ridge],[corner,ridge,front]]
+        if r['name'] in ('north_range','east_wing') and getattr(b,'params',None) and b.params.detail.get('dining_roof_junction'):
             from archetypes.masonry_house_v4_courtyard_roof import clip_host
-            fragments=clip_host(pts,b.params)
+            fragments=[q for p in fragments for q in clip_host(p,b.params)]
+        if r['name'] in ('north_range','east_wing') and getattr(b,'params',None) and (b.params.detail.get('north_tower_roof') or {}).get('integrated_north_facade'):
+            from archetypes.masonry_house_v4_north_tower import clip_host
+            fragments=[q for p in fragments for q in clip_host(p,b.params,r['name'])]
+        if r['name']=='east_wing' and getattr(b,'params',None) and b.params.detail.get('court_dormer_union'):
+            from archetypes.masonry_house_v4_court import dormer_host
+            fragments=[q for p in fragments for q in dormer_host(p,b.params)]
         for fragment in fragments:
             _two_sided_roof(b,fragment,r['conf_roof'],ROOF)
     if getattr(b,"params",None) and b.params.detail.get("roof_edges"):
@@ -380,7 +398,8 @@ def _stable_reworked(b, r):
             # diagonal runs from its foot to the ordinary alley eave.
             lift = r["parapet_m"].get("north", 0)
             west_eave = g.get('north_west_eave', g['north_eave'])
-            east_eave = height(r,g['front_x1'],r['y1']) if g.get('level_courtyard_gable') else g['north_eave']
+            east_eave = (g['north_eave'] if g.get('north_service_junction') else
+                         height(r,g['front_x1'],r['y1']) if g.get('level_courtyard_gable') else g['north_eave'])
             gp = [(g["front_x0"],west_eave),(r["ridge_at"],r["ridge_z"]),(g["front_x1"],east_eave)]
             prof = [(r["x0"],west_eave),(g["front_x0"],west_eave),
                 (g["front_x0"],west_eave+lift),(r["ridge_at"],r["ridge_z"]+lift),

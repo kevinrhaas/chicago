@@ -1,0 +1,82 @@
+{
+  "source": "habs_glessner_house_il_1015_drawings",
+  "sheet": 6,
+  "native_image_px": [
+    9626,
+    7584
+  ],
+  "controls": [
+    {
+      "height_door_ft": 48.62,
+      "native_y": 2375,
+      "method": "darkest horizontal row at x1950:2080 in visually identified datum line window",
+      "dark_pixels": 117
+    },
+    {
+      "height_door_ft": 24.3,
+      "native_y": 4128,
+      "method": "darkest horizontal row at x1950:2080 in visually identified datum line window",
+      "dark_pixels": 107
+    },
+    {
+      "height_door_ft": 0,
+      "native_y": 5953,
+      "method": "darkest horizontal row at x1950:2080 in visually identified datum line window",
+      "dark_pixels": 127
+    },
+    {
+      "height_door_ft": -0.74,
+      "native_y": 6013,
+      "method": "darkest horizontal row at x1950:2080 in visually identified datum line window",
+      "dark_pixels": 126
+    }
+  ],
+  "upper_px_per_ft": 72.08059210526316,
+  "scope": "Read-only preliminary T2222 height readings; no app data changed. Printed level controls are exact datum values; raster positions and masonry/toe picks have several-pixel uncertainty. Roof plan reconstruction requires early-photo crosscheck.",
+  "picks": {
+    "south": {
+      "top": {
+        "native_y": 2369,
+        "height_door_ft": 48.70324015972618
+      },
+      "upper_course_bottom": {
+        "native_y": 2475,
+        "height_door_ft": 47.2326640045636
+      },
+      "belt_bottom": {
+        "native_y": 2526,
+        "height_door_ft": 46.52512264689104
+      },
+      "shaft_foot": {
+        "native_y": 2895,
+        "height_door_ft": 41.40585282373075
+      },
+      "flashing_toe": {
+        "native_y": 2915,
+        "height_door_ft": 41.128385624643464
+      }
+    },
+    "middle": {
+      "top": {
+        "native_y": 2365,
+        "height_door_ft": 48.75873359954364
+      },
+      "upper_course_bottom": {
+        "native_y": 2471,
+        "height_door_ft": 47.288157444381056
+      },
+      "belt_bottom": {
+        "native_y": 2530,
+        "height_door_ft": 46.46962920707359
+      },
+      "shaft_foot": {
+        "native_y": 2790,
+        "height_door_ft": 42.86255561893896
+      },
+      "flashing_toe": {
+        "native_y": 2817,
+        "height_door_ft": 42.48797490017113
+      }
+    }
+  }
+}

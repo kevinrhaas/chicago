@@ -286,6 +286,37 @@
       ]
     },
     {
+      "why": "A DERIVATION FROM HAND-ENTERED READINGS (T-2501): the site of Lee's Place (Hardscrabble), five printed placings from data/terrain/1812_hardscrabble_readings.json measured along the 1812 shore derive_shore_1812.py writes, the committed South Branch traces and T-2501's Rees 1849 trace to Bridgeport. It reads that step's output, so it follows it. It changes no geometry anything else reads, and the file it writes is nothing but the derivation, so the manifest owns it: a conflict there is settled by deriving again.",
+      "command": [
+        "python3",
+        "tools/derive_hardscrabble_1812.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/terrain/1812_hardscrabble_site.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/derive_hardscrabble_1812.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "A DERIVATION FROM COMMITTED GROUND AND TRACES (T-2502): the 1812 apron field beside the e1830_natural box, carrying the ground down the South Branch to Lee's Place. It reads the box's committed heightfield (terrain_gen_e1830.py's output), T-2501's Rees 1849 trace and the site T-2501 derives, so it follows both. It changes nothing in the box.",
+      "command": [
+        "python3",
+        "tools/derive_apron_south_branch_1812.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/terrain/epochs/e1830_natural/apron_south_branch.json",
+        "chicago/4d/data/terrain/epochs/e1830_natural/apron_south_branch.bin"
+      ],
+      "verify": [
+        "python3",
+        "tools/derive_apron_south_branch_1812.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-1250): the four Prairie Avenue sheets' GCP files, fitted from picks written in the tool, the committed rasters under chicago/reference/ and data/traces/prairie_1904_control.json. It reads nothing another step writes, so it sits with the other readers at the head of the manifest; tools/trace_ic_edge_1904.py reads its output and follows it.",
       "command": [
         "python3",
@@ -321,6 +352,32 @@
       "verify": [
         "python3",
         "tools/trace_prairie_1904_grid.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE 1904 STREET SECTION AND CARRIAGE WALKS (T-2474): the curb's reveal, the walk's fall and a carriage walk before every lot 40 ft wide or more, laid from the faces and parcels data/street_grid/1904.json carries. It reads only the grid, so it follows the grid trace; the parkway elms read it, so it comes before them.",
+      "command": [
+        "python3",
+        "tools/lay_prairie_1904_street_section.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/lay_prairie_1904_street_section.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE 1904 PARKWAY ELMS (T-2473): one file of trees per block face, planted by rule along the parkway bands data/street_grid/1904.json carries, one seed per face, clear of the carriage walks data/street_section/1904.json lays (T-2474). It reads the grid and the section, so it follows the step above.",
+      "command": [
+        "python3",
+        "tools/plant_prairie_1904_street_trees.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/plant_prairie_1904_street_trees.py",
         "--check"
       ]
     },
@@ -374,6 +431,19 @@
       "verify": [
         "python3",
         "generators/terrain_gen_graded.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-2478): the 1904 Illinois Central tracks, read off Sanborn sheets 20 and 28 through the GCP files tools/georef_prairie_1904.py writes, in a frame along the scene line tools/trace_ic_edge_1904.py writes, kept off the blocks tools/trace_prairie_1904_grid.py writes and off the embankment face of the heightfield the step above writes, with the authored spec data/railway/1904_spec.json. It follows all four.",
+      "command": [
+        "python3",
+        "tools/trace_ic_tracks_1904.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/trace_ic_tracks_1904.py",
         "--check"
       ]
     },

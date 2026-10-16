@@ -227,6 +227,7 @@ const COVERAGE = [
   ['data/exclusions.json', ALL, 'what the scene declares it is NOT drawing'],
   ['renderers/web/js/main.js', ALL, 'the boot chain'],
   ['renderers/web/js/scene-loader.js', ALL, 'the boot chain'],
+  ['renderers/web/js/crash-guard.js', ALL, 'imported by the boot chain (main.js), which it can step down a tier; its card and its lost-context reloads are asserted in part 6 at 390x780 (T-2547)'],
   ['renderers/web/js/structure-versions.js', ALL, 'imported by the boot chain (scene-loader.js); the version switch itself is asserted in part 3 (T-1727)'],
   ['renderers/web/js/world.js', ALL, 'the world the parts all measure against'],
   ['renderers/web/js/geometry.js', ALL, 'shared geometry the parts all read'],
@@ -260,6 +261,7 @@ const COVERAGE = [
   // --- PART 2: the trading frontages, the river's edge and what floats on it
   ['renderers/web/js/frontage.js', [2], 'the frontage layer (T-0082, T-0090)'],
   ['renderers/web/js/yard.js', [2], 'the yard goods at the trading frontages (T-0040)'],
+  ['renderers/web/js/compact-streams.js', [1, 2], 'the compact vertex streams the fences (1), the walks and the yard goods (2) are laid in (T-2569)'],
   ['renderers/web/js/wharves.js', [2], 'the river wharves (T-0041) and walking one (T-0058)'],
   ['renderers/web/js/working-bank.js', [2], 'the worked river bank and its landing aprons (T-1771)'],
   ['renderers/web/js/boats.js', [2], 'the boats on the river (T-0063)'],
@@ -272,12 +274,22 @@ const COVERAGE = [
   // --- PART 3: the ground you stand on, and the card that says why
   ['renderers/web/js/ground.js', [3], 'the ground faces the sky (R-BUG3c)'],
   ['renderers/web/js/terrain.js', [3], 'the ground the town stands on'],
+  // T-2599. The job pool and the spatial partition its workers run. Only terrain's
+  // boot ground tiles go through the pool so far, so part 3 is where it is read;
+  // T-2600 moves the other spatialBatch callers and widens this with them.
+  ['renderers/web/js/jobs/', [3], 'the job pool, which partitions the ground tiles off the main thread'],
+  // Every layer that batches through spatial-batch.js: yards (1), streets (2, 7, 8,
+  // 10-12), the ground (3), building cells (8, 9) and the 1904 railway (14).
+  ['renderers/web/js/spatial-batch.js', [1, 2, 3, 7, 8, 9, 10, 11, 12, 14], 'the 40 m ground pieces and building cells every batched layer is cut into'],
   // T-1055. terrain.js's ground tile, lifted into its own module so a tool can
   // measure it without a browser. Same part as the file it was lifted out of.
   ['renderers/web/js/prairie-tile.js', [3], 'the ground tile the prairie is painted from'],
   // T-2089. The grass grain the prairie's fine relief is read from: the same
   // ground, so the same part.
   ['renderers/web/js/grass-grain.js', [3], 'the grass grain the prairie\'s relief is lit from'],
+  // T-2552. The prairie's world-scale variation map, imported only by terrain.js:
+  // the same ground, so the same part.
+  ['renderers/web/js/prairie-macro.js', [3], 'the variation map the prairie\'s stands are drawn from'],
   ['renderers/web/js/turf-tile.js', [3, 10, 11, 12], 'the town turf: painted by the ground, thinned in the sward'],
   // T-1797. The ground-strip proof: imported only under `?proof=ground`, which
   // no part loads, so the boot chain never reaches it. Part 1 boots the scene
@@ -371,6 +383,7 @@ const COVERAGE = [
   // --- PART 9: what the light does to the town
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],
   ['renderers/web/js/buildings.js', [8, 9], 'the facades and the shadow reach they carry, and the merged batch part 8 reads the roughness channel out of'],
+  ['renderers/web/js/shadow-casters.js', [8, 9], 'T-2529, the sun\'s pass at `light` — it wraps every structure batch buildings.js makes, so it is read where the facades and their shadows are'],
   ['renderers/web/js/roof-relief.js', [8, 9], 'T-1488, the roof coverings\' relief maps — it binds them inside buildings.js\'s own load loop and adds two batches to the merge part 8 counts'],
   ['renderers/web/js/wall-relief.js', [8, 9], 'T-1963, the walls\' relief maps — bound inside buildings.js\'s load loop like the roofs\', and two more batches for the merge part 8 counts'],
   ['renderers/web/js/relief-pack.js', [2, 8, 9], 'T-2300, the orl and board grain both relief layers pack at load — the walls (8, 9) and the frontage walks (2)'],
@@ -379,6 +392,9 @@ const COVERAGE = [
   // --- PARTS 10-12: what grows, what moves, and the streets a visitor reads
   // (T-2337 cut old part 10 into 10 + 11, so a row that named 10 names both)
   ['renderers/web/js/flora.js', [10, 11, 12], 'the flora census, and the boundary it fades at'],
+  // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
+  // read what the deal planted from it.
+  ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
@@ -414,9 +430,20 @@ const COVERAGE = [
   // T-2109/T-2213. Only a transmissive pane is replaced, and only Glessner's GLB carries one: /1904/.
   ['renderers/web/js/glass.js', [14], "Glessner's dark panes, their blinds and sheen (T-2213)"],
   ['data/street_grid/', [14], 'the 1904 carriageways, block faces, alleys and parcels'],
+  // T-2473. The parkway elms planted on that grid, drawn only at the /1904/ door.
+  ['renderers/web/js/street-trees.js', [14], 'the 1904 parkway elms and the Trees setting (T-2473)'],
+  ['data/street_trees/', [14], 'the 1904 parkway elms, generated from the grid'],
+  ['tools/lay_prairie_1904_street_section.py', NONE, 'the street section and carriage walk layer — read by no renderer: its own --check in check.sh'],
+  ['tools/plant_prairie_1904_street_trees.py', NONE, 'the parkway elm planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
+  ['data/street_section/', [14], 'the 1904 curb reveal and carriage walks (T-2474)'],
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],
   ['assets/textures/prairie_1904_pbr/', [14], 'the 1904 street-surface texture library'],
+  // T-2478. The 1904 lakefront railway is drawn only at the /1904/ door, which part 14 boots.
+  ['renderers/web/js/railway.js', [14], 'the 1904 lakefront railway: rails, ties, ballast and verges (T-2478)'],
+  ['data/railway/', [14], 'the 1904 Illinois Central tracks and their spec'],
+  ['assets/textures/prairie_1904_rail/', [14], 'the 1904 lakefront railway texture library'],
+  ['tools/trace_ic_tracks_1904.py', NONE, 'the IC track tracer — gated by its own --check-properties in check.sh'],
   // T-2292. The K04 roof library is published by nothing and bound by no renderer until
   // T-2293 builds a roof from it, so no part draws it; tools/check_roof_library.py gates it.
   ['assets/textures/prairie_1904_roofs/', NONE, 'the K04 roof library — bound by no renderer yet: check_roof_library.py --check'],

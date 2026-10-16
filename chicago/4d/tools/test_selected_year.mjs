@@ -25,9 +25,9 @@ for (const e of prairie.entries) for (const source of e.source_ids || []) {
   assert(e.locator);
 }
 // T-0472: the 1812 welcome names its fort, and every quote on its cards resolves.
-const fort = scenePresentation('1812', '1812-08-01');
+const fort = scenePresentation('1812', '1812-08-14');
 assert.equal(fort.eyebrow, 'The first Fort Dearborn');
-assert(fort.intro.includes('1 August 1812'));
+assert(fort.intro.includes('14 August 1812'));
 const scene1812 = JSON.parse(fs.readFileSync(new URL('../data/scenes/1812.json', import.meta.url)));
 assert(scene1812.cards.length && !scene1812.released);
 for (const card of scene1812.cards) for (const q of card.quotes || []) {

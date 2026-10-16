@@ -24,7 +24,8 @@ docs/RESEARCH/photo-match/<structure_id>/<view>-side-by-side.jpg   picture | ren
 `chicago/prairie_1904_v1/research/images/stream-*.json`); `photo` (the picture's file, relative
 to the camera); `image_px`, `principal_px`, `focal_px`; `eye` `[u, v, y]` in the structure's
 footprint frame (u east toward the street, v north, metres over its grade); `yaw_deg` (clockwise
-from north); `solve` (how the camera was fitted, in words and numbers: which lengths scaled it,
+from north); optional `basis_right_up_forward` (three orthonormal vectors in the same
+east/north/up frame, overriding yaw for an inclined or rolled photograph); `solve` (how the camera was fitted, in words and numbers: which lengths scaled it,
 which lines and points it was fitted to, the residuals); optionally `sun_uvy`, the direction
 the picture's sunlight comes from in the same frame, so the render lights the walls the picture
 lights and casts its shadows the same way (T-2369). A drawing is an elevation or a
@@ -62,3 +63,7 @@ at.
   pictures from chicagology and other sites are brought in with their attribution, not left as
   links.
 - Other years: `data/sources/` (views, engravings, drawings) and `data/sources/assets/`.
+
+Section drawings may supply optional `clip_planes`, each `{normal: [east,north,up], constant: metres}` with a unit normal. The review renderer retains points where `normal.dot(point)+constant >= 0`. State the source cut line and calibration in `solve`; this is a section through the asset, not a change to its app geometry.
+
+Distant drawing cameras can set `near_m` (positive, below the 500 m far plane) to keep fine layers distinguishable in the depth buffer. Place it in front of the subject, state it in `solve`, and retain the same value for before/after comparisons. Ordinary photographic views default to 0.1 m.

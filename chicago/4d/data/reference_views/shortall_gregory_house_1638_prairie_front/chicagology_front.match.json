@@ -2,10 +2,10 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "f52d309cc98def10674fe9d7b7bcef898abde2d73dfac6f5c9d7667e403a2f6d",
-  "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
+  "glb_sha256": "5b86a83102dfd5158bc85b078c9187eb0f4ebeb84a4203315c74be9bc6dc4769",
+  "camera_sha256": "a8fbf32f4f70b529f9438469cfb333941f8cef958c6681562df40b1a5b643891",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Gable: the twin windows' heads are pointed, two lights 0.63 m wide with their points at 5.87 m, not the kit's flat-headed pair (T-2423)",
@@ -32,20 +32,20 @@
       "status": "fixed"
     },
     {
-      "what": "Gable: the verge is a broad plain bargeboard with a moulded edge; the model's is pierced with the kit's roundels and vesicas",
-      "status": "open"
+      "what": "Gable: the verge is a broad plain board, 0.23 m from the roof's top line to its foot (17 px across the rake), covering the roof's edge, with a bead along its lower edge, where the kit's was pierced with roundels and vesicas (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the apex finial is a cluster of three pointed pinnacles; the model's is the kit's single chamfered post",
-      "status": "open"
+      "what": "Gable: the apex carries three pointed pinnacles, the middle one rising 0.48 m over the apex and one each side 0.30 m out on the verge rising to 0.08 m over it, with no drop under the apex, where the kit had a single chamfered post and pendant (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: under the hood, between the two lights' heads, the print shows cusped tracery and the hood's ends curl as volutes; the model has plain blocks for stops and no tracery",
-      "status": "open"
+      "what": "Gable: under the hood, between the two lights' heads, a cusped trefoil applied in the spandrel, and the hood's two ends curled as volutes in place of plain blocks (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the apex stands about 12 px (0.16 m) over the print's",
-      "status": "open"
+      "what": "Gable: the print's verges, oval, window pair and hood stand on one middle 0.12 m north of the sheet-split 5.21 m gable's and its verges meet 9 px higher (T-2457): the gable is 5.45 m wide from the same south corner, its middle at 2.725 m (460 px), the pair, hood and oval moved with it and the apex 0.15 m higher; the wing wall behind the porch narrows to 2.68 m, its door unmoved (T-2519)",
+      "status": "fixed"
     },
     {
       "what": "Bay: three pointed lights, one in the face and one in each cant, between broad posts, the glass from 0.63 m to its point at 2.83 m and 0.73 m across, each a one-over-one sash; a panelled base under a weathered sill course at 0.45 m; a moulded cornice from 3.13 m to its crown at 3.55 m (T-2424)",
@@ -56,15 +56,15 @@
       "status": "fixed"
     },
     {
-      "what": "Bay: the print's pointed heads are a little blunter than the kit's equilateral arch, their stops at about 2.33 m where the model's arches spring at 2.20 m",
-      "status": "open"
+      "what": "Bay: the lights' heads are drop arches, blunter than the kit's equilateral, springing at 2.33 m to their points at 2.83 m: each arc's radius 0.72 of the span (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Bay: the print's lights have a small dark stop at each spring of the casing; the model's casings run plain round the heads",
-      "status": "open"
+      "what": "Bay: a small dark stop at each spring of every light's casing, on its outer edge (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Entrance: a pointed arch between the posts, springing 0.75 m under the plate and rising 0.65 m to its point, where the kit's porch had scroll brackets (T-2425)",
+      "what": "Entrance: a pointed arch between the posts, springing 0.75 m under the plate and rising 0.65 m to its point, where the kit's porch had scroll brackets (T-2425); read again at 4x by T-2519, the head is a cusped trefoil, not a pointed arch (below)",
       "status": "fixed"
     },
     {
@@ -84,36 +84,68 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: the print's opening is narrower, its posts 1.72 m apart against the model's 2.11 m, which stand where the sheet's 2.91 m porch puts them, and its arch springs lower and stands more pointed for that",
-      "status": "open"
-    },
-    {
-      "what": "Entrance: the print's steps run on down past the model's foot, nosings to about 935 px where the fence cuts them off, some three risers more than a 0.6 m floor over grade at 825 px allows. The fence, built on the street line through the same camera (T-2456), lands within 2-4 px of the print at its piers' feet and caps, so the camera's depth stands and it is the floor's height over grade, not the camera's datum, that is not yet settled",
-      "status": "open"
-    },
-    {
-      "what": "Entrance: a pale gabled shape over the door's south leaf, not identified (a glazed transom, or light through the arch) and not built",
-      "status": "open"
-    },
-    {
-      "what": "Tower: the upper stage is smooth with incised ornament over each light; the model's is clapboarded",
-      "status": "open"
-    },
-    {
-      "what": "Fence: two gate piers either side of an open gateway, 0.9 m clear at s 0.46 and 1.76 m, each a square shaft on a plinth under a hollow cap pierced in every face with an inverted heart, the north pier's iron finial a spike through a ring, the south's a plain spike; and thin iron bars 0.244 m apart on a pale base along the street line, 0.58 m to their rail (T-2456)",
+      "what": "Entrance: the porch, and the tower on it, centred 6.40 m from the front's south end, where the print's roof ends (657, 859 px), posts (676, 830 px) and quatrefoils (698, 809 px) put their one middle and T-2396 read the tower's, not 6.55 m; the roof's edge 1.25 m either side, the posts' outer faces 0.01 m in from the floor's ends, so 1.69 m between the posts against the print's 1.66-1.72 m (T-2519)",
       "status": "fixed"
     },
     {
-      "what": "Fence: the print's caps flare out at their lower corners like a hood over the heart; the model's cap is a plain box a little broader than the shaft",
-      "status": "open"
+      "what": "Entrance: the head is a cusped trefoil: side foils 0.274 m in radius tangent to the posts, springing at 2.80 m (617 px) to their tops at 3.07 m (597 px), meeting a round head foil 0.455 m in radius in two cusps at about 720 and 790 px, the head crowning at 3.424 m (567 px against the print's 565); the board runs up flush to the fascia, the plate carried 0.02 m deep; the quatrefoils 0.2 m across (T-2519)",
+      "status": "fixed"
     },
     {
-      "what": "Fence: south of the south pier the print shows a pale block to the frame's edge with a pale rail at about 918 px, not the bars and base north of the gateway; the model carries the barred run on to the lot line",
-      "status": "open"
+      "what": "Entrance: in the print the board's field round each quatrefoil is open fretwork, dark between the quatrefoil's ring, the head's band and the post, where the model's board was solid. Built (T-2533) as what stands of the board: a band round the head foil 0.155 m broad and round each side foil 0.05 m, a ring out to 0.215 m round each quatrefoil, a tie 0.24 m broad from the ring to the cusp pierced by a round eye 0.05 m across, and a 0.045 m frame on the post and plate, the rest cut away. Rendered, each spandrel's wedge under the plate (print 718.6/788.8 px, 564-572 px high), its eye (710.6/797.2, 585.6 px) and its opening by the post (691.3/815.9, 592-593 px) land within 2.5 px at their middles, and the quatrefoils within 1.6 px; the item's 'moulding some 5 px inside the post's face below the side foils' is not in the print: read across 700-760 px, its opening's edge stands at 685-686 and 822 px, on the posts' faces as built",
+      "status": "fixed"
     },
     {
-      "what": "South of the gable the print shows a two-storey block with a hipped roof, a pale stack and a two-light window over a door: the register's 'separate lower wing' or the neighbour, not yet identified; the model shows the gable range's south flank and projection there",
-      "status": "open"
+      "what": "Entrance: over the trefoil's crown the print shows a strip of board under the plate's shadow line (557-560 px), and over that the porch's fascia 21 px deep (535-556 px); the model's fascia stood at 555-564 px and its board's top at 570 px. Re-read through T-2523's camera (T-2533): the plate 3.0 m clear, the fascia 0.26 m, the spring 0.78 m under the plate and the quatrefoils 0.23 m down, so the arch and quatrefoils stay where they stood; rendered, the fascia 534-554 px and the board's top 562 px, each within 2 px",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the print's steps run on down past the model's foot, their nosings at 813, 834, 850, 865.5, 879.5, 892, 908 and 922.5 px (about 15 px apart) to where the fence's rail cuts them off; T-2520 settled it through the camera as the floor's height. T-2523 builds it: the house on a 0.95 m basement (the sheet's '2BB'), the floor 1.55 m over the walk, the stoop ten risers of 0.155 m on 0.36 m goings, and the camera re-solved on those steps and the fence's base (the eye 30.71 m out on the far walk, 3.25 m over it, f 2242 px); rendered, the treads land on the eight nosings within 3.7 px rms, the print's wider top gap (813 to 834 px) the one the stair does not draw",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance and tower re-read through the camera T-2523 re-solved (the eye 30.71 m out where it stood 20 m, so what stands out from the front draws smaller and nearer the middle than before): the porch and tower centred 6.53 m from the front's south end, not 6.40 m; the floor 1.16 m a side, the posts 0.23 m and 0.045 m in from its ends, the trefoil and quatrefoils 3 % larger, the plate 2.87 m clear; the tower's sills 4.40 m, cornice 7.05 m and spire 10.08 m. Rendered, the roof's ends, posts, quatrefoils, spring, crown and roof lie within 4 px of the print, the tower's sills, points, cornice and spire within 1 px",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: a pale gabled shape over the door's south leaf, 686-757 px across and 622-650 px high, identified by T-2520 as a glazed transom over the leaves: the leaves' lights' own tone in a porch otherwise black, starting on the south jamb, on a dark bar over the head. Built as a 0.12 m bar and one light under a low gable, 0.17 m at the jambs and 0.39 m at the middle: rendered, its south slope lies within 1 px of the print's (631, 627 and 623 px at 700, 710 and 720 px), its foot and apex 4 px high, and the apex at the door's middle, 10 px north of the print's; the glass's dark north part (what it reflects) is not modelled",
+      "status": "fixed"
+    },
+    {
+      "what": "Tower: the upper stage is smooth, with no course line on its three street faces from the porch roof to the cornice, under a frieze only 0.12 m deep (the print's one line across each face at 300 px); over each light a faint incised figure about 0.23 by 0.32 m (6.34-6.66 m through the camera T-2523 re-solved), built as an incised trefoil, one lobe up, its foot on the light's casing band; the model's stage was clapboarded under the kit's 0.4 m frieze (T-2521)",
+      "status": "fixed"
+    },
+    {
+      "what": "Tower: each light's casing is carried round its pointed head as an arched band, the smooth face round it, with no head board or drip cap, where the model's lights stood in square-headed casings (T-2521)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fence: two gate piers either side of an open gateway, each a square shaft on a plinth under a hollow cap pierced in every face with an inverted heart, the north pier's iron finial a spike through a ring, the south's a plain spike; and thin iron bars on a pale base along the street line (T-2456). Re-read through T-2523's camera (T-2456 took them at 158.7 px a metre, where it draws 112.6): shafts 0.49 m at s -0.47 and 1.365 m, the gateway 1.255 m clear, caps 0.56 m from 1.61 to 1.98 m, finials to 2.385 m, the base 0.32 m and the bars 0.349 m apart to 0.83 m, the first bar against the north plinth at 345 px as the print draws it; rendered, the shafts within 2 px, the caps' tops within 3 px and every bar within 1 px (T-2524)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fence: each cap is the shaft's breadth at its top (57 px, 0.51 m, with its eave) and its lower corners flare out like a hood over the heart, a quarter-sine from 1.93 m to 0.56 m across at 1.72 m (63 px), then rounded back in to the shaft by 1.66 m; the model's cap was a plain box; T-2521 read those rows through the camera T-2423 solved, and they are carried here through the one T-2523 re-solved, with the rest of the fence T-2524 re-reads (T-2521, T-2524)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fence: south of the south pier, read again at 3x (T-2521), the print's 'pale block' is the lawn, in the tone of the lawn between the bars north of the gateway (180-200 against 160-200) under a hedge line at 946 px; a bar stands at 68-70 px hard by the plinth, dark down to the base, and the base runs on under it to the frame, so it is the barred run continuing, as the model builds it; the pale dash at 918 px over those same 20 px stands where the model's own top rail does (925 px), and the 7 px between them falls to the fence's heights T-2524 re-reads",
+      "status": "fixed"
+    },
+    {
+      "what": "South of the gable: the print's block is the sheet's south projection, not the neighbour (sheet 20 puts 1700 Prairie's north wall 4.4 m south of the front's south end and its front 1.5 m forward of 1638's, so through this camera all of 1700 falls left of the frame), and it is a lower wing: on the sheet's east face (u -6.67 m) its eave's drip reads at 482 px, a wall top 5.03 m over the basement's top (5.98 m over the walk) where the house's flanks stand at 6.03 m; its roof faces the street, a 50-degree gable whose ridge (264 px, horizontal) runs north on the plan's middle into the main roof, its south rake seen edge-on against the sky; and the drip's south corner (88.5 px) puts its verge at v -3.42 m, so its south wall at v -3.0 m, 0.6 m south of the sheet's -2.4 m line (T-2532). On its face two upper lights 0.5 m wide (179-209 and 224-256 px, 522-592 px) and, under them, a light 0.58 m wide and a narrow one 0.22 m wide (190-225 and 154-167 px, 677-737 px), their feet lost in the planting. Rendered: ridge 263 px, drip 480-483 px, the drip's corner 88 px, the four lights within 3 px; the rake's top lands 5-7 px south of the print's (118 against 125 px at 275 px), the print's rake leaning more steeply than a ridge on the plan's middle can draw",
+      "status": "fixed"
+    },
+    {
+      "what": "South of the gable, at the wing's south corner: a pale upright about 0.6 m wide from under the eave (502 px) to 655 px with a soft south edge, and a third narrow lower light at 110-124 px, at or just past the wall's line; neither is identified (a lit corner, a downpipe or a tree's trunk), and neither is built; the wing's face in the print is dark, in 1700 Prairie's shadow, where the render lights it. Read again (T-2533): both straddle the wing's corner line, which through the camera falls at 117 px (the upright 95-135 px, the light 110-124 px), so neither can stand on the wing's east face, nor on its south face, which an eye 5.7 m north of that wall does not see; and the upright stops under the eave, so it is no chimney. Both are pale where the wall behind is in shade, and the upright's south edge is ragged like the planting's: something in the yard, catching the sun in front of the corner (a trunk or a creeper on a post), not the house. The wing's face is dark because 1700 Prairie, 4.4 m south and outside this record, shades it; the scene, which does not build 1700 here, lights it. So the picture does not show the house at that corner",
+      "status": "not shown"
+    },
+    {
+      "what": "Left of the wing, the dark mass to the frame's edge and the tree over it: 1700 Prairie's north flank and its yard, outside this record",
+      "status": "not shown"
+    },
+    {
+      "what": "Planting: the shrubs in front of the bay and along the stoop, and the creeper at the stoop's foot, stand in the yard in front of the basement and the stoop's lowest risers, so the picture does not show how those meet the ground; the planting is the yard's, outside this record",
+      "status": "not shown"
     },
     {
       "what": "Colour of every surface: the print is a monochrome halftone",

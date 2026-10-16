@@ -1,0 +1,17 @@
+{
+  "master": {
+    "path": "assets/gltf/glessner_house__as_built_1887.glb",
+    "bytes": 186919552,
+    "sha256": "5852984c22ad36c9258305ab23e556771d367660dc3cb4b40e8baabeb273067e"
+  },
+  "web": {
+    "path": "assets/web/glessner_house__as_built_1887.glb",
+    "bytes": 53509700,
+    "sha256": "435d2d90784a37b086729c09d553c52f9f248437cda2fdb0ace1a7b1ec108b2f"
+  },
+  "light": {
+    "path": "assets/web/glessner_house__as_built_1887.light.glb",
+    "bytes": 27981076,
+    "sha256": "14bd3a616942b1c47ec74d8c149b4910d87b11d924f736d570f4342fc1e7ab30"
+  }
+}

@@ -42,23 +42,29 @@ def _edge_distance(point, polygon):
     return distance
 
 
-def _usable(point, lawn, exclusions, margin):
+def _usable(point, lawn, exclusions, margin, exclusion_bounds=None):
     return (_inside(point, lawn) and _edge_distance(point, lawn) >= margin
-            and all(not _inside(point, polygon) and _edge_distance(point, polygon) >= margin
-                    for polygon in exclusions))
+            and all((exclusion_bounds is not None and
+                     (point[0] < exclusion_bounds[i][0]-margin or point[0] > exclusion_bounds[i][2]+margin or
+                      point[1] < exclusion_bounds[i][1]-margin or point[1] > exclusion_bounds[i][3]+margin)) or
+                    (not _inside(point, polygon) and _edge_distance(point, polygon) >= margin)
+                    for i,polygon in enumerate(exclusions)))
 
 
 def add_lawn_blades(builder, params, max_blades=MAX_BLADES, seed=18871904):
     """Append deterministic one-triangle blades; return their actual count.
 
-    The lawn polygon overlaps the carriage drive in the source ground model.
-    Explicitly excluding non-lawn surfaces prevents blades piercing that drive.
+    Physical non-lawn masks include drives, paths and solid building footprints.
+    Computational fragments are not lawn borders: sampling the original domain
+    avoids bald seams along the mesh triangulation.
     Both roots and tips are checked, including a 25 mm boundary clearance.
     """
     if not 0 <= max_blades <= MAX_BLADES:
         raise ValueError(f"Grass blade budget must be between 0 and {MAX_BLADES}")
     lawns = [g for g in params.ground if g["kind"] == "lawn" and len(g["pts"]) >= 3]
     exclusions = [list(g["pts"]) for g in params.ground if g["kind"] != "lawn"]
+    exclusion_bounds = [(min(p[0] for p in q),min(p[1] for p in q),
+                         max(p[0] for p in q),max(p[1] for p in q)) for q in exclusions]
     if not lawns or not max_blades:
         return 0
     bounds = []
@@ -73,13 +79,13 @@ def add_lawn_blades(builder, params, max_blades=MAX_BLADES, seed=18871904):
     for _ in range(max_blades * 4):
         ground, polygon, x0, y0, x1, y1 = rng.choices(bounds, weights=weights, k=1)[0]
         cx, cy = rng.uniform(x0, x1), rng.uniform(y0, y1)
-        if not _usable((cx, cy), polygon, exclusions, 0.05):
+        if not _usable((cx, cy), polygon, exclusions, 0.05, exclusion_bounds):
             continue
         radius = rng.uniform(0.025, 0.12)
         clump_direction = rng.uniform(0, 2 * math.pi)
         for _ in range(rng.randint(6, 14)):
             x, y = cx + rng.gauss(0, radius * 0.45), cy + rng.gauss(0, radius * 0.45)
-            if not _usable((x, y), polygon, exclusions, 0.05):
+            if not _usable((x, y), polygon, exclusions, 0.05, exclusion_bounds):
                 continue
             angle = clump_direction + rng.uniform(-1.6, 1.6)
             width = rng.uniform(0.001, 0.003)
@@ -89,7 +95,7 @@ def add_lawn_blades(builder, params, max_blades=MAX_BLADES, seed=18871904):
             z = ground["lift_m"] + 0.0001
             points = [(x - dx, y - dy, z), (x + dx, y + dy, z),
                       (x - math.sin(angle) * bend, y + math.cos(angle) * bend, z + height)]
-            if not all(_usable(p[:2], polygon, exclusions, BOUNDARY_MARGIN_M) for p in points):
+            if not all(_usable(p[:2], polygon, exclusions, BOUNDARY_MARGIN_M, exclusion_bounds) for p in points):
                 continue
             material = rng.choices(MATERIAL_SLOTS, weights=(2, 5, 3), k=1)[0]
             builder.raw(points, 1.0, material)

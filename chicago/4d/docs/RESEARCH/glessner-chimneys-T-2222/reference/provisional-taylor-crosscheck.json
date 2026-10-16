@@ -1,0 +1,47 @@
+{
+  "method": "Read-only provisional footprint inference from drawing toes projected through frozen T2221 Taylor camera. No app data change, no camera refit, no optimized chimney dimensions. Source top-center picks are approximate; verify picks and independent west toe before adopting.",
+  "comparisons": [
+    {
+      "name": "middle",
+      "provisional_W_ft": [
+        15.55,
+        21.8
+      ],
+      "approx_source_top_center_px": [
+        695,
+        237
+      ],
+      "current_top_center_px": [
+        634.5715542392472,
+        214.45961105515948
+      ],
+      "provisional_top_center_px": [
+        686.5158946120166,
+        236.74080584973672
+      ],
+      "current_error_px": 64.49547418885241,
+      "provisional_error_px": 8.488063727490475
+    },
+    {
+      "name": "south",
+      "provisional_W_ft": [
+        14.18,
+        21.8
+      ],
+      "approx_source_top_center_px": [
+        350,
+        278
+      ],
+      "current_top_center_px": [
+        308.6746621232099,
+        273.9391735268599
+      ],
+      "provisional_top_center_px": [
+        345.09755938486313,
+        285.5861876791597
+      ],
+      "current_error_px": 41.52437672350808,
+      "provisional_error_px": 9.032395445748492
+    }
+  ]
+}

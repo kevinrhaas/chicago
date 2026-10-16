@@ -55,6 +55,18 @@ step "The image gate refuses to close a building that does not match its picture
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+# T-2604. A spread flora pass walks its lattice on a worker (jobs/lattice-kernel.js)
+# and a one-frame pass walks it in flora.js's own `scatter`; the two are separate
+# texts, so this slices flora.js and holds them to the same slots, bit for bit.
+step "The flora lattice walk on a worker hands the deal the slots the in-frame walk does (T-2604)" \
+  node tools/check_lattice_kernel.mjs
+
+selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
+  node tools/check_lattice_kernel.mjs --self-test
+
+step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
+  node tools/check_compact_attributes.mjs
+
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 
@@ -63,6 +75,9 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
+
+selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
+  node tools/prebuild_layers.mjs --self-test
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -76,11 +91,16 @@ step "Glessner's granite is retinted to grey-greige, and nothing else is (T-2446
 step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
   node tools/check_sharpness_default.mjs
 
+step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
+  node tools/check_device_profile.mjs
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
+step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
+  node tools/test_crash_guard.mjs
 
 step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
   node tools/calibrate_boot_weights.mjs --check
@@ -91,8 +111,12 @@ step "The arrival clock forecasts downloads and never sits still on a slow link 
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
+step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
+  node tools/test_frame_governor.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
+  node tools/test_claim_value.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
   node tools/test_repo_file.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
@@ -105,6 +129,8 @@ step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
+step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
+  node tools/test_street_travel.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
   node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
@@ -174,6 +200,34 @@ selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra
   python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
+step "Glessner copper follows the low hood and both adjoining roof planes (T-2220)" \
+  python3 tools/test_glessner_copper.py
+step "Glessner rainwater reaches its collectors and grade without crossing openings (T-2221)" \
+  python3 tools/test_glessner_rainwater.py
+step "Glessner court surfaces are disjoint and approaches meet their thresholds (T-2224)" \
+  python3 tools/test_glessner_courtyard_ground.py
+step "Glessner plain brick and member grain preserve geometry and contacts (T-2226)" \
+  python3 tools/test_glessner_finish.py
+step "Glessner original plain-brick surface maps reproduce (T-2226)" \
+  python3 tools/generate_glessner_finish.py --check
+step "Glessner vines attach to masonry, clear openings and share their Light layout (T-2225)" \
+  python3 tools/test_glessner_vines.py
+step "Glessner foliage atlas rederives from its declared planting (T-2225)" \
+  python3 tools/generate_glessner_vines.py --check
+step "Glessner service posts seat on stone and gate hinges connect to masonry (T-2223)" \
+  python3 tools/test_glessner_service_access.py
+step "Glessner stacks meet both roof pitches and retain deep open flues (T-2222)" \
+  python3 tools/test_glessner_chimneys.py
+step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
+  python3 tools/test_glessner_north_tower.py
+step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \
+  python3 tools/test_glessner_service_junction.py
+step "Glessner carriage leaves: relief, swing and grain" \
+  python3 tools/test_glessner_porte.py
+step "Glessner courtyard treads, landing and rounded terminal stay solid" \
+  python3 tools/test_glessner_terrace.py
+step "Glessner entry retains its cutback, single threshold and recessed carving" \
+  python3 tools/test_glessner_entry.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
@@ -182,6 +236,8 @@ step "every Glessner tier's stone occlusion was baked from its committed atlas, 
   python3 tools/check_stone_occlusion_atlas.py --check
 selftest "…a model rebaked without its atlas, an atlas holding another key and an orphan atlas are refused" \
   python3 tools/check_stone_occlusion_atlas.py --self-test
+step "Glessner's canonical UV caches are complete and reject stale or corrupt layouts (T-2494)" \
+  python3 tools/test_stone_occlusion_uv.py
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
@@ -196,6 +252,8 @@ selftest "…and the draft builder still fits rectangles inside a part, reads th
   python3 tools/draft_prairie_1904.py --self-test
 step "the Prairie district draft's houses are the bytes their records build (T-2329)" \
   python3 generators/draft_emit.py --check
+step "the haystacks are the bytes their records build (T-2510)" \
+  python3 generators/haystack_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -409,6 +467,30 @@ step "the Harrison 1830 cross-check still measures what the 1812 shore quotes (T
 step "the 1812 evacuation route and battle zone re-derive from their readings (T-0470)" \
   python3 tools/derive_evacuation_1812.py --check
 
+# T-2501. The South Branch below the box floor, down to the forks and the canal at
+# Bridgeport, off the same Rees 1849 sheet: a MEASURING line, not yet a layer of any
+# epoch. Its offline half holds the committed file to the trace's own literals and
+# to the Bridgeport pick, the same way the reach above it is held.
+step "the South Branch to Bridgeport still carries what its tracer writes (T-2501)" \
+  python3 tools/trace_south_branch_bridgeport_rees_1849.py --check-properties
+
+# T-2501. Lee's Place (Hardscrabble) is PLACED, not pinned: five printed placings
+# measured along the river above, the adopted station and its reach of the
+# north-west bank derived from them, and each disagreement printed. This holds the
+# site file to its readings byte for byte, and refuses it if the river moves.
+step "the 1812 Hardscrabble site re-derives from its readings (T-2501)" \
+  python3 tools/derive_hardscrabble_1812.py --check
+
+# T-2502. ...and the 1812 ground carried down to it: an apron field beside the box (the box
+# itself is untouched), its land the floor row carried, its channel and banks T-2501's
+# trace at the 1834 cross-section, every sample conjectural. Held byte for byte, and its
+# rules (the north row IS the floor row, the side columns the carried land, the site's
+# bank at or above the water) asserted. measure_anchors.mjs --gate holds the anchor on it.
+step "the 1812 South Branch apron re-derives from the box floor and T-2501's trace (T-2502)" \
+  python3 tools/derive_apron_south_branch_1812.py --check
+selftest "…and its seams still hold when the apron is re-derived (T-2502)" \
+  python3 tools/derive_apron_south_branch_1812.py --self-test
+
 # T-2048. The first fort's one plan, Whistler's draught of 25 January 1808, read into a
 # register the first fort will be built from (T-2049). The raster is not committed, so
 # this holds what can be held without it: the scale is the 75 ft staff's arithmetic,
@@ -469,6 +551,16 @@ step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets 
 selftest "…and a misread lot line, a stray label or a broken section still fails it" \
   python3 tools/trace_prairie_1904_grid.py --self-test
 
+# T-2474. ...the street section and the carriage walks laid on that grid's lots and faces,
+# generated the same way; and (T-2473) the parkway elms planted on its parkway bands, clear
+# of those carriage walks: the committed files are what the tools write, walk for walk and
+# tree for tree.
+step "the 1904 street section and carriage walks re-lay from the street grid (T-2474)" \
+  python3 tools/lay_prairie_1904_street_section.py --check
+
+step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
+  python3 tools/plant_prairie_1904_street_trees.py --check
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps
@@ -496,6 +588,23 @@ step "sheets 28, 20 and 35's 1904 building footprints re-derive from the raster 
 selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
   python3 tools/trace_prairie_1904_footprints.py --self-test
 
+step "the 1904 outer lakefront joins every through track, keeps rails dry and reproduces its mapped apron (T-2495)" \
+  python3 tools/extend_ic_lakefront_1904.py --check
+
+step "the outer 1904 apron GLB and runtime heights agree at both joins (T-2495)" \
+  node tools/check_coast_extension.mjs
+
+# T-2477. ...and the faded context city around them: every building those three sheets draw off
+# Prairie Avenue as a sheet-coloured rectangle, and a projected city past the sheets' edges, with
+# trees (data/context/1904.json). The contract keeps every stand-in off Prairie Avenue's lots and
+# roadway and out of the water, and every sheet it reads a resolving source. T-2491 carried it to
+# the haze's reach with faded streets, which the contract keeps off every traced carriageway and lot.
+step "the 1904 context city and its streets re-derive and keep off Prairie Avenue and the lake (T-2477, T-2491)" \
+  python3 tools/build_context_1904.py --check
+
+selftest "…and a stand-in put on a Prairie Avenue lot or in the lake, or a street across Prairie, still fails it" \
+  python3 tools/build_context_1904.py --self-test
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
@@ -517,6 +626,15 @@ selftest "…and a bare surface, an invented source, a report made to attest or 
 # channel is red whatever its strength.
 step "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)" \
   python3 tools/check_street_surfaces.py --handedness
+
+# T-2478. ...and the railway between those streets and the lake: the Illinois Central
+# tracks sheets 20 and 28 draw, traced in a frame along the scene's waterline, joined
+# across the sheets' gap and closed on their neighbours where no sheet draws them, each
+# stretch recording how it was got. --check re-reads both sheets (Pillow and numpy,
+# tools/check_gate_readers.py) and holds data/railway/1904.json to what a re-trace
+# writes; without them it holds the committed file's properties together.
+step "the 1904 Illinois Central tracks still re-trace from sheets 20 and 28 (T-2478)" \
+  python3 tools/trace_ic_tracks_1904.py --check
 
 # T-2292. ...and what the 1904 roofs are covered in. The K04 library's slates, tiles, pans
 # and sheets are sized in data/components/prairie_1904/k04_roofs.json and drawn by the
@@ -720,6 +838,14 @@ step "the WebP maps the renderer binds decode pixel-identical to their PNG maste
 
 selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
   python3 tools/web_textures.py --self-test
+
+# T-2582. The KTX2 beside each drop-in sheet (roof relief, 1904 streets, the ground strip's
+# muck), which js/ktx2.js loads in place of the image where the GPU takes a block format.
+# KTX2 is lossy by design, so this reads what the renderer relies on, not pixels: the file
+# is there and is a KTX2, it is its web map's size, it carries the full mip chain the
+# light tier drops the top of, and no .ktx2 sits in the library that no sheet names.
+step "every drop-in library sheet carries its KTX2: its web map's size, a full mip chain, no orphans (T-2582)" \
+  python3 tools/ktx2_sheets.py --check
 
 # T-2299. ...and the relief in them points the way its name says. The 1835 library's
 # generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` and filed
@@ -3541,6 +3667,16 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
+
+# T-2561: a kept year is served from the device, so its pack has to list exactly
+# what ships — every entry the file at its hash — or an offline visitor gets a
+# file the site no longer has. The self-test holds who is in which year's pack,
+# the update diff the page fetches by, and the one-line kill switch.
+selftest "year packs: membership, the update diff and the kill switch (T-2561)" \
+  node tools/write_year_packs.mjs --self-test
+
+step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
+  node tools/write_year_packs.mjs --check
 
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with

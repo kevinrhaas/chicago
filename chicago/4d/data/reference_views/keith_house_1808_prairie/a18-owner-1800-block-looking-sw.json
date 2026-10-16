@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-owner-1800-block-looking-sw",
+  "photo": "../../../../prairie_1904_v1/research/public/a18-owner-1800-block-looking-sw.jpg",
+  "image_px": [
+    482,
+    328
+  ],
+  "principal_px": [
+    316.43730244933994,
+    252.26856263164333
+  ],
+  "focal_px": 698.5867385611342,
+  "eye": [
+    34.82354424470775,
+    42.638504117926416,
+    1.7
+  ],
+  "yaw_deg": 270,
+  "basis_right_up_forward": [
+    [
+      -0.903958027253998,
+      0.4201583974757439,
+      0.07954122197750434
+    ],
+    [
+      0.06963047899936167,
+      -0.038901467073698855,
+      0.9968140610233349
+    ],
+    [
+      -0.42191406868861253,
+      -0.9066165655281887,
+      -0.0059094629613869396
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "Owner reproduction of c1888 street photo; 1101 SIFT/RANSAC inliers; camera transfer coordinate RMS 0.32px. Inherits the level c1888 camera and its 9.11px control uncertainty. Original owner file unchanged; rights not reinterpreted. Monochrome colour not shown."
+}

@@ -1,0 +1,325 @@
+{
+  "status": "T-2222 component reviewed in canonical Full/Light and five fixed reference cameras; whole-house photographic acceptance remains T-2228",
+  "date": "2026-10-14",
+  "target": "1904-07-01",
+  "count": 7,
+  "stacks": [
+    {
+      "name": "north_gable",
+      "existence_1904": "attested form in early Taylor photograph",
+      "sources": [
+        "taylor_2135_glessner_exterior_1887_1889",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "current_S_ft": [
+        0.0,
+        3.1
+      ],
+      "current_top": [
+        48.62,
+        "door"
+      ],
+      "current_plan": {
+        "W": [
+          16.25,
+          21.35
+        ],
+        "base": [
+          40.0,
+          "door"
+        ]
+      },
+      "plan_tier": "reconstructed",
+      "review": "Current north-gable plan moved with ridge in T2470; preserve printed top and integrated street face.",
+      "flue_count": "unmeasured reconstruction; no source-supported visible side vents",
+      "existence_confidence": "attested",
+      "finish_confidence": "reconstructed",
+      "flues": [
+        2,
+        1
+      ],
+      "finish_sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ]
+    },
+    {
+      "name": "south",
+      "existence_1904": "attested form in early Taylor photograph",
+      "sources": [
+        "taylor_2135_glessner_exterior_1887_1889",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "current_S_ft": [
+        57.2,
+        61.2
+      ],
+      "current_top": [
+        48.5,
+        "door"
+      ],
+      "current_plan": {
+        "W": [
+          9.5,
+          17.0
+        ],
+        "base": [
+          40.0,
+          "door"
+        ]
+      },
+      "plan_tier": "reconstructed",
+      "review": "Use east/west toe readings plus unchanged Taylor camera to evaluate ridge-straddling plan; do not copy obsolete dossier bounds.",
+      "flue_count": "unmeasured reconstruction; no source-supported visible side vents",
+      "existence_confidence": "attested",
+      "finish_confidence": "reconstructed",
+      "flues": [
+        3,
+        2
+      ],
+      "finish_sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ],
+      "revised_plan": {
+        "W": [
+          14.18,
+          21.8
+        ],
+        "base": [
+          37.0,
+          "door"
+        ]
+      },
+      "position_basis": "HABS6 east roof-toe heights and HABS4 west roof-toe fraction, transferred through retained roof planes; early Taylor unchanged camera cross-check. Approximately +/-0.3 ft; no measured original plan depth claimed."
+    },
+    {
+      "name": "middle",
+      "existence_1904": "attested form in early Taylor photograph",
+      "sources": [
+        "taylor_2135_glessner_exterior_1887_1889",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "current_S_ft": [
+        25.8,
+        28.6
+      ],
+      "current_top": [
+        48.5,
+        "door"
+      ],
+      "current_plan": {
+        "W": [
+          9.25,
+          13.25
+        ],
+        "base": [
+          40.0,
+          "door"
+        ]
+      },
+      "plan_tier": "reconstructed",
+      "review": "Use east/west toe readings plus unchanged Taylor camera to evaluate ridge-straddling plan; do not copy obsolete dossier bounds.",
+      "flue_count": "unmeasured reconstruction; no source-supported visible side vents",
+      "existence_confidence": "attested",
+      "finish_confidence": "reconstructed",
+      "flues": [
+        2,
+        1
+      ],
+      "finish_sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ],
+      "revised_plan": {
+        "W": [
+          15.55,
+          21.8
+        ],
+        "base": [
+          37.0,
+          "door"
+        ]
+      },
+      "position_basis": "HABS6 east roof-toe heights and HABS4 west roof-toe fraction, transferred through retained roof planes; early Taylor unchanged camera cross-check. Approximately +/-0.3 ft; no measured original plan depth claimed."
+    },
+    {
+      "name": "great",
+      "existence_1904": "Existing record classifies attested, citing HABS sheet 4 and the 1888 exterior; Taylor does not independently expose this stack.",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "current_S_ft": [
+        16.5,
+        20.5
+      ],
+      "current_top": [
+        46.6,
+        "ng"
+      ],
+      "current_plan": {
+        "W": [
+          37.8,
+          42.2
+        ],
+        "base": [
+          28.0,
+          "ng"
+        ]
+      },
+      "plan_tier": "reconstructed",
+      "review": "Preserve current count and plan pending specific source contradiction; old revised dossier top is not current geometry. Taylor current top projects near915,313 behind the main roof, so do not call it an early Taylor measurement. Inland1888 full publication plate was directly visually re-read 2026-10-14: fourth broad stack visible behind the north gable. Textual verification of retained existence only; no new asset dimensions derive from this rights-uncleared reproduction.",
+      "flue_count": "unmeasured reconstruction; no source-supported visible side vents",
+      "source_limit": "Inland digital reproduction rights remain check_required: textual citation only, no new derived pixels or geometry. Keep existing stack; any new finish must derive from licensed HABS drawing and be explicitly reconstructed for 1904.",
+      "existence_confidence": "attested",
+      "finish_confidence": "reconstructed",
+      "flues": [
+        2,
+        2
+      ],
+      "finish_sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ]
+    },
+    {
+      "name": "dining_room",
+      "existence_1904": "inferred",
+      "sources": [
+        "habs_glessner_photo_01_nw_1963",
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "current_plan": {
+        "W": [
+          68.0,
+          72.0
+        ],
+        "S": [
+          9.0,
+          12.5
+        ],
+        "base": [
+          25.0,
+          "ng"
+        ],
+        "top": [
+          39.0,
+          "ng"
+        ]
+      },
+      "review": "Later HABS01 and original fireplace support inference; no independently dated early roof location. Preserve absent contrary evidence.",
+      "flue_count": "unmeasured reconstruction",
+      "existence_confidence": "inferred",
+      "finish_confidence": "reconstructed",
+      "flues": [
+        2,
+        1
+      ],
+      "finish_sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ]
+    },
+    {
+      "name": "service_east",
+      "existence_1904": "reconstructed",
+      "sources": [
+        "owner_glessner_v4_reconstruction_brief_2026",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "current_plan": {
+        "W": [
+          94.0,
+          97.0
+        ],
+        "S": [
+          20.0,
+          23.0
+        ],
+        "base": [
+          24,
+          "ng"
+        ],
+        "top": [
+          36,
+          "ng"
+        ]
+      },
+      "review": "Owner-directed surviving-roof reconstruction, not independently attested 1904. Later floor-plan mass is offset and does not justify deletion or automatic relocation.",
+      "flue_count": "unmeasured reconstruction",
+      "existence_confidence": "reconstructed",
+      "finish_confidence": "reconstructed",
+      "flues": [
+        2,
+        1
+      ],
+      "finish_sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ],
+      "finish_basis": "Licensed w_lemay 2024 frames159537051/159537085 show brick shafts and plain pale stone caps. Carrying that fabric to1904 is reconstructed; positions/heights remain the earlier owner-directed bounded reconstruction."
+    },
+    {
+      "name": "service_west",
+      "existence_1904": "reconstructed",
+      "sources": [
+        "owner_glessner_v4_reconstruction_brief_2026",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "current_plan": {
+        "W": [
+          113.5,
+          117.0
+        ],
+        "S": [
+          24.0,
+          27.0
+        ],
+        "base": [
+          24,
+          "ng"
+        ],
+        "top": [
+          33,
+          "ng"
+        ]
+      },
+      "review": "Owner-directed surviving-roof reconstruction, not independently attested 1904. Later floor-plan mass is offset and does not justify deletion or automatic relocation.",
+      "flue_count": "unmeasured reconstruction",
+      "existence_confidence": "reconstructed",
+      "finish_confidence": "reconstructed",
+      "flues": [
+        2,
+        1
+      ],
+      "finish_sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ],
+      "finish_basis": "Licensed w_lemay 2024 frames159537051/159537085 show brick shafts and plain pale stone caps. Carrying that fabric to1904 is reconstructed; positions/heights remain the earlier owner-directed bounded reconstruction."
+    }
+  ],
+  "unchanged_count": 7,
+  "recorded_on": "2026-10-14",
+  "limits": [
+    "No count change.",
+    "Neither modern service-stack arrangement nor later roof alterations independently date exact1904 positions.",
+    "All cap stock, return joints, flue counts/depths and top falls remain reconstructed.",
+    "No new pot or side-vent is introduced."
+  ]
+}

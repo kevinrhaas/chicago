@@ -2,10 +2,10 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "0ea43f844b365a15c3cedb9db1a69c74d45dde02d5513a60c860e9ee5e9d9319",
+  "glb_sha256": "f27b5f1cb736cc28d799ba103a2e3d8be954272d8f07643c50284b184fb21e43",
   "camera_sha256": "dfa5031ea10d2db2d29acbe9a1192a9f021983a0d7e44dc675754544440b3299",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "wall head: the heavy bracketed cornice over the front; the build's walls stood 0.7 m over the first fit's 7.9 m. T-2437 re-fitted this camera to the house's heights as re-read off the 1874 engraving (the cornice's soffit 10.61 m, the principal floor 2.0 m) and the build's cornice lands within the fit's 10 px of the drawn soffit (y 36 px)",
@@ -16,15 +16,15 @@
       "status": "fixed"
     },
     {
-      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay. On T-2437's re-fitted camera its south part lands at x 8 px against the drawn 5 (its north part is under the '1620' cartouche). Its height is now the sketch's: T-2444 raised the bay to the 1874 engraving's heights, and its hood's eaves land at about y 117 px against the sketch's bay cornice at y 115 px, where the build's hood top stood about 13 px (0.65 m) under it before. Still open: the pilaster strips the sketch draws on the bay's face, which the timber bay does not carry (T-2445)",
-      "status": "open"
-    },
-    {
-      "what": "windows: the south part's upper window, beside the cartouche at the sketch's left edge, round-headed under a hood; built so by T-2410 (the cartouche covers the rest of the south part)",
+      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay. On T-2437's re-fitted camera its south part lands at x 8 px against the drawn 5 (its north part is under the '1620' cartouche). Its height is now the sketch's: T-2444 raised the bay to the 1874 engraving's heights, and its hood's eaves land at about y 117 px against the sketch's bay cornice at y 115 px, where the build's hood top stood about 13 px (0.65 m) under it before. The pilaster strips the sketch draws on the bay's face, white between its hatched lights, built by T-2462 as the 1874 engraving places them: light painted strips 0.2 m wide down the bay's two front corners from its plinth to its hood, landing at x 26-33 px (the north one under the cartouche); the sketch draws the south strip at its bay's edge, x 7-15 px, where its freehand bay stands wider than either camera allows, within what this approximate camera can say",
       "status": "fixed"
     },
     {
-      "what": "entrance: the stoop rising straight from the gate (x 93-140 px, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face. Built (T-2409): the door moved to v 6.6, its 1.8 m stoop rising straight to it and its landing ending at the pavilion's south face; the porch before the pavilion stands behind the sketch's lattice fence and its '1620' cartouche hides the door's hood. On T-2437's camera the gate's piers land at x 71-93 and 146-168 px against the drawn 70-91 and 142-157, and the porch's head on the drawn 192 px",
+      "what": "windows: the south part's upper window, beside the cartouche at the sketch's left edge, round-headed under a hood; built so by T-2410 (the cartouche covers the rest of the south part); T-2462 moved it to v 2.5 off the bay's centre, as the 1874 engraving draws it, and it lands at x 33-53 px against the sketch's 37-60 px, within this camera's 10 px",
+      "status": "fixed"
+    },
+    {
+      "what": "entrance: the stoop rising straight from the gate (x 93-140 px, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face. Built (T-2409): the door moved to v 6.6, its 1.8 m stoop rising straight to it and its landing ending at the pavilion's south face; the porch before the pavilion stands behind the sketch's lattice fence and its '1620' cartouche hides the door's hood. On T-2437's camera the gate's piers land at x 71-93 and 146-168 px against the drawn 70-91 and 142-157, and the porch's head on the drawn 192 px. T-2463 moved the door 0.675 m south to v 5.925, under the window over it, as the 1874 engraving draws it, and left the stoop, its gate and its walk on v 6.6: the sketch's cartouche covers the front over the stoop's head, so it cannot say where the door stands, and its stoop still rises from the gate where the build's does",
       "status": "fixed"
     },
     {

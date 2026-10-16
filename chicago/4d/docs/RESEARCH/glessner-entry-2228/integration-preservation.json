@@ -1,0 +1,60 @@
+{
+  "matches": true,
+  "dev_parent": "c91f729e417eabf26c6240501ed7a2fa5a851e0e",
+  "unchanged_reviewed_assets": [
+    {
+      "path": "assets/gltf/glessner_house__as_built_1887.glb",
+      "sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d"
+    },
+    {
+      "path": "assets/web/glessner_house__as_built_1887.glb",
+      "sha256": "bc5a2ccf7eff0691e91c3ac32a67b97f6e7aa608189e3932584cfbd8aecf3011"
+    },
+    {
+      "path": "assets/web/glessner_house__as_built_1887.light.glb",
+      "sha256": "1ec43bfdeeaf745acca4c9528235cc6c548713e6fbf4ea84fc852185209bad6a"
+    }
+  ],
+  "unchanged_geometry_inputs": [
+    "chicago/4d/data/structures/glessner_house.json",
+    "chicago/4d/generators/archetypes/masonry_house.py",
+    "chicago/4d/generators/archetypes/masonry_house_params.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_copper.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_court.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_courtyard_roof.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_detail.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_drainage.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_entry.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_frontage.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_north_tower.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_ornament.py",
+    "chicago/4d/generators/archetypes/masonry_house_v4_roof_edges.py",
+    "chicago/4d/tools/_glessner_lod.py"
+  ],
+  "unchanged_runtime_modules": [
+    "batch-material.js",
+    "view-occlusion.js",
+    "buildings.js",
+    "confidence.js",
+    "glass.js",
+    "glessner-roof-filter.js",
+    "keith-stone.js",
+    "roof-relief.js",
+    "season.js",
+    "wall-relief.js",
+    "shadow-casters.js"
+  ],
+  "inherited_runtime_changes": [
+    {
+      "path": "chicago/4d/renderers/web/js/main.js",
+      "source_commit": "c91f729e417eabf26c6240501ed7a2fa5a851e0e",
+      "sha256": "b85de2c3f3752187184adb8448e537911b403c324118ee80c575c9c9f6df755d",
+      "scope": "Inherited crash-aware startup; covered by the final exact-head smoke tests, not by the earlier entrance captures."
+    }
+  ],
+  "changed_asset_records": [
+    "glessner_house__as_built_1887.glb"
+  ],
+  "other_asset_records_preserved": 890,
+  "scope": "Targeted browser QA remains evidence for unchanged Glessner geometry and materials; all-stage CI will validate the combined scene and inherited startup change."
+}

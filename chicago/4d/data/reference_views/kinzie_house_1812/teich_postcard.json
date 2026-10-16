@@ -1,0 +1,26 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "source_id": "teich_old_kinzie_house_postcard",
+  "photo": "../../../../reference/images/chicago/chicago_kinzie_house_1804.jpg",
+  "image_px": [
+    960,
+    609
+  ],
+  "principal_px": [
+    238.2,
+    71.8
+  ],
+  "focal_px": 872.5,
+  "eye": [
+    29.82,
+    60.15,
+    18.08
+  ],
+  "yaw_deg": 183.69,
+  "sun_uvy": [
+    -0.5,
+    0.6,
+    0.6
+  ],
+  "solve": "Fitted by least squares (an unpitched camera, as photo_match draws it: verticals stay vertical; focal and principal point free) to fourteen points read off the postcard at 960 x 609 px against the GLB's footprint frame (u along the front, the west gable the +u end; v toward the river): the west gable's apex (460, 261) and its back eave corner (420, 292); the heads of the two stacks (535, 250; 605, 252); four piazza posts at their feet (516, 547, 599, 634 at y 370) and heads (y 322), taken as the build's posts at u 9.69, 7.30, 4.91 and 2.52, the door (x 570-585) between the second and third; and the east verge at the ridge (635, 262) and at the front eave (652, 318), where the first poplar's trunk stands in front of it. The best of 54 starts is eye (30.51, 64.57) at 15.31 m, heading 192.85 degrees, focal 1010.7 px, principal (380.9, 105.2), rms 10.45 px: about 70 m south-south-west of the house and well above it, which is how the painting looks down on the green and the road. The residual is the painting's, not noise: it draws the west end broad (about 80 px for the end and its piazza) and the front short (about 190 px for 12.2 m), so with the east verge in the fit the west apex lands 13.5 px right of the drawn and the front-east eave corner 17.6 px left of it; without the east verge (twelve points) a near, wide camera fits at rms 9.0 px and puts the build's east end 30 px beyond the painted one. A painter's perspective is not a lens's. sun_uvy puts the light where the painting has it, from the front and the east: the front and piazza lit, the west end in shade. RE-FITTED FOR T-2516 on the same points with the same quantities held, against the rebuilt piazza: its posts' heads now 2.81 m over grade (2.11 m before), its plate 2.95 m and its eave at its front edge 2.88 m (2.20 m), under the swept roof. Eye (29.82, 60.15) at 18.08 m, heading 183.69 degrees, focal 872.5 px, principal (238.2, 71.8), rms 7.93 px (the T-2497/T-2498 camera on the old points: 10.34 px). The painting's broad west end and short front stay in the residual (the west apex 15 px left of the drawn, the east verge at the front eave 10 px off), as before."
+}

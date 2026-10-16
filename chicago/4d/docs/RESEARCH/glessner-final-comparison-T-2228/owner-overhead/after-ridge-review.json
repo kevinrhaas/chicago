@@ -1,0 +1,27 @@
+{
+  "structure_id": "glessner_house",
+  "view": "owner-aerial",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "6f1cbdee8e64edacea8a6dc0ad4bb461ab43eaf6c108628e56fd81f95dd5220e",
+  "camera_sha256": "0cc958a82514c03e0d00bc8974b0a04c817d0782f4a33864389bcea8617780c4",
+  "verdict": "differs",
+  "differences": [
+    {
+      "status": "fixed",
+      "what": "North-range crest and west cross-gable now share S14.6. The actual GLB overhead shows no plan jog; perpendicular stable ridge remains W141. Higher west crossing locally occludes the lower north crest, as a declared reconstruction."
+    },
+    {
+      "status": "open",
+      "what": "Copper roof coverage in the northeast courtyard is too limited in the model, and dining roof footprint and other roof-feature correspondence remain different."
+    },
+    {
+      "status": "not shown",
+      "what": "Modern aerial colors, vegetation, service fabric and map labels do not establish1904 details. Camera is an approximate roof-inspection pose, not an independently surveyed reconstruction."
+    }
+  ],
+  "reviewed_on": "2026-10-15",
+  "review_method": "Direct inspection of unchanged-camera actual-GLB side-by-side.",
+  "render": "after-ridge-render.png",
+  "render_sha256": "ecbc34aa1919374243b857b15535f688c870150701d82a8999d3d0f6e4dceb7c",
+  "source_sha256": "500505fbd6ed9115d6f2348026c9396e068ef15400498f63424f4c2c72894f30"
+}

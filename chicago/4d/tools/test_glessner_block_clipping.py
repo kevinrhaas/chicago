@@ -267,7 +267,9 @@ def physical_ray_hits(face,y,z):
 def check_prairie_door_cutout():
     opening={'axis':'x','sign':1,'at':0,'u0':0,'u1':1.5,'z0':0,'z1':2.5,'conf':.5}
     b=PhysicalRecorder();detail.detailed_door(b,opening,'prairie_front_door')
-    for y,z in ((.30,1.45),(.60,1.8),(.90,2.0),(1.2,2.2)):
+    # T-2216: the glazing is sheet No. 95's square grille, 0.23-0.78 of the leaf across
+    # and 0.13-0.49 of it down, so the rays stand inside that square.
+    for y,z in ((.45,1.35),(.70,1.75),(.95,2.0),(1.10,2.1)):
         assert not any(physical_ray_hits(face,y,z) for face,_,mat in b.faces if mat==detail.WOOD), \
             'opaque wood still backs the Prairie upper glazing'
         assert any(physical_ray_hits(face,y,z) for face,_,mat in b.faces if mat==detail.GLASS), \
@@ -398,16 +400,20 @@ def check_frontage_ground():
         return max(hits,default=(-99,-1))
     for reduced in (False,True):
         surfaces=Surfaces();add_frontage(surfaces,params,reduced);assert passage_floor(surfaces,params)
-        # Door sill and both risers meet, without a curb across the approach.
+        # One inset tread meets the sill, without a curb across the approach.
         y=sum(f['door_y'])/2
         for i in range(101):
             x=f['wall_x']+(f['walk_x']-f['wall_x'])*i/100
             z,mat=height(surfaces,x,y)
             assert f['walk_z']-.004<=z<=f['door_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
         assert abs(height(surfaces,params.width_m+.017,y)[0]-f['door_z'])<1e-8
-        # The existing opening owns the bottom reveal behind +16 mm. There
-        # must be no second coplanar sill face over it (the old cause of flicker).
-        assert height(surfaces,params.width_m,y)[0] < f['door_z']-.01
+        # HABS5's broad inset tread now owns the bottom reveal. It continues
+        # behind the facade; the old narrow opening-floor face is omitted by
+        # the entry builder, whose emitted mesh is checked separately.
+        entry=params.detail['prairie_entry']
+        for x in (params.width_m,entry['threshold_back_x']+.01):
+            assert abs(height(surfaces,x,y)[0]-f['door_z'])<1e-8
+        assert abs(height(surfaces,entry['threshold_front_x']+.01,y)[0]-f['walk_z'])<1e-8
         # Three longitudinal lanes through the approach and splayed passage.
         p,q,r,s=params.detail['underpass']['pts']
         for lane in (.1,.5,.9):

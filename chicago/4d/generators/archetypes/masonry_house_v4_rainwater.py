@@ -53,7 +53,11 @@ def _gutter(b,edge,normals):
     """
     radius,inside,offset=.060,.057,.032
     centres=[(p[0]+n[0]*offset,p[1]+n[1]*offset,p[2]-.016) for p,n in zip(edge,normals)]
-    segments=10
+    # T-2220: keep the same paths and section radii in Light, reducing only
+    # tiny curved stock (maximum section chord error about 2 mm). This pays
+    # for the corrected copper junction without raising the 200k house cap.
+    reduced=getattr(b,'reduced_roof_details',False)
+    segments=6 if reduced else 10
     def P(i,theta,r):
         p,n=centres[i],normals[i]
         return (p[0]+n[0]*r*math.cos(theta),p[1]+n[1]*r*math.cos(theta),p[2]+r*math.sin(theta))
@@ -66,7 +70,7 @@ def _gutter(b,edge,normals):
             b.raw([P(i,a,radius),P(i,c,radius),P(i+1,c,radius),P(i+1,a,radius)],CONFIDENCE,METAL,want)
             b.raw([P(i,a,inside),P(i+1,a,inside),P(i+1,c,inside),P(i,c,inside)],CONFIDENCE,METAL,tuple(-v for v in want))
     for theta in (math.pi,2*math.pi):
-        _tube(b,[P(i,theta,radius) for i in range(len(edge))],.006)
+        _tube(b,[P(i,theta,radius) for i in range(len(edge))],.006,4 if reduced else 8)
     # Close the small sheet section at each end; leave the drainage trough open.
     for i,other in ((0,1),(-1,-2)):
         want=tuple(edge[i][k]-edge[other][k] for k in range(3))
@@ -104,6 +108,10 @@ def _downpipe(b,x,y,top,inlet=None):
 
 def add_courtyard_rainwater(b,params):
     """Follow the photographed courtyard eaves and their two clear pipe joints."""
+    if params.detail.get('rainwater'):
+        from archetypes.masonry_house_v4_drainage import build
+        build(b,params)
+        return
     add_west_rainwater(b,params)
     ranges={r['name']:r for r in params.ranges}
     north,east=ranges.get('north_range'),ranges.get('east_wing')
@@ -120,6 +128,11 @@ def add_courtyard_rainwater(b,params):
     north_overhang=north.get('eave_lo_overhang',overhang)
     ny=north['y0']-north_overhang;nz=north['eave_lo_z']-north_overhang*slope
     right=copper['x0'] if copper else north['x1']
+    if bow and params.detail.get('continuous_copper_corner'):
+        # The north eave continues as tile to the bow; the former diagonal
+        # connector gutter crossed the upper windows below a floating sheet.
+        radius=bow['r']+.20
+        right=bow['cx']-math.sqrt(max(0.,radius*radius-(ny-bow['cy'])**2))
     west=ranges.get('west_wing')
     wg=west.get('stable_roof',{}) if west else {}
     left=north['x0']
@@ -139,12 +152,6 @@ def add_courtyard_rainwater(b,params):
                 if abs(c-da)<.001:edge=[(a,ny,nz),(da-.24,ny,nz),(da,ny,dining['band_top_z'])]
                 elif abs(a-dc)<.001:edge=[(dc,ny,dining['band_top_z']),(dc+.24,ny,nz),(c,ny,nz)]
             _gutter(b,edge,[(0,-1,0)]*len(edge))
-    if copper and params.detail.get('continuous_copper_corner') and north_overhang>.21:
-        from archetypes.masonry_house_v4_courtyard_roof import copper as copper_roof
-        _,a,c=copper_roof(params)[0][0]
-        dx,dy=c[0]-a[0],c[1]-a[1];length=math.hypot(dx,dy)
-        normal=(dy/length,-dx/length,0)
-        _gutter(b,[a,c],[normal,normal])
     if copper and not params.detail.get('continuous_copper_corner'):
         _gutter(b,[(copper['x0'],copper['y0'],copper['wall_top_z']),
                    (copper['x1'],copper['y0'],copper['wall_top_z'])],[(0,-1,0)]*2)

@@ -1,0 +1,257 @@
+{
+  "method": "Entire fixed-camera PNG versus retained eight-view partial Full baseline. Exact camera/projection/exposure asserted separately; image differences retained. Not a completed before matrix or a historical photo-match verdict.",
+  "rows": [
+    {
+      "name": "bow-leader",
+      "sameCamera": true,
+      "changedPixels": 176,
+      "maxDelta": 20,
+      "bounds": [
+        1,
+        1,
+        1260,
+        737
+      ],
+      "before": {
+        "drawCalls": 406,
+        "triangles": 4809154,
+        "programs": 66,
+        "geometries": 351,
+        "textures": 633,
+        "batches": 147,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 86959696,
+        "fps": 0,
+        "cameraNear": 0.25,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": false
+      },
+      "after": {
+        "drawCalls": 219,
+        "triangles": 4039465,
+        "programs": 66,
+        "geometries": 255,
+        "textures": 441,
+        "batches": 51,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 86959696,
+        "fps": 0,
+        "cameraNear": 0.25,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      }
+    },
+    {
+      "name": "north-head-clear",
+      "sameCamera": true,
+      "changedPixels": 101,
+      "maxDelta": 20,
+      "bounds": [
+        120,
+        110,
+        137,
+        198
+      ],
+      "before": {
+        "drawCalls": 299,
+        "triangles": 4596349,
+        "programs": 66,
+        "geometries": 275,
+        "textures": 523,
+        "batches": 147,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 86959696,
+        "fps": 0,
+        "cameraNear": 0.30000000000000004,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 199,
+        "triangles": 3834360,
+        "programs": 66,
+        "geometries": 179,
+        "textures": 332,
+        "batches": 51,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 86959696,
+        "fps": 0,
+        "cameraNear": 0.30000000000000004,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      }
+    },
+    {
+      "name": "north-tower",
+      "sameCamera": true,
+      "changedPixels": 914,
+      "maxDelta": 73,
+      "bounds": [
+        120,
+        37,
+        1279,
+        770
+      ],
+      "before": {
+        "drawCalls": 296,
+        "triangles": 4596824,
+        "programs": 66,
+        "geometries": 276,
+        "textures": 525,
+        "batches": 147,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 86959696,
+        "fps": 0,
+        "cameraNear": 0.30000000000000004,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 196,
+        "triangles": 4118841,
+        "programs": 66,
+        "geometries": 180,
+        "textures": 334,
+        "batches": 51,
+        "wallRelief": {
+          "off": false,
+          "substrates": {
+            "clapboard": {
+              "id": "clapboard_board_face",
+              "px": 1024,
+              "tileM": 4.48,
+              "meanRough": 0.867
+            },
+            "hewn_log": {
+              "id": "hewn_log_face",
+              "px": 1024,
+              "tileM": 4.08,
+              "meanRough": 0.907
+            }
+          }
+        },
+        "structures": 151,
+        "structuresExpected": 151,
+        "structuresStanding": 151,
+        "bytes": 86959696,
+        "fps": 0,
+        "cameraNear": 0.30000000000000004,
+        "budget": {
+          "drawCalls": 360,
+          "triangles": 4600000
+        },
+        "withinBudget": true
+      }
+    }
+  ]
+}

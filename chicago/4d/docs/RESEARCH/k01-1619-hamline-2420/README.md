@@ -28,7 +28,7 @@ in front of it.
 
 ## The camera
 
-`data/reference_views/house_1619_prairie/building_budget_front.json`. Level and square to the front;
+`data/reference_views/house_1621_prairie/building_budget_front.json` (at `house_1619_prairie` until T-2440 moved the build to 1621). Level and square to the front;
 the bow's two edges (its 3.76 m chord on the sheet) give 46 px/m at the front's plane, which the
 drawing's own floor bands agree with to about 10 %; the eye at 1.6 m, 20 m out, and 3.5 m south of
 the south wall, in front of the driveway, the only place from which that wall shows as deep as the
@@ -51,7 +51,7 @@ raised after 1886 — and a photograph after 1886 decides it.
 
 ## Match record
 
-`data/reference_views/house_1619_prairie/building_budget_front.match.json`, verdict **differs**:
+`data/reference_views/house_1621_prairie/building_budget_front.match.json` (moved from 1619 by T-2440), verdict **differs**:
 massing, the bow's lights and the storey lines are `fixed` (the bow's edges within 3 px, its top
 within 5 px, the bands within about 15 px); the wall gable, the stepped parapet and the stone
 cornice are `open` for **T-2421**; the balcony rail, the arched entrance and carved panel, the side
@@ -59,7 +59,7 @@ stoop and the grilled basement arches are `open` for **T-2422**, which brings th
 `matches`. The strip's width, the south pier, the storey count and colour are `not shown`, argued
 above.
 
-![side by side](../photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg)
+![side by side](../photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg)
 
 ## What K01 could not do here, for the next pieces
 
@@ -99,7 +99,7 @@ are K10's dormer face, unchanged; inside them a panel is recessed 0.08 m. Built 
 where the drawing is not: the two pinnacles' tops (drawn about 20 px apart in height) and their carved
 caps (square pyramids here). Every K01 house but 1619 builds byte-identical.
 
-![the gable, drawing and build](../photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg)
+![the gable, drawing and build](../photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg)
 
 Left for **T-2429**: the slates behind the gable as steep as it, the crow-stepped south parapet
 rising to its stack, and the moulded stone cornice at the bow's top (K10's bracketed timber cornice
@@ -132,3 +132,37 @@ Under the gable K10's bracketed cornice runs along the street front alone, corne
 a flat roof, since the side walls rise into parapets.
 
 Left for **T-2460**: the moulded stone cornice at the bow's top, with the bow carried up to it.
+
+## The stone cornice (T-2460)
+
+Piece 2 of T-2429. K10's bracketed timber cornice (scrolled brackets and a bed moulding under the
+eave) is gone; in its place is the moulded stone cornice the drawing runs round the bow's top, where
+it carries the balcony, and along the front at the same line. K10 learns it as data:
+`k10.cornice.moulded_stone`, whose one section (`moulded_stone_eave` in
+`data/components/prairie_1904/k10_cornices.json`) is swept along the street front under the K05
+soffit and capped at both corners. The bow carries the **same section** as its own eaves (the bay
+record's `eaves: {"cornice": …}`, which `k01_frontage_params` resolves from the K10 kit and K08
+sweeps round the plan in the bay's stone), so the two read as one moulding and the front's stops at
+the bow's junctions. `k10_frontage` refuses a bay that reaches the cornice without carrying its
+section and meeting its foot.
+
+Read off the plate through the camera (the bow's face is 1.02 m nearer the eye than the front's, so
+48.5 px/m there):
+
+| | drawing (px in the panel) | through the camera | built |
+|---|---|---|---|
+| the bow's cornice, foot | y ≈ 280 | about 8.2 m | 8.24 m (y ≈ 278) |
+| the bow's cornice, top (the balcony's deck) | y ≈ 263 | about 8.55 m | 8.6 m at the nose (y ≈ 255) |
+| the north strip's cornice | y ≈ 277-290 | about 8.3-8.6 m | 8.24-8.6 m |
+
+The bow's wall top rises from 8.2 to 8.24 m (its second storey 2.9 to 2.94 m) to meet the cornice's
+foot. The section's members are reconstructed (L-k01-1619-stone-cornice-2460): a fillet and ovolo
+bed, a plain band where the drawing draws a dentil course, a corona with its drip and a cyma recta,
+0.36 m deep and 0.32 m proud, inside the eave's 0.4 m overhang. The eave's timber over it is painted
+to read as the stone, since the drawing shows one stone cornice and no timber eave above it; its
+0.2 m fascia still shows as a top member over the moulding.
+
+![the cornice, drawing and build](../photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg)
+
+Left for **T-2422**: the balcony rail on the cornice, the arched entrance, the side stoop and the
+basement arches.

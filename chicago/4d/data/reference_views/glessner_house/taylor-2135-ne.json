@@ -1,0 +1,106 @@
+{
+  "structure_id": "glessner_house",
+  "library_image": "a18-rba-taylor-2135-glessner-ne",
+  "photo": "../../../docs/RESEARCH/glessner-rainwater-T-2221/reference/taylor-2135.jpg",
+  "image_px": [
+    1600,
+    1502
+  ],
+  "principal_px": [
+    415.50272048928315,
+    815.5140668074222
+  ],
+  "focal_px": 2301.6831823661023,
+  "eye": [
+    88.88668939847942,
+    40.906072571055496,
+    1.7
+  ],
+  "yaw_deg": 233.2462451348943,
+  "basis_right_up_forward": [
+    [
+      -0.5981975964161029,
+      0.8009742359169728,
+      0.02449304062828582
+    ],
+    [
+      0.014656074848174232,
+      -0.01962418174761879,
+      0.9997000004805348
+    ],
+    [
+      -0.8012145999119349,
+      -0.5983771092613404,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    55,
+    20,
+    40
+  ],
+  "solve": {
+    "method": "Level rising-front perspective with fitted small roll, reconstructed camera height1.7m. Four Prairie wall/eave corners and the north service gable foot control the view; drain fittings excluded. Model-based dimensions do not constitute an independent survey. Native scan1056x991;1600display is an enlargement.",
+    "controls_xyz_px": [
+      [
+        49.149,
+        0.0,
+        0.0,
+        45,
+        875
+      ],
+      [
+        49.149,
+        22.5552,
+        0.0,
+        904,
+        920
+      ],
+      [
+        49.149,
+        0.0,
+        8.4856,
+        56,
+        529
+      ],
+      [
+        49.149,
+        22.5552,
+        8.4856,
+        909,
+        463
+      ],
+      [
+        10.2108,
+        22.5552,
+        7.0409,
+        1426,
+        674
+      ]
+    ],
+    "residual_px": [
+      [
+        1.2177561948363405,
+        0.9681500088241819
+      ],
+      [
+        -3.0607206061297347,
+        -1.1840355879163553
+      ],
+      [
+        -1.28767156327973,
+        0.25644511391783453
+      ],
+      [
+        3.1113242334818096,
+        -0.17859343100928982
+      ],
+      [
+        0.019311683568048466,
+        0.13803389622478335
+      ]
+    ],
+    "rms_px": 1.5698954755110228
+  },
+  "source_id": "taylor_2135_glessner_exterior_1887_1889"
+}

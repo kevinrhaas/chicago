@@ -17,7 +17,10 @@ What the record's `street_front_trim` names, and what is built for it:
                    surround (architrave and a cornice hood on consoles), its cornice hood
                    alone, or `k01.flat_lintel` (K01's own stone lintel, kept)
   apron            the kit's bounded foliate panel under each window of the storeys it
-                   names, centred between the basement light's lintel and the sill
+                   names, centred between the basement light's lintel and the sill, or
+                   (`apron_over_belt`, T-2526) between the storey's belt course and the sill
+  shelf            (T-2531) over the apron, the light stood on a tablet proud of the wall over
+                   a moulded shelf under its sill, the panel hung from the shelf's foot
 
 A generic kit motif is allowed here because 1808's own carving is not read in any source
 this project holds (k09_trim.json `restrictions`: a generic motif never replaces a
@@ -66,6 +69,14 @@ def spec(params) -> dict | None:
         raise ValueError(f"street_front_trim.entrance builds {ENTRANCE!r} or {DOOR_HOOD!r} alone")
     if t.get("apron") not in (None, APRON):
         raise ValueError(f"street_front_trim.apron builds {APRON!r} alone")
+    if t.get("apron_over_belt") and not t.get("apron"):
+        raise ValueError("street_front_trim.apron_over_belt places an apron, and names none")
+    sh = t.get("shelf")
+    if sh is not None and (not t.get("apron") or set(sh) != {"height_m", "proud_m", "tablet_m"}
+                           or not 0.15 <= sh["height_m"] <= 0.5 or not 0.05 <= sh["proud_m"] <= 0.3
+                           or not 0.0 < sh["tablet_m"] < sh["proud_m"]):
+        raise ValueError("street_front_trim.shelf stands over an apron and takes height_m (0.15-0.5 m), "
+                         "proud_m (0.05-0.3 m) and tablet_m (under the shelf's proud)")
     return t
 
 
@@ -96,12 +107,12 @@ def sill_reach(params, op) -> float:
     return max(n for n, _ in ar) + 0.03
 
 
-def _lay(a, var, frame, s_c, y_off, conf, cid):
-    """Move a kit variant's pieces (not its specimen board) onto the wall frame and add
-    them to the assembly's primitives. Returns the triangles laid."""
+def _lay(a, var, frame, s_c, y_off, conf, cid, d_off=0.0):
+    """Move a kit variant's pieces (not its specimen board) onto the wall frame, `d_off`
+    before it, and add them to the assembly's primitives. Returns the triangles laid."""
     from .k01_frontage import MATERIALS, Y, _add, _mul
     O, R, N = frame
-    at = lambda q: _add(_add(_add(O, _mul(R, s_c + q[0])), _mul(Y, y_off + q[1])), _mul(N, q[2]))
+    at = lambda q: _add(_add(_add(O, _mul(R, s_c + q[0])), _mul(Y, y_off + q[1])), _mul(N, q[2] + d_off))
     turn = lambda n: _add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2]))
     tris = 0
     for piece in var.pieces:
@@ -122,7 +133,7 @@ def _lay(a, var, frame, s_c, y_off, conf, cid):
         pr.idx += [base + i for i in m.idx]
         tris += m.triangles()
     if hasattr(a, "seat"):   # T-2289: where the pieces stand, for a coursed front to dress
-        a.seat(frame, [(s_c + q[0], y_off + q[1], q[2]) for piece in var.pieces
+        a.seat(frame, [(s_c + q[0], y_off + q[1], q[2] + d_off) for piece in var.pieces
                        if piece.role not in BOARD_ROLES for q in piece.mesh.pos], cid)
     a.trim_triangles[cid] = a.trim_triangles.get(cid, 0) + tris   # costed per kit id
     return tris
@@ -151,11 +162,40 @@ def dress(a, op, frame, conf):
     seed = a.instance(kind, "trim", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
                                      "storey": _storey(p, op)},
                       {"sill": sock(op.s_m, op.sill_m), "head": sock(op.s_m, op.head_m)})
-    _lay(a, _seeded(kit, data, v, seed).build(), frame, op.s_m, op.sill_m, conf, kind)
     t = spec(p)
-    if t.get("apron") and _storey(p, op) in t.get("apron_storeys", []):
-        _apron(a, kit, data, op, frame, conf)
+    aproned = bool(t.get("apron")) and _storey(p, op) in t.get("apron_storeys", [])
+    sh = t.get("shelf") if aproned else None
+    var = _seeded(kit, data, v, seed).build()
+    _lay(a, var, frame, op.s_m, op.sill_m, conf, kind, sh["tablet_m"] if sh else 0.0)
+    foot = _shelf(a, var, op, frame, conf, sh, seed) if sh else None
+    if aproned:
+        _apron(a, kit, data, op, frame, conf, foot)
     return True
+
+
+def _shelf(a, var, op, frame, conf, sh, seed):
+    """T-2531: the light stood `tablet_m` proud of the wall on a stone tablet as wide as
+    its trim's seat, whose sides are its returns and whose inner faces carry the reveal
+    out to the trim, over a moulded shelf under its sill (two stepped courses, the upper
+    `proud_m` before the wall), as 1621's drawing draws the light over its door. Returns
+    the shelf's foot."""
+    mat = ROLE_MATERIAL["trim"]
+    tab, hgt, out = sh["tablet_m"], sh["height_m"], sh["proud_m"]
+    back = [q for piece in var.pieces if piece.role not in BOARD_ROLES for q in piece.mesh.pos if q[2] < 0.005]
+    s0, s1 = op.s_m + min(q[0] for q in back), op.s_m + max(q[0] for q in back)
+    top = op.sill_m + max(q[1] for q in back)
+    h0, h1 = op.s_m - op.width_m / 2, op.s_m + op.width_m / 2
+    for b in ((s0, h0, op.sill_m, top), (h1, s1, op.sill_m, top), (h0, h1, op.head_m, top)):
+        a.proud_box(mat, frame, b[0], b[1], b[2], b[3], tab, seed, conf)
+    y1 = op.sill_m - 0.10                      # K01's sill stands on the shelf
+    y0, ym = y1 - hgt, y1 - hgt * 0.6
+    w = (s1 - s0) / 2 + 0.05
+    a.proud_box(mat, frame, op.s_m - w, op.s_m + w, ym, y1, out, seed, conf)
+    a.proud_box(mat, frame, op.s_m - w + 0.06, op.s_m + w - 0.06, y0, ym, out * 0.55, seed, conf)
+    if hasattr(a, "seat"):
+        a.seat(frame, [(s0, op.sill_m, tab), (s1, top, tab)], "K09.shelf")
+        a.seat(frame, [(op.s_m - w, y0, out), (op.s_m + w, y1, out)], "K09.shelf")
+    return y0
 
 
 def _socket(frame, s, y):
@@ -164,17 +204,25 @@ def _socket(frame, s, y):
     return _add(_add(O, _mul(R, s)), _mul(Y, y))
 
 
-def _apron(a, kit, data, op, frame, conf):
-    """The kit's foliate panel, centred between the basement light's lintel and the sill."""
+def _apron(a, kit, data, op, frame, conf, shelf_foot=None):
+    """The kit's foliate panel, centred between the basement light's lintel and the sill,
+    or (T-2531) hung from the foot of the shelf the light stands on."""
     p = a.p
     v = _variant(kit, data, APRON)
     below = [o for o in p.openings if o.wall == op.wall and abs(o.s_m - op.s_m) < 1e-6
              and o.head_m <= op.sill_m and o is not op]
     floor_y = max((o.head_m + 0.30 for o in below), default=p.principal_floor_m)   # K01's lintel
+    if spec(p).get("apron_over_belt"):
+        # T-2526: the panel stands on its storey's belt course, under the sill it carries
+        floor_y = max(floor_y, p.floors_m[_storey(p, op)])
     top_y = op.sill_m - 0.10                                                      # K01's sill
     if top_y - floor_y < v["height_m"] + 0.2:
         raise ValueError(f"no room for an apron under the window at s = {op.s_m}")
     base = round((floor_y + top_y - v["height_m"]) / 2, 4)
+    if shelf_foot is not None:
+        if shelf_foot - v["height_m"] < floor_y:
+            raise ValueError(f"no room for an apron under the shelf at s = {op.s_m}")
+        base = round(shelf_foot - v["height_m"], 4)
     v = dict(v, base_m=0.0)
     seed = a.instance(APRON, "panel", {"width_m": v["width_m"], "height_m": v["height_m"]},
                       {"base": _socket(frame, op.s_m, base)})

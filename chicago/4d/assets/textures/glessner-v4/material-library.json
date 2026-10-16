@@ -128,7 +128,7 @@
       ],
       "seed": 190404,
       "confidence": "reconstructed",
-      "description": "Reconstructed 17-year copper weathering: brown metal with uneven muted green oxidation; standing seams belong to geometry. Modern bright turquoise oxidation is not asserted as the 1904 colour.",
+      "description": "Reconstructed 17-year copper weathering: brown metal with uneven muted green oxidation and restrained drainage-aligned streaks; standing seams belong to geometry. Modern bright turquoise oxidation is not asserted as the 1904 colour.",
       "albedo_colour_space": "sRGB",
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
@@ -214,16 +214,16 @@
       "bytes": 346902
     },
     "copper_basecolor.jpg": {
-      "sha256": "e021a67d8c2291b08ab69ac140f502a9a3b5ed4fa089515936e5123741578d32",
-      "bytes": 176924
+      "sha256": "7f81d87270eba310234b01f7d02d155197f730c93480ed90956e92494f061ada",
+      "bytes": 216777
     },
     "copper_normal.png": {
       "sha256": "42e3c199f6e5d0e1ad359545a8a2927121fdf226a955a02e7b16ffae6f110417",
       "bytes": 430679
     },
     "copper_roughness.png": {
-      "sha256": "7d84c8c84af6aae8b112013032d9cce98bdd2b7cf18de23306e13bb7fc37903a",
-      "bytes": 73123
+      "sha256": "c43094c31c0fbdbea8e49b95d1ef9e7eab7c848fc82fb777d0c44124c7a2f2c6",
+      "bytes": 88237
     },
     "court_brick_basecolor.jpg": {
       "sha256": "a0fdd0e549f811db072e1d9c06c624b9a5fc6230b73184c66293137583a059c8",

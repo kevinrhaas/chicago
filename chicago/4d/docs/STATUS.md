@@ -1,3 +1,513 @@
+## T-2228 — Glessner photographic corrections (2026-10-16)
+
+The north ridge now runs straight through the west crossing; its cross-gable and
+cupola move 3.8 ft north. The omitted northeast copper return follows the existing
+roof plane. The ca. 1887 Cornell northwest photograph supports moving the southern
+upper west slit 2 ft north; the other seven centers remain. All eight west windows
+remain clear beneath the roof.
+
+The Prairie entrance is rebuilt from native HABS sheet 5 and the original Richardson
+office doorway drawing 23A: a recessed doorway within the outward-sloping lower wall,
+angular cutback sides, a shaped header, one broad inset step and a carved field set
+behind stepped mouldings. The modern wreath is excluded. The same pass lowers the
+north cone connector, clears courtyard dormer glazing, and refines section eaves,
+finials, basement grille and coping. Full/Web contain 1,369,074 triangles and Light
+194,245, with no coincident faces and no budget raise. The approved flat north
+facade, staggered tower stone, finish and dark glass remain.
+
+**Photographic acceptance remains open:** all twelve canonical comparisons differ.
+Cupola body and roof-height calibration, terrace termination, west courtyard access,
+further opening/carving details and surface correspondence remain on T-2228, which
+stays open after this correction merges.
+
+[Evidence and outstanding differences](RESEARCH/glessner-final-comparison-T-2228/README.md).
+[Owner aerial and west-window review](RESEARCH/glessner-final-comparison-T-2228/owner-overhead/README.md).
+
+## T-2573 — a tap on a building is answered by the GPU too (2026-10-16)
+
+Piece 2 of T-2550, after T-2572's walks, fences and yard goods. `gpu-pick.js` now draws a
+`BatchedMesh` ITSELF, one pass per batch into the same one-pixel target and depth, with its
+material swapped for a batching id material (a `ShaderMaterial`, so three prepends `USE_BATCHING`
+and binds the batch's matrix and indirect textures) that writes `getIndirectIndex(gl_DrawID)` —
+the instance, the `batchId` the raycast reported — where a chunk writes its provoking vertex.
+`buildings.pickAt` is that pick, with the reach it always had; the raycast stays as
+`pickAtRaycast`, the oracle. So `RELEASE_KEEP.structures` is empty: the batches keep no position
+and no index once uploaded. Two things three still reads are kept first: each geometry's box and
+sphere (computed lazily off the positions the first time an instance is culled, sorted or tested
+for the sun's cast), and the index's element size, which `BatchedMesh.onBeforeRender` reads to
+place its multi-draw — that array is swapped for an empty one of the same type rather than dropped.
+
+`check_upload_release.mjs`: on the desktop 16 of 16 fixed taps on face centroids of fixed
+buildings come back from the GPU with the raycast's id at its distance; on the 1835 phone all 5
+batches hold neither array and a tap aimed by an instance's kept sphere still resolves; on the
+1904 phone the switch to full and back still answers a tap on Glessner. **1835 phone: 612.2 to
+586.2 MB** (dev and this branch, same machine, same hour; ArrayBuffers 225.0 to 198.9, GPU buffers
+unchanged at 180.5; `docs/measurements/T-2573-memory*.json`); merged with dev after T-2588 it reads
+581.5 MB, so the ceiling goes 675 to 650 MiB by the rule. 1904 was not re-read and its ceiling is
+unchanged.
+
+**The weathering half of the ticket was already done.** Since T-2568 the handle rewrites the
+batches' instance colours (a small texture), and since T-2570 no vertex colour reaches a batch, so
+there was no `color` array left to keep or release; nothing in the weathering path changed here.
+
+## T-2588 — the wall relief ships GPU-compressed (2026-10-16)
+
+Piece 1 of T-2583. The clapboard and hewn-log walls' relief pair (the normal, and the `orl` the
+page packed from the `orm` and the basecolor at every boot) is now packed at convert time by
+`tools/ktx2_sheets.py` and shipped as KTX2: the normal on UASTC, the `orl` on ETC1S at qlevel 255
+(35.5-40.6 dB per channel against the packed master), with `<id>_orl.json` stating the mean
+roughness the shader divides by and the masters' hashes, which `--check` holds. Where the GPU
+takes no KTX2, the page falls back to the three WebPs and packs as before. On the phone the walls'
+maps fall from 5.4 MB of GPU memory to 1.4 MB; `/1835/` mobile reads 624.9 MB against dev's
+628.5 MB, and merged with dev after T-2572 it reads 607.5 MB and its ceiling comes down 700 → 675 MiB. Measured against the image path with
+`wall_relief_shots.mjs --compare ktx2`: the wall band reads 39-56 dB at 390x780 (five close
+stands, two wide) and 50-51 dB at 1280x800 (two close stands); the boot payload is +48 KB at
+12.906 of 13.000 MiB, because frontage still fetches the clapboard's WebPs (T-2589's lever).
+
+What is not done: the desktop memory reading and its ceiling were not re-taken (the phone was the
+acceptance). **Found, and filed as T-2593:** a KTX2 written top row first, as T-2582 wrote the
+roofs, the 1904 streets and the muck, is the image mirrored along v in three. A two-band test
+sheet proved it, and the roof band reads 29-30 dB against its WebP where the walls, written
+bottom row first, read 50-51.
+
+## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
+
+Piece 1 of T-2580 (which was split into this, T-2585 for the loggia's carving and T-2586 for
+closing the image gate). The south bow ran even 0.38 m rock-faced courses where the 1888 Inland
+Architect plate (read at its native 1559 px) and the Glessner House print of it show a deep course
+and a thin one in turn on its piers and south flank, the rhythm T-2566 already gave the street
+front. The K08 bay's `masonry` now takes an optional `coursing` (`rhythm: alternating`,
+`low_ratio`), refused outside [0.25, 1) or under a 0.15 m thin course; each storey between the
+bow's bands is laid in the fewest courses whose deep one is at most `course_m` (0.55 m), so the
+basement's 1.85 m and each 3.9 m storey come out 0.49 m deep and 0.195 m thin, the deep courses on
+the upper half of the rock-face relief and the thin on the lower, as the front's are. The bow's
+beds are the rhythm's, not struck on the front's (L-k08-keith-bow-coursing-2584). Only Keith's mesh
+changed (76,224 to 76,228 triangles, full and web); the other 19 K01 masters, which hash the K08
+and K01-params code, re-emit byte-identical. The `inland-1888` and `a18-gh-1808-keith-field-front`
+side-by-sides were re-rendered and their match records carry the bow's coursing as `fixed`; the
+other 14 views still name the previous GLB, so T-2586 re-renders them before it can close (the
+image gate refuses a match taken on another GLB).
+
+## T-2578 — Keith house's cowl ventilator, and the parapet behind the rear pinnacle ruled (2026-10-16)
+
+Piece 2 of T-2567. The deck behind Keith's north return now carries the cowl ventilator that
+four period pictures show over the return (the 1887 construction view, Taylor 2135, the 1888
+Inland Architect Glessner plate, the c. 1888 view looking south-west): a pale galvanized pipe
+inclined forward from just inside the rear pinnacle to an upright neck under a bowl and a broad
+disc. Its place along the return (about 0.5 to 0.6 of it in all four) and its height over the
+coping against the rear pinnacle's agree with the pictures in the re-rendered side-by-sides; the
+riser behind the parapet, its 0.6 m set-back and its colour are reconstructed
+(L-k01-keith-ventilator-2578). It is a new optional `stone_finish.ventilator` in the K01 kit, so
+the other 19 K01 masters re-emit byte-identical; the pale grey is a plain untextured slot
+(`vent_galvanized`), so the pipe adds no texture memory. Keith full and web: 76,224 triangles
+(+536), zero coincident faces.
+
+The corner behind the rear pinnacle is ruled: every picture that sees it (the five above save the
+plate's neighbours, plus the Glessner front and 1948) shows sky straight behind the pinnacle, or in
+1948 a darker wall about a course lower, so the stone parapet stops there as modelled. All 16
+match records re-rendered and stay `differs`. NEW, and left for T-2580: the hall stack stands over
+the coping beside the ventilator in five renders, where every one of those pictures shows sky — the
+cowl pipe plausibly terminates that flue, with the stack below the coping; and the c. 1888 view
+puts the cap higher over the coping than its render does, which T-2579's re-fitted cameras decide.
+
+## T-2572 — a tap on the walks, fences and yard goods is answered by the GPU (2026-10-16)
+
+Piece 1 of T-2550. `renderers/web/js/gpu-pick.js` draws the candidate chunks into one
+`RGBA32UI` pixel under the tap (slot, `gl_VertexID` of the provoking vertex, eye distance)
+and reads it back; the three layers are non-indexed, so the vertex names the face and the
+face spans they already keep resolve it as they resolved the raycast's `faceIndex`. So
+`RELEASE_KEEP` keeps nothing for `frontage`, `enclosures` and `yard`. On the desktop, which
+releases nothing, `check_upload_release.mjs` taps a fixed list of 12 faces per layer through
+both engines and holds them to the same id at the same distance (36 of 36 agree); on the
+phone each layer still answers a tap with its triangles gone. A chunk the reach holds back
+(`reachCulled`) is no longer tappable by either engine: the raycast opened its card unseen,
+and drawing it would upload what the walk never asked for.
+
+**The saving is 16.5 MB at spawn, not the 151 MB the ticket priced** (1835 phone, read
+after merging T-2569's compact formats and T-2574: dev 661.8 to this change 645.3 MB, same
+machine, same hour; GPU buffers unchanged at 185.4 MB; `docs/measurements/T-2572-memory.json`;
+ceiling 825 to 725 MiB). Most of those layers' page bytes are chunks the reach has never
+uploaded, which keep every array until walked to (frontage 52.8, enclosures 26.8, yard
+19.7 MB in the meter's never-uploaded column); the release only ever reached the drawn
+ones. That remainder is building-then-holding, which T-2560 (ship the town prebuilt) is
+placed to remove. The structures half, with weathering as a uniform, is T-2573.
+
+Re-read once T-2575's Int16x4 structures positions had landed on `dev` (merge `c2b6ad1c7`):
+the two savings add, 630.0 MB on the 1835 phone (arraybuffers 223.0, GPU buffers 180.5),
+so its ceiling is 725 to 700 MiB by the rule; `?keep-geometry=1` still reads over it at 776.2 MB.
+
+## T-2564 — Keith house's north return in stone courses (2026-10-16)
+
+T-1883's remaining photographic convergence was split into four pieces (T-2564 to
+T-2567); this is the first. The short north return over Glessner was a smooth 2.8 m
+slab with spike pinnacles. It is now a 5.5 m parapet and wall face of large dressed
+courses (about 0.46 m) under a rounded coping that sweeps up into the corner pinnacle,
+as the front coping now does at both corners; the caps are ogival with a collar and a
+finial, the rear one seated on the coping. The length comes from course counts in the
+c. 1889 Taylor and 1948 views and from the c. 1888 view's lattice; the street cameras
+still carry residuals, so it is bounded 4.5 to 7 m (L-k01-keith-return-2564). The
+brick side parapet now stops at the return's back instead of running across its face.
+Only Keith's mesh changed: every other K01 master re-emits byte-identical. Integrated with T-2566's granite surface (#862): Keith full and web 74,160 triangles, zero coincident faces.
+
+All 16 match records were re-rendered and stay `differs`. Still open: the carving
+(T-2565), the brownish cornice-box band under the lattice (still there after T-2566's surface pass),
+the camera re-fits (T-2567), a cowl ventilator on the deck in the 1887-89 pictures, and
+where the full-height stone stops behind the rear pinnacle, which no picture resolves.
+
+## T-2559 — a device profile chooses detail and sharpness per device (2026-10-16)
+
+`renderers/web/js/device-profile.js` runs once at boot, before the scene is fetched. It
+reads WebGPU (adapter info and limits), the WebGL2 renderer string, MAX_TEXTURE_SIZE, the
+compressed formats (ASTC / ETC2 / BC7 / S3TC), cores, `deviceMemory`, screen and dpr; runs a
+fill and a vertex pass under a hard 0.9 s deadline (timer query where exposed, else the wall
+clock across a pixel read); and classes the device weak / standard / strong. The class picks
+Scene detail and Image sharpness (desktop: balanced·Low / full·Medium / full·High; touch:
+light at every class, Medium sharpness when strong — a phone earns no geometry until T-2546
+prices it) and records a texture tier, worker count and WebGPU presence for T-2551/T-2553,
+T-2556 and T-2558, which do not read them yet. A stored choice still wins; Settings ›
+Performance says what was chosen. Cached per renderer string and build; a forced
+`?device=` (harness only) or crash-stepped profile is never cached.
+
+Measured on the runner's SwiftShader: the boot's own profile costs 34-172 ms (no benchmark —
+see below), a forced cold benchmark 104-152 ms, a warm (cached) read under 50 ms by the smoke's
+gate. **The thresholds are a first setting, not a calibration** — no reading from real phone or
+laptop silicon set them; `api.device.bench` keeps the raw rates so T-2546's field readings
+can move them. **A software rasteriser is not benchmarked and keeps the platform default** as
+`standard`: it measures the CPU, and it is the machine every frame and triangle ceiling here is
+gated on. Benchmarked, SwiftShader reads ~0.02 Mpx/ms and would class weak.
+
+## T-2552 — the prairie from the air: the plaid broken (2026-10-16)
+
+The owner, from 1,197 ft up: the ground "looks like an even plaid". Two causes, both in
+`PRAIRIE_FRAGMENT` (terrain.js): the 11 m colour tile repeated on a square lattice, and the
+"community mosaic" over it was `sin(x) * sin(z)` plus a diagonal — an egg-crate of 42 x 48 m
+cells square to the compass. Triangles had nothing to do with it.
+
+The mosaic is replaced by one fetch of a seeded variation map (`prairie-macro.js`, 512 px over
+3,072 m, longer than the 2,660 m haze reach, turned 27 degrees off the compass): lush and thin
+stands, a zero-mean dry lean, and a variant index. The index draws the colour tile from two
+staggered offsets of itself and cross-fades them (Quilez's two-fetch repeat break). Each
+variant's offset jumps only where its weight is zero, so plain `texture2D` leaves no seam.
+Past 150 m the tile's contrast eases a third of the way to its measured mean by 600 m, and the
+stands' tone doubles. Every channel is read over its own measured mean: the July mean albedo
+and the substrate zones are unmoved. The strip and the bank paint the same prairie (shared
+uniforms). Liberty `L-prairie-variation-2552`.
+
+**Cost, software rasteriser, desktop 1280x800, median of three steps** (relative figures,
+not GPU fps): 787 -> 883 ms at 60 m up over open prairie (+12 %), 6,801 -> 7,214 ms at the
+owner's aerial stand (+6 %); mobile walking stand 286 -> ~290-400 ms across runs. Measured
+and rejected on the way: explicit-gradient fetches (+30 % alone) and a branch to one fetch
+(saved nothing in software). No triangle or draw-call change; the map is 1 MiB of texture
+(1.33 with mips), one copy for the session.
+
+**Not done:** within one variant band (about 22 m) the tile is still the tile, so a careful
+eye at 50-150 m can find a local repeat; hex-tiling (three fetches) is the stronger form if
+that is wanted. The patchiness is noise, not a community map: the slot is there for a
+plant-community record when one exists.
+
+## T-1883 — Keith house photographic finish (2026-10-16)
+
+The owner-approved 1888 Inland Architect photograph now drives the pierced parapet,
+pinnacles, diaper band, upper colonnettes, Ionic loggia, carved balcony, curved stair
+cheeks, basement lights, transom sashes and early low stone boundary. Principal floor
+is 2.0 m; the accepted footprint, second/third floor levels and north clearance remain.
+A September 1886 trade notice explicitly calls the front granite; neither it nor the
+other two inspected notices names a quarry or establishes its exact colour. Keith has
+its own pale neutral stone tint; Glessner's is unchanged.
+
+The photographic gate remains open. Comparison cameras, source credits and explicit
+remaining differences accompany the model; procedural carving is still an approximation,
+not a claim of photographic equivalence. See [the evidence and validation record](RESEARCH/k01-1808-keith-1883/README.md).
+
+## T-2227 — Glessner browser quality and performance (2026-10-15)
+
+The completed house exceeded the unchanged scene ceilings at eight of fifteen
+Light inspection stands and several Full courtyard stands. Equivalent inspection
+materials now share compatible texture sources and shader state; opaque Full
+Glessner faces have spatial pieces; Light rejects whole instance bounds only behind
+actual opaque building triangles. The original transparent roof draw groups remain
+intact. No house geometry, historical camera, source right, owner tint, dark glass
+setting or budget changes.
+
+The complete fifteen-view Full and Light runs and five-view Balanced run pass their
+existing ceilings, including thirty moving samples per tier. Full detail restoration
+is pixel-identical and restores the building material/instance census; eighteen Light
+visibility on/off images are exact. Earlier failed baselines and rejected transparent
+roof partitioning remain in the evidence. The allocation-reduced four-view Light rerun and thirty moving samples also pass.
+A persistent one-pixel winter difference caused a conservative summer-only filter:
+other seasons retain the complete normal draw list. The final ten seasonal/reference
+pairs are pixel-identical, winter retains all draws, and summer restores the filter.
+Full preflight, exact-commit CI and deployment receipts are recorded in the ticket-linked PR.
+Software-renderer timing does not establish physical-GPU FPS. Winter's supplementary
+round trip is not a claim that other seasons meet July's scene budget.
+
+[Runtime changes and complete evidence](RESEARCH/glessner-performance-T-2227/README.md).
+Five historical comparisons still read `differs`; T-2228 owns the remaining visible
+photographic corrections. This gate clears their existing performance blocker only.
+
+## T-2500 — 1808 Prairie's north entrance loggia and stair (2026-10-15)
+
+Second piece of T-1882, after T-2499. The owner's report of 2026-10-13 said the
+Keith house's entrance is not the one its pictures show. The straight stoop out from the
+north-bay door is gone. In its place is what the Inland Architect plate of
+February 1888 and its first-floor plan draw: an open stone loggia at the north
+end, 3.4 m wide and 2.7 m deep at the principal floor; a pedestal at each front
+corner carrying a pair of columns; a parapet across the front and down the north
+side; an entablature carrying a balcony under the second-storey window; and a
+round-headed basement arch in the deck's face. The stair rises beside it on the
+south side, 2.0 m wide, with the deck as its north cheek. The door and the window
+over it are re-centred in the loggia (north bay 8.4 → 8.7 m). The K09 ring over
+the door went, because the loggia's ceiling would have cut it. K07 learns a
+terrace deeper than its landing and a loggia on it; every other K01, K12, K13,
+K16 and draft mesh, and the K07 specimen, re-emits byte-identical.
+
+NOT DONE, said:
+- The columns are plain turned shafts, not Ionic.
+- The parapets and balcony are solid, where the plate shows a pierced balustrade
+  and a carved panel.
+- The cheek is not scrolled.
+
+All three are T-1883's finish. The principal floor stays at 1.5 m. No camera is
+solved for the plate (its scan is `check_required`), so the image gate has still
+not been run on this house.
+[Before/after views and browser readings](RESEARCH/k01-1808-keith-2500/); the
+before views are T-2499's after views.
+
+## T-2499 — 1808 Prairie's flat top, height and bow (2026-10-15)
+
+First piece of T-1882, from the owner's report of 2026-10-13 that the Keith house
+"has an Italianette top" its pictures do not show. Read off the Inland Architect
+plate of February 1888: a flat roof behind a front parapet whose top stands at
+about 16.5 m, over Glessner's 15.5 m ridge; floors raised to the plate's courses;
+the south bow stopped at floor 3 under a moulded stone cap; the third storey run
+flat across the front as a six-light arcade. K01 now lets an upper storey light
+its own number of bays, and its wall mesher merges cell lines closer than half a
+millimetre (a float-noise duplicate left 246 zero-area faces); every other K01,
+K12, K13, K16 and draft mesh re-emits byte-identical. NOT DONE, said: the principal
+floor stays at 1.5 m where the plate reads 2.0 m (the stoop would cross the fence);
+no camera is solved for the plate because its scan is `check_required`, so the
+image gate has not been run on this house. The loggia and stair are T-2500; the
+lattice, pinnacles, diaper band, stone tone and fence are T-1883.
+[Before/after views and browser readings](RESEARCH/k01-1808-keith-2499/).
+
+## T-2502 — the 1812 ground carried down the South Branch to Lee's Place (2026-10-15)
+
+T-2501 ruled the farm's site a reach of the South Branch's north-west bank, about 930 m west
+and 450 m south of the e1830_natural box. Off the box there was nothing to stand on: the
+sampler answered 0 m under an apron drawn flat at 1.31 m, and that apron carried the floor's
+last channel section due south as a straight trench. **Chosen: an apron field beside the box,
+not a wider box.** The 1812 ground is the 1834 field's own arithmetic on the 1834 grid
+(`terrain_gen_e1830.py`), and west of E -705 that arithmetic runs past its tracing window.
+The main stem's and branches' water polygons stop at the wall, so a box carried west would
+draw them ending in a bank. A wider box would also double a 3.8 MB field and need a
+town-wide bake. The box is byte-for-byte unchanged (`terrain_gen_e1830.py --check`).
+
+- `tools/derive_apron_south_branch_1812.py` writes
+  `data/terrain/epochs/e1830_natural/apron_south_branch.{json,bin}`: 421 x 161 samples at
+  5 m, E -2200..-100, N -4600..-3800, 135 KB. **Land** is the box's floor row carried (1.31 m),
+  which is what the drawn apron already stood at. Across the floor's channel the row is bridged
+  crest to crest, so the trench is not carried twice. **Water and banks** follow T-2501's trace,
+  joined to the committed reach where the two overlap below the floor. They use the 1834
+  cross-section (`channel_profile`, e-fold 9 m; `bank.face_m` 6 m) at the bed the committed reach
+  leaves the box with (-1.38 m). **Every sample is conjectural**, because all of it is south of
+  `evidence_limit`. The north row is the floor row itself. The west and east columns are the
+  carried land. The channel leaves through the south row at E -2085..-1990, below the ruled
+  reach and short of the forks. `--check` holds both files byte for byte, and `--self-test`
+  asserts the seams.
+- **Renderer.** A scene may name `terrain_apron` (schema). `Heightfield.sample()` answers the
+  apron outside the box, before its fallback, so the walker, footprints and flora roots stand on
+  it. `terrain-apron.js` draws the field from its own samples. It adds a 0.5 m lip under the
+  floor row against cracks, and carries the south row on to the apron's outer edge, as the box's
+  skirt does. The box's carried apron is cut out over the field's `cut_local_enu_m` with the
+  T-2474 ground cut.
+- **Anchor.** `lees_place_reach` stands 20 m back from T-2501's station on the north-west bank,
+  facing south-east across the channel. `measure_anchors.mjs` now reads a scene's apron, and the
+  gate holds the anchor on 1.31 m of ground, 22.5 m from the water.
+- **Seen** in the published mirror at 1280x800 and 390x780, with no page errors: the
+  walker's eye is at 2.99 m (ground 1.31 m), and the channel and its far bank are in view. The
+  flora's near cards follow the walker onto the apron, because the sampler answers there.
+- **Not done:** the forks,
+  the west fork and the river past the south row are not drawn; the south row is carried on
+  straight, as the box's own skirt is. The farm, its fence, haystacks and card are T-2503.
+
+## T-2501 — Lee's Place (Hardscrabble) placed, not pinned (2026-10-15)
+
+T-2488 asked for the 1812 farm on the South Branch. The farm site is about 1.4 km west and
+450 m south of the e1830_natural box, and the ticket's own first step was a ruling. **Ruled:
+extend the 1812 ground; do not use a detached patch.** No patch mechanism exists. Outside the box
+the renderer seats walkers and footprints at its 0 m fallback, under an apron drawn at
+1.31 m, and `measure_anchors.mjs --gate` refuses any anchor there. Every account of the farm
+also puts it on the river bank. The ticket is split: **T-2501**
+(this, the trace and the site), **T-2502** (the ground carried to the site) and **T-2503**
+(the farm built on it, image-gated on Currey's "Hardscrabble" picture).
+
+- `tools/trace_south_branch_bridgeport_rees_1849.py` traces the South Branch on Rees &
+  Rucker 1849, through its committed fit (RMS 25.0 m), from the committed reach's last vertex
+  40 m below the box floor to the canal's mouth at Bridgeport. It is a least-cost path over
+  the same ink-density field, because the channel turns west below Cermak Road and a
+  row-stepping programme cannot follow it there. The reach is 2,417 m long and reaches the forks
+  at 2,269 m. Widths run 30-87 m (median 57.6), and the first one is 62.7 m against the reach
+  above's last 67.2 m. Everything is `inferred`. The file is
+  `data/terrain/1812_south_branch_to_bridgeport.geojson`, a measuring line that no epoch reads yet.
+- `tools/derive_hardscrabble_1812.py` reads `data/terrain/1812_hardscrabble_readings.json`
+  (five placings, quoted) and writes `data/terrain/1812_hardscrabble_site.json`. **Adopted:
+  Hubbard's "about half a mile below Bridgeport … on the north side"**, as a station on the
+  north-west bank with its reach 0.25-0.75 mi below the canal. **Agree:** Heald's "about three
+  miles from the garrison" (3.28 mi in a straight line) and Moses & Kirkland's "northwestern
+  side … near its forks" (657 m below the forks). **Differ:** Currey's text puts the farm *at*
+  the canal's mouth (3.76 mi south-west of the fort, which fits his four miles). His caption's
+  "four miles from the mouth" falls, by river, at the box floor, about a mile short of both
+  points (the mouth to Bridgeport is 5.51 mi by river). Both disagreements are printed, not
+  resolved.
+- A new source record, `currey_1912_old_fort_dearborn` (tier 3, Gutenberg #52346, sha256
+  recorded). Its "Hardscrabble" illustration has not been opened and is T-2503's.
+- **Unverified:** the bank widths read a few metres wide of the drawn stroke, as the reach
+  above's do, and T-2502 may refine them. The main stem is measured on its south bank and across
+  the forks window on a 316 m chord, so the river distances are slightly short.
+
+## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
+
+Service posts now seat on actual treads, rail bars join continuously, and brick
+landing supports have pale capitals. Two boarded rear-gate leaves have hinges
+connected to the masonry reveals. The north-court stair remains distinct from
+the excluded 1955 stable stair. Exact 1904 finish details remain reconstructed;
+the owner's stone colour and dark glass are preserved. Functional geometry,
+canonical bake and package checks pass; all ten fixed-camera Full/Light browser
+views pass unchanged budgets with no errors. Mobile loads 124 credited images
+and the reconstruction note. T-2226 adds the Light supports' mortar pattern
+and aligns the gate member grain; its surface report records the comparison.
+Preflight and exact-commit CI receipts are
+maintained on the PR.
+[Evidence, dating and bounds](RESEARCH/glessner-service-access-T-2223/README.md).
+T-2227 retains existing scene-budget issues; T-2228 retains photo acceptance.
+
+## T-2222 — Glessner chimney shafts and caps (2026-10-14)
+
+Two street stacks now meet both pitches of the main roof. Thick flush masonry
+caps and recessed open flues replace shallow top patches; courtyard service
+stacks use brick shafts with plain pale caps. Exact finish dimensions and
+service-stack dating remain reconstructed. The owner's granite and glass are
+preserved. Light generation fits at 199,967 triangles. T-2221 drainage confidence
+now correctly displays reconstructed. Functional geometry checks, canonical bake and Full/Light package contracts
+pass. Twelve paired browser observations have no errors or new budget failures;
+three existing scene-budget failures remain assigned to T-2227. Mobile image
+credits and the reconstruction liberty load. All five historical comparisons
+remain differs for T-2228. Repository preflight and exact-commit CI receipts are
+maintained on the PR.
+[Evidence and bounds](RESEARCH/glessner-chimneys-T-2222/README.md).
+T-2227 retains existing scene-budget failures; T-2228 retains photo acceptance.
+
+## T-2221 — Glessner rainwater fittings (2026-10-14)
+
+Distinct Prairie panels, the north tower bowl and small
+service collectors replace generic rods. Twelve collectors feed twelve
+leaders and two descending connections, with wall straps and roof-edge supports.
+Stock dimensions and concealed routing are reconstructed for 1904. Light
+measures 199,559 triangles against its unchanged 200,000 limit.
+[Evidence and validation](RESEARCH/glessner-rainwater-T-2221/README.md).
+Whole-house photographic acceptance remains T-2228; T-2227 retains the
+pre-existing Full/Balanced courtyard and Light close-view budget failures.
+The final Blender bake, canonical Full/Light package, asset contract and all five
+reference renders are complete. Full/Light browser views load without errors;
+121 credited image tiles load. The same four scene-budget observations remain
+red, with no newly failing paired camera. Repository preflight passes all 883
+checks. Exact-commit CI and deployment receipts are maintained on the PR.
+
+## T-2496 — street travel and frontage arrivals (2026-10-14)
+
+Ground travel now joins the dated street network via collision-safe access legs,
+then stays on its roadway/footway mask. Walking prefers the rendered plank walks
+in 1835 and the street-grid sidewalk bands in 1904. Unpaved 1835 corridor gaps
+remain passable; pedestrian crossings connect 1904 sidewalk ends at intersections.
+Horse and wagon routes use tracks/carriageways. Expanded footprint masks, constrained
+route smoothing and turns made before advancing prevent shortcuts through buildings.
+Unreachable journeys stop in place, with an explicit instant option left to the visitor.
+
+1904 parcel frontage determines the arrival side, so Glessner faces Prairie rather
+than its nearer 18th Street side. Camera aim uses the facade and rendered height;
+jaunts use the unobstructed view instead of reserving space for a closed building card.
+Arrival positions and estimates respect the selected pace. Navigation crossings and
+camera positions are interface choices, not additions to historical street evidence.
+
+Validation: `tools/test_street_travel.mjs` passes street/sidewalk separation, an
+L-shaped route, thin walls, actual Glessner parcel geometry, every simulated movement
+step at maximum horse/wagon speed, and failure without teleporting. The existing
+travel-estimate tests pass. `tools/test_street_travel_browser.mjs` passes all three
+ground modes in both eras, at 390×780 and 1280×800, with zero page errors. These
+focused layout checks use the mobile/light context at both sizes; they are not
+the full renderer gate. Every projected facade corner fits in the viewport.
+The [receipt](performance/street-travel-2496/receipt.json) and arrival views
+([1835 phone](performance/street-travel-2496/1835-390.png),
+[1835 desktop size](performance/street-travel-2496/1835-1280.png),
+[1904 phone](performance/street-travel-2496/1904-390.png),
+[1904 desktop size](performance/street-travel-2496/1904-1280.png)) record the result.
+The actual Prairie Avenue jaunt also reaches stop 2 on the sidewalk facing Prairie
+([receipt](performance/street-travel-2496/jaunt-receipt.json)). Preflight passes:
+881 code/data checks, none red. Published renderer smoke part 13 passes on mobile,
+including every travel mode and zero page errors. The complete 15-part renderer
+gate has not been run on this branch. No production deployment is claimed.
+
+## T-2220 — Glessner courtyard copper (2026-10-14)
+
+The northeast copper hood is rebuilt as ordered planar facets meeting both
+adjoining roof slopes. The broad folded connector is removed; local wall
+closure, seated seams, low laps and a shallow curved soffit replace the open
+wedge. HABS sheet 4 supports the reduced 1.8 ft rise. The absolute section/eave
+datum remains unresolved, and modern patina is not treated as 1904 colour.
+Five credited courtyard photographs are added to the library.
+[Evidence and validation](RESEARCH/glessner-copper-T-2220/README.md).
+Whole-house photographic acceptance remains T-2228.
+
+## T-2495 — outer 1904 rails and shoreline (2026-10-14)
+
+The Illinois Central corridor now continues to both context-map edges, about
+2.6 km past each end of the detailed Prairie Avenue district. Talbot's 1904 map
+locates the outer corridor and coast; the Sanborn-derived district is preserved.
+All nine north and eleven south through tracks connect exactly. Outer track
+counts, spacing, grade and the 160 m joins are reconstructed; map alignment has
+an approximately 40 m working uncertainty. The new ground GLB and terrain
+sampler agree at every vertex and both seams. Published 1904 views at 1280x800 and 390x780 load with zero page errors and no
+loader problems; [north](RESEARCH/ic-lakefront-2495/north.png) and
+[south](RESEARCH/ic-lakefront-2495/south.png) show both continuations. Both Full
+desktop aerial views remain inside the draw budget. The original feature preflight
+passed all 877 code/data checks; published mobile parts 3/14 passed 221 checks. On the original local runner, the broader desktop
+smoke twice timed out opening 1835 before reaching its selected sections; those
+runs are not claimed as passed. Current integration validation is recorded in
+[PR #796](https://github.com/kevinrhaas/chicago/pull/796).
+No production deployment is claimed.
+[Sources, method and bounds](RESEARCH/ic_lakefront_extent_1904.md).
+
+## T-2217 — Glessner carriage leaves and passage (2026-10-14)
+
+Both leaves now carry the HABS circular/square panel pattern, straps, paired
+ring pulls and hinges. Their reconstructed reverse boarding and jamb linings
+are visible from the passage. The leaves clear the existing paving and tapering
+reveals through their full swing, and meet with a narrow joint in a closed
+diagnostic. Source rights, unmeasured construction and remaining photographic
+differences are stated in [the review](RESEARCH/glessner-porte-cochere-T-2217.md).
+Whole-house photographic acceptance remains T-2228.
+
+## T-2219 — Glessner service openings and roof junction (2026-10-13)
+
+The north service door and upper sash follow the full widths read in HABS plans
+and photographs. Two stone steps reach the door; the gable-foot pipe and roof
+return now meet the north wing without a shelf across the facade. The courtyard
+roof profile is preserved. Light now retains the courtyard window bars, and
+smaller culling cells keep complete surfaces while skipping invisible geometry.
+Low openings are inventoried without speculative resizing. [Evidence, bounds and validation](RESEARCH/glessner-service-junction-T-2219.md).
+Whole-house photographic acceptance remains T-2228.
+
+## T-2470 — Glessner's north gable and tower (2026-10-13)
+
+The local model now has one flat north facade entering the western half-round
+tower, two tall window pairs, staggered curved stone courses and an eave that
+stops at the gable coping. The duplicate lower slit and roof strip through a
+window are removed. Full/Light assets are rebuilt; Light contains 199,998
+triangles. Geometric contact/clearance and K01 checks pass. Published browser
+and integration gate receipts accompany the PR. Camera reconciliation and remaining
+photographic differences are recorded in
+[the evidence and bounds](RESEARCH/glessner-north-tower-T-2470.md).
+
 ## T-2321 — K12 on a named lot: the coach house behind 1812 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene the alley behind the houses beside the Glessner House has its first
@@ -23160,3 +23670,65 @@ The root front door is a lightweight three-period menu. SVG orbital graphics and
 ## T-1805 — Glessner west roof repair (2026-10-01)
 
 The stable north gable now has its photographed eave return toward the alley, and the crossing roof is emitted once instead of passing through the front wall and loft opening. The opening axis is unchanged. Actual-GLB north, northwest and alley reviews confirm the shortened cornice and clear loft opening in full/light variants. Sidewalk slope depth bias is removed to address the apparent slab drawn through the wall at grazing angles. The full/light derivatives and recovery package are saved; light is 196,687 triangles against the unchanged 200,000 ceiling. Package and staleness checks pass. The four Glessner masters and canonical web files reproduced byte-for-byte after the shared emitter changed. Source CI passed all 719 steps on b034b066 (36905203833). Published Chromium desktop 5,10–11 passed 62 checks (36905832670), mobile 10 passed 33 (36904172019), desktop 1,5 passed 96 (36899248098), and mobile 1,5,11,13 passed 223 (36899419433), all with zero page errors. Both viewports' 1904 Glessner loading, placement, picking, materials and draw-budget checks pass. The integration repairs retain the yard budget, place the camp anchors on their ground, verify drawn placement to 0.001 m, and give the desktop grass edge a measured 4.94 px spread against the unchanged 4 px floor. Final receipts and the subsequent app-title merge are recorded in PR #230 and tools/dev-smoke-state.json. Browser validation ran on GitHub because local Chromium is refused by this environment. See docs/RESEARCH/glessner-west-roof-repair/work.md.
+
+
+### T-2218 — curved courtyard hall steps (2026-10-14)
+
+The measured terrace and fan-shaped flight replace the narrow straight boxes. The brick cheek descends under a closed stone cap to a rounded end post. HABS plan/section controls also correct the shared hall-bow footprint; approved door treatment and threshold remain. Lower hidden tread geometry is explicitly reconstructed. The build, geometric ray checks, K01 contract and all ten final published desktop/phone views pass. Full/Web have 1,312,788 triangles; Light has 199,496. The threshold depth interference is repaired. Terminal-shoulder/tower projection differences remain explicit for T-2228. Full preflight and remote checks govern the dev merge; see the ticket-linked PR for their results. See [the report](RESEARCH/glessner-courtyard-steps-T-2218.md).
+
+
+### T-2494 — reproducible Glessner UV layouts
+
+The pinned Blender build produces different stone-occlusion UV layouts with Debian glibc 2.41 and Ubuntu glibc 2.39 math libraries. A controlled library substitution reproduces the CI atlas key while all pre-unwrap mesh arrays remain identical. Full and Light now retain their validated UV layout beside the AO atlas, keyed by exact mesh/unwrap inputs; stale or corrupt layouts are refused. The complete atlas digest and K01 package guard remain unchanged. Local and canonical full-bake validation are recorded in the ticket-linked PR. T-2220 waits on this repair; whole-house photographic acceptance remains T-2228. See [the report](RESEARCH/glessner-bake-2494/README.md).
+
+## T-2224 — Glessner courtyard ground (2026-10-15)
+
+Reconstructed gravel approaches connect the drive to the north service stair and
+curved terrace; the west walk falls away from masonry. Ground clipping removes
+lawn below paths and actual occupied footprints, preserving gate/passage levels.
+HABS sheet 2 supplies access positions, not a 1904 garden layout; paving and grades
+are separately declared reconstructions and 1946 parking is excluded. Geometry
+contact/turf-clearance tests and K01 pass. Full/web has 1,315,670 triangles and
+Light 199,794. Ten fixed-camera browser views were inspected with no page errors;
+eight meet scene budgets, while both terrace views retain their baseline failures
+for T-2227. The new liberty and credited Images panel are visible on mobile.
+All five historical comparisons retain unchanged cameras and `differs` verdicts
+for T-2228. Full preflight and exact-head CI govern the dev merge; their receipts
+are on the ticket-linked PR. See docs/RESEARCH/glessner-courtyard-ground-T-2224/README.md.
+
+## T-2225 — Selective July vines (2026-10-15)
+
+Seven reconstructed planting areas add Boston ivy to the Prairie front and
+Virginia creeper to courtyard walls. Full carries connected stems and curled
+leaves; Light shares the same original masked atlas on continuous panels. Cleared
+HABS geometry and the public-domain USDA botanical guide bound the numeric study;
+the 1887 planting history does not establish exact July 1904 coverage. Later
+blanket overgrowth is excluded, and the new liberty states the reconstruction.
+
+The first Full bake's nested compound petioles were rejected and corrected with a
+shared junction. The regression reproduces the old defect; the corrected canonical
+Full/web/Light assets have zero coincident faces at K01's unchanged 1 mm quantum.
+Full/web has 1,371,506 triangles and Light 199,850. Ten fixed-camera app views were
+actually reviewed with no browser errors; eight meet scene budgets and both
+north-court views retain their baseline failures for T-2227. Both confidence
+views, the new liberty and credited mobile Images panel were inspected. All five
+historical cameras remain unchanged and whole-house verdicts remain `differs` for
+T-2228. Owner granite and dark glass are retained. Full preflight and exact-head
+CI govern merge; see the ticket-linked PR for results and deployment verification.
+See docs/RESEARCH/glessner-vines-T-2225/README.md.
+
+
+## T-2226 — Glessner surface finish
+
+The material pass restores mortar courses to plain stair/Light boundary surfaces and maps gate ledge/brace grain along each member. Fixed Full/Light scene and neutral-light baselines preserve the owner granite tint, dark glass and current July light. The new maps reuse original project textures and numeric construction, with no copied photograph pixels, added random grunge or new claim of measured 1904 weathering. See docs/RESEARCH/glessner-finish-T-2226/README.md and L-glessner-finish-2226. Canonical exports and all 24 fixed-camera after views are reviewed; geometry counts stay unchanged at 1,371,506 Full / 199,850 Light triangles. No browser errors occurred. Mobile confidence, reconstructed liberty and all credited image tiles were reviewed. Five unchanged historical cameras still read differs. Full preflight and exact-head CI govern merge; see the ticket-linked PR for gate and deployment receipts. Existing north-view scene-budget failures are recorded unchanged for T-2227; T-2228 owns the final photographic verdicts.
+
+T-2226 preflight found one real failure: the published tree reached 262.262 MiB against its 256 MiB hygiene allowance. A measured storage re-budget to 288 MiB is documented in docs/SITE-BUDGET.md section 8; boot, frame and Light limits are unchanged. No material detail or research record was removed. The full gate is rerun before commit.
+
+
+T-2228,2026-10-16: the owner prioritised the Prairie entry. Its section, threshold, shaped lintel and recessed carving are being rebuilt and reviewed against HABS5 and original doorway23A. Previous6b2cff4d roof/window comparison receipts remain historical; the entrance candidate requires new actual-master comparisons and a fresh full gate before PR851 merges. T-2228 stays active.
+
+
+T-2228 entrance follow-up: the current master preserves the recessed doorway while the lower Prairie wall slopes outward, adds the shaped lintel and a single inset threshold, and sets the carved field behind stepped mouldings. Direct frontal and oblique review confirms these four forms. Full/Web measure 1,369,074 triangles and Light 194,245, all with zero coincident faces; the unchanged K01 contract passes. Full canonical and published runtime review, repository preflight and exact-head CI remain required before merge. The preceding 6b2cff4d roof/window receipts are historical; current asset 8aa944555ecb and remaining uncertainty are documented in [the entrance review](RESEARCH/glessner-entry-2228/README.md). Whole-house photographic signoff remains open.
+
+
+T-2228 published entrance validation: three Full desktop and three Light mobile views pass existing scene budgets and were directly reviewed. Thirteen ground contacts per viewport verify the single inset threshold and clear approach. No page/asset errors; all 124 held mobile image tiles load with credits, and doorway23A’s full archive credit and the entrance liberty are reviewed. Current asset and remaining photographic differences are in docs/RESEARCH/glessner-entry-2228/. Latest dev integration preserves all 890 other root asset entries. Fresh full preflight and exact-commit CI govern the pending dev merge; T-2228 remains open.

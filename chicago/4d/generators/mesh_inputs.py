@@ -84,19 +84,22 @@ class InputsError(ValueError):
 PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py",  # T-2306: K13
                "k16_timber": "k16_emit.py",  # T-2323: K16
                "k12_coach_house": "k12_emit.py",  # T-2321: K12
-               "prairie_draft": "draft_emit.py"}  # T-2329: the district draft
+               "prairie_draft": "draft_emit.py",  # T-2329: the district draft
+               "haystack": "haystack_emit.py"}  # T-2510: Lee's Place's stacks
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
 PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
-                                       "k10_frontage.py", "k10_cornices.py",
+                                       "k10_frontage.py", "k10_cornices.py", "k01_stone_finish.py",
                                        "k11_frontage.py", "k11_ironwork.py",
                                        # T-2360: K14 lays the yard, from the condition kit's ground layers
                                        "k14_yard.py", "k14_condition.py",
                                        # T-2313: K15 builds the chimney stacks in the roof
                                        "k15_chimneys.py",
                                        # T-2358: K14 weathers a record that names it
-                                       "k14_condition.py"),
+                                       "k14_condition.py",
+                                       # T-2543: the shaped street gable, joined into the roof
+                                       "k01_shaped_gable.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers

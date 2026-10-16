@@ -1,0 +1,142 @@
+{
+  "ticket": "T-2228",
+  "not_a_reading": "Re-review of existing cleared images and fixed-camera candidate renders; not new independent evidence.",
+  "master_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
+  "final_acceptance": false,
+  "items": [
+    {
+      "id": "north-straight-ridge",
+      "status": "fixed",
+      "views": [
+        "owner-aerial"
+      ],
+      "finding": "North ridge and west cross-gable/cupola share S14.6; the perpendicular stable ridge remains W141. Directly reviewed unchanged-camera overhead after render.",
+      "limit": "Separate 34.1/38.6 ft heights retain local crest occlusion; approximate modern aerial is not a roof-height survey."
+    },
+    {
+      "id": "northeast-copper-return",
+      "status": "fixed",
+      "views": [
+        "owner-aerial"
+      ],
+      "finding": "Chamfered return replaces north-roof tiles on their existing plane and meets the radial hood. Actual master shows the previously missing strip.",
+      "limit": "Exact footprint, seams and stock are reconstructed; other copper/bow correspondence remains open."
+    },
+    {
+      "id": "west-upper-slit-location",
+      "status": "fixed",
+      "views": [
+        "cornell-northwest-west-windows"
+      ],
+      "finding": "Southern upper slit moves S21.8 toS19.8, closer to its ca. 1887 photographic position. Other seven centers remain within approximate 1 ft station uncertainty.",
+      "limit": "Camera rests on reconstructed eave heights; exact aperture dimensions and whole-facade correspondence are not accepted as surveyed."
+    },
+    {
+      "id": "roof-north-connector",
+      "status": "fixed",
+      "views": [
+        "habs-14-north-inclined",
+        "habs-01-northwest"
+      ],
+      "finding": "Extruded upper apex replaced by pointed cone and lower pitched connector; directly viewed both current master comparisons. Flat street facade and staggered drum remain.",
+      "limit": "Connector height remains camera-dependent reconstruction; this is not whole-house acceptance."
+    },
+    {
+      "id": "court-dormer-host",
+      "status": "fixed",
+      "views": [
+        "habs04-court-exterior"
+      ],
+      "finding": "Roof tiles no longer cross the three dormer panes; the actual master render shows open glazing, with closed rear host intersections."
+    },
+    {
+      "id": "court-eave-opening",
+      "status": "fixed",
+      "views": [
+        "habs04-court-exterior"
+      ],
+      "finding": "Raised courtyard eave clears the formerly intersected upper wall opening; its head is again attached to masonry."
+    },
+    {
+      "id": "court-hood-height",
+      "status": "fixed",
+      "views": [
+        "habs04-hood-section"
+      ],
+      "finding": "The former approximately0.25m downward offset is corrected at the unchanged section camera. Crest and edge now follow the drawn section much more closely.",
+      "limit": "Exact stock/gutter projection and small finite-perspective residual remain reconstructed."
+    },
+    {
+      "id": "court-dormer-width",
+      "status": "fixed",
+      "views": [
+        "habs04-court-exterior"
+      ],
+      "finding": "Side overhang reduced from0.26m to0.144m, bounded by native body about445px and roof540px at100.6px/ft. The85mm inset retains the outward lower flare. The revised actual section render is closer in width.",
+      "limit": "Front/back depth and exact stock remain reconstructed. Remaining apron/finial silhouette differences are not final photographic acceptance."
+    },
+    {
+      "id": "terrace-post-join",
+      "status": "open",
+      "views": [
+        "habs04-terrace-section"
+      ],
+      "finding": "The flat shelf is gone, but the coping still continues across the rounded post in projection. The measured section ends nearS45.35 while the circular model path reaches the plan-centred post nearS46.78.",
+      "next": "Reconcile HABS2 terminal wall path with HABS4 cap endpoint. Do not merely extend a supposedly hidden cap or discard the measured stair boundaries."
+    },
+    {
+      "id": "court-garden-light",
+      "status": "fixed",
+      "views": [
+        "habs04-terrace-section",
+        "habs04-court-exterior"
+      ],
+      "finding": "Broad barred light replaces the overly low, narrow opening. Source bounds are46.48..50.98S and2.60..4.95ft over grade.",
+      "limit": "Reveal/frame/iron stock is reconstructed; precise local stone surround and tower overlap remain for review."
+    },
+    {
+      "id": "tower-plan-section",
+      "status": "open",
+      "views": [
+        "habs04-court-exterior"
+      ],
+      "finding": "Plan-centred stair tower remains offset from the section projection by about0.63ft; section radius also exceeds the retained plan radius.",
+      "next": "Compare independently rectified HABS2/4 lines and document which observation governs each axis; do not fit the camera to erase disagreement."
+    },
+    {
+      "id": "north-correspondence",
+      "status": "open",
+      "views": [
+        "habs-13-north-level",
+        "habs-14-north-inclined"
+      ],
+      "finding": "Directly reviewed current HABS13 comparison exposes substantial frozen-pose/opening correspondence residuals. HABS14 retains finial/stack and material/lighting differences.",
+      "next": "Revalidate semantic survey/photo controls before attributing all pixel error to geometry. Frozen T2200 baseline and all80 original picks remain untouched."
+    },
+    {
+      "id": "prairie-correspondence",
+      "status": "open",
+      "views": [
+        "taylor-2135-ne"
+      ],
+      "finding": "Street openings, entry, silhouette and stone course/lighting differences remain in the early photograph; this roof pass does not resolve them.",
+      "next": "Review visible original fabric against early photograph and cleared HABS detail views; separate later alterations and camera sensitivity."
+    },
+    {
+      "id": "west-court-access",
+      "status": "open",
+      "views": [],
+      "finding": "Modeled high west courtyard door lacks a supported access/level reconciliation. HABS2 DN flight points toward the door; modern058 shows a low recess.",
+      "next": "Use independent plan/level controls and dated evidence. Prior modern058 fit was rejected at focal/eye-height bounds; no speculative raised flight or exact-height claim."
+    },
+    {
+      "id": "court-east-drainage",
+      "status": "fixed",
+      "views": [
+        "habs04-court-exterior"
+      ],
+      "finding": "Both east-court leaders occupy clear masonry strips beside the revised tower and broad basement light. Full/Light spatial checks pass with no opening crossings.",
+      "limit": "Exact S61.61/42.4ft leader anchors are reconstructed clearances, not independent historic measurements."
+    }
+  ]
+}

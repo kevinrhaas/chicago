@@ -1,4 +1,5 @@
-"""camp — the canvas, wagons and fires of the transient crowd of the summer of 1835.
+"""camp — the canvas, wagons and fires of the transient crowd of the summer of 1835,
+and the mat lodges of the Potawatomi camp of August 1812 (T-2515).
 
 See `camp_params` for the evidence, the forms and every dimension. This module only
 builds: each pitched thing is made in its own frame (x across its front, y from its
@@ -31,13 +32,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from common import materials  # noqa: E402
 from common.mesh import MeshBuilder, simple_material  # noqa: E402
 from archetypes.camp_params import (  # noqa: E402
-    BRUSH_SHELTER_D_M, BRUSH_SHELTER_W_M, FRONT_BAND_M, PITCH_GAP_M,
+    BRUSH_SHELTER_D_M, BRUSH_SHELTER_W_M, FRONT_BAND_M, LODGE_D_M, LODGE_DOOR_H_M,
+    LODGE_DOOR_W_M, LODGE_H_M, LODGE_SMOKE_HOLE, LODGE_W_M, PITCH_GAP_M,
     WAGON_BED_L_M, WAGON_BED_W_M, WAGON_TONGUE_M, WAGON_TRACK_M, WALL_TENT_D_M,
     WALL_TENT_RIDGE_M, WALL_TENT_W_M, WALL_TENT_WALL_M, WEDGE_TENT_D_M,
     WEDGE_TENT_RIDGE_M, WEDGE_TENT_W_M, CampParams,
 )
 
-M_CANVAS, M_WOOD, M_DARK, M_STONE, M_BRUSH = 0, 1, 2, 3, 4
+M_CANVAS, M_WOOD, M_DARK, M_STONE, M_BRUSH, M_MAT = 0, 1, 2, 3, 4, 5
 
 # Unbleached cotton duck. New canvas is the pale cream of the cloth; a season under
 # a lake sun and a wood fire greys and browns it, and a patched cloth is the weathered
@@ -57,6 +59,15 @@ DARK_RGBA = (0.090, 0.082, 0.072, 1.0)
 STONE_RGBA = (0.420, 0.400, 0.370, 1.0)
 # Cut brush, a few days wilted.
 BRUSH_RGBA = (0.300, 0.300, 0.170, 1.0)
+# Rush matting (T-2515): the dried flags Wau-Bun says the mats were woven from, a
+# straw-brown that greys in the weather. Keyed by the record's `canvas_condition`,
+# which for a lodge is the covering's condition: Wau-Bun's lodge had mats "very neat
+# and new". Darker than new canvas so a mat reads as plant stuff and not as cloth.
+MAT_RGBA = {
+    "new": (0.520, 0.450, 0.300, 1.0),
+    "weathered": (0.430, 0.385, 0.290, 1.0),
+    "patched": (0.380, 0.340, 0.260, 1.0),
+}
 
 
 def _jitter(i: int, k: int = 0) -> float:
@@ -112,6 +123,24 @@ class _Placed:
         self.poly([(x0, y, z) for y, z in reversed(ring)], mat)
         self.poly([(x1, y, z) for y, z in ring], mat)
 
+    def rod(self, a, b, r, mat: int) -> None:
+        """A pole between two points: a square prism, its faces turned about the axis."""
+        d = [b[i] - a[i] for i in range(3)]
+        ln = math.sqrt(sum(c * c for c in d)) or 1.0
+        d = [c / ln for c in d]
+        up = (0.0, 0.0, 1.0) if abs(d[2]) < 0.9 else (1.0, 0.0, 0.0)
+        u = (d[1] * up[2] - d[2] * up[1], d[2] * up[0] - d[0] * up[2],
+             d[0] * up[1] - d[1] * up[0])
+        un = math.sqrt(sum(c * c for c in u))
+        u = [c / un for c in u]
+        v = (d[1] * u[2] - d[2] * u[1], d[2] * u[0] - d[0] * u[2], d[0] * u[1] - d[1] * u[0])
+        ring = [(math.cos(k * math.pi / 2), math.sin(k * math.pi / 2)) for k in range(4)]
+        ends = [[tuple(o[i] + r * (cu * u[i] + cv * v[i]) for i in range(3)) for cu, cv in ring]
+                for o in (a, b)]
+        for k in range(4):
+            j = (k + 1) % 4
+            self.poly([ends[0][k], ends[0][j], ends[1][j], ends[1][k]], mat)
+
     def post(self, x, y, z0, z1, side, mat: int) -> None:
         h = side / 2.0
         self.box(x - h, y - h, z0, x + h, y + h, z1, mat, skip=("bottom",))
@@ -160,6 +189,77 @@ def _wedge_tent(p: _Placed) -> None:
     p.poly([(hw * 0.75, 0, 0), (hw, 0, 0), (0, 0, rz)][::-1], M_CANVAS)
     p.post(0, -0.05, 0, rz + 0.10, 0.05, M_WOOD)
     p.post(0, d + 0.05, 0, rz + 0.10, 0.05, M_WOOD)
+
+
+def _lodge_ring(z_frac: float) -> float:
+    """The lodge's profile: the plan's scale at a height, as a fraction of the crown.
+
+    A superellipse, so the wall stands near-upright for the first metre and rounds
+    over into the crown — the bent poles' curve, as the archetype draws it (L-1812-
+    potawatomi-camp-2515), and never the straight sides of a cone.
+    """
+    return max(0.0, 1.0 - z_frac ** 2.6) ** (1.0 / 2.6)
+
+
+def _mat_lodge(p: _Placed) -> None:
+    """A mat lodge, door at y = 0, centred on x = 0: an oval dome of rush mats on a
+    bent-pole frame, laid in lapped courses, a smoke opening at the crown, a mat
+    rolled up over the door, and a pole laid over the mats to hold them down.
+    Nobody at the door and no smoke (L1).
+
+    Kept lean on purpose: 26 of these stand in the 1812 scene and the published tree
+    has almost no headroom (validate.py's SITE_BUDGET_MB), so the dome is twelve
+    facets round and each course one band, which is about a sixth of the faces of
+    a finer build and reads the same from the bank."""
+    a, b, H = LODGE_W_M / 2.0, LODGE_D_M / 2.0, LODGE_H_M
+    cy = b
+    n = 12
+    # the plan angle of each facet's first edge; the door is centred at -90 degrees,
+    # y = 0, so the facets are offset half a step to put an edge either side of it
+    th = [2 * math.pi * (j - 0.5) / n - math.pi / 2.0 for j in range(n)]
+    s_top = LODGE_SMOKE_HOLE
+    z_top = H * (1.0 - s_top ** 2.6) ** (1.0 / 2.6)
+
+    def pt(theta, s, z, out=0.0):
+        return ((a * s + out) * math.cos(theta), cy + (b * s + out) * math.sin(theta), z)
+
+    # the mats, in four lapped courses: each starts a little proud of the course
+    # under it and a little lower, so the joints read as mats laid like shingles.
+    # The lowest courses leave the door's facet open.
+    courses = [0.0, 0.30, 0.56, 0.78, z_top / H]
+    lip = 0.035
+    for k in range(len(courses) - 1):
+        za, zb = courses[k] * H, courses[k + 1] * H
+        sa, sb = _lodge_ring(za / H), _lodge_ring(zb / H)
+        oa, za_ = (lip, za - 0.05) if k else (0.0, za - 0.04)
+        for j in range(n):
+            if j == 0 and za < LODGE_DOOR_H_M:
+                continue
+            t0, t1 = th[j], th[(j + 1) % n]
+            p.poly([pt(t0, sa, za_, oa), pt(t1, sa, za_, oa),
+                    pt(t1, sb, zb), pt(t0, sb, zb)], M_MAT)
+    # the doorway: the dark inside behind the facet the courses leave open, and a mat
+    # rolled up and tied over it — Wau-Bun's mat "which hung over the entrance"
+    zc = courses[2] * H
+    sc = _lodge_ring(zc / H)
+    p.poly([pt(th[0], 1.0, 0.0, -0.05), pt(th[1], 1.0, 0.0, -0.05),
+            pt(th[1], sc, zc, -0.05), pt(th[0], sc, zc, -0.05)], M_DARK)
+    s_d = _lodge_ring(LODGE_DOOR_H_M / H)
+    yd = cy - b * s_d - 0.10
+    p.log_x(-LODGE_DOOR_W_M / 2.0 - 0.08, LODGE_DOOR_W_M / 2.0 + 0.08, yd,
+            LODGE_DOOR_H_M + 0.06, 0.08, M_MAT, n=5)
+    # the smoke opening at the crown, the frame's dark inside showing through
+    p.poly([pt(t, s_top, z_top - 0.03) for t in th], M_DARK)
+    # the frame: a pole laid over the mats across the lodge, which is how the bent
+    # poles show from outside
+    for side in (0.0, math.pi):
+        prev = None
+        for f in (0.0, 0.6, 1.0):
+            z = f * z_top
+            q = pt(side, _lodge_ring(z / H), z, 0.05)
+            if prev is not None:
+                p.rod(prev, q, 0.03, M_WOOD)
+            prev = q
 
 
 def _wagon(p: _Placed) -> None:
@@ -255,8 +355,10 @@ def _baggage(p: _Placed) -> None:
     p.poly([(x, y, 0.70) for x, y in ring], M_WOOD)
 
 
-_PITCH = {"wall_tent": _wall_tent, "wedge_tent": _wedge_tent,
+_PITCH = {"wall_tent": _wall_tent, "wedge_tent": _wedge_tent, "mat_lodge": _mat_lodge,
           "wagon": _wagon, "brush_shelter": _brush_shelter}
+# The pitches a family slept in: they take the confidence of what the camp WAS.
+_SHELTERS = ("wall_tent", "wedge_tent", "mat_lodge")
 
 
 # ------------------------------------------------------------------ the layouts
@@ -355,7 +457,7 @@ def build(params: CampParams, name: str):
     # so no tent is built inside out.
     L, D = params.length_m, params.depth_m
     for kind, x, y, rot in _layout(params):
-        c = conf if kind.endswith("_tent") else kit_conf
+        c = conf if kind in _SHELTERS else kit_conf
         builders[kind](_Placed(b, L - x, D - y, rot + 180.0, c))
 
     wood_r = materials.SUBSTRATES["hewn_log"].roughness
@@ -365,5 +467,6 @@ def build(params: CampParams, name: str):
         simple_material("dark", DARK_RGBA, roughness=0.95),
         simple_material("stone", STONE_RGBA, roughness=0.97),
         simple_material("brush", BRUSH_RGBA, roughness=0.98),
+        simple_material("mat", MAT_RGBA[params.canvas_condition], roughness=0.97),
     ]
     return b.to_object(mats)

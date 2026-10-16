@@ -41,6 +41,17 @@ export function levelOf(value) {
   return 'attested';
 }
 
+/** Whether every interpolated value in a triangle remains opaque under the
+ * public evidence controls. Unknown ranges fail open for visibility culling. */
+export function opaqueConfidenceRange(range, view) {
+  if (!range || range.length!==2 || !range.every(Number.isFinite)) return false;
+  const [min,max]=range;
+  if(min<0 || max>1 || min>max || (view.enabled && max>0.75))return false;
+  const levels=['attested','inferred','reconstructed'];
+  const first=levels.indexOf(levelOf(min)),last=levels.indexOf(levelOf(max));
+  return !levels.slice(first,last+1).some(level=>view.hidden?.[level]);
+}
+
 const VERTEX_DECL = /* glsl */`
 attribute float _confidence;
 varying float vConfidence;
@@ -61,6 +72,18 @@ const VERTEX_ASSIGN = /* glsl */`
   // unreliable across drivers.
   float chicagoC = _confidence;
   vConfidence = (chicagoC == chicagoC) ? clamp(chicagoC, 0.0, 1.0) : 0.0;
+`;
+
+/**
+ * A PACKED channel: the structures batch packs confidence with roughness, grain
+ * and the piece tone into one four-byte attribute (T-2574), and hands `patch`
+ * the GLSL that reads it and the function that declares it
+ * (compact-attributes.js SCALARS_GLSL) — passed in rather than imported, so
+ * this module stays loadable on its own. A packed byte is never NaN and the
+ * packing already clamped it, so there is nothing left to sanitise.
+ */
+const PACKED_VERTEX_DECL = /* glsl */`
+varying float vConfidence;
 `;
 
 const FRAGMENT_DECL = /* glsl */`
@@ -154,7 +177,7 @@ const FRAGMENT_TINT = /* glsl */`
  * the material was given wins; otherwise the source text of its hook, which is
  * three's own default; and nothing at all for the unhooked default material.
  */
-function programKeyOf(material) {
+export function programKeyOf(material) {
   if (Object.prototype.hasOwnProperty.call(material, 'customProgramCacheKey')) {
     return String(material.customProgramCacheKey());
   }
@@ -204,8 +227,11 @@ export function createConfidenceView({
    * Patch a material in place. Safe to call twice on the same material.
    * Works on MeshStandardMaterial / MeshPhysicalMaterial and on
    * MeshDepthMaterial (so a dithered wall casts a dithered shadow).
+   * `packed` — `{ read, declare }`, see PACKED_VERTEX_DECL — reads the channel
+   * from the structures batch's packed scalars rather than a float
+   * `_confidence` (T-2574); every other layer reads the float.
    */
-  function patch(material) {
+  function patch(material, { packed = null } = {}) {
     if (!material || patched.has(material)) return material;
     patched.add(material);
 
@@ -218,10 +244,11 @@ export function createConfidenceView({
       if (typeof prior === 'function') prior(shader, renderer);
       Object.assign(shader.uniforms, uniforms);
 
-      shader.vertexShader = VERTEX_DECL + shader.vertexShader.replace(
+      const v = (packed ? PACKED_VERTEX_DECL : VERTEX_DECL) + shader.vertexShader.replace(
         '#include <begin_vertex>',
-        '#include <begin_vertex>' + VERTEX_ASSIGN,
+        '#include <begin_vertex>' + (packed ? `\n  vConfidence = ${packed.read};\n` : VERTEX_ASSIGN),
       );
+      shader.vertexShader = packed ? packed.declare(v) : v;
 
       let f = FRAGMENT_DECL + shader.fragmentShader;
       // Discard first: an inferred fragment that is dithered away should not
@@ -260,7 +287,7 @@ export function createConfidenceView({
     // patching (enclosures.js and its kin) replaces this one, as before.
     material.customProgramCacheKey = function customProgramCacheKey() {
       const outer = this.onBeforeCompile === hook ? '' : `|wrap:${this.onBeforeCompile}`;
-      return `chicago4d-confidence${priorKey ? `|over:${priorKey}` : ''}${outer}`;
+      return `chicago4d-confidence${packed ? `|packed:${packed.read}` : ''}${priorKey ? `|over:${priorKey}` : ''}${outer}`;
     };
     material.needsUpdate = true;
     return material;

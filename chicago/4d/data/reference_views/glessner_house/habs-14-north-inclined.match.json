@@ -1,0 +1,24 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs-14-north-inclined",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Actual master reviewed: the extruded apex is replaced by a pointed north cone joining a lower decorated pitched connector. The approved flat north facade, wrapped staggered drum and flared eave remain; no roof hole is visible in this view.",
+      "status": "fixed"
+    },
+    {
+      "what": "Finial/stack correspondence, opening/ornament alignment, stone/course appearance and lighting still differ. The reference north wall is shaded whereas this unchanged diagnostic light illuminates it.",
+      "status": "open"
+    },
+    {
+      "what": "The connector ridge is a camera-dependent reconstruction bounded by HABS14, not a second independently surveyed height; monochrome imagery cannot establish1904 material RGB.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

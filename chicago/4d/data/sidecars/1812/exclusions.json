@@ -1,8 +1,208 @@
 {
   "scene": "1812",
-  "target_date": "1812-08-01",
-  "standard": "No structure has been researched for this scene and left out yet. The record of what was left out, and why, is the 1835 town's, and none of it stands on this ground.",
-  "excluded": [],
+  "target_date": "1812-08-14",
+  "standard": "Structures this project researched and deliberately left out of this scene, with the evidence that dates them. It is not a list of everything missing: most of the town is simply not built yet.",
+  "excluded": [
+    {
+      "id": "guarie_trading_house",
+      "name": "Guarie's trading house on the North Branch",
+      "reason": "GONE LONG BEFORE 1812 — it is a tradition of the eighteenth century, and no source places a standing house there after the first fort was built. By 1818 all that was left to point at were corn-hills grown over with grass.",
+      "detail": "THE ONLY WITNESS IS ONE TRADITION, AND IT DATES ITSELF. Gurdon Hubbard, writing to Andreas (scan p. 92): 'Prior to 1800, the North Branch of the Chicago River was called by the Indian traders and voyageurs \"River Guarie\" ... On the west side of the North Branch a man by the name of Guarie had a trading house, situated on the bank of the river about where Fulton Street now is. This house was enclosed by pickets. He located there prior to 1778.' He had it from Antoine Deschamps and Antoine Besom, voyageurs on the river 'from about 1778', and 'the evidences of this trading-house were pointed out to me by Mr. Deschamps; the corn-hills adjoining were distinctly traceable, though grown over with grass.' In his own autobiography Guarie is 'the first trader that followed La Salle', and the trace he names is 'the field he cultivated', not a house (hubbard_autobiography_1911, the River Guarie passage). Moses and Kirkland (1895) footnote the same: a farmer 'whose corn hills were still visible on the prairie'. Quaife (1913, p. 138), the scholarly history with the War Department files, says plainly that 'our only knowledge of Guarie's residence at Chicago is contained in the story recorded by Hubbard' and that Hubbard took pains to call it oral tradition; Keating's 1823 'Gary' river corroborates the NAME and nothing else. Hubbard's inventory of every building in the present limits of Cook County in 1818 (bk_hub_066) lists none on the North Branch. THE ONE STATEMENT THAT GOES FURTHER: Currey (1912, ch. II) has John Kinzie, arriving in 1804, find 'Ouilmette, Pettell, Le Mai, and Guarie, all of whom were permanent residents'. Currey cites nothing; his description of the house copies Hubbard's, and Surgeon Cooper's count of the houses at the post in 1808 (Quaife pp. 143, 166) and Whistler's draught of the same winter name neither Guarie nor a house on the North Branch at Fulton Street. One uncited sentence a century late is not a sighting, and a house the voyageurs already called old in 1778 is not inferred to stand in 1812 on it. WHAT WOULD REOPEN THIS: a contemporary record — an account book, a letter, a muster or a claim — naming Guarie, or a house on the west bank of the North Branch, between 1803 and 1812. T-2489.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "citation": "J. Seymour Currey, The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912 (published August 1912). A popular history of the first fort from 1803 to its burning in 1812, compiled from the printed accounts and the pioneer recollections before it, with eleven illustrations.",
+          "url": "https://www.gutenberg.org/ebooks/52346",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "what_it_supplies": [
+            "two placings of Lee's Place: 'some four miles southwest of the fort ... on the west bank of the South Branch ... about where at the present time the old Illinois and Michigan Canal opens into that stream' (lines 1450-1454), and, in the caption to its illustration, 'on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river' (lines 1484-1486)",
+            "the caption of an illustration titled 'Hardscrabble', facing p. 74, which T-2503 is to read as a picture",
+            "a 'Map of Chicago in 1812' facing p. 165, not yet opened",
+            "the Lee family's house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue, with the sand-bar as the reason (lines 1456-1463)",
+            "the Burns house, John Burns's cabin on the north bank near the later State Street bridge, west of the Kinzies' (lines 1565-1576, 2249-2251, 2820-2822)",
+            "the four houses left standing on 18 August 1812: the Kinzie and Ouilmette houses, Burns's and Lee's (lines 3100-3105)",
+            "the one statement in the corpus that names Guarie among the residents John Kinzie found in 1804 (lines 801-803), uncited; weighed and not followed in data/exclusions.json guarie_trading_house, because Hubbard's tradition, which is Andreas's and Quaife's only authority for Guarie, dates his house before 1778 (T-2489)"
+          ],
+          "what_it_does_not_supply": [
+            "an eyewitness: Currey writes a century after the farm, from the books before him, and he says so ('it is said in a recent history of Chicago')",
+            "a survey distance. 'Some four miles' is a round figure, and the book gives no route for it",
+            "the illustration's own date or maker, which the caption does not state; until it is read it is a retrospective picture and grades tier 5 as a picture, whatever this record's tier as a text"
+          ]
+        },
+        {
+          "source_id": "hubbard_autobiography_1911",
+          "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+          "url": "https://archive.org/details/autobiographyofg00hubb",
+          "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+              "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+              "tier": 2,
+              "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+            },
+            {
+              "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+              "date": "1911",
+              "tier": 4,
+              "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+            },
+            {
+              "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+              "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+              "tier": 4,
+              "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+            }
+          ],
+          "what_it_supplies": [
+            "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+            "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+            "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+            "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+            "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+            "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+            "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+            "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+            "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+            "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+            "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+            "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+          ],
+          "what_it_does_not_supply": [
+            "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+            "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+            "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+            "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+            "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+            "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+            "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+            "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+          ]
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "url": "https://archive.org/details/historyofchicago01mose",
+          "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "transcribes": [
+            {
+              "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+              "date": "1881",
+              "tier": 3,
+              "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+            }
+          ],
+          "what_it_supplies": [
+            "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+            "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+            "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+            "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+            "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+            "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+          ],
+          "what_it_does_not_supply": [
+            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+            "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+            "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+            "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+            "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+            "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+          ]
+        },
+        {
+          "source_id": "quaife_1913",
+          "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+          "url": "https://www.gutenberg.org/ebooks/69274",
+          "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+            "Major Long's 1816 report on the second fort under construction",
+            "a scholarly negative: no dimension of the second fort's stockade"
+          ],
+          "what_it_does_not_supply": [
+            "any plan or dimension of the 1816 fort",
+            "anything about the fort after 1835"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cobweb_castle_1812",
+      "name": "The Indian Agency House (\"Cobweb Castle\"), claimed for 1812",
+      "reason": "NOT YET BUILT — begun under Charles Jouett's second agency (1816-18) and finished by Dr. Wolcott in 1820. The pre-1812 house one witness remembered is the Burns house beside it, not this one.",
+      "detail": "THE CLAIM. Mrs. Susan M. Callis, Jouett's daughter, who came to Chicago with her parents in 1816, said the house her father lived in 'was built before the massacre of 1812' (Andreas scan p. 89, from her letter). Read alone, that would put Cobweb Castle in this scene. THE AGENCY'S OWN DATES SAY OTHERWISE, and they are Andreas's too: Wolcott, agent from 1820, 'finished and resided in a building commenced during Judge Jouett's incumbency. This was the agency-house on the north side of the river, near where now is the foot of North State Street, and which was facetiously called \"Cobweb Castle\"' (scan p. 90); Moses and Kirkland (1895, pp. 70-71): 'He completed the double log-house begun by his predecessor, known as Cobweb Castle'. Jouett's incumbency at Chicago after the war is 1816-18; his first, 1804-11, had its agency house SOUTH of the river, west of the fort — Whistler's draught no. 17, which this scene already stands as `first_fort_outer_agents_house`. THE TWO ACCOUNTS ARE OF TWO HOUSES, AND CALLIS DESCRIBES THE OTHER ONE. What she gives is 'a log building of two large rooms, about twenty steps from the river bank, on the north side', west of Kinzie's, his 'residence, and the Agency-house for that period' (Andreas p. 89). Moses and Kirkland say which house that was: 'The Burns house, which stood near what is now the southwest corner of North State (formerly Wolcott) and Water streets, near where the agency house, called Cobweb Castle, was subsequently erected, was occupied in 1817 by Charles Jouett' (p. 70); Wau-Bun's own note to the 1812 narrative (ch. XVIII, footnote 30 in the Gutenberg text) agrees: 'Burns's house stood near the spot where the Agency Building, or \"Cobweb Castle,\" was afterwards erected, at the foot of N. State Street'; and the log house Hurlbut judged to be the Burns house stood 'twenty steps from the river bank' (Moses and Kirkland p. 36) — Callis's own figure. So the agent lived in the old Burns house while the new agency house was going up beside it, and the house she remembered as standing in 1812 is the one T-2487 builds for this scene. Cobweb Castle enters the dataset in 1820 (`cobweb_castle.log_1820`) and first stands in the 1835 scene. WHAT WOULD REOPEN THIS: a record of the agency house on the north bank, or of Jouett building there, dated before 1812. T-2489.",
+      "earliest_scene": "1835",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "url": "https://archive.org/details/historyofchicago01mose",
+          "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "transcribes": [
+            {
+              "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+              "date": "1881",
+              "tier": 3,
+              "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+            }
+          ],
+          "what_it_supplies": [
+            "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+            "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+            "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+            "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+            "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+            "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+          ],
+          "what_it_does_not_supply": [
+            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+            "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+            "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+            "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+            "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+            "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+          ]
+        }
+      ]
+    }
+  ],
   "uncertain_standard": "Structures whose status on this date is genuinely OPEN — neither built with confidence nor ruled out. They are the third category, and each one says whether it is standing in front of you or was never found on the ground.",
   "uncertain": []
 }

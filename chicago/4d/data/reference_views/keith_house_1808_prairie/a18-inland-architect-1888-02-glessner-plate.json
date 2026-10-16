@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-inland-architect-1888-02-glessner-plate",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-inland-architect-1888-02-glessner-plate.jpg",
+  "image_px": [
+    1559,
+    2400
+  ],
+  "principal_px": [
+    514.2832172048355,
+    1442.888615654164
+  ],
+  "focal_px": 2528.2371508544697,
+  "eye": [
+    77.12630107139769,
+    49.47285846521424,
+    1.7
+  ],
+  "yaw_deg": 255.27207104936988,
+  "basis_right_up_forward": [
+    [
+      -0.0018401056745391182,
+      0.00700016197777001,
+      0.9999738055286206
+    ],
+    [
+      0.25422275175443676,
+      -0.967118609185964,
+      0.007237973239000542
+    ],
+    [
+      -0.967143943010299,
+      -0.2542294111594712,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll fitted), eye height 1.7 m reconstructed, least squares over 5 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, roll, f, cx, cy; fixed: h=1.7. The photograph is printed a quarter turn round on the page, so roll is about 90 degrees (prior 90 +/- 1.5) and the source raster is unaltered. Read: both return pinnacle apexes; the northernmost third-storey light's head and sill at its north jamb and its south jamb head. Controls world [u, v, y] -> pixels (free = coordinate not used): [17.86, 10.252, 17.27] -> [1093.6, 580]; [12.729, 10.18, 17.468] -> [1060.5, 682.3]; [17.873, 8.244, 12.634] -> [914.4, 514.6]; [17.9, 8.24, 10.45] -> [836, 514.6]; [17.885, 7.679, 12.677] -> [914.4, 495.4]. Projected [[1093.0, 579.6], [1060.4, 682.2], [915.4, 514.6], [834.0, 514.5], [916.0, 496.0]]. Per-control residual px [0.7, 0.1, 1.0, 2.0, 1.7]; coordinate RMS 1.29 px, max 1.97 px. Scale at the subject: 37.3 px/m at 67.8 m, so the RMS is about 0.03 m. Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). February 1888 Inland Architect Glessner plate: the photograph is printed rotated on the page; roll is in the camera, the source raster is unaltered. Glessner conceals the lower Keith front. Monochrome colour not shown."
+}

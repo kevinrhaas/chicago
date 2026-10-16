@@ -174,12 +174,31 @@ def level_courtyard_gable(r):
     edge = g['court_edge_x']
     court = slope('x', xm, peak, edge, g['court_edge_z'])
     stable = [slope('x', r['x0'], g['rear_west_eave'], xm, peak), court]
+    if g.get('north_service_junction'):
+        # The street gable ends beside the full service opening, independently
+        # of the courtyard overhang. A planar front pitch meets the retained
+        # court pitch on a diagonal ending at the north range's ridge valley.
+        # Taking the minimum clips only the front corner; it keeps the level
+        # stable ridge and every courtyard roof station south of that valley.
+        valley_x = (n['ridge_z'] - court[2]) / court[0]
+        ax = (g['north_eave'] - peak) / (g['front_x1'] - xm)
+        by = (n['ridge_z'] - peak - ax * (valley_x - xm)) / (n['ridge_at'] - r['y1'])
+        stable.append((ax, by, peak - ax * xm - by * r['y1']))
     front = [slope('x', g['front_x0'], g['north_west_eave'], xm, peak)]
     cross = [slope('y', r['y1'], g['north_west_eave'], g['cross_y'], g['cross_z']),
              slope('y', g['south_foot_y'], g['cross_foot_eave'], g['cross_y'], g['cross_z'])]
     north = [slope('y', n['y0'], n['eave_lo_z'], n['ridge_at'], n['ridge_z']),
              slope('y', n['y1'], n['eave_hi_z'], n['ridge_at'], n['ridge_z'])]
+    retained = []
+    if g.get('north_service_junction'):
+        # Behind the valley retain the original courtyard plane. The north
+        # facing host pitch bounds it from the street, so the two stable
+        # patches meet on their actual plane intersections, without a step.
+        retained = [('stable_rear_pitch', (r['x0']-.15, edge, r['y0']-.20, r['y1']),
+                     stable[:2] + [north[1]]),
+                    ('north_eave_return', (g['front_x1'], edge, r['y1'], r['y1']+.20), north)]
     return [('stable_gable', (r['x0']-.15, edge, r['y0']-.20, r['y1']), stable),
+            *retained,
             ('north_gable', (r['x0']-.15, xm, g['cross_y'], r['y1']), front),
             ('cross', (r['x0']-.15, xm, r['y0']-.20, r['y1']), cross),
             ('straight_north', (xm, edge, r['y0']-.20, r['y1']), north)]
@@ -267,6 +286,10 @@ def patches(r, include_dormer=True):
                 edge_tests=bounds_planes(other_box)
                 tests=edge_tests+[tuple(o[k]-p[k] for k in range(3)) for o in others]
                 if any(max(abs(q) for q in t)<EPS for t in tests[len(edge_tests):]) and cj>ci:continue
+                # A shared plane is a tie, already assigned to the earlier
+                # component above. It has no outside half-space: clipping by
+                # both 0>=0 and -0>=0 would retain the same polygon twice.
+                tests=[t for t in tests if max(abs(q) for q in t)>=EPS]
                 kept=[]
                 for piece in remaining:
                     inside=piece

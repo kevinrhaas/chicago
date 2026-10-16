@@ -1,0 +1,48 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "teich_postcard",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "6e018e339204ba7bf0a62c917e9c17eebdf1cb7fca110e5c3c8a5e30d592048c",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/teich_postcard-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a long, low, single-storey house above the river bank, its ridge along the river, the west gable toward the eye; on the red-edge overlay the build's ridge, its west apex and its east verge land on the painted ones within about 14 px, the painting's own perspective being looser than any lens (see the camera's solve)",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, at x 535 and 605 px, the second toward the east end; the build's land at x 527 and 607",
+      "status": "fixed"
+    },
+    {
+      "what": "front: a central door (x 570-585 px) with two openings each side of it under the piazza, and a low paling along the piazza's front between the posts; the build's door, two sash each side and rail stand between the same posts",
+      "status": "fixed"
+    },
+    {
+      "what": "walls: the front under the piazza painted cream, as whitewash or weatherboard reads, the west end dark brown in shade; the build's are squared log throughout. The same reading and ruling as on the 1857 and Cram records: the painting shows the house as it was later (the card says 'first house built in Chicago', not a year), and the 1812 house is built of squared logs",
+      "status": "open"
+    },
+    {
+      "what": "the four poplars in a row east of the house running down to the river, the fence round the green below the house, and the great tree behind it: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "a low dark building behind the house's west end (x 375-420 px, y 275-310 px) and another on the rise behind (x 320-370 px, y 245-280 px), the road climbing past them: no 1812 source places them; Ouilmette's and Pettell's houses behind the Kinzie house are T-2484's other pieces",
+      "status": "not shown"
+    },
+    {
+      "what": "piazza roof: painted as the main roof carried down over the piazza to an eave at y 320 px; rebuilt (T-2516) as the main roof carried down and broken to a flatter pitch, which from this camera reads as the painted sweep, the eave on the painted one within about 3 px",
+      "status": "fixed"
+    },
+    {
+      "what": "west end: the small square window high in the gable (about 457, 285 px) is built (end_openings, after Sarony), and lands within about 8 px of the painted one. The end is still painted broader against the front than the build draws it (the apex 15 px left of the painted after the re-fit): a painter's perspective, and the 40 ft by 22 ft footprint stands (Sarony's stacks agree with it)",
+      "status": "open"
+    },
+    {
+      "what": "roof colour: painted red-brown, as weathered shingle reads; the build's roof is the archetype's neutral grey-brown. The painting is the only picture in colour, its painter and date are not recorded and the postcard's colour printing is c. 1910's; Sarony's monochrome lithograph, which governs, cannot say, so no colour is taken from this one card",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

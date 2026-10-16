@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { captureHooks, registerPatch } from './batch-material.js';
 import { hasInspectionLod } from './scene-loader.js';
 
 /** T-2204. Texture mipmaps cannot filter the individual tile noses. The asset
@@ -29,6 +30,7 @@ export function filterGlessnerRoof(material, record, geometry) {
   // Fully filtered relief is discarded below, leaving the bed's depth intact.
   material.depthWrite = true;
   material.forceSinglePass = true;
+  const batchHooks = captureHooks(material);
   const projectedPixels = { value: 1 };
   const size = new THREE.Vector2();
   const beforeRender = material.onBeforeRender;
@@ -54,5 +56,7 @@ export function filterGlessnerRoof(material, record, geometry) {
         }`);
   };
   material.customProgramCacheKey = () => 'glessner-roof-course-pixels-v1';
+  // The uniform is updated from the same draw camera/viewport for every batch.
+  registerPatch(material, batchHooks, 'glessner-roof-course-pixels-v1', {});
   material.needsUpdate = true;
 }

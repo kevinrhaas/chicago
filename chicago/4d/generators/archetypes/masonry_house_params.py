@@ -78,7 +78,7 @@ FT = 0.3048
 FAMILIES = ("range_", "ridge_", "gable_", "tower_", "bay_", "turret_", "chimney_",
             "openings_")
 CONSUMED = frozenset({
-    "frame_ft", "grade_datum", "detail_profile", "v4_detail",
+    "frame_ft", "grade_datum", "detail_profile", "v4_detail", "rainwater_details", "stack_finish", "service_access_details", "vines_details", "surface_finish",
     "construction", "paint", "roof_covering",
     "granite_tint", "brick_tint", "trim_tint", "roof_tint", "copper_tint", "wood_tint",
     # 1800 Prairie Avenue (glessner_house)
@@ -485,6 +485,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "eave_z": fr.zval(dm["eave"]),
                 "apex_z": fr.zval(dm["apex"]),
                 "light": [fr.zval(dm["light"][0]), fr.zval(dm["light"][1])],
+                "light_margin_fraction": dm.get("light_margin_fraction", .22),
+                "side_overhang_m": dm.get("side_overhang_m", .26),
+                "side_apron_inset_m": dm.get("side_apron_inset_m", .18),
                 "conf": cf("dormers", "dormer_depth"),
             })
 
@@ -668,6 +671,17 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                              "lift_m": round(float(g.get("lift_ft", 0.05)) * FT, 4),
                              "conf": cf("courtyard_ground")})
 
+    if p.detail_profile and cg and cg.get("finish"):
+        finish = cg["finish"]
+        p.detail["court_ground"] = {
+            "walks": [{"id": q["id"], "pts": [fr.xy(v) for v in q["outline"]]}
+                      for q in finish["walks"]],
+            **{k.removesuffix("_ft") + "_m": float(finish[k]) * FT for k in
+               ("path_lift_ft", "wall_fall_ft", "wall_fall_run_ft", "turf_lift_ft")},
+            "conf": cf("courtyard_ground"),
+            "wall_fall_start_y": fr.y(finish["wall_fall_start_S"]),
+        }
+
     if p.detail_profile:
         fg = val("prairie_frontage")
         if fg:
@@ -686,8 +700,46 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "conf": cf("prairie_frontage"),
             }
         raw = val("v4_detail", {})
+        es = raw.get("prairie_entry")
+        if es:
+            door=next(o for o in p.openings if o.get('style')=='prairie_front_door')
+            p.detail['prairie_entry']={
+                'centre_u':(door['u0']+door['u1'])/2,'sill_z':door['z0'],
+                'grade_z':0.,'batter_top_z':door['z0']+es['batter_top_door_ft']*FT,
+                'batter_m':es['batter_at_grade_ft']*FT,
+                **{k.replace('_ft','_m'):es[k]*FT for k in
+                   ('recess_base_width_ft','recess_top_width_ft','lintel_crown_rise_ft','lintel_end_inset_ft')},
+                'relief_section':es['relief_section_m'],
+                'threshold_front_x':fr.x(es['threshold_front_W']),
+                'threshold_back_x':fr.x(es['threshold_back_W']),
+                'conf':cf('v4_detail'),
+            }
         p.detail["roof_tiles"] = raw.get("roof_tiles")
         p.detail["roof_edges"] = raw.get("roof_edges")
+        p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)
+        p.detail["court_finial"] = raw.get("court_finial")
+        p.detail["north_tower_roof"] = dict(raw["north_tower_roof"]) if raw.get("north_tower_roof") else None
+        if p.detail["north_tower_roof"] and 'connector_ridge_ft' in p.detail["north_tower_roof"]:
+            p.detail["north_tower_roof"]['connector_ridge_z']=fr.zval(p.detail["north_tower_roof"]['connector_ridge_ft'])
+        if p.detail["north_tower_roof"] and p.detail["north_tower_roof"].get("integrated_north_facade"):
+            east = next(r for r in p.ranges if r['name'] == 'east_wing')
+            north = next(r for r in p.ranges if r['name'] == 'north_range')
+            tower = next(t for t in p.towers if t['name'] == 'north')
+            # One continuous flat facade owns both window pairs. Its replacement
+            # is emitted with the tower; the original two walls must not overlap it.
+            east['walls']['north'] = 'none'
+            east['north_roof_shoulder'] = {
+                'x': fr.x(p.detail['north_tower_roof']['north_gable_west_W']),
+                'back_y': fr.y(p.detail['north_tower_roof']['roof_transition_S'])}
+            if 'north_front_eave_ft' in p.detail['north_tower_roof']:
+                east['north_roof_shoulder']['front_eave_z']=fr.zval(p.detail['north_tower_roof']['north_front_eave_ft'])
+            north['wall_skip'].setdefault('north', []).append((tower['cx'], east['x0']))
+            for chimney in p.chimneys:
+                if chimney['name'] in ('middle','south'):
+                    from archetypes.masonry_house_v4_north_tower import chimney_foot
+                    chimney['z0']=min(chimney['z0'],
+                                      chimney_foot(p,chimney['x0']),
+                                      chimney_foot(p,chimney['x1']))
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
@@ -752,6 +804,20 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
             west["stable_roof"]["lower_rear_gable"] = rework.get("lower_rear_gable", False)
             west["stable_roof"]["level_courtyard_gable"] = rework.get("level_courtyard_gable", False)
+            junction = raw.get("north_service_junction")
+            if junction:
+                west["stable_roof"]["north_service_junction"] = junction["reconcile_north_gable"]
+                north["north_wall_min"] = west["stable_roof"]["front_x1"]
+                p.detail["north_service_junction"] = {
+                    "door_x": sorted(fr.x(v) for v in junction["service_door_W"]),
+                    "step_x": sorted(fr.x(v) for v in junction["step_width_W"]),
+                    "step_runs": [v * FT for v in junction["step_runs_ft"]],
+                    "step_heights": [v * FT for v in junction["step_heights_ft"]],
+                    "wall_y": north["y1"],
+                    "gable_foot_x": west["stable_roof"]["front_x1"],
+                    "eave_z": north["eave_hi_z"],
+                    "roof_pitch": (north["ridge_z"]-north["eave_hi_z"]) / (north["y1"]-north["ridge_at"]),
+                }
             if west["stable_roof"]["level_courtyard_gable"]:
                 west["stable_roof"]["court_edge_x"] = west["x1"] + float(rework["courtyard_overhang_ft"]) * FT
                 west["stable_roof"]["court_edge_z"] = fr.zval(rework["courtyard_eave_edge"])
@@ -853,9 +919,35 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "window_count": bt["window_count"], "window_z": [fr.z(v) for v in bt["window_z"]],
                 "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
                 "stair_steps": int(bt.get("stair_steps", 9))}
+            if bt.get("stair_boundaries_WS"):
+                p.detail["bow_terrace"].update(
+                    arc=[math.radians(a) for a in bt["arc_degrees"]],
+                    cap_section_profile={key:[((s-bt["centre_S"])*FT,fr.z(z)) for s,z in values]
+                                         for key,values in bt["cap_section_profile"].items()},
+                    grille_bars=bt["grille_bars"], grille_rails_fraction=bt["grille_rails_fraction"],
+                    grille_stone_m=bt["grille_stone_m"],
+                    window_distance=[[(v-bt["centre_S"])*FT for v in edge] for edge in bt["window_S"]],
+                    newel_xy=fr.xy(bt["newel_WS"]), newel_r=bt["newel_radius_ft"]*FT,
+                    newel_top=fr.zval(bt["newel_top_z"]), newel_crown=bt["newel_crown_ft"]*FT,
+                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]])
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
+        if raw.get("north_copper_cladding"):
+            p.detail["north_copper_cladding"] = {
+                "outline": [(fr.x(w), fr.y(s)) for w, s in raw["north_copper_cladding"]["outline_WS_ft"]],
+                "conf": cf("v4_detail"),
+            }
+        p.detail["rainwater"] = val("rainwater_details")
+        if p.detail["rainwater"] and p.detail["rainwater"].get("court_east_leaders_S_ft"):
+            p.detail["rainwater"] = dict(p.detail["rainwater"], court_east_leaders_y={
+                name: fr.y(south) for name, south in p.detail["rainwater"]["court_east_leaders_S_ft"].items()})
+        p.detail["stack_finish"] = val("stack_finish")
+        p.detail["service_access"] = val("service_access_details")
+        p.detail["vines"] = val("vines_details")
+        p.detail["surface_finish"] = val("surface_finish")
+        p.detail["court_garden_grille"] = raw.get("court_garden_grille")
+        p.detail["light_hidden_stair_wall"] = bool(raw.get("light_hidden_stair_wall"))
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")
         if service_stair:

@@ -273,7 +273,17 @@ if only and record.exists():
     masters = json.loads(record.read_text()).get("masters", {})
     # T-2314: a whole-town bake now derives through --only, so the merge also does
     # what the whole rewrite did for a deleted asset and lets its entry go.
-    masters = {n: h for n, h in masters.items() if (pathlib.Path("assets/gltf") / n).exists()}
+    # T-2517: a master the committed Glessner v4 package restores is not deleted, only
+    # not yet materialized — publish.sh does that AFTER this merge, so on a fresh
+    # checkout an --only bake of any other master dropped its entry and publish then
+    # refused the Glessner derivative. Its package manifest names it; keep it.
+    package = pathlib.Path("docs/RESEARCH/glessner-v4-recovery/manifest.json")
+    packaged = set()
+    if package.exists():
+        packaged = {f[len("assets/gltf/"):] for f in json.loads(package.read_text()).get("files", {})
+                    if f.startswith("assets/gltf/")}
+    masters = {n: h for n, h in masters.items()
+               if n in packaged or (pathlib.Path("assets/gltf") / n).exists()}
 for name in names:
     src = pathlib.Path("assets/gltf") / name
     masters[name] = hashlib.sha256(src.read_bytes()).hexdigest()
@@ -330,36 +340,63 @@ fi
 
 if [ -n "$resolved_cli" ]; then
   mkdir -p "$OUT"
-  # `--texture-compress ktx2` shells out to the KTX-Software `ktx` binary, and
-  # gltf-transform aborts the WHOLE optimize when it is absent — meshopt included.
-  # ubuntu-latest does not ship `ktx` and neither does the dev container, so that
-  # flag silently turned every derivative into an uncompressed copy of its master,
-  # in every environment, since this step was written. Nothing has a texture yet,
-  # so ask for KTX2 only where it can actually run.
-  # KTX2 IS OFF, AND THE `ktx` BINARY BEING PRESENT IS NOT ENOUGH TO TURN IT ON.
+  # KTX2 FOR EVERY TEXTURED DERIVATIVE — T-2595 (piece 1 of T-2553), 2026-10-16.
   #
-  # This used to read `if command -v ktx; then --texture-compress ktx2`, which
-  # asks the wrong question. Whether the TOOL can write KTX2 says nothing about
-  # whether the RENDERER can read it — and it cannot: the vendored GLTFLoader
-  # only handles KHR_texture_basisu after `setKTX2Loader()` is called, nothing
-  # calls it, and no Basis transcoder is vendored (it would need to be, since
-  # renderers/web/ takes no CDN).
+  # A PNG or JPEG inside a GLB is decoded on the CPU and goes up to the GPU as
+  # uncompressed RGBA8: four bytes a texel and a third again for its mips, about
+  # 5.6 MB for a 1024² sheet. A Basis Universal KTX2 is transcoded to the block
+  # format the GPU samples natively (ASTC or ETC2 on a phone, BC7 or BC1 on a
+  # desktop) and stays that size in GPU memory: a quarter to an eighth of it.
+  # The 20 textured Prairie houses carried 232 JPEGs between them, and a phone on
+  # /1904/ held every one as RGBA8 (T-2546's reading).
   #
-  # Observed the moment `ktx` was installed on the runner (bake run
-  # 31773216178): three derivatives came back with KTX2 textures, and the smoke
-  # got `THREE.GLTFLoader: setKTX2Loader must be called before loading KTX2
-  # textures` for each of them. An asset that throws in the loader is an asset
-  # that is not in the scene, so it also took out the raycast, inspection and
-  # ground-contact checks downstream. The bake never reached its push step, so
-  # none of it left the runner.
+  # The renderer reads it: renderers/web/js/ktx2.js hands one KTX2Loader to every
+  # GLTFLoader (registerKTX2), and since T-2595 it does so even under `?ktx2=0`
+  # or on a GPU with no block format, where the transcoder falls back to RGBA8 —
+  # a GLB that REQUIRES KHR_texture_basisu has no image path to fall back to.
   #
-  # Turning this on is part of W2 (docs/RENDERING.md), and the order is: wire
-  # KTX2Loader + a vendored transcoder into the renderer FIRST, prove it loads a
-  # textured asset, and only then set BAKE_KTX2=1 here.
-  # The same constraint binds human assets (T-1786): data/humans/contract.json
-  # § delivery refuses KHR_texture_basisu (and Draco, which has no loader either),
-  # and tools/human_contract.py --glb refuses an export that uses it. Lift both in
-  # the change that wires the loader, not before.
+  # THE RECIPE is tools/ktx2_glb.py's, run between `optimize` and `meshopt`, and
+  # it is tools/ktx2_sheets.py's own: colour (baseColor, emissive) as ETC1S at
+  # clevel 2 / qlevel 160, data (normal, occlusion, metallic-roughness) as UASTC
+  # level 2 with RDO and zstd 18, every size to the nearest power of two and at
+  # most 2048², with the KTX-Software 4.3.2 `ktx` that script pins and fetches.
+  # NOT gltf-transform's `uastc`/`etc1s` commands, for two measured reasons: the
+  # CLI never applies RDO to a normal map, which took the 20 houses' published
+  # bytes from 28.8 MB to 67.9 MB; and 4.5.0 needs `ktx` 4.4+ (it passes
+  # `--assign-tf`), so against the pinned 4.3.2 every texture failed inside
+  # `ktx create` while the CLI exited 0 with the JPEGs written back. A derivative
+  # that still carries a PNG or JPEG after the encode is a FATAL here, and
+  # assertion 10 of tools/measure_web_derivatives.py refuses one in the tree.
+  #
+  # The Glessner v4 set is not encoded here yet: its full and light files ship
+  # inside a three-file recovery package with its own hashes and a baseline page
+  # that reads them, and T-2596 owns that. measure_web_derivatives.py names it.
+  # The constraint on human assets (T-1786, data/humans/contract.json § delivery)
+  # is unchanged: no human asset ships.
+  # How many images a GLB carries, and how many of them are still PNG/JPEG.
+  glb_images() {
+    python3 - "$1" <<'PY'
+import json, struct, sys
+try:
+    b = open(sys.argv[1], 'rb').read()
+    doc = json.loads(b[20:20 + struct.unpack('<I', b[12:16])[0]]) if b[:4] == b'glTF' else {}
+except (OSError, ValueError, struct.error):
+    doc = {}  # not a GLB this step can read: it has no images to encode, and gltf-transform says the rest
+imgs = doc.get('images', [])
+raster = [i for i in imgs if i.get('mimeType') in ('image/png', 'image/jpeg')]
+print(len(imgs), len(raster))
+PY
+  }
+  encode_textures() {
+    local n raster
+    python3 tools/ktx2_glb.py "$1" "$2" --cap "$3" || { echo "   FATAL: the KTX2 encode failed (T-2595)" >&2; return 1; }
+    read -r n raster <<< "$(glb_images "$2")"
+    if [ "$raster" != "0" ]; then
+      echo "   FATAL: $raster of $n image(s) are still PNG/JPEG after the KTX2 encode (T-2595)" >&2
+      return 1
+    fi
+  }
+
   # POSITION PRECISION IS PER-MESH, AND ONE MESH IN THIS TOWN IS 5 KM WIDE.
   #
   # `gltf-transform` quantises POSITION to a bit depth under ONE UNIFORM node
@@ -408,14 +445,6 @@ if [ -n "$resolved_cli" ]; then
   EPOCH_QUANT_BITS="${EPOCH_QUANT_BITS:-16}"
   ASSET_QUANT_BITS="${ASSET_QUANT_BITS:-14}"
   compress=(--compress false)
-  if [ "${BAKE_KTX2:-0}" = "1" ]; then
-    if command -v ktx >/dev/null 2>&1; then
-      echo "   BAKE_KTX2=1 — asking for KTX2 textures (the renderer MUST have setKTX2Loader wired)"
-      compress+=(--texture-compress ktx2)
-    else
-      echo "   BAKE_KTX2=1 but no ktx binary on PATH; meshopt only"
-    fi
-  fi
 
   # NEVER SIMPLIFY. `optimize` runs mesh simplification BY DEFAULT, and on this
   # dataset that is not an optimisation, it is damage:
@@ -560,7 +589,18 @@ if [ -n "$resolved_cli" ]; then
     # This exact relative path changes no canonical, older-version or other mesh.
     [ "$rel" != "$GLESSNER_V4" ] || bits=16
     tmp="$(mktemp -t gltfopt.XXXXXX.glb)"
-    if "${GT_NPX[@]}" gltf-transform optimize "$f" "$tmp" "${compress[@]}" 2>&1 | tail -2 \
+    # A textured master goes to KTX2 (T-2595): `optimize` leaves its images alone
+    # (its default re-encodes every JPEG through sharp, and the KTX2 encode should
+    # start from the master's own pixels, not a second lossy generation of them),
+    # and the encode runs between `optimize` and `meshopt`. Untextured masters and
+    # the Glessner v4 set (T-2596) take exactly the path they always took.
+    ktx=0; texflags=()
+    case "$(basename "$f")" in glessner_house__as_built_1887*) glessner=1 ;; *) glessner=0 ;; esac
+    if [ "$rel" != "$GLESSNER_V4" ] && [ "$glessner" = "0" ] && [ "$(glb_images "$f" | cut -d' ' -f1)" != "0" ]; then
+      ktx=1; texflags=(--texture-compress false)
+    fi
+    if "${GT_NPX[@]}" gltf-transform optimize "$f" "$tmp" "${compress[@]}" "${texflags[@]}" 2>&1 | tail -2 \
+      && { [ "$ktx" = "0" ] || { encode_textures "$tmp" "$tmp.ktx2.glb" 2048 && mv -f "$tmp.ktx2.glb" "$tmp"; }; } \
       && "${GT_NPX[@]}" gltf-transform meshopt "$tmp" "$out" \
         --quantize-position "$bits" 2>&1 | tail -2; then
       # The stamp is the pin's receipt: a transformed derivative must say it was
@@ -576,6 +616,12 @@ if [ -n "$resolved_cli" ]; then
         exit 1
       fi
     else
+      if [ "$ktx" = "1" ]; then
+        rm -f "$tmp" "$tmp.ktx2.glb"
+        echo "   FATAL: $(basename "$f") did not make a KTX2 derivative; a master copy would ship" >&2
+        echo "   its JPEGs, which is the thing T-2595 removed. Refusing." >&2
+        exit 1
+      fi
       echo "   optimize failed for $(basename "$f"); copying the master through"
       cp "$f" "$out"; fellback=$((fellback + 1))
     fi
@@ -586,7 +632,7 @@ if [ -n "$resolved_cli" ]; then
     # (the comparison read empty sizes and never fired, so the three K37
     # assets came back compressed BIGGER than their masters). `wc -c <` is
     # the same answer on both flavors.
-    if [ "$epoch" = "0" ] && [ "$(wc -c < "$out" | tr -d ' ')" -ge "$(wc -c < "$f" | tr -d ' ')" ]; then
+    if [ "$epoch" = "0" ] && [ "$ktx" = "0" ] && [ "$(wc -c < "$out" | tr -d ' ')" -ge "$(wc -c < "$f" | tr -d ' ')" ]; then
       cp -f "$f" "$out"
       passthrough=$((passthrough + 1))
       note="  (compression grew it; master passed through)"

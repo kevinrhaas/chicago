@@ -1,0 +1,115 @@
+{
+  "review": "All ten candidate baseline images actually viewed. Both north-court views exceed inherited scene budgets before planting; assertions retained. Front overview is partly occluded by district street-tree leaves, close view resolves bare masonry. Light south boundary lacks brick courses, already assigned T-2226. Asset acceptance pending T-2224 live dev verification.",
+  "measurements": [
+    {
+      "tier": "full",
+      "view": "prairie-front",
+      "draw_calls": 226,
+      "triangles": 3770908,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "full",
+      "view": "front-close",
+      "draw_calls": 218,
+      "triangles": 3704138,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "full",
+      "view": "court-south",
+      "draw_calls": 291,
+      "triangles": 4430151,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "full",
+      "view": "court-west",
+      "draw_calls": 206,
+      "triangles": 3606176,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "full",
+      "view": "court-north",
+      "draw_calls": 401,
+      "triangles": 4665059,
+      "budget": {
+        "drawCalls": 360,
+        "triangles": 4600000
+      },
+      "within_budget": false
+    },
+    {
+      "tier": "mobile",
+      "view": "prairie-front",
+      "draw_calls": 121,
+      "triangles": 843372,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "mobile",
+      "view": "front-close",
+      "draw_calls": 112,
+      "triangles": 805215,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "mobile",
+      "view": "court-south",
+      "draw_calls": 156,
+      "triangles": 1227355,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "mobile",
+      "view": "court-west",
+      "draw_calls": 93,
+      "triangles": 604876,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "within_budget": true
+    },
+    {
+      "tier": "mobile",
+      "view": "court-north",
+      "draw_calls": 280,
+      "triangles": 1585581,
+      "budget": {
+        "drawCalls": 330,
+        "triangles": 1270000
+      },
+      "within_budget": false
+    }
+  ]
+}

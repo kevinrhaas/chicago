@@ -1,6 +1,6 @@
 {
   "scene": "1812",
-  "target_date": "1812-08-01",
+  "target_date": "1812-08-14",
   "epoch": "e1830_natural",
   "scope": "The 1834 box, whole: the forks, the main stem to the fort, the river turned south behind the baymouth spit to its natural outlet at Swearingen's half mile, the lake shore south of the outlet, and the ground south to the box floor at N -3800 - which takes in the Fort-to-Eighteenth-Street corridor the 1812 scene needs. South of Twelfth Street every vertex is conjectural, by the carried evidence_limit; the battle ground is therefore modelled ground and is NOT a reconstruction from evidence, and this spec says so rather than letting the box's extent imply otherwise.",
   "standard": "No survey of this ground exists before Wright's of 1834, and no level of it before the 1850s. Every land elevation here is an 1835 dossier zone carried back twenty-three years, every planform line is a reading of 1834 with the works removed, and the lake stage of 1812 is not recorded at all. So nothing in this spec is better than `inferred`, every surface it AUTHORS for 1812 is `reconstructed`, and the generator must emit no land vertex `documented`.",

@@ -60,6 +60,9 @@ ROLE_MATERIAL = {
     "deck": "porch_timber", "skirt": "porch_timber", "post": "porch_timber", "beam": "porch_timber",
     "porch_roof": "porch_timber", "step_timber": "porch_timber",
     "terrace": "stone", "terrace_face": "stone", "baluster": "stone", "newel": "stone", "rail": "stone",
+    # T-2500: a stone loggia on the terrace (1808's), its basement arch's void behind the hall's backing
+    "pedestal": "stone", "column": "stone", "entablature": "stone", "loggia_wall": "stone",
+    "balcony": "stone", "arch_reveal": "stone", "arch_back": "backing",
     "ground": "ground", "walk": "walk",
 }
 # The board, not the entrance: excluded from an entrance's costs and from the walk rule.
@@ -153,7 +156,9 @@ class Entrance(Opening):
         else:
             self._head_band([(s0, s1, head)], p["head_band"])
         kind = v["stair"]["kind"]
-        if kind == "straight":
+        if kind == "straight" and v["stair"].get("side"):
+            self._side_stoop()
+        elif kind == "straight":
             self._stoop()
         elif kind == "bowed":
             self._bowed()
@@ -326,6 +331,9 @@ class Entrance(Opening):
         n, r = risers(R, p["stair"])
         g, L, half = st["going_m"], st["landing_m"], st["width_m"] / 2
         cheeks = st.get("cheeks", False)
+        # T-2463: the stoop's axis, `axis_s_m` along the wall from the door's centre (1620's
+        # door stands at the south end of a landing that runs on north into its porch)
+        c = st.get("axis_s_m", 0.0)
         # T-2409: a terrace at the landing's height running along the front to one side;
         # it takes that side of the landing, so that cheek runs down the flight alone.
         # T-2450: one terrace a side, so `porch` is one or a list of two
@@ -334,20 +342,54 @@ class Entrance(Opening):
         psides = [{"left": -1.0, "right": 1.0}[q["side"]] for q in porches]
         if len(set(psides)) != len(psides):
             raise ValueError("a stoop takes one terrace a side")
-        self.quad("landing", [(-half, 0, 0), (half, 0, 0), (half, 0, L), (-half, 0, L)], Y)
-        self.probe(0.0, 0.0, L / 2, ("landing",), "the landing")
+        W = self.v["clear_width_m"] / 2
+        if (-W < c - half - 1e-9 and -1.0 not in psides) or (W > c + half + 1e-9 and 1.0 not in psides):
+            raise ValueError(f"the door hangs off a stoop {c:+.3f} m off its axis, where no terrace carries it on")
+        self.quad("landing", [(c - half, 0, 0), (c + half, 0, 0), (c + half, 0, L), (c - half, 0, L)], Y)
+        self.probe(c, 0.0, L / 2, ("landing",), "the landing")
         if not cheeks:
-            for x, hx in ((-half, -1.0), (half, 1.0)):
+            for x, hx in ((c - half, -1.0), (c + half, 1.0)):
                 self.quad("stair_end", [(x, -R, 0), (x, -R, L), (x, 0, L), (x, 0, 0)], (hx, 0.0, 0.0))
-        F = self._flight(-half, half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R)
-        self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "foot_out_m": round(F, 4)}
+        F = self._flight(c - half, c + half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R)
+        self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "foot_out_m": round(F, 4),
+                              **({"axis_s_m": round(c, 4)} if c else {})}
         if cheeks:
             ch = p["cheek"]
             t, hc = ch["thickness_m"], ch["above_nosing_m"]
             yF = -(n - 1) * r + hc
             for sgn in (-1.0, 1.0):
-                si, so = sgn * half, sgn * (half + t)
+                si, so = c + sgn * half, c + sgn * (half + t)
                 o0 = L if sgn in psides else 0.0
+                # T-2500: a terrace deeper than the landing (1808's loggia deck) is the flight's
+                # cheek on its side as far as its own front, and the cheek runs on from there,
+                # its top rising from the rake to the deck's edge
+                Dq = next((q.get("out_m", L) for q, sd in zip(porches, psides) if sd == sgn), L)
+                carved = any(q.get("loggia", {}).get("finish") == "ionic_carved" for q in porches)
+                if carved:
+                    self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L, -(n - 1) * r)
+                    if Dq > L:
+                        self.quad("cheek", [(si,-R,L),(si,-R,Dq),(si,0,Dq),(si,0,L)],(-sgn,0,0))
+                    else:
+                        self._box("cheek",min(si,so),max(si,so),-R,.85,0,L)
+                    continue
+                if Dq > L:
+                    o0 = Dq
+                    self.quad("cheek", [(si, -R, L), (si, -R, Dq), (si, 0, Dq), (si, 0, L)], (-sgn, 0.0, 0.0))
+                    prof = [(Dq, -R), (F, -R), (F, yF), (Dq, 0.0)]
+                    rake = lambda o: (o - Dq) / (F - Dq) * yF
+                    for k in range(1, n):
+                        if L < L + (k - 0.5) * g < Dq:
+                            self.probe(si, (-R + -k * r) / 2, L + (k - 0.5) * g, ("cheek",), f"the deck's side at step {k}")
+                    for q_ in (si, so):
+                        self.quad("cheek", [(q_, y, o) for o, y in prof], (sgn if q_ == so else -sgn, 0.0, 0.0))
+                    self.quad("cheek", [(si, 0.0, Dq), (so, 0.0, Dq), (so, yF, F), (si, yF, F)], (0.0, F - Dq, -yF))
+                    self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
+                    mid = c + sgn * (half + t / 2)
+                    top, foot = (mid, rake(Dq + 0.15), Dq + 0.15), (mid, rake(F - 0.15), F - 0.15)
+                    self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top, foot]
+                    for pt in (top, foot):
+                        self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
+                    continue
                 prof = [(o0, -R), (F, -R), (F, yF), (L, hc)] + ([(0, hc)] if o0 == 0.0 else [])
                 self.quad("cheek", [(si, y, o) for o, y in prof], (-sgn, 0.0, 0.0))
                 self.quad("cheek", [(so, y, o) for o, y in prof], (sgn, 0.0, 0.0))
@@ -357,7 +399,7 @@ class Entrance(Opening):
                     self.quad("cheek", [(si, -R, L), (so, -R, L), (so, hc, L), (si, hc, L)], (0.0, 0.0, -1.0))
                 self.quad("cheek", [(si, hc, L), (so, hc, L), (so, yF, F), (si, yF, F)], (0.0, g, r))
                 self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
-                mid = sgn * (half + t / 2)
+                mid = c + sgn * (half + t / 2)
                 # on the terrace's side the cheek starts at L, so its top socket stands on the rake
                 top = (mid, hc, L - 0.15) if o0 == 0.0 else (mid, hc - 0.15 * r / g, L + 0.15)
                 foot = (mid, hc - (F - 0.15 - L) * r / g, F - 0.15)
@@ -365,9 +407,78 @@ class Entrance(Opening):
                 for pt in (top, foot):
                     self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
         for q, side in zip(porches, psides):
-            self._terrace(q, side, half + (p["cheek"]["thickness_m"] if cheeks else 0.0), half, L, R)
+            deck = half + side * c       # the landing's edge, measured from the door away from the stoop
+            self._terrace(q, side, deck + (p["cheek"]["thickness_m"] if cheeks else 0.0), deck, L, R)
         if st.get("balustrade"):
-            self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R)
+            self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R, c)
+
+    # T-2530: a side stoop (1621's, the Building Budget drawing's) ------------------------
+    def _side_stoop(self):
+        """A landing at the floor running along the wall from `landing_s_m[0]` to
+        `landing_s_m[1]` (run coordinates: s measured toward `run`), and from its near end a
+        flight of the same equal risers running on along the wall, parallel to it, `out_m`
+        clear of the face (a bay's projection) and `width_m` wide, down to grade. The
+        landing is faced to grade along its street edge and across its far end; a solid
+        cheek closes the flight's street side, its top raking with the nosings
+        `cheek_above_nosing_m` over them (the kit's `above_nosing_m` unless the stoop says),
+        and the flight's inner side is closed by its steps' ends. The foot opens toward
+        `run`."""
+        st, p = self.v["stair"], self.data["parts"]
+        sd = st["side"]
+        R = st["floor_m"]
+        n, r = risers(R, p["stair"])
+        g, w = st["going_m"], st["width_m"]
+        k = {"left": -1.0, "right": 1.0}[sd["run"]]
+        t0, t1 = sd["landing_s_m"]
+        o0 = sd.get("out_m", 0.0)
+        D = o0 + w
+        ch = p["cheek"]
+        t, hc = ch["thickness_m"], sd.get("cheek_above_nosing_m", ch["above_nosing_m"])
+        W = self.v["clear_width_m"] / 2
+        if not (t0 <= -W and W <= t1):
+            raise ValueError(f"the door (±{W:.3f} m) does not open on its side landing ({t0:.3f}..{t1:.3f} m)")
+        S = lambda q: k * q
+        X = lambda h: (k * h, 0.0, 0.0)          # a face turned along the run
+        self.quad("landing", [(S(t0), 0, 0), (S(t1), 0, 0), (S(t1), 0, D), (S(t0), 0, D)], Y)
+        self.probe(S((t0 + t1) / 2), 0.0, D / 2, ("landing",), "the landing")
+        if o0 > 0:     # the landing's near end, between the wall and the flight
+            self.quad("stair_end", [(S(t1), -R, 0), (S(t1), -R, o0), (S(t1), 0, o0), (S(t1), 0, 0)], X(1.0))
+            self.probe(S(t1), -R / 2, o0 / 2, ("stair_end",), "the landing's end beside the flight")
+        for i in range(1, n + 1):
+            a = t1 + (i - 1) * g
+            lo, hi = -i * r, -(i - 1) * r
+            self.quad("riser", [(S(a), lo, o0), (S(a), lo, D), (S(a), hi, D), (S(a), hi, o0)], X(1.0))
+            self.probe(S(a), (lo + hi) / 2, (o0 + D) / 2, ("riser",), f"riser {i}")
+            if i == n:
+                break
+            self.quad("tread", [(S(a), lo, o0), (S(a + g), lo, o0), (S(a + g), lo, D), (S(a), lo, D)], Y)
+            self.probe(S(a + g / 2), lo, (o0 + D) / 2, ("tread",), f"tread {i}")
+            self.quad("stair_end", [(S(a), -R, o0), (S(a + g), -R, o0), (S(a + g), lo, o0), (S(a), lo, o0)],
+                      (0.0, 0.0, -1.0))
+            self.probe(S(a + g / 2), (lo - R) / 2, o0, ("stair_end",), f"the end of step {i}")
+        F = t1 + (n - 1) * g
+        yF = -(n - 1) * r + hc
+        # the landing faced to grade along its street edge and across its far end
+        self.quad("stair_end", [(S(t0), -R, D), (S(t1), -R, D), (S(t1), 0, D), (S(t0), 0, D)], OUT)
+        self.quad("stair_end", [(S(t0), -R, 0), (S(t0), -R, D), (S(t0), 0, D), (S(t0), 0, 0)], X(-1.0))
+        self.probe(S((t0 + t1) / 2), -R / 2, D, ("stair_end",), "the landing's street face")
+        self.probe(S(t0), -R / 2, D / 2, ("stair_end",), "the landing's far end")
+        # the cheek along the flight's street side, its top `hc` over the nosings
+        prof = [(t1, -R), (F, -R), (F, yF), (t1, hc)]
+        self.quad("cheek", [(S(q), y, D + t) for q, y in prof], OUT)
+        self.quad("cheek", [(S(q), y, D) for q, y in prof], (0.0, 0.0, -1.0))
+        self.quad("cheek", [(S(t1), hc, D), (S(t1), hc, D + t), (S(F), yF, D + t), (S(F), yF, D)], (k * r, g, 0.0))
+        self.quad("cheek", [(S(F), -R, D), (S(F), -R, D + t), (S(F), yF, D + t), (S(F), yF, D)], X(1.0))
+        self.quad("cheek", [(S(t1), -R, D), (S(t1), -R, D + t), (S(t1), hc, D + t), (S(t1), hc, D)], X(-1.0))
+        mid = D + t / 2
+        top = (S(t1 + 0.15), hc - 0.15 * r / g, mid)
+        foot = (S(F - 0.15), hc - (F - 0.15 - t1) * r / g, mid)
+        self.sockets["handrail_street"] = [top, foot]
+        for pt in (top, foot):
+            self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
+        self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "run": sd["run"],
+                              "foot_s_m": round(S(F), 4), "foot_out_m": round((o0 + D) / 2, 4),
+                              "reach_out_m": round(D + t, 4)}
 
     # T-2409: the terrace and the turned balustrades ------------------------------------
     TERRACE_REVEAL_M = 0.02
@@ -380,13 +491,26 @@ class Entrance(Opening):
         back is faced too, as nothing stands behind it there."""
         m = lambda t: side * t
         S = porch["to_s_m"]
-        steps = [(s_deck, 0.0)] + [(b[0], b[1]) for b in porch.get("back", [])]
+        # T-2500: a terrace may stand deeper than the landing (1808's loggia deck); its
+        # cheek-side face is the flight's cheek (_stoop), so its front runs from s_deck
+        if porch.get("out_m", L) > L:
+            L = porch["out_m"]
+        # a back step at or behind the landing's edge sets the terrace's back from the start
+        back = [(b[0], b[1]) for b in porch.get("back", [])]
+        first = 0.0
+        while back and back[0][0] <= s_deck + 1e-6:
+            first = back.pop(0)[1]
+        steps = [(s_deck, first)] + back
         edges = [q[0] for q in steps] + [S]
         for (a, back), b in zip(steps, edges[1:]):
             if not a < b or back >= L:
                 raise ValueError(f"terrace step {a:.3f}..{b:.3f} m at {back} m is not a strip in front of the wall")
             self.quad("terrace", [(m(a), 0, back), (m(b), 0, back), (m(b), 0, L), (m(a), 0, L)], Y)
-        self.quad("terrace_face", [(m(s_face), -R, L), (m(S), -R, L), (m(S), 0, L), (m(s_face), 0, L)], OUT)
+        lg = porch.get("loggia")
+        if lg and lg.get("arch"):
+            self._arch_face(lg["arch"], m, s_face, S, (s_deck + S) / 2, R, L)
+        else:
+            self.quad("terrace_face", [(m(s_face), -R, L), (m(S), -R, L), (m(S), 0, L), (m(s_face), 0, L)], OUT)
         last = steps[-1][1]
         self.quad("terrace_face", [(m(S), -R, last), (m(S), -R, L), (m(S), 0, L), (m(S), 0, last)], (side, 0.0, 0.0))
         W = porch.get("wall_to_s_m")
@@ -407,8 +531,354 @@ class Entrance(Opening):
             self._baluster_run(B, far, (m(S - nm), 0.0, last + nm), B["height_m"], skip_first=True)
         rec = {"s": [m(s_deck), m(S)], "out_m": L, "back": [[m(a), o] for a, o in steps]}
         self.meta["terrace" if side > 0 else "terrace_left"] = rec
+        if lg:
+            if W is not None and W < S:
+                raise ValueError("a loggia stands on a terrace inside the front")
+            self.meta["loggia"] = self._loggia(lg, m, side, s_deck, S, L)
 
-    def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R):
+    # T-2500: the loggia on a terrace, and the basement arch under it ---------------------
+    def _arch_face(self, A, m, s0, s1, ca, R, L):
+        """The terrace's front from s0 to s1, faced to grade, with a round-headed arch in it
+        centred on ca, under the loggia's middle: the jambs `spring_m` over grade, the head a
+        half round, its void `depth_m` deep and closed by the backing."""
+        hw = A["span_m"] / 2
+        ys = -R + A["spring_m"]
+        if not (s0 + 0.2 <= ca - hw and ca + hw <= s1 - 0.2 and ys + hw <= -0.15):
+            raise ValueError("the basement arch does not stand inside the terrace's face")
+        k = A.get("segments", 12)
+        arc = [(ca - hw * math.cos(math.pi * i / k), ys + hw * math.sin(math.pi * i / k)) for i in range(k + 1)]
+        self.quad("terrace_face", [(m(s0), -R, L), (m(arc[0][0]), -R, L), (m(arc[0][0]), 0, L), (m(s0), 0, L)], OUT)
+        self.quad("terrace_face", [(m(arc[-1][0]), -R, L), (m(s1), -R, L), (m(s1), 0, L), (m(arc[-1][0]), 0, L)], OUT)
+        for (a, ya), (b, yb) in zip(arc, arc[1:]):
+            self.quad("terrace_face", [(m(a), ya, L), (m(b), yb, L), (m(b), 0, L), (m(a), 0, L)], OUT)
+        d = A["depth_m"]
+        outline = [(arc[0][0], -R)] + arc + [(arc[-1][0], -R)]
+        for (a, ya), (b, yb) in zip(outline, outline[1:]):
+            mx, my = (a + b) / 2 - ca, (ya + yb) / 2 - ys
+            self.quad("arch_reveal", [(m(a), ya, L), (m(b), yb, L), (m(b), yb, L - d), (m(a), ya, L - d)],
+                      (-m(mx) if abs(mx) > 1e-9 else 0.0, -my if a != b else 0.0, 0.0))
+        self.quad("arch_back", [(m(x), y, L - d) for x, y in outline], OUT)
+        self.probe(m(ca), ys, L - d, ("arch_back",), "the basement arch's void")
+        self.probe(m(s0 + 0.1), -R / 2, L, ("terrace_face",), "the terrace's face beside the arch")
+
+    def _box(self, role, s0, s1, y0, y1, o0, o1, skip=()):
+        """A closed block in the door's frame, s0 < s1 and o0 < o1; `skip` names the faces
+        another part covers ('back', 'front', 'left', 'right', 'bottom', 'top')."""
+        F = {"top": ([(s0, y1, o0), (s1, y1, o0), (s1, y1, o1), (s0, y1, o1)], Y),
+             "bottom": ([(s0, y0, o0), (s1, y0, o0), (s1, y0, o1), (s0, y0, o1)], (0.0, -1.0, 0.0)),
+             "front": ([(s0, y0, o1), (s1, y0, o1), (s1, y1, o1), (s0, y1, o1)], OUT),
+             "back": ([(s0, y0, o0), (s1, y0, o0), (s1, y1, o0), (s0, y1, o0)], (0.0, 0.0, -1.0)),
+             "left": ([(s0, y0, o0), (s0, y0, o1), (s0, y1, o1), (s0, y1, o0)], (-1.0, 0.0, 0.0)),
+             "right": ([(s1, y0, o0), (s1, y0, o1), (s1, y1, o1), (s1, y1, o0)], (1.0, 0.0, 0.0))}
+        for k, (pts, n) in F.items():
+            if k not in skip:
+                self.quad(role, pts, n)
+
+    def _loggia(self, lg, m, side, s_deck, S, D):
+        """1808's north entrance loggia (T-2500, the Inland Architect plate of February 1888):
+        a pedestal at each front corner carrying a pair of turned columns, a solid parapet
+        between the pedestals across the front and along the far side back to the wall, the
+        near side left open to the flight, and over the columns an entablature block the
+        loggia's whole plan, its soffit the loggia's ceiling and its top the balcony's floor,
+        walled by the balcony's parapet on its three open sides. Every block is closed except
+        where it meets the wall (o = 0) or another block."""
+        lo = lambda a, b: (min(m(a), m(b)), max(m(a), m(b)))
+        # in the mirrored frame "near" is the flight's side (s_deck), "far" the terrace's end (S)
+        near_face, far_face = ("left", "right") if side > 0 else ("right", "left")
+        carved = lg.get("finish") == "ionic_carved"
+        P, C, E, B, W = lg["pedestal"], lg["columns"], lg["entablature"], lg["balcony"], lg["parapet"]
+        pw, pd, ph = P["width_m"], P["depth_m"], P["height_m"]
+        if not (2 * pw + 0.6 <= S - s_deck and pd < D):
+            raise ValueError(f"the loggia's pedestals ({pw} x {pd} m) do not fit its {S - s_deck:.3f} x {D} m deck")
+        for a, b, sk in ((s_deck, s_deck + pw, ()), (S - pw, S, ())):
+            s0, s1 = lo(a, b)
+            self._box("pedestal", s0, s1, 0.0, ph, D - pd, D, skip=("bottom",))
+            self.probe(m((a + b) / 2), ph / 2, D, ("pedestal",), "a loggia pedestal's face")
+        # the parapet between the pedestals, and along the far side to the wall
+        wt, wh = W["thickness_m"], W["height_m"]
+        if wh > ph:
+            raise ValueError("the loggia's parapet stands over its pedestals")
+        s0, s1 = lo(s_deck + pw, S - pw)
+        if carved:
+            self._pierced_panel(s0, s1, 0.0, wh, D-wt, D)
+        else:
+            self._box("loggia_wall", s0, s1, 0.0, wh, D - wt, D, skip=("bottom", "left", "right"))
+        s0, s1 = lo(S - wt, S)
+        self._box("loggia_wall", s0, s1, 0.0, wh, 0.0, D - pd, skip=("bottom", "back", "front"))
+        self.probe(m((s_deck + S) / 2), wh / 2, D, ("loggia_wall",), "the loggia's front parapet")
+        # the columns, two to a pedestal side by side along the front
+        prof = [[float(r), float(y)] for r, y in C["profile"]]
+        ch = C["height_m"]
+        cols = []
+        for a in (s_deck, S - pw):
+            for f in (0.25, 0.75):
+                cs, co = m(a + pw * f), D - pd / 2
+                self._turn((cs, co), [(r, ph + ch * y) for r, y in prof], C["segments"], role="column")
+                cols.append([round(cs, 4), round(co, 4)])
+            if carved:
+                # T-2565: the 1888 plate and the 1965 view both show ONE capital over each
+                # pair, a carved block spanning both shafts, not a capital to a column
+                self._paired_capital(*lo(a + 0.005, a + pw - 0.005), D - pd / 2, ph + ch)
+        # the entablature over the whole plan, its soffit the ceiling
+        y0, y1 = ph + ch, ph + ch + E["height_m"]
+        s0, s1 = lo(s_deck, S)
+        self._box("entablature", s0, s1, y0, y1, 0.0, D, skip=("back", "top"))
+        self.probe(m((s_deck + S) / 2), (y0 + y1) / 2, D, ("entablature",), "the entablature's face")
+        if carved:
+            # T-2565: the balcony stands on a deep cornice; in the 1888 plate its corona throws
+            # the heaviest shadow on the loggia, so it steps out in three to 0.22 m. Each
+            # lower band's top lies under the next one's soffit and is left off.
+            bands = ((y0, .09, .06), (y1 - .24, .07, .08), (y1 - .17, .06, .14), (y1 - .11, .11, .22))
+            for i, (yy, hh, proud) in enumerate(bands):
+                covered = 0 < i < len(bands) - 1
+                self._box("entablature", s0-.03, s1+.03, yy, yy+hh, D, D+proud, skip=("back",)+(("top",) if covered else ()))
+            for a,b in ((s_deck,s_deck+pw),(S-pw,S)):
+                q0,q1=lo(a,b)
+                for yy,hh,pd_ in ((0,.1,.05),(ph-.12,.12,.08)):
+                    self._box("pedestal",q0-.03,q1+.03,yy,yy+hh,D,D+pd_,skip=("back",))
+                self._panel_relief(q0+.12,q1-.12,.23,ph-.2,D+.02,"pedestal")
+        # the balcony: its floor and its parapet on the three open sides
+        bt, bh = B["thickness_m"], B["height_m"]
+        s0, s1 = lo(s_deck + bt, S - bt)
+        self.quad("balcony", [(s0, y1, 0.0), (s1, y1, 0.0), (s1, y1, D - bt), (s0, y1, D - bt)], Y)
+        s0, s1 = lo(s_deck, S)
+        if carved:
+            self._carved_balcony(s0, s1, y1, bh, D, bt, near=m(s_deck))
+        else:
+            self._box("balcony", s0, s1, y1, y1 + bh, D - bt, D, skip=("bottom",))
+        for a in (s_deck, S - bt):
+            s0, s1 = lo(a, a + bt)
+            self._box("balcony", s0, s1, y1, y1 + bh, 0.0, D - bt, skip=("bottom", "back", "front"))
+        self.probe(m((s_deck + S) / 2), y1 + bh / 2, D, ("balcony",), "the balcony's parapet")
+        return {"s": [round(m(s_deck), 4), round(m(S), 4)], "out_m": D, "pedestal_top_m": ph,
+                "columns": cols, "entablature_y_m": [round(y0, 4), round(y1, 4)],
+                "balcony_top_m": round(y1 + bh, 4)}
+
+    def _finish_faces(self, role, faces):
+        for pts, hint in faces:
+            if hint is None:
+                a,b,c=pts[:3]
+                u,v=[b[i]-a[i] for i in range(3)],[c[i]-a[i] for i in range(3)]
+                hint=(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
+            if sum(x*x for x in hint)>1e-14:
+                self.quad(role,pts,hint)
+
+    def _pierced_panel(self,s0,s1,y0,h,d0,d1):
+        b=.105
+        for y in (y0,y0+h/2-b/2,y0+h-b):
+            self._box("loggia_wall",s0,s1,y,y+b,d0,d1,skip=("left","right")+(("bottom",) if y==y0 else ()))
+        n=max(2,round((s1-s0)/.30)); pitch=(s1-s0)/n
+        for row in range(2):
+            lo=y0+b if row==0 else y0+h/2+b/2
+            hi=y0+h/2-b/2 if row==0 else y0+h-b
+            for i in range(n+1):
+                x=s0+i*pitch+(pitch/2 if row else 0)
+                if x>=s1: continue
+                self._box("loggia_wall",max(s0,x-b/2),min(s1,x+b/2),lo,hi,d0,d1,
+                          skip=("top","bottom")+(("left",) if x-b/2<=s0 else ())+(("right",) if x+b/2>=s1 else ()))
+
+    def _tube(self, role, path, rad, axis, sides=8):
+        """T-2565: a round carved bead along `path` (s, y, out points in one plane), `axis`
+        that plane's unit normal; each face's hint points out from the bead's centreline."""
+        rings, norms = [], []
+        for i, p in enumerate(path):
+            a, b = path[max(0, i - 1)], path[min(len(path) - 1, i + 1)]
+            t = [b[k] - a[k] for k in range(3)]
+            n1 = (t[1] * axis[2] - t[2] * axis[1], t[2] * axis[0] - t[0] * axis[2], t[0] * axis[1] - t[1] * axis[0])
+            ln = math.sqrt(sum(x * x for x in n1)) or 1.0
+            n1 = [x / ln for x in n1]
+            dirs = [[math.cos(q) * n1[k] + math.sin(q) * axis[k] for k in range(3)]
+                    for q in (2 * math.pi * j / sides for j in range(sides))]
+            rings.append([tuple(p[k] + rad * d[k] for k in range(3)) for d in dirs])
+            norms.append(dirs)
+        for i in range(len(rings) - 1):
+            for j in range(sides):
+                k = (j + 1) % sides
+                h = tuple(norms[i][j][q] + norms[i][k][q] for q in range(3))
+                self.quad(role, [rings[i][j], rings[i][k], rings[i + 1][k], rings[i + 1][j]], h)
+        for ring, (a, b) in ((rings[0], (path[1], path[0])), (rings[-1], (path[-2], path[-1]))):
+            self.quad(role, ring, tuple(b[k] - a[k] for k in range(3)))
+
+    def _volute(self, role, cs, cy, co, r, side, axis):
+        """An Ionic volute: two and a half turns closing to an eye, carved on the face
+        whose normal is `axis` (out for a front face, along s for an end)."""
+        k = 40
+        pts = []
+        for i in range(k + 1):
+            q, rr = 5.0 * math.pi * i / k, r * (1 - .6 * i / k)
+            u, v = side * rr * math.cos(q), rr * math.sin(q)
+            pts.append((cs + u, cy + v, co) if axis[0] == 0 else (cs, cy + v, co + u))
+        self._tube(role, pts, .014, axis, 6)
+
+    def _strap(self, role, path, w, o_in, o_out):
+        """T-2585: a flat strap of width `w` along `path` (s, y points), standing from the
+        plane `o_in` out to `o_out`; its face and its two edges, mitred at every turn so
+        no two pieces of it overlap, its ends left to whatever it runs into."""
+        face = 1.0 if o_out > o_in else -1.0
+        def nrm(p, q):
+            ts, ty = q[0] - p[0], q[1] - p[1]
+            ln = math.hypot(ts, ty) or 1.0
+            return -ty / ln, ts / ln
+        ns = [nrm(p, q) for p, q in zip(path, path[1:])]
+        off = []
+        for i, (u, v) in enumerate(path):
+            a, b = ns[max(0, i - 1)], ns[min(len(ns) - 1, i)]
+            mx, my = a[0] + b[0], a[1] + b[1]
+            ml = math.hypot(mx, my) or 1.0
+            mx, my = mx / ml, my / ml
+            k = w / 2 / max(.2, mx * b[0] + my * b[1])
+            off.append(((u + mx * k, v + my * k), (u - mx * k, v - my * k)))
+        for i, (sn, sy) in enumerate(ns):
+            (pa, ma), (pb, mb) = off[i], off[i + 1]
+            self.quad(role, [(u, v, o_out) for u, v in (pa, pb, mb, ma)], (0.0, 0.0, face))
+            for (u0, v0), (u1, v1), sg in ((pa, pb, 1), (ma, mb, -1)):
+                self.quad(role, [(u0, v0, o_in), (u1, v1, o_in), (u1, v1, o_out), (u0, v0, o_out)], (sg * sn, sg * sy, 0.0))
+
+    def _paired_capital(self, s0, s1, d, y):
+        """T-2585: one capital over a pair of shafts, read off the 1888 plate at its native
+        1559 px (both capitals, x 860-945 and 1100-1165, y 1385-1405): a square-edged
+        block about 0.2 m deep on the 0.89 m pair (12 px on 53), with NO volutes and no
+        egg row. Its face carries a running zigzag, six strokes between a plain block at
+        each end, the triangles between them sunk; a thin abacus over all. T-2565 read
+        the zigzag's dark triangles as an egg row and the plain end blocks as volutes."""
+        e, sink, fy = .09, .022, .035                   # end block, field depth, fillet height
+        y0, y1, f = y - .20, y - .015, .21
+        self._box("column", s0 - .01, s1 + .01, y1, y + .015, d - f - .015, d + f + .015)   # abacus
+        self._box("column", s0, s1, y0, y1, d - f + sink, d + f - sink, skip=("top",))      # core
+        for face in (-1, 1):
+            oi, oo = d + face * (f - sink), d + face * f
+            lo_, hi_ = sorted((oi, oo))
+            for a, b in ((s0, s0 + e), (s1 - e, s1)):                                         # plain ends
+                self._box("column", a, b, y0, y1, lo_, hi_, skip=("top", "back" if face > 0 else "front"))
+            for v0, v1 in ((y0, y0 + fy), (y1 - fy, y1)):                                   # fillets
+                self._box("column", s0 + e, s1 - e, v0, v1, lo_, hi_,
+                          skip=("left", "right", "back" if face > 0 else "front") + (("top",) if v1 == y1 else ()))
+            n, a, b = 6, s0 + e, s1 - e
+            zz = [(a + (b - a) * i / n, (y0 + fy) if i % 2 == 0 else (y1 - fy)) for i in range(n + 1)]
+            self._strap("column", zz, .032, oi, oo - face * .003)     # 3 mm shy of the frame it meets
+        self.probe((s0 + s1) / 2, y1 - fy / 2, d + .21, ("column",), "a paired capital's fillet")
+
+    def _rinceau(self, role, s0, s1, y0, y1, d):
+        """T-2585: the balcony panel's carving as the 1888 plate (x 930-1150, y 1260-1330)
+        and the 1965 view show it: one continuous running scroll of foliage across the
+        field, a wavy stem with a tendril curling into every bay of the wave and a leaf
+        at each tendril's root. The 1965 view counts four loops along the front; the
+        leaves' cut and each curl's turns are below both pictures' grain."""
+        yc, A = (y0 + y1) / 2, (y1 - y0) * .34
+        n = max(2, round((s1 - s0) / .30))               # half-waves, each about 0.3 m
+        lam = (s1 - s0) / n
+        stem = [(s0 + (s1 - s0) * i / (8 * n), yc + A * math.sin(math.pi * i / 8), d) for i in range(8 * n + 1)]
+        self._tube(role, stem, .02, (0.0, 0.0, 1.0), 6)
+        lobe = lambda pts, r: self._tube(role, pts, r, (0.0, 0.0, 1.0), 5)
+        for j in range(n):
+            sg = 1 if j % 2 == 0 else -1                # the wave's crest side in this bay
+            cx = s0 + (j + .5) * lam
+            # the tendril leaves the stem past the crest and curls back under its arch
+            r0, ey = A * .9, yc - sg * A * .12
+            pts = [(cx + lam * .25, yc + sg * A * .7, d)]
+            for i in range(29):
+                q, rr = math.pi * 2.5 * i / 28, r0 * (1 - .8 * i / 28)
+                pts.append((cx - rr * math.sin(q), ey + sg * rr * math.cos(q), d + .004))
+            self._tube(role, pts, .02, (0.0, 0.0, 1.0), 6)
+            # leaves: one sheathing the stem over the crest, one turned down off the node
+            # where the stem crosses the field, one in the curl's mouth; each a fat lobe
+            for lx, ly, ang, ln in ((cx - lam * .05, yc + sg * (A + .05), 0.0, .16),
+                                    (cx - lam * .5, yc - sg * A * .5, -sg * 1.1, .14),
+                                    (cx + lam * .32, yc - sg * A * .4, sg * .7, .11)):
+                lobe([(lx + ln * t * math.cos(ang) - .02 * math.sin(math.pi * t) * math.sin(ang) * sg,
+                       ly + ln * t * math.sin(ang) + .02 * math.sin(math.pi * t) * math.cos(ang) * sg, d + .004)
+                      for t in (-.5 + i / 6 for i in range(7))], .026)
+
+    def _panel_relief(self,s0,s1,y0,y1,d,role,leaves=True):
+        from .k01_stone_finish import tube_faces
+        # Sunk field bounded by a narrow bead, with low relief leaf scrolls. The exact
+        # foliage is not resolved by the microfilm; this section is reconstructed.
+        for x0,x1,lo,hi in ((s0,s1,y0,y0+.035),(s0,s1,y1-.035,y1),(s0,s0+.035,y0+.035,y1-.035),(s1-.035,s1,y0+.035,y1-.035)):
+            self._box(role,x0,x1,lo,hi,d,d+.035,skip=("top","bottom") if x1-x0<.036 else ())
+        n=max(1,round((s1-s0)/.42)) if leaves else 0
+        for i in range(n):
+            x=s0+(i+.5)*(s1-s0)/n; yc=(y0+y1)/2
+            for side in (-1,1):
+                pts=[(x+side*(.025+.10*math.sin(math.pi*j/16)),yc+(y1-y0)*.38*(2*j/16-1),d+.018) for j in range(17)]
+                self._finish_faces(role,tube_faces(pts,.018,6))
+
+    def _carved_balcony(self, s0, s1, y, h, d, thick, near):
+        """T-2565: the balcony's front as both pictures show it: a solid panel with a LEVEL
+        coping (the earlier curved top is not in either picture) between two square dies;
+        the die on the flight's side carries the stepped stone finial the 1888 plate shows,
+        the far one is capped flat against the wall."""
+        dw = .38
+        a, b = s0 + dw, s1 - dw
+        self._box("balcony", a, b, y, y + h - .1, d - thick, d, skip=("bottom", "top", "left", "right"))
+        self._box("balcony", a, b, y + h - .1, y + h, d - thick - .04, d + .06, skip=("left", "right"))   # coping
+        # T-2585: under the carved field a plain base strip, about a third of the panel in the
+        # 1888 plate, and a plain margin against each die; the scroll fills the rest
+        self._box("balcony", a, b, y, y + .22, d, d + .03, skip=("bottom", "back", "left", "right"))      # base strip
+        for x0, x1, die in ((a, a + .06, "left"), (b - .06, b, "right")):
+            self._box("balcony", x0, x1, y + .22, y + h - .1, d, d + .03, skip=("bottom", "top", "back", die))
+        self._rinceau("balcony", a + .1, b - .1, y + .24, y + h - .12, d + .014)
+        for x0 in (s0, s1 - dw):
+            x1 = x0 + dw
+            self._box("balcony", x0, x1, y, y + h + .1, d - thick, d + .06, skip=("bottom", "top"))
+            self._box("balcony", x0 - .03, x1 + .03, y + h + .1, y + h + .2, d - thick - .03, d + .09)
+            # T-2585: the 1888 plate's right die carries a plain sunk panel in a raised border
+            self._panel_relief(x0 + .07, x1 - .07, y + .14, y + h - .06, d + .072, "balcony", leaves=False)
+            if min(abs(x0 - near), abs(x1 - near)) < 1e-6:
+                c, o = (x0 + x1) / 2, d - thick / 2
+                # stepped base, a pyramid cap and a ball, as the plate's corner finial reads
+                for (hw, y_0, y_1) in ((.16, y + h + .2, y + h + .3), (.12, y + h + .3, y + h + .42)):
+                    self._box("balcony", c - hw, c + hw, y_0, y_1, o - hw, o + hw, skip=("bottom",))
+                t0 = y + h + .42
+                for k in range(4):
+                    q = [(c - .1, t0, o - .1), (c + .1, t0, o - .1), (c + .1, t0, o + .1), (c - .1, t0, o + .1)]
+                    pa, pb = q[k], q[(k + 1) % 4]
+                    mid = ((pa[0] + pb[0]) / 2 - c, .1, (pa[2] + pb[2]) / 2 - o)
+                    self.quad("balcony", [pa, pb, (c, t0 + .3, o)], mid)
+                from .k01_stone_finish import turned_faces
+                self._finish_faces("balcony", turned_faces(c, o, [(.012, t0 + .27), (.05, t0 + .31), (.045, t0 + .37), (.012, t0 + .4)], 10))
+
+    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low):
+        # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
+        # the concavity. T-2565: both pictures end it at the street in a rolled foot,
+        # a stone scroll lying across the cheek and standing proud of its outer face,
+        # not in a scroll at its head; the sweep runs down onto the roll's crown.
+        rr = .2
+        Fc = F - rr
+        end = -R + 2 * rr; peak = .85 if not terrace else 1.0
+        top = lambda o: end + (peak - end) * (1 - (o - start) / (Fc - start)) ** 2
+        N=32
+        for i in range(N):
+            a=start+(Fc-start)*i/N; b=start+(Fc-start)*(i+1)/N
+            ya,yb=top(a),top(b)
+            for x,n in ((si,-sgn),(so,sgn)):
+                self.quad("cheek",[(x,-R,a),(x,-R,b),(x,yb,b),(x,ya,a)],(n,0,0))
+            self.quad("cheek",[(si,ya,a),(so,ya,a),(so,yb,b),(si,yb,b)],(0,b-a,ya-yb))
+        # the roll: its inner end set 15 mm back from the flight's face, its outer end 30 mm proud
+        s_in, s_out = si + sgn * .015, so + sgn * .03
+        self.quad("cheek", [(si, -R, Fc), (s_in, -R, Fc), (s_in, end, Fc), (si, end, Fc)], OUT)
+        # the last step's end, in front of the roll's recessed inner end
+        self.quad("cheek", [(si, -R, Fc), (si, -R, F), (si, low, F), (si, low, Fc)], (-sgn, 0, 0))
+        K = 20
+        ring = [(-R + rr + rr * math.sin(2 * math.pi * k / K), Fc + rr * math.cos(2 * math.pi * k / K)) for k in range(K)]
+        for k in range(K):
+            (ya, oa), (yb, ob) = ring[k], ring[(k + 1) % K]
+            q = 2 * math.pi * (k + .5) / K
+            self.quad("cheek", [(s_in, ya, oa), (s_out, ya, oa), (s_out, yb, ob), (s_in, yb, ob)], (0, math.sin(q), math.cos(q)))
+        self.quad("cheek", [(s_in, y, o) for y, o in ring], (-sgn, 0, 0))
+        self.quad("cheek", [(s_out, y, o) for y, o in ring], (sgn, 0, 0))
+        self._volute("cheek", s_out + sgn * .006, -R + rr, Fc, rr * .85, 1, (sgn, 0.0, 0.0))
+        self._volute("cheek", s_in - sgn * .006, -R + rr, Fc, rr * .85, 1, (-sgn, 0.0, 0.0))
+        mid=(si+so)/2
+        def mesh_top(o):
+            q=(o-start)/(Fc-start)*N; i=min(N-1,int(q)); f=q-i
+            a=start+(Fc-start)*i/N; b=start+(Fc-start)*(i+1)/N
+            return top(a)*(1-f)+top(b)*f
+        sockets=[(mid,mesh_top(start+.15),start+.15),(mid,mesh_top(Fc-.15),Fc-.15)]
+        self.sockets[f"handrail_{'left' if sgn<0 else 'right'}"]=sockets
+        for pt in sockets: self.probe(*pt,("cheek",),"a socket on the curved stone cheek")
+        self.probe(s_out, -R + rr, Fc, ("cheek",), "the cheek's rolled foot")
+
+    def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0):
         """A turned balustrade on each cheek's top, level beside the landing and raked down
         the flight, its rail at the terrace's height over the landing (the cheek's top is
         `above_nosing_m` over the nosing, so the balusters are that much shorter); on the
@@ -421,7 +891,7 @@ class Entrance(Opening):
         foot = F - nm
         y_foot = hc + (yF - hc) * (foot - L) / (F - L)
         for sgn in (-1.0, 1.0):
-            sc = sgn * (half + t / 2)
+            sc = c + sgn * (half + t / 2)
             if sgn in psides:   # from the terrace's corner newel (_terrace), down the rake
                 self._baluster_run(B, (sc, hc, L - nm - self.TERRACE_REVEAL_M), (sc, y_foot, foot), H,
                                    skip_first=True)
@@ -476,14 +946,14 @@ class Entrance(Opening):
             self.quad("newel", [(x, y, o0), (x, y, o1), (x, y_top, o1), (x, y_top, o0)], (hx, 0.0, 0.0))
         self.probe(s, (y + y_top) / 2, o1, ("newel",), "a newel")
 
-    def _turn(self, axis, prof, segs):
+    def _turn(self, axis, prof, segs, role="baluster"):
         """A turned baluster: the profile [r, y] revolved about the vertical through axis (s, out)."""
         cs, co = axis
         ang = [2 * math.pi * k / segs for k in range(segs + 1)]
         for (r0, y0), (r1, y1) in zip(prof, prof[1:]):
             for a, b in zip(ang, ang[1:]):
                 m = (a + b) / 2
-                self.quad("baluster", [(cs + r0 * math.cos(a), y0, co + r0 * math.sin(a)),
+                self.quad(role, [(cs + r0 * math.cos(a), y0, co + r0 * math.sin(a)),
                                        (cs + r0 * math.cos(b), y0, co + r0 * math.sin(b)),
                                        (cs + r1 * math.cos(b), y1, co + r1 * math.sin(b)),
                                        (cs + r1 * math.cos(a), y1, co + r1 * math.sin(a))],

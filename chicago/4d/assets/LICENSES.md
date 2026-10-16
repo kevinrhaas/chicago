@@ -63,11 +63,42 @@ the measurements that say which maps may be bound to a surface are in
 **Not published.** `tools/publish.sh` copies named files and `assets/web/*.glb`; it does not
 walk `assets/`, so this directory stays in the repository and off the live site. It is carried
 for the web renderer's relief maps and for the Unreal target's DirectX normals, packed ORM and
-16-bit displacement. The `.webp` beside fourteen of the maps is a lossless derivative of
+16-bit displacement. The `.webp` beside ten of the maps is a lossless derivative of
 its PNG master, the same pixels in fewer bytes, written and held pixel-identical by
-`tools/web_textures.py` (T-1973). Those fourteen are the one exception to "not published":
-`tools/publish.sh` copies them by name to `data/textures/`, where the relief modules bind them.
-They carry the library's licence and its one condition unchanged.
+`tools/web_textures.py` (T-1973). Beside the two signboard-wood sheets the same tool writes
+four DERIVED tiles instead (T-2590): `_grain.webp`, the basecolor's grain read down to 512²,
+turned a quarter and normalised about mid-grey, and `_normal_turned.webp`, the normal read
+down and turned with its vectors — what `renderers/web/js/signage.js` used to compute from
+the maps at every boot, now computed once and held to that computation pixel for pixel.
+Those fourteen are the one exception to "not published": `tools/publish.sh` copies them by
+name to `data/textures/`, where the relief modules bind them. They carry the library's
+licence and its one condition unchanged.
+
+**The `.ktx2` beside six of them (T-2582, T-2590)** — the two roof coverings' `normal_gl`
+and `orm` and the wet prairie muck's and the dune sand's basecolor — is the same map
+GPU-compressed by
+`tools/ktx2_sheets.py` with KTX-Software 4.3.2 (Basis Universal: ETC1S for the colour, UASTC
+for the data maps), from the PNG master. It is lossy where the `.webp` is not, a derivative
+for the GPU and not a new map, and `tools/publish.sh` copies it by name beside its `.webp`
+or `.png`. It carries the library's licence and its one condition unchanged. The sand's
+`_basecolor.luma.json` beside it is one number derived from its master by the same tool
+— the mean linear luminance the ground strip once read from the image's pixels — and
+carries no pixels at all.
+
+**The wall relief's `.ktx2` and its statement (T-2588)** — `clapboard_board_face` and
+`hewn_log_face` each carry a `_normal_gl.ktx2` (the normal, UASTC) and an `_orl.ktx2`, the
+map `renderers/web/js/relief-pack.js` used to pack in the page from the `orm` and the
+basecolor (R = AO, G = roughness, B = the basecolor's luminance over its mean; ETC1S), written
+by `tools/ktx2_sheets.py` from the PNG masters, plus `_orl.json` stating the mean roughness
+and the masters' hashes. Derivatives of the library's own maps, lossy, for the GPU; they
+carry the library's licence and its one condition unchanged.
+
+**The frontage timber's two (T-2589)** — the board face's `orm` and
+`clapboard_board_face_grain.ktx2`, the albedo modulation `renderers/web/js/frontage.js` used to
+derive from the basecolor at load — are written the same way by the same tool, from the PNG
+masters (the grain from the basecolor master, by `packGrain`'s own arithmetic); the layer's
+normal is the wall's `_normal_gl.ktx2` above. The grain is a derived map of the library's
+basecolor, not a new image; both carry the library's licence and its one condition unchanged.
 
 Every file, as the checker matches them one by one:
 
@@ -77,6 +108,8 @@ textures/chicago_1835_pbr/README.md
 textures/chicago_1835_pbr/RESEARCH_NOTES.md
 textures/chicago_1835_pbr/contact_sheet.jpg
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_ao.png
+textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_basecolor.ktx2
+textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_basecolor.luma.json
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_basecolor.png
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_height16.png
 textures/chicago_1835_pbr/ground/lake_michigan_dune_sand/lake_michigan_dune_sand_metallic.png
@@ -114,6 +147,7 @@ textures/chicago_1835_pbr/ground/river_stone_gravel_fill/river_stone_gravel_fill
 textures/chicago_1835_pbr/ground/river_stone_gravel_fill/river_stone_gravel_fill_roughness.png
 textures/chicago_1835_pbr/ground/wet_prairie_muck/material.json
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_ao.png
+textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_basecolor.ktx2
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_basecolor.png
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_height16.png
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_metallic.png
@@ -161,12 +195,12 @@ textures/chicago_1835_pbr/props/blue_painted_shutter/material.json
 textures/chicago_1835_pbr/props/signboard_weathered/material.json
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_ao.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_basecolor.png
-textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_basecolor.webp
+textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_grain.webp
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_height16.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_metallic.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_dx.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_gl.png
-textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_gl.webp
+textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_turned.webp
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_orm.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_roughness.png
 textures/chicago_1835_pbr/props/wrought_iron_forged/material.json
@@ -184,8 +218,10 @@ textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_base
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_height16.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_metallic.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_dx.png
+textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.ktx2
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.webp
+textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.ktx2
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.webp
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_roughness.png
@@ -195,8 +231,10 @@ textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_height16.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_metallic.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_dx.png
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.ktx2
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.webp
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.ktx2
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.webp
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_roughness.png
@@ -211,12 +249,12 @@ textures/chicago_1835_pbr/timber/fresh_sawn_framing/fresh_sawn_framing_roughness
 textures/chicago_1835_pbr/timber/fresh_sawn_framing/material.json
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_ao.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_basecolor.png
-textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_basecolor.webp
+textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_grain.webp
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_height16.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_metallic.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_dx.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_gl.png
-textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_gl.webp
+textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_turned.webp
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_orm.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_roughness.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/material.json
@@ -243,13 +281,18 @@ textures/chicago_1835_pbr/walls/board_and_batten_weathered/material.json
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_ao.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_basecolor.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_basecolor.webp
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_grain.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_height16.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_metallic.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_dx.png
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.webp
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.webp
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.json
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_roughness.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/material.json
 textures/chicago_1835_pbr/walls/clapboard_red_oxide/clapboard_red_oxide_ao.png
@@ -295,9 +338,12 @@ textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_height16.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_metallic.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_dx.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.png
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.ktx2
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.webp
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orm.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orm.webp
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orl.json
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orl.ktx2
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_roughness.png
 textures/chicago_1835_pbr/walls/hewn_log_face/material.json
 textures/chicago_1835_pbr/walls/hewn_log_oak_chinked/hewn_log_oak_chinked_ao.png
@@ -353,6 +399,9 @@ say; the look of every map is reconstructed (`docs/LIBERTIES.md` L296).
 **Published in part.** `tools/publish.sh` ships each material's `material.json` and its three
 `*_web.jpg` maps to `data/textures/prairie_1904_pbr/`; the PNG masters, the DirectX normal and the
 16-bit height stay in the repository.
+Beside each `*_web.jpg` it also ships a `.ktx2` of the same map (T-2582): the PNG master
+GPU-compressed by `tools/ktx2_sheets.py` with KTX-Software 4.3.2 at the web map's size. A
+derivative for the GPU, not a new map; it carries the library's licence unchanged.
 
 Every file, as the checker matches them one by one:
 
@@ -360,13 +409,16 @@ Every file, as the checker matches them one by one:
 textures/prairie_1904_pbr/LICENSE.txt
 textures/prairie_1904_pbr/README.md
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_ao.png
+textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_basecolor.ktx2
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_basecolor.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_basecolor_web.jpg
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_height16.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_metallic.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_dx.png
+textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_gl.ktx2
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_gl.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_gl_web.jpg
+textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_orm.ktx2
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_orm.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_orm_web.jpg
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_roughness.png
@@ -374,77 +426,190 @@ textures/prairie_1904_pbr/alley/earth_and_cinders/material.json
 textures/prairie_1904_pbr/contact_sheet.jpg
 textures/prairie_1904_pbr/curb/sandstone_curbstone/material.json
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_ao.png
+textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_basecolor.ktx2
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_basecolor.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_basecolor_web.jpg
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_height16.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_metallic.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_dx.png
+textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_gl.ktx2
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_gl.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_gl_web.jpg
+textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_orm.ktx2
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_orm.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_orm_web.jpg
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_roughness.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_ao.png
+textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_basecolor.ktx2
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_basecolor.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_basecolor_web.jpg
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_height16.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_metallic.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_dx.png
+textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_gl.ktx2
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_gl.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_gl_web.jpg
+textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_orm.ktx2
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_orm.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_orm_web.jpg
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_roughness.png
 textures/prairie_1904_pbr/parkway/grass_plat/material.json
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_ao.png
+textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_basecolor.ktx2
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_basecolor.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_basecolor_web.jpg
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_height16.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_metallic.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_dx.png
+textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_gl.ktx2
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_gl.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_gl_web.jpg
+textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_orm.ktx2
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_orm.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_orm_web.jpg
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_roughness.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/material.json
 textures/prairie_1904_pbr/roadway/sheet_asphalt/material.json
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_ao.png
+textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_basecolor.ktx2
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_basecolor.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_basecolor_web.jpg
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_height16.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_metallic.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_dx.png
+textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_gl.ktx2
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_gl.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_gl_web.jpg
+textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_orm.ktx2
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_orm.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_orm_web.jpg
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_roughness.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/material.json
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_ao.png
+textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_basecolor.ktx2
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_basecolor.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_basecolor_web.jpg
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_height16.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_metallic.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_dx.png
+textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_gl.ktx2
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_gl.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_gl_web.jpg
+textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_orm.ktx2
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_orm.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_orm_web.jpg
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_roughness.png
 textures/prairie_1904_pbr/tools/generate_prairie_1904_pbr.py
 textures/prairie_1904_pbr/walk/portland_cement_walk/material.json
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_ao.png
+textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_basecolor.ktx2
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_basecolor.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_basecolor_web.jpg
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_height16.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_metallic.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_dx.png
+textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_gl.ktx2
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_gl.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_gl_web.jpg
+textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.ktx2
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm_web.jpg
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_roughness.png
+```
+
+### The Prairie Avenue 1904 lakefront railway library — `textures/prairie_1904_rail/`
+
+T-2478. Four procedural materials for the 1904 scene's Illinois Central right-of-way (cinder
+ballast, trodden cinders, a weedy verge, a crosstie's top) and one alpha card for the verges' grass
+tufts, built by the generator that ships inside it (`tools/generate_prairie_1904_rail.py`,
+deterministic, seeded per material, borrowing the street library's noise). Which ground wears which
+material is `data/railway/1904_spec.json`'s to say; the look of every map is reconstructed
+(`docs/LIBERTIES.md` L-ic-tracks-2478). T-2479 added four more under `edge/` for the railway's edge
+against the lake (the riprap face, one limestone block's face, the cap timber, the made ground),
+equally reconstructed (L-ic-lake-edge-2479).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_rail/**` — *Prairie Avenue 1904 lakefront railway PBR library v1.1.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_rail/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the railway spec, not the map, carries the evidence |
+
+**Published in part.** `tools/publish.sh` ships each material's `material.json` and its three
+`*_web.jpg` maps (the tuft's one `grass_tuft_web.png`) to `data/textures/prairie_1904_rail/`; the PNG
+masters and the 16-bit height stay in the repository.
+
+Every file, as the checker matches them one by one:
+
+```
+textures/prairie_1904_rail/LICENSE.txt
+textures/prairie_1904_rail/README.md
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_basecolor.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_basecolor_web.jpg
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_height16.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_normal_gl.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_normal_gl_web.jpg
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_orm.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_orm_web.jpg
+textures/prairie_1904_rail/ballast/cinder_ballast/material.json
+textures/prairie_1904_rail/contact_sheet.jpg
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_basecolor.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_basecolor_web.jpg
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_height16.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_normal_gl.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_orm.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_orm_web.jpg
+textures/prairie_1904_rail/edge/cap_timber/material.json
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_basecolor.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_basecolor_web.jpg
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_height16.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_normal_gl.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_orm.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_orm_web.jpg
+textures/prairie_1904_rail/edge/limestone_block/material.json
+textures/prairie_1904_rail/edge/made_ground/made_ground_basecolor.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_basecolor_web.jpg
+textures/prairie_1904_rail/edge/made_ground/made_ground_height16.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_normal_gl.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/made_ground/made_ground_orm.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_orm_web.jpg
+textures/prairie_1904_rail/edge/made_ground/material.json
+textures/prairie_1904_rail/edge/riprap_limestone/material.json
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_basecolor.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_basecolor_web.jpg
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_height16.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_normal_gl.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_orm.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_orm_web.jpg
+textures/prairie_1904_rail/foliage/grass_tuft/grass_tuft_web.png
+textures/prairie_1904_rail/foliage/grass_tuft/material.json
+textures/prairie_1904_rail/ground/trodden_cinders/material.json
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_basecolor.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_basecolor_web.jpg
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_height16.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_normal_gl.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_normal_gl_web.jpg
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_orm.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_orm_web.jpg
+textures/prairie_1904_rail/manifest.json
+textures/prairie_1904_rail/timber/tie_timber/material.json
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_basecolor.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_basecolor_web.jpg
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_height16.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_normal_gl.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_normal_gl_web.jpg
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_orm.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_orm_web.jpg
+textures/prairie_1904_rail/tools/generate_prairie_1904_rail.py
+textures/prairie_1904_rail/verge/weedy_verge/material.json
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_basecolor.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_basecolor_web.jpg
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_height16.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_normal_gl.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_normal_gl_web.jpg
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_orm.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_orm_web.jpg
 ```
 
 ### The Prairie Avenue 1904 K03 brick library — `textures/prairie_1904_brick/`
@@ -788,6 +953,11 @@ detailing, signboards). They are exempt from regeneration but **not** from prove
 each needs a row here and a source record explaining what the form is based on.
 ### Glessner House stone-occlusion atlases (T-2431)
 
+T-2494 retains each atlas's generated UV coordinates in the same NPZ, with the exact
+mesh/unwrap-recipe key and a coordinate checksum. These are coordinates generated
+from this project's own mesh, under the same project license; no reference pixels
+or third-party mesh data are incorporated.
+
 Generated output of this repository's own Cycles bake (`generators/archetypes/masonry_house_v4_occlusion.py`, Blender 4.5.3) of the Glessner House's own geometry: the quantised ambient-occlusion atlas of its granite, kept so a bake on any CPU reproduces the committed models. Nothing third-party is sampled or embedded; project license. Provenance is the model's, tracked in `assets/manifest.json`.
 
 - `bakes/stone-occlusion/README.md`
@@ -843,3 +1013,96 @@ The following 43 files are original project material assets: eleven deterministi
 - `textures/glessner-v4/turf_photographic_basecolor.png`
 - `textures/glessner-v4/turf_photographic_provenance.json`
 - `textures/glessner-v4/turf_roughness.png`
+
+
+T-2220 copper: `textures/glessner-v4/copper_basecolor.jpg` and
+`copper_roughness.png` are original procedural pixels from `generate.py --only
+copper`, under the existing material-library LICENSE.txt. Drainage streaks are
+numeric fields, not sampled photographs. The low hood and seam geometry derive
+from unrestricted HABS section controls and declared stock reconstructions
+(L-glessner-copper-2220). The three `wlemay_glessner_courtyard_2024_*` source
+records are CC BY-SA 2.0 reference comparisons; their credited library display
+and thumbnail copies retain that license in the separate chicago-images store.
+No photographic pixels or traced patterns are embedded in model assets.
+
+### T-2495 outer lakefront terrain
+
+`data/terrain/epochs/e1871_postfire/context_ground.glb` (stored beside its terrain
+sidecars, outside assets/) is generated by `tools/extend_ic_lakefront_1904.py` from
+project heightfield data and map-coordinate readings. Project license; no raster
+texture is embedded. The underlying 1904 Talbot map is public domain, credited to
+the University of Chicago Library, Map Collection; source record
+`data/sources/talbot_1904_railroad_map.json` records the provenance.
+
+### Glessner chimney refinement (T-2222)
+
+The regenerated Glessner master and Full/Light derivatives retain their existing
+asset license. New chimney placement/cap construction rests on unrestricted HABS
+IL-1015 measured drawings and public-domain Taylor2135; service masonry is a
+bounded reconstruction corroborated by w_lemay's CC BY-SA2.0 courtyard photographs
+159537051 and159537085. Source records retain creator, license and catalog links.
+These are credited reference copies, not projected texture pixels or traced stone
+patterns. The existing metric granite/brick/limestone textures are unchanged.
+The Inland1888 digital reproduction and copied HABS05 remain textual/qualitative
+cross-checks only and supply no new derived geometry or texture. Full/Light
+simplifications and invented flue dimensions are declared in L-glessner-stacks-2222.
+The HABS drawing excerpts in the T-2222 research folder are annotated diagnostic
+crops of unrestricted federal measured drawings, not newly surveyed dimensions.
+
+### Glessner service-access refinement (T-2223)
+
+Generated Glessner Full/web/Light geometry and recovery assets follow the
+existing model license. Service-access layout uses cleared HABS IL-1015 drawing
+sheets 2 and 4. The qualitative stair/rail/capital comparison uses w_lemay's
+October 26, 2024 Commons photograph 159537058 and the previously credited
+159537051; CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0/.
+The new Prairie library display and thumbnail retain w_lemay attribution and
+that license. They derive from the recorded 1920×1440 display rendition,
+not the unavailable native original. No photographic pixels become textures.
+Gate finish and hidden joints are procedural bounded reconstructions; no
+uncleared photograph is traced. Research browser screenshots are generated
+from this project's scene and contain no imported reference photograph.
+
+### Glessner courtyard ground (T-2224)
+
+The regenerated Full/web/Light model and recovery assets retain the existing model
+license. New functional circulation is independently reconstructed from the cleared
+HABS IL-1015 sheet 2 opening/stair locations and public-domain written alteration
+history. HABS05 is rights-uncleared and is not traced for this work. The plan does not
+identify 1904 paths or paving materials; those choices are declared in
+L-glessner-court-ground-2224. Existing original procedural gravel and turf textures
+are unchanged. Browser screenshots and the schematic ground plot are generated
+project diagnostics, not reproductions of a historical courtyard photograph.
+
+
+### T-2225 — Original Glessner vine atlas and generated planting
+
+`assets/textures/glessner-v4/vines_atlas.png` is original procedural artwork generated by `python3 tools/generate_glessner_vines.py` from `form.vines_details` and `generators/archetypes/masonry_house_v4_vines.py`. It contains no sampled photograph, external illustration or imported texture. The numeric profiles, vein/serration strokes and reconstructed summer colours are created for this project and covered by the repository license. The public-domain USDA NRCS Plant Guide by Kellie King and James Henson (edited2005/2006, source `usda_nrcs_virginia_creeper_2006`) bounds Virginia-creeper botanical facts only. HABS supplies the walls/openings; no source supplies the invented July1904 coverage. Boston ivy profiles are independent original botanical reconstructions. The Full and Light Glessner assets share this atlas and carry L-glessner-vines-2225; existing house/master/derivative provenance remains applicable.
+
+
+### Glessner plain-brick surface study — T-2226
+
+`textures/glessner-v4/flat_brick_basecolor.png`, `textures/glessner-v4/flat_brick_normal.png` and `textures/glessner-v4/flat_brick_roughness.png` are original procedural artwork generated by `python3 tools/generate_glessner_finish.py` from `form.surface_finish`, the existing original courtyard clay/mortar maps and `generators/archetypes/masonry_house_v4_finish.py`. They contain no photograph pixels, tracings or imported material and are covered by the repository license. Cleared HABS measured drawings, the licensed w_lemay courtyard reference and the owner brief bound the declared reconstruction; the family typescript remains a textual comparison with unresolved rights unchanged and supplies no asset pixels or traced pattern. Full and Light share these maps. See L-glessner-finish-2226; existing house/master/derivative provenance remains applicable.
+
+
+### T-1883 — Keith house stone-front finish (2026-10-16)
+
+`gltf/keith_house_1808_prairie__as_built_1886.glb` and its `web/` derivative are
+procedurally generated from the structure record by `generators/k01_emit.py`.
+The geometry is project-authored under the repository licence. Existing K02 granite
+and dressed-stone textures retain their own entries above; no photograph is used
+as a texture. The reconstruction uses the February 1888 Inland Architect plate,
+credited to Inland Architect Press, scan via Internet Archive (Serials in Microfilm).
+The project owner expressly approved this image for T-1883 on 2026-10-16; see
+`data/sources/inland_architect_1888_02_keith_plate.json` for the scope and exact quote.
+The reference scan is `data/sources/assets/inland_architect_1888_02_keith/plate.jpg`.
+The September 1886 notice is public-domain textual evidence for granite; the
+neutral light greige tint is reconstructed, not a colour sampled from the monochrome plate.
+
+The additional comparison photographs retain the credits, source links and unresolved
+rights recorded in [the reference credit ledger](../data/sources/assets/inland_architect_1888_02_keith/README.md).
+They are research copies under the owner’s library instruction, not material textures or
+a claim that the plate approval covers later photographs.
+
+
+Glessner T-2228 entrance-section update (2026-10-16): generated geometry additionally cites public-domain Richardson office doorway23A, `artic_glessner_sheet_23a_entrance_detail`, corroborated by U.S. Government HABS IL-1015 sheet5. No photographic or drawing pixels are embedded in the asset; exact relief dimensions remain reconstructed.

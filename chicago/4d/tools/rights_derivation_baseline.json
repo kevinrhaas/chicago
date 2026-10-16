@@ -81,14 +81,6 @@
       "sole_support": false,
       "confidence": "inferred"
     },
-    "glessner_house/as_built_1887/form.chimney_plans": {
-      "kind": "structure",
-      "blocked_sources": [
-        "inland_architect_1888_02_glessner_exterior"
-      ],
-      "sole_support": false,
-      "confidence": "reconstructed"
-    },
     "glessner_house/as_built_1887/form.chimneys": {
       "kind": "structure",
       "blocked_sources": [
@@ -113,14 +105,6 @@
       ],
       "sole_support": false,
       "confidence": "attested"
-    },
-    "glessner_house/as_built_1887/form.courtyard_ground": {
-      "kind": "structure",
-      "blocked_sources": [
-        "habs_glessner_photo_05_court_c1923"
-      ],
-      "sole_support": false,
-      "confidence": "reconstructed"
     },
     "glessner_house/as_built_1887/form.detail_profile": {
       "kind": "structure",
@@ -572,14 +556,6 @@
       "sole_support": true,
       "confidence": "inferred"
     },
-    "keith_house_1808_prairie/as_built_1886/form.chimney_positions": {
-      "kind": "structure",
-      "blocked_sources": [
-        "inland_architect_1888_02_keith_plate"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
     "lake_house_construction/shell_1835/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -695,6 +671,30 @@
       ],
       "sole_support": true,
       "confidence": "attested"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.basement": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.body": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.boundary": {
       "kind": "structure",

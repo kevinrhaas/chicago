@@ -1,3 +1,96 @@
+## T-1883 — Keith house photographic finish (2026-10-16)
+
+The owner-approved 1888 Inland Architect photograph now drives the pierced parapet,
+pinnacles, diaper band, upper colonnettes, Ionic loggia, carved balcony, curved stair
+cheeks, basement lights, transom sashes and early low stone boundary. Principal floor
+is 2.0 m; the accepted footprint, second/third floor levels and north clearance remain.
+A September 1886 trade notice explicitly calls the front granite; neither it nor the
+other two inspected notices names a quarry or establishes its exact colour. Keith has
+its own pale neutral stone tint; Glessner's is unchanged.
+
+The photographic gate remains open. Comparison cameras, source credits and explicit
+remaining differences accompany the model; procedural carving is still an approximation,
+not a claim of photographic equivalence. See [the evidence and validation record](RESEARCH/k01-1808-keith-1883/README.md).
+
+## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
+
+Service posts now seat on actual treads, rail bars join continuously, and brick
+landing supports have pale capitals. Two boarded rear-gate leaves have hinges
+connected to the masonry reveals. The north-court stair remains distinct from
+the excluded 1955 stable stair. Exact 1904 finish details remain reconstructed;
+the owner's stone colour and dark glass are preserved. Functional geometry,
+canonical bake and package checks pass; all ten fixed-camera Full/Light browser
+views pass unchanged budgets with no errors. Mobile loads 124 credited images
+and the reconstruction note. T-2226 retains the Light supports' missing mortar
+pattern and gate member grain. Preflight and exact-commit CI receipts are
+maintained on the PR.
+[Evidence, dating and bounds](RESEARCH/glessner-service-access-T-2223/README.md).
+T-2227 retains existing scene-budget issues; T-2228 retains photo acceptance.
+
+## T-2222 — Glessner chimney shafts and caps (2026-10-14)
+
+Two street stacks now meet both pitches of the main roof. Thick flush masonry
+caps and recessed open flues replace shallow top patches; courtyard service
+stacks use brick shafts with plain pale caps. Exact finish dimensions and
+service-stack dating remain reconstructed. The owner's granite and glass are
+preserved. Light generation fits at 199,967 triangles. T-2221 drainage confidence
+now correctly displays reconstructed. Functional geometry checks, canonical bake and Full/Light package contracts
+pass. Twelve paired browser observations have no errors or new budget failures;
+three existing scene-budget failures remain assigned to T-2227. Mobile image
+credits and the reconstruction liberty load. All five historical comparisons
+remain differs for T-2228. Repository preflight and exact-commit CI receipts are
+maintained on the PR.
+[Evidence and bounds](RESEARCH/glessner-chimneys-T-2222/README.md).
+T-2227 retains existing scene-budget failures; T-2228 retains photo acceptance.
+
+## T-2221 — Glessner rainwater fittings (2026-10-14)
+
+Distinct Prairie panels, the north tower bowl and small
+service collectors replace generic rods. Twelve collectors feed twelve
+leaders and two descending connections, with wall straps and roof-edge supports.
+Stock dimensions and concealed routing are reconstructed for 1904. Light
+measures 199,559 triangles against its unchanged 200,000 limit.
+[Evidence and validation](RESEARCH/glessner-rainwater-T-2221/README.md).
+Whole-house photographic acceptance remains T-2228; T-2227 retains the
+pre-existing Full/Balanced courtyard and Light close-view budget failures.
+The final Blender bake, canonical Full/Light package, asset contract and all five
+reference renders are complete. Full/Light browser views load without errors;
+121 credited image tiles load. The same four scene-budget observations remain
+red, with no newly failing paired camera. Repository preflight passes all 883
+checks. Exact-commit CI and deployment receipts are maintained on the PR.
+
+## T-2496 - ground travel follows the era's streets
+
+Travel uses 1835's drawn tracks, corridors and plank walks, and 1904's compiled
+carriageways and sidewalk bands. Access legs and street corners clear building
+footprints. A corner building's mapped parcel identifies its front; Glessner
+arrives on Prairie Avenue. See STATUS for validation and limitations.
+
+## T-2495 - 1904 lakefront beyond Prairie Avenue
+
+Implemented: connected north/south Illinois Central continuations to the context
+map limits and a mapped outer shoreline, using Talbot 1904. Generated terrain
+and walking/building heights share the same coast. Individual outer switches,
+station buildings, pier structures and surveyed grades remain outside this
+change; the corridor and track fan carry explicit reconstruction bounds.
+See [the evidence](RESEARCH/ic_lakefront_extent_1904.md).
+
+## T-2219 — Glessner service openings and roof junction (2026-10-13)
+
+The north service door and upper sash follow the full widths read in HABS plans
+and photographs. Two stone steps reach the door; the gable-foot pipe and roof
+return now meet the north wing without a shelf across the facade. The courtyard
+roof profile is preserved. Low openings are inventoried without speculative
+resizing. [Evidence, bounds and validation](RESEARCH/glessner-service-junction-T-2219.md).
+Whole-house photographic acceptance remains T-2228.
+
+## T-2470 — Glessner north-facade correction
+
+Implemented: integrated flat gable/tower, paired windows, staggered curved
+masonry and corrected gable/eave junction, with Full/Light assets and evidence.
+T-2228 retains whole-house photographic sign-off; T-2217 follows in the serial
+Glessner chain. See RESEARCH/glessner-north-tower-T-2470.md.
+
 ## T-2278 — doors, windows and trim on every 1835 building
 
 Every 1835 opening comes from one kit (`generators/common/openings.py`): cased, sill-and-cap
@@ -5299,3 +5392,120 @@ All-view actual-GLB and published full/light review is recorded in
 clarification and earlier T-2016 plan control topology; the isolated west study
 does not measure the hidden courtyard roof. L-glessner-courtyard-ridge-2235
 supersedes the low rear ridge in L-glessner-west-profile-2231.
+
+
+## T-2217 - Glessner carriage leaves, 2026-10-14
+
+Circular/square panel relief, straps, ring pulls and usable inward swing replace
+the former rectangular treatment. Existing passage paving is retained. Evidence,
+construction bounds and review: RESEARCH/glessner-porte-cochere-T-2217.md.
+Whole-house photographic acceptance remains T-2228.
+
+
+T-2218 (2026-10-14): courtyard terrace and fan steps recalibrated to HABS sheets 2/4; shared hall-bow plan reconciled, descending cheek/coping and rounded terminal built. See docs/RESEARCH/glessner-courtyard-steps-T-2218.md for source bounds and final validation. Whole-house photographic acceptance remains T-2228.
+
+
+T-2494: diagnose Glessner canonical rebuild differences by reporting the atlas key input fingerprints. Six local cases reproduce committed keys; CI cause remains unproven. T-2220 waits on the reproducibility repair. See docs/RESEARCH/glessner-bake-2494/README.md.
+
+T-2494 resolution: host libm changes the welded smart-project/pack UV layout, not mesh geometry. Retain validated UVs with the AO atlas under an exact mesh/unwrap-recipe key; preserve full atlas and K01 stale-package checks. Controlled Ubuntu libm reproduction and final bake/browser receipts: docs/RESEARCH/glessner-bake-2494/README.md. Unblocks the visible T-2220 copper repair.
+
+
+T-2220 (2026-10-14): rebuild the low courtyard copper hood against both host roofs; seated seams/laps, local wall closure and drainage-aligned procedural finish. HABS relative rise and five licensed modern references are documented in RESEARCH/glessner-copper-T-2220/README.md. Full/Light package and camera checks pass; the two existing Balanced draw-call overruns remain T-2227. Whole-house acceptance remains T-2228.
+
+## T-2224 — Glessner courtyard ground (2026-10-15)
+
+Reconstructed gravel approaches connect the drive to the north service stair and
+curved terrace; the west walk falls away from masonry. Ground clipping removes
+lawn below paths and actual occupied footprints, preserving gate/passage levels.
+HABS sheet 2 supplies access positions, not a 1904 garden layout; paving and grades
+are separately declared reconstructions and 1946 parking is excluded. Geometry
+contact/turf-clearance tests and K01 pass. Full/web has 1,315,670 triangles and
+Light 199,794. Ten fixed-camera browser views were inspected with no page errors;
+eight meet scene budgets, while both terrace views retain their baseline failures
+for T-2227. The new liberty and credited Images panel are visible on mobile.
+All five historical comparisons retain unchanged cameras and `differs` verdicts
+for T-2228. Full preflight and exact-head CI govern the dev merge; their receipts
+are on the ticket-linked PR. See docs/RESEARCH/glessner-courtyard-ground-T-2224/README.md.
+
+## T-2225 — Selective July vines (2026-10-15)
+
+Seven reconstructed planting areas add Boston ivy to the Prairie front and
+Virginia creeper to courtyard walls. Full carries connected stems and curled
+leaves; Light shares the same original masked atlas on continuous panels. Cleared
+HABS geometry and the public-domain USDA botanical guide bound the numeric study;
+the 1887 planting history does not establish exact July 1904 coverage. Later
+blanket overgrowth is excluded, and the new liberty states the reconstruction.
+
+The first Full bake's nested compound petioles were rejected and corrected with a
+shared junction. The regression reproduces the old defect; the corrected canonical
+Full/web/Light assets have zero coincident faces at K01's unchanged 1 mm quantum.
+Full/web has 1,371,506 triangles and Light 199,850. Ten fixed-camera app views were
+actually reviewed with no browser errors; eight meet scene budgets and both
+north-court views retain their baseline failures for T-2227. Both confidence
+views, the new liberty and credited mobile Images panel were inspected. All five
+historical cameras remain unchanged and whole-house verdicts remain `differs` for
+T-2228. Owner granite and dark glass are retained. Full preflight and exact-head
+CI govern merge; see the ticket-linked PR for results and deployment verification.
+See docs/RESEARCH/glessner-vines-T-2225/README.md.
+
+
+## T-2226 — Glessner surface finish
+
+The material pass restores mortar courses to plain stair/Light boundary surfaces and maps gate ledge/brace grain along each member. Fixed Full/Light scene and neutral-light baselines preserve the owner granite tint, dark glass and current July light. The new maps reuse original project textures and numeric construction, with no copied photograph pixels, added random grunge or new claim of measured 1904 weathering. See docs/RESEARCH/glessner-finish-T-2226/README.md and L-glessner-finish-2226. Canonical exports and all 24 fixed-camera after views are reviewed; geometry counts stay unchanged at 1,371,506 Full / 199,850 Light triangles. No browser errors occurred. Mobile confidence, reconstructed liberty and all credited image tiles were reviewed. Five unchanged historical cameras still read differs. Full preflight and exact-head CI govern merge; see the ticket-linked PR for gate and deployment receipts. Existing north-view scene-budget failures are recorded unchanged for T-2227; T-2228 owns the final photographic verdicts.
+
+T-2226 preflight found one real failure: the published tree reached 262.262 MiB against its 256 MiB hygiene allowance. A measured storage re-budget to 288 MiB is documented in docs/SITE-BUDGET.md section 8; boot, frame and Light limits are unchanged. No material detail or research record was removed. The full gate is rerun before commit.
+
+
+## T-2227 — Glessner browser quality and performance (2026-10-15)
+
+The completed house exceeded the unchanged scene ceilings at eight of fifteen
+Light inspection stands and several Full courtyard stands. Equivalent inspection
+materials now share compatible texture sources and shader state; opaque Full
+Glessner faces have spatial pieces; Light rejects whole instance bounds only behind
+actual opaque building triangles. The original transparent roof draw groups remain
+intact. No house geometry, historical camera, source right, owner tint, dark glass
+setting or budget changes.
+
+The complete fifteen-view Full and Light runs and five-view Balanced run pass their
+existing ceilings, including thirty moving samples per tier. Full detail restoration
+is pixel-identical and restores the building material/instance census; eighteen Light
+visibility on/off images are exact. Earlier failed baselines and rejected transparent
+roof partitioning remain in the evidence. The allocation-reduced four-view Light rerun and thirty moving samples also pass.
+A persistent one-pixel winter difference caused a conservative summer-only filter:
+other seasons retain the complete normal draw list. The final ten seasonal/reference
+pairs are pixel-identical, winter retains all draws, and summer restores the filter.
+Full preflight, exact-commit CI and deployment receipts are recorded in the ticket-linked PR.
+Software-renderer timing does not establish physical-GPU FPS. Winter's supplementary
+round trip is not a claim that other seasons meet July's scene budget.
+
+[Runtime changes and complete evidence](RESEARCH/glessner-performance-T-2227/README.md).
+Five historical comparisons still read `differs`; T-2228 owns the remaining visible
+photographic corrections. This gate clears their existing performance blocker only.
+
+
+## T-2228 — Glessner photographic correction pass (2026-10-15)
+
+The north cone/connector and courtyard dormer host intersections are rebuilt,
+with section-bounded eaves, dormer widths, finials and basement grille. East-court
+leaders clear the revised openings. The terrace cap loses its flat shelf but
+still overlaps the post in projection. All ten exact-master comparisons remain
+`differs`; the ticket retains terrace/post, west courtyard access and remaining
+elevation, opening and material correspondence. The approved flat north facade,
+staggered tower masonry, owner granite and dark glass remain.
+
+[Evidence and outstanding differences](RESEARCH/glessner-final-comparison-T-2228/README.md)
+distinguish visible corrections from photographic signoff. Full/Web have
+1,372,712 triangles and Light 193,683, with unchanged ceilings. Full preflight,
+published desktop/mobile checks and exact-commit CI govern the dev merge;
+final receipts belong to the correction PR. This is not final house acceptance.
+
+T-2228 owner priority, 2026-10-15: the new overhead review puts straight north-ridge alignment through the west crossing first. The cross-gable/cupola moves from S18.4 to S14.6; bake, fixed-camera comparison and new gates precede merge. Copper coverage and other roof-feature comparisons follow.
+
+
+T-2228 owner roof follow-up, 2026-10-15: rebuilt fixed-camera overhead and west renders confirm the straight north crest through the west crossing. The eight west apertures remain unchanged and clear; the upper-pair midpoint improves from 2.15 to 1.65 ft off the peak, while the lower pair does not. The omitted northeast copper return is now seated on the original north roof plane, with exact tile removal and no raised rectangle; its bake/review are underway. Source tests pass 2000 return-coverage rays and price Light at 193697 triangles. Final image acceptance and merge remain pending. See the T-2228 owner-overhead dossier.
+
+T-2228 window-location clarification: the owner explicitly requested historical northwest photos. The recovered Cornell ca.1887 stable catalog ss:3874294 is public domain; a four-corner west-plane comparison with all eight openings withheld supports moving the southern upper slit from S21.8 to S19.8. Other seven centers remain within roughly1ft of the photo-derived positions at retained eaves. Width/heights remain. L-glessner-west-slit-2228 records uncertainty. The copper-only bake was interrupted before completion to include this correction; a new combined bake and actual-asset comparisons are underway.
+
+T-2228 (2026-10-16): final roof/window correction assets reviewed at eleven canonical cameras plus owner overhead; all remain differs. Southern upper west slit moved two feet north from the ca. 1887 Cornell northwest photo, other seven retained. Straight ridge and seated northeast copper return verified. Correction PR needs green integration; final photographic signoff stays open.
+
+T-2228 follow-up2026-10-16: owner front-entry section/threshold/header/carving pass remains active; fixed-camera validation and green dev merge required.

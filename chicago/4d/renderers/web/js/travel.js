@@ -31,10 +31,9 @@
  *
  * `travelling` follows the router's waypoints; `arriving` eases the look onto
  * the building (focusPoint) over half a second and then opens its card
- * (`onArrive`). A null route — the router found no walkable way, or has not been
- * built — falls back to the instant behaviour with a message, so the visitor is
- * never left standing. Stalls (no progress for 2 s, or blocked for 1 s) re-plan
- * once from where the visitor stands and then fall back the same way.
+ * (`onArrive`). A missing ground route stops with an explanation. Stalls
+ * (no progress for 2 s, or blocked for 1 s) re-plan once, then stop in place.
+ * Only an explicitly selected instant journey teleports the visitor.
  *
  * Contract (main.js): createTravel({ walker, intent, hud, settings, router, terrain,
  *   focusPoint, structurePosition, footprints?, frame, teleport, goToAnchor, setFly, onArrive })
@@ -91,7 +90,6 @@ export function gaitName(pace, metresPerSecond) {
 /** The paces that ride along the ground and take the router's route. */
 const GROUND = new Set(['walk', 'wagon', 'horse']);
 
-const WAYPOINT_M = 1.2;        // a waypoint counts as reached inside this
 const LOOK_EPS = 0.002;        // radians/frame of the visitor's own look that ends a ride
 const GRACE_S = 0.25;          // look deltas ignored this long after go() (a settling mouse)
 const STALL_WINDOW_S = 2;      // no progress for this long …
@@ -201,14 +199,14 @@ export function createTravel({
   }
 
   /** Where the ride ends: beside a building, or at the point itself. */
-  function destinationOf(target) {
+  function destinationOf(target, { card = true, mode: arrivalMode = mode } = {}) {
     if (target.kind === 'structure') {
       const centre = structurePosition?.(target.id);
       if (!centre) return null;
       // Where a ride ends is where the building is framed whole (T-0824): the
       // same point an instant Go to stands you at, so the two cannot disagree.
-      const framed = standFor?.(target.id);
-      if (framed && Number.isFinite(framed.e) && Number.isFinite(framed.n)) return { e: framed.e, n: framed.n };
+      const framed = standFor?.(target.id, { mode: arrivalMode, card });
+      if (framed && Number.isFinite(framed.e) && Number.isFinite(framed.n)) return framed;
       const off = router?.standOff?.(target.id, centre, radiusOf(target.id));
       return off && Number.isFinite(off.e) && Number.isFinite(off.n) ? off : centre;
     }
@@ -221,12 +219,12 @@ export function createTravel({
     return ok;
   }
   function goInstantly(target, callbacks) {
-    const to = destinationOf(target);
+    const to = destinationOf(target, { card: !callbacks });
     if (to) reportRoute(target, [[to.e, to.n]], callbacks);
     if (target.kind === 'anchor') return arrived(goToAnchor?.(target.id) ?? false, callbacks);
     setFly?.(false);
     if (target.kind === 'structure') {
-      const ok = frame?.(target.id) ?? false;
+      const ok = frame?.(target.id, { mode, card: !callbacks }) ?? false;
       if (ok && !callbacks) onArrive?.(target.id);
       return arrived(ok, callbacks);
     }
@@ -314,7 +312,7 @@ export function createTravel({
   function turnToward(intentNow, e, n, rateDeg, dt) {
     const s = walker.state;
     const de = e - s.e, dn = n - s.n;
-    if (Math.hypot(de, dn) < 0.5) { intentNow.yawDelta = 0; return 0; }
+    if (Math.hypot(de, dn) < 1e-4) { intentNow.yawDelta = 0; return 0; }
     const want = bearingToYaw(Math.atan2(de, dn) / DEG);
     const diff = wrapPi(want - s.yaw);
     const cap = rateDeg * DEG * dt;
@@ -331,15 +329,10 @@ export function createTravel({
     const s = walker.state;
     while (r.index < r.points.length) {
       const [we, wn] = r.points[r.index];
-      const prev = r.index > 0 ? r.points[r.index - 1] : [r.from.e, r.from.n];
       const d = Math.hypot(we - s.e, wn - s.n);
-      // Past the plane through the waypoint perpendicular to its leg: the
-      // walker overshot it, which at a gallop happens every few frames.
-      const passed = (we - s.e) * (we - prev[0]) + (wn - s.n) * (wn - prev[1]) < 0;
-      // A galloping ride covers a 1.2 m circle in a frame or two; the reach grows
-      // with the speed so a fast ride does not overshoot and circle back.
-      const reach = Math.max(WAYPOINT_M, walker.state.speed * 0.12);
-      if (d < reach || passed) r.index++;
+      // Reach the corner before turning. The previous speed-sized radius and
+      // infinite 'passed' plane skipped corners while metres to their side.
+      if (d < 0.08) r.index++;
       else break;
     }
   }
@@ -362,7 +355,7 @@ export function createTravel({
     if (r.replans < 1 && GROUND.has(r.mode)) {
       r.replans++;
       const s = walker.state;
-      const route = router?.plan?.({ e: s.e, n: s.n }, r.to) ?? null;
+      const route = router?.plan?.({ e: s.e, n: s.n }, r.to, { mode: r.mode }) ?? null;
       if (route?.points?.length) {
         reportRoute(r.target, route.points, r.callbacks);
         r.points = route.points;
@@ -372,10 +365,10 @@ export function createTravel({
         return;
       }
     }
-    const target = r.target, callbacks = r.callbacks;
+    const callbacks = r.callbacks;
     finish();
-    if (!goInstantly(target, callbacks)) callbacks?.onStop?.({ ...callbacks.token, reason: 'unreachable' });
-    hud?.say?.('Could not get through — went straight there');
+    callbacks?.onStop?.({ ...callbacks.token, reason: 'unreachable' });
+    hud?.say?.('The route is blocked. Stopped here — choose another destination or Go instantly.');
   }
 
   function beginArrive(r) {
@@ -386,10 +379,10 @@ export function createTravel({
     let yawOff = 0;
     let pitchOff = 0;
     if (r.kind === 'structure') {
-      point = focusPoint?.(r.id) ?? null;
+      const f = standFor?.(r.id, { mode: r.mode, card: !r.callbacks }) ?? r.to;
+      point = f.aim ?? r.to.aim ?? focusPoint?.(r.id) ?? null;
       // The framing rule's offsets (T-0824): the card opens on arrival and the
       // building should sit centred in the part of the screen it leaves free.
-      const f = standFor?.(r.id);
       yawOff = (f?.yawOffsetDeg ?? 0) * DEG;
       pitchOff = (f?.pitchOffsetDeg ?? 0) * DEG;
     } else if (Number.isFinite(r.target?.yaw_deg)) yaw = bearingToYaw(r.target.yaw_deg);
@@ -402,12 +395,17 @@ export function createTravel({
     if (r.index >= r.points.length) { beginArrive(r); steerArrive(intentNow, dt); return; }
     const [we, wn] = r.points[r.index];
     const diff = turnToward(intentNow, we, wn, PACES[r.mode].turnRate, dt);
-    intentNow.forward = Math.abs(diff) < 60 * DEG ? 1 : 0.25;
+    const s = walker.state;
+    const distance = Math.hypot(we - s.e, wn - s.n);
+    // Turn on the spot, then take no more than the distance left on this leg.
+    // This keeps even a fast horse on the planned sidewalk/street corner.
+    intentNow.forward = Math.abs(diff) < 0.01 ? Math.min(1, distance / Math.max(WALK.speed * dt, 0.001)) : 0;
     intentNow.strafe = 0;
     intentNow.rise = 0;
     intentNow.sprint = false;
     pitchTo(intentNow, 0, dt);
-    stallWatch(r, dt, remaining(), true);
+    if (intentNow.forward > 0) stallWatch(r, dt, remaining(), true);
+    else { r.progressT = 0; r.progressRef = remaining(); }
   }
 
   function steerFlight(intentNow, dt) {
@@ -515,7 +513,7 @@ export function createTravel({
       return goInstantly(target, callbacks);
     }
     if (mode === 'instantly') return goInstantly(target, callbacks);
-    const to = destinationOf(target);
+    const to = destinationOf(target, { card: !callbacks });
     if (!to) return false;
 
     if (mode === 'fly') {
@@ -533,11 +531,11 @@ export function createTravel({
     // A ground ride. Down to earth first: the route is walked, not flown.
     if (walker.state.flying || intent.flying) setFly?.(false);
     const s = walker.state;
-    const route = router?.plan?.({ e: s.e, n: s.n }, to) ?? null;
+    const route = router?.plan?.({ e: s.e, n: s.n }, to, { mode }) ?? null;
     if (!route?.points?.length) {
-      const ok = goInstantly(target, callbacks);
-      hud?.say?.('No walkable route was found — went straight there');
-      return ok;
+      callbacks?.onStop?.({ ...callbacks.token, reason: 'unreachable' });
+      hud?.say?.('No safe street route was found. Choose another destination or Go instantly.');
+      return false;
     }
     ride = newRide(target, to, route.points, mode, callbacks);
     ride.progressRef = remaining();
