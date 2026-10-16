@@ -67,6 +67,7 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
+import { initKTX2, ktx2State } from './ktx2.js';
 import { createStreetTrees } from './street-trees.js';
 import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
 import { createContext } from './context.js';
@@ -1610,6 +1611,11 @@ async function boot() {
   // T-2572: a tap on the plank walks, fences and yard goods is answered by a
   // one-pixel id pass on this renderer, so a phone need not keep their triangles.
   setPickRenderer(renderer);
+  // T-2582: GPU-compressed library sheets. One KTX2 loader, detected once against
+  // this renderer before any layer loads (ktx2.js); the `light` texture tier drops
+  // each sheet's top mip. `?ktx2=0` keeps every sheet on its image path.
+  initKTX2(renderer, { textures: device.choice?.textures, disabled: params.get('ktx2') === '0' });
+  api.ktx2 = ktx2State;
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
   // T-2548: a closed building image is gone from the page as a released array is.
