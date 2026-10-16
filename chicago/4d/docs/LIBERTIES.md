@@ -28389,3 +28389,25 @@ T-2580), which the same pictures show below the coping where the model stands it
 **Ticket:** T-2578 (piece 2 of T-2567).
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
 **Recorded:** 2026-10-16 (T-2578).
+
+### L-k08-keith-bow-coursing-2584 — Keith's bow laid deep and thin in turn: the rhythm read, the joints laid to it
+
+**Decision:** lay the south bow's rock-faced granite in the street front's T-2566 rhythm, a deep
+course and a thin one in turn from each storey's bed up, where it ran even 0.38 m courses. The 1888
+Inland Architect plate (read at its native 1559 px) and the Glessner House print of it
+(a18-gh-1808-keith-field-front) both show the alternation on the bow's piers and its south flank,
+from the plinth to the moulded cap under the third storey.
+**What is read, not invented:** the alternation itself, and the two heights to within a course:
+deep courses about 0.5 m, thin ones about 0.2 m, the front's own ratio (0.4).
+**What is invented:** where each joint falls. Each storey between the bow's bands is laid in the
+fewest courses whose deep one is at most 0.55 m (the basement's 1.85 m in five and each 3.9 m
+storey in eleven, every one 0.49 m deep and 0.195 m thin), so the bow's joints are the rhythm's and are not
+carried course for course from the front's, which the pictures do not resolve behind the street
+tree; and which half of the rock-face relief each course takes (deep on the upper half, thin on the
+lower), the front's T-2566 rule carried round the bow.
+**How to resolve:** a sharper print of the front, or a reading of the bow and the front side by side
+in the re-fitted cameras of T-2579, that lets the bow's beds be struck on the front's.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
+**Ticket:** T-2584 (piece 1 of T-2580).
+**Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
+**Recorded:** 2026-10-16 (T-2584).

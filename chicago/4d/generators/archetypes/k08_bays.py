@@ -50,6 +50,7 @@ module writes them.
 
 from __future__ import annotations
 
+import bisect
 import copy
 import hashlib
 import json
@@ -465,6 +466,23 @@ def wall_cells(o: K6.Opening, role, holes, s_lo, s_hi, y_lo, y_hi, d=0.0, hint=(
             o.plane(role, [(q[0], q[1]), (p[0], p[1]), (p[0], y_hi), (q[0], y_hi)], d, hint)
 
 
+def alternating_courses(low, high, deep_max, low_ratio):
+    """T-2584: the course lines from `low` to `high` laid deep and thin in turn from the bed
+    up, as the street front's T-2566 rhythm lays them: the fewest courses whose deep one is
+    no taller than `deep_max`, each thin one `low_ratio` of the deep, the span ending on a
+    deep course whenever the count is odd."""
+    h = high - low
+    for n in range(1, 64):
+        deep = h / ((n + 1) // 2 + low_ratio * (n // 2))
+        if deep <= deep_max + 1e-9:
+            ys, y = [low], low
+            for i in range(n - 1):
+                y += deep if i % 2 == 0 else low_ratio * deep
+                ys.append(y)
+            return [*ys, high]
+    raise ValueError(f"no alternating coursing fits {h:.3f} m under {deep_max} m courses")
+
+
 def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
     """Rock-faced courses over the true curved wall; shallow relief is a separate role.
 
@@ -479,8 +497,10 @@ def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
         raise ValueError("masonry_cells currently supports flat-headed bay openings")
     wall_cells(o, "wall", holes, 0., length, low, high)
     holes = [*holes, *trim_holes]  # raised dressings own their sockets, not overlapping stone
-    rows = sorted({low, high, *[low+i*ch for i in range(1, math.ceil((high-low)/ch))],
-                   *[y for h in holes for y in (h[2], h[3]) if low < y < high]})
+    c = spec.get("coursing")
+    lines = (alternating_courses(low, high, ch, c["low_ratio"]) if c
+             else [low, *[low+i*ch for i in range(1, math.ceil((high-low)/ch))], high])
+    rows = sorted({*lines, *[y for h in holes for y in (h[2], h[3]) if low < y < high]})
     for row, (ya, yb) in enumerate(zip(rows, rows[1:])):
         cy = (ya+yb)/2
         active = [h for h in holes if h[2] < cy < h[3]]
@@ -496,7 +516,11 @@ def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
             inset = min(.018, (xb-xa)/8, (yb-ya)/8)
             inner = K6.box(xa+joint/2+inset, xb-joint/2-inset,
                            ya+joint/2+inset, yb-joint/2-inset)
-            depth = -relief*(.6+.4*rng.random())
+            if c:   # T-2584: a deep course on the upper half of the rock face, a thin one on the lower
+                thin = bisect.bisect_right(lines, cy) % 2 == 0
+                depth = -relief*((.6 if thin else .8)+.2*rng.random())
+            else:
+                depth = -relief*(.6+.4*rng.random())
             for i in range(4):
                 j = (i+1) % 4
                 o.face("masonry_relief", [o.P(*outer[i], 0), o.P(*outer[j], 0),
