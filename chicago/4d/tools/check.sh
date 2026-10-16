@@ -97,6 +97,11 @@ step "The device profile chooses per device, and a stored choice still wins (T-2
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
+step "The grade colours are one set — gold, silver, bronze — legible on every machine's panel and apart under colour-vision deficiency (T-2671)" \
+  node tools/check_grade_colors.mjs
+selftest "…and a bronze that is a darker gold, a drifted token or an unreadable ink is refused (T-2671)" \
+  node tools/check_grade_colors.mjs --self-test
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
