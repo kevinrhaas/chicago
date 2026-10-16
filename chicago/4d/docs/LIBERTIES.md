@@ -24089,7 +24089,7 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `dent_house_1823_prairie.draft_1904.form.draft_elevation`, `dent_house_1823_prairie.draft_1904.form.draft`, `doane_house_1827_prairie.draft_1904.form.draft_elevation`, `doane_house_1827_prairie.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `kimball_house_1801_prairie.draft_1904.form.draft_elevation`, `kimball_house_1801_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `dent_house_1823_prairie.draft_1904.form.draft_elevation`, `dent_house_1823_prairie.draft_1904.form.draft`, `doane_house_1827_prairie.draft_1904.form.draft_elevation`, `doane_house_1827_prairie.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24119,6 +24119,7 @@ alley buildings are T-1936's.
 **Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
 **Recorded:** 2026-10-11 (T-2330).
+**Revised:** 2026-10-16 (T-2538) — **1801 Kimball is no longer part of this draft.** Its two tokens are retired from the covered list above: the house is refined in place under the same id from J. W. Taylor's c. 1895 photograph, and its corner tower, which this entry admitted putting at the 18th Street corner, now stands where the photograph and the sheet's bump put it, on the flank 8 m back from the front. What that refinement still invents is `L-kimball-1801-massing-2538`.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
@@ -28040,3 +28041,31 @@ so the mullion is cut to 0.04 m and the two frames meet on it as a shared timber
 **How to resolve:** a photograph of the wing's front, or the remodel's drawings.
 **Ticket:** T-2537 (from T-2449's reading of the engraving).
 **Recorded:** 2026-10-16 (T-2537).
+
+### L-kimball-1801-massing-2538 — 1801 Prairie's massing read off J. W. Taylor's c. 1895 photograph, still on the draft builder until K01 can lay an all-stone house and carry its tower
+
+**Decision:** the W. W. Kimball house at 1801 Prairie Avenue (T-2538, piece 1 of T-1889) is no longer a
+district draft of the rules. It stands, under the draft's own id `kimball_house_1801_prairie`, as a record
+written from J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`, camera
+`data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json`) and the 1911 sheet 28
+trace, built by the same draft builder because K01 cannot yet lay an all-stone house or carry a round
+tower (T-2539). **What is read, not invented.** From the sheet: the plan's three rectangles as the
+draft fitted them, and the two bumps in the 18th Street wall that place the tower and the east turret.
+From the photograph, through its solved camera: the principal floor's 1.45 m, two storeys of wall to
+the cornice at 8.1 m, the third storey in the roof over the main block and a wall storey in the south
+pavilion and the flank's sections (to about 13.9 m), the roof's steep faces and deck, the tower's place,
+eaves (12.9 m) and cone (to 18.7 m), the south gable's place and height, the east range's two storeys
+and the turret's eaves and cone, the entrance at the front's north end. **What is invented.** The two
+added parts' depths into the house; every roof form behind what the camera sees; one radius and an
+eight-sided ring for each tower where the photograph shows a slimmer shaft under a corbelled stage;
+the builder's 72-degree mansard standing in for the photograph's slate faces and crested deck; the
+sash, dormers, stoop, chimneys and the flat stand-in stone and its seeded tint, all the draft
+builder's own. **What is not built.** The corner loggia and its arches, the curved stair, the bowed
+bay, the carved openings and frieze, coursed stone, the corbel table, the hooded dormers, the cresting
+and finials, the flank's north-facing gable and balcony; all are open in the match record.
+**How to resolve:** T-2539 moves the house onto K01 in Bedford stone with the photograph's openings,
+arches and stair; T-2540 brings the roof, the flank and the rear to the Taylor, 1929 and HABS
+photographs and the match records to `matches`.
+**Ticket:** T-2538 (piece 1 of T-1889).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-16 (T-2538).
