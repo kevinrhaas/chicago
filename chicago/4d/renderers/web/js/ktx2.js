@@ -131,21 +131,44 @@ function dropTop(tex) {
  * whichever comes back — both are plain `THREE.Texture`s to a material.
  */
 export async function loadSheet(ktx2Url, fallbackUrl, imageLoader, { srgb = false } = {}) {
-  if (loader && ktx2Url) {
-    try {
-      const tex = await loader.loadAsync(ktx2Url);
-      // The file records its own transfer function, and KTX2Loader reads it; this
-      // only asserts what the caller expects, so a mislabelled file reads as itself.
-      tex.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      tex.userData.ktx2 = true;
-      ktx2State.sheets.ktx2 += 1;
-      dropTop(tex);
-      ktx2State.sheets.gpuBytes += sheetGpuBytes(tex);
-      return tex;
-    } catch (err) {
-      ktx2State.sheets.failed.push(`${ktx2Url.split('/').pop()}: ${err.message}`);
-    }
+  const tex = await loadCompressed(ktx2Url, { srgb });
+  if (tex) {
+    countSheet(tex);
+    return tex;
   }
+  return loadFallback(fallbackUrl, imageLoader, { srgb });
+}
+
+/**
+ * The `.ktx2` alone, or null wherever `loadSheet` would fall back — for a sheet whose
+ * fallback is not an image but a map the page derives (the wall relief's `orl`,
+ * T-2588), so the caller decides what to do instead. Uncounted: the caller counts
+ * what it keeps with `countSheet`, so a pair abandoned half-loaded is not billed.
+ */
+export async function loadCompressed(ktx2Url, { srgb = false } = {}) {
+  if (!loader || !ktx2Url) return null;
+  try {
+    const tex = await loader.loadAsync(ktx2Url);
+    // The file records its own transfer function, and KTX2Loader reads it; this
+    // only asserts what the caller expects, so a mislabelled file reads as itself.
+    tex.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+    tex.userData.ktx2 = true;
+    dropTop(tex);
+    return tex;
+  } catch (err) {
+    ktx2State.sheets.failed.push(`${ktx2Url.split('/').pop()}: ${err.message}`);
+    return null;
+  }
+}
+
+/** Bill a sheet the page keeps to the boot's report: `ktx2` or `fallback`, and its GPU bytes. */
+export function countSheet(tex) {
+  if (tex.userData?.ktx2) ktx2State.sheets.ktx2 += 1;
+  else ktx2State.sheets.fallback += 1;
+  ktx2State.sheets.gpuBytes += sheetGpuBytes(tex);
+}
+
+async function loadFallback(fallbackUrl, imageLoader, { srgb }) {
   ktx2State.sheets.fallback += 1;
   const tex = await imageLoader.loadAsync(fallbackUrl);
   tex.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
