@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "83f876c1999edbc4f52525fcb812d65d029e0baed3c2d59a1e959d125b8305ad",
+  "glb_sha256": "c4c4227b955c5ffe5b46ac8a8872b0e93667f727fc40d722dfb5535c794c5f65",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -70,7 +70,7 @@
     {
       "what": "the basement's lights: two round-headed under the wing, one nearly a storey tall under the bay",
       "status": "fixed",
-      "how": "T-2535: under the bow one barred, flat-headed light 1.0 m wide and 1.3 m tall over a 0.5 m sill, carried by the bay under its middle window: x 382-419 px and y 696-752 px against the drawn 388-439 and 696-757 (the bow's windows stand about 12 px left of the engraving's throughout, as built since T-2441); under the wing K06's round-headed basement light, a pair 0.9 m wide and 1.4 m to the crown over a 0.3 m sill, 0.7 m apart, centred under the French window: x 665-697 and 728-760 px against the drawn 675-710 and 736-771, their crowns at y 695 px against 692"
+      "how": "T-2535: under the bow one barred, flat-headed light 1.0 m wide and 1.3 m tall over a 0.5 m sill, carried by the bay under its middle window: x 382-419 px and y 696-752 px against the drawn 388-439 and 696-757 (the bow's windows stand about 12 px left of the engraving's throughout, as built since T-2441); under the wing a pair of round-headed lights, each a two-light sash under a fanlight (K06's sash_round_fanlight_wide at a basement light's size, the engraving's upright and cross bar), 0.9 m wide and 1.4 m to the crown over a 0.3 m sill, 0.7 m apart, centred under the French window: x 665-697 and 728-760 px against the drawn 675-710 and 736-771, their crowns at y 695 px against 692"
     },
     {
       "what": "the wing rises to the cornice itself in the engraving, its cornice level with the main one's; the build stopped it at 10.7 m, under K10's bed moulding",

@@ -26257,8 +26257,9 @@ record moves.
 **Decision:** T-2535 (piece 2 of T-2449) builds the basement lights of the engraving of Jesse Spalding's
 remodel (`glessner_blog_1637_spalding_remodel_engraving`) on `spalding_house_1637_prairie`, and brings its
 stoop's foot to the one the engraving draws. Under the swell bay one barred, flat-headed light; under the
-wing two round-headed lights (K06's `k06.opening.basement_round`), each carried by its K08 bay as 1621's
-basement lights are. The stoop keeps K07's straight flight and its fourteen whole risers, on a 0.25 m going
+wing two round-headed lights, each a two-light sash under a fanlight (K06's round-headed parlour window,
+`k06.opening.sash_round_fanlight_wide`, at a basement light's size). Each bay's basement is a storey of its own
+up to the principal floor over a 0.1 m plinth, as 1621's bow's is. The stoop keeps K07's straight flight and its fourteen whole risers, on a 0.25 m going
 and a 1.1 m landing.
 **What is read, not invented.** Through the engraving's solved camera, on each face: the bow's light at
 x 388-439 px and y 696-757 px (1.0 m wide, 0.52-1.82 m over grade) under the middle window's own column;
@@ -26267,7 +26268,8 @@ grade, a 0.7 m pier between); the bars in the bow's light; the round heads of th
 at the fence's first post (x 557 px), which on the stoop's north cheek is 4.35 m before the front.
 **What is invented.** The wing pair's place: it reads about 0.35 m south of the wing's centre, the
 draughtsman's perspective converging faster than the camera's, and is set centred under the French window;
-the glazing (two-over-two behind the bow's grille, one plate light under each wing head), the grille's five
+the glazing (two-over-two behind the bow's grille; under each wing head a two-light sash and a fanlight, from
+the upright and the cross bar the engraving draws in each), the 0.1 m plinth, the grille's five
 bars and its ring, the lights' stone dressings, all K06's and K08's; the going (0.25 m) and the landing
 (1.1 m), which the engraving does not draw, chosen as the shortest the K01 contract allows because the
 foot the engraving does draw asks for them.
