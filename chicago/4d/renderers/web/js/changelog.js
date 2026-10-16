@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 1897, ts: '2026-10-16T22:48:03.741Z', date: 'Oct 16, 2026, 5:48 PM CT', title: 'A sharp turn on a phone no longer freezes a frame', kind: 'improvement',
+    items: [
+      'Snapping round a corner, or arriving somewhere new, used to lay out the grass and flowers in front of you in one go — about a seventh of a second with the screen frozen on a mid-range phone.',
+      'That planting is now spread over the next few frames instead, so the view keeps moving while it happens.',
+      'For those few frames, about a sixth of a second, the ground beyond arm\'s length on the side you turned to shows its bare prairie texture before the plants appear on it all at once.',
+      'Where every plant stands is unchanged.',
+    ] },
+  { v: 1896, ts: '2026-10-16T22:45:37.979Z', date: 'Oct 16, 2026, 5:45 PM CT', title: 'Prairie Avenue\'s draft houses lose their stray towers', kind: 'fix',
+    items: [
+      'The Pullman house at 18th Street no longer has a tall tower standing on its lawn. Its front portico is now a one-storey porch.',
+      'Thin full-height slabs that stood beside many draft houses are gone. Most are now part of the house\'s walls, and the rest are one-storey side entries.',
+      'Houses only three or four metres wide, such as 2013 and 1736, are now at least 5.5 m wide, like a normal row house.',
+      'Bays and porches that floated a step away from the front wall now stand against it.',
+      '71 houses and coach houses on the 16th to 22nd Street blocks were rebuilt. They are still drafts until their own refine passes.',
+    ] },
+  { v: 1895, ts: '2026-10-16T22:43:05.832Z', date: 'Oct 16, 2026, 5:43 PM CT', title: 'A WebGPU renderer tried on the Glessner block, and measured', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the town: this is a measured trial of a possible second renderer, kept off the site.',
+      'three\'s WebGPU renderer drew the eleven buildings around Glessner House from the same files the walk uses, on WebGPU and on its automatic WebGL2 fallback, with no page errors.',
+      'The evidence view (amber for inferred, the screen-door for reconstructed) came out pixel-close to the walk\'s own, and now dithers shadows by itself.',
+      'On a phone profile it used 46 MiB more memory than the walk\'s renderer on the same block, so the trial does not go further until that is priced.',
+    ] },
   { v: 1894, ts: '2026-10-16T22:31:30.529Z', date: 'Oct 16, 2026, 5:31 PM CT', title: 'The plank walks and fences arrive ready-made', kind: 'improvement',
     items: [
       'The town\'s plank walks, crossings, fences, posts and stoops are now built once, when the site is published, and downloaded ready to draw. Your device used to build them itself at every visit.',
