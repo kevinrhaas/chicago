@@ -1,0 +1,51 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_photo_16_east_level_1965",
+  "library_image": "a18-glessner-habs-photo-16",
+  "photo": "../../../../prairie_1904_v1/research/public/glessner-habs-photo-16.jpg",
+  "image_px": [
+    1800,
+    1297
+  ],
+  "principal_px": [
+    895.0,
+    670.0
+  ],
+  "focal_px": 1851.38888889,
+  "eye": [
+    80.84418464,
+    -0.1905029,
+    2.5
+  ],
+  "yaw_deg": 0,
+  "basis_right_up_forward": [
+    [
+      0.0452469668,
+      0.998968053,
+      -0.0039422072
+    ],
+    [
+      -0.0002701994,
+      0.0039584868,
+      0.9999921287
+    ],
+    [
+      -0.998975795,
+      0.0452455455,
+      -0.0004490301
+    ]
+  ],
+  "solve": {
+    "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
+    "record": "data/comparisons/glessner/report.json#prairie-front",
+    "fit_controls": 6,
+    "withheld_checks": 4,
+    "baseline_fit_rms_px": 3.6078,
+    "baseline_check_rms_px": 7.8155,
+    "bounds_active": [
+      "height"
+    ],
+    "limitations": "The north corner and ridge are outside the photographed area; black plate edges are not building corners. Neighboring 1808, signs and vines are excluded. Aperture controls span the visible south/central fa\u00e7ade only; projected whole-body width is extrapolated and the observed-span metric is reported separately. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+  }
+}

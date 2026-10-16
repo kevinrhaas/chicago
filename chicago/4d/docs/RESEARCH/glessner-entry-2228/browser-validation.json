@@ -1,0 +1,920 @@
+{
+  "method": "Actual published /1904/ app, normal boot; Full desktop 1280x800 and Light mobile 390x780. Animation paused after readiness; normal scene geometry, materials, lighting and shadows. Current-asset review, not a before/after frame-time benchmark.",
+  "master_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "integration_base": "1732707a4b9a541888cde168133470d8779a6acc",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:43105/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:43105/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "entry-front",
+          "placement": {
+            "local_e": 1338.69,
+            "local_n": -3240.42,
+            "rotation_deg": -0.669,
+            "position_confidence": "inferred",
+            "position_sources": [
+              "sanborn_1911_vol3_sheet_28",
+              "sanborn_1911_chicago_v3_sheet_28",
+              "habs_glessner_house_il_1015_drawings"
+            ],
+            "position_note": "ON THE T-0474 PARCEL. data/street_grid/1904.json parcel prairie_1800 (Sanborn 1911 sheet 28) puts the lot's NE street corner at local E 1392.05, N -3217.24 and its NW rear corner at E 1338.07, N -3217.87. The house's north face stands on that 18th Street line and its east face 14.7 ft (4.481 m) behind the Prairie Avenue line \u2014 T-1731's reading of the same sheet at 6.0 px/ft, +/- 1.5 ft. Its NE corner is therefore E 1387.570, N -3217.292, and the footprint's origin (the SW corner of its bounding box) E 1338.687, N -3240.420. Rotation -0.669 degrees is the 18th Street line's own bearing (89.331 degrees, west to east) less 90, the long face's alignment. RECONCILED WITH THE PARCEL: the parcel is 177.1 ft deep, the house 161.25 ft plus the 14.7 ft setback, so the west face stands 0.35 m (1.16 ft) inside the parcel's alley line rather than on it; both readings carry more tolerance than that (+/- 1.5 ft on the setback, the parcel's own lines inferred), and the setback is kept because it is the one the street view depends on. Likewise the house's 74'-0\" leaves 0.7 ft of the parcel's 74.7-ft frontage to the south of it. INFERRED for 1904: a 1911 map, carried back because the building did not move (1888 photograph; HABS 1963).",
+            "symbolic_location": "1800 S. Prairie Avenue: the south-west corner of Prairie Avenue and E. 18th Street, on parcel prairie_1800 (data/street_grid/1904.json).",
+            "uncertainty_m": 20,
+            "placement_provisional": false,
+            "vertical_anchor": "terrain",
+            "walk_surface_m": null
+          },
+          "ground": 4.340440280685425,
+          "heightSamples": [
+            {
+              "x": 49,
+              "terrain": -0.010464282543971137
+            },
+            {
+              "x": 50,
+              "terrain": -0.010487635053224587
+            },
+            {
+              "x": 53.66,
+              "terrain": -0.015087659110326612
+            },
+            {
+              "x": 54.2,
+              "terrain": -0.015440471420288482
+            },
+            {
+              "x": 46,
+              "terrain": -0.010394225016213454
+            },
+            {
+              "x": 41.1,
+              "terrain": -0.005440242538452544
+            }
+          ],
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 126,
+            "triangles": 3862551,
+            "programs": 64,
+            "geometries": 100,
+            "textures": 231,
+            "batches": 53,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 89223272,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1398.5396414033987,
+            -3227.1929947011963,
+            6.990440280685425
+          ],
+          "target": [
+            1387.6893810798704,
+            -3227.3196908403024,
+            6.990440280685425
+          ]
+        },
+        {
+          "name": "entry-oblique",
+          "placement": {
+            "local_e": 1338.69,
+            "local_n": -3240.42,
+            "rotation_deg": -0.669,
+            "position_confidence": "inferred",
+            "position_sources": [
+              "sanborn_1911_vol3_sheet_28",
+              "sanborn_1911_chicago_v3_sheet_28",
+              "habs_glessner_house_il_1015_drawings"
+            ],
+            "position_note": "ON THE T-0474 PARCEL. data/street_grid/1904.json parcel prairie_1800 (Sanborn 1911 sheet 28) puts the lot's NE street corner at local E 1392.05, N -3217.24 and its NW rear corner at E 1338.07, N -3217.87. The house's north face stands on that 18th Street line and its east face 14.7 ft (4.481 m) behind the Prairie Avenue line \u2014 T-1731's reading of the same sheet at 6.0 px/ft, +/- 1.5 ft. Its NE corner is therefore E 1387.570, N -3217.292, and the footprint's origin (the SW corner of its bounding box) E 1338.687, N -3240.420. Rotation -0.669 degrees is the 18th Street line's own bearing (89.331 degrees, west to east) less 90, the long face's alignment. RECONCILED WITH THE PARCEL: the parcel is 177.1 ft deep, the house 161.25 ft plus the 14.7 ft setback, so the west face stands 0.35 m (1.16 ft) inside the parcel's alley line rather than on it; both readings carry more tolerance than that (+/- 1.5 ft on the setback, the parcel's own lines inferred), and the setback is kept because it is the one the street view depends on. Likewise the house's 74'-0\" leaves 0.7 ft of the parcel's 74.7-ft frontage to the south of it. INFERRED for 1904: a 1911 map, carried back because the building did not move (1888 photograph; HABS 1963).",
+            "symbolic_location": "1800 S. Prairie Avenue: the south-west corner of Prairie Avenue and E. 18th Street, on parcel prairie_1800 (data/street_grid/1904.json).",
+            "uncertainty_m": 20,
+            "placement_provisional": false,
+            "vertical_anchor": "terrain",
+            "walk_surface_m": null
+          },
+          "ground": 4.340440280685425,
+          "heightSamples": [
+            {
+              "x": 49,
+              "terrain": -0.010464282543971137
+            },
+            {
+              "x": 50,
+              "terrain": -0.010487635053224587
+            },
+            {
+              "x": 53.66,
+              "terrain": -0.015087659110326612
+            },
+            {
+              "x": 54.2,
+              "terrain": -0.015440471420288482
+            },
+            {
+              "x": 46,
+              "terrain": -0.010394225016213454
+            },
+            {
+              "x": 41.1,
+              "terrain": -0.005440242538452544
+            }
+          ],
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 128,
+            "triangles": 3888552,
+            "programs": 64,
+            "geometries": 102,
+            "textures": 235,
+            "batches": 53,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 89223272,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1398.4874182146252,
+            -3222.7205995902345,
+            6.990440280685425
+          ],
+          "target": [
+            1387.6893810798704,
+            -3227.3196908403024,
+            6.990440280685425
+          ]
+        },
+        {
+          "name": "entry-threshold",
+          "placement": {
+            "local_e": 1338.69,
+            "local_n": -3240.42,
+            "rotation_deg": -0.669,
+            "position_confidence": "inferred",
+            "position_sources": [
+              "sanborn_1911_vol3_sheet_28",
+              "sanborn_1911_chicago_v3_sheet_28",
+              "habs_glessner_house_il_1015_drawings"
+            ],
+            "position_note": "ON THE T-0474 PARCEL. data/street_grid/1904.json parcel prairie_1800 (Sanborn 1911 sheet 28) puts the lot's NE street corner at local E 1392.05, N -3217.24 and its NW rear corner at E 1338.07, N -3217.87. The house's north face stands on that 18th Street line and its east face 14.7 ft (4.481 m) behind the Prairie Avenue line \u2014 T-1731's reading of the same sheet at 6.0 px/ft, +/- 1.5 ft. Its NE corner is therefore E 1387.570, N -3217.292, and the footprint's origin (the SW corner of its bounding box) E 1338.687, N -3240.420. Rotation -0.669 degrees is the 18th Street line's own bearing (89.331 degrees, west to east) less 90, the long face's alignment. RECONCILED WITH THE PARCEL: the parcel is 177.1 ft deep, the house 161.25 ft plus the 14.7 ft setback, so the west face stands 0.35 m (1.16 ft) inside the parcel's alley line rather than on it; both readings carry more tolerance than that (+/- 1.5 ft on the setback, the parcel's own lines inferred), and the setback is kept because it is the one the street view depends on. Likewise the house's 74'-0\" leaves 0.7 ft of the parcel's 74.7-ft frontage to the south of it. INFERRED for 1904: a 1911 map, carried back because the building did not move (1888 photograph; HABS 1963).",
+            "symbolic_location": "1800 S. Prairie Avenue: the south-west corner of Prairie Avenue and E. 18th Street, on parcel prairie_1800 (data/street_grid/1904.json).",
+            "uncertainty_m": 20,
+            "placement_provisional": false,
+            "vertical_anchor": "terrain",
+            "walk_surface_m": null
+          },
+          "ground": 4.340440280685425,
+          "heightSamples": [
+            {
+              "x": 49,
+              "terrain": -0.010464282543971137
+            },
+            {
+              "x": 50,
+              "terrain": -0.010487635053224587
+            },
+            {
+              "x": 53.66,
+              "terrain": -0.015087659110326612
+            },
+            {
+              "x": 54.2,
+              "terrain": -0.015440471420288482
+            },
+            {
+              "x": 46,
+              "terrain": -0.010394225016213454
+            },
+            {
+              "x": 41.1,
+              "terrain": -0.005440242538452544
+            }
+          ],
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 127,
+            "triangles": 3485346,
+            "programs": 64,
+            "geometries": 104,
+            "textures": 239,
+            "batches": 53,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 89223272,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1391.5147501522574,
+            -3225.102174718597,
+            5.640440280685425
+          ],
+          "target": [
+            1387.7403776033705,
+            -3227.319095364946,
+            4.790440280685425
+          ]
+        }
+      ],
+      "contact": {
+        "anchorY": 4.320017302980886,
+        "samples": [
+          {
+            "name": "entry-sill",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5456772595644,
+            "expectedLocalZ": 0.2256,
+            "heightError": 5.995658351401478e-05,
+            "terrain": 4.324999809265137,
+            "clearance": 0.220677450299263
+          },
+          {
+            "name": "entry-step",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.38385383784771,
+            "expectedLocalZ": 0.064,
+            "heightError": -0.00016346513317605504,
+            "terrain": 4.324999809265137,
+            "clearance": 0.05885402858257294
+          },
+          {
+            "name": "entry-inner-floor",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5456772595644,
+            "expectedLocalZ": 0.2256,
+            "heightError": 5.995658351401478e-05,
+            "terrain": 4.324999809265137,
+            "clearance": 0.220677450299263
+          },
+          {
+            "name": "entry-left-threshold",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5456772595644,
+            "expectedLocalZ": 0.2256,
+            "heightError": 5.995658351401478e-05,
+            "terrain": 4.324999809265137,
+            "clearance": 0.220677450299263
+          },
+          {
+            "name": "entry-right-threshold",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5456772595644,
+            "expectedLocalZ": 0.2256,
+            "heightError": 5.995658351401478e-05,
+            "terrain": 4.324999809265137,
+            "clearance": 0.220677450299263
+          },
+          {
+            "name": "entry-former-upper-tread",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.38385383784771,
+            "expectedLocalZ": 0.064,
+            "heightError": -0.00016346513317605504,
+            "terrain": 4.324999809265137,
+            "clearance": 0.05885402858257294
+          },
+          {
+            "name": "entry-approach",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.38385383784771,
+            "expectedLocalZ": 0.064,
+            "heightError": -0.00016346513317605504,
+            "terrain": 4.324011813391968,
+            "clearance": 0.05984202445574205
+          },
+          {
+            "name": "entry-walk-join",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.38385383784771,
+            "expectedLocalZ": 0.064,
+            "heightError": -0.00016346513317605504,
+            "terrain": 4.320544509139905,
+            "clearance": 0.06330932870780437
+          },
+          {
+            "name": "carriage-approach",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.38385383784771,
+            "expectedLocalZ": 0.064,
+            "heightError": -0.00016346513317605504,
+            "terrain": 4.328641874887643,
+            "clearance": 0.05521196296006625
+          },
+          {
+            "name": "porte-threshold",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.38385383784771,
+            "expectedLocalZ": 0.064,
+            "heightError": -0.00016346513317605504,
+            "terrain": 4.329999923706055,
+            "clearance": 0.05385391414165497
+          },
+          {
+            "name": "passage-front",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.380522391141215,
+            "expectedLocalZ": 0.06055425499697153,
+            "heightError": -4.916683664179383e-05,
+            "terrain": 4.330040055389433,
+            "clearance": 0.050482335751782514
+          },
+          {
+            "name": "passage-middle",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.370469191571219,
+            "expectedLocalZ": 0.050181753482737734,
+            "heightError": 0.0002701351075958258,
+            "terrain": 4.330529387349646,
+            "clearance": 0.03993980422157328
+          },
+          {
+            "name": "passage-exit",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.356563265738599,
+            "expectedLocalZ": 0.03669750151423379,
+            "heightError": -0.00015153875652085258,
+            "terrain": 4.335000038146973,
+            "clearance": 0.02156322759162599
+          }
+        ]
+      }
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:44599/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:44599/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "entry-front",
+          "placement": {
+            "local_e": 1338.69,
+            "local_n": -3240.42,
+            "rotation_deg": -0.669,
+            "position_confidence": "inferred",
+            "position_sources": [
+              "sanborn_1911_vol3_sheet_28",
+              "sanborn_1911_chicago_v3_sheet_28",
+              "habs_glessner_house_il_1015_drawings"
+            ],
+            "position_note": "ON THE T-0474 PARCEL. data/street_grid/1904.json parcel prairie_1800 (Sanborn 1911 sheet 28) puts the lot's NE street corner at local E 1392.05, N -3217.24 and its NW rear corner at E 1338.07, N -3217.87. The house's north face stands on that 18th Street line and its east face 14.7 ft (4.481 m) behind the Prairie Avenue line \u2014 T-1731's reading of the same sheet at 6.0 px/ft, +/- 1.5 ft. Its NE corner is therefore E 1387.570, N -3217.292, and the footprint's origin (the SW corner of its bounding box) E 1338.687, N -3240.420. Rotation -0.669 degrees is the 18th Street line's own bearing (89.331 degrees, west to east) less 90, the long face's alignment. RECONCILED WITH THE PARCEL: the parcel is 177.1 ft deep, the house 161.25 ft plus the 14.7 ft setback, so the west face stands 0.35 m (1.16 ft) inside the parcel's alley line rather than on it; both readings carry more tolerance than that (+/- 1.5 ft on the setback, the parcel's own lines inferred), and the setback is kept because it is the one the street view depends on. Likewise the house's 74'-0\" leaves 0.7 ft of the parcel's 74.7-ft frontage to the south of it. INFERRED for 1904: a 1911 map, carried back because the building did not move (1888 photograph; HABS 1963).",
+            "symbolic_location": "1800 S. Prairie Avenue: the south-west corner of Prairie Avenue and E. 18th Street, on parcel prairie_1800 (data/street_grid/1904.json).",
+            "uncertainty_m": 20,
+            "placement_provisional": false,
+            "vertical_anchor": "terrain",
+            "walk_surface_m": null
+          },
+          "ground": 4.340440280685425,
+          "heightSamples": [
+            {
+              "x": 49,
+              "terrain": -0.010464282543971137
+            },
+            {
+              "x": 50,
+              "terrain": -0.010487635053224587
+            },
+            {
+              "x": 53.66,
+              "terrain": -0.015087659110326612
+            },
+            {
+              "x": 54.2,
+              "terrain": -0.015440471420288482
+            },
+            {
+              "x": 46,
+              "terrain": -0.010394225016213454
+            },
+            {
+              "x": 41.1,
+              "terrain": -0.005440242538452544
+            }
+          ],
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 93,
+            "triangles": 645310,
+            "programs": 40,
+            "geometries": 101,
+            "textures": 255,
+            "batches": 53,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 62631928,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1398.5396414033987,
+            -3227.1929947011963,
+            6.990440280685425
+          ],
+          "target": [
+            1387.6893810798704,
+            -3227.3196908403024,
+            6.990440280685425
+          ]
+        },
+        {
+          "name": "entry-oblique",
+          "placement": {
+            "local_e": 1338.69,
+            "local_n": -3240.42,
+            "rotation_deg": -0.669,
+            "position_confidence": "inferred",
+            "position_sources": [
+              "sanborn_1911_vol3_sheet_28",
+              "sanborn_1911_chicago_v3_sheet_28",
+              "habs_glessner_house_il_1015_drawings"
+            ],
+            "position_note": "ON THE T-0474 PARCEL. data/street_grid/1904.json parcel prairie_1800 (Sanborn 1911 sheet 28) puts the lot's NE street corner at local E 1392.05, N -3217.24 and its NW rear corner at E 1338.07, N -3217.87. The house's north face stands on that 18th Street line and its east face 14.7 ft (4.481 m) behind the Prairie Avenue line \u2014 T-1731's reading of the same sheet at 6.0 px/ft, +/- 1.5 ft. Its NE corner is therefore E 1387.570, N -3217.292, and the footprint's origin (the SW corner of its bounding box) E 1338.687, N -3240.420. Rotation -0.669 degrees is the 18th Street line's own bearing (89.331 degrees, west to east) less 90, the long face's alignment. RECONCILED WITH THE PARCEL: the parcel is 177.1 ft deep, the house 161.25 ft plus the 14.7 ft setback, so the west face stands 0.35 m (1.16 ft) inside the parcel's alley line rather than on it; both readings carry more tolerance than that (+/- 1.5 ft on the setback, the parcel's own lines inferred), and the setback is kept because it is the one the street view depends on. Likewise the house's 74'-0\" leaves 0.7 ft of the parcel's 74.7-ft frontage to the south of it. INFERRED for 1904: a 1911 map, carried back because the building did not move (1888 photograph; HABS 1963).",
+            "symbolic_location": "1800 S. Prairie Avenue: the south-west corner of Prairie Avenue and E. 18th Street, on parcel prairie_1800 (data/street_grid/1904.json).",
+            "uncertainty_m": 20,
+            "placement_provisional": false,
+            "vertical_anchor": "terrain",
+            "walk_surface_m": null
+          },
+          "ground": 4.340440280685425,
+          "heightSamples": [
+            {
+              "x": 49,
+              "terrain": -0.010464282543971137
+            },
+            {
+              "x": 50,
+              "terrain": -0.010487635053224587
+            },
+            {
+              "x": 53.66,
+              "terrain": -0.015087659110326612
+            },
+            {
+              "x": 54.2,
+              "terrain": -0.015440471420288482
+            },
+            {
+              "x": 46,
+              "terrain": -0.010394225016213454
+            },
+            {
+              "x": 41.1,
+              "terrain": -0.005440242538452544
+            }
+          ],
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 93,
+            "triangles": 659203,
+            "programs": 40,
+            "geometries": 102,
+            "textures": 257,
+            "batches": 53,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 62631928,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1398.4874182146252,
+            -3222.7205995902345,
+            6.990440280685425
+          ],
+          "target": [
+            1387.6893810798704,
+            -3227.3196908403024,
+            6.990440280685425
+          ]
+        },
+        {
+          "name": "entry-threshold",
+          "placement": {
+            "local_e": 1338.69,
+            "local_n": -3240.42,
+            "rotation_deg": -0.669,
+            "position_confidence": "inferred",
+            "position_sources": [
+              "sanborn_1911_vol3_sheet_28",
+              "sanborn_1911_chicago_v3_sheet_28",
+              "habs_glessner_house_il_1015_drawings"
+            ],
+            "position_note": "ON THE T-0474 PARCEL. data/street_grid/1904.json parcel prairie_1800 (Sanborn 1911 sheet 28) puts the lot's NE street corner at local E 1392.05, N -3217.24 and its NW rear corner at E 1338.07, N -3217.87. The house's north face stands on that 18th Street line and its east face 14.7 ft (4.481 m) behind the Prairie Avenue line \u2014 T-1731's reading of the same sheet at 6.0 px/ft, +/- 1.5 ft. Its NE corner is therefore E 1387.570, N -3217.292, and the footprint's origin (the SW corner of its bounding box) E 1338.687, N -3240.420. Rotation -0.669 degrees is the 18th Street line's own bearing (89.331 degrees, west to east) less 90, the long face's alignment. RECONCILED WITH THE PARCEL: the parcel is 177.1 ft deep, the house 161.25 ft plus the 14.7 ft setback, so the west face stands 0.35 m (1.16 ft) inside the parcel's alley line rather than on it; both readings carry more tolerance than that (+/- 1.5 ft on the setback, the parcel's own lines inferred), and the setback is kept because it is the one the street view depends on. Likewise the house's 74'-0\" leaves 0.7 ft of the parcel's 74.7-ft frontage to the south of it. INFERRED for 1904: a 1911 map, carried back because the building did not move (1888 photograph; HABS 1963).",
+            "symbolic_location": "1800 S. Prairie Avenue: the south-west corner of Prairie Avenue and E. 18th Street, on parcel prairie_1800 (data/street_grid/1904.json).",
+            "uncertainty_m": 20,
+            "placement_provisional": false,
+            "vertical_anchor": "terrain",
+            "walk_surface_m": null
+          },
+          "ground": 4.340440280685425,
+          "heightSamples": [
+            {
+              "x": 49,
+              "terrain": -0.010464282543971137
+            },
+            {
+              "x": 50,
+              "terrain": -0.010487635053224587
+            },
+            {
+              "x": 53.66,
+              "terrain": -0.015087659110326612
+            },
+            {
+              "x": 54.2,
+              "terrain": -0.015440471420288482
+            },
+            {
+              "x": 46,
+              "terrain": -0.010394225016213454
+            },
+            {
+              "x": 41.1,
+              "terrain": -0.005440242538452544
+            }
+          ],
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 93,
+            "triangles": 611619,
+            "programs": 40,
+            "geometries": 103,
+            "textures": 259,
+            "batches": 53,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 62631928,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1391.5147501522574,
+            -3225.102174718597,
+            5.640440280685425
+          ],
+          "target": [
+            1387.7403776033705,
+            -3227.319095364946,
+            4.790440280685425
+          ]
+        }
+      ],
+      "contact": {
+        "anchorY": 4.320017302972187,
+        "samples": [
+          {
+            "name": "entry-sill",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5459195375442505,
+            "expectedLocalZ": 0.2256,
+            "heightError": 0.00030223457206360327,
+            "terrain": 4.324999809265137,
+            "clearance": 0.22091972827911377
+          },
+          {
+            "name": "entry-step",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.384101510047913,
+            "expectedLocalZ": 0.064,
+            "heightError": 8.420707572570629e-05,
+            "terrain": 4.324999809265137,
+            "clearance": 0.05910170078277588
+          },
+          {
+            "name": "entry-inner-floor",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5459195375442505,
+            "expectedLocalZ": 0.2256,
+            "heightError": 0.00030223457206360327,
+            "terrain": 4.324999809265137,
+            "clearance": 0.22091972827911377
+          },
+          {
+            "name": "entry-left-threshold",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5459195375442505,
+            "expectedLocalZ": 0.2256,
+            "heightError": 0.00030223457206360327,
+            "terrain": 4.324999809265137,
+            "clearance": 0.22091972827911377
+          },
+          {
+            "name": "entry-right-threshold",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.5459195375442505,
+            "expectedLocalZ": 0.2256,
+            "heightError": 0.00030223457206360327,
+            "terrain": 4.324999809265137,
+            "clearance": 0.22091972827911377
+          },
+          {
+            "name": "entry-former-upper-tread",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.384101510047913,
+            "expectedLocalZ": 0.064,
+            "heightError": 8.420707572570629e-05,
+            "terrain": 4.324999809265137,
+            "clearance": 0.05910170078277588
+          },
+          {
+            "name": "entry-approach",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.384101510047913,
+            "expectedLocalZ": 0.064,
+            "heightError": 8.420707572570629e-05,
+            "terrain": 4.324011813391968,
+            "clearance": 0.06008969665594499
+          },
+          {
+            "name": "entry-walk-join",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.384101510047913,
+            "expectedLocalZ": 0.064,
+            "heightError": 8.420707572570629e-05,
+            "terrain": 4.320544509139905,
+            "clearance": 0.06355700090800731
+          },
+          {
+            "name": "carriage-approach",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.384101510047913,
+            "expectedLocalZ": 0.064,
+            "heightError": 8.420707572570629e-05,
+            "terrain": 4.328641874887643,
+            "clearance": 0.055459635160269194
+          },
+          {
+            "name": "porte-threshold",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.384101510047913,
+            "expectedLocalZ": 0.064,
+            "heightError": 8.420707572570629e-05,
+            "terrain": 4.329999923706055,
+            "clearance": 0.05410158634185791
+          },
+          {
+            "name": "passage-front",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.380769503486672,
+            "expectedLocalZ": 0.06055425499697153,
+            "heightError": 0.0001979455175134051,
+            "terrain": 4.330040055389433,
+            "clearance": 0.050729448097238894
+          },
+          {
+            "name": "passage-middle",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.369889191364761,
+            "expectedLocalZ": 0.050181753482737734,
+            "heightError": -0.00030986509016356356,
+            "terrain": 4.330529387349646,
+            "clearance": 0.039359804015115074
+          },
+          {
+            "name": "passage-exit",
+            "material": "merged",
+            "structure": "glessner_house",
+            "height": 4.356813195929383,
+            "expectedLocalZ": 0.03669750151423379,
+            "heightError": 9.83914429620869e-05,
+            "terrain": 4.335000038146973,
+            "clearance": 0.02181315778241011
+          }
+        ]
+      }
+    }
+  ],
+  "harness_note": "Desktop passed in the first run. The first mobile pass encountered an incorrect private credit assertion against the thumbnail creator label. The corrected mobile rerun verifies Richardson on the thumbnail and Art Institute/public-domain/catalog credit in the full-image viewer. No app code or asset changed for that correction."
+}

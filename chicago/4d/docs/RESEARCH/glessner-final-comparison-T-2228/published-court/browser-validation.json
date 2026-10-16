@@ -1,0 +1,971 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness. T-2228: six fixed roof/courtyard stands under actual scene light. Normal owner material settings; no performance claim from SwiftShader timings.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:43025/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:43025/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "north-tower-overhead",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 148,
+            "triangles": 3627720,
+            "programs": 66,
+            "geometries": 141,
+            "textures": 296,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 86764460,
+            "fps": 0,
+            "cameraNear": 0.75,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1368.3610273533202,
+            23.340440280685424,
+            3212.0716290450664
+          ],
+          "cameraQuaternion": [
+            0.11323440744433014,
+            0.8785680001413743,
+            0.2579264084066363,
+            -0.38570740976129914
+          ],
+          "projection": [
+            1.2006138293569786,
+            0,
+            0,
+            0,
+            0,
+            1.920982126971166,
+            0,
+            0,
+            0,
+            0,
+            -1.0005001250312577,
+            -1,
+            0,
+            0,
+            -1.5003750937734435,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "north-tower-court",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 167,
+            "triangles": 3385867,
+            "programs": 66,
+            "geometries": 173,
+            "textures": 361,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 86764460,
+            "fps": 0,
+            "cameraNear": 0.6000000000000001,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1367.5362353307478,
+            19.340440280685424,
+            3227.0822825324894
+          ],
+          "cameraQuaternion": [
+            -0.12860344774985036,
+            -0.44115652679012435,
+            -0.06404457155019311,
+            0.8858557246822294
+          ],
+          "projection": [
+            1.2006138293569786,
+            0,
+            0,
+            0,
+            0,
+            1.920982126971166,
+            0,
+            0,
+            0,
+            0,
+            -1.0004000800160031,
+            -1,
+            0,
+            0,
+            -1.200240048009602,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "north-tower-street",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 198,
+            "triangles": 4102425,
+            "programs": 66,
+            "geometries": 214,
+            "textures": 401,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 86764460,
+            "fps": 0,
+            "cameraNear": 0.30000000000000004,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1370.3258630578393,
+            11.340440280685424,
+            3209.04848157029
+          ],
+          "cameraQuaternion": [
+            -0.03617260204741856,
+            0.9619595144709121,
+            -0.15847669120415542,
+            -0.21956906367926418
+          ],
+          "projection": [
+            1.2006138293569786,
+            0,
+            0,
+            0,
+            0,
+            1.920982126971166,
+            0,
+            0,
+            0,
+            0,
+            -1.0002000200020003,
+            -1,
+            0,
+            0,
+            -0.6000600060006002,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "court-roof",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 145,
+            "triangles": 3425814,
+            "programs": 66,
+            "geometries": 214,
+            "textures": 401,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 86764460,
+            "fps": 0,
+            "cameraNear": 0.4,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1364.583143780277,
+            14.340440280685424,
+            3231.117037827986
+          ],
+          "cameraQuaternion": [
+            0.011848779261532957,
+            -0.7028690157970031,
+            0.011711231379931738,
+            0.7111241805213274
+          ],
+          "projection": [
+            1.2006138293569788,
+            0,
+            0,
+            0,
+            0,
+            1.9209821269711662,
+            0,
+            0,
+            0,
+            0,
+            -1.0002667022269636,
+            -1,
+            0,
+            0,
+            -0.8001066808907855,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "court-grille",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 145,
+            "triangles": 3276586,
+            "programs": 66,
+            "geometries": 214,
+            "textures": 401,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 86764460,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1372.6059504217328,
+            6.340440280685425,
+            3233.023493595584
+          ],
+          "cameraQuaternion": [
+            0.017763929729070645,
+            -0.7027472753033029,
+            0.017557715160530053,
+            0.7110010101910589
+          ],
+          "projection": [
+            1.2006138293569788,
+            0,
+            0,
+            0,
+            0,
+            1.9209821269711662,
+            0,
+            0,
+            0,
+            0,
+            -1.000066668888963,
+            -1,
+            0,
+            0,
+            -0.2000066668888963,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "court-terrace",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 148,
+            "triangles": 3440058,
+            "programs": 66,
+            "geometries": 214,
+            "textures": 401,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 86764460,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.6063594217171,
+            6.640440280685425,
+            3233.0935495198896
+          ],
+          "cameraQuaternion": [
+            -0.021445378261008768,
+            -0.5797632199445034,
+            -0.015267507238826455,
+            0.81435963049106
+          ],
+          "projection": [
+            1.2006138293569788,
+            0,
+            0,
+            0,
+            0,
+            1.9209821269711662,
+            0,
+            0,
+            0,
+            0,
+            -1.000066668888963,
+            -1,
+            0,
+            0,
+            -0.2000066668888963,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:43025/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:43025/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "north-tower-overhead",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 137,
+            "triangles": 962501,
+            "programs": 40,
+            "geometries": 129,
+            "textures": 284,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 60284800,
+            "fps": 0,
+            "cameraNear": 0.75,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1368.3610273533202,
+            23.340440280685424,
+            3212.0716290450664
+          ],
+          "cameraQuaternion": [
+            0.11323440744433014,
+            0.8785680001413743,
+            0.2579264084066363,
+            -0.38570740976129914
+          ],
+          "projection": [
+            1.8650301722753233,
+            0,
+            0,
+            0,
+            0,
+            0.9325150861376617,
+            0,
+            0,
+            0,
+            0,
+            -1.0005001250312577,
+            -1,
+            0,
+            0,
+            -1.5003750937734435,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "north-tower-court",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 115,
+            "triangles": 694158,
+            "programs": 40,
+            "geometries": 143,
+            "textures": 306,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 60284800,
+            "fps": 0,
+            "cameraNear": 0.6000000000000001,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1367.5362353307478,
+            19.340440280685424,
+            3227.0822825324894
+          ],
+          "cameraQuaternion": [
+            -0.12860344774985036,
+            -0.44115652679012435,
+            -0.06404457155019311,
+            0.8858557246822294
+          ],
+          "projection": [
+            1.8650301722753233,
+            0,
+            0,
+            0,
+            0,
+            0.9325150861376617,
+            0,
+            0,
+            0,
+            0,
+            -1.0004000800160031,
+            -1,
+            0,
+            0,
+            -1.200240048009602,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "north-tower-street",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 153,
+            "triangles": 1178463,
+            "programs": 40,
+            "geometries": 187,
+            "textures": 364,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 60284800,
+            "fps": 0,
+            "cameraNear": 0.30000000000000004,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1370.3258630578393,
+            11.340440280685424,
+            3209.04848157029
+          ],
+          "cameraQuaternion": [
+            -0.03617260204741856,
+            0.9619595144709121,
+            -0.15847669120415542,
+            -0.21956906367926418
+          ],
+          "projection": [
+            1.8650301722753233,
+            0,
+            0,
+            0,
+            0,
+            0.9325150861376617,
+            0,
+            0,
+            0,
+            0,
+            -1.0002000200020003,
+            -1,
+            0,
+            0,
+            -0.6000600060006002,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "court-roof",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 114,
+            "triangles": 746353,
+            "programs": 40,
+            "geometries": 187,
+            "textures": 364,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 60284800,
+            "fps": 0,
+            "cameraNear": 0.4,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1364.583143780277,
+            14.340440280685424,
+            3231.117037827986
+          ],
+          "cameraQuaternion": [
+            0.011848779261532957,
+            -0.7028690157970031,
+            0.011711231379931738,
+            0.7111241805213274
+          ],
+          "projection": [
+            1.8650301722753233,
+            0,
+            0,
+            0,
+            0,
+            0.9325150861376617,
+            0,
+            0,
+            0,
+            0,
+            -1.0002667022269636,
+            -1,
+            0,
+            0,
+            -0.8001066808907855,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "court-grille",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 114,
+            "triangles": 712096,
+            "programs": 40,
+            "geometries": 187,
+            "textures": 364,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 60284800,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1372.6059504217328,
+            6.340440280685425,
+            3233.023493595584
+          ],
+          "cameraQuaternion": [
+            0.017763929729070645,
+            -0.7027472753033029,
+            0.017557715160530053,
+            0.7110010101910589
+          ],
+          "projection": [
+            1.8650301722753233,
+            0,
+            0,
+            0,
+            0,
+            0.9325150861376617,
+            0,
+            0,
+            0,
+            0,
+            -1.000066668888963,
+            -1,
+            0,
+            0,
+            -0.2000066668888963,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        },
+        {
+          "name": "court-terrace",
+          "light": "scene",
+          "lightingRestored": true,
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 114,
+            "triangles": 729520,
+            "programs": 40,
+            "geometries": 187,
+            "textures": 364,
+            "batches": 51,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 151,
+            "structuresExpected": 151,
+            "structuresStanding": 151,
+            "bytes": 60284800,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.6063594217171,
+            6.640440280685425,
+            3233.0935495198896
+          ],
+          "cameraQuaternion": [
+            -0.021445378261008768,
+            -0.5797632199445034,
+            -0.015267507238826455,
+            0.81435963049106
+          ],
+          "projection": [
+            1.8650301722753233,
+            0,
+            0,
+            0,
+            0,
+            0.9325150861376617,
+            0,
+            0,
+            0,
+            0,
+            -1.000066668888963,
+            -1,
+            0,
+            0,
+            -0.2000066668888963,
+            0
+          ],
+          "exposure": 0.95,
+          "glassModes": [
+            "dark"
+          ]
+        }
+      ]
+    }
+  ]
+}

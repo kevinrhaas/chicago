@@ -1,0 +1,141 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "cornell_adw_glessner_stable_1887",
+  "library_image": "a18-gh-cornell-glessner-rear-c1887",
+  "photo": "../../../docs/RESEARCH/glessner-final-comparison-T-2228/owner-overhead/cornell-rear-museum-copy.jpg",
+  "image_px": [
+    1800,
+    1305
+  ],
+  "principal_px": [
+    900,
+    579.793646416519
+  ],
+  "focal_px": 2088.7121317488295,
+  "eye": [
+    -15.147023889708755,
+    42.624343389296655,
+    1.767921356847608
+  ],
+  "yaw_deg": 0,
+  "basis_right_up_forward": [
+    [
+      -0.7407654887777912,
+      -0.6714621072772822,
+      0.020127819716786153
+    ],
+    [
+      -0.10967023839776566,
+      0.15044162987066326,
+      0.982517050646774
+    ],
+    [
+      0.6627510312670791,
+      -0.7256073004681043,
+      0.1850813768638351
+    ]
+  ],
+  "solve": {
+    "method": "West wall homography from four exterior corner/eave points, decomposed with principal x at image midpoint and orthogonal horizontal/vertical axes. Windows and gable peak are withheld. Actual preserved HABS width59.75ft; retained reconstructed eaves25.2/16.5ft.",
+    "world_S_z_ft": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        25.2
+      ],
+      [
+        59.75,
+        0.0
+      ],
+      [
+        59.75,
+        16.5
+      ]
+    ],
+    "image_controls_px": [
+      [
+        1091,
+        1132
+      ],
+      [
+        1093,
+        488
+      ],
+      [
+        1705,
+        1090
+      ],
+      [
+        1691,
+        809
+      ]
+    ],
+    "source_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
+    "checks": [
+      {
+        "name": "west gable apex",
+        "pixel": [
+          1308,
+          196
+        ],
+        "station_S_height_ft": [
+          16.910295320713672,
+          42.68432825334505
+        ],
+        "used_for_camera": false
+      },
+      {
+        "name": "upper north",
+        "pixel": [
+          1246,
+          554
+        ],
+        "station_S_height_ft": [
+          11.184796542489709,
+          24.301287867763477
+        ],
+        "used_for_camera": false
+      },
+      {
+        "name": "upper south",
+        "pixel": [
+          1347,
+          601
+        ],
+        "station_S_height_ft": [
+          19.794553572755593,
+          23.44390216053048
+        ],
+        "used_for_camera": false
+      },
+      {
+        "name": "lower north",
+        "pixel": [
+          1237,
+          855
+        ],
+        "station_S_height_ft": [
+          10.235063394384088,
+          11.046465267723056
+        ],
+        "used_for_camera": false
+      },
+      {
+        "name": "lower south",
+        "pixel": [
+          1397,
+          879
+        ],
+        "station_S_height_ft": [
+          23.90125281704048,
+          10.661505607761585
+        ],
+        "used_for_camera": false
+      }
+    ],
+    "limits": "Reconstructed diagnostic camera, not independent height survey. Hand picks approximately5px; alternate historical eave interpretations move the upper south slit estimate from17.8 to20.5ft. North portal/apex residuals remain; this pose is for testing west-wall opening placement, not whole-house acceptance."
+  }
+}

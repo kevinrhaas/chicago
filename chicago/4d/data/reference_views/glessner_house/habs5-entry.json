@@ -1,0 +1,28 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_house_il_1015_drawings",
+  "library_image": "a18-glessner-habs-sheet-5",
+  "photo": "../../../docs/RESEARCH/glessner-entry-2228/habs5-entry.png",
+  "image_px": [
+    1620,
+    1788
+  ],
+  "principal_px": [
+    810.0,
+    894.0
+  ],
+  "focal_px": 131233.59580052493,
+  "eye": [
+    449.149,
+    12.277344000000001,
+    2.728976
+  ],
+  "yaw_deg": 270,
+  "near_m": 350,
+  "sun_uvy": [
+    1,
+    -0.4,
+    1
+  ],
+  "solve": "Diagnostic entry elevation; HABS5 native crop5650,4170,7270,5900 (expanded laterally to include the complete arch). Camera scale from retained5ft door opening x6292..6792; 7.75ft height y5080..5830 rectifies scan anisotropy (100px/ft horizontal,96.7742vertical). Door centreS32.9ft and0.74ft above grade anchor. Header, fan, jamb profiles and step are withheld observations, not controls. Approximate pixel picks +/-5px; later1963surviving fabric, not independent1904witness. Far-field400m,near350; depth cannot be inferred from this frontal elevation."
+}

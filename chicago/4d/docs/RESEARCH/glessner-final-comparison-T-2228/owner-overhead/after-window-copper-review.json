@@ -1,0 +1,32 @@
+{
+  "structure_id": "glessner_house",
+  "view": "owner-aerial",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
+  "camera_sha256": "0cc958a82514c03e0d00bc8974b0a04c817d0782f4a33864389bcea8617780c4",
+  "verdict": "differs",
+  "differences": [
+    {
+      "status": "fixed",
+      "what": "North-range crest and west cross-gable share S14.6; no plan jog remains. Perpendicular stable ridge retains W141. Higher crossing locally conceals the lower north crest."
+    },
+    {
+      "status": "fixed",
+      "what": "Northeast copper strip now covers the missing north-roof return and joins the radial hood. Actual render shows the planar chamfered cladding seated on the host roof."
+    },
+    {
+      "status": "open",
+      "what": "Copper sheet subdivision, dining/bow roof footprint, dormer shapes, chimney and other roof-feature correspondence still differ. Approximate aerial pose and reconstructed heights do not establish exact roof dimensions."
+    },
+    {
+      "status": "not shown",
+      "what": "Modern patina, map labels, vegetation and service alterations are not1904 material evidence."
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed_on": "2026-10-16",
+  "review_method": "Directly viewed actual master and fixed-camera owner aerial side-by-side.",
+  "render_sha256": "f3828e69b345eacb4ebe955df9ad30723b174f2ac73a3a1105348207dce4107f",
+  "render": "after-window-copper-render.png",
+  "third_party_pixels": "Owner aerial retained privately; see camera.json for its source hash."
+}

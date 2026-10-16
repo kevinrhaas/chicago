@@ -1,3 +1,28 @@
+## T-2228 — Glessner photographic corrections (2026-10-16)
+
+The north ridge now runs straight through the west crossing; its cross-gable and
+cupola move 3.8 ft north. The omitted northeast copper return follows the existing
+roof plane. The ca. 1887 Cornell northwest photograph supports moving the southern
+upper west slit 2 ft north; the other seven centers remain. All eight west windows
+remain clear beneath the roof.
+
+The Prairie entrance is rebuilt from native HABS sheet 5 and the original Richardson
+office doorway drawing 23A: a recessed doorway within the outward-sloping lower wall,
+angular cutback sides, a shaped header, one broad inset step and a carved field set
+behind stepped mouldings. The modern wreath is excluded. The same pass lowers the
+north cone connector, clears courtyard dormer glazing, and refines section eaves,
+finials, basement grille and coping. Full/Web contain 1,369,074 triangles and Light
+194,245, with no coincident faces and no budget raise. The approved flat north
+facade, staggered tower stone, finish and dark glass remain.
+
+**Photographic acceptance remains open:** all twelve canonical comparisons differ.
+Cupola body and roof-height calibration, terrace termination, west courtyard access,
+further opening/carving details and surface correspondence remain on T-2228, which
+stays open after this correction merges.
+
+[Evidence and outstanding differences](RESEARCH/glessner-final-comparison-T-2228/README.md).
+[Owner aerial and west-window review](RESEARCH/glessner-final-comparison-T-2228/owner-overhead/README.md).
+
 ## T-2573 — a tap on a building is answered by the GPU too (2026-10-16)
 
 Piece 2 of T-2550, after T-2572's walks, fences and yard goods. `gpu-pick.js` now draws a
@@ -23698,3 +23723,12 @@ See docs/RESEARCH/glessner-vines-T-2225/README.md.
 The material pass restores mortar courses to plain stair/Light boundary surfaces and maps gate ledge/brace grain along each member. Fixed Full/Light scene and neutral-light baselines preserve the owner granite tint, dark glass and current July light. The new maps reuse original project textures and numeric construction, with no copied photograph pixels, added random grunge or new claim of measured 1904 weathering. See docs/RESEARCH/glessner-finish-T-2226/README.md and L-glessner-finish-2226. Canonical exports and all 24 fixed-camera after views are reviewed; geometry counts stay unchanged at 1,371,506 Full / 199,850 Light triangles. No browser errors occurred. Mobile confidence, reconstructed liberty and all credited image tiles were reviewed. Five unchanged historical cameras still read differs. Full preflight and exact-head CI govern merge; see the ticket-linked PR for gate and deployment receipts. Existing north-view scene-budget failures are recorded unchanged for T-2227; T-2228 owns the final photographic verdicts.
 
 T-2226 preflight found one real failure: the published tree reached 262.262 MiB against its 256 MiB hygiene allowance. A measured storage re-budget to 288 MiB is documented in docs/SITE-BUDGET.md section 8; boot, frame and Light limits are unchanged. No material detail or research record was removed. The full gate is rerun before commit.
+
+
+T-2228,2026-10-16: the owner prioritised the Prairie entry. Its section, threshold, shaped lintel and recessed carving are being rebuilt and reviewed against HABS5 and original doorway23A. Previous6b2cff4d roof/window comparison receipts remain historical; the entrance candidate requires new actual-master comparisons and a fresh full gate before PR851 merges. T-2228 stays active.
+
+
+T-2228 entrance follow-up: the current master preserves the recessed doorway while the lower Prairie wall slopes outward, adds the shaped lintel and a single inset threshold, and sets the carved field behind stepped mouldings. Direct frontal and oblique review confirms these four forms. Full/Web measure 1,369,074 triangles and Light 194,245, all with zero coincident faces; the unchanged K01 contract passes. Full canonical and published runtime review, repository preflight and exact-head CI remain required before merge. The preceding 6b2cff4d roof/window receipts are historical; current asset 8aa944555ecb and remaining uncertainty are documented in [the entrance review](RESEARCH/glessner-entry-2228/README.md). Whole-house photographic signoff remains open.
+
+
+T-2228 published entrance validation: three Full desktop and three Light mobile views pass existing scene budgets and were directly reviewed. Thirteen ground contacts per viewport verify the single inset threshold and clear approach. No page/asset errors; all 124 held mobile image tiles load with credits, and doorway23A’s full archive credit and the entrance liberty are reviewed. Current asset and remaining photographic differences are in docs/RESEARCH/glessner-entry-2228/. Latest dev integration preserves all 890 other root asset entries. Fresh full preflight and exact-commit CI govern the pending dev merge; T-2228 remains open.

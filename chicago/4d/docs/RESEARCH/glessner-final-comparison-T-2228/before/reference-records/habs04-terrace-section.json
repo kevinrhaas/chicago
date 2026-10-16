@@ -1,0 +1,38 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_house_il_1015_drawings",
+  "library_image": "a18-glessner-habs-sheet-4",
+  "photo": "../../../docs/RESEARCH/glessner-courtyard-steps-T-2218/habs4-terrace-section.png",
+  "image_px": [
+    1600,
+    580
+  ],
+  "principal_px": [
+    800.0,
+    290.0
+  ],
+  "focal_px": 85373.57830271214,
+  "eye": [
+    -400,
+    10.572257654075546,
+    1.194865916069601
+  ],
+  "yaw_deg": 90,
+  "sun_uvy": [
+    -1,
+    -0.35,
+    1
+  ],
+  "solve": "T-2218 fixed far-field HABS sheet-4 section detail. Unrestricted 9648x7584 scan cropped at native [3770,5000,6470,5950], resized to 1600px wide; vertical rectification 100.6/97.7 follows the independently measured horizontal/vertical scan scales in glessner_house_1904.md \u00a714. Native north-wall origin x1165, grade y5858. Section looks east; right is south. Eye 400m west, nominal face x36.5m; residual perspective across curved depth is about 1%. Pixel picks \u00b120px (~0.06m); initial plan post centre S46.2ft and final section-reconciled S46.05ft disagree by 1.8in; the terminal shoulder projection remains explicitly unresolved. This checks terrace/cheek silhouette and grilles, not a claim to match every part of the house or to prove 1904 from a 1963 survey. Section cut at W=51.5ft (local east x=33.4518m), following the A-A cut line on sheet 2; keeps the east side and removes the obstructing west wing, as the drawing does. Near depth 350m (far 500m) preserves depth precision at the 400m far-field camera; the default 0.1m near depth produced false brick/stone interference in this drawing view.",
+  "clip_planes": [
+    {
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "constant": -33.4518
+    }
+  ],
+  "near_m": 350
+}

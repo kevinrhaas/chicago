@@ -1,0 +1,45 @@
+{
+  "runtime_base_commit": "aaf49896a74f1798743cc7436822b74d8abdf9a1",
+  "browser_runs": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "stands": 6,
+      "max_draw_calls": 198,
+      "max_triangles": 4102425
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "stands": 6,
+      "max_draw_calls": 153,
+      "max_triangles": 1178463
+    }
+  ],
+  "credited_tiles_loaded": 124,
+  "assets": {
+    "assets/gltf/glessner_house__as_built_1887.glb": {
+      "bytes": 197990064,
+      "sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a"
+    },
+    "assets/web/glessner_house__as_built_1887.glb": {
+      "bytes": 58995236,
+      "sha256": "c107104ca368cf8a048cbf78f71633c2a5cfb79f2cacc9dfb67a8e05bba01679"
+    },
+    "assets/web/glessner_house__as_built_1887.light.glb": {
+      "bytes": 32515576,
+      "sha256": "eac31558ee55559efed9daf9b38d8c45fe4708493aea44fd9e8da7a042095836"
+    }
+  },
+  "limitations": [
+    "Normal scene and owner settings; software-renderer timings are not physical-GPU FPS.",
+    "Overhead camera is obstructed by foliage and is not photographic evidence. Street camera also has partial foliage; the courtyard tower and court-detail views provide visual review.",
+    "All eleven canonical master comparisons remain differs. This browser check is not final photographic signoff."
+  ]
+}

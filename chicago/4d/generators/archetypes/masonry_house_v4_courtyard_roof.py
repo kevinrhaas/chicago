@@ -173,6 +173,9 @@ def clip_host(pts,params):
             holes.extend([[(v[0],v[1]) for v in poly] for poly in dining(params)[0]])
         else:holes.append(dining(params)[1])
     if params.detail.get('continuous_copper_corner'):holes.extend(copper(params)[1])
+    if params.detail.get('north_copper_cladding'):
+        from archetypes.masonry_house_v4_copper import north_cladding
+        holes.extend([[(p[0],p[1]) for p in face] for face in north_cladding(params)])
     normal=_normal(pts);a=pts[0]
     def point(p):
         x,y=p

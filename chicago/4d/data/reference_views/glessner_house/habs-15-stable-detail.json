@@ -1,0 +1,51 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_photo_15_north_stable_1965",
+  "library_image": "a18-glessner-habs-photo-15",
+  "photo": "../../../../prairie_1904_v1/research/public/glessner-habs-photo-15.jpg",
+  "image_px": [
+    1800,
+    1275
+  ],
+  "principal_px": [
+    900.0,
+    603.0
+  ],
+  "focal_px": 1598.11111111,
+  "eye": [
+    14.79591352,
+    47.53954371,
+    2.5
+  ],
+  "yaw_deg": 0,
+  "basis_right_up_forward": [
+    [
+      -0.9862459817,
+      0.1636606029,
+      0.0231099687
+    ],
+    [
+      0.0202996664,
+      -0.0188233869,
+      0.9996167284
+    ],
+    [
+      -0.1640328843,
+      -0.9863371063,
+      -0.0152422341
+    ]
+  ],
+  "solve": {
+    "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
+    "record": "data/comparisons/glessner/report.json#stable-detail",
+    "fit_controls": 6,
+    "withheld_checks": 4,
+    "baseline_fit_rms_px": 13.3728,
+    "baseline_check_rms_px": 26.8534,
+    "bounds_active": [
+      "height"
+    ],
+    "limitations": "1965 plate; parked cars block grade and ridge is cropped. Altered carriage-door leaves and loft infill are excluded. Stable opening masonry remains a check. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+  }
+}

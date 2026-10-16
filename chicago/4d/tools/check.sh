@@ -212,6 +212,8 @@ step "Glessner carriage leaves: relief, swing and grain" \
   python3 tools/test_glessner_porte.py
 step "Glessner courtyard treads, landing and rounded terminal stay solid" \
   python3 tools/test_glessner_terrace.py
+step "Glessner entry retains its cutback, single threshold and recessed carving" \
+  python3 tools/test_glessner_entry.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \

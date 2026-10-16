@@ -123,20 +123,31 @@ def add_frontage(b, params, reduced=False):
         inset = f['curb_width_m']
         _slab(b, [(wall,low+inset),(outer-inset,low+inset),
                   (outer-inset,high-inset),(wall,high-inset)], f['lawn_z'],f['conf'],LAWN)
-    low, high = f['entry_y']; run = f['step_run_m']; edge = params.width_m
-    _paving(b, (f['walk_x'],low),(f['walk_x'],high),(edge+2*run,high),(edge+2*run,low),
-            f['walk_z'],f['walk_z'],f,TRIM)
-    # Wide lower tread, then the doorway-width threshold. The remaining shoulders
-    # reach the wall at approach height, so a narrower upper tread leaves no void.
-    _slab(b,[(wall,low),(edge+2*run,low),(edge+2*run,high),(wall,high)],
-          f['walk_z'],f['conf'],TRIM)
-    door_low, door_high = f['door_y']
-    _slab(b,[(wall,door_low-.12),(edge+2*run,door_low-.12),
-             (edge+2*run,door_high+.12),(wall,door_high+.12)],
-          (f['walk_z']+f['door_z'])/2,f['conf'],TRIM)
-    sill_back = edge + DOOR_REVEAL_FRONT_M
-    _slab(b,[(sill_back,door_low),(edge+run,door_low),(edge+run,door_high),(sill_back,door_high)],
-          f['door_z'],f['conf'],TRIM)
+    entry=params.detail.get('prairie_entry')
+    if entry:
+        low,high=f['entry_y'];wall=params.width_m;front=entry['threshold_front_x']
+        half=entry['recess_base_width_m']/2;mid=entry['centre_u']
+        # One broad tread meets the recessed door, with only one front riser.
+        _paving(b,(f['walk_x'],low),(f['walk_x'],high),(front,high),(front,low),
+                f['walk_z'],f['walk_z'],f,TRIM)
+        _slab(b,[(entry['threshold_back_x'],mid-half),(front,mid-half),
+                 (front,mid+half),(entry['threshold_back_x'],mid+half)],
+              entry['sill_z'],entry['conf'],TRIM)
+    else:
+        low, high = f['entry_y']; run = f['step_run_m']; edge = params.width_m
+        _paving(b, (f['walk_x'],low),(f['walk_x'],high),(edge+2*run,high),(edge+2*run,low),
+                f['walk_z'],f['walk_z'],f,TRIM)
+        # Wide lower tread, then the doorway-width threshold. The remaining shoulders
+        # reach the wall at approach height, so a narrower upper tread leaves no void.
+        _slab(b,[(wall,low),(edge+2*run,low),(edge+2*run,high),(wall,high)],
+              f['walk_z'],f['conf'],TRIM)
+        door_low, door_high = f['door_y']
+        _slab(b,[(wall,door_low-.12),(edge+2*run,door_low-.12),
+                 (edge+2*run,door_high+.12),(wall,door_high+.12)],
+              (f['walk_z']+f['door_z'])/2,f['conf'],TRIM)
+        sill_back = edge + DOOR_REVEAL_FRONT_M
+        _slab(b,[(sill_back,door_low),(edge+run,door_low),(edge+run,door_high),(sill_back,door_high)],
+              f['door_z'],f['conf'],TRIM)
     p,q,inner_p,inner_q = _passage_mouth(params)
     low,high = f['porte_y']
     _paving(b,(f['walk_x'],high),(f['walk_x'],low),q,p,

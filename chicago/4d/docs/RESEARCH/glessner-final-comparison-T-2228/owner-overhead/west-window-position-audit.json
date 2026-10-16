@@ -1,0 +1,105 @@
+{
+  "not_a_reading": "Re-reading the existing audit104 photograph to locate windows; not a new independent witness.",
+  "source_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
+  "method": "Apply inverse of frozen west-wall homography to manually read eight opening centers; no opening supplied a camera control. Feet are conditional on retained reconstructed eaves.",
+  "windows": [
+    {
+      "name": "upper north",
+      "picked_center_px": [
+        1246,
+        554
+      ],
+      "photo_station_S_ft": 11.184796542489709,
+      "before_S_ft": 10.7,
+      "chosen_S_ft": 10.7,
+      "before_offset_ft": -0.4847965424897094,
+      "after_offset_ft": -0.4847965424897094
+    },
+    {
+      "name": "upper south",
+      "picked_center_px": [
+        1347,
+        601
+      ],
+      "photo_station_S_ft": 19.794553572755593,
+      "before_S_ft": 21.8,
+      "chosen_S_ft": 19.8,
+      "before_offset_ft": 2.005446427244408,
+      "after_offset_ft": 0.005446427244407914
+    },
+    {
+      "name": "lower north",
+      "picked_center_px": [
+        1237,
+        855
+      ],
+      "photo_station_S_ft": 10.235063394384088,
+      "before_S_ft": 10.7,
+      "chosen_S_ft": 10.7,
+      "before_offset_ft": 0.464936605615911,
+      "after_offset_ft": 0.464936605615911
+    },
+    {
+      "name": "lower south",
+      "picked_center_px": [
+        1397,
+        879
+      ],
+      "photo_station_S_ft": 23.90125281704048,
+      "before_S_ft": 24.5,
+      "chosen_S_ft": 24.5,
+      "before_offset_ft": 0.5987471829595208,
+      "after_offset_ft": 0.5987471829595208
+    },
+    {
+      "name": "rear1",
+      "picked_center_px": [
+        1534,
+        895
+      ],
+      "photo_station_S_ft": 38.27237043136256,
+      "before_S_ft": 39.125,
+      "chosen_S_ft": 39.125,
+      "before_offset_ft": 0.8526295686374397,
+      "after_offset_ft": 0.8526295686374397
+    },
+    {
+      "name": "rear2",
+      "picked_center_px": [
+        1579,
+        902
+      ],
+      "photo_station_S_ft": 43.66659046855291,
+      "before_S_ft": 44.625,
+      "chosen_S_ft": 44.625,
+      "before_offset_ft": 0.9584095314470886,
+      "after_offset_ft": 0.9584095314470886
+    },
+    {
+      "name": "rear3",
+      "picked_center_px": [
+        1623,
+        907
+      ],
+      "photo_station_S_ft": 49.33563270024634,
+      "before_S_ft": 50.125,
+      "chosen_S_ft": 50.125,
+      "before_offset_ft": 0.7893672997536569,
+      "after_offset_ft": 0.7893672997536569
+    },
+    {
+      "name": "rear4",
+      "picked_center_px": [
+        1666,
+        911
+      ],
+      "photo_station_S_ft": 55.293262999270254,
+      "before_S_ft": 55.625,
+      "chosen_S_ft": 55.625,
+      "before_offset_ft": 0.33173700072974555,
+      "after_offset_ft": 0.33173700072974555
+    }
+  ],
+  "uncertainty": "Picks approximately5px; retained eave interpretation gives approximately1ft station uncertainty near most lights. Alternative25.2/23.55/26.5ft north and16.5/18.02ft south eaves move the southern upper estimate roughly17.8\u201320.5ft. These are bounded reconstruction checks, not surveyed aperture measurements.",
+  "decision": "Southern upper slit moved2ft north; other7, widths and heights retained. Actual rebuilt master directly reviewed at frozen camera; see west-window-after-review.json. Whole-house verdict remains differs."
+}
