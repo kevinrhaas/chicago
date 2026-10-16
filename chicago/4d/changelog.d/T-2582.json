@@ -1,9 +1,0 @@
-{
-  "title": "Roofs and 1904 streets load as GPU-compressed textures",
-  "kind": "improvement",
-  "items": [
-    "The roof relief maps and every 1904 street, curb, walk and parkway surface now ship as KTX2, which the graphics card keeps compressed instead of unpacking to full size.",
-    "On a phone those sheets hold about a sixteenth of the memory they did: 21 MB to 1.3 MB in 1835, 49 MB to 3.1 MB in 1904. Phones load each sheet one step down in resolution.",
-    "A device whose graphics card cannot take compressed textures falls back to the images it loaded before."
-  ]
-}

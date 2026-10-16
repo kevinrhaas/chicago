@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1862, ts: '2026-10-16T11:35:13.811Z', date: 'Oct 16, 2026, 6:35 AM CT', title: 'Roofs and 1904 streets load as GPU-compressed textures', kind: 'improvement',
+    items: [
+      'The roof relief maps and every 1904 street, curb, walk and parkway surface now ship as KTX2, which the graphics card keeps compressed instead of unpacking to full size.',
+      'On a phone those sheets hold about a sixteenth of the memory they did: 21 MB to 1.3 MB in 1835, 49 MB to 3.1 MB in 1904. Phones load each sheet one step down in resolution.',
+      'A device whose graphics card cannot take compressed textures falls back to the images it loaded before.',
+    ] },
   { v: 1861, ts: '2026-10-16T11:11:51.161Z', date: 'Oct 16, 2026, 6:11 AM CT', title: 'Keith\'s five old photographs now line up with the model', kind: 'chore',
     items: [
       'Nothing you can see changed. The cameras behind five of 1808 Prairie\'s reference photographs (1888, 1941, 1948 and 1965) were re-fitted to the house itself, so each side-by-side now lines the model up with the picture to within a few pixels.',
