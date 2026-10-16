@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1843, ts: '2026-10-16T03:37:47.097Z', date: 'Oct 15, 2026, 10:37 PM CT', title: '1637 Prairie\'s wing opens onto a balcony through a French window', kind: 'improvement',
+    items: [
+      '1637 Prairie\'s principal-floor windows stand about 2.95 m tall, as its engraving draws them, instead of 2.4 m: their heads now line up near 6 m across the front, the swell bay and the north side.',
+      'The south wing\'s principal window is now a French window down to the floor: two glazed leaves under a transom, 1.9 m wide, where a single sash stood.',
+      'It opens onto a bowed stone balcony with a balustrade about 0.9 m high, at the height and width the engraving shows. How far the balcony stands out is a liberty.',
+    ] },
   { v: 1842, ts: '2026-10-16T03:25:48.356Z', date: 'Oct 15, 2026, 10:25 PM CT', title: '1801 Prairie\'s Kimball house reshaped from an 1890s photograph', kind: 'improvement',
     items: [
       '1801 Prairie\'s round tower now stands on the 18th Street side, about 8 m back from the front, where J. W. Taylor\'s c. 1895 photograph and the 1911 fire map put it. Before, it stood at the corner.',
