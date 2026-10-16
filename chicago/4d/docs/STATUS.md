@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2564 — Keith house's north return in stone courses (2026-10-16)
 
 T-1883's remaining photographic convergence was split into four pieces (T-2564 to
@@ -16,7 +15,7 @@ All 16 match records were re-rendered and stay `differs`. Still open: the carvin
 (T-2565), the brown cornice-box band under the lattice and the front's surface (T-2566),
 the camera re-fits (T-2567), a cowl ventilator on the deck in the 1887-89 pictures, and
 where the full-height stone stops behind the rear pinnacle, which no picture resolves.
-=======
+
 ## T-2559 — a device profile chooses detail and sharpness per device (2026-10-16)
 
 `renderers/web/js/device-profile.js` runs once at boot, before the scene is fetched. It
@@ -67,7 +66,6 @@ and rejected on the way: explicit-gradient fetches (+30 % alone) and a branch to
 eye at 50-150 m can find a local repeat; hex-tiling (three fetches) is the stronger form if
 that is wanted. The patchiness is noise, not a community map: the slot is there for a
 plant-community record when one exists.
->>>>>>> origin/dev
 
 ## T-1883 — Keith house photographic finish (2026-10-16)
 
