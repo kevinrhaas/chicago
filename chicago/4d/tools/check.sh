@@ -7127,6 +7127,15 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2636. And the buildings nobody has written a summary for, which is most of them: the
+# card's head and lead are templated from the sidecar (renderers/web/js/fallback-summary.js),
+# never printed from a raw field. This runs the card's own composition over every structure
+# in every scene and refuses an id, snake_case word, path, link or ticket number anywhere in
+# the title, address, other names, kind line or lead, an address given twice, and a templated
+# lead over three sentences or sixty words; it also holds the card's lint to the gate's above.
+step "every building's card opens with its address once and no id, path or snake_case (T-2636)" \
+  node tools/test_fallback_summary.mjs
+
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
 # an impression: both shapes stand until the last record moves, and a half-migrated layer
