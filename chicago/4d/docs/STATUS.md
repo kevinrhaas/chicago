@@ -1,3 +1,23 @@
+## T-2588 — the wall relief ships GPU-compressed (2026-10-16)
+
+Piece 1 of T-2583. The clapboard and hewn-log walls' relief pair (the normal, and the `orl` the
+page packed from the `orm` and the basecolor at every boot) is now packed at convert time by
+`tools/ktx2_sheets.py` and shipped as KTX2: the normal on UASTC, the `orl` on ETC1S at qlevel 255
+(35.5-40.6 dB per channel against the packed master), with `<id>_orl.json` stating the mean
+roughness the shader divides by and the masters' hashes, which `--check` holds. Where the GPU
+takes no KTX2, the page falls back to the three WebPs and packs as before. On the phone the walls'
+maps fall from 5.4 MB of GPU memory to 1.4 MB; `/1835/` mobile reads 624.9 MB against dev's
+628.5 MB, and merged with dev after T-2572 it reads 607.5 MB and its ceiling comes down 700 → 675 MiB. Measured against the image path with
+`wall_relief_shots.mjs --compare ktx2`: the wall band reads 39-56 dB at 390x780 (five close
+stands, two wide) and 50-51 dB at 1280x800 (two close stands); the boot payload is +48 KB at
+12.906 of 13.000 MiB, because frontage still fetches the clapboard's WebPs (T-2589's lever).
+
+What is not done: the desktop memory reading and its ceiling were not re-taken (the phone was the
+acceptance). **Found, and filed as T-2593:** a KTX2 written top row first, as T-2582 wrote the
+roofs, the 1904 streets and the muck, is the image mirrored along v in three. A two-band test
+sheet proved it, and the roof band reads 29-30 dB against its WebP where the walls, written
+bottom row first, read 50-51.
+
 ## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
 
 Piece 1 of T-2580 (which was split into this, T-2585 for the loggia's carving and T-2586 for
@@ -37,6 +57,32 @@ match records re-rendered and stay `differs`. NEW, and left for T-2580: the hall
 the coping beside the ventilator in five renders, where every one of those pictures shows sky — the
 cowl pipe plausibly terminates that flue, with the stack below the coping; and the c. 1888 view
 puts the cap higher over the coping than its render does, which T-2579's re-fitted cameras decide.
+
+## T-2572 — a tap on the walks, fences and yard goods is answered by the GPU (2026-10-16)
+
+Piece 1 of T-2550. `renderers/web/js/gpu-pick.js` draws the candidate chunks into one
+`RGBA32UI` pixel under the tap (slot, `gl_VertexID` of the provoking vertex, eye distance)
+and reads it back; the three layers are non-indexed, so the vertex names the face and the
+face spans they already keep resolve it as they resolved the raycast's `faceIndex`. So
+`RELEASE_KEEP` keeps nothing for `frontage`, `enclosures` and `yard`. On the desktop, which
+releases nothing, `check_upload_release.mjs` taps a fixed list of 12 faces per layer through
+both engines and holds them to the same id at the same distance (36 of 36 agree); on the
+phone each layer still answers a tap with its triangles gone. A chunk the reach holds back
+(`reachCulled`) is no longer tappable by either engine: the raycast opened its card unseen,
+and drawing it would upload what the walk never asked for.
+
+**The saving is 16.5 MB at spawn, not the 151 MB the ticket priced** (1835 phone, read
+after merging T-2569's compact formats and T-2574: dev 661.8 to this change 645.3 MB, same
+machine, same hour; GPU buffers unchanged at 185.4 MB; `docs/measurements/T-2572-memory.json`;
+ceiling 825 to 725 MiB). Most of those layers' page bytes are chunks the reach has never
+uploaded, which keep every array until walked to (frontage 52.8, enclosures 26.8, yard
+19.7 MB in the meter's never-uploaded column); the release only ever reached the drawn
+ones. That remainder is building-then-holding, which T-2560 (ship the town prebuilt) is
+placed to remove. The structures half, with weathering as a uniform, is T-2573.
+
+Re-read once T-2575's Int16x4 structures positions had landed on `dev` (merge `c2b6ad1c7`):
+the two savings add, 630.0 MB on the 1835 phone (arraybuffers 223.0, GPU buffers 180.5),
+so its ceiling is 725 to 700 MiB by the rule; `?keep-geometry=1` still reads over it at 776.2 MB.
 
 ## T-2564 — Keith house's north return in stone courses (2026-10-16)
 

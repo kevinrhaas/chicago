@@ -99,6 +99,8 @@ step "The arrival clock forecasts downloads and never sits still on a slow link 
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
+step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
+  node tools/test_frame_governor.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \

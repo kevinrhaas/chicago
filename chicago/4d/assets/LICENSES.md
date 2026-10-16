@@ -76,12 +76,20 @@ for the data maps), from the PNG master. It is lossy where the `.webp` is not, a
 for the GPU and not a new map, and `tools/publish.sh` copies it by name beside its `.webp`
 or `.png`. It carries the library's licence and its one condition unchanged.
 
-**The frontage timber's three (T-2589)** — the board face's `normal_gl`, its `orm`, and
+**The wall relief's `.ktx2` and its statement (T-2588)** — `clapboard_board_face` and
+`hewn_log_face` each carry a `_normal_gl.ktx2` (the normal, UASTC) and an `_orl.ktx2`, the
+map `renderers/web/js/relief-pack.js` used to pack in the page from the `orm` and the
+basecolor (R = AO, G = roughness, B = the basecolor's luminance over its mean; ETC1S), written
+by `tools/ktx2_sheets.py` from the PNG masters, plus `_orl.json` stating the mean roughness
+and the masters' hashes. Derivatives of the library's own maps, lossy, for the GPU; they
+carry the library's licence and its one condition unchanged.
+
+**The frontage timber's two (T-2589)** — the board face's `orm` and
 `clapboard_board_face_grain.ktx2`, the albedo modulation `renderers/web/js/frontage.js` used to
 derive from the basecolor at load — are written the same way by the same tool, from the PNG
-masters (the grain from the basecolor master, by `packGrain`'s own arithmetic). The grain is a
-derived map of the library's basecolor, not a new image; all three carry the library's licence
-and its one condition unchanged.
+masters (the grain from the basecolor master, by `packGrain`'s own arithmetic); the layer's
+normal is the wall's `_normal_gl.ktx2` above. The grain is a derived map of the library's
+basecolor, not a new image; both carry the library's licence and its one condition unchanged.
 
 Every file, as the checker matches them one by one:
 
@@ -272,6 +280,8 @@ textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.webp
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.json
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_roughness.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/material.json
 textures/chicago_1835_pbr/walls/clapboard_red_oxide/clapboard_red_oxide_ao.png
@@ -317,9 +327,12 @@ textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_height16.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_metallic.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_dx.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.png
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.ktx2
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.webp
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orm.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orm.webp
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orl.json
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orl.ktx2
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_roughness.png
 textures/chicago_1835_pbr/walls/hewn_log_face/material.json
 textures/chicago_1835_pbr/walls/hewn_log_oak_chinked/hewn_log_oak_chinked_ao.png

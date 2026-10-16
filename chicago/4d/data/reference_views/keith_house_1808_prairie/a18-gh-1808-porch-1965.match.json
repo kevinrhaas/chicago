@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
+  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
   "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -24,7 +24,11 @@
       "status": "not shown"
     },
     {
-      "what": "The volutes' turns, the egg row, the balcony panel's foliage and the pedestals' sunk panels are schematic rather than the photographed carving.",
+      "what": "T-2585: the capitals are square-edged blocks carrying a running zigzag (the 1888 plate's reading; this view shows them plain at its grain), and the balcony's front and return panels carry one continuous running scroll in a sunk field, as this view shows them; the leaves' cut is below its grain.",
+      "status": "fixed"
+    },
+    {
+      "what": "The pedestals' sunk panels are schematic rather than the photographed carving.",
       "status": "open"
     },
     {
@@ -48,7 +52,7 @@
       "status": "fixed"
     },
     {
-      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887\u201388 photographs.",
+      "what": "The later iron infill and ivy are visible in 1965; the early stone boundary is retained for the reconstructed 1904 state, supported by the 1887–88 photographs.",
       "status": "not shown"
     },
     {

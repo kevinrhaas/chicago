@@ -33,6 +33,11 @@ const DEFAULT_SETTINGS = {
   // owner's pick on T-2110, where Low drew a phone's frame 26-29 % faster. A
   // stored number is the visitor's own choice and is never overridden.
   quality: '',
+  // T-2555: Frame pacing — 'adaptive' lets the frame governor draw a moving
+  // frame at fewer pixels or a steady 30 fps on a device that cannot hold 60,
+  // and is back at the Sharpness above the moment the camera rests; 'fixed'
+  // draws every frame exactly at that Sharpness.
+  governor: 'adaptive',
   // R-A1. The road-legibility aid is OFF by default and off is the frame that
   // shipped before it existed. It is a viewing accommodation, not an
   // alternative reconstruction — see streets.js § R-A1 and ROADMAP R-A1.
@@ -586,6 +591,7 @@ export function createHud({
       store(SET_KEY, JSON.stringify(settings));
     });
   };
+  wireSelect('s-governor', 'governor', 'adaptive');
   wireSelect('s-season', 'season', 'summer');
   wireSelect('s-street-trees', 'streetTrees', 'shown');
   wireToggle('s-compass', 'compass');

@@ -1,0 +1,13 @@
+{
+  "sheet": "hewn_log_face_orl.ktx2",
+  "what": "the wall relief's packed map: R = AO, G = roughness, B = 0.5 * L / mean(L) (relief-pack.js packOrl), written bottom row first (tools/ktx2_sheets.py)",
+  "px": [
+    1024,
+    1024
+  ],
+  "mean_roughness": 0.906957,
+  "masters": {
+    "hewn_log_face_orm.png": "bb43901ffc621ada6c7bb7c38846d967affd420eab79b5a8c757de5ddca64124",
+    "hewn_log_face_basecolor.png": "5fe8e46f01753018d77629fe2c86d17acf16f18dd42e670b02d716d4d9cc8a8a"
+  }
+}

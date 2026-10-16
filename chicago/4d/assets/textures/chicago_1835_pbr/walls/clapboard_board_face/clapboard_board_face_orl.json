@@ -1,0 +1,13 @@
+{
+  "sheet": "clapboard_board_face_orl.ktx2",
+  "what": "the wall relief's packed map: R = AO, G = roughness, B = 0.5 * L / mean(L) (relief-pack.js packOrl), written bottom row first (tools/ktx2_sheets.py)",
+  "px": [
+    1024,
+    1024
+  ],
+  "mean_roughness": 0.867041,
+  "masters": {
+    "clapboard_board_face_orm.png": "6b4ce1e3427d60a0cb1b9fc01cf9318301ae6cb55846c2d49599bec232f48d16",
+    "clapboard_board_face_basecolor.png": "71929218a2f5ee2f915b86f93b5a6fcd0b3605f4be78e24c314e837658835d44"
+  }
+}

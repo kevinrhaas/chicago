@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 1867, ts: '2026-10-16T13:39:34.411Z', date: 'Oct 16, 2026, 8:39 AM CT', title: 'Wall wood grain now loads GPU-compressed, using less phone memory', kind: 'improvement',
+    items: [
+      'Nothing you can see changed. The wood grain on every clapboard and log wall now arrives ready for the graphics chip, instead of being decoded and repacked in the page at every visit.',
+      'On a phone those walls hold 1.4 MB of graphics memory instead of 5.4 MB, and the page no longer repacks those images while it loads.',
+      'Close up, the walls match the old ones to within what the eye can tell apart.',
+    ] },
+  { v: 1866, ts: '2026-10-16T13:30:30.805Z', date: 'Oct 16, 2026, 8:30 AM CT', title: 'Steadier frames while you move on a slow device', kind: 'improvement',
+    items: [
+      'On a phone or slow computer that can\'t keep up while you walk, turn or fly, the town is now drawn at fewer pixels, down to about two-thirds of your Image sharpness, to keep frames coming at an even pace instead of stuttering.',
+      'A device that can\'t hold 60 frames a second even then is held at a steady 30. On Light detail the sun\'s shadows refresh every other frame while you move.',
+      'Stop and everything is back at full sharpness at once, so a still view looks exactly as before.',
+      'Settings → Performance has a new Frame pacing choice, Adaptive or Fixed, and a line saying what it is doing right now. Fixed turns all of this off.',
+    ] },
+  { v: 1865, ts: '2026-10-16T12:45:45.685Z', date: 'Oct 16, 2026, 7:45 AM CT', title: 'Keith\'s loggia carving read again from the 1888 photograph', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the capitals over the paired entrance columns are now what the 1888 plate shows: square stone blocks carved with a running zigzag. The volutes and egg row drawn earlier are gone; a close look at the photograph shows neither.',
+      'The balcony\'s front panel now carries one continuous carved scroll of foliage over a plain base strip, and its corner piers have plain sunk panels.',
+    ] },
+  { v: 1864, ts: '2026-10-16T12:45:45.685Z', date: 'Oct 16, 2026, 7:45 AM CT', title: 'Phones keep less of the town twice when you tap', kind: 'improve',
+    items: [
+      'Nothing you can see changed. A tap on a plank walk, a fence or the goods at a door is now answered by the graphics chip, which draws the spot under your finger once and reads back what is there.',
+      'So a phone no longer keeps a second copy of those boards and pales in page memory once they are drawn: about 16 MB less on arrival in 1835, and more as you walk.',
+      'A tap no longer opens the card of a walk or fence too far away to be drawn.',
+    ] },
   { v: 1863, ts: '2026-10-16T11:58:24.797Z', date: 'Oct 16, 2026, 6:58 AM CT', title: 'Keith\'s bow laid in deep and thin courses, as photographed', kind: 'improvement',
     items: [
       '1808 Prairie\'s round south bay now alternates a deep rock-faced course with a thin one, as the street front does. The 1888 photographs show this on the bay\'s piers.',
