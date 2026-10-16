@@ -2050,6 +2050,9 @@ class Assembly:
         self.roof_graph = k5.graph(pts, tris, kit)
         self.dressed = {"ridge": 0, "hip": 0, "valley": 0}   # a deck has no line for K04 to cap
         self.front_parapet_u = D - tw - 1e-6          # _emit_shell: the blocking course is the front's
+        # T-2577: under a stone finish the street cornice box is the front's dressed stone, as
+        # every picture of the front shows it under the lattice, not the eave's painted timber
+        self.stone_cornice_u = D - 1e-6 if finish else math.inf
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)
         return yf
 
@@ -2100,6 +2103,9 @@ class Assembly:
             elif role == "parapet" and self.p.stone and min(q[0] for q in (pts[a], pts[b], pts[c])) \
                     >= getattr(self, "front_parapet_u", math.inf):
                 mat = "rough_stone_trim"                  # T-2350: the blocking course, in the front's stone
+            elif role in ("soffit", "fascia") and min(q[0] for q in (pts[a], pts[b], pts[c])) \
+                    >= getattr(self, "stone_cornice_u", math.inf):
+                mat = "dress_stone"                       # T-2577: the cornice box, in the front's stone
             elif role not in self.SHELL:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:
