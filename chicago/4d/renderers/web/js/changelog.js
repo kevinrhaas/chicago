@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1895, ts: '2026-10-16T22:43:05.832Z', date: 'Oct 16, 2026, 5:43 PM CT', title: 'A WebGPU renderer tried on the Glessner block, and measured', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the town: this is a measured trial of a possible second renderer, kept off the site.',
+      'three\'s WebGPU renderer drew the eleven buildings around Glessner House from the same files the walk uses, on WebGPU and on its automatic WebGL2 fallback, with no page errors.',
+      'The evidence view (amber for inferred, the screen-door for reconstructed) came out pixel-close to the walk\'s own, and now dithers shadows by itself.',
+      'On a phone profile it used 46 MiB more memory than the walk\'s renderer on the same block, so the trial does not go further until that is priced.',
+    ] },
   { v: 1894, ts: '2026-10-16T22:31:30.529Z', date: 'Oct 16, 2026, 5:31 PM CT', title: 'The plank walks and fences arrive ready-made', kind: 'improvement',
     items: [
       'The town\'s plank walks, crossings, fences, posts and stoops are now built once, when the site is published, and downloaded ready to draw. Your device used to build them itself at every visit.',
