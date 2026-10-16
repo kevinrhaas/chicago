@@ -657,6 +657,11 @@ node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSI
 
 echo "   build $BUILD_VERSION  $BUILD_CT"
 
+# T-2561: the per-year packs a visitor can keep on the device, the home-screen
+# manifests and the service worker that serves a kept year. LAST, because a pack
+# lists every file it holds with its hash, build.json included.
+node tools/write_year_packs.mjs "$SITE"
+
 # PORTABLE SIZE (T-0727): `du -sb` is GNU-only and dies on the macOS stewards
 # (exit 64, whole publish marked failed after every byte landed). wc -c over
 # the same files is the exact byte count on both flavors.

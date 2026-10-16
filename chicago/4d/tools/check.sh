@@ -115,6 +115,8 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
   node tools/test_frame_governor.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
+  node tools/test_claim_value.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
   node tools/test_repo_file.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
@@ -3673,6 +3675,16 @@ step "publish.sh produces a mirror that matches its source" \
 # the same of the mirror; this is the tool's own --check, run where the mirror is.
 step "the published prebuilt frontage is current against every file it was built from (T-2677)" \
   node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt
+
+# T-2561: a kept year is served from the device, so its pack has to list exactly
+# what ships — every entry the file at its hash — or an offline visitor gets a
+# file the site no longer has. The self-test holds who is in which year's pack,
+# the update diff the page fetches by, and the one-line kill switch.
+selftest "year packs: membership, the update diff and the kill switch (T-2561)" \
+  node tools/write_year_packs.mjs --self-test
+
+step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
+  node tools/write_year_packs.mjs --check
 
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with

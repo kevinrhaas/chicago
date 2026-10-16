@@ -1314,7 +1314,7 @@ export async function createFlora({
 
   // ---- placement --------------------------------------------------------- //
 
-  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null,
+  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, aerial: null, pitch: null, eyeY: null,
     last: null, lastYaw: null };
 
   const waterY = terrain.heightfield?.meta?.water_surface_m ?? 0;
@@ -2318,7 +2318,7 @@ export async function createFlora({
       const fl = Math.hypot(tmpF.x, tmpF.z) || 1;
       const fe = tmpF.x / fl, fn = -tmpF.z / fl;
       const cone = viewCone(camera, tmpF, tmpV);
-      centres.coneCos = cone.cos;
+      centres.coneCos = cone.cos; centres.aerial = Boolean(cone.planes);
       for (const row of rebuildFarShrubs(e, n, cone)) {
         const pause = checkpoint(); if (pause) await pause;
       }
@@ -2357,9 +2357,15 @@ export async function createFlora({
       const cone = viewCone(camera, tmpF, tmpV);
       const coneCos = cone.cos;
       const pitch = Math.asin(tmpF.y);
-      const coneChanged = centres.coneCos !== coneCos
-        || centres.pitch === null || Math.abs(pitch - centres.pitch) > 0.1
-        || centres.eyeY === null || Math.abs(tmpV.y - centres.eyeY) > step;
+      // T-2605: the eye's height and pitch are read by the deal only through the
+      // aerial cone's frustum (`outsideFrustum`, `crowdsTheWalker`'s drop), so on
+      // the ground they are not a new cone. Walking up a grade by more than
+      // `step` used to count as one: it dropped the spread pass and dealt both
+      // lattices in one frame — the one flora task over 50 ms left in the walk.
+      const aerial = Boolean(cone.planes);
+      const coneChanged = centres.coneCos !== coneCos || centres.aerial !== aerial
+        || (aerial && (centres.pitch === null || Math.abs(pitch - centres.pitch) > 0.1
+          || centres.eyeY === null || Math.abs(tmpV.y - centres.eyeY) > step));
       const turned = centres.yaw === null
         || Math.abs(((yaw - centres.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
            > CONE_YAW_STEP;
@@ -2388,7 +2394,8 @@ export async function createFlora({
       const nearLanded = runPass(nearPass, frame, coneChanged || turned
         || moved(centres.near, e, n, step, pace));
       if (coneChanged) {
-        centres.coneCos = coneCos; centres.pitch = pitch; centres.eyeY = tmpV.y;
+        centres.coneCos = coneCos; centres.aerial = aerial;
+        centres.pitch = pitch; centres.eyeY = tmpV.y;
       }
       // `rebuildAll` tallies itself; a far pass alone has to be counted.
       if (farLanded && !nearLanded) tally();
