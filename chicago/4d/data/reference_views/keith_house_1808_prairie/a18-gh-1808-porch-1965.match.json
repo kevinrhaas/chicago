@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
+  "glb_sha256": "589e34370553820032ffb0dc52f48659e1f52d9b8d47c86cf4f495352d32e0cf",
   "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -72,8 +72,12 @@
       "status": "open"
     },
     {
-      "what": "T-2579: left of the bow's south light the photograph's bow masonry runs on to the frame's edge (x 0-60), where the model turns its south-east corner at x 61 onto brick and toothed quoins; the south end of the front differs (read with T-2581, the south face's stone strip).",
-      "status": "open"
+      "what": "T-2581: the south-east corner no longer turns onto brick and toothed quoins at x 61: the front's stone turns it as a straight strip, 2.1 m deep, seen here from about x 49 to x 71.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2581: left of x 49, by the stair and its pierced balustrade at the neighbouring house's north end, the photograph shows rock-faced stone to the frame's edge. This camera stands 4.1 m off Keith's south plane, so it sees that face almost edge-on and cannot say whose wall the masonry there is or how far Keith's strip runs; the depth is read from the Reed and mid-1950s views.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
