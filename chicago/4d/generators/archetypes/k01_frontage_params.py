@@ -1033,6 +1033,32 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s balcony {bal} is not a railing (0.5-1.2 m high, "
                                  f"bars 0.06-0.3 m apart and thinner than half that, 0-0.3 m in from the eaves)")
             v["balcony"] = bal
+        # T-2534: a balcony on a projection's floor, bowed out from its front under the window
+        # it serves (1637 Prairie's wing, from its engraving): a stone slab and its balustrade
+        if "floor_balcony" in e:
+            fb = e["floor_balcony"]
+            need = {"floor_m", "at", "chord_m", "rise_m", "slab_m", "height_m", "inset_m", "post_m", "bar_m",
+                    "pitch_m", "rail_m"}
+            if v["kind"] != "projection" or set(fb) != need:
+                raise ParamError(f"bays: {e['id']}'s floor_balcony stands on a projection and takes {sorted(need)}")
+            bal = {k: ([float(x) for x in fb[k]] if k == "rail_m" else float(fb[k])) for k in need}
+            # the projection's plan is cheek, front, cheek; `at` is a fraction of all three, as a
+            # window's is, and the bow stands on the front with 0.1 m of wall either side
+            (x0, _), (_, proud_m), (x1, _) = v["plan"]["points"][:3]
+            front = x1 - x0
+            s_c = bal["at"] * (front + 2 * proud_m) - proud_m
+            if not bal["chord_m"] / 2 + 0.1 <= s_c <= front - bal["chord_m"] / 2 - 0.1 \
+                    or not 0.5 <= bal["chord_m"] <= front - 0.2 \
+                    or not 0.1 <= bal["rise_m"] <= min(bal["chord_m"] / 2, 1.2) \
+                    or not 0.1 <= bal["slab_m"] <= 0.3 or not 0.5 <= bal["height_m"] <= 1.2 \
+                    or not 0.0 <= bal["inset_m"] < bal["rise_m"] / 2 or not 0.06 <= bal["pitch_m"] <= 0.3 \
+                    or not 0.0 < bal["bar_m"] < bal["pitch_m"] / 2 or not bal["bar_m"] <= bal["post_m"] <= 0.2:
+                raise ParamError(f"bays: {e['id']}'s floor_balcony {bal} is not a balcony on its front: centred "
+                                 f"on the front run, a chord 0.5 m to its width less 0.2 m, rising 0.1-1.2 m and at "
+                                 f"most half its chord, a 0.1-0.3 m slab, a 0.5-1.2 m rail, bars 0.06-0.3 m apart")
+            if not bal["slab_m"] <= bal["floor_m"] < sum(float(st["height_m"]) for st in v["storeys"]):
+                raise ParamError(f"bays: {e['id']}'s floor_balcony floor {bal['floor_m']} m is not inside its walls")
+            v["floor_balcony"] = bal
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi
