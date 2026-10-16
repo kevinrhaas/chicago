@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1886, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'The jump\'s ring carries through to the arrival', kind: 'feature',
+    items: [
+      'Jump from the Observatory and the arrival screen opens with the departure\'s dashed ring still widening behind the card, so leaving and landing read as one move.',
+      'It only plays at the far end of a jump: opening a year\'s link directly, or more than 10 seconds after leaving, opens plain.',
+      'With reduced motion on, the ring is skipped.',
+    ] },
+  { v: 1885, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'Keith\'s crown matches its photographs: pointed stones and a carved boss', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the band under the rooftop lattice is now five rows of small pointed stones set in a checker, as the 1888 and 1948 photographs show it. The taller band of large rough blocks is gone, and plain stone runs below it down to a moulding.',
+      'A carved round boss now stands on the north-east corner where the moulding under the lattice ends.',
+      'The lattice\'s openings sit lower under a deeper solid top, and the deep projecting band beneath the lattice is now a thin ledge.',
+    ] },
   { v: 1884, ts: '2026-10-16T20:28:59.829Z', date: 'Oct 16, 2026, 3:28 PM CT', title: 'Cards stop printing "[object Object]" and quoting 1835 law in 1904', kind: 'fix',
     items: [
       'A measured shape like the Glessner house\'s dining bay used to read "[object Object]" under Attributes. Its row now shows how sure we are, its sources and why, and no garbled value.',
