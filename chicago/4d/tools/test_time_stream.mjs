@@ -75,7 +75,7 @@ function trip(deck, { seconds, reduced = false, forecastLeft = null, scene }) {
     const p = i / frames;
     const y = Math.round(yearForProgress(reduced ? reducedProgress(p) : p, 2026, false, target));
     if (y < last) {
-      ts.pass(y);
+      ts.passYear(y);
       last = y;
     }
     const state = d.el.dataset.state;
@@ -116,7 +116,7 @@ function trip(deck, { seconds, reduced = false, forecastLeft = null, scene }) {
   const late = createTimeStream({ currentYear: 2026, now: k.now, wait: k.wait, cancel: k.cancel, fetcher: null,
     forecast: { remaining: () => 0.3 } });
   late.setDeck(decks['1904']);
-  late.pass(1960);
+  late.passYear(1960);
   assert.equal(late.state.count, 0, 'a caption started 0.3 s before landing');
 }
 
@@ -163,7 +163,7 @@ for (const [scene, deck] of Object.entries(decks)) {
   ts.setDeck(decks['1904']);
   for (const y of [1977, 1975, 1965, 1962, 1945, 1936, 1932, 1923, 1918, 1910, 1908]) {
     c.advance(HOLD_MS + 1);
-    ts.pass(y);
+    ts.passYear(y);
   }
   assert.ok(c.now() > SLOW_AFTER_MS);
   assert.ok(ts.state.count > FAST_LIMIT && ts.state.count <= SLOW_LIMIT,
@@ -176,7 +176,7 @@ for (const [scene, deck] of Object.entries(decks)) {
 {
   const ts = createTimeStream({ fetcher: async () => { throw new Error('offline'); } });
   assert.equal(await ts.load('timestream/1904.json'), 0);
-  ts.pass(1966);
+  ts.passYear(1966);
   assert.equal(ts.state.count, 0);
   const ts404 = createTimeStream({ fetcher: async () => ({ ok: false }) });
   assert.equal(await ts404.load('timestream/1866.json'), 0);
@@ -192,7 +192,7 @@ for (const [scene, deck] of Object.entries(decks)) {
   assert.equal(ts.state.stopped, false, 'an optional failure stops the captions');
   handlers.error[0]({ phase: { essential: true } });
   assert.equal(ts.state.stopped, true, 'an essential failure leaves the captions running');
-  ts.pass(1870);
+  ts.passYear(1870);
   assert.equal(ts.state.count, 0);
 }
 

@@ -21,7 +21,7 @@
  *   - Optional, like the loading cards: no deck, a failed fetch or a missing element
  *     shows nothing and never holds the boot. Ready or an essential failure stops it.
  *
- * arrival.js calls `pass(year)` from its ticker (the `onYear` hook); main.js owns the
+ * arrival.js calls `passYear(year)` from its ticker (the `onYear` hook); main.js owns the
  * instance, the fetch and the forecast.
  */
 
@@ -136,7 +136,7 @@ export function createTimeStream({
     hideTimer = wait(hide, HOLD_MS);
   }
 
-  function pass(year) {
+  function passYear(year) {
     const y = Math.round(Number(year));
     if (!Number.isFinite(y)) return;
     const from = lastYear;
@@ -181,7 +181,7 @@ export function createTimeStream({
   boot?.on?.('error', event => { if (event?.phase?.essential !== false) stop(); });
 
   return {
-    pass, setDeck, load, stop,
+    passYear, setDeck, load, stop,
     get state() {
       return { stopped, count: shown.size, shown: log.map(r => ({ ...r })), slow: isSlow(), deck: captions.length };
     },

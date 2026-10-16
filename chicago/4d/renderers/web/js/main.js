@@ -1502,7 +1502,7 @@ const arrival = createArrival({
   observatoryEl: document.getElementById('gate-observatory'),
   detailsEl: document.getElementById('gate-details'),
   detailEl: document.getElementById('gate-detail'),
-  onYear: year => api.timeStream?.pass(year),
+  onYear: year => api.timeStream?.passYear(year),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
