@@ -33,9 +33,12 @@ function visibleArea(points, width, height) {
   },0));
 }
 
-export function backingTriangles(geometry, matrix, side = THREE.DoubleSide) {
+/** `confidenceAt(vertex)` reads a channel stored elsewhere than a float
+ *  `_confidence` attribute — the structures batch packs it (T-2574). */
+export function backingTriangles(geometry, matrix, side = THREE.DoubleSide, confidenceAt = null) {
   const p = geometry.attributes.position, ix = geometry.index;
-  const confidence=geometry.getAttribute('_confidence');
+  const attr=geometry.getAttribute('_confidence');
+  const confidence=confidenceAt ? { getX: confidenceAt } : attr;
   if (!p?.array || (ix && !ix.array)) return [];
   const result = [], count = ix?.count ?? p.count;
   for (let i = 0; i < count; i += 3) {

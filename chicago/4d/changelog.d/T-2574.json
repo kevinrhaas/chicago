@@ -1,0 +1,8 @@
+{
+  "title": "Buildings' surface details packed four to a slot",
+  "kind": "improve",
+  "items": [
+    "Nothing you can see changed. Each building corner's sheen, evidence grade, wood grain and log tone now share one four-byte slot instead of taking four each, so the 1835 town's buildings hold 30.4 MB of corner data instead of 41.0 MB, 24 bytes a corner.",
+    "It is more of the memory phones were running out of. Storing the corners' positions in smaller numbers comes next."
+  ]
+}
