@@ -47,6 +47,7 @@
  */
 
 import * as THREE from 'three';
+import { ktx2Beside, loadSheet } from './ktx2.js';
 import {
   SEASON_HEAD, SEASON_VERTEX_DECL, SEASON_VERTEX_ASSIGN, SEASON_FRAGMENT_DECL, SEASON_FRAGMENT_APPLY,
   seasonShaderUniforms,
@@ -294,8 +295,10 @@ async function loadLibrary(assetBase, surfaces) {
   const loader = new THREE.TextureLoader();
   const base = new URL(LIBRARY, assetBase);
   const out = new Map();
+  // The `.ktx2` the converter wrote beside each `_web.jpg`, where this GPU takes
+  // one (ktx2.js); the JPEG otherwise.
   const tex = async (url, srgb) => {
-    const t = await loader.loadAsync(url);
+    const t = await loadSheet(ktx2Beside(url), url, loader, { srgb });
     t.wrapS = THREE.RepeatWrapping;
     t.wrapT = THREE.RepeatWrapping;
     // The colour map is sRGB; the normal and the packed ORM are data (material.json
