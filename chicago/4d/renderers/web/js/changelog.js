@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1871, ts: '2026-10-16T15:13:07.305Z', date: 'Oct 16, 2026, 10:13 AM CT', title: 'The town still loads every building at once, now measured', kind: 'chore',
+    items: [
+      'Nothing you can see changed. A phone was thought to hold every building\'s file at once while the town loaded, so a cap on how many load together was planned.',
+      'Measured, that is not where the memory goes: on Prairie Avenue 1904 the most ever held is the Glessner house\'s own file, and a cap only adds others beside it.',
+      'So the town loads as it did. The test switch and the meter stay, for the work that shrinks the Glessner file.',
+    ] },
   { v: 1870, ts: '2026-10-16T14:51:45.566Z', date: 'Oct 16, 2026, 9:51 AM CT', title: 'Plank walks and yard goods hold their wood grain compressed', kind: 'improvement',
     items: [
       'Nothing you can see changed: the walks, stoops, posts, casks and crates look as they did, side by side within a level of brightness.',

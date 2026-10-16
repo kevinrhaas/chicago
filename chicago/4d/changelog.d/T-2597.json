@@ -1,9 +1,0 @@
-{
-  "title": "The town still loads every building at once, now measured",
-  "kind": "chore",
-  "items": [
-    "Nothing you can see changed. A phone was thought to hold every building's file at once while the town loaded, so a cap on how many load together was planned.",
-    "Measured, that is not where the memory goes: on Prairie Avenue 1904 the most ever held is the Glessner house's own file, and a cap only adds others beside it.",
-    "So the town loads as it did. The test switch and the meter stay, for the work that shrinks the Glessner file."
-  ]
-}
