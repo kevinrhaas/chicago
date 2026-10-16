@@ -28,6 +28,8 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                wall: a post at each end against the wall, square bars between a foot rail
                and a top rail; and a window entry's `grille`, iron bars in its reveal
                clipped to its head, with an arch ring over them as 1621's drawing draws
+  floor balcony (T-2534) a projection's balcony on one of its floors, bowed out from its
+               front under the window it serves: a stone slab and a stone balustrade on it
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -700,6 +702,10 @@ class Bay:
                 self._modillions(flat, run, y_top, ov)
             if v.get("balcony"):
                 self._balcony(flat, run, y_e, ov)
+            if v.get("floor_balcony"):
+                ((fi, fs),) = locate(self.runs, self.plan, {"at": [v["floor_balcony"]["at"]]})
+                if fi == i:
+                    self._floor_balcony(flat, fs, cv)
             if not grade:
                 self._corbel_courses(flat, run, y0)
             bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")))
@@ -1033,6 +1039,78 @@ class Bay:
             m = e0 + i * step
             prism(flat, "iron", rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
         self.meta["balcony"] = {"bars": n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
+
+    def _floor_balcony(self, flat, s_c, cv):
+        """T-2534: a balcony on a projection's floor, out from its front run under the window it
+        serves, all in the bay's dressed stone: a slab on a segmental bow from the wall to the
+        wall, `chord_m` along the face and `rise_m` out, its top the floor; on it a balustrade
+        `inset_m` in from the slab's edge — a square post against the wall at each end, a
+        coping rail swept round the bow between them and square balusters at `pitch_m` under it
+        (the light tier keeps the slab, the posts and the rail, and drops the balusters). Built
+        in the run's flat frame (z out of the face), so a straight run carries it rigidly."""
+        fb = self.v["floor_balcony"]
+        h, rise, inset = fb["chord_m"] / 2, fb["rise_m"], fb["inset_m"]
+        pm, bm, (rw, rd) = fb["post_m"], fb["bar_m"], fb["rail_m"]
+        y1 = fb["floor_m"]
+        y0, y3 = y1 - fb["slab_m"], y1 + fb["height_m"]
+        R = (h * h + rise * rise) / (2 * rise)
+        zc = rise - R
+        f0 = math.asin(h / R)
+        n = max(2, math.ceil(math.degrees(2 * f0) / cv["max_seg_deg"]))
+
+        def at(r, f):
+            return (s_c + r * math.sin(f), zc + r * math.cos(f))
+
+        def arc(r, fa, fb_, k):
+            return [at(r, fa + (fb_ - fa) * j / k) for j in range(k + 1)]
+
+        def P(q, y):
+            return flat.P(q[0], y, -q[1])
+
+        def band(inner, outer, ya, yb, top=True, bottom=True):
+            """A swept block between two arcs of points, from ya to yb: its faces out and in."""
+            for a, sgn in ((outer, 1.0), (inner, -1.0)):
+                if a is None:
+                    continue
+                for j in range(len(a) - 1):
+                    m = ((a[j][0] + a[j + 1][0]) / 2 - s_c, (a[j][1] + a[j + 1][1]) / 2 - zc)
+                    flat.face(role, [P(a[j], ya), P(a[j + 1], ya), P(a[j + 1], yb), P(a[j], yb)],
+                              (sgn * m[0], 0.0, sgn * m[1]))
+            for y, hint, on in ((yb, Y, top), (ya, (0.0, -1.0, 0.0), bottom)):
+                if not on:
+                    continue
+                if inner is None:
+                    flat.face(role, [P(q, y) for q in outer], hint)
+                    continue
+                for j in range(len(outer) - 1):
+                    flat.face(role, [P(inner[j], y), P(outer[j], y), P(outer[j + 1], y), P(inner[j + 1], y)], hint)
+
+        def role_box(s0, s1, z0, z1, ya, yb):
+            q = [(s0, z0), (s1, z0), (s1, z1), (s0, z1)]
+            for k in range(4):
+                a, b = q[k], q[(k + 1) % 4]
+                m = ((a[0] + b[0]) / 2 - (s0 + s1) / 2, (a[1] + b[1]) / 2 - (z0 + z1) / 2)
+                flat.face(role, [P(a, ya), P(b, ya), P(b, yb), P(a, yb)], (m[0], 0.0, m[1]))
+            flat.face(role, [P(p, yb) for p in q], Y)
+
+        # the slab: the bow's segment, its top the floor, its edge the arc; its back is the wall
+        role = "band"     # the bay's dressed stone, slab and balustrade alike
+        band(None, arc(R, -f0, f0, n), y0, y1)
+        # the rail's line, `inset_m` in from the slab's edge, ends at a post against the wall
+        r = R - inset
+        f1 = math.acos(max(-1.0, min(1.0, (pm / 2 - zc) / r)))
+        ends = [at(r, -f1), at(r, f1)]
+        for q in ends:
+            role_box(q[0] - pm / 2, q[0] + pm / 2, 0.003, pm + 0.003, y1, y3)   # off the wall face
+        k = max(2, math.ceil(n * f1 / f0))
+        band(arc(r - rw / 2, -f1, f1, k), arc(r + rw / 2, -f1, f1, k), y3 - rd, y3 - 0.004)
+        length = 2 * f1 * r
+        bars = max(1, math.floor((length - pm) / fb["pitch_m"]))
+        for j in (range(1, bars + 1) if self.tier == "full" else ()):
+            q = at(r, -f1 + 2 * f1 * j / (bars + 1))
+            role_box(q[0] - bm / 2, q[0] + bm / 2, q[1] - bm / 2, q[1] + bm / 2, y1, y3 - rd / 2)
+        self.meta["floor_balcony"] = {"floor_m": round(y1, 4), "top_m": round(y3, 4), "bars": bars,
+                                      "chord_m": round(2 * h, 4), "rise_m": round(rise, 4)}
 
     def _sockets(self, y0, y_e):
         first, last = self.runs[0], self.runs[-1]
