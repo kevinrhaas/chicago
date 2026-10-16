@@ -66,6 +66,9 @@ jobs:
             /chicago/prairie_1904_v1/research/public/glessner-habs-photo-14.jpg
             /chicago/prairie_1904_v1/research/public/glessner-habs-sheet-4.png
             /chicago/prairie_1904_v1/research/public/glessner-houghton-gle-e5y.jpg
+            /chicago/4d/docs/RESEARCH/glessner-copper-T-2220/habs4-hood-section.png
+            /chicago/4d/docs/RESEARCH/glessner-courtyard-steps-T-2218/habs4-terrace-section.png
+            /chicago/4d/docs/RESEARCH/glessner-rainwater-T-2221/reference/taylor-2135.jpg
             /.github/workflows/t2596-glessner-ktx2.yml
 
       - uses: actions/setup-python@v5
