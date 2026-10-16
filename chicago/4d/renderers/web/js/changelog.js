@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1872, ts: '2026-10-16T15:27:10.592Z', date: 'Oct 16, 2026, 10:27 AM CT', title: 'Signboards and the sand strip load lighter', kind: 'improvement',
+    items: [
+      'Nothing you can see changed. The grain and relief under every hanging signboard are now prepared once, ahead of time, instead of in your browser at every visit: the boards look the same and the walk downloads about 360 KB less to stand in the street.',
+      'The dune sand on the ground-strip proof view now loads as a GPU-compressed texture, as the muck beside it already did.',
+    ] },
   { v: 1871, ts: '2026-10-16T15:13:07.305Z', date: 'Oct 16, 2026, 10:13 AM CT', title: 'The town still loads every building at once, now measured', kind: 'chore',
     items: [
       'Nothing you can see changed. A phone was thought to hold every building\'s file at once while the town loaded, so a cap on how many load together was planned.',

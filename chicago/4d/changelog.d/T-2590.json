@@ -1,8 +1,0 @@
-{
-  "title": "Signboards and the sand strip load lighter",
-  "kind": "improvement",
-  "items": [
-    "Nothing you can see changed. The grain and relief under every hanging signboard are now prepared once, ahead of time, instead of in your browser at every visit: the boards look the same and the walk downloads about 360 KB less to stand in the street.",
-    "The dune sand on the ground-strip proof view now loads as a GPU-compressed texture, as the muck beside it already did."
-  ]
-}
