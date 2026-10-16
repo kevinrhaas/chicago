@@ -152,6 +152,10 @@
       </section>
     </div>
     <button id="gate-btn" class="gate-btn" disabled>Tap to enter</button>
+    <!-- T-2616: the failure state. #gate-btn turns into TRY AGAIN; this goes home; what
+         failed to load stays folded under the details, out of a student's way. -->
+    <a id="gate-observatory" class="gate-btn gate-btn-secondary" href="../" hidden>Back to the Observatory</a>
+    <details id="gate-details" class="gate-details" hidden><summary>Details for your teacher</summary><p id="gate-detail"></p></details>
     <button id="welcome-close" class="welcome-link" hidden>Return to the town</button>
     <p class="gate-keys">
       <span class="k">W A S D</span> walk · <span class="k">Shift</span> run ·

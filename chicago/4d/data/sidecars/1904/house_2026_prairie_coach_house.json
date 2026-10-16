@@ -9,6 +9,11 @@
   "asset": "gltf/house_2026_prairie_coach_house__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -41,11 +46,11 @@
         0.0
       ],
       [
-        8.75,
+        10.0,
         0.0
       ],
       [
-        8.75,
+        10.0,
         16.5
       ],
       [
@@ -87,23 +92,10 @@
             "rect": [
               0.0,
               0.0,
-              8.75,
+              10.0,
               16.5
             ],
             "from": "s35fp-2026-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              8.75,
-              1.0,
-              10.0,
-              13.0
-            ],
-            "from": "s35fp-2026-b2 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 90% of its fill"
           }
         ],
         "lot_v": [
@@ -116,7 +108,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2026-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s35fp-2026-b2 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 90% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2026-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {

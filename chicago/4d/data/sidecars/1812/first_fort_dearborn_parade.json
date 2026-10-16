@@ -9,6 +9,11 @@
   "asset": "gltf/first_fort_dearborn_parade__first_fort_1803.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1803-08-17",
     "to": "1812-08-16",

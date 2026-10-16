@@ -10,6 +10,11 @@
   "asset": "gltf/jh_kinzie_forwarding_store__frame_1830s.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1833-01-01",
     "to": "1835-12-31",

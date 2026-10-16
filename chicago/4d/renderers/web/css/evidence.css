@@ -62,9 +62,9 @@
 }
 .city-census .gc-seg { display: block; height: 100%; }
 .city-census .gc-seg-built { background: var(--accent); }
-.city-census .gc-seg-att { background: var(--doc); }
-.city-census .gc-seg-inf { background: var(--inf); }
-.city-census .gc-seg-rec { background: var(--con); }
+.city-census .gc-seg-att { background: var(--grade-attested); }
+.city-census .gc-seg-inf { background: var(--grade-inferred); }
+.city-census .gc-seg-rec { background: var(--grade-reconstructed); }
 .city-census .gc-of,
 .city-census .gc-definition,
 .city-census .gc-note {
@@ -89,14 +89,9 @@
 }
 .city-census .gc-key li { display: flex; align-items: center; gap: 5px; }
 .city-census .gc-sw { width: 8px; height: 8px; border-radius: 2px; display: block; }
-.city-census .gc-sw-att { background: var(--doc); }
-.city-census .gc-sw-inf { background: var(--inf); }
-.city-census .gc-sw-rec { background: transparent; border: 1px solid var(--con); }
-[data-theme="light"] .city-census .gc-seg-att,
-[data-theme="light"] .city-census .gc-sw-att { background: color-mix(in srgb, var(--doc) 52%, var(--ink)); }
-[data-theme="light"] .city-census .gc-seg-inf,
-[data-theme="light"] .city-census .gc-sw-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
-[data-theme="light"] .city-census .gc-seg-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
+.city-census .gc-sw-att { background: var(--grade-attested); }
+.city-census .gc-sw-inf { background: var(--grade-inferred); }
+.city-census .gc-sw-rec { background: transparent; border: 1px solid var(--grade-reconstructed); }
 /* T-2154: the dwellings against the November census, inside the buildings row, and the
    people split into townspeople and garrison, inside the people row. The dwellings bar is
    the census's 398: solid for the dwelling houses, hatched for the boarding houses and
@@ -142,7 +137,7 @@
   flex: none; width: 14px; height: 14px; margin-top: 1px;
   fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
 }
-.city-census .gc-joins .is-closed svg { color: var(--doc); }
+.city-census .gc-joins .is-closed svg { color: var(--grade-attested-ink); }
 .city-census .gc-joins .is-open svg { color: var(--ink-dim); }
 .city-census .gc-joins em { display: block; font-style: normal; font-size: 11px; color: var(--ink-dim); overflow-wrap: anywhere; }
 .city-census .gc-done-bar {
@@ -150,12 +145,9 @@
   background: color-mix(in srgb, var(--ink) 10%, transparent);
 }
 .city-census .gc-done-seg { display: block; height: 100%; }
-.city-census .gc-done-att { background: var(--doc); }
-.city-census .gc-done-inf { background: var(--inf); }
-.city-census .gc-done-rec { background: var(--con); }
-[data-theme="light"] .city-census .gc-done-att { background: color-mix(in srgb, var(--doc) 52%, var(--ink)); }
-[data-theme="light"] .city-census .gc-done-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
-[data-theme="light"] .city-census .gc-done-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
+.city-census .gc-done-att { background: var(--grade-attested); }
+.city-census .gc-done-inf { background: var(--grade-inferred); }
+.city-census .gc-done-rec { background: var(--grade-reconstructed); }
 .city-census .gc-done-shares,
 .city-census .gc-done-def { margin: 0; font-size: 11px; line-height: 1.45; color: var(--ink-dim); }
 .city-meta {

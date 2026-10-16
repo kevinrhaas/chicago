@@ -9,6 +9,17 @@
   "asset": "gltf/ream_house_1901_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 5 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a19-cgy-1901-exterior",
+      "a19-cgy-1901-ream-1898",
+      "a19-gh-prairie-1800-1900-elevations",
+      "a19-pictorial-1893-ream",
+      "a19-pictorial-1896-ream"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -108,7 +119,7 @@
           {
             "id": "r3",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -4.75,
@@ -121,7 +132,7 @@
           {
             "id": "r4",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -1.75,
@@ -137,7 +148,7 @@
             "storeys": 3,
             "roof": "flat",
             "rect": [
-              21.75,
+              20.75,
               5.75,
               23.75,
               9.75
@@ -147,7 +158,7 @@
           {
             "id": "r6",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               3.75,

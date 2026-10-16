@@ -10,6 +10,13 @@
   "asset": "gltf/green_tree_tavern__frame_1833.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "chm_green_tree_1859"
+    ]
+  },
   "documented_range": {
     "from": "1833-01-01",
     "to": "1880-12-31",

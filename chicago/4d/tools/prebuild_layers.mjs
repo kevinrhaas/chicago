@@ -6,16 +6,22 @@
  * of every input they were built from, so a phone can one day upload the town
  * instead of building it at every boot.
  *
- *   node tools/prebuild_layers.mjs [--out DIR] [--json]
+ *   node tools/prebuild_layers.mjs [--out DIR] [--build ID] [--gzip] [--json]
  *       Build every scene that draws frontage (1835 today) into
- *       DIR/<year>/frontage.{bin,json}. DIR defaults to a temp dir: nothing
- *       publishes these yet (T-2677 wires publish.sh and the page's loader).
+ *       DIR/<year>/frontage.{bin,json}. DIR defaults to a temp dir.
+ *       `tools/publish.sh` runs it into site/4d/data/prebuilt/ with --build set
+ *       to the stamp it writes into the page, and the page uploads the buffers
+ *       instead of building them when that stamp and the records it read match
+ *       (T-2677; frontage.js § THE TOWN'S TIMBER, PREBUILT).
  *   node tools/prebuild_layers.mjs --check DIR
  *       Refuse a stale prebuild: re-hash the inputs DIR's index names and the
  *       inputs the builder reads now, and exit 1 if either moved.
  *   node tools/prebuild_layers.mjs --self-test
- *       The check.sh gate: two builds are byte-identical, --check accepts the
- *       fresh one, and --check refuses one whose inputs hash no longer matches.
+ *       The check.sh gate: two builds are byte-identical, the page's own
+ *       createFrontage REPLAYING the prebuild yields the build's meshes, census,
+ *       walks, decks, keep-outs and pick spans, a replay over other records is
+ *       refused, --check accepts the fresh build, and --check refuses one whose
+ *       inputs hash no longer matches.
  *   node tools/prebuild_layers.mjs --parity [--root DIR] [--json]
  *       The acceptance: boot the live page in Chromium (source tree by default,
  *       or a published root), read every frontage buffer it built and compare
@@ -39,7 +45,9 @@
 import { register } from 'node:module';
 import { MessageChannel } from 'node:worker_threads';
 import { createHash } from 'node:crypto';
+import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import zlib from 'node:zlib';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -48,7 +56,8 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(here, '..');
 const WEB = path.join(ROOT, 'renderers/web');
 const THREE_DIR = path.join(WEB, 'vendor/three-0.185.1');
-const FORMAT = 1;
+/** 2 since T-2677: the tape, pick spans, walk-top ranges, spheres and build. */
+const FORMAT = 2;
 /** Built by the page for itself, never carried in the file (see the header). */
 const PAGE_ONLY = new Set(['frontage-far-walk-tops', 'frontage-lettering']);
 
@@ -173,30 +182,41 @@ export function meshBuffers(group) {
     }));
     const index = g.index ? { type: g.index.array.constructor.name,
       bytes: new Uint8Array(g.index.array.buffer, g.index.array.byteOffset, g.index.array.byteLength) } : null;
+    const s = g.boundingSphere;
     meshes.push({ name: mesh.name, userData: { ...mesh.userData }, castShadow: mesh.castShadow,
-      receiveShadow: mesh.receiveShadow, renderOrder: mesh.renderOrder, attributes, index });
+      receiveShadow: mesh.receiveShadow, renderOrder: mesh.renderOrder, attributes, index,
+      bounding_sphere: s ? { center: s.center.toArray(), radius: s.radius } : null });
   }
   return meshes;
 }
 
-export async function buildFrontage(scene) {
+export async function buildFrontage(scene, prebuilt = null) {
   const { Heightfield, createFrontage } = await pageModules();
   const { terrain, footprints } = await sceneTerrain(scene, Heightfield);
   const problems = [];
   const started = performance.now();
   const layer = await createFrontage({ dataBase: pathToFileURL(path.join(ROOT, 'data') + '/'),
-    terrain, problems });
+    terrain, problems, record: !prebuilt, prebuilt });
   const ms = performance.now() - started;
   await drain();
   // The relief grain is a material's maps and loads from images; a Node build
   // has neither, and the geometry does not depend on it.
   const kept = problems.filter((p) => !/^frontage: .*(map|relief|grain|ktx2|Image)/i.test(p));
   if (kept.length) throw new Error(`frontage ${sceneYear(scene)}: ${kept.join('; ')}`);
-  return { meshes: meshBuffers(layer.group), census: { ...layer.census }, footprints, ms };
+  const meshes = meshBuffers(layer.group);
+  if (layer.prebuild) {
+    const { tape, spans, walkTopRanges } = layer.prebuild;
+    // The tape travels as JSON, so it must come back exactly as it went.
+    assert.deepStrictEqual(JSON.parse(JSON.stringify(tape)), tape, 'the tape does not survive JSON');
+    assert.equal(walkTopRanges.length, meshes.length, 'one walk-top range list per mesh');
+    meshes.forEach((m, i) => { m.walk_top_ranges = walkTopRanges[i]; });
+    return { meshes, census: { ...layer.census }, footprints, ms, tape, spans, layer };
+  }
+  return { meshes, census: { ...layer.census }, footprints, ms, layer };
 }
 
 /** Lay the meshes into one buffer, each array 4-byte aligned, and its index. */
-function pack(year, built, inputs) {
+function pack(year, built, inputs, buildId, gzip = false) {
   const parts = [];
   let offset = 0;
   const place = (bytes) => {
@@ -212,26 +232,40 @@ function pack(year, built, inputs) {
     renderOrder: m.renderOrder,
     attributes: m.attributes.map(({ bytes, ...a }) => ({ ...a, ...place(bytes) })),
     index: m.index ? { type: m.index.type, ...place(m.index.bytes) } : null,
+    bounding_sphere: m.bounding_sphere, walk_top_ranges: m.walk_top_ranges,
   }));
   const bin = Buffer.concat(parts.map((p) => Buffer.from(p.buffer, p.byteOffset, p.byteLength)));
   const index = {
-    layer: 'frontage', year, format: FORMAT, ticket: 'T-2676',
-    bin: 'frontage.bin', bytes: bin.length, sha256: sha(bin),
-    inputs, census: built.census, protect_ground_under: built.footprints.length, meshes,
+    layer: 'frontage', year, format: FORMAT, ticket: 'T-2677', build: buildId,
+    bin: gzip ? 'frontage.bin.gz' : 'frontage.bin', encoding: gzip ? 'gzip' : null, passes: gzip ? GZIP_PASSES : 0,
+    bytes: bin.length, sha256: sha(bin),
+    inputs, census: built.census, protect_ground_under: built.footprints.length,
+    spans: built.spans, tape: built.tape, meshes,
   };
   return { bin, index };
 }
 
-export async function build(outDir) {
+/**
+ * `gzip` is how publish.sh writes it: 74.5 MiB raw would take the published tree
+ * past validate.py's 320 MiB (it measured 373.7), and both the live site and the
+ * dev preview share GitHub Pages' 1 GiB. Gzipped TWICE it is 6.93 MB — one pass
+ * is 10.76 MB, because deflate's 32 KB window is far shorter than the runs the
+ * timber repeats over — and a server that would have gzipped it again gains
+ * nothing more. The page inflates both passes on a pool worker.
+ */
+const GZIP_PASSES = 2;
+const gzipped = (bin) => { let b = bin; for (let i = 0; i < GZIP_PASSES; i += 1) b = zlib.gzipSync(b, { level: 9 }); return b; };
+
+export async function build(outDir, buildId = null, { gzip = false } = {}) {
   const results = [];
   for (const scene of frontageScenes()) {
     const year = sceneYear(scene);
     const built = await buildFrontage(scene);
     const inputs = inputsOf([...dataRead, ...modulesRead]);
-    const { bin, index } = pack(year, built, inputs);
+    const { bin, index } = pack(year, built, inputs, buildId, gzip);
     const dir = path.join(outDir, year);
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'frontage.bin'), bin);
+    fs.writeFileSync(path.join(dir, index.bin), gzip ? gzipped(bin) : bin);
     fs.writeFileSync(path.join(dir, 'frontage.json'), JSON.stringify(index, null, 1) + '\n');
     results.push({ year, dir, ms: Math.round(built.ms), bytes: bin.length, sha256: index.sha256,
       meshes: index.meshes.length, inputs: inputs.files.length, index });
@@ -253,7 +287,12 @@ export function stale(outDir) {
     const index = JSON.parse(fs.readFileSync(file, 'utf8'));
     if (index.format !== FORMAT) { why.push(`${year}: format ${index.format}, this tool writes ${FORMAT}`); continue; }
     const bin = path.join(outDir, year, index.bin);
-    if (!fs.existsSync(bin) || sha(fs.readFileSync(bin)) !== index.sha256) {
+    const raw = (file) => {
+      let b = fs.readFileSync(file);
+      for (let i = 0; index.encoding === 'gzip' && i < (index.passes ?? 1); i += 1) b = zlib.gunzipSync(b);
+      return b;
+    };
+    if (!fs.existsSync(bin) || sha(raw(bin)) !== index.sha256) {
       why.push(`${year}: ${index.bin} is not the buffer its index hashed`);
     }
     const missing = index.inputs.files.filter((f) => !fs.existsSync(path.join(ROOT, f.path)));
@@ -349,6 +388,33 @@ async function main() {
         ok(r.sha256 === second[i].sha256, `${r.year}: two builds are byte-identical (${r.bytes} bytes, ${r.meshes} meshes)`);
       }
       ok(stale(a).length === 0, 'a fresh build is current');
+      for (const r of first) {
+        const scene = frontageScenes().find((x) => sceneYear(x) === r.year);
+        const fresh = await buildFrontage(scene);
+        const bin = fs.readFileSync(path.join(r.dir, 'frontage.bin'));
+        const offered = { index: r.index, bin: bin.buffer.slice(bin.byteOffset, bin.byteOffset + bin.length) };
+        const replayed = await buildFrontage(scene, offered);
+        ok(replayed.layer.prebuilt.used, `${r.year}: the page's createFrontage takes the prebuild (${replayed.layer.prebuilt.why ?? 'used'})`);
+        const same = (x, y) => { try { assert.deepStrictEqual(x, y); return true; } catch { return false; } };
+        const bytes = (ms) => ms.map((m) => [m.name, m.userData, m.castShadow, m.receiveShadow, m.renderOrder,
+          m.attributes.map((a) => [a.name, a.type, a.itemSize, a.normalized, sha(a.bytes)])]);
+        ok(same(bytes(replayed.meshes), bytes(fresh.meshes)), `${r.year}: replayed meshes equal the build's, attribute for attribute (${fresh.meshes.length})`);
+        const { relief: _a, ...cr } = replayed.census;
+        const { relief: _b, ...cf } = fresh.census;
+        ok(same(cr, cf), `${r.year}: replayed census equals the build's`);
+        const plain = (l) => JSON.parse(JSON.stringify({ records: l.records.length, walks: l.walks.map((w) => w.id),
+          posts: l.posts.map((x) => x.id), fittings: l.fittings.map((x) => x.id), fences: l.fences.map((x) => x.id),
+          keepOut: l.keepOut, decks: l.walkableDecks, lettering: l.lettering ?? null,
+          farTops: l.farWalkTops?.vertices ?? null, footprints: replayed === l ? replayed.footprints : fresh.footprints }));
+        ok(same(plain(replayed.layer), plain(fresh.layer)), `${r.year}: replayed walks, posts, fittings, fences, keep-outs, decks and far tops equal the build's`);
+        ok(same(r.index.spans, fresh.spans), `${r.year}: the index carries the build's pick spans (${fresh.spans.length})`);
+        const moved = JSON.parse(JSON.stringify(r.index));
+        moved.inputs.files.find((f) => f.path.startsWith('data/frontage/')).sha256 = '0'.repeat(64);
+        const refused = await buildFrontage(scene, { index: moved, bin: offered.bin });
+        ok(!refused.layer.prebuilt.used && /other frontage data/.test(refused.layer.prebuilt.why ?? ''),
+          `${r.year}: a prebuild from other records is not replayed: ${refused.layer.prebuilt.why}`);
+        ok(same(bytes(refused.meshes), bytes(fresh.meshes)), `${r.year}: …and the page builds its own instead`);
+      }
       const file = path.join(a, first[0].year, 'frontage.json');
       const index = JSON.parse(fs.readFileSync(file, 'utf8'));
       index.inputs.files[0].sha256 = '0'.repeat(64);
@@ -365,7 +431,7 @@ async function main() {
     }
   }
   const out = path.resolve(flag('--out') ?? fs.mkdtempSync(path.join(os.tmpdir(), 'prebuild-')));
-  const results = await build(out);
+  const results = await build(out, flag('--build'), { gzip: has('--gzip') });
   const report = { out, scenes: results.map(({ index, dir, ...r }) => ({ ...r, census: index.census })) };
   if (has('--parity')) {
     const root = path.resolve(flag('--root') ?? ROOT);

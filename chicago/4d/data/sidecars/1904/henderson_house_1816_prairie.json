@@ -9,6 +9,14 @@
   "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-cgy-1816-henderson-photo",
+      "cgn-1816-landowner-1874-henderson"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -41,16 +49,16 @@
         0.0
       ],
       [
-        23.5,
+        23.75,
         0.0
       ],
       [
-        23.5,
-        7.25
+        23.75,
+        8.5
       ],
       [
         0.0,
-        7.25
+        8.5
       ]
     ],
     "confidence": "inferred",
@@ -87,8 +95,8 @@
             "rect": [
               0.0,
               0.0,
-              23.5,
-              7.25
+              23.75,
+              8.5
             ],
             "from": "s28fp-1816-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
           },
@@ -107,24 +115,11 @@
           },
           {
             "id": "r3",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              11.5,
-              7.25,
-              23.75,
-              8.5
-            ],
-            "from": "s28fp-1816-b1 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill"
-          },
-          {
-            "id": "r4",
             "role": "porch",
             "storeys": 1,
             "roof": "flat",
             "rect": [
-              24.25,
+              23.75,
               3.25,
               25.75,
               5.5
@@ -142,7 +137,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1816-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1816-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1816-b1 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill; s28fp-1816-b1 p1 (porch, frame), rectangle 1 of that part; the part's rectangles cover 75% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1816-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1816-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1816-b1 p1 (porch, frame), rectangle 1 of that part; the part's rectangles cover 75% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {

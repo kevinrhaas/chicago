@@ -11,9 +11,31 @@
   --edge: rgba(244, 241, 234, 0.16);
   --accent: #d8a24a;
   --brass: #b8925a;
-  --doc: #cfd8c5;
-  --inf: #e2a63f;
-  --con: #9aa3ad;
+  /* THE GRADE COLOURS (T-2671), one set for every place a grade shows: card and
+     dossier dots, people chips, the legend, the HUD's Confidence chip and menu, the
+     census bars. Attested is gold, Inferred silver, Reconstructed bronze — and bronze
+     is BROWN, apart from gold in hue and a clear step down in lightness, so the two
+     never read as one colour (or as one colour to a deuteranope, protanope or
+     tritanope: the lightness step carries them). Each grade has two roles:
+       --grade-*      a fill: dots, swatches, bars, borders. 3:1 on every panel.
+       --grade-*-ink  grade text, chips and marks. 4.5:1 on every panel and on the
+                      chip's own 12% wash.
+     The light theme has its own pair below. The same hexes, and the scene's tint,
+     live in js/confidence.js `GRADE_COLORS`; tools/check_grade_colors.mjs holds the
+     two in step and re-measures every contrast against all four machines' panels. */
+  --grade-attested: #d4ae38;
+  --grade-attested-ink: #e2c25a;
+  --grade-inferred: #c9d0d8;
+  --grade-inferred-ink: #d3d9e0;
+  --grade-reconstructed: #a86a3a;
+  --grade-reconstructed-ink: #d29262;
+  /* The old names, kept as aliases of the fills for any rule that still says them. */
+  --doc: var(--grade-attested);
+  --inf: var(--grade-inferred);
+  --con: var(--grade-reconstructed);
+  /* The loading bar's and the drawer rail's warm amber, which used to borrow --inf.
+     It was never a grade, so it keeps its colour when the grades change theirs. */
+  --amber: #e2a63f;
   --shadow: 0 10px 34px rgba(0, 0, 0, 0.5);
   /* Behind the canvas. It should never be visible — but headless Chromium's
      compositor occasionally paints the page ground behind a fixed, rounded,
@@ -42,6 +64,12 @@ body:is(.is-touch, .touch-first) { --hud-row: 44px; }
   --brass: #806238;
   --shadow: 0 10px 30px rgba(40, 34, 20, 0.24);
   --page: #dfe7ec;
+  --grade-attested: #a07c10;
+  --grade-attested-ink: #775a08;
+  --grade-inferred: #737d88;
+  --grade-inferred-ink: #4e5761;
+  --grade-reconstructed: #8a5228;
+  --grade-reconstructed-ink: #633819;
 }
 
 * { box-sizing: border-box; }
@@ -200,7 +228,7 @@ html, body {
 }
 .gate-bar > i {
   display: block; height: 100%; width: 0%;
-  background: var(--inf); border-radius: 2px;
+  background: var(--amber); border-radius: 2px;
   transition: width .25s ease;
 }
 .gate-bar.done { opacity: 0; transition: opacity .4s ease .2s; }
@@ -226,6 +254,18 @@ html, body {
 }
 .gate-btn:disabled { opacity: .45; cursor: progress; }
 .gate-btn:not(:disabled):hover { filter: brightness(1.08); }
+/* T-2616: the stalled jump — TRY AGAIN above, the way home below, the detail folded. */
+.gate-btn-secondary {
+  display: block; box-sizing: border-box; margin-top: 10px; text-align: center; text-decoration: none;
+  color: var(--ink); background: transparent; border: 1px solid var(--edge-strong, var(--edge));
+}
+.gate-btn-secondary[hidden], .gate-details[hidden] { display: none; }
+.gate-details { margin: 12px 0 0; text-align: left; font-size: 13px; color: var(--ink-dim); }
+.gate-details summary { cursor: pointer; text-align: center; }
+.gate-details p {
+  margin: 8px 0 0; padding: 8px 10px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  font: 400 12px/1.45 var(--font-mono, ui-monospace, monospace); overflow-wrap: anywhere;
+}
 
 .gate-keys { margin: 14px 0 0; font-size: 12px; color: var(--ink-dim); }
 .gate-keys .k {
@@ -513,7 +553,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .badge-version[data-tone="notice"] {
   color: var(--ink);
   font-style: italic;
-  text-decoration: underline dotted var(--inf);
+  text-decoration: underline dotted var(--amber);
   text-underline-offset: 3px;
 }
 .badge-version[hidden] { display: none; }
@@ -733,7 +773,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .chip-dot[hidden] { display: none; }
 .chip .dot {
   width: 9px; height: 9px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--doc) 0 33%, var(--inf) 33% 66%, var(--con) 66%);
+  background: linear-gradient(135deg, var(--grade-attested) 0 33%, var(--grade-inferred) 33% 66%, var(--grade-reconstructed) 66%);
 }
 
 .hud-legend {
@@ -753,15 +793,15 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .hud-legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
 .hud-legend li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; align-items: start; color: var(--ink-dim); }
 .sw { width: 12px; height: 12px; border-radius: 3px; margin-top: 3px; display: block; }
-.sw-doc { background: var(--doc); }
-.sw-inf { background: var(--inf); }
-.sw-rec { background: repeating-linear-gradient(45deg, var(--con) 0 2px, transparent 2px 4px); border: 1px solid var(--con); }
+.sw-doc { background: var(--grade-attested); }
+.sw-inf { background: var(--grade-inferred); }
+.sw-rec { background: repeating-linear-gradient(45deg, var(--grade-reconstructed) 0 2px, transparent 2px 4px); border: 1px solid var(--grade-reconstructed); }
 /* T-1158. The fourth tier, and it is deliberately the emptiest thing on the card:
    `unknown` means nothing is asserted, so the chip is an empty outline rather than a
    colour. It has to be distinguishable from `reconstructed` at a glance, because most
    of this town's attributes are not recorded and the hatched chip used to say we had
    invented them. Dashed reads as "nothing here" in both themes without adding a hue. */
-.sw-unk { background: transparent; border: 1px dashed var(--con); opacity: .7; }
+.sw-unk { background: transparent; border: 1px dashed var(--ink-dim); opacity: .7; }
 .legend-note { margin: 10px 0 0; color: var(--ink-dim); font-size: 11.5px; }
 .legend-note code { font-size: 11px; }
 
@@ -835,7 +875,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    read as the conjectural swatch does, since that is what it is describing. */
 .lib-covers {
   padding: 1px 6px;
-  border: 1px dashed var(--con); border-radius: 999px;
+  border: 1px dashed var(--grade-reconstructed); border-radius: 999px;
   color: var(--ink); font-size: 10px; white-space: nowrap;
 }
 .lib-covers em { font-style: normal; color: var(--ink-dim); }
@@ -868,7 +908,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 /* A value outside its own closed set. It cannot happen while tools/validate.py
    holds the vocabulary, which is exactly why it is worth drawing: a card that
    silently prints an unknown word is a card that hides a broken gate. */
-.fauna-unknown { border-color: var(--con); color: var(--con); }
+.fauna-unknown { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 
 /* The plants section (T-0281) reuses the wildlife's box for the fifth time, and
    deliberately reuses its CLASSES too rather than cloning them under a new
@@ -893,7 +933,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    takes the conjectural colour on purpose — not because the RECORD is weak, but
    because what a visitor sees there is the lattice's answer and not the
    evidence's, and this panel's colours already mean exactly that. */
-.plant-clamped { border-color: var(--con); color: var(--con); }
+.plant-clamped { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 
 /* The people section (ROADMAP K52) reuses the same box for the fourth time, and
    the nesting is the wildlife section's exactly: a household is a liberty-shaped
@@ -939,19 +979,16 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    chip is. The year is tabular so the column of bounds lines up. */
 .res-roles { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
 .res-role-row { border-left: 2px solid var(--edge); padding-left: 9px; }
-.res-role-row.res-role-at { border-left-color: var(--doc); }
+.res-role-row.res-role-at { border-left-color: var(--grade-attested); }
 .res-role-when {
   display: block; color: var(--ink); font-size: 11.5px;
   font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
 }
-.res-role-scene { border-color: color-mix(in srgb, var(--doc) 58%, transparent); color: var(--doc); }
-.res-role-off { border-color: var(--con); color: var(--con); }
+.res-role-scene { border-color: color-mix(in srgb, var(--grade-attested) 58%, transparent); color: var(--grade-attested-ink); }
+.res-role-off { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 /* `--doc` is the pale sage the dark panel needs and is near-invisible on the
    light one, so the scene-date mark is mixed toward the ink there — the same
    correction the census gate makes for the same swatch. */
-[data-theme="light"] .res-role-row.res-role-at,
-[data-theme="light"] .res-role-scene { border-color: color-mix(in srgb, var(--doc) 40%, var(--ink)); }
-[data-theme="light"] .res-role-scene { color: color-mix(in srgb, var(--doc) 30%, var(--ink)); }
 /* The houses a person is named in (T-1432). Built on the roles timeline above
    because it is the same idea read from the other end — one rule down the left
    edge a row, and the rule is the GRADE here rather than the scene date, since a
@@ -967,7 +1004,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    conjectural colour rather than the dim one. It is NOT drawn inside the
    letter-list group, where having no building is the definition rather than a
    finding — see residents.js § letterListGroupHtml. */
-.res-orphan { border-color: var(--con); color: var(--con); }
+.res-orphan { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 /* T-1476: which UNIT the row is. A house the sources evidence reads in the ordinary
    chip colour; a record that is a person still awaiting a household is dimmed, because
    it is not a finding against the record — it is the town's remaining work, and 1,175
@@ -976,7 +1013,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 /* The letter-list cohort (T-0379), which is most of the town's people and none of
    its evidence. One closed group, marked in the conjectural colour the same way a
    single thin claim is, so the split is visible before it is opened. */
-.res-ll-group { border-left: 2px solid var(--con); padding-left: 9px; }
+.res-ll-group { border-left: 2px solid var(--grade-reconstructed); padding-left: 9px; }
 .res-ll-group > summary .lib-title { color: var(--ink-dim); }
 .res-hh summary { display: flex; flex-wrap: wrap; align-items: baseline; }
 .res-hh .lib-title { text-transform: capitalize; }
@@ -1175,19 +1212,22 @@ table.attrs td .val { font-variant-numeric: tabular-nums; }
   vertical-align: 1px;
   white-space: nowrap;
 }
-.conf-attested  { background: rgba(160, 200, 140, .2); color: #a9cf93; border: 1px solid rgba(160, 200, 140, .4); }
-.conf-inferred     { background: rgba(226, 166, 63, .18); color: var(--inf); border: 1px solid rgba(226, 166, 63, .45); }
-.conf-reconstructed    { background: rgba(154, 163, 173, .16); color: var(--con); border: 1px solid rgba(154, 163, 173, .4); }
-[data-theme="light"] .conf-attested { color: #3f6a2c; }
-[data-theme="light"] .conf-inferred { color: #8a5a12; }
-[data-theme="light"] .conf-reconstructed    { color: #4d5560; }
+/* The chip is its grade's ink on a 12% wash of its fill, in both themes, from the
+   :root tokens alone (T-2671) — no per-theme hex left here to drift from them. */
+.conf-attested { --g: var(--grade-attested); --g-ink: var(--grade-attested-ink); }
+.conf-inferred { --g: var(--grade-inferred); --g-ink: var(--grade-inferred-ink); }
+.conf-reconstructed { --g: var(--grade-reconstructed); --g-ink: var(--grade-reconstructed-ink); }
+.conf-attested, .conf-inferred, .conf-reconstructed {
+  background: color-mix(in srgb, var(--g) 12%, transparent);
+  color: var(--g-ink);
+  border: 1px solid color-mix(in srgb, var(--g) 50%, transparent);
+}
 
 /* WHO WAS HERE. A person's `grade` is a different axis from an attribute's
    confidence — it says how much of a PERSON is reconstructed, not how sure we
-   are of a value — so it gets its own chip shape (square-ish, outlined) and
-   never borrows the confidence palette's meaning. `derived` has no equivalent
-   on the confidence scale at all, which is the clearest argument for keeping
-   the two apart. */
+   are of a value — so it gets its own chip SHAPE (square-ish, outlined). Its
+   colours are the one grade palette (T-2671, owner: gold, silver, bronze
+   everywhere a grade shows), so Attested reads as Attested wherever it is met. */
 .grade {
   display: inline-block;
   margin-left: 6px;
@@ -1201,12 +1241,9 @@ table.attrs td .val { font-variant-numeric: tabular-nums; }
   border: 1px solid currentColor;
   background: transparent;
 }
-.grade-attested { color: #a9cf93; }
-.grade-inferred    { color: #8fb8d6; }
-.grade-reconstructed   { color: var(--inf); }
-[data-theme="light"] .grade-attested { color: #3f6a2c; }
-[data-theme="light"] .grade-inferred { color: #2f5f80; }
-[data-theme="light"] .grade-reconstructed { color: #8a5a12; }
+.grade.grade-attested { color: var(--grade-attested-ink); }
+.grade.grade-inferred { color: var(--grade-inferred-ink); }
+.grade.grade-reconstructed { color: var(--grade-reconstructed-ink); }
 
 /* The per-level summary, above every table on the card. It is read first and
    skimmed, so the three rows are separated by the residents' own hairline rather
@@ -1685,7 +1722,7 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
   align-items: center; padding: 5px 0; cursor: pointer; font-size: 13px;
 }
 .cm-sw { width: 12px; height: 12px; border-radius: 3px; display: block; }
-.sw-att { background: var(--doc); }
+.sw-att { background: var(--grade-attested); }
 .cm-count { color: var(--ink-dim); font-size: 11.5px; font-variant-numeric: tabular-nums; }
 .cm-row input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
 /* An unticked row is what is NOT in the view, so it reads as absent. */
