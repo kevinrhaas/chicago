@@ -34,10 +34,13 @@
  *
  * A lost WebGL context would need the page copies to re-upload. iOS drops a
  * context under memory pressure, so if one is lost after anything was let go,
- * the page reloads on restore rather than drawing nothing.
+ * the page reloads on restore rather than drawing nothing — once a session, and
+ * never in a loop: crash-guard.js owns the context events (T-2547) and reads
+ * `uploadReleaseState().attributes` to know whether a reload is needed.
  */
 
 import * as THREE from 'three';
+import { isSharedImage, retireSharedImage } from './shared-images.js';
 
 /** Layer → attributes it must keep for a tap. Unlisted layers keep nothing. */
 export const RELEASE_KEEP = {
@@ -64,8 +67,9 @@ const KEEP_ARRAYS = (() => {
   try { return new URLSearchParams(window.location.search).get('keep-geometry') === '1'; } catch { return false; }
 })();
 
-const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_ARRAYS };
-let watching = false;
+const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_ARRAYS,
+  // T-2548: the buildings' source glTF geometry, and their decoded images.
+  sources: 0, sourceBytes: 0, images: 0, imageBytes: 0 };
 
 function release(attr) {
   if (!attr || !attr.array || attr.userData?.uploadReleased) return;
@@ -129,27 +133,16 @@ function pickWithoutReleased(o) {
   };
 }
 
-function watchContext(renderer) {
-  if (watching || !renderer?.domElement || !census.attributes) return;
-  watching = true;
-  let lost = false;
-  renderer.domElement.addEventListener('webglcontextlost', () => { lost = true; });
-  renderer.domElement.addEventListener('webglcontextrestored', () => {
-    if (lost) window.location.reload();
-  });
-}
-
 /**
  * Mark every listed layer under `scene` to let go of its page arrays once they
  * are uploaded. Idempotent: a layer built later (the trees) is picked up by
  * calling it again, and a geometry already marked is passed over.
  */
-export function releaseAfterUpload(scene, renderer, keepByLayer = RELEASE_KEEP) {
+export function releaseAfterUpload(scene, keepByLayer = RELEASE_KEEP) {
   for (const [name, keep] of Object.entries(keepByLayer)) {
     const layer = scene.getObjectByName(name);
     if (layer) markLayer(layer, keep);
   }
-  watchContext(renderer);
   return { ...census };
 }
 
@@ -173,7 +166,6 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
   const keep = RELEASE_KEEP[layer?.name];
   if (!keep || !layer.visible) return;
   markLayer(layer, keep);
-  watchContext(renderer);
   const restore = [];
   for (const c of scene.children) {
     if (c !== layer && !c.isLight && c.visible) { restore.push([c, 'visible', true]); c.visible = false; }
@@ -202,6 +194,81 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
     shadow.autoUpdate = auto;
     shadow.needsUpdate = needs;
     for (const [o, key, value] of restore) o[key] = value;
+  }
+}
+
+/**
+ * T-2548. A PHONE LETS GO OF EACH BUILDING'S SOURCE GEOMETRY ONCE ITS BATCH HOLDS
+ * A COPY. `createBuildings` normalises every source mesh into a float32 copy in
+ * the batch, and the source — the GLB's quantized, interleaved arrays — was then
+ * kept in the registry for nothing but a detail rebuild: about 49 MB of the 1904
+ * phone's ArrayBuffers, 12.5 MB of it Glessner's. The scene graph, materials and
+ * textures stay (the batch draws with those textures, and the card reads the
+ * record); the attributes and the index go. A released row is marked
+ * `sourceReleased`, and a rebuild re-reads its GLB first (main.js, from the HTTP
+ * cache). Idempotent: a row already released is passed over.
+ */
+export function releaseSources(registry) {
+  for (const row of registry.values()) {
+    if (!row.gltf || row.sourceReleased) continue;
+    const buffers = new Set();
+    row.gltf.scene?.traverse((o) => {
+      const geo = o.geometry;
+      if (!geo) return;
+      for (const attr of [...Object.values(geo.attributes), geo.index]) {
+        const array = attr?.isInterleavedBufferAttribute ? attr.data.array : attr?.array;
+        if (array?.buffer) buffers.add(array.buffer);
+      }
+      for (const name of Object.keys(geo.attributes)) geo.deleteAttribute(name);
+      geo.setIndex(null);
+      geo.dispose();
+    });
+    row.sourceReleased = true;
+    census.sources += 1;
+    for (const buffer of buffers) census.sourceBytes += buffer.byteLength;
+  }
+}
+
+/**
+ * T-2548. A PHONE CLOSES A BUILDING'S DECODED IMAGE ONCE THE GPU HOLDS IT. Three
+ * keeps every `texture.image` (an ImageBitmap) after upload, so each picture a
+ * house is painted with was held twice, decoded in the page and again on the GPU.
+ *
+ * Only an image that came out of a GLB through the shared-image cache is closed
+ * (shared-images.js), and only when EVERY texture of the structures batch that
+ * draws from it has its GPU texture and the source is uploaded — three uploads
+ * once per source and sampler setup, and a second sampler on a source would
+ * otherwise read a closed bitmap. The image also leaves the cache, so a GLB
+ * parsed later (a detail rebuild) decodes its own copy rather than being handed
+ * this closed one. Anything not yet uploaded is left open: nothing re-uploads a
+ * building texture after the build, and a restored context needs the page back,
+ * which crash-guard.js reloads for when the census counts a closed image.
+ */
+export function closeUploadedImages(group, renderer) {
+  const bySource = new Map();
+  group.traverse((o) => {
+    // A shadow's own depth material can sample the same map with its own sampler.
+    for (const material of [].concat(o.material ?? [], o.customDepthMaterial ?? [],
+      o.customDistanceMaterial ?? [])) {
+      for (const value of Object.values(material)) {
+        if (!value?.isTexture || !value.source) continue;
+        if (!bySource.has(value.source)) bySource.set(value.source, new Set());
+        bySource.get(value.source).add(value);
+      }
+    }
+  });
+  const props = renderer.properties;
+  for (const [source, textures] of bySource) {
+    const image = source.data;
+    if (typeof ImageBitmap === 'undefined' || !(image instanceof ImageBitmap)) continue;
+    if (!isSharedImage(image)) continue;
+    const uploaded = props.get(source).__version === source.version
+      && [...textures].every((t) => props.get(t).__webglTexture !== undefined);
+    if (!uploaded) continue;
+    retireSharedImage(image);
+    census.images += 1;
+    census.imageBytes += image.width * image.height * 4;
+    image.close();
   }
 }
 

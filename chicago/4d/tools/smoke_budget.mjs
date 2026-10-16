@@ -227,6 +227,7 @@ const COVERAGE = [
   ['data/exclusions.json', ALL, 'what the scene declares it is NOT drawing'],
   ['renderers/web/js/main.js', ALL, 'the boot chain'],
   ['renderers/web/js/scene-loader.js', ALL, 'the boot chain'],
+  ['renderers/web/js/crash-guard.js', ALL, 'imported by the boot chain (main.js), which it can step down a tier; its card and its lost-context reloads are asserted in part 6 at 390x780 (T-2547)'],
   ['renderers/web/js/structure-versions.js', ALL, 'imported by the boot chain (scene-loader.js); the version switch itself is asserted in part 3 (T-1727)'],
   ['renderers/web/js/world.js', ALL, 'the world the parts all measure against'],
   ['renderers/web/js/geometry.js', ALL, 'shared geometry the parts all read'],
@@ -278,6 +279,9 @@ const COVERAGE = [
   // T-2089. The grass grain the prairie's fine relief is read from: the same
   // ground, so the same part.
   ['renderers/web/js/grass-grain.js', [3], 'the grass grain the prairie\'s relief is lit from'],
+  // T-2552. The prairie's world-scale variation map, imported only by terrain.js:
+  // the same ground, so the same part.
+  ['renderers/web/js/prairie-macro.js', [3], 'the variation map the prairie\'s stands are drawn from'],
   ['renderers/web/js/turf-tile.js', [3, 10, 11, 12], 'the town turf: painted by the ground, thinned in the sward'],
   // T-1797. The ground-strip proof: imported only under `?proof=ground`, which
   // no part loads, so the boot chain never reaches it. Part 1 boots the scene

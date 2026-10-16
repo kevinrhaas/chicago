@@ -56,7 +56,9 @@ import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
-import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
+import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
+  closeUploadedImages } from './upload-release.js';
+import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
@@ -1364,6 +1366,15 @@ function readDetailPreference() {
   }
 }
 
+/** The visitor's stored Sharpness, '' when never chosen (hud.js stores '' for that). */
+function readQualityPreference() {
+  try {
+    return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.quality ?? '';
+  } catch {
+    return '';
+  }
+}
+
 const params = new URLSearchParams(location.search);
 /**
  * The year a visitor asked for. `?year=` wins; otherwise the page's own path
@@ -1433,9 +1444,18 @@ window.__chicago4d = api;
 document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
+// T-2547: if the last session died loading (a phone out of memory), this one boots a
+// detail tier lower and at Sharpness Low, and says so. Resolved here, before the
+// forecast and the GLB fetch, so nothing is downloaded for the tier that died.
+const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
+api.crashGuard = crashGuard.state;
+const crashBoot = crashGuard.boot({
+  detail: readDetailPreference() || (prefersTouch() ? 'light' : 'full'),
+  quality: resolveSharpness(readQualityPreference(), prefersTouch()),
+});
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
-  detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
+  detail: crashBoot.detail,
   build: document.getElementById('gate-build')?.textContent || VERSION,
   storage: bootStorage,
 };
@@ -1469,6 +1489,7 @@ api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
 if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
 bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
+bootController.on('ready', () => crashGuard.live());
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -1494,7 +1515,8 @@ async function boot() {
   const coarse = prefersTouch();
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
-  let detailLevel = readDetailPreference() || (coarse ? 'light' : 'full');
+  // T-2547: the stored choice or the device guess, unless the crash guard stepped it down.
+  let detailLevel = crashBoot.detail;
   // Image sharpness for a visitor who never chose one: Low on a phone, Medium
   // on a desktop (T-2110 — see sharpness.js).
   const qualityGuess = sharpnessGuess(coarse);
@@ -1565,7 +1587,14 @@ async function boot() {
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, qualityGuess));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, crashBoot.quality));
+  // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
+  // once a session — only when the page has let go of what a restore would need.
+  // T-2548: a closed building image is gone from the page as a released array is.
+  crashGuard.watchContext(renderer.domElement, { needsReload: () => {
+    const released = uploadReleaseState();
+    return released.attributes > 0 || released.images > 0;
+  } });
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -1577,6 +1606,8 @@ async function boot() {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
     detail: detailLevel,
+    // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
+    keepAssetBytes: !coarse,
   });
   const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
   const detailLevels = inspectionLod ? { ...DETAIL,
@@ -1714,6 +1745,12 @@ async function boot() {
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
   settleOnGpu(buildings.group);
+  // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
+  // of the source geometry and the decoded images (upload-release.js).
+  if (coarse) {
+    releaseSources(loaded.registry);
+    closeUploadedImages(buildings.group, renderer);
+  }
   bootController.end('buildings');
   bootController.start('ground');
   await yieldToPaint();
@@ -2404,6 +2441,26 @@ async function boot() {
     next.flora?.dispose?.();
     next.trees?.dispose?.();
     if (next.asset) disposeLoadedAsset(next.asset.gltf);
+    for (const gltf of next.reread ?? []) disposeLoadedAsset(gltf);
+  };
+  /**
+   * T-2548: a phone let go of every building's source geometry once its batch
+   * held a copy, so a rebuild re-reads the GLBs of the rows it released — the
+   * HTTP cache answers — into the candidate registry. The gltfs those rows held
+   * are retired at commit (`next.retired`), the ones read here at discard.
+   */
+  const rereadReleased = async (next, skipId) => {
+    next.reread = [];
+    next.retired = [];
+    const rows = [...next.registry.values()].filter((row) => row.sourceReleased && row.id !== skipId);
+    const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
+    got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
+    const failed = got.find((r) => r.status === 'rejected');
+    if (failed) throw failed.reason;
+    rows.forEach((row, i) => {
+      next.retired.push(row.gltf);
+      Object.assign(row, got[i].value, { node: null, instanceId: null, sourceReleased: false });
+    });
   };
   const inspectionSwitch = inspectionLod ? createLatestDetailSwitch({
     initial: detailLevel,
@@ -2415,7 +2472,9 @@ async function boot() {
           next.asset = await loaded.loadDetailAsset(record, level);
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
-          Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          Object.assign(next.registry.get(record.id), next.asset,
+            { node: null, instanceId: null, sourceReleased: false });
+          await rereadReleased(next, record.id);
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
@@ -2475,6 +2534,12 @@ async function boot() {
         api.roll = buildings.roll;
         previous.dispose();
         disposeLoadedAsset(oldAsset);
+        for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
+        if (coarse) {
+          settleOnGpu(buildings.group);
+          releaseSources(loaded.registry);
+          closeUploadedImages(buildings.group, renderer);
+        }
       }
       if (next.contextCity) {
         const previous = contextCity;
@@ -2511,7 +2576,7 @@ async function boot() {
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
-      if (coarse) releaseAfterUpload(scene3d, renderer);
+      if (coarse) releaseAfterUpload(scene3d);
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -2585,7 +2650,7 @@ async function boot() {
         ...detailOpts(),
       });
       scene3d.add(trees.group);
-      if (coarse) releaseAfterUpload(scene3d, renderer);
+      if (coarse) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
       confidence.set(confidence.enabled);
@@ -2807,7 +2872,8 @@ async function boot() {
     onTravelStop: () => travel?.stop('button'),
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
-    resolvedQuality: qualityGuess,
+    resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
+    lowered: crashBoot.lowered,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -2841,8 +2907,10 @@ async function boot() {
         // the next frame carries it.
         world.setBrightness(value);
       } else if (key === 'quality') {
+        crashGuard.chosen('quality');
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, value));
       } else if (key === 'detail') {
+        crashGuard.chosen('detail');
         applyDetail(value);
       } else if (key === 'compass') {
         navigation.setCompassVisible(value);
@@ -3093,7 +3161,8 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, resolveSharpness(hud.settings.quality, coarse)));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1,
+    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse)));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -3812,7 +3881,7 @@ async function boot() {
   }
   // T-2158: before anything is uploaded, a phone marks the layers that may let
   // go of their page arrays once the GPU has them (upload-release.js).
-  if (coarse) releaseAfterUpload(scene3d, renderer);
+  if (coarse) releaseAfterUpload(scene3d);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);
@@ -4132,6 +4201,8 @@ async function boot() {
     exposure: { get: () => renderer.toneMappingExposure, enumerable: true },
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
     uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
+    /** T-2548: GLBs banked for a detail switch — none on a phone. */
+    bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.

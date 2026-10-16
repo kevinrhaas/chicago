@@ -236,7 +236,7 @@ async function fetchAsset(url) {
  * }>}
  */
 export async function loadScene(year, bases = resolveBases(), {
-  onProgress = () => {}, version = null, detail = 'full',
+  onProgress = () => {}, version = null, detail = 'full', keepAssetBytes = true,
 } = {}) {
   const { dataBase, assetBase } = bases;
   const problems = [];
@@ -312,11 +312,15 @@ export async function loadScene(year, bases = resolveBases(), {
   let bytes = 0;
   // Keep compressed bytes, not a parsed scene whose materials batching may modify.
   // Only opt-in LOD records use this cache; a light boot never fetches the full GLB.
+  // T-2548: a phone does not bank them (`keepAssetBytes: false`). It boots `light`
+  // and almost never switches, and on 1904 the bank was the whole 32.6 MB Glessner
+  // light GLB held for a switch that, when it comes, the HTTP cache answers.
   const assetBytes = new Map();
+  const bank = (record) => keepAssetBytes && hasInspectionLod(record);
   async function loadDetailAsset(record, level) {
     const assetUrl = detailAssetUrl(record, level, bases);
     const key = String(assetUrl);
-    let got = hasInspectionLod(record) ? assetBytes.get(key) : null;
+    let got = bank(record) ? assetBytes.get(key) : null;
     if (!got) {
       got = await fetchAsset(assetUrl);
       bytes += got.buffer.byteLength;
@@ -335,7 +339,7 @@ export async function loadScene(year, bases = resolveBases(), {
       gltf.parser = null;
       // A 200 response can still contain a damaged GLB. Bank only bytes that
       // decoded, and evict any failed cached parse so retry can fetch repaired data.
-      if (hasInspectionLod(record)) assetBytes.set(key, got);
+      if (bank(record)) assetBytes.set(key, got);
       return { gltf, assetUrl: key, assetDetail: level,
         assetIsPlaceholder: !!header?.asset?.extras?.placeholder,
         assetRetried: got.retried, loadFailed: null };
@@ -464,5 +468,7 @@ export async function loadScene(year, bases = resolveBases(), {
 
   await Promise.all(loads.map(p => p.finally(() => onProgress(++completed, entries.length))));
   return { year, scene, datum, registry, problems, get bytes() { return bytes; },
-    index, versionState, loadDetailAsset, sharedImages: sharedImages.stats };
+    index, versionState, loadDetailAsset, sharedImages: sharedImages.stats,
+    /** T-2548: how many GLBs are banked for a detail switch — the harness reads it. */
+    get bankedAssets() { return assetBytes.size; } };
 }
