@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1896, ts: '2026-10-16T22:45:37.979Z', date: 'Oct 16, 2026, 5:45 PM CT', title: 'Prairie Avenue\'s draft houses lose their stray towers', kind: 'fix',
+    items: [
+      'The Pullman house at 18th Street no longer has a tall tower standing on its lawn. Its front portico is now a one-storey porch.',
+      'Thin full-height slabs that stood beside many draft houses are gone. Most are now part of the house\'s walls, and the rest are one-storey side entries.',
+      'Houses only three or four metres wide, such as 2013 and 1736, are now at least 5.5 m wide, like a normal row house.',
+      'Bays and porches that floated a step away from the front wall now stand against it.',
+      '71 houses and coach houses on the 16th to 22nd Street blocks were rebuilt. They are still drafts until their own refine passes.',
+    ] },
   { v: 1895, ts: '2026-10-16T22:43:05.832Z', date: 'Oct 16, 2026, 5:43 PM CT', title: 'A WebGPU renderer tried on the Glessner block, and measured', kind: 'chore',
     items: [
       'Nothing you can see changed in the town: this is a measured trial of a possible second renderer, kept off the site.',
