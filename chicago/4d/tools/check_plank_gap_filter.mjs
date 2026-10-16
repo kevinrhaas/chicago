@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 /**
  * T-2037: source-side contracts for filtering unresolved plank gaps.
  *
@@ -32,6 +33,10 @@ const mod = await import(moduleURL(source
     "const resolveBases = () => { throw new Error('scene loading outside this check'); };")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
   .replace("from './relief-pack.js'", `from '${pathToFileURL(path.join(web, 'js/relief-pack.js')).href}'`)
+  // T-2572: the pick module, loaded as itself with its own `three` import pointed home.
+  .replace("from './gpu-pick.js'", `from 'data:text/javascript;base64,${Buffer.from(
+    readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
+    .toString('base64')}'`)
   + '\nexport { timberBuf, plainTimber, laySegment, pushBox, plankGapAttribute, filterPlankGaps, PLANK_GAP_M };'));
 const confidenceSource = await readFile(path.join(web, 'js/confidence.js'), 'utf8');
 const { createConfidenceView } = await import(moduleURL(
