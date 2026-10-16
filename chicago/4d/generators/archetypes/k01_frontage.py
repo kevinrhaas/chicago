@@ -76,7 +76,8 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.coping           the weathered coping over the base: fall, overhang and a
                             drip groove under its nose
   k01.wall.corner_bond      a quoin on the south return, long and short in turn
-                            against the front's own corner stone
+                            against the front's own corner stone (T-2581: or a straight
+                            strip, stone_front.south_return_m, on every course)
   k01.opening.flat_arch     voussoirs over every front opening K09 leaves a flat
                             head (the area lights, the third floor), their joints
                             radiating and each stone's bed turned along its joint
@@ -1253,7 +1254,8 @@ class Assembly:
                         # to the centimetre, so two returns never leave the brick a sliver
                         ret = round(rng.uniform(0.8 * rhi, rhi) if long_side else rng.uniform(rlo, 1.2 * rlo), 2)
                         first = lo if long_side else min(hi, 0.75 * hi)
-                        quoins.append((ret, ya, yb, kind, jh, jv, r))
+                        if "south_return_m" not in k:   # T-2581: a strip is laid below
+                            quoins.append((ret, ya, yb, kind, jh, jv, r))
                         parity += 1
                     full = abs(fy0 - ya) < 1e-9 and abs(fy1 - yb) < 1e-9
                     pieces = _lay(rng, sa, sb, lo, hi, first, prev_joints if full else ())
@@ -1285,6 +1287,12 @@ class Assembly:
                         if 1e-9 < s1 < length - 1e-9:
                             joints_here.append(s1)
             prev_joints = joints_here
+            if "south_return_m" in k:
+                # T-2581: every course turns the corner the same length, the strip's edge
+                # straight against the brick, up to the wall head
+                quoins.append((k["south_return_m"], ya, yb, kind, jh, jv, r))
+        if "south_return_m" in k and E - ytop > 0.02:
+            quoins.append((k["south_return_m"], ytop, E, "walling", wk["joint_m"] / 2, wk["joint_m"] / 2, r_wall))
         for s0, s1, y1, y2 in arches:
             self.flat_arch(frame, s0, s1, y1, y2 - y1, conf, r_wall)
         if af:
@@ -1360,17 +1368,37 @@ class Assembly:
         conf = self.p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front")
         cid = "k01.wall.corner_bond"
         rows = sorted(quoins, key=lambda q: q[1])
+        strip = "south_return_m" in k
+        prev = ()
         for i, (ret, ya, yb, kind, jh, jv, r) in enumerate(rows):
             seed = self.instance(cid, "wall", {"return_m": ret, "bed_m": ya, "height_m": yb - ya, "kind": kind,
                                                "fabric": k["fabric"]},
                                  {"corner": P(length, ya, 0.0)})
             inst = len(self.components[cid]["instances"]) - 1
             s0 = length - ret
-            rock = random.Random(seed ^ 0x5EED).uniform(*self._rock_range(ya, yb))
-            self.stone(frame, [(s0, ya), (length, ya), (length, yb), (s0, yb)],
-                       [0.0 if ya <= 1e-9 else jh, 0.0, jh, jv], "rough_stone_trim",
-                       self._stone_seed(cid, inst, 0), conf, recess=r, bevel=k["wall"]["bevel_m"],
-                       rock=rock, chips=k["wall"])
+            if not strip:
+                rock = random.Random(seed ^ 0x5EED).uniform(*self._rock_range(ya, yb))
+                self.stone(frame, [(s0, ya), (length, ya), (length, yb), (s0, yb)],
+                           [0.0 if ya <= 1e-9 else jh, 0.0, jh, jv], "rough_stone_trim",
+                           self._stone_seed(cid, inst, 0), conf, recess=r, bevel=k["wall"]["bevel_m"],
+                           rock=rock, chips=k["wall"])
+            else:
+                # T-2581: a straight strip is cut into the front's own blocks, its rising
+                # joints kept off the course below's; a trim course turns as dressed trim
+                trim = kind in ("coping", "belt", "band")
+                spec = k["trim_edges"] if trim else k["wall"]
+                lo, hi = k["trim_block_m"] if trim else k["block_m"]
+                pieces = _lay(random.Random(seed), s0, length, lo, hi, None, prev)
+                prev = [b for _, b in pieces[:-1]]
+                top = i + 1 == len(rows)
+                for j, (a0, a1) in enumerate(pieces):
+                    bseed = self._stone_seed(cid, inst, j)
+                    rock = 0.0 if trim else random.Random(bseed ^ 0x5EED).uniform(*self._rock_range(ya, yb))
+                    self.stone(frame, [(a0, ya), (a1, ya), (a1, yb), (a0, yb)],
+                               [0.0 if ya <= 1e-9 else jh, 0.0 if a1 >= length - 1e-9 else jv,
+                                0.0 if top else jh, jv], "limestone_trim" if trim else "rough_stone_trim",
+                               bseed, conf, recess=r, bevel=spec["bevel_m"], rock=rock,
+                               chips=None if trim else spec)
             steps = [((s0, yb, -r), (s0, ya, -r), (s0, ya, 0.0), (s0, yb, 0.0), R)]
             below = rows[i - 1] if i > 0 and abs(rows[i - 1][2] - ya) < 1e-6 else None
             above = rows[i + 1] if i + 1 < len(rows) and abs(rows[i + 1][1] - yb) < 1e-6 else None
@@ -2818,7 +2846,8 @@ def build(params, structure_id: str):
     # to meet the rear's as the south one meets it at the south-west
     sc_conf = p.worst_conf("storey_heights_m", "construction", "service_wall_brick")
     # A blank south wall (T-2350: 1634's party wall with 1636) carries none, as the north one
-    courses = ([("k01.wall.side.south", -k03_brick.STRING_PROUD, D)] if p.side_bays else []) \
+    south_to = D - p.stone["south_return_m"] if p.stone and "south_return_m" in p.stone else D   # T-2581
+    courses = ([("k01.wall.side.south", -k03_brick.STRING_PROUD, south_to)] if p.side_bays else []) \
         + [("k01.wall.rear_service", 0.0, W)]
     if p.north_bays:
         courses.append(("k01.wall.side.north", 0.0, D + k03_brick.STRING_PROUD))
