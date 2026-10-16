@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1848, ts: '2026-10-16T05:40:10.065Z', date: 'Oct 16, 2026, 12:40 AM CT', title: 'A phone on Prairie Avenue holds about 78 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1904 Prairie Avenue door now holds about 78 MB less in its page memory once the street is drawn. That memory is where phones were running out and closing the tab.',
+      'Every house\'s original model data is let go once the street has its own copy, and Glessner\'s whole downloaded model is no longer kept for a detail change. Changing detail on a phone fetches the houses again, normally from the browser\'s cache.',
+      'Each house\'s decoded pictures are also closed once the graphics card has them, rather than being held twice.',
+      'The same houses draw the same frame before and after a detail change. Tapping a house still opens its card. A computer keeps everything, so its detail changes stay instant.',
+    ] },
   { v: 1847, ts: '2026-10-16T05:37:55.472Z', date: 'Oct 16, 2026, 12:37 AM CT', title: 'The prairie no longer looks like a plaid from the air', kind: 'improvement',
     items: [
       'Flying over 1835, the open prairie used to read as an even grid of light and dark squares. It now breaks into irregular stands of lush and thin grass, with yellower and fresher patches.',
