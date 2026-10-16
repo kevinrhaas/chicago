@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 1858, ts: '2026-10-16T09:44:29.356Z', date: 'Oct 16, 2026, 4:44 AM CT', title: 'Keith\'s roofline crowned in stone, as the photographs show it', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the cornice under the pierced stone parapet is now granite like the rest of the front. The brown timber-coloured band that ran beneath the lattice is gone, so the crown reads as one stone mass from the top-floor windows to the sky, as it does in the 1888 plate and the later photographs.',
+    ] },
+  { v: 1857, ts: '2026-10-16T09:41:43.490Z', date: 'Oct 16, 2026, 4:41 AM CT', title: 'Buildings\' surface details packed four to a slot', kind: 'improve',
+    items: [
+      'Nothing you can see changed. Each building corner\'s sheen, evidence grade, wood grain and log tone now share one four-byte slot instead of taking four each, so the 1835 town\'s buildings hold 30.4 MB of corner data instead of 41.0 MB, 24 bytes a corner.',
+      'It is more of the memory phones were running out of. Storing the corners\' positions in smaller numbers comes next.',
+    ] },
+  { v: 1856, ts: '2026-10-16T09:06:51.286Z', date: 'Oct 16, 2026, 4:06 AM CT', title: 'A phone in 1835 holds about 50 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1835 town now holds about 50 MB less once it is drawn (796 MB to 746 MB), which is where phones were running out of memory.',
+      'The plank walks, fences and yard goods now store their shading directions, colours and painted marks in smaller number formats. That is 12 to 16 fewer bytes for every corner of every board, and the graphics card reads the new formats directly.',
+      'The same views draw the same frame as before on a phone and on a computer, with the evidence colours on or off. Tapping a walk, fence or yard still opens the same card.',
+    ] },
+  { v: 1855, ts: '2026-10-16T08:48:27.483Z', date: 'Oct 16, 2026, 3:48 AM CT', title: '1812 Prairie rises under its shaped Flemish gable, built from Levy\'s photograph', kind: 'feature',
+    items: [
+      'George H. Wheeler\'s 1884 house at 1812 Prairie Avenue is no longer a rough draft: it stands three storeys over a raised stone basement at the heights Albert Levy\'s photograph of its front shows.',
+      'Its front is carried up as the tall shaped gable the photograph shows, swelling from a pinnacle at each corner to a pointed head under a stone finial, edged in stone, with its attic window. The draft\'s stepped boxes are gone.',
+      'The south part of the front projects through two storeys with its large round-arched window and its paired window above. The arched entrance and its stair are on the north.',
+      'Still to come from the same photograph: the balcony, the third storey\'s arched windows, the brick upper walls over the stone, and the roof behind the gable.',
+    ] },
+  { v: 1854, ts: '2026-10-16T08:15:32.079Z', date: 'Oct 16, 2026, 3:15 AM CT', title: 'Keith\'s loggia carved as the 1888 photograph shows it', kind: 'improve',
+    items: [
+      'At 1808 Prairie, each pair of entrance columns now shares one carved Ionic capital, rolled into volutes. The balcony above sits level on a deep cornice, with a stepped stone finial on its stair-side corner.',
+      'Both stone stair cheeks now end at the street in a rolled scroll foot. The bow\'s second-floor windows are taller, reaching up under its moulded cap as they do in the 1888 plate.',
+    ] },
   { v: 1853, ts: '2026-10-16T08:06:58.094Z', date: 'Oct 16, 2026, 3:06 AM CT', title: 'Buildings take about a third less phone memory', kind: 'improve',
     items: [
       'Nothing you can see changed. Each building\'s paint is now stored once per piece instead of once per corner, and its surface directions and texture positions in smaller numbers, so the 1835 town\'s buildings hold 48.6 MB on the graphics chip instead of 74.4 MB.',

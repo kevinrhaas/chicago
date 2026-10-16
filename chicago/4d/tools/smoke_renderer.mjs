@@ -10924,11 +10924,13 @@ for (const [label, viewport, touch] of [
       const bs = window.__chicago4d.buildings.batches;
       const seen = new Set();
       let min = Infinity, max = -Infinity;
+      // T-2574: roughness is lane x of the packed scalars, a byte over 200
+      // (compact-attributes.js SCALAR_CODES).
       for (const b of bs) {
-        const a = b.geometry.getAttribute('_roughness');
+        const a = b.geometry.getAttribute('_chiScalars');
         if (!a) continue;
-        for (let i = 0; i < a.array.length; i += 1) {
-          const v = a.array[i];
+        for (let i = 0; i < a.array.length; i += 4) {
+          const v = a.array[i] / 200;
           seen.add(v.toFixed(3));
           if (v < min) min = v;
           if (v > max) max = v;
@@ -10953,15 +10955,15 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const roughFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     await page.evaluate(() => {
-      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_roughness');
+      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_chiScalars');
       window.__chiRoughSaved = a.array.slice();
-      a.array.fill(0.02);
+      for (let i = 0; i < a.array.length; i += 4) a.array[i] = 4;   // 0.02 x 200
       a.needsUpdate = true;
     });
     const roughFlat = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dRough = signatureDistance(roughFull, roughFlat);
     await page.evaluate(() => {
-      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_roughness');
+      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_chiScalars');
       a.array.set(window.__chiRoughSaved);
       a.needsUpdate = true;
       delete window.__chiRoughSaved;

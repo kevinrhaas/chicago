@@ -1,10 +1,10 @@
 {
   "id": "wheeler_house_1812_prairie",
-  "name": "1812 Prairie Avenue — Wheeler Dutch/Flemish gable rowhouse (district draft; refined by T-1884, T-1885)",
+  "name": "1812 Prairie Avenue — George H. Wheeler house (Burnham & Root, 1884), a stone and brick front under a shaped Flemish gable",
   "aka": [
     "1812 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,29 +14,30 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1884, T-1885 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1812-b1), the T-1841 census (s28-1812-front) and the T-1837 register row frontage-28-038 (Wheeler Dutch/Flemish gable rowhouse); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_note": "Refined from the district draft (T-2329) in place under the same id by T-2543, piece 1 of T-1884: K01 frontage kit, built from Albert Levy's photograph (levy_1812_prairie_photo, camera data/reference_views/wheeler_house_1812_prairie/levy_front.json) on the 1911 sheet's plan (s28fp-1812-b1). What the kit cannot yet build as the photograph shows is listed in the camera's match record and is T-2544's and T-2545's; every invention is L-k01-1812-wheeler-front-2543.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_built_1884",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
         "confidence": "inferred",
         "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
+          "sanborn_1911_chicago_v3_sheet_28",
+          "levy_1812_prairie_photo"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more."
       },
       "position": {
-        "utm_e": 448432.953,
-        "utm_n": 4634137.834,
+        "utm_e": 448442.797,
+        "utm_n": 4634135.69,
         "rotation_deg": -0.616,
         "symbolic_location": "1812 S. Prairie Avenue, parcel prairie_1812 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 21.750, v -1.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the K01 main body at its south (low-v) side, on the 1911 sheet's traced main part (s28fp-1812-b1) through the T-1250 fit of the sheet: the draft's origin moved 9.82 m toward the street and 2.25 m south along its own frame (T-2543), to where the trace's south strip begins (sheet-local x 1370.0, y -3260.25). The georeference's independent check is 1.47 m RMS. Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -49,147 +50,546 @@
             0.0
           ],
           [
-            24.5,
+            15.1,
             0.0
           ],
           [
-            24.5,
-            6.0
+            15.1,
+            8.5
           ],
           [
             0.0,
-            6.0
+            8.5
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body: the trace's front 15.1 m from the street wall (sheet-local x 1385.1) back to where its south strip begins (x 1370.0), and the full 8.5 m width the trace draws from the south wall (y -3260.25) to 0.13 m short of 1808's south wall (y -3251.63 on the trace), so the two never touch. The permit's '30x80' (9.1 m by 24.4 m) is the same house in round feet. The 1.6 m deeper part of the trace behind it is the rear range (rear_wings)."
       },
       "form": {
         "stories": {
           "value": 3,
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "levy_1812_prairie_photo"
           ],
-          "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+          "note": "'3B' printed on the 1911 sheet: 3 full storeys, which the photograph shows over its raised basement, and the 1884 permit's '3-story dwelling'."
         },
         "construction": {
-          "value": "brick",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "The register reads the map's colours as 'brick'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "shaped_gable",
-                "rect": [
-                  0.0,
-                  0.0,
-                  24.5,
-                  6.0
-                ],
-                "from": "s28fp-1812-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 91% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  9.75,
-                  -2.25,
-                  18.0,
-                  0.0
-                ],
-                "from": "s28fp-1812-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 91% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  19.0,
-                  -2.25,
-                  26.25,
-                  0.0
-                ],
-                "from": "s28fp-1812-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 91% of its fill"
-              }
-            ],
-            "lot_v": [
-              -2.52,
-              6.02
-            ],
-            "street_u": 32.214
-          },
+          "value": "brick_with_stone_front",
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "levy_1812_prairie_photo"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1812-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 91% of its fill; s28fp-1812-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 91% of its fill; s28fp-1812-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 91% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "The sheet colours the building brick; the photograph shows a stone basement and first storey under brick upper storeys dressed in stone. K01's K02 front faces the whole street front in one fabric, so the street front is laid in stone here and the brick upper wall is T-2544's (the kit's to learn); the sides and rear are brick."
         },
-        "draft_elevation": {
+        "principal_floor_m": {
+          "value": 1.65,
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "Read through the photograph's camera (data/reference_views/wheeler_house_1812_prairie/levy_front.json): the entrance landing stands 148 px over the walk at the front's 88.5 px a metre, 1.67 m, and the stair rises to it in about seven risers; built at 1.65 m."
+        },
+        "storey_heights_m": {
+          "value": [
+            3.95,
+            3.85,
+            3.0
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "Floor to floor at the front's plane, through the photograph's camera: the belt over the first storey stands at about 5.6 m over the walk, the projection's top (the balcony's floor) at 9.45 m, and the third storey's two arched windows rise to crowns at about 12.2 m, over the gable's kneelers (11.6 m): the wall head is set just over them, at 12.45 m. The third storey's wall head is K01's eave; the gable stands on it (shaped_gable)."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "A stone-faced street wall of a three-storey house: 18 inches, as K01's other stone fronts (L-k01-1812-wheeler-front-2543)."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "13-inch brick side walls, as 1621's (L-k01-1812-wheeler-front-2543)."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "The sides and rear in K03's common brick, laid in common bond, as the row's other K01 houses (L-k01-1812-wheeler-front-2543)."
+        },
+        "stone_front": {
           "value": {
-            "kind": "house",
-            "seed": 1189256121,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
+            "fabric": "sandstone_brown",
+            "dressing": "rock_faced",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.23,
+            "corner_bond": []
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph shows the basement in rock-faced stone and the first storey in coursed stone; its monochrome does not say which stone. Built in K02's brown sandstone, rock-faced, over two rusticated base courses (L-k01-1812-wheeler-front-2543)."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.surround.rowhouse_restrained",
+              "k09.surround.rowhouse_restrained"
             ],
-            "roof_pitch_deg": 52,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 1,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2329",
-              "refined_by": [
-                "T-1884",
-                "T-1885"
+            "apron": "k09.trim.foliate_panel",
+            "apron_storeys": [],
+            "apron_over_belt": true
+          },
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "K09's restrained dressings, as 1621's, until the photograph's stone bands and carved bosses are built (T-2544; L-k01-1812-wheeler-front-2543)."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber",
+            "pairs": {
+              "spacing_m": 1.6
+            },
+            "paint": {
+              "color": [
+                0.045,
+                0.04,
+                0.035
               ]
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'gable' overlaid with the frontage row: The register's 'high shaped gable and attic grid window' on a 3B rowhouse: the shaped gable is the house's silhouette, so it is the one feature drawn; the oriel and balcony are T-1884's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1189256121 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
+          "sources": [],
+          "note": "K10's bracketed timber eave, the cornice K01 hangs under a hip, painted dark as 1612's; no picture shows the side walls' heads, and on the front the gable stands in front of it (L-k01-1812-wheeler-front-2543)."
         },
-        "draft": {
+        "roof_form": {
+          "value": "hip",
+          "confidence": "reconstructed",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph shows the roof only at the gable's two front corners, a steep slated slope rising behind each shoulder; the roof behind the gable is T-2545's. Built as K01's hip, its street slope behind the gable (L-k01-1812-wheeler-front-2543)."
+        },
+        "roof_pitch_deg": {
+          "value": 45,
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "Steep enough to show at the gable's shoulders as the photograph does, and to stand its ridge (16.7 m) under the gable's apex (17.0 m); the Pennsylvania slate is cut for 45 degrees and steeper (L-k01-1812-wheeler-front-2543)."
+        },
+        "eave_overhang_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "Deep enough for K10's brackets; on the street front the gable stands in front of it (L-k01-1812-wheeler-front-2543)."
+        },
+        "stair_tread_m": {
+          "value": 0.28,
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "K07's ordinary tread."
+        },
+        "stair_landing_depth_m": {
+          "value": 1.0,
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "K07's ordinary landing."
+        },
+        "stoop_width_m": {
+          "value": 1.8,
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "Between the stair's two balustrades the photograph shows treads about 1.7-1.8 m wide."
+        },
+        "entrance_bay": {
+          "value": "north",
+          "confidence": "attested",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph puts the arched entrance and its stair at the north end of the front, beside the south projection."
+        },
+        "front_bays": {
+          "value": [
+            2.6,
+            6.45
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The two bays' centres along the front from the south wall, through the photograph's camera: the projection's and the large arched window's over it (about 2.5-2.8 m) and the entrance's, the paired window's over it and the small arched window's (6.4-6.5 m)."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "south_projection",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.street_front",
+              "s_m": 2.675,
+              "fabric": "front_stone",
+              "plan": {
+                "width_m": 4.75,
+                "proud_m": 1.2
+              },
+              "storeys": [
+                {
+                  "height_m": 1.65,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.9,
+                      "clear_height_m": 0.65,
+                      "sill_m": 0.72,
+                      "at": [
+                        0.5
+                      ],
+                      "grille": {
+                        "bars": 9,
+                        "set_back_m": 0.04,
+                        "ring_radius_m": 0.25
+                      },
+                      "why_not_ordinary": "the basement light under the arched window, read off the photograph: about 1.9 m wide and 1 m high from about 0.1 m over the walk, barred with ironwork; built 0.65 m high on a 0.72 m sill, because K08 keeps a storey's openings clear of its 0.6 m plinth (the light's true height and its scrolls are T-2544's) (T-2543)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.95,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight_wide",
+                      "clear_width_m": 1.45,
+                      "clear_height_m": 2.5,
+                      "sill_m": 0.58,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the first storey's large round-arched window, read off the photograph: 1.45 m between its jambs, its sill 0.58 m over the floor and its crown about 2.5 m over the sill (T-2543)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.85,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_paired_flat",
+                      "clear_width_m": 2.3,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.63,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the second storey's paired window under its transom, read off the photograph: 2.3 m across the pair (T-2543)"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.0,
+                "covering": "tin_flat_seam_painted"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The south projection: the photograph shows the south part of the front carried forward through the basement and the first two storeys to a flat top at the third floor, where the balcony stands; it reads 4.75-5.0 m across against (built at 4.75 m, which lands its north face on the photograph's within a few pixels) the sheet's 8.5 m front (the sheet's own step is 3.9 m from the south wall, which the photograph does not bear out, and it is built to the photograph). It stands out 1.2 m, the kit's most against the sheet's 1.3 m, and 0.3 m in from the south corner where the photograph has it flush, because K08 keeps a bay that far from a corner (built otherwise, L-k01-1812-wheeler-front-2543). Its openings are the photograph's; its deck is K08's flat tin until the balcony is built on it (T-2544)."
+        },
+        "side_bays": {
+          "value": [],
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "No picture shows the side walls; their windows are T-2545's (L-k01-1812-wheeler-front-2543)."
+        },
+        "north_bays": {
+          "value": [],
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "The north wall stands at the lot line beside 1808: blank."
+        },
+        "rear_bays": {
+          "value": [],
+          "confidence": "reconstructed",
+          "sources": [],
+          "note": "No picture shows the rear (L-k01-1812-wheeler-front-2543)."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_range",
+              "rect": [
+                -10.6,
+                0.0,
+                1.65,
+                8.35
+              ],
+              "floor_m": 1.65,
+              "storey_heights_m": [
+                3.95,
+                3.85,
+                3.0
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 1.0,
+                  "height_m": 2.3
+                },
+                {
+                  "sill_above_floor_m": 0.7,
+                  "width_m": 1.0,
+                  "height_m": 2.0
+                },
+                {
+                  "sill_above_floor_m": 0.7,
+                  "width_m": 1.0,
+                  "height_m": 1.6
+                }
+              ],
+              "windows": {
+                "south": [
+                  3.0,
+                  7.6
+                ],
+                "rear": [
+                  2.0,
+                  4.7
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The trace's rear part, behind the main body: 10.6 m deep and narrower by the 1.65 m south strip, carried at the house's three storeys ('3B' covers the whole outline); its windows and flat deck are reconstructed (L-k01-1812-wheeler-front-2543)."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.51,
+              "width_m": 1.15,
+              "height_m": 2.18
+            },
+            {
+              "sill_above_floor_m": 0.55,
+              "width_m": 1.15,
+              "height_m": 1.2
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The main wall's windows through the photograph's camera: the second storey's pair over the entrance is 1.66 m across and is laid at K01's widest sash, 1.15 m (the contract's range), until the pair is built (T-2544), its sill 0.51 m over the floor and 2.18 m to its transom's head; the third storey's two arched windows are laid here flat-headed, 1.15 m wide and 1.2 m high under the soffit, until their arches and fanlight are built (T-2544). The first storey has no window on the main wall: its south bay is the projection's and its north bay the entrance."
+        },
+        "basement_lights": {
           "value": {
-            "pass": "T-2329",
-            "liberty": "L-draft-prairie-18-20-west-2329",
-            "register_row": "frontage-28-038",
-            "census_ids": [
-              "s28-1812-front"
-            ],
-            "trace_building": "s28fp-1812-b1",
-            "seed": 1189256121,
-            "replaceable_by": [
-              "T-1884",
-              "T-1885"
-            ],
-            "card": "District draft — refined by T-1884, T-1885."
+            "sill_m": 0.35,
+            "width_m": 0.85,
+            "height_m": 0.6
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "sources": [],
+          "note": "K01's basement lights on the walls no picture shows (L-k01-1812-wheeler-front-2543)."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "slate_pennsylvania",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll"
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph's slopes at the gable's shoulders are laid in small units; slate, as the row's other K01 roofs (L-k01-1812-wheeler-front-2543)."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              1.0,
+              0.9
+            ],
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 9.0,
+                "v_m": 0.8,
+                "in_parapet": false
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph shows one tall corbelled stack over the south wall behind the gable; its place along the wall is reconstructed."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "painted_tin_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 1.5
+              },
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 13.4
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph shows a downpipe down each end of the front; neither is built on the front yet, because the north one would stand on the eave's corner bracket and the projection stands where the south one comes down (T-2544); the two pipes here run down the south wall, clear of its corner brackets. The gutter is K04's half-round on brackets (L-k01-1812-wheeler-front-2543)."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_paired_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph's windows on the main wall are paired sashes; the basement lights stand above grade on the raised basement, so they have no area well."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 6.0,
+              "reveal_depth_m": 0.32,
+              "arch": {
+                "ring_m": 0.3,
+                "keystone_top_m": 4.65,
+                "keystone_m": [
+                  0.24,
+                  0.3
+                ]
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The photograph's entrance is a round-arched porch on the north bay over a straight stair: K07's deep round-arched doorway. The porch's own broad arch (about 3.2 m across, its crown about 5.2 m over the walk) and the door's side light under it are the kit's to learn (T-2544)."
+        },
+        "shaped_gable": {
+          "value": {
+            "profile_m": [
+              [
+                4.07,
+                11.63
+              ],
+              [
+                3.42,
+                12.88
+              ],
+              [
+                2.8,
+                13.78
+              ],
+              [
+                2.12,
+                14.57
+              ],
+              [
+                1.7,
+                14.97
+              ],
+              [
+                1.24,
+                15.14
+              ],
+              [
+                0.85,
+                15.59
+              ],
+              [
+                0.51,
+                16.15
+              ],
+              [
+                0.23,
+                16.61
+              ],
+              [
+                0.0,
+                17.0
+              ]
+            ],
+            "foot_m": 11.3,
+            "thickness_m": 0.8,
+            "proud_m": 0.05,
+            "lights": {
+              "variant": "k06.opening.attic_group_3",
+              "sill_m": 13.33,
+              "width_m": 1.64,
+              "height_m": 1.26,
+              "at_m": [
+                0.0
+              ]
+            },
+            "coping": {
+              "width_m": 0.28,
+              "proud_m": 0.04
+            },
+            "kneelers": {
+              "at_m": 4.3,
+              "shaft_m": 0.3,
+              "top_m": 12.9,
+              "cap_m": 0.08,
+              "spire_m": 0.35
+            },
+            "finial": {
+              "height_m": 0.5,
+              "radius_m": 0.12
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "levy_1812_prairie_photo"
+          ],
+          "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. Built otherwise: K06's attic group of three lights stands for the photograph's nine (three by three); the slab is 0.8 m thick and its face stands 0.05 m in front of the hip's street fascia, 0.5 m in front of the wall below it, so the eave dies into it, where the photograph's gable is the wall's own plane; under the curves the base runs out square past the eave's corners to a ledge just over the fascia, and the kneelers' pinnacles stand on it (L-k01-1812-wheeler-front-2543)."
         }
       }
     }

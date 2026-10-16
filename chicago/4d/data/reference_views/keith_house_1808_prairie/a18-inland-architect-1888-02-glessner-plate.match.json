@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-inland-architect-1888-02-glessner-plate",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
+  "glb_sha256": "c79a9c8d5112ebfb8f0306a7c128cbe90840ccc06ba5f52fb7f7ac1585aa60f8",
   "camera_sha256": "6ae1e21e4ae7634680f0c896b25b531ac805169a6e2ec26c5d5994cfcda66dda",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-inland-architect-1888-02-glessner-plate-side-by-side.jpg",
   "verdict": "differs",
@@ -32,8 +32,8 @@
       "status": "open"
     },
     {
-      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
-      "status": "open"
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

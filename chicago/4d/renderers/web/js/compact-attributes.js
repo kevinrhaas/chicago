@@ -29,10 +29,10 @@
  * AND the converted copy — more than the float32 it replaced, on the very
  * phone whose memory crashes this exists for. So the normal is padded to four
  * bytes, a tone to four, and the float scalars (`_roughness`, `_confidence`,
- * `_grain`) stay float32 here: compacting them means packing them together
- * into one four-byte attribute, which needs the shaders that read them to
- * change, and is its own piece of work. `compactPlan` refuses a rule whose
- * stride is not a multiple of four.
+ * `_grain`, the piece tone) are not given byte rules at all: they are PACKED
+ * together into one four-byte attribute, which the shaders that read them
+ * decode (T-2574, § the four scalars below). `compactPlan` refuses a rule
+ * whose stride is not a multiple of four.
  *
  * POSITIONS ARE THEIR OWN CASE (T-2575), because a position is not in any fixed
  * range: `quantizePositions` writes them as Int16 x4 normalized (8 bytes, the
@@ -200,4 +200,118 @@ export function structureFrameGLSL(name) {
     #else
       vec3 ${name} = transformed;
     #endif`;
+}
+
+/**
+ * THE FOUR SCALARS IN ONE FOUR-BYTE ATTRIBUTE (T-2574).
+ *
+ * The header's rule is why this exists: a lone byte-wide scalar is a
+ * misaligned stride on Metal, so `_roughness`, `_confidence`, `_grain` and the
+ * piece tone went on costing four bytes each in float32 — sixteen bytes a
+ * vertex of four numbers that each take a handful of values. Packed into one
+ * `Uint8 x4` they cost four, and the stride is four.
+ *
+ * The bytes are NOT normalized. WebGL hands the shader each one as a float from
+ * 0 to 255, and the shader divides by the lane's own scale, so each lane picks
+ * the scale that makes the values the dataset actually writes come out exact:
+ *
+ *   x  roughness    byte / 200          every two-decimal finish is exact;
+ *                                       clamped to [0, 1], as three clamps it.
+ *   y  confidence   byte / 254          0, 0.5 and 1 are exact (0, 127, 254).
+ *                                       A normalized byte reads 0.5 as 0.50196
+ *                                       and `chicago_wInferred` as 0.992; this
+ *                                       reads it as 0.5. Clamped to [0, 1] and
+ *                                       NaN to 0, as the shader always did.
+ *   z  grain        (byte - 128) / 100  ±1 and ±0.3 exact, and its SIGN kept
+ *                                       (a negative grain is a standing timber,
+ *                                       wall-relief.js); 0 where none is bound.
+ *   w  piece tone   byte / chiToneScale the scale is PER BATCH: the largest
+ *                                       WHOLE number that still fits the
+ *                                       batch's largest tone in a byte (255
+ *                                       when none exceeds 1). Whole, so a tone
+ *                                       of 1 is the byte `scale` and reads
+ *                                       exactly 1 — an untoned mesh in a toned
+ *                                       batch is not brightened by a rounding.
+ *
+ * Every clamp above is one the shader already applied to the float, so it
+ * changes no pixel. The shaders read the lanes through SCALARS_GLSL, the one
+ * place the scales are written in GLSL.
+ */
+export const SCALARS = '_chiScalars';
+
+/** source attribute -> its lane, its scale (null: the batch's tone scale), its
+ *  zero byte, the value a geometry without it carries, and its clamp. */
+export const SCALAR_CODES = {
+  _roughness: { lane: 0, scale: 200, zero: 0, fill: 1, min: 0, max: 1 },
+  _confidence: { lane: 1, scale: 254, zero: 0, fill: 0, min: 0, max: 1 },
+  _grain: { lane: 2, scale: 100, zero: 128, fill: 0, min: -1.28, max: 1.27 },
+  _tone: { lane: 3, scale: null, zero: 0, fill: 1, min: 0, max: Infinity },
+};
+
+const LANES = 'xyzw';
+const glslFloat = (v) => (Number.isInteger(v) ? v.toFixed(1) : String(v));
+function laneGLSL(code, scale) {
+  const byte = `_chiScalars.${LANES[code.lane]}`;
+  return `(${code.zero ? `(${byte} - ${glslFloat(code.zero)})` : byte} / ${scale})`;
+}
+
+/** GLSL for each lane, and the declaration every patch that reads one needs. */
+export const SCALARS_GLSL = {
+  roughness: laneGLSL(SCALAR_CODES._roughness, glslFloat(SCALAR_CODES._roughness.scale)),
+  confidence: laneGLSL(SCALAR_CODES._confidence, glslFloat(SCALAR_CODES._confidence.scale)),
+  grain: laneGLSL(SCALAR_CODES._grain, glslFloat(SCALAR_CODES._grain.scale)),
+  tone: laneGLSL(SCALAR_CODES._tone, 'chiToneScale'),
+  /**
+   * Prepend the attribute once. Three patches read it on one material (the
+   * batch's own, wall-relief's and confidence's), each chained over the last,
+   * and GLSL refuses a second declaration.
+   */
+  declare(vertexShader) {
+    const decl = `attribute vec4 ${SCALARS};\n`;
+    return vertexShader.includes(decl) ? vertexShader : decl + vertexShader;
+  },
+};
+
+/** The tone scale for a batch of geometries: the largest whole number that
+ *  fits its largest `_tone` in a byte. */
+export function toneScaleOf(geometries) {
+  let most = 1;
+  for (const g of geometries) {
+    const a = g.getAttribute('_tone');
+    if (!a) continue;
+    for (let i = 0; i < a.count; i += 1) {
+      const v = a.getX(i);
+      if (v > most) most = v;
+    }
+  }
+  return Math.max(1, Math.floor(255 / most));
+}
+
+/**
+ * Write `geometry`'s four scalars into one `Uint8 x4` attribute and delete the
+ * float sources, in place. Every geometry in a batch must be packed with the
+ * batch's one `toneScale`.
+ */
+export function packScalars(geometry, toneScale) {
+  const n = geometry.getAttribute('position').count;
+  const out = new Uint8Array(n * 4);
+  for (const [name, code] of Object.entries(SCALAR_CODES)) {
+    const src = geometry.getAttribute(name);
+    const scale = code.scale ?? toneScale;
+    for (let i = 0; i < n; i += 1) {
+      let v = src ? src.getX(i) : code.fill;
+      if (!(v === v)) v = code.fill;
+      v = Math.min(code.max, Math.max(code.min, v));
+      out[i * 4 + code.lane] = Math.min(255, Math.max(0, Math.round(v * scale + code.zero)));
+    }
+    if (src) geometry.deleteAttribute(name);
+  }
+  geometry.setAttribute(SCALARS, new THREE.BufferAttribute(out, 4, false));
+  return geometry;
+}
+
+/** The value a shader reads from lane `name` of vertex `i` — the readback. */
+export function unpackScalar(attribute, name, i, toneScale = 255) {
+  const code = SCALAR_CODES[name];
+  return (attribute.array[i * 4 + code.lane] - code.zero) / (code.scale ?? toneScale);
 }

@@ -54,16 +54,17 @@
         }
       },
       "mobile": {
-        "total_bytes": 943718400,
-        "reading_bytes": 834304118,
+        "total_bytes": 865075200,
+        "reading_bytes": 781704808,
         "tier": "light",
         "reading_mb": {
-          "total": 795.7,
-          "js_heap": 106.4,
-          "arraybuffers": 332.5,
-          "gpu_buffers": 236,
+          "total": 745.5,
+          "js_heap": 106.3,
+          "arraybuffers": 298.2,
+          "gpu_buffers": 220.1,
           "gpu_textures": 120.9
-        }
+        },
+        "lowered": "T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
       }
     },
     "1904": {
