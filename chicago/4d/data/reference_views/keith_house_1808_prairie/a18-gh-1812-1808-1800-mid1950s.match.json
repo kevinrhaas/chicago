@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "48fbf44c632e46bd69c919dd12659f45952f21fd08a9d19cc4d6592896ad457e",
+  "glb_sha256": "e39a46317d078813df5e4c199df9d1df7ffa4b7c64d653a3a030682d7a77f00a",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,7 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections, pinnacle caps and stair-head scrolls are schematic rather than the photographed profiles.",
+      "what": "T-2565 re-carved the loggia from the 1888 plate and the 1965 view (paired capitals, a level balcony with its finial, rolled cheek feet, taller second-storey bow lights); not yet compared at this view's scale.",
       "status": "open"
     },
     {

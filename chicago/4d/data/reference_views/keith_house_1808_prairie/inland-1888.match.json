@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "48fbf44c632e46bd69c919dd12659f45952f21fd08a9d19cc4d6592896ad457e",
+  "glb_sha256": "e39a46317d078813df5e4c199df9d1df7ffa4b7c64d653a3a030682d7a77f00a",
   "camera_sha256": "aa73292751ab8c79534ce99cd81e0979f29aba52b020ab6481b8be3c4e3eac14",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,15 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections, pinnacle caps and stair-head scrolls are schematic rather than the photographed profiles.",
+      "what": "T-2565: one carved capital spans each pair of columns, rolled into a volute at each end; the balcony has a level coping between square dies, the flight-side die carrying the stepped stone finial; a deep three-step cornice carries it; and both stair cheeks end in a rolled foot, as this plate shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2565: the bow's second-storey lights run up to just under its moulded cap (2.5 m on a 0.75 m sill), as the plate draws them; they were 2.2 m and stopped well short of it.",
+      "status": "fixed"
+    },
+    {
+      "what": "Pinnacle caps, the volutes' turns, the egg row and the panels' foliage are drawn to the plate's shadows rather than read; the bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
       "status": "open"
     },
     {
