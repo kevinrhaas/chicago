@@ -97,7 +97,9 @@ PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_fro
                                        # T-2313: K15 builds the chimney stacks in the roof
                                        "k15_chimneys.py",
                                        # T-2358: K14 weathers a record that names it
-                                       "k14_condition.py"),
+                                       "k14_condition.py",
+                                       # T-2543: the shaped street gable, joined into the roof
+                                       "k01_shaped_gable.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers

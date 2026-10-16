@@ -39288,31 +39288,19 @@
           "domain": "structure",
           "structure": "wheeler_house_1812_prairie",
           "phase": "as_built_1884",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "wheeler_house_1812_prairie",
-          "phase": "as_built_1884",
           "aspect": "form.eave_overhang_m"
         },
         {
           "domain": "structure",
           "structure": "wheeler_house_1812_prairie",
           "phase": "as_built_1884",
-          "aspect": "form.rainwater"
+          "aspect": "form.north_bays"
         },
         {
           "domain": "structure",
           "structure": "wheeler_house_1812_prairie",
           "phase": "as_built_1884",
           "aspect": "form.rear_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "wheeler_house_1812_prairie",
-          "phase": "as_built_1884",
-          "aspect": "form.rear_wings"
         },
         {
           "domain": "structure",
@@ -39342,13 +39330,19 @@
           "domain": "structure",
           "structure": "wheeler_house_1812_prairie",
           "phase": "as_built_1884",
-          "aspect": "form.shaped_gable"
+          "aspect": "form.side_bays"
         },
         {
           "domain": "structure",
           "structure": "wheeler_house_1812_prairie",
           "phase": "as_built_1884",
-          "aspect": "form.side_bays"
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "wheeler_house_1812_prairie",
+          "phase": "as_built_1884",
+          "aspect": "form.stair_tread_m"
         },
         {
           "domain": "structure",
@@ -39394,7 +39388,7 @@
         },
         {
           "label": "Covers",
-          "text": "`wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_form`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.bays`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_wings`, `wheeler_house_1812_prairie.as_built_1884.form.basement_lights`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`, `wheeler_house_1812_prairie.as_built_1884.form.rainwater`, `wheeler_house_1812_prairie.as_built_1884.form.shaped_gable`."
+          "text": "`wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_form`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.basement_lights`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`."
         },
         {
           "label": "Ticket",
