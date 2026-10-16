@@ -7,30 +7,30 @@
     1192
   ],
   "principal_px": [
-    1232.3096944505141,
-    874.872949347784
+    900,
+    835.5324811680192
   ],
-  "focal_px": 848.9596517187299,
+  "focal_px": 2610.1398323494936,
   "eye": [
-    32.499129684227775,
-    36.421563562273015,
+    71.51981573831279,
+    40.80112189467185,
     1.7
   ],
-  "yaw_deg": 260.3698564870381,
+  "yaw_deg": 254.58563894838352,
   "basis_right_up_forward": [
     [
-      -0.16725116764270434,
-      0.9856942762833425,
-      0.020828841168188263
+      -0.26579775737534905,
+      0.9640288129377851,
+      0.0
     ],
     [
-      0.0034844039260074878,
-      -0.020535324533350763,
-      0.9997830561554794
+      0.0,
+      0.0,
+      1.0
     ],
     [
-      -0.9859081629905659,
-      -0.167287459627336,
+      -0.9640288129377851,
+      -0.26579775737534905,
       0.0
     ]
   ],
@@ -39,5 +39,5 @@
     -0.7,
     1.4
   ],
-  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 27.33px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 10.42, 0.0], [18.0, 32.9752, 0.0], [18.0, 10.42, 8.4856], [18.0, 32.9752, 8.4856], [18.0, 10.4, 16.44], [15.2, 10.4, 16.44]]; pixels [[145.0, 955.0], [1200.0, 957.0], [148.0, 513.0], [1164.0, 482.0], [240.0, 218.0], [350.0, 260.0]]; projected [[174.1, 930.25], [1174.8, 970.74], [182.15, 543.95], [1184.89, 486.43], [188.98, 181.94], [342.09, 271.68]]. July 1948, Robert C. Florian via Glessner House Museum. Trees and Glessner conceal most of Keith; later weathering and ivy are not dated to 1904."
+  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll 0), eye height 1.7 m reconstructed, least squares over 6 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, f, cy; fixed: h=1.7, roll=0, cx=900. Read: the north-east and rear pinnacle apexes on the north return; the northernmost third-storey light's head and sill at its north jamb and its south jamb head; the lattice coping at its north end. Roll held at 0 (verticals vertical). Controls world [u, v, y] -> pixels (free = coordinate not used): [17.86, 10.252, 17.27] -> [237.5, 160.6]; [12.729, 10.18, 17.468] -> [342.5, 200]; [17.873, 8.244, 12.634] -> [159, 362.5]; [17.9, 8.24, 10.45] -> [159, 455]; [17.885, 7.679, 12.677] -> [131, 362.5]; [17.968, 9.578, 16.31] -> [214, 197.5]. Projected [[237.6, 156.5], [340.5, 200.5], [159.5, 362.8], [158.7, 457.1], [137.6, 362.0], [208.9, 199.2]]. Per-control residual px [4.1, 2.1, 0.6, 2.1, 6.6, 5.3]; coordinate RMS 4.04 px, max 6.60 px. Scale at the subject: 43.2 px/m at 60.4 m, so the RMS is about 0.09 m. Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). July 1948, Robert C. Florian via Glessner House Museum. Trees and Glessner conceal most of Keith; later weathering and ivy are not dated to 1904."
 }

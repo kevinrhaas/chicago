@@ -7,30 +7,30 @@
     2400
   ],
   "principal_px": [
-    547.0820355243109,
-    -2386.8621714243523
+    514.2832172048355,
+    1442.888615654164
   ],
-  "focal_px": 3756.830461296374,
+  "focal_px": 2528.2371508544697,
   "eye": [
-    94.6348944174441,
-    109.02691244542052,
+    77.12630107139769,
+    49.47285846521424,
     1.7
   ],
-  "yaw_deg": 180.00000000000003,
+  "yaw_deg": 255.27207104936988,
   "basis_right_up_forward": [
     [
-      0.0199546160062145,
-      -6.417893993038697e-18,
-      0.9998008868269944
+      -0.0018401056745391182,
+      0.00700016197777001,
+      0.9999738055286206
     ],
     [
-      0.9998008868269944,
-      -3.2156049025465545e-16,
-      -0.0199546160062145
+      0.25422275175443676,
+      -0.967118609185964,
+      0.007237973239000542
     ],
     [
-      -3.216245299353273e-16,
-      -1.0,
+      -0.967143943010299,
+      -0.2542294111594712,
       0.0
     ]
   ],
@@ -39,5 +39,5 @@
     -0.7,
     1.4
   ],
-  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 28.80px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 10.42, 0.0], [18.0, 32.9752, 0.0], [18.0, 10.42, 8.4856], [18.0, 32.9752, 8.4856], [18.0, 10.4, 16.44], [15.2, 10.4, 16.44]]; pixels [[414.109375, 487.1875], [395.83984375, 1449.3828125], [761.23046875, 523.7265625], [809.94921875, 1351.9453125], [1041.36328125, 563.91953125], [1041.36328125, 685.71640625]]; projected [[424.06, 530.98], [387.58, 1396.35], [747.29, 537.43], [806.67, 1404.71], [1050.19, 542.89], [1048.06, 649.52]]. February 1888 Inland Architect Glessner plate: the photograph is printed rotated on the page; roll is in the camera, the source raster is unaltered. Glessner conceals the lower Keith front. Monochrome colour not shown."
+  "solve": "T-2579 re-fit: a level camera (verticals vertical; roll fitted), eye height 1.7 m reconstructed, least squares over 5 controls read from the picture at full resolution, each against the model's own point (picked from the committed GLB by ray-casting the render, or a known apex). Free: u, v, yaw, roll, f, cx, cy; fixed: h=1.7. The photograph is printed a quarter turn round on the page, so roll is about 90 degrees (prior 90 +/- 1.5) and the source raster is unaltered. Read: both return pinnacle apexes; the northernmost third-storey light's head and sill at its north jamb and its south jamb head. Controls world [u, v, y] -> pixels (free = coordinate not used): [17.86, 10.252, 17.27] -> [1093.6, 580]; [12.729, 10.18, 17.468] -> [1060.5, 682.3]; [17.873, 8.244, 12.634] -> [914.4, 514.6]; [17.9, 8.24, 10.45] -> [836, 514.6]; [17.885, 7.679, 12.677] -> [914.4, 495.4]. Projected [[1093.0, 579.6], [1060.4, 682.2], [915.4, 514.6], [834.0, 514.5], [916.0, 496.0]]. Per-control residual px [0.7, 0.1, 1.0, 2.0, 1.7]; coordinate RMS 1.29 px, max 1.97 px. Scale at the subject: 37.3 px/m at 67.8 m, so the RMS is about 0.03 m. Replaces the T-1883 fit (RMS 4.5-28.8 px across these five views, three of which shared one set of six control coordinates). February 1888 Inland Architect Glessner plate: the photograph is printed rotated on the page; roll is in the camera, the source raster is unaltered. Glessner conceals the lower Keith front. Monochrome colour not shown."
 }
