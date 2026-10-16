@@ -13,13 +13,13 @@ import {pathToFileURL, fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 const sourceRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const checks=[];
-function check(name,fn){fn();checks.push(name);}
+async function check(name,fn){await fn();checks.push(name);}
 const threeURL=pathToFileURL(path.join(sourceRoot,'renderers/web/vendor/three-0.185.1/three.module.js')).href;
 const THREE=await import(threeURL);
 const modURL=s=>'data:text/javascript;base64,'+Buffer.from(s).toString('base64');
 const spatialSource=await readFile(path.join(sourceRoot,'renderers/web/js/spatial-batch.js'),'utf8');
 const jobsURL=pathToFileURL(path.join(sourceRoot,'renderers/web/js/jobs/')).href;
-const {spatialBatch}=await import(modURL(spatialSource.replace("from 'three'",`from '${threeURL}'`).replaceAll("from './jobs/",`from '${jobsURL}`)));
+const {spatialBatch,spatialBatchAsync}=await import(modURL(spatialSource.replace("from 'three'",`from '${threeURL}'`).replaceAll("from './jobs/",`from '${jobsURL}`)));
 const terrainSource=await readFile(path.join(sourceRoot,'renderers/web/js/terrain.js'),'utf8');
 const baseStride=Number(terrainSource.match(/const GROUND_BASE_STEP = (\d+)/)[1]);
 const baseOffset=Number(terrainSource.match(/groundBase\.position\.y = (-?[\d.]+)/)[1]);
@@ -136,20 +136,20 @@ const subset=predicate=>{
 };
 const edges={before:edgeAudit(original),after:edgeAudit(adaptive)};
 const all=subset(()=>true);
-check('only emitted crossings request terrain protection',()=>{
+await check('only emitted crossings request terrain protection',()=>{
  assert.deepEqual(footprints.map(f=>f.id).sort(),allWalks.filter(w=>w.kind==='board_crossing').map(w=>w.id).sort());
  assert.ok(footprints.length>0);
 });
-check('baseline reproduces buried crossing top faces',()=>{
+await check('baseline reproduces buried crossing top faces',()=>{
  assert.ok(all.beforeBuried>0,'the unprotected witness must expose the original defect');
  assert.ok(all.beforeMax>.1,'the measured defect exceeds 100 mm');
  assert.equal(rows.filter(r=>r.kind!=='board_crossing').reduce((a,r)=>a+r.beforeBuried,0),0);
 });
-check('all actual emitted top faces clear protected terrain',()=>{
+await check('all actual emitted top faces clear protected terrain',()=>{
  assert.equal(all.afterBuried,0);assert.equal(all.beforeMissing,0);assert.equal(all.afterMissing,0);
  assert.ok(all.afterMax<-.04,'retain at least 40 mm of geometric clearance');
 });
-check('adaptive transitions share every internal edge with upward winding',()=>{
+await check('adaptive transitions share every internal edge with upward winding',()=>{
  for(const mesh of Object.values(edges)){
   assert.equal(mesh.internalOpen,0);assert.equal(mesh.nonmanifold,0);
   assert.equal(mesh.down,0);assert.equal(mesh.degenerate,0);
@@ -162,12 +162,12 @@ check('adaptive transitions share every internal edge with upward winding',()=>{
 // they cost 668 triangles (9,470 over 105, about 134 each). 10,000 holds those and about four
 // more crossings; the terrain base mesh is orders of magnitude larger, so this is headroom on
 // a locality check, not a frame-cost claim. A crossing that costs far more than ~134 still trips it.
-check('crossing refinement stays local and below its measured 10000-triangle allocation',()=>{
+await check('crossing refinement stays local and below its measured 10000-triangle allocation',()=>{
  assert.ok(adaptive.stats.refinedCells>0);
  assert.ok(adaptive.stats.protectedCells<200);
  assert.ok(adaptive.stats.triangles-original.stats.triangles<=10000);
 });
-check('partial edge cells keep their shared transitions closed',()=>{
+await check('partial edge cells keep their shared transitions closed',()=>{
  const field={loaded:true,cols:10,rows:9,cellM:1,originE:0,originN:0,data:new Float32Array(90).fill(1)};
  field.data[2*10+2]=.5;
  field.sample=(e,n)=>{const c=Math.min(8,Math.floor(e)),r=Math.min(7,Math.floor(n)),u=e-c,v=n-r;
@@ -178,7 +178,7 @@ check('partial edge cells keep their shared transitions closed',()=>{
  assert.equal(audit.internalOpen,0);assert.equal(audit.nonmanifold,0);
  assert.equal(audit.down,0);assert.equal(audit.degenerate,0);
 });
-check('repeated terrain replacement disposes each geometry once',()=>{
+await check('repeated terrain replacement disposes each geometry once',()=>{
  const geometries=[];
  const make=()=>{const geometry={disposed:0,userData:{adaptiveGround:{}},dispose(){this.disposed++;}};geometries.push(geometry);return geometry;};
  const groundBase={geometry:make()},disposables=[groundBase.geometry];
@@ -191,7 +191,7 @@ check('repeated terrain replacement disposes each geometry once',()=>{
  for(const d of disposables)d.dispose();
  assert.ok(geometries.every(g=>g.disposed===1));
 });
-check('batching and repeated crossing protection preserve placement and release every buffer',()=>{
+await check('batching and repeated crossing protection preserve placement and release every buffer',async()=>{
  const counts=[];
  const track=geometry=>{const row={disposed:0};counts.push(row);geometry.addEventListener('dispose',()=>row.disposed++);return geometry;};
  const make=()=>{const geometry=track(new THREE.BufferGeometry());
@@ -205,9 +205,10 @@ check('batching and repeated crossing protection preserve placement and release 
  const batch=terrainSource.match(/batchDistantGround\(\) \{([\s\S]*?)\n    \},/)?.[1];
  assert.ok(protect&&batch,'both actual terrain APIs exist');
  const build=(geometry,mat)=>{const mesh=spatialBatch(geometry,mat);track(mesh.geometry);return mesh;};
- const api=new Function('groundBase','heightfield','gridGeometry','GROUND_BASE_STEP','disposables','spatialBatch','group',
-  `return {protect(footprints){${protect}},batch(){${batch}},current:()=>groundBase};`)(initial,{loaded:true},make,baseStride,disposables,build,group);
- api.protect([]);assert.equal(api.batch(),true);assert.equal(api.batch(),false);
+ const buildAsync=async(geometry,mat)=>{const mesh=await spatialBatchAsync(geometry,mat);track(mesh.geometry);return mesh;};
+ const api=new Function('groundBase','heightfield','gridGeometry','GROUND_BASE_STEP','disposables','spatialBatch','spatialBatchAsync','group',
+  `return {protect(footprints){${protect}},async batch(){${batch}},current:()=>groundBase};`)(initial,{loaded:true},make,baseStride,disposables,build,buildAsync,group);
+ api.protect([]);assert.equal(await api.batch(),true);assert.equal(await api.batch(),false);
  api.protect([]);api.protect([]);
  const current=api.current();
  assert.equal(disposables.length,1);assert.equal(disposables[0],current);
@@ -234,7 +235,7 @@ globalThis.fetch=async url=>{
 const fixtureLayer=await frontage.createFrontage({dataBase,terrain:{surfaceHeight:()=>1,isWater:()=>false,
  protectGroundUnder:value=>{fixtureProtection=value;}}});
 globalThis.fetch=savedFetch;
-check('publication protects accepted crossings at their actual default width',()=>{
+await check('publication protects accepted crossings at their actual default width',()=>{
  assert.deepEqual(fixtureProtection.map(f=>f.id),['accepted']);
  const north=fixtureProtection[0].pts.map(p=>p[1]);
  assert.equal(Math.max(...north)-Math.min(...north),1.22);

@@ -68,7 +68,7 @@ import { GRIT_TILE_M } from './ground-strip-mask.js';
 import { DIRT_TONES, linearTone, roadGrit } from './streets.js';
 import { swardTexture, swardUniforms } from './terrain.js';
 import { ditherHash } from './lakeshore.js';
-import { spatialBatch } from './spatial-batch.js';
+import { spatialBatchAsync } from './spatial-batch.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -734,10 +734,11 @@ function rectRing(frame, u0, u1, v0, v1) {
 /**
  * @param {object} o records (the enclosure records) · terrain · confidence ·
  *                   problems
- * @returns {{group: THREE.Group, interiors: object[], census: object,
- *            suppressesSward: function, treatmentAt: function, dispose: function}}
+ * @returns {Promise<{group: THREE.Group, interiors: object[], census: object,
+ *            suppressesSward: function, treatmentAt: function, dispose: function}>}
+ *          async since T-2600: its surfaces are partitioned on the job pool
  */
-export function createFencedGround({
+export async function createFencedGround({
   records = [], terrain, confidence = null, problems = [],
 } = {}) {
   const group = new THREE.Group();
@@ -951,6 +952,7 @@ export function createFencedGround({
   // earths and the bed, the grass grain for the green.
   const tiles = { grit: roadGrit(), sward: swardTexture() };
   const disposables = [tiles.grit.texture, tiles.sward];
+  const laid = [];
   for (const [surface, buf] of buffers) {
     if (!buf.pos.length) continue;
     const geo = new THREE.BufferGeometry();
@@ -993,7 +995,13 @@ export function createFencedGround({
     // materials that agree on their other program parameters share a compiled
     // program and one of them is drawn by the other's shader.
     mat.customProgramCacheKey = () => `chicago4d-yard-${surface}`;
-    const mesh = spatialBatch(geo, mat);
+    laid.push({ surface, geo, mat, map, mesh: spatialBatchAsync(geo, mat) });
+  }
+  // T-2600: every surface's cells are cut on the job pool at once, and the
+  // meshes join the group in the order they were laid, so the layer is the same.
+  const meshes = await Promise.all(laid.map((l) => l.mesh));
+  laid.forEach(({ surface, geo, mat, map }, i) => {
+    const mesh = meshes[i];
     geo.dispose();
     mesh.name = `yard-${surface}`;
     // A ground treatment lies ON the ground: it receives what the town casts
@@ -1005,7 +1013,7 @@ export function createFencedGround({
     group.add(mesh);
     disposables.push(mesh, mat);
     if (map) disposables.push(map);
-  }
+  });
   group.userData.census = out.census;
   if (!group.children.length) {
     problems.push('yards: every fenced interior refused its ground — nothing is laid inside '

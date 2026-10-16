@@ -23,7 +23,7 @@
  */
 
 import * as THREE from 'three';
-import { spatialBatch } from './spatial-batch.js';
+import { spatialBatchAsync } from './spatial-batch.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 
 const STEP_M = 2.25;
@@ -1793,7 +1793,7 @@ function weldNormals(geo) {
   nor.needsUpdate = true;
 }
 
-function meshOf(surface, buf, confidence, aidUniform, grit) {
+async function meshOf(surface, buf, confidence, aidUniform, grit) {
   if (!buf.idx.length) return null;
   const geo = geometryOf(surface, buf);
   const tones = DIRT_TONES[surface] ?? DIRT_TONES.worn_earth;
@@ -1930,7 +1930,8 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
     );
   };
   confidence?.patch(mat);
-  const mesh = spatialBatch(geo, mat);
+  // T-2600: the road's 40 m cells are cut on the job pool; the batch is the same.
+  const mesh = await spatialBatchAsync(geo, mat);
   geo.dispose();
   mesh.name = `streets-${surface}`;
   mesh.receiveShadow = true;
@@ -1939,7 +1940,7 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
   return { mesh, geo: mesh.geometry, mat };
 }
 
-export function createStreets({ terrain, records = [], confidence = null, detail = 'full' } = {}) {
+export async function createStreets({ terrain, records = [], confidence = null, detail = 'full' } = {}) {
   const group = new THREE.Group();
   group.name = 'streets';
   // A PLATTED BUT UNOPENED STREET DRAWS NOTHING. The twelve east-west lines Wright
@@ -1985,12 +1986,18 @@ export function createStreets({ terrain, records = [], confidence = null, detail
   const aidUniform = { value: 0 };
   // T-1811. One grit tile for the whole town, shared by every surface.
   const grit = buffers.size ? roadGrit() : null;
-  for (const [surface, buf] of buffers) {
-    const built = meshOf(surface, buf, confidence, aidUniform, grit);
-    if (!built) continue;
+  // T-2600: every surface is partitioned on the job pool at once, and joins the
+  // group in the order it was laid, so the layer is the same one.
+  const surfaces = [...buffers];
+  const builds = await Promise.all(surfaces.map(([surface, buf]) => meshOf(surface, buf, confidence, aidUniform, grit)));
+  builds.forEach((built, i) => {
+    if (!built) return;
     group.add(built.mesh);
-    resources.push({ ...built, surface });
-  }
+    resources.push({ ...built, surface: surfaces[i][0] });
+  });
+  // Which change of detail is the latest; an older one still on the pool when a
+  // newer one is asked for is dropped when it lands rather than drawn.
+  let detailAsked = 0;
 
   function hitsAt(e, n, widthKey = 'corridor_width_m') {
     const hits = [];
@@ -2101,19 +2108,33 @@ export function createStreets({ terrain, records = [], confidence = null, detail
     /** Whether the panels are laid on the ridge at the current detail. */
     get ridged() { return ridge; },
     /**
-     * A change of scene detail, applied in place: the same meshes and
-     * materials, new geometry. Returns whether anything was rebuilt — only a
-     * move across `light` changes how the road is laid.
+     * A change of scene detail, applied in place: the same materials, new
+     * geometry. Resolves whether anything was rebuilt — only a move across
+     * `light` changes how the road is laid. T-2600: the new geometry's cells are
+     * cut on the job pool, all surfaces at once; the old meshes draw until the
+     * new ones are swapped in together, and a change superseded by a later one
+     * resolves false with its meshes never drawn.
      */
-    setDetail(level) {
+    async setDetail(level) {
       if (!level || ridgeAt(level) === ridge) return false;
       ridge = ridgeAt(level);
+      const asked = ++detailAsked;
       const next = layOut(ridge);
-      for (const r of resources) {
+      const rebuilt = await Promise.all(resources.map(async (r) => {
         const buf = next.buffers.get(r.surface);
-        if (!buf?.idx.length) continue;
+        if (!buf?.idx.length) return null;
         const geo = geometryOf(r.surface, buf);
-        const mesh = spatialBatch(geo, r.mat);
+        return { geo, mesh: await spatialBatchAsync(geo, r.mat) };
+      }));
+      if (asked !== detailAsked) {
+        for (const built of rebuilt) {
+          if (built) { built.mesh.dispose(); built.geo.dispose(); }
+        }
+        return false;
+      }
+      resources.forEach((r, i) => {
+        if (!rebuilt[i]) return;
+        const { geo, mesh } = rebuilt[i];
         mesh.name = r.mesh.name;
         mesh.receiveShadow = r.mesh.receiveShadow;
         mesh.castShadow = r.mesh.castShadow;
@@ -2125,11 +2146,12 @@ export function createStreets({ terrain, records = [], confidence = null, detail
         group.add(mesh);
         r.mesh = mesh;
         r.geo = mesh.geometry;
-      }
+      });
       Object.assign(stats, next.counts);
       return true;
     },
     dispose() {
+      detailAsked++; // a rebuild still on the pool lands on nothing
       for (const r of resources) {
         r.mesh.dispose();
         r.mat.dispose();

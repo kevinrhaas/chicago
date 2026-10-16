@@ -1903,7 +1903,8 @@ async function boot() {
   // The dated street layer is a skin on the heightfield, never a replacement
   // for it.  Mount it before vegetation so the travelled strips can clear only
   // the plants that would otherwise grow through the visible wagon tracks.
-  const streets = createStreets({
+  // T-2600: its surfaces are partitioned on the job pool, so the layer resolves.
+  const streets = await createStreets({
     terrain,
     records: draws('streets') ? (loaded.index?.streets ?? []) : [],
     confidence,
@@ -2055,7 +2056,7 @@ async function boot() {
    * not take the ground with it. It takes the enclosure records straight off the
    * layer above rather than re-fetching them.
    */
-  const yards = createFencedGround({
+  const yards = await createFencedGround({
     records: enclosures.records, terrain, confidence, problems,
   });
   scene3d.add(yards.group);
@@ -2104,7 +2105,8 @@ async function boot() {
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;
-  terrain.batchDistantGround();
+  // T-2600: the distant base's cells are cut on the job pool.
+  await terrain.batchDistantGround();
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
    * walker stands on (T-0119): the river walk's crossing footway lies over the
@@ -2661,7 +2663,9 @@ async function boot() {
       residency?.setTier(level);
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
-      streets.setDetail?.(level);
+      // T-2600: the road's new cells are cut on the job pool and swapped in when
+      // they land, after this commit; a phone lets go of their page arrays then.
+      const streetsRebuilt = streets.setDetail?.(level);
       void streetTrees.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
@@ -2670,6 +2674,12 @@ async function boot() {
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
       if (coarse) releaseAfterUpload(scene3d);
+      void Promise.resolve(streetsRebuilt).then((rebuilt) => {
+        if (rebuilt && coarse) releaseAfterUpload(scene3d);
+      }, (error) => {
+        problems.push(`streets: the ${level} road could not be laid: ${error?.message ?? error}`);
+        console.error('[4D Chicago] streets detail', error);
+      });
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -2706,7 +2716,9 @@ async function boot() {
     void streetTrees.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
-    streets.setDetail?.(level);
+    // T-2600: cut on the job pool; awaited in the serialised run below, before
+    // a phone's release, so the arrays it lets go of are the new road's.
+    const streetsRebuilt = streets.setDetail?.(level);
     // The yard's weeds thin with the tier (T-2478).
     railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
@@ -2744,6 +2756,7 @@ async function boot() {
         ...detailOpts(),
       });
       scene3d.add(trees.group);
+      await streetsRebuilt;
       if (coarse) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
