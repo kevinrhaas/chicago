@@ -19,6 +19,7 @@ match records re-rendered and stay `differs`. NEW, and left for T-2580: the hall
 the coping beside the ventilator in five renders, where every one of those pictures shows sky — the
 cowl pipe plausibly terminates that flue, with the stack below the coping; and the c. 1888 view
 puts the cap higher over the coping than its render does, which T-2579's re-fitted cameras decide.
+
 ## T-2572 — a tap on the walks, fences and yard goods is answered by the GPU (2026-10-16)
 
 Piece 1 of T-2550. `renderers/web/js/gpu-pick.js` draws the candidate chunks into one
