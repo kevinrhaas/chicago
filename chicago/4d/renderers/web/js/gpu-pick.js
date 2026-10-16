@@ -200,6 +200,9 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     target: renderer.getRenderTarget(), autoClear: renderer.autoClear,
     alpha: renderer.getClearAlpha(), shadow: renderer.shadowMap.autoUpdate,
     infoReset: renderer.info.autoReset,
+    // The frame's own counts: the pick passes are not the visitor's frame, and a
+    // stats() read before the next frame would otherwise report them as drawn.
+    render: { ...renderer.info.render },
   };
   renderer.getClearColor(clear);
   texel.fill(0);
@@ -221,6 +224,7 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     renderer.autoClear = was.autoClear;
     renderer.shadowMap.autoUpdate = was.shadow;
     renderer.info.autoReset = was.infoReset;
+    Object.assign(renderer.info.render, was.render);
     cam.clearViewOffset();
     // Hold no layer's geometry past the pick: a rebuilt layer disposes its old chunks.
     for (let i = 0; i < stood; i += 1) pool[i].geometry = EMPTY;
