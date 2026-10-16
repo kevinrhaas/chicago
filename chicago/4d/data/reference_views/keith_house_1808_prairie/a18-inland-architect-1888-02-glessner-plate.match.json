@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-inland-architect-1888-02-glessner-plate",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "589e34370553820032ffb0dc52f48659e1f52d9b8d47c86cf4f495352d32e0cf",
+  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
   "camera_sha256": "c52b3e8c746c93bfe5811e4ca853710f93f59c6fcbc0abe2244864a16ed6dfa9",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-inland-architect-1888-02-glessner-plate-side-by-side.jpg",
   "verdict": "differs",
@@ -48,8 +48,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2579: under the lattice the photographs show a narrow fillet and then a band of small, staggered, diamond-pointed units about 1 m deep directly below the openings; the model puts a deeper plain band and a moulding there and lays larger rock-faced blocks in five courses lower down, so its band reads taller and lower than the pictures'.",
-      "status": "open"
+      "what": "T-2579: under the lattice the photographs show a narrow fillet and then a band of small, staggered, diamond-pointed units about 1 m deep directly below the openings; the model puts a deeper plain band and a moulding there and lays larger rock-faced blocks in five courses lower down, so its band reads taller and lower than the pictures'. T-2679: built as these pictures show it: five staggered rows of diamond-pointed units (a point on each, in the front's rock-faced stone, on a dressed ground in a checker), 0.84 m deep with its top at the foot of the moulded course under the lattice, the street cornice box above that course brought back to a 0.06 m fillet, and plain ground 0.28 m down to the head band.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

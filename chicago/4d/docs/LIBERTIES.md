@@ -28538,3 +28538,32 @@ The dormer side overhang is reconstructed at144mm from the native section's appr
 **Ticket:** T-2228
 
 **Recorded:** 2026-10-16
+
+### L-k01-keith-boss-2679 — Keith's crown: the diamond points' section, the boss's carving, the lattice head and the fillet under it
+
+**Decision:** Keith's checker band is laid as five staggered rows of diamond-pointed units on a
+dressed ground, 0.84 m deep with its top at the foot of the moulded course under the lattice and
+plain ground 0.28 m down to the head band; the lattice's two rows open 0.27 m under a 0.32 m solid
+head; the street cornice box between the moulded course and the lattice stands 0.06 m proud, a
+fillet, where it projected the full 0.35 m eave; and a carved boss about 0.34 m across stands on
+the north-east corner, ending the moulded course, which stops 0.34 m short of the corner (T-2679,
+piece 1 of T-2587).
+**What is read, not invented:** that the units are small and pointed and lie in a checker, one
+row's points over the gaps of the row below, in five rows about 0.8-0.9 m deep directly under the
+moulding (Florian 1948 through T-2579's re-fitted camera, about 47 px/m, and the 1888 Glessner
+plate's camera, about 37 px/m); the plain gap and the moulding below the band (Florian about
+0.19 m, the Glessner plate about 0.4 m, so 0.28 m splits them); the rows' heights and the deeper
+head (Florian reads them about 15.40-15.66 and 15.77-16.05 m under a coping near 16.4 m); the
+lattice's plain base standing nearly in the front's plane; and the boss, its place on the
+north-east corner at the moulding's end and its size (25 px at 76 px/m in the c. 1888 view
+beside Glessner).
+**What is invented:** each point's section (a square plinth 12 mm high under a four-faced point
+0.09 m proud, about 0.22 m wide by 0.14 m deep) and the faces' rock dressing, which reconciles
+Florian's points with the 1888 Keith plate's rough lumps at its grain; the fillet's 0.06 m; the
+boss's projection (0.3 m) and its lobed carving, which is below every picture's grain; and that
+the south corner has no boss (the plate shows the south shaft and none there, through trees).
+**How to resolve:** a sharper print of the street front's crown; T-2680's re-solved cameras,
+which place Keith's height against Glessner and so the stack under the lattice in the c. 1888 view.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`; `keith_house_1808_prairie.as_built_1886.form.wall_head`.
+**Ticket:** T-2679 (piece 1 of T-2587).
+**Recorded:** 2026-10-16 (T-2679).
