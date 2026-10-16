@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1884, ts: '2026-10-16T20:28:59.829Z', date: 'Oct 16, 2026, 3:28 PM CT', title: 'Cards stop printing "[object Object]" and quoting 1835 law in 1904', kind: 'fix',
+    items: [
+      'A measured shape like the Glessner house\'s dining bay used to read "[object Object]" under Attributes. Its row now shows how sure we are, its sources and why, and no garbled value.',
+      'The 1835 hay-stacking by-law and its fire limit appear only on 1835 cards. A 1904 Prairie Avenue house no longer quotes a town law passed almost seventy years before its scene.',
+    ] },
   { v: 1883, ts: '2026-10-16T20:16:18.457Z', date: 'Oct 16, 2026, 3:16 PM CT', title: 'Keep a year on your device and walk it offline', kind: 'feature',
     items: [
       'The welcome now offers "Keep 1835 on this device", with the download\'s size (149 MB for 1835) and a progress bar.',
