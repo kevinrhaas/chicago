@@ -118,6 +118,9 @@ const loaderSource = fs.readFileSync(loaderPath, 'utf8')
       setMeshoptDecoder() {}
       register() { return this; }
     }`)
+  // ktx2.js imports three and the KTX2 loader, which need a browser; the GLTF stub
+  // above has no textures to hand it, so registering is the identity here (T-2582).
+  .replace("import { registerKTX2 } from './ktx2.js';", 'const registerKTX2 = (l) => l;')
   .replace("'./structure-versions.js'", JSON.stringify(pathToFileURL(
     path.join(ROOT, 'renderers/web/js/structure-versions.js')).href))
   .replace("'./shared-images.js'", JSON.stringify(pathToFileURL(
