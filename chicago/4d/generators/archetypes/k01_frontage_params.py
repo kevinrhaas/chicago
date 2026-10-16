@@ -1346,7 +1346,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     pitch = float(val("roof_pitch_deg"))
     band = "flat" if flat else "mansard_upper" if mansard else "ordinary"
     _within(pitch, roof["parameters"]["pitch_deg"]["ranges"][band], "roof_pitch_deg")
-    if not flat and not mansard and depth <= width:
+    # T-2541: a gable's ridge runs along the street front (T-2459), so its length is the
+    # front's and a front block wider than it is deep (1811's) has one; only a hip's runs
+    # front to back and needs the side walls longer than the front
+    if not flat and not mansard and not gable and depth <= width:
         raise ParamError("a hip roof over this plan needs the side walls longer than the "
                          "front, or its ridge has no length")
 
