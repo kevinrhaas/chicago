@@ -71,7 +71,7 @@ Y = (0.0, 1.0, 0.0)
 # Role -> material. Fixed order: the file is the same bytes every run. `roof` and
 # `finial` take the variant's covering (see material_of).
 ROLE_MATERIAL = {
-    "wall": "masonry", "reveal": "masonry", "mullion": "masonry", "roof_back": "masonry",
+    "wall": "masonry", "masonry_relief": "masonry", "reveal": "masonry", "mullion": "masonry", "roof_back": "masonry",
     "plinth": "dressed_stone", "band": "dressed_stone", "corbel": "dressed_stone",
     "sill": "sill_stone", "head": "head_stone",
     "soffit": "trim", "fascia": "trim", "bracket": "trim",
@@ -374,16 +374,33 @@ def add_poly(pr: Prim, pts, nrms, uvs):
         pr.idx += [base, base + i, base + i + 1]
 
 
-def bend(run: Run, flat: dict, out: dict, step):
+def bend(run: Run, flat: dict, out: dict, step, join_quads=False):
     """Map a strip's faces onto the run. On an arc, each face is cut into slabs of s first,
     and every vertex takes the curve's own frame, so its normal is the true one."""
     # where the outer face has an edge (a jamb, a band's end): a face meeting the outer face
     # is cut there too, so two faces that share the face's curve share its chords exactly
-    edges = sorted({round(p[0], 9) for pr in flat.values() for p in pr.pos if abs(p[2]) < 1e-9}) if step else []
+    edges = sorted({round(p[0], 9) for role, pr in flat.items() if role != "masonry_relief" for p in pr.pos if abs(p[2]) < 1e-9}) if step else []
     for role, pr in flat.items():
         dst = out.setdefault(role, Prim(role))
-        for t in range(0, len(pr.idx), 3):
+        t = 0
+        while t < len(pr.idx):
             ids = pr.idx[t:t + 3]
+            t += 3
+            # Clip a convex planar quad once, rather than subdividing its hidden
+            # diagonal. Opted in by coursed bays; existing kit bytes stay stable.
+            if join_quads and t + 3 <= len(pr.idx):
+                nxt = pr.idx[t:t + 3]
+                if nxt[:2] == [ids[0], ids[2]]:
+                    q = ids + [nxt[2]]
+                    normal = pr.nrm[q[0]]
+                    points = [pr.pos[i] for i in q]
+                    turns = [_dot(_cross(_sub(points[(i+1)%4], points[i]),
+                                         _sub(points[(i+2)%4], points[(i+1)%4])), normal) for i in range(4)]
+                    if all(abs(_dot(_sub(p, points[0]), normal)) < 1e-9 for p in points) and \
+                            (all(v > 1e-12 for v in turns) or all(v < -1e-12 for v in turns)) and \
+                            all(pr.nrm[i] == normal for i in q):
+                        ids = q
+                        t += 3
             poly = [(*pr.pos[i], *pr.nrm[i], *pr.uv[i]) for i in ids]
             pieces = [poly]
             if step:
@@ -391,7 +408,7 @@ def bend(run: Run, flat: dict, out: dict, step):
                 s_hi = max(q[0] for q in poly)
                 k0, k1 = math.floor(s_lo / step + 1e-9), math.ceil(s_hi / step - 1e-9)
                 cuts = [k * step for k in range(k0 + 1, k1)]
-                if any(abs(q[2]) < 1e-9 for q in poly):
+                if role != "masonry_relief" and any(abs(q[2]) < 1e-9 for q in poly):
                     cuts += [e for e in edges if s_lo + 1e-7 < e < s_hi - 1e-7]
                 cuts = sorted(c for c in cuts if s_lo + 1e-7 < c < s_hi - 1e-7)
                 if cuts:
@@ -444,6 +461,46 @@ def wall_cells(o: K6.Opening, role, holes, s_lo, s_hi, y_lo, y_hi, d=0.0, hint=(
         for k in range(len(top) - 1):
             p, q = top[k], top[k + 1]
             o.plane(role, [(q[0], q[1]), (p[0], p[1]), (p[0], y_hi), (q[0], y_hi)], d, hint)
+
+
+def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
+    """Rock-faced courses over the true curved wall; shallow relief is a separate role.
+
+    The light tier retains the wall and its metric stone texture. Full detail adds
+    bevelled faces per unit, with deterministic relief and open mortar joints.
+    Only holes crossing a course split that course's units.
+    """
+    import random
+    rng = random.Random(1883)
+    ch, bw, joint, relief = (spec[k] for k in ("course_m", "block_m", "joint_m", "relief_m"))
+    if any(not h[-1] for h in holes):
+        raise ValueError("masonry_cells currently supports flat-headed bay openings")
+    wall_cells(o, "wall", holes, 0., length, low, high)
+    holes = [*holes, *trim_holes]  # raised dressings own their sockets, not overlapping stone
+    rows = sorted({low, high, *[low+i*ch for i in range(1, math.ceil((high-low)/ch))],
+                   *[y for h in holes for y in (h[2], h[3]) if low < y < high]})
+    for row, (ya, yb) in enumerate(zip(rows, rows[1:])):
+        cy = (ya+yb)/2
+        active = [h for h in holes if h[2] < cy < h[3]]
+        cuts = sorted({0., length,
+                       *[x for i in range(math.ceil(length/bw)+1)
+                         if 0 < (x := i*bw+(bw/2 if row % 2 else 0)) < length],
+                       *[x for h in active for x in h[:2] if 0 < x < length]})
+        for xa, xb in zip(cuts, cuts[1:]):
+            cx = (xa+xb)/2
+            if any(h[0] < cx < h[1] for h in active) or min(xb-xa, yb-ya) < joint*3:
+                continue
+            outer = K6.box(xa+joint/2, xb-joint/2, ya+joint/2, yb-joint/2)
+            inset = min(.018, (xb-xa)/8, (yb-ya)/8)
+            inner = K6.box(xa+joint/2+inset, xb-joint/2-inset,
+                           ya+joint/2+inset, yb-joint/2-inset)
+            depth = -relief*(.6+.4*rng.random())
+            for i in range(4):
+                j = (i+1) % 4
+                o.face("masonry_relief", [o.P(*outer[i], 0), o.P(*outer[j], 0),
+                                          o.P(*inner[j], depth), o.P(*inner[i], depth)], (0, 0, 1))
+            o.plane("masonry_relief", inner, depth)
+
 
 
 def ledge(o, role, run, y, z0, z1, hint):
@@ -651,6 +708,7 @@ class Bay:
             flat = strip(f"{v['id']}|run{i}")
             for k in range(len(v["storeys"])):
                 holes = []
+                trim_holes = []
                 lo = y_wall0 if k == 0 else levels[k]
                 hi = levels[k + 1]
                 for w, s in per_run[i][k]:
@@ -668,12 +726,25 @@ class Bay:
                             raise ValueError(f"no room for a voussoir head over the light at s = {s:.3f}")
                         voussoir_head(flat, w["voussoirs"], min(q[0] for q in sh), max(q[0] for q in sh),
                                       max(q[1] for q in sh), y_hi)
+                    if v.get("masonry"):
+                        for role in ("sill", "head"):
+                            pts = o.prims[role].pos
+                            x0, x1 = min(p[0] for p in pts)-.002, max(p[0] for p in pts)+.002
+                            y0_, y1 = min(p[1] for p in pts)-.002, max(p[1] for p in pts)+.002
+                            trim_holes.append((x0, x1, y0_, y1, (), True))
+                        if w.get("voussoirs"):   # T-2531: the dressed head stands where the cells would
+                            sp = w["voussoirs"]["splay_m"] + .002
+                            trim_holes.append((min(q[0] for q in sh) - sp, max(q[0] for q in sh) + sp,
+                                               max(q[1] for q in sh) - .002, y_hi + .002, (), True))
                     drop = cv.get("drop_roles", ()) if self.tier == "light" else ()
                     if w.get("voussoirs"):     # T-2531: they are its head, in place of K06's lintel
                         drop = (*drop, "head")
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
-                wall_cells(flat, "wall", holes, 0.0, run.L, lo, hi)
+                if v.get("masonry") and self.tier == "full":
+                    masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
+                else:
+                    wall_cells(flat, "wall", holes, 0.0, run.L, lo, hi)
                 if 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
@@ -693,7 +764,7 @@ class Bay:
                 self._balcony(flat, run, y_e, ov)
             if not grade:
                 self._corbel_courses(flat, run, y0)
-            bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]))
+            bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")))
         world = strip(f"{v['id']}|world")
         if not grade:
             self._corbel_bottom(world, y0, cv)

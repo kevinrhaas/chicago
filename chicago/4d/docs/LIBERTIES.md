@@ -23031,9 +23031,11 @@ Romanesque-classical stone, the south curved bay, the north loggia with Ionic
 columns, the pierced parapet) from the 1888 plate once it is a source record;
 T-1935 the detached rear garage. A measured reading of sheet 28 for this lot
 replaces the footprint.
-**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
+**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
 **Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
 **Recorded:** 2026-10-10.
+
+**Revised:** 2026-10-16 (T-1883): the principal-floor coverage is retired. The approved 1888 plate now supports the 2.0 m deck as inferred; the former 1.50 m kit floor no longer stands. The remaining coverage is retained for the dimensions still reconstructed.
 
 ### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
 
@@ -28040,6 +28042,66 @@ so the mullion is cut to 0.04 m and the two frames meet on it as a shared timber
 **How to resolve:** a photograph of the wing's front, or the remodel's drawings.
 **Ticket:** T-2537 (from T-2449's reading of the engraving).
 **Recorded:** 2026-10-16 (T-2537).
+
+### L-k16-1638-fretwork-2533 — 1638 Prairie's entrance board cut as open fretwork and its plate and fascia raised to the photograph: the openings' places and the head's heights read, their outlines reconstructed
+
+**Decision:** the board between the posts of the Shortall-Gregory house's entrance (T-2533,
+piece 2 of T-2522) is open fretwork, where T-2425 and T-2519 built it solid with a pierced
+quatrefoil in each corner. What stands of it is a band round the trefoil's head foil 0.155 m
+broad and round each side foil 0.05 m, a ring out to 0.215 m round each quatrefoil, a tie 0.24 m
+broad from the ring down to the cusp pierced by a round eye 0.05 m across, and a 0.045 m frame
+along the post and under the plate; the rest of each spandrel is cut away, a wedge under the plate
+toward the middle and an opening beside the post. The plate is raised to 3.0 m clear (from 2.87 m)
+and the porch's fascia deepened to 0.26 m (from the kit's 0.12 m), with the spring and the
+quatrefoils lowered by the same 0.13 m under the plate, so the arch and quatrefoils do not move.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), through
+the camera T-2523 solved, about 77.2 px a metre at the board's face: that the field is open (dark,
+the porch's shade seen through it) in three places a spandrel, the wedge (print 712-727 px across,
+564-572 px high, and its fellow at 781-795 px), the eye (710.6 and 797.2 px, 585.6 px) and the
+opening by the post (689-696 and 813-818 px, 587-599 px); the strip of board over the crown under
+the plate's shadow line (557-560 px); and the fascia's top and foot (535 and 556 px). Rendered,
+the wedges, eyes and openings land within 2.5 px of the print's at their middles, the fascia's top
+and foot and the board's top within 2 px, and the quatrefoils within 1.6 px.
+**What is invented.** The openings' outlines: the print draws each in 7 to 15 px, so the bands,
+ring and tie that bound them are a geometry chosen to put the openings where the print puts them,
+not a profile read from it; the eye's round shape; the frame's breadth; the fretwork's thickness,
+the board's as before; the fascia's mouldings, which the print shows only as a band; and that the
+plate and fascia, not the arch, are what the print's extra 0.13 m belongs to.
+**What disagrees.** The match record's item for the board read the print's opening as standing
+"some 5 px inside the post's face below the side foils", a moulding not built. Read across 700-760
+px, the print's opening edge stands at 685-686 and 822 px, on the posts' faces as built, so no
+moulding is added there.
+**How to resolve:** a sharper print of the entrance, or a second view of it, settles the
+openings' outlines and the fascia's mouldings.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`
+**Ticket:** T-2533 (piece 2 of T-2522).
+**Review:** `docs/RESEARCH/k16-1638-fretwork-2533/README.md`.
+**Recorded:** 2026-10-16 (T-2533).
+
+### L-k01-keith-finish-1883 — Keith's stone-front finish: the photograph's arrangement, reconstructed sections and colour
+
+**Decision:** complete the street-facing stone kit from the approved 1888 Inland Architect
+plate: pierced two-row parapet and short north return, corner pinnacles, checker band,
+colonnettes, Ionic porch capitals, pierced lower panel, carved balcony and scrolled stair
+cheeks, heavy coursing on the bow, and the early low stone posts and rails.
+**What is read, not invented:** the arrangement and counts of the visible elements; the
+basement and principal window rows; the principal floor approximately 2 m over grade;
+three tall principal sashes with transoms and four second-floor sashes in the bow. The
+September 1886 Inland Architect notice explicitly calls the front granite. Its quarry
+and colour are not named. The footprint, position, upper floors and wall head stay at
+T-2499's accepted datums.
+**What is invented:** rounded section dimensions and exact course/block joints; the tiny
+leaf and scroll patterns unresolved by the scan; the concealed tin deck's 1.45 m drop
+below the wall head; the pinnacle's spiral section; neutral light greige material tint
+and dark sash paint; the unseen rear openings and existing rear canted bay; path surfaces.
+The 1965 print has a blue cast and cannot give a calibrated granite colour. The generic
+Lemont stone, tall spear fence, urn gate piers, south wall and nine-step stair previously
+used by the kit proof are superseded. The later iron infill is not carried into 1904.
+**How to resolve:** sharper original prints and an architectural specification for the
+stone, quarry and carved sections; rear photographs for the service elevations.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
+**Ticket:** T-1883.
+**Recorded:** 2026-10-16.
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 

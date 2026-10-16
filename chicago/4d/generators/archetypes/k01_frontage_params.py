@@ -124,6 +124,7 @@ class K01FrontageParams:
     bays: tuple = ()
     street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
     wall_head: dict = field(default_factory=dict)   # K10 cornice and cresting (T-2317)
+    stone_finish: dict = field(default_factory=dict)  # T-1883: pierced stone facade
     boundary: dict = field(default_factory=dict)    # K11 fence, gates, piers, wall (T-2319)
     yard: dict = field(default_factory=dict)        # K14 lawn, front walk, service walk (T-2360)
     stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
@@ -213,7 +214,7 @@ CONSUMED = frozenset({
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
-    "front_bays_by_storey", "gable_roof", "wall_finish",
+    "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -918,6 +919,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if e.get("fabric", "stone") not in BAY_FABRICS:
             raise ParamError(f"bays: fabric {e.get('fabric')!r} is not one of {BAY_FABRICS}")
         v["id"] = f"{structure_id}|{e['id']}"
+        if e.get("masonry"):
+            m = e["masonry"]
+            if set(m) != {"course_m", "block_m", "joint_m", "relief_m"} or not (.2 <= m["course_m"] <= .6 and .4 <= m["block_m"] <= 1.5 and .004 <= m["joint_m"] <= .02 and .008 <= m["relief_m"] <= .06):
+                raise ParamError("bays.masonry: bounded coursed rock-faced ashlar")
+            v["masonry"] = m
         if "plan" in e and v["kind"] == "projection":
             # T-2404: a full-height projection read off a picture keeps the picture's width
             # and how far it stands proud; the kit's projection is the shape (a square-cornered
@@ -1700,11 +1706,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         "columns": {"height_m", "segments", "profile"},
                         "entablature": {"height_m"}, "balcony": {"thickness_m", "height_m"},
                         "parapet": {"thickness_m", "height_m"}, "arch": {"span_m", "spring_m", "depth_m"}}
-                if set(lg) != set(need) or any(set(lg[k]) != v for k, v in need.items()):
+                if set(lg) - {"finish"} != set(need) or any(set(lg[k]) != v for k, v in need.items()):
                     raise ParamError(f"entrance_kit.terrace.loggia takes {sorted(need)}, each with "
                                      + "; ".join(f"{k}: {sorted(v)}" for k, v in need.items()))
                 if "out_m" not in t:
                     raise ParamError("entrance_kit.terrace.loggia stands on a terrace with its own out_m")
+                if lg.get("finish") not in (None, "ionic_carved"):
+                    raise ParamError("loggia.finish is ionic_carved")
                 prof = lg["columns"]["profile"]
                 if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
                     raise ParamError("entrance_kit.terrace.loggia.columns.profile runs [r, fraction of height] from 0 to 1")
@@ -2029,6 +2037,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         rotation = float(((phase.get("position") or {}).get("rotation_deg")) or 0.0)
         condition = {"kit": CONDITION_KIT, "built": built, "rotation_deg": rotation}
 
+    from .k01_stone_finish import validate as validate_stone_finish
+    stone_finish = validate_stone_finish(dict(val("stone_finish", {}) or {}), width)
+    if stone_finish and (roof_form != "flat" or not stone):
+        raise ParamError("stone_finish requires a flat roof and a stone front")
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -2047,7 +2059,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
-        yard=yard,
+        yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint,

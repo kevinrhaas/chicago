@@ -1,3 +1,17 @@
+## T-1883 — Keith house photographic finish (2026-10-16)
+
+The owner-approved 1888 Inland Architect photograph now drives the pierced parapet,
+pinnacles, diaper band, upper colonnettes, Ionic loggia, carved balcony, curved stair
+cheeks, basement lights, transom sashes and early low stone boundary. Principal floor
+is 2.0 m; the accepted footprint, second/third floor levels and north clearance remain.
+A September 1886 trade notice explicitly calls the front granite; neither it nor the
+other two inspected notices names a quarry or establishes its exact colour. Keith has
+its own pale neutral stone tint; Glessner's is unchanged.
+
+The photographic gate remains open. Comparison cameras, source credits and explicit
+remaining differences accompany the model; procedural carving is still an approximation,
+not a claim of photographic equivalence. See [the evidence and validation record](RESEARCH/k01-1808-keith-1883/README.md).
+
 ## T-2223 — Glessner service stairs, rails and rear gate (2026-10-14)
 
 Service posts now seat on actual treads, rail bars join continuously, and brick

@@ -79,6 +79,10 @@ def spec(params) -> dict | None:
     t = getattr(params, "boundary", None)
     if not t:
         return None
+    if t.get("layout") == "stone_posts_rails":
+        if not (0.25 <= t.get("rail_height_m", 0) <= .65 and .35 <= t.get("post_height_m", 0) <= .9 and 1.5 <= t.get("entrance_clear_m", 0) <= 3):
+            raise ValueError("stone_posts_rails: low rail, low posts, and a clear stair opening")
+        return t
     if t.get("layout") == GARDEN:
         return garden_spec(params, t)
     if t.get("fence") not in FENCES:
@@ -170,6 +174,8 @@ def dress(a):
     t = spec(p)
     if not t:
         return
+    if t.get("layout") == "stone_posts_rails":
+        return stone_boundary(a, t)
     if t.get("layout") == GARDEN:
         return garden(a, t)
     K = _kit()
@@ -422,3 +428,39 @@ def garden(a, t):
                   "stoop_cheeks_s_m": [round(c, 4) for c in cheeks],
                   "wall_s_m": [round(wa, 4), round(wb, 4)], "wall_piers_s_m": [round(x, 3) for x in wv.meta["piers"]],
                   "fence_s_m": [round(fa, 4), round(fb, 4)], "fence_posts_s_m": [round(x, 3) for x in posts]}
+
+
+def stone_boundary(a,t):
+    """T-1883: low stone posts and solid rails read in the 1888 Keith plate.
+
+    Both pedestrian passages stay open. No urn piers, iron infill or swinging gate
+    is inferred from the later 1965 photograph.
+    """
+    from .k01_stone_finish import box_faces
+    from .k01_frontage import Y
+    p=a.p; D=p.depth_m; conf=p.conf("boundary")
+    south,north=t["lot_s_m"]; line=D+t["street_line_m"]-.14
+    door=next(o for o in p.openings if o.component=="k01.opening.door_leaf" and o.wall==STREET_FRONT)
+    centre=p.stoop_s_m(door.s_m); half=t["entrance_clear_m"]/2
+    ea,eb=centre-half,centre+half
+    seed=a.instance("k11.fence.stone_posts_rails","fence",t,{"street":(line,0,0)})
+    pr=a.prim("stoop_stone"); posts=[]
+    def box(s0,s1,y0,y1,d0,d1):
+        for pts,n in box_faces(s0,s1,y0,y1,d0,d1):
+            world=[(line+z,y,-x) for x,y,z in pts]
+            a._sface("stoop_stone",world,(n[2],n[1],-n[0]),world[0],(0,0,-1),seed,False,conf)
+    for lo,hi in ((.0,ea),(eb,north)):
+        n=max(1,round((hi-lo)/2.7)); xs=[lo+.16+(hi-lo-.32)*i/n for i in range(n+1)]
+        for x in xs:
+            box(x-.16,x+.16,0,t["post_height_m"],-.15,.14)
+            box(x-.18,x+.18,t["post_height_m"],t["post_height_m"]+.06,-.17,.14)
+        for x0,x1 in zip(xs,xs[1:]):
+            box(x0+.16,x1-.16,.05,t["rail_height_m"],-.11,.11)
+        posts+=xs
+    # Read the stair alone, before the low boundary was laid.
+    foot=max(q[0] for q in pr.pos if q[1]>.8 and q[0]>D+.05 and abs(-q[2]-centre)<1.3)
+    # The bottom tread remains the flight's true foot even where the curved cheek is low.
+    foot=max(foot,D+p.landing_depth_m+(p.risers-1)*p.tread_m)
+    a.boundary={"line_x_m":line,"stoop_foot_x_m":round(foot,4),"leaf_reach_m":0,
+                "entrance_s_m":[ea,eb],"side_gate_s_m":[south+.1,-.16],
+                "fence_posts_s_m":posts,"wall_piers_x_m":[]}

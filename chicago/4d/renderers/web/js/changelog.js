@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1841, ts: '2026-10-16T02:41:37.040Z', date: 'Oct 15, 2026, 9:41 PM CT', title: '1808 Prairie gains its pierced stone parapet and Ionic entrance', kind: 'improvement',
+    items: [
+      'The Keith house now has an open stone lattice, corner pinnacles, checkerwork and upper colonnettes, with paired Ionic capitals, carved balcony details and curved stair cheeks.',
+      'The south bow gains basement lights, tall transom windows and granite courses. A low stone boundary replaces the later iron fence; a separate pale granite tint preserves Glessner’s colour.',
+      'Historical comparisons and remaining photographic differences are recorded; this is a refinement, with photographic acceptance still open.',
+    ] },
+  { v: 1840, ts: '2026-10-16T02:21:42.859Z', date: 'Oct 15, 2026, 9:21 PM CT', title: '1638 Prairie\'s entrance board cut as open fretwork, as photographed', kind: 'improvement',
+    items: [
+      'Under the tower at 1638 Prairie, the board over the trefoil arch is no longer solid: each corner is open fretwork, a ring round the quatrefoil tied down to the arch\'s point with a small round eye through the tie, and the porch\'s shade showing through the openings beside it.',
+      'The porch\'s head is raised to the photograph: a strip of board now shows over the arch\'s crown, under a deeper fascia band that reads like the print\'s.',
+      'Seen through the photograph\'s own camera, the openings, eyes and fascia land within a few pixels of the print, and the house\'s match record now reads \'matches\'. The openings\' exact outlines are recorded as a liberty.',
+    ] },
   { v: 1839, ts: '2026-10-16T01:50:56.240Z', date: 'Oct 15, 2026, 8:50 PM CT', title: '1637 Prairie\'s wing gets the engraving\'s wide paired upper window', kind: 'improvement',
     items: [
       'The upper window on the front of 1637 Prairie\'s south wing is now the pair of sashes the engraving draws: one opening about 1.8 m across, split down the middle, where a single narrow sash stood.',
