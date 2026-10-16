@@ -518,6 +518,9 @@ export function createConfidenceView({
   function geometryRange(geometry) {
     const attr = geometry?.getAttribute?.('_confidence');
     if (!attr || attr.itemSize !== 1) return null;
+    // A phone frees a layer's page arrays once uploaded (upload-release.js), and
+    // keeps the channel's range on the geometry first.
+    if (!attr.array || !attr.array.length) return geometry.userData?.confidenceRange ?? null;
     const hit = rangeCache.get(attr);
     if (hit && hit.version === attr.version) return hit.range;
     let lo = Infinity, hi = -Infinity;
@@ -595,7 +598,9 @@ export function createConfidenceView({
         continue;
       }
       const sh = share(geometryRange(o.geometry), ghosted, gone);
-      if (sh === 'all') next.opaqueObjects.push(o);
+      // Left out by its `visible`, which would take its children with it — so a
+      // mesh with children stays in the opaque pass and lets the shader discard.
+      if (sh === 'all' && !o.children.length) next.opaqueObjects.push(o);
       if (sh !== 'none' && canGhost) next.ghostTargets.push(o);
     }
     for (const o of plan.ghostTargets) o.layers.disable(GHOST_LAYER);
