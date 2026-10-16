@@ -1,3 +1,21 @@
+## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
+
+Piece 1 of T-2580 (which was split into this, T-2585 for the loggia's carving and T-2586 for
+closing the image gate). The south bow ran even 0.38 m rock-faced courses where the 1888 Inland
+Architect plate (read at its native 1559 px) and the Glessner House print of it show a deep course
+and a thin one in turn on its piers and south flank, the rhythm T-2566 already gave the street
+front. The K08 bay's `masonry` now takes an optional `coursing` (`rhythm: alternating`,
+`low_ratio`), refused outside [0.25, 1) or under a 0.15 m thin course; each storey between the
+bow's bands is laid in the fewest courses whose deep one is at most `course_m` (0.55 m), so the
+basement's 1.85 m and each 3.9 m storey come out 0.49 m deep and 0.195 m thin, the deep courses on
+the upper half of the rock-face relief and the thin on the lower, as the front's are. The bow's
+beds are the rhythm's, not struck on the front's (L-k08-keith-bow-coursing-2584). Only Keith's mesh
+changed (76,224 to 76,228 triangles, full and web); the other 19 K01 masters, which hash the K08
+and K01-params code, re-emit byte-identical. The `inland-1888` and `a18-gh-1808-keith-field-front`
+side-by-sides were re-rendered and their match records carry the bow's coursing as `fixed`; the
+other 14 views still name the previous GLB, so T-2586 re-renders them before it can close (the
+image gate refuses a match taken on another GLB).
+
 ## T-2578 — Keith house's cowl ventilator, and the parapet behind the rear pinnacle ruled (2026-10-16)
 
 Piece 2 of T-2567. The deck behind Keith's north return now carries the cowl ventilator that
