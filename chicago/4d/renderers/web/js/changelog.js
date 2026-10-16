@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1881, ts: '2026-10-16T19:54:24.053Z', date: 'Oct 16, 2026, 2:54 PM CT', title: 'Turning on the spot hitches less on a phone', kind: 'improvement',
+    items: [
+      'The planting grid for the grass and flowers around you is now laid out on a spare processor core, so redrawing it as you move costs the screen less.',
+      'On a slowed-down phone profile, the worst frame of a slow turn in place fell from 36 to 20 milliseconds.',
+      'Every plant stands exactly where it did before.',
+    ] },
   { v: 1880, ts: '2026-10-16T19:08:54.907Z', date: 'Oct 16, 2026, 2:08 PM CT', title: 'Glessner rooflines, courtyard and entrance follow the references', kind: 'fix',
     items: [
       'The north roof ridge continues straight through the west-wing crossing; the west peak and cupola align with it.',
