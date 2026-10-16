@@ -63,6 +63,7 @@
 
 import * as THREE from 'three';
 import { captureHooks, registerPatch } from './batch-material.js';
+import { structureFrameGLSL } from './compact-attributes.js';
 import { resolveBases } from './scene-loader.js';
 import { wallRelief } from './wall-grain.js';
 import { packOrl } from './relief-pack.js';
@@ -167,7 +168,8 @@ function patch(material, set) {
         '#include <project_vertex>',
         `#include <project_vertex>
   {
-    vec3 chiWallP = ( modelMatrix * vec4( transformed, 1.0 ) ).xyz;
+    ${structureFrameGLSL('chiWallLocal')}
+    vec3 chiWallP = ( modelMatrix * vec4( chiWallLocal, 1.0 ) ).xyz;
     vec3 chiWallN = normalize( mat3( modelMatrix ) * objectNormal );
     vec3 chiWallT = cross( chiWallN, vec3( 0.0, 1.0, 0.0 ) );
     float chiWallL = length( chiWallT );
@@ -191,7 +193,7 @@ function patch(material, set) {
         .replace('#include <roughnessmap_fragment>', `float roughnessFactor = vChiWallRough
     * clamp( texture2D( roughnessMap, vRoughnessMapUv ).g / chiWallMeanRough, 0.0, 1.6 );`);
   };
-  registerPatch(material, batchHooks, 'metric-wall-uv-v1', { tileM: set.tileM, meanRough: set.meanRough });
+  registerPatch(material, batchHooks, 'metric-wall-uv-v2', { tileM: set.tileM, meanRough: set.meanRough });
   material.needsUpdate = true;
 }
 

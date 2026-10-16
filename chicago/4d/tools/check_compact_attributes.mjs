@@ -12,7 +12,10 @@ const web = path.join(root, 'renderers/web');
 const threeURL = pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href;
 const THREE = await import(threeURL);
 const source = await readFile(path.join(web, 'js/compact-attributes.js'), 'utf8');
-const { compactPlan, compactGeometry, bytesPerVertex, strideOf, RULES } = await import('data:text/javascript;base64,'
+const {
+  compactPlan, compactGeometry, bytesPerVertex, strideOf, RULES,
+  positionScale, quantizePositions, structureFrameGLSL, POSITION_STEPS,
+} = await import('data:text/javascript;base64,'
   + Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64'));
 
 function building(n, { uv = 1, tone = 0.9 } = {}) {
@@ -101,3 +104,82 @@ const back = batch.getColorAt(0, new THREE.Color());
 assert.deepEqual([back.r, back.g, back.b], [0.25, 0.5, 0.75], 'instance colour is stored exactly');
 batch.dispose();
 console.log('PASS batch: BatchedMesh keeps the compact formats and the instance colour is exact');
+
+// 4. T-2575: positions as Int16 x4 over one uniform scale per structure, the
+//    scale in the instance matrix. Within half a step of where they were, on an
+//    aligned stride, drawn where they were drawn, and two pieces of one
+//    structure share a grid so a shared vertex never splits.
+const wall = building(30);
+const roof = building(30);
+roof.getAttribute('position').array.forEach((v, i, arr) => { arr[i] = v * 0.5 + 41.7; });
+roof.getAttribute('position').array[0] = wall.getAttribute('position').array[0];
+const pieces = [wall, roof];
+const was0 = pieces.map((g) => g.getAttribute('position').clone());
+const scale = positionScale(pieces);
+assert.ok(scale >= 41.7 && Number.isFinite(scale));
+assert.equal(positionScale([new THREE.BufferGeometry().setAttribute('position',
+  new THREE.BufferAttribute(new Float32Array(9), 3))]), 1, 'a structure with no extent gets 1');
+const placement = new THREE.Matrix4().compose(new THREE.Vector3(-812.4, 3.1, 1530.9),
+  new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0.6431, 0)), new THREE.Vector3(1, 1, 1));
+const instance = placement.clone().multiply(new THREE.Matrix4().makeScale(scale, scale, scale));
+for (const g of pieces) quantizePositions(g, scale);
+const step = scale / POSITION_STEPS;
+for (const [k, g] of pieces.entries()) {
+  const pos = g.getAttribute('position');
+  assert.ok(pos.array instanceof Int16Array && pos.normalized && pos.itemSize === 4);
+  assert.equal(strideOf({ array: Int16Array, pad: 4 }, 3) % 4, 0);
+  for (let i = 0; i < pos.count; i += 1) {
+    const local = new THREE.Vector3().fromBufferAttribute(was0[k], i);
+    const drawn = new THREE.Vector3().fromBufferAttribute(pos, i).applyMatrix4(instance);
+    const d = drawn.distanceTo(local.clone().applyMatrix4(placement));
+    assert.ok(d <= step * 0.5 * Math.sqrt(3) + 1e-4, `vertex ${k}.${i} drawn ${d} m off, half a step is ${step / 2}`);
+  }
+}
+assert.deepEqual([wall, roof].map((g) => g.getAttribute('position').getX(0)),
+  [wall.getAttribute('position').getX(0), wall.getAttribute('position').getX(0)], 'one grid per structure');
+assert.equal(bytesPerVertex(wall) - bytesPerVertex(building(30)), 8 - 12, 'position 12 -> 8 bytes a vertex');
+console.log(`PASS positions: Int16 x4 over +/-${scale.toFixed(2)} m, drawn within half a ${(step * 1000).toFixed(2)} mm step, one grid per structure`);
+
+// 5. The scale is uniform because three corrects a batch normal by the matrix's
+//    squared column lengths, assuming the stored normal is the stored
+//    geometry's. Under a uniform scale that correction only shortens it: the lit
+//    normal is the placement's rotation of the building's normal.
+const bm = new THREE.Matrix3().setFromMatrix4(instance);
+const placed = new THREE.Matrix3().setFromMatrix4(placement);
+const e = bm.elements;
+const colSq = [0, 1, 2].map((c) => e[c * 3] ** 2 + e[c * 3 + 1] ** 2 + e[c * 3 + 2] ** 2);
+for (const n of [[1, 0, 0], [0, 1, 0], [0.6, 0, 0.8], [0.267, 0.534, 0.802]]) {
+  const v = new THREE.Vector3(n[0] / colSq[0], n[1] / colSq[1], n[2] / colSq[2]).applyMatrix3(bm).normalize();
+  const want = new THREE.Vector3(...n).normalize().applyMatrix3(placed);
+  assert.ok(v.distanceTo(want) < 1e-6, `normal ${n} lit as ${v.toArray()}, want ${want.toArray()}`);
+}
+console.log('PASS normals: under the uniform dequantize scale three lights the building\'s own normal');
+
+// 6. A relief patch gets the structure's frame back: the shader multiplies the
+//    stored position by the length of the instance matrix's first column.
+const glsl = structureFrameGLSL('chiP');
+assert.match(glsl, /vec3 chiP = transformed \* length\( batchingMatrix\[ 0 \]\.xyz \);/);
+assert.match(glsl, /#else\s+vec3 chiP = transformed;/);
+assert.ok(Math.abs(new THREE.Vector3(e[0], e[1], e[2]).length() - scale) < scale * 1e-6);
+console.log('PASS structure frame: the relief patches read metres in the structure\'s frame off the instance matrix');
+
+// 7. A BatchedMesh keeps Int16 x4 normalized positions, and a ray through the
+//    instance matrix hits the quantized building where the float one stood.
+const box = new THREE.BoxGeometry(6, 9, 4).toNonIndexed();
+box.translate(0, 4.5, 0);
+box.deleteAttribute('uv');
+const boxScale = positionScale([box]);
+quantizePositions(box, boxScale);
+const one = new THREE.BatchedMesh(1, box.getAttribute('position').count, 0, new THREE.MeshBasicMaterial());
+one.setMatrixAt(one.addInstance(one.addGeometry(box)),
+  placement.clone().multiply(new THREE.Matrix4().makeScale(boxScale, boxScale, boxScale)));
+assert.ok(one.geometry.getAttribute('position').array instanceof Int16Array);
+assert.ok(one.geometry.getAttribute('position').normalized);
+one.updateMatrixWorld(true);
+const centre = new THREE.Vector3(0, 4.5, 0).applyMatrix4(placement);
+const ray = new THREE.Raycaster(centre.clone().add(new THREE.Vector3(0, 20, 0)), new THREE.Vector3(0, -1, 0));
+const hit = ray.intersectObject(one)[0];
+assert.ok(hit && Math.abs(hit.point.y - (placement.elements[13] + 9)) < boxScale / POSITION_STEPS,
+  `ray hit the roof at ${hit?.point.y}, want ${placement.elements[13] + 9}`);
+one.dispose();
+console.log('PASS batch: BatchedMesh keeps Int16 x4 positions and a pick lands on the roof through the instance matrix');

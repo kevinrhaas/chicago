@@ -46,7 +46,9 @@ import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
-import { compactPlan, compactGeometry } from './compact-attributes.js';
+import {
+  compactPlan, compactGeometry, positionScale, quantizePositions,
+} from './compact-attributes.js';
 
 /** Walk up until something claims a structure_id. Returns null if nothing does. */
 export function structureIdOf(object) {
@@ -668,6 +670,29 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   const localBoxes = new Map();
   /** structure id -> the confidence channel the shader will actually read. */
   const channels = new Map();
+  // T-2575. Positions go into the batch as Int16 over one uniform scale per
+  // STRUCTURE (every piece of it, across every batch, on one grid), and the
+  // instance matrix is its placement times that scale — compact-attributes.js
+  // says why it is uniform and why the offset is the structure's own origin.
+  // So everything that reads batch positions reads them through the instance
+  // matrix (backingTriangles, picking, the census), never through `placements`.
+  const geometriesOf = new Map();
+  for (const [, bucket] of groups) {
+    for (const { record, geo } of bucket.entries) {
+      if (!geometriesOf.has(record.id)) geometriesOf.set(record.id, []);
+      geometriesOf.get(record.id).push(geo);
+    }
+  }
+  /** structure id -> { scale, matrix }: the dequantize and the instance matrix. */
+  const instanceFrames = new Map();
+  for (const [id, geos] of geometriesOf) {
+    const scale = positionScale(geos);
+    instanceFrames.set(id, {
+      scale,
+      matrix: placements.get(id).clone().multiply(new THREE.Matrix4().makeScale(scale, scale, scale)),
+    });
+  }
+  geometriesOf.clear();
   for (const [, bucket] of groups) {
     const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
     const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
@@ -695,11 +720,16 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
     batch.userData.batchIndex = [];
+    // Each instance's dequantize scale, for a reader that needs the structure's
+    // frame back off the batch (tools/drawn_placement_census.mjs).
+    batch.userData.positionScale = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
     for (const { record, geo, base, factors, occludesView } of bucket.entries) {
       const pause = checkpoint(); if (pause) await pause;
       compactGeometry(geo, plan);
+      const frame = instanceFrames.get(record.id);
+      quantizePositions(geo, frame.scale);
       // The piece tone as the batch stores it, summed for facadeTones' readback.
       const tone = toned ? geo.getAttribute('color') : null;
       let toneSum = 0;
@@ -721,7 +751,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       };
       toneRanges.push(row);
       batch.setColorAt(instanceId, new THREE.Color(...albedoOf(base, factors)));
-      batch.setMatrixAt(instanceId, placements.get(record.id));
+      batch.setMatrixAt(instanceId, frame.matrix);
+      batch.userData.positionScale[instanceId] = frame.scale;
+      // `placement` below is the INSTANCE matrix, dequantize included, which is
+      // the one that turns this geometry's positions into the world (T-2575).
       if (occludesView) {
         const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=new THREE.Matrix4();
         const identity=new THREE.Matrix4(), m=batch.material;
@@ -761,7 +794,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // uses: a building is walls plus roof plus trim, and any one of those
       // alone is not the building. This is what `instanceBounds()` reports and
       // what the size gate reads — see the note on that method.
+      // The box is measured on the stored positions and scaled back to metres
+      // in the structure's frame, so it is what the GPU draws, quantizing and all.
       geo.computeBoundingBox();
+      geo.boundingBox.min.multiplyScalar(frame.scale);
+      geo.boundingBox.max.multiplyScalar(frame.scale);
       let box = localBoxes.get(record.id);
       if (!box) { box = new THREE.Box3(); localBoxes.set(record.id, box); }
       box.union(geo.boundingBox);
@@ -1000,8 +1037,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       return { id, record: registry.get(id), point: hit.point.clone(), distance: hit.distance };
     },
 
-    /** The instance matrix a structure was placed with — for gates that need to
-     *  measure the RENDERED result rather than re-derive it. */
+    /** The placement a structure was given: its own frame (metres) to the world —
+     *  for gates that need to measure the RENDERED result rather than re-derive
+     *  it. Since T-2575 the batch's instance matrix is this times the structure's
+     *  uniform dequantize scale; a point in the structure's frame goes through
+     *  this one, a stored batch position through the instance matrix. */
     matrixOf(id) { return placements.get(id) ?? null; },
 
     /** Where a structure stands, in world space — for framing and popups. */

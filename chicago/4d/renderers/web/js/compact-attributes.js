@@ -34,6 +34,31 @@
  * change, and is its own piece of work. `compactPlan` refuses a rule whose
  * stride is not a multiple of four.
  *
+ * POSITIONS ARE THEIR OWN CASE (T-2575), because a position is not in any fixed
+ * range: `quantizePositions` writes them as Int16 x4 normalized (8 bytes, the
+ * fourth padding to the four-byte stride) over a range of +/- `scale` metres,
+ * and the scale goes into the instance's MATRIX, so the GPU's own batching
+ * multiply undoes it. Two choices there are forced, not taste:
+ *
+ *   - THE SCALE IS UNIFORM. three meets an instance matrix's scale on the normal
+ *     by dividing by its squared column lengths — the inverse-transpose of
+ *     R*S — which is right only if the stored normal is the stored geometry's.
+ *     It is not: the normal is the building's, and a squashed copy of the
+ *     building would have a different one. With one scale on all three axes
+ *     the division only shortens the normal, and three normalizes it.
+ *   - THE OFFSET IS THE STRUCTURE'S OWN ORIGIN. The wall and roof relief
+ *     (wall-relief.js, roof-relief.js) tile their maps in the structure's frame,
+ *     from `transformed`, which is now the quantized position. They get the
+ *     frame back as `transformed * length(batchingMatrix[0].xyz)` — see
+ *     structureFrameGLSL — which a scale recovers and an offset would not:
+ *     the matrix's translation is the placement plus the offset, and nothing in
+ *     the shader can tell them apart.
+ *
+ * So the step is `scale / 32767` with `scale` the largest |coordinate| of the
+ * whole STRUCTURE, never of a piece: a building split into spatial pieces or
+ * across materials quantizes every piece on the same grid, and the vertex two
+ * pieces share lands on the same value in both, so no crack opens between them.
+ *
  * Anything not named here is left exactly as it arrived, and so is a named
  * attribute whose values fall outside the format's range — a format that would
  * clamp is never chosen.
@@ -118,4 +143,55 @@ export function bytesPerVertex(geometry) {
     bytes += attr.array.BYTES_PER_ELEMENT * attr.itemSize;
   }
   return bytes;
+}
+
+/** Int16's normalized range: three decodes `q` as `max(q / 32767, -1)`. */
+export const POSITION_STEPS = 32767;
+
+/**
+ * The scale one structure's positions quantize over: its largest |coordinate|
+ * across every geometry it puts into any batch, so that all of them share one
+ * grid (see the header). A structure with no extent at all gets 1.
+ */
+export function positionScale(geometries) {
+  let m = 0;
+  for (const g of geometries) {
+    const a = g.getAttribute('position').array;
+    for (let i = 0; i < a.length; i += 1) m = Math.max(m, Math.abs(a[i]));
+  }
+  return m > 0 && Number.isFinite(m) ? m : 1;
+}
+
+/**
+ * Rewrite `geometry`'s float positions as Int16 x4 normalized over +/- `scale`,
+ * in place. The caller puts `scale` into the instance matrix — `placement *
+ * makeScale(scale, scale, scale)` — so the batch draws exactly where it did.
+ */
+export function quantizePositions(geometry, scale) {
+  const src = geometry.getAttribute('position');
+  const a = src.array;
+  const out = new Int16Array(src.count * 4);
+  const k = POSITION_STEPS / scale;
+  for (let i = 0; i < src.count; i += 1) {
+    for (let c = 0; c < 3; c += 1) {
+      out[i * 4 + c] = Math.max(-POSITION_STEPS, Math.min(POSITION_STEPS, Math.round(a[i * 3 + c] * k)));
+    }
+  }
+  geometry.setAttribute('position', new THREE.BufferAttribute(out, 4, true));
+  return geometry;
+}
+
+/**
+ * GLSL for a vertex-stage patch that needs the STRUCTURE's frame rather than the
+ * world's: declares `vec3 <name>`, the position in metres in the structure's own
+ * frame, after `<batching_vertex>`. A quantized batch carries its uniform scale
+ * in the instance matrix (see the header); anything else has a scale of 1.
+ */
+export function structureFrameGLSL(name) {
+  return `
+    #ifdef USE_BATCHING
+      vec3 ${name} = transformed * length( batchingMatrix[ 0 ].xyz );
+    #else
+      vec3 ${name} = transformed;
+    #endif`;
 }
