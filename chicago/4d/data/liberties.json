@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 589,
+  "count": 590,
   "liberties": [
     {
       "id": "L1",
@@ -39265,6 +39265,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-16 (T-2537)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-fretwork-2533",
+      "title": "1638 Prairie's entrance board cut as open fretwork and its plate and fascia raised to the photograph: the openings' places and the head's heights read, their outlines reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.porch"
+        }
+      ],
+      "recorded": "2026-10-16",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the board between the posts of the Shortall-Gregory house's entrance (T-2533, piece 2 of T-2522) is open fretwork, where T-2425 and T-2519 built it solid with a pierced quatrefoil in each corner. What stands of it is a band round the trefoil's head foil 0.155 m broad and round each side foil 0.05 m, a ring out to 0.215 m round each quatrefoil, a tie 0.24 m broad from the ring down to the cusp pierced by a round eye 0.05 m across, and a 0.045 m frame along the post and under the plate; the rest of each spandrel is cut away, a wedge under the plate toward the middle and an opening beside the post. The plate is raised to 3.0 m clear (from 2.87 m) and the porch's fascia deepened to 0.26 m (from the kit's 0.12 m), with the spring and the quatrefoils lowered by the same 0.13 m under the plate, so the arch and quatrefoils do not move. **What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), through the camera T-2523 solved, about 77.2 px a metre at the board's face: that the field is open (dark, the porch's shade seen through it) in three places a spandrel, the wedge (print 712-727 px across, 564-572 px high, and its fellow at 781-795 px), the eye (710.6 and 797.2 px, 585.6 px) and the opening by the post (689-696 and 813-818 px, 587-599 px); the strip of board over the crown under the plate's shadow line (557-560 px); and the fascia's top and foot (535 and 556 px). Rendered, the wedges, eyes and openings land within 2.5 px of the print's at their middles, the fascia's top and foot and the board's top within 2 px, and the quatrefoils within 1.6 px. **What is invented.** The openings' outlines: the print draws each in 7 to 15 px, so the bands, ring and tie that bound them are a geometry chosen to put the openings where the print puts them, not a profile read from it; the eye's round shape; the frame's breadth; the fretwork's thickness, the board's as before; the fascia's mouldings, which the print shows only as a band; and that the plate and fascia, not the arch, are what the print's extra 0.13 m belongs to. **What disagrees.** The match record's item for the board read the print's opening as standing \"some 5 px inside the post's face below the side foils\", a moulding not built. Read across 700-760 px, the print's opening edge stands at 685-686 and 822 px, on the posts' faces as built, so no moulding is added there."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper print of the entrance, or a second view of it, settles the openings' outlines and the fascia's mouldings."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2533 (piece 2 of T-2522)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-fretwork-2533/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-16 (T-2533)."
         }
       ]
     },

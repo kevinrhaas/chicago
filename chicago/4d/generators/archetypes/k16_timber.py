@@ -1435,6 +1435,8 @@ class Sample:
             pt = dict(pt, section_m=v["post_m"])
         if "plate" in v:       # T-2519: a house's own plate (its clear height, its depth)
             pl = dict(pl, **v["plate"])
+        if "roof_m" in v:      # T-2533: a house's own fascia, as deep as its photograph draws it
+            po = dict(po, roof_m=v["roof_m"])
         yf, Dp = fl["height_m"], v.get("depth_m", fl["depth_m"])   # T-2323: a house's own depth
         yf += v.get("basement_m", 0.0)     # T-2523: the floor raised by the basement under it
         pitch = fl["board_width_m"] + fl["gap_m"]
@@ -1622,9 +1624,13 @@ class Sample:
         for q in hole:     # the piercing stands clear of the arch and the board's edges
             if not (q[0] < w - 0.02 and q[1] < yp - 0.02 and inside(q, outer)):
                 raise ValueError(f"{self.v['id']}: the quatrefoil breaks out of its spandrel")
-        pts = outer + hole
+        holes = [hole]
+        if ar.get("fret"):     # T-2533: the board's field cut away round the quatrefoil's ring
+            holes += self._fret_openings(ar["fret"], curve, outer, w, yp, qc,
+                                         max(math.hypot(q[0] - qc[0], q[1] - qc[1]) for q in hole))
+        pts = outer + [q for h in holes for q in h]
         tsp = self.tone("spandrel")
-        for tri in K09.triangulate(outer, [hole]):
+        for tri in K09.triangulate(outer, holes):
             tq = [pts[i] for i in tri]
             self.poly(F, "spandrel", [(x, y, z1) for x, y in tq], (0, 0, 1), tsp)
             self.poly(F, "spandrel", [(x, y, z0) for x, y in tq], (0, 0, -1), tsp)
@@ -1633,13 +1639,94 @@ class Sample:
             m = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
             self.poly(F, "spandrel", [(p[0], p[1], z0), (q[0], q[1], z0), (q[0], q[1], z1), (p[0], p[1], z1)],
                       (c[0] - m[0], c[1] - m[1], 0), tsp)
-        for i in range(len(hole)):          # the piercing's cut edges
-            p, q = hole[i], hole[(i + 1) % len(hole)]
-            m = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
-            self.poly(F, "spandrel", [(p[0], p[1], z0), (q[0], q[1], z0), (q[0], q[1], z1), (p[0], p[1], z1)],
-                      (qc[0] - m[0], qc[1] - m[1], 0), tsp)
+        for hl in holes:                    # the piercings' cut edges, facing into each one
+            hc = qc if hl is hole else (math.fsum(q[0] for q in hl) / len(hl), math.fsum(q[1] for q in hl) / len(hl))
+            for i in range(len(hl)):
+                p, q = hl[i], hl[(i + 1) % len(hl)]
+                m = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
+                self.poly(F, "spandrel", [(p[0], p[1], z0), (q[0], q[1], z0), (q[0], q[1], z1), (p[0], p[1], z1)],
+                          (hc[0] - m[0], hc[1] - m[1], 0), tsp)
         self.meta["arch"] = {"spring_m": round(y_sp, 6), "crown_m": round(y_sp + h, 6), "half_span_m": round(w, 6),
                              "radii_m": [round(r, 6) for r in radii], "quatrefoil_m": [round(qc[0], 6), round(qc[1], 6)]}
+        if len(holes) > 1:
+            self.meta["arch"]["fret_openings_m2"] = [round(abs(area2(hl)) / 2, 6) for hl in holes[1:]]
+
+    def _fret_openings(self, fr, curve, outer, w, yp, qc, r_q):
+        """T-2533: the trefoil's spandrel as open fretwork. What stands of the board is a band
+        round the head foil `head_band_m` broad and round each side foil `side_band_m` broad, a
+        ring round the quatrefoil out to `ring_m` from its middle, a tie `tie_m` broad from the
+        ring down to the cusp, pierced by a round eye `eye_m` across standing `eye_at_m` from the
+        quatrefoil's middle (`r_q` is the quatrefoil's own reach), and a frame `rim_m` broad along the post, under the plate and at the
+        middle where the two halves meet; every other part of the field is cut away. Each opening
+        is found on a 5 mm grid, kept if a circle `min_opening_m` across fits in it, and traced
+        from its widest point by marching rays out to the solid (the clearance is an exact
+        distance, so each step may go as far as it reads). Returns the openings and the eye as
+        polygons, wound either way."""
+        R, e, tie = fr["ring_m"], fr["rim_m"], fr["tie_m"]
+        cs, ch = curve[0][1], curve[-1][1]
+        rs = math.hypot(curve[0][0][0] - cs[0], curve[0][0][1] - cs[1]) + fr["side_band_m"]
+        rh = math.hypot(curve[-1][0][0] - ch[0], curve[-1][0][1] - ch[1]) + fr["head_band_m"]
+        cusp = next(p for p, c in curve if c != cs)
+        L = math.hypot(cusp[0] - qc[0], cusp[1] - qc[1])
+        if not r_q + 0.01 + fr["eye_m"] / 2 < fr["eye_at_m"] < L - fr["eye_m"] / 2 or fr["eye_m"] >= tie - 0.02:
+            raise ValueError(f"{self.v['id']}: the fretwork's eye does not stand within its tie, clear of the quatrefoil and cusp")
+
+        def seg_d(p, a, b):
+            ab = (b[0] - a[0], b[1] - a[1])
+            t = max(0.0, min(1.0, ((p[0] - a[0]) * ab[0] + (p[1] - a[1]) * ab[1]) / (ab[0] ** 2 + ab[1] ** 2)))
+            return math.hypot(p[0] - a[0] - t * ab[0], p[1] - a[1] - t * ab[1])
+
+        def clear(p):
+            return min(math.hypot(p[0] - ch[0], p[1] - ch[1]) - rh, math.hypot(p[0] - cs[0], p[1] - cs[1]) - rs,
+                       math.hypot(p[0] - qc[0], p[1] - qc[1]) - R, seg_d(p, qc, cusp) - tie / 2,
+                       w - e - p[0], yp - e - p[1], p[0] - e / 2)
+        g = 0.005
+        y_lo = min(q[1] for q in outer)
+        nx, ny = int(w / g) + 1, int((yp - y_lo) / g) + 1
+        val = {}
+        for i in range(nx):
+            for j in range(ny):
+                p = (i * g, y_lo + j * g)
+                if inside(p, outer):
+                    c = clear(p)
+                    if c > 0:
+                        val[(i, j)] = c
+        out, seen = [], set()
+        for start in sorted(val):
+            if start in seen:
+                continue
+            comp, stack = [], [start]
+            seen.add(start)
+            while stack:
+                c = stack.pop()
+                comp.append(c)
+                for d in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    n = (c[0] + d[0], c[1] + d[1])
+                    if n in val and n not in seen:
+                        seen.add(n)
+                        stack.append(n)
+            top = max(comp, key=lambda c: (val[c], c))
+            if 2 * val[top] < fr["min_opening_m"]:
+                continue
+            s0 = (top[0] * g, y_lo + top[1] * g)
+            poly = []
+            for k in range(96):
+                t, dr = 0.0, (math.cos(2 * math.pi * k / 96), math.sin(2 * math.pi * k / 96))
+                for _ in range(200):
+                    d = clear((s0[0] + t * dr[0], s0[1] + t * dr[1]))
+                    if d < 1e-5:
+                        break
+                    t += d
+                poly.append((s0[0] + t * dr[0], s0[1] + t * dr[1]))
+            for c in comp:     # traced from its widest point, the opening must hold all of itself
+                if val[c] > 2 * g and not inside((c[0] * g, y_lo + c[1] * g), poly):
+                    raise ValueError(f"{self.v['id']}: a fretwork opening cannot be traced from its middle")
+            out.append(poly)
+        t = fr["eye_at_m"] / L
+        ec = (qc[0] + t * (cusp[0] - qc[0]), qc[1] + t * (cusp[1] - qc[1]))
+        out.append([(ec[0] + fr["eye_m"] / 2 * math.cos(math.pi * k / 12), ec[1] + fr["eye_m"] / 2 * math.sin(math.pi * k / 12))
+                    for k in range(24)])
+        return out
 
     def _trefoil_curve(self, ar, w, y_sp):
         """T-2519: the half of a cusped trefoil arch, from its spring at the post's inner face
