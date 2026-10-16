@@ -113,24 +113,44 @@ def validate(f, width):
                     and .4<=v['cap_above_m']<=1.6)):
         raise ValueError('stone_finish.ventilator: a cowl on the deck behind the coursed return, bounded')
     l=f['lattice']
-    if set(l)!={'height_m','pitch_m','bar_m','thickness_m','return_m'} or not (.6<=l['height_m']<=1.6 and
+    if set(l)-{'head_m'}!={'height_m','pitch_m','bar_m','thickness_m','return_m'} or not (.6<=l['height_m']<=1.6 and
             .25<=l['pitch_m']<=.7 and .08<=l['bar_m']<l['pitch_m']/2 and .15<=l['thickness_m']<=.5 and
             0<=l['return_m']<=8):
         raise ValueError('stone_finish.lattice: two open rows, bounded bars, thickness and return')
+    # T-2679: an optional solid head over the upper row, deeper than the bars, so the rows
+    # sit lower under the coping; each row keeps at least 0.15 m open
+    if 'head_m' in l and not (l['bar_m']<=l['head_m']<=.5 and
+            (l['height_m']-2*l['bar_m']-l['head_m'])/2>=.15):
+        raise ValueError('stone_finish.lattice.head_m: a head between the bar and 0.5 m, rows still open')
     if not .8<=f['deck_drop_m']<=2 or not 0<=f['stone_return_m']<=8:
         raise ValueError('stone_finish: concealed deck and side stone return outside bounds')
     d=f['diaper']
-    if set(d)!={'bottom_m','top_m','pitch_m','proud_m','stagger','relief_m'} or not (d['bottom_m']<d['top_m'] and
-            .2<=d['pitch_m']<=.6 and .02<=d['proud_m']<=.15 and 0<=d['stagger']<=.5 and
-            .008<=d['relief_m'][0]<=d['relief_m'][1]<=.046):
+    if set(d)-{'units','gap_m','unit_width_m'}!={'bottom_m','top_m','pitch_m','proud_m','stagger','relief_m'} or not (
+            d['bottom_m']<d['top_m'] and .12<=d['pitch_m']<=.6 and .02<=d['proud_m']<=.15 and
+            0<=d['stagger']<=.5 and .008<=d['relief_m'][0]<=d['relief_m'][1]<=.046):
         raise ValueError('stone_finish.diaper: measured band, staggered rows and bounded rock relief')
+    # T-2679: the units are rock-faced lumps (T-2566) or diamond points, a pyramid on each
+    # unit of a checker on a dressed ground; gap_m is plain ground between the head band and
+    # the lowest row
+    if d.get('units','rock_faced') not in ('rock_faced','diamond_point') or not 0<=d.get('gap_m',0)<=.5:
+        raise ValueError('stone_finish.diaper: units rock_faced or diamond_point, a gap of at most 0.5 m')
+    if d.get('units')=='diamond_point' and not d['pitch_m']<=d.get('unit_width_m',d['pitch_m'])<2*d['pitch_m']-.04:
+        raise ValueError('stone_finish.diaper.unit_width_m: a point at least one row deep, its row neighbours apart')
+    if d.get('units')!='diamond_point' and (d['pitch_m']<.2 or 'gap_m' in d or 'unit_width_m' in d):
+        raise ValueError('stone_finish.diaper: rock-faced units are at least 0.2 m and lie on the head band')
     c=f['colonnettes']
     if set(c)!={'axes_m','bottom_m','top_m','radius_m'} or not (.06<=c['radius_m']<=.2 and c['bottom_m']<c['top_m'] and
             all(0<s<width for s in c['axes_m'])):
         raise ValueError('stone_finish.colonnettes: shafts inside the front')
     p=f['pinnacles']
-    if set(p)!={'height_m','radius_m'} or not (.5<=p['height_m']<=1.5 and .15<=p['radius_m']<=.4):
+    if set(p)-{'boss'}!={'height_m','radius_m'} or not (.5<=p['height_m']<=1.5 and .15<=p['radius_m']<=.4):
         raise ValueError('stone_finish.pinnacles: bounded stone caps')
+    # T-2679: a carved boss on a corner at the foot of the lattice, under the moulded course
+    bo=p.get('boss')
+    if bo is not None and (set(bo)!={'corners','radius_m','centre_m','proud_m'} or not (
+            bo['corners'] and set(bo['corners'])<={'south','north'} and .08<=bo['radius_m']<=.3
+            and .05<=bo['proud_m']<=2*bo['radius_m'] and d['bottom_m']<bo['centre_m']<f['diaper']['top_m']+.5)):
+        raise ValueError('stone_finish.pinnacles.boss: corners, a bounded radius and projection, at the band')
     return f
 
 
@@ -162,15 +182,17 @@ def dress(a):
 
     l=f['lattice']; h,b,t=l['height_m'],l['bar_m'],l['thickness_m']
     base=E+.12; top=base+h
+    # T-2679: the head over the upper row (the bar's depth unless the record reads it deeper)
+    hd=l.get('head_m',b); o=(h-2*b-hd)/2
     def lattice(length,transform=None):
         # Three continuous rails; staggered uprights leave two rows of square sky holes.
-        for yy in (base,base+h/2-b/2,top-b):
-            box(0,length,yy,yy+b,-t,0,transform=transform)
+        for yy,dy in ((base,b),(base+b+o,b),(top-hd,hd)):
+            box(0,length,yy,yy+dy,-t,0,transform=transform)
         count=max(2,round(length/l['pitch_m']))
         pitch=length/count
         for row in range(2):
-            low=base+b if row==0 else base+h/2+b/2
-            high=base+h/2-b/2 if row==0 else top-b
+            low=base+b if row==0 else base+2*b+o
+            high=base+b+o if row==0 else top-hd
             for j in range(count+1):
                 s=j*pitch+(pitch/2 if row else 0)
                 if s>=length: continue
@@ -210,6 +232,16 @@ def dress(a):
             profile=[(r*.8,base-.45),(r*.8,top-.12),(r*1.08,top-.1),(r*1.08,top+.04),
                      (r*.85,top+.12),(r*.72,top+.16),(r*.58,top+ph*.45),(r*.1,top+ph*.92),(.018,top+ph)]
         emit(turned_faces(s,d,profile,32,.06))
+    bo=pin.get('boss')
+    for corner in (bo or {}).get('corners',()):
+        # T-2679: Florian 1948 and the c. 1888 view beside Glessner show a carved boss on the
+        # north-east corner under the moulded course at the lattice's foot, below the corner
+        # pinnacle. Turned about the face's normal and lobed; its carving is below both
+        # pictures' grain, so the lobes are reconstructed (L-k01-keith-boss-2679).
+        sc=W-r*.6 if corner=='north' else r*.6; yc=bo['centre_m']; R=bo['radius_m']; pd=bo['proud_m']
+        prof=[(R*.55,0.),(R*.92,pd*.12),(R,pd*.3),(R*.9,pd*.55),(R*.66,pd*.8),(R*.34,pd*.96),(.01,pd)]
+        faces=[(list(reversed(q)),n) for q,n in turned_faces(sc,yc,prof,24,.09,cap_bottom=False)]
+        emit(faces,transform=lambda q:(D+.03+q[1],q[2],-q[0]))
     if ret and ra:
         # The rear pinnacle sits on the coping, smaller than the corner's, with no shaft.
         # Its collar stays inside the lot line, centred on the coping.
@@ -237,6 +269,30 @@ def dress(a):
     rows=max(1,round((y1-y0)/pitch)); cols=max(1,round((W-.5)/pitch))
     step=(W-.5)/cols
     rng=random.Random(seed^0xD1A9)
+    gap=di.get('gap_m',0.)
+    if di.get('units')=='diamond_point':
+        # T-2679: Florian 1948 and the 1888 Glessner plate show the band as small units in
+        # staggered rows, each cut to a pyramid point that the sun lights on its upper faces
+        # and shades below, standing on a dressed ground in a checker: one row's points over
+        # the gaps of the row below. The ground runs plain down to the head band.
+        g=.07
+        box(.25,W-.25,y0-gap,y1,-.02,g)
+        rise=(y1-y0)/rows
+        for row in range(rows):
+            lo=y0+row*rise+.012; hi=y0+(row+1)*rise-.012; ym=(lo+hi)/2
+            for col in range(cols):
+                if (row+col)%2:
+                    continue
+                xm=.25+(col+.5)*step; half=di.get('unit_width_m',step)/2-.012
+                x0=max(.25+.012,xm-half); x1=min(W-.25-.012,xm+half)
+                tip=(xm,ym,g+di['proud_m']); sk=g+.012
+                quad=[(x0,lo),(x1,lo),(x1,hi),(x0,hi)]
+                for (sa,ya),(sb,yb) in zip(quad,quad[1:]+quad[:1]):
+                    # a short square plinth, then the point
+                    emit([oriented([(sa,ya,g),(sb,yb,g),(sb,yb,sk),(sa,ya,sk)],
+                                   ((yb-ya),-(sb-sa),0))])
+                    emit([oriented([(sa,ya,sk),(sb,yb,sk),tip],((yb-ya),-(sb-sa),di['proud_m']))])
+        rows=0
     for row in range(rows):
         # T-2566: the photographs lay the band as rows of rough lumps, each row's joints
         # broken over the row below's (`stagger` of a stone), not one square grid; the
@@ -254,7 +310,7 @@ def dress(a):
                     recess=0,bevel=.009,F=.055+out,rock=rng.uniform(*di['relief_m']))
     # T-2566: the head band under the checker and the corbelled bands over it are moulded,
     # stepped out in fillets (bottom up: height, projection), not one plain block each
-    for yy,steps in ((y0-.18,((.04,.07),(.05,.10),(.09,.14))),(y1,((.04,.08),(.04,.11),(.04,.14))),
+    for yy,steps in ((y0-gap-.18,((.04,.07),(.05,.10),(.09,.14))),(y1,((.04,.08),(.04,.11),(.04,.14))),
                      (E,((.04,.14),(.08,.22)))):
         for height,proud in steps:
             box(0,W,yy,yy+height,-.03,proud)

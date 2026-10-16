@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-reed-1941-prairie-north-from-1820",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "589e34370553820032ffb0dc52f48659e1f52d9b8d47c86cf4f495352d32e0cf",
+  "glb_sha256": "c2adce6cbfdb0c5b193b9f4a380da352ee19142e18904cd55b80b369d5806f2c",
   "camera_sha256": "9ba76d2aa82e2c89e8877ec4e1881c55de03d6a2d06f6c89b7165d0a1572457d",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "unreviewed",
   "differences": [
     {
       "what": "T-2579: the camera is re-fitted to six controls on Keith's own front (both pinnacle apexes, a third-storey jamb at head and sill, a bow light at head and sill): RMS 4.6 px, about 0.22 m at 58 m. Pinnacles, parapet, the upper lights and the bow head now register; what still differs is the building, below.",
