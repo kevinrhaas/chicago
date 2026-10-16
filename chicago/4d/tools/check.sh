@@ -821,6 +821,14 @@ step "the WebP maps the renderer binds decode pixel-identical to their PNG maste
 selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
   python3 tools/web_textures.py --self-test
 
+# T-2582. The KTX2 beside each drop-in sheet (roof relief, 1904 streets, the ground strip's
+# muck), which js/ktx2.js loads in place of the image where the GPU takes a block format.
+# KTX2 is lossy by design, so this reads what the renderer relies on, not pixels: the file
+# is there and is a KTX2, it is its web map's size, it carries the full mip chain the
+# light tier drops the top of, and no .ktx2 sits in the library that no sheet names.
+step "every drop-in library sheet carries its KTX2: its web map's size, a full mip chain, no orphans (T-2582)" \
+  python3 tools/ktx2_sheets.py --check
+
 # T-2299. ...and the relief in them points the way its name says. The 1835 library's
 # generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` and filed
 # the OpenGL map as `normal_dx`, as the 1904 street library did until T-2296. Every

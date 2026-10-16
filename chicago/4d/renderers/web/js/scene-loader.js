@@ -22,6 +22,7 @@
  */
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { registerKTX2 } from './ktx2.js';
 import { shareImageSources, releaseSharedImage } from './shared-images.js';
 import { resolveStructureVersion } from './structure-versions.js';
 
@@ -305,7 +306,8 @@ export async function loadScene(year, bases = resolveBases(), {
     });
   };
 
-  const loader = new GLTFLoader();
+  // The shared KTX2 loader (T-2582), so a KHR_texture_basisu derivative decodes.
+  const loader = registerKTX2(new GLTFLoader());
   // T-2464: houses built on one kit embed the same maps; decode each once.
   const sharedImages = shareImageSources(loader);
   const registry = new Map();

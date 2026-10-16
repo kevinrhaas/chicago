@@ -310,6 +310,32 @@ again (32 → 36 → 40 were three such purchases). The household cards can grow
 tenfold without costing a first visit a byte; the thing that costs every
 visitor immediately is the boot payload, and that is what the 13 MB defends.
 
+### 4c. The KTX2 sheets and their transcoder, re-measured 2026-10-16 (T-2582)
+
+T-2582 ships the roof relief maps, the 1904 street surfaces and the ground strip's muck as
+GPU-compressed KTX2 (`js/ktx2.js`, `tools/ktx2_sheets.py`). The point is GPU memory, not
+wire bytes, and the wire pays for it. Measured with `tools/measure_boot_payload.mjs --check`
+on the T-2582 branch: **12.858 MB of 13.000 MB**, 0.142 MB of room. The cost over the image
+path, per request, in that reading:
+
+| what | wire | why it is there |
+|---|---:|---|
+| the four roof sheets as `.ktx2` over their `.webp` | +0.403 MB | UASTC data maps keep 8 bits a texel before Zstandard, where the WebPs were lossless-compressed images (1.139 MB against 0.736 MB) |
+| `basis_transcoder.wasm` + `.js` | 0.251 MB | the transcoder, fetched once, the first time a `.ktx2` is asked for |
+| `KTX2Loader`, `ktx-parse`, `zstddec`, `WorkerPool`, `ColorSpaces`, `js/ktx2.js` | 0.035 MB | the loader and its imports, gzip |
+| **total** | **+0.689 MB** | |
+
+What it buys, from `tools/measure_memory.mjs` with and without `--ktx2-off` on the same
+build: the 1835 sheets fall from 21.3 MB to 5.3 MB of GPU memory on a desktop and to
+1.3 MB on a phone; 1904's twenty-five fall from 49.3 MB to 3.1 MB on a phone.
+
+**The room this leaves is the tightest the budget has stood.** ETC1S would halve the roof
+sheets' bytes, but measured on the shingle ORM it reads 28-32 dB per channel against the
+master where UASTC reads 41 dB and up (`tools/ktx2_sheets.py`), and a roof's relief is
+what those maps are for. T-2583 (the wall, frontage and signboard sheets) adds more KTX2 to
+the 1835 boot and will not fit beside this without a lever: the household seats in the
+boot sidecars (§ 4b) are the one already named.
+
 ## 5. What the gate does now
 
 - **Refuses** over 288 MiB (T-2226; measured re-budget in §8) — the repository-hygiene guard, not the visitor-cost
