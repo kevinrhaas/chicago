@@ -57,6 +57,8 @@ import { blendPoint, blendBuffer, ZONE_BLEND, ZONE_BLEND_MAX_M } from './zone-bl
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
+import { runJob, jobsOnWorkers } from './jobs/pool.js';
+import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
 const LEVEL = { attested: 0.0, inferred: 0.5, reconstructed: 1.0 };
@@ -1979,10 +1981,10 @@ export async function createFlora({
    * `cost` is what the last whole pass spent: the next one is paced on it.
    */
   const nearPass = { name: 'near', make: rebuildAll, at: 'near', yawAt: 'yaw',
-    reach: step, pending: null, cost: null };
+    reach: step, pending: null, cost: null, waits: 0 };
   const farPass = { name: 'far', make: rebuildFarShrubs, at: 'farShrub', yawAt: 'farShrubYaw',
-    reach: tune.farShrub.step, pending: null, cost: null };
-  stats.spread = { landings: 0, drained: 0, abandoned: 0, frames: 0, ms: 0,
+    reach: tune.farShrub.step, pending: null, cost: null, waits: 0 };
+  stats.spread = { landings: 0, drained: 0, abandoned: 0, frames: 0, ms: 0, waits: 0,
     passes: { near: 0, far: 0 }, last: { near: null, far: null } };
 
   /** Run, start or advance one pass this frame. True if its sets changed. */
@@ -2024,12 +2026,16 @@ export async function createFlora({
       // needs at this budget, and two in hand. Never earlier than half the
       // reach — spreading every pass over half the margin is the least any
       // frame can be asked to pay, because the pass after it needs the rest.
-      const frames = Math.ceil((p.cost ?? 0) / Math.max(f.budgetMs, 0.5)) + 3;
+      // T-2604: and the frames the last pass spent waiting on its walks.
+      const frames = Math.ceil((p.cost ?? 0) / Math.max(f.budgetMs, 0.5)) + 3 + p.waits;
       const lead = Math.min(p.reach / 2, Math.max(f.pace, frames * f.pace));
       const leadYaw = Math.min(CONE_YAW_STEP / 2, frames * f.turnRate);
       if (d + lead <= p.reach && dy + leadYaw <= CONE_YAW_STEP) return false;
       f.camera.getWorldQuaternion(tmpQ);
-      p.pending = { gen: p.make(e, n, f.cone), e, n, yaw, spent: 0, frames: 0,
+      // T-2604: a spread pass sends its lattice walks to the job pool (the cone
+      // carries the mark, because it is what every walk of the pass is given).
+      p.pending = { gen: p.make(e, n, f.cone && { ...f.cone, jobs: true }), e, n, yaw,
+        spent: 0, frames: 0, waits: 0,
         t0: performance.now(),
         // Where the camera stood, so a gate can deal the same pass in one frame
         // and compare the two plant for plant.
@@ -2047,7 +2053,13 @@ export async function createFlora({
     const slice = late ? Infinity : Math.max(f.budgetMs, owed / Math.max(1, left));
     const t0 = performance.now();
     let done = false;
-    do { done = p.pending.gen.next().done; } while (!done && performance.now() - t0 < slice);
+    // T-2604: a walk still on a worker ends the slice, and is collected next
+    // frame; a late pass is never told it may wait, so it walks in this one.
+    do {
+      const s = p.pending.gen.next(late ? undefined : MAY_WAIT);
+      done = s.done;
+      if (s.value === WALK_WAIT) { p.pending.waits++; break; }
+    } while (!done && performance.now() - t0 < slice);
     p.pending.spent += performance.now() - t0;
     p.pending.frames++;
     if (!done) return false;
@@ -2061,12 +2073,14 @@ export async function createFlora({
     centres[p.at] = { e: q.e, n: q.n };
     centres[p.yawAt] = q.yaw;
     p.cost = q.spent;
+    p.waits = q.waits;
     const sp = stats.spread;
     sp.landings++;
     if (drained) sp.drained++;
     sp.frames += q.frames;
     sp.ms += q.spent;
-    sp.last[p.name] = { e: q.e, n: q.n, yaw: q.yaw, frames: q.frames, ms: q.spent,
+    sp.waits += q.waits;
+    sp.last[p.name] = { e: q.e, n: q.n, yaw: q.yaw, frames: q.frames, ms: q.spent, waits: q.waits,
       camera: q.camera, pass: ++sp.passes[p.name] };
     p.pending = null;
   }
@@ -4422,6 +4436,10 @@ function rngFrom(seed) {
  *  permutation of K49(d), which the DENSE matrix layers take because a lattice
  *  stripes them. Both are pure functions of the slot's world coordinates. */
 function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emit) {
+  if (cone?.jobs && jobsOnWorkers()) {
+    yield* scatterOnPool(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emit);
+    return;
+  }
   const c0 = Math.floor((camE - radius) / cell);
   const c1 = Math.ceil((camE + radius) / cell);
   const r0 = Math.floor((camN - radius) / cell);
@@ -4525,19 +4543,62 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
         if (cone && d > CONE_KEEP_M
           && ((e - camE) * cone.fe + (n - camN) * cone.fn)
             < d * cone.cos - 2 * (cone.margin ?? 0)) continue;
-        if (cone?.planes) {
-          const y = cone.surface(e, n) + cone.halfHeight;
-          // Distance to any unit plane can change by no more than translation
-          // plus the rotation chord. 0.22 rad exceeds both yaw/pitch thresholds.
-          const pad = cone.bodyRadius + (cone.margin ?? 0.6)
-            + Math.hypot(d, cone.eyeY - y) * 0.22;
-          if (cone.planes.some(p => p.normal.x * e + p.normal.y * y
-              - p.normal.z * n + p.constant < -pad)) continue;
-        }
+        if (cone?.planes && outsideFrustum(cone, e, n, d)) continue;
         emit(e, n, d, rng, cellSeed, u);
       }
     }
     yield { done: r - r0 + 1, total: r1 - r0 + 1 };
+  }
+}
+
+/** The aerial cone's frustum test for one slot of the walk: true if no part of
+ *  a plant standing there can be in view. It asks the terrain for the ground's
+ *  height, which is why it stays on the main thread when the walk does not. */
+function outsideFrustum(cone, e, n, d) {
+  const y = cone.surface(e, n) + cone.halfHeight;
+  // Distance to any unit plane can change by no more than translation
+  // plus the rotation chord. 0.22 rad exceeds both yaw/pitch thresholds.
+  const pad = cone.bodyRadius + (cone.margin ?? 0.6)
+    + Math.hypot(d, cone.eyeY - y) * 0.22;
+  return cone.planes.some(p => p.normal.x * e + p.normal.y * y
+    - p.normal.z * n + p.constant < -pad);
+}
+
+/**
+ * T-2604. A walk sent to a worker yields this while its slots are on the way, and
+ * the pass is resumed with MAY_WAIT by the one caller that can let a frame go by
+ * for it: `runPass`, on a spread pass that is not late. Every other resumption
+ * (a late slice, `settle`, a `for…of` drain, the boot path) takes the walk in the
+ * frame instead, so nothing ever spins waiting on a message it cannot receive.
+ */
+const WALK_WAIT = Object.freeze({ waiting: true });
+const MAY_WAIT = Symbol('may wait');
+
+/**
+ * T-2604. `scatter` with its walk on the job pool: the same slots, dealt to `emit`
+ * in the same order with the same yields, out of `jobs/lattice-kernel.js` on a
+ * worker (`tools/check_lattice_kernel.mjs` holds the kernel to `scatter` slot for
+ * slot). Only a spread pass comes here (its cone carries `jobs`); a one-frame
+ * pass walks in `scatter` as it always did.
+ */
+function* scatterOnPool(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emit) {
+  const job = { camE, camN, cell, perCell, radius, inner, salt, draw,
+    cone: { fe: cone.fe, fn: cone.fn, cos: cone.cos, margin: cone.margin } };
+  const total = Math.ceil((camN + radius) / cell) - Math.floor((camN - radius) / cell) + 1;
+  const walk = { slots: null, failed: false };
+  runJob('latticeSlots', job).then((slots) => { walk.slots = slots; }, () => { walk.failed = true; });
+  yield { done: 0, total };
+  while (!walk.slots) {
+    if (walk.failed || (yield WALK_WAIT) !== MAY_WAIT) walk.slots = latticeSlots(job);
+  }
+  const { e, n, d, u, cellSeed, rng, rowEnd } = walk.slots;
+  let i = 0;
+  for (let row = 0; row < rowEnd.length; row++) {
+    for (; i < rowEnd[row]; i++) {
+      if (cone.planes && outsideFrustum(cone, e[i], n[i], d[i])) continue;
+      emit(e[i], n[i], d[i], rngFrom(rng[i]), cellSeed[i], u[i]);
+    }
+    yield { done: row + 1, total };
   }
 }
 
