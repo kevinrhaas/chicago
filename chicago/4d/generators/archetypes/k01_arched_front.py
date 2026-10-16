@@ -208,6 +208,36 @@ def _keystone(a, frame, k, seed, conf):
               (sg, -0.2, 0), seed, conf)
 
 
+def _curved(a, frame, g, conf, recess, cid, inst):
+    """T-2531: one light's ring turned to a curved extrados, as 1621's drawing draws its door's:
+    each voussoir cut between the head's radius and the ring's, standing `ring_proud_m`
+    before the wall, and the block's spandrels round it laid as the wall's own stone, flush,
+    with no joint between their pieces but the ring's. Returns the next stone's index."""
+    k = _k01()
+    O, R, N = frame
+    wk = a.p.stone["wall"]
+    hj = wk["joint_m"] / 2
+    (s0, s1, spring, r, _sill), = g["lights"]
+    cx, ro = (s0 + s1) / 2, r + g["lights"][0][0] - g["cuts"][0]
+    angs = [math.pi * i / ROUND_SEGMENTS for i in range(ROUND_SEGMENTS + 1)]
+    h = ROUND_SEGMENTS // 2
+    angs = angs[:h] + angs[h + 1:]
+    P = lambda rr, t: (cx + rr * math.cos(t), spring + rr * math.sin(t))
+    j = 0
+    for a0, a1 in zip(angs, angs[1:]):
+        mid = (a0 + a1) / 2
+        bed = k._unit(k._add(k._mul(R, math.cos(mid)), k._mul(k.Y, math.sin(mid))))
+        a.stone(frame, [P(r, a0), P(ro, a0), P(ro, a1), P(r, a1)], [hj] * 4, "rough_stone_trim",
+                a._stone_seed(cid, inst, j), conf, recess=recess, bevel=wk["bevel_m"], F=g["ring_proud_m"], bed=bed)
+        j += 1
+    for pts, kinds, mid in wedges(cx, spring, ro, g["cuts"][0], g["cuts"][-1], g["top_m"]):
+        joints = [0.0 if kd == "radial" else hj for kd in kinds]
+        a.stone(frame, pts, joints, "rough_stone_trim", a._stone_seed(cid, inst, j), conf,
+                recess=recess, bevel=0.0, F=0.0)
+        j += 1
+    return j
+
+
 def _voussoirs(a, frame, g, conf, recess):
     k = _k01()
     O, R, N = frame
@@ -222,7 +252,9 @@ def _voussoirs(a, frame, g, conf, recess):
     inst = len(a.components[cid]["instances"]) - 1
     hj = wk["joint_m"] / 2
     j = 0
-    for i, (s0, s1, spring, r, sill) in enumerate(g["lights"]):
+    if g.get("extrados") == "curved":
+        j = _curved(a, frame, g, conf, recess, cid, inst)
+    for i, (s0, s1, spring, r, sill) in enumerate(g["lights"] if g.get("extrados") != "curved" else ()):
         cx = (s0 + s1) / 2
         L, Rr = g["cuts"][i], g["cuts"][i + 1]
         for pts, kinds, mid in wedges(cx, spring, r, L, Rr, g["top_m"]):

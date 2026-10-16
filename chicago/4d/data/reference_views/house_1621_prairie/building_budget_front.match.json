@@ -2,10 +2,10 @@
   "structure_id": "house_1621_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
-  "glb_sha256": "615ea7c6e1cb956cb5db1866b1e8e00e08e81797d3a49e058aad4c69b88014e5",
+  "glb_sha256": "77392033312343e777d3923459558cdbf3a1681f681484b2ecda133173fab624",
   "camera_sha256": "6222a0879a57a2c0bd3f87866f0fd82d3834acd772c43f2cb1c31c72deb02a7b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a stone town house with a full-height swell bay rising from the raised basement to the wall head, a narrow entrance strip north of it, and its south side wall in shade along the driveway; the draft stood a grey flat-roofed box",
@@ -49,13 +49,13 @@
     },
     {
       "what": "the entrance arch's outline and depth: the drawing turns its voussoirs to a curved extrados under a band and sets the door at the back of a recess deeper than the wall, its jamb lit inside; the build cuts the voussoirs out to a rectangular block in the coursing and sets the door 0.32 m back in the 0.45 m front",
-      "status": "open",
-      "how": "found by T-2526; the arch, its ring and the door are built, the curved extrados and the deeper recess are not"
+      "status": "fixed",
+      "how": "T-2531: K07's deep-arch entrance laid with a curved extrados (`entrance_kit.arch.extrados`): each voussoir cut between the round head and a ring 0.3 m beyond it, standing 0.04 m before the wall, the block's spandrels laid flush in the front's stone, and over the crown a band 0.15 m deep laid as one more belt course (4.4-4.55 m); the door at the back of a recess 0.95 m deep, K07's own reveal for the variant, whose vestibule carries it past the 0.45 m front. Through the camera the band lands about 5 px under the drawn one (about y 468 against 463), the ring's crown within about 5 px, and the recess's lit north jamb reads about 20 px wide against about 25 px drawn (a reveal inside the wall gave about 6 px). L-k01-1621-last-drawn-2531"
     },
     {
       "what": "the light over the entrance: the drawing seems to stand it a little proud of the wall on a moulded shelf over the carved panel, with returns at its sides; the build sets it flush in K09's surround, with K06's sill under it",
-      "status": "open",
-      "how": "found by T-2526"
+      "status": "fixed",
+      "how": "T-2531: K09's `shelf`: the light and its surround stand 0.08 m before the wall on a stone tablet as wide as the surround's seat, its sides the returns, over a moulded shelf of two stepped courses 0.3 m deep under its sill (the upper 0.16 m proud), and the carved panel hangs from the shelf's foot as the drawing draws it. Through the camera the shelf's foot lands within about 2 px of the drawn one (394 against 392) and its top about 8 px under it, the build keeping K06's sill on the shelf where the drawing seats the light on it directly. L-k01-1621-last-drawn-2531"
     },
     {
       "what": "the stoop: the drawing's climbs beside the strip, parallel to the front, behind a stone cheek; the build's is a straight stoop toward the street",
@@ -69,8 +69,8 @@
     },
     {
       "what": "the basement lights' heads: the drawing sets a block of splayed voussoirs over each, its joints fanned up to the string course; the build's are K06's plain flat lintel",
-      "status": "open",
-      "how": "found by T-2525; the lights, their grilles and the band are built, the dressed heads are not"
+      "status": "fixed",
+      "how": "T-2531: K08's `voussoirs` on each basement light: five dressed stones from its head to the bow's string course, the block 0.08 m wider each side at its top, their joints fanned, each 0.04 m proud with a 0.015 m chamfer so the joints read. They are 0.19 m tall against about 0.3 m drawn, under the build's string course, which stands lower than the drawn band (within the storey lines' 15 px). L-k01-1621-last-drawn-2531"
     },
     {
       "what": "the front's widths: the drawing draws a north strip of about 1.4 m beside a bow of about 3.7 m (its inset plan puts the strip at about a third of the front); 1621's 1911 sheet traces a 6.2 m front, 3.6 m of it north of a 2.3 m bay at the south end, so the build's strip is about 45 px wider at its outer edge and its bow about 57 px narrower at its north edge. The sheet controls the plan (the survey of what stood nearer the scene, against the 1886 design)",
@@ -93,6 +93,5 @@
       "how": "the stone (Bedford limestone), brick and paint are reconstructed, L-k01-1621-hamline-front-2440; the 1911 sheet reads 1621 'brick' and does not mark the stone front the drawing draws"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2530, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, the stoop's crop (the plate's x 90-340, y 500-720) read against the drawing and the inset plan at two builds: a first cheek carried level along the landing as a parapet hid the door's foot and the flight, which the drawing shows, so the landing is faced flush and the cheek runs with the flight alone; the side stoop fixed, about 100 px right of the drawn flight for the plan's widths; the arch's curved extrados and deeper recess, the light's projecting shelf and the basement lights' voussoir heads still open, for T-2531"
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
