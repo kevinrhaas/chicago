@@ -143,3 +143,21 @@ passed with zero page/HTTP/loader errors, 126–143 draws and
 budgets. The earlier whole-front and southeast captures are labelled preliminary.
 The published stage-14 mobile smoke also passed: 128 checks, zero failures.
 This is staged coverage, not a claim that the complete 15-stage smoke ran.
+
+Integration with dev `1d8fb34` preserves the new 1621 side stoop and 1637 paired
+opening support. All K01/K12/K13/K16 masters were regenerated after the rebase;
+only Keith differs from that dev tree, and Keith retains the master and browser
+hashes used for the captures above. Browser receipts precede this integration;
+they are not represented as a fresh full-district smoke of the rebased tree.
+
+Required preflight on the rebased implementation (`d6b76b2`) passed in an
+isolated clean checkout: full repository gate, changelog entry and ticket-ID
+checks. No assertions or drift baselines were relaxed.
+
+Published stage-14 desktop smoke: **128 passed, zero failed**, including the
+1904 front door and zero-page-errors checks (115 stage checks and 13 always-on
+checks). It took 29m05s on software GL, exceeding the steward timing target;
+the unchanged assertions passed. Mobile took 14m52s. Both receipts identify
+pre-rebase smoke tree `sha256:95aa65b69bca4e67`; the desktop receipt was filed
+after rebase, so its provenance is restored from the captured test-time hash
+and the matching mobile receipt rather than attributed to the later tree.
