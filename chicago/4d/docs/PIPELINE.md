@@ -123,9 +123,22 @@ resolves data by page path (`walk/` → `../data/`). Mirroring the whole publish
 exactly why the whole tree is mirrored and not just `walk/`. If a root-absolute URL is ever
 introduced, this stops being true and the preview script needs the pilot's rewriting.
 
-**3. There is no service worker to neutralise.** The pilot replaces `sw.js` with a
-self-unregistering stub so a preview never installs offline caching. This app has no service
-worker, so there is nothing to stub and no cache to bump.
+**3. The service worker keeps the two tiers apart by scope, not by a stub** (T-2561; until
+then there was none). The pilot replaces `sw.js` with a self-unregistering stub so a preview
+never installs offline caching. This app registers its worker only when a visitor taps "Keep
+<year> on this device", and the mirrored tree carries its own copy, so the two tiers stay
+separate by construction:
+
+- production's worker is `/4d/sw.js` (scope `/4d/`); the preview's is `/4d/dev/sw.js` (scope
+  `/4d/dev/`), and the browser gives a page to the narrower scope that has one;
+- each names its caches for its own scope (`c4d-pack /4d/dev/ 1835`), and production's worker
+  answers only files listed in its own packs, so a `/4d/dev/` request passes through it to the
+  network (`tools/smoke_year_pack.mjs --part keep` asserts this);
+- **the kill switch** is a file: commit `chicago/4d/offline/sw-off` and publish ships
+  `sw.js` with `KILL = true` and `"sw_off": true` in `build.json`. The next visit unregisters
+  the worker and deletes its packs (`--part update` asserts it). It acts on the tier whose tree
+  carries the file: merged to `dev` it clears the preview, and only a promotion clears
+  production.
 
 **4. Scope is `chicago/4d` alone.** `kevinrhaas/custom` is a monorepo of unrelated tenants —
 CAD, print models, the Joliet game, a landing site. The dev tier covers the 4D app and nothing

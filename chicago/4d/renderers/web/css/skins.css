@@ -166,4 +166,10 @@ html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn:not(:di
 .skin-tools-label { margin:0;font-size:10px; }
 html[data-transfer] .gate-card { animation:skin-arrival .7s ease-out both; }
 @keyframes skin-arrival { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
-@media (prefers-reduced-motion:reduce) { html[data-transfer] .gate-card{animation:none} .machine-dial,.machine-dial *,.gate-btn{transition:none!important} }
+/* T-2615: portal continuity. The Observatory's departure ends with its dashed ring still
+   expanding; the arrival picks that ring up in its last stretch (1.6x to 3x, fading) and lets it run
+   out past the screen's edge behind the card, so the jump reads as one shot. Behind the card
+   (z-index -1 inside the gate's own stacking context), never clickable, gone in 1.4 s. */
+html[data-transfer] .gate::before { content:'';position:absolute;left:50%;top:50%;z-index:-1;width:70vmin;height:70vmin;margin:-35vmin 0 0 -35vmin;border:1px dashed var(--accent);border-radius:50%;pointer-events:none;opacity:0;box-shadow:0 0 0 30px var(--skin-glow),0 0 0 100px var(--skin-glow);animation:transfer-tail 1.4s var(--ease-machine) both; }
+@keyframes transfer-tail { from{transform:scale(1.6);opacity:.45} to{transform:scale(3);opacity:0} }
+@media (prefers-reduced-motion:reduce) { html[data-transfer] .gate-card{animation:none} html[data-transfer] .gate::before{content:none} .machine-dial,.machine-dial *,.gate-btn{transition:none!important} }

@@ -2800,6 +2800,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_lattice_kernel.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_loading_content.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4598,6 +4602,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/prebuild_layers.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/printed_twice.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5342,6 +5350,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_claim_value.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_compile_jaunts.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5733,6 +5745,10 @@
       "wrote_by": [
         "/home/claude/chicago/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
       ]
+    },
+    "tools/write_year_packs.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/yard_rule_1835.py": {
       "wrote": [],

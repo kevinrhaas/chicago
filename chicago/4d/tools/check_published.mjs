@@ -123,6 +123,14 @@ const TRANSFORMED = [
         + 'the site root ships them byte for byte, and the viewer reads those from /<app>/ instead',
     gate: 'serve_from_root.py --self-test (check.sh) proves a directory leaves only when every file in it is '
         + 'identical at the root; tools/check_published.mjs still compares every file that does ship' },
+  { re: /^(?:sw\.js|packs\/[^/]+\.json|\d{4}\/app\.webmanifest)$/,
+    what: 'tools/write_year_packs.mjs (T-2561) writes the per-year packs a visitor can keep on the device, '
+        + 'each year\'s home-screen manifest, and sw.js — offline/sw.js, with its KILL line flipped '
+        + 'when offline/sw-off exists',
+    gate: 'write_year_packs.mjs --check (check.sh) asserts every file a pack lists ships at the hash and size '
+        + 'it lists, each pack holds its own door, the index carries each pack\'s id, and sw.js is its source '
+        + '(or the killed form exactly when the switch is thrown); --self-test holds which files go in which '
+        + 'year\'s pack and the update diff the page downloads by.' },
   { re: /^build\.json$/,
     what: 'publish.sh writes it each run from the same BUILD_VERSION and BUILD_CT as the visible stamp',
     gate: 'tools/test_dev_preview.mjs reads it. Until 2026-08-15 it was written ONCE by hand and never '
