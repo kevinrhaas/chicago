@@ -1,6 +1,6 @@
 {
   "failure": null,
-  "asset_sha256": "6ec4aee594c136c82c842a502a5d3a7305488896448100619420272ee8205805",
+  "asset_sha256": "2cf09f8b92e9f2b233772d479d32f9ff0a000fb2b759dcb579ee5b19eebf35ee",
   "method": "Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
   "results": [
     {
@@ -10,7 +10,7 @@
         "height": 800
       },
       "detail": "full",
-      "load_ms_to_ready": 148588,
+      "load_ms_to_ready": 178126,
       "boot": {
         "ready": true,
         "error": null,
@@ -28,12 +28,12 @@
       "stands": [
         {
           "name": "front",
-          "heap_mb": 1089.6,
+          "heap_mb": 1092.3,
           "detail": "full",
           "problems": [],
           "stats": {
             "drawCalls": 126,
-            "triangles": 3910182,
+            "triangles": 3915118,
             "programs": 64,
             "geometries": 102,
             "textures": 244,
@@ -58,8 +58,8 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 91114088,
-            "fps": 3,
+            "bytes": 91168436,
+            "fps": 2,
             "cameraNear": 0.1,
             "budget": {
               "drawCalls": 360,
@@ -67,7 +67,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 7580.5,
+          "frame_ms_median": 7542.5,
           "camera": [
             1405.92,
             -3247.06,
@@ -81,12 +81,12 @@
         },
         {
           "name": "roof",
-          "heap_mb": 1087.8,
+          "heap_mb": 1089.7,
           "detail": "full",
           "problems": [],
           "stats": {
             "drawCalls": 127,
-            "triangles": 3941247,
+            "triangles": 3946183,
             "programs": 64,
             "geometries": 105,
             "textures": 250,
@@ -111,7 +111,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 91114088,
+            "bytes": 91168436,
             "fps": 0,
             "cameraNear": 1,
             "budget": {
@@ -120,7 +120,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 9479.8,
+          "frame_ms_median": 9552,
           "camera": [
             1405.04,
             -3257.07,
@@ -134,12 +134,12 @@
         },
         {
           "name": "northeast",
-          "heap_mb": 1088.2,
+          "heap_mb": 1089.9,
           "detail": "full",
           "problems": [],
           "stats": {
             "drawCalls": 132,
-            "triangles": 3370122,
+            "triangles": 3375058,
             "programs": 64,
             "geometries": 124,
             "textures": 286,
@@ -164,7 +164,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 91114088,
+            "bytes": 91168436,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -173,7 +173,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 7609.3,
+          "frame_ms_median": 7562.1,
           "camera": [
             1403.68,
             -3226.08,
@@ -194,7 +194,7 @@
         "height": 780
       },
       "detail": "light",
-      "load_ms_to_ready": 65319,
+      "load_ms_to_ready": 62753,
       "boot": {
         "ready": true,
         "error": null,
@@ -212,15 +212,15 @@
       "stands": [
         {
           "name": "front",
-          "heap_mb": 748.7,
+          "heap_mb": 667.5,
           "detail": "light",
           "problems": [],
           "stats": {
             "drawCalls": 97,
-            "triangles": 722889,
+            "triangles": 727825,
             "programs": 40,
             "geometries": 102,
-            "textures": 257,
+            "textures": 258,
             "batches": 53,
             "wallRelief": {
               "off": false,
@@ -242,8 +242,8 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 64645140,
-            "fps": 3,
+            "bytes": 64699488,
+            "fps": 5,
             "cameraNear": 0.1,
             "budget": {
               "drawCalls": 330,
@@ -251,7 +251,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 1569.8,
+          "frame_ms_median": 1575.7,
           "camera": [
             1405.92,
             -3247.06,
@@ -265,15 +265,15 @@
         },
         {
           "name": "roof",
-          "heap_mb": 754,
+          "heap_mb": 673.4,
           "detail": "light",
           "problems": [],
           "stats": {
             "drawCalls": 98,
-            "triangles": 726580,
+            "triangles": 731516,
             "programs": 40,
             "geometries": 102,
-            "textures": 257,
+            "textures": 258,
             "batches": 53,
             "wallRelief": {
               "off": false,
@@ -295,7 +295,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 64645140,
+            "bytes": 64699488,
             "fps": 0,
             "cameraNear": 1,
             "budget": {
@@ -304,7 +304,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 1696.7,
+          "frame_ms_median": 1708,
           "camera": [
             1405.04,
             -3257.07,
@@ -318,15 +318,15 @@
         },
         {
           "name": "northeast",
-          "heap_mb": 753.3,
+          "heap_mb": 663.7,
           "detail": "light",
           "problems": [],
           "stats": {
             "drawCalls": 97,
-            "triangles": 453613,
+            "triangles": 458549,
             "programs": 40,
             "geometries": 109,
-            "textures": 269,
+            "textures": 270,
             "batches": 53,
             "wallRelief": {
               "off": false,
@@ -348,7 +348,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 64645140,
+            "bytes": 64699488,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -357,7 +357,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 1350.3,
+          "frame_ms_median": 1416.2,
           "camera": [
             1403.68,
             -3226.08,
