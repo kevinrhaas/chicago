@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b13df5afb7a0c948db8a9775a3a20b6148c08dc1febc15a75b6780f41d6789e3",
+  "glb_sha256": "5d9328a6b2d18b839a1fc767372def155ad5160821923c9c5def0d3b90767172",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -80,10 +80,10 @@
     {
       "what": "the swell bay rises to the cornice itself in the engraving; the build stops it at 10.7 m, under K10's bed moulding",
       "status": "fixed",
-      "how": "T-2472: the bow's upper storey carried to 11.152 m, the foot of K10's bed moulding, and the cornice carried round it on T-2460's machinery (the bay's eaves.cornice): the bed moulding swept round the plan under the house's soffit and fascia, 0.5 m out from the bow's face, so the bow's top reads as one plain band at y 245-267 px on its crown against the engraving's about 255-270 (it stood at 270-287 under the old K08 eave). The bow carries no brackets, as the engraving draws none on it; the wall's bed moulding stops at its junctions"
+      "how": "T-2472: the bow's upper storey carried to the foot of K10's bed moulding (11.24 m since T-2528, which read the soffit off the mansard's wall head; 11.152 m before it, where the y readings here were taken), and the cornice carried round it on T-2460's machinery (the bay's eaves.cornice): the bed moulding swept round the plan under the house's soffit and fascia, 0.5 m out from the bow's face, so the bow's top reads as one plain band at y 245-267 px on its crown against the engraving's about 255-270 (it stood at 270-287 under the old K08 eave). The bow carries no brackets, as the engraving draws none on it; the wall's bed moulding stops at its junctions"
     },
     {
-      "what": "over the swell bay the engraving draws the main cornice running on straight, a band above the bow's own cap (y about 207-255 px), where the build's eave, about 0.3 m under the engraving's cornice line all along the front (its soffit at 11.21 m against the engraving's about 11.5 m), is the bow's cap itself and is carried round it",
+      "what": "over the swell bay the engraving draws the main cornice running on straight, a band above the bow's own cap (y about 207-255 px), where the build's eave, about 0.3 m under the engraving's cornice line all along the front (its soffit at 11.3 m since T-2528, 11.21 m before it, against the engraving's about 11.5 m), is the bow's cap itself and is carried round it",
       "status": "open",
       "how": "not built: raising the house's cornice moves the whole eave and the mansard on it, which is the storey lines' reading (T-2441's), not the bow's; on the bow the band lands where the engraving's cap does"
     },
@@ -99,8 +99,8 @@
     },
     {
       "what": "the wing's cornice: the engraving draws it as a band as deep as the main cornice's (y 232-262 px), with a block in it over the window; the build's is the crown's K05 fascia, 0.2 m deep, without K10's brackets",
-      "status": "open",
-      "how": "T-2467"
+      "status": "fixed",
+      "how": "T-2467: K10's bracketed timber cornice, the house's own, carried round the wing's three faces under its crown's soffit on the main wall head's line (wall_head.crown), so the band, the crown's fascia over the brackets, spans y 258-265 px at its top to 293-299 at the brackets' feet, 35 px as the main cornice's 258-293, where the fascia alone was 9 px; and a timber block on the window's centre, 0.75 m wide, from the brackets' feet through the fascia to 0.15 m over it, at x 709-738 px against the engraving's about 700-730, rising about 6 px over the band as the engraving's does. The band stands about 30 px under the engraving's with the whole eave (the open storey-line item above), and the brackets are K10's where the engraving draws a plain band, as on the main front"
     },
     {
       "what": "the brick garden wall before the north flank, ending in a square pier before the swell bay (x 357 px), and the iron spear fence before the wing, both close before the house, the fence's top rail about 1.9 m over grade",

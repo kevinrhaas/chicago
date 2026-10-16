@@ -263,7 +263,8 @@ K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "
              "frame": "sash", "sash_outer": "sash", "sash_inner": "sash",
              "glass_outer": "glass", "glass_inner": "glass", "blind": "blind",
              "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
-             "bracket": "fascia"}   # T-2408: a hood's consoles and modillions, the eaves' joinery
+             "bracket": "fascia",   # T-2408: a hood's consoles and modillions, the eaves' joinery
+             "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 # T-2356: a frame bay has no stone in it. Its dressings are painted timber (the fascia's
 # slot) and its plinth the house's brick carried out under it, as a timber bay on a
@@ -1158,7 +1159,7 @@ class Assembly:
         seats = [(a0 - m, a1 + m, b0 - m, b1 + m, kind) for a0, a1, b0, b1, kind in self.footprints.get(tuple(O), [])]
         sill_beds = {round(b0 + m, 4) for _, _, b0, _, kind in seats if kind == "K06.sill"}
         belts = [(floors[1] - 0.20, floors[1])] + ([(floors[2] - 0.15, floors[2])] if len(floors) > 2 else [])
-        if af:
+        if af and af["belts"] is not None:   # T-2526: a door's arch alone keeps these
             belts = list(af["belts"])
         # T-2366: a frieze stands between the stone's top and the soffit
         ytop = af["stone_top_m"] if af else yf
@@ -1543,6 +1544,14 @@ class Assembly:
             v["stair"]["cheeks"] = p.entrance_kit["cheeks"]
         if "reveal_depth_m" in p.entrance_kit:
             v["reveal_depth_m"] = p.entrance_kit["reveal_depth_m"]
+        # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
+        ss = p.entrance_kit.get("side_stoop")
+        if ss:
+            k = 1.0 if ss["run"] == "right" else -1.0
+            ends = sorted(k * (x - door.s_m) for x in ss["landing_v_m"])
+            v["stair"]["side"] = {"run": ss["run"], "landing_s_m": ends, "out_m": ss["out_m"],
+                                  **({"cheek_above_nosing_m": ss["cheek_above_nosing_m"]}
+                                     if "cheek_above_nosing_m" in ss else {})}
         return v
 
     def door_reveal(self) -> float:
@@ -1572,6 +1581,8 @@ class Assembly:
                                     "landing_depth_m": p.landing_depth_m, "width_m": p.stoop_width_m,
                                     "k07_variant": p.entrance_kit["variant"], "cheeks": o.v["stair"].get("cheeks", False),
                                     "front_yard_m": p.entrance_kit["front_yard_m"],
+                                    **({"side_stoop": dict(p.entrance_kit["side_stoop"])}
+                                       if p.entrance_kit.get("side_stoop") else {}),
                                     **({"terrace_to_v_m": (p.entrance_kit["terrace"]["to_v_m"]
                                                            if isinstance(p.entrance_kit["terrace"], dict)
                                                            else [q["to_v_m"] for q in p.entrance_kit["terrace"]])}
@@ -1579,7 +1590,8 @@ class Assembly:
                                     **({"balusters": o.meta.get("balusters", 0),
                                         "balustrade_height_m": p.entrance_kit["balustrade"]["height_m"]}
                                        if p.entrance_kit.get("balustrade") else {})},
-                                   {"foot": P(p.stoop_s_m(op.s_m), 0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
+                                   {"foot": P(op.s_m + st["foot_s_m"] if "foot_s_m" in st else p.stoop_s_m(op.s_m),
+                                              0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
                                     **{f"{k}_{end}": P(op.s_m + q[0], op.sill_m + q[1], q[2])
                                        for k, ends in sorted(o.sockets.items())
                                        for end, q in zip(("top", "foot"), ends)}})
@@ -2641,7 +2653,10 @@ def build(params, structure_id: str):
         # the kit: the same seats, laid by the same calls, and nothing else is taken from it
         a.k14_sills = build(dataclasses.replace(p, condition={}), structure_id).footprints
     D, W, E = p.depth_m, p.width_m, p.eave_m
-    yf = E - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg)) - EAVE_FASCIA_M
+    # T-2528: the soffit the roof builds (Assembly.roof): a hip's drops by the overhang's run
+    # down its slope, a mansard's stands on the wall head (T-2370), the fascia's depth under E
+    drop = 0.0 if p.mansard else p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg))
+    yf = E - drop - EAVE_FASCIA_M
     a.soffit_m = yf
     floors = p.floors_m
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])

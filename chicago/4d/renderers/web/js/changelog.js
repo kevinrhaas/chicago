@@ -1,4 +1,75 @@
 export const CHANGELOG = [ // newest first
+  { v: 1837, ts: '2026-10-16T01:04:52.832Z', date: 'Oct 15, 2026, 8:04 PM CT', title: '1621 Prairie climbs to its door by the drawing\'s side stoop', kind: 'feature',
+    items: [
+      'John H. Hamline\'s house at 1621 Prairie now has the stoop its 1886 drawing shows: the door opens on a stone landing along the north strip, and the steps run south along the front, past the bow, behind a low stone cheek.',
+      'The flight\'s run comes from the drawing\'s own small plan and the slope of its cheek; the number of steps, the landing\'s size and the stone are reconstructed, and the house card\'s liberties say so.',
+      'The straight stoop toward the street that stood here before is gone.',
+    ] },
+  { v: 1836, ts: '2026-10-16T00:25:57.118Z', date: 'Oct 15, 2026, 7:25 PM CT', title: '1638 Prairie\'s front fence rebuilt to its photograph\'s true scale', kind: 'fix',
+    items: [
+      'The gate piers, caps, hearts and finials in front of 1638 Prairie are rebuilt about 1.44 times their old size. They had been read through an earlier camera that stood too close to the house.',
+      'The gateway between the piers widens to 1.26 m, and the piers stand where the photograph puts them.',
+      'The iron bars now start against the north pier at the photograph\'s own spacing, and each lands within a pixel of the one the print draws.',
+      'The caps\' flared lower corners keep their shape at the new size, so each cap still sweeps out over its heart as the photograph draws it.',
+    ] },
+  { v: 1835, ts: '2026-10-15T23:40:26.560Z', date: 'Oct 15, 2026, 6:40 PM CT', title: '1638 Prairie\'s lower south wing, built from its photograph', kind: 'improvement',
+    items: [
+      'The block south of 1638 Prairie\'s gable in its photograph is the house\'s own wing, not the neighbour, and it is now built that way: a metre lower than the house, under a steep gable roof facing the street.',
+      'Its two upper windows and the lights below them stand where the photograph shows them.',
+      'The photograph puts the wing about 0.6 m wider than the 1911 fire-insurance map draws it; the photograph is followed and the difference is listed among the liberties.',
+    ] },
+  { v: 1834, ts: '2026-10-15T23:37:41.072Z', date: 'Oct 15, 2026, 6:37 PM CT', title: 'Phones draw Prairie Avenue\'s east row inside their detail limit', kind: 'fix',
+    items: [
+      'Nothing you can see changed: the picture is the same, pixel for pixel.',
+      'On the Light setting a house now casts into the sun\'s shadow pass only when its shadow can fall somewhere on screen. Houses beside and behind you, whose shadows fall away from the view, are left out.',
+      'Looking down Prairie\'s east row from 1613 to 1621, a phone drew 1.37 million triangles against its 1.27 million limit. It now draws 0.98 million.',
+    ] },
+  { v: 1833, ts: '2026-10-15T23:01:40.517Z', date: 'Oct 15, 2026, 6:01 PM CT', title: '1638 Prairie\'s tower gets its smooth stage and the gate caps flare', kind: 'improvement',
+    items: [
+      'The corner tower\'s upper stage at 1638 Prairie is smooth, as its photograph shows, not clapboarded: a shallow frieze under the cornice, and each light\'s casing carried round its pointed head.',
+      'Over each tower light a small trefoil is cut into the boards, where the photograph shows a faint carved figure. The figure\'s pattern is a liberty.',
+      'The two gate piers\' caps now flare out at their lower corners like a hood over the pierced heart, read row by row off the photograph.',
+      'South of the gate the photograph\'s pale patch is lawn behind the same iron bars, so the fence there stays as built.',
+    ] },
+  { v: 1832, ts: '2026-10-15T22:34:23.858Z', date: 'Oct 15, 2026, 5:34 PM CT', title: '1620 and 1637 Prairie\'s cornices meet their mansard eaves', kind: 'fix',
+    items: [
+      'On the two mansard-roofed houses on Prairie, the bracketed cornice, its bed moulding and the brick wall head now rise to the soffit the roof actually builds; they had stopped about 9-11 cm short of it.',
+      '1637 Prairie\'s swell bay rises with its cornice, so the band carried round the bow now runs level with the main eave.',
+    ] },
+  { v: 1831, ts: '2026-10-15T22:22:16.626Z', date: 'Oct 15, 2026, 5:22 PM CT', title: '1619 Prairie rises as a four-storey stone house with a full-height bow', kind: 'feature',
+    items: [
+      '1619 Prairie Avenue, the house between the 1613/1615 brick pair and Hamline\'s 1621, is now a full four-storey stone-fronted house in place of its draft.',
+      'Its broad curved bay rises the whole height of the front to a moulded stone cornice, at the size and place the 1911 fire-insurance map draws it. Its door and stoop are at the north end.',
+      'Behind it stand the map\'s brick rear block and its two-storey timber piece. The map draws that piece half-round, and for now it is built square.',
+      'No picture of this house is known, so the rough grey limestone, the heights and the windows are reconstructions. They are recorded as liberty L-k01-1619-stone-front-2434.',
+    ] },
+  { v: 1830, ts: '2026-10-15T21:47:09.088Z', date: 'Oct 15, 2026, 4:47 PM CT', title: '1621 Prairie\'s front door gets its round arch', kind: 'feature',
+    items: [
+      'Hamline\'s door at 1621 Prairie now stands in a round-arched doorway ringed with stone voussoirs, as the 1886 drawing shows, with a fanlight over its leaves.',
+      'Above it, the small second-floor window is now framed and capped, over a carved stone panel on the belt course.',
+      'The leaves, the voussoir ring and the carving are reconstructed and recorded as a liberty. The drawing\'s deeper recess and the side stoop are still to come.',
+    ] },
+  { v: 1829, ts: '2026-10-15T21:17:20.617Z', date: 'Oct 15, 2026, 4:17 PM CT', title: '1638 Prairie stands on its basement, up its photograph\'s ten steps', kind: 'feature',
+    items: [
+      'The Shortall-Gregory house now stands on a basement, its front door 1.55 m above the sidewalk, and a stoop of ten steps climbs to it between its cheek walls, as the old photograph shows.',
+      'The photographer turns out to have stood on the far sidewalk of Prairie Avenue, so the porch and tower were re-measured from that spot and now line up with the picture.',
+    ] },
+  { v: 1828, ts: '2026-10-15T20:53:51.796Z', date: 'Oct 15, 2026, 3:53 PM CT', title: '1621 Prairie\'s bow gets its balcony rail and barred basement lights', kind: 'feature',
+    items: [
+      'Hamline\'s swell bay at 1621 Prairie now carries the iron balcony rail its 1886 drawing shows round the bow\'s top.',
+      'Below the principal windows, the bow\'s basement now has its two lights, barred with iron as drawn, under a string course at the principal floor.',
+      'The rail\'s bars, sections and the grille pattern are reconstructed and recorded as a liberty; the dressed heads over the basement lights are still to come.',
+    ] },
+  { v: 1827, ts: '2026-10-15T20:17:26.404Z', date: 'Oct 15, 2026, 3:17 PM CT', title: '1637 Prairie\'s wing wears the cornice', kind: 'improvement',
+    items: [
+      'The wing at the south end of 1637 Prairie Avenue now carries the house\'s bracketed cornice round its three faces, so its band reads as deep as the main cornice\'s, as the engraving of Jesse Spalding\'s remodel draws it.',
+      'A painted block stands in that band over the wing\'s window, rising just above it, where the engraving draws one.',
+    ] },
+  { v: 1826, ts: '2026-10-15T19:37:21.528Z', date: 'Oct 15, 2026, 2:37 PM CT', title: 'Glessner’s July view stays within its detail limits', kind: 'fix',
+    items: [
+      'Nothing you can see changed. Glessner avoids drawing hidden scenery in July’s Light detail and uses fewer drawing operations in Full detail, while preserving the house\'s geometry, stone and dark glass.',
+      'The existing detail limits are retained. Historical-photo refinements continue in the final comparison pass.',
+    ] },
   { v: 1825, ts: '2026-10-15T19:31:48.120Z', date: 'Oct 15, 2026, 2:31 PM CT', title: '1638 Prairie\'s door gets the transom its photograph shows', kind: 'feature',
     items: [
       'The pale gabled shape over the Shortall-Gregory house\'s double door turns out to be a glass transom, so the door now has one: a bar over the leaves and a single light under a low gable.',

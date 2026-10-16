@@ -2,8 +2,8 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "94d0bc55bd14dd9e5b9e754831f2db7caf0565b8f7239b0871385824b9c565c2",
-  "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
+  "glb_sha256": "02c7fb4f8fb4e4fcbb3c372cc94fd2d2e9fc33fd6f572e0170441b8a47d2691a",
+  "camera_sha256": "a8fbf32f4f70b529f9438469cfb333941f8cef958c6681562df40b1a5b643891",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -96,28 +96,36 @@
       "status": "open"
     },
     {
-      "what": "Entrance: the print's steps run on down past the model's foot, their nosings at 813, 834, 850, 865.5, 879.5, 892, 908 and 922.5 px (about 15 px apart) to where the fence's rail cuts them off. T-2520 settled it through the camera: no stair of buildable risers and goings draws that run from a 0.6 m floor through the present solve; solved with the fence's base, the run needs the floor 1.3-1.6 m over the walk in about ten risers of 0.15-0.16 m, the eye 28-33 m out on the far walk of Prairie Avenue (rms 2.8-3.1 px). The print cannot split that between a higher floor and a fall in the yard (the hedge hides the house's foot); the sheet's '2BB' basement makes it the floor's height. The camera's re-solve, the raised floor and the ten risers are T-2523's; the fence re-read at the new scale is T-2524's",
-      "status": "open"
+      "what": "Entrance: the print's steps run on down past the model's foot, their nosings at 813, 834, 850, 865.5, 879.5, 892, 908 and 922.5 px (about 15 px apart) to where the fence's rail cuts them off; T-2520 settled it through the camera as the floor's height. T-2523 builds it: the house on a 0.95 m basement (the sheet's '2BB'), the floor 1.55 m over the walk, the stoop ten risers of 0.155 m on 0.36 m goings, and the camera re-solved on those steps and the fence's base (the eye 30.71 m out on the far walk, 3.25 m over it, f 2242 px); rendered, the treads land on the eight nosings within 3.7 px rms, the print's wider top gap (813 to 834 px) the one the stair does not draw",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance and tower re-read through the camera T-2523 re-solved (the eye 30.71 m out where it stood 20 m, so what stands out from the front draws smaller and nearer the middle than before): the porch and tower centred 6.53 m from the front's south end, not 6.40 m; the floor 1.16 m a side, the posts 0.23 m and 0.045 m in from its ends, the trefoil and quatrefoils 3 % larger, the plate 2.87 m clear; the tower's sills 4.40 m, cornice 7.05 m and spire 10.08 m. Rendered, the roof's ends, posts, quatrefoils, spring, crown and roof lie within 4 px of the print, the tower's sills, points, cornice and spire within 1 px",
+      "status": "fixed"
     },
     {
       "what": "Entrance: a pale gabled shape over the door's south leaf, 686-757 px across and 622-650 px high, identified by T-2520 as a glazed transom over the leaves: the leaves' lights' own tone in a porch otherwise black, starting on the south jamb, on a dark bar over the head. Built as a 0.12 m bar and one light under a low gable, 0.17 m at the jambs and 0.39 m at the middle: rendered, its south slope lies within 1 px of the print's (631, 627 and 623 px at 700, 710 and 720 px), its foot and apex 4 px high, and the apex at the door's middle, 10 px north of the print's; the glass's dark north part (what it reflects) is not modelled",
       "status": "fixed"
     },
     {
-      "what": "Tower: the upper stage is smooth with incised ornament over each light; the model's is clapboarded",
-      "status": "open"
-    },
-    {
-      "what": "Fence: two gate piers either side of an open gateway, 0.9 m clear at s 0.46 and 1.76 m, each a square shaft on a plinth under a hollow cap pierced in every face with an inverted heart, the north pier's iron finial a spike through a ring, the south's a plain spike; and thin iron bars 0.244 m apart on a pale base along the street line, 0.58 m to their rail (T-2456)",
+      "what": "Tower: the upper stage is smooth, with no course line on its three street faces from the porch roof to the cornice, under a frieze only 0.12 m deep (the print's one line across each face at 300 px); over each light a faint incised figure about 0.23 by 0.32 m (6.34-6.66 m through the camera T-2523 re-solved), built as an incised trefoil, one lobe up, its foot on the light's casing band; the model's stage was clapboarded under the kit's 0.4 m frieze (T-2521)",
       "status": "fixed"
     },
     {
-      "what": "Fence: the print's caps flare out at their lower corners like a hood over the heart; the model's cap is a plain box a little broader than the shaft",
-      "status": "open"
+      "what": "Tower: each light's casing is carried round its pointed head as an arched band, the smooth face round it, with no head board or drip cap, where the model's lights stood in square-headed casings (T-2521)",
+      "status": "fixed"
     },
     {
-      "what": "Fence: south of the south pier the print shows a pale block to the frame's edge with a pale rail at about 918 px, not the bars and base north of the gateway; the model carries the barred run on to the lot line",
-      "status": "open"
+      "what": "Fence: two gate piers either side of an open gateway, each a square shaft on a plinth under a hollow cap pierced in every face with an inverted heart, the north pier's iron finial a spike through a ring, the south's a plain spike; and thin iron bars on a pale base along the street line (T-2456). Re-read through T-2523's camera (T-2456 took them at 158.7 px a metre, where it draws 112.6): shafts 0.49 m at s -0.47 and 1.365 m, the gateway 1.255 m clear, caps 0.56 m from 1.61 to 1.98 m, finials to 2.385 m, the base 0.32 m and the bars 0.349 m apart to 0.83 m, the first bar against the north plinth at 345 px as the print draws it; rendered, the shafts within 2 px, the caps' tops within 3 px and every bar within 1 px (T-2524)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fence: each cap is the shaft's breadth at its top (57 px, 0.51 m, with its eave) and its lower corners flare out like a hood over the heart, a quarter-sine from 1.93 m to 0.56 m across at 1.72 m (63 px), then rounded back in to the shaft by 1.66 m; the model's cap was a plain box; T-2521 read those rows through the camera T-2423 solved, and they are carried here through the one T-2523 re-solved, with the rest of the fence T-2524 re-reads (T-2521, T-2524)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fence: south of the south pier, read again at 3x (T-2521), the print's 'pale block' is the lawn, in the tone of the lawn between the bars north of the gateway (180-200 against 160-200) under a hedge line at 946 px; a bar stands at 68-70 px hard by the plinth, dark down to the base, and the base runs on under it to the frame, so it is the barred run continuing, as the model builds it; the pale dash at 918 px over those same 20 px stands where the model's own top rail does (925 px), and the 7 px between them falls to the fence's heights T-2524 re-reads",
+      "status": "fixed"
     },
     {
       "what": "South of the gable the print shows a two-storey block with a hipped roof, a pale stack and a two-light window over a door: the register's 'separate lower wing' or the neighbour, not yet identified; the model shows the gable range's south flank and projection there",

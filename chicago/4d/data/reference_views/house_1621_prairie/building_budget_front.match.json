@@ -2,7 +2,7 @@
   "structure_id": "house_1621_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a91788807fe2c52e72b43f5818a4ce908f2f5655674588ad1c9b4eb63bb17f72",
+  "glb_sha256": "615ea7c6e1cb956cb5db1866b1e8e00e08e81797d3a49e058aad4c69b88014e5",
   "camera_sha256": "6222a0879a57a2c0bd3f87866f0fd82d3834acd772c43f2cb1c31c72deb02a7b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg",
   "verdict": "differs",
@@ -39,28 +39,43 @@
     },
     {
       "what": "the balcony: an iron (or turned) rail round the top of the bow; the build's bow ends in a plain deck",
-      "status": "open",
-      "how": "T-2422"
+      "status": "fixed",
+      "how": "T-2525: an iron rail on the bow's moulded cornice, 0.06 m in from its edge and round the bow from the wall to the wall: a post against the wall at each end, a foot rail and a top rail, square bars about 0.08 m apart, 0.6 m high (the drawing's rail stands about 29 px over the cornice's top at about 48 px a metre). Through the camera its top lands within about 5 px of the drawing's at the bow's front, and its bars read about as close-set as the drawn ones; it runs across the sheet's narrower bow (the widths, below)"
     },
     {
       "what": "the entrance: a recessed round-arched doorway with voussoirs in the north strip, and over it at the second floor a small ornate light above a carved panel; the build has a flat-headed panelled door under a K09 hood and a plain sash over it",
+      "status": "fixed",
+      "how": "T-2526: K07's deep-arch door, a round-headed hole 1.2 m wide with its crown 2.7 m over the landing, a pair of panelled leaves under a radial fanlight 0.32 m back in the wall, under a block of voussoirs cut in the front's stone and radiating from the arch's centre, 0.3 m beyond it; through the camera its crown lands about 7 px under the drawn one (485 px against 478), its spring about 3 px, and the opening about 7 px narrower than drawn. Over it at the second floor a light 0.75 m by 0.95 m, its sill 1.2 m over the floor, in K09's restrained surround (architrave, frieze block and cornice hood on consoles), its head and sill within about 2 px of the drawing's and its hood within about 5 px; under it, on the belt course, K09's carved foliate panel, within about 5 px of the drawn panel's top and foot and about 11 px narrower"
+    },
+    {
+      "what": "the entrance arch's outline and depth: the drawing turns its voussoirs to a curved extrados under a band and sets the door at the back of a recess deeper than the wall, its jamb lit inside; the build cuts the voussoirs out to a rectangular block in the coursing and sets the door 0.32 m back in the 0.45 m front",
       "status": "open",
-      "how": "T-2422"
+      "how": "found by T-2526; the arch, its ring and the door are built, the curved extrados and the deeper recess are not"
+    },
+    {
+      "what": "the light over the entrance: the drawing seems to stand it a little proud of the wall on a moulded shelf over the carved panel, with returns at its sides; the build sets it flush in K09's surround, with K06's sill under it",
+      "status": "open",
+      "how": "found by T-2526"
     },
     {
       "what": "the stoop: the drawing's climbs beside the strip, parallel to the front, behind a stone cheek; the build's is a straight stoop toward the street",
-      "status": "open",
-      "how": "T-2422"
+      "status": "fixed",
+      "how": "T-2530: K07's side stoop (`entrance_kit.side_stoop`): the door opens on a stone landing running south along the north strip from v 1.0 to the bow's north junction at v 3.6, 2.4 m deep and faced to grade, and from its south end the K01 stair's eight equal risers (0.175 m, on 0.28 m goings) run on south parallel to the front, 1.2 m clear of it so that the 1.2 m flight passes in front of the bow, down to grade at v 5.56, behind a solid stone cheek on the street side whose top rakes 0.1 m over the nosings; the foot opens south. The plate's inset plan draws the steps' nosings square to the front, the steps south of the landing and in front of the bow's north end, between it and the enclosing cheek. Through the camera the landing's street edge runs from x 152 to 287 at y 610 against the drawn landing line's 137 to 277 at y 593 (about 15 px right and 17 px low), and the cheek rakes from (281, 605) down to (385, 670), high at the north and falling south at about the drawn cheeks' slope (0.63 against 0.58-0.65), but about 100 px right of them: the drawn flight stands in front of a 1.4 m strip beside a 3.7 m bow, and the build's leaves a landing that has to reach from the middle of the sheet's 3.6 m strip to its 2.3 m bow, so it passes in front of the bow (the front's widths, below). The iron rails the plate draws over the stoops at the left of the panel are not legibly this flight's, and none is built. L-k01-1621-side-stoop-2530"
     },
     {
       "what": "the basement: two segmental-headed lights under the bow with iron grilles, about 0.9 m high; the build's bow is blind in its basement (the K08 kit refuses a light under a bay's clear wall)",
+      "status": "fixed",
+      "how": "T-2525: the bow's basement built as a storey of its own, 1.4 m to the principal floor, so the bow carries the string course the drawing draws there; in it two lights at -30 and +30 degrees under the principal lights, 0.92 m high over a 0.1 m plinth, their heads flat as the drawn openings are (the drawing's arch is the grille's, not the head's), each barred with seven iron uprights between a foot bar and a head bar and the arched ring the drawing draws over them, as a plain ring. Through the camera their heads land within about 3 px of the drawing's and their sills about 9-10 px above (the drawing takes them nearly to grade, under the kit's plinth and sill stone); they are 0.75 m wide as the principal lights are, against about 0.95 m drawn (the widths, below)"
+    },
+    {
+      "what": "the basement lights' heads: the drawing sets a block of splayed voussoirs over each, its joints fanned up to the string course; the build's are K06's plain flat lintel",
       "status": "open",
-      "how": "T-2422"
+      "how": "found by T-2525; the lights, their grilles and the band are built, the dressed heads are not"
     },
     {
       "what": "the front's widths: the drawing draws a north strip of about 1.4 m beside a bow of about 3.7 m (its inset plan puts the strip at about a third of the front); 1621's 1911 sheet traces a 6.2 m front, 3.6 m of it north of a 2.3 m bay at the south end, so the build's strip is about 45 px wider at its outer edge and its bow about 57 px narrower at its north edge. The sheet controls the plan (the survey of what stood nearer the scene, against the 1886 design)",
       "status": "not shown",
-      "how": "argued in the camera's solve and docs/RESEARCH/hamline-1621-2436/README.md (T-2440): either the bow was built narrower than drawn or the sheet's bay is a later one, and no picture after 1886 is known to say which; the plan is built to the sheet and the heights to the drawing"
+      "how": "argued in the camera's solve and docs/RESEARCH/hamline-1621-2436/README.md (T-2440): either the bow was built narrower than drawn or the sheet's bay is a later one, and no picture after 1886 is known to say which; the plan is built to the sheet and the heights to the drawing; the stoop's place follows from it (T-2530): the build's flight stands about 100 px right of the drawn one because its landing reaches from the middle of the sheet's wider strip to the sheet's narrower bow"
     },
     {
       "what": "the pier south of the bow: the drawing carries the bow to the south corner; K01 keeps a bay 0.3 m clear of a corner, where the sheet draws it about 0.1-0.2 m off (about 7 px at the corner)",
@@ -79,5 +94,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2440, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, after the build moved here from 1619 and the camera was re-solved as the plate's one station point in 1621's frame: massing, the bow's lights, the storey lines, the wall gable, the roof and crow steps, and the cornice stay fixed at the sheet's narrower plan (the widths argued not shown); the storey count is now fixed, the sheet's '3B' agreeing with the drawing; the balcony's, entrance's, stoop's and basement's still open for T-2422"
+  "reviewed": "T-2530, 2026-10-15, side by side at docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg, the stoop's crop (the plate's x 90-340, y 500-720) read against the drawing and the inset plan at two builds: a first cheek carried level along the landing as a parapet hid the door's foot and the flight, which the drawing shows, so the landing is faced flush and the cheek runs with the flight alone; the side stoop fixed, about 100 px right of the drawn flight for the plan's widths; the arch's curved extrados and deeper recess, the light's projecting shelf and the basement lights' voussoir heads still open, for T-2531"
 }

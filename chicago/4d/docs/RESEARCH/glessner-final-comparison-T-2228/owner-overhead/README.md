@@ -71,3 +71,10 @@ remain open. All eight openings clear both roof slopes across their full widths.
 `data/reference_views/glessner_house/cornell-northwest-west-windows.json`
 adds this camera to the canonical comparison set. The earlier owner study is
 still archived as a reconstructed target, not elevated above the photograph.
+
+
+The [supplemental height check](west-window-height-check.json) uses the same eight
+held-out aperture-center picks and unchanged camera. All vertical centers differ
+by at most 0.81 ft from that conditional photographic estimate. Heights remain
+unchanged; the scale still depends on reconstructed eaves. This checks centers,
+not exact sill/head dimensions or whole-house photographic acceptance.

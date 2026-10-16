@@ -24189,7 +24189,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1619_prairie.draft_1904.form.draft_elevation`, `house_1619_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24251,6 +24251,10 @@ build moved to 1621, John H. Hamline's house by T-2439's ruling, which now stand
 stone-front frontage with its swell bay under `L-k01-1621-hamline-front-2440`, under the same id; its
 draft attributes are gone. 1619, whose own front no picture shows, stands as this draft again, under
 the draft's rules exactly as it first did, until T-2434 builds it a bounded front.
+**1619 retired from this liberty again by T-2434 (2026-10-15):** with no picture of its own, it now
+stands as the K01 stone-front frontage the 1911 sheet bounds: four storeys, its curved bay on K08's
+bow at the sheet's chord and rise, the brick rear block and the two-storey frame piece behind it,
+under `L-k01-1619-stone-front-2434`, under the same id; its draft attributes are gone.
 **1625 retired from this liberty by T-2432 (2026-10-13):** its main body now stands as the K01
 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house,
 under `L-k01-1625-mcbirney-tudor-2432`, under the same id; its draft attributes are gone. The
@@ -25840,6 +25844,48 @@ projection's form.
 **Review:** `docs/RESEARCH/k01-1615-brick-flat-2418/README.md`.
 **Recorded:** 2026-10-13 (T-2418).
 
+### L-k01-1619-stone-front-2434 — 1619 Prairie refined from the district draft to a four-storey K01 stone-front house bounded by the 1911 sheet, with no picture of its own: its plan, storeys, curved bay and rear pieces read, everything else the kits'
+
+**Decision:** the stone-fronted house at 1619 Prairie Avenue (T-2434, piece 3 of T-1869) is no
+longer a district draft. It stands, under the draft's own id `house_1619_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py`, its plan turned 180 degrees (rotation
+179.607) so K01's local south wall and south end are the world's north. No picture of this house
+is known: the Building Budget drawing once built here is John H. Hamline's house at 1621 (T-2439,
+moved by T-2440), and the 1886 Robinson plate draws the earlier house on the 33 ft lot, not this
+one. So it is built to the sheet and the kits, and made its own rather than a copy of either
+neighbour (1615's plain brick under a bracketed timber cornice; 1621's smooth Bedford limestone,
+two storeys under a gable).
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1619-f, '4-storey brick dwelling (D), stone (blue) front with a curved bay';
+s20-1619-a1, 'brick rear block and a 2-storey frame half-round piece at its east end'): the main
+body's place and plan (13.3 m by 8.46 m, the front 3.8 m back from the street line, the plan T-2420
+first read off this trace), four storeys, brick with a stone street front; the curved bay's place
+and size (a 3.76 m chord, 1.02 m out, over v 3.79-7.55); the rear block's place and plan (6.0 m
+behind the south 5.69 m of the rear wall) and its four storeys (one part with the house); the
+frame piece's place, depth (2.97 m), chord (4.77 m), two storeys and frame; and the figures
+'12 12 12 8' against the south wall, so the walls are laid 12 inches (0.30 m) thick (`inferred`).
+**What is invented.** Every height (a 1.4 m principal floor over a basement the sheet does not
+print; 3.9, 3.6, 3.4 and 3.1 m storeys, a 15.4 m wall head); the stone: rock-faced Lemont limestone,
+dressed smooth at the openings, over two rusticated base courses, chosen as a front of about 1891-92
+would most likely be faced (J. Foster Rhodes bought the lot in July 1891 meaning to improve it, the
+likeliest origin of this front, which is itself not a reading); the bow rising the full four storeys
+to the cornice with three lights a storey; the door in the north strip and its stoop; every window's
+kind, size and place and every head; K10's moulded stone cornice carried round the bow; the flat
+roof, its fall, covering and parapets; the two stacks against the south wall; the rear block's and
+the frame piece's heights, windows and decks.
+**What is built otherwise than read.** The frame piece is HALF-ROUND on the sheet and is built as a
+rectangle on its chord and depth, because K01's rear wings are rectangles; its rounded end is the
+kit's to learn. The 0.6 m step the trace draws in the north wall's rear half is not built.
+**What is not built.** The frame piece's door and yard steps, any rear stair, and the front's
+carving, if it had any.
+**How to resolve:** a photograph, plate or description of 1619 (Rhodes's or Howard E. Perry's house,
+1904 Blue Book) ingested as a source replaces the kits' choices in place, and puts the house under
+the image gate; a curved K01 wing replaces the frame piece's rectangle.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.principal_floor_m`, `house_1619_prairie.as_mapped_1904.form.storey_heights_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1619_prairie.as_mapped_1904.form.service_wall_brick`, `house_1619_prairie.as_mapped_1904.form.stone_front`, `house_1619_prairie.as_mapped_1904.form.street_front_trim`, `house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.roof_form`, `house_1619_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1619_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1619_prairie.as_mapped_1904.form.stair_tread_m`, `house_1619_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1619_prairie.as_mapped_1904.form.stoop_width_m`, `house_1619_prairie.as_mapped_1904.form.front_bays`, `house_1619_prairie.as_mapped_1904.form.side_bays`, `house_1619_prairie.as_mapped_1904.form.north_bays`, `house_1619_prairie.as_mapped_1904.form.rear_bays`, `house_1619_prairie.as_mapped_1904.form.sash_by_storey`, `house_1619_prairie.as_mapped_1904.form.basement_lights`, `house_1619_prairie.as_mapped_1904.form.roof_covering`, `house_1619_prairie.as_mapped_1904.form.chimneys`, `house_1619_prairie.as_mapped_1904.form.window_kit`, `house_1619_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2434 (piece 3 of T-1869).
+**Review:** `docs/RESEARCH/k01-1619-stone-front-2434/README.md`.
+**Recorded:** 2026-10-15 (T-2434).
+
 ### L-k16-1638-gable-2423 — 1638 Prairie's gable read off its photograph through a solved camera: pointed twin lights under an ogee hood, a blind oval, clapboard to the rake; sections, finial and verge still the kit's
 
 **Decision:** the front gable of the Shortall-Gregory house (T-2423, a piece of T-1865) carries
@@ -26154,6 +26200,18 @@ profile); and no brackets on the bow, since the engraving draws none there and t
 not the engraving's. Not built: the engraving draws the main cornice running on straight over the
 bow's cap, about 0.3 m over the build's eave all along the front (soffit 11.21 m against about 11.5 m);
 raising it is the storey lines' reading, not the bow's, so the bow's band is the build's eave itself.
+**Revised:** 2026-10-15 (T-2467) — **the wing carries the cornice.** The engraving draws the wing's
+cornice as a band as deep as the main cornice's (y 232-262 px) with a block in it over the window;
+T-2465's crown carried K05's 0.2 m fascia alone. K10's bracketed timber cornice, the house's own,
+now runs round the wing's three faces under the crown's soffit on the main wall head's line
+(`wall_head.crown`), so the wing's band, fascia over brackets, reads 35 px deep through the camera
+as the main one's does, and a timber block stands in it over the window. Read, through the camera:
+the band's depth against the main cornice's, and the block's place over the window, its width
+(0.75 m) and its rise over the band (0.15 m), at the plate's scale. Invented: the brackets and bed
+moulding are K10's, not the engraving's, which draws a plain dark band (as on the main front); the
+block's 0.05 m projection past the fascia and its depth back to the wall; that it is painted timber
+like the fascia. The band stands about 30 px under the engraving's with the whole eave, the house's
+open storey-line reading, not the wing's.
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
@@ -27595,7 +27653,7 @@ well shared with 1623, and what T-2422 owns: the balcony rail, the arched entran
 and the grilled basement arches.
 **How to resolve:** a photograph of the house after 1886, or the architects' plans, settles the bow's
 width and the gable's; T-2422 builds the rest of what the drawing shows.
-**Covers:** `house_1621_prairie.as_mapped_1904.form.principal_floor_m`, `house_1621_prairie.as_mapped_1904.form.storey_heights_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1621_prairie.as_mapped_1904.form.service_wall_brick`, `house_1621_prairie.as_mapped_1904.form.stone_front`, `house_1621_prairie.as_mapped_1904.form.street_front_trim`, `house_1621_prairie.as_mapped_1904.form.wall_head`, `house_1621_prairie.as_mapped_1904.form.roof_form`, `house_1621_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1621_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1621_prairie.as_mapped_1904.form.stair_tread_m`, `house_1621_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1621_prairie.as_mapped_1904.form.stoop_width_m`, `house_1621_prairie.as_mapped_1904.form.front_bays`, `house_1621_prairie.as_mapped_1904.form.side_bays`, `house_1621_prairie.as_mapped_1904.form.north_bays`, `house_1621_prairie.as_mapped_1904.form.rear_bays`, `house_1621_prairie.as_mapped_1904.form.sash_by_storey`, `house_1621_prairie.as_mapped_1904.form.basement_lights`, `house_1621_prairie.as_mapped_1904.form.roof_covering`, `house_1621_prairie.as_mapped_1904.form.chimneys`, `house_1621_prairie.as_mapped_1904.form.rainwater`, `house_1621_prairie.as_mapped_1904.form.window_kit`, `house_1621_prairie.as_mapped_1904.form.entrance_kit`, `house_1621_prairie.as_mapped_1904.form.gable_roof`
+**Covers:** `house_1621_prairie.as_mapped_1904.form.principal_floor_m`, `house_1621_prairie.as_mapped_1904.form.storey_heights_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1621_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1621_prairie.as_mapped_1904.form.service_wall_brick`, `house_1621_prairie.as_mapped_1904.form.stone_front`, `house_1621_prairie.as_mapped_1904.form.street_front_trim`, `house_1621_prairie.as_mapped_1904.form.wall_head`, `house_1621_prairie.as_mapped_1904.form.roof_form`, `house_1621_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1621_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1621_prairie.as_mapped_1904.form.stair_tread_m`, `house_1621_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1621_prairie.as_mapped_1904.form.stoop_width_m`, `house_1621_prairie.as_mapped_1904.form.front_bays`, `house_1621_prairie.as_mapped_1904.form.side_bays`, `house_1621_prairie.as_mapped_1904.form.north_bays`, `house_1621_prairie.as_mapped_1904.form.rear_bays`, `house_1621_prairie.as_mapped_1904.form.basement_lights`, `house_1621_prairie.as_mapped_1904.form.roof_covering`, `house_1621_prairie.as_mapped_1904.form.chimneys`, `house_1621_prairie.as_mapped_1904.form.rainwater`, `house_1621_prairie.as_mapped_1904.form.window_kit`, `house_1621_prairie.as_mapped_1904.form.entrance_kit`, `house_1621_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2440 (piece 2 of T-2436).
 **Review:** `docs/RESEARCH/hamline-1621-2436/README.md` § The build moved (T-2440).
 **Recorded:** 2026-10-15 (T-2440).
@@ -27670,6 +27728,264 @@ fixes the light's head and its glazing; T-2523 builds the steps.
 **Ticket:** T-2520 (piece 2 of T-2458).
 **Review:** `docs/RESEARCH/k16-1638-steps-transom-2520/README.md`.
 **Recorded:** 2026-10-15 (T-2520).
+
+### L-k08-1621-bow-iron-2525 — 1621 Prairie's bow given its drawn balcony rail and barred basement lights: the rail's height read, its bars, sections and the grilles' pattern reconstructed
+
+**Decision:** the swell bay of John H. Hamline's house at 1621 Prairie (T-2525, piece 1 of
+T-2422) takes the two things Treat & Foltz's Building Budget drawing draws on it that T-2420 and
+T-2440 left off: an iron balcony rail round its top, and two barred lights in its basement. The
+bow's basement becomes a storey of its own, 1.4 m from grade to the principal floor, so the bow
+carries the string course the drawing draws at that line, and the principal storey above it is
+3.9 m with its lights 0.7 m over its floor, where they were. In the basement storey two lights at
+-30 and +30 degrees on the bow, 0.75 m wide and 0.92 m high over a 0.1 m plinth, each barred with
+seven square iron uprights between a foot bar and a head bar, with a ring arched over them. On the
+moulded cornice an iron rail 0.06 m in from its edge runs round the bow from the wall to the wall,
+0.6 m high: a post against the wall at each end, a foot rail and a top rail, square bars 0.08 m
+apart.
+**What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`),
+through the camera T-2440 carried to 1621: that the rail is a light rail of close-set bars round
+the whole bow, its top about 29 px over the cornice's at about 48 px a metre (0.6 m); that the
+basement lights are two, under the principal lights, their openings flat-headed, barred with
+uprights and an arched scroll over them, reaching from about 627 px to about 675 px; and the
+string course over them at the principal floor.
+**What is invented.** The rail's 0.08 m bar spacing (the drawing's bars are counted, not
+measured), its 0.05 m posts, its rail and bar sections and its 0.06 m inset; the grille's seven
+uprights, its 0.04 m set-back in the reveal, and its scroll drawn as one plain ring of 0.25 m
+radius; the 0.1 m plinth, set by the kit's sill stone, which holds each light's sill about 9 px
+above the drawn one; the lights' 0.75 m width, the principal lights' width on the sheet's 2.3 m
+chord, against about 0.95 m drawn (the widths are argued in L-k01-1621-hamline-front-2440); and
+the iron's colour.
+**What is not built.** The block of splayed voussoirs over each basement light, open in the match
+record.
+**How to resolve:** a photograph of the house after 1886 settles the rail and the grilles; the
+architects' plans would settle the basement's lights.
+**Ticket:** T-2525 (piece 1 of T-2422).
+**Recorded:** 2026-10-15 (T-2525).
+
+### L-k16-1638-basement-2523 — 1638 Prairie raised on a basement to its photograph's steps: the floor's height and the ten risers read through a re-solved camera, the basement's face and the stoop's fabric reconstructed
+
+**Decision:** the Shortall-Gregory house (T-2523, after T-2520) stands on a basement storey 0.95 m
+high, so its principal floor and the porch floor at the door's foot are 1.55 m over the walk, where
+the kit put them at 0.6 m. The stoop under the tower climbs to it in ten risers of 0.155 m on
+0.36 m goings between its cheek walls, its foot 5.0 m out from the front. The camera the house is
+matched through is solved again: the eye 30.71 m out from the front (on the far walk of Prairie
+Avenue, just inside its far street line at 30.8 m), 3.25 m over the walk, f 2242 px. The porch and
+the tower on it, which stand out from the front, are re-read through that camera: centred 6.53 m
+from the front's south end (was 6.40 m), the floor 1.16 m a side, the posts 0.23 m and 0.045 m in
+from its ends, the trefoil and quatrefoils 3 % larger, the plate 2.87 m clear, the tower's sills at
+4.40 m, its cornice at 7.05 m and its spire's point at 10.08 m over the basement's top.
+**What is read, not invented.** That there is a basement (the 1911 sheet's '2BB'). How high it
+carries the floor, from the photograph (`chicagology_1638_prairie_photo`): T-2520's eight nosings
+(813-922.5 px, about 15 px apart) fitted together with the fence's base (1022 px on the street
+line, 10.8 m out) want a floor of 1.45-1.6 m over the walk in ten risers; rendered through the new
+camera the built stair lands within 3.7 px rms of the eight. The camera's depth follows from that
+floor and the fence's base. Every porch and tower reading listed above is the print's own pixel
+re-taken at its depth through the new camera; rendered, each lies within 4 px of the print.
+**What is invented.** The choice of 1.55 m inside the band the print allows (1.6 m fits as well
+but puts the eye past the far street line; 1.4 m needs goings over 0.4 m and still misses by
+4 px); that the fall is all in the floor and none in the yard between house and fence (the hedge
+hides the house's foot; the sheet's basement, and a city that raised its streets above its lots,
+make it the floor); the basement's face, carried down as the kit's brick foundation under every
+wall, the bay and the rear pieces alike, the print showing none of it; the stoop's treads, risers
+and cheeks as the kit builds them; every colour, the print being monochrome.
+**What the record states and the model simplifies.** Every height the record gave over grade
+before T-2523 was read against the print's old grade line (825 px); the new camera puts that line
+at the basement's top, so the record keeps those numbers and the kit builds them over the
+basement (form.basement). The fence is not re-read here: through this camera its piers, bars and
+caps draw about 1.37 times smaller than the print's, which is T-2524's. The bay's base (about
+3 px) and the porch roof's south end (about 4 px) are left at their old readings. The basement's height
+(`form.basement`) and the tower's re-read heights are inferred and argued in their notes; what
+this entry covers is the stoop (`form.porch`) and the basement's face under the front's walls.
+**How to resolve:** a picture showing the house's foot (below the hedge) settles the split between
+floor and yard, and the basement's material; a second view of the stoop fixes its goings.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`.
+**Ticket:** T-2523 (after T-2520, piece 2 of T-2458).
+**Review:** `docs/RESEARCH/k16-1638-basement-2523/README.md`.
+**Recorded:** 2026-10-15 (T-2523).
+
+### L-k16-1638-fence-2524 — 1638 Prairie's street fence re-read through the camera T-2523 re-solved: the piers, caps, hearts, finials, base and bars 1.44 times T-2456's sizes, the gateway 1.26 m clear, the bars laid from the north pier at the print's pitch, the sizes no front view resolves carried by the same ratio
+
+**Decision:** T-2456 read 1638 Prairie's fence off its photograph at 158.7 px a metre on the
+street line, the scale of T-2423's camera (eye 20 m out). T-2523 re-solved that camera on the front
+steps and the fence's base (eye 30.71 m out, 3.25 m over the walk, f 2242 px), and through it the
+street line draws 112.6 px a metre, so the fence as built drew 1.44 times smaller than the print.
+T-2524 re-reads the same pixels through the new camera, each at the depth of the face it was read
+on: shafts 0.49 m square, their middles at s -0.47 and 1.365 m, a gateway 1.255 m clear; plinths
+0.58 m square to 0.43 m; caps 0.56 m square from 1.61 to 1.98 m, each heart 0.35 m across with its
+point at 1.91 m; finials to 2.385 m, the north pier's ring 0.19 m across round 2.085 m; a base
+0.32 m high; bars 0.349 m apart to a rail at 0.83 m. Rendered, the shafts land within 2 px of the
+print, the caps' tops within 3 px and every bar within 1 px.
+**What is read, not invented.** Every size and height above, from the print's pixels
+(`chicagology_1638_prairie_photo`), and the bars' phase: the first bar stands against the north
+plinth at 345 px (0.018 m off its face), so the kit's new `bars.first_m` lays the bars from each
+gate pier at the print's own pitch instead of spreading them evenly along the run.
+**What is invented.** The plinths' breadth (T-2456 took the caps' 0.40 m without reading it; it is
+carried here by the shafts' ratio to 0.58 m); the base's width, 0.48 m, so that its street face stays
+10.75 m out, where the camera was solved on it; the sizes no front view of a halftone resolves —
+the finials' rod, point and ring bar, the caps' boards, eave and pyramid, the bars' and rail's
+section — each carried by the same 1.44 so the fence draws in the print's proportions; the ring
+raised 0.005 m over its reading to clear the cap's point; and the gap the bars leave at the far lot
+line, out of the frame. What L-k16-1638-fence-2456 records as invented (the run past the print's
+edges, the materials, the depths) stands as it was.
+**How to resolve:** a second picture of the yard, or a measured drawing of the fence, fixes the
+piers' sizes without leaning on the camera; a camera solved again moves these readings with it, and
+they should be re-taken from the same pixels, as these were.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.boundary`.
+**Ticket:** T-2524 (after T-2523).
+**Review:** `docs/RESEARCH/k16-1638-fence-2524/README.md`.
+**Recorded:** 2026-10-15 (T-2524).
+
+### L-k01-1621-entrance-2526 — 1621 Prairie's entrance from the drawing: a round-arched door under a voussoir block, and the carved panel and framed light over it, their heights read and their joinery reconstructed
+
+**Decision:** the north strip of John H. Hamline's house at 1621 Prairie (T-2526, piece 2 of
+T-2422) takes the entrance Treat & Foltz's Building Budget drawing draws there in place of the
+flat-headed door under a K09 cornice hood that T-2420 and T-2440 built. The door is K07's
+deep-arch entrance (`k07.entrance.double_door_deep_arch`): a round-headed hole 1.2 m wide, its
+crown 2.7 m over the landing and its spring 0.6 m under that, a pair of panelled leaves under a
+radial fanlight, set 0.32 m back in the 0.45 m stone front, as deep as the wall and its door
+frame allow. Round it the front's own stone is cut into a voussoir block, the arch's stones
+radiating from its centre out to a rectangle 0.3 m beyond the arch, as 1612's arched groups are
+laid (`entrance_kit.arch`). At the second floor the light over the door is 0.75 m wide and 0.95
+m high, its sill 1.2 m over the floor, in K09's restrained surround (an architrave, a frieze
+block and a cornice hood on two consoles), and under it, standing on the second-floor belt
+course, K09's carved foliate panel, 1.0 by 0.45 m.
+**What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`),
+through the camera T-2440 carried to 1621: that the doorway is round-arched and recessed, ringed
+with voussoirs, its intrados crown at about 478 px and its spring at about 507 px (built: 485 px
+and 510 px); that over it at the second floor a small light, about 333 to 375 px (built: 332 to
+375 px), stands over a carved panel at about 395 to 420 px (built: 398 to 415 px), the panel on the
+belt course; and that the light is framed and capped (its hood at about 312 px, built about 310
+px).
+**What is invented.** The door's 1.2 m width (K01's door, about 7 px narrower than the drawn
+opening); its pair of leaves, their panels and the fanlight's bars (the drawing's door is not
+legible at the plate's size); the 0.32 m reveal; the voussoir block's 0.3 m ring, its
+rectangular outline and its crown stone; the light's surround, which is the kit's and not the
+drawing's carving; the panel's foliate carving, the kit's generic motif (k09_trim.json allows one
+where no carving is read), and its 1.0 m width against about 54 px drawn (about 43 px built).
+**What is not built.** The drawing turns the voussoirs to a curved extrados under a band and
+sets the door at the back of a recess deeper than this wall; it may also stand the light a little
+proud of the wall on a moulded shelf. Both are open in the match record.
+**How to resolve:** a photograph of the house after 1886 settles the doorway, the light and the
+carving; the architects' plans would settle the recess.
+**Ticket:** T-2526 (piece 2 of T-2422).
+**Recorded:** 2026-10-15 (T-2526).
+
+### L-k01-mansard-soffit-2528 — the K01 mansard houses' cornices stand under the soffit their roof builds: 1620's and 1637's brackets, bed mouldings and wall heads raised to it, and 1637's swell bay with them
+
+**Decision:** a K01 house's cornice hangs from its soffit, and until T-2528 the builder took that
+soffit from the hip's rule on every house — the eaves line less the overhang's run down the roof's
+pitch, less the fascia — where a mansard's eave is its cornice and its soffit stands on the wall
+head, the fascia's 0.2 m under the eaves line (T-2370; the record's own storey checks already read
+it that way). So on the two K01 mansards the K10 bracketed cornice, the bed moulding over it and
+the walls' brick heads all stopped short of the roof they carry: 1637 Prairie's at 11.21 m under a
+soffit at 11.3 m (0.088 m), 1620 Prairie's at 10.59 m under one at 10.7 m (0.106 m), the gap closed
+only by the roof's hidden body. Both now stand on the soffit the roof builds. 1637's swell bay,
+which carries the cornice round its plan, rises with it: its upper storey 4.64 m for 4.552 m, its
+wall top 11.24 m at the bed moulding's foot, and its band's fascia now runs at the main fascia's
+height (11.3-11.5 m) rather than 0.09 m under it.
+**What is read, not invented.** Nothing new: the eaves lines, overhangs and the cornices'
+presence are as their records already state them. This corrects geometry to the records.
+**What is invented.** Nothing new. The y readings in 1637's engraving match record (the bow's
+band at 245-267 px) were taken at T-2472's height and are not re-read here; the band now stands
+about 0.09 m higher through the same camera.
+**How to resolve:** re-reading the bow's band through the engraving's camera.
+**Ticket:** T-2528.
+**Recorded:** 2026-10-15 (T-2528).
+
+### L-k16-1638-tower-caps-2521 — 1638 Prairie's tower stage built smooth with an incised trefoil over each light, and its gate caps' lower corners flared: the stage, frieze, casings and flare read, the ornament's pattern and the flare's curve reconstructed
+
+**Decision:** the corner tower's upper stage on the Shortall-Gregory house (T-2521, piece 3 of
+T-2458) is built smooth under a 0.12 m frieze, each light's casing carried round its pointed
+head, and over each light an incised trefoil 0.225 m across centred at 6.51 m; the two gate
+piers' caps are the shaft's breadth with their lower corners flared out to 0.40 m at 1.215 m
+and rounded back in by 1.17 m. The tower's record stays `inferred` as a whole, its reconstructed
+parts, the trefoil among them, declared in its note; so this entry covers the fence alone.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`) through
+the camera T-2423 solved, the tower's heights re-placed through the one T-2523 re-solved:
+that the stage shows no course line; the frieze line at 300 px (6.92 m); the casing band following each head; that a figure about 0.23 by 0.32 m (6.34-6.66 m) stands
+over each light on the band's apex; the caps' outline row by row (57 px at the top, 63 px at the
+lower corners, the flare from 806 to 830 px and back to the shaft by 836 px).
+**What is invented.** The ornament's pattern: the halftone shows a faint figure and no more, and
+the trefoil is the gable's own (T-2457); its groove's width and depth; the smooth face's
+construction (flush boards on the clapboard's course lines, each its own paint tone); the
+flare's curve between the rows read (a quarter-sine out, a quarter-round back); every colour.
+**How to resolve:** a sharper print of the tower fixes the ornament; T-2524 re-reads the caps at
+the camera T-2523 re-solves.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.boundary`.
+**Ticket:** T-2521 (piece 3 of T-2458).
+**Review:** `docs/RESEARCH/k16-1638-tower-caps-2521/README.md`.
+**Recorded:** 2026-10-15 (T-2521).
+
+### L-k16-1638-wing-2532 — 1638 Prairie's south wing from its photograph: the sheet's projection as a lower wing under a street-facing gable, its south wall taken past the sheet's line, its sash and unseen walls reconstructed
+
+**Decision:** the projection sheet 20 draws on the south flank of the Shortall-Gregory house
+(T-2397 built it to the flanks' wall top under a lean-to) is rebuilt as the photograph shows it
+(T-2532, piece 1 of T-2522): a wing a metre lower than the house, its wall top 5.03 m over the
+basement's top where the flanks' is 6.03 m, under a 50-degree gable that faces the street, its
+ridge running north on the plan's middle into the main roof's south slope and its south end a
+gable under a 0.42 m verge. Its south wall stands at v -3.0 m, 0.6 m south of the sheet's -2.4 m.
+On its east face two upper lights 0.5 m wide and, under them, a light 0.58 m wide and a narrow
+one 0.22 m wide; the south and west walls keep two and one bays a storey, re-spaced to the
+lower storeys.
+**What is read, not invented.** That the block south of the gable is this house's wing and not
+the neighbour's: sheet 20 puts 1700 Prairie's north wall 4.4 m south of the front's south end, so
+through the camera all of 1700 falls left of the frame. From the photograph
+(`chicagology_1638_prairie_photo`), through the camera T-2523 solved, on the sheet's east face:
+the eave's drip at 482 px (the wall top), the ridge at 264 px and level (a ridge running north,
+so a roof facing the street), its height and so the 50-degree pitch, the rake's foot at 88.5 px
+(the verge, so the south wall), and the four lights' places and heads. Rendered, the ridge lands
+at 263 px, the drip at 480-483 px, its corner at 88 px and the lights within 3 px.
+**What is invented.** That the ridge stands on the plan's middle (the camera sees only the east
+slope; the print's rake leans a little more steeply than this draws, its top 5-7 px south, which
+a ridge 0.8 m further back would close); the west slope and the west and south walls' openings,
+which no picture shows; every opening's sash, the kit's two-over-two; the lower lights' sills and
+the wing's floors, their feet hidden by the planting; the clapboard, the boxed eave and the
+verge's soffit and fascia, the kit's; and the wing standing on the house's basement like the rest.
+The print's wing face is dark, in 1700's shadow; the scene lights it as its sun does.
+**What disagrees.** The sheet draws the projection 2.40 m out of the south flank (row 3770); the
+print puts its verge at -3.42 m, so a wall about 0.6 m further out, a dozen sheet pixels. The
+print is the picture the house is matched to, so it is taken; the sheet's east face and west end
+are kept.
+**How to resolve:** a second view of the south side, or the sheet's earlier edition, settles the
+wing's width and depth; a view of its south face settles its openings.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`
+**Ticket:** T-2532 (piece 1 of T-2522).
+**Review:** `docs/RESEARCH/k16-1638-wing-2532/README.md`.
+**Recorded:** 2026-10-15 (T-2532).
+
+### L-k01-1621-side-stoop-2530 — 1621 Prairie's side stoop from the drawing: its run along the front read off the plate, its landing, width and riser count bounded by the sheet's plan and the stair rules
+
+**Decision:** John H. Hamline's house at 1621 Prairie (T-2530, piece 1 of T-2527) climbs to its
+door by the side stoop Treat & Foltz's Building Budget drawing draws, in place of the straight
+stoop toward the street that T-2420 and T-2440 built. The door opens on a stone landing at the
+principal floor that runs south along the north strip from v 1.0 to the bow's north junction at
+v 3.6 and is 2.4 m deep, faced to grade along its street edge and across its north end; from its
+south end a flight of the K01 stair's eight equal risers (0.175 m) on 0.28 m goings runs on south,
+parallel to the front, 1.2 m wide and standing 1.2 m clear of the wall so that it passes in front
+of the bow (1.02 m proud), down to grade at v 5.56, its foot opening south; a solid stone cheek
+0.3 m thick closes the flight's street side, its top raking 0.1 m over the nosings; the flight's
+side toward the bow is closed by its steps' ends. **What is read, not invented.** From the
+drawing (`building_budget_1886_06_hamline_farwell_houses`): on its inset plan, that the steps'
+nosings run square to the front, so the flight runs along it; that the steps lie south of the
+landing and in front of the bow's north end, between it and the line that encloses the stoop on
+the street side; and that the flight is about 1.2 m wide at the plan's scale. In its perspective,
+through the camera T-2440 carried to 1621, that the stoop's cheek tops rake high at the north and
+fall to the south (at about 0.58-0.65 on the plate against the build's 0.63), that the steps show
+over a low cheek, and that the landing's edge is a level line at the floor about 3 m long (drawn
+at x 137-277, built 152-287). **What is invented.** The riser count and going, which are the K01
+stair's solve from the 1.4 m floor (the plate's steps cannot be counted at its size); the
+landing's length and depth, which follow from the sheet's 3.6 m strip, the door in its middle and
+the bow's projection rather than from the plate, whose strip is 1.4 m; the flight's 1.2 m stand-off
+from the wall; the cheek's 0.3 m thickness (the kit's) and its 0.1 m over the nosings; the stone;
+and the omission of any rail (the iron rails the plate draws at the left of the panel are not
+legibly this stoop's). Because the landing must reach from the middle of the sheet's wider strip
+to its narrower bow, the built flight stands about 100 px right of the drawn one through the
+camera; that is the front's widths disagreement already argued in the match record, not a second
+one.
+**How to resolve:** a photograph of the house after 1886 settles the stoop's run, its rails and its
+steps; the architects' plans would settle the landing and the stand-off.
+**Ticket:** T-2530 (piece 1 of T-2527).
+**Recorded:** 2026-10-15 (T-2530).
 
 
 ### L-glessner-final-roof-2228 — north cone and lower connecting roof
