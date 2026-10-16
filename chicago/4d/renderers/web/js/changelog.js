@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1863, ts: '2026-10-16T11:58:24.797Z', date: 'Oct 16, 2026, 6:58 AM CT', title: 'Keith\'s bow laid in deep and thin courses, as photographed', kind: 'improvement',
+    items: [
+      '1808 Prairie\'s round south bay now alternates a deep rock-faced course with a thin one, as the street front does. The 1888 photographs show this on the bay\'s piers.',
+      'It ran even courses before. Where each joint falls is still a liberty, because the pictures don\'t resolve the bay\'s beds against the front\'s.',
+    ] },
   { v: 1862, ts: '2026-10-16T11:35:13.811Z', date: 'Oct 16, 2026, 6:35 AM CT', title: 'Roofs and 1904 streets load as GPU-compressed textures', kind: 'improvement',
     items: [
       'The roof relief maps and every 1904 street, curb, walk and parkway surface now ship as KTX2, which the graphics card keeps compressed instead of unpacking to full size.',
