@@ -20,82 +20,84 @@
       "tier": "full",
       "move": "walk",
       "frames": 2234,
-      "rebuilds": 173,
+      "rebuilds": 174,
       "digests": [
         "d021cf14",
         "eab79ab3",
-        "1ff48c62",
-        "b494c02e",
-        "d1c2e8e4",
-        "cdc7c4cd",
-        "64776662",
-        "9472ff7",
-        "33edb4dc",
-        "20fc482d",
-        "1750985f",
-        "64b80c08",
-        "f8cb174",
-        "9d6ea616",
-        "be56c9f8"
+        "60c78d2f",
+        "ca75e061",
+        "e9803621",
+        "92c5c3d2",
+        "aa9e9bcd",
+        "8c9bf710",
+        "28d53db6",
+        "be7b24d3",
+        "ec9106e4",
+        "33f7f30",
+        "7381c171",
+        "bcd2f198",
+        "bee06128"
       ],
       "spread": {
-        "landings": 181,
-        "drained": 0,
+        "landings": 185,
+        "drained": 5,
         "abandoned": 0,
-        "framesPerPass": 9.34,
-        "msPerPass": 13.51,
-        "waits": 1252
+        "framesPerPass": 9.58,
+        "msPerPass": 16.58,
+        "waits": 1275,
+        "jumps": 0,
+        "jumpFrames": 0,
+        "oneFrame": 10
       },
       "verified": {
         "near": {
-          "spread": "e8def7ee",
-          "sync": "e8def7ee",
+          "spread": "b303546e",
+          "sync": "b303546e",
           "same": true
         },
         "far": {
-          "spread": "782b6fb3",
-          "sync": "782b6fb3",
+          "spread": "5fc16663",
+          "sync": "5fc16663",
           "same": true
         }
       },
-      "scripted": {
-        "median": 1.4,
-        "p95": 5.3,
-        "p99": 7.7,
-        "max": 139.2,
-        "mean": 2.02,
-        "over16": 2,
-        "over33": 2,
-        "over50": 2
-      },
-      "longFlora": [
+      "longs": [
         {
           "frame": 1655,
-          "ms": 136.2,
-          "pass": "one-frame"
-        },
-        {
-          "frame": 2029,
-          "ms": 136,
-          "pass": "one-frame"
+          "ms": 145.2,
+          "flora": 140.5,
+          "pass": "one-frame",
+          "landings": 137,
+          "drained": 1,
+          "abandoned": 0
         }
       ],
+      "scripted": {
+        "median": 2.9,
+        "p95": 7,
+        "p99": 8.6,
+        "max": 145.2,
+        "mean": 3.41,
+        "over16": 2,
+        "over33": 1,
+        "over50": 1
+      },
       "layers": {
         "flora.update": {
           "median": 0,
-          "p95": 4.1,
-          "p99": 5.8,
-          "max": 136.2,
-          "mean": 0.81,
+          "p95": 4.2,
+          "p99": 5.7,
+          "max": 140.5,
+          "mean": 0.77,
           "over16": 2,
-          "over33": 2,
-          "over50": 2
+          "over33": 1,
+          "over50": 1
         },
         "trees.update": {
           "median": 0,
           "p95": 0.1,
-          "p99": 1.3,
-          "max": 3.6,
+          "p99": 0.8,
+          "max": 5.6,
           "mean": 0.04,
           "over16": 0,
           "over33": 0,
@@ -105,28 +107,28 @@
           "median": 0,
           "p95": 0,
           "p99": 0.1,
-          "max": 0.6,
+          "max": 0.7,
           "mean": 0,
           "over16": 0,
           "over33": 0,
           "over50": 0
         },
         "terrain.updateGroundReach": {
-          "median": 0.9,
-          "p95": 1.5,
-          "p99": 1.9,
-          "max": 3.6,
-          "mean": 0.96,
+          "median": 2.1,
+          "p95": 2.6,
+          "p99": 2.9,
+          "max": 3.5,
+          "mean": 2.1,
           "over16": 0,
           "over33": 0,
           "over50": 0
         },
         "world.aim": {
           "median": 0,
-          "p95": 0,
-          "p99": 0.1,
+          "p95": 0.1,
+          "p99": 0.6,
           "max": 0.9,
-          "mean": 0.01,
+          "mean": 0.02,
           "over16": 0,
           "over33": 0,
           "over50": 0
@@ -169,11 +171,13 @@
       ],
       "spread": {
         "landings": 118,
-        "drained": 46,
+        "drained": 41,
         "abandoned": 0,
-        "framesPerPass": 11.94,
-        "msPerPass": 64.61,
-        "waits": 744
+        "framesPerPass": 11.96,
+        "msPerPass": 66.73,
+        "waits": 742,
+        "jumps": 0,
+        "jumpFrames": 0
       },
       "verified": {
         "near": {
@@ -187,30 +191,24 @@
           "same": true
         }
       },
+      "longs": [],
       "scripted": {
-        "median": 2.7,
-        "p95": 9.1,
-        "p99": 17.7,
-        "max": 18.4,
-        "mean": 4.27,
-        "over16": 7,
+        "median": 2.4,
+        "p95": 9.4,
+        "p99": 17.1,
+        "max": 19,
+        "mean": 4.26,
+        "over16": 6,
         "over33": 0,
         "over50": 0
       },
-      "longFlora": [
-        {
-          "frame": 329,
-          "ms": 16.9,
-          "pass": null
-        }
-      ],
       "layers": {
         "flora.update": {
           "median": 0.7,
-          "p95": 7.6,
-          "p99": 15.7,
-          "max": 16.9,
-          "mean": 2.73,
+          "p95": 7.8,
+          "p99": 15.3,
+          "max": 17.5,
+          "mean": 2.68,
           "over16": 1,
           "over33": 0,
           "over50": 0
@@ -218,9 +216,9 @@
         "trees.update": {
           "median": 0,
           "p95": 0.1,
-          "p99": 1.4,
-          "max": 1.9,
-          "mean": 0.04,
+          "p99": 0.8,
+          "max": 1.6,
+          "mean": 0.03,
           "over16": 0,
           "over33": 0,
           "over50": 0
@@ -228,28 +226,28 @@
         "terrain.update": {
           "median": 0,
           "p95": 0,
-          "p99": 0.1,
-          "max": 0.7,
+          "p99": 0,
+          "max": 0.1,
           "mean": 0,
           "over16": 0,
           "over33": 0,
           "over50": 0
         },
         "terrain.updateGroundReach": {
-          "median": 1.1,
+          "median": 1.2,
           "p95": 2,
           "p99": 2.2,
-          "max": 2.5,
-          "mean": 1.23,
+          "max": 2.7,
+          "mean": 1.24,
           "over16": 0,
           "over33": 0,
           "over50": 0
         },
         "world.aim": {
           "median": 0,
-          "p95": 0.1,
-          "p99": 0.2,
-          "max": 0.7,
+          "p95": 0,
+          "p99": 0.7,
+          "max": 0.9,
           "mean": 0.01,
           "over16": 0,
           "over33": 0,
@@ -259,7 +257,7 @@
           "median": 0,
           "p95": 0,
           "p99": 0,
-          "max": 0,
+          "max": 0.1,
           "mean": 0,
           "over16": 0,
           "over33": 0,
@@ -278,5 +276,6 @@
       },
       "heapMB": 1459.12
     }
-  ]
+  ],
+  "note": "T-2683 before: dev at 115f9d096 (T-2682 merged). walk from one run, turn from another; the snap at frame 1655 is a one-frame pass in the walk run (140.5 ms flora) and was not long in the run the turn comes from."
 }

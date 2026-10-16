@@ -272,6 +272,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   await new Promise((r) => setTimeout(r, 300));
   const rebuilds0 = a.flora.stats?.rebuilds ?? 0;
   const spread0 = { ...(a.flora.stats?.spread ?? {}) };
+  spread0.passes = { ...(spread0.passes ?? {}) }; // counted in place, so copied
   // T-2096 § acceptance, "no visible change in where plants stand": a digest of
   // every instance buffer the flora layer holds, taken along the move, so two
   // builds can be compared plant for plant (`--json` keeps them).
@@ -415,6 +416,11 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     // where they used to be dealt in one.
     jumps: (s1.jumps ?? 0) - (spread0.jumps ?? 0),
     jumpFrames: (s1.jumpFrames ?? 0) - (spread0.jumpFrames ?? 0),
+    // And the passes still dealt whole in the frame that needed them: every
+    // pass counted that did not land as a spread or jump pass.
+    oneFrame: ((s1.passes?.near ?? 0) + (s1.passes?.far ?? 0))
+      - ((spread0.passes?.near ?? 0) + (spread0.passes?.far ?? 0))
+      - ((s1.landings ?? 0) - (spread0.landings ?? 0)),
   } : null;
   const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
   a.setAnimationHold(false);
@@ -662,7 +668,7 @@ for (const vp of VIEWPORTS) {
         + ` ${f(L['flora.update'].p95)} ${f(L['flora.update'].max)} | ${f(L['trees.update'].p95)} ${f(L['trees.update'].max)} | ${others || '-'}`
         + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped`
           + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker`
-          + `, ${r.spread.jumps} after a jump`
+          + `, ${r.spread.oneFrame} dealt in one frame, ${r.spread.jumps} after a jump`
           + (r.spread.jumps ? ` (landing in ${r.spread.jumpFrames} frames between them)` : '') : ''));
       for (const l of r.longs ?? []) {
         console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
