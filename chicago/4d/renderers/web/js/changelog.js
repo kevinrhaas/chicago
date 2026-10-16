@@ -1,4 +1,55 @@
 export const CHANGELOG = [ // newest first
+  { v: 1888, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'The arrival says where you are going, and the year rolls there', kind: 'fix',
+    items: [
+      'A small line over the ticker now reads where you are headed, such as DESTINATION 1904 · PRAIRIE AVE, from the moment the page appears.',
+      '1835 reads RIVER SETTLEMENT and 1812 reads FORT DEARBORN.',
+      'The big ticker is the year you are passing: it starts at today\'s year and rolls down to your destination, and it never climbs back up.',
+      'The old "Destination year" label is gone. It sat over today\'s year, which made the readout look wrong.',
+    ] },
+  { v: 1887, ts: '2026-10-16T21:06:48.513Z', date: 'Oct 16, 2026, 4:06 PM CT', title: 'Walking up a slope no longer stalls the grass', kind: 'fix',
+    items: [
+      'Climbing or dropping more than 0.6 metres on foot used to make the grass and flowers around you be laid out again all at once, in a single frame.',
+      'On a slowed-down phone profile that frame took about 130 milliseconds on the walk from Lake Street into the block. It now spreads over frames like every other step.',
+      'A sharp turn on the spot can still cause one such frame; that is next.',
+      'Every plant stands exactly where it did before.',
+    ] },
+  { v: 1886, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'The jump\'s ring carries through to the arrival', kind: 'feature',
+    items: [
+      'Jump from the Observatory and the arrival screen opens with the departure\'s dashed ring still widening behind the card, so leaving and landing read as one move.',
+      'It only plays at the far end of a jump: opening a year\'s link directly, or more than 10 seconds after leaving, opens plain.',
+      'With reduced motion on, the ring is skipped.',
+    ] },
+  { v: 1885, ts: '2026-10-16T20:50:45.294Z', date: 'Oct 16, 2026, 3:50 PM CT', title: 'Keith\'s crown matches its photographs: pointed stones and a carved boss', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the band under the rooftop lattice is now five rows of small pointed stones set in a checker, as the 1888 and 1948 photographs show it. The taller band of large rough blocks is gone, and plain stone runs below it down to a moulding.',
+      'A carved round boss now stands on the north-east corner where the moulding under the lattice ends.',
+      'The lattice\'s openings sit lower under a deeper solid top, and the deep projecting band beneath the lattice is now a thin ledge.',
+    ] },
+  { v: 1884, ts: '2026-10-16T20:28:59.829Z', date: 'Oct 16, 2026, 3:28 PM CT', title: 'Cards stop printing "[object Object]" and quoting 1835 law in 1904', kind: 'fix',
+    items: [
+      'A measured shape like the Glessner house\'s dining bay used to read "[object Object]" under Attributes. Its row now shows how sure we are, its sources and why, and no garbled value.',
+      'The 1835 hay-stacking by-law and its fire limit appear only on 1835 cards. A 1904 Prairie Avenue house no longer quotes a town law passed almost seventy years before its scene.',
+    ] },
+  { v: 1883, ts: '2026-10-16T20:16:18.457Z', date: 'Oct 16, 2026, 3:16 PM CT', title: 'Keep a year on your device and walk it offline', kind: 'feature',
+    items: [
+      'The welcome now offers "Keep 1835 on this device", with the download\'s size (149 MB for 1835) and a progress bar.',
+      'A kept year opens from your device, with or without a connection: the town boots and walks offline.',
+      'When the town is updated, a kept year downloads only the files that changed.',
+      'On a phone, Add to Home Screen now gives a full-screen app for that year.',
+      'Remove takes the year off the device again.',
+    ] },
+  { v: 1882, ts: '2026-10-16T20:02:36.702Z', date: 'Oct 16, 2026, 3:02 PM CT', title: 'Nothing you can see yet: 1835 plank walks built ahead of time', kind: 'chore',
+    items: [
+      'Nothing in the scene changed. This is the first step toward phones downloading the town instead of building it at every visit.',
+      'A new tool builds the 1835 plank walks, crossings and fences on the server, using the page\'s own code and ground. All 768 of the 128 pieces\' buffers match what the page builds, byte for byte.',
+      'Built ahead, they come to 78 MB raw, or about 10 MB compressed. The next step makes the page load them and measures a phone\'s boot before and after.',
+    ] },
+  { v: 1881, ts: '2026-10-16T19:54:24.053Z', date: 'Oct 16, 2026, 2:54 PM CT', title: 'Turning on the spot hitches less on a phone', kind: 'improvement',
+    items: [
+      'The planting grid for the grass and flowers around you is now laid out on a spare processor core, so redrawing it as you move costs the screen less.',
+      'On a slowed-down phone profile, the worst frame of a slow turn in place fell from 36 to 20 milliseconds.',
+      'Every plant stands exactly where it did before.',
+    ] },
   { v: 1880, ts: '2026-10-16T19:08:54.907Z', date: 'Oct 16, 2026, 2:08 PM CT', title: 'Glessner rooflines, courtyard and entrance follow the references', kind: 'fix',
     items: [
       'The north roof ridge continues straight through the west-wing crossing; the west peak and cupola align with it.',

@@ -28,6 +28,9 @@ const P = {
   more: '<path d="M6.5 9.5L12 15l5.5-5.5"/>',
   play: '<path d="M8 5.5v13l10-6.5z"/>',
   search: '<circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/>',
+  // T-2561: keep a year on this device, and the year kept
+  keep: '<path d="M12 3.5v11"/><path d="M7.5 10.5l4.5 4.5 4.5-4.5"/><path d="M4.5 15.5v4h15v-4"/>',
+  kept: '<path d="M4.5 15.5v4h15v-4"/><path d="M7.5 9l3 3 6-6.5"/>',
 };
 export function iconSvg(name, size = 20) {
   const body = P[name] || P.view;

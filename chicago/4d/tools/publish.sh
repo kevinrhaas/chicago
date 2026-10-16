@@ -285,6 +285,14 @@ cp -f data/liberties.json "$SITE/data/"
 python3 tools/compile_pictures.py >/dev/null
 mkdir -p "$SITE/data/pictures"
 cp -f data/pictures/*.json "$SITE/data/pictures/"
+# The building summaries the Inspect app reads (T-2635): one file per scene, compiled from
+# the authored data/summaries/ records by the same gate check.sh runs, so a record the gate
+# refuses stops the publish rather than reaching a visitor. DERIVED HERE, not committed
+# (data/inspect/ is ignored): it resolves source citations and the people directory, which
+# other tickets change. Every scene gets a file, empty or not, so the app's fetch never 404s.
+python3 tools/compile_summaries.py --build >/dev/null
+mkdir -p "$SITE/data/inspect"
+cp -f data/inspect/*.json "$SITE/data/inspect/"
 # The town census the gate screen shows — buildings standing and people housed
 # (T-0036). Derived by tools/town_census.py and re-derived by tools/check.sh; the
 # gate fetches it, so leaving it out of the mirror is a 404 on the deployed site
@@ -645,6 +653,11 @@ cat > "$SITE/build.json" <<JSON
 JSON
 
 echo "   build $BUILD_VERSION  $BUILD_CT"
+
+# T-2561: the per-year packs a visitor can keep on the device, the home-screen
+# manifests and the service worker that serves a kept year. LAST, because a pack
+# lists every file it holds with its hash, build.json included.
+node tools/write_year_packs.mjs "$SITE"
 
 # PORTABLE SIZE (T-0727): `du -sb` is GNU-only and dies on the macOS stewards
 # (exit 64, whole publish marked failed after every byte landed). wc -c over

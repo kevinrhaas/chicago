@@ -186,6 +186,15 @@ const COVERAGE = [
   // exemplar, and moves this row to the parts that draw it then); publish.sh ships none
   // of it. tools/k02_stone_study.mjs captures it at both viewports on its own page.
   ['assets/textures/prairie_1904_stone/', NONE, 'K02 stone library, bound by no scene yet: k02_stone_study.mjs'],
+  // T-2635: the building summary records' schema. No module fetches the compiled
+  // data/inspect/ yet (T-2638's Inspect app will, and moves this row to the part that
+  // draws it then); tools/compile_summaries.py --check and --self-test hold it in check.sh.
+  // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
+  // the tree does not hold is refused as rot.
+  ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // Which files git tracks. What publish.sh writes into the untracked mirror is held by
+  // check_published.mjs in check.sh, not by the renderer.
+  ['.gitignore', NONE, 'which files git tracks — the mirror is held by check_published.mjs'],
   // The licence register is prose a gate reads (validate.py); no module fetches it.
   ['assets/LICENSES.md', NONE, 'the licence register: validate.py, not the renderer'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
@@ -392,6 +401,9 @@ const COVERAGE = [
   // --- PARTS 10-12: what grows, what moves, and the streets a visitor reads
   // (T-2337 cut old part 10 into 10 + 11, so a row that named 10 names both)
   ['renderers/web/js/flora.js', [10, 11, 12], 'the flora census, and the boundary it fades at'],
+  // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
+  // read what the deal planted from it.
+  ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],

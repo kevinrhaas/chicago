@@ -102,6 +102,11 @@ def spec(params) -> dict | None:
                                     and 0.0 <= float(blk["rise_m"]) <= 0.3 and 0.0 <= float(blk["proud_m"]) <= 0.1):
             raise ValueError("wall_head.crown.block: `at` 0-1 along the crown's face, width_m 0.3-1.2, "
                              "rise_m 0-0.3 over the fascia, proud_m 0-0.1 past it")
+    st = t.get("stops_m")
+    if st is not None and (t.get("cornice") != STONE or not st or set(st) - {"south", "north"}
+                           or not all(0.0 < float(x) <= 1.5 for x in st.values())):
+        raise ValueError(f"wall_head.stops_m stops {STONE!r} short of the south and/or north corner, "
+                         f"0-1.5 m, capped there")
     paint = t.get("paint")
     if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
         raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
@@ -576,14 +581,21 @@ def _stone_cornice(a, K, data, bays, conf):
         spans.append((at, c0))
         at = c1
     spans.append((at, front.L))
-    seed = a.instance(STONE, "cornice", {"projection_m": pj, "height_m": ch, "profile": v["profile"],
-                                         "soffit_m": y_s, "bays_carrying_it": len(cut)},
-                      {"soffit": (p.depth_m, y_s, 0.0)})
+    # T-2679: a corner the course stops short of (1808's north-east, where it dies against
+    # the corner pier's carved boss); capped there as at a corner
+    stops = p.wall_head.get("stops_m") or {}
+    lo, hi = float(stops.get("south", 0.0)), front.L - float(stops.get("north", 0.0))
+    spans = [(max(s0, lo), min(s1, hi)) for s0, s1 in spans if min(s1, hi) > max(s0, lo)]
+    info = {"projection_m": pj, "height_m": ch, "profile": v["profile"], "soffit_m": y_s,
+            "bays_carrying_it": len(cut)}
+    if stops:
+        info["stops_m"] = {k: float(x) for k, x in sorted(stops.items())}
+    seed = a.instance(STONE, "cornice", info, {"soffit": (p.depth_m, y_s, 0.0)})
     var = K.Variant({"id": STONE, "kind": "moulded", "material": "stone"}, data)
     var.seed, var.rng = seed, random.Random(seed)
     for k, (s0, s1) in enumerate(spans):
         pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=[front.name])
-        ends = (s0 < 1e-9, s1 > front.L - 1e-9)       # capped at a corner; dying into a bay
+        ends = (s0 < lo + 1e-9, s1 > hi - 1e-9)       # capped at a corner or a stop; dying into a bay
         K.sweep(pc.mesh, [front.at(s0, y_c), front.at(s1, y_c)], K.Y, prof, side=1.0, sgn=1.0, caps=ends)
     a.wall_head = {"cornice": STONE, "cornice_m": [round(y_c, 4), round(y_s, 4)], "projection_m": pj,
                    "stretches": [[round(s0, 3), round(s1, 3)] for s0, s1 in spans]}
