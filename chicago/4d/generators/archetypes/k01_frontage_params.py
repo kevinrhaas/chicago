@@ -946,6 +946,21 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # T-2525: a window's iron grille in its reveal (1621's basement lights, from its drawing)
         for st in v["storeys"]:
             for w in st["windows"]:
+                # T-2537: a grouped window's mullion read off a picture (1637's wing, from its
+                # engraving): only on a K06 variant of more than one light, and every light kept
+                # inside the ordinary sash width
+                if "mullion_m" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    mu, n = float(w["mullion_m"]), int(v6.get("bays", 1))
+                    cw = float(w.get("clear_width_m", v6.get("clear_width_m", 0.0)))
+                    bw = (cw - mu * (n - 1)) / n
+                    lo, hi = k06["ranges"]["ordinary_clear_width_m"]
+                    if n < 2 or not 0.02 <= mu <= 0.3 or not lo <= bw <= hi:
+                        raise ParamError(f"bays: {e['id']}'s mullion_m {mu} needs a grouped K06 opening "
+                                         f"(not {w['opening']}), 0.02-0.3 m, and lights {lo}-{hi} m wide "
+                                         f"(these are {round(bw, 3)} m)")
+                    w["mullion_m"] = mu
                 g = w.get("grille")
                 if g is None:
                     continue

@@ -540,7 +540,8 @@ IRON_BAR_M = 0.018        # T-2525: K01's guard and grille bar (k01_arched_front
 def k06_variant(w: dict) -> dict:
     data6 = K6.load()
     v6 = copy.deepcopy(next(x for x in data6["variants"] if x["id"] == w["opening"]))
-    for k in ("clear_width_m", "clear_height_m"):
+    # T-2537: a grouped window read off a picture names its own mullion (k01_frontage_params bounds it)
+    for k in ("clear_width_m", "clear_height_m", "mullion_m"):
         if k in w:
             v6[k] = w[k]
     return v6
