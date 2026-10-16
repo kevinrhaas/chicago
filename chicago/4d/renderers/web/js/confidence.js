@@ -19,7 +19,17 @@
  *   attested       lerped toward gold
  *   inferred       lerped toward silver
  *   reconstructed  lerped toward bronze, and screen-door dithered translucent
- *                massing — an ordered 4x4
+ *
+ * — that is the default LOOK of each grade (GRADE_LOOK). Since T-2646 every grade
+ * has its own look, set by `setGrade()`: a colour, a mode and an opacity.
+ *
+ *   tint    recoloured toward the grade's colour; opacity is how far.
+ *   dither  recoloured, and screen-door dithered at opacity — today's
+ *           Reconstructed massing, for any grade.
+ *   ghost   recoloured and drawn see-through at opacity: really blended, in a
+ *           second pass drawn LAST with depthWrite off (renderGhost below).
+ *
+ * The dither is an ordered 4x4
  *                Bayer threshold against gl_FragCoord with a `discard`, IN THE
  *                OPAQUE PASS. No blending, no depth sorting, no per-object
  *                render order. That is what lets it work inside one BatchedMesh,
@@ -73,6 +83,31 @@ export const GRADE_COLORS = Object.freeze({
  */
 export const GRADE_TINT_STRENGTH = Object.freeze({ attested: 0.62, inferred: 0.72, reconstructed: 0.8 });
 
+/** The three looks a grade can take, and the number each is in the shader. */
+export const GRADE_MODES = Object.freeze({ tint: 0, ghost: 1, dither: 2 });
+
+/**
+ * Each grade's look until something sets another (T-2646) — exactly the Confidence
+ * view that shipped before per-grade looks existed: Attested and Inferred tinted,
+ * Reconstructed tinted and dithered to 34% (its massing). `opacity` is the tint's
+ * strength for `tint`, the fraction kept for `dither`, and the alpha for `ghost`.
+ */
+export const GRADE_LOOK = Object.freeze({
+  attested: Object.freeze({ mode: 'tint', opacity: GRADE_TINT_STRENGTH.attested }),
+  inferred: Object.freeze({ mode: 'tint', opacity: GRADE_TINT_STRENGTH.inferred }),
+  reconstructed: Object.freeze({ mode: 'dither', opacity: 0.34 }),
+});
+
+/** How far a dithered or ghosted grade is recoloured — opacity is spent on the
+ * dither or the alpha there, so the colour is held at the old Reconstructed mix. */
+export const GRADE_LOOK_TINT = GRADE_TINT_STRENGTH.reconstructed;
+
+/** The camera layer the ghost pass draws on (renderGhost). */
+export const GHOST_LAYER = 31;
+
+const GRADE_NAMES = ['attested', 'inferred', 'reconstructed'];
+const GRADE_NAMES_BY_MODE = Object.fromEntries(Object.entries(GRADE_MODES).map(([k, v]) => [v, k]));
+
 export const LEVELS = {
   attested: 0.0,
   inferred: 0.5,
@@ -87,11 +122,21 @@ export function levelOf(value) {
 }
 
 /** Whether every interpolated value in a triangle remains opaque under the
- * public evidence controls. Unknown ranges fail open for visibility culling. */
+ * public evidence controls. Unknown ranges fail open for visibility culling.
+ * With the view on, a grade drawn as dither or ghost is not opaque wherever the
+ * shader gives it weight (attested below 0.25, inferred between 0.25 and 0.75,
+ * reconstructed above 0.75 — the bands' open edges, as the shader weighs them).
+ * A view with no `modes` is read with the default looks: reconstructed dithered. */
 export function opaqueConfidenceRange(range, view) {
   if (!range || range.length!==2 || !range.every(Number.isFinite)) return false;
   const [min,max]=range;
-  if(min<0 || max>1 || min>max || (view.enabled && max>0.75))return false;
+  if(min<0 || max>1 || min>max)return false;
+  if(view.enabled){
+    const mode=(level)=>view.modes?.[level] ?? GRADE_LOOK[level].mode;
+    if(mode('attested')!=='tint' && min<0.25)return false;
+    if(mode('inferred')!=='tint' && max>0.25 && min<0.75)return false;
+    if(mode('reconstructed')!=='tint' && max>0.75)return false;
+  }
   const levels=['attested','inferred','reconstructed'];
   const first=levels.indexOf(levelOf(min)),last=levels.indexOf(levelOf(max));
   return !levels.slice(first,last+1).some(level=>view.hidden?.[level]);
@@ -134,7 +179,6 @@ varying float vConfidence;
 const FRAGMENT_DECL = /* glsl */`
 varying float vConfidence;
 uniform float uConfMode;
-uniform float uReconAlpha;
 // One component per level — x attested, y inferred, z reconstructed — 1.0 to
 // hide. See setHidden() for why hiding is independent of the colour mode.
 uniform vec3 uHideLevel;
@@ -143,7 +187,11 @@ uniform vec3 uHideLevel;
 uniform vec3 uTintAttested;
 uniform vec3 uTintInferred;
 uniform vec3 uTintReconstructed;
-uniform vec3 uTintStrength;
+// T-2646: each grade's look — x attested, y inferred, z reconstructed. Mode is
+// GRADE_MODES (0 tint, 1 ghost, 2 dither); opacity is the tint's strength, the
+// dither's kept fraction or the ghost's alpha, by mode.
+uniform vec3 uGradeMode;
+uniform vec3 uGradeOpacity;
 
 // Ordered 4x4 Bayer matrix. Screen-door translucency: a stable per-pixel
 // threshold means no sorting, no blending, and no order dependence between the
@@ -167,6 +215,9 @@ float chicago_bayer4(vec2 fragXY) {
 float chicago_wAttested(float c) { return 1.0 - clamp(c * 4.0, 0.0, 1.0); }
 float chicago_wInferred(float c)  { return 1.0 - min(abs(c - 0.5) * 4.0, 1.0); }
 float chicago_wRecon(float c) { return clamp((c - 0.75) * 4.0, 0.0, 1.0); }
+vec3 chicago_grade(float c) { return vec3(chicago_wAttested(c), chicago_wInferred(c), chicago_wRecon(c)); }
+// 1.0 in each component whose grade is in mode m.
+vec3 chicago_inMode(float m) { return vec3(1.0) - step(vec3(0.5), abs(uGradeMode - vec3(m))); }
 `;
 
 const FRAGMENT_DISCARD = /* glsl */`
@@ -202,26 +253,54 @@ const FRAGMENT_DISCARD = /* glsl */`
 
   // Off must mean untouched. Guard on the mode BEFORE reading the channel, so a
   // bad value cannot reach the arithmetic at all when the view is switched off.
+#ifdef CHICAGO_GHOST_PASS
+  // The ghost pass draws ONLY the ghosted grades, and nothing while the view is
+  // off; a shader with no alpha to set (no <opaque_fragment>) draws nothing here.
+  #ifndef CHICAGO_GHOST_ALPHA
+  discard;
+  #endif
+  if (uConfMode <= 0.0) discard;
+  if (dot(chicago_grade(vConfidence), chicago_inMode(1.0)) < 0.5) discard;
+#else
   if (uConfMode > 0.0) {
-    float inf = chicago_wRecon(vConfidence) * uConfMode;
-    if (inf > 0.0) {
-      float alpha = mix(1.0, uReconAlpha, inf);
-      if (chicago_bayer4(gl_FragCoord.xy) >= alpha) discard;
+    vec3 chicagoW = chicago_grade(vConfidence) * uConfMode;
+    // A ghosted grade is not in the opaque pass at all — it is drawn, blended,
+    // in the ghost pass after everything else — and casts no shadow.
+    if (dot(chicagoW, chicago_inMode(1.0)) >= 0.5) discard;
+    // A dithered grade keeps its opacity of its fragments: the Reconstructed
+    // massing path, for whichever grade asks for it.
+    vec3 chicagoDither = chicagoW * chicago_inMode(2.0);
+    float dith = chicagoDither.x + chicagoDither.y + chicagoDither.z;
+    if (dith > 0.0) {
+      float keep = mix(1.0, dot(chicagoDither, uGradeOpacity) / dith, dith);
+      if (chicago_bayer4(gl_FragCoord.xy) >= keep) discard;
     }
   }
+#endif
 `;
 
 const FRAGMENT_TINT = /* glsl */`
   // Same guard as the discard: when the view is off, diffuseColor is not touched
   // by a single instruction. See VERTEX_ASSIGN for why that is load-bearing.
   if (uConfMode > 0.0) {
-    float wAtt = chicago_wAttested(vConfidence) * uConfMode;
-    float wInf = chicago_wInferred(vConfidence) * uConfMode;
-    float wRec = chicago_wRecon(vConfidence) * uConfMode;
-    diffuseColor.rgb = mix(diffuseColor.rgb, uTintAttested, wAtt * uTintStrength.x);
-    diffuseColor.rgb = mix(diffuseColor.rgb, uTintInferred, wInf * uTintStrength.y);
-    diffuseColor.rgb = mix(diffuseColor.rgb, uTintReconstructed, wRec * uTintStrength.z);
+    vec3 chicagoW = chicago_grade(vConfidence) * uConfMode;
+    // Tint spends opacity on the colour; dither and ghost spend it on the
+    // dither or the alpha, and hold the colour at GRADE_LOOK_TINT.
+    vec3 chicagoTint = chicago_inMode(0.0);
+    vec3 chicagoMix = chicagoW * (chicagoTint * uGradeOpacity
+      + (vec3(1.0) - chicagoTint) * ${GRADE_LOOK_TINT.toFixed(2)});
+    diffuseColor.rgb = mix(diffuseColor.rgb, uTintAttested, chicagoMix.x);
+    diffuseColor.rgb = mix(diffuseColor.rgb, uTintInferred, chicagoMix.y);
+    diffuseColor.rgb = mix(diffuseColor.rgb, uTintReconstructed, chicagoMix.z);
   }
+`;
+
+// T-2646: the ghost's alpha, set where three writes the fragment out. Only the
+// ghost pass's twin materials compile it in (CHICAGO_GHOST_PASS).
+const FRAGMENT_GHOST_ALPHA = /* glsl */`
+#ifdef CHICAGO_GHOST_PASS
+  gl_FragColor.a *= dot(chicago_grade(vConfidence), chicago_inMode(1.0) * uGradeOpacity);
+#endif
 `;
 
 /**
@@ -244,14 +323,12 @@ export function programKeyOf(material) {
  */
 export function createConfidenceView({
   colors = {},
-  strength = {},
-  reconstructedAlpha = 0.34,
+  looks = {},
 } = {}) {
   const sceneHex = (level) => colors[level] ?? GRADE_COLORS[level].scene;
-  const mixOf = (level) => strength[level] ?? GRADE_TINT_STRENGTH[level];
+  const look = Object.fromEntries(GRADE_NAMES.map((level) => [level, { ...GRADE_LOOK[level], ...(looks[level] || {}) }]));
   const uniforms = {
     uConfMode: { value: 0 },
-    uReconAlpha: { value: reconstructedAlpha },
     uHideLevel: { value: new THREE.Vector3(0, 0, 0) },
     // ONE conversion, not two — and here it matters more than anywhere else in
     // the renderer, because these two colours are the confidence view itself.
@@ -274,10 +351,12 @@ export function createConfidenceView({
     uTintAttested: { value: new THREE.Color(sceneHex('attested')) },
     uTintInferred: { value: new THREE.Color(sceneHex('inferred')) },
     uTintReconstructed: { value: new THREE.Color(sceneHex('reconstructed')) },
-    uTintStrength: { value: new THREE.Vector3(mixOf('attested'), mixOf('inferred'), mixOf('reconstructed')) },
+    uGradeMode: { value: new THREE.Vector3(...GRADE_NAMES.map((l) => GRADE_MODES[look[l].mode] ?? 0)) },
+    uGradeOpacity: { value: new THREE.Vector3(...GRADE_NAMES.map((l) => look[l].opacity)) },
   };
 
   const patched = new WeakSet();
+  let patchCount = 0;
 
   /**
    * Patch a material in place. Safe to call twice on the same material.
@@ -290,6 +369,7 @@ export function createConfidenceView({
   function patch(material, { packed = null } = {}) {
     if (!material || patched.has(material)) return material;
     patched.add(material);
+    patchCount += 1;
 
     const prior = material.onBeforeCompile;
     // Read BEFORE the hook below is installed: three's default key is the
@@ -318,6 +398,14 @@ export function createConfidenceView({
         f = f.replace(
           '#include <color_fragment>',
           '#include <color_fragment>' + FRAGMENT_TINT,
+        );
+      }
+      // The ghost's alpha goes where three writes the fragment (T-2646). A shader
+      // without that anchor cannot be ghosted, and its ghost pass draws nothing.
+      if (f.includes('#include <opaque_fragment>')) {
+        f = '#define CHICAGO_GHOST_ALPHA\n' + f.replace(
+          '#include <opaque_fragment>',
+          '#include <opaque_fragment>' + FRAGMENT_GHOST_ALPHA,
         );
       }
       shader.fragmentShader = f;
@@ -379,6 +467,173 @@ export function createConfidenceView({
   let enabled = false;
   const hidden = { attested: false, inferred: false, reconstructed: false };
   const AXIS = { attested: 'x', inferred: 'y', reconstructed: 'z' };
+  const TINT_UNIFORM = { attested: 'uTintAttested', inferred: 'uTintInferred', reconstructed: 'uTintReconstructed' };
+
+  // ---- the ghost pass (T-2646) ------------------------------------------------
+  //
+  // A ghost is really see-through, and real transparency cannot live in the opaque
+  // pass the dither lives in: it needs blending, no depth write, and to be drawn
+  // after everything it is seen through. So a ghosted grade is discarded from the
+  // opaque pass (and from the shadow pass, which shares that discard), and drawn
+  // again by `renderGhost` straight after the frame's own render — the same scene,
+  // the same camera, the same shadow maps — restricted by a camera layer to the
+  // objects that carry a patched material, each wearing that material's ghost
+  // twin: transparent, depthWrite off, compiled with CHICAGO_GHOST_PASS so that it
+  // keeps only the ghosted grades' fragments, at their opacity. Nothing of this
+  // runs, and no twin exists, until a grade is set to ghost while the view is on.
+  //
+  // A twin is the material itself one prototype down (Object.create): it inherits
+  // every map, colour, hook and uniform as they stand, so nothing is copied and
+  // nothing can drift; only its blending, depth write, id and defines are its own.
+  // three keys the program on the defines, so the twin gets its own program and the
+  // material keeps its. Transmissive materials are not given one — a second
+  // transmission pass is not a cost a ghost may add — so their ghosted fragments
+  // are simply not drawn.
+  const twins = new WeakMap();
+  let nextTwinId = 1_000_000_000;
+  function ghostTwin(material) {
+    let twin = twins.get(material);
+    if (twin) return twin;
+    twin = Object.create(material);
+    Object.defineProperty(twin, 'id', { value: nextTwinId++ });
+    twin._listeners = undefined;
+    twin.transparent = true;
+    twin.depthWrite = false;
+    Object.defineProperty(twin, 'defines', {
+      configurable: true,
+      get() { return { ...(material.defines || {}), CHICAGO_GHOST_PASS: '' }; },
+    });
+    material.addEventListener('dispose', () => { twins.delete(material); twin.dispose(); });
+    twins.set(material, twin);
+    return twin;
+  }
+  const ghostable = (m) => !!m && patched.has(m) && !(m.transmission > 0) && m.visible !== false;
+  const isPatched = (m) => (Array.isArray(m) ? m.some((x) => patched.has(x)) : patched.has(m));
+
+  // What each patched object holds, as confidence ranges: per instance for a
+  // structures batch (buildings.js records them), per geometry otherwise, read off
+  // the float `_confidence` channel and re-read when it changes. `null` is a range
+  // nobody can state, and is drawn in both passes.
+  const rangeCache = new WeakMap();
+  function geometryRange(geometry) {
+    const attr = geometry?.getAttribute?.('_confidence');
+    if (!attr || attr.itemSize !== 1) return null;
+    const hit = rangeCache.get(attr);
+    if (hit && hit.version === attr.version) return hit.range;
+    let lo = Infinity, hi = -Infinity;
+    for (let i = 0; i < attr.count; i += 1) {
+      const v = attr.getX(i);
+      if (v < lo) lo = v;
+      if (v > hi) hi = v;
+    }
+    const range = attr.count && Number.isFinite(lo) && Number.isFinite(hi) ? [lo, hi] : null;
+    rangeCache.set(attr, { version: attr.version, range });
+    return range;
+  }
+  // Which grades a range gives weight to — the shader's bands, open at the edges.
+  const bandsOf = (range) => (range === null ? [true, true, true]
+    : [range[0] < 0.25, range[1] > 0.25 && range[0] < 0.75, range[1] > 0.75]);
+  // 'none'  nothing ghosted: the opaque pass only;
+  // 'all'   nothing but ghosted (or hidden) grades: the ghost pass only;
+  // 'some'  both passes.
+  function share(range, ghosted, gone) {
+    const bands = bandsOf(range);
+    let ghost = false, other = false;
+    bands.forEach((on, i) => {
+      if (!on) return;
+      if (ghosted[i]) ghost = true;
+      else if (!gone[i]) other = true;
+    });
+    if (!ghost) return 'none';
+    return other ? 'some' : 'all';
+  }
+
+  let targets = [];
+  let builtFor = null;
+  let builtAtPatch = -1;
+  let framesSinceBuild = 0;
+  let planKey = '';
+  // The current plan: objects (and batch instances) left out of each pass.
+  let plan = { opaqueObjects: [], opaqueInstances: [], ghostTargets: [], ghostInstances: [] };
+  const ghostStats = { targets: 0, passes: 0, lastCalls: 0, opaqueSkipped: 0, ghostSkipped: 0 };
+  /** Every object with a patched material, and the lights, put on GHOST_LAYER. */
+  function collectGhostTargets(scene) {
+    for (const o of targets) o.layers.disable(GHOST_LAYER);
+    targets = [];
+    scene.traverse((o) => {
+      if (o.isLight) { o.layers.enable(GHOST_LAYER); return; }
+      if (!(o.isMesh || o.isPoints || o.isLine)) return;
+      if (isPatched(o.material)) targets.push(o);
+    });
+    builtFor = scene;
+    builtAtPatch = patchCount;
+    framesSinceBuild = 0;
+    planKey = '';
+  }
+  function buildPlan() {
+    const ghosted = GRADE_NAMES.map((l) => !hidden[l] && lookOf(l).mode === 'ghost');
+    const gone = GRADE_NAMES.map((l) => hidden[l]);
+    const next = { opaqueObjects: [], opaqueInstances: [], ghostTargets: [], ghostInstances: [] };
+    for (const o of targets) {
+      const ranges = o.isBatchedMesh ? o.userData?.confidenceRanges : null;
+      const canGhost = Array.isArray(o.material) ? o.material.some(ghostable) : ghostable(o.material);
+      if (ranges) {
+        const leaveOpaque = [], leaveGhost = [];
+        let anyGhost = false;
+        for (let i = 0; i < ranges.length; i += 1) {
+          if (!ranges[i]) continue;
+          const sh = share(ranges[i], ghosted, gone);
+          if (sh === 'all') leaveOpaque.push(i);
+          if (sh === 'none') leaveGhost.push(i);
+          else anyGhost = true;
+        }
+        if (leaveOpaque.length) next.opaqueInstances.push([o, leaveOpaque]);
+        if (anyGhost && canGhost) {
+          next.ghostTargets.push(o);
+          if (leaveGhost.length) next.ghostInstances.push([o, leaveGhost]);
+        }
+        continue;
+      }
+      const sh = share(geometryRange(o.geometry), ghosted, gone);
+      if (sh === 'all') next.opaqueObjects.push(o);
+      if (sh !== 'none' && canGhost) next.ghostTargets.push(o);
+    }
+    for (const o of plan.ghostTargets) o.layers.disable(GHOST_LAYER);
+    for (const o of next.ghostTargets) o.layers.enable(GHOST_LAYER);
+    plan = next;
+    ghostStats.targets = next.ghostTargets.length;
+    ghostStats.opaqueSkipped = next.opaqueObjects.length
+      + next.opaqueInstances.reduce((n, [, ids]) => n + ids.length, 0);
+    ghostStats.ghostSkipped = next.ghostInstances.reduce((n, [, ids]) => n + ids.length, 0);
+  }
+  /** Hide objects / instances for one pass; returns the function that puts them back. */
+  function leaveOut(objects, instances) {
+    const shown = objects.filter((o) => o.visible);
+    for (const o of shown) o.visible = false;
+    const hiddenNow = [];
+    for (const [batch, ids] of instances) {
+      const was = [];
+      for (const i of ids) {
+        let visible;
+        try { visible = batch.getVisibleAt(i); } catch { continue; }
+        if (visible) { batch.setVisibleAt(i, false); was.push(i); }
+      }
+      if (was.length) hiddenNow.push([batch, was]);
+    }
+    return () => {
+      for (const o of shown) o.visible = true;
+      for (const [batch, ids] of hiddenNow) for (const i of ids) batch.setVisibleAt(i, true);
+    };
+  }
+  const twinOf = (m) => (ghostable(m) ? ghostTwin(m) : m);
+
+  function lookOf(level) {
+    return {
+      mode: GRADE_NAMES_BY_MODE[uniforms.uGradeMode.value[AXIS[level]]],
+      opacity: uniforms.uGradeOpacity.value[AXIS[level]],
+      color: `#${uniforms[TINT_UNIFORM[level]].value.getHexString()}`,
+    };
+  }
 
   return {
     uniforms,
@@ -414,6 +669,108 @@ export function createConfidenceView({
       return hidden[level];
     },
     get hidden() { return { ...hidden }; },
+
+    /**
+     * One grade's look (T-2646): any of `color` (a 0x number or a CSS colour),
+     * `mode` ('tint' | 'ghost' | 'dither') and `opacity` (0..1). What is not given
+     * is left as it is. Returns the look now in force, or null for a name that is
+     * not a grade; a mode that is not one, or an opacity that is not a number, is
+     * refused (null) and changes nothing.
+     */
+    setGrade(level, { color, mode, opacity } = {}) {
+      if (!(level in hidden)) return null;
+      if (mode !== undefined && !(mode in GRADE_MODES)) return null;
+      if (opacity !== undefined && !Number.isFinite(Number(opacity))) return null;
+      if (color !== undefined) uniforms[TINT_UNIFORM[level]].value.set(color);
+      if (mode !== undefined) uniforms.uGradeMode.value[AXIS[level]] = GRADE_MODES[mode];
+      if (opacity !== undefined) {
+        uniforms.uGradeOpacity.value[AXIS[level]] = Math.min(1, Math.max(0, Number(opacity)));
+      }
+      return lookOf(level);
+    },
+    /** The look in force for one grade: `{ mode, opacity, color }`. */
+    grade(level) { return level in hidden ? lookOf(level) : null; },
+    /** Every grade's mode — what opaqueConfidenceRange reads off a view. */
+    get modes() {
+      return Object.fromEntries(GRADE_NAMES.map((l) => [l, lookOf(l).mode]));
+    },
+    /** Every grade back to GRADE_COLORS and GRADE_LOOK. */
+    resetGrades() {
+      for (const level of GRADE_NAMES) {
+        this.setGrade(level, { color: GRADE_COLORS[level].scene, ...GRADE_LOOK[level] });
+      }
+      return Object.fromEntries(GRADE_NAMES.map((l) => [l, lookOf(l)]));
+    },
+    /** Whether a ghost pass has anything to draw: the view on, and a ghosted grade not hidden. */
+    get ghosting() {
+      return enabled && GRADE_NAMES.some((l) => !hidden[l] && lookOf(l).mode === 'ghost');
+    },
+    /** What the ghost pass drew last: objects it can draw, passes run, draw calls of the last. */
+    get ghostStats() { return { ...ghostStats }; },
+
+    /**
+     * Draw the frame: `renderer.render(scene, camera)`, and — only while a grade is
+     * ghosted with the view on — the ghost pass after it.
+     *
+     * With a ghost, an object (or a structures-batch instance) that holds nothing
+     * but ghosted or hidden grades is left out of the opaque pass, shadow
+     * included, and one that holds no ghosted grade is left out of the ghost pass,
+     * so a frame's triangles grow by the structures that carry a ghosted grade AND
+     * another one, not by the town. The ghost pass draws into the same target
+     * without clearing it, adds its draws to renderer.info (a frame's stats count
+     * both passes), renders no shadow and no background, wears each patched
+     * material's twin, and puts back every material, visibility, layer mask and
+     * renderer setting it touched. The object list is rebuilt when a material has
+     * been patched since and every 30 frames, so a mesh added with an
+     * already-patched material is reached too; the plan, when a look or a hidden
+     * grade changes.
+     */
+    render(renderer, scene, camera) {
+      if (!this.ghosting) { renderer.render(scene, camera); return 0; }
+      framesSinceBuild += 1;
+      if (builtFor !== scene || builtAtPatch !== patchCount || framesSinceBuild >= 30) collectGhostTargets(scene);
+      const key = JSON.stringify([this.modes, hidden]);
+      if (key !== planKey) { buildPlan(); planKey = key; }
+      const putBack = leaveOut(plan.opaqueObjects, plan.opaqueInstances);
+      try { renderer.render(scene, camera); } finally { putBack(); }
+      return this.renderGhost(renderer, scene, camera);
+    },
+
+    /** The ghost pass alone, against the current plan; `render` calls it. */
+    renderGhost(renderer, scene, camera) {
+      if (!this.ghosting || !plan.ghostTargets.length) return 0;
+      const drawn = plan.ghostTargets;
+      const saved = drawn.map((o) => o.material);
+      for (const o of drawn) o.material = Array.isArray(o.material) ? o.material.map(twinOf) : twinOf(o.material);
+      const putBack = leaveOut([], plan.ghostInstances);
+      const mask = camera.layers.mask;
+      const background = scene.background;
+      const { autoClear } = renderer;
+      const { autoUpdate, needsUpdate } = renderer.shadowMap;
+      const { autoReset } = renderer.info;
+      const before = renderer.info.render.calls;
+      camera.layers.set(GHOST_LAYER);
+      scene.background = null;
+      renderer.autoClear = false;
+      renderer.shadowMap.autoUpdate = false;
+      renderer.shadowMap.needsUpdate = false;
+      renderer.info.autoReset = false;
+      try {
+        renderer.render(scene, camera);
+      } finally {
+        drawn.forEach((o, i) => { o.material = saved[i]; });
+        putBack();
+        camera.layers.mask = mask;
+        scene.background = background;
+        renderer.autoClear = autoClear;
+        renderer.shadowMap.autoUpdate = autoUpdate;
+        renderer.shadowMap.needsUpdate = needsUpdate;
+        renderer.info.autoReset = autoReset;
+      }
+      ghostStats.passes += 1;
+      ghostStats.lastCalls = renderer.info.render.calls - before;
+      return ghostStats.lastCalls;
+    },
     /** Everything visible again — what the reset affordance calls. */
     showAll() {
       for (const level of Object.keys(hidden)) this.setHidden(level, false);

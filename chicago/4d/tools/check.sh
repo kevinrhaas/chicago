@@ -102,6 +102,9 @@ step "The grade colours are one set — gold, silver, bronze — legible on ever
 selftest "…and a bronze that is a darker gold, a drifted token or an unreadable ink is refused (T-2671)" \
   node tools/check_grade_colors.mjs --self-test
 
+step "Each grade's look — tint, dither or ghost at an opacity — and the ghost pass drawn last with depthWrite off (T-2646)" \
+  node tools/test_confidence_looks.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \

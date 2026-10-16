@@ -4,7 +4,7 @@
  *   node tools/measure_walk_frames.mjs [--only desktop|mobile] [--tiers full,balanced,light]
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
- *                                      [--sync] [--verify] [--gate]
+ *                                      [--sync] [--verify] [--gate] [--xray]
  *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
  *                                      [--seconds 12] [--stills] [--json f]
  *
@@ -122,6 +122,10 @@ const VERIFY = process.argv.includes('--verify');
 const LIVE = process.argv.includes('--live');
 const STILLS = process.argv.includes('--stills');
 const SECONDS = Number(argAt('--seconds') || 12);
+/** T-2646 `--xray`: every move driven with the Confidence view on at X-RAY —
+ *  Inferred ghosted at 50 %, Reconstructed at 25 % — so its two-pass draw is
+ *  in the frame the moves time. */
+const XRAY = process.argv.includes('--xray');
 
 /**
  * THE CEILINGS, T-2096 § 3, per tier, on the desktop viewport unthrottled —
@@ -191,11 +195,16 @@ await new Promise((r) => server.listen(PORT, r));
 console.log(`serving ${ROOT} — ${wantSource ? 'source tree' : 'PUBLISHED mirror'}, year ${YEAR}`);
 
 /** Runs in the page: drive one move at one tier and time every frame of it. */
-async function driveMove({ move, tier, render, profile, sync, verify }) {
+async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
   const a = window.__chicago4d;
   // A tier change REPLACES the flora and trees rigs (main.js applyDetail), so
   // the hooks are wrapped on the objects that exist once it has settled.
   await a.setDetail(tier);
+  if (xray) {
+    a.setConfidenceView(true);
+    a.confidence.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
+    a.confidence.setGrade('reconstructed', { mode: 'ghost', opacity: 0.25 });
+  }
   // T-2106: `step()` spreads the near rebuild as the animation loop does, or
   // with `--sync` pays for each pass in the frame that needs it.
   const spreading = !sync && a.setFloraSpread?.(true) === true;
@@ -425,10 +434,15 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
 
 /** Runs in the page (T-2555): one move through the animation loop itself, for
  *  `seconds` of wall clock, with Frame pacing at `mode`, timing every draw. */
-async function driveLive({ move, tier, mode, seconds }) {
+async function driveLive({ move, tier, mode, seconds, xray }) {
   const a = window.__chicago4d;
   await a.setDetail(tier);
   a.setGovernor(mode === 'adaptive');
+  if (xray) {
+    a.setConfidenceView(true);
+    a.confidence.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
+    a.confidence.setGrade('reconstructed', { mode: 'ghost', opacity: 0.25 });
+  }
   const anchors = new Map((a.scene?.anchors ?? []).map((x) => [x.id, x]));
   const pick = (...ids) => ids.map((id) => anchors.get(id)).find(Boolean) ?? a.scene?.anchors?.[0];
   const rad = (d) => d * Math.PI / 180;
@@ -593,7 +607,7 @@ for (const vp of VIEWPORTS) {
       for (const move of MOVES.filter((m) => !['travel', 'none'].includes(m))) {
         const pair = {};
         for (const mode of ['fixed', 'adaptive']) {
-          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS });
+          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS, xray: XRAY });
           pair[mode] = r;
           const f = (x) => x.toFixed(1).padStart(5);
           console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
@@ -636,7 +650,7 @@ for (const vp of VIEWPORTS) {
   for (const tier of TIERS) {
     for (const move of MOVES) {
       const r = await page.evaluate(driveMove, { move, tier, render: RENDER, profile: PROFILE > 0,
-        sync: SYNC, verify: VERIFY });
+        sync: SYNC, verify: VERIFY, xray: XRAY });
       const f = (x) => x.toFixed(1).padStart(5);
       const n = (x) => String(x).padStart(3);
       const L = r.layers;

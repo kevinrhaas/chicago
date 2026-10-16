@@ -3966,7 +3966,10 @@ async function boot() {
     // drawn: the first, one a capture or a test asked for, or one in which
     // something the renderer reads has moved. Out in the town, every frame.
     if (!gateOpen || force || pendingCapture || gateFrame.due()) {
-      renderer.render(scene3d, camera);
+      // T-2646: `renderer.render(scene3d, camera)`, and — only while a grade is
+      // ghosted with the Confidence view on — that grade drawn see-through, last,
+      // in a pass of its own (confidence.js § render).
+      confidence.render(renderer, scene3d, camera);
       bootController.frameRendered();
       resolveFirstFrame();
     }

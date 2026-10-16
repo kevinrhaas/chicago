@@ -1,0 +1,9 @@
+{
+  "title": "Each grade can be tinted, dithered or ghosted in the Confidence view",
+  "kind": "feature",
+  "items": [
+    "Behind the scenes, the Confidence view can now give each grade its own look: tinted toward its colour, dithered like today's Reconstructed massing, or drawn as a see-through ghost, each at any strength from 0 to 100%.",
+    "A ghosted grade is truly see-through. It is drawn last and without hiding what stands behind it, so a Reconstructed building can be looked through to the Attested one beyond it.",
+    "Nothing changes on screen yet. The Confidence view still looks as it did: Attested gold, Inferred silver, Reconstructed bronze and dithered. The Navigator's Confidence view, with its presets and per-grade controls, is built on this next."
+  ]
+}

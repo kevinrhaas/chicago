@@ -7366,6 +7366,49 @@ for (const [label, viewport, touch] of [
       d.worst >= 6 && d.mean >= 0.6,
       `cell delta mean ${d.mean?.toFixed(2)}, worst ${d.worst} (need worst>=6)`);
 
+    // T-2646: every grade's look is its own — tint, dither or ghost, at any
+    // opacity, from the view's test hook. X-RAY (Inferred ghosted at 50 %,
+    // Reconstructed at 25 %) draws the ghosts in a pass of their own, after the
+    // frame, and the frame's draw calls — both passes, renderer.info counts them
+    // together — must still sit inside the budget. A dithered Attested must
+    // change the frame too, and putting every look back must give back the
+    // BY GRADE frame exactly.
+    const xray = await page.evaluate(() => {
+      const a = window.__chicago4d, c = a.confidence;
+      c.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
+      c.setGrade('reconstructed', { mode: 'ghost', opacity: 0.25 });
+      a.step();
+      const st = a.stats();
+      return { ghosting: c.ghosting, calls: st.drawCalls, budget: st.budget.drawCalls,
+               ghost: c.ghostStats, modes: c.modes };
+    });
+    const xrayFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const dXray = signatureDistance(on, xrayFrame);
+    check(`${label}: X-RAY ghosts two grades in a pass drawn last, inside the draw budget (T-2646)`,
+      xray.ghosting === true && xray.ghost.lastCalls > 0 && xray.calls <= xray.budget,
+      JSON.stringify(xray));
+    check(`${label}: ghosting a grade changes the BY GRADE frame (T-2646)`,
+      dXray.worst >= 6,
+      `cell delta mean ${dXray.mean?.toFixed(2)}, worst ${dXray.worst} (need worst>=6)`);
+    await page.evaluate(() => {
+      const c = window.__chicago4d.confidence;
+      c.resetGrades();
+      c.setGrade('attested', { mode: 'dither', opacity: 0.3 });
+      c.setGrade('inferred', { mode: 'dither', opacity: 0.3 });
+    });
+    const ditherFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const dDither = signatureDistance(on, ditherFrame);
+    const resetLooks = await page.evaluate(() => window.__chicago4d.confidence.resetGrades());
+    const backToGrade = await page.evaluate(() => window.__chicago4d.capture());
+    const dBackToGrade = signatureDistance(on, backToGrade);
+    check(`${label}: dithering Attested and Inferred changes the BY GRADE frame (T-2646)`,
+      dDither.worst >= 6,
+      `cell delta mean ${dDither.mean?.toFixed(2)}, worst ${dDither.worst} (need worst>=6)`);
+    check(`${label}: putting every look back restores the BY GRADE frame (T-2646)`,
+      dBackToGrade.mean <= 0.1 && dBackToGrade.worst <= 3
+        && resetLooks.reconstructed.mode === 'dither' && resetLooks.attested.mode === 'tint',
+      `residual mean ${dBackToGrade.mean?.toFixed(2)}, worst ${dBackToGrade.worst}; ${JSON.stringify(resetLooks)}`);
+
     await page.evaluate(() => window.__chicago4d.setConfidenceView(false));
     const back = await page.evaluate(() => window.__chicago4d.capture());
     const dBack = signatureDistance(off, back);
