@@ -105,6 +105,8 @@ import { agencySectionHtml } from './agencies.js';
 // The building's photographs and drawings, credited (T-2389). Its own module because the
 // pane owns its lazy loading — no image is requested until the tab is open.
 import { picturesFor, picturesPaneHtml, hydratePictures, openPictureViewer, closePictureViewer } from './pictures.js';
+// An attribute's value in words, or nothing for a structured one (T-2609).
+import { claimValueText } from './claim-value.js';
 
 const CONF_ORDER = { attested: 0, inferred: 1, reconstructed: 2 };
 
@@ -112,12 +114,10 @@ function prettyName(key) {
   return key.replace(/_/g, ' ').replace(/\bm\b/, '(m)');
 }
 
+/** A value for a sentence: a structured one is '' here, so a fact it would have
+ *  filled is left off rather than reading "[object Object]" (T-2609). */
 function prettyValue(v) {
-  if (v === true) return 'yes';
-  if (v === false) return 'no';
-  if (v === null || v === undefined) return '—';
-  if (typeof v === 'number') return String(v);
-  return String(v).replace(/_/g, ' ');
+  return claimValueText(v) ?? '';
 }
 
 function chip(confidence) {
@@ -156,7 +156,7 @@ function attributeRows(attributes) {
   entries.sort((a, b) => (CONF_ORDER[a[1].confidence] ?? 3) - (CONF_ORDER[b[1].confidence] ?? 3)
     || a[0].localeCompare(b[0]));
 
-  return entries.map(([key, attr]) => claimRow(prettyName(key), prettyValue(attr.value), attr))
+  return entries.map(([key, attr]) => claimRow(prettyName(key), claimValueText(attr.value), attr))
     .join('');
 }
 
@@ -803,7 +803,8 @@ function headsOf(s) {
 function builtWords(attrs, fabric) {
   const parts = [];
   const cons = attrs.construction?.value;
-  if (cons !== null && cons !== undefined && cons !== '') parts.push(prettyValue(cons));
+  const consWords = cons === null || cons === undefined || cons === '' ? '' : prettyValue(cons);
+  if (consWords) parts.push(consWords);
   const st = attrs.stories?.value;
   if (typeof st === 'number') parts.push(`${st} ${st === 1 ? 'storey' : 'storeys'}`);
   else if (st) parts.push(`${prettyValue(st)} storeys`);
