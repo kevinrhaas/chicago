@@ -47,6 +47,7 @@ import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
+import { layerPick } from './gpu-pick.js';
 import {
   compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
 } from './compact-attributes.js';
@@ -919,8 +920,22 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       + `${[...missing].join(', ')}`);
   }
 
-  const raycaster = new THREE.Raycaster();
-  raycaster.far = 400;
+  /*
+   * A tap is drawn, not raycast (gpu-pick.js, T-2573): each batch is drawn into
+   * one pixel under its id material and the instance it names is the instance
+   * the raycast's `batchId` named, so a phone need keep none of the batches'
+   * triangles. The reach is the one this pick always had — as far as you can
+   * see, which depends on how high you are (`pickReach`): a fixed 400 m was
+   * short from the air along any shallow sightline, so a roof on the far side
+   * of the town from the aerial anchor could not be picked. `pickAtRaycast` is
+   * the old path, the oracle while the arrays exist.
+   */
+  const pick = layerPick(() => batches, (hit) => {
+    const id = (hit.batchId != null ? hit.object.userData.batchIndex?.[hit.batchId] : null)
+      ?? structureIdOf(hit.object);
+    if (!id) return null;
+    return { id, record: registry.get(id), point: hit.point, distance: hit.distance };
+  });
 
   return {
     group,
@@ -1032,32 +1047,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     },
 
     /**
-     * Raycast into the batches.
+     * The structure under a tap.
      * @param {THREE.Vector2} ndc  normalised device coords, or null for centre
      * @param {THREE.Camera} camera
      */
-    pickAt(ndc, camera) {
-      raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-      // The ray reaches as far as you can see, and how far that is depends on
-      // how high you are.
-      //
-      // A fixed 400 m is generous at eye level and short from the air along any
-      // shallow sightline: from the aerial anchor at 175 m looking out at -30°,
-      // a roof on the far side of the town is past 400 m and simply cannot be
-      // picked. Straight down it was never the limit — measured, not assumed:
-      // 200 m of altitude at -80° is only ~203 m of ray — so this is not the
-      // reason inspecting from the air felt broken. It is a real ceiling on a
-      // real sightline, and lifting it costs nothing at eye level, where
-      // camera.position.y * 4 stays well under the old constant.
-      raycaster.far = Math.max(400, camera.position.y * 4);
-      const hits = raycaster.intersectObjects(batches, false);
-      if (!hits.length) return null;
-      const hit = hits[0];
-      const id = hit.object.userData.batchIndex?.[hit.batchId]
-        ?? structureIdOf(hit.object);
-      if (!id) return null;
-      return { id, record: registry.get(id), point: hit.point.clone(), distance: hit.distance };
-    },
+    pickAt: pick.pickAt,
+    /** The raycast it replaced, kept as the oracle (tools/check_upload_release.mjs). */
+    pickAtRaycast: pick.pickAtRaycast,
 
     /** The placement a structure was given: its own frame (metres) to the world —
      *  for gates that need to measure the RENDERED result rather than re-derive
