@@ -203,6 +203,10 @@ done
 # board face to every clapboarded wall, and the hewn log face to every laid-log
 # wall, and packs each one's albedo ratio from the basecolor at load. The same
 # four files of each sheet, so the board face above already serves both layers.
+# And, since T-2588, the pair GPU-compressed: the normal and the `orl` that
+# tools/ktx2_sheets.py packs at convert time, with the statement of the mean
+# roughness it was packed with. A GPU that takes a KTX2 fetches those three and
+# none of the WebPs; any other falls back to the four files and packs in the page.
 for face in clapboard_board_face hewn_log_face; do
   src="assets/textures/chicago_1835_pbr/walls/$face"
   dst="$SITE/data/textures/chicago_1835_pbr/walls/$face"
@@ -211,6 +215,9 @@ for face in clapboard_board_face hewn_log_face; do
         "$src/${face}_normal_gl.webp" \
         "$src/${face}_orm.webp" \
         "$src/${face}_basecolor.webp" \
+        "$src/${face}_normal_gl.ktx2" \
+        "$src/${face}_orl.ktx2" \
+        "$src/${face}_orl.json" \
         "$dst/"
 done
 

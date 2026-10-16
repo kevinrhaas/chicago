@@ -336,6 +336,25 @@ what those maps are for. T-2583 (the wall, frontage and signboard sheets) adds m
 the 1835 boot and will not fit beside this without a lever: the household seats in the
 boot sidecars (§ 4b) are the one already named.
 
+**The walls, re-measured 2026-10-16 (T-2588, the first piece of T-2583): 12.906 MiB of
+13.000, +48 KB.** The wall relief's pair ships as KTX2 — the normal on UASTC, and the `orl`
+the page used to pack from the `orm` and the basecolor, packed at convert time and put on
+ETC1S at its top quality (`tools/ktx2_sheets.py` gives the measurement: 35.5-40.6 dB per
+channel, where UASTC would have shipped 1.193 MB for the pair against ETC1S's 0.253 MB). A
+KTX2 GPU now fetches three files a substrate in place of three WebPs:
+
+| | before (WebP) | after (KTX2) |
+|---|---:|---:|
+| hewn log: normal, orm, basecolor → normal, orl | 0.968 MB | 0.644 MB |
+| clapboard: the same | 0.433 MB | 0.372 MB, **and the 0.433 MB stays** |
+| boot total (`measure_boot_payload.mjs`, same machine, same hour) | 13,484,866 B | 13,532,986 B |
+
+The clapboard's three WebPs stay in the boot because `frontage.js` binds the same sheet
+and still packs its grain from them. That is the lever for the next piece: frontage can
+bind this KTX2 pair (its grain is a function of the `orl`'s B) and the 0.433 MB leaves the
+boot (T-2589). On the phone the walls' maps fall from 5.4 MB of GPU memory to 1.4 MB
+(`measure_memory.mjs`, structures' textures 6.7 → 2.7 MB with the roofs' 1.3 MB in both).
+
 ### 4d. Signage's wood prepared at convert time, and the sand as KTX2, re-measured 2026-10-16 (T-2590)
 
 `renderers/web/js/signage.js` fetched two 1024² library maps per wood sheet (the signboard

@@ -20,12 +20,20 @@
  *    roof-relief.js gives: every polygon is flat-shaded, so the projection is
  *    affine over a face.
  *  - **One shared relief pair per substrate**: the library's `normal_gl`, and an
- *    `orl` packed here at load from the library's `orm` and basecolor —
- *    R = AO, G = roughness (the library's own), B = 0.5 * L / mean(L), the
- *    basecolor's linear luminance over its own mean. Metallic is 0 on wood, so B
- *    was free. That is `tools/fabric_proof_1835_maps.py`'s recipe, done in the
- *    page the way `frontage.js` derives its board face, so no derived image is
- *    committed and the library stays the one source.
+ *    `orl` packed from the library's `orm` and basecolor — R = AO, G = roughness
+ *    (the library's own), B = 0.5 * L / mean(L), the basecolor's linear
+ *    luminance over its own mean. Metallic is 0 on wood, so B was free. That is
+ *    `tools/fabric_proof_1835_maps.py`'s recipe.
+ *  - **Packed at convert time, shipped GPU-compressed** (T-2588, a piece of
+ *    T-2583). `tools/ktx2_sheets.py` writes the `orl` with the same recipe as
+ *    `relief-pack.js`, and the normal beside it, as `.ktx2` — bottom row first,
+ *    because three cannot flip a compressed texture — plus `<id>_orl.json`
+ *    stating the mean roughness the shader divides by. Where this GPU takes a
+ *    KTX2 (`ktx2.js`) the pair goes up as blocks, a quarter of RGBA8's bytes or
+ *    less, with no decode and no canvas; anywhere it cannot (`?ktx2=0`, no
+ *    block format, a file that did not arrive) the page decodes the three WebPs
+ *    and packs the `orl` itself, exactly as it did before, so the worst case is
+ *    the old memory and never a flat wall.
  *  - **Colour stays on the vertex.** `diffuse *= mix(1, 2 * orl.B, grain)`: the
  *    mean of 2 * orl.B is 1, so the household's finish (T-0002's jitter, T-0007's
  *    dealing, T-1962's wear) is the MEAN and the wood's figure is the variation
@@ -67,6 +75,7 @@ import { structureFrameGLSL } from './compact-attributes.js';
 import { resolveBases } from './scene-loader.js';
 import { wallRelief } from './wall-grain.js';
 import { packOrl } from './relief-pack.js';
+import { countSheet, ktx2State, loadCompressed } from './ktx2.js';
 import { SCALARS_GLSL } from './compact-attributes.js';
 
 const LIBRARY = 'textures/chicago_1835_pbr/';
@@ -115,6 +124,37 @@ function tiled(tex, aniso) {
   return tex;
 }
 
+/**
+ * The converter's pair, `{ normal, orl, meanRough }`, or null wherever the page
+ * should pack its own: KTX2 off on this GPU, or either file or the statement
+ * missing. A pair is all or nothing — a compressed normal over a canvas-packed
+ * `orl` would be two residencies for one wall — so a half that arrived is let go.
+ */
+async function compressedPair(here, id) {
+  if (!ktx2State.enabled) return null;
+  let meanRough;
+  try {
+    const res = await fetch(new URL(`${id}_orl.json`, here), { cache: 'no-cache' });
+    if (!res.ok) throw new Error(String(res.status));
+    meanRough = Number((await res.json()).mean_roughness);
+    if (!(meanRough > 0)) throw new Error('states no mean_roughness');
+  } catch (err) {
+    ktx2State.sheets.failed.push(`${id}_orl.json: ${err.message}`);
+    return null;
+  }
+  const [normal, orl] = await Promise.all([
+    loadCompressed(new URL(`${id}_normal_gl.ktx2`, here).href),
+    loadCompressed(new URL(`${id}_orl.ktx2`, here).href)]);
+  if (!normal || !orl) {
+    normal?.dispose();
+    orl?.dispose();
+    return null;
+  }
+  countSheet(normal);
+  countSheet(orl);
+  return { normal, orl, meanRough };
+}
+
 /** One substrate's pair: `{ normal, orl, tileM, meanRough }`. */
 async function loadSubstrate(base, dir, lowSpec) {
   const here = new URL(`${dir}/`, base);
@@ -123,12 +163,26 @@ async function loadSubstrate(base, dir, lowSpec) {
   const sheet = await res.json();
   const tileM = Number(sheet.span_m);
   if (!(tileM > 0)) throw new Error(`${dir}: material.json states no span_m`);
+  const aniso = lowSpec ? 4 : 8;
+  const packed = await compressedPair(here, sheet.id);
+  if (packed) {
+    // ktx2.js has already dropped the top mip on the light tier: the 512 px
+    // the canvas path resamples to on a coarse device, from the same file.
+    return {
+      id: sheet.id,
+      normal: tiled(packed.normal, aniso),
+      orl: tiled(packed.orl, aniso),
+      tileM,
+      meanRough: packed.meanRough,
+      px: packed.normal.image.width,
+      ktx2: true,
+    };
+  }
   const [nrm, orm, col] = await Promise.all([
     image(new URL(`${sheet.id}_normal_gl.webp`, here).href),
     image(new URL(`${sheet.id}_orm.webp`, here).href),
     image(new URL(`${sheet.id}_basecolor.webp`, here).href)]);
   const px = lowSpec ? Math.min(LIGHT_PX, orm.naturalWidth) : orm.naturalWidth;
-  const aniso = lowSpec ? 4 : 8;
 
   // The albedo ratio: linear luminance over its own mean, halved so a texel
   // can carry up to twice the mean, packed bottom row first so it lies the
@@ -141,6 +195,8 @@ async function loadSubstrate(base, dir, lowSpec) {
   const normal = px === nrm.naturalWidth
     ? new THREE.Texture(nrm)
     : new THREE.CanvasTexture(pixels(nrm, px).canvas);
+  countSheet(normal);
+  countSheet(orlTex);
   return {
     id: sheet.id,
     normal: tiled(normal, aniso),
@@ -148,6 +204,7 @@ async function loadSubstrate(base, dir, lowSpec) {
     tileM,
     meanRough,
     px,
+    ktx2: false,
   };
 }
 
@@ -200,7 +257,7 @@ function patch(material, set) {
   material.needsUpdate = true;
 }
 
-/** One load per page per tier: the packing is ~0.1 s of canvas work a substrate. */
+/** One load per page per tier: the canvas packing is ~0.1 s of work a substrate. */
 const cache = new Map();
 /**
  * The materials already patched. A set rather than a `userData` flag, because a
@@ -236,7 +293,7 @@ export async function loadWallRelief({ assetBase = resolveBases().assetBase, low
     off: false,
     /** substrate -> `{ id, px, tileM, meanRough }`, for the record a capture writes. */
     sets: Object.fromEntries([...sets].map(([k, s]) => [k, {
-      id: s.id, px: s.px, tileM: s.tileM, meanRough: Number(s.meanRough.toFixed(4)) }])),
+      id: s.id, px: s.px, tileM: s.tileM, meanRough: Number(s.meanRough.toFixed(4)), ktx2: s.ktx2 }])),
     apply(material, sidecar) {
       const name = material?.name;
       if (name !== 'wall' && name !== 'log') return null;
