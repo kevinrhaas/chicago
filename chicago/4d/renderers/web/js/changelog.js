@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1852, ts: '2026-10-16T07:20:19.811Z', date: 'Oct 16, 2026, 2:20 AM CT', title: '1808 Prairie\'s north parapet is laid in stone courses', kind: 'improvement',
+    items: [
+      'The Keith house\'s short north return over Glessner is now big dressed stone courses, as the 1887 to 1948 photographs show, instead of a smooth slab.',
+      'It runs about 5.5 m back, about twice its old length, with a pinnacle at each end.',
+      'The rounded coping sweeps up into the corner pinnacles, on the front and on the return.',
+      'The pinnacle caps are ogival with a collar and a ball finial, not plain spikes.',
+    ] },
   { v: 1851, ts: '2026-10-16T06:57:35.071Z', date: 'Oct 16, 2026, 1:57 AM CT', title: 'A memory meter now watches what each year holds on a phone', kind: 'chore',
     items: [
       'Nothing you can see changed. Each year is now weighed for the memory it keeps once you are in the town: page memory, geometry and textures on the graphics chip, layer by layer.',
