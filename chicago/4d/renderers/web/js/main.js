@@ -43,6 +43,7 @@ import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { createPopup } from './popup.js';
 import { createWelcome } from './welcome.js';
+import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
 import { createHud } from './hud.js';
 import { createNavigation } from './navigation.js';
@@ -1497,6 +1498,9 @@ const arrival = createArrival({
   logEl: document.getElementById('arrival-log'),
   lampsEl: document.getElementById('arrival-lamps'),
   readoutEl: document.getElementById('arrival-readout'),
+  observatoryEl: document.getElementById('gate-observatory'),
+  detailsEl: document.getElementById('gate-details'),
+  detailEl: document.getElementById('gate-detail'),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
@@ -1511,13 +1515,15 @@ boot().catch((err) => {
   bootController.fail(active?.id || 'scene', err);
   api.error = String(err?.message || err);
   problems.push(`boot: ${api.error}`);
-  // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
-  // is not a broken build, and should not read like one.
-  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
+  // A year with no scene yet (a door such as /4d/1880/ that is ahead of the data)
+  // is not a broken build, and should not read like one. T-2616: a year the Observatory
+  // offers HAS a scene, so its scene file missing is a stalled jump, not an unbuilt year.
+  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`)
+    && !['1812', '1835', '1904'].includes(YEAR);
+  // T-2616: the visitor reads "the jump stalled"; what failed goes under the folded details.
   arrival.fail(err, {
-    message: unbuilt
-      ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
-      : `Could not load the scene — ${api.error}`,
+    message: `Could not load the scene — ${api.error}`,
+    headline: unbuilt ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.` : undefined,
   });
   console.error('[4D Chicago] boot failed', err);
 });
@@ -3097,7 +3103,9 @@ async function boot() {
   // town ended — and nothing is drawn in the scene for it, because a legal limit is
   // not a fence. The card carries it: pick a building and it says which side of the
   // line it stood on. A failed fetch leaves the row off rather than guessing a side.
-  api.ordinances = await loadOrdinanceLimits({ dataBase: bases.dataBase, problems });
+  // It is 1835's law, so it rides 1835's cards and no other scene's (T-2609).
+  api.ordinances = await loadOrdinanceLimits({ dataBase: bases.dataBase,
+    sceneDate: loaded.scene.target_date ?? YEAR, problems });
   popup.setOrdinanceLimits(api.ordinances);
 
   // And a relation, which belongs to no attribute at all. A house or a man could hold
@@ -3796,6 +3804,9 @@ async function boot() {
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
+  // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
+  // Storage behind a service worker, so a kept year boots from disk, offline too.
+  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {

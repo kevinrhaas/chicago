@@ -55,6 +55,15 @@ step "The image gate refuses to close a building that does not match its picture
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+# T-2604. A spread flora pass walks its lattice on a worker (jobs/lattice-kernel.js)
+# and a one-frame pass walks it in flora.js's own `scatter`; the two are separate
+# texts, so this slices flora.js and holds them to the same slots, bit for bit.
+step "The flora lattice walk on a worker hands the deal the slots the in-frame walk does (T-2604)" \
+  node tools/check_lattice_kernel.mjs
+
+selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
+  node tools/check_lattice_kernel.mjs --self-test
+
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
@@ -66,6 +75,9 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
+
+selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
+  node tools/prebuild_layers.mjs --self-test
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -108,6 +120,8 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
   node tools/test_frame_governor.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
+  node tools/test_claim_value.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
   node tools/test_repo_file.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
@@ -3659,6 +3673,16 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# T-2561: a kept year is served from the device, so its pack has to list exactly
+# what ships — every entry the file at its hash — or an offline visitor gets a
+# file the site no longer has. The self-test holds who is in which year's pack,
+# the update diff the page fetches by, and the one-line kill switch.
+selftest "year packs: membership, the update diff and the kill switch (T-2561)" \
+  node tools/write_year_packs.mjs --self-test
+
+step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
+  node tools/write_year_packs.mjs --check
+
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with
 # that shape: a <base> that is not the first child of <head>, or a planned year with
@@ -7093,6 +7117,20 @@ step "the cards' pictures join the library and the sources to their buildings" \
 
 selftest "…and the joins still keep out what is not a picture of this building" \
   python3 tools/compile_pictures.py --self-test
+
+# T-2635. The building summary record: data/summaries/<id>.json, the authored front page
+# the Inspect app reads (design doc section 12), shaped by data/summary.schema.json and
+# compiled into data/inspect/<scene>.json at publish (GENERATED, not committed, like the
+# pictures above). The app shows these strings exactly as written, so this refuses a fact
+# with no grade, an Attested fact with no source, an Inferred or Reconstructed one with no
+# note, any id that does not resolve (source, person, liberty, the structure in its scene),
+# a string over its length limit, and an id, snake_case word, path, link or ticket number
+# in anything a visitor reads. It gates the Inspect app (T-2638) and its fallback (T-2636).
+step "every building summary record is graded, sourced, within its lengths and free of ids" \
+  python3 tools/compile_summaries.py --check
+
+selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
+  python3 tools/compile_summaries.py --self-test
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
