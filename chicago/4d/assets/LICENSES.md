@@ -69,6 +69,13 @@ its PNG master, the same pixels in fewer bytes, written and held pixel-identical
 `tools/publish.sh` copies them by name to `data/textures/`, where the relief modules bind them.
 They carry the library's licence and its one condition unchanged.
 
+**The `.ktx2` beside five of them (T-2582)** — the two roof coverings' `normal_gl` and `orm`
+and the wet prairie muck's basecolor — is the same map GPU-compressed by
+`tools/ktx2_sheets.py` with KTX-Software 4.3.2 (Basis Universal: ETC1S for the colour, UASTC
+for the data maps), from the PNG master. It is lossy where the `.webp` is not, a derivative
+for the GPU and not a new map, and `tools/publish.sh` copies it by name beside its `.webp`
+or `.png`. It carries the library's licence and its one condition unchanged.
+
 Every file, as the checker matches them one by one:
 
 ```
@@ -114,6 +121,7 @@ textures/chicago_1835_pbr/ground/river_stone_gravel_fill/river_stone_gravel_fill
 textures/chicago_1835_pbr/ground/river_stone_gravel_fill/river_stone_gravel_fill_roughness.png
 textures/chicago_1835_pbr/ground/wet_prairie_muck/material.json
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_ao.png
+textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_basecolor.ktx2
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_basecolor.png
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_height16.png
 textures/chicago_1835_pbr/ground/wet_prairie_muck/wet_prairie_muck_metallic.png
@@ -184,8 +192,10 @@ textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_base
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_height16.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_metallic.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_dx.png
+textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.ktx2
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.webp
+textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.ktx2
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.webp
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_roughness.png
@@ -195,8 +205,10 @@ textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_height16.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_metallic.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_dx.png
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.ktx2
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.webp
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.ktx2
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.webp
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_roughness.png
@@ -353,6 +365,9 @@ say; the look of every map is reconstructed (`docs/LIBERTIES.md` L296).
 **Published in part.** `tools/publish.sh` ships each material's `material.json` and its three
 `*_web.jpg` maps to `data/textures/prairie_1904_pbr/`; the PNG masters, the DirectX normal and the
 16-bit height stay in the repository.
+Beside each `*_web.jpg` it also ships a `.ktx2` of the same map (T-2582): the PNG master
+GPU-compressed by `tools/ktx2_sheets.py` with KTX-Software 4.3.2 at the web map's size. A
+derivative for the GPU, not a new map; it carries the library's licence unchanged.
 
 Every file, as the checker matches them one by one:
 
@@ -360,13 +375,16 @@ Every file, as the checker matches them one by one:
 textures/prairie_1904_pbr/LICENSE.txt
 textures/prairie_1904_pbr/README.md
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_ao.png
+textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_basecolor.ktx2
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_basecolor.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_basecolor_web.jpg
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_height16.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_metallic.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_dx.png
+textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_gl.ktx2
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_gl.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_normal_gl_web.jpg
+textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_orm.ktx2
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_orm.png
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_orm_web.jpg
 textures/prairie_1904_pbr/alley/earth_and_cinders/earth_and_cinders_roughness.png
@@ -374,74 +392,92 @@ textures/prairie_1904_pbr/alley/earth_and_cinders/material.json
 textures/prairie_1904_pbr/contact_sheet.jpg
 textures/prairie_1904_pbr/curb/sandstone_curbstone/material.json
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_ao.png
+textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_basecolor.ktx2
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_basecolor.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_basecolor_web.jpg
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_height16.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_metallic.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_dx.png
+textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_gl.ktx2
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_gl.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_normal_gl_web.jpg
+textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_orm.ktx2
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_orm.png
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_orm_web.jpg
 textures/prairie_1904_pbr/curb/sandstone_curbstone/sandstone_curbstone_roughness.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_ao.png
+textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_basecolor.ktx2
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_basecolor.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_basecolor_web.jpg
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_height16.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_metallic.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_dx.png
+textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_gl.ktx2
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_gl.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_normal_gl_web.jpg
+textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_orm.ktx2
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_orm.png
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_orm_web.jpg
 textures/prairie_1904_pbr/parkway/grass_plat/grass_plat_roughness.png
 textures/prairie_1904_pbr/parkway/grass_plat/material.json
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_ao.png
+textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_basecolor.ktx2
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_basecolor.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_basecolor_web.jpg
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_height16.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_metallic.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_dx.png
+textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_gl.ktx2
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_gl.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_normal_gl_web.jpg
+textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_orm.ktx2
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_orm.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_orm_web.jpg
 textures/prairie_1904_pbr/roadway/macadam_limestone/macadam_limestone_roughness.png
 textures/prairie_1904_pbr/roadway/macadam_limestone/material.json
 textures/prairie_1904_pbr/roadway/sheet_asphalt/material.json
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_ao.png
+textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_basecolor.ktx2
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_basecolor.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_basecolor_web.jpg
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_height16.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_metallic.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_dx.png
+textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_gl.ktx2
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_gl.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_normal_gl_web.jpg
+textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_orm.ktx2
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_orm.png
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_orm_web.jpg
 textures/prairie_1904_pbr/roadway/sheet_asphalt/sheet_asphalt_roughness.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/material.json
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_ao.png
+textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_basecolor.ktx2
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_basecolor.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_basecolor_web.jpg
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_height16.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_metallic.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_dx.png
+textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_gl.ktx2
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_gl.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_normal_gl_web.jpg
+textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_orm.ktx2
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_orm.png
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_orm_web.jpg
 textures/prairie_1904_pbr/roadway/vitrified_paving_brick/vitrified_paving_brick_roughness.png
 textures/prairie_1904_pbr/tools/generate_prairie_1904_pbr.py
 textures/prairie_1904_pbr/walk/portland_cement_walk/material.json
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_ao.png
+textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_basecolor.ktx2
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_basecolor.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_basecolor_web.jpg
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_height16.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_metallic.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_dx.png
+textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_gl.ktx2
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_gl.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_normal_gl_web.jpg
+textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.ktx2
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm_web.jpg
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_roughness.png

@@ -92,6 +92,7 @@ import * as THREE from 'three';
 import { captureHooks, registerPatch } from './batch-material.js';
 import { structureFrameGLSL } from './compact-attributes.js';
 import { resolveBases } from './scene-loader.js';
+import { ktx2Beside, loadSheet } from './ktx2.js';
 
 /**
  * Material name -> the library directory that covers it.
@@ -161,23 +162,28 @@ function metricRoofUv(material, tileM) {
   material.needsUpdate = true;
 }
 
-/** A linear (non-colour) map, tiling, off the vendored library. */
-function reliefTexture(loader, url) {
-  return new Promise((resolve, reject) => {
-    loader.load(url, (tex) => {
-      tex.wrapS = THREE.RepeatWrapping;
-      tex.wrapT = THREE.RepeatWrapping;
-      // Every one of these is data, not colour — the library's material.json
-      // records `normal_gl` and `orm` as linear. Tagging one sRGB would decode
-      // a normal vector through a gamma curve.
-      tex.colorSpace = THREE.NoColorSpace;
-      // The same 8 the water ripple uses (terrain.js): a roof seen from the
-      // street is a grazing surface, and without anisotropy its courses turn to
-      // aliased mush at the ridge.
-      tex.anisotropy = 8;
-      resolve(tex);
-    }, undefined, () => reject(new Error(`roof relief map did not load — ${url}`)));
-  });
+/**
+ * A linear (non-colour) map, tiling, off the vendored library: the `.ktx2` beside
+ * the `.webp` where this GPU takes one (ktx2.js), else the `.webp` itself.
+ */
+async function reliefTexture(loader, url) {
+  let tex;
+  try {
+    tex = await loadSheet(ktx2Beside(url), url, loader);
+  } catch {
+    throw new Error(`roof relief map did not load — ${url}`);
+  }
+  tex.wrapS = THREE.RepeatWrapping;
+  tex.wrapT = THREE.RepeatWrapping;
+  // Every one of these is data, not colour — the library's material.json
+  // records `normal_gl` and `orm` as linear. Tagging one sRGB would decode
+  // a normal vector through a gamma curve.
+  tex.colorSpace = THREE.NoColorSpace;
+  // The same 8 the water ripple uses (terrain.js): a roof seen from the
+  // street is a grazing surface, and without anisotropy its courses turn to
+  // aliased mush at the ridge.
+  tex.anisotropy = 8;
+  return tex;
 }
 
 /**

@@ -2,7 +2,7 @@
  * WHAT A YEAR KEEPS RESIDENT, LAYER BY LAYER, AND WHO IS HOLDING IT (T-2546).
  *
  *   node tools/measure_memory.mjs [--year 1812,1835,1904] [--only desktop|mobile|both]
- *        [--no-snapshot] [--keep-geometry] [--json out.json]
+ *        [--no-snapshot] [--keep-geometry] [--ktx2-off] [--json out.json]
  *   node tools/measure_memory.mjs --from reading.json
  *   node tools/measure_memory.mjs --gate [--year …] [--only …] [--json out.json]
  *   node tools/measure_memory.mjs --self-test
@@ -89,6 +89,9 @@ const jsonOut = argAt('--json');
 const ONLY = argAt('--only') || 'both';
 const YEARS = SELF_TEST ? ['1835'] : (argAt('--year') || '1812,1835,1904').split(',').filter(Boolean);
 const KEEP_GEOMETRY = SELF_TEST || has('--keep-geometry');
+// T-2582: `--ktx2-off` boots with `?ktx2=0`, every library sheet on its image path —
+// the before to the KTX2 after, read by the same meter in the same build.
+const KTX2_OFF = has('--ktx2-off');
 const SNAPSHOT = !GATE && !SELF_TEST && !has('--no-snapshot');
 
 const VIEWPORTS = [
@@ -109,6 +112,12 @@ function printReading(reading) {
     console.log(`  total ${MB(t.total)} MB = js heap ${MB(t.jsHeap)} + arraybuffers ${MB(t.arrayBuffers)}`
       + ` + gpu buffers ${MB(t.gpuBuffers)} + gpu textures ${MB(t.gpuTextures)} MB`
       + ` (renderbuffers ${MB(t.gpuRenderbuffers)} of it; shadow maps ${MB(row.shadowMapBytes)})`);
+    if (row.ktx2) {
+      const k = row.ktx2;
+      console.log(`  library sheets: ${k.sheets.ktx2} KTX2 + ${k.sheets.fallback} image = ${MB(k.sheets.gpuBytes)} MB on the GPU`
+        + ` · KTX2 ${k.reason}${k.formats ? ` (${k.formats.join(', ')})` : ''}${k.enabled && k.dropTopMip ? ' · top mip dropped' : ''}`
+        + `${k.sheets.failed.length ? ` · FAILED ${k.sheets.failed.join('; ')}` : ''}`);
+    }
     console.log(`  ${row.textures.distinct} distinct textures (${row.textures.images} images);`
       + ` layer estimate gpu geometry ${MB(row.layerSum.gpuGeometry)} MB vs measured buffers ${MB(t.gpuBuffers)} MB`);
     console.log('  layer                 cpu kept   gpu geom   textures   never uploaded (MB)');
@@ -191,6 +200,16 @@ function installGlMeter() {
     0x8229: 1, 0x822B: 2, 0x822D: 2, 0x822E: 4, 0x822F: 4, 0x8230: 8, 0x81A5: 2, 0x81A6: 4,
     0x8CAC: 4, 0x88F0: 4, 0x8CAD: 8, 0x8D48: 1, 0x8D62: 2, 0x8D9F: 4, 0x8C3A: 4, 0x8C3D: 4,
   };
+  // Block-compressed formats (T-2582: KTX2 sheets transcode to these), bytes a texel,
+  // over whole 4x4 blocks: ASTC 4x4, ETC2 RGBA and BC2/3/7 at 1; ETC1/ETC2 RGB, BC1 and
+  // PVRTC 4bpp at 0.5; PVRTC 2bpp at 0.25. Without these a compressed texStorage2D
+  // fell through to "unsized, four channels" and read as RGBA8.
+  const BLOCK = {
+    0x93B0: 1, 0x93D0: 1, 0x9278: 1, 0x9279: 1, 0x83F2: 1, 0x83F3: 1, 0x8C4E: 1, 0x8C4F: 1,
+    0x8E8C: 1, 0x8E8D: 1, 0x9274: 0.5, 0x9275: 0.5, 0x8D64: 0.5, 0x83F0: 0.5, 0x83F1: 0.5,
+    0x8C4C: 0.5, 0x8C4D: 0.5, 0x8C00: 0.5, 0x8C02: 0.5, 0x8C01: 0.25, 0x8C03: 0.25,
+  };
+  const blocks = (n) => Math.max(4, Math.ceil(n / 4) * 4);
   const TYPE_BPP = { 0x1406: 4, 0x140B: 2, 0x8D61: 2, 0x1405: 4, 0x1404: 4, 0x1403: 2, 0x1402: 2 };
   const bpp = (internal, type) => {
     if (BPP[internal]) return BPP[internal];
@@ -247,7 +266,9 @@ function installGlMeter() {
       const tex = bound2d(gl, target);
       const faces = target === gl.TEXTURE_CUBE_MAP ? 6 : 1;
       for (let l = 0; l < levels; l += 1) {
-        setLevel(tex, `${target}:${l}`, faces * Math.max(1, w >> l) * Math.max(1, h >> l) * bpp(internal));
+        const lw = Math.max(1, w >> l); const lh = Math.max(1, h >> l);
+        setLevel(tex, `${target}:${l}`, faces * (BLOCK[internal]
+          ? blocks(lw) * blocks(lh) * BLOCK[internal] : lw * lh * bpp(internal)));
       }
     });
     wrap('texImage3D', (gl, args) => {
@@ -309,6 +330,10 @@ function readLayers() {
     return { cpu: 0, gpu: count * item * width, pending: 0 };
   };
   const texBytes = (t) => {
+    // A compressed texture (a KTX2 sheet) is its transcoded blocks, every level it holds.
+    if (t.isCompressedTexture && t.mipmaps?.length) {
+      return t.mipmaps.reduce((sum, m) => sum + (m.data?.byteLength ?? 0), 0);
+    }
     const img = t.image || t.source?.data;
     const w = img?.width || img?.videoWidth || 0; const h = img?.height || img?.videoHeight || 0;
     const mips = t.generateMipmaps && t.minFilter !== 1006 && t.minFilter !== 1003;
@@ -503,7 +528,8 @@ for (const year of YEARS) {
     const page = await ctx.newPage();
     const errors = [];
     page.on('pageerror', (e) => errors.push(String(e)));
-    const q = KEEP_GEOMETRY ? '?keep-geometry=1' : '';
+    const qs = [KEEP_GEOMETRY && 'keep-geometry=1', KTX2_OFF && 'ktx2=0'].filter(Boolean);
+    const q = qs.length ? `?${qs.join('&')}` : '';
     await page.goto(`http://127.0.0.1:${PORT}/${year}/${q}`, { waitUntil: 'load' });
     await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 420_000 });
     if (vp.tier) {
@@ -544,7 +570,7 @@ for (const year of YEARS) {
         textureBytes: scene.layers.reduce((s, l) => s + l.textureBytes, 0),
         cpuNeverUploaded: scene.layers.reduce((s, l) => s + l.cpuNeverUploaded, 0),
       },
-      uploadRelease: scene.uploadRelease, errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
+      uploadRelease: scene.uploadRelease, ktx2: await page.evaluate(() => window.__chicago4d.ktx2 ?? null), errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
     if (heap.backingStorageSize === undefined) row.note = 'this Chromium reports no backingStorageSize; arraybuffers read 0';
     if (SNAPSHOT) {
       const ts = Date.now();

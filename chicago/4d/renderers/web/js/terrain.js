@@ -57,6 +57,7 @@ import { MACRO_PX, MACRO_M, macroPixels, macroStats } from './prairie-macro.js';
 import { GRASS_GRAIN_PX, GRASS_GRAIN_M, grassGrainPixels, grassGrainMean } from './grass-grain.js';
 import { TURF_TILE_PX, TURF_TILE_M, turfTilePixels, turfTileMeanGrain, bareCut } from './turf-tile.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { registerKTX2 } from './ktx2.js';
 import { HORIZON_HAZE } from './world.js';
 import { loadMeshoptDecoder } from './scene-loader.js';
 import { SEASON_HEAD, seasonShaderUniforms } from './season.js';
@@ -1134,7 +1135,7 @@ export function dequantizeGeometry(geo) {
 /** Load a GLB and hand back its first mesh, detached from the loaded scene. */
 async function loadGlbMesh(url) {
   const buffer = await (await fetchOk(url)).arrayBuffer();
-  const loader = new GLTFLoader();
+  const loader = registerKTX2(new GLTFLoader());
   // THE GROUND AND THE RIVER ARE COMPRESSED TOO, and this loader is not the one
   // scene-loader.js configures for the buildings.
   //

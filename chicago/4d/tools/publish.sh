@@ -184,8 +184,13 @@ for covering in wood_shingles_weathered roof_boards_weathered; do
   cp -f "$src/material.json" \
         "$src/${covering}_normal_gl.webp" \
         "$src/${covering}_orm.webp" \
+        "$src/${covering}_normal_gl.ktx2" \
+        "$src/${covering}_orm.ktx2" \
         "$dst/"
 done
+# THE .ktx2 BESIDE EACH (T-2582): the same map GPU-compressed by
+# tools/ktx2_sheets.py. A visitor downloads ONE of the pair — the KTX2 where the GPU
+# takes a block format, the WebP otherwise (js/ktx2.js) — so both ship.
 
 # The street edge's board face (T-1815) — `renderers/web/js/frontage.js` binds
 # its grain to every plank, stoop and post the layer lays. Same asset-base
@@ -222,6 +227,8 @@ for ground in wet_prairie_muck lake_michigan_dune_sand; do
   cp -f "$src/material.json" \
         "$src/${ground}_basecolor.png" \
         "$dst/"
+  # The muck's KTX2 (T-2582); the sand has none, its pixels are read on the CPU.
+  [ -f "$src/${ground}_basecolor.ktx2" ] && cp -f "$src/${ground}_basecolor.ktx2" "$dst/"
 done
 
 # The signboards' wood (T-1836). `renderers/web/js/signage.js` lays the grain of
@@ -499,6 +506,7 @@ for sheet in assets/textures/prairie_1904_pbr/*/*/material.json; do
   id="$(basename "$src")"
   mkdir -p "$SITE/data/$rel"
   cp -f "$sheet" "$src/${id}_basecolor_web.jpg" "$src/${id}_normal_gl_web.jpg" "$src/${id}_orm_web.jpg" \
+        "$src/${id}_basecolor.ktx2" "$src/${id}_normal_gl.ktx2" "$src/${id}_orm.ktx2" \
         "$SITE/data/$rel/"
 done
 

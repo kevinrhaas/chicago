@@ -32,6 +32,7 @@
  */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { registerKTX2 } from './ktx2.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
@@ -93,7 +94,7 @@ function findClip(clips, want) {
  * Refcounted loads of `<asset_id>.lod<N>.glb`. One parse per file however many people wear
  * it; the parsed source is disposed when the last actor wearing it lets it go.
  */
-export function createHumanAssets({ assetBase, loader = new GLTFLoader(), fetchImpl = fetch } = {}) {
+export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch } = {}) {
   const entries = new Map();
   let decoder = null;
   const url = (assetId, lod) => new URL(`humans/web/${assetId}.lod${lod}.glb`, assetBase);

@@ -3,7 +3,7 @@
   "view": "a18-gh-florian-1948-northeast-overall",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
   "glb_sha256": "578108e0455746a4e9fb52bd02af4bf5e2cc7d9e3d82fa6300c63629dc10b568",
-  "camera_sha256": "bd2a1b8694c75c338a44b929a2bdec11a94b79aec5cdd31784f3f479452041e2",
+  "camera_sha256": "bc94b1f203059d99e619a27b5b09d8bcdec0ee3b81f041873fbc3052b155b143",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-florian-1948-northeast-overall-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -20,8 +20,8 @@
       "status": "not shown"
     },
     {
-      "what": "The independent camera calibration retains visible corner/height residuals; see the solve. Relative height and return depth need a stronger fit before this view can pass.",
-      "status": "open"
+      "what": "T-2579: the camera is re-fitted to six controls (both return pinnacle apexes; the northernmost third-storey light's head, sill and south jamb; the lattice coping's north end): RMS 4.0 px, about 0.09 m at 60 m. The pinnacles, lattice, upper lights and the north return now register; the return depth agrees with the model.",
+      "status": "fixed"
     },
     {
       "what": "The original is monochrome; granite colour is not shown. Sepia/scan casts are not material colour.",
@@ -38,6 +38,14 @@
     {
       "what": "T-2578: the 1887-89 cowl ventilator is gone by 1948 (a low dark stub stands at its foot, just inside the rear pinnacle); the 1886 phase keeps it.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2579: under the lattice the photographs show a narrow fillet and then a band of small, staggered, diamond-pointed units about 1 m deep directly below the openings; the model puts a deeper plain band and a moulding there and lays larger rock-faced blocks in five courses lower down, so its band reads taller and lower than the pictures'.",
+      "status": "open"
+    },
+    {
+      "what": "T-2579: a carved boss stands on the north-east corner pier at the foot of the lattice, in this view and the Glessner-front view; the model has none.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

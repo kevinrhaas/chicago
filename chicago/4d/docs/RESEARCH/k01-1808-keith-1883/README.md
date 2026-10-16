@@ -303,3 +303,34 @@ Every view that sees the corner behind the rear pinnacle shows sky straight behi
 darker wall about a course lower), so the stone parapet stops there; the model's drop stands.
 Left open for T-2580 and T-2579: the hall stack showing over the coping beside the cowl in the
 renders where the pictures show sky, and the c. 1888 view's higher-seeming cap.
+
+## T-2579 — the five independent cameras re-fitted
+
+The T-1883 cameras for the 1948 Florian view, the Glessner-front view, the 1888
+Inland Architect Glessner plate, the 1965 porch view and Reed's 1941 view were
+fitted to hand-read controls with 4.5-28.8 px RMS, and three of them shared one
+set of six control coordinates. Each is now a least-squares fit of a level camera
+(eye 1.7 m, reconstructed) to controls read from its own picture at full
+resolution, every control a point of the committed GLB (a pinnacle apex, or a
+jamb, head or sill found by ray-casting the render). The numbers — controls,
+projections, per-control residuals, RMS and the scale at the subject — are in each
+camera's `solve`; points read but not fitted are written there as checks.
+
+| view | controls | RMS | at the subject |
+|---|---|---|---|
+| Reed 1941 | 6 | 4.6 px | 0.22 m at 58 m |
+| Florian 1948 | 6 | 4.0 px | 0.09 m at 60 m |
+| Glessner front | 5 | 0.9 px | 0.01 m at 34 m |
+| Inland Architect plate | 5 | 1.3 px | 0.04 m at 71 m |
+| porch 1965 | 7 | 1.7 px | 0.04 m at 16 m |
+
+With the cameras in register the remaining differences are the building's, and
+each match record now names them (still `differs`): the crown's band of small
+diamond-pointed units directly under the lattice, where the model lays larger
+rock-faced blocks lower under a plain band; a carved boss on the north-east pier at
+the lattice's foot; that pier about 0.3 m wider, its pinnacle on the pier's middle;
+the loggia's columns about 0.4 m taller; dressed stone on the south face behind the
+south-east pinnacle (T-2581); and Keith's slice not fitting one level camera with
+Glessner's front as the two models are placed. The 1965 porch view's bow lights,
+which read "shorter" at the old 18 px fit, land within 2.5 px of the model at head
+and sill. No geometry changed; the GLB is the one T-2577 shipped.
