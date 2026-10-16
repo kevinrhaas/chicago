@@ -77,6 +77,7 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { gateBoxes } from './gates.js';
 import { packGrain } from './relief-pack.js';
+import { ktx2State, loadSheet } from './ktx2.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams } from './compact-streams.js';
 
@@ -330,6 +331,15 @@ function inOwnerTone(buf, owner, build) {
  *                  load (Strategy A's albedo modulation, 1835_fabric_proof § 3):
  *                  the vertex keeps the owner's tone as the mean, and the wood's
  *                  figure is the variation around it.
+ *
+ * GPU-COMPRESSED WHERE THE GPU TAKES IT (T-2589). `tools/ktx2_sheets.py` writes all
+ * three as KTX2 beside the WebPs — the grain derived there from the lossless
+ * basecolor with this file's GRAIN_STRENGTH and GRAIN_HEADROOM, byte for byte what
+ * `packGrain` makes — so a phone neither decodes the basecolor nor walks its million
+ * texels on the main thread, and holds the three at about a byte a texel instead of
+ * four. The files are written bottom row first, so the unflipped compressed upload
+ * puts every texel where the flipY'd image put it. All three or none: a mixed set
+ * would pair maps of two orientations, so any failure takes the image path whole.
  */
 const RELIEF_DIR = 'textures/chicago_1835_pbr/walls/clapboard_board_face';
 /** How much of the wood's own figure reaches the colour: bare timber, so most of it. */
@@ -388,6 +398,20 @@ function boxCorners(out, cx, cy, cz, ux, uz, vx, vz, halfLen, halfW, halfH) {
 }
 
 /**
+ * The three KTX2 sheets, or null where any of them cannot serve (no block format,
+ * `?ktx2=0`, a file that would not load) — the caller then takes the image path.
+ */
+async function timberKtx2(here, id) {
+  if (!ktx2State.enabled) return null;
+  const imageless = { loadAsync: () => Promise.reject(new Error('the image path is the caller\'s')) };
+  const got = await Promise.allSettled(['normal_gl', 'orm', 'grain'].map((m) =>
+    loadSheet(new URL(`${id}_${m}.ktx2`, here).href, null, imageless)));
+  if (got.every((r) => r.status === 'fulfilled' && r.value.userData.ktx2)) return got.map((r) => r.value);
+  for (const r of got) if (r.status === 'fulfilled') r.value.dispose();
+  return null;
+}
+
+/**
  * Load the board face's relief and derive its albedo modulation. Resolves to
  * `{ id, apply(material) }`, or to `{ problem }` if anything did not arrive.
  *
@@ -406,28 +430,6 @@ async function readTimberRelief(assetBase) {
     if (!(tileM > 0) || !(meanRough > 0)) {
       throw new Error(`${sheet.id}: material.json states no span_m or mean_roughness`);
     }
-    const image = (name) => new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = () => reject(new Error(`map did not load — ${name}`));
-      img.src = new URL(name, here).href;
-    });
-    const [nrm, orm, base] = await Promise.all([
-      image(`${sheet.id}_normal_gl.webp`), image(`${sheet.id}_orm.webp`),
-      image(`${sheet.id}_basecolor.webp`)]);
-
-    // The albedo modulation: each texel's linear luminance over the map's mean,
-    // pulled toward 1 by the grain strength, stored under the headroom — packed
-    // bottom row first, so it lies the way the flipY'd normal and orm beside it
-    // do (relief-pack.js, T-2300).
-    const w = base.naturalWidth;
-    const hgt = base.naturalHeight;
-    const cv = document.createElement('canvas');
-    cv.width = w;
-    cv.height = hgt;
-    const ctx = cv.getContext('2d', { willReadFrequently: true });
-    ctx.drawImage(base, 0, 0);
-    const mod = packGrain(ctx.getImageData(0, 0, w, hgt).data, w, hgt, GRAIN_STRENGTH, GRAIN_HEADROOM);
     const tiled = (tex) => {
       tex.wrapS = THREE.RepeatWrapping;
       tex.wrapT = THREE.RepeatWrapping;
@@ -437,16 +439,46 @@ async function readTimberRelief(assetBase) {
       tex.needsUpdate = true;
       return tex;
     };
-    const normalMap = tiled(new THREE.Texture(nrm));
-    const ormMap = tiled(new THREE.Texture(orm));
-    const modMap = new THREE.DataTexture(mod, w, hgt, THREE.RGBAFormat);
+    let normalMap;
+    let ormMap;
+    let modMap;
+    const ktx = await timberKtx2(here, sheet.id);
+    if (ktx) {
+      [normalMap, ormMap, modMap] = ktx.map(tiled);
+    } else {
+      const image = (name) => new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error(`map did not load — ${name}`));
+        img.src = new URL(name, here).href;
+      });
+      const [nrm, orm, base] = await Promise.all([
+        image(`${sheet.id}_normal_gl.webp`), image(`${sheet.id}_orm.webp`),
+        image(`${sheet.id}_basecolor.webp`)]);
+
+      // The albedo modulation: each texel's linear luminance over the map's mean,
+      // pulled toward 1 by the grain strength, stored under the headroom — packed
+      // bottom row first, so it lies the way the flipY'd normal and orm beside it
+      // do (relief-pack.js, T-2300).
+      const w = base.naturalWidth;
+      const hgt = base.naturalHeight;
+      const cv = document.createElement('canvas');
+      cv.width = w;
+      cv.height = hgt;
+      const ctx = cv.getContext('2d', { willReadFrequently: true });
+      ctx.drawImage(base, 0, 0);
+      const mod = packGrain(ctx.getImageData(0, 0, w, hgt).data, w, hgt, GRAIN_STRENGTH, GRAIN_HEADROOM);
+      normalMap = tiled(new THREE.Texture(nrm));
+      ormMap = tiled(new THREE.Texture(orm));
+      modMap = new THREE.DataTexture(mod, w, hgt, THREE.RGBAFormat);
+      modMap.generateMipmaps = true;
+      modMap.minFilter = THREE.LinearMipmapLinearFilter;
+      modMap.magFilter = THREE.LinearFilter;
+      tiled(modMap);
+    }
     // Named, because the smoke tells this map from a painted one by its name:
     // the timber may carry its grain and never a board's lettering (L135).
     modMap.name = `frontage-grain:${sheet.id}`;
-    modMap.generateMipmaps = true;
-    modMap.minFilter = THREE.LinearMipmapLinearFilter;
-    modMap.magFilter = THREE.LinearFilter;
-    tiled(modMap);
     return {
       id: sheet.id,
       problem: null,

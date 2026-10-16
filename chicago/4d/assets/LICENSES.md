@@ -84,6 +84,13 @@ by `tools/ktx2_sheets.py` from the PNG masters, plus `_orl.json` stating the mea
 and the masters' hashes. Derivatives of the library's own maps, lossy, for the GPU; they
 carry the library's licence and its one condition unchanged.
 
+**The frontage timber's two (T-2589)** — the board face's `orm` and
+`clapboard_board_face_grain.ktx2`, the albedo modulation `renderers/web/js/frontage.js` used to
+derive from the basecolor at load — are written the same way by the same tool, from the PNG
+masters (the grain from the basecolor master, by `packGrain`'s own arithmetic); the layer's
+normal is the wall's `_normal_gl.ktx2` above. The grain is a derived map of the library's
+basecolor, not a new image; both carry the library's licence and its one condition unchanged.
+
 Every file, as the checker matches them one by one:
 
 ```
@@ -263,12 +270,14 @@ textures/chicago_1835_pbr/walls/board_and_batten_weathered/material.json
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_ao.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_basecolor.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_basecolor.webp
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_grain.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_height16.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_metallic.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_dx.png
-textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.ktx2
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.webp
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.ktx2
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.webp
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.json

@@ -33,7 +33,8 @@ re-encoded. THE DERIVED SHEETS are maps the renderer used to compute from decode
 which a compressed texture cannot feed, so the KTX2 is the derived map itself, computed
 here from the masters by the same recipe as the page's packer. T-2583 owns them, in
 pieces: the wall relief's `orl` and its normal are T-2588 (`wall_sheets` below); the
-frontage timber (T-2589) and the signboard grain (T-2590) are still canvas-packed.
+frontage timber is T-2589 (`frontage_sheets` below); the signboard grain (T-2590) is
+still canvas-packed.
 
 ROWS (T-2588). three uploads a KTX2 with its first row at v = 0, and it cannot flip a
 compressed texture; an image texture goes up `flipY`, its top row at v = 1. So a KTX2
@@ -47,6 +48,16 @@ that is the mirror T-2591 is filed to correct.
 A DERIVED SHEET CARRIES A STATEMENT (`<id>_orl.json`): the mean roughness the shader
 divides by, which the page used to sum from the pixels it no longer reads, and the sha256
 of each master it was packed from, so `--check` refuses a sheet whose master moved.
+
+THE FRONTAGE TIMBER (T-2589). `frontage.js` binds the board face's `normal_gl` and `orm`
+and a GRAIN map: each texel's linear luminance over the basecolor's mean, pulled toward 1
+by GRAIN_STRENGTH and stored under GRAIN_HEADROOM, grey in RGB. It used to be packed on the
+CPU at every boot (relief-pack.js `packGrain`); `grain_master` writes the same map here
+from the lossless basecolor, reading both constants out of frontage.js so the two can
+never drift. The normal is the wall's own sheet (one file, both layers bind it); the orm
+and the grain are written bottom row first like the wall's, and are ETC1S at the colour
+setting: measured on these maps, the grey grain reads 45.5 dB against its master and the
+ORM 37.7/39.3 dB (AO/roughness), at 89 KB and 56 KB where UASTC wrote 388 KB and 374 KB.
 """
 from __future__ import annotations
 
@@ -54,6 +65,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -107,9 +119,23 @@ def wall_sheets():
     return out
 
 
+# frontage.js (T-2589): the board face's orm, and the grain derived from its basecolor,
+# which is sized against the basecolor's WebP. Its normal is the wall's sheet above.
+FRONTAGE_FACE = 'clapboard_board_face'
+FRONTAGE_ETC1S = {(FRONTAGE_FACE, 'orm'), (FRONTAGE_FACE, 'grain')}
+FRONTAGE_JS = ROOT / 'renderers' / 'web' / 'js' / 'frontage.js'
+
+
+def frontage_sheets():
+    """(directory, id, map, web file, rows) for the frontage timber's own two maps."""
+    d = ASSETS / 'chicago_1835_pbr' / 'walls' / FRONTAGE_FACE
+    return [(d, FRONTAGE_FACE, 'orm', f'{FRONTAGE_FACE}_orm.webp', 'bottom'),
+            (d, FRONTAGE_FACE, 'grain', f'{FRONTAGE_FACE}_basecolor.webp', 'bottom')]
+
+
 def sheets():
     """(directory, id, map, web file, rows) for every sheet the renderer loads by URL."""
-    return [(*t, 'top') for t in drop_in_sheets()] + wall_sheets()
+    return [(*t, 'top') for t in drop_in_sheets()] + wall_sheets() + frontage_sheets()
 
 
 def drop_in_sheets():
@@ -196,6 +222,29 @@ def pack_orl(d: Path, sid: str, web: str):
     return Image.merge('RGB', (r, g, ratio)), max(rough, 1e-3)
 
 
+def frontage_constant(name: str) -> float:
+    """GRAIN_STRENGTH or GRAIN_HEADROOM, read from frontage.js, the one place it is set."""
+    hit = re.search(rf'^const {name} = ([0-9.]+);', FRONTAGE_JS.read_text(), re.M)
+    if not hit:
+        sys.exit(f'{FRONTAGE_JS.relative_to(ROOT)}: no `const {name} = <number>;` to read')
+    return float(hit.group(1))
+
+
+def grain_master(base: Image.Image) -> Image.Image:
+    """relief-pack.js `packGrain`, texel for texel, in image row order (T-2589)."""
+    strength, headroom = frontage_constant('GRAIN_STRENGTH'), frontage_constant('GRAIN_HEADROOM')
+    lin = SRGB_LINEAR
+    px = base.convert('RGB').tobytes()
+    lum = [0.2126 * lin[px[i]] + 0.7152 * lin[px[i + 1]] + 0.0722 * lin[px[i + 2]]
+           for i in range(0, len(px), 3)]
+    mean = sum(lum) / len(lum)
+    # JS Math.round, which rounds a half up where Python's round() goes to even.
+    grey = [max(0, min(255, int((255 * (1 + strength * (v / mean - 1))) / headroom + 0.5))) for v in lum]
+    im = Image.new('L', base.size)
+    im.putdata(grey)
+    return im.convert('RGB')
+
+
 def masters_of(d: Path, sid: str, m: str):
     """The master PNGs a sheet is made from, for its statement's hashes."""
     names = ('orm', 'basecolor') if m == 'orl' else (m,)
@@ -219,6 +268,8 @@ def master(d: Path, sid: str, m: str, web: str, rows: str, tmp: Path) -> Path:
         im, mean_rough = pack_orl(d, sid, web)
         (d / f'{sid}_orl.json').write_text(
             json.dumps(statement(d, sid, m, mean_rough, im.size), indent=2) + '\n')
+    elif m == 'grain':
+        im = grain_master(sized(d, sid, 'basecolor', web))
     else:
         im = sized(d, sid, m, web)
     if rows == 'bottom':
@@ -235,7 +286,7 @@ def convert(exe, env, d, sid, m, web, rows, tmp):
             '--format', 'R8G8B8_SRGB' if colour else 'R8G8B8_UNORM',
             '--assign-oetf', 'srgb' if colour else 'linear',
             '--generate-mipmap', '--mipmap-wrap', 'wrap',
-            *(ETC1S if colour else ETC1S_DATA if m == 'orl' else UASTC),
+            *(ETC1S if colour or (sid, m) in FRONTAGE_ETC1S else ETC1S_DATA if m == 'orl' else UASTC),
             str(master(d, sid, m, web, rows, tmp)), str(out)]
     subprocess.run(args, check=True, env=env)
     return out
