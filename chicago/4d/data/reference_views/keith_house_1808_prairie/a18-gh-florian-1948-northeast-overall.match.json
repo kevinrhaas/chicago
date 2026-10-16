@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-florian-1948-northeast-overall",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c79a9c8d5112ebfb8f0306a7c128cbe90840ccc06ba5f52fb7f7ac1585aa60f8",
+  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
   "camera_sha256": "bd2a1b8694c75c338a44b929a2bdec11a94b79aec5cdd31784f3f479452041e2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-florian-1948-northeast-overall-side-by-side.jpg",
   "verdict": "differs",
@@ -28,12 +28,16 @@
       "status": "not shown"
     },
     {
-      "what": "Whether the stone parapet continues at full height behind the rear pinnacle, or drops there to the brick, is not resolved by this picture; the model drops it.",
-      "status": "open"
+      "what": "T-2578 ruling: the stone parapet stops at the rear pinnacle. Every picture that sees that corner (1887, Taylor 2135, the 1888 Glessner plate, the c. 1888 view looking SW, the Glessner front, 1948) shows sky straight behind it, or in 1948 a darker wall about a course lower; the model drops it there.",
+      "status": "fixed"
     },
     {
       "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2578: the 1887-89 cowl ventilator is gone by 1948 (a low dark stub stands at its foot, just inside the rear pinnacle); the 1886 phase keeps it.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
