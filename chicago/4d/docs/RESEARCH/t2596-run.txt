@@ -9,3 +9,6 @@ commit deletes this sentinel and the workflow, so the pull request diff carries 
 
 If the run dies halfway, every commit it made is already on the branch; re-add this
 file with any content change to start over from a clean tree.
+
+Fired: 2026-10-16T19:55Z — workflow file in place at .github/workflows/t2596-glessner-ktx2.yml
+(blob e7415e0, byte-identical to the steward's fixture), sentinel bumped to start the run.
