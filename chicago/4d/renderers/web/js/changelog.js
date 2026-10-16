@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1839, ts: '2026-10-16T01:50:56.240Z', date: 'Oct 15, 2026, 8:50 PM CT', title: '1637 Prairie\'s wing gets the engraving\'s wide paired upper window', kind: 'improvement',
+    items: [
+      'The upper window on the front of 1637 Prairie\'s south wing is now the pair of sashes the engraving draws: one opening about 1.8 m across, split down the middle, where a single narrow sash stood.',
+      'Through the engraving\'s own camera it now covers the width the print gives it; its height already matched and is unchanged.',
+      'The print can\'t show how wide the bar between the two sashes is, so that width is reconstructed and listed among the liberties.',
+    ] },
   { v: 1838, ts: '2026-10-16T01:32:40.911Z', date: 'Oct 15, 2026, 8:32 PM CT', title: '1637 Prairie\'s basement lights, and its stoop meets the drawn fence post', kind: 'improvement',
     items: [
       'Under 1637 Prairie\'s swell bay a barred basement light now stands, nearly a storey tall at the walk, as the engraving of the remodel draws it.',
