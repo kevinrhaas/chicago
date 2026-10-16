@@ -56,6 +56,44 @@ assert.match(index, /id="arrival-card"/, 'the source/status card slot must exist
 
 console.log('ARRIVAL A11Y PASS — year hidden, phase line polite, card slot present');
 
+// T-2610: two lines. The small line names where you are going from first paint (the
+// inline script, before any module arrives); the big ticker is the present year, rolling
+// down. The old "Destination year" label over the present year was the bug.
+assert.doesNotMatch(index, /Destination year/, 'the "Destination year" label over the ticker is gone');
+assert.match(index, /id="arrival-destination"[\s\S]*id="arrival-year"/, 'the destination line sits above the ticker');
+{
+  const script = index.match(/<script>(\(function \(\) \{ var h = document\.getElementById\('arrival-year'\)[\s\S]*?)<\/script>/)?.[1];
+  assert.ok(script, 'the first-paint script that writes the ticker is present');
+  const { runInNewContext } = await import('node:vm');
+  const node = () => ({ children: [], dataset: {}, textContent: '', className: '', innerHTML: '',
+    appendChild(c) { this.children.push(c); return c; },
+    get text() { return this.textContent + this.children.map(c => c.text ?? c.textContent).join(''); } });
+  const firstPaint = (pathname, search = '') => {
+    const els = { 'arrival-year': node(), 'arrival-destination': node() };
+    runInNewContext(script, {
+      document: { getElementById: id => els[id], createElement: node,
+        createTextNode: t => ({ textContent: t }), body: { classList: { add() {} } } },
+      location: { pathname, search }, URLSearchParams, navigator: { maxTouchPoints: 0 }, innerWidth: 1440,
+      window: {}, Date,
+    });
+    return { line: els['arrival-destination'].text.replace(/^Destination /, 'DESTINATION '), year: els['arrival-year'].dataset.year };
+  };
+  const present = String(new Date().getFullYear());
+  for (const [where, search, line] of [
+    ['/4d/1904/', '', 'DESTINATION 1904 · Prairie Ave'],
+    ['/4d/dev/1835/', '', 'DESTINATION 1835 · River settlement'],
+    ['/4d/1812/index.html', '', 'DESTINATION 1812 · Fort Dearborn'],
+    ['/walk/', '?year=1904&detail=light', 'DESTINATION 1904 · Prairie Ave'],
+    ['/walk/', '', 'DESTINATION 1835 · River settlement'],
+    ['/4d/1880/', '', 'DESTINATION 1880 · Chicago'],
+  ]) {
+    const got = firstPaint(where, search);
+    assert.equal(got.line, line, `${where}${search}: the destination line from first paint`);
+    assert.equal(got.year, present, `${where}${search}: the ticker starts at the present year`);
+  }
+}
+console.log('ARRIVAL READOUT PASS — destination line from first paint per year, ticker starts at the present');
+
 // Exercise the real event controller, including writes that the pure mapping
 // tests cannot see (failure followed by phaseend, and reduced phase announcements).
 function fixture(reducedMotion = false) {
