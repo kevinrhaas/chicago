@@ -85,7 +85,8 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
-import { resolveSharpness, sharpnessGuess } from './sharpness.js';
+import { resolveSharpness } from './sharpness.js';
+import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
 
@@ -1447,11 +1448,15 @@ try { bootStorage = window.localStorage; } catch { /* private mode */ }
 // T-2547: if the last session died loading (a phone out of memory), this one boots a
 // detail tier lower and at Sharpness Low, and says so. Resolved here, before the
 // forecast and the GLB fetch, so nothing is downloaded for the tier that died.
+// T-2559: the guess it steps down from is the device profile a previous visit
+// cached (boot() re-reads it); a first visit guesses the platform default.
 const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
 api.crashGuard = crashGuard.state;
+const bootProfile = cachedDeviceProfile(bootStorage, null);
+const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
 const crashBoot = crashGuard.boot({
-  detail: readDetailPreference() || (prefersTouch() ? 'light' : 'full'),
-  quality: resolveSharpness(readQualityPreference(), prefersTouch()),
+  detail: readDetailPreference() || bootGuess?.detail || (prefersTouch() ? 'light' : 'full'),
+  quality: resolveSharpness(readQualityPreference(), prefersTouch(), bootGuess?.sharpness),
 });
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
@@ -1513,13 +1518,26 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  // T-2559: read what the device offers and choose per device — see
+  // device-profile.js. Before the scene is fetched, so a weak machine's tier
+  // decides what is downloaded; a repeat visit reads its cached profile and pays
+  // no benchmark. The touch screen still picks the controls and `lowSpec`; the
+  // profile picks only the defaults below, and a stored choice beats both.
+  const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
+    search: location.search });
+  api.device = device;
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
-  // T-2547: the stored choice or the device guess, unless the crash guard stepped it down.
-  let detailLevel = crashBoot.detail;
-  // Image sharpness for a visitor who never chose one: Low on a phone, Medium
-  // on a desktop (T-2110 — see sharpness.js).
-  const qualityGuess = sharpnessGuess(coarse);
+  // T-2547's step-down outranks everything; then the stored choice; then the
+  // device profile (T-2559).
+  let detailLevel = crashBoot.lowered.detail ? crashBoot.detail : (readDetailPreference() || device.choice.detail);
+  api.bootDetail = detailLevel;
+  // Image sharpness for a visitor who never chose one: the profile's choice —
+  // on a standard device the T-2110 default, Low on a phone and Medium on a
+  // desktop (see sharpness.js).
+  const qualityGuess = device.choice.sharpness;
+  const bootQuality = crashBoot.lowered.quality ? crashBoot.quality
+    : resolveSharpness(readQualityPreference(), coarse, qualityGuess);
   const detailOpts = () => ({ detail: detailLevel });
 
   /**
@@ -1587,7 +1605,7 @@ async function boot() {
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, crashBoot.quality));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, bootQuality));
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
   // T-2548: a closed building image is gone from the page as a released array is.
@@ -2874,6 +2892,7 @@ async function boot() {
     resolvedDetail: detailLevel,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
     lowered: crashBoot.lowered,
+    device,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -3162,7 +3181,7 @@ async function boot() {
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1,
-    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse)));
+    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess)));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);

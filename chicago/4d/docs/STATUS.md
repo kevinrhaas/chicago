@@ -1,3 +1,25 @@
+## T-2559 — a device profile chooses detail and sharpness per device (2026-10-16)
+
+`renderers/web/js/device-profile.js` runs once at boot, before the scene is fetched. It
+reads WebGPU (adapter info and limits), the WebGL2 renderer string, MAX_TEXTURE_SIZE, the
+compressed formats (ASTC / ETC2 / BC7 / S3TC), cores, `deviceMemory`, screen and dpr; runs a
+fill and a vertex pass under a hard 0.9 s deadline (timer query where exposed, else the wall
+clock across a pixel read); and classes the device weak / standard / strong. The class picks
+Scene detail and Image sharpness (desktop: balanced·Low / full·Medium / full·High; touch:
+light at every class, Medium sharpness when strong — a phone earns no geometry until T-2546
+prices it) and records a texture tier, worker count and WebGPU presence for T-2551/T-2553,
+T-2556 and T-2558, which do not read them yet. A stored choice still wins; Settings ›
+Performance says what was chosen. Cached per renderer string and build; a forced
+`?device=` (harness only) or crash-stepped profile is never cached.
+
+Measured on the runner's SwiftShader: the boot's own profile costs 34-172 ms (no benchmark —
+see below), a forced cold benchmark 104-152 ms, a warm (cached) read under 50 ms by the smoke's
+gate. **The thresholds are a first setting, not a calibration** — no reading from real phone or
+laptop silicon set them; `api.device.bench` keeps the raw rates so T-2546's field readings
+can move them. **A software rasteriser is not benchmarked and keeps the platform default** as
+`standard`: it measures the CPU, and it is the machine every frame and triangle ceiling here is
+gated on. Benchmarked, SwiftShader reads ~0.02 Mpx/ms and would class weak.
+
 ## T-2552 — the prairie from the air: the plaid broken (2026-10-16)
 
 The owner, from 1,197 ft up: the ground "looks like an even plaid". Two causes, both in
