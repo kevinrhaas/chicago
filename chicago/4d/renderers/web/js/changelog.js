@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1836, ts: '2026-10-16T00:25:57.118Z', date: 'Oct 15, 2026, 7:25 PM CT', title: '1638 Prairie\'s front fence rebuilt to its photograph\'s true scale', kind: 'fix',
+    items: [
+      'The gate piers, caps, hearts and finials in front of 1638 Prairie are rebuilt about 1.44 times their old size. They had been read through an earlier camera that stood too close to the house.',
+      'The gateway between the piers widens to 1.26 m, and the piers stand where the photograph puts them.',
+      'The iron bars now start against the north pier at the photograph\'s own spacing, and each lands within a pixel of the one the print draws.',
+      'The caps\' flared lower corners keep their shape at the new size, so each cap still sweeps out over its heart as the photograph draws it.',
+    ] },
   { v: 1835, ts: '2026-10-15T23:40:26.560Z', date: 'Oct 15, 2026, 6:40 PM CT', title: '1638 Prairie\'s lower south wing, built from its photograph', kind: 'improvement',
     items: [
       'The block south of 1638 Prairie\'s gable in its photograph is the house\'s own wing, not the neighbour, and it is now built that way: a metre lower than the house, under a steep gable roof facing the street.',
