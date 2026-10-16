@@ -27869,6 +27869,7 @@ proud of the wall on a moulded shelf. Both are open in the match record.
 carving; the architects' plans would settle the recess.
 **Ticket:** T-2526 (piece 2 of T-2422).
 **Recorded:** 2026-10-15 (T-2526).
+
 ### L-k01-mansard-soffit-2528 — the K01 mansard houses' cornices stand under the soffit their roof builds: 1620's and 1637's brackets, bed mouldings and wall heads raised to it, and 1637's swell bay with them
 
 **Decision:** a K01 house's cornice hangs from its soffit, and until T-2528 the builder took that
@@ -27915,7 +27916,6 @@ the camera T-2523 re-solves.
 **Review:** `docs/RESEARCH/k16-1638-tower-caps-2521/README.md`.
 **Recorded:** 2026-10-15 (T-2521).
 
-
 ### L-k16-1638-wing-2532 — 1638 Prairie's south wing from its photograph: the sheet's projection as a lower wing under a street-facing gable, its south wall taken past the sheet's line, its sash and unseen walls reconstructed
 
 **Decision:** the projection sheet 20 draws on the south flank of the Shortall-Gregory house
@@ -27952,6 +27952,40 @@ wing's width and depth; a view of its south face settles its openings.
 **Ticket:** T-2532 (piece 1 of T-2522).
 **Review:** `docs/RESEARCH/k16-1638-wing-2532/README.md`.
 **Recorded:** 2026-10-15 (T-2532).
+
+### L-k01-1621-side-stoop-2530 — 1621 Prairie's side stoop from the drawing: its run along the front read off the plate, its landing, width and riser count bounded by the sheet's plan and the stair rules
+
+**Decision:** John H. Hamline's house at 1621 Prairie (T-2530, piece 1 of T-2527) climbs to its
+door by the side stoop Treat & Foltz's Building Budget drawing draws, in place of the straight
+stoop toward the street that T-2420 and T-2440 built. The door opens on a stone landing at the
+principal floor that runs south along the north strip from v 1.0 to the bow's north junction at
+v 3.6 and is 2.4 m deep, faced to grade along its street edge and across its north end; from its
+south end a flight of the K01 stair's eight equal risers (0.175 m) on 0.28 m goings runs on south,
+parallel to the front, 1.2 m wide and standing 1.2 m clear of the wall so that it passes in front
+of the bow (1.02 m proud), down to grade at v 5.56, its foot opening south; a solid stone cheek
+0.3 m thick closes the flight's street side, its top raking 0.1 m over the nosings; the flight's
+side toward the bow is closed by its steps' ends. **What is read, not invented.** From the
+drawing (`building_budget_1886_06_hamline_farwell_houses`): on its inset plan, that the steps'
+nosings run square to the front, so the flight runs along it; that the steps lie south of the
+landing and in front of the bow's north end, between it and the line that encloses the stoop on
+the street side; and that the flight is about 1.2 m wide at the plan's scale. In its perspective,
+through the camera T-2440 carried to 1621, that the stoop's cheek tops rake high at the north and
+fall to the south (at about 0.58-0.65 on the plate against the build's 0.63), that the steps show
+over a low cheek, and that the landing's edge is a level line at the floor about 3 m long (drawn
+at x 137-277, built 152-287). **What is invented.** The riser count and going, which are the K01
+stair's solve from the 1.4 m floor (the plate's steps cannot be counted at its size); the
+landing's length and depth, which follow from the sheet's 3.6 m strip, the door in its middle and
+the bow's projection rather than from the plate, whose strip is 1.4 m; the flight's 1.2 m stand-off
+from the wall; the cheek's 0.3 m thickness (the kit's) and its 0.1 m over the nosings; the stone;
+and the omission of any rail (the iron rails the plate draws at the left of the panel are not
+legibly this stoop's). Because the landing must reach from the middle of the sheet's wider strip
+to its narrower bow, the built flight stands about 100 px right of the drawn one through the
+camera; that is the front's widths disagreement already argued in the match record, not a second
+one.
+**How to resolve:** a photograph of the house after 1886 settles the stoop's run, its rails and its
+steps; the architects' plans would settle the landing and the stand-off.
+**Ticket:** T-2530 (piece 1 of T-2527).
+**Recorded:** 2026-10-15 (T-2530).
 
 ### L-k01-1637-wing-pair-2537 — 1637 Prairie's wing's second-storey window built as the engraving's pair of one-over-one sashes, 1.8 m across: the width, the pairing and the panes read, the mullion's width reconstructed
 

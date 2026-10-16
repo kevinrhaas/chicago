@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1837, ts: '2026-10-16T01:04:52.832Z', date: 'Oct 15, 2026, 8:04 PM CT', title: '1621 Prairie climbs to its door by the drawing\'s side stoop', kind: 'feature',
+    items: [
+      'John H. Hamline\'s house at 1621 Prairie now has the stoop its 1886 drawing shows: the door opens on a stone landing along the north strip, and the steps run south along the front, past the bow, behind a low stone cheek.',
+      'The flight\'s run comes from the drawing\'s own small plan and the slope of its cheek; the number of steps, the landing\'s size and the stone are reconstructed, and the house card\'s liberties say so.',
+      'The straight stoop toward the street that stood here before is gone.',
+    ] },
   { v: 1836, ts: '2026-10-16T00:25:57.118Z', date: 'Oct 15, 2026, 7:25 PM CT', title: '1638 Prairie\'s front fence rebuilt to its photograph\'s true scale', kind: 'fix',
     items: [
       'The gate piers, caps, hearts and finials in front of 1638 Prairie are rebuilt about 1.44 times their old size. They had been read through an earlier camera that stood too close to the house.',

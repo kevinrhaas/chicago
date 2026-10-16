@@ -1744,6 +1744,47 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"entrance_kit.stoop_v_m: the door at v {door_s} hangs off the stoop's landing "
                              f"(v {sv - half:.3f}-{sv + half:.3f}) where no terrace carries it on")
         door_kit["stoop_v_m"] = sv
+    # T-2530: a side stoop (1621's, from the Building Budget drawing): the landing runs along
+    # the front over `landing_v_m` (the front's own s), and the flight leaves its `run` end
+    # parallel to the front, `out_m` clear of the face so that it passes in front of a bay,
+    # behind a cheek on its street side (k07_entrances.Entrance._side_stoop)
+    if "side_stoop" in door_kit_in:
+        ss = door_kit_in["side_stoop"]
+        if not {"run", "landing_v_m", "out_m"} <= set(ss) <= {"run", "landing_v_m", "out_m", "cheek_above_nosing_m"} \
+                or ss["run"] not in ("right", "left"):
+            raise ParamError("entrance_kit.side_stoop takes run ('right' or 'left'), landing_v_m [from, to], "
+                             "out_m and optionally cheek_above_nosing_m")
+        if {"terrace", "balustrade", "stoop_v_m", "cheeks"} & set(door_kit_in):
+            raise ParamError("entrance_kit.side_stoop is its own stair: no terrace, balustrade, stoop_v_m or cheeks")
+        a, b = sorted(float(x) for x in ss["landing_v_m"])
+        o0, k = float(ss["out_m"]), 1.0 if ss["run"] == "right" else -1.0
+        cheek_t = float(ekit["parts"]["cheek"]["thickness_m"])
+        run = (risers - 1) * tread
+        far, near = (a, b) if k > 0 else (b, a)
+        foot = near + k * run
+        if not a < door_s < b:
+            raise ParamError(f"entrance_kit.side_stoop: the door at v {door_s} is not on its landing (v {a}-{b})")
+        if not 0 <= min(far - k * cheek_t, foot) or not max(far - k * cheek_t, foot) <= width:
+            raise ParamError(f"entrance_kit.side_stoop: the landing's cheek or the flight's foot (v {foot:.3f}) "
+                             f"leaves the {width} m front")
+        reach = o0 + float(val("stoop_width_m")) + cheek_t
+        if not reach < yard:
+            raise ParamError(f"entrance_kit.side_stoop: the cheek reaches {reach:.2f} m from the front, and the "
+                             f"public walk's inner edge is {yard:.2f} m (front_yard_m)")
+        for bay in (val("bays") or []):
+            if bay.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
+                continue
+            half = float(bay["plan"]["chord_m"]) / 2
+            b0, b1 = float(bay["s_m"]) - half, float(bay["s_m"]) + half
+            if b0 < b - 1e-9 and a + 1e-9 < b1:
+                raise ParamError(f"entrance_kit.side_stoop: the landing (v {a}-{b}) stands on the {bay['id']} bay")
+            lo, hi = sorted((near, foot))
+            if b0 < hi and lo < b1 and not float(bay["plan"]["rise_m"]) < o0:
+                raise ParamError(f"entrance_kit.side_stoop: the flight {o0} m out runs into the {bay['id']} bay, "
+                                 f"which stands {bay['plan']['rise_m']} m proud")
+        door_kit["side_stoop"] = {"run": ss["run"], "landing_v_m": [a, b], "out_m": o0,
+                                  **({"cheek_above_nosing_m": float(ss["cheek_above_nosing_m"])}
+                                     if "cheek_above_nosing_m" in ss else {})}
     # T-2313: chimney stacks from the K15 kit (data/components/prairie_1904/k15_chimneys.json),
     # each built by k15_chimneys.stack_solids in the house's own roof and joined into the K05
     # roof solid. The FORM (kit variant, flues, top) is `chimneys`; WHERE each stands is

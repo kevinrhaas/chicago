@@ -156,7 +156,9 @@ class Entrance(Opening):
         else:
             self._head_band([(s0, s1, head)], p["head_band"])
         kind = v["stair"]["kind"]
-        if kind == "straight":
+        if kind == "straight" and v["stair"].get("side"):
+            self._side_stoop()
+        elif kind == "straight":
             self._stoop()
         elif kind == "bowed":
             self._bowed()
@@ -401,6 +403,74 @@ class Entrance(Opening):
             self._terrace(q, side, deck + (p["cheek"]["thickness_m"] if cheeks else 0.0), deck, L, R)
         if st.get("balustrade"):
             self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R, c)
+
+    # T-2530: a side stoop (1621's, the Building Budget drawing's) ------------------------
+    def _side_stoop(self):
+        """A landing at the floor running along the wall from `landing_s_m[0]` to
+        `landing_s_m[1]` (run coordinates: s measured toward `run`), and from its near end a
+        flight of the same equal risers running on along the wall, parallel to it, `out_m`
+        clear of the face (a bay's projection) and `width_m` wide, down to grade. The
+        landing is faced to grade along its street edge and across its far end; a solid
+        cheek closes the flight's street side, its top raking with the nosings
+        `cheek_above_nosing_m` over them (the kit's `above_nosing_m` unless the stoop says),
+        and the flight's inner side is closed by its steps' ends. The foot opens toward
+        `run`."""
+        st, p = self.v["stair"], self.data["parts"]
+        sd = st["side"]
+        R = st["floor_m"]
+        n, r = risers(R, p["stair"])
+        g, w = st["going_m"], st["width_m"]
+        k = {"left": -1.0, "right": 1.0}[sd["run"]]
+        t0, t1 = sd["landing_s_m"]
+        o0 = sd.get("out_m", 0.0)
+        D = o0 + w
+        ch = p["cheek"]
+        t, hc = ch["thickness_m"], sd.get("cheek_above_nosing_m", ch["above_nosing_m"])
+        W = self.v["clear_width_m"] / 2
+        if not (t0 <= -W and W <= t1):
+            raise ValueError(f"the door (±{W:.3f} m) does not open on its side landing ({t0:.3f}..{t1:.3f} m)")
+        S = lambda q: k * q
+        X = lambda h: (k * h, 0.0, 0.0)          # a face turned along the run
+        self.quad("landing", [(S(t0), 0, 0), (S(t1), 0, 0), (S(t1), 0, D), (S(t0), 0, D)], Y)
+        self.probe(S((t0 + t1) / 2), 0.0, D / 2, ("landing",), "the landing")
+        if o0 > 0:     # the landing's near end, between the wall and the flight
+            self.quad("stair_end", [(S(t1), -R, 0), (S(t1), -R, o0), (S(t1), 0, o0), (S(t1), 0, 0)], X(1.0))
+            self.probe(S(t1), -R / 2, o0 / 2, ("stair_end",), "the landing's end beside the flight")
+        for i in range(1, n + 1):
+            a = t1 + (i - 1) * g
+            lo, hi = -i * r, -(i - 1) * r
+            self.quad("riser", [(S(a), lo, o0), (S(a), lo, D), (S(a), hi, D), (S(a), hi, o0)], X(1.0))
+            self.probe(S(a), (lo + hi) / 2, (o0 + D) / 2, ("riser",), f"riser {i}")
+            if i == n:
+                break
+            self.quad("tread", [(S(a), lo, o0), (S(a + g), lo, o0), (S(a + g), lo, D), (S(a), lo, D)], Y)
+            self.probe(S(a + g / 2), lo, (o0 + D) / 2, ("tread",), f"tread {i}")
+            self.quad("stair_end", [(S(a), -R, o0), (S(a + g), -R, o0), (S(a + g), lo, o0), (S(a), lo, o0)],
+                      (0.0, 0.0, -1.0))
+            self.probe(S(a + g / 2), (lo - R) / 2, o0, ("stair_end",), f"the end of step {i}")
+        F = t1 + (n - 1) * g
+        yF = -(n - 1) * r + hc
+        # the landing faced to grade along its street edge and across its far end
+        self.quad("stair_end", [(S(t0), -R, D), (S(t1), -R, D), (S(t1), 0, D), (S(t0), 0, D)], OUT)
+        self.quad("stair_end", [(S(t0), -R, 0), (S(t0), -R, D), (S(t0), 0, D), (S(t0), 0, 0)], X(-1.0))
+        self.probe(S((t0 + t1) / 2), -R / 2, D, ("stair_end",), "the landing's street face")
+        self.probe(S(t0), -R / 2, D / 2, ("stair_end",), "the landing's far end")
+        # the cheek along the flight's street side, its top `hc` over the nosings
+        prof = [(t1, -R), (F, -R), (F, yF), (t1, hc)]
+        self.quad("cheek", [(S(q), y, D + t) for q, y in prof], OUT)
+        self.quad("cheek", [(S(q), y, D) for q, y in prof], (0.0, 0.0, -1.0))
+        self.quad("cheek", [(S(t1), hc, D), (S(t1), hc, D + t), (S(F), yF, D + t), (S(F), yF, D)], (k * r, g, 0.0))
+        self.quad("cheek", [(S(F), -R, D), (S(F), -R, D + t), (S(F), yF, D + t), (S(F), yF, D)], X(1.0))
+        self.quad("cheek", [(S(t1), -R, D), (S(t1), -R, D + t), (S(t1), hc, D + t), (S(t1), hc, D)], X(-1.0))
+        mid = D + t / 2
+        top = (S(t1 + 0.15), hc - 0.15 * r / g, mid)
+        foot = (S(F - 0.15), hc - (F - 0.15 - t1) * r / g, mid)
+        self.sockets["handrail_street"] = [top, foot]
+        for pt in (top, foot):
+            self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
+        self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "run": sd["run"],
+                              "foot_s_m": round(S(F), 4), "foot_out_m": round((o0 + D) / 2, 4),
+                              "reach_out_m": round(D + t, 4)}
 
     # T-2409: the terrace and the turned balustrades ------------------------------------
     TERRACE_REVEAL_M = 0.02
