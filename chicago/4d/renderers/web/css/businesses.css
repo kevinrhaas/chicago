@@ -18,9 +18,9 @@
    mark at all, a landmark and a street take the inferred colour, and a house the
    register could place nowhere takes the conjectural one — the same colour the
    letter-list people wear in the People view, for the same reason. */
-.mark-anchored, .mark-street_only { border-color: color-mix(in srgb, var(--inf) 55%, transparent); color: var(--inf); }
-.mark-unplaceable { border-color: color-mix(in srgb, var(--con) 60%, transparent); color: var(--con); }
-.mark-premises { border-color: color-mix(in srgb, var(--doc) 55%, transparent); color: var(--doc); }
+.mark-anchored, .mark-street_only { border-color: color-mix(in srgb, var(--grade-inferred) 55%, transparent); color: var(--grade-inferred-ink); }
+.mark-unplaceable { border-color: color-mix(in srgb, var(--grade-reconstructed) 60%, transparent); color: var(--grade-reconstructed-ink); }
+.mark-premises { border-color: color-mix(in srgb, var(--grade-attested) 55%, transparent); color: var(--grade-attested-ink); }
 
 /* ------------------------------------------------------------- the card --- */
 
@@ -103,7 +103,7 @@
   font-size: 13px;
 }
 .biz-loc .legend-note { margin: 4px 0 0; font-size: 12px; }
-.biz-limit { color: var(--con); }
+.biz-limit { color: var(--grade-reconstructed-ink); }
 .biz-primary {
   color: var(--accent);
   font-size: 10.5px;
@@ -129,20 +129,20 @@
 .biz-claims li { font-size: 11.5px; }
 .biz-claims code { color: var(--ink-dim); word-break: break-all; }
 .biz-liberties li {
-  color: var(--con);
+  color: var(--grade-reconstructed-ink);
   font-size: 12.5px;
   line-height: 1.5;
 }
 .biz-dates { margin: 0 0 6px; font-size: 13px; }
 .biz-dates .grade-dot { margin-right: 6px; }
-.biz-review { color: var(--con); }
+.biz-review { color: var(--grade-reconstructed-ink); }
 
 /* A reconstructed house says so before it says anything else (T-1184). The lede of
    "Why this house is here" carries the reconstructed grade's own colour, so a reader who
    opened the card for a name sees the invention in the same glance as the name. */
 .biz-invented {
-  color: var(--con);
-  border-left: 2px solid var(--con);
+  color: var(--grade-reconstructed-ink);
+  border-left: 2px solid var(--grade-reconstructed);
   padding-left: 9px;
 }
 .biz-invented b { color: inherit; }
@@ -162,8 +162,8 @@
    the silence this block was added to break. */
 .biz-shortfall { margin: -6px 0 14px; }
 .biz-short {
-  color: var(--con);
-  border-left: 2px solid var(--con);
+  color: var(--grade-reconstructed-ink);
+  border-left: 2px solid var(--grade-reconstructed);
   padding-left: 9px;
 }
 

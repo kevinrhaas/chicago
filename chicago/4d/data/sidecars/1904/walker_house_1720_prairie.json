@@ -9,6 +9,14 @@
   "asset": "gltf/walker_house_1720_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-cgy-tribune-1898-prairie-widows",
+      "a16-ghm-blog-1720-tyrrell-house"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

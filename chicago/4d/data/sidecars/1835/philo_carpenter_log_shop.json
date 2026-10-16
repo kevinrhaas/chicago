@@ -12,6 +12,11 @@
   "asset": "gltf/philo_carpenter_log_shop__log_1832.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1832-07-18",
     "to": "1835-12-31",

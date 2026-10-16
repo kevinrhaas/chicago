@@ -9,6 +9,17 @@
   "asset": "gltf/hibbard_house_1701_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 5 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-cgy-1701-hibbard-engraving",
+      "a16-ghm-blog-1701-hibbard-front",
+      "a16-ghm-blog-1701-hibbard-rear",
+      "a16-ghm-blog-1701-sullivan-post",
+      "cgn-1701-hibbard-photo-wide"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

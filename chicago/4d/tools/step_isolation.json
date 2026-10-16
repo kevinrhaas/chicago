@@ -2788,6 +2788,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_grade_colors.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_haze_reach.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -4036,6 +4040,10 @@
       "wrote_ignored": []
     },
     "tools/glessner_opening_schedule.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/grade_structures.py": {
       "wrote": [],
       "wrote_ignored": []
     },
