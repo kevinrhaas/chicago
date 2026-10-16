@@ -1,9 +1,0 @@
-{
-  "title": "A checked format for each building's front-page summary",
-  "kind": "chore",
-  "items": [
-    "Nothing you can see changes yet. This lays the ground for the new building dossier, which will open on a short written summary of each notable house.",
-    "Each summary will be written by hand, and every fact on it will carry its grade: Attested, Inferred or Reconstructed.",
-    "Before a summary can reach you, a check refuses any fact with no grade, any Attested fact with no source, any line that runs too long, and any internal label left in the words."
-  ]
-}

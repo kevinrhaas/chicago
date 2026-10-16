@@ -12,6 +12,15 @@
   "asset": "gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-cgy-1638-gothic-photo",
+      "a16-cgy-1700-1706-townhouses",
+      "a16-ghm-blog-1700-1706-construction-1901"
+    ]
+  },
   "documented_range": {
     "from": "1868-01-01",
     "to": "1944-12-31",

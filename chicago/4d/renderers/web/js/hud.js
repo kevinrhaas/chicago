@@ -155,7 +155,7 @@ export function createHud({
     onConfidence?.(confidenceOn);
     if (announce) {
       say(confidenceOn
-        ? 'Confidence view — amber is inferred, dithered massing is a guess'
+        ? 'Confidence view — gold is Attested, silver Inferred, dithered bronze Reconstructed'
         : 'Confidence view off');
     }
     return confidenceOn;
@@ -187,11 +187,13 @@ export function createHud({
   // How many structures sit at each level, counted from the loaded registry.
   // A checkbox that says "Attested 12" and "Reconstructed 190" tells a visitor
   // the shape of this dataset before they have clicked anything, and it is a
-  // number this project should lead with rather than bury.
+  // number this project should lead with rather than bury. Counted by the
+  // STRUCTURE's grade (T-2686, AGENTS.md rule 12): pictured, recorded, or placed by
+  // our reconstruction — the stood-here grade only where a sidecar predates it.
   function paintCounts() {
     const tally = { attested: 0, inferred: 0, reconstructed: 0 };
     for (const record of registry?.values?.() ?? []) {
-      const grade = record?.sidecar?.documented_range?.confidence;
+      const grade = record?.sidecar?.grade?.value ?? record?.sidecar?.documented_range?.confidence;
       if (grade in tally) tally[grade] += 1;
     }
     for (const level of LEVELS) {

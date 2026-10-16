@@ -147,6 +147,15 @@ const TRANSFORMED = [
         + 'way it arrived); tools/test_changelog_mirror.mjs asserts the shim is what lands here and '
         + 'that it names the file it re-exports; and the smoke\'s What\'s-new leg loads the tab out of '
         + 'the published tree, which is the shim resolving or not.' },
+  { re: /^data\/prebuilt\/\d{4}\/frontage\.(?:json|bin\.gz)$/,
+    what: 'tools/prebuild_layers.mjs (run by publish.sh) writes the frontage layer\'s finished buffers, built '
+        + 'in Node by the page\'s own createFrontage, with a hash of every file they were built from and the '
+        + 'build id the page is stamped with, the buffer gzipped for the tree budget; the page inflates and '
+        + 'uploads them instead of building them (T-2677)',
+    gate: 'this file refuses a prebuild whose inputs no longer hash to its index, or whose buffer is not the '
+        + 'one its index hashed (prebuild_layers.mjs stale(), below); prebuild_layers.mjs --self-test '
+        + '(check.sh) proves two builds byte-identical and the page\'s replay of one equal to its own build; '
+        + '--parity reads the live page\'s buffers against it.' },
   { re: /^walk\/index\.html$/,
     what: 'publish.sh stamps the build commit and its Central-time date into the gate overlay',
     gate: 'tools/test_dev_preview.mjs asserts the stamp on the PUBLISHED form' },
@@ -267,6 +276,18 @@ if (unmapped.length) {
     + `so nothing checks what ships in them: ${unmapped.slice(0, 8).join(', ')}`
     + `${unmapped.length > 8 ? ` (+${unmapped.length - 8} more)` : ''}. Add the publish.sh copy rule `
     + 'to COPIES, or declare the transform and name the gate that measures its shipped form.');
+}
+// T-2677: a prebuilt layer ships only while it is current. Its index lists every
+// file it was built from by hash; the copies above prove the published copies equal
+// their sources, and this proves those sources are still what the buffers came from.
+// A mirror with no data/prebuilt/ is not stale — the page builds its own timber —
+// and the sandboxes that publish one file (test_ticket_mirror.mjs) have none.
+if (existsSync(path.join(SITE, 'data/prebuilt'))) {
+  const { stale } = await import('./prebuild_layers.mjs');
+  for (const why of stale(path.join(SITE, 'data/prebuilt'))) {
+    problems.push(`data/prebuilt is stale — ${why}. publish.sh rebuilds it; a stale prebuild would hand `
+      + 'the page timber built from other records or other code.');
+  }
 }
 if (problems.length) {
   console.error('published mirror FAILED:');

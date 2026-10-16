@@ -9,6 +9,13 @@
   "asset": "gltf/house_2017_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "a20-chicagology-2017-armour-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -121,10 +128,10 @@
           {
             "id": "r4",
             "role": "bay",
-            "storeys": 3,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
-              17.0,
+              16.5,
               -1.25,
               18.25,
               6.25

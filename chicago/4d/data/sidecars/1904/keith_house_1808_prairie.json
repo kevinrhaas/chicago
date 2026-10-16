@@ -11,6 +11,28 @@
   "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 16 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-gh-1800-block-looking-sw-c1888",
+      "a18-gh-1808-keith-field-front",
+      "a18-gh-1808-porch-1965",
+      "a18-gh-1812-1808-1800-mid1950s",
+      "a18-gh-florian-1948-northeast-overall",
+      "a18-gh-glessner-front-with-keith",
+      "a18-gh-nickel-1967-1812-1808-1800",
+      "a18-gho-house-under-construction-1887",
+      "a18-inland-architect-1888-02-glessner-plate",
+      "a18-inland-architect-1888-02-keith-plate",
+      "a18-owner-1800-block-looking-sw",
+      "a18-rba-ia-1888-keith-1808",
+      "a18-rba-reed-1941-prairie-north-from-1820",
+      "a18-rba-taylor-2135-glessner-ne",
+      "cgn-1804-landowner-1874-double-house",
+      "cgn-1808-inland-1888-keith-copy"
+    ]
+  },
   "documented_range": {
     "from": "1886-01-01",
     "to": "1968-12-31",
@@ -95,13 +117,13 @@
       "value": [
         3.9,
         3.9,
-        5.4
+        5.2
       ],
       "confidence": "inferred",
       "sources": [
         "inland_architect_1888_02_keith_plate"
       ],
-      "note": "T-2499: Read off the Inland Architect plate of February 1888 (photograph c. 1887), the nearly square-on view of the front: its 10.4 m front spans about 455 px between the corner piers at the principal storey, about 43.8 px/m, and the camera stands low, so readings high on the front are a little short and are rounded up. Floor 2 stands at the string course under the second storey's sills (about 5.8 m over grade on the plate), set at 5.9 m; floor 3 at the bow's moulded cap (about 9.8 m), so the bow's two storeys end on it; the third storey carries the six-light arcade (about 10.6 to 12.7 m) and the deep diaper band over it (about 13.0 to 14.9 m) up to the moulded course under the parapet, about 5.3 m short, set at 5.4 m. The wall head stands at 15.2 m and the front parapet's top at about 16.5 m, over Glessner's ridge (15.5 m in glessner_house__as_built_1887.glb) as the plate and a18-gh-glessner-front-with-keith show it. The principal storey is 4.4 m because the principal floor stays at its reconstructed 1.5 m where the plate reads about 2.0 m (principal_floor_m says why); the plate's own principal storey is about 3.8 m. Before T-2499 these were [4.0, 3.6, 3.3], a reconstruction under a hip roof whose eave stood near Glessner's. T-1883 raises the principal deck to 2.0 m and reduces its storey to 3.9 m; the accepted second/third floors and wall head remain at 5.9, 9.8 and 15.2 m."
+      "note": "T-2499: Read off the Inland Architect plate of February 1888 (photograph c. 1887), the nearly square-on view of the front: its 10.4 m front spans about 455 px between the corner piers at the principal storey, about 43.8 px/m, and the camera stands low, so readings high on the front are a little short and are rounded up. Floor 2 stands at the string course under the second storey's sills (about 5.8 m over grade on the plate), set at 5.9 m; floor 3 at the bow's moulded cap (about 9.8 m), so the bow's two storeys end on it; the third storey carries the six-light arcade (about 10.6 to 12.7 m) and the deep diaper band over it (about 13.0 to 14.9 m) up to the moulded course under the parapet, about 5.3 m short, set at 5.4 m. The wall head stands at 15.2 m and the front parapet's top at about 16.5 m, over Glessner's ridge (15.5 m in glessner_house__as_built_1887.glb) as the plate and a18-gh-glessner-front-with-keith show it. The principal storey is 4.4 m because the principal floor stays at its reconstructed 1.5 m where the plate reads about 2.0 m (principal_floor_m says why); the plate's own principal storey is about 3.8 m. Before T-2499 these were [4.0, 3.6, 3.3], a reconstruction under a hip roof whose eave stood near Glessner's. T-1883 raises the principal deck to 2.0 m and reduces its storey to 3.9 m; the accepted second/third floors and wall head remain at 5.9, 9.8 and 15.2 m. T-2680: the third storey is 5.2 m and the wall head 15.0 m. Three photographs read the crown through their own fitted cameras, on the front plane (heights over grade): Florian 1948, whose camera is fitted to the northernmost third-storey light as well as the pinnacles, puts the lattice's lower row at 15.25-15.53 m and its upper row at 15.67-15.94 m, 0.20-0.23 m under the model's 15.48-15.74 and 15.87-16.13; and every view (Florian, the c. 1888 view beside Glessner, the 1888 Keith plate) stands the lower row only 0.03-0.17 m over the top of the moulded course, where the model stood it 0.46 m over. The moulded course, the carved boss, the checker band and the head band read where they stood (course top about 15.0-15.1 m, head band 13.4-13.5 m), so the wall head comes down 0.2 m and the course is lifted the same 0.2 m to stay with the boss (wall_head.lift_m): the lattice, coping, pinnacles and deck stand 0.2 m lower, with 0.13 m of the street cornice box left between the course and the lattice's foot. The parapet's top is now about 16.3 m, still over Glessner's ridge."
     },
     "wall_thickness_front_m": {
       "value": 0.45,
@@ -148,10 +170,11 @@
         ],
         "stops_m": {
           "north": 0.34
-        }
+        },
+        "lift_m": 0.2
       },
       "confidence": "reconstructed",
-      "note": "T-2499: the moulded stone course the plate draws between the diaper band and the parapet, from the K10 kit's moulded_stone cornice (data/components/prairie_1904/k10_cornices.json), projecting 0.35 m (eave_overhang_m). The flat top carries no cresting and no dormer, so both are gone with the hip (T-2316's bracketed timber cornice and T-2326's pedimented dormer were on that reconstructed roof). The clear_of span stays: Glessner's south gable against the party wall. Shape only; its profile and carving are T-1883's. T-2679: the course stops 0.34 m short of the north-east corner and is capped there, where Florian 1948 and the c. 1888 view beside Glessner show it dying against the carved boss on the corner (stone_finish.pinnacles.boss)."
+      "note": "T-2499: the moulded stone course the plate draws between the diaper band and the parapet, from the K10 kit's moulded_stone cornice (data/components/prairie_1904/k10_cornices.json), projecting 0.35 m (eave_overhang_m). The flat top carries no cresting and no dormer, so both are gone with the hip (T-2316's bracketed timber cornice and T-2326's pedimented dormer were on that reconstructed roof). The clear_of span stays: Glessner's south gable against the party wall. Shape only; its profile and carving are T-1883's. T-2679: the course stops 0.34 m short of the north-east corner and is capped there, where Florian 1948 and the c. 1888 view beside Glessner show it dying against the carved boss on the corner (stone_finish.pinnacles.boss). T-2680: the course stands 0.2 m higher than the eave's soffit (lift_m), so it stays level with the boss where the three street photographs show it while the wall head over it came down 0.2 m (storey_heights_m says why); the cornice box stands on the course's top."
     },
     "roof_form": {
       "value": "flat",

@@ -9,6 +9,21 @@
   "asset": "gltf/kimball_house_1801_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 9 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-cgy-1801-kimball-1945",
+      "a18-cgy-1801-kimball-early",
+      "a18-chicago-and-its-makers-1929-kimball",
+      "a18-gh-kimball-exterior-2013",
+      "a18-gho-simmerling-kimball-1994",
+      "a18-kimball-habs-photo-01",
+      "a18-kimball-habs-photo-02",
+      "a18-rba-taylor-1801-kimball-c1895",
+      "dw-rb-architects-club-house-kimball-1801"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

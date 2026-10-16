@@ -1066,6 +1066,14 @@ function factsHtml(s, firms = [], fromSign = false) {
     rows.push(`<div class="fact${wide}"><dt>${escapeHtml(dt)}</dt><dd>${value}${extra}</dd></div>`);
   };
 
+  // T-2686, AGENTS.md rule 12: the structure's own grade, first, because it is the
+  // one word for the whole building — attested when a picture of it exists,
+  // inferred when maps or records say it stood and nothing shows it, reconstructed
+  // when our reconstruction of the town placed it. Every row below keeps its own.
+  if (GRADES.has(s.grade?.value)) {
+    const word = s.grade.value[0].toUpperCase() + s.grade.value.slice(1);
+    row('Grade', `${word}. ${s.grade.why ?? ''}`.trim(), s.grade.value, 'grade');
+  }
   // A phase's end can be an alteration, not demolition. Where the record carries
   // a separate survival status, show both rather than presenting a false lifespan.
   row(attrs.present_status ? 'Modeled phase' : 'Standing', standingWords(s.documented_range),

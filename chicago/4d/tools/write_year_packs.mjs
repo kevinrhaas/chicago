@@ -87,6 +87,9 @@ export function yearFiles(files, year, owners) {
     if (!rel.startsWith('data/')) return false;
     const side = rel.match(/^data\/sidecars\/(\d{4})\//)?.[1];
     if (side) return side === year;
+    // A year's prebuilt layers (T-2677) are that year's alone, like its sidecars.
+    const pre = rel.match(/^data\/prebuilt\/(\d{4})\//)?.[1];
+    if (pre) return pre === year;
     if (/^data\/gltf\/.+\.(glb|ktx2|bin)$/.test(rel)) {
       const o = owners.get(rel);
       return !o || o.has('*') || o.has(year);
@@ -184,7 +187,8 @@ function selfTest() {
     'js/changelog.js', 'tickets.json', 'index.html', 'data/scenes/1835.json', 'data/residents/a.json',
     'data/sidecars/1835/a.json', 'data/sidecars/1904/b.json', 'data/terrain/epochs/e1834.json',
     'data/gltf/a__1835.glb', 'data/gltf/b__1904.glb', 'data/gltf/terrain__e1834.glb', 'data/gltf/loose.glb',
-    'data/liberties.json', 'prairie-1904/index.html', 'walk/js/scene-loader.js'];
+    'data/liberties.json', 'prairie-1904/index.html', 'walk/js/scene-loader.js',
+    'data/prebuilt/1835/frontage.json', 'data/prebuilt/1835/frontage.bin.gz'];
   const text = {
     'data/sidecars/1835/a.json': '{"asset":"gltf/a__1835.glb"}',
     'data/sidecars/1904/b.json': '{"asset":"gltf/b__1904.glb"}',
@@ -200,6 +204,8 @@ function selfTest() {
   ok(y1835.has('data/gltf/terrain__e1834.glb'), 'a terrain GLB is in every pack');
   ok(y1835.has('data/gltf/loose.glb'), 'a GLB nothing names stays in (missing one breaks offline)');
   ok(!y1835.has('data/sidecars/1904/b.json') && y1835.has('data/sidecars/1835/a.json'), 'sidecars split by year');
+  ok(y1835.has('data/prebuilt/1835/frontage.bin.gz') && !yearFiles(files, '1904', owners).includes('data/prebuilt/1835/frontage.bin.gz'),
+    'a year\'s prebuilt layers are in its own pack and no other (T-2677)');
   ok(y1835.has('1835/index.html') && !y1835.has('1904/index.html'), 'each pack holds its own door only');
   ok(y1835.has('js/changelog.js') && y1835.has('build.json'), 'the network-first files are in the pack for offline');
   ok(!y1835.has('tickets.json') && !y1835.has('prairie-1904/index.html') && !y1835.has('index.html'),

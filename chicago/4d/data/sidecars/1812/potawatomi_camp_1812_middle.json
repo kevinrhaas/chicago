@@ -10,6 +10,11 @@
   "asset": "gltf/potawatomi_camp_1812_middle__camp_1812.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1812-08-12",
     "to": "1812-08-16",

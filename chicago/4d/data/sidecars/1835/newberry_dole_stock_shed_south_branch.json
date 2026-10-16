@@ -7,6 +7,11 @@
   "asset": "gltf/newberry_dole_stock_shed_south_branch__works_1834.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
+  "grade": {
+    "value": "reconstructed",
+    "why": "Placed by our reconstruction of the town; no source pictures or records it here.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1834-01-01",
     "to": "1835-12-31",

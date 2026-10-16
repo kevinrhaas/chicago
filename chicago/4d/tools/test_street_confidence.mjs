@@ -191,6 +191,16 @@ ok(shipped({ surface_confidence: 'attested', wear_confidence: 'attested' }) === 
 ok(track({ geometry_confidence: 'attested' }) === INVENTED,
   'a record with NO surface or wear grade grades its track invented, not attested');
 
+// T-2686. The street's own GRADE goes in front of the line's: a street the 1830 plat or an
+// 1834 survey draws was there at its platted width, whatever control its line was carried
+// onto later. It moves the ribbon both ways, and it never touches the track.
+ok(shipped({ ...rec('reconstructed', 'attested', 'attested'), grade: { value: 'attested' } }) === ATTESTED,
+  'a street the plat draws stands attested even where its line is derived (T-2686)');
+ok(shipped({ ...rec('attested', 'attested', 'attested'), grade: { value: 'reconstructed' } }) === INVENTED,
+  '  ...and a street graded reconstructed dithers out whatever its line says');
+ok(track({ ...rec('reconstructed', 'inferred', 'reconstructed'), grade: { value: 'attested' } }) === INVENTED,
+  '  ...while the grade never reaches the track, which stays the surface and the wear');
+
 /* ---- and what the shipped town does ------------------------------------ */
 
 const index = JSON.parse(readFileSync(INDEX, 'utf8'));
@@ -235,6 +245,9 @@ ok(streets.length - trodden.length === 51,
   + ` — ${streets.length - trodden.length}`);
 ok(streets.filter((r) => shipped(r) === INVENTED).every((r) => r.geometry_confidence === 'reconstructed'),
   'and the only ribbons still graded invented are the ones whose LINE is invented');
+const drawn = streets.filter((r) => r.grade?.value === 'attested');
+ok(drawn.length >= 77 && drawn.every((r) => shipped(r) === ATTESTED),
+  `every street the 1830 plat or an 1834 survey draws stands attested (T-2686) — ${drawn.length} of ${streets.length}`);
 
 const byLevel = { attested: 0, inferred: 0, reconstructed: 0 };
 for (const r of streets) {
@@ -242,8 +255,8 @@ for (const r of streets) {
 }
 console.log(`  note  ribbons by level — attested ${byLevel.attested}, inferred ${byLevel.inferred},`
   + ` reconstructed ${byLevel.reconstructed}.`);
-console.log('        Hiding `inferred` drops ' + streets.filter((r) => shipped(r) === LEVEL.inferred)
-  .map((r) => r.id).join(', ') + ' and leaves the platted town standing.');
+console.log('        Hiding `inferred` drops ' + (streets.filter((r) => shipped(r) === LEVEL.inferred)
+  .map((r) => r.id).join(', ') || 'nothing') + ' and leaves the platted town standing.');
 
 console.log(failed ? `\n\x1b[31mSTREET CONFIDENCE FAIL\x1b[0m — ${failed} check(s)` : '\n\x1b[32mSTREET CONFIDENCE PASS\x1b[0m');
 process.exit(failed ? 1 : 0);

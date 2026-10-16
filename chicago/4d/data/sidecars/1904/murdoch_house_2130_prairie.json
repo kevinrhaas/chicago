@@ -9,6 +9,14 @@
   "asset": "gltf/murdoch_house_2130_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a20-chicagology-2140-photo-a",
+      "a20-glessner-vanosdel-2140-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -46,11 +54,11 @@
       ],
       [
         9.75,
-        5.5
+        7.0
       ],
       [
         0.0,
-        5.5
+        7.0
       ]
     ],
     "confidence": "inferred",
@@ -88,7 +96,7 @@
               0.0,
               0.0,
               9.75,
-              5.5
+              7.0
             ],
             "from": "s35fp-2130-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 68% of its fill"
           },
@@ -107,32 +115,19 @@
           },
           {
             "id": "r3",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              2.5,
-              5.5,
-              7.25,
-              7.0
-            ],
-            "from": "s35fp-2130-b1 p2 (main, stone), rectangle 3 of that part; the part's rectangles cover 68% of its fill"
-          },
-          {
-            "id": "r4",
             "role": "range",
             "storeys": 1,
             "roof": "flat",
             "rect": [
               -15.0,
               1.25,
-              -5.25,
+              -2.25,
               5.75
             ],
             "from": "s35fp-2130-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill"
           },
           {
-            "id": "r5",
+            "id": "r4",
             "role": "range",
             "storeys": 1,
             "roof": "flat",
@@ -145,25 +140,12 @@
             "from": "s35fp-2130-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill"
           },
           {
-            "id": "r6",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -5.25,
-              3.5,
-              -2.25,
-              5.75
-            ],
-            "from": "s35fp-2130-b1 p3 (range, brick), rectangle 3 of that part; the part's rectangles cover 77% of its fill"
-          },
-          {
-            "id": "r7",
+            "id": "r5",
             "role": "bay",
             "storeys": 2,
             "roof": "flat",
             "rect": [
-              10.25,
+              9.75,
               3.25,
               14.25,
               6.25
@@ -181,7 +163,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2130-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 68% of its fill; s35fp-2130-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 68% of its fill; s35fp-2130-b1 p2 (main, stone), rectangle 3 of that part; the part's rectangles cover 68% of its fill; s35fp-2130-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s35fp-2130-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill; s35fp-2130-b1 p3 (range, brick), rectangle 3 of that part; the part's rectangles cover 77% of its fill; s35fp-2130-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 59% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2130-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 68% of its fill; s35fp-2130-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 68% of its fill; s35fp-2130-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s35fp-2130-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill; s35fp-2130-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 59% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -196,7 +178,7 @@
         ],
         "roof_pitch_deg": 40,
         "mansard_lower_m": 3.0,
-        "front_bays": 2,
+        "front_bays": 3,
         "entrance": "south",
         "side_spacing_m": 2.6,
         "chimneys": 2,
@@ -210,7 +192,7 @@
             "above_eave_m": 2.6,
             "cap_m": 5.0,
             "at": [
-              12.25,
+              12.0,
               4.75
             ]
           }
