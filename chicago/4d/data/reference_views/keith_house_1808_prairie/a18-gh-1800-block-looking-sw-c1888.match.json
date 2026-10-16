@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1800-block-looking-sw-c1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
+  "glb_sha256": "c79a9c8d5112ebfb8f0306a7c128cbe90840ccc06ba5f52fb7f7ac1585aa60f8",
   "camera_sha256": "494643f7955b634df54b0ca595da48f169788e2a9da2f400d49a7c70ff20afff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-side-by-side.jpg",
   "verdict": "differs",
@@ -16,12 +16,12 @@
       "status": "fixed"
     },
     {
-      "what": "T-2565 re-carved the loggia from the 1888 plate and the 1965 view (paired capitals, a level balcony with its finial, rolled cheek feet, taller second-storey bow lights); not yet compared at this view's scale.",
-      "status": "open"
+      "what": "T-2565's loggia, compared at this view's scale (T-2577): Glessner's front and the tree in front of 1808 hide the loggia; only the top of the balcony's south pedestal shows, so this view cannot judge its carving or columns.",
+      "status": "not shown"
     },
     {
-      "what": "T-2566 re-laid the granite from the 1888 front (alternating courses, a staggered checker band, stepped head bands); not yet compared at this view's scale.",
-      "status": "open"
+      "what": "T-2566's granite, compared at this view's scale (T-2577): the tree's crown covers the front's checker band and courses and Glessner's roof hides the bow; the north return's courses are T-2564's item above.",
+      "status": "not shown"
     },
     {
       "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
@@ -44,7 +44,11 @@
       "status": "not shown"
     },
     {
-      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "A cowl ventilator stands on the deck behind the lattice, over the north return (seen above the parapet left of the rear stack); it is not built. T-2578 owns it, with the 1887-89 views that show it.",
       "status": "open"
     }
   ],
