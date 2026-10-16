@@ -1,9 +1,0 @@
-{
-  "title": "A stalled jump says where it stopped, and offers two ways on",
-  "kind": "fix",
-  "items": [
-    "If the town fails to load, the arrival now reads \"The jump stalled somewhere around 1992.\", using the year the ticker had reached.",
-    "TRY AGAIN reloads your destination; BACK TO THE OBSERVATORY takes you home to pick another.",
-    "What failed to load is folded away under \"Details for your teacher\", so the screen no longer shows file addresses or error text."
-  ]
-}

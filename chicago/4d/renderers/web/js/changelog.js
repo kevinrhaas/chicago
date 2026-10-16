@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1891, ts: '2026-10-16T21:58:45.833Z', date: 'Oct 16, 2026, 4:58 PM CT', title: 'A stalled jump says where it stopped, and offers two ways on', kind: 'fix',
+    items: [
+      'If the town fails to load, the arrival now reads "The jump stalled somewhere around 1992.", using the year the ticker had reached.',
+      'TRY AGAIN reloads your destination; BACK TO THE OBSERVATORY takes you home to pick another.',
+      'What failed to load is folded away under "Details for your teacher", so the screen no longer shows file addresses or error text.',
+    ] },
   { v: 1890, ts: '2026-10-16T21:52:42.846Z', date: 'Oct 16, 2026, 4:52 PM CT', title: 'Keith\'s rooftop lattice sits down on its moulded course', kind: 'fix',
     items: [
       'At 1808 Prairie, the pierced lattice, its coping and the corner pinnacles now stand 0.2 m lower, seated on the moulded course just above the carved boss.',
