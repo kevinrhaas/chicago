@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-gh-1800-block-looking-sw-c1888",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-gh-1800-block-looking-sw-c1888.jpg",
+  "image_px": [
+    1733,
+    1376
+  ],
+  "principal_px": [
+    996.159289290618,
+    955.1583839342821
+  ],
+  "focal_px": 2030.1370352222407,
+  "eye": [
+    34.82354424470775,
+    42.638504117926416,
+    1.7
+  ],
+  "yaw_deg": 205.64003149206349,
+  "basis_right_up_forward": [
+    [
+      -0.8988117248272266,
+      0.4314108219380024,
+      0.07760274497647052
+    ],
+    [
+      0.06996123496618926,
+      -0.033579928973849496,
+      0.9969843599435835
+    ],
+    [
+      -0.43271573684708026,
+      -0.9015304160619809,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 9.11px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 0.0, 0.0], [18.0, 10.4, 0.0], [18.0, 0.0, 15.2], [18.0, 10.4, 15.2], [18.0, 0.17, 16.44], [18.0, 10.23, 16.44]]; pixels [[865.0, 1015.0], [1042.0, 1060.0], [890.0, 342.0], [1129.0, 208.0], [892.0, 291.0], [1131.0, 145.0]]; projected [[844.94, 1019.1], [1056.56, 1055.11], [897.32, 346.2], [1122.45, 208.61], [904.54, 289.32], [1123.19, 142.66]]. Early low stone boundary is visible; stone carriage blocks at the curb belong to the street context. Monochrome colour not shown."
+}

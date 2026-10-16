@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1841, ts: '2026-10-16T02:41:37.040Z', date: 'Oct 15, 2026, 9:41 PM CT', title: '1808 Prairie gains its pierced stone parapet and Ionic entrance', kind: 'improvement',
+    items: [
+      'The Keith house now has an open stone lattice, corner pinnacles, checkerwork and upper colonnettes, with paired Ionic capitals, carved balcony details and curved stair cheeks.',
+      'The south bow gains basement lights, tall transom windows and granite courses. A low stone boundary replaces the later iron fence; a separate pale granite tint preserves Glessner’s colour.',
+      'Historical comparisons and remaining photographic differences are recorded; this is a refinement, with photographic acceptance still open.',
+    ] },
   { v: 1840, ts: '2026-10-16T02:21:42.859Z', date: 'Oct 15, 2026, 9:21 PM CT', title: '1638 Prairie\'s entrance board cut as open fretwork, as photographed', kind: 'improvement',
     items: [
       'Under the tower at 1638 Prairie, the board over the trefoil arch is no longer solid: each corner is open fretwork, a ring round the quatrefoil tied down to the arch\'s point with a small round eye through the tie, and the porch\'s shade showing through the openings beside it.',

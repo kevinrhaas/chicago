@@ -1,0 +1,43 @@
+{
+  "structure_id": "keith_house_1808_prairie",
+  "library_image": "a18-gh-glessner-front-with-keith",
+  "photo": "../../sources/assets/inland_architect_1888_02_keith/a18-gh-glessner-front-with-keith.jpg",
+  "image_px": [
+    1950,
+    1501
+  ],
+  "principal_px": [
+    584.1494902039054,
+    1139.3201043626443
+  ],
+  "focal_px": 1508.3716212594957,
+  "eye": [
+    38.25274089087289,
+    17.46663782777562,
+    1.7
+  ],
+  "yaw_deg": 265.8128385693074,
+  "basis_right_up_forward": [
+    [
+      -0.07300949224848473,
+      0.9972594317401401,
+      -0.01196828504637445
+    ],
+    [
+      -0.0008738610024204104,
+      0.011936340054628096,
+      0.999928377511634
+    ],
+    [
+      -0.9973308630582766,
+      -0.07301472174454342,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    1,
+    -0.7,
+    1.4
+  ],
+  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 23.01px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 10.42, 0.0], [18.0, 32.9752, 0.0], [18.0, 10.42, 8.4856], [18.0, 32.9752, 8.4856], [18.0, 10.4, 16.44], [15.2, 10.4, 16.44]]; pixels [[198.48993288590606, 1270.553691275168], [1930.3691275167787, 1265.1006711409395], [194.1275167785235, 599.8322147651007], [1919.4630872483222, 600.9228187919464], [119.96644295302013, 98.15436241610739], [232.2986577181208, 196.30872483221478]]; projected [[181.57, 1267.94], [1926.28, 1257.76], [174.17, 650.05], [1918.25, 586.49], [165.81, 70.93], [228.63, 197.69]]. Only a narrow Keith north-front slice is visible; compare that slice and its height relative to Glessner, not its occluded bow or stair. Monochrome colour not shown."
+}
