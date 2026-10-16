@@ -83,7 +83,8 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
-import { resolveSharpness, sharpnessGuess } from './sharpness.js';
+import { resolveSharpness } from './sharpness.js';
+import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
 
@@ -1433,9 +1434,13 @@ window.__chicago4d = api;
 document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
+// T-2559: the forecast's tier follows the device profile a previous visit cached,
+// before this visit re-reads it in boot(); a first visit forecasts the platform default.
+const bootProfile = cachedDeviceProfile(bootStorage, null);
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
-  detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
+  detail: DETAIL[readDetailPreference()] ? readDetailPreference()
+    : (bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }).detail : (prefersTouch() ? 'light' : 'full')),
   build: document.getElementById('gate-build')?.textContent || VERSION,
   storage: bootStorage,
 };
@@ -1492,12 +1497,22 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  // T-2559: read what the device offers and choose per device — see
+  // device-profile.js. Before the scene is fetched, so a weak machine's tier
+  // decides what is downloaded; a repeat visit reads its cached profile and pays
+  // no benchmark. The touch screen still picks the controls and `lowSpec`; the
+  // profile picks only the defaults below, and a stored choice beats both.
+  const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
+    search: location.search });
+  api.device = device;
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
-  let detailLevel = readDetailPreference() || (coarse ? 'light' : 'full');
-  // Image sharpness for a visitor who never chose one: Low on a phone, Medium
-  // on a desktop (T-2110 — see sharpness.js).
-  const qualityGuess = sharpnessGuess(coarse);
+  let detailLevel = readDetailPreference() || device.choice.detail;
+  api.bootDetail = detailLevel;
+  // Image sharpness for a visitor who never chose one: the profile's choice —
+  // on a standard device the T-2110 default, Low on a phone and Medium on a
+  // desktop (see sharpness.js).
+  const qualityGuess = device.choice.sharpness;
   const detailOpts = () => ({ detail: detailLevel });
 
   /**
@@ -2808,6 +2823,7 @@ async function boot() {
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
     resolvedQuality: qualityGuess,
+    device,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -3093,7 +3109,7 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, resolveSharpness(hud.settings.quality, coarse)));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, resolveSharpness(hud.settings.quality, coarse, qualityGuess)));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);

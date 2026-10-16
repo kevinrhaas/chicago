@@ -76,6 +76,9 @@ step "Glessner's granite is retinted to grey-greige, and nothing else is (T-2446
 step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
   node tools/check_sharpness_default.mjs
 
+step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
+  node tools/check_device_profile.mjs
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 

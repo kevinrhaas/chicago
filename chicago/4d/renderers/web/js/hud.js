@@ -9,6 +9,7 @@
  * looking at, and it is styled as the primary one for that reason.
  */
 
+import { describeProfile } from './device-profile.js';
 import { markSeen, renderWhatsNew, unseenCount } from './whatsnew.js';
 import { isTyping } from './controls/pointerlock.js';
 import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSystem } from './units.js';
@@ -83,7 +84,7 @@ function store(key, value) {
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
-  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, structureVersion = null,
+  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, device = null, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
   const badgeYear = root.querySelector('.badge-year');
@@ -541,6 +542,14 @@ export function createHud({
       onSetting?.('detail', settings.detail);
       store(SET_KEY, JSON.stringify(settings));
     });
+  }
+
+  // T-2559: what the device profile chose, and that a choice above beats it.
+  const deviceLine = $('device-line');
+  if (deviceLine && device) {
+    deviceLine.textContent = `${describeProfile(device)} A choice you make above overrides it.`;
+    deviceLine.title = device.why || '';
+    deviceLine.hidden = false;
   }
 
   const qual = $('s-quality');
