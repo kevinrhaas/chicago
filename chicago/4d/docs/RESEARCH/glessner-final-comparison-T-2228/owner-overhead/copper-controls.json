@@ -1,0 +1,102 @@
+{
+  "not_a_reading": "Re-reading of owner aerial supplied in this session; not a new witness or survey.",
+  "source_sha256": "500505fbd6ed9115d6f2348026c9396e068ef15400498f63424f4c2c72894f30",
+  "camera_sha256": "0cc958a82514c03e0d00bc8974b0a04c817d0782f4a33864389bcea8617780c4",
+  "method": "Ray from frozen pinhole camera through each manually picked boundary pixel, intersected with retained north roof plane. Plane z=a*x+b*y+c uses metres in building frame.",
+  "host_plane_abc": [
+    0,
+    0.6922499128148726,
+    -2.139553896504548
+  ],
+  "points": [
+    {
+      "pixel": [
+        692,
+        228
+      ],
+      "intersection_WS_ft": [
+        54.83328546684254,
+        22.054553749878444
+      ],
+      "host_z_ft": 28.939696856593674
+    },
+    {
+      "pixel": [
+        720,
+        207
+      ],
+      "intersection_WS_ft": [
+        49.65882884940207,
+        18.828639108129494
+      ],
+      "host_z_ft": 31.17283598609217
+    },
+    {
+      "pixel": [
+        840,
+        204
+      ],
+      "intersection_WS_ft": [
+        28.115742010133744,
+        18.60030091892294
+      ],
+      "host_z_ft": 31.330903077662867
+    },
+    {
+      "pixel": [
+        851,
+        217
+      ],
+      "intersection_WS_ft": [
+        26.21558313640162,
+        20.64880687483018
+      ],
+      "host_z_ft": 29.912825008285207
+    },
+    {
+      "pixel": [
+        850,
+        260
+      ],
+      "intersection_WS_ft": [
+        26.62652671335789,
+        27.36877385343739
+      ],
+      "host_z_ft": 25.260928453225542
+    },
+    {
+      "pixel": [
+        692,
+        262
+      ],
+      "intersection_WS_ft": [
+        55.06498205256436,
+        27.382500605029627
+      ],
+      "host_z_ft": 25.25142611063276
+    }
+  ],
+  "chosen_outline_WS_ft": [
+    [
+      55,
+      22
+    ],
+    [
+      50,
+      19
+    ],
+    [
+      26.5,
+      19
+    ],
+    [
+      26.5,
+      31
+    ],
+    [
+      55,
+      31
+    ]
+  ],
+  "limits": "Approximately +/-1 ft reconstruction. Potentially orthorectified aerial and retained reconstructed eave heights prevent survey precision. The final lower edge follows actual roof eave, not inferred pixel heights. Modern patina is not a 1904 color control."
+}

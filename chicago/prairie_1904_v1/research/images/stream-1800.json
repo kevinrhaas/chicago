@@ -214,7 +214,7 @@
    "1800 S. Prairie Avenue"
   ],
   "streetscape": false,
-  "view": "interior",
+  "view": "rear",
   "facing": "north",
   "camera_position": "inside the south courtyard",
   "date": "c. 1923 (copied for HABS)",
@@ -236,19 +236,19 @@
   },
   "verified": "viewed",
   "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-05); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
-  "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views. T-2228 correction,2026-10-15: this is the exterior courtyard, not a furnished interior. The HABS bibliography identifies The Story of a House as an unpublished typescript; the earlier wording published in1923 is not evidence of publication or a basis for clearing the copied photograph rights.",
   "measurements": [],
   "evidence_review": {
-   "ticket": "T-2198",
+   "ticket": "T-2228",
    "audit_number": 118,
-   "reviewed_on": "2026-10-08",
+   "reviewed_on": "2026-10-15",
    "review_state": "visually inspected",
    "target_date": "1904-07-01",
    "phase": "after target year",
    "date_basis": "c. 1923 (copied for HABS); distinguish design date from reproduction date; neither proves construction.",
-   "evidence_role": "interior context",
-   "geometry_use": "excluded",
-   "reason": "Interior reference excluded from exterior/courtyard geometry.",
+   "evidence_role": "exterior reference",
+   "geometry_use": "context only",
+   "reason": "Actual courtyard photograph re-viewed. Supersedes T-2198 interior exclusion: courtyard is within the exterior audit. Copied-photograph rights remain unresolved; use cleared HABS measured sheets and separately licensed photographs for geometry, with chronology stated. No new rights clearance or1904dating is asserted.",
    "source_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
    "family": null,
    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
@@ -3051,8 +3051,8 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0W8l_hxJ6n-OD0Pm1I3no0LL8nG6Wc5cuPM8tFyfjCgwZFhqNKqJ1V9mA8aM0nMrH9VLEY_e63y-eARCWVNYNWF1ZuDZIKoTWPlqlf-ROIec_L44cPx6NAyLJwU_Gk8w9-VxYPAIWMQAPxR83FXJF-ca7gNHUnDwQFnpfx6W16n2M07UcFqnIBOUo/s1800/Cornell%20rear.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Albumen print c. 1887 (public domain by age); reproduced by Glessner House Museum",
+  "rights": "public domain",
+  "rights_basis": "Cornell catalog ss:3874294, accession15/5/3090.00156, explicitly places collection images in the public domain; direct catalog-linked scan viewed2026-10-15 and confirmed the same exposure as this museum reproduction.",
   "local": {
    "display": "research/images/files/a18-gh-cornell-glessner-rear-c1887.jpg",
    "display_bytes": 294513,
@@ -3069,7 +3069,7 @@
   },
   "verified": "viewed",
   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
-  "notes": "The west (alley) end of the 18th Street front: the stable gable with hay door and small ventilator cupola, carriage doors, arched opening, utility pole; dirt street. Shows the service wing that bounds the courtyard on the west — essential for the 1904 alley/stable massing.",
+  "notes": "The west (alley) end of the 18th Street front: the stable gable with hay door and small ventilator cupola, carriage doors, arched opening, utility pole; dirt street. Shows the service wing that bounds the courtyard on the west — essential for the 1904 alley/stable massing. T-2228: official Cornell catalog https://digital.library.cornell.edu/catalog/ss:3874294 recovered2026-10-15 (Detail, Glessner House, ca.1887; accession15/5/3090.00156). Direct scan is the same exposure, with Cornell stamp and number352. Rights statement now independently checked. West upper/lower openings are used for the owner-requested positioning comparison; no new audit number or independent-witness count.",
   "measurements": [],
   "evidence_review": {
    "ticket": "T-2198",
@@ -3094,7 +3094,7 @@
     "creator": "Unknown photographer",
     "date": "c. 1887",
     "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
-    "rights": "unknown — link only",
+    "rights": "public domain",
     "title": "Glessner House stable/coach-house end on 18th Street, c. 1887 (Cornell A. D. White collection; as reproduced by the museum)"
    }
   }

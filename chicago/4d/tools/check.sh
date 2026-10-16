@@ -55,6 +55,15 @@ step "The image gate refuses to close a building that does not match its picture
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+# T-2604. A spread flora pass walks its lattice on a worker (jobs/lattice-kernel.js)
+# and a one-frame pass walks it in flora.js's own `scatter`; the two are separate
+# texts, so this slices flora.js and holds them to the same slots, bit for bit.
+step "The flora lattice walk on a worker hands the deal the slots the in-frame walk does (T-2604)" \
+  node tools/check_lattice_kernel.mjs
+
+selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
+  node tools/check_lattice_kernel.mjs --self-test
+
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
@@ -66,6 +75,9 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
+
+selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
+  node tools/prebuild_layers.mjs --self-test
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -214,6 +226,8 @@ step "Glessner carriage leaves: relief, swing and grain" \
   python3 tools/test_glessner_porte.py
 step "Glessner courtyard treads, landing and rounded terminal stay solid" \
   python3 tools/test_glessner_terrace.py
+step "Glessner entry retains its cutback, single threshold and recessed carving" \
+  python3 tools/test_glessner_entry.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
@@ -3653,6 +3667,16 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
+
+# T-2561: a kept year is served from the device, so its pack has to list exactly
+# what ships — every entry the file at its hash — or an offline visitor gets a
+# file the site no longer has. The self-test holds who is in which year's pack,
+# the update diff the page fetches by, and the one-line kill switch.
+selftest "year packs: membership, the update diff and the kill switch (T-2561)" \
+  node tools/write_year_packs.mjs --self-test
+
+step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
+  node tools/write_year_packs.mjs --check
 
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with

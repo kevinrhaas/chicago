@@ -5481,3 +5481,31 @@ round trip is not a claim that other seasons meet July's scene budget.
 [Runtime changes and complete evidence](RESEARCH/glessner-performance-T-2227/README.md).
 Five historical comparisons still read `differs`; T-2228 owns the remaining visible
 photographic corrections. This gate clears their existing performance blocker only.
+
+
+## T-2228 — Glessner photographic correction pass (2026-10-15)
+
+The north cone/connector and courtyard dormer host intersections are rebuilt,
+with section-bounded eaves, dormer widths, finials and basement grille. East-court
+leaders clear the revised openings. The terrace cap loses its flat shelf but
+still overlaps the post in projection. All ten exact-master comparisons remain
+`differs`; the ticket retains terrace/post, west courtyard access and remaining
+elevation, opening and material correspondence. The approved flat north facade,
+staggered tower masonry, owner granite and dark glass remain.
+
+[Evidence and outstanding differences](RESEARCH/glessner-final-comparison-T-2228/README.md)
+distinguish visible corrections from photographic signoff. Full/Web have
+1,372,712 triangles and Light 193,683, with unchanged ceilings. Full preflight,
+published desktop/mobile checks and exact-commit CI govern the dev merge;
+final receipts belong to the correction PR. This is not final house acceptance.
+
+T-2228 owner priority, 2026-10-15: the new overhead review puts straight north-ridge alignment through the west crossing first. The cross-gable/cupola moves from S18.4 to S14.6; bake, fixed-camera comparison and new gates precede merge. Copper coverage and other roof-feature comparisons follow.
+
+
+T-2228 owner roof follow-up, 2026-10-15: rebuilt fixed-camera overhead and west renders confirm the straight north crest through the west crossing. The eight west apertures remain unchanged and clear; the upper-pair midpoint improves from 2.15 to 1.65 ft off the peak, while the lower pair does not. The omitted northeast copper return is now seated on the original north roof plane, with exact tile removal and no raised rectangle; its bake/review are underway. Source tests pass 2000 return-coverage rays and price Light at 193697 triangles. Final image acceptance and merge remain pending. See the T-2228 owner-overhead dossier.
+
+T-2228 window-location clarification: the owner explicitly requested historical northwest photos. The recovered Cornell ca.1887 stable catalog ss:3874294 is public domain; a four-corner west-plane comparison with all eight openings withheld supports moving the southern upper slit from S21.8 to S19.8. Other seven centers remain within roughly1ft of the photo-derived positions at retained eaves. Width/heights remain. L-glessner-west-slit-2228 records uncertainty. The copper-only bake was interrupted before completion to include this correction; a new combined bake and actual-asset comparisons are underway.
+
+T-2228 (2026-10-16): final roof/window correction assets reviewed at eleven canonical cameras plus owner overhead; all remain differs. Southern upper west slit moved two feet north from the ca. 1887 Cornell northwest photo, other seven retained. Straight ridge and seated northeast copper return verified. Correction PR needs green integration; final photographic signoff stays open.
+
+T-2228 follow-up2026-10-16: owner front-entry section/threshold/header/carving pass remains active; fixed-camera validation and green dev merge required.

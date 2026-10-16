@@ -1,0 +1,27 @@
+{
+  "id": "cornell_adw_glessner_stable_1887",
+  "type": "photograph",
+  "citation": "Unknown photographer, Detail, Glessner House, ca. 1887. Andrew Dickson White Architectural Photograph Collection, Cornell University Library, accession15/5/3090.00156, ID10035009; catalog ss:3874294. The same exposure is reproduced as Cornell rear.jpg by Glessner House Museum.",
+  "author": "Unknown photographer; Henry Hobson Richardson is the architect, not an attributed photographer",
+  "date": "ca. 1887",
+  "describes_date": "ca. 1887",
+  "repository": "Division of Rare and Manuscript Collections, Cornell University Library",
+  "url": "https://digital.library.cornell.edu/catalog/ss:3874294",
+  "locator": "Northwest view of stable: both broad west lower lights and both upper slits, west gable, north portal, cupola and rear dormer. Prairie library audit104, a18-gh-cornell-glessner-rear-c1887.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Cornell catalog viewed2026-10-15 explicitly states: The images in this collection are in the public domain and are believed to have no known U.S. copyright or other restrictions. Direct catalog-linked JSTOR IIIF image was downloaded and visually compared with the museum reproduction: same exposure, not independent corroboration. Credit Cornell University Library.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Re-read2026-10-15 for owner-requested west-window positioning. Both direct Cornell scan and existing museum/library reproduction viewed; fixed west-plane diagnostic retains HABS wall length and declared eave reconstructions. The four opening centers are withheld from the fit.",
+  "what_it_supplies": [
+    "Relative placement of the two upper slits and two broad lower west windows beneath the front gable",
+    "Original north stable portal and loft composition, roof intersection and cupola form at the photograph date"
+  ],
+  "what_it_does_not_supply": [
+    "An independently dimensioned west elevation or exact roof heights",
+    "1904 RGB colors, glazing reflectivity or later alterations",
+    "Independent corroboration of the museum reproduction of this same exposure"
+  ],
+  "note": "Ca.1887 is the catalog photograph date. West-wall homography gives a reconstructed horizontal check, not survey precision: retained eave assumptions and manual picks cause station uncertainty. No photo pixels become model textures."
+}

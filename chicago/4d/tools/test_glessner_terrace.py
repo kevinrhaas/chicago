@@ -86,3 +86,49 @@ for reduced in (False,True):
   for a,c in zip(vs,vs[1:]+vs[:1]):edges[tuple(sorted((a,c)))]+=1
  assert set(edges.values())=={2},Counter(edges.values())
  print('closed post, below grade to rounded crown',min(v[2] for v in post.verts),max(v[2] for v in post.verts))
+
+ # Beyond the independently traced cap, the return must disappear beneath
+ # the rounded terminal in the section silhouette, not remain a flat shelf.
+ for x,y,z in b.verts:
+  south=bt['newel_xy'][1]-y
+  if south<=.35*.3048 or z<.9:continue
+  assert south<=bt['newel_r']+.006,('cap protrudes past terminal',south)
+  crown=bt['newel_top']-bt['newel_crown']+bt['newel_crown']*math.sqrt(max(0,1-(south/bt['newel_r'])**2))
+  assert z<=crown+.01,('cap protrudes above terminal',reduced,south,z,crown)
+
+# T-2228: Light can omit a drum face only inside the closed host, keeping
+# adjacent aperture corridors clear. Independent quadrature checks the
+# polygon subtraction's coverage and overlap on actual cylinder facets.
+import copy
+from archetypes.masonry_house_v4_court import outside_box,concealed_stair_box
+from archetypes.masonry_house_v4_detail import curved_masonry
+t=next(t for t in p.towers if t['name']=='stair')
+box=concealed_stair_box(p,t)
+assert box is not None
+walls=B('untrimmed drum',p)
+curved_masonry(walls,t['cx'],t['cy'],t['r'],t['z0'],t['wall_top_z'],1.,m.BRICK,[])
+removed=kept=0
+for face in walls.faces:
+ poly=[walls.verts[i] for i in face];parts=outside_box(poly,box)
+ a,c,d,e=poly
+ normal=((c[1]-a[1])*(d[2]-a[2])-(c[2]-a[2])*(d[1]-a[1]),
+         (c[2]-a[2])*(d[0]-a[0])-(c[0]-a[0])*(d[2]-a[2]),
+         (c[0]-a[0])*(d[1]-a[1])-(c[1]-a[1])*(d[0]-a[0]))
+ drop=max(range(3),key=lambda k:abs(normal[k]));axes=[k for k in range(3) if k!=drop]
+ def contains(q,part):
+  points=[(v[axes[0]],v[axes[1]]) for v in part];x,y=q[axes[0]],q[axes[1]]
+  cross=[(v[0]-u[0])*(y-u[1])-(v[1]-u[1])*(x-u[0]) for u,v in zip(points,points[1:]+points[:1])]
+  return min(cross)>=-1e-8 or max(cross)<=1e-8
+ for u in (.13,.37,.63,.87):
+  for v in (.11,.33,.67,.89):
+   q=tuple(a[k]+u*(c[k]-a[k])+v*(e[k]-a[k]) for k in range(3))
+   inside=all(lo<q[k]<hi for k,(lo,hi) in enumerate(box))
+   hits=sum(contains(q,part) for part in parts)
+   assert hits==int(not inside),('hidden drum coverage',q,inside,hits)
+   removed+=inside;kept+=not inside
+assert removed>0 and kept>removed,(removed,kept)
+e=next(r for r in p.ranges if r['name']=='east_wing')
+pierced=copy.deepcopy(p)
+pierced.openings.append({'axis':'x','at':e['x0'],'u0':t['cy']-.1,'u1':t['cy']+.1,'z0':1.,'z1':2.})
+assert concealed_stair_box(pierced,t) is None
+print('Light drum subtraction retains every exterior sample and refuses a central aperture',removed,kept)

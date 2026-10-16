@@ -311,6 +311,11 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     } else {
       a.walker.teleport(path[i]);
     }
+    // T-2604: the page's own loop gives the event loop a turn between frames, and
+    // a spread flora pass's walk comes back from its worker in one. Driven back to
+    // back, no reply could ever land and every such pass would finish late, in
+    // the frame — so a driven move yields between frames too. Outside the timing.
+    if (a.jobs?.mode === 'workers') await new Promise((r) => setTimeout(r, 0));
     for (const k in t) t[k] = 0;
     const t0 = now();
     a.step();
@@ -380,6 +385,11 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     abandoned: (s1.abandoned ?? 0) - (spread0.abandoned ?? 0),
     framesPerPass: ((s1.frames ?? 0) - (spread0.frames ?? 0))
       / Math.max(1, (s1.landings ?? 0) - (spread0.landings ?? 0)),
+    // T-2604: what a landed pass spent on the main thread, and the frames the
+    // passes let go by while a walk was on a worker.
+    msPerPass: ((s1.ms ?? 0) - (spread0.ms ?? 0))
+      / Math.max(1, (s1.landings ?? 0) - (spread0.landings ?? 0)),
+    waits: (s1.waits ?? 0) - (spread0.waits ?? 0),
   } : null;
   const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
   a.setAnimationHold(false);
@@ -625,7 +635,8 @@ for (const vp of VIEWPORTS) {
       console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${String(r.frames).padStart(6)} ${String(r.rebuilds).padStart(8)} |`
         + ` ${f(r.scripted.median)} ${f(r.scripted.p95)} ${f(r.scripted.max)} ${n(r.scripted.over16)} ${n(r.scripted.over33)} ${n(r.scripted.over50)} |`
         + ` ${f(L['flora.update'].p95)} ${f(L['flora.update'].max)} | ${f(L['trees.update'].p95)} ${f(L['trees.update'].max)} | ${others || '-'}`
-        + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped` : ''));
+        + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped`
+          + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker` : ''));
       for (const [k, v] of Object.entries(r.verified ?? {})) {
         console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
         if (!v.same) failed++;

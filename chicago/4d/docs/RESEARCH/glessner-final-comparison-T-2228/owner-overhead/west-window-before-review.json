@@ -1,0 +1,20 @@
+{
+  "structure_id": "glessner_house",
+  "view": "cornell-northwest",
+  "glb": "assets/gltf/ridge.glb",
+  "glb_sha256": "6f1cbdee8e64edacea8a6dc0ad4bb461ab43eaf6c108628e56fd81f95dd5220e",
+  "camera_sha256": "6f77f9050e5d5a2d469c7f6d4125c64c277679ce1845e0e4e8174c8c7e7f9a8c",
+  "side_by_side": "west-window-before-comparison.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "status": "open",
+      "what": "Southern upper west slit lies too far south. West-plane diagnostic places its center near S19.8 versus current S21.8; other seven centers agree within about1ft at retained eaves."
+    },
+    {
+      "status": "open",
+      "what": "West/north gable, cupola, north portal and surface/lighting residuals remain. Frozen diagnostic camera relies on reconstructed eave heights; do not accept whole-house dimensions from this fit."
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

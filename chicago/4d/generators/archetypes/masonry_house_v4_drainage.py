@@ -153,6 +153,10 @@ def layout(p,reduced=False):
     half=math.sqrt(stair['r']**2-(ex-stair['cx'])**2)+.025
     for name,a,c,y in (('court-east-south',e['y0'],stair['cy']-half,stair['cy']-half-.16),
                         ('court-east-north',stair['cy']+half,end,stair['cy']+half+.16)):
+        # The surveyed tower position and broad garden light leave different
+        # clear wall strips than the earlier tangent-based reconstruction.
+        # Explicit record anchors keep both leaders and their straps off glass.
+        y=cfg.get('court_east_leaders_y',{}).get(name,y)
         leader(name,(ex-.045,y,ez),(e['x0']-.13,y),(-1,0,0),e['x0'],'none',True)
         gutter(name,[(ex,a,ez),(ex,c,ez)],[(-1,0,0)]*2,[name])
     open_ends={'court-west':[1],'dining':[0,1],'court-north-west':[0,1],'court-north-east':[0]}

@@ -69,12 +69,16 @@ def ridge_chain(b,params,r,lo,hi,*,join_end=False,open_ends=(False,False)):
     s=params.detail['roof_edges'];radius=s['cap_radius_m'];seat=s['cap_seat_m']
     step=s['ridge_spacing_ft']*.3048;rise=s['crest_rise_m'];width=s['crest_width_m']
     reduced=getattr(b,'reduced_roof_details',False);segments=4 if reduced else 12
+    surface_stock=reduced and s.get('light_surface_stock',False)
     angles=[math.pi*j/segments for j in range(segments+1)]
     def section(along,crest=False):
         points=[]
         for a in angles:
             rad=radius+(rise*math.sin(a)**2 if crest else 0)
             points.append(_ridge_point(r,along,rad*math.cos(a),seat+rad*math.sin(a)))
+        # Light keeps the exact exposed collar profile. Its extra two lower
+        # corners would only triangulate stock buried inside the closed barrel.
+        if surface_stock and crest:return points
         # The hidden base crosses the host ridge. A positive floor would
         # leave the entire closed barrel floating above the tiled roof.
         return points+[_ridge_point(r,along,-radius*.5,seat-radius*math.sqrt(3)/2),
@@ -98,7 +102,7 @@ def ridge_chain(b,params,r,lo,hi,*,join_end=False,open_ends=(False,False)):
             # These three underside faces are buried inside the opaque barrel;
             # the assembled moulding stays closed without duplicate hidden stock.
             _solid(b,section(centre-width/2,True),section(centre+width/2,True),19+i%3,
-                   skip_sides=(segments,segments+1,segments+2))
+                   skip_sides=(segments,) if surface_stock else (segments,segments+1,segments+2))
             count+=1
         _receipt(b,'ridge',axis=r['axis'],at=r['ridge_at'],z=r['ridge_z'],
                  start=start,end=end,collars=count,spacing_m=step,radius_m=radius,
@@ -240,7 +244,13 @@ def add_edges(b,params):
                 if area(outline)<0:outline=list(reversed(outline))
                 for a,c in zip(outline,outline[1:]+outline[:1]):top=clip(top,a,c)
                 if len(top)<3 or abs(area(top))<1e-8:continue
-                _solid(b,top,[(x,y,z-stock) for x,y,z in top],4)
+                if getattr(b,'reduced_roof_details',False) and s.get('light_surface_stock',False):
+                    # The opaque roof closes the reverse of this thin flashing.
+                    # Keep its exact top outline; Light omits the 2.5-mm stock
+                    # edges and underside instead of coarsening the roof shape.
+                    b.raw(top,1.,4,(0,0,1))
+                else:
+                    _solid(b,top,[(x,y,z-stock) for x,y,z in top],4)
             _receipt(b,'valley',start=p,end=q,width_m=s['valley_width_m'])
     add_abutments(b,params,surfaces)
 

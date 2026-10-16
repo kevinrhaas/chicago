@@ -1,0 +1,29 @@
+# Glessner Prairie entrance — T-2228
+
+Owner-directed photographic pass,2026-10-16. Exterior only, target1904-07-01. The rebuilt master has been directly reviewed from frontal and oblique cameras. The entrance remains recessed, with the lower surrounding wall sloping outward. This is a correction pass, not whole-house photographic sign-off.
+
+The supplied close-up, native HABS5 masonry detail and section, and original Richardson office doorway23/23A were directly viewed. HABS5 distinguishes the lower outward-sloping wall from the cutback entrance. The sides within the recess remain vertical; the angle and increasing depth come from the outer wall's slope and tapered cut edges. One broad threshold occupies the base. The header has a shallow shaped upper edge, rather than the model's rectangle or an ideal regular trapezoid. Office drawing23A's section shows a hollow archivolt and recessed central field; the field's carving remains raised above its own backing.
+
+The HABS5 diagnostic camera uses only the retained5ft doorway width and7.75ft doorway height, with approximately5px picks. The header, fan, side profiles and step are withheld observations. The elevation cannot determine depth: the section and corroborating views bound that reconstruction. Source crop is a U.S. Government HABS drawing, Library of Congress, IL-1015 sheet5. Original office drawing is [AIC69665](https://artic.contentdm.oclc.org/digital/collection/mqc/id/69665), Prairie image a18-rba-mf-glessner-f29-entrance-detail-ink. Source pixels are not projected into textures. Modern wreath omitted. The library file named a20-glessner-wheeler-entry-2012 depicts the Wheeler porch and was excluded after visual inspection.
+
+Dimensions and uncertainty are recorded in L-glessner-entry-section-2228 and the structure record. The HABS detail is later surviving fabric; the office section is design evidence. Neither proves exact1904 depth or colour. Existing stone/granite colour and dark glass are retained. The door leaf and hardware retain their separately documented1890s design; this pass concerns its masonry setting.
+
+
+## Review and limits
+
+The first master review shows the four requested changes together: angled lower cutback sides, a shaped lintel with shallow sloped shoulders, one inset threshold, and a recessed carved field within stepped mouldings. The outer fan radius remains 6.4 ft. The HABS detail has a somewhat taller drawn arch proportion; the close-up is perspective-dependent because the door is behind the arch plane. Neither justifies silently changing the radius to force a two-dimensional fit. Exact depths, individual carving, stone joints and the door hardware remain separately bounded reconstructions.
+
+The prior roof/window/courtyard pass is preserved. Its 6b2cff4d asset receipts describe that earlier iteration; this entrance candidate is master 8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d. Canonical comparisons and published desktop/mobile validation are refreshed for this asset before merge. Their receipts below record actual outcomes. T-2228 remains active while photographic differences remain.
+
+All twelve refreshed canonical side-by-sides were directly reviewed against master 8aa944555ecb; all retain `differs`, with four corrected entrance features and remaining discrepancies recorded in [the review](canonical-review.json). [Measured asset receipts](asset-receipt.json) and [geometry test](geometry-test.log) identify this candidate. Published desktop/mobile and final integration gates are recorded separately before merge.
+
+
+## Published validation
+
+All three Full desktop views (1280x800) and all three Light mobile views (390x780) pass the existing scene budgets and were directly reviewed. Desktop peaks at 128 draw calls / 3,888,552 triangles against 360 / 4,600,000; mobile peaks at 93 / 659,203 against 330 / 1,270,000. Every viewport passes thirteen structure-identified ground contacts, including the full inset threshold width and approach height where the extra treads were removed. No page or asset errors occurred. These paused software-renderer views do not measure physical-GPU frame rate.
+
+The mobile Images tab loads all 124 held tiles with creator credits (47 additional link-only records). Doorway23A opens with its Richardson attribution, Art Institute archive credit, public-domain statement and original catalog link. The entrance liberty is visible and declares the reconstructed depths. See [browser measurements](browser-validation.json), [direct visual review](browser-review.json), and [published views](published/).
+
+The final local preflight and exact-commit CI receipts are recorded on PR851 before the dev merge. No production promotion or whole-house photographic sign-off is claimed here.
+
+The published entrance views above were taken on the 1732707a integration tree. The subsequent integration of dev c91f729e retains all three reviewed Glessner assets, fourteen changed geometry inputs and eleven renderer modules byte-for-byte, and preserves all 890 other asset records from that newer dev revision; see [integration preservation](integration-preservation.json). The newer main module carries dev’s crash-aware startup change; it is covered by the final exact-commit all-stage published smoke checks rather than the earlier entrance captures. The startup update changes no generated-data inputs, so the settled 99212d2e derivation remains valid. The threshold regression now checks the single inset tread through the facade and the lower approach beyond its front edge; the earlier expectation of an uncovered narrow sill no longer describes this geometry. Opening schedules were regenerated, the entry liberty covers the reconstructed v4 detail rather than the attested Prairie opening group, and both entry test tools have measured isolation rows.

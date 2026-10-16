@@ -400,16 +400,20 @@ def check_frontage_ground():
         return max(hits,default=(-99,-1))
     for reduced in (False,True):
         surfaces=Surfaces();add_frontage(surfaces,params,reduced);assert passage_floor(surfaces,params)
-        # Door sill and both risers meet, without a curb across the approach.
+        # One inset tread meets the sill, without a curb across the approach.
         y=sum(f['door_y'])/2
         for i in range(101):
             x=f['wall_x']+(f['walk_x']-f['wall_x'])*i/100
             z,mat=height(surfaces,x,y)
             assert f['walk_z']-.004<=z<=f['door_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
         assert abs(height(surfaces,params.width_m+.017,y)[0]-f['door_z'])<1e-8
-        # The existing opening owns the bottom reveal behind +16 mm. There
-        # must be no second coplanar sill face over it (the old cause of flicker).
-        assert height(surfaces,params.width_m,y)[0] < f['door_z']-.01
+        # HABS5's broad inset tread now owns the bottom reveal. It continues
+        # behind the facade; the old narrow opening-floor face is omitted by
+        # the entry builder, whose emitted mesh is checked separately.
+        entry=params.detail['prairie_entry']
+        for x in (params.width_m,entry['threshold_back_x']+.01):
+            assert abs(height(surfaces,x,y)[0]-f['door_z'])<1e-8
+        assert abs(height(surfaces,entry['threshold_front_x']+.01,y)[0]-f['walk_z'])<1e-8
         # Three longitudinal lanes through the approach and splayed passage.
         p,q,r,s=params.detail['underpass']['pts']
         for lane in (.1,.5,.9):

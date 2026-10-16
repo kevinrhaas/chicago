@@ -392,6 +392,9 @@ const COVERAGE = [
   // --- PARTS 10-12: what grows, what moves, and the streets a visitor reads
   // (T-2337 cut old part 10 into 10 + 11, so a row that named 10 names both)
   ['renderers/web/js/flora.js', [10, 11, 12], 'the flora census, and the boundary it fades at'],
+  // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
+  // read what the deal planted from it.
+  ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],

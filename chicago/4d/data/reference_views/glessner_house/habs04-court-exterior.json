@@ -1,0 +1,38 @@
+{
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_house_il_1015_drawings",
+  "library_image": "a18-glessner-habs-sheet-4",
+  "photo": "../../../docs/RESEARCH/glessner-final-comparison-T-2228/habs4-court-exterior.png",
+  "image_px": [
+    1600,
+    1518
+  ],
+  "principal_px": [
+    800.0,
+    759.0
+  ],
+  "focal_px": 47724.360541888775,
+  "eye": [
+    -400,
+    7.3454982107355855,
+    6.654436028659161
+  ],
+  "yaw_deg": 90,
+  "sun_uvy": [
+    -1,
+    -0.35,
+    1
+  ],
+  "near_m": 350,
+  "clip_planes": [
+    {
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "constant": -33.4518
+    }
+  ],
+  "solve": "T-2228 expanded exterior-only HABS4 section diagnostic. Native crop [3770,1500,8600,5950] rectified100.6/97.7 and resized1600x1518. Same independent north-wall origin1165, grade5858 and scales as frozen hood/terrace views. Far-field400mwest with nominal x36.5m; finite depth residual about1%. Retains source sectionW51.5ft and near350m. Model-control discrepancies are not fitted away; this is not a new survey or independent1904witness."
+}

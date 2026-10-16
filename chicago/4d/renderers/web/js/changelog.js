@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 1882, ts: '2026-10-16T20:02:36.702Z', date: 'Oct 16, 2026, 3:02 PM CT', title: 'Nothing you can see yet: 1835 plank walks built ahead of time', kind: 'chore',
+    items: [
+      'Nothing in the scene changed. This is the first step toward phones downloading the town instead of building it at every visit.',
+      'A new tool builds the 1835 plank walks, crossings and fences on the server, using the page\'s own code and ground. All 768 of the 128 pieces\' buffers match what the page builds, byte for byte.',
+      'Built ahead, they come to 78 MB raw, or about 10 MB compressed. The next step makes the page load them and measures a phone\'s boot before and after.',
+    ] },
+  { v: 1881, ts: '2026-10-16T19:54:24.053Z', date: 'Oct 16, 2026, 2:54 PM CT', title: 'Turning on the spot hitches less on a phone', kind: 'improvement',
+    items: [
+      'The planting grid for the grass and flowers around you is now laid out on a spare processor core, so redrawing it as you move costs the screen less.',
+      'On a slowed-down phone profile, the worst frame of a slow turn in place fell from 36 to 20 milliseconds.',
+      'Every plant stands exactly where it did before.',
+    ] },
+  { v: 1880, ts: '2026-10-16T19:08:54.907Z', date: 'Oct 16, 2026, 2:08 PM CT', title: 'Glessner rooflines, courtyard and entrance follow the references', kind: 'fix',
+    items: [
+      'The north roof ridge continues straight through the west-wing crossing; the west peak and cupola align with it.',
+      'The northeast courtyard copper return follows the roof slope and joins the low bow hood without the raised fold.',
+      'The southern upper west window moves north to follow the historical northwest photograph.',
+      'The north tower has a pointed roof, and courtyard dormer windows are clear of roof tiles.',
+      'Eaves, finials, the basement grille and terrace coping follow the historic sections more closely. Photographic comparison continues.',
+      'The front entrance gains angled lower reveals, a shaped stone header, one inset threshold and deeper recessed carving.',
+    ] },
+  { v: 1879, ts: '2026-10-16T19:08:54.907Z', date: 'Oct 16, 2026, 2:08 PM CT', title: 'Roads, yards, railway and far ground cut up on spare cores', kind: 'improvement',
+    items: [
+      'Nothing you can see changed: every road, yard, railway bed and stretch of distant ground is the same, triangle for triangle.',
+      'The background workers that took the ground\'s tiles last time now also divide the streets, the fenced yards, the railway\'s cinders and ballast, the distant ground and, on Prairie Avenue, the houses into their pieces, instead of the thread that draws the frame doing it.',
+      'Changing the detail setting lays the new road on those workers too; the old road stays on screen until the new one is ready.',
+    ] },
   { v: 1878, ts: '2026-10-16T18:16:12.781Z', date: 'Oct 16, 2026, 1:16 PM CT', title: 'Distant houses on Prairie Avenue no longer hold their full pictures', kind: 'improvement',
     items: [
       'A house\'s photographic textures stay on the graphics card only while you are near enough to see them; farther off it is drawn with the same picture at a small size, which looks the same at that distance.',

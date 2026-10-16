@@ -1,0 +1,76 @@
+{
+ "ticket": "T-2676",
+ "parent": "T-2560",
+ "measured": "2026-10-16",
+ "tool": "node tools/prebuild_layers.mjs --parity [--root ../../site/4d] --json",
+ "machine": "steward runner, 4 cores, no GPU (SwiftShader), Chromium 1280x800",
+ "build": {
+  "year": "1835",
+  "node_ms": 683,
+  "meshes": 128,
+  "bytes_raw": 78093120,
+  "bytes_gzip6": 10783500,
+  "bytes_brotli9": 9584573,
+  "inputs": 49,
+  "sha256": "dd085a52827f036c316fe9825ffa9ca770e4212f1be3aae814cf6760aa8a4175",
+  "census": {
+   "records": 5,
+   "walks": 126,
+   "crossings": 105,
+   "posts": 53,
+   "hitching": 53,
+   "lettered": 0,
+   "fittings": 51,
+   "fittingKinds": {
+    "stoop": 37,
+    "tie_rail": 1,
+    "wagon_apron": 7,
+    "mounting_block": 6
+   },
+   "fences": 39,
+   "decks": 856,
+   "refused": 190,
+   "orphaned": 0,
+   "meshes": 128,
+   "kerb": 12294,
+   "kerbStep_m": 0.027,
+   "relief": null
+  }
+ },
+ "by_attribute_bytes": {
+  "position:Float32Array": 23427936,
+  "normal:Int8Array": 7809312,
+  "_confidence:Float32Array": 7809312,
+  "color:Uint16Array": 15618624,
+  "uv:Float32Array": 15618624,
+  "aChiPlankGap:Int16Array": 7809312
+ },
+ "parity": {
+  "source_tree": {
+   "year": "1835",
+   "url": "/renderers/web/?year=1835",
+   "meshes": 128,
+   "attributes": 768,
+   "matched": 768,
+   "bytes": 78093120,
+   "pageerrors": [],
+   "diffs": []
+  },
+  "published": {
+   "year": "1835",
+   "url": "/walk/?year=1835",
+   "meshes": 128,
+   "attributes": 768,
+   "matched": 768,
+   "bytes": 78093120,
+   "pageerrors": [],
+   "diffs": []
+  }
+ },
+ "not_carried": [
+  "frontage-far-walk-tops (the page re-derives it from the meshes above)",
+  "frontage-lettering (a canvas texture; 0 lettered boards in 1835 today)",
+  "materials and the timber relief grain"
+ ],
+ "reading": "The Node build and the page agree byte for byte on every frontage buffer, read from the source tree and from the published mirror. The build itself costs 0.67 s in Node on this runner; its output is 78 MB raw and about 10 MB compressed, so T-2677 has to show the phone boot gains more than the download costs."
+}
