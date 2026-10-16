@@ -1,83 +1,23 @@
 {
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
-  "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
   "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "T-2470: the north street wall now runs flat into the tower; the separate exposed cylindrical north-east face is removed. Only the western return is curved, with staggered rough-faced courses instead of angular-strip mortar grids.",
+      "what": "Actual master reviewed: the extruded apex is replaced by a pointed north cone joining a lower decorated pitched connector. The approved flat north facade, wrapped staggered drum and flared eave remain; no roof hole is visible in this view.",
       "status": "fixed"
     },
     {
-      "what": "T-2470: the upper north pairs retain plan positions and now have the photographed taller proportions and round central columns; the attic slit is present and the unsupported third lower slit is removed. Small carved capitals remain bounded stock reconstructions.",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2470: tower centre W41/S7.35, 33.3-ft eave, 43.4-ft apex and 1.5-ft finial reconcile the photographic placement and section rise. The 9.35-ft-radius flared eave shades the short western drum band. The flat facade conceals the former front drum.",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2470: the north roof meets the curved drum without an open seam; no host-roof strip crosses a window. The cone connector ends behind the sloping gable coping, and the original T-2470 short pipe drained onto the host; T-2221 supersedes that discharge with the connected bowl below. Reviewed on final Full web geometry; Full/Light geometry checks cover contact and clearance.",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2228: photographic tone, exact masonry coursing, remaining whole-house roof/chimney silhouettes and other elevations still require reconciliation; procedural stone and these fitted cameras are not a survey-exact whole-house match.",
+      "what": "Finial/stack correspondence, opening/ornament alignment, stone/course appearance and lighting still differ. The reference north wall is shaded whereas this unchanged diagnostic light illuminates it.",
       "status": "open"
     },
     {
-      "what": "1904 colour and precise weathering cannot be established by this monochrome 1963\u201365 evidence; unseen courtyard faces are not judged here.",
+      "what": "The connector ridge is a camera-dependent reconstruction bounded by HABS14, not a second independently surveyed height; monochrome imagery cannot establish1904 material RGB.",
       "status": "not shown"
-    },
-    {
-      "what": "T-2470 cross-check: actual-master finial-tip residual falls 77.254\u219233.878 px in the reconciled inclined camera, held fixed before/after. Its depth controls and principal point limit independence.",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2228: the remaining 33.878-px tip error and cone silhouette differ in this inclined view. The earlier T-2200 camera instead worsens 206.304\u2192302.501 px; both results are retained in tip-comparison.json, not presented as exact photographic agreement.",
-      "status": "open"
-    },
-    {
-      "what": "T-2219 regression review: the service-bay change lies west of this view. The prior north-tower silhouette, coursing and openings are preserved on the rebuilt Full asset. Existing photographic residuals and whole-house differences remain unresolved.",
-      "status": "not shown"
-    },
-    {
-      "what": "T-2217: re-rendered and reviewed on the rebuilt carriage-door asset. These north views do not expose the Prairie carriage leaf faces; their panel/hardware review is the separate HABS sheet-6 closed diagnostic and published passage cameras. Existing whole-house differences remain open for T-2228.",
-      "status": "not shown"
-    },
-    {
-      "what": "T-2218 regression review on the final terrace asset: the courtyard stair is hidden from this north camera. Prior north facade repairs remain visible; the recorded whole-house tone, roof/cone and opening discrepancies are still open for T-2228.",
-      "status": "not shown"
-    },
-    {
-      "what": "T-2221: final Full web review shows the upper tower leader entering the new ribbed bowl at the lower gutter. The neck connects continuously to the wall-offset lower leader and its grade discharge; the prior rod ending above the roof is retired. Exact stock and low-relief ribs remain reconstructed.",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2228: the retained roof/eave and camera disagreement leaves the head lower in the image than its photographed counterpart. No fitting was floated above its host to force a local image fit. The final bounded matte finish now makes the bowl ribs readable, but exact casting ornament and monochrome tonal correspondence are not established.",
-      "status": "open"
-    },
-    {
-      "what": "T-2222: Re-viewed canonical Full web: north-gable cap retains top height and flush masonry course; no new pot or side vent. Existing flat north facade and curved west return remain. Cone silhouette/finial residual, window correspondence, material relief and lower receiver absolute height still differ; T2228 remains open.",
-      "status": "open"
-    },
-    {
-      "what": "T-2223: Re-rendered and visually reviewed on the final T-2223 canonical web asset. The court stair and rear gate are outside this north-facing view. The flat north wall and curved west return remain. The cone still has an extended horizontal ridge where the photograph shows a pointed cone; window correspondence, pillowed stone relief and the lower rainwater receiver absolute height also remain different. T-2228 remains open; no camera change or match claim.",
-      "status": "open"
-    },
-    {
-      "what": "T-2224: Re-rendered and visually reviewed on the final canonical Full web asset. The new court approaches are hidden from this north-facing camera. The flat north wall and curved west return remain. The extended cone ridge, shaded stone tone/relief, opening proportions and upper roof correspondence still differ and remain final-pass work. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
-    },
-    {
-      "what": "T-2225: Re-rendered and visually reviewed on the final canonical Full web asset. Planting does not obscure this north elevation. The flat front wall and curved west return remain. The cone still has an extended upper ridge, while window proportions and stone relief differ from the photo; these remain final reconciliation work. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
-    },
-    {
-      "what": "T-2226: Re-rendered and visually reviewed on the final canonical Full web asset. The flat north front and curved western return remain, but the tower roof still has an extended upper ridge instead of the photographed pointed cone. Window proportions and masonry relief also differ. The court/gate surface changes are not shown here. No camera refit or whole-house acceptance promotion.",
-      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

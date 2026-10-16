@@ -1,6 +1,7 @@
 """Spatial checks for connected drainage, unobstructed openings and open stock."""
 import json
 import math
+import copy
 from pathlib import Path
 import sys
 
@@ -12,6 +13,12 @@ from archetypes.masonry_house_v4_drainage import layout, build, _gutter
 record=json.loads((ROOT/'data/structures/glessner_house.json').read_text())
 p=from_phase(record['phases'][0],record)
 cfg=p.detail['rainwater']
+
+# Rainwater details remain optional: older v4 records use the legacy builder.
+# Explicit courtyard anchors must not make parameter resolution require them.
+without_rainwater=copy.deepcopy(record['phases'][0])
+without_rainwater['form'].pop('rainwater_details')
+assert from_phase(without_rainwater,record).detail['rainwater'] is None
 
 
 def distance_to_segment(q,a,c):

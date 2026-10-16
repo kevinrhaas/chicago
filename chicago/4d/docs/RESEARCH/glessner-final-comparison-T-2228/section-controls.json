@@ -1,0 +1,46 @@
+{
+  "not_a_reading": "T-2228 re-reading of already adjudicated HABS sheet 4; candidate controls pending cross-sheet reconciliation and visual validation",
+  "source_id": "habs_glessner_house_il_1015_drawings",
+  "source_file": "../prairie_1904_v1/research/public/glessner-habs-sheet-4.tif",
+  "sha256": "0a601c7addc7df43ab8a68c05f386e8770b146e93994c5e5da3ee22b176fa7fc",
+  "north_wall_x": 1165,
+  "grade_y": 5858,
+  "horizontal_px_ft": 100.6,
+  "vertical_px_ft": 97.7,
+  "picks_px": {
+    "garden_opening_clear_left": 5841,
+    "garden_opening_clear_right": 6294,
+    "garden_opening_head": 5374,
+    "garden_opening_sill": 5604,
+    "tower_north_tangent": 6314,
+    "tower_south_tangent": 7430,
+    "tower_roof_eave": 2613,
+    "tower_finial_base": 1858,
+    "tower_finial_top": 1683,
+    "dormer_roof_eave": 2598,
+    "dormer_body_foot": 2904,
+    "dormer_light_frame_head": 2647,
+    "dormer_light_frame_sill": 2865,
+    "dormer_finial_base": 2244,
+    "dormer_finial_top": 2060
+  },
+  "uncertainty_px": 12,
+  "qualification": "1963 section carried to surviving 1904 fabric only. Tower plan centre S56.10 differs from section S56.73; do not silently overwrite plan using section. The old v2 roof heights used another ground datum and are not adopted. Cone apex is hidden behind finial and needs extrapolated slopes, not a visible apex pick. Dormer front depth and concealed roof/finial apex are reconstructions, not visible surveyed coordinates. FrontW25.9 seats body30.24ft on the reconciled slope. Model finial profile is bounded within0.15ft of the section; no new independent source.",
+  "derived": {
+    "garden_S": [
+      46.48111332007952,
+      50.98409542743539
+    ],
+    "garden_z_ft": [
+      2.5997952917093143,
+      4.953940634595701
+    ],
+    "tower_S": [
+      51.18290258449304,
+      62.27634194831014
+    ],
+    "tower_eave_ft": 33.21392016376663,
+    "finial_base_ft": 40.941658137154555,
+    "finial_top_ft": 42.732855680655064
+  }
+}

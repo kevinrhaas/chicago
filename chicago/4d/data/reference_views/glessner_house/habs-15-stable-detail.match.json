@@ -1,0 +1,20 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs-15-stable-detail",
+  "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "camera_sha256": "d72eede57db0000c2d1b7f58906a4ac49cb8aa7faad8a82b461640d73e377adc",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Actual master reviewed in the imported unchanged T2200 camera. Stable gable/cupola, roof/vent and portal/window correspondence and stone lighting differ. Frozen-pose residuals require semantic control review before dimension changes.",
+      "status": "open"
+    },
+    {
+      "what": "The overhead garage leaf and closed loft opening are later alterations; original1904 opening treatments are tested against earlier evidence, not copied from this1965 plate. Cars/signs/street fabric are outside this house-only comparison.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

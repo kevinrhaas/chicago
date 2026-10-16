@@ -485,6 +485,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "eave_z": fr.zval(dm["eave"]),
                 "apex_z": fr.zval(dm["apex"]),
                 "light": [fr.zval(dm["light"][0]), fr.zval(dm["light"][1])],
+                "light_margin_fraction": dm.get("light_margin_fraction", .22),
+                "side_overhang_m": dm.get("side_overhang_m", .26),
+                "side_apron_inset_m": dm.get("side_apron_inset_m", .18),
                 "conf": cf("dormers", "dormer_depth"),
             })
 
@@ -697,9 +700,27 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "conf": cf("prairie_frontage"),
             }
         raw = val("v4_detail", {})
+        es = raw.get("prairie_entry")
+        if es:
+            door=next(o for o in p.openings if o.get('style')=='prairie_front_door')
+            p.detail['prairie_entry']={
+                'centre_u':(door['u0']+door['u1'])/2,'sill_z':door['z0'],
+                'grade_z':0.,'batter_top_z':door['z0']+es['batter_top_door_ft']*FT,
+                'batter_m':es['batter_at_grade_ft']*FT,
+                **{k.replace('_ft','_m'):es[k]*FT for k in
+                   ('recess_base_width_ft','recess_top_width_ft','lintel_crown_rise_ft','lintel_end_inset_ft')},
+                'relief_section':es['relief_section_m'],
+                'threshold_front_x':fr.x(es['threshold_front_W']),
+                'threshold_back_x':fr.x(es['threshold_back_W']),
+                'conf':cf('v4_detail'),
+            }
         p.detail["roof_tiles"] = raw.get("roof_tiles")
         p.detail["roof_edges"] = raw.get("roof_edges")
-        p.detail["north_tower_roof"] = raw.get("north_tower_roof")
+        p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)
+        p.detail["court_finial"] = raw.get("court_finial")
+        p.detail["north_tower_roof"] = dict(raw["north_tower_roof"]) if raw.get("north_tower_roof") else None
+        if p.detail["north_tower_roof"] and 'connector_ridge_ft' in p.detail["north_tower_roof"]:
+            p.detail["north_tower_roof"]['connector_ridge_z']=fr.zval(p.detail["north_tower_roof"]['connector_ridge_ft'])
         if p.detail["north_tower_roof"] and p.detail["north_tower_roof"].get("integrated_north_facade"):
             east = next(r for r in p.ranges if r['name'] == 'east_wing')
             north = next(r for r in p.ranges if r['name'] == 'north_range')
@@ -710,6 +731,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             east['north_roof_shoulder'] = {
                 'x': fr.x(p.detail['north_tower_roof']['north_gable_west_W']),
                 'back_y': fr.y(p.detail['north_tower_roof']['roof_transition_S'])}
+            if 'north_front_eave_ft' in p.detail['north_tower_roof']:
+                east['north_roof_shoulder']['front_eave_z']=fr.zval(p.detail['north_tower_roof']['north_front_eave_ft'])
             north['wall_skip'].setdefault('north', []).append((tower['cx'], east['x0']))
             for chimney in p.chimneys:
                 if chimney['name'] in ('middle','south'):
@@ -910,11 +933,21 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
+        if raw.get("north_copper_cladding"):
+            p.detail["north_copper_cladding"] = {
+                "outline": [(fr.x(w), fr.y(s)) for w, s in raw["north_copper_cladding"]["outline_WS_ft"]],
+                "conf": cf("v4_detail"),
+            }
         p.detail["rainwater"] = val("rainwater_details")
+        if p.detail["rainwater"] and p.detail["rainwater"].get("court_east_leaders_S_ft"):
+            p.detail["rainwater"] = dict(p.detail["rainwater"], court_east_leaders_y={
+                name: fr.y(south) for name, south in p.detail["rainwater"]["court_east_leaders_S_ft"].items()})
         p.detail["stack_finish"] = val("stack_finish")
         p.detail["service_access"] = val("service_access_details")
         p.detail["vines"] = val("vines_details")
         p.detail["surface_finish"] = val("surface_finish")
+        p.detail["court_garden_grille"] = raw.get("court_garden_grille")
+        p.detail["light_hidden_stair_wall"] = bool(raw.get("light_hidden_stair_wall"))
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")
         if service_stair:

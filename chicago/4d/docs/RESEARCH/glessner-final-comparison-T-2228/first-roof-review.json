@@ -1,0 +1,12 @@
+{
+  "status": "reviewed geometry candidate; whole-house verdict remains differs",
+  "source_views": [
+    "habs-14-north-inclined",
+    "habs-01-northwest"
+  ],
+  "review": "Both actual master side-by-sides directly inspected. The extruded upper apex is gone and a pointed cone joins a lower decorated connector. Flat north facade, wrapped staggered west drum and flared eave remain. No visible hole in these two views. HABS14 finial positional residual, stack correspondence, north facade tone/lighting and other whole-house differences remain; this is not final photographic acceptance.",
+  "master_sha256": "0ea1dab668f8594c8d1b87898544b2ae50174d3d7edc804b1e3915f9c538ad75",
+  "light_triangles": 199126,
+  "limit": 200000,
+  "light_detail": "Collar corners below the closed barrel and 2.5mm valley-stock underside omitted; exposed Light profiles and Full stock retained; no ceiling change."
+}

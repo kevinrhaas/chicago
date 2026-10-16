@@ -761,11 +761,18 @@ export async function createTerrain({
     },
     /** Batch the protected continuous base too: one draw call, with original
      *  triangles behind the eye or beyond the frustum omitted per piece. Called
-     *  after frontage publishes its accepted crossing protection at boot. */
-    batchDistantGround() {
+     *  after frontage publishes its accepted crossing protection at boot.
+     *  T-2600: the cells are cut on the job pool, so this resolves; the base it
+     *  read draws until then, and if the base or its geometry was replaced
+     *  meanwhile the batch is dropped, unseen, and this resolves false.
+     *  (protectGroundUnder's batched branch above stays synchronous: it runs
+     *  only on a second frontage publication, which no page path makes.) */
+    async batchDistantGround() {
       if (!groundBase || groundBase.isBatchedMesh) return false;
       const previous = groundBase;
-      const batch = spatialBatch(previous.geometry, previous.material);
+      const read = previous.geometry;
+      const batch = await spatialBatchAsync(read, previous.material);
+      if (groundBase !== previous || previous.geometry !== read) { batch.dispose(); return false; }
       batch.name = previous.name;
       batch.position.copy(previous.position);
       batch.receiveShadow = previous.receiveShadow;

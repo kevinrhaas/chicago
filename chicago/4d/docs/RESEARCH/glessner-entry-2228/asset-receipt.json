@@ -1,0 +1,120 @@
+{
+  "master_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "tiers": {
+    "full": {
+      "path": "assets/gltf/glessner_house__as_built_1887.glb",
+      "bytes": 198433824,
+      "sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+      "mesh": {
+        "draw_primitives": 31,
+        "materials": 31,
+        "triangles": 1369074,
+        "vertices": 3154460
+      },
+      "faces": {
+        "quantum_m": 0.001,
+        "degenerate": 2666,
+        "coincident": 0,
+        "same_winding": 0,
+        "back_to_back": 0,
+        "shared_across_primitives": 0,
+        "position_step_m": 0,
+        "coincident_shortest_edge_max_m": 0
+      }
+    },
+    "web": {
+      "path": "assets/web/glessner_house__as_built_1887.glb",
+      "bytes": 59126156,
+      "sha256": "bc5a2ccf7eff0691e91c3ac32a67b97f6e7aa608189e3932584cfbd8aecf3011",
+      "mesh": {
+        "draw_primitives": 31,
+        "materials": 31,
+        "triangles": 1369074,
+        "vertices": 2497074
+      },
+      "faces": {
+        "quantum_m": 0.001,
+        "degenerate": 3569,
+        "coincident": 0,
+        "same_winding": 0,
+        "back_to_back": 0,
+        "shared_across_primitives": 0,
+        "position_step_m": 0.0008299,
+        "coincident_shortest_edge_max_m": 0
+      }
+    },
+    "light": {
+      "path": "assets/web/glessner_house__as_built_1887.light.glb",
+      "bytes": 32534812,
+      "sha256": "1ec43bfdeeaf745acca4c9528235cc6c548713e6fbf4ea84fc852185209bad6a",
+      "mesh": {
+        "draw_primitives": 28,
+        "materials": 28,
+        "triangles": 194245,
+        "vertices": 379126
+      },
+      "faces": {
+        "quantum_m": 0.001,
+        "degenerate": 249,
+        "coincident": 0,
+        "same_winding": 0,
+        "back_to_back": 0,
+        "shared_across_primitives": 0,
+        "position_step_m": 0.0008298,
+        "coincident_shortest_edge_max_m": 0
+      }
+    }
+  },
+  "contract_verdicts": {
+    "scale_drift": {
+      "ok": true,
+      "against": "full",
+      "tiers": {
+        "web": {
+          "scale_ratio_minus_1": [
+            0,
+            -5.3e-05,
+            8e-06
+          ],
+          "wall_face_shift_m": [
+            0.0001,
+            -0.0002,
+            0.0002,
+            0.0001
+          ],
+          "ok": true
+        },
+        "light": {
+          "scale_ratio_minus_1": [
+            -3.3e-05,
+            2.6e-05,
+            -2.5e-05
+          ],
+          "wall_face_shift_m": [
+            0.0276,
+            -0.059,
+            0.052,
+            -0.0003
+          ],
+          "ok": true
+        }
+      }
+    },
+    "origin": {
+      "ok": true
+    },
+    "coincident_faces": {
+      "ok": true,
+      "counts": {
+        "full": 0,
+        "web": 0,
+        "light": 0
+      }
+    },
+    "metric_uv": {
+      "ok": true,
+      "off": []
+    }
+  },
+  "note": "Measurements from actual canonical GLBs. Quantized degenerate counts use the contract 1mm position quantum; these are not asserted to be zero-area source triangles. No coincident faces. Entry geometry regression independently checks nonzero source triangle area."
+}

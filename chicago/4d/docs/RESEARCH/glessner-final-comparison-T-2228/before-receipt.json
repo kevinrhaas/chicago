@@ -1,0 +1,44 @@
+{
+  "base": "aaf49896a74f1798743cc7436822b74d8abdf9a1",
+  "assets": {
+    "assets/gltf/glessner_house__as_built_1887.glb": {
+      "bytes": 198744544,
+      "sha256": "bf27a842e5d36fff63b362962b068777e781a880f1bf66f6454cc51860333364"
+    },
+    "assets/web/glessner_house__as_built_1887.glb": {
+      "bytes": 59090956,
+      "sha256": "26ce6d28e79f2bb3ceb463cd9cba534ad4e19c8700dfa373714d4dfd359a1fd6"
+    },
+    "assets/web/glessner_house__as_built_1887.light.glb": {
+      "bytes": 32622008,
+      "sha256": "9ee9d6632f8a5338a6f8561c736013876519263c963d94f28224cec08ffee5fd"
+    }
+  },
+  "cameras": {
+    "habs-01-northwest.json": {
+      "original_sha256": "914f653e5bce5182ea25206d155249d462225db4901e887ca44492971275591a",
+      "relocated_sha256": "98c93107d7cd7a87c36444b516f394ea19bd52209e961aa62e34b718ece3ea53",
+      "only_change": "Absolute photo path to render external baseline; pose, intrinsics, lighting and section unchanged."
+    },
+    "habs04-terrace-section.json": {
+      "original_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
+      "relocated_sha256": "3eaff4d14cc90314c71e8533c587d274951df3e7c1116e8613baccb05cd920ce",
+      "only_change": "Absolute photo path to render external baseline; pose, intrinsics, lighting and section unchanged."
+    },
+    "taylor-2135-ne.json": {
+      "original_sha256": "c194faa26abdb9b7aa27f3946e795205a7856e80a6d59d10f5b4d46c2d51c6f9",
+      "relocated_sha256": "0b050f557347d1947e12edc3dc4e793ae09fed65ec9373e739cc49199bbdb87f",
+      "only_change": "Absolute photo path to render external baseline; pose, intrinsics, lighting and section unchanged."
+    },
+    "habs-14-north-inclined.json": {
+      "original_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
+      "relocated_sha256": "ec616d9152112840009a0fe8c7d4e7be952655169fa760db15c7c6dcb5dcd83d",
+      "only_change": "Absolute photo path to render external baseline; pose, intrinsics, lighting and section unchanged."
+    },
+    "habs04-hood-section.json": {
+      "original_sha256": "2229a228b90863f49d0a93094d0c79d385aa880fd39815501996e9b61e7a046f",
+      "relocated_sha256": "b87eea4d7b7609d51c126967d4c87be0a11b2b0dfaba95cd3c5688a4e6985d00",
+      "only_change": "Absolute photo path to render external baseline; pose, intrinsics, lighting and section unchanged."
+    }
+  }
+}
