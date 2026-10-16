@@ -56,7 +56,8 @@ import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
-import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
+import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
+  closeUploadedImages } from './upload-release.js';
 import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
@@ -84,7 +85,8 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
-import { resolveSharpness, sharpnessGuess } from './sharpness.js';
+import { resolveSharpness } from './sharpness.js';
+import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
 
@@ -1446,11 +1448,15 @@ try { bootStorage = window.localStorage; } catch { /* private mode */ }
 // T-2547: if the last session died loading (a phone out of memory), this one boots a
 // detail tier lower and at Sharpness Low, and says so. Resolved here, before the
 // forecast and the GLB fetch, so nothing is downloaded for the tier that died.
+// T-2559: the guess it steps down from is the device profile a previous visit
+// cached (boot() re-reads it); a first visit guesses the platform default.
 const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
 api.crashGuard = crashGuard.state;
+const bootProfile = cachedDeviceProfile(bootStorage, null);
+const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
 const crashBoot = crashGuard.boot({
-  detail: readDetailPreference() || (prefersTouch() ? 'light' : 'full'),
-  quality: resolveSharpness(readQualityPreference(), prefersTouch()),
+  detail: readDetailPreference() || bootGuess?.detail || (prefersTouch() ? 'light' : 'full'),
+  quality: resolveSharpness(readQualityPreference(), prefersTouch(), bootGuess?.sharpness),
 });
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
@@ -1512,13 +1518,26 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  // T-2559: read what the device offers and choose per device — see
+  // device-profile.js. Before the scene is fetched, so a weak machine's tier
+  // decides what is downloaded; a repeat visit reads its cached profile and pays
+  // no benchmark. The touch screen still picks the controls and `lowSpec`; the
+  // profile picks only the defaults below, and a stored choice beats both.
+  const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
+    search: location.search });
+  api.device = device;
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
-  // T-2547: the stored choice or the device guess, unless the crash guard stepped it down.
-  let detailLevel = crashBoot.detail;
-  // Image sharpness for a visitor who never chose one: Low on a phone, Medium
-  // on a desktop (T-2110 — see sharpness.js).
-  const qualityGuess = sharpnessGuess(coarse);
+  // T-2547's step-down outranks everything; then the stored choice; then the
+  // device profile (T-2559).
+  let detailLevel = crashBoot.lowered.detail ? crashBoot.detail : (readDetailPreference() || device.choice.detail);
+  api.bootDetail = detailLevel;
+  // Image sharpness for a visitor who never chose one: the profile's choice —
+  // on a standard device the T-2110 default, Low on a phone and Medium on a
+  // desktop (see sharpness.js).
+  const qualityGuess = device.choice.sharpness;
+  const bootQuality = crashBoot.lowered.quality ? crashBoot.quality
+    : resolveSharpness(readQualityPreference(), coarse, qualityGuess);
   const detailOpts = () => ({ detail: detailLevel });
 
   /**
@@ -1586,10 +1605,14 @@ async function boot() {
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, crashBoot.quality));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, bootQuality));
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
-  crashGuard.watchContext(renderer.domElement, { needsReload: () => uploadReleaseState().attributes > 0 });
+  // T-2548: a closed building image is gone from the page as a released array is.
+  crashGuard.watchContext(renderer.domElement, { needsReload: () => {
+    const released = uploadReleaseState();
+    return released.attributes > 0 || released.images > 0;
+  } });
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -1601,6 +1624,8 @@ async function boot() {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
     detail: detailLevel,
+    // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
+    keepAssetBytes: !coarse,
   });
   const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
   const detailLevels = inspectionLod ? { ...DETAIL,
@@ -1738,6 +1763,12 @@ async function boot() {
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
   settleOnGpu(buildings.group);
+  // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
+  // of the source geometry and the decoded images (upload-release.js).
+  if (coarse) {
+    releaseSources(loaded.registry);
+    closeUploadedImages(buildings.group, renderer);
+  }
   bootController.end('buildings');
   bootController.start('ground');
   await yieldToPaint();
@@ -2428,6 +2459,26 @@ async function boot() {
     next.flora?.dispose?.();
     next.trees?.dispose?.();
     if (next.asset) disposeLoadedAsset(next.asset.gltf);
+    for (const gltf of next.reread ?? []) disposeLoadedAsset(gltf);
+  };
+  /**
+   * T-2548: a phone let go of every building's source geometry once its batch
+   * held a copy, so a rebuild re-reads the GLBs of the rows it released — the
+   * HTTP cache answers — into the candidate registry. The gltfs those rows held
+   * are retired at commit (`next.retired`), the ones read here at discard.
+   */
+  const rereadReleased = async (next, skipId) => {
+    next.reread = [];
+    next.retired = [];
+    const rows = [...next.registry.values()].filter((row) => row.sourceReleased && row.id !== skipId);
+    const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
+    got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
+    const failed = got.find((r) => r.status === 'rejected');
+    if (failed) throw failed.reason;
+    rows.forEach((row, i) => {
+      next.retired.push(row.gltf);
+      Object.assign(row, got[i].value, { node: null, instanceId: null, sourceReleased: false });
+    });
   };
   const inspectionSwitch = inspectionLod ? createLatestDetailSwitch({
     initial: detailLevel,
@@ -2439,7 +2490,9 @@ async function boot() {
           next.asset = await loaded.loadDetailAsset(record, level);
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
-          Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          Object.assign(next.registry.get(record.id), next.asset,
+            { node: null, instanceId: null, sourceReleased: false });
+          await rereadReleased(next, record.id);
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
@@ -2499,6 +2552,12 @@ async function boot() {
         api.roll = buildings.roll;
         previous.dispose();
         disposeLoadedAsset(oldAsset);
+        for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
+        if (coarse) {
+          settleOnGpu(buildings.group);
+          releaseSources(loaded.registry);
+          closeUploadedImages(buildings.group, renderer);
+        }
       }
       if (next.contextCity) {
         const previous = contextCity;
@@ -2833,6 +2892,7 @@ async function boot() {
     resolvedDetail: detailLevel,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
     lowered: crashBoot.lowered,
+    device,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -3121,7 +3181,7 @@ async function boot() {
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1,
-    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse)));
+    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess)));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -4160,6 +4220,8 @@ async function boot() {
     exposure: { get: () => renderer.toneMappingExposure, enumerable: true },
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
     uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
+    /** T-2548: GLBs banked for a detail switch — none on a phone. */
+    bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.

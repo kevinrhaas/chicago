@@ -39,7 +39,7 @@
 
 import * as THREE from 'three';
 import {
-  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms,
+  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms, variationUniforms,
 } from './terrain.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 import { WORKED_SHARE, ridgeHeight } from './streets.js';
@@ -589,6 +589,7 @@ export async function createWorkingBank({
       uGround: { value: prairie },
       uPrairieLuma: { value: prairie.userData.meanLinearLuma },
       ...swardUniforms(sward),
+      ...variationUniforms(prairie),
       uGrit: { value: gritTex }, uGritM: { value: GRIT_TILE_M }, uGritMean: { value: gritMean },
       uTrod: { value: linearTone(T.earth_trodden ?? [116, 103, 83]) },
       uRest: { value: linearTone(T.earth_rest ?? [98, 86, 66]) },

@@ -19,8 +19,9 @@ export function sharpnessGuess(coarse) {
   return coarse ? 1 : 1.5;
 }
 
-/** The ratio in force: the stored choice if there is one, else the guess. */
-export function resolveSharpness(stored, coarse) {
+/** The ratio in force: the stored choice if there is one, else the guess —
+ *  the device profile's (T-2559) where main.js passes one, else the platform's. */
+export function resolveSharpness(stored, coarse, guess = sharpnessGuess(coarse)) {
   const n = Number(stored);
-  return Number.isFinite(n) && n > 0 ? n : sharpnessGuess(coarse);
+  return Number.isFinite(n) && n > 0 ? n : guess;
 }
