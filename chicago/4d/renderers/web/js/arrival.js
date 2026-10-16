@@ -82,6 +82,11 @@ function setDigits(host, year, animate) {
   host.dataset.year = text;
 }
 
+/** T-2616: the failure sentence, at the year the ticker stalled on. */
+export function stalledLine(year) {
+  return `The jump stalled somewhere around ${Math.round(year)}.`;
+}
+
 const MB = 1e6;
 /** The readout's figures: fixed-width, so the device never reflows as they change. */
 export function formatReadout({ bytes = 0, total = 0, rate = null, eta = null } = {}, ready = false) {
@@ -127,6 +132,10 @@ export function createArrival({
   logEl = null,
   lampsEl = null,
   readoutEl = null,
+  // T-2616: the failure state's way home and its folded detail. Optional, like the rest.
+  observatoryEl = null,
+  detailsEl = null,
+  detailEl = null,
 } = {}) {
   if (!boot) throw new Error('createArrival requires api.boot');
   const presentation = scenePresentation(targetYear);
@@ -240,7 +249,10 @@ export function createArrival({
     tickerRaf = null;
   }
 
-  function fail(error, { message } = {}) {
+  /** T-2616: a stall reads as a stall, at the year the ticker stopped on. What failed to
+   * load (a file name, an error) is for an adult, so it sits in the folded details;
+   * `headline` replaces the stall sentence when the failure is not one (an unbuilt year). */
+  function fail(error, { message, headline } = {}) {
     if (ready) return;
     failed = true;
     if (phaseEl) phaseEl.hidden = false;
@@ -248,13 +260,18 @@ export function createArrival({
     content?.stop(true);
     stopTicker();
     if (settleRaf != null) cancelFrame(settleRaf);
-    const msg = message || (error ? `Could not finish the reconstruction — ${String(error.message || error)}`
+    const detail = message || (error ? `Could not finish the reconstruction — ${String(error.message || error)}`
       : 'Could not finish the reconstruction.');
-    if (phaseEl) phaseEl.textContent = msg;
+    if (phaseEl) phaseEl.textContent = headline || stalledLine(lastShown ?? displayedYear);
+    if (headlineEl) headlineEl.textContent = 'Jump stalled';
+    if (titleEl) titleEl.textContent = 'Jump stalled';
+    if (detailEl) detailEl.textContent = detail;
+    if (detailsEl) { detailsEl.open = false; detailsEl.hidden = false; }
+    if (observatoryEl) observatoryEl.hidden = false;
     lampsEl?.querySelectorAll('[data-state="active"]').forEach(el => { el.dataset.state = 'fault'; });
     if (buttonEl) {
       buttonEl.disabled = false;
-      buttonEl.textContent = 'Retry';
+      buttonEl.textContent = 'Try again';
       buttonEl.dataset.arrivalRetry = 'true';
     }
   }

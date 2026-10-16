@@ -226,6 +226,18 @@ html, body {
 }
 .gate-btn:disabled { opacity: .45; cursor: progress; }
 .gate-btn:not(:disabled):hover { filter: brightness(1.08); }
+/* T-2616: the stalled jump — TRY AGAIN above, the way home below, the detail folded. */
+.gate-btn-secondary {
+  display: block; box-sizing: border-box; margin-top: 10px; text-align: center; text-decoration: none;
+  color: var(--ink); background: transparent; border: 1px solid var(--edge-strong, var(--edge));
+}
+.gate-btn-secondary[hidden], .gate-details[hidden] { display: none; }
+.gate-details { margin: 12px 0 0; text-align: left; font-size: 13px; color: var(--ink-dim); }
+.gate-details summary { cursor: pointer; text-align: center; }
+.gate-details p {
+  margin: 8px 0 0; padding: 8px 10px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  font: 400 12px/1.45 var(--font-mono, ui-monospace, monospace); overflow-wrap: anywhere;
+}
 
 .gate-keys { margin: 14px 0 0; font-size: 12px; color: var(--ink-dim); }
 .gate-keys .k {
