@@ -28,7 +28,7 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
-  createLatestDetailSwitch, disposeLoadedAsset } from './scene-loader.js';
+  createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
@@ -1655,6 +1655,8 @@ async function boot() {
     detail: detailLevel,
     // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
     keepAssetBytes: !coarse,
+    // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
+    pool: bootPoolFromSearch(location.search),
   });
   const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
   const detailLevels = inspectionLod ? { ...DETAIL,
@@ -4294,6 +4296,8 @@ async function boot() {
     uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
     /** T-2548: GLBs banked for a detail switch — none on a phone. */
     bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
+    /** T-2597: the boot pool, and the most GLB bytes it held unparsed at once. */
+    bootPool: { get: () => loaded.bootPool, enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.
