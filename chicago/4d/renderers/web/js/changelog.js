@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 1865, ts: '2026-10-16T12:45:45.685Z', date: 'Oct 16, 2026, 7:45 AM CT', title: 'Keith\'s loggia carving read again from the 1888 photograph', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the capitals over the paired entrance columns are now what the 1888 plate shows: square stone blocks carved with a running zigzag. The volutes and egg row drawn earlier are gone; a close look at the photograph shows neither.',
+      'The balcony\'s front panel now carries one continuous carved scroll of foliage over a plain base strip, and its corner piers have plain sunk panels.',
+    ] },
+  { v: 1864, ts: '2026-10-16T12:45:45.685Z', date: 'Oct 16, 2026, 7:45 AM CT', title: 'Phones keep less of the town twice when you tap', kind: 'improve',
+    items: [
+      'Nothing you can see changed. A tap on a plank walk, a fence or the goods at a door is now answered by the graphics chip, which draws the spot under your finger once and reads back what is there.',
+      'So a phone no longer keeps a second copy of those boards and pales in page memory once they are drawn: about 16 MB less on arrival in 1835, and more as you walk.',
+      'A tap no longer opens the card of a walk or fence too far away to be drawn.',
+    ] },
   { v: 1863, ts: '2026-10-16T11:58:24.797Z', date: 'Oct 16, 2026, 6:58 AM CT', title: 'Keith\'s bow laid in deep and thin courses, as photographed', kind: 'improvement',
     items: [
       '1808 Prairie\'s round south bay now alternates a deep rock-faced course with a thin one, as the street front does. The 1888 photographs show this on the bay\'s piers.',
