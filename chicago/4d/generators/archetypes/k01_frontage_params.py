@@ -888,6 +888,17 @@ def _k02(front: dict) -> dict:
         # clearance): a quoin proud of it by its rock face would cross into the landmark
         raise ParamError("stone_front.corner_bond: only the south corner can return; the north "
                          "corner stands 0.02 m from the Glessner house")
+    # T-2581: a front read off its photographs may turn the corner as a straight strip of
+    # its own stone, every course returned the same length onto the south wall, where a
+    # quoined corner bonds long and short in turn into the brick
+    south_return = front.get("south_return_m")
+    if south_return is not None:
+        if "south" not in corners:
+            raise ParamError("stone_front.south_return_m returns the south corner: corner_bond must name it")
+        south_return = float(south_return)
+        if not float(f["corner_bond"]["return_m"][1]) < south_return <= 4.0:
+            raise ParamError(f"stone_front.south_return_m = {south_return} must be longer than {fab}'s "
+                             f"longest quoin ({f['corner_bond']['return_m'][1]} m) and at most 4 m")
     if t["coping"] is None:
         raise ParamError("dressed_trim declares no coping")
     coping_h = float(front.get("coping_height_m", 0.0))
@@ -923,6 +934,7 @@ def _k02(front: dict) -> dict:
         "wall": edges(f), "trim_edges": edges(t),
         "trim_course_m": tuple(t["course_height_m"]), "trim_block_m": tuple(t["block_length_m"]),
         "quoin_return_m": tuple(f["corner_bond"]["return_m"]), "corners": corners,
+        **({"south_return_m": south_return} if south_return is not None else {}),
         "base_courses": base, "channel_m": f["rusticated_base"]["channel_width_m"],
         "channel_depth_m": f["rusticated_base"]["channel_depth_m"],
         **({"coursing": dict(coursing)} if coursing else {}),

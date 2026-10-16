@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "cd274f27f0463cf4609cb2a088974a6d98743d7a55eb8e7dc69c8f395317893f",
+  "glb_sha256": "589e34370553820032ffb0dc52f48659e1f52d9b8d47c86cf4f495352d32e0cf",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
   "verdict": "differs",
@@ -44,8 +44,8 @@
       "status": "fixed"
     },
     {
-      "what": "The south face's front strip, from the corner back about a third of the visible face and the full height, reads as smooth light dressed stone; the build lays toothed rock-faced quoins on brick there. Found in T-2577's re-review; filed as its own ticket. The camera fit has not been re-solved, so how far back the stone runs is not yet measured.",
-      "status": "open"
+      "what": "T-2581: the south face's front strip is built as this view shows it, the front's stone turned onto the south face as a straight strip from grade to the parapet, 2.1 m deep to the downpipe's line (read 2.1 to 2.2 m behind the corner at the parapet and at the third-floor band), in place of the toothed quoins on brick; behind the pipe the face reads only slightly darker in this print, so the strip's end is read from the pipe.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

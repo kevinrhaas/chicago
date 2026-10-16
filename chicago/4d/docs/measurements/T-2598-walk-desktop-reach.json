@@ -1,0 +1,194 @@
+{
+  "ticket": "T-2598",
+  "measured": {
+    "on": "2026-10-16T15:53:32.694Z",
+    "build": "0fbd20fc0",
+    "machine": "AMD EPYC 7763 64-Core Processor ×4",
+    "seconds": 387,
+    "method": "the prairie walk: /1904/, welcome entered, the eye stood at each station, residency let finish its uploads, 3 frames; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "desktop",
+      "label": "desktop 1280x800",
+      "walk": "prairie",
+      "residencyOff": false,
+      "steps": [
+        {
+          "local_e": 1402,
+          "local_n": -3270,
+          "yaw_deg": 0,
+          "gpuTextures": 593290789,
+          "residency": {
+            "resident": 55,
+            "sources": 61,
+            "residentBytes": 475206680,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 475206680,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 6,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3230,
+          "yaw_deg": 0,
+          "gpuTextures": 593290789,
+          "residency": {
+            "resident": 55,
+            "sources": 61,
+            "residentBytes": 475206680,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 475206680,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 6,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3190,
+          "yaw_deg": 0,
+          "gpuTextures": 596086989,
+          "residency": {
+            "resident": 57,
+            "sources": 61,
+            "residentBytes": 478002882,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 478002882,
+            "pending": 0,
+            "uploads": 2,
+            "evictions": 6,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3150,
+          "yaw_deg": 0,
+          "gpuTextures": 618456605,
+          "residency": {
+            "resident": 61,
+            "sources": 61,
+            "residentBytes": 500372502,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 500372502,
+            "pending": 0,
+            "uploads": 6,
+            "evictions": 6,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3110,
+          "yaw_deg": 0,
+          "gpuTextures": 618456605,
+          "residency": {
+            "resident": 61,
+            "sources": 61,
+            "residentBytes": 500372502,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 500372502,
+            "pending": 0,
+            "uploads": 6,
+            "evictions": 6,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3070,
+          "yaw_deg": 0,
+          "gpuTextures": 622650905,
+          "residency": {
+            "resident": 61,
+            "sources": 61,
+            "residentBytes": 500372502,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 500372502,
+            "pending": 0,
+            "uploads": 6,
+            "evictions": 6,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3030,
+          "yaw_deg": 0,
+          "gpuTextures": 594710729,
+          "residency": {
+            "resident": 55,
+            "sources": 61,
+            "residentBytes": 466818072,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 466818072,
+            "pending": 0,
+            "uploads": 6,
+            "evictions": 12,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -2990,
+          "yaw_deg": 0,
+          "gpuTextures": 334683905,
+          "residency": {
+            "resident": 24,
+            "sources": 61,
+            "residentBytes": 178812919,
+            "budgetBytes": 4294967296,
+            "wantedBytes": 178812919,
+            "pending": 0,
+            "uploads": 6,
+            "evictions": 43,
+            "redecodes": 0,
+            "overBudget": 0
+          }
+        }
+      ],
+      "residency": {
+        "tier": "full",
+        "enterM": 160,
+        "leaveM": 200,
+        "budgetBytes": 4294967296,
+        "uploadBytesPerFrame": 16777216,
+        "sources": 61,
+        "resident": 24,
+        "residentBytes": 178812919,
+        "allBytes": 500372502,
+        "peakResidentBytes": 500372502,
+        "pending": 0,
+        "uploads": 6,
+        "evictions": 43,
+        "redecodes": 0,
+        "standIns": 45,
+        "standInBytes": 972103,
+        "encodedBytes": 0,
+        "wantedBytes": 178812919,
+        "overBudget": 0,
+        "problems": []
+      },
+      "errors": [],
+      "over": 0,
+      "maxGpuTextures": 622650905,
+      "maxResidentBytes": 500372502,
+      "seconds": {
+        "walk": 387
+      }
+    }
+  ]
+}
