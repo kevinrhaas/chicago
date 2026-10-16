@@ -190,3 +190,10 @@ camera re-fits and the image gate, which carries the house's `## Image gate`).
   cornice-box band under the lattice where the pictures show stone (T-2566), the camera
   residuals (T-2567), a cowl ventilator on the deck in the 1887-89 pictures, and where the
   full-height stone ends behind the rear pinnacle.
+* **Browser receipts (T-2564).** The published `/1904/` app, `QA_VIEWS=front,roof,northeast
+  node tools/qa_k01_t1883.mjs`: desktop 1280x800 full and mobile 390x780 light both PASS,
+  zero page errors and zero bad loads, serving asset `6ec4aee594c1…`
+  (`browser-validation-after.json`; the `after-*-front|roof|northeast.jpg` captures are
+  re-taken). Smoke: desktop part 1 PASS (87/0), mobile part 14 PASS (128/0, the 1904
+  door); desktop part 14 passed 102 checks before the 590 s cap, without reaching its 1904
+  section (dev's last reading of that part took 29 min), so the app QA above stands for it.
