@@ -2,7 +2,7 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "d59cdd1585254699a80f29002c0f1771b3d92186a52f782cf6c679c4fafef5ff",
+ "glb_sha256": "3aedf664ef20e7db3bab1c6843bb2fca7a846734f64ec8f302c13bf4b8644b3f",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
  "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
  "verdict": "differs",
@@ -37,6 +37,10 @@
   },
   {
    "what": "South projection: flush with the south corner in the photograph; K08 stands it 0.3 m in",
+   "status": "open"
+  },
+  {
+   "what": "South projection: the barred basement light stands from about 0.1 m over the walk and is about 1 m high; K08 keeps it clear of the 0.6 m plinth, 0.65 m high",
    "status": "open"
   },
   {

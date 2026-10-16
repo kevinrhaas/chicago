@@ -109,7 +109,7 @@ def cutters(a, k5) -> list:
 
 def _prism(a, mat, frame, poly, d0, d1, seed, conf):
     """A stone standing proud of the face, counter-clockwise in (s, y)."""
-    area = sum(p[0] * q[1] - q[0] * p[1] for p, q in zip(poly, poly[1:] + poly[:1]))
+    area = math.fsum(p[0] * q[1] - q[0] * p[1] for p, q in zip(poly, poly[1:] + poly[:1]))
     if area < 0:
         poly = list(reversed(poly))
     from . import k01_wall_gable

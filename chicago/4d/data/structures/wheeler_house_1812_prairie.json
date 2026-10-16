@@ -251,8 +251,8 @@
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 1.9,
-                      "clear_height_m": 0.95,
-                      "sill_m": 0.15,
+                      "clear_height_m": 0.65,
+                      "sill_m": 0.72,
                       "at": [
                         0.5
                       ],
@@ -261,7 +261,7 @@
                         "set_back_m": 0.04,
                         "ring_radius_m": 0.25
                       },
-                      "why_not_ordinary": "the basement light under the arched window, read off the photograph: about 1.9 m wide and 1 m high, barred with ironwork (its scrolls are T-2544's) (T-2543)"
+                      "why_not_ordinary": "the basement light under the arched window, read off the photograph: about 1.9 m wide and 1 m high from about 0.1 m over the walk, barred with ironwork; built 0.65 m high on a 0.72 m sill, because K08 keeps a storey's openings clear of its 0.6 m plinth (the light's true height and its scrolls are T-2544's) (T-2543)"
                     }
                   ]
                 },
