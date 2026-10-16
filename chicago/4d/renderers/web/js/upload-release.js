@@ -13,17 +13,20 @@
  * always drawn. What is kept is what something still reads:
  *
  *  - `position` (and the index) of a layer that answers a tap by raycasting
- *    the chunk's own triangles — today only `structures` (and the uv and
- *    normal three would interpolate at the hit are set aside for the raycast —
- *    no pick reads them). The plank walks, fences and yard goods are picked by
- *    a one-pixel id pass on the GPU instead (gpu-pick.js, T-2572), so they keep
- *    nothing;
+ *    the chunk's own triangles (and the uv and normal three would interpolate
+ *    at the hit are set aside for the raycast — no pick reads them). Today no
+ *    layer listed here does: the plank walks, fences and yard goods (T-2572)
+ *    and the buildings' batches (T-2573) are picked by a one-pixel id pass on
+ *    the GPU instead (gpu-pick.js), so they keep nothing;
  *  - any attribute uploaded as DYNAMIC, because its layer rewrites it (the
  *    frontage's far walk index, the horizon's timber), and the whole geometry
  *    of anything whose position is dynamic;
  *  - every bounding volume, computed before the position can go, so the
- *    frustum never needs it again;
- *  - a BatchedMesh's index, whose element size three reads on every draw;
+ *    frustum never needs it again — for a BatchedMesh that is each of its
+ *    geometries' box and sphere too, which three computes lazily off the
+ *    positions the first time an instance is culled or sorted;
+ *  - a BatchedMesh index's element size, which three reads on every draw that
+ *    culls: its array is swapped for an empty one of the same type, not dropped;
  *  - a geometry flagged `userData.rereadBeforeRelease`, which its layer will
  *    rebuild from its own arrays after this upload — the terrain's far base,
  *    which `batchDistantGround()` cuts into pieces once the frontage has
@@ -54,12 +57,15 @@ export const RELEASE_KEEP = {
   frontage: [],
   enclosures: [],
   yard: [],
-  // The weathering handle rewrites the buildings' INSTANCE colours, which are
-  // not vertex attributes (T-2568), so nothing more is kept for it.
-  structures: ['position', 'index'],
+  // T-2573: picked on the GPU too. The weathering handle rewrites the
+  // buildings' INSTANCE colours, which are not vertex attributes (T-2568), and
+  // no vertex colour reaches a batch (T-2570), so nothing is kept for it either.
+  structures: [],
 };
 
 function dropArray() { this.array = null; }
+/** A BatchedMesh reads `index.array.BYTES_PER_ELEMENT` to place its multi-draw. */
+function emptyArray() { this.array = new this.array.constructor(0); }
 
 /**
  * HARNESS ONLY: `?keep-geometry=1` uploads exactly as a phone does but keeps
@@ -75,7 +81,7 @@ const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_AR
   // T-2548: the buildings' source glTF geometry, and their decoded images.
   sources: 0, sourceBytes: 0, images: 0, imageBytes: 0 };
 
-function release(attr) {
+function release(attr, drop = dropArray) {
   if (!attr || !attr.array || attr.userData?.uploadReleased) return;
   if (attr.usage !== THREE.StaticDrawUsage) return;
   if (attr.isInterleavedBufferAttribute || attr.isInstancedBufferAttribute) return;
@@ -86,7 +92,7 @@ function release(attr) {
   attr.userData.uploadBytes = attr.array.byteLength;
   census.attributes += 1;
   census.bytes += attr.array.byteLength;
-  if (!KEEP_ARRAYS) attr.onUpload(dropArray);
+  if (!KEEP_ARRAYS) attr.onUpload(drop);
 }
 
 /** Mark one layer's geometries to let go of their page arrays once uploaded. */
@@ -100,14 +106,32 @@ function markLayer(layer, keep) {
     geo.userData.uploadReleased = true;
     if (!geo.boundingSphere) geo.computeBoundingSphere();
     if (!geo.boundingBox) geo.computeBoundingBox();
+    if (o.isBatchedMesh) batchBounds(o);
     census.geometries += 1;
     for (const [attrName, attr] of Object.entries(geo.attributes)) {
       if (!keep.includes(attrName)) release(attr);
     }
-    // A BatchedMesh reads its index's element size on every draw.
-    if (geo.index && !keep.includes('index') && !o.isBatchedMesh) release(geo.index);
+    if (geo.index && !keep.includes('index')) release(geo.index, o.isBatchedMesh ? emptyArray : dropArray);
     if (keep.includes('position')) pickWithoutReleased(o);
   });
+}
+
+const _box = new THREE.Box3();
+const _sphere = new THREE.Sphere();
+
+/**
+ * Every geometry of a batch has its box and sphere cached before its positions
+ * can go: three computes them off the positions on first use (a cull, a sort,
+ * the sun's cast test), and an instance first shown after the release would
+ * otherwise read an array that is not there.
+ */
+function batchBounds(batch) {
+  const n = batch._geometryCount ?? batch._geometryInfo?.length ?? 0;
+  for (let id = 0; id < n; id += 1) {
+    if (batch._geometryInfo?.[id]?.active === false) continue;
+    batch.getBoundingBoxAt(id, _box);
+    batch.getBoundingSphereAt(id, _sphere);
+  }
 }
 
 /** What three's raycast interpolates at a hit when the geometry carries it. */

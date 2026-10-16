@@ -1,3 +1,29 @@
+## T-2573 — a tap on a building is answered by the GPU too (2026-10-16)
+
+Piece 2 of T-2550, after T-2572's walks, fences and yard goods. `gpu-pick.js` now draws a
+`BatchedMesh` ITSELF, one pass per batch into the same one-pixel target and depth, with its
+material swapped for a batching id material (a `ShaderMaterial`, so three prepends `USE_BATCHING`
+and binds the batch's matrix and indirect textures) that writes `getIndirectIndex(gl_DrawID)` —
+the instance, the `batchId` the raycast reported — where a chunk writes its provoking vertex.
+`buildings.pickAt` is that pick, with the reach it always had; the raycast stays as
+`pickAtRaycast`, the oracle. So `RELEASE_KEEP.structures` is empty: the batches keep no position
+and no index once uploaded. Two things three still reads are kept first: each geometry's box and
+sphere (computed lazily off the positions the first time an instance is culled, sorted or tested
+for the sun's cast), and the index's element size, which `BatchedMesh.onBeforeRender` reads to
+place its multi-draw — that array is swapped for an empty one of the same type rather than dropped.
+
+`check_upload_release.mjs`: on the desktop 16 of 16 fixed taps on face centroids of fixed
+buildings come back from the GPU with the raycast's id at its distance; on the 1835 phone all 5
+batches hold neither array and a tap aimed by an instance's kept sphere still resolves; on the
+1904 phone the switch to full and back still answers a tap on Glessner. **1835 phone: 612.2 to
+586.2 MB** (dev and this branch, same machine, same hour; ArrayBuffers 225.0 to 198.9, GPU buffers
+unchanged at 180.5; `docs/measurements/T-2573-memory*.json`); ceiling 700 to 650 MiB by the rule.
+1904 was not re-read and its ceiling is unchanged.
+
+**The weathering half of the ticket was already done.** Since T-2568 the handle rewrites the
+batches' instance colours (a small texture), and since T-2570 no vertex colour reaches a batch, so
+there was no `color` array left to keep or release; nothing in the weathering path changed here.
+
 ## T-2584 — Keith house's bow laid deep and thin in turn (2026-10-16)
 
 Piece 1 of T-2580 (which was split into this, T-2585 for the loggia's carving and T-2586 for
