@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 import { cheapenGlass } from './glass.js';
 const $=id=>document.getElementById(id), base=new URL('../../',import.meta.url), dataURL=new URL('data/comparisons/glessner/',base);
 const loadJSON=async name=>{const r=await fetch(new URL(name,dataURL));if(!r.ok)throw Error(`${name}: HTTP ${r.status}`);return r.json()};
@@ -9,7 +10,8 @@ const [data,baselineReport,auditReport]=await Promise.all([loadJSON('observation
 let report=auditReport,loadedDigest='',loadedName='',loadedDetail='';
 const scene=new THREE.Scene();scene.background=new THREE.Color('#d9ddd7');scene.add(new THREE.HemisphereLight(0xf4f4ee,0x555e51,2.3));const key=new THREE.DirectionalLight(0xffffff,2.4);key.position.set(35,65,45);scene.add(key);
 const renderer=new THREE.WebGLRenderer({canvas:$('model'),antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
-const camera=new THREE.PerspectiveCamera(),loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);let object,active,serial=0;
+const camera=new THREE.PerspectiveCamera(),loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).setKTX2Loader(new KTX2Loader().detectSupport(renderer));// both tiers' textures are KTX2 (T-2596)
+let object,active,serial=0;
 const gltfVector=p=>new THREE.Vector3(p[0],p[2],-p[1]);
 function setCamera(c){
  const [r,u,f]=c.basis_right_up_forward.map(gltfVector);camera.position.copy(gltfVector(c.position_m));camera.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(r,u,f.negate()));camera.updateMatrixWorld(true);

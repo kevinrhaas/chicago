@@ -236,7 +236,9 @@ async function fetchAsset(url) {
  *     (56.4 MB at full, 31.1 MB light): the small houses parse as they land. A
  *     pool of 24 held 63.6 / 38.3 MB, because it holds two dozen files beside
  *     Glessner instead of none. No count pool can go under the largest file;
- *     T-2596 (Glessner in KTX2, light capped at 1024) is what shrinks it.
+ *     T-2596 (Glessner in KTX2, light capped at 1024) is what shrinks it:
+ *     measured after it, held peak 107.6 -> 93.1 MB desktop, 82.4 -> 66.2 MB
+ *     phone, the Glessner files being 43.8 / 15.6 MB.
  *   - on 1835 the pile is 13.4 MB of a boot that peaks above 400 MB of
  *     ArrayBuffers, and a pool of 8 cut it to 0.2 MB for 5 s more boot on a
  *     phone (686 loads in 8 lanes is ~86 round trips end to end).

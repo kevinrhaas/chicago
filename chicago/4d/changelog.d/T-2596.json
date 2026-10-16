@@ -1,0 +1,9 @@
+{
+  "title": "Glessner House loads lighter, especially on a phone",
+  "kind": "improve",
+  "items": [
+    "Nothing you can see changed. Glessner House's stone, brick and trim pictures now ship as GPU-compressed textures, like the other Prairie Avenue houses since the last release.",
+    "The phone's copy of the house is less than half the download it was (15.6 MB, down from 32.6 MB), and its textures take about an eighth of the graphics memory they did.",
+    "Rendered side by side from the five historical photograph cameras, the new house matches its old self to within 36-45 dB."
+  ]
+}

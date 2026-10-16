@@ -4,7 +4,7 @@
     python3 tools/ktx2_glb.py IN.glb OUT.glb [--cap 2048]
 
 `tools/web_derivatives.sh` runs this between `gltf-transform optimize` and `meshopt` on
-every textured master (the Glessner v4 set excepted until T-2596). A JPEG in a GLB goes up
+every textured master (the Glessner v4 set too since T-2596, its light tier at --cap 1024). A JPEG in a GLB goes up
 to the GPU as RGBA8, four bytes a texel and a third again for mips; a Basis Universal KTX2
 is transcoded to the GPU's own block format and stays a quarter to an eighth of that.
 

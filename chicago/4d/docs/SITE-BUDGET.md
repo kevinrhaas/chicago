@@ -536,7 +536,20 @@ why the encode is a tool of ours: through the CLI the same 20 houses came to 67.
 The whole-tree **repository-hygiene** allowance is now **320 MiB**, with **22.032 MiB**
 of headroom. Two 320 MiB app allowances plus the 129.136 MiB of other site content total
 **769.136 MiB**, below the 1 GiB platform limit. The 13 MB boot payload is untouched: no
-textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) is expected to
-hand some of this back, since its 28 PNG maps are larger than their UASTC equivalents —
-expected, not measured.
+textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) was expected to
+hand some of this back, since its 28 PNG maps are larger than their UASTC equivalents.
+
+**Measured, T-2596.** The Glessner v4 full and light derivatives take the same recipe —
+13 colour maps ETC1S, 24 data maps UASTC with RDO — the full tier at the 2048² cap and
+the light tier, the phone's, at 1024². Published bytes: full 59,090,956 → 43,817,416,
+light 32,622,008 → 15,606,636, together **−32,288,912 bytes (−30.8 MiB)**. The committed
+recovery package goes from 25 parts (152,124,310 bytes) to 20 (120,180,919). On the GPU,
+counting a block texel at a byte for UASTC and half a byte for ETC1S, with mips: full
+327.2 MB of RGBA8 → about 57.3 MB, light 310.4 → about 36.4 MB. The 1904 boot's held
+peak (`tools/measure_boot_peak.mjs --year 1904 --pools 0`, same build, the old files
+swapped into the mirror for the before): desktop 107.6 → 93.1 MB, phone 82.4 → 66.2 MB.
+Rendered at Glessner's five photo-match cameras from the old and the new derivative:
+full 36.7-45.3 dB, light 36.5-44.8 dB, the difference being grain in the rough-faced
+granite (`docs/measurements/T-2596-glessner-ktx2.json`). The allowance is left at 320
+MiB; the headroom it hands back is ~30 MiB.
 

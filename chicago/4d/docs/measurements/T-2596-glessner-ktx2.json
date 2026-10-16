@@ -1,0 +1,142 @@
+{
+  "ticket": "T-2596",
+  "date": "2026-10-16",
+  "what": "The Glessner v4 full and light web derivatives re-encoded from JPEG/PNG to KTX2 (tools/ktx2_glb.py: 13 colour maps ETC1S, 24 data maps UASTC + RDO + zstd), full capped at 2048\u00b2, light at 1024\u00b2.",
+  "published_bytes": {
+    "full": {
+      "before": 59090956,
+      "after": 43817416
+    },
+    "light": {
+      "before": 32622008,
+      "after": 15606636
+    }
+  },
+  "recovery_package": {
+    "before": {
+      "parts": 25,
+      "bytes": 152124310
+    },
+    "after": {
+      "parts": 20,
+      "bytes": 120180919
+    }
+  },
+  "gpu_texture_bytes": {
+    "_how": "before: RGBA8 with mips as tools/k01_contract.mjs measures it (gpu_rgba8_mip_bytes); after: the KTX2 headers' sizes at 1 byte a texel for UASTC (ASTC 4x4 / BC7) and 0.5 for ETC1S (ETC2 RGB / BC1), with mips. Computed, not read off a GPU.",
+    "full": {
+      "before": 327152000,
+      "after_estimate": 57300000
+    },
+    "light": {
+      "before": 310374784,
+      "after_estimate": 36400000
+    }
+  },
+  "boot_held_peak_1904": {
+    "_how": "node tools/measure_boot_peak.mjs --year 1904 --pools 0 on one published build, the old two files swapped into the mirror for the before. Held peak is the loader's own exact count; the buffers columns are sampled floors and are not claimed.",
+    "before": {
+      "measured": "2026-10-16T17:08:24.153Z",
+      "rows": [
+        {
+          "year": "1904",
+          "viewport": "desktop",
+          "pool": 0,
+          "latencyMs": 60,
+          "bootMs": 59165,
+          "structures": 151,
+          "held": {
+            "size": 0,
+            "peakBytes": 112850880,
+            "peakAssets": 130
+          },
+          "peakScene": 471812463,
+          "peakBuffers": 743802511,
+          "samples": 260,
+          "errors": []
+        },
+        {
+          "year": "1904",
+          "viewport": "mobile",
+          "pool": 0,
+          "latencyMs": 60,
+          "bootMs": 39840,
+          "structures": 151,
+          "held": {
+            "size": 0,
+            "peakBytes": 86381932,
+            "peakAssets": 130
+          },
+          "peakScene": 335619103,
+          "peakBuffers": 367323101,
+          "samples": 226,
+          "errors": []
+        }
+      ]
+    },
+    "after": {
+      "measured": "2026-10-16T17:06:18.464Z",
+      "rows": [
+        {
+          "year": "1904",
+          "viewport": "desktop",
+          "pool": 0,
+          "latencyMs": 60,
+          "bootMs": 61026,
+          "structures": 151,
+          "held": {
+            "size": 0,
+            "peakBytes": 97577340,
+            "peakAssets": 104
+          },
+          "peakScene": 466533339,
+          "peakBuffers": 798584918,
+          "samples": 292,
+          "errors": []
+        },
+        {
+          "year": "1904",
+          "viewport": "mobile",
+          "pool": 0,
+          "latencyMs": 60,
+          "bootMs": 38832,
+          "structures": 151,
+          "held": {
+            "size": 0,
+            "peakBytes": 69366560,
+            "peakAssets": 130
+          },
+          "peakScene": 324692797,
+          "peakBuffers": 392150169,
+          "samples": 239,
+          "errors": []
+        }
+      ]
+    }
+  },
+  "look": {
+    "_how": "tools/photo_match.mjs at each Glessner reference camera, rendered from the old and the new derivative of each tier (SwiftShader, same build); PSNR over RGB. The residual is grain in the rough-faced granite; coursing, colour and shadow read the same. No material needed moving from ETC1S to UASTC.",
+    "views": {
+      "habs-01-northwest": {
+        "full_db": 39.5,
+        "light_db": 39.1
+      },
+      "habs-14-north-inclined": {
+        "full_db": 36.7,
+        "light_db": 36.5
+      },
+      "habs04-hood-section": {
+        "full_db": 45.3,
+        "light_db": 44.8
+      },
+      "habs04-terrace-section": {
+        "full_db": 42.4,
+        "light_db": 42.4
+      },
+      "taylor-2135-ne": {
+        "full_db": 37.3,
+        "light_db": 37.0
+      }
+    }
+  }
+}

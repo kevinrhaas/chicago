@@ -148,8 +148,8 @@ and comparing material tables costs about a second for all 334 assets.
     ships `KHR_texture_basisu`: a JPEG goes up to the GPU as RGBA8, about 5.6 MB for a
     1024² sheet with its mips, and a Basis texture stays in a block format at a quarter
     to an eighth of that. Measured on the 20 textured Prairie houses, which carried 232
-    JPEGs between them until T-2595. The Glessner v4 set is exempt by name
-    (`RASTER_EXEMPT`) until T-2596 re-encodes it.
+    JPEGs between them until T-2595, and on the Glessner v4 full and light files,
+    which carried 37 each until T-2596. No derivative is exempt.
 """
 
 from __future__ import annotations
@@ -201,11 +201,8 @@ EPOCH_PREFIXES = ("terrain__", "water__")
 # Assertion 10 (T-2595). A web derivative ships its images as KTX2 (KHR_texture_basisu),
 # never as PNG or JPEG: a JPEG is decoded to RGBA8 on the GPU, four bytes a texel and a
 # third again for its mips, where a Basis texture stays in a block format at half a byte
-# to a byte. The Glessner v4 set is the one exception, named here rather than by a size
-# rule, and T-2596 is the ticket that re-encodes it and deletes this line.
+# to a byte. The Glessner v4 set was the one exception until T-2596 re-encoded it.
 RASTER_MIMES = ("image/png", "image/jpeg")
-RASTER_EXEMPT = {"glessner_house__as_built_1887.glb": "T-2596",
-                 "glessner_house__as_built_1887.light.glb": "T-2596"}
 
 # glTF component types that carry a normalised integer, and their divisor.
 NORMALISED = {5120: 127.0, 5121: 255.0, 5122: 32767.0, 5123: 65535.0}
@@ -365,11 +362,16 @@ def measure() -> dict:
     manifest_path = ROOT / "assets/manifest.json"
     manifest = json.loads(manifest_path.read_text()).get("assets", {}) if manifest_path.exists() else {}
     lod_failures = []
+    # Assertion 10 reads the light tier too (T-2596): it leaves the row loop below, and
+    # it is the phone's file, so a JPEG in it is the costliest one in the town.
+    lod_rasters = {}
     entry = manifest.get(V.GLESSNER_DEFAULT_KEY, {})
     if entry.get("web_lods"):
         lod_failures = V.lod_problems(V.GLESSNER_DEFAULT_KEY, entry, ROOT)
         for key in V.lod_asset_keys(V.GLESSNER_DEFAULT_KEY).values():
-            shipped_files.pop(key, None)
+            lod = shipped_files.pop(key, None)
+            if lod is not None:
+                lod_rasters[key] = raster_images(glb_json(lod))
 
     record = load_record()
 
@@ -412,6 +414,7 @@ def measure() -> dict:
     return {
         "rows": rows,
         "lod_failures": lod_failures,
+        "lod_raster_images": lod_rasters,
         "master_only": sorted(set(master_files) - set(shipped_files)),
         "shipped_only": sorted(set(shipped_files) - set(master_files)),
         "record": record,
@@ -519,15 +522,17 @@ def assertions(result: dict, baseline: dict) -> list[str]:
                         f"made it (K38)")
 
     # Assertion 10 (T-2595). No PNG or JPEG in a web derivative.
-    for row in result["rows"]:
+    rows = result["rows"] + [{"name": k, "raster_images": n}
+                             for k, n in result.get("lod_raster_images", {}).items()]
+    for row in rows:
         n = row.get("raster_images", 0)
-        if n and row["name"] not in RASTER_EXEMPT:
+        if n:
             problems.append(
                 f"{row['name']}: the shipped derivative carries {n} PNG/JPEG image(s), which a "
                 f"GPU holds as uncompressed RGBA8. tools/web_derivatives.sh encodes every "
                 f"textured derivative to KTX2 (UASTC for normal, ORM and occlusion, ETC1S for "
                 f"colour) with the pinned ktx it fetches itself; regenerate it with "
-                f"tools/web_derivatives.sh --only {row['name']} (T-2595)")
+                f"tools/web_derivatives.sh --only {row['name'].replace('.light.glb', '.glb')} (T-2595)")
 
     # Assertion 9 (K39). Staleness answered from CONTENT, in both directions.
     recorded = result.get("record", {})
@@ -728,6 +733,10 @@ def self_test() -> int:
     # T-2595: a textured derivative written with its JPEGs still in it.
     ok &= mutate("a textured derivative shipped its images as JPEG",
                  lambda r: r["rows"][0].__setitem__("raster_images", 3))
+    # T-2596: the Glessner light tier, which the row loop never sees, with its JPEGs back.
+    ok &= mutate("the light tier shipped its images as JPEG",
+                 lambda r: r.__setitem__("lod_raster_images",
+                                         {"glessner_house__as_built_1887.light.glb": 37}))
     print("SELF-TEST PASS" if ok else "SELF-TEST FAIL")
     return 0 if ok else 1
 
