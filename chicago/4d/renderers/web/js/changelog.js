@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1853, ts: '2026-10-16T08:06:58.094Z', date: 'Oct 16, 2026, 3:06 AM CT', title: 'Buildings take about a third less phone memory', kind: 'improve',
+    items: [
+      'Nothing you can see changed. Each building\'s paint is now stored once per piece instead of once per corner, and its surface directions and texture positions in smaller numbers, so the 1835 town\'s buildings hold 48.6 MB on the graphics chip instead of 74.4 MB.',
+      'That memory is where phones were running out and closing the tab. Fences, plank walks and yards come next.',
+    ] },
   { v: 1852, ts: '2026-10-16T07:20:19.811Z', date: 'Oct 16, 2026, 2:20 AM CT', title: '1808 Prairie\'s north parapet is laid in stone courses', kind: 'improvement',
     items: [
       'The Keith house\'s short north return over Glessner is now big dressed stone courses, as the 1887 to 1948 photographs show, instead of a smooth slab.',

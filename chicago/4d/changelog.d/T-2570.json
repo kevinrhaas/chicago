@@ -1,8 +1,0 @@
-{
-  "title": "Buildings take about a third less phone memory",
-  "kind": "improve",
-  "items": [
-    "Nothing you can see changed. Each building's paint is now stored once per piece instead of once per corner, and its surface directions and texture positions in smaller numbers, so the 1835 town's buildings hold 48.6 MB on the graphics chip instead of 74.4 MB.",
-    "That memory is where phones were running out and closing the tab. Fences, plank walks and yards come next."
-  ]
-}
