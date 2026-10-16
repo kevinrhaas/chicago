@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c1773d5ab5ea6e955db43e130047b1e1cc163466ef9a75bf2ec95d6372f65dbb",
+  "glb_sha256": "c0e51e074f430a42e657b2c25975960eff85ab7d74242871c9e847fa5374508a",
   "camera_sha256": "1511b9132d93f17646f0cc437e1547f930a1219b6f39534f91eebdcda5507b9e",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,15 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony and pedestal carving, Ionic volute sections and stair-head scrolls are schematic rather than the photographed profiles.",
+      "what": "T-2565: one carved capital spans each pair of columns, and the balcony has a level coping between square dies over a deep moulded cornice, as this view shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The model's stepped finial on the balcony's flight-side die is the 1888 plate's; by 1965 that die is capped flat. The 1904 state follows the earlier picture.",
+      "status": "not shown"
+    },
+    {
+      "what": "The volutes' turns, the egg row, the balcony panel's foliage and the pedestals' sunk panels are schematic rather than the photographed carving.",
       "status": "open"
     },
     {
@@ -32,7 +40,11 @@
       "status": "not shown"
     },
     {
-      "what": "The close-view fit still has an 18.47px coordinate residual. Bow-window heights and stair-cheek curvature/extent do not align closely enough for photographic acceptance.",
+      "what": "T-2565: both stair cheeks now end at the street in a rolled stone foot standing proud of the cheek, and sweep down onto it from the deck, as this view shows them.",
+      "status": "fixed"
+    },
+    {
+      "what": "The close-view fit still has an 18.47px coordinate residual. At this fit the bow's principal lights read shorter than the model's (about 2.5 m against 2.95 m), their heads lower under the string course; the 1888 plate reads them at the model's height, so a later change to their transoms and the fit's own error are not yet told apart. The cheeks' exact curve is likewise inside the residual.",
       "status": "open"
     },
     {

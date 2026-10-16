@@ -237,3 +237,53 @@ camera re-fits and the image gate, which carries the house's `## Image gate`).
   re-taken). Smoke: desktop part 1 PASS (87/0); mobile part 14 PASS (128/0, the 1904
   door); desktop part 14 passed 102 checks before the 590 s cap, without reaching its 1904
   section (dev's last reading of that part took 29 min), so the app QA above stands for it.
+
+## T-2565 — the carved loggia and the bow's heights (piece 2 of 4)
+
+**Read off the pictures.** The Inland Architect plate (`plate.jpg`, native 1559 × 2400)
+was cropped round the loggia and read beside the 1965 close view
+(`a18-gh-1808-porch-1965`). Both show, where the model had something else:
+
+* **One capital to a pair.** Each corner's two columns share one carved capital, a
+  band spanning both shafts under a thin abacus. The model gave each column its own.
+* **A level balcony.** The balcony's coping runs level between two square dies in both
+  pictures; the curved top T-1883 drew is in neither. Over the flight-side die the 1888
+  plate shows a stepped stone finial; the far die stops flat against the wall. By 1965
+  both dies are capped flat. The 1904 state follows the earlier picture.
+* **A deep cornice.** The balcony stands on a heavy cornice whose corona throws the
+  darkest shadow on the loggia in 1888, and reads as a stepped moulding in 1965.
+* **Rolled feet.** Both stair cheeks sweep down from the deck and end at the street in
+  a rounded stone roll. The model put a scroll at the cheek's head and cut the foot off
+  square.
+
+**What changed** (`k07_entrances.py`, behind `finish: ionic_carved`, Keith's alone, so
+the other houses' entrances re-emit byte for byte): `_paired_capital` builds one capital
+over each pair, a band with an Ionic volute (two and a half turns closing to an eye)
+at each end of its front and back, a volute on each end face, and an egg row between.
+`_carved_balcony` builds the level panel, coping and plinth between two square dies
+with stepped caps, and the stepped base, pyramid and ball finial on the flight-side die.
+The cornice steps out in three to 0.22 m. `_scrolled_cheek` ends the sweep tangent
+onto a 0.2 m roll lying across the cheek, its outer end 30 mm proud and carved with a
+volute on both ends. The new `_tube` helper gives every carved bead's faces a hint
+pointing outward from its centreline.
+
+**The bow's heights.** The model's bow heights were projected through the
+`inland-1888` camera onto the plate at native resolution. Floors, the cap and the
+string course stay where T-2499 put them. Read through the camera, the second-storey
+lights are about 198 px tall in the plate where the model's 2.2 m projected to 170 px.
+Their heads stand about 30 px under the cap's band where the model's stood 73 px under
+it. They are now 2.5 m on the same 0.75 m sill. The principal lights (plate about
+233 px, model 243 px) and the basement lights (80 px against 85 px) sit within the fit's
+14 px residual, so they keep their heights. At its own fit, the 1965 view reads the
+principal lights shorter (about 2.5 m), but the plate does not. A later transom change
+and the 1965 camera's 18 px residual are not yet told apart, so that row stays `open`.
+
+**Measured.** On top of T-2564's north return, Keith went from 74,160 to 75,688
+triangles (master 8,661,196 bytes, web 2,588,460), with zero coincident or degenerate
+faces in either tier. The volute's eye stays wider than its bead, so the web tier's
+quantization leaves no sliver triangles. Its house entrance is 17,701
+triangles inside the K07 budget. All sixteen views were re-rendered. The new rows are
+`fixed` in the four reproductions of the 1888 front and, except the finial, in the 1965
+view. The smaller views keep an `open` row until someone compares them at their own
+scale. No view is `matches` yet: the volutes' turns, the egg row and the panels'
+foliage are still drawn to the pictures' shadows.
