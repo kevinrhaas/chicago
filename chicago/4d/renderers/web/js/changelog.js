@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1861, ts: '2026-10-16T11:11:51.161Z', date: 'Oct 16, 2026, 6:11 AM CT', title: 'Keith\'s five old photographs now line up with the model', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The cameras behind five of 1808 Prairie\'s reference photographs (1888, 1941, 1948 and 1965) were re-fitted to the house itself, so each side-by-side now lines the model up with the picture to within a few pixels.',
+      'Lined up, the photographs show what still differs: a band of small diamond-pointed stones directly under the pierced parapet, a carved boss on the north corner, a wider corner pier, taller porch columns, and a stone strip on the south face. Those are the next building work.',
+    ] },
   { v: 1860, ts: '2026-10-16T11:06:05.817Z', date: 'Oct 16, 2026, 6:06 AM CT', title: 'Buildings take less phone memory: positions stored at half precision', kind: 'change',
     items: [
       'Every building\'s corners are now stored as 16-bit numbers instead of 32-bit, scaled per building, so each vertex carries 20 bytes instead of 24. That frees about 5 MB of graphics memory on the 1835 phone view, and the town looks the same.',
