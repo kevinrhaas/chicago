@@ -1566,7 +1566,8 @@ async function getJSON(url) {
  * moved, so the page's check is the second line, for a visitor whose cache holds
  * one release's prebuild beside another's page.
  */
-export const PREBUILT_FORMAT = 2;
+/** 3 since T-2687: each mesh's quantized-position transform travels with it. */
+export const PREBUILT_FORMAT = 3;
 
 /** The page's own build id, from the stamp publish.sh writes into it. */
 export function pageBuild(doc = globalThis.document) {
@@ -1633,7 +1634,20 @@ function prebuiltGeometry(m, bin) {
   const s = m.bounding_sphere;
   if (s) geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(...s.center), s.radius);
   else geo.computeBoundingSphere();
+  if (m.position_quantized) geo.userData.positionQuantized = m.position_quantized;
   return geo;
+}
+
+/**
+ * Put a prebuilt mesh where its build left it. A mesh whose positions were
+ * quantized (T-2687, compact-streams.js) holds Int16 over its own box, and the
+ * box is the mesh's position and uniform scale: without them every chunk is
+ * drawn as a one-metre blob at the origin, which is what a format-2 replay did.
+ */
+function placePrebuilt(mesh, m) {
+  if (m.position) mesh.position.fromArray(m.position);
+  if (typeof m.scale === 'number') mesh.scale.setScalar(m.scale);
+  mesh.updateMatrix();
 }
 
 /**
@@ -2161,8 +2175,10 @@ export async function createFrontage({
 
   const mesh = new THREE.Mesh(geo, mat);
   // Int16 x 4 positions relative to the mesh, its box in its matrix, where that
-  // keeps the millimetre (T-2687, compact-streams.js). The chunks below do the same.
-  quantizeMeshPositions(mesh);
+  // keeps the millimetre (T-2687, compact-streams.js). The chunks below do the
+  // same; a replay takes the build's own transform with its buffers.
+  if (replay) placePrebuilt(mesh, replay.index.meshes[0]);
+  else quantizeMeshPositions(mesh);
   /**
    * DRAWN AFTER THE STREET RIBBON, and the owner's report is why. The road is a
    * decal: depthWrite off, polygonOffset -8/-32 so it hugs the terrain without
@@ -2196,6 +2212,7 @@ export async function createFrontage({
     ranges: replay ? replay.index.meshes[0].walk_top_ranges : buf.walkTopRanges }];
   for (const m of replay ? replay.index.meshes.slice(1) : []) {
     const cmesh = new THREE.Mesh(prebuiltGeometry(m, replay.bin), mat);
+    placePrebuilt(cmesh, m);
     cmesh.renderOrder = m.renderOrder;
     cmesh.name = m.name;
     cmesh.castShadow = m.castShadow;
