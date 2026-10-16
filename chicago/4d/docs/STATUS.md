@@ -1,3 +1,24 @@
+## T-2572 — a tap on the walks, fences and yard goods is answered by the GPU (2026-10-16)
+
+Piece 1 of T-2550. `renderers/web/js/gpu-pick.js` draws the candidate chunks into one
+`RGBA32UI` pixel under the tap (slot, `gl_VertexID` of the provoking vertex, eye distance)
+and reads it back; the three layers are non-indexed, so the vertex names the face and the
+face spans they already keep resolve it as they resolved the raycast's `faceIndex`. So
+`RELEASE_KEEP` keeps nothing for `frontage`, `enclosures` and `yard`. On the desktop, which
+releases nothing, `check_upload_release.mjs` taps a fixed list of 12 faces per layer through
+both engines and holds them to the same id at the same distance (36 of 36 agree); on the
+phone each layer still answers a tap with its triangles gone. A chunk the reach holds back
+(`reachCulled`) is no longer tappable by either engine: the raycast opened its card unseen,
+and drawing it would upload what the walk never asked for.
+
+**The saving is 16.2 MB at spawn, not the 151 MB the ticket priced** (1835 phone, 795.7 to
+779.4 MB; GPU buffers unchanged at 236.0 MB; `docs/measurements/T-2572-memory.json`;
+ceiling 900 to 875 MiB). Most of those layers' page bytes are chunks the reach has never
+uploaded, which keep every array until walked to (frontage 68.6, enclosures 37.5, yard
+27.6 MB in the meter's never-uploaded column); the release only ever reached the drawn
+ones. That remainder is building-then-holding, which T-2560 (ship the town prebuilt) is
+placed to remove. The structures half, with weathering as a uniform, is T-2573.
+
 ## T-2564 — Keith house's north return in stone courses (2026-10-16)
 
 T-1883's remaining photographic convergence was split into four pieces (T-2564 to

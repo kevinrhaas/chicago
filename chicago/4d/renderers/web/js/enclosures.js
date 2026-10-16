@@ -96,6 +96,7 @@
 
 import * as THREE from 'three';
 import { gateBoxes } from './gates.js';
+import { layerPick } from './gpu-pick.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -868,23 +869,19 @@ export async function createEnclosures({
     return true;
   };
 
-  const raycaster = new THREE.Raycaster();
   /**
    * The structure this fence stands for, or null. Same ray budget as
    * `buildings.pickAt` — as far as you can see, which depends on how high you
-   * are — so a fence and a roof answer a click on the same terms.
+   * are — so a fence and a roof answer a click on the same terms. Drawn, not
+   * raycast (gpu-pick.js, T-2572), so a phone need not keep the fence's triangles.
    */
-  out.pickAt = (ndc, camera) => {
-    if (!camera) return null;
-    raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-    raycaster.far = Math.max(400, camera.position.y * 4);
-    const hits = raycaster.intersectObjects(meshes, false);
-    if (!hits.length) return null;
-    const hit = hits[0];
+  const pick = layerPick(() => meshes, (hit) => {
     const id = hit.object?.userData?.pickId ?? null;
     if (!id) return null;
-    return { id, point: hit.point.clone(), distance: hit.distance };
-  };
+    return { id, point: hit.point, distance: hit.distance };
+  });
+  out.pickAt = pick.pickAt;
+  out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {
     for (const m of meshes) m.geometry.dispose();

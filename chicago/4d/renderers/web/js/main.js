@@ -55,6 +55,7 @@ import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
+import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
@@ -1606,6 +1607,9 @@ async function boot() {
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, bootQuality));
+  // T-2572: a tap on the plank walks, fences and yard goods is answered by a
+  // one-pixel id pass on this renderer, so a phone need not keep their triangles.
+  setPickRenderer(renderer);
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
   // T-2548: a closed building image is gone from the page as a released array is.

@@ -54,16 +54,17 @@
         }
       },
       "mobile": {
-        "total_bytes": 943718400,
-        "reading_bytes": 834304118,
+        "total_bytes": 917504000,
+        "reading_bytes": 817287199,
         "tier": "light",
         "reading_mb": {
-          "total": 795.7,
-          "js_heap": 106.4,
-          "arraybuffers": 332.5,
-          "gpu_buffers": 236,
+          "total": 779.4,
+          "js_heap": 106.3,
+          "arraybuffers": 316.3,
+          "gpu_buffers": 236.0,
           "gpu_textures": 120.9
-        }
+        },
+        "lowered_by": "T-2572 (2026-10-16): the plank walks, fences and yard goods are picked on the GPU and keep no triangles once uploaded; reading docs/measurements/T-2572-memory.json, 795.7 to 779.4 MB, ceiling 900 to 875 MiB by the rule"
       }
     },
     "1904": {

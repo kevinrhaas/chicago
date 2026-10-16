@@ -10,12 +10,17 @@
  *  1. a phone (390x780, touch) boots 1835 with no page error and actually lets
  *     go of the page arrays: the census counts them, and a released attribute
  *     of a drawn chunk has no array left while its position is kept;
- *  2. a tap still resolves on each layer that keeps its position for one —
- *     buildings, fences, yard goods and the plank walks — through the same
- *     `pickAt` the walk calls;
+ *  2. a tap still resolves on every pickable layer — buildings, fences, yard
+ *     goods and the plank walks — through the same `pickAt` the walk calls; the
+ *     last three keep no triangles at all on a phone (they are picked by the
+ *     one-pixel id pass, gpu-pick.js, T-2572), so they are aimed at by their
+ *     kept bounding spheres;
  *  3. a chunk the reach held back at boot still has its arrays, and walking up
  *     to it uploads it and lets them go, without an error;
- *  4. a desktop (1280x800, mouse) releases nothing;
+ *  4. a desktop (1280x800, mouse) releases nothing, and there, where the
+ *     triangles still exist, the GPU pick answers a fixed list of taps on the
+ *     plank walks, fences and yard goods exactly as the old raycast does
+ *     (`pickAtRaycast`, the oracle): the same id, at the same distance (T-2572);
  *  5. a phone boots the /1904/ door too, and its far ground is batched. 1835
  *     hides a re-read of released arrays that 1904 does not: the frontage there
  *     hands the far base a fresh geometry before `batchDistantGround()` cuts it,
@@ -95,6 +100,98 @@ async function boot(profile, door = '/walk/?year=1835') {
   return { ctx, page, errors };
 }
 
+/**
+ * Page-side: stand off a chunk's kept bounding sphere, look at its centre and
+ * scan a small grid of taps until the layer answers. For layers that keep no
+ * triangles on a phone (T-2572), where the old face-centroid aim cannot read one.
+ */
+async function aimBySphere({ layer, api }) {
+  const a = window.__chicago4d;
+  const frame = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+  const meshes = [];
+  a.scene3d.getObjectByName(layer)?.traverse((o) => {
+    // Not `visible`: the reach hides a far chunk, and the walk below brings it back.
+    if (o.isMesh && o.geometry?.boundingSphere && !o.userData.farMerged && !o.userData.farWalkTops
+      && !o.userData.crossStreet
+      && o.geometry.boundingSphere.radius < (layer === 'enclosures' ? 200 : 60)
+      && (layer !== 'enclosures' || o.userData.pickId)) meshes.push(o);
+  });
+  for (let k = 0; k < Math.min(12, meshes.length); k += 1) {
+    const m = meshes[(k * 7919) % meshes.length];
+    const c = m.geometry.boundingSphere.center.clone().applyMatrix4(m.matrixWorld);
+    const back = m.geometry.boundingSphere.radius + 4;
+    const yaw = (k * 137 * Math.PI) / 180;
+    // A camera of the tap's own, stood off the sphere and looking at its centre:
+    // `pickAt` takes any camera, so no frame has to be drawn to aim.
+    const cam = a.camera.clone();
+    cam.position.set(c.x - Math.sin(yaw) * back, c.y + 1.5, c.z - Math.cos(yaw) * back);
+    cam.lookAt(c);
+    cam.updateMatrixWorld(true);
+    // Walk there first, so the furniture reach draws the chunk: a tap only
+    // lands on what the frame may draw (gpu-pick.js `drawable`).
+    a.walker.teleport({ local_e: cam.position.x, local_n: -cam.position.z, yaw_deg: 0, pitch_deg: 0 });
+    await frame();
+    for (const y of [0, -0.1, 0.1, -0.2, 0.2, -0.3]) {
+      for (const x of [0, -0.1, 0.1, -0.2, 0.2]) {
+        const found = a[api].pickAt({ x, y }, cam);
+        if (found) {
+          return { tries: k + 1, id: found.id ?? found.record?.id ?? true,
+            distance: Math.round(found.distance * 100) / 100,
+            released: m.geometry.attributes.position.array === null };
+        }
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Page-side, on the desktop (nothing released): aim at fixed face centroids,
+ * as the phone's building tap does, and ask both engines. Every tap the raycast
+ * answers must come back from the GPU with the same id at the same distance.
+ */
+async function gpuAgainstRaycast({ layer, api }) {
+  const a = window.__chicago4d;
+  const V3 = a.camera.position.constructor;
+  const meshes = [];
+  a.scene3d.getObjectByName(layer)?.traverse((o) => {
+    if (o.isMesh && o.geometry?.attributes.position?.array && !o.geometry.index
+      && !o.userData.farMerged && !o.userData.farWalkTops && o.visible
+      && (layer !== 'enclosures' || o.userData.pickId)) meshes.push(o);
+  });
+  let compared = 0;
+  const differ = [];
+  for (let k = 0; k < 80 && compared < 12 && meshes.length; k += 1) {
+    const m = meshes[(k * 7919) % meshes.length];
+    const pos = m.geometry.attributes.position;
+    const t = Math.floor(((k * 104729) % 9973) / 9973 * (pos.count / 3));
+    const at = (j) => new V3().fromBufferAttribute(pos, t * 3 + j).applyMatrix4(m.matrixWorld);
+    const p0 = at(0); const p1 = at(1); const p2 = at(2);
+    const c = p0.clone().add(p1).add(p2).multiplyScalar(1 / 3);
+    const nrm = p1.clone().sub(p0).cross(p2.clone().sub(p0));
+    if (nrm.lengthSq() === 0) continue;
+    nrm.normalize();
+    const flat = Math.hypot(nrm.x, nrm.z) > 0.2 ? new V3(nrm.x, 0, nrm.z).normalize() : new V3(1, 0, 0);
+    const stand = c.clone().addScaledVector(flat, 7);
+    stand.y += 1.2;
+    const cam = a.camera.clone();
+    cam.position.copy(stand);
+    cam.lookAt(c);
+    cam.updateMatrixWorld(true);
+    const ndc = c.clone().project(cam);
+    if (Math.abs(ndc.x) > 0.95 || Math.abs(ndc.y) > 0.95 || ndc.z > 1) continue;
+    const cast = a[api].pickAtRaycast({ x: ndc.x, y: ndc.y }, cam);
+    if (!cast) continue;
+    const gpu = a[api].pickAt({ x: ndc.x, y: ndc.y }, cam);
+    compared += 1;
+    const tolerance = Math.max(0.05, cast.distance * 0.002);
+    if (!gpu || gpu.id !== cast.id || Math.abs(gpu.distance - cast.distance) > tolerance) {
+      differ.push({ k, cast: [cast.id, cast.distance], gpu: gpu ? [gpu.id, gpu.distance] : null });
+    }
+  }
+  return { compared, differ };
+}
+
 /* ---- 1–3: the phone ---------------------------------------------------- */
 if (part('1835')) {
   const { ctx, page, errors } = await boot({ viewport: { width: 390, height: 780 },
@@ -103,13 +200,14 @@ if (part('1835')) {
     const a = window.__chicago4d;
     const s = a.scene3d;
     const drawn = (name) => {
-      const out = { released: 0, kept: 0, positionKept: 0 };
+      const out = { released: 0, kept: 0, positionKept: 0, positionReleased: 0 };
       s.getObjectByName(name)?.traverse((o) => {
         const g = o.geometry;
         if (!o.isMesh || !g?.userData.uploadReleased || o.userData.reachCulled || !o.visible) return;
         if (g.attributes.normal && g.attributes.normal.array === null) out.released += 1;
         else out.kept += 1;
         if (g.attributes.position.array) out.positionKept += 1;
+        else out.positionReleased += 1;
       });
       return out;
     };
@@ -121,18 +219,26 @@ if (part('1835')) {
   check('phone: the page arrays are let go once uploaded',
     state.census?.attributes > 0 && state.census.keptForHarness === false,
     JSON.stringify(state.census));
-  check('phone: a drawn plank-walk chunk has no normals left in the page but keeps its position',
-    state.frontage.released > 0 && state.frontage.positionKept >= state.frontage.released,
+  // T-2572: picked on the GPU, so not even the position is kept for a tap.
+  check('phone: a drawn plank-walk chunk has no normals and no position left in the page',
+    state.frontage.released > 0 && state.frontage.positionKept === 0
+    && state.frontage.positionReleased >= state.frontage.released,
     JSON.stringify(state.frontage));
   check('phone: drawn fence chunks are released the same way',
-    state.enclosures.released > 0 && state.enclosures.positionKept >= state.enclosures.released,
+    state.enclosures.released > 0 && state.enclosures.positionKept === 0
+    && state.enclosures.positionReleased >= state.enclosures.released,
     JSON.stringify(state.enclosures));
   check('phone: drawn ground tiles are released', state.terrain.released > 0,
     JSON.stringify(state.terrain));
 
-  // 2. A tap on each layer that keeps its position for one.
-  for (const [layer, api] of [['structures', 'buildings'], ['enclosures', 'enclosures'],
-    ['yard', 'yard'], ['frontage', 'frontage']]) {
+  // 2. A tap on each layer. The buildings keep their triangles; the other three
+  // are aimed at through the bounding spheres they keep (T-2572).
+  for (const [layer, api] of [['enclosures', 'enclosures'], ['yard', 'yard'], ['frontage', 'frontage']]) {
+    const hit = await page.evaluate(aimBySphere, { layer, api });
+    check(`phone: a tap still resolves on ${layer}, with its triangles let go`,
+      !!hit && hit.released, JSON.stringify(hit));
+  }
+  for (const [layer, api] of [['structures', 'buildings']]) {
     const hit = await page.evaluate(async ({ layer, api }) => {
       const a = window.__chicago4d;
       const THREE = { Vector3: a.camera.position.constructor };
@@ -212,10 +318,10 @@ if (part('1835')) {
       await frame();
     }
     return { found: true, name: far.name, released: far.geometry.attributes.normal.array === null,
-      positionKept: !!far.geometry.attributes.position.array };
+      positionReleased: far.geometry.attributes.position.array === null };
   });
   check('phone: a held-back walk chunk is uploaded and let go when walked to',
-    walk.found && walk.released && walk.positionKept, JSON.stringify(walk));
+    walk.found && walk.released && walk.positionReleased, JSON.stringify(walk));
   check('phone: no page error after the taps and the walk', errors.length === 0,
     errors.slice(0, 3).join(' | '));
 
@@ -246,6 +352,11 @@ if (part('desktop')) {
   check('desktop: 1835 boots with no page error', errors.length === 0, errors.slice(0, 3).join(' | '));
   check('desktop: nothing is released', census?.attributes === 0 && census.sources === 0
     && census.images === 0, JSON.stringify(census));
+  for (const [layer, api] of [['frontage', 'frontage'], ['enclosures', 'enclosures'], ['yard', 'yard']]) {
+    const r = await page.evaluate(gpuAgainstRaycast, { layer, api });
+    check(`desktop: the GPU pick answers ${r.compared} fixed taps on ${layer} as the raycast does`,
+      r.compared >= 8 && r.differ.length === 0, JSON.stringify(r.differ.slice(0, 3)));
+  }
   await ctx.close();
 }
 

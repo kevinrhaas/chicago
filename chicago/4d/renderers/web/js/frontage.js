@@ -77,6 +77,7 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { gateBoxes } from './gates.js';
 import { packGrain } from './relief-pack.js';
+import { layerPick } from './gpu-pick.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -2046,31 +2047,29 @@ export async function createFrontage({
   out.updateFarWalks = farWalkTops.update;
   out.farWalkTops = farWalkTops.state;
 
-  const raycaster = new THREE.Raycaster();
   /**
    * What a pick on this layer answers: the id of the building (or, for a
    * record that is its own subject, the walk) the timber belongs to — plus,
    * when the layer holds its own card for that id, the registry-shaped record
    * main.js hands the popup when the registry has nothing under it (T-0119).
+   * The tap is drawn, not raycast (gpu-pick.js, T-2572): the face it names is
+   * the face the raycast named, so the spans below read it unchanged.
    */
-  out.pickAt = (ndc, camera) => {
-    if (!camera) return null;
-    raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-    raycaster.far = Math.max(400, camera.position.y * 4);
-    const hits = raycaster.intersectObjects([mesh, ...chunkMeshes], false);
-    if (!hits.length) return null;
-    const hit = hits[0];
+  // A cross street's walk the tier hides is not drawn, so it is not tapped (T-0192).
+  const pick = layerPick(() => [mesh, ...chunkMeshes.filter((c) => c.visible || !c.userData.crossStreet)], (hit) => {
     let id = hit.object.userData.pickId ?? null;
     if (!id) {
-      const span = spans.find((sp) => hit.faceIndex >= sp.from && hit.faceIndex < sp.to);
+      const span = spans.find((sp) => hit.face >= sp.from && hit.face < sp.to);
       if (!span) return null;
       id = span.id;
     }
     return {
-      id, point: hit.point.clone(), distance: hit.distance,
+      id, point: hit.point, distance: hit.distance,
       record: cards.get(id) ?? null,
     };
-  };
+  });
+  out.pickAt = pick.pickAt;
+  out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {
     geo.dispose();

@@ -12,10 +12,12 @@
  * exactly this). Nothing on screen changes: the GPU buffer is the one that was
  * always drawn. What is kept is what something still reads:
  *
- *  - `position` (and the index) of a layer that answers a tap, because
- *    `pickAt` raycasts the chunk's own triangles (and the uv and normal three
- *    would interpolate at the hit are set aside for the raycast — no pick
- *    reads them);
+ *  - `position` (and the index) of a layer that answers a tap by raycasting
+ *    the chunk's own triangles — today only `structures` (and the uv and
+ *    normal three would interpolate at the hit are set aside for the raycast —
+ *    no pick reads them). The plank walks, fences and yard goods are picked by
+ *    a one-pixel id pass on the GPU instead (gpu-pick.js, T-2572), so they keep
+ *    nothing;
  *  - any attribute uploaded as DYNAMIC, because its layer rewrites it (the
  *    frontage's far walk index, the horizon's timber), and the whole geometry
  *    of anything whose position is dynamic;
@@ -48,9 +50,10 @@ export const RELEASE_KEEP = {
   trees: [],
   'yard-ground': [],
   streets: [],
-  frontage: ['position', 'index'],
-  enclosures: ['position', 'index'],
-  yard: ['position', 'index'],
+  // T-2572: picked on the GPU (gpu-pick.js), so their triangles go too.
+  frontage: [],
+  enclosures: [],
+  yard: [],
   // The weathering handle rewrites the buildings' INSTANCE colours, which are
   // not vertex attributes (T-2568), so nothing more is kept for it.
   structures: ['position', 'index'],
