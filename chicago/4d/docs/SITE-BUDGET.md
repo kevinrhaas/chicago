@@ -371,6 +371,9 @@ Measured with `tools/measure_boot_payload.mjs --json`, dev and this branch each 
 and read on the same runner: **13,484,865 B (12.860 MB) → 13,120,204 B (12.512 MB)**, the
 same 971 requests; WebP 2.010 → 1.646 MB. That is **0.488 MB of room** where § 4c left
 0.142 MB, and it is the room the wall sheets' KTX2 (T-2588) was named as lacking.
+T-2588 landed first, so the two were measured together after `dev` was merged in:
+`measure_boot_payload.mjs --check` reads **12.567 MB of 13.000** across 976 requests, WebP
+0.646 MB and KTX2 2.107 MB. That leaves 0.433 MB of room, where T-2588 alone left 0.094 MB.
 
 The sand's mean luma, which `ground-strip.js` read from the image's pixels, is derived by
 `tools/ktx2_sheets.py` into `lake_michigan_dune_sand_basecolor.luma.json` (0.256117, from
