@@ -16934,7 +16934,8 @@ for (const [label, viewport, touch] of [
           const text = ts.querySelector('[data-ts="text"]'), screen = ts.closest('.arrival-screen');
           const r = ts.getBoundingClientRect(), sr = screen?.getBoundingClientRect();
           window.__timeStream.push({ year: ts.dataset.year, ticker: year ?? null, at: Math.round(performance.now() - t0),
-            text: text?.textContent ?? '', clipped: !!text && text.scrollHeight > text.clientHeight + 1,
+            text: text?.textContent ?? '', // A clamped line is 20 px; a few px is only a face's glyphs overhanging the box.
+            clipped: !!text && text.scrollHeight > text.clientHeight + 6,
             inside: !!sr && r.left >= sr.left - 0.5 && r.right <= sr.right + 0.5 && r.bottom <= sr.bottom + 0.5 });
         }
       }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year', 'data-state'] });
