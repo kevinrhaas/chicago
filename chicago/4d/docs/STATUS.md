@@ -9,10 +9,10 @@ finial, the rear one seated on the coping. The length comes from course counts i
 c. 1889 Taylor and 1948 views and from the c. 1888 view's lattice; the street cameras
 still carry residuals, so it is bounded 4.5 to 7 m (L-k01-keith-return-2564). The
 brick side parapet now stops at the return's back instead of running across its face.
-Only Keith's mesh changed: every other K01 master re-emits byte-identical.
+Only Keith's mesh changed: every other K01 master re-emits byte-identical. Integrated with T-2566's granite surface (#862): Keith full and web 74,160 triangles, zero coincident faces.
 
 All 16 match records were re-rendered and stay `differs`. Still open: the carving
-(T-2565), the brown cornice-box band under the lattice and the front's surface (T-2566),
+(T-2565), the brownish cornice-box band under the lattice (still there after T-2566's surface pass),
 the camera re-fits (T-2567), a cowl ventilator on the deck in the 1887-89 pictures, and
 where the full-height stone stops behind the rear pinnacle, which no picture resolves.
 

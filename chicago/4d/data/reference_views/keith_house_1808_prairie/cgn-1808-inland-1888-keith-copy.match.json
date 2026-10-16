@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "68250413483ba69d6a37b25dbf56fb105f87b086ae247dbfcbab8c0385b3dbe7",
+  "glb_sha256": "c1773d5ab5ea6e955db43e130047b1e1cc163466ef9a75bf2ec95d6372f65dbb",
   "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
@@ -20,7 +20,11 @@
       "status": "open"
     },
     {
-      "what": "Granite courses and rock-face variation remain too regular; the checker stones and upper capital/head-band profiles need further photographic refinement.",
+      "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "The bow still runs even courses where the photographs' bow alternates deep and thin ones; the individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
       "status": "open"
     },
     {
@@ -40,7 +44,7 @@
       "status": "fixed"
     },
     {
-      "what": "A brown cornice-box band shows under the lattice where the photograph shows stone (T-2566).",
+      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
       "status": "open"
     }
   ],

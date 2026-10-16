@@ -1189,8 +1189,7 @@ class Assembly:
             elif yb - ya < lo_c - 1e-9:
                 courses.append((ya, yb, "band"))   # too thin for the walling: a dressed band
             else:
-                n_ = math.ceil((yb - ya) / hi_c - 1e-9)
-                courses += [(ya + (yb - ya) * i / n_, ya + (yb - ya) * (i + 1) / n_, "walling") for i in range(n_)]
+                courses += [(a_, b_, "walling") for a_, b_ in self._walling(ya, yb)]
         rects = holes + arches
         quoins, prev_joints, parity = [], [], 0
         for ya, yb, kind in courses:
@@ -1268,7 +1267,7 @@ class Assembly:
                         else:
                             dressed = trim or flush
                             brng = random.Random(bseed ^ 0x5EED)
-                            rock = brng.uniform(*k["rock_face_m"]) if not dressed else 0.0
+                            rock = brng.uniform(*self._rock_range(ya, yb)) if not dressed else 0.0
                             skip = self.stone(frame, [(s0, fy0), (s1, fy0), (s1, fy1), (s0, fy1)], joints,
                                               "limestone_trim" if dressed else "rough_stone_trim",
                                               bseed, conf, recess=r, bevel=(tk if dressed else wk)["bevel_m"],
@@ -1294,6 +1293,54 @@ class Assembly:
                                                N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
         return frame, quoins
 
+    def _walling(self, ya, yb):
+        """The walling courses between two struck lines. Equal courses, as few as the
+        profile's tallest allows; or, where the record's `coursing` reads the photograph's
+        rhythm (T-2566), a high course and a low one in turn from the bed up, the low one
+        `low_ratio` of the high (or the profile's least course, if that is more), both
+        inside the profile's course range. Every span from `even_above_m` up is laid even."""
+        k = self.p.stone
+        lo_c, hi_c = k["course_m"]
+        h = yb - ya
+        c = k.get("coursing")
+        if c and ya < c["even_above_m"] - 1e-6:
+            r = c["low_ratio"]
+            for n in range(1, 64):
+                high, low = (n + 1) // 2, n // 2
+                th = h / (high + r * low)
+                tl = r * th
+                if low and tl < lo_c:   # the low course at the profile's least, the high ones take the rest
+                    tl = lo_c
+                    th = (h - low * tl) / high
+                if th > hi_c + 1e-9:
+                    continue
+                if th < tl - 1e-9:
+                    break
+                out, y = [], ya
+                for i in range(n):
+                    step = th if i % 2 == 0 else tl
+                    out.append((y, yb if i == n - 1 else y + step))
+                    y += step
+                return out
+        n_ = math.ceil(h / hi_c - 1e-9)
+        return [(ya + h * i / n_, ya + h * (i + 1) / n_) for i in range(n_)]
+
+    def _rock_range(self, ya, yb):
+        """The rock face a walling stone may rise, inside the profile's range: the whole
+        range without a `coursing`; with one (T-2566), the upper half on a high course
+        and the lower half on a low one, as the photograph's deep and shallow courses
+        read, and the bottom `even_rock_share` of it on the even courses above
+        `even_above_m`."""
+        lo, hi = self.p.stone["rock_face_m"]
+        c = self.p.stone.get("coursing")
+        if not c or hi <= lo:
+            return lo, hi
+        if ya >= c["even_above_m"] - 1e-6:
+            return lo, lo + (hi - lo) * c["even_rock_share"]
+        mid = (lo + hi) / 2
+        lo_c, hi_c = self.p.stone["course_m"]
+        return (mid, hi) if yb - ya >= (lo_c + hi_c) / 2 else (lo, mid)
+
     @staticmethod
     def _seated(seats, s0, s1, y0=None, y1=None) -> bool:
         """Does any kit stand on the cell [s0, s1] x [y0, y1] (any height if y is None)?"""
@@ -1316,7 +1363,7 @@ class Assembly:
                                  {"corner": P(length, ya, 0.0)})
             inst = len(self.components[cid]["instances"]) - 1
             s0 = length - ret
-            rock = random.Random(seed ^ 0x5EED).uniform(*k["rock_face_m"])
+            rock = random.Random(seed ^ 0x5EED).uniform(*self._rock_range(ya, yb))
             self.stone(frame, [(s0, ya), (length, ya), (length, yb), (s0, yb)],
                        [0.0 if ya <= 1e-9 else jh, 0.0, jh, jv], "rough_stone_trim",
                        self._stone_seed(cid, inst, 0), conf, recess=r, bevel=k["wall"]["bevel_m"],

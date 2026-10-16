@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-florian-1948-northeast-overall",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "68250413483ba69d6a37b25dbf56fb105f87b086ae247dbfcbab8c0385b3dbe7",
+  "glb_sha256": "c1773d5ab5ea6e955db43e130047b1e1cc163466ef9a75bf2ec95d6372f65dbb",
   "camera_sha256": "bd2a1b8694c75c338a44b929a2bdec11a94b79aec5cdd31784f3f479452041e2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-florian-1948-northeast-overall-side-by-side.jpg",
   "verdict": "differs",
@@ -28,11 +28,11 @@
       "status": "not shown"
     },
     {
-      "what": "A brown cornice-box band shows under the lattice where the photograph shows stone (T-2566).",
+      "what": "Whether the stone parapet continues at full height behind the rear pinnacle, or drops there to the brick, is not resolved by this picture; the model drops it.",
       "status": "open"
     },
     {
-      "what": "Whether the stone parapet continues at full height behind the rear pinnacle, or drops there to the brick, is not resolved by this picture; the model drops it.",
+      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
       "status": "open"
     }
   ],
