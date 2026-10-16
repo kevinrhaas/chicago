@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "2078a66d9544ad050ee0a3fb8d142633f6ae76e1104f95c30166ca208ed416a2",
+  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
   "camera_sha256": "a1ae9eee0e43a2f3edcc6f342f27d9fdffdc6596ff47fc0d0fd5f0eed5522cb4",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/taylor-2135-ne-side-by-side.jpg",
   "verdict": "differs",
@@ -32,8 +32,8 @@
       "status": "fixed"
     },
     {
-      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
-      "status": "open"
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
     },
     {
       "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580).",

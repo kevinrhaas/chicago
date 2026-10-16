@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "2078a66d9544ad050ee0a3fb8d142633f6ae76e1104f95c30166ca208ed416a2",
+  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
   "camera_sha256": "1511b9132d93f17646f0cc437e1547f930a1219b6f39534f91eebdcda5507b9e",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -60,8 +60,8 @@
       "status": "fixed"
     },
     {
-      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
-      "status": "open"
+      "what": "The cornice under the lattice is out of this close view's frame (T-2577 laid it in stone, compared in the front views).",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

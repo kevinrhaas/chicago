@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-inland-architect-1888-02-glessner-plate",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "2078a66d9544ad050ee0a3fb8d142633f6ae76e1104f95c30166ca208ed416a2",
+  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
   "camera_sha256": "6ae1e21e4ae7634680f0c896b25b531ac805169a6e2ec26c5d5994cfcda66dda",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-inland-architect-1888-02-glessner-plate-side-by-side.jpg",
   "verdict": "differs",
@@ -32,8 +32,8 @@
       "status": "fixed"
     },
     {
-      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
-      "status": "open"
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
     },
     {
       "what": "T-2578: the cowl ventilator the plate shows over the return is built, at the place along the return the plate puts it.",

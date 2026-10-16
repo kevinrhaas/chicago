@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1858, ts: '2026-10-16T09:44:29.356Z', date: 'Oct 16, 2026, 4:44 AM CT', title: 'Keith\'s roofline crowned in stone, as the photographs show it', kind: 'improve',
+    items: [
+      'At 1808 Prairie, the cornice under the pierced stone parapet is now granite like the rest of the front. The brown timber-coloured band that ran beneath the lattice is gone, so the crown reads as one stone mass from the top-floor windows to the sky, as it does in the 1888 plate and the later photographs.',
+    ] },
+  { v: 1857, ts: '2026-10-16T09:41:43.490Z', date: 'Oct 16, 2026, 4:41 AM CT', title: 'Buildings\' surface details packed four to a slot', kind: 'improve',
+    items: [
+      'Nothing you can see changed. Each building corner\'s sheen, evidence grade, wood grain and log tone now share one four-byte slot instead of taking four each, so the 1835 town\'s buildings hold 30.4 MB of corner data instead of 41.0 MB, 24 bytes a corner.',
+      'It is more of the memory phones were running out of. Storing the corners\' positions in smaller numbers comes next.',
+    ] },
   { v: 1856, ts: '2026-10-16T09:06:51.286Z', date: 'Oct 16, 2026, 4:06 AM CT', title: 'A phone in 1835 holds about 50 MB less', kind: 'fix',
     items: [
       'Nothing you can see changed. On a phone, the 1835 town now holds about 50 MB less once it is drawn (796 MB to 746 MB), which is where phones were running out of memory.',

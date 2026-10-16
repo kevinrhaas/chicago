@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "2078a66d9544ad050ee0a3fb8d142633f6ae76e1104f95c30166ca208ed416a2",
+  "glb_sha256": "0659743d273b53726c169501613d6274930ca91c9c265703b97cc28a8f8a356a",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
   "verdict": "differs",
@@ -16,11 +16,11 @@
       "status": "fixed"
     },
     {
-      "what": "T-2565 re-carved the loggia from the 1888 plate and the 1965 view (paired capitals, a level balcony with its finial, rolled cheek feet, taller second-storey bow lights); not yet compared at this view's scale.",
-      "status": "open"
+      "what": "T-2565's loggia, compared at this view's scale (T-2577): the level balcony with its corner pedestal, the column pair at each end and the pierced balustrade under them stand where the photograph has them, the balcony's top just under the bow's second-storey sills; the carving is below this photograph's resolution.",
+      "status": "fixed"
     },
     {
-      "what": "T-2566 re-laid the granite from the 1888 front (alternating courses, a staggered checker band, stepped head bands); not yet compared at this view's scale.",
+      "what": "T-2566's granite at this view's scale (T-2577): the front's courses and head bands agree; the checker band's units are below this photograph's resolution (nickel-1967 reads them finer than the build's); and the bow's lower storey reads in alternately deep and thin courses where the build runs even ones (T-2580).",
       "status": "open"
     },
     {
@@ -40,7 +40,11 @@
       "status": "fixed"
     },
     {
-      "what": "A brownish cornice-box band shows under the lattice where the photographs show stone.",
+      "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "The south face's front strip, from the corner back about a third of the visible face and the full height, reads as smooth light dressed stone; the build lays toothed rock-faced quoins on brick there. Found in T-2577's re-review; filed as its own ticket. The camera fit has not been re-solved, so how far back the stone runs is not yet measured.",
       "status": "open"
     }
   ],
