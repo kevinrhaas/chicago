@@ -11,8 +11,10 @@ const web = path.join(root, 'renderers/web');
 const threeURL = pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href;
 const THREE = await import(threeURL);
 const source = await readFile(path.join(web, 'js/spatial-batch.js'), 'utf8');
-const { spatialBatch, spatialPieces } = await import('data:text/javascript;base64,' + Buffer.from(
-  source.replace("from 'three'", `from '${threeURL}'`)).toString('base64'));
+const jobsURL = pathToFileURL(path.join(web, 'js/jobs/')).href;
+const { spatialBatch, spatialPieces, spatialBatchAsync, spatialPiecesAsync } = await import(
+  'data:text/javascript;base64,' + Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)
+    .replaceAll("from './jobs/", `from '${jobsURL}`)).toString('base64'));
 
 function triangles(geometry) {
   const attrs = Object.entries(geometry.attributes).sort(([a], [b]) => a.localeCompare(b));
@@ -108,6 +110,193 @@ for (const indexed of [false, true]) {
   g.dispose();
 }
 console.log('PASS building cells: vertical separation, exact triangles and all attributes, boundary corners');
+
+// T-2599: the partition is jobs/spatial-kernel.js, shared by the main thread and the
+// job pool's workers. Hold it BYTE FOR BYTE to the implementation it replaced (kept
+// here verbatim as the reference), then hold the pool's two paths to it: the
+// synchronous fallback, the real worker module behind a page-shaped Worker, and a
+// worker that fails to start.
+function referencePieces(geometry, { cellM = 40, heightM = Infinity } = {}) {
+  const position = geometry.getAttribute('position');
+  const index = geometry.getIndex();
+  const count = index ? index.count : position.count;
+  const chunks = new Map();
+  for (let i = 0; i < count; i += 3) {
+    const ids = [0, 1, 2].map((j) => index ? index.getX(i + j) : i + j);
+    const x = ids.reduce((sum, j) => sum + position.getX(j), 0) / 3;
+    const z = ids.reduce((sum, j) => sum + position.getZ(j), 0) / 3;
+    const y = ids.reduce((sum, j) => sum + position.getY(j), 0) / 3;
+    const key = `${Math.floor(x / cellM)}:${Math.floor(z / cellM)}:${Math.floor(y / heightM)}`;
+    let chunk = chunks.get(key);
+    if (!chunk) { chunk = []; chunks.set(key, chunk); }
+    chunk.push(...ids);
+  }
+  const pieces = [];
+  for (const ids of chunks.values()) {
+    const unique = index ? [...new Set(ids)] : ids;
+    const piece = new THREE.BufferGeometry();
+    for (const [name, source] of Object.entries(geometry.attributes)) {
+      const data = new source.array.constructor(unique.length * source.itemSize);
+      for (let i = 0; i < unique.length; i++) {
+        const from = unique[i] * source.itemSize;
+        data.set(source.array.subarray(from, from + source.itemSize), i * source.itemSize);
+      }
+      piece.setAttribute(name, new THREE.BufferAttribute(data, source.itemSize, source.normalized));
+    }
+    if (index) {
+      const local = new Map(unique.map((id, i) => [id, i]));
+      piece.setIndex(ids.map((id) => local.get(id)));
+    }
+    pieces.push(piece);
+  }
+  return pieces;
+}
+
+function bytesOf(pieces) {
+  const hex = (a) => `${a.constructor.name}:${Buffer.from(a.buffer, a.byteOffset, a.byteLength).toString('hex')}`;
+  return pieces.map((p) => ({
+    attributes: Object.entries(p.attributes).map(([name, a]) => [name, a.itemSize, a.normalized, hex(a.array)]),
+    index: p.index ? hex(p.index.array) : null,
+  }));
+}
+
+function seeded(seed) {
+  return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+}
+
+/** Random triangles over a few cells, every attribute kind spatialBatch carries. */
+function randomGeometry(seed, { indexed, vertices = 600, span = 200, offset = 0, normalizedPosition = false }) {
+  const rand = seeded(seed);
+  const g = new THREE.BufferGeometry();
+  const tri = indexed ? vertices * 2 : vertices;
+  if (normalizedPosition) {
+    g.setAttribute('position', new THREE.BufferAttribute(
+      Int16Array.from({ length: vertices * 3 }, () => Math.round((rand() * 2 - 1) * 32767)), 3, true));
+  } else {
+    g.setAttribute('position', new THREE.Float32BufferAttribute(
+      Array.from({ length: vertices * 3 }, (_, i) => (rand() - 0.5) * (i % 3 === 1 ? 30 : span) + (i % 3 === 1 ? 0 : offset)), 3));
+  }
+  g.setAttribute('normal', new THREE.Float32BufferAttribute(Array.from({ length: vertices * 3 }, rand), 3));
+  g.setAttribute('uv', new THREE.Float32BufferAttribute(Array.from({ length: vertices * 2 }, rand), 2));
+  g.setAttribute('color', new THREE.Uint8BufferAttribute(
+    Array.from({ length: vertices * 4 }, () => Math.floor(rand() * 256)), 4, true));
+  g.setAttribute('_confidence', new THREE.Float32BufferAttribute(Array.from({ length: vertices }, rand), 1));
+  if (indexed) g.setIndex(Array.from({ length: tri * 3 - (tri * 3) % 3 }, () => Math.floor(rand() * vertices)));
+  else if (vertices % 3) throw new Error('fixture: unindexed vertices must be whole triangles');
+  return g;
+}
+
+/** Triangles whose centres sit within float rounding of a 40 m cell edge, where the
+ *  order and form of the centre's arithmetic decides the cell. */
+function edgeGeometry(seed) {
+  const rand = seeded(seed);
+  const near = () => Math.fround(40 + (Math.floor(rand() * 9) - 4) * 2 ** -18);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(Array.from({ length: 3000 * 9 },
+    (_, i) => (i % 3 === 0 ? near() : i % 3 === 2 ? (i % 9 === 2 ? 0.1 : near() - 40) : rand())), 3));
+  return g;
+}
+
+const fixtures = [
+  ['centres on a cell edge', edgeGeometry(7), {}],
+  ['unindexed', randomGeometry(1, { indexed: false }), {}],
+  ['indexed', randomGeometry(2, { indexed: true }), {}],
+  ['indexed, building cells', randomGeometry(3, { indexed: true }), { cellM: 8, heightM: 4 }],
+  ['unindexed, building cells', randomGeometry(4, { indexed: false, vertices: 900 }), { cellM: 8, heightM: 4 }],
+  ['normalized Int16 position', randomGeometry(5, { indexed: true, normalizedPosition: true }), { cellM: 0.25 }],
+  // One cell past 65535 vertices: three's setIndex makes the piece's index 32-bit.
+  ['indexed, a 32-bit piece', randomGeometry(6, { indexed: true, vertices: 70002, span: 10, offset: 20 }), {}],
+];
+let samples = 0;
+for (const [name, g, cells] of fixtures) {
+  const want = bytesOf(referencePieces(g, cells));
+  assert.deepEqual(bytesOf(spatialPieces(g, cells)), want, `${name}: the kernel's pieces are the reference's, byte for byte`);
+  assert.deepEqual(bytesOf(await spatialPiecesAsync(g, cells)), want, `${name}: the pool's main-thread fallback is the same`);
+  samples += want.length;
+}
+assert.ok(bytesOf(spatialPieces(fixtures.find(([n]) => n.includes('32-bit'))[1])).some((p) => p.index?.startsWith('Uint32Array')),
+  'the 32-bit fixture really reaches a 32-bit index');
+assert.ok(bytesOf(spatialPieces(fixtures[2][1])).every((p) => p.index?.startsWith('Uint16Array')));
+{
+  const [, g] = fixtures[2];
+  const material = new THREE.MeshBasicMaterial();
+  const sync = spatialBatch(g, material);
+  const pooled = await spatialBatchAsync(g, material);
+  assert.deepEqual(triangles(pooled.geometry), triangles(sync.geometry), 'spatialBatchAsync draws the same triangles');
+  assert.deepEqual(pooled.userData.spatialBatch, sync.userData.spatialBatch);
+  sync.dispose(); pooled.dispose(); material.dispose();
+}
+const { jobsState: nodeJobs } = await import(jobsURL + 'pool.js');
+assert.equal(nodeJobs.mode, 'main thread', 'with no Worker the pool runs on the main thread');
+assert.ok(nodeJobs.ran.sync >= fixtures.length + 1);
+console.log(`PASS spatial kernel parity: ${fixtures.length} fixtures, ${samples} pieces byte-identical to the replaced partition; the main-thread fallback agrees`);
+
+// The real worker module, behind a page-shaped `Worker` (module type, onmessage,
+// transfer lists) built on node's worker_threads. A fresh pool instance per case.
+{
+  const { Worker: ThreadWorker } = await import('node:worker_threads');
+  const made = [];
+  class PageWorker {
+    constructor(url, opts) {
+      assert.equal(opts?.type, 'module', 'the pool asks for a module worker');
+      const boot = `const { parentPort } = require('node:worker_threads');
+        globalThis.self = globalThis;
+        globalThis.postMessage = (m, t) => parentPort.postMessage(m, t);
+        const queued = [];
+        parentPort.on('message', (data) => (globalThis.onmessage ? globalThis.onmessage({ data }) : queued.push(data)));
+        import(${JSON.stringify(url.href)}).then(() => { for (const data of queued.splice(0)) globalThis.onmessage({ data }); },
+          (e) => parentPort.postMessage({ bootError: String(e) }));`;
+      this.thread = new ThreadWorker(boot, { eval: true });
+      this.thread.unref();
+      this.thread.on('message', (data) => (data?.bootError
+        ? this.onerror?.({ message: data.bootError, preventDefault() {} })
+        : this.onmessage?.({ data })));
+      made.push(this);
+    }
+    postMessage(m, transfer) { this.thread.postMessage(m, transfer); }
+    terminate() { this.thread.terminate(); }
+  }
+  globalThis.Worker = PageWorker;
+  const pooledSource = source.replace("from 'three'", `from '${threeURL}'`)
+    .replace("from './jobs/pool.js'", `from '${jobsURL}pool.js?workers'`).replaceAll("from './jobs/", `from '${jobsURL}`);
+  const pooled = await import('data:text/javascript;base64,' + Buffer.from(pooledSource).toString('base64'));
+  const pool = await import(jobsURL + 'pool.js?workers');
+  for (const [name, g, cells] of fixtures) {
+    assert.deepEqual(bytesOf(await pooled.spatialPiecesAsync(g, cells)), bytesOf(referencePieces(g, cells)),
+      `${name}: the worker's pieces are the reference's, byte for byte`);
+  }
+  assert.equal(pool.jobsState.mode, 'workers');
+  assert.equal(pool.jobsState.ran.worker, fixtures.length, 'every fixture was partitioned on a worker');
+  assert.ok(pool.jobsState.workers >= 1 && pool.jobsState.workers <= 4);
+  // What goes over by transfer is the caller's to lose, and comes back by transfer.
+  const sent = new Float32Array([0, 0, 0, 1, 0, 0, 0, 0, 1]);
+  const back = await pool.runJob('partitionTriangles', { attributes: [{ name: 'position', array: sent, itemSize: 3 }],
+    positionAt: 0, index: null, count: 3, cellM: 40, heightM: Infinity }, { transfer: [sent.buffer] });
+  assert.equal(sent.byteLength, 0, 'a transferred input is detached, not copied');
+  assert.deepEqual([...back.pieces[0].arrays[0]], [0, 0, 0, 1, 0, 0, 0, 0, 1]);
+  await assert.rejects(pool.runJob('noSuchJob', {}), /no job named noSuchJob/);
+  for (const w of made) w.terminate();
+
+  // A worker that cannot start: its job is rejected, the caller re-partitions on the
+  // main thread from its own source, and every later job stays there.
+  class BrokenWorker {
+    constructor() { setTimeout(() => this.onerror?.({ message: 'module workers unsupported', preventDefault() {} }), 0); }
+    postMessage() {}
+    terminate() {}
+  }
+  globalThis.Worker = BrokenWorker;
+  const brokenSource = pooledSource.replaceAll('pool.js?workers', 'pool.js?broken');
+  const broken = await import('data:text/javascript;base64,' + Buffer.from(brokenSource).toString('base64'));
+  const brokenPool = await import(jobsURL + 'pool.js?broken');
+  const [name, g, cells] = fixtures[2];
+  assert.deepEqual(bytesOf(await broken.spatialPiecesAsync(g, cells)), bytesOf(referencePieces(g, cells)),
+    `${name}: a failed worker costs the caller nothing but time`);
+  assert.equal(brokenPool.jobsState.mode, 'main thread');
+  assert.match(brokenPool.jobsState.failed[0], /module workers unsupported/);
+  assert.deepEqual(bytesOf(await broken.spatialPiecesAsync(g, cells)), bytesOf(referencePieces(g, cells)));
+  delete globalThis.Worker;
+}
+console.log('PASS job pool: the real worker module partitions byte-identically, transfers both ways, rejects an unknown job, and a failed worker falls back to the main thread');
 
 // A Float32/end-line nudge can cross the cell whose plane generated a cut.
 // Exercise the shipped clipping/drape functions on a continuous, folded grid.
