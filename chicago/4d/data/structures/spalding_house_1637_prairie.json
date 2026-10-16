@@ -168,19 +168,13 @@
         },
         "stair_tread_m": {
           "value": 0.25,
-          "confidence": "inferred",
-          "note": "The floor of the K01 contract's tread range, a steep stoop (T-2535): the engraving draws the flight's foot at the fence's first post (x 557 px), and through its camera that column at the stoop's north cheek (s 5.05) stands at u 15.35, 4.35 m before the main front. Fourteen risers of 0.164 m (K07's whole-riser solve of the 2.3 m principal floor) on thirteen 0.25 m goings and a 1.1 m landing reach exactly that far; at 0.3 m the foot stood at 5.1 m (x 586 px). The going itself is not drawn: it is the shortest the contract allows, chosen because the engraving's foot asks for it.",
-          "sources": [
-            "glessner_blog_1637_spalding_remodel_engraving"
-          ]
+          "confidence": "reconstructed",
+          "note": "The floor of the K01 contract's tread range, a steep stoop (T-2535; RECONSTRUCTED, bounded by the drawn foot): the engraving draws the flight's foot at the fence's first post (x 557 px), and through its camera that column at the stoop's north cheek (s 5.05) stands at u 15.35, 4.35 m before the main front. Fourteen risers of 0.164 m (K07's whole-riser solve of the 2.3 m principal floor) on thirteen 0.25 m goings and a 1.1 m landing reach exactly that far; at 0.3 m the foot stood at 5.1 m (x 586 px). The going itself is not drawn: it is the shortest the contract allows, chosen because the engraving's foot asks for it."
         },
         "stair_landing_depth_m": {
           "value": 1.1,
-          "confidence": "inferred",
-          "note": "A landing at the door, 1.1 m deep (T-2535; 1.2 m, as 1620's, until then): with the 0.25 m going it puts the flight's foot 4.35 m before the front, under the engraving's first fence post (x 557 px) on the stoop's north cheek. The engraving draws the landing's rail but not its depth.",
-          "sources": [
-            "glessner_blog_1637_spalding_remodel_engraving"
-          ]
+          "confidence": "reconstructed",
+          "note": "A landing at the door, 1.1 m deep (T-2535, RECONSTRUCTED and bounded by the drawn foot; 1.2 m, as 1620's, until then): with the 0.25 m going it puts the flight's foot 4.35 m before the front, under the engraving's first fence post (x 557 px) on the stoop's north cheek. The engraving draws the landing's rail but not its depth."
         },
         "stoop_width_m": {
           "value": 1.8,
