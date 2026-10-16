@@ -5,6 +5,8 @@
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
  *                                      [--sync] [--verify] [--gate]
+ *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
+ *                                      [--seconds 12] [--stills] [--json f]
  *
  * Every other frame budget in this project is read at a STAND: T-0135's five
  * cameras, T-1975's triangle ceilings, T-1976's light trim. A stand is a still
@@ -56,6 +58,26 @@
  * below, per tier, on the desktop reading. It is a seven-minute browser run, so
  * it is NOT in check.sh: since T-2106 it is its own CI leg,
  * .github/workflows/chicago-4d-moving-frames.yml.
+ *
+ * ## `--live`: the frame the visitor gets, governed and Fixed (T-2555)
+ *
+ * The driven moves above cannot see the frame governor: they call `step()`,
+ * which bypasses the animation loop the governor sits in, and they skip the
+ * draw, which is the cost the governor trims. So `--live` drives each move
+ * through the page's OWN loop instead — the walker posed from the wall clock on
+ * every rAF, the draw on — for `--seconds` of real time, once with Frame
+ * pacing at Adaptive and once at Fixed (Fixed is the renderer as it was before
+ * T-2555: the Sharpness ratio, every rAF, a shadow every frame). The reading is
+ * the interval between drawn frames: its standard deviation and p95, which are
+ * what "uneven" means. On this runner the draw is SwiftShader rasterising on
+ * the CPU, whose cost goes as the pixels drawn, so the comparison is real but
+ * it is a software rasteriser's, not a phone GPU's: the two modes are read in
+ * the same page, minutes apart, and only their DIFFERENCE is the finding.
+ *
+ * `--stills` then asks the other half of the claim at every anchor of the year:
+ * after a governed turn has lowered the ratio, three still frames put it back
+ * at the ceiling, and the held frame captured under Adaptive is the same
+ * signature as the one captured under Fixed.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -95,6 +117,9 @@ const RENDER = process.argv.includes('--render');
 const PROFILE = Number(argAt('--profile') || 0);
 const SYNC = process.argv.includes('--sync');
 const VERIFY = process.argv.includes('--verify');
+const LIVE = process.argv.includes('--live');
+const STILLS = process.argv.includes('--stills');
+const SECONDS = Number(argAt('--seconds') || 12);
 
 /**
  * THE CEILINGS, T-2096 § 3, per tier, on the desktop viewport unthrottled —
@@ -375,6 +400,109 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   };
 }
 
+/** Runs in the page (T-2555): one move through the animation loop itself, for
+ *  `seconds` of wall clock, with Frame pacing at `mode`, timing every draw. */
+async function driveLive({ move, tier, mode, seconds }) {
+  const a = window.__chicago4d;
+  await a.setDetail(tier);
+  a.setGovernor(mode === 'adaptive');
+  const anchors = new Map((a.scene?.anchors ?? []).map((x) => [x.id, x]));
+  const pick = (...ids) => ids.map((id) => anchors.get(id)).find(Boolean) ?? a.scene?.anchors?.[0];
+  const rad = (d) => d * Math.PI / 180;
+  let pose;
+  if (move === 'walk') {
+    const v = a.walkBudget?.speed ?? 1.4;
+    const s = pick('lake_at_canal', 'spawn');
+    const b = s.yaw_deg ?? 90;
+    pose = (t) => {
+      const d = Math.min(40, v * t);
+      const d2 = Math.max(0, v * t - 40);
+      return { local_e: s.local_e + Math.sin(rad(b)) * d + Math.sin(rad(b + 90)) * d2,
+        local_n: s.local_n + Math.cos(rad(b)) * d + Math.cos(rad(b + 90)) * d2,
+        yaw_deg: d2 > 0 ? b + 90 : b };
+    };
+  } else if (move === 'turn') {
+    const s = pick('lake_market', 'lake_at_canal', 'spawn');
+    pose = (t) => ({ local_e: s.local_e, local_n: s.local_n, yaw_deg: (s.yaw_deg ?? 0) + 45 * t });
+  } else {
+    const s = pick('from_above', 'aerial');
+    pose = (t) => ({ local_e: s.local_e + 12 * t, local_n: s.local_n, yaw_deg: s.yaw_deg ?? 0,
+      altitude_m: s.altitude_m ?? 120, pitch_deg: s.pitch_deg ?? -30 });
+  }
+  a.setFly(move === 'flight');
+  a.walker.teleport(pose(0));
+  // At rest first, so both modes start from the same neutral state.
+  await new Promise((r) => setTimeout(r, 800));
+  const draws = [];
+  const render = a.renderer.render;
+  a.renderer.render = function timed(...args) {
+    draws.push([performance.now(), a.renderer.getPixelRatio()]);
+    return render.apply(this, args);
+  };
+  const t0 = performance.now();
+  let paced = 0;
+  await new Promise((resolve) => {
+    const frame = () => {
+      const el = (performance.now() - t0) / 1000;
+      if (el >= seconds) { resolve(); return; }
+      a.walker.teleport(pose(el));
+      if (a.governor.pace === 2) paced += 1;
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  });
+  a.renderer.render = render;
+  const g = a.governor;
+  a.setGovernor(true);
+  const iv = [];
+  for (let i = 1; i < draws.length; i++) iv.push(draws[i][0] - draws[i - 1][0]);
+  const sorted = iv.slice().sort((x, y) => x - y);
+  const q = (p) => sorted[Math.min(sorted.length - 1, Math.floor(p * sorted.length))];
+  const mean = iv.reduce((t, x) => t + x, 0) / Math.max(1, iv.length);
+  const sd = Math.sqrt(iv.reduce((t, x) => t + (x - mean) ** 2, 0) / Math.max(1, iv.length));
+  const ratios = draws.map((d) => d[1]).sort((x, y) => x - y);
+  return { draws: draws.length, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
+    over33: iv.filter((x) => x > 33.4).length, over50: iv.filter((x) => x > 50).length,
+    ratioMin: ratios[0], ratioMedian: ratios[Math.floor(ratios.length / 2)], ceiling: g.ceiling,
+    pacedRafs: paced, decisions: g.decisions };
+}
+
+/** Runs in the page (T-2555): at one anchor, turn under Adaptive until the
+ *  ratio has moved, stand still, and compare the held frame with Fixed's. */
+async function stillAt({ id, seconds }) {
+  const a = window.__chicago4d;
+  const s = (a.scene?.anchors ?? []).find((x) => x.id === id);
+  if (!s || !a.goTo(id)) return { id, skipped: true };
+  a.setGovernor(true);
+  const t0 = performance.now();
+  let ratioMin = a.renderer.getPixelRatio();
+  await new Promise((resolve) => {
+    const frame = () => {
+      const el = (performance.now() - t0) / 1000;
+      if (el >= seconds) { resolve(); return; }
+      a.walker.teleport({ local_e: s.local_e, local_n: s.local_n, yaw_deg: (s.yaw_deg ?? 0) + 45 * el,
+        ...(typeof s.altitude_m === 'number' ? { altitude_m: s.altitude_m, pitch_deg: s.pitch_deg } : {}) });
+      ratioMin = Math.min(ratioMin, a.renderer.getPixelRatio());
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  });
+  a.goTo(id);
+  // Still frames — the loop's own, no hold, no step — until the governor rests.
+  await new Promise((r) => setTimeout(r, 600));
+  const rested = a.governor;
+  const shadowAuto = a.renderer.shadowMap.autoUpdate;
+  a.setAnimationHold(true);
+  const adaptive = await a.capture(24);
+  a.setGovernor(false);
+  const fixed = await a.capture(24);
+  a.setGovernor(true);
+  a.setAnimationHold(false);
+  const sig = (x) => JSON.stringify(x);
+  return { id, ratioMin, rested: { ratio: rested.ratio, ceiling: rested.ceiling, scale: rested.scale,
+    pace: rested.pace, moving: rested.moving, shadowAuto }, same: sig(adaptive) === sig(fixed) };
+}
+
 const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
   args: ['--enable-unsafe-swiftshader'],
@@ -413,6 +541,48 @@ for (const vp of VIEWPORTS) {
     await prof.send('Profiler.setSamplingInterval', { interval: 200 });
     prof.profiles = [];
     prof.on('Profiler.consoleProfileFinished', (ev) => prof.profiles.push(ev.profile));
+  }
+  if (LIVE) {
+    console.log('tier      move    mode      draws | interval ms mean   sd  med  p95  max  >33 >50 | ratio min/med (ceiling) | paced rAFs');
+    for (const tier of TIERS) {
+      for (const move of MOVES.filter((m) => m !== 'travel')) {
+        const pair = {};
+        for (const mode of ['fixed', 'adaptive']) {
+          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS });
+          pair[mode] = r;
+          const f = (x) => x.toFixed(1).padStart(5);
+          console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
+            + ` ${f(r.mean)}${f(r.sd)}${f(r.median)}${f(r.p95)}${f(r.max)} ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)} |`
+            + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`);
+          out.readings.push({ viewport: vp.id, throttle: vp.throttle, live: true, tier, move, mode, ...r });
+          if (jsonOut) writeJson();
+        }
+        const fell = pair.adaptive.sd < pair.fixed.sd && pair.adaptive.p95 < pair.fixed.p95;
+        console.log(`  ${fell ? 'FELL' : 'DID NOT FALL'}: sd ${pair.fixed.sd.toFixed(1)} → ${pair.adaptive.sd.toFixed(1)} ms,`
+          + ` p95 ${pair.fixed.p95.toFixed(1)} → ${pair.adaptive.p95.toFixed(1)} ms`);
+        if (!fell) failed++;
+      }
+    }
+    if (STILLS) {
+      out.stills = [];
+      for (const { id } of await page.evaluate(() => window.__chicago4d.scene?.anchors ?? [])) {
+        const r = await page.evaluate(stillAt, { id, seconds: 4 });
+        out.stills.push({ viewport: vp.id, ...r });
+        if (jsonOut) writeJson();
+        if (r.skipped) { console.log(`  still ${id}: not an anchor of this year`); continue; }
+        const rested = Math.abs(r.rested.ratio - r.rested.ceiling) < 1e-9 && r.rested.scale === 1
+          && r.rested.pace === 1 && r.rested.shadowAuto === true;
+        console.log(`  still ${id.padEnd(26)} turned down to ${r.ratioMin.toFixed(2)}, rested at ${r.rested.ratio.toFixed(2)}`
+          + ` (ceiling ${r.rested.ceiling.toFixed(2)})${rested ? '' : ' NOT AT REST'}; held frame Adaptive ${r.same ? '==' : '!='} Fixed`);
+        if (!rested || !r.same) failed++;
+      }
+    }
+    if (errors.length) {
+      console.log(`pageerrors: ${JSON.stringify(errors.slice(0, 5))}`);
+      failed++;
+    }
+    await ctx.close();
+    continue;
   }
   console.log('tier      move    frames rebuilds | scripted ms med/p95/max  >16 >33 >50 | flora p95/max | trees p95/max | other hooks max');
   for (const tier of TIERS) {
@@ -477,6 +647,10 @@ for (const vp of VIEWPORTS) {
 await browser.close();
 server.close();
 if (jsonOut) console.log(`\nwrote ${jsonOut}`);
+if (LIVE) {
+  console.log(failed ? `\nFAIL — ${failed} live reading(s) did not hold` : '\nPASS — governed moves steadier, still frames unchanged');
+  process.exit(failed ? 1 : 0);
+}
 if (VERIFY && !GATE) {
   console.log(failed ? `\nFAIL — ${failed} move(s) failed verification or threw` : '\nPASS — every spread pass landed the one-frame pass');
   process.exit(failed ? 1 : 0);

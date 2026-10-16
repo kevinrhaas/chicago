@@ -533,6 +533,13 @@ visual phase in the whole program.
   Anything further (bloom, DoF) waits for the cinematic-mode decision's implementation.
 - **Auto image-sharpness**: a frame-time governor that walks the existing pixel-ratio
   setting (1 / 1.5 / 2) to hold ~30 fps mobile / ~60 desktop, honoring a manual override.
+  *Landed differently as T-2555 (2026-10-16): `js/frame-governor.js` scales the ratio
+  continuously between 0.67× and 1× of the visitor's Sharpness (the setting is the
+  ceiling, never walked past), only while the camera moves, paces to a steady 30 where
+  60 cannot hold at the floor, and halves the shadow refresh on `light` while moving.
+  At rest it is neutral, so still frames and captures are unchanged; Settings → Frame
+  pacing → Fixed turns it off. `tools/test_frame_governor.mjs` (in check.sh) and
+  `measure_walk_frames.mjs --live --stills` are its gates.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke

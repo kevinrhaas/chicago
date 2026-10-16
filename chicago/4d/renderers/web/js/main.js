@@ -86,6 +86,7 @@ import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { resolveSharpness } from './sharpness.js';
+import { createFrameGovernor, describeGovernor } from './frame-governor.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
@@ -1606,6 +1607,24 @@ async function boot() {
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, bootQuality));
+  /**
+   * T-2555, THE FRAME GOVERNOR (frame-governor.js). The visitor's Sharpness is
+   * the CEILING: `sharpnessCap` is the ratio they chose, and the ratio drawn is
+   * that times the governor's scale, which is 1 at rest and under Fixed. Every
+   * place that used to set the pixel ratio sets the cap through
+   * `applySharpness`, and the ratio itself is only ever written when it changes
+   * — `setPixelRatio` resizes the drawing buffer even to the same size.
+   */
+  let sharpnessCap = renderer.getPixelRatio();
+  const governorLine = document.getElementById('governor-line');
+  const governor = createFrameGovernor({ tier: detailLevel, onChange: (state) => {
+    if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
+  } });
+  function applySharpness(value) {
+    if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
+    const ratio = sharpnessCap * governor.scale;
+    if (Math.abs(ratio - renderer.getPixelRatio()) > 1e-9) renderer.setPixelRatio(ratio);
+  }
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
   // T-2548: a closed building image is gone from the page as a released array is.
@@ -2927,7 +2946,10 @@ async function boot() {
         world.setBrightness(value);
       } else if (key === 'quality') {
         crashGuard.chosen('quality');
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, value));
+        applySharpness(value);
+      } else if (key === 'governor') {
+        governor.setEnabled(value !== 'fixed');
+        applySharpness();
       } else if (key === 'detail') {
         crashGuard.chosen('detail');
         applyDetail(value);
@@ -3180,8 +3202,8 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1,
-    crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess)));
+  applySharpness(crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess));
+  governor.setEnabled(hud.settings.governor !== 'fixed');
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -3911,8 +3933,37 @@ async function boot() {
     const pause = bootCheckpoint(); if (pause) await pause;
   }
   await yieldToPaint();
-  renderer.setAnimationLoop(() => {
-    try { tick(); } catch (err) {
+  // T-2555. Whether the camera moved in the frame just drawn — position or
+  // facing, so a turn in place is moving too. The governor reads only this and
+  // the interval between drawn frames.
+  const lastPose = { position: new THREE.Vector3(), quaternion: new THREE.Quaternion(), seen: false };
+  function cameraMoved() {
+    const moved = !lastPose.seen
+      || camera.position.distanceToSquared(lastPose.position) > 1e-8
+      || 1 - Math.abs(camera.quaternion.dot(lastPose.quaternion)) > 1e-10;
+    lastPose.position.copy(camera.position);
+    lastPose.quaternion.copy(camera.quaternion);
+    lastPose.seen = true;
+    return moved;
+  }
+  /** The governor's decision for the frame about to be drawn, put in force. */
+  function applyGovernor() {
+    applySharpness();
+    const shadow = renderer.shadowMap;
+    shadow.autoUpdate = governor.shadowFresh;
+    if (!governor.shadowFresh) shadow.needsUpdate = false;
+  }
+  renderer.setAnimationLoop((t) => {
+    try {
+      governor.setTier(detailLevel);
+      // A capture, the welcome and a held clock are still frames by definition,
+      // and are drawn exactly as they were before the governor existed.
+      if (pendingCapture || gateOpen || animationHold) governor.rest();
+      else if (!governor.shouldDraw(t)) return;
+      applyGovernor();
+      tick();
+      governor.frameDrawn(t, cameraMoved());
+    } catch (err) {
       renderer.setAnimationLoop(null);
       if (bootController.readyAt === null) rejectFirstFrame(err);
       else throw err;
@@ -4089,7 +4140,10 @@ async function boot() {
       return state;
     },
     /** Force one frame — for tests that must not race the animation loop. */
-    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
+    step() { governor.rest(); applyGovernor(); tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
+    /** T-2555: Adaptive (true) or Fixed (false), as Settings' Frame pacing sets
+     *  it; the live reading is `governor` below. */
+    setGovernor(on) { const v = governor.setEnabled(on); applyGovernor(); return v; },
     /** T-2106. Let `step()` spread the flora rebuild as the animation loop
      *  does — for `tools/measure_walk_frames.mjs`, which times that loop. */
     setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },
@@ -4125,6 +4179,11 @@ async function boot() {
     farWalkTops: { get: () => frontage.farWalkTops ?? null, enumerable: true },
     /** The level the visitor is actually on, now rather than at boot (T-0115). */
     detail: { get: () => detailLevel, enumerable: true },
+    /** T-2555: what the frame governor is doing now — its mode, the scale of the
+     *  Sharpness ceiling and the pixel ratio drawn, the paced rate, the shadow's
+     *  cadence and whether the camera is moving. */
+    governor: { get: () => ({ ...governor.state, ceiling: sharpnessCap, ratio: renderer.getPixelRatio() }),
+      enumerable: true },
     /** The ride in progress — phase, destination, distance left — live. */
     travelState: { get: () => travel?.state ?? { phase: 'idle' }, enumerable: true },
     /**
