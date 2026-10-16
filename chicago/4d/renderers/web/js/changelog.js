@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1846, ts: '2026-10-16T05:02:51.854Z', date: 'Oct 16, 2026, 12:02 AM CT', title: 'A phone that ran out of memory comes back at lower detail', kind: 'fix',
+    items: [
+      'If the walk closed while loading last time, as a phone does when it runs out of memory, the next visit starts one Scene detail level lower at Sharpness Low, and a card says so. Settings can raise either again.',
+      'When the display is lost, the page reloads at most once. If it is lost again, the card offers a Reload at a lower detail level, so a phone no longer gets stuck reloading.',
+    ] },
+  { v: 1845, ts: '2026-10-16T04:50:44.479Z', date: 'Oct 15, 2026, 11:50 PM CT', title: '1811 Prairie rises as the Ames house, built from its 1888 photograph', kind: 'feature',
+    items: [
+      '1811 Prairie Avenue, Miner T. Ames\'s house by Cobb & Frost, now stands as a three-storey rock-faced brownstone house in place of its draft box, built against the Inland Architect\'s 1888 photograph of it.',
+      'Its front is the photograph\'s: a bay standing forward at the north end, the door under a round arch at the south end up a broad stair, and a corbelled oriel with three tall lights over the arch.',
+      'Behind it the long brick wing runs back along the south side, three storeys and then two, at the length the 1911 fire-insurance map draws it. The house is now the map\'s full width.',
+      'Not yet built: the bay\'s stone gable and balcony, the oriel\'s steep pyramid, the steeper roofs and the open porch on columns. Those come next, and the reconstructions are recorded as liberty L-k01-1811-ames-front-2541.',
+    ] },
   { v: 1844, ts: '2026-10-16T04:14:13.302Z', date: 'Oct 15, 2026, 11:14 PM CT', title: '1621 Prairie\'s door arch, shelf and basement heads match its drawing', kind: 'feature',
     items: [
       'The front door of John H. Hamline\'s house at 1621 Prairie now stands deep in its round arch, under a ring of voussoirs with a curved outer edge and a stone band over its crown, as the 1886 Building Budget drawing shows it.',

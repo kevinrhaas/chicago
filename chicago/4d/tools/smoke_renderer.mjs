@@ -10229,6 +10229,109 @@ for (const [label, viewport, touch] of [
       cmRestored.menuShut && cmRestored.allOn && !cmRestored.marked,
       JSON.stringify(cmRestored));
 
+    // T-2547: a clean boot carries no crash card (this page's session never died).
+    const cleanBoot = await page.evaluate(() => ({ guard: !!window.__chicago4d.crashGuard,
+      notice: window.__chicago4d.crashGuard?.notice, found: window.__chicago4d.crashGuard?.found,
+      card: !!document.querySelector('#crash-notice:not([hidden])') }));
+    check(`${label}: a clean boot shows no crash card`,
+      cleanBoot.guard && cleanBoot.notice === null && cleanBoot.found === null && !cleanBoot.card,
+      JSON.stringify(cleanBoot));
+
+    // T-2547 — CRASH-AWARE BOOT, at 390x780: the phone the owner's report is about.
+    // A fresh context of its own, so the main page's storage is never touched. A
+    // visitor who chose Full and whose last session died loading (this tab's marker
+    // survived, as a tab iOS killed leaves it) must boot one tier lower and READ that
+    // on a card; then two lost contexts must reload the page once at most and lower
+    // the next boot again. The losses are real: WEBGL_lose_context on the canvas.
+    if (touch) {
+      const ctxCrash = await browser.newContext({ viewport, hasTouch: true, isMobile: false, deviceScaleFactor: 2 });
+      await ctxCrash.addInitScript(() => {
+        try {
+          if (sessionStorage.getItem('smoke.crash.seeded')) return;
+          sessionStorage.setItem('smoke.crash.seeded', '1');
+          localStorage.setItem('chicago4d.settings', JSON.stringify({ detail: 'full' }));
+          sessionStorage.setItem('c4d.crash.marker',
+            JSON.stringify({ year: '1835', detail: 'full', quality: 1, t: 1, beat: 1 }));
+        } catch { /* storage refused: the check below says so */ }
+      });
+      const pc = await ctxCrash.newPage();
+      pc.setDefaultTimeout(90_000);
+      const crashErrors = [];
+      pc.on('pageerror', (e) => crashErrors.push(`pageerror: ${e.message || e}`));
+      let loads = 0;
+      pc.on('load', () => { loads += 1; });
+      const guardState = () => pc.evaluate(() => {
+        const g = window.__chicago4d?.crashGuard;
+        const card = document.getElementById('crash-notice');
+        let readable = false;
+        if (card && !card.hidden) {
+          const r = card.getBoundingClientRect();
+          const top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+          readable = r.width > 0 && r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth
+            && !!top && card.contains(top);
+        }
+        return g ? { boot: g.boot, lowered: g.lowered, notice: g.notice, reloads: g.reloads,
+          watching: g.watching, sessionLosses: g.sessionLosses, readable,
+          text: card && !card.hidden ? card.querySelector('.crash-notice-text').textContent : null,
+          reloadButton: !!card && !card.hidden && !card.querySelector('.crash-notice-reload').hidden } : null;
+      });
+      const loseAndRestore = () => pc.evaluate(async () => {
+        const gl = document.getElementById('view').getContext('webgl2') || document.getElementById('view').getContext('webgl');
+        const ext = gl.getExtension('WEBGL_lose_context');
+        const lost = new Promise((r) => gl.canvas.addEventListener('webglcontextlost', r, { once: true }));
+        ext.loseContext();
+        await lost;
+        // Chrome allows restoration only once the lost event's dispatch has finished,
+        // which a microtask inside it has not: a task later, it has.
+        await new Promise((r) => setTimeout(r, 50));
+        const notice = window.__chicago4d.crashGuard.notice;
+        ext.restoreContext();
+        return { notice };
+      });
+      const t0 = Date.now();
+      await pc.goto(base, { waitUntil: 'domcontentloaded' });
+      await pc.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 240_000, polling: 500 });
+      const died = await guardState();
+      console.log(`        part 6: the stepped-down boot ready in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+      check(`${label}: a session that died loading boots one tier lower, at Sharpness Low, and the card says so`,
+        died?.boot?.detail === 'balanced' && died.boot.quality === 1 && died.lowered?.why === 'memory'
+        && died.readable && /^Detail lowered: this device ran out of memory last time\./.test(died.text ?? '')
+        && await pc.evaluate(() => document.getElementById('s-detail')?.value) === 'balanced',
+        JSON.stringify(died));
+
+      // The first loss: said on the card, preventDefaulted, and ONE reload on restore.
+      const firstLoss = await loseAndRestore();
+      await pc.waitForFunction(() => window.__chicago4d?.crashGuard?.watching === true
+        && window.__chicago4d.crashGuard.reloads === 1, null, { timeout: 120_000, polling: 500 });
+      const reloaded = await guardState();
+      // The second loss, while the reloaded page is still loading — where the owner's
+      // phones die: no reload of its own; the next boot is lowered, the card offers Reload.
+      const secondLoss = await loseAndRestore();
+      await pc.waitForTimeout(3000);
+      const after = await guardState();
+      check(`${label}: two lost contexts reload the page once at most, then lower the next boot a tier`,
+        /reset/.test(firstLoss.notice ?? '') && loads === 2 && reloaded?.boot?.detail === 'balanced'
+        && reloaded.lowered === null && reloaded.notice === null
+        && after?.reloads === 1 && after.sessionLosses === 2 && after.lowered?.why === 'context'
+        && after.lowered.to.detail === 'light' && after.readable && after.reloadButton
+        && /^Detail lowered to Light/.test(secondLoss.notice ?? ''),
+        JSON.stringify({ firstLoss, loads, reloaded, secondLoss, after }));
+      // The visitor taps Reload: the boot that follows is the lowered tier, and silent.
+      const at = await pc.evaluate(() => {
+        const r = document.querySelector('#crash-notice .crash-notice-reload').getBoundingClientRect();
+        return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
+      });
+      await pc.mouse.click(at.x, at.y);
+      await pc.waitForFunction(() => window.__chicago4d?.crashGuard?.watching === true, null, { timeout: 120_000, polling: 500 });
+      const lowered = await guardState();
+      check(`${label}: the boot after Reload runs at the lowered tier with no card`,
+        loads === 3 && lowered?.boot?.detail === 'light' && lowered.notice === null && lowered.reloads === 1,
+        JSON.stringify({ loads, lowered }));
+      check(`${label}: no page errors through the crash, the lost contexts and the reloads`,
+        crashErrors.length === 0, crashErrors.slice(0, 5).join(' | '));
+      await ctxCrash.close();
+    }
+
     inStageWork = false;
     } // end PART 6 (the tail of T-0060 stage 2b, cut out of part 4 by T-0346)
     // PART 7 — navigation through the second road-legibility station: the
