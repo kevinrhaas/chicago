@@ -41,8 +41,9 @@
  *       both ridge layouts, each cut into spatial-batch pieces, into
  *       DIR/<year>/{base,streets}.{bin,json}; --parity reads the live page at
  *       `light` and at `full`. The base is uploaded since T-2709 (terrain.js §
- *       THE DISTANT BASE, PREBUILT; publish.sh asks for it); the streets are
- *       not yet (T-2710).
+ *       THE DISTANT BASE, PREBUILT; publish.sh asks for it), and the streets since
+ *       T-2710, with ONE BUFFER PER LAYOUT (streets.{light,full}.bin) so a visitor
+ *       fetches only the one their detail draws (streets.js § THE STREETS, PREBUILT).
  *   … --layer yards — T-2704, piece 2 of T-2694
  *       The same four modes for the YARDS: the enclosure records laid by
  *       enclosures.js's and yards.js's own createEnclosures and
@@ -146,12 +147,12 @@ async function pageModules() {
   };
   const { Heightfield, loadGlbMesh, conformGroundToField, tileGround, groundTileGrid, groundTiling,
     distantBaseGeometry, footprintsKey, prebuiltPieceSpans } = await import(pathToFileURL(path.join(WEB, 'js/terrain.js')).href);
-  const { streetSurfaces } = await import(pathToFileURL(path.join(WEB, 'js/streets.js')).href);
+  const { streetSurfaces, streetLayoutOf } = await import(pathToFileURL(path.join(WEB, 'js/streets.js')).href);
   const { createFrontage } = await import(pathToFileURL(path.join(WEB, 'js/frontage.js')).href);
   const { spatialPieces, spatialBatch, batchPieces } =
     await import(pathToFileURL(path.join(WEB, 'js/spatial-batch.js')).href);
   loaded = { Heightfield, createFrontage, loadGlbMesh, conformGroundToField, tileGround, groundTileGrid,
-    groundTiling, distantBaseGeometry, footprintsKey, prebuiltPieceSpans, streetSurfaces, spatialPieces, spatialBatch, batchPieces };
+    groundTiling, distantBaseGeometry, footprintsKey, prebuiltPieceSpans, streetSurfaces, streetLayoutOf, spatialPieces, spatialBatch, batchPieces };
   return loaded;
 }
 
@@ -339,8 +340,10 @@ const gzipped = (bin) => { let b = bin; for (let i = 0; i < GZIP_PASSES; i += 1)
  * patch are the page's, as they are for frontage.
  */
 const GROUND_FORMAT = 1;
+// T-2710: format 2 splits the streets into one buffer per layout (packStreets).
+const STREETS_FORMAT = 2;
 const LAYERS = { frontage: { format: FORMAT }, ground: { format: GROUND_FORMAT },
-  base: { format: 2 }, streets: { format: 1 } };
+  base: { format: 2 }, streets: { format: STREETS_FORMAT } };
 const ARRAYS = { Float32Array, Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array };
 const THREE_URL = () => pathToFileURL(path.join(THREE_DIR, 'three.module.js')).href;
 
@@ -504,8 +507,12 @@ export async function buildStreets(scene) {
   const started = performance.now();
   const tiles = [];
   const source = [];
+  // T-2710: each layout's counters, which the page reports as `streets.stats`.
+  const stats = {};
   for (const [detail, ridged] of [['light', false], ['full', true]]) {
-    for (const { surface, geometry } of m.streetSurfaces({ terrain, records, detail })) {
+    const { surfaces, counts } = m.streetLayoutOf({ terrain, records, detail });
+    stats[detail] = counts;
+    for (const { surface, geometry } of surfaces) {
       const name = `streets-${surface}`;
       tiles.push({ name, ridged, pieces: m.spatialPieces(geometry).map(geometryBuffers) });
       source.push({ name, ridged, geometry });
@@ -513,7 +520,46 @@ export async function buildStreets(scene) {
   }
   const ms = performance.now() - started;
   await drain();
-  return { tiles, source, ms, records: records.length };
+  // The page holds the prebuild to the records it draws by this (streets.js prebuiltStreetsRefusal).
+  return { tiles, source, ms, records: records.length, recordsSha256: sha(JSON.stringify(records)), stats };
+}
+
+/**
+ * T-2710. The streets with ONE BUFFER PER LAYOUT: light's surfaces in
+ * streets.light.bin, the ridged ones in streets.full.bin, each tile's pieces
+ * placed in its own layout's buffer, so a page fetches only the layout it lays.
+ */
+const STREET_LAYOUTS = Object.freeze(['light', 'full']);
+
+function packStreets(year, built, inputs, buildId, gzip = false) {
+  const tiles = [];
+  const bins = {};
+  const buffers = {};
+  for (const name of STREET_LAYOUTS) {
+    const { place, bin: concat } = layout();
+    tiles.push(...packTiles(built.tiles.filter((t) => t.ridged === (name === 'full')), place));
+    buffers[name] = concat();
+    bins[name] = { bin: `streets.${name}.bin${gzip ? '.gz' : ''}`, bytes: buffers[name].length, sha256: sha(buffers[name]) };
+  }
+  const index = {
+    layer: 'streets', year, format: STREETS_FORMAT, ticket: 'T-2710', build: buildId,
+    encoding: gzip ? 'gzip' : null, passes: gzip ? GZIP_PASSES : 0,
+    bytes: STREET_LAYOUTS.reduce((n, l) => n + bins[l].bytes, 0),
+    sha256: sha(STREET_LAYOUTS.map((l) => bins[l].sha256).join('')), bins, inputs,
+    records: built.records, recordsSha256: built.recordsSha256, stats: built.stats, tiles,
+  };
+  return { buffers, index };
+}
+
+/** A pieces layer's file read back as a page would, every layout's buffer in turn (raw on disk). */
+async function replayLayer(dir, index) {
+  if (!index.bins) return replayGround(index, fs.readFileSync(path.join(dir, index.bin)));
+  const meshes = [];
+  for (const name of STREET_LAYOUTS) {
+    meshes.push(...await replayGround({ ...index, tiles: index.tiles.filter((t) => t.ridged === (name === 'full')) },
+      fs.readFileSync(path.join(dir, index.bins[name].bin))));
+  }
+  return meshes;
 }
 
 const PIECES_TICKET = { base: 'T-2703', streets: 'T-2703' };
@@ -553,6 +599,17 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
       if (!layers.includes(layer)) continue;
       const built = await (layer === 'base' ? buildBase : buildStreets)(scene);
       const inputs = inputsOf([...dataRead, ...modulesRead]);
+      if (layer === 'streets') {
+        const { buffers, index } = packStreets(year, built, inputs, buildId, gzip);
+        for (const name of STREET_LAYOUTS) {
+          fs.writeFileSync(path.join(dir, index.bins[name].bin), gzip ? gzipped(buffers[name]) : buffers[name]);
+        }
+        fs.writeFileSync(path.join(dir, 'streets.json'), JSON.stringify(index) + '\n');
+        results.push({ layer, year, dir, ms: Math.round(built.ms), bytes: index.bytes, sha256: index.sha256,
+          meshes: index.tiles.length, pieces: index.tiles.reduce((n, t) => n + t.pieces.length, 0),
+          inputs: inputs.files.length, index, built });
+        continue;
+      }
       const { bin, index } = packPieces(layer, year, built, inputs, buildId, gzip);
       fs.writeFileSync(path.join(dir, index.bin), gzip ? gzipped(bin) : bin);
       fs.writeFileSync(path.join(dir, `${layer}.json`), JSON.stringify(index) + '\n');
@@ -589,7 +646,7 @@ export function listing(results, buildId = null) {
 /* -------------------------------------------------------------------------- */
 
 /** Why DIR's prebuild of `layer` may not ship, or [] when every index is current. */
-export const PREBUILT_LAYERS = Object.freeze(['frontage', 'ground', 'base']);
+export const PREBUILT_LAYERS = Object.freeze(['frontage', 'ground', 'base', 'streets']);
 
 export function stale(outDir, layer = 'frontage') {
   if (!LAYERS[layer]) return [`no layer ${layer}`];
@@ -601,14 +658,17 @@ export function stale(outDir, layer = 'frontage') {
     if (!fs.existsSync(file)) { why.push(`${year}: no ${layer}.json`); continue; }
     const index = JSON.parse(fs.readFileSync(file, 'utf8'));
     if (index.format !== format) { why.push(`${year}: format ${index.format}, this tool writes ${format}`); continue; }
-    const bin = path.join(outDir, year, index.bin);
     const raw = (file) => {
       let b = fs.readFileSync(file);
       for (let i = 0; index.encoding === 'gzip' && i < (index.passes ?? 1); i += 1) b = zlib.gunzipSync(b);
       return b;
     };
-    if (!fs.existsSync(bin) || sha(raw(bin)) !== index.sha256) {
-      why.push(`${year}: ${index.bin} is not the buffer its index hashed`);
+    // T-2710: the streets carry one buffer per layout, each hashed in `bins`.
+    for (const want of index.bins ? Object.values(index.bins) : [{ bin: index.bin, sha256: index.sha256 }]) {
+      const bin = path.join(outDir, year, want.bin);
+      if (!fs.existsSync(bin) || sha(raw(bin)) !== want.sha256) {
+        why.push(`${year}: ${want.bin} is not the buffer its index hashed`);
+      }
     }
     const missing = index.inputs.files.filter((f) => !fs.existsSync(path.join(ROOT, f.path)));
     for (const f of missing) why.push(`${year}: input ${f.path} is gone`);
@@ -786,7 +846,7 @@ function refusals(dir, r, ok) {
   fs.writeFileSync(file, JSON.stringify(index));
   const refused = stale(dir, r.layer);
   ok(refused.length === 1 && /changed/.test(refused[0]), `${r.layer}: an index built from other inputs is refused: ${refused[0] ?? 'NOT refused'}`);
-  fs.writeFileSync(path.join(dir, r.year, `${r.layer}.bin`), Buffer.from('not the build'));
+  fs.writeFileSync(path.join(dir, r.year, index.bins ? Object.values(index.bins)[0].bin : `${r.layer}.bin`), Buffer.from('not the build'));
   ok(stale(dir, r.layer).some((w) => /not the buffer/.test(w)), `${r.layer}: a buffer its index did not hash is refused`);
 }
 
@@ -826,8 +886,7 @@ async function selfTestPieces(layer, a, b, ok) {
   const same = (x, y) => { try { assert.deepStrictEqual(x, y); return true; } catch { return false; } };
   for (const [i, r] of first.entries()) {
     ok(r.sha256 === second[i].sha256, `${r.year}: two ${layer} builds are byte-identical (${r.bytes} bytes, ${r.meshes} meshes, ${r.pieces} pieces)`);
-    const bin = fs.readFileSync(path.join(r.dir, `${layer}.bin`));
-    const replayed = (await replayGround(r.index, bin)).map(tileHashes);
+    const replayed = (await replayLayer(r.dir, r.index)).map(tileHashes);
     const page = (await pageGround(r.built)).map(tileHashes);
     ok(same(replayed, page), `${r.year}: every ${layer} mesh batched from the file equals the page's own spatialBatch of it, attribute for attribute (${page.length})`);
     const inputs = r.index.inputs.files.map((f) => f.path);
@@ -866,6 +925,12 @@ async function selfTestPieces(layer, a, b, ok) {
       ok(at(false).length > 0 && at(false).length === at(true).length,
         `${r.year}: the streets carry both layouts (${at(false).length} surfaces each)`);
       ok(!same(replayed.filter((t) => t.ridged), replayed.filter((t) => !t.ridged)), `${r.year}: the ridge layout is not the light one`);
+      // T-2710: what the page reads off the file in place of laying the road.
+      ok(STREET_LAYOUTS.every((l) => r.index.bins[l].bytes > 0 && r.index.stats[l]?.panels > 0),
+        `${r.year}: each layout has its own buffer and its counters (${STREET_LAYOUTS.map((l) => `${l} ${r.index.bins[l].bytes} B, ${r.index.stats[l].panels} panels`).join('; ')})`);
+      ok(r.index.stats.light.ridgePanels === 0 && r.index.stats.full.ridgePanels > 0, `${r.year}: only the full layout is laid on the ridge`);
+      const { PREBUILT_STREETS_FORMAT } = await import(pathToFileURL(path.join(WEB, 'js/streets.js')).href);
+      ok(PREBUILT_STREETS_FORMAT === STREETS_FORMAT, `streets: the page reads the format this tool writes (${PREBUILT_STREETS_FORMAT} = ${STREETS_FORMAT})`);
     }
   }
   ok(stale(a, layer).length === 0, `${layer}: a fresh build is current`);
@@ -904,7 +969,7 @@ async function parityPieces(results, root, layers) {
   const node = {};
   for (const layer of layers) {
     const r = results.find((x) => x.year === '1835' && x.layer === layer);
-    node[layer] = { r, tiles: (await replayGround(r.index, fs.readFileSync(path.join(r.dir, r.index.bin)))).map(tileHashes) };
+    node[layer] = { r, tiles: (await replayLayer(r.dir, r.index)).map(tileHashes) };
   }
   const { environment } = await import('./measure_boot_phases.mjs');
   const env = await environment(root);
@@ -935,10 +1000,13 @@ async function parityPieces(results, root, layers) {
         const scene = window.__chicago4d.scene3d;
         const base = scene.getObjectByName('terrain').children.filter((m) => /^terrain_base__/.test(m.name));
         const streets = (scene.getObjectByName('streets')?.children ?? []).filter((m) => m.isMesh && /^streets-/.test(m.name));
+        const sp = window.__chicago4d.streetsPrebuilt;
         return { base: await Promise.all(base.map(read)), streets: await Promise.all(streets.map(read)),
           detail: window.__chicago4d.detail ?? null,
           // T-2709: on a published tree the base is the file's, and the page says so.
-          prebuiltBase: window.__chicago4d.terrainPrebuiltBase ?? null };
+          prebuiltBase: window.__chicago4d.terrainPrebuiltBase ?? null,
+          // T-2710: whether the road read here was batched from the published file.
+          streetsPrebuilt: sp ? { used: sp.used, why: sp.why, layout: sp.layout ?? null } : null };
       });
       await ctx.close();
       for (const layer of layers) {
@@ -949,7 +1017,7 @@ async function parityPieces(results, root, layers) {
         const got = live[layer];
         const { attributes, matched } = compareTiles(got, want, o.diffs, `${detail} ${layer}`);
         o.details.push({ detail, meshes: got.length, pieces: got.reduce((n, m) => n + (m.pieces ?? 1), 0), attributes, matched,
-          ...(layer === 'base' ? { prebuilt: live.prebuiltBase } : {}) });
+          ...(layer === 'base' ? { prebuilt: live.prebuiltBase } : layer === 'streets' ? { prebuilt: live.streetsPrebuilt } : {}) });
         o.meshes += got.length;
         o.pieces += got.reduce((n, m) => n + (m.pieces ?? 1), 0);
         o.attributes += attributes;
@@ -1235,6 +1303,7 @@ async function main() {
     for (const p of [report.parity, report.ground_parity, report.yards_parity, ...(report.pieces_parity ?? [])].filter(Boolean)) {
       console.log(`parity ${p.layer ?? 'frontage'} ${p.year}: ${p.matched}/${p.attributes} attributes of ${p.meshes} meshes byte-equal `
         + `to the page; ${p.pageerrors.length} page errors`);
+      for (const d of p.details ?? []) if (d.prebuilt) console.log(`  ${d.detail}: ${d.prebuilt.used ? `batched from the prebuilt ${d.prebuilt.layout ? `${d.prebuilt.layout} ` : ''}buffer` : `laid by the page (${d.prebuilt.why})`}`);
       for (const d of p.diffs) console.log(`  differs: ${d}`);
     }
   }

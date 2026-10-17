@@ -1,6 +1,6 @@
 // The page asks only for the prebuilt layers publish wrote (js/prebuilt-index.js):
 // a scene with no prebuild makes no request for one, so /1904/ and /1812/ boot with no
-// 404 for data/prebuilt/<year>/ground.json or base.json (dev's mobile smoke was red on it).
+// 404 for data/prebuilt/<year>/ground.json, base.json or streets.json (dev's mobile smoke was red on it).
 //
 //   node tools/test_prebuilt_index.mjs
 import assert from 'node:assert/strict';
@@ -43,5 +43,19 @@ assert.deepEqual(listing([
   { year: '1835', layer: 'ground' },
 ], 'b9'), { format: 1, build: 'b9', layers: { 1835: ['ground', 'base', 'frontage'] } });
 assert.deepEqual(listing([], null), { format: 1, build: null, layers: {} });
+
+// The streets (T-2710) ask the same list: /1904/ draws streets and publish prebuilds none.
+// streets.js imports 'three' bare, as the page's import map resolves it; map it to the vendored copy.
+const { register } = await import('node:module');
+const THREE_URL = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href;
+register('data:text/javascript,' + encodeURIComponent(
+  `export async function resolve(spec, ctx, next) { return spec === 'three' ? { url: ${JSON.stringify(THREE_URL)}, shortCircuit: true } : next(spec, ctx); }`));
+const { fetchPrebuiltStreets } = await import('../renderers/web/js/streets.js');
+resetPrebuiltListing(); served = { format: 1, build: 'b123', layers: { 1835: ['streets'] } }; requests.length = 0;
+const streets1904 = await fetchPrebuiltStreets({ dataBase, year: '1904', build: 'b123' });
+assert.equal(streets1904.why, 'publish prebuilt no streets for 1904, so the page lays its own streets');
+assert.deepEqual(requests, [`${dataBase}prebuilt/index.json`], 'the streets ask for no 1904 file');
+await fetchPrebuiltStreets({ dataBase, year: '1835', build: 'b123' });
+assert.ok(requests.includes(`${dataBase}prebuilt/1835/streets.json`), 'a listed year still fetches its streets');
 
 console.log('PREBUILT INDEX PASS — only listed layers are fetched; a year with no prebuild makes no 404 request');

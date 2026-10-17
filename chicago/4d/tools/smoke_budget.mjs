@@ -423,6 +423,9 @@ const COVERAGE = [
   // T-2698: the near deal's field tile. flora.js is its only importer (the
   // `nearField` handle), so it is read where the flora census is.
   ['renderers/web/js/near-field.js', [10, 11, 12], 'the near field tile, built through flora.js'],
+  // T-2706: the near deal's species and placement as GLSL, and the slot codes
+  // flora.js's `dealNearSlot` answers in. flora.js is its only importer.
+  ['renderers/web/js/flora-gpu-deal.js', [10, 11, 12], 'the near deal as GLSL, read through flora.js'],
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],

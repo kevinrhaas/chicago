@@ -1,0 +1,10 @@
+{
+  "title": "Nothing you can see changed: the 1835 streets arrive ready-laid",
+  "kind": "improvement",
+  "items": [
+    "The streets look exactly as before. What changed is how they reach your device.",
+    "The road is now laid over the ground before you arrive, so the page only hands it to the graphics card. On a slow phone that takes about 1.2 seconds off loading the streets.",
+    "You download only the version your detail setting draws: about 3 MB on a phone at the lightest detail, about 4 MB at the fuller ones. On a data-saving or slow connection the page lays the road itself, as it always did.",
+    "Changing detail later, or a ready-laid road that is missing or out of date, also makes the page lay its own."
+  ]
+}
