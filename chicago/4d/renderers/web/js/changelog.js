@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 1906, ts: '2026-10-17T01:35:58.522Z', date: 'Oct 16, 2026, 8:35 PM CT', title: 'Nothing you can see yet: the 1835 ground cut ahead of time', kind: 'chore',
+    items: [
+      'Nothing in the scene changed. This is the next step toward phones downloading the town instead of building it at every visit.',
+      'A new tool cuts the 1835 ground into its 223 tiles and 9,405 pieces on the server, using the page\'s own code. All 669 of their buffers match what the page builds, byte for byte.',
+      'On a throttled phone profile the page spends about 3 seconds of its terrain step doing this work. The next step makes the page load the pieces instead and measures the boot before and after.',
+    ] },
+  { v: 1905, ts: '2026-10-17T01:35:58.522Z', date: 'Oct 16, 2026, 8:35 PM CT', title: 'The arrival device counts years to go and names its lamps', kind: 'feature',
+    items: [
+      'A YEARS TO GO counter now sits beside Payload, Link and ETA, and counts down to 0 as the ticker reaches your year.',
+      'The six lamps are now four, named for what you will see: STREETS, BUILDINGS, TREES and PEOPLE. Each blinks while that part of the town loads and lights when it is done.',
+      'The screen\'s log reads like the machine at work, one line for each part of the town it loads: PLANTING 1904 ELMS…, LOCATING THE SAUGANASH HOTEL…, SETTING THE FORT\'S PICKETS…, each turning OK when it finishes.',
+      'Each year has its own log lines. A part that could not load says SKIP or FAULT instead of OK.',
+      'On a phone the readout sits in two rows of two and the lamps stack in one column, so nothing is cut off. Reduced motion keeps the numbers moving with no sliding log lines.',
+    ] },
   { v: 1904, ts: '2026-10-17T01:09:42.944Z', date: 'Oct 16, 2026, 8:09 PM CT', title: 'Glessner House gets its written front page, ready for Inspect', kind: 'add',
     items: [
       'The Glessner House now has a short written summary, checked line by line against its sources. You will read it when the new Inspect card arrives; until then it waits behind the scenes.',

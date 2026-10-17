@@ -89,6 +89,9 @@ step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
 selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
 
+selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
+  node tools/prebuild_layers.mjs --self-test --layer ground
+
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
@@ -7179,6 +7182,11 @@ selftest "…and each planted fault (no grade, no source, an invented source, to
   python3 tools/check_timestream.py --self-test
 step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8 slow, once each (T-2611)" \
   node tools/test_time_stream.mjs
+# T-2612. The arrival telemetry: YEARS TO GO, the four lamps named for what a visitor sees
+# (STREETS, BUILDINGS, TREES, PEOPLE) on the real boot phases, and the log's lines from the
+# destination's deck — held against the real boot controller for all three destinations.
+step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
+  node tools/test_arrival_telemetry.mjs
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than

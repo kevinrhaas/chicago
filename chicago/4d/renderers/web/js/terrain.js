@@ -986,7 +986,9 @@ async function fetchOk(url) {
  * surface. Every attribute travels with it — `_confidence` included, which the
  * confidence view reads, and which a naive position-only split would silently drop.
  */
-function tileGround(mesh, grid) {
+// Exported for tools/prebuild_layers.mjs (T-2692), which tiles the ground in Node
+// with this same function so its pieces can be built ahead of the visit.
+export function tileGround(mesh, grid) {
   const geo = mesh.geometry;
   const pos = geo.attributes.position;
   if (!pos) return null;
@@ -1142,8 +1144,10 @@ export function dequantizeGeometry(geo) {
   return geo;
 }
 
-/** Load a GLB and hand back its first mesh, detached from the loaded scene. */
-async function loadGlbMesh(url) {
+/** Load a GLB and hand back its first mesh, detached from the loaded scene.
+ *  Exported for tools/prebuild_layers.mjs (T-2692): the ground built in Node is
+ *  read through this loader, not a copy of it. */
+export async function loadGlbMesh(url) {
   const buffer = await (await fetchOk(url)).arrayBuffer();
   const loader = registerKTX2(new GLTFLoader());
   // THE GROUND AND THE RIVER ARE COMPRESSED TOO, and this loader is not the one
