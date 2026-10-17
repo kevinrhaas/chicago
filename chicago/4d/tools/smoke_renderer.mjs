@@ -15837,6 +15837,72 @@ for (const [label, viewport, touch] of [
       JSON.stringify(roamTip));
     // ---- end T-2634
 
+    // T-2623: the telemetry strip at the foot of the device — FIELD, DRIFT, SIG and the RECALL
+    // lamp, aria-hidden, ticking every 800 ms while the device is open and can be seen, and not
+    // at all while it is docked, the tab is hidden, or the visitor asks for reduced motion (QA-06).
+    // The draws are held while it is timed (holdDraws above): on a software rasteriser a
+    // frame can hold the main thread for seconds, and no timer could fire through it.
+    await holdDraws(true);
+    const strip = await page.evaluate(async () => {
+      const api = window.__chicago4d, tm = api.navigator.telemetry, el = document.querySelector('#navigator .nav-telemetry');
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const read = () => ({ running: tm.running, ticks: tm.ticks, shown: !!el && el.getClientRects().length > 0 });
+      const out = { exists: !!tm && !!el, ariaHidden: el?.getAttribute('aria-hidden'),
+        cells: el ? [...el.querySelectorAll('[data-t]')].map((c) => c.dataset.t) : [] };
+      out.docked = read();
+      api.navigator.open(1);
+      tm.sync();
+      const t0 = tm.ticks;
+      await wait(3300);
+      out.open = { ...read(), ticked: tm.ticks - t0, text: el?.textContent ?? '' };
+      // The tab hidden: the strip stops at once and stays still.
+      Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
+      document.dispatchEvent(new Event('visibilitychange'));
+      const h0 = tm.ticks;
+      await wait(1800);
+      out.hidden = { ...read(), ticked: tm.ticks - h0 };
+      delete document.hidden;
+      document.dispatchEvent(new Event('visibilitychange'));
+      out.back = read();
+      // What a tick costs: the strip's whole frame-time share.
+      const c0 = performance.now();
+      for (let i = 0; i < 200; i++) tm.tick();
+      out.tickMs = (performance.now() - c0) / 200;
+      api.navigator.dock();
+      tm.sync();
+      out.redocked = read();
+      return out;
+    });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const still = await page.evaluate(async () => {
+      const api = window.__chicago4d, tm = api.navigator.telemetry, el = document.querySelector('#navigator .nav-telemetry');
+      api.navigator.open(1);
+      tm.sync();
+      const t0 = tm.ticks;
+      await new Promise((r) => setTimeout(r, 1800));
+      const out = { running: tm.running, ticked: tm.ticks - t0, text: el?.textContent ?? '' };
+      api.navigator.dock();
+      return out;
+    });
+    await page.emulateMedia({ reducedMotion: null });
+    await holdDraws(false);
+    check(`${label}: the Navigator's telemetry strip is aria-hidden and carries FIELD, DRIFT, SIG and RECALL (T-2623)`,
+      strip.exists && strip.ariaHidden === 'true'
+        && JSON.stringify(strip.cells) === JSON.stringify(['field', 'drift', 'sig', 'recall'])
+        && /FIELD\s*0\.9\d\d/.test(strip.open.text) && /DRIFT\s*±\d\.\d D/.test(strip.open.text) && /SIG\s*[▮▯]{4}/.test(strip.open.text),
+      JSON.stringify({ exists: strip.exists, aria: strip.ariaHidden, cells: strip.cells, text: strip.open.text }));
+    check(`${label}: the strip ticks every 800 ms while the device is open, and not while it is docked or the tab is hidden (T-2623)`,
+      strip.docked.running === false && strip.docked.shown === false
+        && strip.open.running === true && strip.open.shown === true && strip.open.ticked >= 2 && strip.open.ticked <= 5
+        && strip.hidden.running === false && strip.hidden.ticked === 0 && strip.back.running === true
+        && strip.redocked.running === false,
+      JSON.stringify({ docked: strip.docked, open: { ...strip.open, text: undefined }, hidden: strip.hidden, back: strip.back, redocked: strip.redocked }));
+    check(`${label}: under reduced motion the strip stands still at its steady reading (T-2623, QA-06)`,
+      still.running === false && still.ticked === 0 && /0\.998/.test(still.text),
+      JSON.stringify(still));
+    check(`${label}: a telemetry tick costs no measurable frame time (T-2623)`,
+      strip.tickMs < 0.5, `${strip.tickMs.toFixed(3)} ms a tick`);
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the

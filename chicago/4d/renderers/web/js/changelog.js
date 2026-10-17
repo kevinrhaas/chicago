@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1955, ts: '2026-10-17T13:37:53.773Z', date: 'Oct 17, 2026, 8:37 AM CT', title: 'The Navigator gets a ticking telemetry strip', kind: 'feature',
+    items: [
+      'A thin phosphor strip now runs along the foot of the open Navigator: FIELD, DRIFT and SIG readouts and a RECALL lamp, ticking every 800 ms like the Observatory\'s console at the front door. It runs on the same numbers and the same drift events.',
+      'When the field drifts, the drift reading widens, the field sags and a signal bar drops, then the hold comes back.',
+      'It is decoration and says nothing about the town, so screen readers skip it. It stops when the Navigator is docked or the tab is hidden, and stands still if you ask for reduced motion.',
+      'Each machine skin draws it in its own phosphor colour.',
+    ] },
   { v: 1954, ts: '2026-10-17T13:35:15.054Z', date: 'Oct 17, 2026, 8:35 AM CT', title: 'Inspect gets six tabs: Overview, People, Design, Story, Photos, Sources', kind: 'feature',
     items: [
       'Inspect now has six tabs. A building you have not looked at yet always opens on Overview, and the same building keeps the tab you left it on.',
