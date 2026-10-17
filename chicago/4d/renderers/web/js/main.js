@@ -98,6 +98,7 @@ import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
+import { markTerms } from './term-tips.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createWhere } from './where.js';
@@ -3803,6 +3804,7 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null;
+  let guideFaq = null; // T-2662
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -4013,10 +4015,18 @@ async function boot() {
         recall: () => journey.recall(),
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
+        // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
+        guideFaq: () => (guideFaq ??= fetch(new URL('guide/faq.json', resolveBases().dataBase), { cache: 'no-cache' })
+          .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+          .catch((err) => { guideFaq = null; throw err; })),
       },
     }),
   });
   api.navigator = navigatorUi;
+  // T-2662: a locked term's first appearance explains itself on tap — the Navigator's
+  // Confidence view, and the Evidence hub's Liberties (the arrival's intro marks its own).
+  markTerms(document.getElementById('nav-home'));
+  markTerms(document.querySelector('.ev-topic[data-topic="liberties"] .ev-topic-title'));
 
   // ---- resize ----------------------------------------------------------- //
 

@@ -344,3 +344,15 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .nav-guide-keys dt { white-space: normal; max-width: 10em; color: var(--ink-dim); font-size: 13px; }
 .nav-guide-keys dd { font-size: 14px; line-height: 1.4; }
 .nav-guide-keys kbd { margin: 0 2px 2px 0; }
+
+/* ---- Guide's glossary and questions (T-2662) --------------------------------------- */
+.nav-guide-glossary, .nav-guide-faq { margin-top: 12px; }
+.nav-glossary { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr); gap: 8px 14px; margin: 10px 0 0; }
+.nav-glossary dt { font-weight: 600; color: var(--ink); font-size: 14px; }
+.nav-glossary dd { margin: 0; font-size: 14px; line-height: 1.4; color: var(--ink-dim); }
+@media (max-width: 420px) { .nav-glossary { grid-template-columns: minmax(0, 1fr); gap: 2px 0; } .nav-glossary dd { margin-bottom: 8px; } }
+.nav-faq { margin-top: 8px; display: grid; gap: 6px; }
+.nav-faq-item { border: 1px solid var(--edge); border-radius: 10px; padding: 0 12px; }
+.nav-faq-item > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; font-size: 14px; }
+.nav-faq-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-faq-item > p { margin: 0 0 12px; }

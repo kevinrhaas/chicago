@@ -162,6 +162,9 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
 # T-2661: Guide's controls sheet.
 step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
   node tools/test_nav_guide.mjs
+# T-2662: the Guide's glossary and questions, and first appearances explained on tap.
+step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
+  node tools/test_guide_glossary.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \

@@ -13163,6 +13163,43 @@ for (const [label, viewport, touch] of [
       JSON.stringify(reopenedGuide));
     await page.evaluate(() => window.__chicago4d.navigator.dock());
     // ---- end T-2661 (part 12)
+    // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
+    // questions answer in 60 words or fewer, and a locked term's first appearance (the
+    // Navigator Home's Confidence view) shows its line on tap.
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
+      || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
+      null, { timeout: 15_000, polling: 100 }).catch(() => {});
+    const guideWords = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const g = document.querySelector('#nav-app-guide #guide-glossary');
+      const faq = [...document.querySelectorAll('#nav-app-guide #guide-faq details')];
+      const out = {
+        terms: [...(g?.querySelectorAll('dt') ?? [])].map((d) => d.textContent.trim()),
+        lines: [...(g?.querySelectorAll('dd') ?? [])].map((d) => d.textContent.trim()).filter(Boolean).length,
+        questions: faq.map((d) => d.querySelector('summary')?.textContent.trim()),
+        longest: Math.max(0, ...faq.map((d) => (d.querySelector('p')?.textContent.trim().split(/\s+/) ?? []).length)),
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(document.getElementById('nav-app-guide')?.textContent ?? ''),
+      };
+      api.navigator.select('home');
+      const term = document.querySelector('#nav-home .locked-term');
+      term?.click();
+      const tip = document.getElementById('term-tip');
+      const box = tip?.getBoundingClientRect();
+      out.tap = { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden, text: tip?.textContent.trim() ?? '',
+        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight };
+      term?.click();
+      out.tap.away = !tip || tip.hidden;
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, and a term's first appearance explains itself on tap (T-2662)`,
+      guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
+      && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
+      && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
+      && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
+      JSON.stringify(guideWords));
+    // ---- end T-2662
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
