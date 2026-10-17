@@ -775,6 +775,12 @@
         <strong class="nav-place" id="nav-where" data-str="nav.where.looking">Looking for the street…</strong>
         <span class="nav-sub" id="nav-where-detail"></span>
       </section>
+      <!-- T-2630: Home's three choices (§04 E), each opening the Jaunts app on its segment. -->
+      <div class="nav-choices" role="group" aria-label="What next">
+        <button class="nav-choice" type="button" data-segment="jaunts"><strong>Take a Jaunt</strong><span>A guided outing</span></button>
+        <button class="nav-choice" type="button" data-segment="goto"><strong>Go to…</strong><span>A house, a person, a shop</span></button>
+        <button class="nav-choice" type="button" data-segment="roam"><strong>Free roam</strong><span>Wander on your own</span></button>
+      </div>
       <section class="nav-block nav-front" id="nav-front" aria-labelledby="nav-front-k" aria-live="polite">
         <span class="nav-k" id="nav-front-k" data-str="nav.front.k">Right in front of you</span>
         <strong class="nav-place" id="nav-front-name" data-str="nav.front.none">Nothing close by</strong>
