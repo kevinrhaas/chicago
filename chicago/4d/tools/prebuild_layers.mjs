@@ -32,15 +32,15 @@
  *       spatial-batch.js's own functions, into DIR/<year>/ground.{bin,json}. The
  *       self-test batches the file's pieces and holds every tile to the page's
  *       own spatialBatch of it; --parity reads the live page's ground tiles.
- *       Default is frontage alone, so publish.sh and check_published.mjs are
- *       unchanged until T-2693 makes the page upload the ground (see § the
- *       ground, below).
+ *       Default is frontage alone; publish.sh asks for both since T-2693, when
+ *       the page began uploading the ground in its GLB's place (terrain.js §
+ *       THE GROUND, PREBUILT), and check_published.mjs holds both current.
  *   … --layer base,streets — T-2703, the first piece of T-2694
  *       The same four modes for the DISTANT BASE (terrain.js's protected grid
  *       over frontage's own crossing footprints) and the STREETS' surfaces at
  *       both ridge layouts, each cut into spatial-batch pieces, into
  *       DIR/<year>/{base,streets}.{bin,json}; --parity reads the live page at
- *       `light` and at `full`. Nothing uploads them yet (T-2705).
+ *       `light` and at `full`. Not uploaded until T-2705.
  *   … --layer yards — T-2704, piece 2 of T-2694
  *       The same four modes for the YARDS: the enclosure records laid by
  *       enclosures.js's and yards.js's own createEnclosures and
@@ -563,7 +563,10 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
 /* -------------------------------------------------------------------------- */
 
 /** Why DIR's prebuild of `layer` may not ship, or [] when every index is current. */
+export const PREBUILT_LAYERS = Object.freeze(['frontage', 'ground']);
+
 export function stale(outDir, layer = 'frontage') {
+  if (!LAYERS[layer]) return [`no layer ${layer}`];
   const why = [];
   const years = frontageScenes().map(sceneYear);
   const format = LAYERS[layer].format;
@@ -777,6 +780,8 @@ async function selfTestGround(a, b, ok) {
       .every((tail) => inputs.some((f) => f.endsWith(tail))), `${r.year}: the input hash covers the GLB, the field and the code that cut it`);
   }
   ok(stale(a, 'ground').length === 0, 'ground: a fresh build is current');
+  const { PREBUILT_GROUND_FORMAT } = await import(pathToFileURL(path.join(WEB, 'js/terrain.js')).href);
+  ok(PREBUILT_GROUND_FORMAT === GROUND_FORMAT, `ground: the page reads the format this tool writes (${PREBUILT_GROUND_FORMAT} = ${GROUND_FORMAT})`);
   refusals(a, first[0], ok);
 }
 
