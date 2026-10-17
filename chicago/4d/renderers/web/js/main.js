@@ -33,7 +33,7 @@ import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
-import { createTerrain, enuToWorld, fetchPrebuiltGround, groundTiling, hazeReachM } from './terrain.js';
+import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
@@ -1737,6 +1737,8 @@ async function boot() {
   // arrive under the scene phase; createTerrain uploads them in the ground GLB's
   // place when they are this page's, and loads the GLB otherwise. Never rejects.
   const groundPrebuilt = fetchPrebuiltGround({ dataBase: bases.dataBase, year: String(YEAR), build: pageBuild() });
+  // T-2709: and the distant base, laid over frontage's crossings and cut at publish.
+  const basePrebuilt = fetchPrebuiltBase({ dataBase: bases.dataBase, year: String(YEAR), build: pageBuild() });
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
@@ -1838,12 +1840,15 @@ async function boot() {
     // T-2502: ground off the box, where the scene names one (1812: down the South Branch).
     apronPath: loaded.scene.terrain_apron ?? null,
     prebuilt: groundPrebuilt,
+    prebuiltBase: basePrebuilt,
     confidence,
     problems,
   });
   if (!terrain.loaded) throw new Error('Terrain heightfield did not load');
   /** T-2693: whether the ground's tiles came prebuilt, and if not, why not. */
   api.terrainPrebuilt = terrain.prebuilt;
+  /** T-2709: whether the distant base came prebuilt, and if not, why not. */
+  api.terrainPrebuiltBase = terrain.prebuiltBase;
   scene3d.add(terrain.group);
   /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
    *  and lets go of its page arrays (upload-release.js), keeping back what this
@@ -2178,8 +2183,12 @@ async function boot() {
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;
-  // T-2600: the distant base's cells are cut on the job pool.
+  // T-2600: the distant base's cells are cut on the job pool. T-2709: unless it
+  // came prebuilt, when it is already the batch and this resolves false at once.
+  performance.mark('distant-base:start');
   await terrain.batchDistantGround();
+  // Read by tools/measure_boot_phases.mjs, beside the frontage measure above.
+  performance.measure('distant-base', 'distant-base:start');
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
    * walker stands on (T-0119): the river walk's crossing footway lies over the

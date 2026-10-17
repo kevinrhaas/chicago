@@ -149,12 +149,14 @@ const TRANSFORMED = [
         + 'way it arrived); tools/test_changelog_mirror.mjs asserts the shim is what lands here and '
         + 'that it names the file it re-exports; and the smoke\'s What\'s-new leg loads the tab out of '
         + 'the published tree, which is the shim resolving or not.' },
-  { re: /^data\/prebuilt\/\d{4}\/(?:frontage|ground)\.(?:json|bin\.gz)$/,
+  { re: /^data\/prebuilt\/\d{4}\/(?:frontage|ground|base)\.(?:json|bin\.gz)$/,
     what: 'tools/prebuild_layers.mjs (run by publish.sh) writes the frontage layer\'s finished buffers, built '
         + 'in Node by the page\'s own createFrontage, with a hash of every file they were built from and the '
         + 'build id the page is stamped with, the buffer gzipped for the tree budget; the page inflates and '
         + 'uploads them instead of building them (T-2677); and the ground\'s tiles, cut into the page\'s 40 m '
-        + 'pieces by terrain.js\'s and spatial-batch.js\'s own functions, uploaded in the ground GLB\'s place (T-2693)',
+        + 'pieces by terrain.js\'s and spatial-batch.js\'s own functions, uploaded in the ground GLB\'s place (T-2693); '
+        + 'and the distant base, laid over frontage\'s crossing footprints and cut the same way, batched in place of '
+        + 'the page\'s own grid and cut (T-2709)',
     gate: 'this file refuses a prebuild whose inputs no longer hash to its index, or whose buffer is not the '
         + 'one its index hashed (prebuild_layers.mjs stale(), below); prebuild_layers.mjs --self-test '
         + '(check.sh) proves two builds byte-identical and the page\'s replay of one equal to its own build; '
