@@ -1,3 +1,33 @@
+## T-2637 — the Glessner House summary record, the pilot (2026-10-16)
+
+`data/summaries/glessner_house.json`, the first authored front page (design doc §08/§12), for
+the owner to approve as the pattern for every other building. It passes T-2635's gate: 28
+graded facts, every one Attested and sourced. Every line was checked against a source read
+for it: the HABS data pages and Glessner's 1923 *Story of a House* (transcribed in them), and the
+museum's own pages. The three facts §08's editorial note flagged now each have a real record.
+**The Nutshell Studies** come from the new `glessner_house_family_page`. **Richardson's death
+before construction** comes from the new `glessner_house_richardson_page` (26 April 1886), read
+against HABS and Glessner (digging began 1 June 1886). **The 1966 rescue** comes from
+`glessner_house_current_status`, re-read 2026-10-16: the foundation bought the house for
+$35,000 in December 1966. Nothing reads the record yet; the Inspect app (T-2638) will. Visitors
+see only the two new sources in the Sources list.
+
+**Left out, and why:**
+
+- **Residents are empty.** No 1904 people directory exists. The 1835 one is compiled by
+  `compile_scene.py` from the 1835 households in `data/residents/`, and only for a scene whose
+  layers list residents. 1904 lists none, and the smoke holds it to having no People section
+  (T-1740). The Glessners are named in the summary, the key facts and the story instead. The
+  grown children are not placed in the house: the museum's family page puts the daughter at
+  1700 Prairie within a few years of her 1898 marriage.
+- **`style` is null.** No style library module exists yet.
+- **The granite's name** is disputed (Wellesley or Braggville) and is not printed.
+- **Look for points at features the model does not separate.** The three features are drawn
+  (the street granite, the 18th Street arch, the narrow corridor windows), but the house is
+  one merged mesh. The feature ids are names Show me (NAV-505) will have to resolve. The
+  camera is a compass bearing in the scene's `yaw_deg` convention (0 = north, clockwise):
+  265 from the Prairie walk, 175 from 18th Street.
+
 ## T-2558 — H0, the WebGPU bake-off, measured (2026-10-16)
 
 Nothing in the town changed. RENDERING.md's H0 spike ran for the first time: three's
