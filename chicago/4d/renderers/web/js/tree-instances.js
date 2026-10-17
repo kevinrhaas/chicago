@@ -28,6 +28,7 @@
 
 import * as THREE from 'three';
 import { buildTreeTemplate, archFor, mulberry32 } from './tree-model.js';
+import { loadCompressed, countSheet } from './ktx2.js';
 
 /** Level distances by Scene detail, metres from the eye. A near tree is a few
  *  thousand triangles, so the near ring is kept to the trees a visitor walks
@@ -44,7 +45,10 @@ const STEP_M = 4;
 /** Variants per archetype, by how many stems it carries: a minority species
  *  repeated twice reads as one tree twice; a cottonwood stand of four hundred
  *  needs more faces than that. */
-const variantsFor = (n) => (n >= 120 ? 4 : n >= 30 ? 3 : n >= 6 ? 2 : 1);
+const variantsFor = (n) => (n >= 150 ? 3 : n >= 25 ? 2 : 1);
+/** The phone's tier grows fewer, and draws no `near` level at all: its nearest
+ *  trees are the `mid` mesh, which is what a 390-px screen resolves at a walk. */
+const variantsForLight = (n) => (n >= 150 ? 2 : 1);
 
 /** The forms drawn as grown trees. A thicket and a dooryard shrub are many
  *  small stems, not a tree, and stay on trees.js's own path, as does a stem
@@ -61,9 +65,11 @@ function archetypeKey(spec) {
  * place of trees.js `addTree` for every tree-form stem.
  */
 export class TreeInstances {
-  constructor({ level = 'full', shadowM = null, variants = variantsFor, name = 'timber' } = {}) {
+  constructor({ level = 'full', shadowM = null, variants = null, name = 'timber', levels = null } = {}) {
     this.name = name;
     this.level = LEVELS[level] ? level : 'full';
+    this.dist = levels?.[this.level] ?? LEVELS[this.level];
+    variants ??= this.level === 'light' ? variantsForLight : variantsFor;
     this.shadowM = shadowM ?? SHADOW_M[this.level];
     this.variantsFor = variants;
     this.kinds = new Map();
@@ -117,17 +123,20 @@ export class TreeInstances {
         const pause = checkpoint(); if (pause) await pause;
         const seed = (hashString(kind.key) + v * 7919) >>> 0;
         const o = { conf: spec.conf ?? 0.5, ...season };
-        const near = buildTreeTemplate(spec, seed, 'near', o);
-        const mid = buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: near.skeleton });
-        const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: near.skeleton });
-        near.skeleton = null;
-        kind.variants.push({ H: near.height, levels: { near, mid, far } });
+        const light = this.level === 'light';
+        const first = buildTreeTemplate(spec, seed, light ? 'mid' : 'near', o);
+        const mid = light ? first : buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: first.skeleton });
+        const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: first.skeleton });
+        first.skeleton = null;
+        far.skeleton = null;
+        kind.variants.push({ H: first.height, levels: light ? { mid, far } : { near: first, mid, far } });
         stats.variants++;
       }
     }
 
-    // 2. The geometry each set holds: the shade set near and mid, the far set mid and far.
-    const sets = { shade: ['near', 'mid'], far: ['mid', 'far'] };
+    // 2. The geometry each set holds: the shade set near and mid, the far set mid
+    //    and far; on the phone's tier the shade set mid and the far set far.
+    const sets = this.level === 'light' ? { shade: ['mid'], far: ['far'] } : { shade: ['near', 'mid'], far: ['mid', 'far'] };
     const sizes = {};
     for (const [set, lv] of Object.entries(sets)) {
       const s = { wood: [0, 0], leaves: [0, 0] };
@@ -179,8 +188,11 @@ export class TreeInstances {
     const tris = (v, l) => (v.levels[l].wood.index.count + v.levels[l].leaves.index.count) / 3;
     for (const kind of this.kinds.values()) {
       for (const v of kind.variants) {
-        v.tris = { near: tris(v, 'near'), mid: tris(v, 'mid'), far: tris(v, 'far') };
-        stats.templateTriangles += v.tris.near + v.tris.mid + v.tris.far;
+        v.tris = {};
+        for (const l of Object.keys(v.levels)) {
+          v.tris[l] = tris(v, l);
+          stats.templateTriangles += v.tris[l];
+        }
       }
     }
 
@@ -204,7 +216,7 @@ export class TreeInstances {
       m.compose(pos, q, scl);
       s.inst = {};
       for (const set of ['shade', 'far']) {
-        const l = set === 'shade' ? 'mid' : 'far';
+        const l = sets[set][sets[set].length - 1];
         s.inst[set] = {
           wood: batches[set].wood.addInstance(v.ids[set][l].wood),
           leaves: batches[set].leaves.addInstance(v.ids[set][l].leaves),
@@ -214,7 +226,7 @@ export class TreeInstances {
       }
       batches.shade.wood.setVisibleAt(s.inst.shade.wood, false);
       batches.shade.leaves.setVisibleAt(s.inst.shade.leaves, false);
-      s.level = 'far';
+      s.level = sets.far[sets.far.length - 1];
       s.shade = false;
     }
     for (const set of Object.values(batches)) {
@@ -225,15 +237,17 @@ export class TreeInstances {
         stats.drawCalls++;
       }
     }
-    // The templates are copied into the batches; their own buffers are scratch.
+    // The templates are copied into the batches; their own buffers are scratch,
+    // and are let go here, not kept beside the copies.
     for (const kind of this.kinds.values()) {
       for (const v of kind.variants) {
         for (const l of Object.values(v.levels)) { l.wood.dispose(); l.leaves.dispose(); }
+        v.levels = null;
       }
     }
 
     // 4. Level and set by distance, re-chosen when the eye has moved STEP_M.
-    const dist = LEVELS[this.level];
+    const dist = this.dist;
     const shadeM = this.shadowM;
     let at = null;
     const update = (eye) => {
@@ -254,8 +268,8 @@ export class TreeInstances {
           s.shade = shade;
           s.level = null;
         }
-        // The level a set can draw: the shade set holds near and mid, the far set mid and far.
-        const want = shade ? (level === 'far' ? 'mid' : level) : (level === 'near' ? 'mid' : level);
+        // The nearest level the set holds to the one wanted (see `sets`).
+        const want = nearestLevel(sets[shade ? 'shade' : 'far'], level);
         if (want !== s.level) {
           const set = shade ? 'shade' : 'far';
           batches[set].wood.setGeometryIdAt(s.inst[set].wood, s.v.ids[set][want].wood);
@@ -276,6 +290,13 @@ export class TreeInstances {
   }
 }
 
+const ORDER = { near: 0, mid: 1, far: 2 };
+function nearestLevel(held, level) {
+  let best = held[0];
+  for (const l of held) if (Math.abs(ORDER[l] - ORDER[level]) < Math.abs(ORDER[best] - ORDER[level])) best = l;
+  return best;
+}
+
 function hashString(s) {
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
@@ -291,17 +312,43 @@ function hashString(s) {
 export async function createGrownTreeMaterials({ assetBase, uWind, confidence = null, patchWind, lowSpec = false,
   alphaCutoff = 0.5, problems = [] }) {
   const base = new URL('textures/trees/', assetBase);
-  const load = (name, srgb) => new Promise((resolve) => {
-    new THREE.TextureLoader().load(new URL(name, base).href, (t) => {
+  // A phone takes each atlas at half size: a quarter of the GPU memory, and the
+  // level it would sample from a crown a few metres off on a 390-px screen anyway
+  // (the parkway elms' rule since T-2158, PR 773).
+  // The .ktx2 first, where this GPU takes a block format (ktx2.js: a quarter to an
+  // eighth of the memory, and the phone's tier drops its top level there too);
+  // the WebP otherwise.
+  const load = async (name, srgb) => {
+    const packed = await loadCompressed(new URL(name.replace(/\.webp$/, '.ktx2'), base).href, { srgb });
+    if (packed) {
+      countSheet(packed);
+      packed.anisotropy = lowSpec ? 2 : 8;
+      return packed;
+    }
+    try {
+      const res = await fetch(new URL(name, base).href);
+      if (!res.ok) throw new Error(`${res.status}`);
+      const blob = await res.blob();
+      const full = await createImageBitmap(blob, { imageOrientation: 'flipY', premultiplyAlpha: 'none',
+        colorSpaceConversion: 'none' });
+      const bmp = lowSpec
+        ? await createImageBitmap(full, { resizeWidth: full.width >> 1, resizeHeight: full.height >> 1,
+          resizeQuality: 'high', premultiplyAlpha: 'none', colorSpaceConversion: 'none' })
+        : full;
+      if (bmp !== full) full.close();
+      const t = new THREE.Texture(bmp);
+      t.flipY = false;
       if (srgb) t.colorSpace = THREE.SRGBColorSpace;
       t.anisotropy = lowSpec ? 2 : 8;
       t.minFilter = THREE.LinearMipmapLinearFilter;
-      resolve(t);
-    }, undefined, () => {
-      problems.push(`trees: the grown-tree texture ${name} did not load — trees draw untextured`);
-      resolve(null);
-    });
-  });
+      t.generateMipmaps = true;
+      t.needsUpdate = true;
+      return t;
+    } catch (err) {
+      problems.push(`trees: the grown-tree texture ${name} did not load (${err.message}) — trees draw untextured`);
+      return null;
+    }
+  };
   const [barkC, barkN, leafA] = await Promise.all([
     // A phone draws bark without its relief, so it does not fetch the map.
     load('bark_basecolor.webp', true), lowSpec ? null : load('bark_normal.webp', false), load('leaf_atlas.webp', true),
@@ -332,6 +379,7 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
     woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance,
     dispose() {
       for (const x of [woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance, barkC, barkN, leafA]) x?.dispose();
+      for (const t of [barkC, barkN, leafA]) t?.image?.close?.();
     },
   };
 }

@@ -695,10 +695,42 @@ def make_leaves(seed):
     return atlas
 
 
+def write_ktx2(leaves, colour, normal):
+    """THE .ktx2 BESIDE EACH WEBP (the T-2582 rule, for these three). A WebP is
+    decoded to RGBA8 on the GPU, four bytes a texel and a third more for mips:
+    the three atlases came to 35 MB of a 1904 desktop's GPU, more than every elm's
+    geometry. Basis Universal is transcoded to the GPU's own block format and kept
+    compressed. The normal is UASTC (a vector is data; ETC1S's shared endpoints
+    would smear it); the bark colour is ETC1S; the leaf atlas is ETC1S at its top
+    quality, since it is a near-neutral colour and a cut-out edge, and UASTC
+    shipped it at 2.2 MB of boot bytes against 0.78. Each is encoded from the lossless master, bottom row first, as
+    tools/ktx2_sheets.py writes its sheets (KTX2Loader does not flip). The `ktx`
+    tool is ktx2_sheets.py's own pinned, hash-checked KTX-Software."""
+    import subprocess
+    import tempfile
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from ktx2_sheets import ktx_binary, ETC1S, ETC1S_DATA, UASTC
+    exe, env = ktx_binary()
+    jobs = [
+        ('leaf_atlas', leaves, 'R8G8B8A8_SRGB', 'srgb', ETC1S_DATA, 'clamp'),
+        ('bark_basecolor', colour, 'R8G8B8_SRGB', 'srgb', ETC1S, 'clamp'),
+        ('bark_normal', normal, 'R8G8B8_UNORM', 'linear', UASTC, 'clamp'),
+    ]
+    with tempfile.TemporaryDirectory() as tmp:
+        for name, im, fmt, oetf, codec, wrap in jobs:
+            src = os.path.join(tmp, f'{name}.png')
+            im.transpose(Image.FLIP_TOP_BOTTOM).save(src)
+            out = os.path.join(OUT, f'{name}.ktx2')
+            subprocess.run([exe, 'create', '--format', fmt, '--assign-oetf', oetf,
+                            '--generate-mipmap', '--mipmap-wrap', wrap, *codec, src, out],
+                           check=True, env=env)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--masters', action='store_true', help='also write the lossless PNGs')
     ap.add_argument('--sheet', metavar='PATH', help='also write a contact sheet (JPEG) there')
+    ap.add_argument('--no-ktx2', action='store_true', help='skip the GPU-compressed copies')
     args = ap.parse_args()
     os.makedirs(OUT, exist_ok=True)
     leaves = make_leaves(2743)
@@ -720,6 +752,8 @@ def main():
     ci.save(os.path.join(OUT, 'bark_basecolor.webp'), quality=85, method=6)
     ni.resize((ni.width // 2, ni.height // 2), Image.LANCZOS).save(
         os.path.join(OUT, 'bark_normal.webp'), quality=85, method=6)
+    if not args.no_ktx2:
+        write_ktx2(li, ci, ni.resize((ni.width // 2, ni.height // 2), Image.LANCZOS))
     if args.sheet:
         sheet = Image.new('RGB', (2048, 3072), (200, 214, 230))
         sheet.paste(li, (0, 0), li)

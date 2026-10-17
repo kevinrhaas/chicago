@@ -3122,6 +3122,14 @@ export async function createTrees({
 
   const uWind = { value: 0 };
   const surfaceAtlas = await createTreeAtlasSliced(checkpoint);
+  // T-2743: since the grown trees took the tree-form stems, this atlas draws only
+  // the bank thickets and the dooryard shrubs, so a phone keeps it from its
+  // second level down, as the parkway elms did (T-2158, PR 773): a quarter of
+  // its memory.
+  if ((lowSpec || level === 'light') && surfaceAtlas.mipmaps?.length > 1) {
+    surfaceAtlas.mipmaps = surfaceAtlas.mipmaps.slice(1);
+    surfaceAtlas.image = surfaceAtlas.mipmaps[0];
+  }
   const nearMat = new THREE.MeshStandardMaterial({
     vertexColors: true, map: surfaceAtlas, bumpMap: surfaceAtlas, bumpScale: 0.015,
     roughness: 0.92, metalness: 0,
@@ -3220,7 +3228,7 @@ export async function createTrees({
   if (grown.count) {
     const mats = await createGrownTreeMaterials({
       assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
-      lowSpec, alphaCutoff: TREE_ALPHA_CUTOFF, problems,
+      lowSpec: lowSpec || level === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
     });
     disposables.push(mats);
     forest = await grown.build({ ...mats, checkpoint });

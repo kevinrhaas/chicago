@@ -269,10 +269,10 @@ done
 # resolves them against the asset base as the roof relief above does. Missing here, every
 # tree in every year draws untextured, with a recorded problem.
 mkdir -p "$SITE/data/textures/trees"
-cp -f assets/textures/trees/leaf_atlas.webp \
-      assets/textures/trees/bark_basecolor.webp \
-      assets/textures/trees/bark_normal.webp \
-      "$SITE/data/textures/trees/"
+# Each with its .ktx2 beside it: a visitor downloads one of the pair (js/ktx2.js).
+for map in leaf_atlas bark_basecolor bark_normal; do
+  cp -f "assets/textures/trees/$map.webp" "assets/textures/trees/$map.ktx2" "$SITE/data/textures/trees/"
+done
 
 # scenes, sidecars, datum (the renderer needs the origin for sun position).
 # Keep the scenes/ subdirectory — the renderer fetches data/scenes/<year>.json,

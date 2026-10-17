@@ -452,6 +452,11 @@ const COVERAGE = [
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
   ['renderers/web/js/tree-surface.js', [10, 11], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
+  // T-2743: every tree in 1812, 1835 and the 1904 parkway is grown and instanced by these two.
+  ['renderers/web/js/tree-model.js', [10, 11, 14], 'the grown species trees: the timber parts and the 1904 parkway elms'],
+  ['renderers/web/js/tree-instances.js', [10, 11, 14], 'the grown trees\' instancing, levels and shadow ring: the timber parts and the 1904 elms'],
+  ['assets/textures/trees/', [10, 11, 14], 'the grown trees\' leaf and bark atlases'],
+  ['tools/generate_tree_atlas.py', NONE, 'writes assets/textures/trees/, read by no renderer itself'],
   ['renderers/web/js/shrub-grain.js', [10, 11, 12], 'the sward\'s grain'],
   ['renderers/web/js/fauna.js', [10, 11, 14], 'the wildlife, drawn and in the panel'],
   ['renderers/web/js/streets.js', [2, 7, 8, 10, 11, 12], 'the street edge, the roads read from two stations in part 7 and one in part 8 with the aid, and the street names'],

@@ -244,11 +244,12 @@ class Buf {
     const g = new THREE.BufferGeometry();
     const n = this.count;
     g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(this.pos), 3));
-    g.setAttribute('normal', new THREE.BufferAttribute(new Float32Array(this.nrm), 3));
+    // Normals in a byte each: a template's vertices are repeated across every
+    // instance's level, and a byte is as fine as lighting a leaf card needs.
+    g.setAttribute('normal', new THREE.BufferAttribute(Int8Array.from(this.nrm, (v) => Math.round(v * 127)), 3, true));
     g.setAttribute('color', new THREE.BufferAttribute(new Float32Array(this.col), 3));
     g.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(this.uv), 2));
     g.setAttribute('aFlex', new THREE.BufferAttribute(new Float32Array(this.flex), 1));
-    g.setAttribute('aLeaf', new THREE.BufferAttribute(new Float32Array(n).fill(leaf), 1));
     g.setAttribute('_confidence', new THREE.BufferAttribute(new Float32Array(n).fill(conf), 1));
     g.setIndex(new THREE.BufferAttribute(n > 65535 ? new Uint32Array(this.idx) : new Uint16Array(this.idx), 1));
     g.computeBoundingSphere();
@@ -524,7 +525,7 @@ const FOLIAGE_K = 4.2;
 const LEAF_GAIN = 2.0;
 const SHELL_K = 7.0;
 
-const SIDES = { near: [12, 8, 5, 4], mid: [7, 5, 3, 0], far: [5, 3, 0, 0] };
+const SIDES = { near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0] };
 
 function linearRGB(hex) {
   const c = new THREE.Color().setHex(hex);
@@ -596,10 +597,17 @@ function tube(buf, b, sides, barkTile, tint, flexOf) {
  *  carries it. Its normal is bent toward the crown's outside, so a crown shades
  *  as a volume (lit cap, darker interior) while each card keeps its own cut-out
  *  silhouette. */
-function card(buf, at, dir, size, tile, colour, outward, flex, rnd) {
-  // The card's plane holds the twig and a sideways axis turned at random.
-  const t = norm(add(dir, mul(randUnit(rnd), 0.6)));
-  const side = norm(cross(t, randUnit(rnd)));
+function card(buf, at, dir, size, tile, colour, outward, flex, rnd, facing = null) {
+  // The card's plane holds the twig and a sideways axis turned at random; or,
+  // given `facing`, the plane is turned square to it (the twig laid into it),
+  // so a big card is seen flat from that side rather than as a streak.
+  let t = norm(add(dir, mul(randUnit(rnd), 0.6)));
+  let side;
+  if (facing) {
+    const along = sub(t, mul(facing, dot(t, facing)));
+    t = len(along) > 0.2 ? norm(along) : norm(sub([0, 1, 0], mul(facing, facing[1])));
+    side = norm(cross(t, facing));
+  } else side = norm(cross(t, randUnit(rnd)));
   const w = size * (0.85 + rnd() * 0.3);
   const h = size * (1.0 + rnd() * 0.35);
   const flip = rnd() < 0.5;
@@ -642,7 +650,9 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     if (!s) continue;
     // Thin wood a far tree cannot resolve is not drawn at all.
     if (lod !== 'near' && b.rad[0] < (lod === 'far' ? 0.07 : 0.03)) continue;
-    tube(wood, stride > 1 ? decimate(b, stride) : b, s, barkTile, b.order === 0 ? barkTint : barkUpper, flexOf);
+    // A far tree's limbs are a few strokes against the sky: twice the trunk's stride.
+    const k = lod === 'far' && b.order > 0 ? stride * 2 : stride;
+    tube(wood, k > 1 ? decimate(b, k) : b, s, barkTile, b.order === 0 ? barkTint : barkUpper, flexOf);
   }
 
   const dark = linearRGB(spec.dark ?? 0x3d5a2c);
@@ -672,7 +682,7 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     const bins = new Map();
     for (const c of clumps) {
       const rel = sub(c.at, centre);
-      const sector = Math.floor(((Math.atan2(rel[2], rel[0]) + Math.PI) / (2 * Math.PI)) * 8) % 8;
+      const sector = Math.floor(((Math.atan2(rel[2], rel[0]) + Math.PI) / (2 * Math.PI)) * 6) % 6;
       const band = Math.min(2, Math.floor(clamp01((c.at[1] - sk.baseY) / sk.crownH) * 3));
       const key = band === 2 && Math.hypot(rel[0], rel[2]) < sk.R * 0.35 ? 'cap' : `${sector}:${band}`;
       const g = bins.get(key) ?? { at: [0, 0, 0], area: 0, n: 0, dir: [0, 0, 0] };
@@ -685,24 +695,30 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     for (const g of bins.values()) {
       const at = mul(g.at, 1 / g.n);
       const { outward, colour, flex } = shade(at);
-      const size = Math.sqrt(g.area) * 1.3;
-      // A card grows from its foot along its direction, so each is set back by
-      // a third of its length: the mass is centred on its bin, not hung outside it.
-      const d1 = norm(add(norm(g.dir), [0, 0.6, 0]));
+      const size = Math.sqrt(g.area) * 1.45;
+      // One card per mass, grown outward from the crown so it faces whoever is
+      // looking at that side, set back by a third of its length so the mass is
+      // centred on its bin, not hung outside it. The cap's card lies up.
+      const d1 = norm(add(outward, [0, 0.35, 0]));
       card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
-      card(leaves, sub(at, mul(outward, size * 0.3)), outward, size * 0.85, clumpTile, colour, outward, flex, lrnd);
     }
   } else {
-    // Near: every clump as three sprays. Mid: every clump as one card, a little
-    // larger than a near spray, so the leaves on it stay near their true size.
+    // Near: every clump as two sprays. Mid: every other clump as one card, a
+    // little larger than a near spray, so the leaves on it stay near their true
+    // size and the crown keeps most of its leaf area.
+    let alt = 0;
     for (const c of clumps) {
+      if (lod === 'mid' && (alt++ & 1)) continue;
       const { outward, colour, flex } = shade(c.at);
       if (lod === 'mid') {
-        card(leaves, c.at, c.dir, c.r * 2.0 * leafScale, clumpTile, colour, outward, flex, lrnd);
+        // Turned to face out of the crown, near square, so a card this size
+        // reads as a spray from the street, not a blade seen edge-on.
+        const facing = norm(add(outward, mul(randUnit(lrnd), 0.35)));
+        card(leaves, c.at, c.dir, c.r * 2.2 * leafScale, clumpTile, colour, outward, flex, lrnd, facing);
       } else {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 2; i++) {
           const jit = mul(randUnit(lrnd), c.r * 0.55);
-          card(leaves, add(c.at, jit), c.dir, c.r * 1.35 * leafScale, i === 0 ? clumpTile : sunTile, colour, outward, flex, lrnd);
+          card(leaves, add(c.at, jit), c.dir, c.r * 1.5 * leafScale, i === 0 ? clumpTile : sunTile, colour, outward, flex, lrnd);
         }
       }
     }

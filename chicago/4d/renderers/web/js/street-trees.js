@@ -40,7 +40,6 @@ import { resolveBases } from './scene-loader.js';
 export const STREET_TREE_MODES = ['summer', 'spring', 'fall', 'winter', 'hidden'];
 const PARKWAY_LIFT_M = 0.05;      // street-grid.js CLASSES.parkway.lift
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
-const YOUNG_VARIANTS = 3;
 /**
  * The parkway elm: the 1835 record's colours and leaf, a street tree's shape.
  * Open-grown on a 14-ft sidewalk space it carries a clear bole to about a third
@@ -77,6 +76,21 @@ async function getJSON(url) {
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
   return res.json();
 }
+
+/**
+ * T-2743: the parkway's level rings, tighter than the timber's (tree-instances.js
+ * LEVELS). A parkway is a file of tall crowns every nine metres down every street
+ * in view, so the timber's 42 m near ring holds a dozen full elms here; the
+ * spawn's elms were 466k triangles on those rings against the 92k the old crowns
+ * drew. Near is the elm a visitor stands under, mid the next few down the walk.
+ */
+const STREET_LEVELS = {
+  full: { near: 10, mid: 44 },
+  balanced: { near: 10, mid: 40 },
+  light: { near: 0, mid: 32 },
+};
+/** Only the elms this close cast shadows (the T-2493 ring was 100 m). */
+const SHADOW_NEAR_M = 32;
 
 /** T-2743: the Season setting's crowns, as the grown elm's leaf cover. Spring is
  *  just leafing (a few small pale tufts), fall a thinner yellow crown, winter bare
@@ -165,14 +179,13 @@ export async function createStreetTrees({
   const uWind = { value: 0 };
   const mats = await createGrownTreeMaterials({
     assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
-    lowSpec, alphaCutoff: TREE_ALPHA_CUTOFF, problems,
+    lowSpec: lowSpec || detail === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
   });
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {
     const y = terrain.surfaceHeight(t.e, t.n) + (levelAt?.(t.e, t.n) ?? 0) + PARKWAY_LIFT_M;
-    const young = t.kind === 'young';
-    return { t, y, young, variant: young ? (t.variant ?? 0) % YOUNG_VARIANTS : (t.variant ?? 0) % variants, h: 20 };
+    return { t, y, variant: t.variant ?? 0, h: 20 };
   });
 
   let forest = null;
@@ -183,12 +196,15 @@ export async function createStreetTrees({
     current = { mode: wantMode, detail: wantDetail };
     group.visible = wantMode !== 'hidden';
     if (wantMode === 'hidden' || !placed.length) return;
+    // Three elms, grown once, stand for all four hundred: a young tree is one of
+    // them at its record's smaller scale. Each variant is a megabyte and more of
+    // geometry, and a parkway of one age is the case where siblings read true.
     const spec = elmSpec(wantMode);
-    const youngSpec = { ...spec, common: `${spec.common ?? 'elm'} (young)` };
-    const grown = new TreeInstances({ level: wantDetail, shadowM: 100, name: 'street-trees', variants: (n) => (n > YOUNG_VARIANTS * 2 ? Math.min(variants, 6) : YOUNG_VARIANTS) });
+    const grown = new TreeInstances({ level: wantDetail, shadowM: SHADOW_NEAR_M, name: 'street-trees',
+      variants: () => Math.min(variants, 3), levels: STREET_LEVELS });
     for (const p of placed) {
       const sc = p.t.scale ?? 1;
-      p.h = grown.add(p.young ? youngSpec : spec, p.t.e, p.y, -p.t.n, sc,
+      p.h = grown.add(spec, p.t.e, p.y, -p.t.n, sc,
         { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
     }
     const pause = checkpoint(); if (pause) await pause;
