@@ -3713,8 +3713,9 @@ step "publish.sh produces a mirror that matches its source" \
 # since it was written, or a buffer its index did not hash. check_published.mjs asks
 # the same of the mirror; this is the tool's own --check, run where the mirror is.
 # T-2693: and the ground's tiles, which the page uploads in the ground GLB's place.
-step "the published prebuilt frontage and ground are current against every file they were built from (T-2677, T-2693)" \
-  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground
+# T-2710: and the streets' two layouts, which the page batches instead of laying.
+step "the published prebuilt frontage, ground and streets are current against every file they were built from (T-2677, T-2693, T-2710)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,streets
 
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a

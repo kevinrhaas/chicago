@@ -667,7 +667,9 @@ JSON
 rm -rf "$SITE/data/prebuilt"
 # T-2693: and the ground's tiles, cut into the page's 40 m pieces, which the page
 # uploads in place of the ground GLB (terrain.js § THE GROUND, PREBUILT).
-node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground
+# T-2710: and the streets' surfaces, one buffer per layout, which the page batches
+# instead of laying the road (streets.js § THE STREETS, PREBUILT).
+node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground,streets
 
 echo "   build $BUILD_VERSION  $BUILD_CT"
 
