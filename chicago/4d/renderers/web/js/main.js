@@ -96,6 +96,7 @@ import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
+import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
@@ -3917,6 +3918,26 @@ async function boot() {
   });
 
   // ---- the Navigator (T-2617) ------------------------------------------- //
+  // T-2618: whether this scene has a people directory, without paying for it at boot.
+  const peopleDirectory = (() => {
+    const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase);
+    let known = people ? true : false, asked = !!people, loading = null;
+    return {
+      get known() { return known; },
+      /** After ready: a HEAD, so a scene with no `residents` layer can still show People. */
+      ask() {
+        if (asked) return;
+        asked = true;
+        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then((r) => { known = r.ok; }, () => { known = false; });
+      },
+      load() {
+        if (people) return Promise.resolve(people);
+        loading ??= fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+        return loading;
+      },
+    };
+  })();
+
   // RIGHT IN FRONT OF YOU is inspect()'s own aim "down the crosshair" (no point
   // given), over the structure layers whose hits carry a building record, nearest
   // first, within 40 m. target.js decides when to look; T-2627 and T-2638 read it too.
@@ -3938,7 +3959,6 @@ async function boot() {
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
-    hud,
     target,
     where: createWhere({ streets, grid: streetGrid?.grid ?? null }),
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
@@ -3947,6 +3967,33 @@ async function boot() {
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
     onInspect: (id) => pick(id),
+    // T-2618: the rail's apps (js/apps/), and what they read the page through. An app
+    // takes what it needs from `ctx` — the api object included — and never imports main.js.
+    apps: NAVIGATOR_APPS,
+    context: () => ({
+      api,
+      scene: loaded.scene,
+      journey: journey.state,
+      selected: popup.openId ?? null,
+      // A scene has people when it has a people directory: 1835 loads its own at boot for the
+      // drawer (the `residents` layer); a scene without that layer is asked after ready, with a
+      // HEAD, and its directory is fetched only when People first opens (1904, T-2702).
+      hasPeople: peopleDirectory.known,
+      peopleSection: !document.querySelector('.panel-tab[data-tab="people"]')?.hidden && !!people,
+      confidenceOn: hud.confidenceOn,
+      jaunt: jauntRuntime?.state ?? null,
+      whatsNewUnread: !document.getElementById('help-dot')?.hidden,
+      actions: {
+        // The drawer's own sections, where they are until they move in (T-2620).
+        openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
+        inspect: (id) => (id ? pick(id) : pick()),
+        jaunts: () => { api.welcome.show(); api.welcome.enter('jaunts'); },
+        map: () => navigation.setFullVisible(true),
+        confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
+        recall: () => journey.recall(),
+        peopleDirectory: () => peopleDirectory.load(),
+      },
+    }),
   });
   api.navigator = navigatorUi;
 
@@ -4497,6 +4544,7 @@ async function boot() {
   // Install the hooks only after the final startup geometry is in the scene.
   refreshGlessnerOcclusion();
   api.ready = true;
+  setTimeout(() => peopleDirectory.ask(), 0);
   if (!bootController.finish()) {
     api.ready = false;
     if (gateBtn) gateBtn.disabled = true;

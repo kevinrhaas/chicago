@@ -140,7 +140,7 @@ step "boot-weights.js re-derives from the reference reading and its calibration 
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
-step "The Navigator docks, opens and snaps between its heights, and Home reads the street, the target and the Jaunt (T-2617)" \
+step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
