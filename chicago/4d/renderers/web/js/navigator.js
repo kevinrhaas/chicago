@@ -15,9 +15,9 @@
  * Home (SCR 01) is its one app so far: YOU ARE AT (the street, the way you face and the
  * scene's clock), RIGHT IN FRONT OF YOU (target.js, within 100 m, with the screen's one
  * signal-red key, Inspect), JAUNT IN PROGRESS when there is one, and MOVE and the
- * Confidence view. The rail's other icons are the drawer's own sections, opened where
- * they are until they move in as apps (T-2620): the icons are copied from the drawer's
- * tabs so a section the scene leaves out (T-1740) is left out here too.
+ * Confidence view. The rail is the app registry (nav-rail.js, T-2618): every app,
+ * Home included, is registered from its own file under js/apps/, and
+ * `navigator.register(app)` adds one more.
  *
  * Every control is a plain <button>, so the gesture gate (T-2614) can hook the first
  * tap on any of them. Opening the device by hand moves focus into Home (DESIGN §14,
@@ -27,11 +27,29 @@
 import { facingWords, clockWords, screenDate } from './where.js';
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
+import { createRail } from './nav-rail.js';
 
 export const PHONE_DETENTS = Object.freeze(['dock', 'half', 'full']);
 export const DESK_DETENTS = Object.freeze(['rail', 'open']);
 export const PHONE_MAX_PX = 620;
 export const DOCK_PX = 64;
+/** T-2619: the docked pill's width on a phone, and the bottom-left corner it keeps clear —
+ * the touch stick's 116 px ring held against the left edge, plus an 8 px gutter — so a
+ * resting left thumb walks instead of opening the device. 390 px leaves 127 px each side. */
+export const DOCK_PILL_PX = 136;
+export const JOYSTICK_CLEAR_PX = 124;
+
+/** Where the docked pill stands on a phone `vw` px wide: centred, between `left` and `right`. */
+export function dockPill(vw, width = DOCK_PILL_PX) {
+  const left = Math.round((vw - width) / 2);
+  return { left, right: left + width, width, clear: left >= JOYSTICK_CLEAR_PX };
+}
+
+/** The dock's year: the scene's own, from its date or its id. */
+export function dockYear(scene = {}) {
+  const m = /^(\d{4})/.exec(String(scene.target_date ?? scene.id ?? ''));
+  return m ? m[1] : '';
+}
 const HALF = 0.48, FULL = 0.82;
 /** RIGHT IN FRONT OF YOU: the building across the street, not only the one at your elbow. */
 export const FRONT_M = 100;
@@ -70,7 +88,6 @@ export function moveWords({ flying = false, pace = 'walk', riding = false } = {}
 export function createNavigator({
   root,
   scene = {},
-  hud = null,
   target = null,
   where = null,
   pose = () => ({ e: 0, n: 0, bearingDeg: 0 }),
@@ -79,6 +96,9 @@ export function createNavigator({
   confidence = () => false,
   units = () => 'imperial',
   onInspect = () => {},
+  apps = [],
+  context = () => ({}),
+  storage,
   isPhone = () => globalThis.matchMedia?.(`(max-width: ${PHONE_MAX_PX}px)`).matches ?? false,
   viewportHeight = () => globalThis.innerHeight ?? 780,
   now = () => (globalThis.performance?.now?.() ?? Date.now()),
@@ -96,38 +116,51 @@ export function createNavigator({
   };
   const dateEl = $('nav-date');
   if (dateEl) dateEl.textContent = screenDate(scene.target_date);
+  // T-2619: the closed device always shows its lamp, its label, the year and the icon of
+  // the app it will open to (the last one opened; Home at first).
+  const dockYearEl = $('nav-dock-year'), dockAppEl = $('nav-dock-app');
+  if (dockYearEl) dockYearEl.textContent = dockYear(scene);
+  let dockApp = null;
+  const appButton = (id) => [...(rail?.querySelectorAll?.('.nav-app') ?? [])].find((b) => b.dataset?.app === id) ?? null;
+  const appLabel = (id) => appButton(id)?.getAttribute?.('aria-label') ?? '';
+  function paintDock(id = dockApp) {
+    dockApp = id;
+    const icon = id ? appButton(id)?.querySelector?.('svg') : null;
+    if (dockAppEl) {
+      dockAppEl.replaceChildren?.(...(icon ? [icon.cloneNode(true)] : []));
+      if (dockAppEl.dataset) dockAppEl.dataset.app = id ?? '';
+    }
+    paintGrip();
+  }
   const clock = clockWords(scene.lighting?.local_time);
   root.ownerDocument?.body?.classList.add('has-navigator');
 
-  // ---- the rail: Home, then the drawer's sections where they stand today ----
-  const doc = root.ownerDocument;
-  const bridged = [];
-  for (const tab of doc ? [...doc.querySelectorAll('.panel-tab[data-tab]')] : []) {
-    const id = tab.dataset.tab;
-    if (id === 'whatsnew') continue; // What's new moves into Settings (§06); the HUD's menu keeps it.
-    const name = tab.dataset.title || tab.getAttribute('title') || id;
-    const button = doc.createElement('button');
-    button.type = 'button';
-    button.className = 'nav-app';
-    button.dataset.app = id;
-    button.dataset.bridge = 'drawer';
-    button.setAttribute('aria-label', name);
-    button.title = name;
-    const icon = tab.querySelector('svg')?.cloneNode(true);
-    if (icon) button.append(icon);
-    button.addEventListener('click', () => openSection(id));
-    rail?.insertBefore(button, collapse ?? null);
-    bridged.push({ button, tab });
+  // ---- the rail: the app registry (T-2618) ----
+  // `ctx` is the page's context (main.js) plus what only the device knows: the target
+  // within 40 m (Inspect's rule), the shape it is in, and the device itself.
+  let near = null;
+  const ctx = () => ({ ...context(), target: near, isPhone: isPhone(), navigator: api });
+  const registry = createRail({
+    rail, screens: root.querySelector('.nav-body'), codeEl: $('nav-code'), doc: root.ownerDocument,
+    context: ctx, before: collapse ?? null, storage,
+    onOpen: (id, by) => {
+      paintDock(id);
+      if (by === 'quiet') return;
+      if (level === 0) setLevel(1, { by, focus: false });
+      if (by === 'hand') (id === 'home' ? title : root.querySelector(`#nav-app-${id}`))?.focus?.({ preventScroll: true });
+      if (id === 'home') refresh(true);
+    },
+    onLaunch: () => setLevel(0, { by: 'app' }),
+  });
+  let api = null; // filled in below; ctx() is only ever called after
+  const railShows = () => !isPhone() || level > 0;
+  let unNear = null;
+  function listenNear() {
+    const want = railShows();
+    if (want && !unNear && target?.on) unNear = target.on((t) => { near = t; registry.evaluate(); }, { within: 40 });
+    if (!want && unNear) { unNear(); unNear = null; near = null; }
   }
-  function syncRail() {
-    for (const { button, tab } of bridged) button.hidden = !!tab.hidden;
-  }
-
-  function openSection(id) {
-    setLevel(0, { by: 'app' });
-    hud?.setPanel?.(true);
-    hud?.selectTab?.(id);
-  }
+  let railAt = -Infinity;
 
   // ---- heights ----
   let level = 0;
@@ -142,10 +175,15 @@ export function createNavigator({
     }
     const open = level > 0;
     grip?.setAttribute('aria-expanded', String(open));
-    grip?.setAttribute('aria-label', open ? 'Lower the Navigator' : 'Open the Navigator');
+    paintGrip();
     collapse?.setAttribute('aria-label', open ? 'Collapse the Navigator' : 'Open the Navigator');
     if (collapse) collapse.title = open ? 'Collapse' : 'Open';
     return detent;
+  }
+  function paintGrip() {
+    const name = dockApp ? appLabel(dockApp) : '';
+    grip?.setAttribute('aria-label', level > 0 ? 'Lower the Navigator'
+      : name ? `Open the Navigator on ${name}` : 'Open the Navigator');
   }
   function setLevel(next, { by = 'code', focus = by === 'hand' } = {}) {
     const max = names().length - 1;
@@ -153,8 +191,12 @@ export function createNavigator({
     level = Math.max(0, Math.min(max, next));
     paintLevel();
     listen(level > 0);
-    if (level > 0) { syncRail(); refresh(true); }
-    if (focus && was === 0 && level > 0) title?.focus?.({ preventScroll: true });
+    listenNear();
+    if (railShows()) registry.evaluate();
+    if (level > 0 && registry.current === 'home') refresh(true);
+    if (focus && was === 0 && level > 0) {
+      (registry.current && registry.current !== 'home' ? root.querySelector(`#nav-app-${registry.current}`) : title)?.focus?.({ preventScroll: true });
+    }
     return root.dataset.detent;
   }
 
@@ -163,9 +205,6 @@ export function createNavigator({
     setLevel(tapLevel(level, names().length), { by: 'hand' });
   });
   collapse?.addEventListener('click', () => setLevel(level > 0 ? 0 : 1, { by: 'hand' }));
-  rail?.querySelector('[data-app="home"]')?.addEventListener('click', () => {
-    if (level === 0) setLevel(1, { by: 'hand' });
-  });
   out.inspect?.addEventListener('click', () => {
     const t = shown;
     if (!t) return;
@@ -214,10 +253,11 @@ export function createNavigator({
     handle?.addEventListener('pointerup', endDrag);
     handle?.addEventListener('pointercancel', endDrag);
   }
-  // The head is also a tap target on a phone: a docked device opens from it.
+  // The head is also a tap target: a docked device (the phone's pill, the desktop's rail)
+  // opens from it to the last app it showed, at HALF on a phone (T-2619).
   head?.addEventListener('click', () => {
     if (suppressClick) { suppressClick = false; return; }
-    if (isPhone() && level === 0) setLevel(1, { by: 'hand' });
+    if (level === 0) setLevel(1, { by: 'hand' });
   });
 
   // ---- Home ----
@@ -242,7 +282,7 @@ export function createNavigator({
   }
   function refresh(force = false) {
     const t0 = now();
-    if (!force && (level === 0 || t0 - paintedAt < 500)) return false;
+    if (!force && (level === 0 || registry.current !== 'home' || t0 - paintedAt < 500)) return false;
     paintedAt = t0;
     const p = pose();
     const at = where?.at?.(p.e, p.n, p.bearingDeg) ?? null;
@@ -270,27 +310,46 @@ export function createNavigator({
   }
 
   globalThis.matchMedia?.(`(max-width: ${PHONE_MAX_PX}px)`)?.addEventListener?.('change', () => setLevel(Math.min(level, names().length - 1)));
-  paintLevel();
 
-  return {
+  api = {
+    /** Add an app to the rail (nav-rail.js says what an app is); returns its unregister. */
+    register: (app) => registry.register(app),
+    unregister: (id) => registry.unregister(id),
+    /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks). */
+    select: (id) => registry.select(id, { by: 'code' }),
+    get app() { return registry.current; },
+    get apps() { return registry.shown(); },
+    rail: () => registry.snapshot(),
     get detent() { return root.dataset.detent; },
     get level() { return level; },
     /** 0 dock / rail, 1 half / open, 2 full (phone). */
     setLevel,
     open(levelWanted = 1) { return setLevel(levelWanted, { by: 'code' }); },
     dock() { return setLevel(0, { by: 'code' }); },
-    /** Once a frame from main.js; repaints Home at most every 500 ms, only while it shows. */
-    update() { return refresh(false); },
+    /** Once a frame from main.js: the rail re-reads its apps every 250 ms while it shows, and
+     *  Home repaints at most every 500 ms, only while it shows. */
+    update() {
+      const t = now();
+      if (railShows() && t - railAt >= 250) { railAt = t; registry.evaluate(t); }
+      return refresh(false);
+    },
     refresh: () => refresh(true),
     snapshot() {
       return {
         detent: root.dataset.detent, level,
+        dock: { year: dockYearEl?.textContent ?? '', app: dockApp, label: grip?.getAttribute?.('aria-label') ?? '' },
         where: out.where?.textContent ?? '', whereDetail: out.whereDetail?.textContent ?? '',
         front: shown ? { id: shown.id, name: out.frontName?.textContent ?? '', distance: shown.distance } : null,
         jaunt: out.jaunt && !out.jaunt.hidden ? { step: out.jauntStep?.textContent ?? '', title: out.jauntTitle?.textContent ?? '' } : null,
         move: out.move?.textContent ?? '', confidence: out.confidence?.textContent ?? '',
-        rail: [...(rail?.querySelectorAll('.nav-app[data-app]') ?? [])].filter((b) => !b.hidden).map((b) => b.dataset.app),
+        rail: registry.shown(), app: registry.current,
       };
     },
   };
+  for (const app of apps) registry.register(app);
+  paintLevel();
+  listenNear();
+  if (registry.has('home')) void registry.select('home', { by: 'quiet' });
+  registry.evaluate();
+  return api;
 }

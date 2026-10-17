@@ -14954,12 +14954,38 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator rides docked in the town`,
       ['dock', 'rail'].includes(navDocked.detent) && navDocked.box && navDocked.box.h > 0 && navDocked.box.bottom <= navDocked.innerHeight,
       JSON.stringify(navDocked));
+    // T-2619: closed, the device always shows its lamp, its label, the year and the icon of
+    // the app it opens to; on a phone it is a pill at the bottom centre that keeps the
+    // bottom-left corner a resting left thumb walks from clear (JOYSTICK_CLEAR_PX, 124 px).
+    const navDock = await page.evaluate((isTouch) => {
+      const nav = document.getElementById('navigator');
+      const seen = (el) => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+        return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+      const b = nav.getBoundingClientRect();
+      const icon = isTouch ? document.querySelector('#nav-dock-app svg') : nav.querySelector('.nav-rail .nav-app.is-on svg');
+      return { left: Math.round(b.left), right: Math.round(innerWidth - b.right), height: Math.round(b.height),
+        lamp: seen(nav.querySelector('.nav-lamp')), label: seen(nav.querySelector('.nav-label')) ? nav.querySelector('.nav-label').textContent : null,
+        year: seen(document.getElementById('nav-dock-year')) ? document.getElementById('nav-dock-year').textContent : null,
+        icon: seen(icon), app: window.__chicago4d.navigator?.snapshot?.().dock?.app ?? null };
+    }, touch);
+    check(`${label}: the closed Navigator shows its lamp, its label, the year and the app it opens to`,
+      navDock.lamp && /^NAVIGATOR/.test(navDock.label ?? '') && /^\d{4}$/.test(navDock.year ?? '') && navDock.icon && navDock.app === 'home'
+      && (!touch || (navDock.height === 64 && navDock.left >= 124 && navDock.right >= 124)),
+      JSON.stringify(navDock));
     await clickChrome(touch ? '#nav-grip' : '#nav-collapse');
     const navHome = await page.evaluate(async () => {
       const api = window.__chicago4d;
       for (let i = 0; i < 40 && !/:/.test(document.getElementById('nav-where-detail')?.textContent ?? ''); i++) await new Promise((r) => setTimeout(r, 100));
       const s = api.navigator.snapshot();
       const out = { ...s, focus: document.activeElement?.id ?? null, overflow: document.documentElement.scrollWidth > innerWidth };
+      // T-2618: the rail is the registry's — ten icons at most, Home and Jaunts first, Guide and
+      // Settings at the foot — and a lazy app (Jump) opens in its own screen and back.
+      out.rail = api.navigator.apps;
+      await api.navigator.select('jump');
+      out.jumpCode = document.getElementById('nav-code')?.textContent ?? '';
+      out.jumpRecall = !!document.querySelector('#nav-app-jump a[href="../"]');
+      await api.navigator.select('home');
+      out.homeCode = document.getElementById('nav-code')?.textContent ?? '';
       api.navigator.dock();
       out.after = api.navigator.detent;
       return out;
@@ -14969,6 +14995,23 @@ for (const [label, viewport, touch] of [
       && /^facing /.test(navHome.whereDetail) && navHome.move.length > 0 && ['On', 'Off'].includes(navHome.confidence)
       && navHome.focus === 'nav-home-title' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
       JSON.stringify(navHome));
+    check(`${label}: the Navigator's rail holds ten apps at most, Home first and Settings last, and Jump opens and closes (T-2618)`,
+      navHome.rail.length <= 10 && navHome.rail[0] === 'home' && navHome.rail[1] === 'jaunts' && navHome.rail.at(-1) === 'settings'
+      && navHome.rail.at(-2) === 'guide' && /^SCR 08 · JUMP$/.test(navHome.jumpCode) && navHome.jumpRecall && /^SCR 01 · HOME$/.test(navHome.homeCode),
+      JSON.stringify({ rail: navHome.rail, jumpCode: navHome.jumpCode, jumpRecall: navHome.jumpRecall, homeCode: navHome.homeCode }));
+    // T-2619: one tap on the closed device opens the LAST app it showed, at HALF on a phone.
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('jump'); n.dock(); });
+    await clickChrome(touch ? '#nav-grip' : '#nav-head');
+    const navLast = await page.evaluate(async () => {
+      const n = window.__chicago4d.navigator;
+      const out = { detent: n.detent, app: n.app, dockApp: n.snapshot().dock?.app ?? null };
+      await n.select('home'); n.dock();
+      out.after = n.snapshot().dock?.app ?? null;
+      return out;
+    });
+    check(`${label}: one tap on the closed Navigator opens the last app${touch ? ' at HALF' : ''}`,
+      navLast.detent === (touch ? 'half' : 'open') && navLast.app === 'jump' && navLast.dockApp === 'jump' && navLast.after === 'home',
+      JSON.stringify(navLast));
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.

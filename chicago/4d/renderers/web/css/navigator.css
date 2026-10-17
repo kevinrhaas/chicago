@@ -72,6 +72,12 @@
 .nav-label { color: var(--ink); }
 .nav-code { margin-left: auto; overflow: hidden; text-overflow: ellipsis; }
 .nav-date { color: var(--accent); font-variant-numeric: tabular-nums; }
+/* T-2619: the closed device's year and the icon of the app it opens to; open, the
+   header's date and screen code say the same and these stand down. */
+.nav-dock-app, .nav-dock-year { display: none; }
+.nav-dock-year { color: var(--accent); font-variant-numeric: tabular-nums; }
+.nav-dock-app { color: var(--accent); }
+.nav-dock-app svg { display: block; width: 16px; height: 16px; }
 
 .nav-body { flex: 1; min-height: 0; display: flex; }
 
@@ -109,7 +115,52 @@
 .nav-app.is-on { color: var(--accent); background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent));
   border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
 .nav-app[hidden] { display: none; }
-.nav-collapse { margin-top: auto; }
+.nav-collapse { margin-top: 4px; }
+/* The rail's foot: Guide and Settings (T-2618), with the collapse key under them. */
+.nav-app-foot-first { margin-top: auto; }
+.nav-rail:not(:has(.nav-app-foot-first:not([hidden]))) .nav-collapse { margin-top: auto; }
+
+/* ---- the contextual rail (T-2618): slide + glint in, slide out, both 240 ms ---- */
+.nav-app.is-entering { animation: nav-app-in .24s var(--ease-machine, ease) both; }
+.nav-app.is-entering::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, color-mix(in srgb, var(--accent) 55%, transparent) 50%, transparent 70%);
+  background-size: 260% 100%; animation: nav-glint .24s linear both;
+}
+.nav-app.is-leaving { animation: nav-app-out .24s var(--ease-machine, ease) both; pointer-events: none; }
+@keyframes nav-app-in { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+@keyframes nav-app-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(-12px); } }
+@keyframes nav-glint { from { background-position: 100% 0; } to { background-position: 0 0; } }
+/* A lamp-amber dot: a contextual app's first appearance, or an app's own badge. */
+.nav-app-dot { position: absolute; top: 6px; right: 6px; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lamp, #F3A43B); box-shadow: 0 0 6px var(--lamp, #F3A43B); opacity: 0; transform: scale(.4);
+  transition: opacity .16s, transform .16s; pointer-events: none; }
+.nav-app.is-new .nav-app-dot, .nav-app.is-badged .nav-app-dot { opacity: 1; transform: none; }
+/* The Confidence view's icon glows while the view is on. */
+.nav-app.is-glowing { color: var(--lamp, #F3A43B); box-shadow: 0 0 12px color-mix(in srgb, var(--lamp, #F3A43B) 45%, transparent); }
+
+/* ---- switching apps: the 160 ms tube warm-up, or a crossfade with reduced motion ---- */
+.nav-screen { position: relative; }
+.nav-screen[hidden] { display: none; }
+.nav-screen.is-warming { animation: nav-warm .16s steps(4, end) both; }
+.nav-screen.is-warming::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 30%; pointer-events: none;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 22%, transparent) 60%, transparent);
+  animation: nav-sweep .16s linear both;
+}
+.nav-code.is-warming { animation: nav-flicker .16s steps(2, end) both; }
+.nav-screen.is-fading { animation: nav-fade .16s ease both; }
+@keyframes nav-warm { 0% { opacity: .2; filter: brightness(1.8); } 60% { opacity: .85; } 100% { opacity: 1; filter: none; } }
+@keyframes nav-sweep { from { transform: translateY(-100%); } to { transform: translateY(340%); } }
+@keyframes nav-flicker { 0%, 50% { opacity: .35; } 100% { opacity: 1; } }
+@keyframes nav-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Jump (SCR 08). */
+.nav-jump-list { display: grid; gap: 10px; }
+a.nav-jump { color: inherit; text-decoration: none; }
+a.nav-jump:hover { border-color: var(--accent); }
+a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-recall { display: inline-flex; align-items: center; text-decoration: none; }
 
 .nav-screen {
   flex: 1;
@@ -178,9 +229,15 @@
     transition: width .28s var(--ease-detent, ease);
   }
   .navigator[data-detent="rail"] { width: 58px; }
-  .navigator[data-detent="rail"] .nav-head > :not(.nav-lamp),
+  .navigator[data-detent="rail"] .nav-head > :not(.nav-lamp):not(.nav-label):not(.nav-dock-year),
   .navigator[data-detent="rail"] .nav-screen { display: none; }
   .navigator[data-detent="rail"] .nav-head { justify-content: center; padding: 0; }
+  /* T-2619: the closed rail reads top-down — lamp, NAVIGATOR MK II on its side, the year —
+     and the lit rail icon under it is the app a tap opens to. */
+  .navigator[data-detent="rail"] .nav-head { flex-direction: column; justify-content: flex-start; gap: 10px;
+    padding: 14px 0 12px; cursor: pointer; }
+  .navigator[data-detent="rail"] .nav-label { writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: .16em; }
+  .navigator[data-detent="rail"] .nav-dock-year { display: block; letter-spacing: .08em; }
   .navigator[data-detent="rail"] .nav-screw { display: none; }
   .navigator[data-detent="rail"] .nav-collapse svg { transform: rotate(180deg); }
   /* The compass, the map and the street readout move over for the rail or the panel. */
@@ -201,9 +258,25 @@
     bottom: calc(8px + var(--safe-b));
     height: 64px;
     border-radius: 20px;
-    transition: height .28s var(--ease-detent, ease);
+    transition: height .28s var(--ease-detent, ease), left .28s var(--ease-detent, ease), right .28s var(--ease-detent, ease);
     touch-action: none;
+    --dock-w: 136px;
   }
+  /* T-2619 (DOCK · 64 px): closed, the device is a pill at the bottom centre — lamp and
+     label over the icon of the app it opens to and the year — and the bottom-left corner
+     a resting left thumb walks from stays clear of it (navigator.js JOYSTICK_CLEAR_PX).
+     A drag lifts it to the full width at once. */
+  .navigator[data-detent="dock"]:not(.is-dragging) { left: calc(50% - var(--dock-w) / 2); right: calc(50% - var(--dock-w) / 2); }
+  .navigator[data-detent="dock"] .nav-grip { height: 14px; }
+  .navigator[data-detent="dock"] .nav-grip i { width: 28px; margin-top: 5px; }
+  .navigator[data-detent="dock"] .nav-head {
+    display: grid; grid-template-columns: 16px auto; grid-auto-rows: 18px; align-items: center; justify-content: center;
+    column-gap: 7px; row-gap: 2px; min-height: 0; padding: 0 10px 6px; font-size: 9px; letter-spacing: .02em;
+  }
+  .navigator[data-detent="dock"] .nav-lamp { justify-self: center; }
+  .navigator[data-detent="dock"] :is(.nav-code, .nav-date, .nav-screw) { display: none; }
+  .navigator[data-detent="dock"] .nav-dock-app { display: grid; place-items: center; }
+  .navigator[data-detent="dock"] .nav-dock-year { display: block; font-size: 12px; letter-spacing: .14em; }
   .navigator[data-detent="half"] { height: calc(var(--vh, 100vh) * .48); }
   .navigator[data-detent="full"] { height: calc(var(--vh, 100vh) * .82); }
   .navigator.is-dragging { transition: none; }
@@ -236,6 +309,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .navigator, .nav-meter i, body.has-navigator .navigation-stack { transition: none !important; }
+  .nav-app.is-entering, .nav-app.is-leaving, .nav-app.is-entering::before, .nav-screen.is-warming, .nav-screen.is-warming::before, .nav-code.is-warming { animation: none !important; }
+  .nav-app-dot { transition: none; }
 }
 
 /* ---- the arrival device's back face wears the Navigator's screen code --------- */
@@ -253,3 +328,11 @@
   white-space: nowrap;
 }
 @media (max-height: 500px) { .gate[data-state="welcome"] .gate-code { display: none; } }
+
+/* People (SCR 04), where it is the Navigator's own screen (1904). */
+.nav-person { display: flex; flex-direction: column; gap: 2px; width: 100%; margin-top: 8px; padding: 10px 12px;
+  border: 1px solid var(--edge); border-radius: 10px; background: transparent; color: inherit; font: inherit; text-align: left; }
+button.nav-person { cursor: pointer; min-height: 44px; }
+button.nav-person:hover { border-color: var(--accent); }
+button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-person-name { font-size: 16px; font-weight: 600; }

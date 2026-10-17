@@ -738,8 +738,8 @@
      of #hud, not a child, so an open device can sit above a Jaunt's panel; it shows
      only while the HUD does (navigator.css keys off #hud). On a phone it is a bottom
      sheet at three heights (DOCK, HALF, FULL); on a desktop a 400 px left panel that
-     collapses to its rail. Home (SCR 01) is its one app so far: the other rail icons
-     open the drawer's own sections until those move in (T-2620). -->
+     collapses to its rail. The rail's apps are registered from js/apps/ (T-2618); Home's
+     screen is the one written here. -->
 <section id="navigator" class="navigator" aria-label="Navigator" data-detent="dock" tabindex="-1">
   <span class="nav-screw nav-screw-tl" aria-hidden="true"></span><span class="nav-screw nav-screw-tr" aria-hidden="true"></span>
   <span class="nav-screw nav-screw-bl" aria-hidden="true"></span><span class="nav-screw nav-screw-br" aria-hidden="true"></span>
@@ -747,12 +747,14 @@
   <header class="nav-head" id="nav-head">
     <span class="c4d-lamp nav-lamp" data-on="true" aria-hidden="true"><i class="c4d-lamp-bulb"></i></span>
     <span class="nav-label">NAVIGATOR MK II</span>
+    <!-- T-2619: shown only while the device is closed — the year and the icon of the app it opens to. -->
+    <span class="nav-dock-app" id="nav-dock-app" aria-hidden="true"></span>
+    <span class="nav-dock-year" id="nav-dock-year" aria-hidden="true"></span>
     <span class="nav-code" id="nav-code">SCR 01 · HOME</span>
     <span class="nav-date" id="nav-date"></span>
   </header>
   <div class="nav-body">
     <nav class="nav-rail" id="nav-rail" aria-label="Navigator apps">
-      <button class="nav-app is-on" type="button" data-app="home" aria-pressed="true" aria-label="Home" title="Home"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg></button>
       <button class="nav-app nav-collapse" type="button" id="nav-collapse" aria-label="Collapse the Navigator" title="Collapse"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
     </nav>
     <div class="nav-screen" id="nav-home" role="group" aria-labelledby="nav-home-title">
