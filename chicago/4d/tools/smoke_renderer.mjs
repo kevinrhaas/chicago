@@ -17570,16 +17570,22 @@ for (const [label, viewport, touch] of [
         const streetNames1904 = await page.evaluate(async () => {
           const a = window.__chicago4d;
           for (let i = 0; i < 200 && !a.navigation.modernLoaded; i++) await new Promise((r) => setTimeout(r, 50));
+          // The door checks below read the spawn pose, so this one puts it back.
+          const home = { local_e: a.walker.state.e, local_n: a.walker.state.n,
+            yaw_deg: a.walker.bearingDeg, pitch_deg: a.walker.state.pitch * 180 / Math.PI };
           a.walker.teleport({ local_e: 1401.9, local_n: -3207.0, yaw_deg: 0 });
           a.step();
           const at1800 = { era: document.getElementById('street-historic')?.textContent,
             today: document.getElementById('street-modern')?.textContent };
           a.walker.teleport({ local_e: 1415, local_n: -3150, yaw_deg: 0 });
           a.step();
+          const midBlock = { era: document.getElementById('street-historic')?.textContent,
+            today: document.getElementById('street-modern')?.textContent };
+          a.walker.teleport(home);
+          a.step();
           return {
             at1800,
-            midBlock: { era: document.getElementById('street-historic')?.textContent,
-              today: document.getElementById('street-modern')?.textContent },
+            midBlock,
             year: document.getElementById('street-era-year')?.textContent,
             label: document.getElementById('s-street-names-label')?.textContent,
             shown: !document.getElementById('street-readout')?.hasAttribute('hidden'),
