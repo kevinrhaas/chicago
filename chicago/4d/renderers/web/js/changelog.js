@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1964, ts: '2026-10-17T18:49:44.756Z', date: 'Oct 17, 2026, 1:49 PM CT', title: 'The home page\'s destination footage plays in black and white', kind: 'polish',
+    items: [
+      'The live clip on each destination card now plays in black and white, toned like the stills it replaced, so the feed reads as an old transmission.',
+      'The glitches are unchanged: the picture still blocks up, tears, flickers and drops now and then, all in monochrome. The Precision Brass appearance keeps a warm sepia cast.',
+    ] },
   { v: 1963, ts: '2026-10-17T18:44:45.684Z', date: 'Oct 17, 2026, 1:44 PM CT', title: 'The memory meter checked against what the browser was asked to hold', kind: 'chore',
     items: [
       'Nothing in the town changed: this checks the instrument the walk\'s memory limits are measured with.',

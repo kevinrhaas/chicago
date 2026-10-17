@@ -114,6 +114,7 @@ export function createNavigator({
   const $ = (id) => root.querySelector(`#${id}`);
   const html = root.ownerDocument?.documentElement;
   const grip = $('nav-grip'), head = $('nav-head'), rail = $('nav-rail'), collapse = $('nav-collapse');
+  const closeKey = $('nav-close');
   const title = $('nav-home-title');
   // T-2622: focus goes to Home's screen itself, which shows its focus ring; the heading
   // that names it is visually hidden, so focus on it would be invisible.
@@ -237,6 +238,11 @@ export function createNavigator({
     setLevel(tapLevel(level, names().length), { by: 'hand' });
   });
   collapse?.addEventListener('click', () => setLevel(level > 0 ? 0 : 1, { by: 'hand' }));
+  // T-2742: the header's X does what the collapse arrow does. It lives inside the head,
+  // so it keeps its press from starting a sheet drag and its tap from reaching the
+  // head's own "open when docked" tap, which would reopen the device it just closed.
+  closeKey?.addEventListener('pointerdown', (e) => e.stopPropagation());
+  closeKey?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
   out.inspect?.addEventListener('click', () => {
     const t = shown;
     if (!t) return;
