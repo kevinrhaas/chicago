@@ -1102,7 +1102,7 @@ export async function createFlora({
   dataBase, terrain, footprints = [], growthBlocked = () => false, growthEdges = null,
   growthPatch = null, verge = NO_VERGE, forbSeat = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
-  renderer = null,
+  renderer = null, placementRender = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'flora';
@@ -1463,6 +1463,13 @@ export async function createFlora({
     const passScene = new THREE.Scene();
     passScene.add(points);
     const passCam = new THREE.Camera();
+    // The pass is PLACEMENT, not a frame, so it is drawn with the renderer's own
+    // `render` as the page took it at creation (`placementRender`): a harness
+    // that swaps `renderer.render` out to hold the frames (the smoke's
+    // `holdDraws`) or to time them (`measure_walk_frames.mjs`) neither skips the
+    // deal nor counts it as a draw. Skipped, the targets kept the last pose's
+    // tufts under this pose's heads — or none at all.
+    const renderPass = placementRender ?? renderer.render.bind(renderer);
 
     // The drawn tufts: the near set's own archetype, one instance per slot.
     const source = nearTuft();
@@ -1540,7 +1547,7 @@ export async function createFlora({
       const t0 = performance.now();
       const prev = renderer.getRenderTarget();
       renderer.setRenderTarget(rt);
-      renderer.render(passScene, passCam);
+      renderPass(passScene, passCam);
       renderer.setRenderTarget(prev);
       // The pass leaves the tile's RG8UI class texture on one of the first
       // units, and a program that declares a float sampler it never sets reads
