@@ -4070,6 +4070,7 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // (T-2655's year chip opens Jump through T-2626's #year-badge binding above.)
   // T-2630 (§04 E, §07): the Navigator Home's three choices open the Jaunts app on their
   // segment — Jaunts, Go to, Free roam — as the Welcome card's three do on the arrival.
   api.openJaunts = async (segment = 'jaunts') => {
