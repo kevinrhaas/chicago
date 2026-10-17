@@ -1605,6 +1605,11 @@ export function pageBuild(doc = globalThis.document) {
 export async function fetchPrebuiltFrontage({ dataBase, year, build }) {
   if (!dataBase || !year) return { why: 'this scene draws no frontage' };
   if (!build) return { why: 'this page carries no build stamp, so it builds its own (the source tree)' };
+  // Imported here, not at the top: the node harnesses that load this file as a data:
+  // URL never reach the fetch, as with jobs/pool.js below.
+  const { prebuiltAbsent } = await import('./prebuilt-index.js');
+  const absent = await prebuiltAbsent({ dataBase, year, build, layer: 'frontage' });
+  if (absent) return { why: `${absent}, so the page builds its own timber` };
   const base = new URL(`prebuilt/${year}/`, dataBase);
   try {
     const res = await fetch(new URL('frontage.json', base));

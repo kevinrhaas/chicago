@@ -182,6 +182,12 @@
       "measured": "2026-10-17",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check and --print read data/summaries/*.json, data/timestream/*.json and data/tour/*.json and only print, and --self-test plants its faults in a temporary directory; all write nothing (git status --porcelain identical before and after). It declares no write mode: it scores authored copy and changes none of it (T-2669)."
     },
+    "check_strings.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-17",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check runs node over renderers/web/js/strings/ and js/apps/ to list the table, reads the static pages and only prints, and --self-test plants its faults in memory and in a temporary directory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the table is authored (T-2624)."
+    },
     "check_timestream.py": {
       "placement": "not_a_writer",
       "write_mode": null,
