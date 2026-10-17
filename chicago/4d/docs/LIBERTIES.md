@@ -24095,6 +24095,13 @@ the fit left short of that wall, and any stone front, stands against it; a piece
 touching nothing else of its building is one storey; and a street body narrower than 5.5 m is
 widened about its middle to 5.5 m inside its own lot. The rules carry these as `fit.sliver_m`,
 `sliver_fill`, `sliver_overlap`, `detached_front_m`, `stray_m2` and `min_body_m`.
+**Swept again by T-2738 (2026-10-17):** the owner still saw a standing tower at 1729, the
+one-storey 5.3 m stone range the fit left 2.5 m off the south wall, and draft porches hanging
+on their posts a basement's height above the lawn. So, still with no source claimed: a piece
+standing 3 m or less clear of everything else of its building is stretched across the gap to
+the nearest wall (`fit.snap_gap_m`), since the sheet draws one building; and every draft porch
+is a solid stone stoop up to the principal floor with four steps down on its face away from
+the house, its posts and roof left to the house's own pass.
 **1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
