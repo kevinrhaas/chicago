@@ -2878,6 +2878,24 @@ async function boot() {
     }
     return picturesPromise;
   };
+  // T-2638. The building summaries Inspect's front page reads: inspect/<scene>.json, written
+  // at publish by tools/compile_summaries.py (T-2635), one small file per scene. Fetched the
+  // first time a building is targeted or Inspect opens, never at boot; a failure leaves every
+  // building on its templated fallback and records a problem.
+  let inspectPromise = null;
+  const ensureInspect = () => {
+    if (!inspectPromise) {
+      const url = new URL(`inspect/${loaded.scene.id ?? YEAR}.json`, bases.dataBase);
+      inspectPromise = fetch(url, { cache: 'no-cache' })
+        .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+        .catch((err) => {
+          problems.push(`inspect/${loaded.scene.id ?? YEAR}.json: ${err.message} — Inspect shows every building's fallback`);
+          return null;
+        });
+    }
+    return inspectPromise;
+  };
+  api.inspectSummaries = ensureInspect;
   // The households' reasoning, per record, on first need (T-2151). publish.sh ships a
   // seated record's households slim — names, roles, grades and basis, which the title,
   // the search and the card draw at once — and the paragraphs behind each `why` toggle
@@ -3992,6 +4010,17 @@ async function boot() {
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
         peopleDirectory: () => peopleDirectory.load(),
+        // T-2638: what Inspect's front page reads. The compiled summaries (inspect/<scene>.json,
+        // tools/compile_summaries.py), the pictures (the card's own file), a building's record,
+        // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
+        inspectSummaries: () => ensureInspect(),
+        pictures: () => ensurePictures(),
+        record: (id) => loaded.registry.get(id) ?? null,
+        openCard: (id, tab) => {
+          const hit = pick(id);
+          if (hit && tab) document.querySelector(`#popup [data-pop-tab="${tab}"]`)?.click();
+          return hit;
+        },
       },
     }),
   });
