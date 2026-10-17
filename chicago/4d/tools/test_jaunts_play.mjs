@@ -82,7 +82,8 @@ try {
     await page.waitForSelector('#popup:not([hidden])'); await layout('popup');
     await page.screenshot({ path: path.join(out, `${viewport.width}-detail.png`) });
     await page.evaluate(() => __chicago4d.popup.close()); await atStop();
-    await page.locator('#btn-help').evaluate(el => el.click());
+    // T-2620: the menu button retired with the drawer; its sections open in the Navigator.
+    await page.evaluate(() => __chicago4d.hud.setPanel(true));
     await page.waitForSelector('#panel:not([hidden])'); await layout('panel');
     await page.screenshot({ path: path.join(out, `${viewport.width}-drawer.png`) });
     await page.evaluate(() => __chicago4d.hud.setPanel(false));
