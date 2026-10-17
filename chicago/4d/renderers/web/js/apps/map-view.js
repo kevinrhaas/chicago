@@ -296,8 +296,16 @@ export function mount(el, ctx = {}) {
   paint();
 }
 
-/** Each time Map is opened: re-fit to the screen it is shown at, and paint at once. */
-export function shown(el) { el._mapApi?.paint(); }
+/**
+ * Each time Map is opened: on a phone it reads at FULL (82 %), not HALF — a map is for
+ * looking at, and at HALF on a 390×780 screen the whole field shrinks to a strip a finger
+ * cannot hit a house on. Then re-fit to the screen it is shown at, and paint at once; the
+ * tick re-fits again as the sheet finishes growing.
+ */
+export function shown(el, ctx = {}) {
+  if (ctx.navigator?.detent === 'half') ctx.navigator.open?.(2);
+  el._mapApi?.paint();
+}
 
 export function unmount(el) {
   if (el._mapTimer) (el.ownerDocument.defaultView ?? globalThis).clearInterval(el._mapTimer);

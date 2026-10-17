@@ -644,12 +644,14 @@ for (const phone of [true, false]) {
   let player = { e: 0, n: 0, bearingDeg: 90 };
   const went = [];
   const navigation = { field: () => field, player, outlines: [yard, shed, far], drawView: (dest, view) => calls.push(['field', view.eMin]), drawMarker: (dest, x, y) => calls.push(['arrow', Math.round(x), Math.round(y)]), units: 'imperial' };
-  const docked = [];
+  const docked = [], opened = [];
   const ctx = { api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }]]) },
-    navigator: { level: 1, detent: 'half', dock: () => docked.push(1) },
+    navigator: { level: 1, detent: 'half', dock: () => docked.push(1), open: (l) => opened.push(l) },
     actions: { goTo: (id) => { went.push(id); return true; }, jauntRoute: () => ({ stops: [[0, 0], [20, 10], [40, 0]], at: 1 }), travelRoute: () => [] } };
   mapView.mount(el, ctx);
   const [scope, preview, bar, foot] = el.children;
+  mapView.shown(el, ctx);
+  assert.deepEqual(opened, [2], 'on a phone the Map opens at FULL, not HALF');
   assert.equal(el.children.length, 4);
   assert(calls.some((c) => c[0] === 'arrow'), 'your arrow is drawn');
   assert(calls.some((c) => c[0] === 'dash' && c[1] === '1.5,4'), 'the active Jaunt route is dotted');

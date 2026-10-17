@@ -10832,6 +10832,18 @@ for (const [label, viewport, touch] of [
       for (let i = 0; i < 80 && !(n.app === 'map' && el()?.querySelector('canvas')?.getBoundingClientRect().width > 0 && el()?._mapApi); i++) {
         await new Promise((r) => setTimeout(r, 100));
       }
+      // A phone opens Map at FULL; the sheet grows over 280 ms of (slow) frames, and the map
+      // re-fits as it does. Read it once the sheet has settled: the same box twice running.
+      let settled = '';
+      for (let i = 0; i < 60; i++) {
+        el()?._mapApi?.paint();
+        const b = el()?.querySelector('canvas')?.getBoundingClientRect();
+        const nb = document.getElementById('navigator')?.getBoundingClientRect();
+        const now = b && nb ? [b.top, b.width, b.height, nb.top, nb.height].map(Math.round).join(',') : '';
+        if (now && now === settled) break;
+        settled = now;
+        await new Promise((r) => setTimeout(r, 250));
+      }
       const read = () => {
         el()?._mapApi?.paint();
         const c = el()?.querySelector('canvas');
@@ -10853,7 +10865,7 @@ for (const [label, viewport, touch] of [
     });
     const fieldAspect = (win.b.nMax - win.b.nMin) / (win.b.eMax - win.b.eMin);
     check(`${label}: the round instrument opens the Navigator's Map, close up and the whole field (T-2654)`,
-      pop.app === 'map' && ['half', 'full', 'open'].includes(pop.detent) && !pop.fullOpen
+      pop.app === 'map' && pop.detent === (touch ? 'full' : 'open') && !pop.fullOpen
       && pop.near.zoom === 'near' && pop.near.ink > 0 && pop.near.onScreen
       && pop.whole.zoom === 'field' && pop.whole.ink > 0 && pop.whole.onScreen
       && Math.abs(pop.whole.h / Math.max(1, pop.whole.w) - fieldAspect) < 0.05
