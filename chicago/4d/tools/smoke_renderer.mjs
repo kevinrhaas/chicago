@@ -13413,8 +13413,11 @@ for (const [label, viewport, touch] of [
     await openSection('settings');
     // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator.
     await clickChrome('#s-show-control-help');
-    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'guide'
-      && !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    // T-2620: the switch to Guide is immediate; its sheet is a lazy module that fills in
+    // behind it, which on a starved desktop runner took longer than 10 s on a first open.
+    // So: Guide first, on the old budget, then the sheet, on a longer one.
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'guide', null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 60_000, polling: 100 }).catch(() => {});
     const reopenedGuide = await page.evaluate(() => ({
       app: window.__chicago4d.navigator.app,
       detent: window.__chicago4d.navigator.detent,
@@ -15343,7 +15346,7 @@ for (const [label, viewport, touch] of [
       count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
       waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
       step: window.__chicago4d.tour.step }));
-    const tourWait = (n) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout: 8_000, polling: 100 }).catch(() => {});
+    const tourWait = (n, timeout = 8_000) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout, polling: 100 }).catch(() => {});
     const t1 = await tourView();
     await clickChrome('#tour-next');
     await tourWait(1);
@@ -15397,7 +15400,11 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => window.__chicago4d.popup.close());
     const confWas = await page.evaluate(() => window.__chicago4d.hud.confidenceOn);
     await clickChrome('#btn-confidence');
-    await tourWait(6);
+    // T-2647: step 06 moves on at the tour's next tick, a 250 ms timer that on the desktop
+    // runner runs only between frames of 8-10 s (T-2412); 8 s could end before one ran, and
+    // the step-07 Next below was still hidden: "clickChrome: #tour-next has no box (0x0)"
+    // on #974's desktop part 13. Waited for, bounded; `last.step === 6` still decides.
+    await tourWait(6, 60_000);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
