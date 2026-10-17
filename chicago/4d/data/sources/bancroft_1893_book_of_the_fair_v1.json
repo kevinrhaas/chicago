@@ -1,0 +1,23 @@
+{
+ "id": "bancroft_1893_book_of_the_fair_v1",
+ "type": "book",
+ "citation": "Bancroft, Hubert Howe. The Book of the Fair: An Historical and Descriptive Presentation of the World's Science, Art, and Industry, as Viewed through the Columbian Exposition at Chicago in 1893. Vol. 1. Chicago: The Bancroft Company, 1893.",
+ "author": "Hubert Howe Bancroft",
+ "date": "1893",
+ "repository": "Internet Archive, from the Smithsonian Libraries copy",
+ "url": "https://archive.org/details/bookfair1banc",
+ "locator": "Scan leaf 76: 'The reasons for painting the buildings white, thus giving to the Fair its appellation of White City, Mr Millet explains ...'.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published 1893 in the United States; the Internet Archive record marks it public domain.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-10-16 (T-2611) through the Internet Archive's full-text search of this scan, at the leaf the locator names; the page images were not opened.",
+ "note": "Published in the year of the fair, so period evidence for it. Used for one time-stream caption on the way to 1812 and 1835 (the year 1893): that the fair's buildings were painted white and the fair was called the White City. Nothing in any scene is built from it.",
+ "what_it_supplies": [
+  "that the Columbian Exposition's buildings were painted white, which gave the fair the name White City"
+ ],
+ "what_it_does_not_supply": [
+  "anything about Chicago in 1812 or 1835"
+ ]
+}
