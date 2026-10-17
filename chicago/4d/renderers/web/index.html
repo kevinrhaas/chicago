@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
 <link rel="stylesheet" href="./css/inspect.css">
+<link rel="stylesheet" href="./css/tour.css">
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
@@ -670,6 +671,10 @@
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
+      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
+           section Guide opens until Guide's own screen lands (T-2661). -->
+      <div class="field row"><span>Tour mode: a sixty-second field check</span>
+        <button class="setting-button" id="tour-start" type="button">Take the field check</button></div>
       <dl class="keys" id="keys-desktop">
         <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>walk</dd>
         <dt><kbd>Shift</kbd></dt><dd>run</dd>
@@ -744,6 +749,21 @@
      sheet at three heights (DOCK, HALF, FULL); on a desktop a 400 px left panel that
      collapses to its rail. The rail's apps are registered from js/apps/ (T-2618); Home's
      screen is the one written here. -->
+<!-- T-2663 (NAV-801): Tour mode, the Field Check. js/tour.js runs its seven steps and
+     js/tour-overlay.js paints this: the step, the task, the bubble, WAITING FOR INPUT and
+     Skip, with a spotlight on the step's target. Only its card takes pointer events. -->
+<div id="tour" class="tour" hidden>
+  <div class="tour-hole" aria-hidden="true" hidden></div>
+  <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">
+    <header class="tour-head"><span id="tour-count">Field check · 1 / 7</span>
+      <button type="button" class="tour-skip" id="tour-skip">Skip <span aria-hidden="true">×</span></button></header>
+    <p class="tour-task" id="tour-task"></p>
+    <p class="tour-bubble" id="tour-bubble" aria-live="polite"></p>
+    <p class="tour-status" id="tour-status">Waiting for input</p>
+    <button type="button" class="tour-next" id="tour-next" hidden>Next</button>
+  </section>
+</div>
+
 <section id="navigator" class="navigator" aria-label="Navigator" data-str-label="nav.name" data-detent="dock" tabindex="-1">
   <span class="nav-screw nav-screw-tl" aria-hidden="true"></span><span class="nav-screw nav-screw-tr" aria-hidden="true"></span>
   <span class="nav-screw nav-screw-bl" aria-hidden="true"></span><span class="nav-screw nav-screw-br" aria-hidden="true"></span>
