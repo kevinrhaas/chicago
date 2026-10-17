@@ -7226,6 +7226,17 @@ step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8
 # destination's deck — held against the real boot controller for all three destinations.
 step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
   node tools/test_arrival_telemetry.mjs
+# T-2624. The Navigator string table (js/strings/, one section per app; each Navigator
+# app's manifest carries its own name and screen code). Refuses a locked term spelled any
+# other way, a retired or renamed word of design doc section 03, an id, path or ticket
+# number (compile_summaries.lint_string), page markup whose first paint is not the
+# table's, and drift from the Guide's locked list and glossary (T-2662) when both are in.
+step "every Navigator, HUD and arrival string is in the table, the locked terms exact and section 03's renames applied (T-2624)" \
+  python3 tools/check_strings.py --check
+selftest "…and a misspelt locked term, a retired or renamed word, an id and a page that paints otherwise are each refused" \
+  python3 tools/check_strings.py --self-test
+step "string table: sections register and extend, placeholders fill, no key ever shown (T-2624)" \
+  node tools/test_strings.mjs
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a

@@ -24,6 +24,8 @@
  * a non-modal region); nothing moves focus when the device docks itself. The device
  * reads its values once every half second, and only while Home is showing.
  */
+import { t as str } from './strings/index.js';
+import './strings/navigator.js';
 import { facingWords, clockWords, screenDate } from './where.js';
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
@@ -62,10 +64,9 @@ export function tapLevel(level, count = 3) { return level >= count - 1 ? 0 : lev
 
 /** MOVE, in words. */
 export function moveWords({ flying = false, pace = 'walk', riding = false } = {}) {
-  if (flying) return 'Flying';
-  const ways = { walk: 'Walking', wagon: 'By wagon', horse: 'On horseback' };
-  const how = ways[pace] ?? 'Walking';
-  return riding ? `${how}, on the way` : how;
+  if (flying) return str('nav.move.fly');
+  const how = str(`nav.move.${pace}`, null, str('nav.move.walk'));
+  return riding ? str('nav.move.riding', { how }) : how;
 }
 
 export function createNavigator({
@@ -141,9 +142,9 @@ export function createNavigator({
     }
     const open = level > 0;
     grip?.setAttribute('aria-expanded', String(open));
-    grip?.setAttribute('aria-label', open ? 'Lower the Navigator' : 'Open the Navigator');
-    collapse?.setAttribute('aria-label', open ? 'Collapse the Navigator' : 'Open the Navigator');
-    if (collapse) collapse.title = open ? 'Collapse' : 'Open';
+    grip?.setAttribute('aria-label', str(open ? 'nav.lower' : 'nav.open'));
+    collapse?.setAttribute('aria-label', str(open ? 'nav.collapse' : 'nav.open'));
+    if (collapse) collapse.title = str(open ? 'nav.collapse.short' : 'nav.open.short');
     return detent;
   }
   function setLevel(next, { by = 'code', focus = by === 'hand' } = {}) {
@@ -227,17 +228,17 @@ export function createNavigator({
   function paintFront(t) {
     shown = t;
     if (!t) {
-      put(out.frontName, 'Nothing close by');
-      put(out.frontDetail, `Turn toward a building within ${formatDistance(FRONT_M, units())}.`);
+      put(out.frontName, str('nav.front.none'));
+      put(out.frontDetail, str('nav.front.turn', { distance: formatDistance(FRONT_M, units()) }));
       if (out.inspect) out.inspect.hidden = true;
       return;
     }
-    const name = displayName(t.record?.sidecar ?? {}, t.id).title || 'A building';
+    const name = displayName(t.record?.sidecar ?? {}, t.id).title || str('nav.front.building');
     put(out.frontName, name);
-    put(out.frontDetail, `${formatDistance(t.distance, units())} away`);
+    put(out.frontDetail, str('nav.front.away', { distance: formatDistance(t.distance, units()) }));
     if (out.inspect) {
       out.inspect.hidden = false;
-      out.inspect.setAttribute('aria-label', `Inspect ${name}`);
+      out.inspect.setAttribute('aria-label', str('nav.inspect', { name }));
     }
   }
   function refresh(force = false) {
@@ -246,7 +247,7 @@ export function createNavigator({
     paintedAt = t0;
     const p = pose();
     const at = where?.at?.(p.e, p.n, p.bearingDeg) ?? null;
-    put(out.where, at?.place ? at.place.charAt(0).toUpperCase() + at.place.slice(1) : 'Off the streets');
+    put(out.where, at?.place ? at.place.charAt(0).toUpperCase() + at.place.slice(1) : str('nav.where.off'));
     put(out.whereDetail, [facingWords(p.bearingDeg), clock].filter(Boolean).join(' · '));
     if (target) paintFront(target.current(FRONT_M));
     const j = jaunt();
@@ -259,7 +260,7 @@ export function createNavigator({
       if (out.jauntBar) out.jauntBar.style.width = `${Math.round((at1 / stops) * 100)}%`;
     }
     put(out.move, moveWords(move()));
-    put(out.confidence, confidence() ? 'On' : 'Off');
+    put(out.confidence, str(confidence() ? 'nav.on' : 'nav.off'));
     return true;
   }
   // The probe looks only while Home is showing: a docked device costs the frame nothing.
