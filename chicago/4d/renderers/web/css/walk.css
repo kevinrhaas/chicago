@@ -1109,7 +1109,7 @@ body.is-touch .crosshair { display: none; }
   position: absolute; left: 50%; top: calc(50% + 46px); transform: translateX(-50%);
   /* T-2736: the whole name and distance, wrapped to a second line when it is long — never
      cut off. A pill on one line, a rounded box on two. */
-  width: max-content; max-width: min(320px, calc(100vw - 120px)); white-space: normal; overflow-wrap: break-word;
+  width: max-content; max-width: min(440px, calc(100vw - 120px)); white-space: normal; overflow-wrap: break-word;
   text-align: center; text-wrap: balance;
   margin: 0; padding: 6px 12px; pointer-events: auto; cursor: pointer;
   font: 600 11px/1.35 var(--font-label, var(--font-mono, ui-monospace, monospace));
