@@ -435,7 +435,11 @@ export function createHud({
   const panelScroll = $('panel-scroll');
   function selectTab(want, { fromHost = false } = {}) {
     // A section the scene does not carry (T-1740) is never selected, by any route.
-    if (doc.querySelector(`.panel-tab[data-tab="${want}"]`)?.hidden) return;
+    // T-2620: Go to retired with the drawer; asking for it opens the Jaunts app's own Go to.
+    if (doc.querySelector(`.panel-tab[data-tab="${want}"]`)?.hidden) {
+      if (want === 'goto' && !fromHost) host?.show?.('goto');
+      return;
+    }
     currentTab = want;
     doc.querySelectorAll('.panel-tab').forEach((x) => {
       const on = x.dataset.tab === want;

@@ -4,7 +4,6 @@
  *
  * A Navigator app (T-2618): see js/nav-rail.js for the fields. Its lane owns this file.
  */
-
 export default {
   id: 'jaunts',
   label: 'Jaunts',

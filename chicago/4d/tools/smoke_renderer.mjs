@@ -1584,7 +1584,7 @@ for (const [label, viewport, touch] of [
   // a Navigator app (apps/drawer-host.js). A visitor reaches one by the app's rail icon —
   // on a phone the rail shows once the sheet is open, so the handle comes first — and,
   // where the app holds two sections, by the section's own tab. Each is a hit-tested click.
-  const SECTION_APP = { goto: 'map', travel: 'move', people: 'people', businesses: 'people',
+  const SECTION_APP = { travel: 'move', people: 'people', businesses: 'people',
     controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings' };
   const openSection = async (tab) => {
     const opened = () => page.waitForFunction(() => {
@@ -13363,12 +13363,12 @@ for (const [label, viewport, touch] of [
       api.walker.teleport({ local_e: 107, local_n: -103, yaw_deg: 180 });
       await new Promise((r) => setTimeout(r, 60));
       const before = { e: api.player.e, n: api.player.n, flying: api.flying };
-      // Open the Go-to tab first: the field is in a hidden panel until then,
-      // and a hidden field cannot take focus, which is not what this is testing.
-      window.__chicago4d.hud.setPanel(true);
-      document.querySelector('.panel-tab[data-tab="goto"]')?.click();
+      // Open Go to first: the field is in a hidden screen until then, and a hidden field
+      // cannot take focus, which is not what this is testing. T-2620: Go to is the Jaunts
+      // app's own segment (T-2630), its search the arrival's #welcome-search.
+      await api.openJaunts('goto');
       await new Promise((r) => setTimeout(r, 120));
-      const box = document.getElementById('jump-search');
+      const box = document.getElementById('welcome-search');
       box.focus();
       // "sauganash" is w/a/s/d/g-rich on purpose: every letter here is bound.
       for (const ch of 'sauganash wafd') {
@@ -13388,8 +13388,10 @@ for (const [label, viewport, touch] of [
       `moved from ${typed.before.e.toFixed(2)},${typed.before.n.toFixed(2)} `
       + `to ${typed.after.e.toFixed(2)},${typed.after.n.toFixed(2)}`);
     check(`${label}: typing an 'f' does not take off`,
-      typed.after.flying === false && typed.focused === 'jump-search',
+      typed.after.flying === false && typed.focused === 'welcome-search',
       `flying ${typed.after.flying}, focus ${typed.focused}`);
+
+    await page.evaluate(() => { const b = document.getElementById('welcome-search'); if (b) { b.value = ''; b.dispatchEvent(new Event('input', { bubbles: true })); } });
 
     // --- the Go to tab ------------------------------------------------------
     //
@@ -13416,7 +13418,7 @@ for (const [label, viewport, touch] of [
     // two) is one row that fits, unsqueezed, every tab a real box.
     const tabStrip = await page.evaluate(async () => {
       const api = window.__chicago4d;
-      const HOME = { goto: 'map', travel: 'move', people: 'people', businesses: 'people',
+      const HOME = { travel: 'move', people: 'people', businesses: 'people',
         controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings' };
       const all = [...document.querySelectorAll('.panel-tab')];
       const out = { order: all.map((el) => el.dataset.tab), homeless: [], rows: {}, overflow: 0, squeezed: [], boxless: [] };
@@ -13435,12 +13437,15 @@ for (const [label, viewport, touch] of [
         out.squeezed.push(...items.filter((el) => el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1).map((el) => el.dataset.tab));
         out.boxless.push(...items.filter((el) => el.getBoundingClientRect().height < 40 || el.getBoundingClientRect().width < 40).map((el) => el.dataset.tab));
       }
-      await api.navigator.select('map');
+      await api.navigator.select('settings');
+      out.gotoRetired = !!document.querySelector('.panel-tab[data-tab="goto"]')?.hidden;
       out.strayViewpointList = document.querySelectorAll('[data-panel="settings"] .anchor-btn, #anchors').length;
       return out;
     });
     check(`${label}: every section the drawer had is held by a Navigator app on the rail`,
-      tabStrip.order.join(',') === 'goto,travel,people,businesses,evidence,settings,controls,whatsnew' && !tabStrip.homeless.length,
+      // Go to's tab retired with the drawer (T-2620): Go to is the Jaunts app's own segment.
+      tabStrip.order.join(',') === 'goto,travel,people,businesses,evidence,settings,controls,whatsnew' && !tabStrip.homeless.length
+      && tabStrip.gotoRetired,
       `${tabStrip.order.join(',')}; without an app: [${tabStrip.homeless.join(', ')}]`);
     check(`${label}: an app's section tabs fit one row, unsqueezed — no menu row scrolls sideways`,
       Object.values(tabStrip.rows).every((n) => n === 1) && Object.keys(tabStrip.rows).length >= 1
@@ -13453,221 +13458,30 @@ for (const [label, viewport, touch] of [
     // G, from the walk, with the panel shut.
     await clickChrome('#panel-close');
     await page.keyboard.press('g');
-    await page.waitForTimeout(60);
+    await page.waitForFunction(() => window.__chicago4d.jauntsApp?.current === 'goto' && window.__chicago4d.navigator.app === 'jaunts',
+      null, { timeout: 15_000, polling: 100 }).catch(() => {});
     const viaKey = await page.evaluate(() => ({
-      open: !document.getElementById('panel').hasAttribute('hidden'),
-      tab: document.querySelector('.panel-tab.is-on')?.dataset.tab,
+      app: window.__chicago4d.navigator.app,
+      segment: window.__chicago4d.jauntsApp?.current ?? null,
+      sectionShut: document.getElementById('panel').hasAttribute('hidden'),
       focused: document.activeElement?.id,
     }));
-    check(`${label}: G opens the Go to tab`,
-      viaKey.open && viaKey.tab === 'goto'
+    // T-2620: the drawer's Go to list retired with the drawer; Go to is the Jaunts app's
+    // own segment (T-2630), and G opens it.
+    check(`${label}: G opens Go to (the Jaunts app's Go to)`,
+      viaKey.app === 'jaunts' && viaKey.segment === 'goto' && viaKey.sectionShut
       // The search takes focus for a visitor who arrived by keyboard, and must
       // not on a phone: focusing it there raises the on-screen keyboard over
       // the list the tap was for.
-      && (touch ? viaKey.focused !== 'jump-search' : viaKey.focused === 'jump-search'),
+      && (touch ? viaKey.focused !== 'welcome-search' : viaKey.focused === 'welcome-search'),
       JSON.stringify(viaKey));
+    await page.evaluate(() => { window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
 
-    // T-0702 RESTATED, NOT WEAKENED. The list now grades a row by the record's
-    // PRESENCE — did the building stand here — and hides the roofs whose
-    // presence is `reconstructed` until the visitor asks for them, so "every
-    // loaded structure" is read in two halves that together say more than the
-    // old single count did: the default list is exactly the non-reconstructed
-    // records, and the toggle brings the list to exactly the registry. The
-    // position grade did not leave the row — it moved to `data-jump-position`
-    // and is compared record for record as before. The presence rule is
-    // inlined here rather than imported, so the gate cannot agree with the app
-    // by sharing its mistake: the structure's own `grade` (T-2686, AGENTS.md
-    // rule 12 — pictured, recorded, or placed by our reconstruction), else
-    // `documented_range.confidence`, else the position grade, else `reconstructed`.
-    const jumps = await page.evaluate(() => {
-      const api = window.__chicago4d;
-      const input = document.getElementById('jump-search');
-      const registry = api.registry;
-      const presenceOf = (s) => s?.grade?.value || s?.documented_range?.confidence
-        || s?.placement?.position_confidence || 'reconstructed';
-      const positionOf = (s) => s?.placement?.position_confidence || 'reconstructed';
-      const rowsNow = () => [...document.querySelectorAll('#jump-results .jump-result')];
-      const structRows = () => rowsNow().filter((r) => r.dataset.jumpKind === 'structure');
-      // The stated preconditions for everything below, and for the arrival
-      // check that follows: the list on All, no query, reconstructed roofs
-      // hidden (the default), travel mode `instantly` (the default) — a ride
-      // would take minutes to reach Randolph and Canal and the arrival read
-      // would measure a visitor still walking.
-      api.setTravelMode('instantly');
-      api.hud.goTo.setKind('all');
-      input.value = '';
-      input.dispatchEvent(new Event('input', { bubbles: true }));
-      const toggle = document.getElementById('jump-reconstructed');
-      const setToggle = (on) => {
-        if (toggle.checked === on) return;
-        toggle.checked = on;
-        toggle.dispatchEvent(new Event('change', { bubbles: true }));
-      };
-      setToggle(false);
-      // The registry's own tallies, counted here and not read off the app.
-      const tally = { attested: 0, inferred: 0, reconstructed: 0 };
-      const posTally = { attested: 0, inferred: 0, reconstructed: 0 };
-      for (const [, record] of registry) {
-        const g = presenceOf(record?.sidecar);
-        if (g in tally) tally[g]++;
-        const p = positionOf(record?.sidecar);
-        if (p in posTally) posTally[p]++;
-      }
-      const nonReconstructed = registry.size - tally.reconstructed;
-      // And the colour has to carry the distinction, which is exactly what a
-      // bare `.jump-result small` rule took away from it once: it outranks
-      // `.conf-inferred` on specificity and painted all three grades the same
-      // dim grey — a legend that lies, in a project whose whole product is the
-      // grading.
-      const colourOf = (grade) => {
-        const chip = document.querySelector(`.jump-result .conf-${grade}`);
-        return chip ? getComputedStyle(chip).color : null;
-      };
-      const rows = rowsNow();
-      const dflt = {
-        structures: structRows().length,
-        anchors: rows.filter((r) => r.dataset.jumpKind === 'anchor').length,
-        intersections: rows.filter((r) => r.dataset.jumpKind === 'intersection').length,
-        chippedNonStructures: rows.filter((r) => r.dataset.jumpKind !== 'structure'
-          && r.querySelector('.conf')).length,
-        // Only the two grades that stood here should be chipped before the toggle.
-        chipGrades: [...new Set(structRows().map((r) => r.querySelector('.conf')?.textContent.trim()))],
-        note: document.getElementById('jump-note')?.textContent ?? '',
-        colours: {
-          attested: colourOf('attested'),
-          inferred: colourOf('inferred'),
-          reconstructed: colourOf('reconstructed'),
-          plain: getComputedStyle(document.querySelector('.jump-result .jump-name')).color,
-        },
-      };
-      // The toggle on: every roof, and every row compared to its record.
-      setToggle(true);
-      const mismatched = [];
-      let graded = 0;
-      for (const row of structRows()) {
-        const s = registry.get(row.dataset.jumpId)?.sidecar;
-        const wantPresence = presenceOf(s);
-        const wantPosition = positionOf(s);
-        const chip = row.querySelector('.conf');
-        const shown = chip?.textContent?.trim();
-        if (shown === wantPresence && chip.classList.contains(`conf-${wantPresence}`)
-          && row.dataset.jumpConfidence === wantPresence
-          && row.dataset.jumpPosition === wantPosition) graded++;
-        else {
-          mismatched.push({ id: row.dataset.jumpId, wantPresence, shown: shown ?? null,
-            wantPosition, position: row.dataset.jumpPosition ?? null });
-        }
-      }
-      const on = {
-        structures: structRows().length,
-        note: document.getElementById('jump-note')?.textContent ?? '',
-        colours: { reconstructed: colourOf('reconstructed') },
-      };
-      setToggle(false);
-      const all = {
-        anchors: dflt.anchors,
-        structures: dflt.structures,
-        intersections: dflt.intersections,
-        loaded: registry.size,
-        sceneAnchors: api.scene?.anchors?.length ?? 0,
-        sceneIntersections: api.intersections?.length ?? 0,
-        chippedNonStructures: dflt.chippedNonStructures,
-      };
-      // The default colours, with the reconstructed chip's colour read while
-      // the toggle was on (no reconstructed row is on the default list).
-      const colours = { ...dflt.colours, reconstructed: on.colours.reconstructed };
-      input.value = 'Randolph Canal';
-      input.dispatchEvent(new Event('input', { bubbles: true }));
-      const filtered = [...document.querySelectorAll('#jump-results .jump-result')]
-        .map((b) => ({ id: b.dataset.jumpId, kind: b.dataset.jumpKind, text: b.textContent }));
-      return { all, filtered, graded, mismatched, tally, posTally, nonReconstructed,
-        dflt: { structures: dflt.structures, chipGrades: dflt.chipGrades, note: dflt.note },
-        on: { structures: on.structures, note: on.note }, colours, stored:
-          JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').gotoReconstructed };
-    });
-    // Was "jump menu includes every loaded structure" (=== registry.size). The
-    // list now hides presence-reconstructed roofs by default, so the claim is
-    // taken in both states: exactly the non-reconstructed records by default,
-    // exactly the registry with the toggle on — and the toggle's own state is
-    // persisted where the visitor's settings live.
-    check(`${label}: jump menu lists every structure that stood here, and every roof once asked`,
-      jumps.dflt.structures === jumps.nonReconstructed && jumps.nonReconstructed > 70
-      && jumps.on.structures === jumps.all.loaded && jumps.all.loaded > jumps.nonReconstructed
-      && jumps.dflt.chipGrades.every((g) => g === 'attested' || g === 'inferred')
-      && jumps.stored === false,
-      `${jumps.dflt.structures} listed of ${jumps.nonReconstructed} non-reconstructed by default `
-      + `(chips ${jumps.dflt.chipGrades.join('/')}); ${jumps.on.structures} of ${jumps.all.loaded} `
-      + `loaded with the toggle on; stored gotoReconstructed ${jumps.stored}`);
-    // Against the compiled list, NOT against a literal. This assertion read
-    // `=== 4` until T-0245 committed a fifth control point on South Water at
-    // Franklin and turned a correct menu into a red gate — the same fault the
-    // menu itself was built to avoid, one level up: the intersections are
-    // compiled into the scene sidecar index from data/traces/street_control.json
-    // on every check, so their number is data and a gate that hard-codes it is
-    // measuring the constant rather than the menu.
-    check(`${label}: jump menu includes every verified intersection`,
-      jumps.all.intersections === jumps.all.sceneIntersections
-        && jumps.all.intersections > 3,
-      `${jumps.all.intersections} listed of ${jumps.all.sceneIntersections} compiled`);
-    check(`${label}: jump menu includes every viewpoint the scene names`,
-      jumps.all.anchors === jumps.all.sceneAnchors && jumps.all.anchors > 3,
-      `${jumps.all.anchors} listed of ${jumps.all.sceneAnchors} in the scene`);
-    // Was "every structure result carries its record's position grade" (the
-    // chip). T-0702 made the chip the PRESENCE grade and moved the position
-    // grade to `data-jump-position`; both are compared to the record on every
-    // row, with the toggle on so all of them are checked, not the default 80-odd.
-    check(`${label}: every structure result carries its record's presence grade as its chip and its position grade as data`,
-      jumps.graded === jumps.all.loaded && !jumps.mismatched.length,
-      `${jumps.graded} graded of ${jumps.all.loaded}, `
-      + `mismatched ${JSON.stringify(jumps.mismatched.slice(0, 3))}`);
-    check(`${label}: a viewpoint and a survey junction are not graded like a building`,
-      jumps.all.chippedNonStructures === 0,
-      `${jumps.all.chippedNonStructures} non-structure result(s) carry a confidence chip`);
-    // Was "inferred vs reconstructed, and inferred vs plain". Attested chips are
-    // on the default list now (the Sauganash stood here), reconstructed ones only
-    // after the toggle — all three pairwise distinct and none the name's colour.
-    check(`${label}: the three grades are told apart by colour, not only by their words`,
-      (() => {
-        const c = jumps.colours;
-        const three = [c.attested, c.inferred, c.reconstructed];
-        return three.every(Boolean) && new Set(three).size === 3
-          && three.every((x) => x !== c.plain);
-      })(),
-      JSON.stringify(jumps.colours));
-    // Was "N structures / N are attested / N inferred / N reconstructed" against
-    // the position tally. The note now counts PRESENCE (REPORT-goto wording):
-    // "83 of 371 structures — 288 reconstructed roofs are hidden until you ask
-    // for them. Of all 371, 11 are attested to have stood here, 72 inferred and
-    // 288 reconstructed." — every figure against the registry tally computed
-    // above, in both toggle states.
-    check(`${label}: the tab counts its own list rather than quoting a written total`,
-      jumps.dflt.note.includes(`${jumps.nonReconstructed} of ${jumps.all.loaded} structures`)
-      && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are hidden`)
-      && jumps.dflt.note.includes(`${jumps.tally.attested} are attested`)
-      && jumps.dflt.note.includes(`${jumps.tally.inferred} inferred`)
-      && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed`)
-      && jumps.on.note.includes(`${jumps.all.loaded} of ${jumps.all.loaded} structures`)
-      && jumps.on.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are showing`),
-      `${jumps.dflt.note} / ${jumps.on.note} / ${JSON.stringify(jumps.tally)}`);
-    check(`${label}: jump search finds an intersection by both street names`,
-      jumps.filtered.some((r) => r.id === 'randolph_canal' && r.kind === 'intersection'),
-      JSON.stringify(jumps.filtered));
-    // Precondition stated inside `jumps`: `api.setTravelMode('instantly')`, the
-    // default — in a ground mode this click would start a walk, not a jump.
-    await clickChrome('[data-jump-id="randolph_canal"]');
-    await page.waitForTimeout(80);
-    const arrived = await page.evaluate(() => {
-      // Leave the list as the visitor finds it: no query, All.
-      const input = document.getElementById('jump-search');
-      input.value = '';
-      input.dispatchEvent(new Event('input', { bubbles: true }));
-      return { ...window.__chicago4d.player, mode: window.__chicago4d.travel.mode,
-        phase: window.__chicago4d.travelState.phase };
-    });
-    check(`${label}: an intersection result moves the visitor there`,
-      Math.abs(arrived.e + 155.24) < 0.2 && Math.abs(arrived.n + 251.19) < 0.2
-      && arrived.mode === 'instantly' && arrived.phase === 'idle',
-      `arrived (${arrived.e?.toFixed(2)}, ${arrived.n?.toFixed(2)}) in mode ${arrived.mode}, ${arrived.phase}`);
+    // T-2620: the drawer's Go to list (goto.js: its coverage of every structure, junction
+    // and viewpoint, its grade chips, its intersection search, its arrival at a corner)
+    // retired with the drawer, by the owner's lane decision: Go to is the Jaunts app's own
+    // segment (T-2630), the arrival's destination search, which T-2632 refines and whose
+    // checks are its own. The checks that read #jump-search and #jump-results went with it.
 
     // --- the drawer, and what T-0701…T-0710 put in it ------------------------
     //
@@ -13734,145 +13548,8 @@ for (const [label, viewport, touch] of [
       drawer.panelBottom >= drawer.innerHeight - 24 && (touch || drawer.panelTop >= drawer.badgeBottom),
       `drawer ${drawer.panelTop}–${drawer.panelBottom} of ${drawer.innerHeight}, badge bottom ${drawer.badgeBottom}`);
 
-    // T-0702/T-0703: the Go-to pills, groups, distances and keyboard.
-    await openSection('goto');
-    const gotoMore = await page.evaluate(async () => {
-      const api = window.__chicago4d;
-      const registry = api.registry;
-      const rows = () => [...document.querySelectorAll('#jump-results .jump-result')];
-      const KIND_IDS = ['viewpoints', 'corners', 'people', 'businesses', 'taverns', 'stores', 'trades',
-        'homes', 'public', 'waterfront'];
-      const out = {};
-      const pill = document.querySelector('.jump-pill[data-kind="taverns"]');
-      pill.click();
-      const tav = rows();
-      out.taverns = {
-        pressed: pill.getAttribute('aria-pressed'),
-        rows: tav.length,
-        sauganash: tav.some((r) => r.dataset.jumpId === 'sauganash_hotel'),
-        allStructures: tav.every((r) => r.dataset.jumpKind === 'structure'),
-        offKind: tav.filter((r) => {
-          const s = registry.get(r.dataset.jumpId)?.sidecar;
-          const fn = String(s?.attributes?.function?.value ?? '').toLowerCase();
-          return !(/tavern|inn|hotel|boarding|lodging/.test(fn) || s?.archetype === 'frame_tavern');
-        }).map((r) => r.dataset.jumpId),
-        heading: (document.querySelector('.jump-group[data-group="taverns"]')?.textContent ?? '')
-          .replace(/\d+\s*$/, '').trim(),
-        label: pill.querySelector('.jump-pill-label')?.textContent.trim() ?? pill.textContent.trim(),
-        groups: document.querySelectorAll('.jump-group').length,
-      };
-      // Back to All, every roof shown so every structure row is judged.
-      api.hud.goTo.setKind('all');
-      api.hud.goTo.setIncludeReconstructed(true);
-      const all = rows();
-      const headingFor = (row) => {
-        let el = row.previousElementSibling;
-        while (el && !el.classList.contains('jump-group')) el = el.previousElementSibling;
-        return el?.dataset.group ?? null;
-      };
-      out.groups = {
-        rows: all.length,
-        sharedCount: api.destinations.count,
-        structures: all.filter((r) => r.dataset.jumpKind === 'structure').length,
-        unknownGroup: all.filter((r) => !KIND_IDS.includes(r.dataset.jumpGroup)).map((r) => r.dataset.jumpId),
-        misfiled: all.filter((r) => headingFor(r) !== r.dataset.jumpGroup).map((r) => r.dataset.jumpId),
-      };
-      // Located rows keep the same distance contract. Unknown addresses must not invent one.
-      const targetFor = r => api.destinations.byId(r.dataset.jumpKind, r.dataset.jumpId);
-      const located = r => Number.isFinite(targetFor(r)?.e) && Number.isFinite(targetFor(r)?.n);
-      const DIST = /^(\d+(\.\d+)? (ft|m|mi|km)) (N|NNE|NE|ENE|E|ESE|SE|SSE|S|SSW|SW|WSW|W|WNW|NW|NNW)$|^here$/;
-      out.dist = {
-        bad: all.filter(located).filter((r) => !DIST.test((r.querySelector('.jump-dist')?.textContent ?? '').trim()))
-          .map((r) => `${r.dataset.jumpId} "${(r.querySelector('.jump-dist')?.textContent ?? '').trim()}"`),
-        noMetres: all.filter(located).filter((r) => !/^\d+$/.test(r.querySelector('.jump-dist')?.dataset.m ?? '')).length,
-        unknown: all.filter(r => !located(r)).length,
-        dishonest: all.filter(r => !located(r) && (r.querySelector('.jump-dist')?.textContent.trim()
-          || r.querySelector('.jump-dist')?.dataset.m || !targetFor(r)?.limit)).length,
-      };
-      api.hud.goTo.setIncludeReconstructed(false);
-      // Stand 100 m due east of the Sauganash, then 200 m: the row's metres
-      // follow the visitor by ≈100 and the compass says west both times.
-      const sp = api.structurePosition('sauganash_hotel');
-      const rowM = () => {
-        const d = document.querySelector('[data-jump-id="sauganash_hotel"] .jump-dist');
-        return { m: Number(d?.dataset.m), text: d?.textContent.trim() ?? '' };
-      };
-      api.setFly(false);
-      api.walker.teleport({ local_e: sp.e + 100, local_n: sp.n, yaw_deg: 270 });
-      api.hud.goTo.refreshDistances();
-      const at100 = rowM();
-      api.walker.teleport({ local_e: sp.e + 200, local_n: sp.n, yaw_deg: 270 });
-      api.hud.goTo.refreshDistances();
-      const at200 = rowM();
-      out.follow = { at100, at200, imperial: (api.hud.settings.units ?? 'imperial') !== 'metric' };
-      // The keyboard: the list starts with NO row active (a fresh combobox), so
-      // the first ArrowDown highlights the first row, the second the second —
-      // which is what REPORT-goto measured (`jump-opt-1` after two). Three
-      // presses reach the third row, and Enter goes there, instantly. The plan
-      // wrote "ArrowDown×2 → the third row"; that would need the first row
-      // pre-selected, which this list does not do (SMOKE-FINDINGS notes it).
-      api.setTravelMode('instantly');
-      api.popup.close();
-      const input = document.getElementById('jump-search');
-      input.value = '';
-      input.dispatchEvent(new Event('input', { bubbles: true }));
-      const second = rows()[1];
-      const third = rows()[2];
-      const t = { kind: third?.dataset.jumpKind, id: third?.dataset.jumpId };
-      const target = api.hud.goTo.targets.find((x) => x.kind === t.kind && x.id === t.id);
-      input.focus();
-      const activeId = () => document.querySelector('#jump-results .jump-result.is-active')?.dataset.jumpId;
-      for (const key of ['ArrowDown', 'ArrowDown']) {
-        input.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
-      }
-      const afterTwo = { active: activeId(), second: second?.dataset.jumpId,
-        described: input.getAttribute('aria-activedescendant') };
-      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
-      const active = activeId();
-      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-      await new Promise((r) => setTimeout(r, 120));
-      const p = api.player;
-      const dest = t.kind === 'person' ? (target?.lives_at || target?.works_at) : t.id;
-      const pos = (t.kind === 'structure' || t.kind === 'person') ? api.structurePosition(dest)
-        : { e: target?.e, n: target?.n };
-      out.enter = {
-        third: t, afterTwo, active, dest,
-        panelHidden: document.getElementById('panel').hasAttribute('hidden'),
-        card: api.popup.openId,
-        distToTarget: pos ? +Math.hypot(p.e - pos.e, p.n - pos.n).toFixed(1) : null,
-        phase: api.travelState.phase,
-      };
-      return out;
-    });
-    check(`${label}: the Taverns pill narrows the list to taverns, inns and hotels, the Sauganash among them`,
-      gotoMore.taverns.pressed === 'true' && gotoMore.taverns.rows >= 5 && gotoMore.taverns.sauganash
-      && gotoMore.taverns.allStructures && !gotoMore.taverns.offKind.length
-      && gotoMore.taverns.heading === gotoMore.taverns.label && gotoMore.taverns.groups === 1,
-      `${gotoMore.taverns.rows} row(s), off-kind [${gotoMore.taverns.offKind.join(', ')}], heading `
-      + `"${gotoMore.taverns.heading}" vs pill "${gotoMore.taverns.label}", ${gotoMore.taverns.groups} heading(s)`);
-    check(`${label}: every row is filed under one of the ten groups, beneath that group's heading`,
-      gotoMore.groups.structures > 300 && !gotoMore.groups.unknownGroup.length
-      && !gotoMore.groups.misfiled.length,
-      `${gotoMore.groups.rows} rows; unknown group [${gotoMore.groups.unknownGroup.slice(0, 3).join(', ')}]; `
-      + `misfiled [${gotoMore.groups.misfiled.slice(0, 3).join(', ')}]`);
-    check(`${label}: visible rows equal the shared destination inventory`,
-      gotoMore.groups.rows === gotoMore.groups.sharedCount, JSON.stringify(gotoMore.groups));
-    check(`${label}: located rows say how far and which way; unknown addresses invent no metres`,
-      !gotoMore.dist.bad.length && gotoMore.dist.noMetres === 0 && gotoMore.dist.unknown > 0 && gotoMore.dist.dishonest === 0,
-      `bad [${gotoMore.dist.bad.slice(0, 3).join('; ')}], ${gotoMore.dist.noMetres} without metres`);
-    check(`${label}: the distances follow the visitor — 100 m further east reads 100 m further`,
-      Math.abs(gotoMore.follow.at100.m - 100) <= 2 && Math.abs(gotoMore.follow.at200.m - 200) <= 2
-      && / W$/.test(gotoMore.follow.at100.text) && / W$/.test(gotoMore.follow.at200.text)
-      && new RegExp(`^(${gotoMore.follow.imperial ? '327|328|329|330' : '99|100|101'}) `).test(gotoMore.follow.at100.text),
-      `${JSON.stringify(gotoMore.follow.at100)} -> ${JSON.stringify(gotoMore.follow.at200)}`);
-    check(`${label}: ArrowDown steps the list a row at a time — two reach the second, three the third — and Enter goes there`,
-      gotoMore.enter.afterTwo.active === gotoMore.enter.afterTwo.second && !!gotoMore.enter.afterTwo.described
-      && gotoMore.enter.active === gotoMore.enter.third.id && gotoMore.enter.panelHidden
-      && gotoMore.enter.phase === 'idle'
-      && (gotoMore.enter.third.kind === 'structure' || gotoMore.enter.third.kind === 'person'
-        ? gotoMore.enter.card === gotoMore.enter.dest && gotoMore.enter.distToTarget <= 40
-        : gotoMore.enter.distToTarget <= 0.5),
-      JSON.stringify(gotoMore.enter));
+    // (T-0702/T-0703's Go-to pills, groups, distances and keyboard retired with the drawer's
+    // Go to list, T-2620; see the note above.)
 
     // T-0704/T-0705: Travel — five modes, persisted; the paces through the
     // walker's own WALK; the horse's gait; nothing under reduced motion.
@@ -14028,15 +13705,13 @@ for (const [label, viewport, touch] of [
       api.goTo('south_water');
       api.setPace('walk');
       api.setTravelMode('walk');
-      api.hud.setPanel(true);
-      api.hud.selectTab('goto');
-      api.hud.goTo.open();
-      const row = document.querySelector('[data-jump-id="sauganash_hotel"]');
-      row?.click();
+      // T-2620: the drawer's Go to list retired; the ride starts from the call a chosen
+      // destination makes (Go to in the Jaunts app makes the same one).
+      api.goToTarget({ kind: 'structure', id: 'sauganash_hotel', label: 'Sauganash Hotel' });
       const st = api.travelState;
       const banner = document.getElementById('travel-banner');
       out.go = {
-        row: !!row, phase: st.phase, mode: st.mode, dest_id: st.dest_id, dist_m: st.dist_m && +st.dist_m.toFixed(1),
+        phase: st.phase, mode: st.mode, dest_id: st.dest_id, dist_m: st.dist_m && +st.dist_m.toFixed(1),
         points: st.remaining_points, panelHidden: document.getElementById('panel').hasAttribute('hidden'),
         bannerHidden: banner.hasAttribute('hidden'), bannerShown: banner.checkVisibility(),
         verb: document.getElementById('travel-verb').textContent.trim(),
@@ -14073,7 +13748,7 @@ for (const [label, viewport, touch] of [
       return out;
     }, FRAMED);
     check(`${label}: choosing the Sauganash on foot starts a walk and says so`,
-      ride.go.row && ride.go.phase === 'travelling' && ride.go.mode === 'walk'
+      ride.go.phase === 'travelling' && ride.go.mode === 'walk'
       && ride.go.dest_id === 'sauganash_hotel' && ride.go.dist_m > 100 && ride.go.points > 1
       && ride.go.panelHidden && !ride.go.bannerHidden && ride.go.bannerShown
       && ride.go.verb === 'Walking to' && /Sauganash/.test(ride.go.dest)
@@ -16724,10 +16399,10 @@ for (const [label, viewport, touch] of [
     // long-standing binding — but the card must not be collateral.)
     await page.keyboard.press('Space');            // card open again
     await page.waitForTimeout(300);
-    await page.evaluate(() => {
-      window.__chicago4d.hud.setPanel(true);
-      document.querySelector('[data-tab="goto"]')?.click();
-      document.getElementById('jump-search')?.focus();
+    // T-2620: Go to is the Jaunts app's own segment (T-2630); its box is #welcome-search.
+    await page.evaluate(async () => {
+      await window.__chicago4d.openJaunts('goto');
+      document.getElementById('welcome-search')?.focus();
     });
     await page.keyboard.press('KeyE');
     await page.waitForTimeout(150);
@@ -16736,7 +16411,7 @@ for (const [label, viewport, touch] of [
     // keystroke typed rather than fired.
     const typedE = await page.evaluate(() => ({
       cardOpen: !document.getElementById('popup').hasAttribute('hidden'),
-      typed: document.getElementById('jump-search')?.value ?? '',
+      typed: document.getElementById('welcome-search')?.value ?? '',
     }));
     await page.keyboard.press('Escape');
     await page.waitForTimeout(150);
@@ -16747,9 +16422,10 @@ for (const [label, viewport, touch] of [
       `E typed "${typedE.typed}" with card open ${typedE.cardOpen}, `
       + `card open after Escape ${afterEsc}`);
     await page.evaluate(() => {
-      const box = document.getElementById('jump-search');
-      if (box) box.value = '';
-      window.__chicago4d.hud.setPanel(false);
+      const box = document.getElementById('welcome-search');
+      if (box) { box.value = ''; box.dispatchEvent(new Event('input', { bubbles: true })); }
+      window.__chicago4d.navigator.select('home');
+      window.__chicago4d.navigator.dock();
       window.__chicago4d.popup.close();
     });
 

@@ -469,16 +469,18 @@ for (const phone of [true, false]) {
   assert.equal(fakeHud.open, false, 'docking closes it');
   nav.open(1);
   assert.equal(fakeHud.open, true, 'and opening again brings it back');
-  await nav.select('map');
-  assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'goto'], 'Map holds Go to\u2019s list of places');
-  const lead = dom.byId.get('nav-map-open');
-  assert(lead && lead.parent === dom.byId.get('nav-app-map'), 'under a key to the whole map');
-  lead.dispatch('click');
-  assert.deepEqual(calls.at(-1), ['map'], 'which opens the whole field');
-  assert.equal(nav.detent, phone ? 'dock' : 'rail');
+  // Go to is not a section: it is the Jaunts app's own segment (T-2630), and the drawer's
+  // Go to list retires with the drawer (T-2620).
+  assert.equal(SECTION_HOME.goto, undefined, 'no app holds the drawer\u2019s Go to list');
 
   // The HUD's own calls keep their meaning through the adapter (hud.setPanel / selectTab).
-  const adapter = installDrawerHost({ hud: fakeHud, navigator: nav, doc: dom.doc });
+  const goTos = [];
+  fakeHud.tab = 'goto';
+  const adapter = installDrawerHost({ hud: fakeHud, navigator: nav, doc: dom.doc, openGoTo: () => goTos.push('goto') });
+  assert.equal(fakeHud.tab, 'controls', 'the HUD\u2019s opening section moves off the retired Go to');
+  assert.equal(dom.panel.children[0].children.find((t) => t.dataset.tab === 'goto').hidden, true, 'Go to\u2019s tab leaves the row for good');
+  adapter.open('goto');
+  assert.deepEqual(goTos, ['goto'], 'asking for Go to opens the Jaunts app\u2019s Go to');
   assert.equal(button(dom, 'settings').children.some((c) => c.id === 'help-dot'), true, 'What\u2019s new\u2019s dot rides the Settings icon');
   fakeHud.tab = 'evidence';
   adapter.open('evidence');
@@ -596,7 +598,8 @@ for (const phone of [true, false]) {
     assert.equal(n2.detent, 'dock', '…and the device docked');
   }
   // Every section the drawer had has an app to hold it, and no app holds more than two.
-  assert.deepEqual(Object.keys(SECTION_HOME).sort(), ['businesses', 'controls', 'evidence', 'goto', 'people', 'settings', 'travel', 'whatsnew']);
+  // Go to is the Jaunts app's own (T-2630); the drawer's Go to list retired with it (T-2620).
+  assert.deepEqual(Object.keys(SECTION_HOME).sort(), ['businesses', 'controls', 'evidence', 'people', 'settings', 'travel', 'whatsnew']);
   assert(Object.values(APP_SECTIONS).every((t) => t.length <= 2) && Object.keys(APP_SECTIONS).every((a) => APPS.some((x) => x.id === a)));
 
   const none = createNavigator({ root: miniDom().root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
@@ -661,7 +664,7 @@ for (const phone of [true, false]) {
     assert.equal(d.app, 'jump', `${label}: the dock remembers the last app`);
     assert.equal(d.label, 'Open the Navigator on Jump');
     assert.equal(dom.byId.get('nav-dock-app').dataset.app, 'jump');
-    // A stub (Confidence view; Map holds Go to's list since T-2620) runs and docks the
+    // A stub (Confidence view) runs and docks the
     // device; it is not an app the dock opens to.
     await nav.select('confidence');
     assert.deepEqual(calls, ['confidence-menu']);
@@ -732,7 +735,7 @@ for (const phone of [true, false]) {
   assert.deepEqual(calls, []);
   await nav.openLink({ app: 'map' });
   await new Promise((r) => setTimeout(r, 0));
-  assert.equal(nav.app, 'map', '?nav=map opens the Map app (its screen holds Go to\u2019s places and the key to the whole field, T-2620)');
+  assert.deepEqual(calls.at(-1), ['map'], '?nav=map opens the Map');
   // Jaunts is a screen since T-2630 (no longer a launch), so the link opens it in the device.
   await nav.openLink({ app: 'jaunts' });
   await new Promise((r) => setTimeout(r, 0));

@@ -2957,10 +2957,8 @@ async function boot() {
   api.loadLiberties = ensureLiberties;
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
-    // T-2626: the round instrument opens the whole field. (T-2620: the Map app now holds Go
-    // to's list of places under its own key to the whole field, so the instrument goes
-    // straight to the field, as the Map app's stub did.)
-    onOpen: () => navigation.setFullVisible(true),
+    // T-2626: the round instrument opens the Map app (its stub opens the whole field).
+    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
   });
   // T-2626: the year chip opens the Jump app.
   document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
@@ -4040,7 +4038,13 @@ async function boot() {
   api.navigator = navigatorUi;
   // T-2620: the drawer's sections now live in the Navigator's apps; hud.setPanel and
   // hud.selectTab open and close them there.
-  installDrawerHost({ hud, navigator: navigatorUi });
+  // Go to is not a drawer section any more but the Jaunts app's own segment (T-2630): G and
+  // hud.selectTab('goto') open it. Its search takes focus for a keyboard, not on a phone,
+  // where focusing raises the on-screen keyboard over the list the tap was for.
+  installDrawerHost({ hud, navigator: navigatorUi, openGoTo: async () => {
+    await api.openJaunts?.('goto');
+    if (coarse && document.activeElement?.id === 'welcome-search') document.activeElement.blur();
+  } });
   // T-2630 (§04 E, §07): the Navigator Home's three choices open the Jaunts app on their
   // segment — Jaunts, Go to, Free roam — as the Welcome card's three do on the arrival.
   api.openJaunts = async (segment = 'jaunts') => {
