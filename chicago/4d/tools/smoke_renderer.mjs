@@ -10727,8 +10727,18 @@ for (const [label, viewport, touch] of [
         mapCaption: document.querySelector('.overview-caption')?.textContent?.trim(),
         mapAria: document.getElementById('overview-map')?.getAttribute('aria-label'),
         speedLabel: document.getElementById('v-speed')?.textContent?.trim(),
-        paceLabels: ['v-speed', 'v-wagon-speed', 'v-horse-speed'].map(
-          (id) => [id, document.getElementById(id)?.textContent?.trim() ?? null]),
+        // ---- T-2651: Move has one slider, re-ranged for the mode picked, so each
+        // ground mode's readout is read through it in turn, then the pace put back.
+        paceLabels: (() => {
+          const was = api.hud.settings.pace;
+          const out = ['walk', 'run', 'wagon', 'horse'].map((pace) => {
+            api.setPace(pace);
+            return [pace, document.getElementById('v-speed')?.textContent?.trim() ?? null];
+          });
+          api.setPace(was);
+          return out;
+        })(),
+        // ---- end T-2651
         units: document.getElementById('s-units')?.value,
         mapSize: [mapCanvas.width, mapCanvas.height],
         // T-1142. The BACKING store is CSS px x dpr and so differs between the
@@ -10782,11 +10792,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: walking speed is presented as a named gait in miles per hour`,
       PACE_READOUT.test(nav.speedLabel ?? '') && !/m\/s/.test(nav.speedLabel ?? ''),
       `speed label ${nav.speedLabel}`);
-    // And all three ground paces, because the readout is one function (hud.js
-    // § gaitReadout) and a fault in it reaches the wagon and the horse too.
+    // And all four ground modes, because the readout is one function (move-modes.js
+    // § speedWords) and a fault in it reaches the run, the wagon and the horse too.
     const badPace = nav.paceLabels.filter(([, text]) => !PACE_READOUT.test(text ?? ''));
-    check(`${label}: every pace slider names its gait beside an imperial speed`,
-      nav.paceLabels.length === 3 && badPace.length === 0,
+    check(`${label}: the speed slider names the gait beside an imperial speed in every mode`,
+      nav.paceLabels.length === 4 && badPace.length === 0,
       badPace.length
         ? badPace.map(([id, text]) => `${id} reads ${JSON.stringify(text)}`).join('; ')
         : nav.paceLabels.map(([id, text]) => `${id} ${text}`).join(', '));
@@ -13498,6 +13508,13 @@ for (const [label, viewport, touch] of [
         return above();
       };
       api.setFly(false);
+      // ---- T-2651 (found on its desktop 7,13 run): setFly(false) only ASKS the walker to
+      // land on its next update. Part 7 ends at the aerial anchor (from_above, 175 m up),
+      // and in a 7,13 run nothing between lands it, so on a runner that drew no frame in
+      // between, the default was read at 175 m. Land it now, as the next update would:
+      // the claim is about standing, and this part establishes its own state (T-0369).
+      api.walker.setFlying(false);
+      // ---- end T-2651
       const dflt = above();
       const readoutAtDefault = document.getElementById('v-eye')?.textContent ?? '';
       const raised = await move(2.2);
@@ -14097,19 +14114,43 @@ for (const [label, viewport, touch] of [
       const WALK = api.walkBudget;
       const w = api.walker;
       const stored = () => JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').travelMode;
-      const modes = [...document.querySelectorAll('#s-travel .seg-btn')].map((b) => b.dataset.mode);
-      document.querySelector('#s-travel .seg-btn[data-mode="horse"]').click();
-      const chosen = { stored: stored(), mode: api.travel.mode,
-        on: document.querySelector('#s-travel .seg-btn.is-on')?.dataset.mode,
-        checked: document.querySelector('#s-travel .seg-btn[aria-checked="true"]')?.dataset.mode };
-      document.querySelector('#s-travel .seg-btn[data-mode="instantly"]').click();
-      const restored = { stored: stored(), mode: api.travel.mode };
+      // ---- T-2651: Move — one picker (Walk, Run, Wagon, Horse, Fly), one slider for
+      // the mode picked, and Go to's choice under them (Teleport, Ride there, Fly over).
+      const pick = (m) => document.querySelector(`#s-move .seg-btn[data-mode="${m}"]`).click();
+      const arrive = (a) => document.querySelector(`#s-arrive .seg-btn[data-arrive="${a}"]`).click();
+      const onMove = () => document.querySelector('#s-move .seg-btn.is-on')?.dataset.mode;
+      const modes = [...document.querySelectorAll('#s-move .seg-btn')].map((b) => b.dataset.mode);
+      const arrives = [...document.querySelectorAll('#s-arrive .seg-btn')].map((b) => b.textContent.trim());
+      const panel = document.querySelector('[data-panel="travel"]');
+      const shape = { ranges: panel.querySelectorAll('input[type="range"]').length,
+        gone: ['s-travel', 's-pace', 's-wagon-speed', 's-horse-speed'].filter((id) => document.getElementById(id)) };
+      pick('horse');
+      arrive('ride');
+      const chosen = { stored: stored(), mode: api.travel.mode, pace: api.hud.settings.pace,
+        on: document.querySelector('#s-arrive .seg-btn.is-on')?.dataset.arrive,
+        checked: document.querySelector('#s-arrive .seg-btn[aria-checked="true"]')?.dataset.arrive };
+      pick('wagon');
+      const follows = { stored: stored(), mode: api.travel.mode };
+      arrive('instantly');
+      pick('walk');
+      const restored = { stored: stored(), mode: api.travel.mode, pace: api.hud.settings.pace };
+      // Fly on the picker is the top bar's Walk/Fly key, and the slider steps aside.
+      pick('fly');
+      const flew = { flying: api.hud.flying, on: onMove(), pressed: document.getElementById('btn-fly')?.getAttribute('aria-pressed'),
+        sliderHidden: document.getElementById('move-speed-field')?.hidden === true };
+      pick('walk');
+      const landed = { flying: api.hud.flying, on: onMove(), sliderHidden: document.getElementById('move-speed-field')?.hidden === true };
+      api.setFly(true);
+      landed.viaKey = onMove();
+      api.setFly(false);
+      landed.afterKey = onMove();
+      // ---- end T-2651 (the picker); the slider is read below
       // The paces, read through the walker's WALK and its eye.
       const eye = () => +(w.state.eyeY - w.state.groundY).toFixed(3);
       api.setFly(false);
       api.walker.teleport({ local_e: -155.24, local_n: -251.19, yaw_deg: 0 });
       const paces = {};
-      for (const pace of ['horse', 'wagon', 'walk']) {
+      for (const pace of ['horse', 'wagon', 'run', 'walk']) {
         api.setPace(pace);
         paces[pace] = { speed: WALK.speed, sprint: WALK.sprintSpeed, eye: eye(),
           chip: document.getElementById('btn-pace')?.dataset.pace };
@@ -14118,18 +14159,32 @@ for (const [label, viewport, touch] of [
       // T-0823: each pace has its own slider, and the walker's WALK follows the
       // one for the pace in force. Read the three stored values, each slider's
       // ceiling, and what the readout SAYS as the horse's slider is dragged.
-      const sliders = { walk: api.hud.settings.speed, wagon: api.hud.settings.wagonSpeed, horse: api.hud.settings.horseSpeed };
-      const range = (id) => { const el = document.getElementById(id); return el && { min: Number(el.min), max: Number(el.max), value: Number(el.value) }; };
-      const drag = (id, v) => { const el = document.getElementById(id); el.value = String(v); el.dispatchEvent(new Event('input', { bubbles: true })); return document.getElementById(id.replace('s-', 'v-'))?.textContent.trim() ?? ''; };
-      const ranges = { walk: range('s-speed'), wagon: range('s-wagon-speed'), horse: range('s-horse-speed') };
-      api.setPace('horse');
+      const sliders = { walk: api.hud.settings.speed, run: api.hud.settings.runSpeed,
+        wagon: api.hud.settings.wagonSpeed, horse: api.hud.settings.horseSpeed };
+      // ---- T-2651: the ONE slider, #s-speed, takes the picked mode's range, value,
+      // label and named speed; dragging it moves only that mode's stored value.
+      const one = () => { const el = document.getElementById('s-speed');
+        return { min: Number(el.min), max: Number(el.max), value: Number(el.value),
+          label: document.getElementById('move-speed-label')?.textContent.trim() }; };
+      const drag = (v) => { const el = document.getElementById('s-speed'); el.value = String(v);
+        el.dispatchEvent(new Event('input', { bubbles: true })); return document.getElementById('v-speed')?.textContent.trim() ?? ''; };
+      const ranges = {};
+      for (const m of ['walk', 'run', 'wagon', 'horse']) { pick(m); ranges[m] = one(); }
+      pick('horse');
       const before = api.hud.settings.horseSpeed;
-      const gaits = { canter: drag('s-horse-speed', 6.5), gallop: drag('s-horse-speed', 10), top: drag('s-horse-speed', 26.82) };
+      const gaits = { canter: drag(6.5), gallop: drag(10), top: drag(26.82) };
       const atTop = { speed: WALK.speed, sprint: WALK.sprintSpeed };
-      drag('s-horse-speed', before);
-      const afterDrag = { speed: WALK.speed, sprint: WALK.sprintSpeed };
-      gaits.walkWord = drag('s-speed', api.hud.settings.speed);
-      gaits.wagonWord = drag('s-wagon-speed', api.hud.settings.wagonSpeed);
+      drag(before);
+      const afterDrag = { speed: WALK.speed, sprint: WALK.sprintSpeed, others: [api.hud.settings.speed, api.hud.settings.wagonSpeed] };
+      pick('walk');
+      gaits.walkWord = drag(api.hud.settings.speed);
+      pick('run');
+      gaits.runWord = drag(api.hud.settings.runSpeed);
+      pick('wagon');
+      const wagonWas = api.hud.settings.wagonSpeed;
+      gaits.rattling = drag(10.97);
+      gaits.wagonWord = drag(wagonWas);
+      // ---- end T-2651 (the slider)
       api.setPace('walk');
       const eyeSetting = api.hud.settings.eyeHeight;
       // The gait: horse, own input forward on a street, peak over one second.
@@ -14141,7 +14196,7 @@ for (const [label, viewport, touch] of [
       bobBox.click();
       const back = { setting: api.hud.settings.headBob, checked: bobBox.checked };
       api.setPace('walk');
-      return { modes, chosen, restored, paces, slider, sliders, ranges, gaits, atTop, afterDrag, eyeSetting, on, off, back };
+      return { modes, arrives, shape, chosen, follows, restored, flew, landed, paces, slider, sliders, ranges, gaits, atTop, afterDrag, eyeSetting, on, off, back };
     }, gaitLoop);
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const reduced = await page.evaluate((loop) => {
@@ -14152,13 +14207,23 @@ for (const [label, viewport, touch] of [
       return r;
     }, gaitLoop);
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    check(`${label}: Travel offers instantly, walk, wagon, horse and fly`,
-      travelUi.modes.join(',') === 'instantly,walk,wagon,horse,fly', travelUi.modes.join(','));
-    check(`${label}: the travel mode chosen is the one the walker rides and the one stored`,
-      travelUi.chosen.stored === 'horse' && travelUi.chosen.mode === 'horse'
-      && travelUi.chosen.on === 'horse' && travelUi.chosen.checked === 'horse'
-      && travelUi.restored.stored === 'instantly' && travelUi.restored.mode === 'instantly',
-      `${JSON.stringify(travelUi.chosen)} -> ${JSON.stringify(travelUi.restored)}`);
+    // ---- T-2651: Move — one picker, Go to's choice under it, Fly the top bar's Fly.
+    check(`${label}: Move offers one picker, Walk, Run, Wagon, Horse or Fly, one slider, and the old pickers and sliders are gone`,
+      travelUi.modes.join(',') === 'walk,run,wagon,horse,fly' && travelUi.shape.ranges === 1 && travelUi.shape.gone.length === 0,
+      JSON.stringify({ modes: travelUi.modes, shape: travelUi.shape }));
+    check(`${label}: Go to's choice is Teleport, Ride there or Fly over; Ride there rides at the mode picked, follows it, and is the one stored`,
+      travelUi.arrives.join(',') === 'Teleport,Ride there,Fly over'
+      && travelUi.chosen.stored === 'horse' && travelUi.chosen.mode === 'horse' && travelUi.chosen.pace === 'horse'
+      && travelUi.chosen.on === 'ride' && travelUi.chosen.checked === 'ride'
+      && travelUi.follows.stored === 'wagon' && travelUi.follows.mode === 'wagon'
+      && travelUi.restored.stored === 'instantly' && travelUi.restored.mode === 'instantly' && travelUi.restored.pace === 'walk',
+      `${JSON.stringify(travelUi.chosen)} -> ${JSON.stringify(travelUi.follows)} -> ${JSON.stringify(travelUi.restored)}`);
+    check(`${label}: Fly on the picker is the top bar's Walk/Fly key, the slider steps aside, and the key shows on the picker`,
+      travelUi.flew.flying === true && travelUi.flew.on === 'fly' && travelUi.flew.pressed === 'true' && travelUi.flew.sliderHidden
+      && travelUi.landed.flying === false && travelUi.landed.on === 'walk' && !travelUi.landed.sliderHidden
+      && travelUi.landed.viaKey === 'fly' && travelUi.landed.afterKey === 'walk',
+      JSON.stringify({ flew: travelUi.flew, landed: travelUi.landed }));
+    // ---- end T-2651 (the picker)
     // T-0823 RESTATED, NOT WEAKENED. The horse's 6.5/11 and the wagon's 3.6 were
     // constants; each pace now has its own slider, so the claim is that WALK
     // follows THAT pace's stored value — sprint = value × factor (2.28 on foot,
@@ -14174,17 +14239,28 @@ for (const [label, viewport, touch] of [
       && Math.abs(travelUi.paces.wagon.eye - (travelUi.eyeSetting + 0.5)) < 0.01
       && near(travelUi.paces.walk.speed, sp.walk) && near(travelUi.paces.walk.sprint, Math.min(sp.walk * 2.28, 8.94))
       && Math.abs(travelUi.paces.walk.eye - travelUi.eyeSetting) < 0.01
-      && sp.walk === 1.45 && sp.wagon === 3.6 && sp.horse === 6.5
+      && near(travelUi.paces.run.speed, sp.run) && near(travelUi.paces.run.sprint, Math.min(sp.run * 1.6, 8.94))
+      && Math.abs(travelUi.paces.run.eye - travelUi.eyeSetting) < 0.01
+      && sp.walk === 1.45 && sp.run === 3.4 && sp.wagon === 3.6 && sp.horse === 6.5
       && travelUi.paces.horse.chip === 'horse' && travelUi.paces.walk.chip === 'walk',
       JSON.stringify({ ...travelUi.paces, sliders: sp, eye: travelUi.eyeSetting }));
-    check(`${label}: the three pace sliders top out at 20, 30 and 60 mph and name the gait as they move`,
-      travelUi.ranges.walk?.max === 8.94 && travelUi.ranges.wagon?.max === 13.41 && travelUi.ranges.horse?.max === 26.82
+    // ---- T-2651: the one slider takes each mode's range (T-0823's ceilings, Run's jog
+    // floor) and names the speed as it moves; dragging it moves that mode alone.
+    const rg = travelUi.ranges;
+    check(`${label}: the one slider takes the picked mode's range, 20, 20, 30 and 60 mph, and names the speed as it moves`,
+      rg.walk?.min === 0.5 && rg.walk?.max === 8.94 && rg.run?.min === 2.6 && rg.run?.max === 8.94
+      && rg.wagon?.max === 13.41 && rg.horse?.max === 26.82
+      && rg.walk.label === 'Walk speed' && rg.run.label === 'Run speed' && rg.wagon.label === 'Wagon speed' && rg.horse.label === 'Horse speed'
+      && near(rg.walk.value, sp.walk) && near(rg.run.value, sp.run) && near(rg.wagon.value, sp.wagon) && near(rg.horse.value, sp.horse)
       && /^canter · /.test(travelUi.gaits.canter) && /^gallop · /.test(travelUi.gaits.gallop)
       && /^beyond any horse · /.test(travelUi.gaits.top) && /60\.0 mph|96\.5 km\/h/.test(travelUi.gaits.top)
-      && /^walk · /.test(travelUi.gaits.walkWord) && /^steady roll · /.test(travelUi.gaits.wagonWord)
+      && /^walk · /.test(travelUi.gaits.walkWord) && /^jog · /.test(travelUi.gaits.runWord)
+      && /^rattling along · /.test(travelUi.gaits.rattling) && /^steady roll · /.test(travelUi.gaits.wagonWord)
       && travelUi.atTop.speed === 26.82 && travelUi.atTop.sprint === 26.82
-      && near(travelUi.afterDrag.speed, 6.5) && near(travelUi.afterDrag.sprint, 11.05),
-      JSON.stringify({ ranges: travelUi.ranges, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
+      && near(travelUi.afterDrag.speed, 6.5) && near(travelUi.afterDrag.sprint, 11.05)
+      && near(travelUi.afterDrag.others[0], sp.walk) && near(travelUi.afterDrag.others[1], sp.wagon),
+      JSON.stringify({ ranges: rg, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
+    // ---- end T-2651 (the slider)
     check(`${label}: the horse's gait moves the rider's eye a few centimetres, and stops when they do`,
       travelUi.on.peak >= 0.03 && travelUi.on.peak <= 0.10 && travelUi.on.after === 0
       && travelUi.on.speed > 1,

@@ -3142,7 +3142,7 @@ async function boot() {
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
       gateFrame.invalidate();
-      if (key === 'speed' || key === 'wagonSpeed' || key === 'horseSpeed' || key === 'eyeHeight' || key === 'pace') {
+      if (key === 'speed' || key === 'runSpeed' || key === 'wagonSpeed' || key === 'horseSpeed' || key === 'eyeHeight' || key === 'pace') {
         // The slider values and the pace compose into WALK in one place —
         // travel.applyPace() — so a wagon seat and a raised eye-height slider
         // add rather than overwrite each other. Applied to the standing eye

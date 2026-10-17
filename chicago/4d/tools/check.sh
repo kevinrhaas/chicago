@@ -180,6 +180,9 @@ step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
   node tools/test_frame_governor.mjs
+# T-2651: Move — one picker and one slider.
+step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider whose range and named speeds follow the mode (T-2651)" \
+  node tools/test_nav_move.mjs
 # T-2661: Guide's controls sheet.
 step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
   node tools/test_nav_guide.mjs
