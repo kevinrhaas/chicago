@@ -156,8 +156,22 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
+  node tools/test_nav_jump.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
+# T-2632: Go to cleanup.
+step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
+  node tools/test_goto_cleanup.mjs
+# T-2633: Go to follows the Confidence view.
+step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
+  node tools/test_goto_confidence.mjs
+# T-2634: Free roam's one-time tip.
+step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
+  node tools/test_roam_tip.mjs
+# T-2631: Jaunt cards and Continue.
+step "Each Jaunt card shows a credited plate of its own stops or none, its keepsake once earned, and an outing in progress pinned on top with Continue (T-2631)" \
+  node tools/test_nav_jaunt_cards.mjs
 step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
   node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
@@ -169,6 +183,12 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
 # T-2651: Move — one picker and one slider.
 step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider whose range and named speeds follow the mode (T-2651)" \
   node tools/test_nav_move.mjs
+# T-2661: Guide's controls sheet.
+step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
+  node tools/test_nav_guide.mjs
+# T-2662: the Guide's glossary and questions, and first appearances explained on tap.
+step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
+  node tools/test_guide_glossary.mjs
 # T-2653: Move's comfort settings.
 step "Move's Comfort holds the head bob, the eye height at its researched default with its Why, and snap-turn on touch (T-2653)" \
   node tools/test_move_comfort.mjs
@@ -3741,8 +3761,9 @@ step "publish.sh produces a mirror that matches its source" \
 # T-2693: and the ground's tiles, which the page uploads in the ground GLB's place.
 # T-2709: and the distant base, which createTerrain batches in place of its own cut.
 # T-2710: and the streets' two layouts, which the page batches instead of laying.
-step "the published prebuilt frontage, ground, distant base and streets are current against every file they were built from (T-2677, T-2693, T-2709, T-2710)" \
-  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base,streets
+# T-2711: and the yards' five surfaces, which the page uploads in place of laying them.
+step "the published prebuilt frontage, ground, distant base, streets and yards are current against every file they were built from (T-2677, T-2693, T-2709, T-2710, T-2711)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base,streets,yards
 
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a
@@ -7222,6 +7243,17 @@ selftest "…and each planted fault (no grade, unsourced Attested, too long, a s
 # lead over three sentences or sixty words; it also holds the card's lint to the gate's above.
 step "every building's card opens with its address once and no id, path or snake_case (T-2636)" \
   node tools/test_fallback_summary.mjs
+
+# T-2662 (prepared ahead of its claim). The Guide's glossary and FAQ, data/guide/: the seven
+# locked terms of design doc section 03 with one-line meanings, and "Is this real?" and "What
+# does Reconstructed mean?". Exactly the locked terms, in order; a meaning at most 15 words, an
+# answer at most 60, a sentence at most 20, reading grade 9 or lower; no lower-case grade word or
+# retired term; the summary records' lint; and every claim names the files that make it true.
+step "the Guide's glossary and FAQ use the locked terms exactly, within their lengths and grade 9" \
+  python3 tools/check_guide.py --check
+
+selftest "…and each planted fault (a missing term, a long answer, a retired word, a claim resting on nothing) is refused" \
+  python3 tools/check_guide.py --self-test
 
 # T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
 # generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's

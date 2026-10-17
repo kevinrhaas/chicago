@@ -41,7 +41,7 @@ try {
       const visible = el => { const b = el.getBoundingClientRect(); return b.top >= 0 && b.bottom <= innerHeight && b.left >= 0 && b.right <= innerWidth; };
       return { focus: document.activeElement.id, state: __chicago4d.welcome.state,
         actions: ['welcome-jaunts','welcome-explore','home-roam'].every(id => visible(document.getElementById(id))),
-        help: document.getElementById('control-help').hidden,
+        help: document.getElementById('control-help') === null, // T-2661: no popover; Guide has the controls
         progress: getComputedStyle(document.getElementById('gate-bar')).display,
         animation: getComputedStyle(document.querySelector('.gate-card')).animationName,
         locked: !!document.pointerLockElement };
@@ -90,7 +90,7 @@ try {
     });
     assert.equal(quick.state, 'world', JSON.stringify(quick));
     await page.locator('#btn-start').dispatchEvent('click');
-    const pause = await page.evaluate(() => ({ e: __chicago4d.walker.state.e, n: __chicago4d.walker.state.n, help: document.getElementById('control-help').hidden }));
+    const pause = await page.evaluate(() => ({ e: __chicago4d.walker.state.e, n: __chicago4d.walker.state.n, help: document.getElementById('control-help') === null }));
     assert(pause.help);
     await page.keyboard.press('w'); await page.keyboard.press('h');
     assert.equal(await page.evaluate(() => __chicago4d.walker.state.e), pause.e);

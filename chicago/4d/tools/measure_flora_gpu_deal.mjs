@@ -402,7 +402,7 @@ const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
   args: ['--enable-unsafe-swiftshader'],
 });
-const report = { ticket: 'T-2706', year: YEAR, measured: new Date().toISOString(),
+const report = { ticket: 'T-2706', remeasured: ['T-2715'], year: YEAR, measured: new Date().toISOString(),
   source: wantSource ? 'working tree' : 'published mirror', tolerances: TOL, viewports: [] };
 let failed = false;
 for (const vp of VIEWPORTS) {

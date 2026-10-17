@@ -1,0 +1,85 @@
+/* inspect.css — the Navigator's Inspect app, the Overview front page (T-2638; DESIGN §08, M7).
+   Reading text is the body face at 16 px on phones (§13); labels stay mono-caps; the page
+   reflows with the Text size setting because every size here is in rem or follows the page.
+   Every colour is a skin token, so all four skins draw it. */
+
+.insp-page { display: flex; flex-direction: column; gap: 12px; padding-bottom: 8px; }
+
+/* 1. The plate, through the CRT treatment: scanlines and a little lift, nothing that moves. */
+.insp-plate { position: relative; margin: 0; border: 1px solid var(--edge); border-radius: 6px; overflow: hidden;
+  background: var(--panel-solid, #000); }
+.insp-plate img { display: block; width: 100%; max-height: 42vh; object-fit: cover;
+  filter: contrast(1.08) saturate(.85) sepia(.12); }
+.insp-plate::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,.16) 0 1px, transparent 1px 3px);
+  box-shadow: inset 0 0 42px rgba(0,0,0,.45); }
+.insp-credit { position: relative; z-index: 1; padding: 4px 8px; font: 400 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  color: var(--ink-dim); background: var(--panel); }
+
+/* 2. Address, name, chips. */
+.insp-address { margin: 0; font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-name { margin: 0; font: 500 1.75rem/1.1 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0);
+  overflow-wrap: anywhere; color: var(--ink); }
+.insp-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.insp-chip { padding: 3px 8px; border: 1px solid var(--edge-strong, var(--edge)); border-radius: 4px;
+  font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+
+/* 3. Summary. */
+.insp-summary { margin: 0; font: 400 1rem/1.55 var(--font-body, inherit); color: var(--ink); max-width: 65ch; }
+
+/* 4. Key facts. */
+.insp-key { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 8px 12px; margin: 0; }
+.insp-key-row { min-width: 0; }
+.insp-key dt { font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-key dd { margin: 2px 0 0; font: 500 1rem/1.35 var(--font-body, inherit); color: var(--ink); overflow-wrap: anywhere; }
+
+/* 5-7. Sections. */
+.insp-sec { padding-top: 10px; border-top: 1px solid var(--edge); }
+.insp-h { margin: 0 0 6px; font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-list { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.insp-person { display: flex; flex-direction: column; gap: 1px; }
+.insp-person strong { font: 500 1rem/1.35 var(--font-body, inherit); color: var(--ink); }
+.insp-look-item { font: 400 1rem/1.45 var(--font-body, inherit); color: var(--ink); }
+.insp-more { margin: 6px 0 0; }
+.insp-swipe { display: grid; grid-auto-flow: column; grid-auto-columns: 86%; gap: 10px; overflow-x: auto;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain; padding-bottom: 4px; }
+.insp-fact { margin: 0; padding: 10px 12px; scroll-snap-align: start; border: 1px solid var(--edge); border-radius: 6px;
+  font: 400 1rem/1.5 var(--font-body, inherit); color: var(--ink); background: var(--panel-raised, transparent); }
+.insp-swipe-hint { margin: 4px 0 0; }
+
+/* 8. The Confidence meter. */
+.insp-meter { display: flex; flex-direction: column; gap: 6px; width: 100%; min-height: 44px; padding: 10px 12px; text-align: left;
+  border: 1px solid var(--edge); border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer; font: inherit; }
+.insp-meter-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--edge); }
+.insp-seg { display: block; min-width: 4px; background: currentColor; }
+.insp-meter-words { font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--ink-dim); }
+.insp-full { align-self: flex-start; min-height: 44px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .insp-swipe { scroll-behavior: auto; }
+}
+.insp-full { background: transparent; color: var(--ink); font: 500 0.9375rem/1.2 var(--font-body, inherit); cursor: pointer; }
+
+/* T-2640: Show me — a small key at the end of each Look for line the record gives a camera,
+   and the outline it pulses on the building for 2 s (still, with reduced motion). */
+.insp-look-item { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.insp-showme {
+  margin-left: auto; min-height: 36px; padding: 0 12px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: transparent; color: var(--accent); cursor: pointer;
+  font: var(--label-weight, 400) 10px/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); letter-spacing: .14em; text-transform: uppercase;
+}
+.insp-showme:hover { border-color: var(--accent); }
+.insp-showme:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.show-me-outline {
+  position: fixed; z-index: 21; pointer-events: none; border-radius: 6px;
+  border: 2px solid var(--amber, #E2A63F);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .35), 0 0 16px color-mix(in srgb, var(--amber, #E2A63F) 55%, transparent);
+}
+.show-me-outline[hidden] { display: none; }
+.show-me-outline.is-pulsing { animation: show-me-pulse .5s ease-in-out 4 alternate both; }
+@keyframes show-me-pulse { from { opacity: 1; } to { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .show-me-outline.is-pulsing { animation: none; } }
