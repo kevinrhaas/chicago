@@ -86,7 +86,7 @@
  *    which has no pales to plank. That is deliberate rather than unfinished —
  *    a pale's 22 mm edge is a fortieth of its silhouette and a rail's 90 mm top
  *    face is not, so the same trade does not come round twice.
- *  * It marks itself. Every vertex carries `_confidence`, and it carries the
+ *  * It marks itself. Every vertex carries a grade, and it carries the
  *    grade of the WEAKEST thing that decides where that vertex is — which for
  *    every fence in this dataset is the fence type, and every fence type here is
  *    invented. So the whole layer disappears when a visitor hides
@@ -97,9 +97,9 @@
 import * as THREE from 'three';
 import { gateBoxes } from './gates.js';
 import { layerPick } from './gpu-pick.js';
-import { compactStreams } from './compact-streams.js';
+import { compactStreams, constantConfidence } from './compact-streams.js';
 
-const { compactNormals, quantizeMeshPositions } = compactStreams(THREE);
+const { compactNormals, quantizeMeshPositions, uniformGrade } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -736,10 +736,14 @@ export async function createEnclosures({
   }
   if (!out.records.length) return out;
 
-  const mat = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(WOOD), roughness: 0.92, metalness: 0.0,
-  });
-  mat.name = 'enclosure-timber';
+  const timberMaterial = () => {
+    const m = new THREE.MeshStandardMaterial({
+      color: new THREE.Color(WOOD), roughness: 0.92, metalness: 0.0,
+    });
+    m.name = 'enclosure-timber';
+    return m;
+  };
+  const mat = timberMaterial();
   confidence?.patch(mat);
   /**
    * THE PROGRAM CACHE KEY, AND WHY THIS ONE LINE IS NOT OPTIONAL.
@@ -767,6 +771,29 @@ export async function createEnclosures({
    * the fence's own and replaces that one.
    */
   mat.customProgramCacheKey = () => 'chicago4d-enclosure-timber';
+
+  /**
+   * ONE GRADE, NO STREAM (T-2689, compact-streams.js). A chunk's every vertex
+   * carries the weakest grade of its fence, and every fence type here is
+   * invented, so a chunk is one grade whole: it keeps no `_confidence` stream
+   * (4 bytes a vertex), records the grade on `geometry.userData.confidence`, and
+   * draws with the material below, whose shader reads that grade as a literal.
+   * One material, and so one program, per grade drawn; a chunk mixing grades
+   * keeps its float stream and draws with `mat`. Each keeps its own cache key,
+   * for the reason above.
+   */
+  const graded = new Map();
+  const materialFor = (grade) => {
+    if (grade === null) return mat;
+    let m = graded.get(grade);
+    if (!m) {
+      m = timberMaterial();
+      confidence?.patch(m, { packed: constantConfidence(grade) });
+      m.customProgramCacheKey = () => `chicago4d-enclosure-timber|confidence:${grade}`;
+      graded.set(grade, m);
+    }
+    return m;
+  };
 
   /**
    * WHICH RECORD A MESH BELONGS TO, and why this layer bothers.
@@ -819,12 +846,17 @@ export async function createEnclosures({
       geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.pos.view(), 3));
       // Int8 x 4 normals (T-2569, compact-streams.js): 4 bytes a vertex for 12.
       geo.setAttribute('normal', compactNormals(chunk.nrm.view()));
-      geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.conf.view(), 1));
+      const grade = uniformGrade(chunk.conf.view());
+      if (grade === null) {
+        geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.conf.view(), 1));
+      } else {
+        geo.userData.confidence = grade;
+      }
       chunk.pos = chunk.nrm = chunk.conf = null;   // scratch from here (T-2152)
       // The whole point of the chunk: its own bounding sphere, around its own
       // fence, so the frustum can leave it out.
       geo.computeBoundingSphere();
-      const mesh = new THREE.Mesh(geo, mat);
+      const mesh = new THREE.Mesh(geo, materialFor(grade));
       // Int16 x 4 positions relative to the chunk, its box in the mesh's matrix
       // (T-2687, compact-streams.js): 8 bytes a vertex for 12.
       quantizeMeshPositions(mesh);
@@ -894,6 +926,7 @@ export async function createEnclosures({
     for (const m of meshes) m.geometry.dispose();
     meshes = [];
     mat.dispose();
+    for (const m of graded.values()) m.dispose();
   };
   return out;
 }

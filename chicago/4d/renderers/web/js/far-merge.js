@@ -215,6 +215,14 @@ function mergeGeometries(members, group) {
     out.setAttribute(name, slot.attr);
   }
   if (indexed) out.setIndex(new THREE.BufferAttribute(idx, 1));
+  // Where the members keep their confidence when it is not a float stream
+  // (T-2689, compact-streams.js): the colour's fourth lane, or one grade for the
+  // whole geometry. Carried when every member agrees, so `confidenceOf` reads
+  // the merged mesh as it read its members.
+  for (const key of ['confidenceLane', 'confidence']) {
+    const v = first.userData?.[key];
+    if (v !== undefined && members.every((m) => m.geometry.userData?.[key] === v)) out.userData[key] = v;
+  }
   out.computeBoundingSphere();
   out.computeBoundingBox();
   return out;

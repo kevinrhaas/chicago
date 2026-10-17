@@ -47,9 +47,29 @@
  *     in metres in the mesh's frame is divided by the model matrix's scale
  *     (frontage.js, the plank-gap filter).
  *
- * WHAT STAYS FLOAT32, AND WHY. `_confidence` is 0, 0.5 or
- * 1 and the shader bands on 0.5 exactly, which no 8-bit normalized value holds.
- * The grain `uv` / `uv1` are metres on a sheet a millimetre or two to the texel,
+ * CONFIDENCE (T-2689) is 0, 0.5 or 1 and the shader bands on 0.5 exactly, which
+ * no 8-bit normalized value holds — so it no longer has a float32 stream of its
+ * own in these layers. It goes where there is room already paid for:
+ *
+ *   - frontage and the yard goods carry it in the colour's FOURTH lane, the one
+ *     that was an alpha of exactly 1 (`setColorsAndConfidence`). Uint16 holds
+ *     0, 0.50001 and 1; the shader rounds the lane to the nearest half, so it
+ *     reads 0, 0.5 and 1 exactly (COLOR_LANE_CONFIDENCE), and it sets the
+ *     varying colour's alpha back to the 1 it always was, so the blend of the
+ *     frontage's transparent pass is what it was. 4 bytes a vertex for nothing.
+ *   - the enclosures have no colour stream. A fence chunk's every vertex carries
+ *     the weakest grade of its fence, so a chunk is almost always one grade
+ *     whole: such a chunk carries NO confidence stream, records its grade on
+ *     `geometry.userData.confidence`, and draws with a material whose shader
+ *     reads that grade as a literal (`constantConfidence`). 4 bytes a vertex for
+ *     nothing again.
+ *
+ * Either way only exactly 0, 0.5 and 1 move; a geometry carrying any other
+ * value keeps the float32 `_confidence` it had (and a three-lane colour, so the
+ * lane is never misread). A reader on the page asks `confidenceOf(geometry)`,
+ * which hands back the per-vertex values wherever they are kept.
+ *
+ * WHAT STAYS FLOAT32, AND WHY. The grain `uv` / `uv1` are metres on a sheet a millimetre or two to the texel,
  * past what a half float holds at the board lengths laid. Each is left alone
  * rather than made approximately right.
  *
@@ -59,7 +79,7 @@
  */
 
 /**
- * The three builders, bound to the caller's three. This module imports nothing,
+ * The builders, bound to the caller's three. This module imports nothing,
  * so the node checks that load a layer from source (check_plank_gap_filter.mjs
  * and its neighbours) resolve it as a plain file.
  */
@@ -180,7 +200,123 @@ export function compactStreams(THREE) {
     return new THREE.BufferAttribute(out, 3);
   }
 
-  return { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions, positionsInMetres };
+  /** True when every value is exactly 0, 0.5 or 1: what a confidence lane holds. */
+  const gradesOnly = (src) => {
+    for (let i = 0; i < src.length; i += 1) {
+      const v = src[i];
+      if (v !== 0 && v !== 0.5 && v !== 1) return false;
+    }
+    return true;
+  };
+
+  /**
+   * Set `geometry`'s `color` from linear rgb per vertex and put its confidence
+   * (one value per vertex) in the colour's fourth lane (see the header). The
+   * tones go Uint16 x 4 normalized where they fit, as `compactColors` writes
+   * them, and Float32 x 4 where they do not; a confidence that is not all 0, 0.5
+   * and 1 stays a float32 `_confidence` beside a three-lane colour.
+   */
+  function setColorsAndConfidence(geometry, colors, confidences) {
+    const n = colors.length / 3;
+    if (confidences.length !== n || !gradesOnly(confidences)) {
+      geometry.setAttribute('color', float32(colors, 3));
+      geometry.setAttribute('_confidence', float32(confidences, 1));
+      return geometry;
+    }
+    let fits = true;
+    for (let i = 0; i < colors.length; i += 1) {
+      if (!(colors[i] >= -EPS && colors[i] <= 1 + EPS)) { fits = false; break; }
+    }
+    const out = fits ? new Uint16Array(n * 4) : new Float32Array(n * 4);
+    for (let i = 0, j = 0; i < colors.length; i += 3, j += 4) {
+      if (fits) {
+        out[j] = Math.round(Math.max(0, Math.min(1, colors[i])) * 65535);
+        out[j + 1] = Math.round(Math.max(0, Math.min(1, colors[i + 1])) * 65535);
+        out[j + 2] = Math.round(Math.max(0, Math.min(1, colors[i + 2])) * 65535);
+        out[j + 3] = Math.round(confidences[i / 3] * 65535);
+      } else {
+        out[j] = colors[i]; out[j + 1] = colors[i + 1]; out[j + 2] = colors[i + 2];
+        out[j + 3] = confidences[i / 3];
+      }
+    }
+    geometry.setAttribute('color', new THREE.BufferAttribute(out, 4, fits));
+    geometry.deleteAttribute('_confidence');
+    geometry.userData.confidenceLane = 'color';
+    return geometry;
+  }
+
+  /**
+   * One grade for a whole geometry, or null: the value when every vertex holds
+   * the same exact 0, 0.5 or 1, which is when a chunk can drop its stream and
+   * draw with `constantConfidence(value)`.
+   */
+  function uniformGrade(confidences) {
+    if (!confidences.length || !gradesOnly(confidences)) return null;
+    const v = confidences[0];
+    for (let i = 1; i < confidences.length; i += 1) if (confidences[i] !== v) return null;
+    return v;
+  }
+
+  /**
+   * A geometry's confidence per vertex, wherever it is kept: its own float
+   * `_confidence`, the colour's fourth lane, or the one grade on
+   * `userData.confidence`. Null where there is none, or where the array it
+   * would be read from has been let go of after upload (upload-release.js).
+   */
+  function confidenceOf(geometry) {
+    const own = geometry?.getAttribute('_confidence');
+    if (own) return own;
+    const position = geometry?.getAttribute('position');
+    if (!position) return null;
+    if (geometry.userData?.confidenceLane === 'color') {
+      const color = geometry.getAttribute('color');
+      if (!color?.array) return null;
+      const out = new Float32Array(color.count);
+      for (let i = 0; i < color.count; i += 1) out[i] = laneGrade(color.getW(i));
+      return new THREE.BufferAttribute(out, 1);
+    }
+    const v = geometry.userData?.confidence;
+    if (typeof v !== 'number') return null;
+    return new THREE.BufferAttribute(new Float32Array(position.count).fill(v), 1);
+  }
+
+  return {
+    compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions, positionsInMetres,
+    setColorsAndConfidence, uniformGrade, confidenceOf,
+  };
+}
+
+/** A colour lane's value read back as its grade: the nearest half, as the shader reads it. */
+export const laneGrade = (w) => Math.floor(w * 2 + 0.5) / 2;
+
+/**
+ * The `packed` channel `confidence.patch` takes for a material whose geometries
+ * keep their confidence in the colour's fourth lane (`setColorsAndConfidence`).
+ * three declares `color` as a vec4 only when the geometry's colour has four
+ * lanes (USE_COLOR_ALPHA); a geometry that kept a float `_confidence` has three
+ * and compiles the other branch. Inserted after `begin_vertex`, which three
+ * includes after `color_vertex`, so the varying alpha it puts back is final.
+ */
+export const COLOR_LANE_CONFIDENCE = {
+  key: 'color-lane',
+  assign: `
+  #ifdef USE_COLOR_ALPHA
+    vConfidence = floor( color.a * 2.0 + 0.5 ) * 0.5;
+    vColor.a = 1.0;
+  #else
+    vConfidence = ( _confidence == _confidence ) ? clamp( _confidence, 0.0, 1.0 ) : 0.0;
+  #endif`,
+  declare(vertexShader) {
+    const decl = '#ifndef USE_COLOR_ALPHA\nattribute float _confidence;\n#endif\n';
+    return vertexShader.includes(decl) ? vertexShader : decl + vertexShader;
+  },
+};
+
+/** The `packed` channel for a material that draws geometries of one grade. */
+export function constantConfidence(value) {
+  const v = Math.min(1, Math.max(0, Number(value) || 0));
+  const glsl = Number.isInteger(v) ? v.toFixed(1) : String(v);
+  return { key: `constant:${glsl}`, read: glsl, declare: (vertexShader) => vertexShader };
 }
 
 /** Int16's normalized range: WebGL decodes `q` as `max(q / 32767, -1)`. */

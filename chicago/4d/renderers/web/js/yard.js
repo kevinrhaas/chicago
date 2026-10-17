@@ -44,7 +44,7 @@
  *    `CHUNK_M`-square buckets by where they stand, one mesh each, all on the
  *    same material — and the draw-call principle bends exactly as far as culling
  *    needs it to and no further.
- *  * It marks itself. Every vertex carries `_confidence` at `reconstructed`,
+ *  * It marks itself. Every vertex carries its grade at `reconstructed`,
  *    because the FACT of goods on these frontages is reconstructed — the
  *    weakest thing deciding that the vertex exists at all. So the whole layer
  *    disappears when a visitor hides `reconstructed`, and the town goes back to
@@ -100,9 +100,9 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
-import { compactStreams } from './compact-streams.js';
+import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
 
-const { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions } = compactStreams(THREE);
+const { compactNormals, setColorsAndConfidence, compactUnitUvs, quantizeMeshPositions } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -3438,7 +3438,8 @@ export async function createYardGoods({
   if (grain.problem) problems.push(`yard: ${grain.problem} — the goods are drawn without grain`);
   const grainMaps = grain.problem ? [] : bindGrain(mat, grain);
   out.census.relief = grain.problem ? null : grain.id;
-  confidence?.patch(mat);
+  // The grade is read from the tone's fourth lane, not a float stream (T-2689).
+  confidence?.patch(mat, { packed: COLOR_LANE_CONFIDENCE });
   /**
    * ITS OWN PROGRAM CACHE KEY, AND WHY THIS LINE IS NOT OPTIONAL. three caches a
    * compiled program under a key ending in `material.customProgramCacheKey()`,
@@ -3466,11 +3467,10 @@ export async function createYardGoods({
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
     // Normals, tones and the atlas cell in compact normalized formats (T-2569,
-    // compact-streams.js); the grain's `uv1` is metres and stays float32.
+    // compact-streams.js), the confidence in the tone's fourth lane (T-2689);
+    // the grain's `uv1` is metres and stays float32.
     geo.setAttribute('normal', compactNormals(chunk.buf.nrm));
-    geo.setAttribute('_confidence',
-      new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
-    geo.setAttribute('color', compactColors(chunk.buf.col));
+    setColorsAndConfidence(geo, chunk.buf.col, chunk.buf.conf);
     if (atlas) geo.setAttribute('uv', compactUnitUvs(chunk.buf.uv));
     if (!grain.problem) {
       geo.setAttribute('uv1', new THREE.Float32BufferAttribute(chunk.buf.uv1, 2));
