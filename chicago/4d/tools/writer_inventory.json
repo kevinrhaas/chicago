@@ -517,6 +517,12 @@
       "measured": "2026-10-16",
       "finding": "Run bare it prints every structure's grade by scene; --check validates data/structure_grades.json and prints the counts; --self-test runs on in-memory fixtures. All three write nothing (git status --porcelain identical before and after). It declares no write mode: the grades it derives are written into the sidecars by tools/compile_scene.py, which imports its grader (T-2686)."
     },
+    "compile_styles.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-17",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check reads data/styles/, data/summaries/, data/sources/, the scene sidecars and assets/ (the plates and LICENSES.md) and only prints, and --self-test plants its faults in memory and in a temporary directory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the style modules are authored, and nothing compiles them until the Design tab (T-2641) decides what it fetches (T-2642, prepared)."
+    },
     "compile_summaries.py": {
       "placement": "pending",
       "write_mode": "--build",

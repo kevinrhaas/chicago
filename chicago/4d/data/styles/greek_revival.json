@@ -1,0 +1,68 @@
+{
+  "id": "greek_revival",
+  "name": "Greek Revival",
+  "about": {
+    "summary": "Houses and halls built to look like ancient Greek temples, with columns and a triangle on top.",
+    "compare": "Columns and triangle gables, from about 1820",
+    "period": {
+      "from": 1820,
+      "to": 1860
+    },
+    "grade": "attested",
+    "sources": [
+      "phmc_pa_architectural_field_guide",
+      "chicago_landmarks_clarke_house_report"
+    ]
+  },
+  "cues": [
+    {
+      "cue": "Columned front porch",
+      "explain": "A porch of tall columns across the front, like a temple's.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide",
+        "chicago_landmarks_clarke_house_report"
+      ]
+    },
+    {
+      "cue": "Triangle on top",
+      "explain": "A low triangular pediment crowns the porch or the front gable.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide",
+        "chicago_landmarks_clarke_house_report"
+      ]
+    },
+    {
+      "cue": "Broad cornice band",
+      "explain": "A broad band runs along the top of the walls, under the roof.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Even, balanced front",
+      "explain": "Windows and door line up evenly, often five across the front.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    }
+  ],
+  "plate": {
+    "file": "plates/styles/greek_revival_clarke_house_1856.jpg",
+    "sha256": "a4c207daee04dcc6f082df59a6f1b0b6c709ece364f0037cd224257b8d6e7407",
+    "source": "habs_clarke_house_il_135_photo_1",
+    "caption": "The Clarke House, Chicago's oldest building, photographed in 1856.",
+    "credit": "Historic American Buildings Survey, Library of Congress (copy of an 1856 photograph)",
+    "building": null,
+    "scene": null,
+    "shows_style": {
+      "grade": "attested",
+      "sources": [
+        "chicago_landmarks_clarke_house_report"
+      ]
+    }
+  }
+}

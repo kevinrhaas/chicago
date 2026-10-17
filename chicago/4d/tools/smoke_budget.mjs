@@ -194,6 +194,11 @@ const COVERAGE = [
   // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
   // the tree does not hold is refused as rot.
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-2642 (prepared): the style library and its plates. No module reads them until the
+  // Inspect Design tab (T-2641); compile_styles.py holds them in check.sh.
+  ['data/style.schema.json', NONE, 'the shape the style modules are refused against: compile_styles.py'],
+  ['data/styles/', NONE, 'style library modules, read by no module until the Design tab: compile_styles.py'],
+  ['assets/plates/', NONE, 'style library plates, published by nothing yet: compile_styles.py'],
   // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
   ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
   // Which files git tracks. What publish.sh writes into the untracked mirror is held by

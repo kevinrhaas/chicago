@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago4d/schemas/style.schema.json",
+  "title": "4D Chicago Style Library Module",
+  "description": "One architectural style, one file: data/styles/<id>.json, where <id> is the style id a summary record's `style` names (data/summary.schema.json). The Inspect app's Design tab (T-2641, T-2642) shows the module's name, its one-line description, four 'how to spot it' cues and a credited reference plate, exactly as written, so tools/compile_styles.py --check refuses, beyond this schema: a fact (the description, each cue, the plate's attribution) with no grade; an attested fact with no source; an inferred or reconstructed fact with no note; a source id that does not resolve in data/sources/; a cue over 4 words or an explainer over 15; a description over 20 words or a comparison over 8; a plate whose source is not public domain, cleared or free of known restrictions (AGENTS.md hard rule 6), whose file is not committed under assets/plates/styles/ with an entry in assets/LICENSES.md, or whose sha256 does not match; a plate building that does not stand in the plate's scene; a missing plate with no `plate_gap` saying why; and an id, snake_case word, file path, link or ticket number in anything a visitor reads (the summary records' lint, imported).",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "about",
+    "cues",
+    "plate"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Shown to a visitor exactly as written."
+    },
+    "grade": {
+      "type": "string",
+      "enum": [
+        "attested",
+        "inferred",
+        "reconstructed"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "uniqueItems": true,
+      "description": "Source ids in data/sources/. Never invent one."
+    },
+    "note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The reasoning (inferred) or what bounded the invention (reconstructed). Linted like every visitor string."
+    }
+  },
+  "properties": {
+    "id": {
+      "$ref": "#/$defs/id",
+      "description": "The style id; the file's name."
+    },
+    "name": {
+      "$ref": "#/$defs/text",
+      "description": "The style's name as a visitor reads it."
+    },
+    "about": {
+      "type": "object",
+      "required": [
+        "summary",
+        "compare",
+        "period",
+        "grade"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "$ref": "#/$defs/text",
+          "description": "One plain line, at most 20 words: what the style is."
+        },
+        "compare": {
+          "$ref": "#/$defs/text",
+          "description": "At most 8 words, for the Compare styles list."
+        },
+        "period": {
+          "type": "object",
+          "required": [
+            "from",
+            "to"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "type": "integer",
+              "minimum": 1600,
+              "maximum": 2100
+            },
+            "to": {
+              "type": "integer",
+              "minimum": 1600,
+              "maximum": 2100
+            }
+          },
+          "description": "The years the cited guide gives the style."
+        },
+        "grade": {
+          "$ref": "#/$defs/grade"
+        },
+        "sources": {
+          "$ref": "#/$defs/sources"
+        },
+        "note": {
+          "$ref": "#/$defs/note"
+        }
+      }
+    },
+    "cues": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Exactly four 'how to spot it' cues.",
+      "items": {
+        "type": "object",
+        "required": [
+          "cue",
+          "explain",
+          "grade"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "cue": {
+            "$ref": "#/$defs/text",
+            "description": "At most 4 words."
+          },
+          "explain": {
+            "$ref": "#/$defs/text",
+            "description": "At most 15 words."
+          },
+          "grade": {
+            "$ref": "#/$defs/grade"
+          },
+          "sources": {
+            "$ref": "#/$defs/sources"
+          },
+          "note": {
+            "$ref": "#/$defs/note"
+          }
+        }
+      }
+    },
+    "plate": {
+      "description": "The reference plate, or null with `plate_gap` saying why none is cleared yet.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "file",
+            "sha256",
+            "source",
+            "caption",
+            "credit",
+            "shows_style"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "file": {
+              "type": "string",
+              "pattern": "^plates/styles/[a-z0-9_]+\\.(jpg|jpeg|png|webp)$",
+              "description": "Path under assets/. Data, never shown."
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source": {
+              "$ref": "#/$defs/id",
+              "description": "The image's own source record, whose rights_status must allow display."
+            },
+            "caption": {
+              "$ref": "#/$defs/text",
+              "description": "At most 15 words: what and when."
+            },
+            "credit": {
+              "$ref": "#/$defs/text",
+              "description": "Who made it and who holds it, as a visitor reads it."
+            },
+            "building": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/$defs/id"
+                }
+              ],
+              "description": "The structure id, where the building stands in one of the project's scenes. Data, never shown."
+            },
+            "scene": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9]{4}$"
+                }
+              ]
+            },
+            "display_crop": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "minItems": 4,
+              "maxItems": 4,
+              "description": "Optional [left, top, right, bottom] as fractions of the image, for a plate that is a whole page. Approximate; the Design tab may refine it."
+            },
+            "shows_style": {
+              "type": "object",
+              "required": [
+                "grade"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "grade": {
+                  "$ref": "#/$defs/grade"
+                },
+                "sources": {
+                  "$ref": "#/$defs/sources"
+                },
+                "note": {
+                  "$ref": "#/$defs/note"
+                }
+              },
+              "description": "The claim that this building is of this style."
+            }
+          }
+        }
+      ]
+    },
+    "plate_gap": {
+      "$ref": "#/$defs/text",
+      "description": "Required when `plate` is null: why no plate is cleared yet, and what would clear one."
+    }
+  }
+}

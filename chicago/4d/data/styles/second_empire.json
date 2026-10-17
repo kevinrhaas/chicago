@@ -1,0 +1,68 @@
+{
+  "id": "second_empire",
+  "name": "Second Empire",
+  "about": {
+    "summary": "Named for France under Napoleon the Third: a steep mansard roof holds a whole extra floor.",
+    "compare": "Steep mansard roof, dormers and iron cresting",
+    "period": {
+      "from": 1860,
+      "to": 1900
+    },
+    "grade": "attested",
+    "sources": [
+      "phmc_pa_architectural_field_guide"
+    ]
+  },
+  "cues": [
+    {
+      "cue": "Mansard roof",
+      "explain": "A steep roof, almost a wall, with a full floor of rooms inside.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Dormers in the roof",
+      "explain": "Windows stand out from the steep roof, in decorated frames.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Iron cresting on top",
+      "explain": "A lacy iron railing runs along the top edge of the roof.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Brackets under the cornice",
+      "explain": "Carved brackets sit under the cornice, just below the roof.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    }
+  ],
+  "plate": {
+    "file": "plates/styles/second_empire_pullman_house_c1900.jpg",
+    "sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
+    "source": "detroit_publishing_pullman_residence_c1900",
+    "caption": "George Pullman's house at Prairie Avenue and 18th Street, about 1900.",
+    "credit": "Detroit Publishing Co., Library of Congress",
+    "building": "pullman_house_1729_prairie",
+    "scene": "1904",
+    "shows_style": {
+      "grade": "inferred",
+      "sources": [
+        "detroit_publishing_pullman_residence_c1900",
+        "chicago_landmarks_prairie_avenue_1973",
+        "phmc_pa_architectural_field_guide"
+      ],
+      "note": "No source read names this house's style. The photograph shows the features the field guide lists for Second Empire: a mansard roof, iron cresting and dormers, which the 1973 Landmarks study also describes as a French-style mansard crowned with ironwork."
+    }
+  }
+}

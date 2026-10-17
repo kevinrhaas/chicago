@@ -1,0 +1,52 @@
+{
+  "id": "queen_anne",
+  "name": "Queen Anne",
+  "about": {
+    "summary": "The style many think of as Victorian: towers, porches, bays and patterned walls, no two sides alike.",
+    "compare": "Towers, porches, everything at once",
+    "period": {
+      "from": 1880,
+      "to": 1910
+    },
+    "grade": "attested",
+    "sources": [
+      "phmc_pa_architectural_field_guide"
+    ]
+  },
+  "cues": [
+    {
+      "cue": "Round corner tower",
+      "explain": "A round or many-sided tower, often at a corner of the house.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Big front porch",
+      "explain": "A wide porch across part or all of the front.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Lopsided, busy front",
+      "explain": "Gables, bays and towers jut out, so the front is never symmetrical.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Mixed wall patterns",
+      "explain": "Patterned shingles, brick and half-timbering can all appear on one house.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    }
+  ],
+  "plate": null,
+  "plate_gap": "No cleared plate yet. Prairie Avenue had Queen Anne houses, but no source read names one, and the public-domain views in the image library are of houses whose style no source states. A plate needs a public-domain image of a building a source calls Queen Anne."
+}

@@ -1,0 +1,74 @@
+{
+  "id": "italianate",
+  "name": "Italianate",
+  "about": {
+    "summary": "Inspired by Italian country houses: wide eaves on brackets, tall narrow windows, sometimes a square tower.",
+    "compare": "Tall windows, curved hoods, bracketed eaves",
+    "period": {
+      "from": 1840,
+      "to": 1885
+    },
+    "grade": "attested",
+    "sources": [
+      "phmc_pa_architectural_field_guide"
+    ]
+  },
+  "cues": [
+    {
+      "cue": "Brackets under the eaves",
+      "explain": "Carved brackets hold up wide eaves that stick far out.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Tall, narrow windows",
+      "explain": "Windows much taller than they are wide, often arched at the top.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Fancy window crowns",
+      "explain": "Heavy hoods over the windows, often curved like an upside-down U.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Square tower or cupola",
+      "explain": "Some have a square tower or a cupola, with its own bracketed cornice.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    }
+  ],
+  "plate": {
+    "file": "plates/styles/italianate_allerton_house_andreas_1886.jpg",
+    "sha256": "befacaf2ebf232563647842ac29ee4489c289cfde94840dc255e68d93f3c332f",
+    "source": "andreas_1886_v3_prairie_twentieth",
+    "caption": "The Allerton house at Prairie Avenue and 20th Street, engraved in 1886.",
+    "credit": "A. T. Andreas, History of Chicago, vol. 3 (1886)",
+    "building": null,
+    "scene": null,
+    "display_crop": [
+      0.13,
+      0.46,
+      0.9,
+      0.91
+    ],
+    "shows_style": {
+      "grade": "inferred",
+      "sources": [
+        "andreas_1886_v3_prairie_twentieth",
+        "chicago_landmarks_prairie_avenue_1973",
+        "phmc_pa_architectural_field_guide"
+      ],
+      "note": "No source read names this house's style. The engraving shows the features the field guide lists for Italianate: crowned windows, a bracketed cornice and a tall square tower, which the 1973 Landmarks study also describes. The house stood in 1904 but is not yet built in the scene."
+    }
+  }
+}

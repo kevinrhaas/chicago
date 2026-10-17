@@ -1,0 +1,67 @@
+{
+  "id": "chicago_school",
+  "name": "Chicago School",
+  "about": {
+    "summary": "Early skyscrapers on steel frames, with wide Chicago windows and little decoration.",
+    "compare": "Steel frame, big windows, flat roof",
+    "period": {
+      "from": 1890,
+      "to": 1920
+    },
+    "grade": "attested",
+    "sources": [
+      "phmc_pa_architectural_field_guide",
+      "habs_reliance_building_il_1029"
+    ]
+  },
+  "cues": [
+    {
+      "cue": "Steel frame inside",
+      "explain": "A steel skeleton alone holds the building up, not its walls.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide",
+        "habs_reliance_building_il_1029"
+      ]
+    },
+    {
+      "cue": "Chicago windows",
+      "explain": "A big fixed pane between two narrow windows that open.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Flat roof and cornice",
+      "explain": "A flat roof, often finished with a decorated cornice at the top.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    },
+    {
+      "cue": "Shop windows below",
+      "explain": "Large display windows for stores fill the ground floor.",
+      "grade": "attested",
+      "sources": [
+        "phmc_pa_architectural_field_guide"
+      ]
+    }
+  ],
+  "plate": {
+    "file": "plates/styles/chicago_school_reliance_building_habs_1963.jpg",
+    "sha256": "b822814a689b18a6289fe299fb696dd80132e10af7b7ff42e713d38c322bbb14",
+    "source": "habs_reliance_building_il_1029",
+    "caption": "The Reliance Building on State Street, photographed in 1963.",
+    "credit": "Cervin Robinson, Historic American Buildings Survey, Library of Congress",
+    "building": null,
+    "scene": null,
+    "shows_style": {
+      "grade": "attested",
+      "sources": [
+        "habs_reliance_building_il_1029"
+      ]
+    }
+  }
+}

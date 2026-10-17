@@ -7163,6 +7163,18 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2642 (prepared ahead of its claim). The style library: data/styles/<id>.json, one
+# module per style with four "how to spot it" cues and a reference plate, shaped by
+# data/style.schema.json and read by the Design tab once T-2641 lands. The summary records'
+# lint is imported, so the two gates agree on what a visitor may read; the plate is held to
+# hard rule 6 (its source's rights allow display, its file committed with its sha256 and a
+# row in assets/LICENSES.md); a module without a plate must say why in plate_gap.
+step "every style module is graded, sourced, within its lengths, and its plate is cleared" \
+  python3 tools/compile_styles.py --check
+
+selftest "…and each planted fault (an invented source, a five-word cue, an uncleared or unlicensed plate) is refused" \
+  python3 tools/compile_styles.py --self-test
+
 # T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
 # years each, captioned as the ticker passes them (design doc section 05). The page shows
 # the strings as written, so this refuses a caption with no grade, no source, a source

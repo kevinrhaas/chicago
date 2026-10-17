@@ -1,0 +1,24 @@
+{
+  "id": "phmc_pa_architectural_field_guide",
+  "type": "website",
+  "citation": "Pennsylvania Historical and Museum Commission, Pennsylvania Architectural Field Guide, style pages (Early Classical Revival, Italianate, Second Empire, Queen Anne, Commercial). Archived edition of 26 August 2015; read 17 October 2026.",
+  "author": "Pennsylvania Historical and Museum Commission, Pennsylvania State Historic Preservation Office",
+  "date": "2015 (archived edition of 26 August 2015)",
+  "url": "https://www.phmc.state.pa.us/portal/communities/architecture/styles/",
+  "locator": "Each style page's text and its 'Identifiable Features' list: styles/early-classical-revival.html, styles/italianate.html, styles/second-empire.html, styles/queen-anne.html, styles/commercial.html",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A state government website; its text and photographs are not cleared for reuse. Cited in text only: the style library's cues are written in this project's own words from its feature lists, and none of its photographs is used.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved and read 2026-10-17. The site says of itself: 'This is a static, archived version of the PHMC Pennsylvania Architectural Field Guide website which will not be updated. It is a snapshot of the website with minor modifications as it appeared on August 26, 2015.' No separate archive snapshot verified.",
+  "note": "A state historic preservation office's field guide: later scholarship, written to help people identify a building's style from its features, which is exactly what the style library's 'how to spot it' cues are. It is a Pennsylvania guide, so it describes the national styles as they appear there; every cue taken from it is a general feature of the style, never a claim about a Chicago building. The Commercial style page says the style 'is sometimes referred to as the Chicago style' and describes the 'Chicago window'.",
+  "what_it_supplies": [
+    "the identifying features of the Greek Revival, Italianate, Second Empire, Queen Anne and Commercial (Chicago) styles",
+    "the date range the guide gives each style"
+  ],
+  "what_it_does_not_supply": [
+    "the style of any particular Chicago building",
+    "any image this project may reuse"
+  ]
+}

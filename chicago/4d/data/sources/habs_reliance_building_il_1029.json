@@ -1,0 +1,25 @@
+{
+  "id": "habs_reliance_building_il_1029",
+  "type": "article",
+  "citation": "Historic American Buildings Survey, Reliance Building, 32 North State Street, Chicago, HABS IL-1029: written data and photographs by Cervin Robinson, August 1963. Library of Congress.",
+  "author": "Historic American Buildings Survey",
+  "date": "1963 (data and photographs)",
+  "describes_date": "1890-1963",
+  "repository": "Library of Congress, Prints and Photographs Division, item il0041",
+  "url": "https://www.loc.gov/item/il0041/",
+  "locator": "Data pages, p. 1, Statement of Significance: 'An important example of the early Chicago School, it anticipates future developments in skyscraper design', quoting the Commission on Chicago Architectural Landmarks on 'the structural cage of steel that alone supports such buildings' and its 'large areas of glass'. Photograph 1: 'NORTH AND EAST ELEVATIONS', Cervin Robinson, August 1963, LOC il0041.photos.060996p.",
+  "tier": 4,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "LOC: 'No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted.' The data pages and photograph 1 are HABS's own work (Cervin Robinson for HABS, 1963), a work of the U.S. Government.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Data PDF (il0041data.pdf) and photograph index (il0041cap.pdf) read 2026-10-17 from tile.loc.gov. Photograph 1's 740 x 1024 derivative fetched from https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0000/il0041/photos/060996pv.jpg on 2026-10-17, sha256 b822814a689b18a6289fe299fb696dd80132e10af7b7ff42e713d38c322bbb14; Wikimedia Commons carries the same photograph from the same LOC item, marked public domain.",
+  "note": "The Chicago School plate and the source that names the Reliance Building's style. Built 1890-95 by D. H. Burnham and Company (Charles B. Atwood), it stands in no scene of this project; it is the style library's Chicago example. The photograph is 1963, so the street, the signs and the cars are 1963's.",
+  "what_it_supplies": [
+    "that the Reliance Building is an early Chicago School building, and its steel cage and large areas of glass",
+    "a public-domain photograph of its north and east elevations"
+  ],
+  "what_it_does_not_supply": [
+    "anything about a building in this project's scenes"
+  ]
+}

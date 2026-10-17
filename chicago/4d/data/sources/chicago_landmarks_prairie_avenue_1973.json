@@ -1,0 +1,24 @@
+{
+  "id": "chicago_landmarks_prairie_avenue_1973",
+  "type": "article",
+  "citation": "Commission on Chicago Historical and Architectural Landmarks. Prairie Avenue: Chicago's First Gold Coast. A research study by the staff of the Commission. Chicago, March 1973.",
+  "author": "Commission on Chicago Historical and Architectural Landmarks (staff)",
+  "date": "March 1973",
+  "describes_date": "1850s-1973",
+  "url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+  "locator": "pp. 15-16 (the post-Fire houses: 'The French style of architecture predominated, and so mansard and hipped roofs and dormer windows were de rigueur'); the house list: '--At 1729 lived the George M. Pullmans ... its French-style mansard roof crowned with delicate and intricate ironwork, its pillared portico, and its arched windows'; '--At 1936 lived Samuel W. Allerton in a big red-brick house'; the closing pages on Allerton's 'two high stories of expensive detail topped by a tower that rose another full story'.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A city commission research study; cited in text only.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved and read 2026-10-17. The Prairie library cites the same report as `city1973`.",
+  "note": "Describes the Pullman house's mansard roof, its ironwork and its portico, and the Allerton house's tower, without naming either house's style. The style library grades its Second Empire and Italianate plates Inferred for that reason: the features this report and the 1886 engraving show are the ones the PHMC field guide lists for those styles.",
+  "what_it_supplies": [
+    "the Pullman house's French-style mansard roof with ironwork, portico and arched windows",
+    "the Allerton house at 1936 Prairie and its tower"
+  ],
+  "what_it_does_not_supply": [
+    "the style name of either house"
+  ]
+}

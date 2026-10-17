@@ -13,8 +13,8 @@ from exclusion_scope import ruled_for
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
-# T-2334; 144 000 from T-2473; 152 000 from T-2498 — see outputs().
-INDEX_BUDGET = 152_000
+# T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2642 — see outputs().
+INDEX_BUDGET = 160_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -334,6 +334,12 @@ class Compiler:
         # card's Images tab need, took it to 144 165 bytes with every citation kept whole. Same
         # bargain: about twenty sources of room, the gzipped first open still held at 120 KB by
         # measure_sources.mjs; this is the raw file only.
+        # 160 000 SINCE 2026-10-17 (T-2642, prepared ahead of its claim): the style library's
+        # seven records (the PHMC field guide its cues are written from, two Chicago Landmarks
+        # reports, the Reliance and Clarke HABS records, the Detroit Publishing Pullman view and
+        # the Andreas 1886 plate), on top of T-2637's three Glessner records, took it to 153 068
+        # bytes with the four longest citations already shortened. Same bargain: about twenty
+        # sources of room, the gzipped first open still held at 120 KB by measure_sources.mjs.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

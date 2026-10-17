@@ -1,0 +1,25 @@
+{
+  "id": "habs_clarke_house_il_135_photo_1",
+  "type": "photograph",
+  "citation": "Historic American Buildings Survey, Henry Clarke House, Chicago, HABS IL-135, photograph 1: 1935 copy of an 1856 photograph of the west and south elevations at the original site, as reproduced in Harper's Weekly, 1902.",
+  "author": "Unknown photographer (1856); Historic American Buildings Survey copy photograph (1935)",
+  "date": "1856 (photograph); 1902 (published, Harper's Weekly vol. 46 no. 7); 1935 (HABS copy)",
+  "describes_date": "1856",
+  "repository": "Library of Congress, Prints and Photographs Division, item il0096 (call number HABS ILL,16-CHIG,4--1). The Prairie library holds the LOC derivative as a19-clarke-habs-photo-061183 in the image store (kevinrhaas/chicago-images).",
+  "url": "https://www.loc.gov/pictures/item/il0096.photos.061183p/",
+  "locator": "The whole print: the house from the south-west at its original site, with its full-height columned portico, pediment, cupola, shutters and picket fence.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Two layers, both clear. The underlying photograph of 1856 was published in Harper's Weekly in 1902 (per the HABS index card), so it is in the public domain as a pre-1929 United States publication; the 1935 copy is HABS's, a work of the U.S. Government (LOC: no known restrictions on images made by the U.S. Government).",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "The image store's copy (a19-clarke-habs-photo-061183.jpg, 1024 x 784, sha256 a4c207daee04dcc6f082df59a6f1b0b6c709ece364f0037cd224257b8d6e7407, the LOC derivative fetched from tile.loc.gov on 2026-10-01) fetched and viewed 2026-10-17, its sha256 matching the store's index; the HABS photograph index (il0096cap.pdf) read the same day.",
+  "note": "The style library's Greek Revival plate: Chicago's oldest building as it stood in 1856, its portico intact (the porticos were removed when the house was moved in 1872, and later restored). The Commission's report notes that the early daguerreotype of the house makes a reversed image; the 1902 printing this copies is not stated to be corrected or not, so nothing about left and right is read from it.",
+  "what_it_supplies": [
+    "a public-domain view of a Chicago Greek Revival house with its columned portico and pediment"
+  ],
+  "what_it_does_not_supply": [
+    "the house's appearance in 1835 (it was built in 1836)",
+    "which way round the view is"
+  ]
+}
