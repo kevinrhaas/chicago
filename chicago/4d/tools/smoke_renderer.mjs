@@ -11030,6 +11030,10 @@ for (const [label, viewport, touch] of [
       const out = { phase: t.phase, dest: t.dest_id, after: centre ? Math.round(Math.hypot(api.player.e - centre[0], api.player.n - centre[1])) : null,
         detent: api.navigator.detent };
       api.travel.stop?.('smoke');
+      // Back as found: in the default travel mode (instantly) Go arrives at once and opens
+      // the building's card, which would otherwise stay up into part 12 — where, on a phone,
+      // its tab bar sits over the Navigator's grip (T-2620's openSection reaches for it).
+      api.popup.close();
       api.navigator.dock();
       api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 });
       api.step();
