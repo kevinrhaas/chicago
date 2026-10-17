@@ -1,4 +1,45 @@
 export const CHANGELOG = [ // newest first
+  { v: 1903, ts: '2026-10-17T00:49:03.994Z', date: 'Oct 16, 2026, 7:49 PM CT', title: 'The jump to your year now shows landmark years as they pass', kind: 'feature',
+    items: [
+      'As the year ticker rolls back from today, the arrival screen cuts to a one-line caption for about two seconds whenever it passes a landmark year: 1966, when architects bought the Glessner House for $35,000 to save it, or 1871, when the Great Fire left about 100,000 people homeless.',
+      'Each destination has its own deck: eleven years on the way to 1904, nine on the way to 1835 and ten on the way to 1812.',
+      'A quick load shows at most three, the most important first. A slow one shows up to eight, so a long wait tells you more.',
+      'Every caption is Attested and cites a source you can check, among them the 1909 Plan of Chicago, the 1933 fair\'s own guidebook and a 1920 front page on the Black Sox.',
+      'The trip to 1812 passes 1832 to 1836, the years of the Treaty of Chicago and the removal of the Potawatomi, with no caption. That history needs review by Native scholars before it is told here.',
+      'Screen readers hear each caption once. Reduced motion shows the captions with no fade.',
+    ] },
+  { v: 1902, ts: '2026-10-17T00:10:40.383Z', date: 'Oct 16, 2026, 7:10 PM CT', title: 'Glessner House\'s web models now ship GPU-compressed textures', kind: 'improvement',
+    items: [
+      'The Glessner v4 full and light web models are re-encoded in KTX2, joining the Prairie houses\' texture path.',
+      'The light tier\'s textures are capped at 1024, a quarter of the full tier\'s GPU residency.',
+      'The photographic baseline page and the proportion audit read the new files.',
+      'Rendered from every reference camera, old files against new, the re-encode changes nothing the eye can see.',
+    ] },
+  { v: 1901, ts: '2026-10-16T23:57:32.008Z', date: 'Oct 16, 2026, 6:57 PM CT', title: 'Keith\'s porch columns stand taller under a deeper beam', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the paired columns of the north porch now rise 2.45 m from their pedestals, 0.2 m taller than before.',
+      'The beam and its stepped cornice over them are deeper, and the carved balcony front above is shallower, as the 1965 close photograph and the 1888 plate both show them.',
+      'The balcony now tops out 0.3 m higher. The two pictures still disagree about the columns by about half a metre, so that question stays open.',
+    ] },
+  { v: 1900, ts: '2026-10-16T23:54:44.859Z', date: 'Oct 16, 2026, 6:54 PM CT', title: 'Prairie Avenue runs straight across 18th Street', kind: 'fix',
+    items: [
+      'North of Glessner, Prairie Avenue no longer steps west at 18th Street. Both 1911 atlas sheets draw it straight, so the 16th-18th sheet is now joined to the Glessner sheet at the crossing they share.',
+      'Curbs, walks, lots, parkway trees, 54 houses and the lakefront tracks on that sheet moved with it, about 1.1 m east and 1.4 m north.',
+      'The thin light line running up the roadway between 16th and 18th Streets is gone.',
+    ] },
+  { v: 1899, ts: '2026-10-16T23:54:44.859Z', date: 'Oct 16, 2026, 6:54 PM CT', title: 'A phone in 1835 holds about 14 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1835 town now holds about 14 MB less once it is drawn (583 MB to 569 MB), which is where phones were running out of memory.',
+      'Most of the plank walks, all of the fences and most of the yard goods now store each corner\'s position in 8 bytes instead of 12, measured from the middle of its own patch of town. The rounding moves a corner by at most a millimetre, and the long walks that would move more keep their old format for now.',
+      'The same views draw the same frame as before. A handful of single pixels flicker on far board edges, and a tapped walk, fence or yard still opens the same card.',
+    ] },
+  { v: 1898, ts: '2026-10-16T23:35:13.357Z', date: 'Oct 16, 2026, 6:35 PM CT', title: 'The home page\'s destination cards show live footage from each year', kind: 'feature',
+    items: [
+      'Each destination card now plays a short looping clip filmed in the app itself, in place of its old engraving or photograph.',
+      'Every year has a small library of views (aerials, a slow swing around a landmark, drifts along the river or street), and one is picked at random each time the page loads.',
+      'The feed is low resolution on purpose and comes through an unstable connection: now and then it blocks up, tears, flickers or drops to static, then settles again.',
+      'With reduced motion or Data Saver on, the card shows its still picture as before.',
+    ] },
   { v: 1897, ts: '2026-10-16T22:48:03.741Z', date: 'Oct 16, 2026, 5:48 PM CT', title: 'A sharp turn on a phone no longer freezes a frame', kind: 'improvement',
     items: [
       'Snapping round a corner, or arriving somewhere new, used to lay out the grass and flowers in front of you in one go — about a seventh of a second with the screen frozen on a mid-range phone.',

@@ -1,0 +1,118 @@
+{
+  "scene": "1812",
+  "about": "The time-stream deck (T-2611, design doc section 05): landmark years the arrival's ticker passes on its way down from the present year to 1812. A caption shows for about two seconds as the ticker passes its year — at most 3 on a fast load (the highest importance first), up to 8 on a slow one. These are facts about the years BETWEEN now and the destination, shown in transit; they put nothing in the scene. Every caption is graded and every source resolves in data/sources/; tools/check_timestream.py refuses one that is not, or that runs over 70 characters.",
+  "captions": [
+    {
+      "year": 1933,
+      "text": "Chicago throws itself a 100th-birthday fair, on land made in the lake.",
+      "grade": "attested",
+      "importance": 6,
+      "sources": [
+        "century_of_progress_1933_official_guide"
+      ],
+      "note": "The guide: Chicago 'is stirred to celebrate her own Centennial', counting from 'its incorporation as a village, in 1833' (scan leaves 16-18), on '424 acres of barren, sandy, man-made land — wrested from the bottom of Lake Michigan' (scan leaf 88)."
+    },
+    {
+      "year": 1909,
+      "text": "Burnham's Plan of Chicago says the lakefront belongs to the people.",
+      "grade": "attested",
+      "importance": 4,
+      "sources": [
+        "burnham_bennett_1909_plan_of_chicago"
+      ],
+      "note": "The Plan, prepared by Daniel H. Burnham and Edward H. Bennett and published by the Commercial Club in 1909: 'The Lake front by right belongs to the people' (p. 50)."
+    },
+    {
+      "year": 1893,
+      "text": "The world's fair paints its buildings white. Hello, White City!",
+      "grade": "attested",
+      "importance": 7,
+      "sources": [
+        "bancroft_1893_book_of_the_fair_v1"
+      ],
+      "note": "Bancroft, 1893: 'painting the buildings white, thus giving to the Fair its appellation of White City' (scan leaf 76)."
+    },
+    {
+      "year": 1871,
+      "text": "The Great Fire leaves about 100,000 people without a home.",
+      "grade": "attested",
+      "importance": 11,
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "note": "Sheahan and Upton count the burnt wards from the 1871 census: 'Rendered homeless, 98,860' (scan leaf 57). The caption rounds it to about 100,000."
+    },
+    {
+      "year": 1861,
+      "text": "Jackscrews lift a whole block of Lake Street, and nothing breaks.",
+      "grade": "attested",
+      "importance": 3,
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: the first brick building raised on jack-screws to the new grade in 1859; 'Two years later an entire block of buildings on Lake Street, extending from Clark to LaSalle, was raised by the same process simultaneously and without damaging the block in the least' (scan leaf 1037)."
+    },
+    {
+      "year": 1860,
+      "text": "Lincoln is nominated for president in a Chicago hall, the Wigwam.",
+      "grade": "attested",
+      "importance": 5,
+      "sources": [
+        "chicago_landmark_sauganash"
+      ],
+      "note": "The landmark designation: 'The Wigwam, constructed on the same site nine years later [after the Sauganash burned in 1851], was home to the 1860 Republican National Convention ... Abraham Lincoln was nominated as the Republican candidate for president.'"
+    },
+    {
+      "year": 1848,
+      "text": "A canal to the Illinois River opens, and crowds cheer the first boat.",
+      "grade": "attested",
+      "importance": 8,
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'By April, 1848, all was ready for the passage of the first boat ... the General Fry ... As the boat passed through the city it was greeted with cheering'; boats started 'from LaSalle and Chicago' at the formal opening, April 16 (scan leaf 359)."
+    },
+    {
+      "year": 1837,
+      "text": "Chicago becomes a city, and William Ogden is its first mayor.",
+      "grade": "attested",
+      "importance": 9,
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'The city of Chicago superseded the town organization under a charter granted by the State Legislature, March 4, 1837' (scan leaf 303); Ogden 'was the first Mayor of Chicago' (scan leaf 1267)."
+    },
+    {
+      "year": 1830,
+      "text": "Surveyor James Thompson maps the first town: streets 80 feet wide.",
+      "grade": "attested",
+      "importance": 10,
+      "sources": [
+        "thompson_plat_1830"
+      ],
+      "note": "Thompson's plat of the Town of Chicago, completed 4 August 1830 for the Illinois and Michigan Canal Commissioners: 80-ft streets and 18-ft alleys."
+    },
+    {
+      "year": 1816,
+      "text": "Soldiers come back and build Fort Dearborn again.",
+      "grade": "attested",
+      "importance": 12,
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'When the fort was rebuilt in 1816 ...' (scan leaf 197), and the plate 'Fort Dearborn, as rebuilt in 1816' (scan leaf 213)."
+    }
+  ],
+  "held_back": [
+    {
+      "years": [
+        1832,
+        1833,
+        1834,
+        1835,
+        1836
+      ],
+      "why": "No caption in any deck speaks of Native people, the 1833 Treaty of Chicago or the removal of the Potawatomi. Under the standing constraint in AGENTS.md (1835 and Indigenous history), a line about the removal would need the review_required and touches_removal flags and the review by Native scholars or community organisations, and a two-second caption in transit is not where that history should first be told. So the years whose landmark is the treaty or the removal are held back from the deck rather than captioned with something smaller, which would pass over them in silence. For 1812 those are the 1833 treaty and the departures of 1835 and 1836; 1832 (the Black Hawk War) and 1834 sit between them and are held back with them, so the ticker passes the whole span without a caption."
+    }
+  ]
+}

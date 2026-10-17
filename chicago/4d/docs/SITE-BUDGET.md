@@ -582,9 +582,13 @@ why the encode is a tool of ours: through the CLI the same 20 houses came to 67.
 The whole-tree **repository-hygiene** allowance is now **320 MiB**, with **22.032 MiB**
 of headroom. Two 320 MiB app allowances plus the 129.136 MiB of other site content total
 **769.136 MiB**, below the 1 GiB platform limit. The 13 MB boot payload is untouched: no
-textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) is expected to
-hand some of this back, since its 28 PNG maps are larger than their UASTC equivalents —
-expected, not measured.
+textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) has handed
+some of it back, measured: the full derivative 59,126,156 → 43,829,952 B and the light
+32,534,812 → 15,521,960 B (its 37 textures capped at 1024), 32,309,056 B (30.81 MiB) off
+the published tree, which then read 268.87 MiB of 320 (51.13 MiB headroom). The
+three-file recovery package went 152,421,884 → 120,457,725 B (25 parts → 20). Rendered
+from the five reference cameras, old files against new, the re-encode reads 36.7–45.4 dB
+PSNR, texture grain only (docs/RESEARCH/ktx2-v4/glessner-v4-ktx2.json).
 
 ## 10. Texture residency — T-2598
 

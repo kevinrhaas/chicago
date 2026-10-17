@@ -25,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1359.435,
-    "local_n": -2961.317,
+    "local_e": 1360.565,
+    "local_n": -2959.927,
     "rotation_deg": -0.542,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 27.250, v -1.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.542 degrees turns the plan's u axis onto the lot's own rear-to-street line. Kept from the district draft (T-2334) by T-2342, which refines the house in place: the main body's rectangle and its rear corner are unchanged.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 27.250, v -1.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.542 degrees turns the plan's u axis onto the lot's own rear-to-street line. Kept from the district draft (T-2334) by T-2342, which refines the house in place: the main body's rectangle and its rear corner are unchanged.",
     "symbolic_location": "1600 S. Prairie Avenue, parcel prairie_1600 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,

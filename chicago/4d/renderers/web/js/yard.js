@@ -102,7 +102,7 @@ import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams } from './compact-streams.js';
 
-const { compactNormals, compactColors, compactUnitUvs } = compactStreams(THREE);
+const { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -3484,6 +3484,9 @@ export async function createYardGoods({
     chunk.buf.pos = chunk.buf.nrm = chunk.buf.conf = chunk.buf.col = chunk.buf.uv = null;
     chunk.buf.uv1 = null;
     const mesh = new THREE.Mesh(geo, mat);
+    // Int16 x 4 positions relative to the chunk, its box in the mesh's matrix,
+    // where that keeps the millimetre (T-2687, compact-streams.js).
+    quantizeMeshPositions(mesh);
     mesh.name = 'yard-chunk';
     mesh.castShadow = true;
     mesh.receiveShadow = true;

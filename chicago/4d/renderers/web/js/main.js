@@ -60,6 +60,7 @@ import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
+import { compactStreams } from './compact-streams.js';
 import { createTextureResidency } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
@@ -67,6 +68,7 @@ import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
+import { createTimeStream } from './time-stream.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -1462,6 +1464,10 @@ try { bootStorage = window.localStorage; } catch { /* private mode */ }
 // cached (boot() re-reads it); a first visit guesses the platform default.
 const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
 api.crashGuard = crashGuard.state;
+// A layer's positions in metres, quantized or not (T-2687, compact-streams.js):
+// what the smoke's probes read, where `getAttribute('position')` now hands
+// back the -1..1 the GPU sees on a quantized mesh.
+api.positionsInMetres = compactStreams(THREE).positionsInMetres;
 const bootProfile = cachedDeviceProfile(bootStorage, null);
 const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
 const crashBoot = crashGuard.boot({
@@ -1501,11 +1507,18 @@ const arrival = createArrival({
   observatoryEl: document.getElementById('gate-observatory'),
   detailsEl: document.getElementById('gate-details'),
   detailEl: document.getElementById('gate-detail'),
+  onYear: year => api.timeStream?.passYear(year),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
 if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
+// T-2611: the time-stream captions — this destination's deck of landmark years, shown as
+// the ticker passes each (3 at most on a fast load, up to 8 on a slow one). Optional:
+// the fetch never joins the ready barrier, and no deck simply shows no caption.
+api.timeStream = createTimeStream({ boot: bootController, forecast: bootForecast,
+  el: document.getElementById('arrival-timestream'), sayEl: document.getElementById('arrival-timestream-say') });
+void api.timeStream.load(new URL(`timestream/${YEAR}.json`, resolveBases().dataBase));
 bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
 bootController.on('ready', () => crashGuard.live());
 const bootCheckpoint = createCheckpoint();

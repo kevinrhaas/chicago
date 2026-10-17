@@ -178,6 +178,8 @@ const COVERAGE = [
   ['renderers/web/glessner-baseline.html', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  // T-2685: the Observatory home page is not the walk; no smoke part loads it.
+  ['renderers/web/portal/', NONE, 'the Observatory home page: test_portal_clips.mjs --browser, write_entry_pages --self-test'],
   ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
   // T-2265: the K01 component contract and the Glessner baseline measured against it.
   // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
@@ -569,6 +571,11 @@ const COVERAGE = [
   ['renderers/web/js/travel-estimate.js', [15], 'the estimate a change of mode moves'],
   ['data/jaunts/', [15], 'the authored jaunts'],
   ['data/sidecars/1835/jaunts/', [15], 'the compiled jaunts and their catalog'],
+  // T-2611: the time-stream captions part 15 watches come up on the arrival it boots
+  // fresh (every other part waves the arrival through); tools/check_timestream.py and
+  // tools/test_time_stream.mjs hold the decks and the pick in check.sh.
+  ['renderers/web/js/time-stream.js', [15], 'the arrival\u2019s time-stream captions (T-2611)'],
+  ['data/timestream/', [15], 'the time-stream decks the arrival fetches (T-2611)'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than

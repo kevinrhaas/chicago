@@ -28,15 +28,15 @@
         "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
       },
       "position": {
-        "utm_e": 448498.356,
-        "utm_n": 4634389.979,
+        "utm_e": 448499.486,
+        "utm_n": 4634391.369,
         "rotation_deg": 179.603,
         "symbolic_location": "1621 S. Prairie Avenue, parcel prairie_1621 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The rear corner of the K01 main body at its north (low-v) side: in the lot frame u 21.85, v -3.6 from the middle of the rear lot line, 13.3 m behind the sheet's street wall (u 35.15) on the north wall the trace s20fp-1621-b1 draws (v -3.6), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs south.",
+        "note": "The rear corner of the K01 main body at its north (low-v) side: in the lot frame u 21.85, v -3.6 from the middle of the rear lot line, 13.3 m behind the sheet's street wall (u 35.15) on the north wall the trace s20fp-1621-b1 draws (v -3.6), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs south.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
