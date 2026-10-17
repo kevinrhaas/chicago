@@ -81,6 +81,26 @@ export function sectionScreen(appId, { lead = null } = {}) {
 }
 
 /**
+ * What a Go to pick does (T-2620). The arrival's search is lent to the Navigator's Jaunts
+ * app as its Go to (T-2630), and with the drawer's Go to list retired it is the only Go to
+ * in the town. From the gate a pick is the way in (enterWorld). In the town the gate is
+ * shut and enterWorld refuses, so a pick goes there as the retired list did: goToTarget,
+ * in the visitor's travel mode, to the place's card. Then the device is pocketed.
+ */
+export function goToPick({ inTown, goTo, enterWorld, dock, entered }) {
+  return (target) => {
+    if (inTown()) {
+      const ok = !!target && !!goTo(target);
+      if (ok) dock?.();
+      return ok;
+    }
+    const ok = enterWorld(target);
+    if (ok) entered?.();
+    return ok;
+  };
+}
+
+/**
  * Hand the HUD its adapter, and move What's new's dot onto the Settings icon. Called once
  * main.js has both the HUD and the Navigator.
  */

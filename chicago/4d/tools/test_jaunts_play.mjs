@@ -29,7 +29,7 @@ try {
     // Match the shared smoke's software-renderer action budget. Assertions stay unchanged.
     page.setDefaultTimeout(90000);
     page.on('pageerror', e => errors.push(e.message));
-    page.on('request', r => { if (/jaunts\/|jaunts.js|jaunt-panel.js|jaunt-preview.js|jaunt.css/.test(r.url())) requests.push(r.url()); });
+    page.on('request', r => { if (/jaunts\/|(?<!apps\/)jaunts\.js|jaunt-panel.js|jaunt-preview.js|jaunt.css/.test(r.url())) requests.push(r.url()); });
     await page.route('**/jaunts/catalog.json', r => r.fulfill({ json: catalog }));
     await page.route('**/jaunts/fixture-*.json', r => {
       const id = path.basename(new URL(r.request().url()).pathname, '.json');

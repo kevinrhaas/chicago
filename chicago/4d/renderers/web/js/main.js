@@ -102,7 +102,7 @@ import { createNavigator } from './navigator.js';
 import { createRoamTip } from './roam-tip.js';
 import { plateFor as jauntPlate } from './pictures.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
-import { install as installDrawerHost } from './apps/drawer-host.js';
+import { install as installDrawerHost, goToPick } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createWhere } from './where.js';
@@ -3998,7 +3998,14 @@ async function boot() {
     // T-2630: the Navigator's Jaunts app hands back what it borrowed before the card shows.
     onShow: () => api.jauntsApp?.restore(),
     // T-2613: into the town is the journey's next state — on a Jaunt, or exploring.
-    enter: target => { const ok = enterWorld({ spawn: target }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
+    // T-2620: in the town a pick goes through goToTarget (see goToPick); from the gate, in.
+    enter: goToPick({
+      inTown: () => !gateOpen && enteredWorld,
+      goTo: (target) => goToTarget(target),
+      enterWorld: (target) => enterWorld({ spawn: target }),
+      dock: () => navigatorUi?.dock(),
+      entered: () => journey.go(jauntEntering ? 'on-jaunt' : 'exploring'),
+    }),
     resume: () => { const ok = enterWorld({ resume: true }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
     pause: () => {
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();

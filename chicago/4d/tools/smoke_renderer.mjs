@@ -13645,6 +13645,42 @@ for (const [label, viewport, touch] of [
       // the list the tap was for.
       && (touch ? viaKey.focused !== 'welcome-search' : viaKey.focused === 'welcome-search'),
       JSON.stringify(viaKey));
+    // ---- T-2620: a pick in the town's Go to goes there (part 13) ------------------------
+    // With the drawer's Go to list retired, the Jaunts app's Go to is the only one in the
+    // town. A pick there once went to enterWorld, which refuses after the gate has shut
+    // ("There is no safe starting place here"); it now goes through goToTarget, as the
+    // retired list did, and the device docks.
+    const beforePick = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      api.popup.close();
+      api.setTravelMode('instantly');
+      const box = document.getElementById('welcome-search');
+      box.value = 'Sauganash';
+      box.dispatchEvent(new Event('input', { bubbles: true }));
+      return { e: api.walker.state.e, n: api.walker.state.n };
+    });
+    await clickChrome('#welcome-results .welcome-destination[data-kind="structure"][data-id="sauganash_hotel"]');
+    await page.waitForTimeout(150);
+    const townPick = await page.evaluate((b) => {
+      const api = window.__chicago4d;
+      const out = {
+        moved: +Math.hypot(api.walker.state.e - b.e, api.walker.state.n - b.n).toFixed(1),
+        phase: api.travelState.phase, card: api.popup.openId,
+        message: document.getElementById('welcome-message')?.textContent ?? '',
+        detent: api.navigator.detent, welcome: api.welcome.state,
+      };
+      const box = document.getElementById('welcome-search');
+      box.value = '';
+      box.dispatchEvent(new Event('input', { bubbles: true }));
+      api.popup.close();
+      return out;
+    }, beforePick);
+    check(`${label}: in the town, a Go to pick goes there — the walker moves or the ride starts, and no refusal shows (T-2620)`,
+      // The card closed before the pick, so the Sauganash's card opening is the arrival too.
+      (townPick.moved > 1 || townPick.phase === 'travelling' || townPick.card === 'sauganash_hotel')
+      && !townPick.message && townPick.detent === 'dock' && townPick.welcome === 'world',
+      JSON.stringify(townPick));
+    // ---- end T-2620 (part 13)
     await page.evaluate(() => { window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
 
     // T-2620: the drawer's Go to list (goto.js: its coverage of every structure, junction

@@ -14,7 +14,7 @@ import { createWhere, polygonDistance, facingWords, clockWords, screenDate } fro
 import { createNavigator, snapLevel, tapLevel, detentHeights, moveWords, DOCK_PX, dockPill, dockYear, JOYSTICK_CLEAR_PX, DOCK_PILL_PX } from '../renderers/web/js/navigator.js';
 import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/nav-rail.js';
 import { APPS } from '../renderers/web/js/apps/index.js';
-import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS } from '../renderers/web/js/apps/drawer-host.js';
+import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS, goToPick } from '../renderers/web/js/apps/drawer-host.js';
 import * as mapView from '../renderers/web/js/apps/map-view.js';
 import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M } from '../renderers/web/js/target-tag.js';
 
@@ -484,6 +484,24 @@ for (const phone of [true, false]) {
   assert.equal(dom.panel.children[0].children.find((t) => t.dataset.tab === 'goto').hidden, true, 'Go to\u2019s tab leaves the row for good');
   adapter.open('goto');
   assert.deepEqual(goTos, ['goto'], 'asking for Go to opens the Jaunts app\u2019s Go to');
+  // A pick in that Go to, in the town, goes there (goToTarget) and pockets the device; the
+  // gate is shut, so enterWorld (the way in) would refuse it. From the gate, a pick enters.
+  {
+    const log = [];
+    let town = true;
+    const pick = goToPick({ inTown: () => town, goTo: (t) => { log.push(['go', t.id]); return t.id !== 'nowhere'; },
+      enterWorld: (t) => { log.push(['enter', t?.id ?? null]); return true; }, dock: () => log.push(['dock']), entered: () => log.push(['entered']) });
+    assert.equal(pick({ kind: 'business', id: 'biz_p_f_peck' }), true, 'in the town a Go to pick goes there');
+    assert.deepEqual(log, [['go', 'biz_p_f_peck'], ['dock']], 'through goToTarget, never enterWorld, and the device docks');
+    log.length = 0;
+    assert.equal(pick({ kind: 'structure', id: 'nowhere' }), false, 'a pick goToTarget refuses is refused');
+    assert.deepEqual(log, [['go', 'nowhere']], 'and the device stays open on the list');
+    log.length = 0;
+    assert.equal(pick(null), false, 'no target, no move');
+    town = false; log.length = 0;
+    assert.equal(pick({ kind: 'anchor', id: 'lake_at_canal' }), true);
+    assert.deepEqual(log, [['enter', 'lake_at_canal'], ['entered']], 'from the gate a pick is the way in');
+  }
   assert.equal(button(dom, 'settings').children.some((c) => c.id === 'help-dot'), true, 'What\u2019s new\u2019s dot rides the Settings icon');
   fakeHud.tab = 'evidence';
   adapter.open('evidence');
