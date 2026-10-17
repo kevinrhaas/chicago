@@ -7169,6 +7169,19 @@ step "the 1904 people directory is its own, and the drawer still offers no Peopl
 selftest "…and a card with no source, no grade, a home not in the scene or a late arrival is refused" \
   python3 tools/test_people_scene.py --self-test
 
+# T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
+# years each, captioned as the ticker passes them (design doc section 05). The page shows
+# the strings as written, so this refuses a caption with no grade, no source, a source
+# that does not resolve, no note, more than 70 characters or 20 words, an id, path or
+# ticket number (T-2635's lint, imported), a year the ticker never passes, a tie in
+# importance (the fast-load pick), and Native history without its review flags and reason.
+step "every time-stream caption is graded, sourced, at most 70 characters and free of ids" \
+  python3 tools/check_timestream.py --check
+selftest "…and each planted fault (no grade, no source, an invented source, too long, an id, a removal caption unflagged) is refused" \
+  python3 tools/check_timestream.py --self-test
+step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8 slow, once each (T-2611)" \
+  node tools/test_time_stream.mjs
+
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
 # an impression: both shapes stand until the last record moves, and a half-migrated layer

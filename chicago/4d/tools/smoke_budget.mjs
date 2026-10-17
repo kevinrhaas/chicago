@@ -576,6 +576,11 @@ const COVERAGE = [
   ['renderers/web/js/travel-estimate.js', [15], 'the estimate a change of mode moves'],
   ['data/jaunts/', [15], 'the authored jaunts'],
   ['data/sidecars/1835/jaunts/', [15], 'the compiled jaunts and their catalog'],
+  // T-2611: the time-stream captions part 15 watches come up on the arrival it boots
+  // fresh (every other part waves the arrival through); tools/check_timestream.py and
+  // tools/test_time_stream.mjs hold the decks and the pick in check.sh.
+  ['renderers/web/js/time-stream.js', [15], 'the arrival\u2019s time-stream captions (T-2611)'],
+  ['data/timestream/', [15], 'the time-stream decks the arrival fetches (T-2611)'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than
