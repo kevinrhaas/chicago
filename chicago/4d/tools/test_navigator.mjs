@@ -360,7 +360,8 @@ for (const phone of [true, false]) {
     storage: fakeStorage(),
     apps: APPS,
     context: () => ({ scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
-      actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']), inspect: (id) => calls.push(['card', id]) } }),
+      actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']), inspect: (id) => calls.push(['card', id]),
+        jauntList: () => calls.push(['jaunt-list']), gotoList: () => calls.push(['goto-list']), freeRoam: () => calls.push(['roam']) } }),
   });
   await Promise.resolve();
   assert.equal(dom.body.classList.contains('has-navigator'), true);
@@ -424,10 +425,24 @@ for (const phone of [true, false]) {
   await Promise.resolve();
   assert.deepEqual(calls.at(-1), ['section', 'settings']);
   assert.equal(nav.detent, phone ? 'dock' : 'rail');
+  // T-2630: Jaunts is a real screen now — three segments, Jaunts first, its list asked for.
   nav.open(1);
-  button(dom, 'jaunts').dispatch('click');
-  await Promise.resolve();
-  assert.deepEqual(calls.at(-1), ['jaunts'], 'Jaunts opens the Jaunts list');
+  await nav.select('jaunts');
+  const jaunts = dom.byId.get('nav-app-jaunts');
+  assert(jaunts && !jaunts.hidden, 'Jaunts opens in its own screen');
+  assert.equal(dom.byId.get('nav-code').textContent, 'SCR 02 · JAUNTS');
+  const segs = jaunts.children[0];
+  assert.equal(segs.getAttribute('role'), 'tablist');
+  assert.deepEqual(segs.children.map((b) => b.textContent), ['Jaunts', 'Go to', 'Free roam'], 'Jaunts · Go to · Free roam');
+  assert.deepEqual(segs.children.map((b) => b.getAttribute('aria-selected')), ['true', 'false', 'false']);
+  assert.deepEqual(calls.at(-1), ['jaunt-list'], 'the Jaunts segment asks for the Jaunts list');
+  segs.children[1].dispatch('click');
+  assert.deepEqual(calls.at(-1), ['goto-list'], 'Go to asks for the search');
+  assert.equal(jaunts.children[2].hidden, false, 'and shows its panel');
+  segs.children[2].dispatch('click');
+  const roamKey = jaunts.children[3].children.find((c) => c.className.split(' ').includes('nav-roam'));
+  roamKey.dispatch('click');
+  assert.deepEqual(calls.at(-1), ['roam'], 'Free roam pockets the device');
 
   // Jump is a real, lazy screen: loaded on first open, with HERE on this scene and the Recall key.
   nav.open(1);
@@ -609,6 +624,41 @@ for (const phone of [true, false]) {
   assert.match(css, /\[data-detent="dock"\]:not\(\.is-dragging\) \{ left: calc\(50% - var\(--dock-w\) \/ 2\)/, 'the pill sits at the bottom centre');
   assert.match(html, /class="gate-code" aria-hidden="true"><span>NAVIGATOR MK II<\/span><span>SCR 01 · HOME<\/span>/,
     'the arrival device wears the screen code on its back face');
+}
+
+// ---- deep links and Back (T-2621) ------------------------------------------------------
+{
+  const dom = miniDom();
+  const calls = [];
+  const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
+    apps: APPS, viewportHeight: () => 780,
+    context: () => ({ scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
+      actions: { inspect: (id) => calls.push(['card', id]), map: () => calls.push(['map']), jaunts: () => calls.push(['jaunts']) } }) });
+  await Promise.resolve();
+  const seen = [];
+  const off = nav.onChange((s) => seen.push(s));
+  assert.equal(nav.has('map'), true);
+  assert.equal(await nav.openLink({ app: 'no-such-app' }), false, 'a link to an app the rail does not have is ignored');
+  assert.deepEqual(calls, []);
+  await nav.openLink({ app: 'map' });
+  assert.deepEqual(calls.at(-1), ['map'], '?nav=map opens the Map');
+  // Jaunts is a screen since T-2630 (no longer a launch), so the link opens it in the device.
+  await nav.openLink({ app: 'jaunts' });
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(nav.app, 'jaunts', '?nav=jaunts opens Jaunts');
+  await nav.openLink({ app: 'inspect', id: 'glessner_house', tab: 'design' });
+  assert.deepEqual(calls.at(-1), ['card', 'glessner_house'], '?nav=inspect:glessner_house opens that building (its card until the dossier lands)');
+  assert.deepEqual(nav.link, { app: 'inspect', id: 'glessner_house', tab: 'design' }, 'the app reads its id and tab off ctx.link');
+  await nav.openLink({ app: 'jump' });
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(nav.app, 'jump');
+  assert.ok(nav.level > 0, 'a screen app opens the device');
+  assert.ok(seen.some((x) => x.app === 'jump' && x.level > 0), 'onChange hears the open app');
+  nav.closeApp();
+  assert.equal(nav.app, 'home');
+  assert.equal(nav.level, 0, 'closeApp: back to Home, docked — what Back does');
+  assert.equal(nav.link, null);
+  off();
 }
 
 // ---- the keyboard (T-2622, §14 Accessibility; QA-05, QA-19) ------------------------------

@@ -297,6 +297,9 @@ const COVERAGE = [
   // --- PART 3: the ground you stand on, and the card that says why
   ['renderers/web/js/ground.js', [3], 'the ground faces the sky (R-BUG3c)'],
   ['renderers/web/js/terrain.js', [3], 'the ground the town stands on'],
+  // What publish prebuilt, read before the ground, the distant base and the frontage ask
+  // for theirs; every part boots through it, and the zero-page-errors check reads its 404s.
+  ['renderers/web/js/prebuilt-index.js', ALL, 'the list of prebuilt layers the boot reads first'],
   // T-2599. The job pool and the spatial partition its workers run. Only terrain's
   // boot ground tiles go through the pool so far, so part 3 is where it is read;
   // T-2600 moves the other spatialBatch callers and widens this with them.
@@ -601,6 +604,10 @@ const COVERAGE = [
   ['data/timestream/', [15], 'the time-stream decks the arrival fetches (T-2611)'],
   // T-2612: the lamps, YEARS TO GO and the log part 15 reads on the arrival it boots fresh.
   ['renderers/web/js/arrival-telemetry.js', [15], 'the arrival\u2019s lamps, YEARS TO GO and log (T-2612)'],
+  // T-2624: the string table. Every visible word of the arrival, the HUD and the Navigator
+  // reads from it, and parts all over the body assert those words, so a change to it is
+  // priced at the whole gate. tools/check_strings.py holds it in check.sh.
+  ['renderers/web/js/strings/', ALL, 'the words every panel and part reads (T-2624)'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than
