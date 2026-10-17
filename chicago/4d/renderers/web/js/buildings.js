@@ -761,6 +761,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
     batch.userData.positionScale = [];
+    // T-2646: each instance's confidence range, as the shader decodes it, so the
+    // Confidence view can leave a wholly ghosted structure out of the opaque pass
+    // and a structure with nothing ghosted out of the ghost pass.
+    batch.userData.confidenceRanges = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
     for (const { record, geo, base, factors, occludesView } of bucket.entries) {
@@ -850,13 +854,17 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       {
         let seen = channels.get(record.id);
         if (!seen) { seen = { min: Infinity, max: -Infinity, dithered: 0, total: 0 }; channels.set(record.id, seen); }
+        let lo = Infinity, hi = -Infinity;
         for (let i = 0; i < count; i += 1) {
           const v = scalar('_confidence', i);
-          seen.min = Math.min(seen.min, v);
-          seen.max = Math.max(seen.max, v);
+          if (v < lo) lo = v;
+          if (v > hi) hi = v;
           seen.total += 1;
           if (v > 0.75) seen.dithered += 1;
         }
+        seen.min = Math.min(seen.min, lo);
+        seen.max = Math.max(seen.max, hi);
+        if (count) batch.userData.confidenceRanges[instanceId] = [lo, hi];
       }
       geo.dispose();
     }

@@ -1,0 +1,42 @@
+{
+ "ticket": "T-2704",
+ "parent": "T-2694",
+ "measured": "2026-10-17",
+ "machine": "steward runner, 4 cores, no GPU (SwiftShader), headless Chromium",
+ "base": "dev @ 2308e57db",
+ "build": {
+  "tool": "node tools/prebuild_layers.mjs --layer yards",
+  "how": "the page's own createEnclosures reads the 15 enclosure records and the page's own createFencedGround lays them over terrain.js's Heightfield; each surface's partition is read off the job pool's partitionTriangles kernel as createFencedGround's own spatialPiecesAsync asks for it (in Node the pool runs every kernel in place), so the pieces are not cut a second time",
+  "ms": 1137,
+  "records": 15,
+  "census": {"interiors": 1155, "cells": 86738, "beds": 267, "paths": 100},
+  "surfaces": {"yard-worn_earth": 104, "yard-trodden_earth": 17, "yard-dooryard_green": 118, "yard-garden_bed": 91, "yard-road_earth": 602},
+  "pieces": 932,
+  "inputs": 65,
+  "problems": 0
+ },
+ "file": {
+  "raw_bytes": 28101216,
+  "gzip_one_pass_bytes": 3558401,
+  "gzip_two_passes_bytes": 3222166,
+  "index_bytes": 91071,
+  "index_gzip_bytes": 32542,
+  "note": "Every surface carries five Float32 attributes (position, uv, color, _confidence, normal) and no index. A second gzip pass gains 9.4 %: more than the ground's 0.7 %, far less than frontage's 35 %."
+ },
+ "self_test": {
+  "tool": "node tools/prebuild_layers.mjs --self-test --layer yards (check.sh)",
+  "ms": 2530,
+  "holds": ["two builds byte-identical", "every surface batched from the file through batchPieces equals createFencedGround's own batch, attribute for attribute", "the input hash covers yards.js, enclosures.js, spatial-batch.js, spatial-kernel.js, the heightfield and the enclosure records", "a fresh build is current", "an index from changed inputs is refused", "a buffer its index did not hash is refused"]
+ },
+ "parity": {
+  "tool": "node tools/prebuild_layers.mjs --layer yards --parity",
+  "root": "source tree (renderers/web/)",
+  "surfaces": 5,
+  "pieces": 932,
+  "attributes": 25,
+  "matched": 25,
+  "pageerrors": 0,
+  "note": "each of the live page's yard surfaces (window.__chicago4d.yards.group: BatchedMesh geometry position, uv, color, _confidence, normal), by sha256, against the Node build's pieces batched with spatial-batch.js's own batchPieces"
+ },
+ "reading": "The 1835 yards' five surfaces, laid and cut in Node by the page's own functions, are byte-equal to what the page draws: 25 of 25 attributes over 5 surfaces and 932 pieces, zero page errors. Built in about 1.1 s on this runner. Shipped, about 3.2 MB gzipped twice. The page does not read it yet; T-2705 makes it upload the file and quotes the boot before and after."
+}
