@@ -2007,6 +2007,19 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; scrollbar-width: none; }
 .welcome-kinds button { min-height: 34px; padding: 0 11px; font-size: 12px; min-width: 44px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
 .welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+/* T-2740: the kinds scroll sideways; the order sits at the row's end, quiet, always in reach. */
+.welcome-filters { display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 0; }
+.welcome-filters .welcome-kinds { flex: 1 1 auto; min-width: 0; }
+.welcome-sort { position: relative; flex: none; display: inline-flex; align-items: center; color: var(--ink-dim); }
+.welcome-sort select {
+  appearance: none; -webkit-appearance: none; min-height: 34px; max-width: 8.5em; padding: 0 24px 0 11px;
+  font: inherit; font-size: 12px; color: inherit; cursor: pointer;
+  background: none; border: 1px solid var(--edge); border-radius: 999px;
+}
+.welcome-sort::after { content: ''; position: absolute; right: 11px; top: 50%; width: 5px; height: 5px; pointer-events: none;
+  border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
+.welcome-sort select:hover, .welcome-sort select:focus-visible { border-color: var(--accent); color: var(--ink); outline: none; }
+.welcome-sort select option { color: var(--ink); background: var(--panel-solid); }
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 96px; flex: 1 1 auto; }
 .welcome-destination { width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px; min-height: 44px; }
 .welcome-destination strong, .welcome-destination span { display: block; }

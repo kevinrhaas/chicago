@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { createDestinations } from '../renderers/web/js/destinations.js';
+import { createDestinations, sortRows, addressOf, ownerKey, SORTS } from '../renderers/web/js/destinations.js';
 import { createRouter } from '../renderers/web/js/route.js';
 
 const terrain = { surfaceHeight: () => 2, isWater: () => false };
@@ -56,6 +56,44 @@ for (const id of ['unlocated','nearby','later']) { assert.equal(authored.resolve
 assert.equal(createDestinations({...args,businesses:{businesses:[]}}).search('',{kind:'business'}).length,0);
 const blocked = createDestinations({...args,standFor:()=>({e:0,n:0})});
 assert.equal(blocked.resolve(blocked.byId('structure','peck_store')),null);
+// T-2740: Go to's orders. Address is street then number, numerically; a row with nothing to
+// sort on goes last in every order; the owner is whose house the record says it is.
+assert.deepEqual(SORTS.map(s => s.id), ['near', 'far', 'address', 'name', 'owner']);
+assert.deepEqual(addressOf('1616-1620 S. Prairie Avenue — the alley building'), { number: 1616, street: 'prairie avenue', text: '1616-1620 S. Prairie Avenue' });
+assert.equal(addressOf('Sauganash Hotel'), null);
+assert.equal(ownerKey('John J. Glessner'), 'glessner john j. glessner');
+assert.equal(ownerKey('Armour/Corwith'), 'armour armour/corwith');
+const prairie = new Map([
+  ['sherman_house_2100_prairie', record('2100 Prairie Avenue — Sherman Victorian Gothic', 'residence', 0, 200)],
+  ['sherman_house_2100_prairie_coach_house', record('2100 S. Prairie Avenue — the alley building of the house at 2100', 'coach house', 10, 200)],
+  ['stone_house_2035_prairie', record('2035 Prairie Avenue — Corner of limestone row', 'residence', 0, 50)],
+  ['house_1600_prairie', record('1600 Prairie Avenue — brick corner house', 'residence', 0, 20)],
+  ['glessner_house', record('John J. Glessner House', 'residence', 0, 100)],
+  ['house_2001_indiana', record('2001 Indiana Avenue — brick house', 'residence', 0, 1000)],
+]);
+prairie.get('glessner_house').sidecar.aka = ['1800 S. Prairie Avenue'];
+const pd = createDestinations({ scene: { anchors: [{ id: 'corner', label: 'Prairie at Eighteenth', local_e: 0, local_n: 99 }] }, registry: prairie,
+  people: { people: [{ id: 'fmg', name: 'Frances M. Glessner', relationship: 'wife', lives_at: 'glessner_house' },
+    { id: 'jjg', name: 'John J. Glessner', relationship: 'head', lives_at: 'glessner_house' }] } });
+const ids = (sort, v = { e: 0, n: 0 }) => pd.search('', { kind: 'structure', includeReconstructed: true, sort, visitor: v }).map(t => t.id);
+assert.deepEqual(ids('near'), ['house_1600_prairie', 'stone_house_2035_prairie', 'glessner_house', 'sherman_house_2100_prairie', 'sherman_house_2100_prairie_coach_house', 'house_2001_indiana']);
+assert.deepEqual(ids('far'), [...ids('near')].reverse());
+assert.deepEqual(ids('address'), ['house_2001_indiana', 'house_1600_prairie', 'glessner_house', 'stone_house_2035_prairie',
+  'sherman_house_2100_prairie', 'sherman_house_2100_prairie_coach_house']);
+// Named buildings A to Z, then the ones whose title only describes them, in title order.
+assert.deepEqual(ids('name'), ['stone_house_2035_prairie', 'glessner_house', 'sherman_house_2100_prairie',
+  'house_1600_prairie', 'house_2001_indiana', 'sherman_house_2100_prairie_coach_house']);
+assert.deepEqual(ids('owner').slice(0, 3), ['glessner_house', 'sherman_house_2100_prairie', 'sherman_house_2100_prairie_coach_house']);
+assert.equal(pd.byId('structure', 'glessner_house').owner, 'John J. Glessner');
+assert.equal(pd.byId('structure', 'stone_house_2035_prairie').owner, null, 'limestone is not a family');
+assert.equal(pd.byId('structure', 'sherman_house_2100_prairie_coach_house').owner, 'Sherman');
+assert.equal(pd.byId('person', 'jjg').address.number, 1800);
+const all = pd.search('', { includeReconstructed: true, sort: 'address', visitor: { e: 0, n: 0 } });
+assert.equal(all.at(-1).kind, 'anchor', 'a viewpoint has no address, so it sorts last');
+assert.equal(pd.search('', { includeReconstructed: true, sort: 'near' }).length, all.length, 'no position: every row still listed');
+assert.deepEqual(pd.sorts.map(s => s.id), ['near', 'far', 'address', 'name', 'owner']);
+assert.deepEqual(d.sorts.map(s => s.id), ['near', 'far', 'name', 'owner'], 'no house numbers, no Address order');
+assert.equal(d.search('', { includeReconstructed: true, sort: 'name' }).at(-1).limit, 'No known address', 'a row with nowhere to stand goes last');
 const goto = fs.readFileSync(new URL('../renderers/web/js/goto.js',import.meta.url),'utf8');
 assert.ok(!goto.includes('targets.push')); assert.ok(goto.includes('destinations.search'));
-console.log('PASS shared destinations: fallback/authored search, unknown addresses, real-router safe ground, one inventory');
+console.log('PASS shared destinations: fallback/authored search, unknown addresses, real-router safe ground, one inventory, five orders');
