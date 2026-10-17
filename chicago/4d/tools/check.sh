@@ -7173,6 +7173,17 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2667 (prepared ahead of its claim). Guide › About this destination: the Evidence hub's
+# topics folded into four cards per destination, the order book behind Researcher mode. The
+# copy is data/guide/about_destination.json and every number in it is computed from the tree;
+# this refuses a typed digit, a hub topic with no home, a card missing in 1835 or 1904, a
+# `holds` the data does not hold, an internal or retired term and the summary records' lint.
+step "About this destination: four cards per destination, every number computed, every hub topic housed (T-2667)" \
+  python3 tools/compile_about_destination.py --check
+
+selftest "…and a typed number, a homeless topic, a false holds and an internal term are refused" \
+  python3 tools/compile_about_destination.py --self-test
+
 # T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
 # generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
 # --check above holds the file itself). This holds what it must mean: exactly its own

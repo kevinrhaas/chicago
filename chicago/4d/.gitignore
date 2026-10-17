@@ -16,3 +16,6 @@
 # The Inspect app's building summaries (T-2635): compiled by tools/compile_summaries.py at
 # publish from data/summaries/, data/sources/ and the people directory. Never committed.
 /data/inspect/
+# Guide › About this destination's rendered cards (T-2667): compiled by
+# tools/compile_about_destination.py --build from data/guide/about_destination.json. Never committed.
+/data/guide/about/

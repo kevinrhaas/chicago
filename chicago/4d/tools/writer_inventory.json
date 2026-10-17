@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "compile_about_destination.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-10-17",
+      "finding": "Reproduces: --build wrote data/guide/about/1812.json, 1835.json and 1904.json and git status did not move: its only output is git-ignored (T-2667, prepared).",
+      "placed": "not to be placed: its output is a build product, not a committed derivation. The rendered cards are computed from the sidecars, sources, liberties, fauna, flora and street trees at the moment they are built, so they cannot go stale on dev; the T-2667 PR wires --build into publish.sh with the UI that reads it."
+    },
     "generate_glessner_finish.py": {
       "placement": "pending",
       "write_mode": "(bare)",

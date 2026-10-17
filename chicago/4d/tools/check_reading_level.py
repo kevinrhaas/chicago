@@ -17,6 +17,8 @@ WHAT IT READS. Every string a visitor reads, from each source of authored copy t
               walks, from tools/compile_summaries.py `visitor_strings`, so the two gates
               read the same strings and cannot drift apart;
   - caption   data/timestream/<scene>.json: each caption's `text` (T-2611);
+  - guide     data/guide/*.json: a glossary `meaning`, an FAQ `q` and `a`, a card's `title`
+              and `body` (T-2662, T-2667), a {figure} scored as the numeral it becomes;
   - bubble    data/tour/*.json: every string under a key named `bubble` (the Field Check
               tour, T-2663, which has not landed; until it does this source reads nothing,
               and the self-test proves the reader with a planted file). Section 11 also
@@ -193,8 +195,34 @@ def bubble_strings(root):
             yield p, "bubble", where, text
 
 
+GUIDE_KEYS = {"meaning", "q", "a", "title", "body"}
+_FIGURE = re.compile(r"\{[a-z_]+\}")
+
+
+def guide_strings(root):
+    """data/guide/*.json (T-2662's glossary and FAQ, T-2667's About this destination): every
+    string under a key a visitor reads -- a glossary `meaning`, an FAQ `q` and `a`, a card's
+    `title` and `body`. A card's {figure} is computed by tools/compile_about_destination.py,
+    and a numeral is one word of one syllable here whatever its value, so a figure is scored
+    as the numeral "7" and the copy reads the same as it will with its real number."""
+    def walk(node, where):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                at = f"{where}.{k}" if where else k
+                if k in GUIDE_KEYS and isinstance(v, str):
+                    yield at, _FIGURE.sub("7", v)
+                elif not k.startswith("_") and k not in ("note", "rests_on", "researcher"):
+                    yield from walk(v, at)
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                yield from walk(v, f"{where}[{i}]")
+    for p in sorted((Path(root) / "data" / "guide").glob("*.json")):
+        for where, text in walk(cs.load_json(p), ""):
+            yield p, "guide", where, text
+
+
 SOURCES = (("summaries", summary_strings), ("time-stream captions", caption_strings),
-           ("tour bubbles", bubble_strings))
+           ("tour bubbles", bubble_strings), ("guide", guide_strings))
 
 
 # ------------------------------------------------------------------ the gate
@@ -287,6 +315,7 @@ def self_test():
         (root / "data" / "timestream").mkdir(parents=True)
         (root / "data" / "summaries").mkdir(parents=True)
         (root / "data" / "tour").mkdir(parents=True)
+        (root / "data" / "guide").mkdir(parents=True)
 
         def write(rel, doc):
             (root / rel).write_text(json.dumps(doc), encoding="utf-8")
@@ -328,6 +357,11 @@ def self_test():
         planted("a 15-word bubble",
                 lambda d, s, t: t["steps"].append({"bubble": "Tap the red door to see who lived in this house in the year 1904."}),
                 "a bubble of 15 words")
+        fs = faults_with({"data/timestream/1904.json": base_deck, "data/summaries/x.json": base_summary,
+                          "data/tour/field_check.json": base_tour,
+                          "data/guide/about.json": {"cards": [{"id": "x", "title": "Sources", "scenes": {
+                              "1835": {"body": GRADE_12 + " {figure}"}}}]}})
+        expect("a grade-12 card in the Guide is refused", any("(guide): Flesch-Kincaid" in f for f in fs))
         planted("a file of short hard lines (each under the per-string floor)",
                 lambda d, s, t: d["captions"].extend({"year": 1900 + i, "text": "Unprecedented architectural repudiation."}
                                                      for i in range(4)),

@@ -1,0 +1,109 @@
+{
+  "_doc": "Guide › About this destination (T-2667, design doc section 12, NAV-1002): the Evidence hub's topics folded into four cards, with the order book behind Researcher mode (owner ruling 2026-10-16). AUTHORED COPY WITH COMPUTED NUMBERS: every number a visitor reads is a {placeholder} that tools/compile_about_destination.py computes from the repository for the destination, and the gate refuses a digit typed into the copy. `holds` states a figure's value that the words rely on (\"none is Reconstructed\") and the compiler checks it. `rests_on` names the files that make the words true. A card a destination does not list has no copy for it.",
+  "topic_map": {
+    "grades": "how_we_grade",
+    "city": "how_we_grade",
+    "ground": "how_we_grade",
+    "sources": "sources",
+    "liberties": "liberties",
+    "exclusions": "liberties",
+    "uncertain": "liberties",
+    "fauna": "lived_and_grew",
+    "plants": "lived_and_grew",
+    "population": "lived_and_grew",
+    "orderbook": "researcher"
+  },
+  "researcher": {
+    "topics": [
+      "orderbook"
+    ],
+    "also": [
+      "ticket references",
+      "commit-gate notes"
+    ],
+    "note": "Shown only with Researcher mode on (owner ruling 2026-10-16, replacing the design doc's separate research page). The order book, the tickets a figure owes and the gate's notes are internal language and never reach a visitor with the mode off."
+  },
+  "cards": [
+    {
+      "id": "how_we_grade",
+      "title": "How we grade",
+      "rests_on": [
+        "data/sidecars",
+        "AGENTS.md"
+      ],
+      "scenes": {
+        "1835": {
+          "body": "Every building here carries a grade. Of {buildings}, {attested} are Attested, {inferred} Inferred and {reconstructed} Reconstructed. The ground makes {ground_claims} claims of its own, each graded too."
+        },
+        "1904": {
+          "body": "Every building here carries a grade. Of {buildings}, {attested} are Attested and {inferred} Inferred, and none is Reconstructed. The ground makes {ground_claims} graded claims of its own.",
+          "holds": {
+            "reconstructed": 0
+          }
+        },
+        "1812": {
+          "body": "Every building here carries a grade. Of {buildings}, {attested} are Attested, {inferred} Inferred and {reconstructed} Reconstructed. The ground makes {ground_claims} claims of its own, each graded too."
+        }
+      }
+    },
+    {
+      "id": "sources",
+      "title": "Sources",
+      "rests_on": [
+        "data/sources",
+        "data/sidecars"
+      ],
+      "scenes": {
+        "1835": {
+          "body": "{sources_here} sources stand behind this year's records, out of {sources_all} in our catalog. Each one says what it gave us and where it shows."
+        },
+        "1904": {
+          "body": "{sources_here} sources stand behind these blocks in {year}, out of {sources_all} in our catalog. Each one says what it gave us and where it shows."
+        },
+        "1812": {
+          "body": "{sources_here} sources stand behind this year's records, out of {sources_all} in our catalog. Each one says what it gave us and where it shows."
+        }
+      }
+    },
+    {
+      "id": "liberties",
+      "title": "Liberties",
+      "rests_on": [
+        "data/liberties.json",
+        "data/sidecars"
+      ],
+      "scenes": {
+        "1835": {
+          "body": "{liberties_here} of our Liberties name a building in this town. We also list {left_out} buildings we researched and left out, and {doubts} questions still open."
+        },
+        "1904": {
+          "body": "{liberties_here} of our Liberties name a building on these blocks. Each one says what we chose without a source, and why."
+        },
+        "1812": {
+          "body": "{liberties_here} of our Liberties name a building standing in this year. We also list {left_out} buildings we researched and left out."
+        }
+      }
+    },
+    {
+      "id": "lived_and_grew",
+      "title": "What lived and grew here",
+      "rests_on": [
+        "data/fauna",
+        "data/flora",
+        "data/street_trees",
+        "data/sidecars"
+      ],
+      "scenes": {
+        "1835": {
+          "body": "We researched {animal_species} kinds of animals across {habitats} habitats. None are drawn. Plants grow from {plant_communities} plant communities, and our list of people holds {people_listed}, each with a grade."
+        },
+        "1904": {
+          "body": "{trees} street trees of {tree_species} kinds line these blocks. So far {people_listed} people are named here: {people_names}."
+        },
+        "1812": {
+          "body": "Plants grow from {plant_communities} plant communities. {plantings_here} plantings belong to this year alone, like the cottonwoods people remembered."
+        }
+      }
+    }
+  ]
+}
