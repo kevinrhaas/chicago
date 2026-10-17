@@ -99,7 +99,9 @@ export function mountTelemetry({
   let slippingUntil = 0;
   let nextDrift = now() + D.nextDriftIn(true, random);
 
+  let steady = false;
   function paint(text, slipping) {
+    steady = text === STEADY;
     out.field.textContent = text.field;
     out.drift.textContent = text.drift;
     out.sig.textContent = text.sig;
@@ -125,8 +127,9 @@ export function mountTelemetry({
     else if (!want && timer !== null) {
       clearTimer(timer);
       timer = null;
-      if (reducedMotion?.matches) paint(STEADY, false);
     }
+    // Under reduced motion it stands at its steady reading, whatever it last showed.
+    if (!want && reducedMotion?.matches && !steady) paint(STEADY, false);
     return want;
   }
   const onVisibility = () => sync();

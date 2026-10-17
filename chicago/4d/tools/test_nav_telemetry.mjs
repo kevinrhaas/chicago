@@ -141,6 +141,16 @@ const textOf = (el) => el.children.map((c) => c.children[1]?.textContent ?? '').
   rm.set(false);
   assert.equal(tm.running, true, 'motion allowed again: it ticks');
 
+  // Reduced motion asked for while the strip is already stopped (docked) still brings it to
+  // its steady reading — it must not stand frozen on a drift.
+  t = 30000; timers.fire();
+  open = false; tm.sync();
+  t = 40000; tm.tick();
+  rm.set(true);
+  assert.equal(textOf(el), `${STEADY.field}|${STEADY.drift}|${STEADY.sig}|`, 'stopped first, then reduced motion: steady');
+  tm.tick(); tm.sync();
+  assert.equal(textOf(el), `${STEADY.field}|${STEADY.drift}|${STEADY.sig}|`, 'and a stray tick is put back to steady on the next sync');
+  rm.set(false); open = true; tm.sync();
   const before = doc.listeners.visibilitychange.length;
   tm.destroy();
   assert.equal(timers.live.size, 0, 'destroy stops the timer');
