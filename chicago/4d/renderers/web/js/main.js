@@ -101,6 +101,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
+import { createShowMe, plan as planShowMe } from './show-me.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -3950,6 +3951,7 @@ async function boot() {
       gateFrame.reset();
       backends.activate(null);
       gesture.setLook({ inWorld: false });
+      api.showMe?.cancel(); // T-2640: no camera turn carries on behind the arrival device
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
       hud.dismissControlHelp({ remember: false });
@@ -3998,6 +4000,56 @@ async function boot() {
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
   });
   api.target = target;
+  // T-2640 (§08 "Look for", §13): Show me stands you outside the building on the line its
+  // record's camera looks along, faces that bearing, and pulses an outline on the building.
+  const showMeOutline = document.getElementById('show-me-outline');
+  let showMeId = null;
+  function paintShowMeOutline() {
+    const fp = footprints.find((f) => f.id === showMeId);
+    if (!showMeOutline || !fp) return false;
+    const record = loaded.registry.get(showMeId);
+    const h = buildingBounds[showMeId]?.size?.[1] ?? record?.sidecar?.attributes?.wall_height_m?.value ?? 8;
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity, ahead = 0;
+    const v = new THREE.Vector3();
+    for (const [e, n] of fp.pts) {
+      const g = terrain.surfaceHeight(e, n);
+      for (const up of [0, h]) {
+        v.copy(enuToWorld(e, n, g + up)).project(camera);
+        if (v.z < 1) ahead++;
+        const x = (v.x + 1) / 2 * innerWidth, y = (1 - v.y) / 2 * innerHeight;
+        x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y);
+      }
+    }
+    if (!ahead) return false;
+    const pad = 8;
+    Object.assign(showMeOutline.style, { left: `${Math.max(0, x0 - pad)}px`, top: `${Math.max(0, y0 - pad)}px`,
+      width: `${Math.min(innerWidth, x1 + pad) - Math.max(0, x0 - pad)}px`, height: `${Math.min(innerHeight, y1 + pad) - Math.max(0, y0 - pad)}px` });
+    return true;
+  }
+  const showMe = createShowMe({
+    pose: () => ({ e: walker.state.e, n: walker.state.n, yaw: walker.bearingDeg, pitch: walker.state.pitch * 180 / Math.PI, flying: hud.flying }),
+    place: ({ e, n, yaw, pitch }) => walker.teleport({ local_e: e, local_n: n, yaw_deg: yaw, pitch_deg: pitch }),
+    land: () => hud.setFly(false, { announce: false }),
+    outline: ({ on, pulse }) => {
+      if (!showMeOutline) return;
+      if (!on) { showMeOutline.hidden = true; showMeOutline.classList.remove('is-pulsing'); return; }
+      // Drawn once the camera has drawn the frame it moved to.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (!paintShowMeOutline()) return;
+        showMeOutline.hidden = false;
+        showMeOutline.classList.toggle('is-pulsing', !!pulse);
+      }));
+    },
+  });
+  function showMeFor(id, item) {
+    const fp = footprints.find((f) => f.id === id);
+    const target = planShowMe(item, fp?.pts, { blocked: (e, n) => !!router.blockedAt?.(e, n) });
+    if (!target) return Promise.resolve(false);
+    travel?.stop?.('show-me');
+    showMeId = id;
+    return showMe.show(target);
+  }
+  api.showMe = { show: showMeFor, get last() { return showMe.last; }, cancel: () => showMe.cancel() };
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -4049,6 +4101,8 @@ async function boot() {
           if (hit && tab) document.querySelector(`#popup [data-pop-tab="${tab}"]`)?.click();
           return hit;
         },
+        // T-2640: Show me — only along a camera the building's own summary record names.
+        showMe: (id, item) => showMeFor(id, item),
       },
     }),
   });

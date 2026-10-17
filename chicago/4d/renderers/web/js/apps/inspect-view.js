@@ -19,6 +19,7 @@
 import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
+import { cameraOf } from '../show-me.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -226,6 +227,18 @@ function render(root, ctx) {
     for (const l of look.slice(0, 3)) {
       const li = line(doc, 'li', 'insp-look-item', l.text, l.grade);
       li.dataset.feature = l.feature;
+      // T-2640: Show me, only where the record names a camera for this feature.
+      if (cameraOf(l) && ctx.actions?.showMe) {
+        const b = el(doc, 'button', 'insp-showme', 'Show me');
+        b.type = 'button';
+        b.setAttribute('aria-label', `Show me: ${l.text}`);
+        b.addEventListener('click', () => {
+          // On a phone the device steps down so the turn is in view.
+          if (['half', 'full'].includes(ctx.navigator?.detent)) ctx.navigator?.dock?.();
+          void ctx.actions.showMe(id, l);
+        });
+        li.append(b);
+      }
       ul.append(li);
     }
     sec.append(ul);
