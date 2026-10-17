@@ -1,8 +1,0 @@
-{
-  "title": "Phone memory ceiling for 1904 lowered after texture residency",
-  "kind": "chore",
-  "items": [
-    "Nothing you can see changed. 1904 now reads 850 MB on a phone when you arrive, down from 1,106 MB, because house pictures load only near you. The check that holds it now allows 950 MB, down from 1,225 MB.",
-    "We checked four more views, including one from above Glessner House. Holding fewer pictures in memory changed fewer pixels than the swaying trees did."
-  ]
-}

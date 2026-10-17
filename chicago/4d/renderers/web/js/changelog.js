@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1962, ts: '2026-10-17T18:13:55.153Z', date: 'Oct 17, 2026, 1:13 PM CT', title: 'Keith house\'s crown band packed closer, as the 1888 photograph shows', kind: 'change',
+    items: [
+      '1808 Prairie (1904): the diamond-pointed band under the parapet now stands its points 0.28 m apart along each row, not 0.34 m, so the band reads as close-packed stone the way the 1888 Inland Architect photograph, the 1948 and the 1967 views show it.',
+      'Three more of the house\'s sixteen photographs now read as matching the model, eight in all.',
+    ] },
+  { v: 1961, ts: '2026-10-17T18:13:55.153Z', date: 'Oct 17, 2026, 1:13 PM CT', title: 'Phone memory ceiling for 1904 lowered after texture residency', kind: 'chore',
+    items: [
+      'Nothing you can see changed. 1904 now reads 850 MB on a phone when you arrive, down from 1,106 MB, because house pictures load only near you. The check that holds it now allows 950 MB, down from 1,225 MB.',
+      'We checked four more views, including one from above Glessner House. Holding fewer pictures in memory changed fewer pixels than the swaying trees did.',
+    ] },
   { v: 1960, ts: '2026-10-17T18:08:42.937Z', date: 'Oct 17, 2026, 1:08 PM CT', title: 'Why this test machine cannot read the frame governor yet', kind: 'chore',
     items: [
       'Nothing you can see changed in the town: this is a measurement of the frame governor that smooths walking on slow devices.',
