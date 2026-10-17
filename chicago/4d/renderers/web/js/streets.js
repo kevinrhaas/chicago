@@ -25,6 +25,9 @@
 import * as THREE from 'three';
 import { spatialBatchAsync } from './spatial-batch.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
+// T-2703: the road's geometry turns through these, not Math's, so every engine —
+// and tools/prebuild_layers.mjs in Node — lays the same bits (portable-math.js).
+import { acos, atan2, cos, sin, exponentOf } from './portable-math.js';
 
 const STEP_M = 2.25;
 const LIFT_M = 0.022;
@@ -580,7 +583,7 @@ function sampled(path) {
 // The float32 one step from `x` in the direction of `dir`'s sign.
 function stepF32(x, dir) {
   if (dir === 0) return x;
-  const ulp = 2 ** (Math.floor(Math.log2(Math.max(Math.abs(x), 2 ** -100))) - 23);
+  const ulp = 2 ** (exponentOf(Math.max(Math.abs(x), 2 ** -100)) - 23);
   return Math.fround(x + Math.sign(dir) * ulp);
 }
 
@@ -1098,8 +1101,8 @@ function ridgePanel(terrain, grid, ends, a, b) {
 }
 
 function rotated(e, n, angle) {
-  const c = Math.cos(angle);
-  const s = Math.sin(angle);
+  const c = cos(angle);
+  const s = sin(angle);
   return [e * c - n * s, e * s + n * c];
 }
 
@@ -1121,7 +1124,7 @@ function mitreJoins(pts, half, dryReach, stats) {
   const joins = pts.map(() => null);
   // The largest turn one mitre may close without standing further than
   // MITRE_MAX_OVERHANG_M past the bend.
-  const maxStep = Math.acos(half / (half + MITRE_MAX_OVERHANG_M));
+  const maxStep = acos(half / (half + MITRE_MAX_OVERHANG_M));
   for (let p = 1; p < pts.length - 1; p++) {
     const A = pts[p - 1];
     const P = pts[p];
@@ -1133,7 +1136,7 @@ function mitreJoins(pts, half, dryReach, stats) {
     const l1 = Math.hypot(d1e, d1n);
     const l2 = Math.hypot(d2e, d2n);
     if (l1 < 1e-5 || l2 < 1e-5) continue;
-    let turn = Math.atan2(d2n, d2e) - Math.atan2(d1n, d1e);
+    let turn = atan2(d2n, d2e) - atan2(d1n, d1e);
     if (turn > Math.PI) turn -= 2 * Math.PI;
     if (turn < -Math.PI) turn += 2 * Math.PI;
     if (Math.abs(turn) < MITRE_MIN_TURN_RAD) continue;
@@ -1142,7 +1145,7 @@ function mitreJoins(pts, half, dryReach, stats) {
     const u1e = -d1n / l1;
     const u1n = d1e / l1;
     const halfTurn = turn * 0.5;
-    const cosHalf = Math.cos(halfTurn);
+    const cosHalf = cos(halfTurn);
     const mitre = half / cosHalf;
     const k = Math.max(1, Math.ceil(Math.abs(halfTurn) / maxStep));
     // Which side is the INSIDE of the turn: left when the line turns left.
@@ -1173,7 +1176,7 @@ function mitreJoins(pts, half, dryReach, stats) {
         const v = rotated(u1e, u1n, angle);
         outer.push([P[0] - sgn * v[0] * radius, P[1] - sgn * v[1] * radius]);
       };
-      const stepMitre = half / Math.cos(halfTurn / k);
+      const stepMitre = half / cos(halfTurn / k);
       at(0, half);
       for (let j = 1; j <= k; j += 1) at(((2 * j - 1) * turn) / (2 * k), stepMitre);
       at(turn, half);
@@ -1945,9 +1948,13 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
   return { mesh, geo: mesh.geometry, mat };
 }
 
-export async function createStreets({ terrain, records = [], confidence = null, detail = 'full' } = {}) {
-  const group = new THREE.Group();
-  group.name = 'streets';
+/**
+ * How createStreets lays its surfaces, without materials or meshes: the records it
+ * draws and `layOut(withRidge)`, which lays every surface's buffers. Lifted out of
+ * createStreets for T-2703 so tools/prebuild_layers.mjs can lay the same surfaces in
+ * Node (`streetSurfaces`, below).
+ */
+function streetLayout(records, terrain) {
   // A PLATTED BUT UNOPENED STREET DRAWS NOTHING. The twelve east-west lines Wright
   // rules across the School Section are survey lines over prairie, not roads: they
   // compile with `opened: false` and `track_width_m: 0`, and there is no worn strip
@@ -1958,12 +1965,6 @@ export async function createStreets({ terrain, records = [], confidence = null, 
       && r.path_local_enu_m.length >= 2
       && r.opened !== false && (r.track_width_m ?? 6) > 0).map(prepare);
   const fades = endFades(prepared);
-  // THE RIDGE DRAPE IS A FULL- AND BALANCED-DETAIL COST. `light` is the tier a
-  // weak machine boots into and it stays inside its own ceiling (AGENTS.md), so
-  // there the panels keep their refined grids: the near-hole in the coarse base
-  // and the per-column `u` are free and reach every tier; the cut does not.
-  const ridgeAt = (level) => level !== 'light';
-  let ridge = ridgeAt(detail);
   // T-0110. With refinement a panel is no longer a fixed six indices, so the
   // smoke's panel-accounting gate reads these counters instead of index math.
   // T-0184 adds the joint counters. `squareJoints` is the one that matters: it
@@ -1982,6 +1983,31 @@ export async function createStreets({ terrain, records = [], confidence = null, 
     }
     return { buffers: laid, counts };
   };
+  return { prepared, layOut };
+}
+
+// THE RIDGE DRAPE IS A FULL- AND BALANCED-DETAIL COST. `light` is the tier a
+// weak machine boots into and it stays inside its own ceiling (AGENTS.md), so
+// there the panels keep their refined grids: the near-hole in the coarse base
+// and the per-column `u` are free and reach every tier; the cut does not.
+const ridgeAt = (level) => level !== 'light';
+
+/**
+ * T-2703. The surfaces createStreets draws at `detail`, each the geometry it hands
+ * spatialBatchAsync, in the order they join the group. A Node build cuts these with
+ * spatialPieces and the page's batches are made of exactly those pieces.
+ */
+export function streetSurfaces({ terrain, records = [], detail = 'full' } = {}) {
+  const { buffers } = streetLayout(records, terrain).layOut(ridgeAt(detail));
+  return [...buffers].filter(([, buf]) => buf.idx.length)
+    .map(([surface, buf]) => ({ surface, geometry: geometryOf(surface, buf) }));
+}
+
+export async function createStreets({ terrain, records = [], confidence = null, detail = 'full' } = {}) {
+  const group = new THREE.Group();
+  group.name = 'streets';
+  const { prepared, layOut } = streetLayout(records, terrain);
+  let ridge = ridgeAt(detail);
   const first = layOut(ridge);
   const buffers = first.buffers;
   const stats = first.counts;

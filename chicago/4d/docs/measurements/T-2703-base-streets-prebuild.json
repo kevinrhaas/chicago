@@ -1,0 +1,267 @@
+{
+ "ticket": "T-2703",
+ "parent": "T-2694",
+ "measured": "2026-10-17",
+ "machine": "steward runner, 4 cores, no GPU (SwiftShader), headless Chromium 156; Node 22.23",
+ "base": "dev @ 705473d41",
+ "why_these_first": {
+  "tool": "a throwaway probe (not committed): performance marks around createStreets, createFencedGround and batchDistantGround in main.js, and each spatialBatchAsync call timed in spatial-batch.js; source tree, mobile 390x780 touch, detail light, 4x CPU throttle (the phone profile)",
+  "readings": [
+   {
+    "cache": "cold",
+    "pageerrors": 0,
+    "streets": {
+     "wall_ms": 1435,
+     "long_tasks_ms": 226,
+     "longest_task_ms": 171,
+     "spatial_batch_calls": [
+      {
+       "vertices": 23988,
+       "partition_ms": 383,
+       "batch_ms": 38
+      },
+      {
+       "vertices": 45358,
+       "partition_ms": 275,
+       "batch_ms": 50
+      },
+      {
+       "vertices": 56979,
+       "partition_ms": 155,
+       "batch_ms": 49
+      }
+     ]
+    },
+    "yards": {
+     "wall_ms": 4196,
+     "long_tasks_ms": 491,
+     "longest_task_ms": 491,
+     "spatial_batch_calls": [
+      {
+       "vertices": 12393,
+       "partition_ms": 379,
+       "batch_ms": 11
+      },
+      {
+       "vertices": 60432,
+       "partition_ms": 346,
+       "batch_ms": 27
+      },
+      {
+       "vertices": 43755,
+       "partition_ms": 344,
+       "batch_ms": 22
+      },
+      {
+       "vertices": 24048,
+       "partition_ms": 334,
+       "batch_ms": 13
+      },
+      {
+       "vertices": 399780,
+       "partition_ms": 177,
+       "batch_ms": 117
+      }
+     ]
+    },
+    "distant_base": {
+     "wall_ms": 824,
+     "long_tasks_ms": 375,
+     "longest_task_ms": 375,
+     "spatial_batch_calls": [
+      {
+       "vertices": 58033,
+       "partition_ms": 645,
+       "batch_ms": 179
+      }
+     ]
+    }
+   },
+   {
+    "cache": "warm",
+    "pageerrors": 0,
+    "streets": {
+     "wall_ms": 1501,
+     "long_tasks_ms": 191,
+     "longest_task_ms": 137,
+     "spatial_batch_calls": [
+      {
+       "vertices": 23988,
+       "partition_ms": 493,
+       "batch_ms": 43
+      },
+      {
+       "vertices": 45358,
+       "partition_ms": 316,
+       "batch_ms": 48
+      },
+      {
+       "vertices": 56979,
+       "partition_ms": 158,
+       "batch_ms": 62
+      }
+     ]
+    },
+    "yards": {
+     "wall_ms": 4528,
+     "long_tasks_ms": 428,
+     "longest_task_ms": 428,
+     "spatial_batch_calls": [
+      {
+       "vertices": 12393,
+       "partition_ms": 545,
+       "batch_ms": 11
+      },
+      {
+       "vertices": 60432,
+       "partition_ms": 507,
+       "batch_ms": 31
+      },
+      {
+       "vertices": 43755,
+       "partition_ms": 504,
+       "batch_ms": 18
+      },
+      {
+       "vertices": 24048,
+       "partition_ms": 487,
+       "batch_ms": 10
+      },
+      {
+       "vertices": 399780,
+       "partition_ms": 186,
+       "batch_ms": 132
+      }
+     ]
+    },
+    "distant_base": {
+     "wall_ms": 861,
+     "long_tasks_ms": 348,
+     "longest_task_ms": 348,
+     "spatial_batch_calls": [
+      {
+       "vertices": 58033,
+       "partition_ms": 673,
+       "batch_ms": 187
+      }
+     ]
+    }
+   }
+  ],
+  "railway": "draws no spatial batch on 1835 (231 calls = 222 ground tiles + 5 yards + 3 streets + 1 base, as T-2692 counted)",
+  "reading": "The yards are the longest wall (4.2 s) and stay T-2704; the streets (1.4 s) and the base (0.8 s, its partition 645 ms and batch 179 ms) need only the field and frontage's footprints, which the Node harness already lays, so they went first. The page uploading all three is T-2705."
+ },
+ "build": {
+  "tool": "node tools/prebuild_layers.mjs --layer base,streets",
+  "scenes": [
+   {
+    "layer": "base",
+    "year": "1835",
+    "ms": 151,
+    "bytes": 3905164,
+    "sha256": "4d14707825176ac1f57b941d42e21746dbb1f117b3380b5830118e80b7f159ca",
+    "meshes": 1,
+    "pieces": 7503,
+    "inputs": 55,
+    "footprints": 105
+   },
+   {
+    "layer": "streets",
+    "year": "1835",
+    "ms": 1545,
+    "bytes": 30329752,
+    "sha256": "a8691c50ec6f6190be37c8abd9a9d52a09bd2ed928b8c12a9b58cdf95c98dc9d",
+    "meshes": 6,
+    "pieces": 1189,
+    "inputs": 49,
+    "records": 80
+   }
+  ]
+ },
+ "parity": {
+  "tool": "node tools/prebuild_layers.mjs --layer base,streets --parity",
+  "root": "source tree (renderers/web/)",
+  "layers": [
+   {
+    "layer": "base",
+    "details": [
+     {
+      "detail": "light",
+      "meshes": 1,
+      "pieces": 7503,
+      "attributes": 3,
+      "matched": 3
+     },
+     {
+      "detail": "full",
+      "meshes": 1,
+      "pieces": 7503,
+      "attributes": 3,
+      "matched": 3
+     }
+    ],
+    "meshes": 2,
+    "pieces": 15006,
+    "attributes": 6,
+    "matched": 6,
+    "bytes": 3905164,
+    "diffs": [],
+    "pageerrors": 0
+   },
+   {
+    "layer": "streets",
+    "details": [
+     {
+      "detail": "light",
+      "meshes": 3,
+      "pieces": 591,
+      "attributes": 21,
+      "matched": 21
+     },
+     {
+      "detail": "full",
+      "meshes": 3,
+      "pieces": 598,
+      "attributes": 21,
+      "matched": 21
+     }
+    ],
+    "meshes": 6,
+    "pieces": 1189,
+    "attributes": 42,
+    "matched": 42,
+    "bytes": 30329752,
+    "diffs": [],
+    "pageerrors": 0
+   }
+  ]
+ },
+ "engine_math": {
+  "finding": "Before portable-math.js the streets' ridge layout (balanced and full) was NOT reproducible in Node: 7 of 21 attributes matched at full, and the page's own terrain fed to the same function in the page laid 84,713 graded_earth vertices where Node laid 84,716. The terrains answered identically over 122,590 samples; Math did not.",
+  "math_disagreement_node22_vs_chromium156": {
+   "note": "200,000 arguments each, same inputs, Object.is",
+   "atan2": 35520,
+   "acos": 15352,
+   "atan": 11557,
+   "exp": 18820,
+   "pow": 13627,
+   "cos": 6834,
+   "sin": 6699,
+   "log2": 1188,
+   "hypot": 0,
+   "sqrt": 0
+  },
+  "portable_math": {
+   "worst_ulp_vs_math": {
+    "sin": 1,
+    "cos": 1,
+    "atan2": 0,
+    "acos": 2,
+    "atan": 0
+   },
+   "node_vs_chromium_disagreements": 0
+  },
+  "effect_on_the_road": "In Node the road is bit-identical to dev's (all 1,191,522 position floats at both layouts). In Chromium the full layout now lays Node's bits: 3 more graded_earth vertices and 1 fewer light_worn_earth of about 261k, a joint decided the other side of a threshold, far below anything visible."
+ },
+ "reading": "The 1835 distant base (7,503 pieces, 3.9 MB raw) and the streets' three surfaces at both layouts (1,189 pieces, 30.3 MB raw) are cut in Node by the page's own functions and match the live page byte for byte: 48 of 48 attributes, light and full, zero page errors. Nothing uploads them yet."
+}
