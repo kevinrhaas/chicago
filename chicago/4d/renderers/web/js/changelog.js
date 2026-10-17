@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1952, ts: '2026-10-17T12:43:56.988Z', date: 'Oct 17, 2026, 7:43 AM CT', title: 'Move: one picker for how you get about', kind: 'feature',
+    items: [
+      'The Travel tab is now Move. You pick Walk, Run, Wagon, Horse or Fly in one row, instead of answering two questions.',
+      'One slider sets the speed of the mode you picked. Its range changes with the mode, and it still names the speed as you drag, from a jog to rattling along to beyond any horse.',
+      'Run is new: on foot like Walk, with its own speed, starting at a jog.',
+      'Under the picker, choose what happens when you pick a place: Teleport, Ride there along the streets at your mode, or Fly over.',
+    ] },
   { v: 1951, ts: '2026-10-17T12:34:52.161Z', date: 'Oct 17, 2026, 7:34 AM CT', title: 'Show me: Inspect turns your view to what to look for', kind: 'feature',
     items: [
       'In Inspect, each Look for line now has a Show me key, for example on Glessner House\'s great arch on 18th Street.',
