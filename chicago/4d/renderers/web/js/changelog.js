@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1959, ts: '2026-10-17T17:57:07.665Z', date: 'Oct 17, 2026, 12:57 PM CT', title: 'The menu moves into the Navigator', kind: 'change',
+    items: [
+      'The menu button and its sliding drawer are gone. Everything that was in them now lives in the Navigator\'s apps.',
+      'Move holds how you get around. Go to lives in the Jaunts app, so the menu\'s own Go to list is gone.',
+      'People holds people and Shops & work. Guide holds the guide and Sources.',
+      'Settings holds the settings and What\'s new. Its amber dot shows on the Settings icon when there are new notes.',
+      'No row of eight menu tabs to scroll sideways: each app shows at most two.',
+      'On a phone, the ride\'s banner and Stop button sit above the Navigator instead of under it.',
+    ] },
   { v: 1958, ts: '2026-10-17T16:52:19.432Z', date: 'Oct 17, 2026, 11:52 AM CT', title: 'The Confidence view moves into the Navigator, with four presets', kind: 'feature',
     items: [
       'The Confidence view now has its own app in the Navigator, in place of the HUD\'s Confidence chip, its arrow and its checkbox menu. Four presets are one tap each: Normal, By grade, Attested only and X-ray.',
