@@ -81,7 +81,10 @@ import { ktx2State, loadSheet } from './ktx2.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
 
-const { compactNormals, setColorsAndConfidence, quantizeMeshPositions } = compactStreams(THREE);
+const {
+  compactNormals, setColorsAndConfidence, quantizeMeshPositions, createBoxTable, packPositionBoxes,
+  adoptPositionBoxes, boxedPositionAt, patchBoxTable, boxDepthMaterial, raycastBoxed,
+} = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -1433,16 +1436,17 @@ function createFarWalkTops(group, sources, material) {
     for (const [name, attribute] of Object.entries(entries[0].source.geometry.attributes)) {
       if (name === 'position') {
         // In the group's frame, as float32: a source chunk may be quantized over
-        // its own box (T-2687), each on its own grid, and this mesh is not.
+        // its own box (T-2687) or boxed piece by piece (T-2700), each on its own
+        // grid, and this mesh is neither.
         const packed = new Float32Array(vertices * 3);
         const p = new THREE.Vector3();
         let offset = 0;
         for (const entry of entries) {
           const source = entry.source;
-          const original = source.geometry.getAttribute('position');
           source.updateMatrix();
           for (const vertex of entry.selected) {
-            p.fromBufferAttribute(original, vertex).applyMatrix4(source.matrix);
+            // A boxed source (T-2700) reads each vertex through its own box.
+            boxedPositionAt(source.geometry, vertex, p).applyMatrix4(source.matrix);
             packed[offset++] = p.x; packed[offset++] = p.y; packed[offset++] = p.z;
           }
         }
@@ -1572,8 +1576,9 @@ async function getJSON(url) {
  * one release's prebuild beside another's page.
  */
 /** 3 since T-2687: each mesh's quantized-position transform travels with it.
- *  4 since T-2689: the colour's fourth lane is the confidence, and says so. */
-export const PREBUILT_FORMAT = 4;
+ *  4 since T-2689: the colour's fourth lane is the confidence, and says so.
+ *  5 since T-2700: a boxed mesh's pieces travel with it (`position_boxes`). */
+export const PREBUILT_FORMAT = 5;
 
 /** The page's own build id, from the stamp publish.sh writes into it. */
 export function pageBuild(doc = globalThis.document) {
@@ -1641,6 +1646,7 @@ function prebuiltGeometry(m, bin) {
   if (s) geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(...s.center), s.radius);
   else geo.computeBoundingSphere();
   if (m.position_quantized) geo.userData.positionQuantized = m.position_quantized;
+  if (m.position_boxes) geo.userData.positionBoxes = m.position_boxes;
   if (m.confidence_lane) geo.userData.confidenceLane = m.confidence_lane;
   return geo;
 }
@@ -2180,13 +2186,31 @@ export async function createFrontage({
    * general fix and this is the local guard every derived layer carries.
    */
   mat.customProgramCacheKey = () => 'chicago4d-frontage-timber-subpixel-gaps';
+  /**
+   * THE BOX TABLE (T-2700, compact-streams.js). The shared mesh spans the town,
+   * far wider than one box keeps to the millimetre, so it is boxed piece by
+   * piece and stays ONE draw: each vertex names its piece in the position's
+   * padding lane and this material's vertex stage reads the piece's box. The
+   * chunks name none and draw as they did. Patched after the key above, which
+   * it extends with the table's length.
+   */
+  const boxes = createBoxTable();
+  patchBoxTable(mat, boxes);
+  /** A boxed mesh's table rows, its raycast and its shadow, wherever it came from. */
+  const boxMesh = (m) => {
+    if (!adoptPositionBoxes(m.geometry, boxes)) return;
+    m.raycast = raycastBoxed;
+    m.customDepthMaterial = boxDepthMaterial(boxes);
+  };
 
   const mesh = new THREE.Mesh(geo, mat);
   // Int16 x 4 positions relative to the mesh, its box in its matrix, where that
-  // keeps the millimetre (T-2687, compact-streams.js). The chunks below do the
-  // same; a replay takes the build's own transform with its buffers.
+  // keeps the millimetre (T-2687, compact-streams.js); boxed piece by piece where
+  // it does not (T-2700). The chunks below do the same; a replay takes the
+  // build's own transform and boxes with its buffers.
   if (replay) placePrebuilt(mesh, replay.index.meshes[0]);
-  else quantizeMeshPositions(mesh);
+  else if (!quantizeMeshPositions(mesh)) packPositionBoxes(geo, boxes);
+  boxMesh(mesh);
   /**
    * DRAWN AFTER THE STREET RIBBON, and the owner's report is why. The road is a
    * decal: depthWrite off, polygonOffset -8/-32 so it hugs the terrain without
@@ -2221,6 +2245,7 @@ export async function createFrontage({
   for (const m of replay ? replay.index.meshes.slice(1) : []) {
     const cmesh = new THREE.Mesh(prebuiltGeometry(m, replay.bin), mat);
     placePrebuilt(cmesh, m);
+    boxMesh(cmesh);
     cmesh.renderOrder = m.renderOrder;
     cmesh.name = m.name;
     cmesh.castShadow = m.castShadow;
@@ -2338,6 +2363,7 @@ export async function createFrontage({
     for (const c of chunkMeshes) c.geometry.dispose();
     farWalkTops.dispose();
     mat.dispose();
+    boxes.depth?.dispose();
     grain.dispose?.();
     if (letters) { letters.geo.dispose(); letters.texture.dispose(); }
     if (letterMat) letterMat.dispose();

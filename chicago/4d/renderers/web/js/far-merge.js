@@ -79,6 +79,9 @@
  * merged layers' vertex data.
  */
 import * as THREE from 'three';
+import { compactStreams } from './compact-streams.js';
+
+const { boxedPositionAt } = compactStreams(THREE);
 
 /**
  * How far a cluster may reach, in metres. Bigger clusters save more calls and
@@ -155,7 +158,7 @@ function mergeGeometries(members, group) {
   const dst = {};
   for (const name of names) {
     const src = first.attributes[name];
-    // A quantized position (Int16 x 4 over each member's own box, T-2687) is
+    // A quantized position (Int16 x 4 over each member's own box, T-2687, or over each piece's, T-2700) is
     // written out as float32 metres in the group's frame: the members are on
     // different grids and the merged mesh has no matrix of its own.
     const asFloat = name === 'position' && src.normalized;
@@ -193,9 +196,9 @@ function mergeGeometries(members, group) {
       if ((name === 'position' && (moved || slot.size !== src.itemSize))
         || (name === 'normal' && turned)) {
         for (let i = 0; i < count; i++) {
-          p.fromBufferAttribute(src, i);
-          if (name === 'position') p.applyMatrix4(rel);
-          else p.applyMatrix3(nrm).normalize();
+          // A boxed member (T-2700) reads each vertex through its own box first.
+          if (name === 'position') boxedPositionAt(geo, i, p).applyMatrix4(rel);
+          else p.fromBufferAttribute(src, i).applyMatrix3(nrm).normalize();
           slot.attr.setXYZ(slot.at / slot.size + i, p.x, p.y, p.z);
         }
       } else {

@@ -1,0 +1,8 @@
+{
+  "title": "The town's plank walks draw in one call, at two-thirds the memory",
+  "kind": "improvement",
+  "items": [
+    "The shared plank-walk mesh now stores each corner in 8 bytes instead of 12, within a millimetre of where it stood, and still draws as one piece.",
+    "Taps, shadows and distant walk tops read the same timber they did before."
+  ]
+}
