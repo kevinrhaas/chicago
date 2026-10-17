@@ -1067,6 +1067,30 @@ body.is-touch .crosshair { display: none; }
 .look-tag[hidden], body.is-touch .look-tag { display: none; }
 @keyframes look-tag-in { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .look-tag { animation: none; } }
+/* T-2627 (§10): the target tag — under the crosshair (below CLICK TO ENGAGE LOOK) once
+   the reticle has rested on a building for 400 ms: its name and distance in mono caps.
+   It is a button: a tap opens Inspect. */
+.target-tag {
+  position: absolute; left: 50%; top: calc(50% + 46px); transform: translateX(-50%);
+  max-width: min(320px, calc(100vw - 120px)); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  margin: 0; padding: 6px 12px; pointer-events: auto; cursor: pointer;
+  font: 600 11px/1.2 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink); background: var(--panel); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--edge));
+  border-radius: var(--r-control, 999px); box-shadow: var(--shadow);
+  animation: look-tag-in .2s ease-out both;
+}
+.target-tag[hidden] { display: none; }
+.target-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-2627: the quick column — Walk/Fly and, with a target, Inspect. Right edge, centred;
+   two buttons at most. */
+.quick-column {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  display: grid; gap: 8px; justify-items: end; pointer-events: none;
+}
+.quick-column > [hidden] { display: none; }
+.quick-inspect { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+@media (prefers-reduced-motion: reduce) { .target-tag { animation: none; } }
 
 .hud-bottom { margin-top: auto; display: flex; justify-content: center; }
 .hint {
@@ -1689,7 +1713,7 @@ kbd {
      meaning; both keep their title and aria-label, and the Evidence tab
      explains the dot at length. */
   .chip-label { display: none; }
-  #btn-fly, #btn-confidence { width: var(--hud-row); justify-content: center; padding: 8px; }
+  #btn-fly, #btn-confidence, #btn-inspect { width: var(--hud-row); justify-content: center; padding: 8px; }
   /* And when an altitude is showing, it says more than a date that never
      changes — so the date yields rather than the badge growing. */
   .badge.has-alt .badge-sub { display: none; }
@@ -1702,7 +1726,7 @@ kbd {
   /* The mobile panel spans the same left edge as the navigation readouts. Hide
      them while it is open instead of letting its translucent surface mix the
      map into sliders and search results. Desktop keeps both columns visible. */
-  .hud.panel-open .navigation-stack { visibility: hidden; }
+  .hud.panel-open :is(.navigation-stack, .quick-column, .target-tag) { visibility: hidden; }
 }
 
 /* ---- the confidence control's second half ------------------------------- */

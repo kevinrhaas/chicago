@@ -106,7 +106,9 @@ export function createNavigator({
   // `ctx` is the page's context (main.js) plus what only the device knows: the target
   // within 40 m (Inspect's rule), the shape it is in, and the device itself.
   let near = null;
-  const ctx = () => ({ ...context(), target: near, isPhone: isPhone(), navigator: api });
+  // T-2627: while the rail is not looking (a docked phone), the page's own target — the
+  // HUD's tag — stands in, so Inspect opened from the HUD knows what it was opened on.
+  const ctx = () => { const base = context(); return { ...base, target: near ?? base.target ?? null, isPhone: isPhone(), navigator: api }; };
   const registry = createRail({
     rail, screens: root.querySelector('.nav-body'), codeEl: $('nav-code'), doc: root.ownerDocument,
     context: ctx, before: collapse ?? null, storage,
