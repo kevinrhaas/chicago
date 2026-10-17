@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1951, ts: '2026-10-17T12:34:52.161Z', date: 'Oct 17, 2026, 7:34 AM CT', title: 'Show me: Inspect turns your view to what to look for', kind: 'feature',
+    items: [
+      'In Inspect, each Look for line now has a Show me key, for example on Glessner House\'s great arch on 18th Street.',
+      'Tap it and your view glides in under a second to the spot the record names, facing the feature, and an amber outline pulses round the house for two seconds.',
+      'With reduced motion the view cuts there at once and the outline stays still. If you are flying, you come down to the viewpoint first.',
+      'Show me only appears where the building\'s record names a view of the feature. It never guesses one.',
+    ] },
   { v: 1950, ts: '2026-10-17T12:18:12.219Z', date: 'Oct 17, 2026, 7:18 AM CT', title: 'Guide explains the words we use', kind: 'feature',
     items: [
       'Guide in the Navigator now has a glossary of seven words, each with one plain line: Attested, Inferred, Reconstructed, Confidence view, Liberties, Sources and Jaunts.',
