@@ -12,13 +12,20 @@
  * EVERY FACT LINE CARRIES ITS GRADE DOT (the card's own `fact-dot`), with the grade in
  * words for a screen reader. The address is printed once.
  *
- * The card's other content (Evidence, Images, Liberties, Record) is still the building card
- * until the Inspect tabs land (T-2639): "Full record" opens it, and the Confidence meter
- * opens it on its Evidence tab, which is where a fact's Sources are today.
+ * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources. A new
+ * building always opens on Overview; the same building keeps its tab. People, Design, Story,
+ * Photos and Sources are the card's own content for now, rendered by popup.js `sections()`
+ * from the same renderers and loaded state as the card, so the two cannot disagree while the
+ * card still exists (Design, Story, Photos and Sources fill in under T-2642, T-2643, T-2645 and
+ * T-2644). Each pane is built the first time its tab opens. People lists the card's "who was
+ * here" exactly as the card does (review notes included), each household with a way into the
+ * People app; a scene whose sidecar lists nobody here (1904) lists the people directory's
+ * residents of this building instead (T-2702).
  */
 import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
+import { hydratePictures } from '../pictures.js';
 import { cameraOf } from '../show-me.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
@@ -30,6 +37,10 @@ const MAX_NOTABLE = 3;
 
 let host = null;
 let drawnFor = null;
+let lastTab = 'overview';
+let tabFor = null;            // the building the remembered tab belongs to
+const TABS = [['overview', 'Overview'], ['people', 'People'], ['design', 'Design'],
+  ['story', 'Story'], ['photos', 'Photos'], ['sources', 'Sources']];
 
 function el(doc, tag, cls, text) {
   const n = doc.createElement(tag);
@@ -278,8 +289,8 @@ function render(root, ctx) {
     }
     const words = GRADES.filter((k) => g[k]).map((k) => `${g[k]} ${WORD[k]}`).join(' · ');
     meter.append(el(doc, 'span', 'nav-k', `Confidence · ${total} facts`), bar, el(doc, 'span', 'insp-meter-words', words));
-    meter.setAttribute('aria-label', `${total} facts: ${words}. Open the sources.`);
-    meter.addEventListener('click', () => ctx.actions?.openCard?.(id, 'evidence'));
+    meter.setAttribute('aria-label', `${total} facts: ${words}. Open Sources.`);
+    meter.addEventListener('click', () => selectTab(root, 'sources'));
     page.append(meter);
   }
 
@@ -287,12 +298,165 @@ function render(root, ctx) {
   full.type = 'button';
   full.addEventListener('click', () => ctx.actions?.openCard?.(id));
   page.append(full);
-  root.append(page);
+
+  // The tabs. A new building opens on Overview; the same building keeps its tab.
+  // A deep link (?nav=inspect:<id>&tab=, T-2621) opens its tab the first time this building
+  // draws; after that the visitor's own choice is kept.
+  const linked = ctx.link?.app === 'inspect' && ctx.link.id === id && TABS.some(([k]) => k === ctx.link.tab) ? ctx.link.tab : null;
+  const tab = tabFor === id ? lastTab : (linked ?? 'overview');
+  tabFor = id;
+  const bar = el(doc, 'nav', 'insp-tabs');
+  bar.setAttribute('role', 'tablist');
+  bar.setAttribute('aria-label', 'About this building');
+  const panes = el(doc, 'div', 'insp-panes');
+  for (const [key, label] of TABS) {
+    const b = el(doc, 'button', 'insp-tab', label);
+    b.type = 'button';
+    b.dataset.inspTab = key;
+    b.setAttribute('role', 'tab');
+    b.id = `insp-tab-${key}`;
+    b.setAttribute('aria-controls', `insp-pane-${key}`);
+    bar.append(b);
+    const pane = el(doc, 'section', `insp-pane${key === 'overview' ? '' : ' insp-card-pane'}`);
+    pane.id = `insp-pane-${key}`;
+    pane.dataset.inspPane = key;
+    pane.setAttribute('role', 'tabpanel');
+    pane.setAttribute('aria-labelledby', b.id);
+    if (key === 'overview') pane.append(page);
+    panes.append(pane);
+  }
+  root.append(bar, panes);
+  root._insp = { id, sum, ctx };
+  selectTab(root, tab);
   drawnFor = id;
+}
+
+/** Show one tab; build its pane the first time. */
+function selectTab(root, key) {
+  if (!TABS.some(([k]) => k === key)) return;
+  lastTab = key;
+  for (const b of root.querySelectorAll('.insp-tab')) {
+    const on = b.dataset.inspTab === key;
+    b.setAttribute('aria-selected', String(on));
+    b.tabIndex = on ? 0 : -1;
+  }
+  for (const pane of root.querySelectorAll('.insp-pane')) pane.hidden = pane.dataset.inspPane !== key;
+  const pane = root.querySelector(`.insp-pane[data-insp-pane="${key}"]`);
+  if (pane && key !== 'overview' && !pane.dataset.filled) void fillPane(root, pane, key);
+}
+
+async function fillPane(root, pane, key) {
+  const { id, sum, ctx } = root._insp ?? {};
+  if (!id) return;
+  const doc = root.ownerDocument;
+  pane.dataset.filled = 'pending';
+  pane.replaceChildren(el(doc, 'p', 'nav-sub', 'Reading the record…'));
+  let sec = null;
+  try { sec = await ctx.actions?.cardSections?.(id); } catch { sec = null; }
+  if (root._insp?.id !== id) return; // the building changed while this was read
+  pane.replaceChildren();
+  if (!sec) {
+    pane.append(el(doc, 'p', 'nav-sub', 'This record could not be read.'));
+    pane.dataset.filled = 'failed';
+    return;
+  }
+  const html = (s) => { const d = el(doc, 'div', 'insp-card'); d.innerHTML = s; return d; };
+  if (key === 'people') await fillPeople(pane, sec, ctx, id);
+  else if (key === 'story') {
+    if (sum?.story?.length) {
+      const block = el(doc, 'section', 'insp-sec insp-story');
+      block.append(heading(doc, 'Story'));
+      const ol = el(doc, 'ol', 'insp-timeline');
+      for (const entry of sum.story) {
+        const li = el(doc, 'li', 'insp-when');
+        li.append(el(doc, 'span', 'insp-date', String(entry.date).slice(0, 4)), line(doc, 'span', 'insp-what', entry.text, entry.grade));
+        ol.append(li);
+      }
+      block.append(ol);
+      pane.append(block);
+    }
+    pane.append(html(sec.story));
+  } else if (key === 'photos') {
+    const d = html(sec.photos);
+    pane.append(d);
+    hydratePictures(d);
+  } else {
+    pane.append(html(sec[key]));
+  }
+  pane.dataset.filled = 'yes';
+}
+
+/** People: the card's own "who was here" where the record seats anyone, with a way into the
+ *  People app; else the directory's residents of this building (1904). */
+async function fillPeople(pane, sec, ctx, id) {
+  const doc = pane.ownerDocument;
+  let dir = null;
+  try { dir = await ctx.actions?.peopleDirectory?.(); } catch { dir = null; }
+  const rows = Array.isArray(dir?.people) ? dir.people : [];
+  if (sec.hasResidents) {
+    const d = el(doc, 'div', 'insp-card');
+    d.innerHTML = sec.people;
+    pane.append(d);
+    const links = el(doc, 'div', 'insp-people-links');
+    for (const h of sec.households) {
+      const person = rows.find((r) => r.household && r.household === h.household && r.relationship === 'head')
+        ?? rows.find((r) => r.household && r.household === h.household);
+      if (!person) continue;
+      const b = el(doc, 'button', 'nav-tile insp-person-link', `${h.name || 'This household'} in People`);
+      b.type = 'button';
+      b.dataset.person = person.id;
+      links.append(b);
+    }
+    if (links.children.length) pane.append(links);
+    return;
+  }
+  const here = rows.filter((r) => r.lives_at === id || r.works_at === id);
+  if (sec.people.includes('pop-flag')) { const f = el(doc, 'div', 'insp-card'); f.innerHTML = sec.people; pane.append(f); }
+  if (!here.length) {
+    pane.append(el(doc, 'p', 'nav-sub', 'Nobody in our records lives or works here.'));
+    return;
+  }
+  const block = el(doc, 'section', 'insp-sec');
+  block.append(heading(doc, 'Who was here'));
+  const order = (r) => (r.relationship === 'head' ? 0 : 1);
+  for (const r of [...here].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))) {
+    const b = el(doc, 'button', 'nav-person insp-person-link');
+    b.type = 'button';
+    b.dataset.person = r.id;
+    b.append(line(doc, 'span', 'nav-person-name', r.name, r.grade),
+      el(doc, 'span', 'nav-sub', [r.household_name, r.relationship === 'head' ? 'head of the household' : r.relationship].filter(Boolean).join(' · ')));
+    block.append(b);
+  }
+  pane.append(block);
+}
+
+/** Clicks inside Inspect: tabs, the card's own "why" toggles, a picture, a person. */
+function onClick(e) {
+  const root = e.currentTarget;
+  const st = root._insp ?? {};
+  const tab = e.target.closest('[data-insp-tab]');
+  if (tab) { selectTab(root, tab.dataset.inspTab); return; }
+  const toggle = e.target.closest('[data-toggle-note]');
+  if (toggle) {
+    const note = toggle.parentElement.querySelector('[data-note]');
+    if (!note) return;
+    const shown = !note.hasAttribute('hidden');
+    note.toggleAttribute('hidden', shown);
+    toggle.textContent = shown ? 'why' : 'hide';
+    return;
+  }
+  const pic = e.target.closest('[data-pic]');
+  if (pic && st.id) { st.ctx?.actions?.openPicture?.(st.id, Number(pic.dataset.pic) || 0); return; }
+  const person = e.target.closest('[data-person]');
+  if (person) st.ctx?.actions?.openPerson?.(person.dataset.person);
 }
 
 async function refresh(root, ctx) {
   const id = ctx.selected ?? ctx.target?.id ?? null;
+  // Hold this building while Inspect is open, and on a phone close the card, which would
+  // otherwise cover the device (T-2639).
+  if (id) ctx.actions?.holdInspect?.(id);
+  if (ctx.isPhone) ctx.actions?.closeCard?.();
   // A different building: clear the last one now, so it never shows under the new name.
   if (root.dataset.structure !== (id ?? '')) {
     root.dataset.structure = id ?? '';
@@ -311,6 +475,7 @@ async function refresh(root, ctx) {
 
 export async function mount(el, ctx = {}) {
   host = el;
+  el.addEventListener('click', onClick);
   await refresh(el, ctx);
 }
 
@@ -321,6 +486,7 @@ export async function shown(el, ctx = {}) {
 }
 
 export function unmount(el) {
+  el.removeEventListener('click', onClick);
   if (host === el) host = null;
   drawnFor = null;
   el.replaceChildren();

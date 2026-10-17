@@ -1,3 +1,39 @@
+## T-2639 — Inspect's tabs over the card's content (2026-10-17)
+
+Design doc §08 "Tabs". Inspect now carries Overview · People · Design · Story · Photos · Sources.
+A newly inspected building opens on Overview; the same building keeps its tab. The five new
+tabs are the building card's own content, rendered by a new `popup.js` `sections(record)`.
+It uses the same section renderers and the same lazily loaded state (liberties, pictures,
+household notes, agencies) as the card, so the two cannot describe one building two ways
+while both exist. Each pane is built the first time its tab opens.
+
+- **People:** the card's "who was here" exactly as the card shows it. That includes how many
+  slept here, the agencies, and the held-pending-consultation flag, now one helper shared with
+  the card's head. Each household gets an "in People" button, resolved through the people
+  directory by household and head. A building whose sidecar seats nobody (1904) lists the
+  directory's residents instead: John and Frances Glessner, each opening the People app.
+- **Design:** the card's shape section and attribute table.
+- **Story:** the summary record's timeline where there is one, then the card's "Was it here" section.
+- **Photos:** the card's Images pane, hydrated when the tab opens.
+- **Sources:** the basis, the position's argument, the fire limit, the citations (headed "Sources",
+  the locked term), Liberties, open questions and the record's research. The dossier link says
+  "Read the research dossier" instead of printing the file path.
+- **The Confidence meter** now opens the Sources tab rather than the card.
+- **On a phone, opening Inspect closes the card,** so the sheet and the card do not stack. main.js
+  holds the inspected building (`selected` falls back to it) for as long as Inspect stays open.
+
+**The card is still not retired, and its keyboard handlers are kept.** Space and E open the card
+and Escape closes it, as part 14's checks assert; they move onto Inspect when the card is
+retired. Design, Story, Photos and Sources become their own pages in T-2642, T-2643, T-2645
+and T-2644.
+
+**Verified:**
+- **Part 4, in the town** (the device is hidden behind the welcome gate before that): all six
+  1835 tabs open and fill on Hogan's store. Its People tab lists the household with a link,
+  the Sources tab carries no path, and a held record (the McKee log house) shows its note.
+- **Part 14:** People lists the Glessners, a new building opens on Overview, and the same
+  building keeps its tab.
+
 ## T-2638 — Inspect, the Overview front page (2026-10-17)
 
 Design doc §08, mockup M7. The Navigator's `inspect` app is no longer a stub that opened the card:
