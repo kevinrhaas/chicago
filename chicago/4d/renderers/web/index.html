@@ -42,6 +42,7 @@
 <link rel="stylesheet" href="./css/businesses.css">
 <link rel="stylesheet" href="./css/evidence.css">
 <link rel="stylesheet" href="./css/card.css">
+<link rel="stylesheet" href="./css/recall.css">
 <link rel="stylesheet" href="./css/skins.css">
 <script src="./js/skin.js"></script>
 
@@ -652,6 +653,8 @@
           <input type="checkbox" id="s-overview-map"></label>
         <label class="field row check-field"><span>1835 / current street names</span>
           <input type="checkbox" id="s-street-names"></label>
+        <label class="field row check-field"><span>Name of what you look at</span>
+          <input type="checkbox" id="s-look-tag"></label>
         <label class="field row" id="row-season" hidden><span>Season</span>
           <select id="s-season" title="A viewing choice: the scene is dated 1 July 1904">
             <option value="summer">Summer — 1 July, full leaf</option>
@@ -824,6 +827,9 @@
 
 <noscript><p class="noscript">This walkthrough needs JavaScript and WebGL 2.</p></noscript>
 
+<!-- T-2735: the way home asks first; loaded ahead of main.js so the arrival card's link asks
+     before the town's modules have arrived. -->
+<script type="module" src="./js/recall.js"></script>
 <script type="module" src="./js/main.js"></script>
 </body>
 </html>

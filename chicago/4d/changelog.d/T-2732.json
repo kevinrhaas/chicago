@@ -1,9 +1,0 @@
-{
-  "title": "A frame pacing reading you can take on your own phone",
-  "kind": "chore",
-  "items": [
-    "On the dev preview, Settings → Performance has a Read frame pacing button. It walks, turns and flies for about half a minute at Light, once with Frame pacing on Fixed and once on Adaptive, then puts you back where you were.",
-    "It shows how steady each move's frames were (the spread and the slow 5 %) and whether Adaptive made them steadier, with a Copy button to send the result back.",
-    "This test machine draws a frame every two or three seconds, too slowly to say whether Adaptive helps, so the reading is taken on a phone. Production does not show the button."
-  ]
-}

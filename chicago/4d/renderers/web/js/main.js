@@ -28,6 +28,7 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
@@ -1523,8 +1524,11 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 api.journey = journey;
-// Back to the Observatory is the journey's recall, from wherever the link sits.
-gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
+// Back to the Observatory is the journey's recall, from wherever the link sits. T-2735: the
+// way home asks first and plays the reverse ring (js/recall.js), so the journey moves to
+// `recall` only as the page actually leaves; a cancelled prompt leaves it where it was.
+recallHome?.onReturn(() => journey.recall());
+api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
@@ -1700,6 +1704,13 @@ async function boot() {
     powerPreference: 'high-performance',
     stencil: false,
   });
+  /**
+   * T-2716. The renderer's own `render`, taken before anything can swap it: the
+   * flora's near deal pass is PLACEMENT, not a frame, and harnesses that hold or
+   * time the frames by replacing `renderer.render` (the smoke's `holdDraws`,
+   * `measure_walk_frames.mjs`) must neither skip it nor count it as a draw.
+   */
+  const placementRender = renderer.render.bind(renderer);
   /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
    * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
@@ -2633,7 +2644,7 @@ async function boot() {
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
     verge: streets.verge, forbSeat,
-    confidence, problems: layerProblems('flora'), ...detailOpts(),
+    confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
   });
   scene3d.add(flora.group);
   let trees = await createTrees({
@@ -2741,7 +2752,7 @@ async function boot() {
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
           verge: streets.verge, forbSeat,
-          confidence, problems: layerProblems('flora'), detail: level,
+          confidence, problems: layerProblems('flora'), detail: level, renderer, placementRender,
         });
         next.trees = await createTrees({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
@@ -2887,7 +2898,7 @@ async function boot() {
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
         verge: streets.verge, forbSeat,
-        confidence, problems: layerProblems('flora'), ...detailOpts(),
+        confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
       });
       scene3d.add(flora.group);
 
@@ -3208,6 +3219,8 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'lookTag') {
+        api.targetTag?.setTagShown(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
@@ -4134,6 +4147,7 @@ async function boot() {
     tagEl: document.getElementById('target-tag'),
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
+    tagShown: hud.settings.lookTag !== false,
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
@@ -4259,7 +4273,8 @@ async function boot() {
         goTo: (id) => goToTarget({ kind: 'structure', id }),
         jauntRoute: () => mapJauntRoute(),
         travelRoute: () => travel.routeAhead(),
-        recall: () => journey.recall(),
+        // T-2735: Recall asks first; the journey moves only as the page leaves.
+        recall: (href) => recallHome?.ask(href),
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.

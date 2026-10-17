@@ -1,8 +1,0 @@
-{
-  "title": "The Navigator has a close button at its top right",
-  "kind": "improvement",
-  "items": [
-    "The open Navigator now shows an X at the right end of its header. It closes the device the way the collapse arrow does: to its rail on a laptop, down to the dock on a phone.",
-    "The X and the collapse arrow are drawn alike in every appearance, and on a phone the X is easy to hit with a thumb."
-  ]
-}
