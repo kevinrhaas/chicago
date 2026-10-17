@@ -13583,7 +13583,9 @@ for (const [label, viewport, touch] of [
     // And free-fly must NOT be resettled — up there the eye height is an
     // altitude the visitor is flying, and dropping them to standing height mid
     // flight would be the setting reaching somewhere it has no business.
-    await clickChrome('.panel-tab[data-tab="settings"]');
+    // ---- T-2653: eye height lives in Move › Comfort now; the checks below are unchanged.
+    await clickChrome('.panel-tab[data-tab="travel"]');
+    // ---- end T-2653 (the tab)
     const eye = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const el = document.getElementById('s-eye');
@@ -13636,6 +13638,30 @@ for (const [label, viewport, touch] of [
     check(`${label}: the eye height range covers short to tall without absurdity`,
       eye.min <= 1.5 && eye.max >= 2.0 && eye.max <= 3.0,
       `${eye.min}–${eye.max} m`);
+    // ---- T-2653: Move › Comfort — the head bob, the eye height and snap-turn sit together,
+    // each is stored as it changes, and the eye height's Why names the researched figure.
+    const comfort = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const stored = () => JSON.parse(localStorage.getItem('chicago4d.settings') || '{}');
+      const group = document.querySelector('[data-panel="travel"]');
+      const inMove = ['s-head-bob', 's-eye', 's-snap-turn', 'eye-note'].filter((id) => group?.querySelector(`#${id}`));
+      const snap = document.getElementById('s-snap-turn');
+      const bob = document.getElementById('s-head-bob');
+      const before = { snap: snap.checked, bob: bob.checked, snapSetting: api.hud.settings.snapTurn };
+      snap.click(); bob.click();
+      const on = { snap: stored().snapTurn, bob: stored().headBob, eye: stored().eyeHeight };
+      snap.click(); bob.click();
+      const off = { snap: stored().snapTurn, bob: stored().headBob };
+      return { inMove, before, on, off, why: document.getElementById('eye-note')?.textContent.replace(/\s+/g, ' ').trim().slice(0, 40),
+        heading: document.getElementById('move-comfort')?.textContent.trim(), settingsEye: !!document.querySelector('[data-panel="settings"] #s-eye') };
+    });
+    check(`${label}: Move's Comfort holds the head bob, the eye height and snap-turn, each stored as it changes (T-2653)`,
+      comfort.inMove.length === 4 && comfort.heading === 'Comfort' && !comfort.settingsEye
+      && comfort.before.snap === false && comfort.before.snapSetting === false && comfort.before.bob === true
+      && comfort.on.snap === true && comfort.on.bob === false && Math.abs(comfort.on.eye - 1.68) < 0.005
+      && comfort.off.snap === false && comfort.off.bob === true && /^The default, 1\.68 m/.test(comfort.why ?? ''),
+      JSON.stringify(comfort));
+    // ---- end T-2653
 
     // --- typing is not driving ---------------------------------------------
     //
@@ -14209,7 +14235,8 @@ for (const [label, viewport, touch] of [
       const modes = [...document.querySelectorAll('#s-move .seg-btn')].map((b) => b.dataset.mode);
       const arrives = [...document.querySelectorAll('#s-arrive .seg-btn')].map((b) => b.textContent.trim());
       const panel = document.querySelector('[data-panel="travel"]');
-      const shape = { ranges: panel.querySelectorAll('input[type="range"]').length,
+      // One speed slider: Move › Comfort's eye height is not a speed (T-2653).
+      const shape = { ranges: [...panel.querySelectorAll('input[type="range"]')].filter((el) => el.id !== 's-eye').length,
         gone: ['s-travel', 's-pace', 's-wagon-speed', 's-horse-speed'].filter((id) => document.getElementById(id)) };
       pick('horse');
       arrive('ride');

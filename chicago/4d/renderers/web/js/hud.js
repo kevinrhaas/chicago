@@ -66,6 +66,8 @@ const DEFAULT_SETTINGS = {
   // The wagon's and the horse's own speeds (T-0823) and the run's (T-2651); `speed`
   // above is the walk's.
   wagonSpeed: 3.6, horseSpeed: 6.5, runSpeed: 3.4,
+  // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
+  snapTurn: false,
 };
 
 function readSettings() {
@@ -683,6 +685,7 @@ export function createHud({
     store(SET_KEY, JSON.stringify(settings));
   });
   wireToggle('s-head-bob', 'headBob');
+  wireToggle('s-snap-turn', 'snapTurn');
   paintMove();
 
   // The ride in progress: where to, how far is left, and the one way to stop it

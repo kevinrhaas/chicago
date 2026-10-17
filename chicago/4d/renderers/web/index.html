@@ -308,14 +308,34 @@
           <button type="button" class="seg-btn" data-arrive="ride" role="radio" aria-checked="false">Ride there</button>
           <button type="button" class="seg-btn" data-arrive="fly" role="radio" aria-checked="false">Fly over</button>
         </div></div>
-      <label class="field row check-field"><span>Rider's head moves with the horse's gait</span>
-        <input type="checkbox" id="s-head-bob"></label>
       <p class="legend-note">These are ways of moving the camera, not claims about the past: a
         run, a light wagon, a horse, and a burst of speed on <kbd>Shift</kbd>. The slider sets the
         speed of the mode you picked and names it. Ride there takes you to a place you choose
         along the streets where they run; Fly over lifts you over the town and sets you down at
         the door. Any movement of your own stops the ride; where no walkable route exists you are
         taken straight there.</p>
+      <!-- Comfort (T-2653, DESIGN §07 "Move"): the head bob, the eye height and snap-turn,
+           each a choice about the view and never about the town. -->
+      <h3 class="legend-h" id="move-comfort">Comfort</h3>
+      <label class="field row check-field"><span>Rider's head moves with the horse's gait</span>
+        <input type="checkbox" id="s-head-bob"></label>
+      <!-- Eye height is a CLAIM about 1835, so the default is the researched
+           figure and the slider says where that figure sits. Raising it is a
+           comfort choice about the view, not a correction. -->
+      <label class="field"><span>Eye height <b id="v-eye"></b></span>
+        <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
+      <details class="why"><summary>Why this default</summary>
+        <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
+          man in the 1830s United States — this walkthrough puts your eye where a person of the
+          period had theirs, which is lower than a modern viewer expects and lower than the
+          prairie grass beside you, because both of those are true of the place. Raise it if the
+          view is uncomfortable; it changes only the camera, never the town.</p>
+      </details>
+      <!-- Snap-turn: a drag to look on a touch screen turns the view in 30° steps instead
+           of smoothly, which many people find easier on the stomach. Touch only: a mouse
+           keeps its smooth look. -->
+      <label class="field row check-field"><span>Turn in steps when you drag to look (touch screens)</span>
+        <input type="checkbox" id="s-snap-turn"></label>
     </section>
     <!-- Everyone the sources put in this town. js/people.js renders the directory;
          the household browser the Evidence panel used to carry lives at its foot,
@@ -549,19 +569,7 @@
       </div>
       <div class="settings-group">
         <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse are under</span> <b data-str="hud.tab.move">Move</b>.</p>
-        <!-- Eye height is a CLAIM about 1835, so the default is the researched
-             figure and the slider says where that figure sits. Raising it is a
-             comfort choice about the view, not a correction. -->
-        <label class="field"><span>Eye height <b id="v-eye"></b></span>
-          <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
-        <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
-            man in the 1830s United States — this walkthrough puts your eye where a person of the
-            period had theirs, which is lower than a modern viewer expects and lower than the
-            prairie grass beside you, because both of those are true of the place. Raise it if the
-            view is uncomfortable; it changes only the camera, never the town.</p>
-        </details>
+        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
       </div>
       <div class="settings-group">
         <h4>View</h4>

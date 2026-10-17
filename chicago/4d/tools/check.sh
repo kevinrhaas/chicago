@@ -196,6 +196,9 @@ step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
+# T-2653: Move's comfort settings.
+step "Move's Comfort holds the head bob, the eye height at its researched default with its Why, and snap-turn on touch (T-2653)" \
+  node tools/test_move_comfort.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
