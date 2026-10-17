@@ -1,9 +1,0 @@
-{
-  "title": "The grass shader's ground map agrees where grass may not grow",
-  "kind": "fix",
-  "items": [
-    "The worn river bank at the wharves now decides its bare patches in 12.5 cm squares, not point by point, so the map the grass shader will read holds exactly what the planters are told. The bank stays just as bare overall.",
-    "Wherever the streets' cleared track crosses a square of that map, the whole square counts as cleared. The shader can no longer stand a tuft on the edge of a road.",
-    "Checked at all 22 test spots on phone and desktop: no shader-dealt tuft now stands where the town says grass cannot grow (there were 31 and 46). Plant density and the mix of species are unchanged within the reading's error, and keeping the map up to date costs the page no more while you walk."
-  ]
-}
