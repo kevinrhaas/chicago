@@ -10611,7 +10611,9 @@ for (const [label, viewport, touch] of [
         if (!el) return `nothing matches ${s}`;
         const device = el.closest('#navigator');
         if (device?.getAnimations) {
-          for (let i = 0; i < 200 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+          // Up to 30 s: the transition ends on the first frame drawn after its .28 s, and a
+          // runner frame of the desktop town can take 8-10 s (T-2412).
+          for (let i = 0; i < 600 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
             await new Promise((r) => setTimeout(r, 50));
           }
         }
