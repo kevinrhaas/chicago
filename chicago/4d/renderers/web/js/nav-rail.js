@@ -89,6 +89,19 @@ export function createRail({
 } = {}) {
   const apps = new Map(); // id → { app, button, shown, leaveAt, panel, mounted, module }
   const seen = readSeen(storage);
+  // T-2622 (§14 Accessibility): the rail is a tablist and each app a tab of it, its
+  // screen a tabpanel. The tabs sit in a wrapper of their own (display: contents, so the
+  // rail lays them out as before), because the rail also holds the collapse key, and a
+  // tablist may own nothing but tabs.
+  const list = rail ? (rail.querySelector?.('.nav-tabs') ?? (() => {
+    const el = doc.createElement('div');
+    el.className = 'nav-tabs';
+    el.setAttribute('role', 'tablist');
+    el.setAttribute('aria-label', rail.getAttribute?.('aria-label') || 'Navigator apps');
+    el.setAttribute('aria-orientation', 'vertical');
+    rail.insertBefore(el, before ?? null);
+    return el;
+  })()) : null;
   let current = null;
   let switching = 0;
 
@@ -97,8 +110,12 @@ export function createRail({
     b.type = 'button';
     b.className = 'nav-app';
     b.dataset.app = app.id;
+    b.id = `nav-tab-${app.id}`;
+    b.setAttribute('role', 'tab');
     b.setAttribute('aria-label', app.label);
-    b.setAttribute('aria-pressed', 'false');
+    b.setAttribute('aria-selected', 'false');
+    // Roving focus: Tab reaches the rail once, at the open app; the arrows move along it.
+    b.tabIndex = -1;
     b.title = app.label;
     if (app.pin === 'bottom') b.classList.add('nav-app-foot');
     if (typeof app.icon === 'string') b.insertAdjacentHTML?.('beforeend', app.icon);
@@ -120,7 +137,7 @@ export function createRail({
       const s = apps.get(app.id);
       s.button.classList.toggle('nav-app-foot-first', app.pin === 'bottom' && firstFoot);
       if (app.pin === 'bottom') firstFoot = false;
-      rail.insertBefore(s.button, before ?? null);
+      list.append(s.button);
     }
   }
 
@@ -208,13 +225,17 @@ export function createRail({
       el.className = 'nav-screen';
       el.id = `nav-app-${s.app.id}`;
       el.dataset.app = s.app.id;
-      el.setAttribute('role', 'group');
-      el.setAttribute('aria-label', s.app.label);
+      el.setAttribute('role', 'tabpanel');
+      el.setAttribute('aria-labelledby', s.button.id);
+      // Focus moves into the app on open (navigator.js), so its screen takes focus.
+      el.tabIndex = -1;
       el.hidden = true;
       screens?.append(el);
       s.panel = el;
     }
     s.panel.dataset.app ??= s.app.id;
+    if (s.panel.getAttribute?.('role') !== 'tabpanel') s.panel.setAttribute?.('role', 'tabpanel');
+    if (s.panel.id) s.button.setAttribute('aria-controls', s.panel.id);
     return s.panel;
   }
 
@@ -245,7 +266,8 @@ export function createRail({
     for (const other of apps.values()) {
       const on = other.app.id === id;
       other.button.classList.toggle('is-on', on);
-      other.button.setAttribute('aria-pressed', String(on));
+      other.button.setAttribute('aria-selected', String(on));
+      other.button.tabIndex = on ? 0 : -1;
       if (other.panel) other.panel.hidden = !on;
     }
     if (codeEl && s.app.code) codeEl.textContent = s.app.code;
@@ -254,6 +276,23 @@ export function createRail({
     (s.module ?? s.app).shown?.(panel, ctx);
     return true;
   }
+
+  // The arrows move focus along the tabs that show (and Home and End to the ends);
+  // Enter or Space opens one, as the button it is. Moving focus never opens an app on
+  // its own: some apps are launches that dock the device.
+  list?.addEventListener?.('keydown', (e) => {
+    const tabs = railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id)).filter((s) => s.shown).map((s) => s.button);
+    const at = tabs.indexOf(e.target);
+    if (at < 0) return;
+    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+    let next = null;
+    if (step) next = tabs[(at + step + tabs.length) % tabs.length];
+    else if (e.key === 'Home') next = tabs[0];
+    else if (e.key === 'End') next = tabs.at(-1);
+    if (!next) return;
+    e.preventDefault();
+    next.focus?.();
+  });
 
   function warm(panel) {
     const cls = reduced() ? 'is-fading' : 'is-warming';
@@ -270,6 +309,8 @@ export function createRail({
     select,
     get current() { return current; },
     has: (id) => apps.has(id),
+    /** The tab of an app, for the keyboard (navigator.js). */
+    tab: (id) => apps.get(id)?.button ?? null,
     /** For the harness: what the rail shows, in order. */
     shown() {
       return railOrder([...apps.values()].map((s) => s.app)).filter((a) => apps.get(a.id).shown).map((a) => a.id);
