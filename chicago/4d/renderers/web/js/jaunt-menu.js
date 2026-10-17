@@ -14,7 +14,7 @@ export function filterJaunts(rows, query = '', family = '') {
     .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
 }
 
-export function createJauntMenu({ root, estimate, onStart, onPreview }) {
+export function createJauntMenu({ root, estimate, onStart, onPreview, preferredMode = () => null }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
   let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
@@ -56,7 +56,8 @@ export function createJauntMenu({ root, estimate, onStart, onPreview }) {
     mode.setAttribute('aria-label', `Travel mode for ${row.title}`); mode.dataset.action = 'mode';
     const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
     duration.setAttribute('aria-live', 'polite');
-    let current = modes.get(row.id) || row.default_mode || 'walk';
+    // T-2652: the visitor's getting-there choice, where this outing allows it; else its own.
+    let current = modes.get(row.id) || preferredMode(row) || row.default_mode || 'walk';
     const price = () => {
       modes.set(row.id, current);
       const key = JSON.stringify([current, row.destinations, row.timing, row.stops]);

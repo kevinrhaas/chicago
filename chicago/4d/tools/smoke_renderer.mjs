@@ -13999,6 +13999,34 @@ for (const [label, viewport, touch] of [
       && near(travelUi.afterDrag.others[0], sp.walk) && near(travelUi.afterDrag.others[1], sp.wagon),
       JSON.stringify({ ranges: rg, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
     // ---- end T-2651 (the slider)
+    // ---- T-2652: getting there — one choice that Go to, the Map and Jaunts all use. Picking
+    // Ride there with the horse marks the choice as the visitor's own, which is what lets
+    // a Jaunt take it; a Jaunt reads it through js/getting-there.js (tools/test_getting_there.mjs
+    // drives the controller), and Go to rides it, as the T-2651 block above shows.
+    const gettingThere = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const before = { ...api.hud.gettingThere };
+      document.querySelector('#s-move .seg-btn[data-mode="horse"]').click();
+      document.querySelector('#s-arrive .seg-btn[data-arrive="ride"]').click();
+      const ride = { ...api.hud.gettingThere, travel: api.travel.mode,
+        stored: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').arriveChosen };
+      document.querySelector('#s-arrive .seg-btn[data-arrive="fly"]').click();
+      const fly = { ...api.hud.gettingThere, travel: api.travel.mode };
+      document.querySelector('#s-arrive .seg-btn[data-arrive="instantly"]').click();
+      document.querySelector('#s-move .seg-btn[data-mode="walk"]').click();
+      // Leave the page as a fresh visitor would have it: no choice of their own yet.
+      api.hud.settings.arriveChosen = false;
+      api.setTravelMode('instantly');
+      const note = document.getElementById('arrive-note')?.textContent.replace(/\s+/g, ' ').trim() ?? '';
+      return { before, ride, fly, after: { ...api.hud.gettingThere, travel: api.travel.mode }, note };
+    });
+    check(`${label}: the getting-there choice is one, used by Go to and Jaunts, and the visitor's own once picked (T-2652)`,
+      gettingThere.ride.travelMode === 'horse' && gettingThere.ride.travel === 'horse' && gettingThere.ride.chosen === true
+      && gettingThere.ride.stored === true && gettingThere.fly.travel === 'fly' && gettingThere.fly.chosen === true
+      && gettingThere.after.travel === 'instantly' && gettingThere.after.chosen === false
+      && /^Go to and Jaunts both use this choice/.test(gettingThere.note),
+      JSON.stringify(gettingThere));
+    // ---- end T-2652
     check(`${label}: the horse's gait moves the rider's eye a few centimetres, and stops when they do`,
       travelUi.on.peak >= 0.03 && travelUi.on.peak <= 0.10 && travelUi.on.after === 0
       && travelUi.on.speed > 1,

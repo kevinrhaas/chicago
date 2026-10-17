@@ -151,6 +151,9 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
 # T-2651: Move — one picker and one slider.
 step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider whose range and named speeds follow the mode (T-2651)" \
   node tools/test_nav_move.mjs
+# T-2652: getting there — one choice for Go to, the Map and Jaunts.
+step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
+  node tools/test_getting_there.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
