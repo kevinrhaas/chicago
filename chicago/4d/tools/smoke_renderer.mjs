@@ -1538,6 +1538,19 @@ for (const [label, viewport, touch] of [
           await new Promise((r) => setTimeout(r, 50));
         }
       }
+      // T-2632 (found on #965's desktop 13 run): the Navigator WIDENS too. On a desktop
+      // its open is a .28 s width transition from the 58 px rail to 400 px, and the
+      // transition's clock only moves when the page gets to draw; on a runner where a
+      // frame of the town takes seconds, a fixed wait can end with the panel still a
+      // sliver, Home's three choices squeezed into 0-wide columns and drawn over one
+      // another — "covered at its own centre by <button class=\"nav-choice\">". Waited
+      // for the same way as the drawer: the hit-test still runs, on the settled box.
+      const device = el.closest('#navigator');
+      if (device?.getAnimations) {
+        for (let i = 0; i < 60 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+          await new Promise((r) => setTimeout(r, 50));
+        }
+      }
       // The same scroll `page.click` would do, in the same round trip as the
       // reading — a result row far down the Go-to list is off the panel's
       // viewport until this runs, and `elementFromPoint` would then answer for
@@ -15375,6 +15388,40 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // ---- T-2634: Free roam docks the Navigator and, once per device, says how to inspect.
+    const roamTip = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      const roam = async () => {
+        api.navigator.open(1);
+        await api.navigator.select('jaunts');
+        document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click();
+        document.querySelector('#nav-app-jaunts .nav-roam')?.click();
+        await pause(100);
+        const tip = document.getElementById('roam-tip');
+        return { level: api.navigator.level, showing: !!tip && !tip.hidden, text: tip?.textContent ?? '',
+          stored: localStorage.getItem('chicago4d.roamTipSeen'), backend: api.controlBackend };
+      };
+      api.roamTip.forget();
+      const first = await roam();
+      const box = document.getElementById('roam-tip')?.getBoundingClientRect();
+      first.inView = !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.bottom <= innerHeight;
+      api.roamTip.hide();
+      const second = await roam();
+      api.jauntsApp?.restore();
+      // Back as it was found: Home its app (the dock reopens its last app), docked.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      api.roamTip.hide();
+      return { first, second };
+    });
+    const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.';
+    check(`${label}: Free roam docks the Navigator and shows "${tipWords}" once per device (T-2634)`,
+      roamTip.first.level === 0 && roamTip.first.showing && roamTip.first.text === tipWords && roamTip.first.stored === '1' && roamTip.first.inView
+      && roamTip.second.level === 0 && !roamTip.second.showing,
+      JSON.stringify(roamTip));
+    // ---- end T-2634
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the
@@ -17760,9 +17807,23 @@ for (const [label, viewport, touch] of [
     // --- Menu pauses, Resume returns, End is quick ----------------------------------
     await tap('#jaunt-panel [data-action="menu"]');
     await until(() => window.__chicago4d.welcome.state === 'welcome');
-    await until(() => [...document.querySelectorAll('#welcome-jaunts-content button')]
-      .some((x) => x.textContent.trim() === 'Resume Jaunt'));
-    await tap('#welcome-jaunts-content button', 'Resume Jaunt');
+    // ---- T-2631: the paused outing leads the list as a Continue card — where you are,
+    // and the next stop by name — and its Continue returns to the same stop.
+    await until(() => !!document.querySelector('#welcome-jaunts-content .jaunt-continue [data-action="continue"]'));
+    const continueCard = await p14.evaluate(() => {
+      const card = document.querySelector('#welcome-jaunts-content .jaunt-continue');
+      const list = document.getElementById('welcome-jaunts-content');
+      const first = [...list.querySelectorAll('.jaunt-continue, .jaunt-card, .jaunt-daybook-chip')][0];
+      return { kicker: card?.querySelector('.jaunt-continue-k')?.textContent.trim(), title: card?.querySelector('h3')?.textContent.trim(),
+        next: card?.querySelector('.jaunt-continue-next')?.textContent.trim(), leads: first === card,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(card?.textContent ?? '') };
+    });
+    check(`${label}: a paused Jaunt leads the list as a Continue card naming its stop and the next one (T-2631)`,
+      /^Continue · Stop 2 of \d+$/.test(continueCard.kicker ?? '') && !!continueCard.title
+      && /^Next: \S/.test(continueCard.next ?? '') && continueCard.leads && !continueCard.snake,
+      JSON.stringify(continueCard));
+    await tap('#welcome-jaunts-content .jaunt-continue [data-action="continue"]');
+    // ---- end T-2631
     await atStop();
     check(`${label}: the Jaunts menu pauses the outing and Resume returns to the same stop`,
       (await jaunt()).stopIndex === 1);
