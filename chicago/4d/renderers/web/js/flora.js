@@ -1095,8 +1095,8 @@ const NO_VERGE = Object.assign(() => null, { records: [] });
  */
 export async function createFlora({
   checkpoint = () => null,
-  dataBase, terrain, footprints = [], growthBlocked = () => false, verge = NO_VERGE,
-  forbSeat = () => null,
+  dataBase, terrain, footprints = [], growthBlocked = () => false, growthEdges = null,
+  growthPatch = null, verge = NO_VERGE, forbSeat = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
 } = {}) {
   const group = new THREE.Group();
@@ -1447,6 +1447,24 @@ export async function createFlora({
   /** Ground the plant stands on, or null if it may not stand here. `wet` is the
    *  caller's already-computed water test, since the placer asks it once per
    *  lattice slot to choose which half of the community it may pick from. */
+  /** T-2715: whether `growthEdges` reaches a corner of the square of half-side
+   *  `half` centred on (e, n). See `nearField.atTexel`. */
+  function edgeCorners(e, n, half) {
+    if (growthEdges === null) return false;
+    return growthEdges(e - half, n - half) || growthEdges(e + half, n - half)
+      || growthEdges(e - half, n + half) || growthEdges(e + half, n + half);
+  }
+  /** `growthEdges` at the (w + 1) x (h + 1) texel corners from (e0, n0), row by
+   *  row northward, or null when there are none to ask. */
+  function edgeLattice(e0, n0, w, h, texel) {
+    if (growthEdges === null) return null;
+    const out = new Uint8Array((w + 1) * (h + 1));
+    for (let j = 0; j <= h; j++) {
+      for (let i = 0; i <= w; i++) out[j * (w + 1) + i] = growthEdges(e0 + i * texel, n0 + j * texel) ? 1 : 0;
+    }
+    return out;
+  }
+
   function station(e, n, zone, species, wet = wetAt(e, n)) {
     if (growthBlocked(e, n)) return null;
     if (trodden(e, n, zone, species)) return null;
@@ -2366,6 +2384,23 @@ export async function createFlora({
       flags: FIELD_FLAGS,
       glsl: FIELD_GLSL,
       sample: sampleField,
+      /**
+       * T-2715. `at` at a TEXEL: the point's own answer, and BLOCKED as well
+       * wherever `growthEdges` (the page passes the streets' track) reaches any
+       * of the texel's four corners. A track edge through a texel whose centre it
+       * misses used to leave the tile unblocked under a slot the CPU blocks — the
+       * one tuft at river_bank after the bank went per-texel. What `growthEdges`
+       * holds must be wider than a texel's diagonal, so a band that reaches any
+       * point of the texel reaches a corner, and the tile errs only on the side
+       * of exclusion. Everything else in `growthBlocked` is `growthPatch`, asked
+       * at the centre: the worked bank already answers a texel at a time
+       * (`working-bank.js` BANK_PATCH_M), and a fence is thinner than a texel.
+       */
+      atTexel(e, n, out = [0, 0, 0], texel = FIELD_SPEC.texel) {
+        this.at(e, n, out);
+        if (!(out[1] & FIELD_FLAGS.BLOCKED) && edgeCorners(e, n, texel / 2)) out[1] |= FIELD_FLAGS.BLOCKED;
+        return out;
+      },
       at(e, n, out = [0, 0, 0]) {
         const zone = finder(e, n);
         let f = 0;
@@ -2380,7 +2415,7 @@ export async function createFlora({
       },
       build(camE, camN, spec = FIELD_SPEC) {
         const { e0, n0 } = fieldOrigin(camE, camN, spec);
-        return buildField(this.at, e0, n0, spec);
+        return buildField((e, n, out) => this.atTexel(e, n, out, spec.texel), e0, n0, spec);
       },
       /**
        * T-2707. The tile kept around a walker (near-field.js `fieldKeeper`): a
@@ -2406,6 +2441,12 @@ export async function createFlora({
             : null),
           finish(got, { i0, j0, w, h }, e0, n0, texel, cls, height) {
             if (got) keeper.stats.pooled += w * h;
+            // The strip's corner lattice, asked once and shared by the four
+            // texels round each corner (see `atTexel`).
+            const corner = edgeLattice(e0 + i0 * texel, n0 + j0 * texel, w, h, texel);
+            const edged = (i, j) => corner !== null && (corner[j * (w + 1) + i]
+              || corner[j * (w + 1) + i + 1] || corner[(j + 1) * (w + 1) + i]
+              || corner[(j + 1) * (w + 1) + i + 1]);
             for (let j = 0; j < h; j++) {
               const n = n0 + (j0 + j + 0.5) * texel;
               for (let i = 0; i < w; i++) {
@@ -2414,13 +2455,20 @@ export async function createFlora({
                 const f = got ? got.flags[k] : FIELD_UNASKED;
                 if (f === FIELD_UNASKED) {
                   if (got) keeper.stats.unasked++;
+                  // `atTexel`, with the strip's own corners.
                   at(e, n, o);
-                  cls[2 * k] = o[0]; cls[2 * k + 1] = o[1]; height[k] = o[2];
+                  cls[2 * k] = o[0]; height[k] = o[2];
+                  cls[2 * k + 1] = edged(i, j) ? o[1] | FIELD_FLAGS.BLOCKED : o[1];
                   continue;
                 }
                 cls[2 * k] = got.zone[k];
-                cls[2 * k + 1] = !(f & FIELD_FLAGS.BLOCKED) && growthBlocked(e, n)
-                  ? f | FIELD_FLAGS.BLOCKED : f;
+                // With the corners asked, the centre need only ask `growthPatch`:
+                // a band that reaches the centre reaches a corner, and asking the
+                // track at both doubled the page's share of a re-centre (T-2715's
+                // walk reading: 0.59 -> 1.07 ms a metre, worst step 29 -> 55 ms).
+                const blocked = corner === null ? growthBlocked(e, n)
+                  : edged(i, j) || (growthPatch !== null && growthPatch(e, n));
+                cls[2 * k + 1] = !(f & FIELD_FLAGS.BLOCKED) && blocked ? f | FIELD_FLAGS.BLOCKED : f;
                 height[k] = got.y[k];
               }
             }

@@ -14,7 +14,9 @@ export function filterJaunts(rows, query = '', family = '') {
     .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
 }
 
-export function createJauntMenu({ root, estimate, onStart, onPreview, preferredMode = () => null }) {
+// T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
+// says the visitor holds this outing's keepsake.
+export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
   let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
@@ -33,6 +35,14 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, preferredM
     const el = node('article', '', `jaunt-card jaunt-type-${slot}`); el.dataset.jaunt = row.id; el.dataset.section = section;
     const badge = node('span', '', 'jaunt-type'); badge.append(icon(FAMILIES.includes(row.primary_family) ? row.primary_family : 'view', 20));
     badge.title = row.primary_family;
+    // T-2631: a credited picture of the route's own stops, where the project holds one.
+    // Never a stand-in: with none, the family icon stays.
+    const plate = plateFor(row);
+    if (plate?.src) {
+      const img = document.createElement('img');
+      img.className = 'jaunt-plate'; img.alt = plate.alt; img.loading = 'lazy'; img.decoding = 'async'; img.src = plate.src;
+      badge.replaceChildren(img); badge.classList.add('has-plate'); badge.title = plate.full;
+    }
     const body = node('div', '', 'jaunt-row-body'), head = node('div', '', 'jaunt-head');
     const title = node('h3', row.title);
     if (row.featured) title.append(node('span', '★', 'jaunt-star'));
@@ -40,7 +50,10 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, preferredM
     const length = node('span', '', 'jaunt-length'); length.dataset.jauntLength = row.id;
     const meta = node('p', '', 'jaunt-tags');
     meta.append(node('span', SHORT[row.primary_family] || row.primary_family, 'jaunt-family'), node('span', `${row.stop_count} stops`), length);
+    // T-2631: the keepsake, once earned, on the outing's own card.
+    if (kept(row)) meta.append(node('span', 'Keepsake earned', 'jaunt-kept'));
     body.append(head, node('p', row.premise, 'jaunt-premise'), meta);
+    if (plate?.src) { const credit = node('p', `Picture: ${plate.credit}`, 'jaunt-credit'); credit.title = plate.full; body.append(credit); }
     const actions = node('div', '', 'jaunt-actions');
     const details = node('div', '', 'jaunt-details'); details.id = `jaunt-more-${section}-${row.id}`;
     const toggle = button('', () => {
