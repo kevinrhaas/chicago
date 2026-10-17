@@ -1,0 +1,11 @@
+{
+  "title": "The Navigator works from the keyboard",
+  "kind": "feature",
+  "items": [
+    "Press N to open or close the Navigator. Tab from the scene opens it too.",
+    "Press 1 to 9 to open the app at that place on the Navigator's rail. Escape closes the device.",
+    "Arrow keys move along the rail and Enter opens the app you are on. Focus jumps into the app's screen and always shows a clear outline.",
+    "When the Navigator closes, focus lands on its handle, so you are never left lost. Screen readers now hear the rail as a set of tabs, each named.",
+    "N used to open What's new. That now lives under Settings, or press H."
+  ]
+}
