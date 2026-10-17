@@ -16,6 +16,8 @@ import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSys
 import { createGoTo } from './goto.js';
 import { PACES, gaitName } from './travel.js';
 import { versionBadge } from './structure-versions.js';
+import { t as str } from './strings/index.js';
+import './strings/hud.js';
 
 const THEME_KEY = 'chicago4d.theme';
 const CONF_KEY = 'chicago4d.confidence';
@@ -248,7 +250,7 @@ export function createHud({
   }
   $('cm-reset')?.addEventListener('click', () => {
     for (const level of LEVELS) setHidden(level, false, { announce: false });
-    say('Showing every level again');
+    say(str('hud.levels.all'));
   });
   // Click-away, but not click-inside: the panel holds three checkboxes a visitor
   // will often want to toggle in one visit.
@@ -264,9 +266,9 @@ export function createHud({
   function setFly(on, { announce = true } = {}) {
     flying = !!on;
     btnFly?.setAttribute('aria-pressed', String(flying));
-    if (flyLabel) flyLabel.textContent = flying ? 'Walk' : 'Fly';
+    if (flyLabel) flyLabel.textContent = str(flying ? 'hud.fly.walk' : 'hud.fly.fly');
     if (btnFly) {
-      btnFly.title = flying ? 'Back to walking (F)' : 'Free-fly — rise above the town (F)';
+      btnFly.title = str(flying ? 'hud.fly.back' : 'hud.fly.up');
     }
     if (!flying) { badgeAlt?.setAttribute('hidden', ''); badgeAlt?.parentElement?.classList.remove('has-alt'); }
     onFly?.(flying);
@@ -379,8 +381,7 @@ export function createHud({
     whatsNewDot?.toggleAttribute('hidden', n === 0);
     helpDot?.toggleAttribute('hidden', n === 0);
     if (n > 0) {
-      btnHelp?.setAttribute('title',
-        `Controls, settings and what's new — ${n} unread (H)`);
+      btnHelp?.setAttribute('title', str('hud.menu.unread', { n }));
     }
   }
   void paintUnseen();
@@ -394,7 +395,7 @@ export function createHud({
         await renderWhatsNew(host);
       } catch {
         whatsNewPainted = false;
-        if (host) host.textContent = 'The release notes could not load. Reopen this tab to retry.';
+        if (host) host.textContent = str('hud.notes.failed');
         return;
       } finally {
         host?.removeAttribute('aria-busy');
@@ -694,7 +695,7 @@ export function createHud({
     if (!banner) return;
     if (!state) { banner.setAttribute('hidden', ''); return; }
     const verb = $('travel-verb'); const dest = $('travel-dest'); const dist = $('travel-dist');
-    if (verb) verb.textContent = state.verb ?? 'Going to';
+    if (verb) verb.textContent = state.verb ?? str('hud.going');
     if (dest) dest.textContent = state.dest ?? '';
     if (dist) dist.textContent = Number.isFinite(state.dist_m) ? formatDistance(state.dist_m, settings.units) : '';
     banner.removeAttribute('hidden');

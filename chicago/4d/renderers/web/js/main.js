@@ -72,6 +72,8 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
+import { t, applyStrings } from './strings/index.js';
+import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -1509,6 +1511,8 @@ gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tool
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
 api.gesture = gesture;
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
+// T-2624: the page's static words from the string table, before anything paints over them.
+applyStrings(document);
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -1570,8 +1574,8 @@ boot().catch((err) => {
     && !['1812', '1835', '1904'].includes(YEAR);
   // T-2616: the visitor reads "the jump stalled"; what failed goes under the folded details.
   arrival.fail(err, {
-    message: `Could not load the scene — ${api.error}`,
-    headline: unbuilt ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.` : undefined,
+    message: t('arrival.fail.scene', { error: api.error }),
+    headline: unbuilt ? t('arrival.fail.unbuilt', { year: YEAR }) : undefined,
   });
   console.error('[4D Chicago] boot failed', err);
 });
