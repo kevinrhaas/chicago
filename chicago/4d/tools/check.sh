@@ -158,8 +158,16 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
+  node tools/test_nav_jump.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
+# T-2634: Free roam's one-time tip.
+step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
+  node tools/test_roam_tip.mjs
+# T-2631: Jaunt cards and Continue.
+step "Each Jaunt card shows a credited plate of its own stops or none, its keepsake once earned, and an outing in progress pinned on top with Continue (T-2631)" \
+  node tools/test_nav_jaunt_cards.mjs
 step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
   node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \

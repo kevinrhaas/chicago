@@ -161,6 +161,35 @@ a.nav-jump { color: inherit; text-decoration: none; }
 a.nav-jump:hover { border-color: var(--accent); }
 a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .nav-recall { display: inline-flex; align-items: center; text-decoration: none; }
+/* T-2655: the era mini-cards — the Observatory's plate, the year, HERE on the one you are
+   in — and RECALL, the screen's one signal-red key (it is the only .nav-key here). */
+.nav-jump { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: center; }
+.nav-jump-plate { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; filter: grayscale(1) contrast(1.05);
+  border: 1px solid var(--edge); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.nav-jump-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nav-jump[aria-current="page"] { border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+.nav-jump .nav-here { color: var(--accent); letter-spacing: .16em; text-transform: uppercase; }
+.nav-recall { margin-top: 14px; min-height: 44px; gap: 12px; justify-content: space-between; width: 100%; }
+.nav-recall span { opacity: .82; font-size: 10px; letter-spacing: .12em; }
+
+/* The in-world jump: the transfer ring closes over the town, then the page goes. */
+.nav-jump-ring {
+  position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; align-content: center; gap: 18px;
+  background: color-mix(in srgb, var(--page, #05070d) 82%, transparent); color: var(--ink);
+  animation: nav-fade .2s ease both;
+}
+.nav-jump-ring i { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; margin: -35vmin 0 0 -35vmin;
+  border: 1px solid var(--accent); border-radius: 50%; pointer-events: none;
+  box-shadow: 0 0 0 30px var(--skin-glow, transparent), 0 0 0 100px var(--skin-glow, transparent);
+  animation: nav-crossing 1.2s var(--ease-machine, ease) both; }
+.nav-jump-ring .nav-jump-ring-b { border-style: dashed; animation-delay: .3s; }
+.nav-jump-ring-label { position: relative; margin: 0; font: 500 12px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .16em; text-transform: uppercase; }
+.nav-jump-abort { position: relative; min-height: 44px; padding: 0 16px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: none; color: var(--accent); font: 400 11px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em;
+  text-transform: uppercase; cursor: pointer; }
+.nav-jump-abort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@keyframes nav-crossing { from { transform: scale(1.6); opacity: 0; } 40% { opacity: .5; } to { transform: scale(.05); opacity: 0; } }
 
 .nav-screen {
   flex: 1;
@@ -308,6 +337,8 @@ a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .nav-jump-ring, .nav-jump-ring i { animation: none; }
+  .nav-jump-ring i { display: none; }
   .navigator, .nav-meter i, body.has-navigator .navigation-stack { transition: none !important; }
   .nav-app.is-entering, .nav-app.is-leaving, .nav-app.is-entering::before, .nav-screen.is-warming, .nav-screen.is-warming::before, .nav-code.is-warming { animation: none !important; }
   .nav-app-dot { transition: none; }
@@ -374,6 +405,38 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 }
 .nav-readout span { white-space: nowrap; }
 @media (max-width: 380px) { .nav-presets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Map (SCR 05, T-2654): the whole field in a scope panel — a dark CRT well with 1 px
+   scanlines (DESIGN §06 "Scope panels") — a legend toggle in the Confidence view colours,
+   and the preview of a tapped building with its Go key. */
+.nav-scope {
+  position: relative; display: grid; place-items: center; padding: 8px;
+  border: 1px solid var(--edge); border-radius: 12px;
+  background: var(--screen, #07130F);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, .55);
+}
+.nav-scope::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: repeating-linear-gradient(180deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 3px);
+}
+.nav-map-canvas { display: block; border-radius: 4px; cursor: crosshair; touch-action: manipulation; }
+.nav-map-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.nav-map-toggle {
+  min-height: 36px; padding: 0 12px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: transparent; color: var(--ink-dim); cursor: pointer;
+  font: var(--label-weight, 400) 10px/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); letter-spacing: .14em; text-transform: uppercase;
+}
+.nav-map-toggle[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+.nav-map-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-map-legend { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--ink-dim); }
+.nav-map-legend[hidden] { display: none; }
+.nav-map-swatch { display: inline-flex; align-items: center; gap: 6px; }
+.nav-map-swatch i { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(0, 0, 0, .35); }
+.nav-map-swatch.is-attested i { background: var(--grade-attested, #d4ae38); }
+.nav-map-swatch.is-inferred i { background: var(--grade-inferred, #c9d0d8); }
+.nav-map-swatch.is-reconstructed i { background: var(--grade-reconstructed, #a86a3a); }
+.nav-map-preview[hidden] { display: none; }
+.nav-map-foot { margin: 0; font-size: 13px; }
 
 /* ---- T-2630: Home's three choices and the Jaunts app's segments ------------------ */
 .nav-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
