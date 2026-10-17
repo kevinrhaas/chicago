@@ -131,7 +131,9 @@ assert.ok(slow.arrival.state.year >= 1836);
 assert.doesNotMatch(slow.phaseEl.textContent, /arrived/);
 slow.step(100);
 assert.equal(slow.arrival.state.year, 1835);
-assert.equal(slow.buttonEl.disabled, false);
+// T-2613: no Tap to enter — on success #gate-btn is never offered; Home opens instead.
+assert.equal(slow.buttonEl.disabled, true, 'the gate button is not offered on a successful landing');
+assert.notEqual(slow.buttonEl.dataset.arrivalRetry, 'true');
 assert.equal(slow.barEl.percent, '100');
 assert.equal(slow.frames.size, 0, 'no ticker remains after arrival');
 const arrived = slow.phaseEl.textContent;
@@ -249,3 +251,65 @@ assert.doesNotMatch(main, /gateBtn\.disabled\s*=\s*false[^\n]*Tap to enter/,
   'main.js must not enable entry before the arrival ready/settle path');
 
 console.log('ARRIVAL CONTROLLER PASS — elapsed tick, optional isolation, failure and sole presenter');
+
+
+/* T-2613: the journey and the landing. Every transition once, in order; the device
+ * flashes, turns over to Home at the flip's midpoint, and lands inside 900 ms. */
+{
+  const { createJourney, JOURNEY_STATES } = await import('../renderers/web/js/journey.js');
+  assert.deepEqual(JOURNEY_STATES, ['observatory', 'locking', 'jumping', 'time-stream', 'landing', 'landed',
+    'exploring', 'inspecting', 'on-jaunt', 'touring', 'recall']);
+  const root = { dataset: {} };
+  const j = createJourney({ root });
+  const seen = [];
+  j.on(({ from, to }) => seen.push(`${from}>${to}`));
+  assert.equal(j.state, 'time-stream'); assert.equal(root.dataset.journey, 'time-stream');
+  assert.equal(j.landed(), false, 'landed before landing is refused');
+  assert.equal(j.explore(), false, 'exploring before landing is refused');
+  assert.ok(j.land()); assert.ok(j.land(), 'the same state again is a no-op');
+  assert.ok(j.landed()); assert.ok(j.go('on-jaunt')); assert.ok(j.explore()); assert.ok(j.go('inspecting'));
+  assert.ok(j.explore()); assert.equal(j.go('landing'), false, 'no landing twice');
+  assert.ok(j.recall()); assert.equal(j.explore(), false, 'nothing after recall');
+  assert.deepEqual(seen, ['time-stream>landing', 'landing>landed', 'landed>on-jaunt', 'on-jaunt>exploring',
+    'exploring>inspecting', 'inspecting>exploring', 'exploring>recall']);
+  assert.equal(root.dataset.journey, 'recall');
+  assert.throws(() => j.go('nowhere'));
+
+  for (const reducedMotion of [false, true]) {
+    let clock = 0;
+    const timers = [];
+    const wait = (fn, ms) => timers.push({ at: clock + ms, fn });
+    const run = () => { timers.sort((a, b) => a.at - b.at); const t = timers.shift(); clock = t.at; t.fn(); };
+    const journey = createJourney({ root: null });
+    const states = []; journey.on(({ to }) => states.push(to));
+    const deviceEl = { dataset: {} }, destinationEl = { textContent: 'Destination 1904 · Prairie Ave' };
+    const announceEl = { textContent: '' };
+    let welcomedAt = null, buzz = 0;
+    const steps = [];
+    const boot = createBoot({ now: () => clock });
+    for (const p of boot.phases) boot.expected[p.id] = 1;
+    createArrival({ boot, journey, deviceEl, destinationEl, announceEl, wait, targetYear: 1904,
+      targetDate: () => '1904-07-01', currentYear: 2026, reducedMotion, now: () => clock, requestFrame: null,
+      vibrate: () => { buzz++; }, onWelcome: () => { welcomedAt = clock; steps.push(`home@${deviceEl.dataset.landing}`); } });
+    for (const p of boot.phases.filter(p => p.essential)) { boot.start(p.id); boot.end(p.id); }
+    boot.frameRendered(); assert.ok(boot.finish());
+    const readyAt = clock;
+    assert.equal(destinationEl.textContent, 'Arrived · 1904.07.01');
+    assert.equal(announceEl.textContent, 'Arrived: Prairie Avenue, 1 July 1904');
+    assert.equal(buzz, 1, 'the last digit lands with one buzz');
+    steps.push(deviceEl.dataset.landing);
+    while (timers.length) { run(); steps.push(deviceEl.dataset.landing ?? 'done'); }
+    assert.deepEqual(states, ['landing', 'landed']);
+    assert.deepEqual(steps, reducedMotion
+      ? ['fade-out', 'home@fade-out', 'fade-in', 'done']
+      : ['flash', 'flip-out', 'home@flip-out', 'flip-in', 'done']);
+    assert.ok(welcomedAt - readyAt <= 900, `Home takes taps ${welcomedAt - readyAt} ms after ready`);
+    assert.equal(clock - readyAt, reducedMotion ? 240 : 700, 'flash 180 ms + turn 520 ms (crossfade 240 ms)');
+  }
+  // The pieces the landing writes to are in the page, and the gate button is retry-only.
+  assert.match(index, /id="arrival-announce"[^>]*role="status"[^>]*aria-live="polite"/);
+  assert.match(index, /id="home-roam"[^>]*><strong>Free roam<\/strong>/);
+  assert.match(index, /id="gate-btn"[^>]*>Try again</);
+  assert.doesNotMatch(index, /Tap to enter/);
+}
+console.log('JOURNEY PASS — every transition once and in order; landing flash, flip to Home, inside 900 ms; reduced-motion crossfade');

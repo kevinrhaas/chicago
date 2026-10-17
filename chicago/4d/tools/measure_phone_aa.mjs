@@ -513,8 +513,8 @@ if (doEdges) {
       console.error('the shadow map would not switch off — the residual is not the residual');
       process.exit(2);
     }
-    const gate = await page.$('#gate-btn');
-    if (gate) await page.click('#gate-btn');
+    const gate = await page.$('#home-roam');
+    if (gate) await page.click('#home-roam');
     await page.evaluate(() => {
       for (const b of document.querySelectorAll('button')) {
         if (/got it|dismiss|close/i.test(b.textContent ?? '')) b.click();

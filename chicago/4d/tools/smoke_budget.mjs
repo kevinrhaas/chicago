@@ -196,6 +196,11 @@ const COVERAGE = [
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
   // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
   ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
+  // T-2702: 1904's own household cards and the directory compiled from them. main.js
+  // fetches a people.json only for a scene that draws `residents`, which 1904 does not
+  // (T-1740), so no module reads either; test_people_scene.py holds them in check.sh.
+  ['data/residents_1904/', NONE, '1904 household cards, read by no module: test_people_scene.py'],
+  ['data/sidecars/1904/people.json', NONE, 'the 1904 directory, fetched by no module (1904 draws no residents): test_people_scene.py'],
   // Which files git tracks. What publish.sh writes into the untracked mirror is held by
   // check_published.mjs in check.sh, not by the renderer.
   ['.gitignore', NONE, 'which files git tracks — the mirror is held by check_published.mjs'],
@@ -410,9 +415,16 @@ const COVERAGE = [
   // --- PARTS 10-12: what grows, what moves, and the streets a visitor reads
   // (T-2337 cut old part 10 into 10 + 11, so a row that named 10 names both)
   ['renderers/web/js/flora.js', [10, 11, 12], 'the flora census, and the boundary it fades at'],
+  // T-2698: the near deal's field tile. flora.js is its only importer (the
+  // `nearField` handle), so it is read where the flora census is.
+  ['renderers/web/js/near-field.js', [10, 11, 12], 'the near field tile, built through flora.js'],
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
+  // T-2695. The zone finder, moved out of flora.js so a worker can run it, and the
+  // job that answers a spread pass's slots with it: the census parts read both.
+  ['renderers/web/js/flora-zones.js', [10, 11, 12], 'which community the flora census asks at a point'],
+  ['renderers/web/js/jobs/zone-kernel.js', [10, 11, 12], 'the zone answers a spread pass brings home from the job pool'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],

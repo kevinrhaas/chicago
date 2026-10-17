@@ -118,7 +118,7 @@ async function boot(vp, query) {
       if (welcome.state === 'welcome') welcome.enter('spawn');
       if (welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
     }
-    if (!welcome) document.getElementById('gate-btn')?.click();
+    if (!welcome) document.getElementById('home-roam')?.click();
     document.exitPointerLock?.();
     const help = document.getElementById('control-help');
     if (help && !help.hasAttribute('hidden')) document.getElementById('control-help-gotit')?.click();
