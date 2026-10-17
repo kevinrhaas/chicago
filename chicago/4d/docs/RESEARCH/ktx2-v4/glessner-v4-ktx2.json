@@ -1,0 +1,143 @@
+{
+ "ticket": "T-2596",
+ "producer": "tools/web_derivatives.sh --only glessner_house__as_built_1887.glb (KTX2 cap 2048; light via produce_light_version, cap 1024)",
+ "master": {
+  "path": "assets/gltf/glessner_house__as_built_1887.glb",
+  "sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "bytes": 198433824,
+  "unchanged": true
+ },
+ "files": {
+  "assets/web/glessner_house__as_built_1887.glb": {
+   "old": {
+    "sha256": "bc5a2ccf7eff0691e91c3ac32a67b97f6e7aa608189e3932584cfbd8aecf3011",
+    "bytes": 59126156
+   },
+   "new": {
+    "sha256": "b07e5199ccc174c5f461a7f7e1d145265fad156451986104d074f2e3fa583773",
+    "bytes": 43829952
+   }
+  },
+  "assets/web/glessner_house__as_built_1887.light.glb": {
+   "old": {
+    "sha256": "1ec43bfdeeaf745acca4c9528235cc6c548713e6fbf4ea84fc852185209bad6a",
+    "bytes": 32534812
+   },
+   "new": {
+    "sha256": "cd016d847acaf8b9af69c808e8383f9e66723a822b719172565e45b29f5c8d98",
+    "bytes": 15521960
+   }
+  }
+ },
+ "textures": {
+  "full": {
+   "cap": 2048,
+   "old": {
+    "images": 37,
+    "mime_types": [
+     "image/jpeg",
+     "image/png"
+    ],
+    "max_side": null,
+    "requires_basisu": false
+   },
+   "new": {
+    "images": 37,
+    "mime_types": [
+     "image/ktx2"
+    ],
+    "max_side": 2048,
+    "requires_basisu": true
+   }
+  },
+  "light": {
+   "cap": 1024,
+   "old": {
+    "images": 37,
+    "mime_types": [
+     "image/jpeg",
+     "image/png"
+    ],
+    "max_side": null,
+    "requires_basisu": false
+   },
+   "new": {
+    "images": 37,
+    "mime_types": [
+     "image/ktx2"
+    ],
+    "max_side": 1024,
+    "requires_basisu": true
+   }
+  }
+ },
+ "package": {
+  "old": {
+   "parts": 25,
+   "bytes": 152421884,
+   "manifest_sha256": "384c733a9bd636ea5ffb43e26aa0d98b44e6fc323770841570e74769b4c58dce"
+  },
+  "new": {
+   "parts": 20,
+   "bytes": 120457725,
+   "manifest_sha256": "e4279b5ab867586dc5eb142773bd402a3aa5bd20817b370a4b4958b861085226"
+  }
+ },
+ "renders": {
+  "habs-01-northwest": {
+   "old_render_sha256": "e934380bc45a5113bcc129a657bc8e63f3c8a766944a778aa1ae70e8f88f1325",
+   "new_render_sha256": "d0dd6dc89182ee22ac7d6927766403f2070bbdbf28dc82ad81a86419b54bd35c",
+   "psnr_db": 39.47
+  },
+  "habs-14-north-inclined": {
+   "old_render_sha256": "4f8cc09f663c577e2c0b5d1f9082f03195640793c6bd920204cefca2b2ef1644",
+   "new_render_sha256": "259ad484d7585d93380380d69aba2d9824bc313eda4bb6419dbe9defacc08f95",
+   "psnr_db": 36.68
+  },
+  "habs04-hood-section": {
+   "old_render_sha256": "cdeaf05bfabbf96118bee5840606f7012a95ee4cc617ca8e7fd814143ec439b2",
+   "new_render_sha256": "9045ba7a425f9bef9f2c131c9a1a6ab708865e48b7d05351e81c1fa021a80224",
+   "psnr_db": 45.35
+  },
+  "habs04-terrace-section": {
+   "old_render_sha256": "8dc04d0ba669682e3f00d5ee779d6c771368992f5296f689efb3e0cbce0dc4a0",
+   "new_render_sha256": "7877203e8836b7cb76860ea23b469fa5678500f3f288fce3555c735886a2a900",
+   "psnr_db": 42.46
+  },
+  "taylor-2135-ne": {
+   "old_render_sha256": "92de397545c4299e83027309d1e77ac9212199e9725228e805a5a258917e6197",
+   "new_render_sha256": "ef4a6ba56cf97ae5030c38f6eeb9a9e43ffbef81a63ab69422beb163b56157f4",
+   "psnr_db": 37.3
+  },
+  "habs-01-northwest (light)": {
+   "old_render_sha256": "7628caa659cfcd198db3735f6581ba25441cc3130204243070abd7c5dc870951",
+   "new_render_sha256": "63c8de9c5ab015efedd444827643e1e16a86dd3d0cf5becaaabdfa30099deca2",
+   "psnr_db": 39.15
+  }
+ },
+ "match_records": "untouched: photo_match rewrites were restored with git checkout; verdicts stay human review state, and the master they are keyed on did not move",
+ "side_by_sides": {
+  "dir": "docs/RESEARCH/ktx2-v4/glessner/",
+  "layout": "old render | new render, same camera, neutral review render (tools/photo_match.mjs)",
+  "files": [
+   "habs-01-northwest-light-old-vs-new.jpg",
+   "habs-01-northwest-old-vs-new.jpg",
+   "habs-14-north-inclined-old-vs-new.jpg",
+   "habs04-hood-section-old-vs-new.jpg",
+   "habs04-terrace-section-old-vs-new.jpg",
+   "taylor-2135-ne-old-vs-new.jpg"
+  ]
+ },
+ "boot_peak_1904": {
+  "tool": "node tools/measure_boot_peak.mjs --year 1904 --pools 0 (same container, same published mirror, only the two Glessner files swapped)",
+  "desktop_held_peak_mb": {
+   "old": 107.6,
+   "new": 93.0
+  },
+  "mobile_held_peak_mb": {
+   "old": 82.2,
+   "new": 66.0
+  },
+  "note": "absolute values depend on the machine parsing the boot; compare old against new only"
+ }
+}

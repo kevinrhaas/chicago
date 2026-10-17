@@ -31,15 +31,15 @@
         "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner, 1808 and 1904 parcel records make of these sheets. FROM: the T-1837 building register gives 1868 (the street marker) against 1870 (a 1973 report) for the house; the register is not a source record here, so the earlier year's first day stands, inferred. TO: the register gives the loss as 1944 (marker); same footing, that year's last day."
       },
       "position": {
-        "utm_e": 448450.915,
-        "utm_n": 4634316.745,
+        "utm_e": 448452.047,
+        "utm_n": 4634318.137,
         "rotation_deg": -0.815,
         "symbolic_location": "1638 S. Prairie Avenue: west side of Prairie between 16th and 18th Streets, parcel prairie_1638 (data/street_grid/1904.json), Lot 1, block 2 of E. L. Sherman's Sub.; the front's south end, on its wall line, at grade.",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The south end of the house's front wall, read off the committed sheet 20 raster at pixel (3103.3, 3722.7) — the front wall line (column 3103.3) meeting the south wall line (row 3722.7) — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 2.46 m RMS): local E 1378.215, N -3079.055. The front stands 10.8 m behind the Prairie Avenue line (column 3316, the parcel's street corner) and its north wall 0.36 m inside the lot's north line, as the sheet draws. The bearing is the sheet's own rotation in that fit (0.815 degrees), so the front runs along the sheet's ruled lines.",
+        "note": "The south end of the house's front wall, read off the committed sheet 20 raster at pixel (3103.3, 3722.7) — the front wall line (column 3103.3) meeting the south wall line (row 3722.7) — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 3.08 m RMS): local E 1379.347, N -3077.663. The front stands 10.8 m behind the Prairie Avenue line (column 3316, the parcel's street corner) and its north wall 0.36 m inside the lot's north line, as the sheet draws. The bearing is the sheet's own rotation in that fit (0.815 degrees; T-2691 joined it to sheet 28 at 18th Street by a shift alone), so the front runs along the sheet's ruled lines.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; none reads a 1911 Sanborn sheet. This position is pixel (3103.3, 3722.7) of the committed sheet 20 raster carried through the similarity in data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json (local_e = a*px + b*py + c, local_n = d*px + e*py + f) plus the datum origin, and the note carries the pixel and the result so the sum can be recomputed by hand."

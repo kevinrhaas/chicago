@@ -56,8 +56,9 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(here, '..');
 const WEB = path.join(ROOT, 'renderers/web');
 const THREE_DIR = path.join(WEB, 'vendor/three-0.185.1');
-/** 2 since T-2677: the tape, pick spans, walk-top ranges, spheres and build. */
-const FORMAT = 2;
+/** 2 since T-2677: the tape, pick spans, walk-top ranges, spheres and build.
+ *  3 since T-2687: each mesh's position, uniform scale and quantization. */
+const FORMAT = 3;
 /** Built by the page for itself, never carried in the file (see the header). */
 const PAGE_ONLY = new Set(['frontage-far-walk-tops', 'frontage-lettering']);
 
@@ -183,9 +184,13 @@ export function meshBuffers(group) {
     const index = g.index ? { type: g.index.array.constructor.name,
       bytes: new Uint8Array(g.index.array.buffer, g.index.array.byteOffset, g.index.array.byteLength) } : null;
     const s = g.boundingSphere;
+    // A quantized mesh's positions mean nothing without its box (T-2687): the
+    // centre is the mesh's position and the half-extent its uniform scale.
     meshes.push({ name: mesh.name, userData: { ...mesh.userData }, castShadow: mesh.castShadow,
       receiveShadow: mesh.receiveShadow, renderOrder: mesh.renderOrder, attributes, index,
-      bounding_sphere: s ? { center: s.center.toArray(), radius: s.radius } : null });
+      bounding_sphere: s ? { center: s.center.toArray(), radius: s.radius } : null,
+      position: mesh.position.toArray(), scale: mesh.scale.x,
+      position_quantized: g.userData.positionQuantized ?? null });
   }
   return meshes;
 }
@@ -233,6 +238,7 @@ function pack(year, built, inputs, buildId, gzip = false) {
     attributes: m.attributes.map(({ bytes, ...a }) => ({ ...a, ...place(bytes) })),
     index: m.index ? { type: m.index.type, ...place(m.index.bytes) } : null,
     bounding_sphere: m.bounding_sphere, walk_top_ranges: m.walk_top_ranges,
+    position: m.position, scale: m.scale, position_quantized: m.position_quantized,
   }));
   const bin = Buffer.concat(parts.map((p) => Buffer.from(p.buffer, p.byteOffset, p.byteLength)));
   const index = {
@@ -397,7 +403,7 @@ async function main() {
         ok(replayed.layer.prebuilt.used, `${r.year}: the page's createFrontage takes the prebuild (${replayed.layer.prebuilt.why ?? 'used'})`);
         const same = (x, y) => { try { assert.deepStrictEqual(x, y); return true; } catch { return false; } };
         const bytes = (ms) => ms.map((m) => [m.name, m.userData, m.castShadow, m.receiveShadow, m.renderOrder,
-          m.attributes.map((a) => [a.name, a.type, a.itemSize, a.normalized, sha(a.bytes)])]);
+          m.position, m.scale, m.position_quantized, m.attributes.map((a) => [a.name, a.type, a.itemSize, a.normalized, sha(a.bytes)])]);
         ok(same(bytes(replayed.meshes), bytes(fresh.meshes)), `${r.year}: replayed meshes equal the build's, attribute for attribute (${fresh.meshes.length})`);
         const { relief: _a, ...cr } = replayed.census;
         const { relief: _b, ...cf } = fresh.census;

@@ -27307,6 +27307,8 @@ balcony panel, the scrolled cheek walls and the stone's tone. The plate's camera
 whose rights are cleared is in the tree (the scan this source reads is `check_required`, so no asset is
 derived from it here) puts every dimension above on a side-by-side.
 
+**Revised:** 2026-10-16 (T-2681) — **taller columns, a deeper entablature and a shallower balcony front.** Read through the 1965 close view's camera (`a18-gh-1808-porch-1965`) and the plate's (`inland-1888`): both show the beam and cornice deeper (0.95-1.0 and 0.9 m) and the balcony's front shallower (0.7 and 0.8 m) than built; on the columns they disagree, the 1965 view reading 2.5-2.7 m and the plate about 2.25 m. Built at 2.45 m (T-2500's own reading of the plate, which 2.25 m had given up only to keep the balcony floor on the 5.9 m second-floor datum), 0.9 m and 0.75 m; the balcony floor stands at 6.35 m, under the 6.65 m second-storey sill. Still invented: the column height between two pictures that differ by about 0.5 m, each record holding its remainder open.
+
 ### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
 
 **Decision:** the 1812 scene gains the last two works Captain Whistler's index of January 1808 names

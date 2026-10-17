@@ -463,8 +463,29 @@ if (part('1904')) {
   check('phone: /1904/ lets go of every building\'s source geometry',
     before.rows > 0 && before.kept === 0 && before.census.sources >= before.rows
     && before.census.sourceBytes > 0, JSON.stringify(before));
+  // T-2596: since Glessner v4 joined the Prairie houses in KTX2, a 1904 building may hold
+  // no decoded image at all — a KTX2 texture is a compressed upload, never an ImageBitmap.
+  // So the claim is that none is left OPEN: closed ones (width 0) are what this released,
+  // and a town with no bitmap left to close passes on its compressed textures alone.
+  const bitmaps = await page.evaluate(() => {
+    let open = 0; let closed = 0; let compressed = 0; const seen = new Set();
+    window.__chicago4d.buildings?.group?.traverse((o) => {
+      for (const m of [].concat(o.material ?? [])) {
+        for (const v of Object.values(m)) {
+          if (!v?.isTexture || !v.source || seen.has(v.source)) continue;
+          seen.add(v.source);
+          if (v.isCompressedTexture) compressed += 1;
+          else if (typeof ImageBitmap !== 'undefined' && v.source.data instanceof ImageBitmap) {
+            if (v.source.data.width > 0) open += 1; else closed += 1;
+          }
+        }
+      }
+    });
+    return { open, closed, compressed };
+  });
   check('phone: /1904/ closes the buildings\' decoded images once uploaded',
-    before.census.images > 0 && before.census.imageBytes > 0, JSON.stringify(before.census));
+    bitmaps.open === 0 && (before.census.images > 0 ? before.census.imageBytes > 0 : bitmaps.compressed > 0),
+    JSON.stringify({ ...bitmaps, census: before.census }));
   const look = () => page.evaluate(async () => {
     const a = window.__chicago4d;
     // Past the welcome, which holds the frame while it is up (gate-frame.js).

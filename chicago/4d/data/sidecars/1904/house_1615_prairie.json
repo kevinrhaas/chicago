@@ -25,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1424.676,
-    "local_n": -2988.794,
+    "local_e": 1425.806,
+    "local_n": -2987.404,
     "rotation_deg": 179.611,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle on the party wall: 1613's own south-rear corner (its record's local u 0, v 6.55, turned by 1613's rotation and set at 1613's position), so the two houses close on one party wall and one rear line, as the sheet draws them (trace s20fp-1615-b1 p1 runs x 1412.07-1424.71 and y -2988.86 to -2995.43 in the datum's local metres; 1613's p1 runs x 1412.08-1424.70 and down to y -2988.88). The draft stood 0.32 m off 1613's wall and 0.25 m deeper. Through the T-1250 fit of the sheet: its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees, 1613's, turns the plan's u axis onto the lot's rear-to-street line, so K01's local north is the world's south on this side of the avenue.",
+    "position_note": "The rear corner of the main body's rectangle on the party wall: 1613's own south-rear corner (its record's local u 0, v 6.55, turned by 1613's rotation and set at 1613's position), so the two houses close on one party wall and one rear line, as the sheet draws them (trace s20fp-1615-b1 p1 runs x 1412.07-1424.71 and y -2988.86 to -2995.43 in the datum's local metres; 1613's p1 runs x 1412.08-1424.70 and down to y -2988.88). The draft stood 0.32 m off 1613's wall and 0.25 m deeper. Through the T-1250 fit of the sheet: its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees, 1613's, turns the plan's u axis onto the lot's rear-to-street line, so K01's local north is the world's south on this side of the avenue.",
     "symbolic_location": "1615 S. Prairie Avenue, parcel prairie_1615 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,

@@ -256,8 +256,8 @@
  "legal_lots_register": [
   {
    "face": "prairie_w_16_18",
-   "plate_shift_m": 0.4,
-   "residual_rms_m": 1.77,
+   "plate_shift_m": -0.9,
+   "residual_rms_m": 1.88,
    "lines_matched": 19,
    "lines_read": 22,
    "unnamed_lots": [],
@@ -269,9 +269,9 @@
   },
   {
    "face": "prairie_e_16_18",
-   "plate_shift_m": -1.8,
-   "residual_rms_m": 1.78,
-   "lines_matched": 15,
+   "plate_shift_m": -3.4,
+   "residual_rms_m": 1.51,
+   "lines_matched": 14,
    "lines_read": 22,
    "unnamed_lots": [],
    "narrowest_lot": [
@@ -303,23 +303,23 @@
    "where": "Indiana to Prairie, 16th to 18th Street",
    "outline_local_m": [
     [
-     1271.93,
-     -2954.97
+     1273.06,
+     -2953.57
     ],
     [
-     1274.35,
-     -3198.18
+     1275.5,
+     -3198.17
     ],
     [
-     1390.35,
-     -3196.86
+     1391.49,
+     -3196.84
     ],
     [
-     1387.63,
-     -2953.95
+     1388.77,
+     -2952.56
     ]
    ],
-   "area_m2": 28160.94,
+   "area_m2": 28320.9,
    "edges": [
     {
      "line": "sheet 20 line indiana_e",
@@ -357,12 +357,12 @@
    "where": "Prairie to the Illinois Central, 16th to 18th Street",
    "outline_local_m": [
     [
-     1407.65,
-     -2938.71
+     1408.78,
+     -2937.32
     ],
     [
-     1410.83,
-     -3195.9
+     1411.98,
+     -3195.89
     ],
     [
      1474.9,
@@ -413,15 +413,11 @@
      -3331.56
     ],
     [
-     1548.36,
-     -3332.88
-    ],
-    [
-     1425.51,
-     -2938.59
+     1426.64,
+     -2937.19
     ]
    ],
-   "area_m2": 14551.01,
+   "area_m2": 14666.95,
    "edges": [
     {
      "line": "sheet 20 line prairie_e",
@@ -466,11 +462,11 @@
    "where": "Indiana to Prairie, 18th to 20th Street",
    "outline_local_m": [
     [
-     1274.67,
-     -3218.61
+     1275.73,
+     -3218.6
     ],
     [
-     1278.38,
+     1278.48,
      -3463.15
     ],
     [
@@ -482,7 +478,7 @@
      -3217.24
     ]
    ],
-   "area_m2": 28567.61,
+   "area_m2": 28425.86,
    "edges": [
     {
      "line": "derived line indiana_e_18_20",
@@ -865,95 +861,95 @@
    "where": "Indiana Avenue, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
-     1271.93,
-     -2954.97
+     1273.06,
+     -2953.57
     ],
     [
-     1274.35,
-     -3198.18
+     1275.5,
+     -3198.17
     ]
    ],
-   "length_m": 243.23,
+   "length_m": 244.6,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 20 line indiana_e",
    "bands": {
     "margin": [
      [
       [
-       1271.93,
-       -2954.97
+       1273.06,
+       -2953.57
       ],
       [
-       1274.35,
-       -3198.18
+       1275.5,
+       -3198.17
       ],
       [
-       1274.05,
-       -3198.49
+       1275.2,
+       -3198.47
       ],
       [
-       1271.62,
-       -2954.66
+       1272.76,
+       -2953.27
       ]
      ]
     ],
     "walk": [
      [
       [
-       1271.62,
-       -2954.66
+       1272.76,
+       -2953.27
       ],
       [
-       1274.05,
-       -3198.49
+       1275.2,
+       -3198.47
       ],
       [
-       1272.24,
-       -3200.34
+       1273.39,
+       -3200.32
       ],
       [
-       1269.78,
-       -2953.16
+       1270.91,
+       -2951.76
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1269.78,
-       -2953.16
+       1270.91,
+       -2951.76
       ],
       [
-       1272.24,
-       -3200.34
+       1273.39,
+       -3200.32
       ],
       [
-       1270.28,
-       -3202.34
+       1271.43,
+       -3202.33
       ],
       [
-       1267.79,
-       -2952.11
+       1268.92,
+       -2950.72
       ]
      ]
     ],
     "curb": [
      [
       [
-       1267.79,
-       -2952.11
+       1268.92,
+       -2950.72
       ],
       [
-       1270.28,
-       -3202.34
+       1271.43,
+       -3202.33
       ],
       [
-       1270.13,
-       -3202.5
+       1271.27,
+       -3202.48
       ],
       [
-       1267.63,
-       -2951.96
+       1268.77,
+       -2950.56
       ]
      ]
     ]
@@ -967,12 +963,12 @@
    "where": "East Eighteenth Street, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
-     1274.35,
-     -3198.18
+     1275.5,
+     -3198.17
     ],
     [
-     1390.35,
-     -3196.86
+     1391.49,
+     -3196.84
     ]
    ],
    "length_m": 116.0,
@@ -982,80 +978,80 @@
     "margin": [
      [
       [
-       1274.35,
-       -3198.18
+       1275.5,
+       -3198.17
       ],
       [
-       1390.35,
-       -3196.86
+       1391.49,
+       -3196.84
       ],
       [
-       1390.65,
-       -3197.16
+       1391.8,
+       -3197.14
       ],
       [
-       1274.05,
-       -3198.49
+       1275.2,
+       -3198.47
       ]
      ]
     ],
     "walk": [
      [
       [
-       1274.05,
-       -3198.49
+       1275.2,
+       -3198.47
       ],
       [
-       1390.65,
-       -3197.16
+       1391.8,
+       -3197.14
       ],
       [
-       1392.5,
-       -3198.96
+       1393.65,
+       -3198.95
       ],
       [
-       1272.24,
-       -3200.34
+       1273.39,
+       -3200.32
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1272.24,
-       -3200.34
+       1273.39,
+       -3200.32
       ],
       [
-       1392.5,
-       -3198.96
+       1393.65,
+       -3198.95
       ],
       [
-       1394.51,
-       -3200.92
+       1395.65,
+       -3200.91
       ],
       [
-       1270.28,
-       -3202.34
+       1271.43,
+       -3202.33
       ]
      ]
     ],
     "curb": [
      [
       [
-       1270.28,
-       -3202.34
+       1271.43,
+       -3202.33
       ],
       [
-       1394.51,
-       -3200.92
+       1395.65,
+       -3200.91
       ],
       [
-       1394.66,
-       -3201.07
+       1395.81,
+       -3201.06
       ],
       [
-       1270.13,
-       -3202.5
+       1271.27,
+       -3202.48
       ]
      ]
     ]
@@ -1069,95 +1065,95 @@
    "where": "Prairie Avenue, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
-     1390.35,
-     -3196.86
+     1391.49,
+     -3196.84
     ],
     [
-     1387.63,
-     -2953.95
+     1388.77,
+     -2952.56
     ]
    ],
-   "length_m": 242.92,
+   "length_m": 244.3,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 20 line prairie_w",
    "bands": {
     "margin": [
      [
       [
-       1390.35,
-       -3196.86
+       1391.49,
+       -3196.84
       ],
       [
-       1387.63,
-       -2953.95
+       1388.77,
+       -2952.56
       ],
       [
-       1387.93,
-       -2953.64
+       1389.07,
+       -2952.25
       ],
       [
-       1390.65,
-       -3197.16
+       1391.8,
+       -3197.14
       ]
      ]
     ],
     "walk": [
      [
       [
-       1390.65,
-       -3197.16
+       1391.8,
+       -3197.14
       ],
       [
-       1387.93,
-       -2953.64
+       1389.07,
+       -2952.25
       ],
       [
-       1389.75,
-       -2952.1
+       1390.88,
+       -2950.71
       ],
       [
-       1392.5,
-       -3198.96
+       1393.65,
+       -3198.95
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1392.5,
-       -3198.96
+       1393.65,
+       -3198.95
       ],
       [
-       1389.75,
-       -2952.1
+       1390.88,
+       -2950.71
       ],
       [
-       1391.72,
-       -2951.02
+       1392.85,
+       -2949.63
       ],
       [
-       1394.51,
-       -3200.92
+       1395.65,
+       -3200.91
       ]
      ]
     ],
     "curb": [
      [
       [
-       1394.51,
-       -3200.92
+       1395.65,
+       -3200.91
       ],
       [
-       1391.72,
-       -2951.02
+       1392.85,
+       -2949.63
       ],
       [
-       1391.87,
-       -2950.86
+       1393.0,
+       -2949.47
       ],
       [
-       1394.66,
-       -3201.07
+       1395.81,
+       -3201.06
       ]
      ]
     ]
@@ -1171,12 +1167,12 @@
    "where": "East Sixteenth Street, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
-     1387.63,
-     -2953.95
+     1388.77,
+     -2952.56
     ],
     [
-     1271.93,
-     -2954.97
+     1273.06,
+     -2953.57
     ]
    ],
    "length_m": 115.71,
@@ -1186,80 +1182,80 @@
     "margin": [
      [
       [
-       1387.63,
-       -2953.95
+       1388.77,
+       -2952.56
       ],
       [
-       1271.93,
-       -2954.97
+       1273.06,
+       -2953.57
       ],
       [
-       1271.62,
-       -2954.66
+       1272.76,
+       -2953.27
       ],
       [
-       1387.93,
-       -2953.64
+       1389.07,
+       -2952.25
       ]
      ]
     ],
     "walk": [
      [
       [
-       1387.93,
-       -2953.64
+       1389.07,
+       -2952.25
       ],
       [
-       1271.62,
-       -2954.66
+       1272.76,
+       -2953.27
       ],
       [
-       1269.78,
-       -2953.16
+       1270.91,
+       -2951.76
       ],
       [
-       1389.75,
-       -2952.1
+       1390.88,
+       -2950.71
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1389.75,
-       -2952.1
+       1390.88,
+       -2950.71
       ],
       [
-       1269.78,
-       -2953.16
+       1270.91,
+       -2951.76
       ],
       [
-       1267.79,
-       -2952.11
+       1268.92,
+       -2950.72
       ],
       [
-       1391.72,
-       -2951.02
+       1392.85,
+       -2949.63
       ]
      ]
     ],
     "curb": [
      [
       [
-       1391.72,
-       -2951.02
+       1392.85,
+       -2949.63
       ],
       [
-       1267.79,
-       -2952.11
+       1268.92,
+       -2950.72
       ],
       [
-       1267.63,
-       -2951.96
+       1268.77,
+       -2950.56
       ],
       [
-       1391.87,
-       -2950.86
+       1393.0,
+       -2949.47
       ]
      ]
     ]
@@ -1273,95 +1269,95 @@
    "where": "Prairie Avenue, beside the block Prairie to the Illinois Central, 16th to 18th Street",
    "street_line_local_m": [
     [
-     1407.65,
-     -2938.71
+     1408.78,
+     -2937.32
     ],
     [
-     1410.83,
-     -3195.9
+     1411.98,
+     -3195.89
     ]
    ],
-   "length_m": 257.21,
+   "length_m": 258.59,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 20 line prairie_e",
    "bands": {
     "margin": [
      [
       [
-       1407.65,
-       -2938.71
+       1408.78,
+       -2937.32
       ],
       [
-       1410.83,
-       -3195.9
+       1411.98,
+       -3195.89
       ],
       [
-       1410.53,
-       -3196.21
+       1411.68,
+       -3196.2
       ],
       [
-       1407.34,
-       -2938.71
+       1408.48,
+       -2937.32
       ]
      ]
     ],
     "walk": [
      [
       [
-       1407.34,
-       -2938.71
+       1408.48,
+       -2937.32
       ],
       [
-       1410.53,
-       -3196.21
+       1411.68,
+       -3196.2
       ],
       [
-       1408.72,
-       -3198.05
+       1409.87,
+       -3198.04
       ],
       [
-       1405.52,
-       -2938.73
+       1406.65,
+       -2937.33
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1405.52,
-       -2938.73
+       1406.65,
+       -2937.33
       ],
       [
-       1408.72,
-       -3198.05
+       1409.87,
+       -3198.04
       ],
       [
-       1406.76,
-       -3200.04
+       1407.91,
+       -3200.03
       ],
       [
-       1403.53,
-       -2938.74
+       1404.67,
+       -2937.35
       ]
      ]
     ],
     "curb": [
      [
       [
-       1403.53,
-       -2938.74
+       1404.67,
+       -2937.35
       ],
       [
-       1406.76,
-       -3200.04
+       1407.91,
+       -3200.03
       ],
       [
-       1406.61,
+       1407.76,
        -3200.19
       ],
       [
-       1403.38,
-       -2938.74
+       1404.51,
+       -2937.35
       ]
      ]
     ]
@@ -1375,23 +1371,23 @@
    "where": "East Eighteenth Street, beside the block Prairie to the Illinois Central, 16th to 18th Street",
    "street_line_local_m": [
     [
-     1410.83,
-     -3195.9
+     1411.98,
+     -3195.89
     ],
     [
      1474.9,
      -3195.47
     ]
    ],
-   "length_m": 64.07,
+   "length_m": 62.92,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 28 line s18_n_b",
    "bands": {
     "margin": [
      [
       [
-       1410.83,
-       -3195.9
+       1411.98,
+       -3195.89
       ],
       [
        1474.9,
@@ -1402,16 +1398,16 @@
        -3195.78
       ],
       [
-       1410.53,
-       -3196.21
+       1411.68,
+       -3196.2
       ]
      ]
     ],
     "walk": [
      [
       [
-       1410.53,
-       -3196.21
+       1411.68,
+       -3196.2
       ],
       [
        1474.9,
@@ -1422,16 +1418,16 @@
        -3197.61
       ],
       [
-       1408.72,
-       -3198.05
+       1409.87,
+       -3198.04
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1408.72,
-       -3198.05
+       1409.87,
+       -3198.04
       ],
       [
        1474.92,
@@ -1442,16 +1438,16 @@
        -3199.59
       ],
       [
-       1406.76,
-       -3200.04
+       1407.91,
+       -3200.03
       ]
      ]
     ],
     "curb": [
      [
       [
-       1406.76,
-       -3200.04
+       1407.91,
+       -3200.03
       ],
       [
        1474.93,
@@ -1462,7 +1458,7 @@
        -3199.74
       ],
       [
-       1406.61,
+       1407.76,
        -3200.19
       ]
      ]
@@ -1523,13 +1519,9 @@
     [
      1548.35,
      -3331.56
-    ],
-    [
-     1548.36,
-     -3332.88
     ]
    ],
-   "length_m": 168.48,
+   "length_m": 167.17,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 28 poly calumet_e",
    "bands": {
@@ -1724,30 +1716,12 @@
        -3331.56
       ],
       [
-       1548.05,
-       -3331.61
+       1548.06,
+       -3331.65
       ],
       [
        1510.31,
        -3212.17
-      ]
-     ],
-     [
-      [
-       1548.35,
-       -3331.56
-      ],
-      [
-       1548.36,
-       -3332.88
-      ],
-      [
-       1548.05,
-       -3331.88
-      ],
-      [
-       1548.05,
-       -3331.61
       ]
      ]
     ],
@@ -1938,34 +1912,16 @@
        -3212.17
       ],
       [
-       1548.05,
-       -3331.61
+       1548.06,
+       -3331.65
       ],
       [
-       1546.22,
-       -3331.89
+       1546.32,
+       -3332.2
       ],
       [
        1508.68,
        -3213.08
-      ]
-     ],
-     [
-      [
-       1548.05,
-       -3331.61
-      ],
-      [
-       1548.05,
-       -3331.88
-      ],
-      [
-       1546.19,
-       -3325.93
-      ],
-      [
-       1546.22,
-       -3331.89
       ]
      ]
     ],
@@ -2156,34 +2112,16 @@
        -3213.08
       ],
       [
-       1546.22,
-       -3331.89
+       1546.32,
+       -3332.2
       ],
       [
-       1544.24,
-       -3332.2
+       1544.43,
+       -3332.8
       ],
       [
        1506.92,
        -3214.06
-      ]
-     ],
-     [
-      [
-       1546.22,
-       -3331.89
-      ],
-      [
-       1546.19,
-       -3325.93
-      ],
-      [
-       1544.18,
-       -3319.48
-      ],
-      [
-       1544.24,
-       -3332.2
       ]
      ]
     ],
@@ -2374,34 +2312,16 @@
        -3214.06
       ],
       [
-       1544.24,
-       -3332.2
+       1544.43,
+       -3332.8
       ],
       [
-       1544.09,
-       -3332.23
+       1544.28,
+       -3332.85
       ],
       [
        1506.78,
        -3214.14
-      ]
-     ],
-     [
-      [
-       1544.24,
-       -3332.2
-      ],
-      [
-       1544.18,
-       -3319.48
-      ],
-      [
-       1544.03,
-       -3318.98
-      ],
-      [
-       1544.09,
-       -3332.23
       ]
      ]
     ]
@@ -2415,11 +2335,11 @@
    "where": "Indiana Avenue, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
-     1274.67,
-     -3218.61
+     1275.73,
+     -3218.6
     ],
     [
-     1278.38,
+     1278.48,
      -3463.15
     ]
    ],
@@ -2430,80 +2350,80 @@
     "margin": [
      [
       [
-       1274.67,
-       -3218.61
+       1275.73,
+       -3218.6
       ],
       [
-       1278.38,
+       1278.48,
        -3463.15
       ],
       [
-       1278.08,
+       1278.17,
        -3463.46
       ],
       [
-       1274.36,
-       -3218.31
+       1275.42,
+       -3218.3
       ]
      ]
     ],
     "walk": [
      [
       [
-       1274.36,
-       -3218.31
+       1275.42,
+       -3218.3
       ],
       [
-       1278.08,
+       1278.17,
        -3463.46
       ],
       [
-       1276.27,
+       1276.37,
        -3465.3
       ],
       [
-       1272.51,
-       -3216.5
+       1273.58,
+       -3216.49
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1272.51,
-       -3216.5
+       1273.58,
+       -3216.49
       ],
       [
-       1276.27,
+       1276.37,
        -3465.3
       ],
       [
-       1274.32,
+       1274.41,
        -3467.3
       ],
       [
-       1270.5,
-       -3214.54
+       1271.57,
+       -3214.53
       ]
      ]
     ],
     "curb": [
      [
       [
-       1270.5,
-       -3214.54
+       1271.57,
+       -3214.53
       ],
       [
-       1274.32,
+       1274.41,
        -3467.3
       ],
       [
-       1274.17,
+       1274.26,
        -3467.46
       ],
       [
-       1270.34,
-       -3214.39
+       1271.42,
+       -3214.38
       ]
      ]
     ]
@@ -2517,7 +2437,7 @@
    "where": "East Twentieth Street, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
-     1278.38,
+     1278.48,
      -3463.15
     ],
     [
@@ -2525,14 +2445,14 @@
      -3461.99
     ]
    ],
-   "length_m": 116.14,
+   "length_m": 116.04,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 28 line s20_n",
    "bands": {
     "margin": [
      [
       [
-       1278.38,
+       1278.48,
        -3463.15
       ],
       [
@@ -2544,7 +2464,7 @@
        -3462.29
       ],
       [
-       1278.08,
+       1278.17,
        -3463.46
       ]
      ]
@@ -2552,7 +2472,7 @@
     "walk": [
      [
       [
-       1278.08,
+       1278.17,
        -3463.46
       ],
       [
@@ -2564,7 +2484,7 @@
        -3464.1
       ],
       [
-       1276.27,
+       1276.37,
        -3465.3
       ]
      ]
@@ -2572,7 +2492,7 @@
     "parkway": [
      [
       [
-       1276.27,
+       1276.37,
        -3465.3
       ],
       [
@@ -2584,7 +2504,7 @@
        -3466.06
       ],
       [
-       1274.32,
+       1274.41,
        -3467.3
       ]
      ]
@@ -2592,7 +2512,7 @@
     "curb": [
      [
       [
-       1274.32,
+       1274.41,
        -3467.3
       ],
       [
@@ -2604,7 +2524,7 @@
        -3466.21
       ],
       [
-       1274.17,
+       1274.26,
        -3467.46
       ]
      ]
@@ -2725,11 +2645,11 @@
      -3217.24
     ],
     [
-     1274.67,
-     -3218.61
+     1275.73,
+     -3218.6
     ]
    ],
-   "length_m": 117.39,
+   "length_m": 116.33,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 28 line s18_s_c",
    "bands": {
@@ -2740,12 +2660,12 @@
        -3217.24
       ],
       [
-       1274.67,
-       -3218.61
+       1275.73,
+       -3218.6
       ],
       [
-       1274.36,
-       -3218.31
+       1275.42,
+       -3218.3
       ],
       [
        1392.36,
@@ -2760,12 +2680,12 @@
        -3216.93
       ],
       [
-       1274.36,
-       -3218.31
+       1275.42,
+       -3218.3
       ],
       [
-       1272.51,
-       -3216.5
+       1273.58,
+       -3216.49
       ],
       [
        1394.17,
@@ -2780,12 +2700,12 @@
        -3215.08
       ],
       [
-       1272.51,
-       -3216.5
+       1273.58,
+       -3216.49
       ],
       [
-       1270.5,
-       -3214.54
+       1271.57,
+       -3214.53
       ],
       [
        1396.13,
@@ -2800,12 +2720,12 @@
        -3213.08
       ],
       [
-       1270.5,
-       -3214.54
+       1271.57,
+       -3214.53
       ],
       [
-       1270.34,
-       -3214.39
+       1271.42,
+       -3214.38
       ],
       [
        1396.28,
@@ -6232,43 +6152,43 @@
    "printed_width_ft": 20,
    "polygon_local_m": [
     [
-     1326.02,
-     -2954.49
+     1327.15,
+     -2953.1
     ],
     [
-     1328.93,
-     -3197.56
+     1330.08,
+     -3197.54
     ],
     [
-     1335.23,
-     -3197.48
+     1336.38,
+     -3197.47
     ],
     [
-     1332.1,
-     -2954.44
+     1333.23,
+     -2953.05
     ]
    ],
    "quads_local_m": [
     [
      [
-      1326.02,
-      -2954.49
+      1327.15,
+      -2953.1
      ],
      [
-      1328.93,
-      -3197.56
+      1330.08,
+      -3197.54
      ],
      [
-      1335.23,
-      -3197.48
+      1336.38,
+      -3197.47
      ],
      [
-      1332.1,
-      -2954.44
+      1333.23,
+      -2953.05
      ]
     ]
    ],
-   "area_m2": 1504.71,
+   "area_m2": 1513.2,
    "geometry_tier": "inferred",
    "sources": [
     "sanborn_1911_chicago_v3_sheet_20"
@@ -7453,43 +7373,43 @@
    "where": "Indiana Avenue, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1255.43,
-     -2939.77
+     1256.56,
+     -2938.38
     ],
     [
-     1258.38,
-     -3218.8
+     1259.52,
+     -3218.79
     ],
     [
-     1270.29,
-     -3218.66
+     1271.44,
+     -3218.65
     ],
     [
-     1267.51,
-     -2939.69
+     1268.64,
+     -2938.29
     ]
    ],
    "quads_local_m": [
     [
      [
-      1255.43,
-      -2939.77
+      1256.56,
+      -2938.38
      ],
      [
-      1258.38,
-      -3218.8
+      1259.52,
+      -3218.79
      ],
      [
-      1270.29,
-      -3218.66
+      1271.44,
+      -3218.65
      ],
      [
-      1267.51,
-      -2939.69
+      1268.64,
+      -2938.29
      ]
     ]
    ],
-   "area_m2": 3346.92,
+   "area_m2": 3364.95,
    "between": [
     "sheet 20 line indiana_w",
     "sheet 20 line indiana_e"
@@ -7506,43 +7426,43 @@
    "where": "Indiana Avenue, 18th to 20th Street",
    "polygon_local_m": [
     [
-     1258.51,
-     -3198.36
+     1259.65,
+     -3198.35
     ],
     [
-     1262.81,
+     1262.83,
      -3481.72
     ],
     [
-     1274.39,
+     1274.42,
      -3481.72
     ],
     [
-     1270.1,
-     -3198.23
+     1271.24,
+     -3198.22
     ]
    ],
    "quads_local_m": [
     [
      [
-      1258.51,
-      -3198.36
+      1259.65,
+      -3198.35
      ],
      [
-      1262.81,
+      1262.83,
       -3481.72
      ],
      [
-      1274.39,
+      1274.42,
       -3481.72
      ],
      [
-      1270.1,
-      -3198.23
+      1271.24,
+      -3198.22
      ]
     ]
    ],
-   "area_m2": 3283.76,
+   "area_m2": 3285.22,
    "between": [
     "derived line indiana_w_18_22",
     "derived line indiana_e_18_20"
@@ -7563,12 +7483,12 @@
    "where": "Indiana Avenue, 20th to 22nd Street",
    "polygon_local_m": [
     [
-     1262.53,
+     1262.63,
      -3463.31
     ],
     [
-     1267.18,
-     -3770.25
+     1266.07,
+     -3770.27
     ],
     [
      1276.97,
@@ -7582,12 +7502,12 @@
    "quads_local_m": [
     [
      [
-      1262.53,
+      1262.63,
       -3463.31
      ],
      [
-      1267.18,
-      -3770.25
+      1266.07,
+      -3770.27
      ],
      [
       1276.97,
@@ -7599,7 +7519,7 @@
      ]
     ]
    ],
-   "area_m2": 3304.58,
+   "area_m2": 3459.64,
    "between": [
     "derived line indiana_w_18_22",
     "sheet 35 line indiana_e"
@@ -7619,43 +7539,43 @@
    "where": "Prairie Avenue, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1391.73,
-     -2938.82
+     1392.86,
+     -2937.43
     ],
     [
-     1394.84,
-     -3217.21
+     1395.99,
+     -3217.19
     ],
     [
-     1406.82,
-     -3217.07
+     1407.97,
+     -3217.05
     ],
     [
-     1403.38,
-     -2938.74
+     1404.51,
+     -2937.35
     ]
    ],
    "quads_local_m": [
     [
      [
-      1391.73,
-      -2938.82
+      1392.86,
+      -2937.43
      ],
      [
-      1394.84,
-      -3217.21
+      1395.99,
+      -3217.19
      ],
      [
-      1406.82,
-      -3217.07
+      1407.97,
+      -3217.05
      ],
      [
-      1403.38,
-      -2938.74
+      1404.51,
+      -2937.35
      ]
     ]
    ],
-   "area_m2": 3289.18,
+   "area_m2": 3305.37,
    "between": [
     "sheet 20 line prairie_w",
     "sheet 20 line prairie_e"
@@ -9125,39 +9045,39 @@
    "where": "East Sixteenth Street, Indiana to Prairie Avenue",
    "polygon_local_m": [
     [
-     1251.29,
-     -2952.1
+     1252.42,
+     -2950.71
     ],
     [
-     1407.8,
-     -2950.72
+     1408.93,
+     -2949.33
     ],
     [
-     1407.69,
-     -2941.76
+     1408.82,
+     -2940.37
     ],
     [
-     1251.19,
-     -2942.85
+     1252.32,
+     -2941.46
     ]
    ],
    "quads_local_m": [
     [
      [
-      1251.19,
-      -2942.85
+      1252.32,
+      -2941.46
      ],
      [
-      1251.29,
-      -2952.1
+      1252.42,
+      -2950.71
      ],
      [
-      1407.8,
-      -2950.72
+      1408.93,
+      -2949.33
      ],
      [
-      1407.69,
-      -2941.76
+      1408.82,
+      -2940.37
      ]
     ]
    ],
@@ -9178,8 +9098,8 @@
    "where": "East Eighteenth Street, Indiana to Prairie Avenue",
    "polygon_local_m": [
     [
-     1254.49,
-     -3214.58
+     1255.57,
+     -3214.56
     ],
     [
      1411.83,
@@ -9190,19 +9110,19 @@
      -3200.88
     ],
     [
-     1254.31,
-     -3202.68
+     1255.44,
+     -3202.66
     ]
    ],
    "quads_local_m": [
     [
      [
-      1254.31,
-      -3202.68
+      1255.44,
+      -3202.66
      ],
      [
-      1254.49,
-      -3214.58
+      1255.57,
+      -3214.56
      ],
      [
       1411.83,
@@ -9214,7 +9134,7 @@
      ]
     ]
    ],
-   "area_m2": 1869.83,
+   "area_m2": 1856.65,
    "between": [
     "sheet 28 line s18_n_a",
     "sheet 28 line s18_s_c"
@@ -9284,7 +9204,7 @@
    "where": "East Twentieth Street, Indiana to Calumet Avenue",
    "polygon_local_m": [
     [
-     1258.5,
+     1258.54,
      -3479.4
     ],
     [
@@ -9296,18 +9216,18 @@
      -3464.7
     ],
     [
-     1258.32,
+     1258.41,
      -3467.62
     ]
    ],
    "quads_local_m": [
     [
      [
-      1258.32,
+      1258.41,
       -3467.62
      ],
      [
-      1258.5,
+      1258.54,
       -3479.4
      ],
      [
@@ -9320,7 +9240,7 @@
      ]
     ]
    ],
-   "area_m2": 3434.91,
+   "area_m2": 3434.07,
    "between": [
     "sheet 28 line s20_n",
     "sheet 28 line s20_s"
@@ -9337,7 +9257,7 @@
    "where": "East Twenty-first Street, Indiana to Calumet Avenue",
    "polygon_local_m": [
     [
-     1260.54,
+     1260.05,
      -3614.09
     ],
     [
@@ -9349,18 +9269,18 @@
      -3599.61
     ],
     [
-     1260.37,
-     -3602.93
+     1259.93,
+     -3602.94
     ]
    ],
    "quads_local_m": [
     [
      [
-      1260.37,
-      -3602.93
+      1259.93,
+      -3602.94
      ],
      [
-      1260.54,
+      1260.05,
       -3614.09
      ],
      [
@@ -9373,7 +9293,7 @@
      ]
     ]
    ],
-   "area_m2": 3324.47,
+   "area_m2": 3328.26,
    "between": [
     "sheet 35 line s21_n",
     "sheet 35 line s21_s"
@@ -9390,8 +9310,8 @@
    "where": "East Twenty-second Street, Indiana to Calumet Avenue",
    "polygon_local_m": [
     [
-     1262.84,
-     -3766.05
+     1261.76,
+     -3766.06
     ],
     [
      1552.24,
@@ -9402,19 +9322,19 @@
      -3749.84
     ],
     [
-     1262.66,
-     -3753.99
+     1261.62,
+     -3754.01
     ]
    ],
    "quads_local_m": [
     [
      [
-      1262.66,
-      -3753.99
+      1261.62,
+      -3754.01
      ],
      [
-      1262.84,
-      -3766.05
+      1261.76,
+      -3766.06
      ],
      [
       1552.24,
@@ -9426,7 +9346,7 @@
      ]
     ]
    ],
-   "area_m2": 3489.82,
+   "area_m2": 3501.06,
    "between": [
     "sheet 35 line s22_n",
     "sheet 35 line s22_s"
@@ -9451,38 +9371,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1332.1,
-     -2954.44
+     1333.23,
+     -2953.05
     ],
     [
-     1332.24,
-     -2965.21
+     1333.37,
+     -2963.82
     ],
     [
-     1387.75,
-     -2964.65
+     1388.89,
+     -2963.26
     ],
     [
-     1387.63,
-     -2953.95
+     1388.77,
+     -2952.56
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1387.63,
-     -2953.95
+     1388.77,
+     -2952.56
     ],
     "SE_street": [
-     1387.75,
-     -2964.65
+     1388.89,
+     -2963.26
     ],
     "SW_rear": [
-     1332.24,
-     -2965.21
+     1333.37,
+     -2963.82
     ],
     "NW_rear": [
-     1332.1,
-     -2954.44
+     1333.23,
+     -2953.05
     ]
    },
    "frontage_ft": 35.1,
@@ -9518,8 +9438,8 @@
       1040.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -9534,38 +9454,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1332.24,
-     -2965.21
+     1333.37,
+     -2963.82
     ],
     [
-     1332.35,
-     -2973.87
+     1333.48,
+     -2972.48
     ],
     [
-     1387.85,
-     -2973.31
+     1388.98,
+     -2971.92
     ],
     [
-     1387.75,
-     -2964.65
+     1388.89,
+     -2963.26
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1387.75,
-     -2964.65
+     1388.89,
+     -2963.26
     ],
     "SE_street": [
-     1387.85,
-     -2973.31
+     1388.98,
+     -2971.92
     ],
     "SW_rear": [
-     1332.35,
-     -2973.87
+     1333.48,
+     -2972.48
     ],
     "NW_rear": [
-     1332.24,
-     -2965.21
+     1333.37,
+     -2963.82
     ]
    },
    "frontage_ft": 28.4,
@@ -9581,15 +9501,13 @@
     "frontage-20-002"
    ],
    "legal_lots": {
-    "label": "Parts of lots 2 and 5, block 1 of E. L. Sherman's Sub.",
+    "label": "Part of lot 2, block 1 of E. L. Sherman's Sub.",
     "lots": [
-     "2",
-     "5"
+     "2"
     ],
     "whole": [],
     "part": [
-     "2",
-     "5"
+     "2"
     ],
     "block": "1",
     "subdivision": "E. L. Sherman's Sub.",
@@ -9601,14 +9519,10 @@
      [
       1004.0,
       1040.0
-     ],
-     [
-      1040.0,
-      1082.9
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -9623,38 +9537,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1332.35,
-     -2973.87
+     1333.48,
+     -2972.48
     ],
     [
-     1332.46,
-     -2982.7
+     1333.6,
+     -2981.31
     ],
     [
-     1387.95,
-     -2982.14
+     1389.08,
+     -2980.75
     ],
     [
-     1387.85,
-     -2973.31
+     1388.98,
+     -2971.92
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1387.85,
-     -2973.31
+     1388.98,
+     -2971.92
     ],
     "SE_street": [
-     1387.95,
-     -2982.14
+     1389.08,
+     -2980.75
     ],
     "SW_rear": [
-     1332.46,
-     -2982.7
+     1333.6,
+     -2981.31
     ],
     "NW_rear": [
-     1332.35,
-     -2973.87
+     1333.48,
+     -2972.48
     ]
    },
    "frontage_ft": 29.0,
@@ -9690,8 +9604,8 @@
       1082.9
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -9706,38 +9620,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1332.46,
-     -2982.7
+     1333.6,
+     -2981.31
     ],
     [
-     1332.67,
-     -2998.24
+     1333.8,
+     -2996.85
     ],
     [
-     1388.12,
-     -2997.68
+     1389.25,
+     -2996.29
     ],
     [
-     1387.95,
-     -2982.14
+     1389.08,
+     -2980.75
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1387.95,
-     -2982.14
+     1389.08,
+     -2980.75
     ],
     "SE_street": [
-     1388.12,
-     -2997.68
+     1389.25,
+     -2996.29
     ],
     "SW_rear": [
-     1332.67,
-     -2998.24
+     1333.8,
+     -2996.85
     ],
     "NW_rear": [
-     1332.46,
-     -2982.7
+     1333.6,
+     -2981.31
     ]
    },
    "frontage_ft": 51.0,
@@ -9773,8 +9687,8 @@
       1126.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -9789,38 +9703,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1332.67,
-     -2998.24
+     1333.8,
+     -2996.85
     ],
     [
-     1332.8,
-     -3008.62
+     1333.93,
+     -3007.22
     ],
     [
-     1388.24,
-     -3008.06
+     1389.37,
+     -3006.66
     ],
     [
-     1388.12,
-     -2997.68
+     1389.25,
+     -2996.29
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.12,
-     -2997.68
+     1389.25,
+     -2996.29
     ],
     "SE_street": [
-     1388.24,
-     -3008.06
+     1389.37,
+     -3006.66
     ],
     "SW_rear": [
-     1332.8,
-     -3008.62
+     1333.93,
+     -3007.22
     ],
     "NW_rear": [
-     1332.67,
-     -2998.24
+     1333.8,
+     -2996.85
     ]
    },
    "frontage_ft": 34.0,
@@ -9856,8 +9770,8 @@
       1156.9
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -9870,38 +9784,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1332.8,
-     -3008.62
+     1333.93,
+     -3007.22
     ],
     [
-     1332.9,
-     -3016.38
+     1334.03,
+     -3014.99
     ],
     [
-     1388.32,
-     -3015.82
+     1389.46,
+     -3014.43
     ],
     [
-     1388.24,
-     -3008.06
+     1389.37,
+     -3006.66
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.24,
-     -3008.06
+     1389.37,
+     -3006.66
     ],
     "SE_street": [
-     1388.32,
-     -3015.82
+     1389.46,
+     -3014.43
     ],
     "SW_rear": [
-     1332.9,
-     -3016.38
+     1334.03,
+     -3014.99
     ],
     "NW_rear": [
-     1332.8,
-     -3008.62
+     1333.93,
+     -3007.22
     ]
    },
    "frontage_ft": 25.5,
@@ -9936,8 +9850,8 @@
       1177.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -9952,38 +9866,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1332.9,
-     -3016.38
+     1334.03,
+     -3014.99
     ],
     [
-     1333.01,
-     -3024.76
+     1334.14,
+     -3023.37
     ],
     [
-     1388.42,
-     -3024.2
+     1389.55,
+     -3022.81
     ],
     [
-     1388.32,
-     -3015.82
+     1389.46,
+     -3014.43
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.32,
-     -3015.82
+     1389.46,
+     -3014.43
     ],
     "SE_street": [
-     1388.42,
-     -3024.2
+     1389.55,
+     -3022.81
     ],
     "SW_rear": [
-     1333.01,
-     -3024.76
+     1334.14,
+     -3023.37
     ],
     "NW_rear": [
-     1332.9,
-     -3016.38
+     1334.03,
+     -3014.99
     ]
    },
    "frontage_ft": 27.5,
@@ -10019,8 +9933,8 @@
       1198.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -10033,38 +9947,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.01,
-     -3024.76
+     1334.14,
+     -3023.37
     ],
     [
-     1333.1,
-     -3032.28
+     1334.24,
+     -3030.89
     ],
     [
-     1388.5,
-     -3031.72
+     1389.63,
+     -3030.33
     ],
     [
-     1388.42,
-     -3024.2
+     1389.55,
+     -3022.81
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.42,
-     -3024.2
+     1389.55,
+     -3022.81
     ],
     "SE_street": [
-     1388.5,
-     -3031.72
+     1389.63,
+     -3030.33
     ],
     "SW_rear": [
-     1333.1,
-     -3032.28
+     1334.24,
+     -3030.89
     ],
     "NW_rear": [
-     1333.01,
-     -3024.76
+     1334.14,
+     -3023.37
     ]
    },
    "frontage_ft": 24.7,
@@ -10099,8 +10013,8 @@
       1220.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -10115,38 +10029,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.1,
-     -3032.28
+     1334.24,
+     -3030.89
     ],
     [
-     1333.21,
-     -3040.31
+     1334.34,
+     -3038.92
     ],
     [
-     1388.59,
-     -3039.75
+     1389.72,
+     -3038.36
     ],
     [
-     1388.5,
-     -3031.72
+     1389.63,
+     -3030.33
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.5,
-     -3031.72
+     1389.63,
+     -3030.33
     ],
     "SE_street": [
-     1388.59,
-     -3039.75
+     1389.72,
+     -3038.36
     ],
     "SW_rear": [
-     1333.21,
-     -3040.31
+     1334.34,
+     -3038.92
     ],
     "NW_rear": [
-     1333.1,
-     -3032.28
+     1334.24,
+     -3030.89
     ]
    },
    "frontage_ft": 26.4,
@@ -10182,8 +10096,8 @@
       1242.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -10198,38 +10112,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.21,
-     -3040.31
+     1334.34,
+     -3038.92
     ],
     [
-     1333.3,
-     -3047.23
+     1334.43,
+     -3045.84
     ],
     [
-     1388.67,
-     -3046.67
+     1389.8,
+     -3045.28
     ],
     [
-     1388.59,
-     -3039.75
+     1389.72,
+     -3038.36
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.59,
-     -3039.75
+     1389.72,
+     -3038.36
     ],
     "SE_street": [
-     1388.67,
-     -3046.67
+     1389.8,
+     -3045.28
     ],
     "SW_rear": [
-     1333.3,
-     -3047.23
+     1334.43,
+     -3045.84
     ],
     "NW_rear": [
-     1333.21,
-     -3040.31
+     1334.34,
+     -3038.92
     ]
    },
    "frontage_ft": 22.7,
@@ -10265,8 +10179,8 @@
       1263.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -10281,38 +10195,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.3,
-     -3047.23
+     1334.43,
+     -3045.84
     ],
     [
-     1333.41,
-     -3055.8
+     1334.54,
+     -3054.41
     ],
     [
-     1388.76,
-     -3055.24
+     1389.9,
+     -3053.85
     ],
     [
-     1388.67,
-     -3046.67
+     1389.8,
+     -3045.28
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.67,
-     -3046.67
+     1389.8,
+     -3045.28
     ],
     "SE_street": [
-     1388.76,
-     -3055.24
+     1389.9,
+     -3053.85
     ],
     "SW_rear": [
-     1333.41,
-     -3055.8
+     1334.54,
+     -3054.41
     ],
     "NW_rear": [
-     1333.3,
-     -3047.23
+     1334.43,
+     -3045.84
     ]
    },
    "frontage_ft": 28.1,
@@ -10348,8 +10262,8 @@
       1285.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -10364,38 +10278,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.41,
-     -3055.8
+     1334.54,
+     -3054.41
     ],
     [
-     1333.5,
-     -3063.29
+     1334.64,
+     -3061.9
     ],
     [
-     1388.85,
-     -3062.73
+     1389.98,
+     -3061.34
     ],
     [
-     1388.76,
-     -3055.24
+     1389.9,
+     -3053.85
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.76,
-     -3055.24
+     1389.9,
+     -3053.85
     ],
     "SE_street": [
-     1388.85,
-     -3062.73
+     1389.98,
+     -3061.34
     ],
     "SW_rear": [
-     1333.5,
-     -3063.29
+     1334.64,
+     -3061.9
     ],
     "NW_rear": [
-     1333.41,
-     -3055.8
+     1334.54,
+     -3054.41
     ]
    },
    "frontage_ft": 24.6,
@@ -10431,8 +10345,8 @@
       1305.8
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -10447,38 +10361,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.5,
-     -3063.29
+     1334.64,
+     -3061.9
     ],
     [
-     1333.6,
-     -3071.07
+     1334.74,
+     -3069.68
     ],
     [
-     1388.94,
-     -3070.51
+     1390.07,
+     -3069.12
     ],
     [
-     1388.85,
-     -3062.73
+     1389.98,
+     -3061.34
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.85,
-     -3062.73
+     1389.98,
+     -3061.34
     ],
     "SE_street": [
-     1388.94,
-     -3070.51
+     1390.07,
+     -3069.12
     ],
     "SW_rear": [
-     1333.6,
-     -3071.07
+     1334.74,
+     -3069.68
     ],
     "NW_rear": [
-     1333.5,
-     -3063.29
+     1334.64,
+     -3061.9
     ]
    },
    "frontage_ft": 25.5,
@@ -10514,8 +10428,8 @@
       1330.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
    }
   },
   {
@@ -10530,38 +10444,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.6,
-     -3071.07
+     1334.74,
+     -3069.68
     ],
     [
-     1333.77,
-     -3083.86
+     1334.9,
+     -3082.47
     ],
     [
-     1389.08,
-     -3083.3
+     1390.21,
+     -3081.91
     ],
     [
-     1388.94,
-     -3070.51
+     1390.07,
+     -3069.12
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1388.94,
-     -3070.51
+     1390.07,
+     -3069.12
     ],
     "SE_street": [
-     1389.08,
-     -3083.3
+     1390.21,
+     -3081.91
     ],
     "SW_rear": [
-     1333.77,
-     -3083.86
+     1334.9,
+     -3082.47
     ],
     "NW_rear": [
-     1333.6,
-     -3071.07
+     1334.74,
+     -3069.68
     ]
    },
    "frontage_ft": 42.0,
@@ -10597,8 +10511,8 @@
       1363.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -10615,38 +10529,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1333.77,
-     -3083.86
+     1334.9,
+     -3082.47
     ],
     [
-     1334.06,
-     -3106.14
+     1335.19,
+     -3104.75
     ],
     [
-     1389.33,
-     -3105.58
+     1390.46,
+     -3104.19
     ],
     [
-     1389.08,
-     -3083.3
+     1390.21,
+     -3081.91
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1389.08,
-     -3083.3
+     1390.21,
+     -3081.91
     ],
     "SE_street": [
-     1389.33,
-     -3105.58
+     1390.46,
+     -3104.19
     ],
     "SW_rear": [
-     1334.06,
-     -3106.14
+     1335.19,
+     -3104.75
     ],
     "NW_rear": [
-     1333.77,
-     -3083.86
+     1334.9,
+     -3082.47
     ]
    },
    "frontage_ft": 73.1,
@@ -10684,8 +10598,8 @@
       1453.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -10700,38 +10614,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1334.06,
-     -3106.14
+     1335.19,
+     -3104.75
     ],
     [
-     1334.15,
-     -3113.76
+     1335.29,
+     -3112.37
     ],
     [
-     1389.41,
-     -3113.2
+     1390.54,
+     -3111.81
     ],
     [
-     1389.33,
-     -3105.58
+     1390.46,
+     -3104.19
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1389.33,
-     -3105.58
+     1390.46,
+     -3104.19
     ],
     "SE_street": [
-     1389.41,
-     -3113.2
+     1390.54,
+     -3111.81
     ],
     "SW_rear": [
-     1334.15,
-     -3113.76
+     1335.29,
+     -3112.37
     ],
     "NW_rear": [
-     1334.06,
-     -3106.14
+     1335.19,
+     -3104.75
     ]
    },
    "frontage_ft": 25.0,
@@ -10767,8 +10681,8 @@
       1453.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -10783,38 +10697,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1334.15,
-     -3113.76
+     1335.29,
+     -3112.37
     ],
     [
-     1334.35,
-     -3129.28
+     1335.49,
+     -3127.89
     ],
     [
-     1389.59,
-     -3128.72
+     1390.72,
+     -3127.33
     ],
     [
-     1389.41,
-     -3113.2
+     1390.54,
+     -3111.81
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1389.41,
-     -3113.2
+     1390.54,
+     -3111.81
     ],
     "SE_street": [
-     1389.59,
-     -3128.72
+     1390.72,
+     -3127.33
     ],
     "SW_rear": [
-     1334.35,
-     -3129.28
+     1335.49,
+     -3127.89
     ],
     "NW_rear": [
-     1334.15,
-     -3113.76
+     1335.29,
+     -3112.37
     ]
    },
    "frontage_ft": 50.9,
@@ -10850,8 +10764,8 @@
       1500.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -10866,38 +10780,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1334.35,
-     -3129.28
+     1335.49,
+     -3127.89
     ],
     [
-     1334.67,
-     -3153.99
+     1335.81,
+     -3152.6
     ],
     [
-     1389.86,
-     -3153.43
+     1390.99,
+     -3152.04
     ],
     [
-     1389.59,
-     -3128.72
+     1390.72,
+     -3127.33
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1389.59,
-     -3128.72
+     1390.72,
+     -3127.33
     ],
     "SE_street": [
-     1389.86,
-     -3153.43
+     1390.99,
+     -3152.04
     ],
     "SW_rear": [
-     1334.67,
-     -3153.99
+     1335.81,
+     -3152.6
     ],
     "NW_rear": [
-     1334.35,
-     -3129.28
+     1335.49,
+     -3127.89
     ]
    },
    "frontage_ft": 81.1,
@@ -10933,8 +10847,8 @@
       1577.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -10949,38 +10863,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1334.67,
-     -3153.99
+     1335.81,
+     -3152.6
     ],
     [
-     1334.91,
-     -3172.54
+     1336.04,
+     -3171.15
     ],
     [
-     1390.07,
-     -3171.98
+     1391.2,
+     -3170.59
     ],
     [
-     1389.86,
-     -3153.43
+     1390.99,
+     -3152.04
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1389.86,
-     -3153.43
+     1390.99,
+     -3152.04
     ],
     "SE_street": [
-     1390.07,
-     -3171.98
+     1391.2,
+     -3170.59
     ],
     "SW_rear": [
-     1334.91,
-     -3172.54
+     1336.04,
+     -3171.15
     ],
     "NW_rear": [
-     1334.67,
-     -3153.99
+     1335.81,
+     -3152.6
     ]
    },
    "frontage_ft": 60.9,
@@ -11022,8 +10936,8 @@
       1618.0
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -11038,38 +10952,38 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1334.91,
-     -3172.54
+     1336.04,
+     -3171.15
     ],
     [
-     1335.14,
-     -3190.35
+     1336.27,
+     -3188.96
     ],
     [
-     1390.27,
-     -3189.79
+     1391.4,
+     -3188.4
     ],
     [
-     1390.07,
-     -3171.98
+     1391.2,
+     -3170.59
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1390.07,
-     -3171.98
+     1391.2,
+     -3170.59
     ],
     "SE_street": [
-     1390.27,
-     -3189.79
+     1391.4,
+     -3188.4
     ],
     "SW_rear": [
-     1335.14,
-     -3190.35
+     1336.27,
+     -3188.96
     ],
     "NW_rear": [
-     1334.91,
-     -3172.54
+     1336.04,
+     -3171.15
     ]
    },
    "frontage_ft": 58.4,
@@ -11112,8 +11026,8 @@
       1664.1
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -11128,43 +11042,43 @@
    "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1335.14,
-     -3190.35
+     1336.27,
+     -3188.96
     ],
     [
-     1335.23,
-     -3197.48
+     1336.38,
+     -3197.47
     ],
     [
-     1390.35,
-     -3196.86
+     1391.49,
+     -3196.84
     ],
     [
-     1390.27,
-     -3189.79
+     1391.4,
+     -3188.4
     ]
    ],
    "corners_local_m": {
     "NE_street": [
-     1390.27,
-     -3189.79
+     1391.4,
+     -3188.4
     ],
     "SE_street": [
-     1390.35,
-     -3196.86
+     1391.49,
+     -3196.84
     ],
     "SW_rear": [
-     1335.23,
-     -3197.48
+     1336.38,
+     -3197.47
     ],
     "NW_rear": [
-     1335.14,
-     -3190.35
+     1336.27,
+     -3188.96
     ]
    },
-   "frontage_ft": 23.2,
-   "depth_ft": 180.9,
-   "area_m2": 391.21,
+   "frontage_ft": 27.7,
+   "depth_ft": 180.8,
+   "area_m2": 467.21,
    "geometry_tier": "inferred",
    "sources": [
     "sanborn_1911_chicago_v3_sheet_20",
@@ -11195,8 +11109,8 @@
       1690.2
      ]
     ],
-    "plate_shift_m": 0.4,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+    "plate_shift_m": -0.9,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -0.9 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.9 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
    }
   },
   {
@@ -11211,38 +11125,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1407.65,
-     -2938.71
+     1408.78,
+     -2937.32
     ],
     [
-     1407.83,
-     -2953.61
+     1408.97,
+     -2952.22
     ],
     [
-     1430.14,
-     -2953.46
+     1431.27,
+     -2952.07
     ],
     [
-     1425.51,
-     -2938.59
+     1426.64,
+     -2937.19
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1407.65,
-     -2938.71
+     1408.78,
+     -2937.32
     ],
     "SW_street": [
-     1407.83,
-     -2953.61
+     1408.97,
+     -2952.22
     ],
     "SE_rear": [
-     1430.14,
-     -2953.46
+     1431.27,
+     -2952.07
     ],
     "NE_rear": [
-     1425.51,
-     -2938.59
+     1426.64,
+     -2937.19
     ]
    },
    "frontage_ft": 48.9,
@@ -11258,7 +11172,7 @@
     "frontage-20-022"
    ],
    "legal_lots": {
-    "label": "Part of lot 1 (no subdivision named on the plate); the rest of its frontage (34 ft) carries no lot number on the plate",
+    "label": "Part of lot 1 (no subdivision named on the plate); the rest of its frontage (33 ft) carries no lot number on the plate",
     "lots": [
      "1"
     ],
@@ -11278,8 +11192,8 @@
       1039.0
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
    }
   },
   {
@@ -11294,38 +11208,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1407.83,
-     -2953.61
+     1408.97,
+     -2952.22
     ],
     [
-     1407.99,
-     -2965.99
+     1409.12,
+     -2964.6
     ],
     [
-     1433.99,
-     -2965.81
+     1435.12,
+     -2964.42
     ],
     [
-     1430.14,
-     -2953.46
+     1431.27,
+     -2952.07
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1407.83,
-     -2953.61
+     1408.97,
+     -2952.22
     ],
     "SW_street": [
-     1407.99,
-     -2965.99
+     1409.12,
+     -2964.6
     ],
     "SE_rear": [
-     1433.99,
-     -2965.81
+     1435.12,
+     -2964.42
     ],
     "NE_rear": [
-     1430.14,
-     -2953.46
+     1431.27,
+     -2952.07
     ]
    },
    "frontage_ft": 40.6,
@@ -11368,8 +11282,8 @@
       1039.0
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
    }
   },
   {
@@ -11385,38 +11299,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1407.99,
-     -2965.99
+     1409.12,
+     -2964.6
     ],
     [
-     1408.17,
-     -2981.11
+     1409.31,
+     -2979.72
     ],
     [
-     1438.69,
-     -2980.9
+     1439.82,
+     -2979.51
     ],
     [
-     1433.99,
-     -2965.81
+     1435.12,
+     -2964.42
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1407.99,
-     -2965.99
+     1409.12,
+     -2964.6
     ],
     "SW_street": [
-     1408.17,
-     -2981.11
+     1409.31,
+     -2979.72
     ],
     "SE_rear": [
-     1438.69,
-     -2980.9
+     1439.82,
+     -2979.51
     ],
     "NE_rear": [
-     1433.99,
-     -2965.81
+     1435.12,
+     -2964.42
     ]
    },
    "frontage_ft": 49.6,
@@ -11452,8 +11366,8 @@
       1080.1
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
    }
   },
   {
@@ -11468,38 +11382,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.17,
-     -2981.11
+     1409.31,
+     -2979.72
     ],
     [
-     1408.27,
-     -2988.9
+     1409.4,
+     -2987.51
     ],
     [
-     1441.11,
-     -2988.68
+     1442.24,
+     -2987.29
     ],
     [
-     1438.69,
-     -2980.9
+     1439.82,
+     -2979.51
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.17,
-     -2981.11
+     1409.31,
+     -2979.72
     ],
     "SW_street": [
-     1408.27,
-     -2988.9
+     1409.4,
+     -2987.51
     ],
     "SE_rear": [
-     1441.11,
-     -2988.68
+     1442.24,
+     -2987.29
     ],
     "NE_rear": [
-     1438.69,
-     -2980.9
+     1439.82,
+     -2979.51
     ]
    },
    "frontage_ft": 25.6,
@@ -11535,8 +11449,8 @@
       1124.0
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
    }
   },
   {
@@ -11551,38 +11465,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.27,
-     -2988.9
+     1409.4,
+     -2987.51
     ],
     [
-     1408.36,
-     -2996.55
+     1409.5,
+     -2995.16
     ],
     [
-     1443.49,
-     -2996.31
+     1444.62,
+     -2994.92
     ],
     [
-     1441.11,
-     -2988.68
+     1442.24,
+     -2987.29
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.27,
-     -2988.9
+     1409.4,
+     -2987.51
     ],
     "SW_street": [
-     1408.36,
-     -2996.55
+     1409.5,
+     -2995.16
     ],
     "SE_rear": [
-     1443.49,
-     -2996.31
+     1444.62,
+     -2994.92
     ],
     "NE_rear": [
-     1441.11,
-     -2988.68
+     1442.24,
+     -2987.29
     ]
    },
    "frontage_ft": 25.1,
@@ -11618,8 +11532,8 @@
       1124.0
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
    }
   },
   {
@@ -11634,38 +11548,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.36,
-     -2996.55
+     1409.5,
+     -2995.16
     ],
     [
-     1408.48,
-     -3005.64
+     1409.61,
+     -3004.25
     ],
     [
-     1446.32,
-     -3005.38
+     1447.45,
+     -3003.99
     ],
     [
-     1443.49,
-     -2996.31
+     1444.62,
+     -2994.92
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.36,
-     -2996.55
+     1409.5,
+     -2995.16
     ],
     "SW_street": [
-     1408.48,
-     -3005.64
+     1409.61,
+     -3004.25
     ],
     "SE_rear": [
-     1446.32,
-     -3005.38
+     1447.45,
+     -3003.99
     ],
     "NE_rear": [
-     1443.49,
-     -2996.31
+     1444.62,
+     -2994.92
     ]
    },
    "frontage_ft": 29.8,
@@ -11701,8 +11615,8 @@
       1154.8
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
    }
   },
   {
@@ -11717,38 +11631,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.48,
-     -3005.64
+     1409.61,
+     -3004.25
     ],
     [
-     1408.57,
-     -3013.44
+     1409.71,
+     -3012.05
     ],
     [
-     1448.74,
-     -3013.16
+     1449.87,
+     -3011.77
     ],
     [
-     1446.32,
-     -3005.38
+     1447.45,
+     -3003.99
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.48,
-     -3005.64
+     1409.61,
+     -3004.25
     ],
     "SW_street": [
-     1408.57,
-     -3013.44
+     1409.71,
+     -3012.05
     ],
     "SE_rear": [
-     1448.74,
-     -3013.16
+     1449.87,
+     -3011.77
     ],
     "NE_rear": [
-     1446.32,
-     -3005.38
+     1447.45,
+     -3003.99
     ]
    },
    "frontage_ft": 25.6,
@@ -11764,14 +11678,14 @@
     "frontage-20-028"
    ],
    "legal_lots": {
-    "label": "Part of lot 1 of an unnamed 'Subdivision'",
+    "label": "Lot 1 of an unnamed 'Subdivision'",
     "lots": [
      "1"
     ],
-    "whole": [],
-    "part": [
+    "whole": [
      "1"
     ],
+    "part": [],
     "block": null,
     "subdivision": "Subdivision",
     "tier": "inferred",
@@ -11784,8 +11698,8 @@
       1177.0
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
    }
   },
   {
@@ -11800,38 +11714,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.57,
-     -3013.44
+     1409.71,
+     -3012.05
     ],
     [
-     1408.66,
-     -3020.76
+     1409.8,
+     -3019.37
     ],
     [
-     1451.02,
-     -3020.47
+     1452.15,
+     -3019.08
     ],
     [
-     1448.74,
-     -3013.16
+     1449.87,
+     -3011.77
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.57,
-     -3013.44
+     1409.71,
+     -3012.05
     ],
     "SW_street": [
-     1408.66,
-     -3020.76
+     1409.8,
+     -3019.37
     ],
     "SE_rear": [
-     1451.02,
-     -3020.47
+     1452.15,
+     -3019.08
     ],
     "NE_rear": [
-     1448.74,
-     -3013.16
+     1449.87,
+     -3011.77
     ]
    },
    "frontage_ft": 24.0,
@@ -11847,14 +11761,14 @@
     "frontage-20-029"
    ],
    "legal_lots": {
-    "label": "Part of lot 2 of an unnamed 'Subdivision'",
+    "label": "Lot 2 of an unnamed 'Subdivision'",
     "lots": [
      "2"
     ],
-    "whole": [],
-    "part": [
+    "whole": [
      "2"
     ],
+    "part": [],
     "block": null,
     "subdivision": "Subdivision",
     "tier": "inferred",
@@ -11867,8 +11781,8 @@
       1198.0
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
    }
   },
   {
@@ -11883,38 +11797,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.66,
-     -3020.76
+     1409.8,
+     -3019.37
     ],
     [
-     1408.78,
-     -3029.81
+     1409.91,
+     -3028.41
     ],
     [
-     1453.83,
-     -3029.5
+     1454.96,
+     -3028.11
     ],
     [
-     1451.02,
-     -3020.47
+     1452.15,
+     -3019.08
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.66,
-     -3020.76
+     1409.8,
+     -3019.37
     ],
     "SW_street": [
-     1408.78,
-     -3029.81
+     1409.91,
+     -3028.41
     ],
     "SE_rear": [
-     1453.83,
-     -3029.5
+     1454.96,
+     -3028.11
     ],
     "NE_rear": [
-     1451.02,
-     -3020.47
+     1452.15,
+     -3019.08
     ]
    },
    "frontage_ft": 29.7,
@@ -11950,8 +11864,8 @@
       1218.1
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
    }
   },
   {
@@ -11964,38 +11878,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.78,
-     -3029.81
+     1409.91,
+     -3028.41
     ],
     [
-     1408.88,
-     -3038.1
+     1410.01,
+     -3036.71
     ],
     [
-     1456.41,
-     -3037.77
+     1457.54,
+     -3036.38
     ],
     [
-     1453.83,
-     -3029.5
+     1454.96,
+     -3028.11
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.78,
-     -3029.81
+     1409.91,
+     -3028.41
     ],
     "SW_street": [
-     1408.88,
-     -3038.1
+     1410.01,
+     -3036.71
     ],
     "SE_rear": [
-     1456.41,
-     -3037.77
+     1457.54,
+     -3036.38
     ],
     "NE_rear": [
-     1453.83,
-     -3029.5
+     1454.96,
+     -3028.11
     ]
    },
    "frontage_ft": 27.2,
@@ -12030,8 +11944,8 @@
       1240.9
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
    }
   },
   {
@@ -12044,38 +11958,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.88,
-     -3038.1
+     1410.01,
+     -3036.71
     ],
     [
-     1408.97,
-     -3045.8
+     1410.11,
+     -3044.4
     ],
     [
-     1458.8,
-     -3045.45
+     1459.93,
+     -3044.06
     ],
     [
-     1456.41,
-     -3037.77
+     1457.54,
+     -3036.38
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.88,
-     -3038.1
+     1410.01,
+     -3036.71
     ],
     "SW_street": [
-     1408.97,
-     -3045.8
+     1410.11,
+     -3044.4
     ],
     "SE_rear": [
-     1458.8,
-     -3045.45
+     1459.93,
+     -3044.06
     ],
     "NE_rear": [
-     1456.41,
-     -3037.77
+     1457.54,
+     -3036.38
     ]
    },
    "frontage_ft": 25.3,
@@ -12110,8 +12024,8 @@
       1264.1
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
    }
   },
   {
@@ -12124,38 +12038,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1408.97,
-     -3045.8
+     1410.11,
+     -3044.4
     ],
     [
-     1409.04,
-     -3051.51
+     1410.18,
+     -3050.12
     ],
     [
-     1460.58,
-     -3051.15
+     1461.71,
+     -3049.76
     ],
     [
-     1458.8,
-     -3045.45
+     1459.93,
+     -3044.06
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1408.97,
-     -3045.8
+     1410.11,
+     -3044.4
     ],
     "SW_street": [
-     1409.04,
-     -3051.51
+     1410.18,
+     -3050.12
     ],
     "SE_rear": [
-     1460.58,
-     -3051.15
+     1461.71,
+     -3049.76
     ],
     "NE_rear": [
-     1458.8,
-     -3045.45
+     1459.93,
+     -3044.06
     ]
    },
    "frontage_ft": 18.7,
@@ -12190,8 +12104,8 @@
       1283.3
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
    }
   },
   {
@@ -12206,38 +12120,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1409.04,
-     -3051.51
+     1410.18,
+     -3050.12
     ],
     [
-     1409.26,
-     -3068.86
+     1410.39,
+     -3067.47
     ],
     [
-     1465.97,
-     -3068.47
+     1467.11,
+     -3067.08
     ],
     [
-     1460.58,
-     -3051.15
+     1461.71,
+     -3049.76
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1409.04,
-     -3051.51
+     1410.18,
+     -3050.12
     ],
     "SW_street": [
-     1409.26,
-     -3068.86
+     1410.39,
+     -3067.47
     ],
     "SE_rear": [
-     1465.97,
-     -3068.47
+     1467.11,
+     -3067.08
     ],
     "NE_rear": [
-     1460.58,
-     -3051.15
+     1461.71,
+     -3049.76
     ]
    },
    "frontage_ft": 56.9,
@@ -12279,8 +12193,8 @@
       1329.2
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
    }
   },
   {
@@ -12295,38 +12209,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1409.26,
-     -3068.86
+     1410.39,
+     -3067.47
     ],
     [
-     1409.67,
-     -3101.92
+     1410.8,
+     -3100.52
     ],
     [
-     1476.25,
-     -3101.46
+     1477.38,
+     -3100.07
     ],
     [
-     1465.97,
-     -3068.47
+     1467.11,
+     -3067.08
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1409.26,
-     -3068.86
+     1410.39,
+     -3067.47
     ],
     "SW_street": [
-     1409.67,
-     -3101.92
+     1410.8,
+     -3100.52
     ],
     "SE_rear": [
-     1476.25,
-     -3101.46
+     1477.38,
+     -3100.07
     ],
     "NE_rear": [
-     1465.97,
-     -3068.47
+     1467.11,
+     -3067.08
     ]
    },
    "frontage_ft": 108.5,
@@ -12380,8 +12294,8 @@
       1422.1
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
    }
   },
   {
@@ -12396,38 +12310,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1409.67,
-     -3101.92
+     1410.8,
+     -3100.52
     ],
     [
-     1410.04,
-     -3132.47
+     1411.18,
+     -3131.08
     ],
     [
-     1485.75,
-     -3131.95
+     1486.89,
+     -3130.56
     ],
     [
-     1476.25,
-     -3101.46
+     1477.38,
+     -3100.07
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1409.67,
-     -3101.92
+     1410.8,
+     -3100.52
     ],
     "SW_street": [
-     1410.04,
-     -3132.47
+     1411.18,
+     -3131.08
     ],
     "SE_rear": [
-     1485.75,
-     -3131.95
+     1486.89,
+     -3130.56
     ],
     "NE_rear": [
-     1476.25,
-     -3101.46
+     1477.38,
+     -3100.07
     ]
    },
    "frontage_ft": 100.3,
@@ -12463,8 +12377,8 @@
       1505.9
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
    }
   },
   {
@@ -12479,38 +12393,38 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1410.04,
-     -3132.47
+     1411.18,
+     -3131.08
     ],
     [
-     1410.3,
-     -3153.05
+     1411.43,
+     -3151.66
     ],
     [
-     1492.15,
-     -3152.49
+     1493.28,
+     -3151.1
     ],
     [
-     1485.75,
-     -3131.95
+     1486.89,
+     -3130.56
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1410.04,
-     -3132.47
+     1411.18,
+     -3131.08
     ],
     "SW_street": [
-     1410.3,
-     -3153.05
+     1411.43,
+     -3151.66
     ],
     "SE_rear": [
-     1492.15,
-     -3152.49
+     1493.28,
+     -3151.1
     ],
     "NE_rear": [
-     1485.75,
-     -3131.95
+     1486.89,
+     -3130.56
     ]
    },
    "frontage_ft": 67.5,
@@ -12559,8 +12473,8 @@
       1579.0
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
    }
   },
   {
@@ -12575,43 +12489,43 @@
    "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1410.3,
-     -3153.05
+     1411.43,
+     -3151.66
     ],
     [
-     1410.83,
-     -3195.9
+     1411.98,
+     -3195.89
     ],
     [
-     1505.48,
-     -3195.26
+     1507.04,
+     -3195.25
     ],
     [
-     1492.15,
-     -3152.49
+     1493.28,
+     -3151.1
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1410.3,
-     -3153.05
+     1411.43,
+     -3151.66
     ],
     "SW_street": [
-     1410.83,
-     -3195.9
+     1411.98,
+     -3195.89
     ],
     "SE_rear": [
-     1505.48,
-     -3195.26
+     1507.04,
+     -3195.25
     ],
     "NE_rear": [
-     1492.15,
-     -3152.49
+     1493.28,
+     -3151.1
     ]
    },
-   "frontage_ft": 140.6,
-   "depth_ft": 289.5,
-   "area_m2": 3781.98,
+   "frontage_ft": 145.1,
+   "depth_ft": 290.2,
+   "area_m2": 3913.29,
    "geometry_tier": "inferred",
    "sources": [
     "sanborn_1911_chicago_v3_sheet_20",
@@ -12648,8 +12562,8 @@
       1687.8
      ]
     ],
-    "plate_shift_m": -1.8,
-    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+    "plate_shift_m": -3.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -3.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.5 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
    }
   },
   {
@@ -15875,38 +15789,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1271.93,
-     -2954.97
+     1273.06,
+     -2953.57
     ],
     [
-     1272.05,
-     -2967.3
+     1273.19,
+     -2965.91
     ],
     [
-     1298.82,
-     -2967.09
+     1299.96,
+     -2965.7
     ],
     [
-     1298.67,
-     -2954.73
+     1299.8,
+     -2953.34
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1271.93,
-     -2954.97
+     1273.06,
+     -2953.57
     ],
     "SW_street": [
-     1272.05,
-     -2967.3
+     1273.19,
+     -2965.91
     ],
     "SE_rear": [
-     1298.82,
-     -2967.09
+     1299.96,
+     -2965.7
     ],
     "NE_rear": [
-     1298.67,
-     -2954.73
+     1299.8,
+     -2953.34
     ]
    },
    "frontage_ft": 40.5,
@@ -15939,38 +15853,38 @@
    "where": "the south side of East Sixteenth Street, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1298.82,
-     -2967.09
+     1299.96,
+     -2965.7
     ],
     [
-     1326.16,
-     -2966.88
+     1327.3,
+     -2965.49
     ],
     [
-     1326.02,
-     -2954.49
+     1327.15,
+     -2953.1
     ],
     [
-     1298.67,
-     -2954.73
+     1299.8,
+     -2953.34
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1298.67,
-     -2954.73
+     1299.8,
+     -2953.34
     ],
     "NE_street": [
-     1326.02,
-     -2954.49
+     1327.15,
+     -2953.1
     ],
     "SE_rear": [
-     1326.16,
-     -2966.88
+     1327.3,
+     -2965.49
     ],
     "SW_rear": [
-     1298.82,
-     -2967.09
+     1299.96,
+     -2965.7
     ]
    },
    "frontage_ft": 89.7,
@@ -15997,38 +15911,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1272.05,
-     -2967.3
+     1273.19,
+     -2965.91
     ],
     [
-     1272.37,
-     -2998.55
+     1273.5,
+     -2997.16
     ],
     [
-     1326.54,
-     -2998.03
+     1327.67,
+     -2996.63
     ],
     [
-     1326.16,
-     -2966.88
+     1327.3,
+     -2965.49
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1272.05,
-     -2967.3
+     1273.19,
+     -2965.91
     ],
     "SW_street": [
-     1272.37,
-     -2998.55
+     1273.5,
+     -2997.16
     ],
     "SE_rear": [
-     1326.54,
-     -2998.03
+     1327.67,
+     -2996.63
     ],
     "NE_rear": [
-     1326.16,
-     -2966.88
+     1327.3,
+     -2965.49
     ]
    },
    "frontage_ft": 102.5,
@@ -16055,38 +15969,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1272.37,
-     -2998.55
+     1273.5,
+     -2997.16
     ],
     [
-     1272.47,
-     -3008.94
+     1273.6,
+     -3007.54
     ],
     [
-     1326.66,
-     -3008.42
+     1327.79,
+     -3007.02
     ],
     [
-     1326.54,
-     -2998.03
+     1327.67,
+     -2996.63
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1272.37,
-     -2998.55
+     1273.5,
+     -2997.16
     ],
     "SW_street": [
-     1272.47,
-     -3008.94
+     1273.6,
+     -3007.54
     ],
     "SE_rear": [
-     1326.66,
-     -3008.42
+     1327.79,
+     -3007.02
     ],
     "NE_rear": [
-     1326.54,
-     -2998.03
+     1327.67,
+     -2996.63
     ]
    },
    "frontage_ft": 34.1,
@@ -16112,38 +16026,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1272.47,
-     -3008.94
+     1273.6,
+     -3007.54
     ],
     [
-     1272.63,
-     -3025.02
+     1273.76,
+     -3023.62
     ],
     [
-     1326.85,
-     -3024.5
+     1327.99,
+     -3023.1
     ],
     [
-     1326.66,
-     -3008.42
+     1327.79,
+     -3007.02
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1272.47,
-     -3008.94
+     1273.6,
+     -3007.54
     ],
     "SW_street": [
-     1272.63,
-     -3025.02
+     1273.76,
+     -3023.62
     ],
     "SE_rear": [
-     1326.85,
-     -3024.5
+     1327.99,
+     -3023.1
     ],
     "NE_rear": [
-     1326.66,
-     -3008.42
+     1327.79,
+     -3007.02
     ]
    },
    "frontage_ft": 52.8,
@@ -16169,38 +16083,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1272.63,
-     -3025.02
+     1273.76,
+     -3023.62
     ],
     [
-     1272.79,
-     -3040.9
+     1273.92,
+     -3039.51
     ],
     [
-     1327.05,
-     -3040.38
+     1328.18,
+     -3038.99
     ],
     [
-     1326.85,
-     -3024.5
+     1327.99,
+     -3023.1
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1272.63,
-     -3025.02
+     1273.76,
+     -3023.62
     ],
     "SW_street": [
-     1272.79,
-     -3040.9
+     1273.92,
+     -3039.51
     ],
     "SE_rear": [
-     1327.05,
-     -3040.38
+     1328.18,
+     -3038.99
     ],
     "NE_rear": [
-     1326.85,
-     -3024.5
+     1327.99,
+     -3023.1
     ]
    },
    "frontage_ft": 52.1,
@@ -16224,38 +16138,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1272.79,
-     -3040.9
+     1273.92,
+     -3039.51
     ],
     [
-     1272.86,
-     -3047.91
+     1273.99,
+     -3046.52
     ],
     [
-     1327.13,
-     -3047.39
+     1328.26,
+     -3046.0
     ],
     [
-     1327.05,
-     -3040.38
+     1328.18,
+     -3038.99
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1272.79,
-     -3040.9
+     1273.92,
+     -3039.51
     ],
     "SW_street": [
-     1272.86,
-     -3047.91
+     1273.99,
+     -3046.52
     ],
     "SE_rear": [
-     1327.13,
-     -3047.39
+     1328.26,
+     -3046.0
     ],
     "NE_rear": [
-     1327.05,
-     -3040.38
+     1328.18,
+     -3038.99
     ]
    },
    "frontage_ft": 23.0,
@@ -16280,38 +16194,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1272.86,
-     -3047.91
+     1273.99,
+     -3046.52
     ],
     [
-     1272.94,
-     -3056.07
+     1274.07,
+     -3054.67
     ],
     [
-     1327.23,
-     -3055.54
+     1328.36,
+     -3054.15
     ],
     [
-     1327.13,
-     -3047.39
+     1328.26,
+     -3046.0
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1272.86,
-     -3047.91
+     1273.99,
+     -3046.52
     ],
     "SW_street": [
-     1272.94,
-     -3056.07
+     1274.07,
+     -3054.67
     ],
     "SE_rear": [
-     1327.23,
-     -3055.54
+     1328.36,
+     -3054.15
     ],
     "NE_rear": [
-     1327.13,
-     -3047.39
+     1328.26,
+     -3046.0
     ]
    },
    "frontage_ft": 26.8,
@@ -16336,38 +16250,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1272.94,
-     -3056.07
+     1274.07,
+     -3054.67
     ],
     [
-     1273.01,
-     -3063.72
+     1274.15,
+     -3062.33
     ],
     [
-     1327.32,
-     -3063.2
+     1328.45,
+     -3061.8
     ],
     [
-     1327.23,
-     -3055.54
+     1328.36,
+     -3054.15
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1272.94,
-     -3056.07
+     1274.07,
+     -3054.67
     ],
     "SW_street": [
-     1273.01,
-     -3063.72
+     1274.15,
+     -3062.33
     ],
     "SE_rear": [
-     1327.32,
-     -3063.2
+     1328.45,
+     -3061.8
     ],
     "NE_rear": [
-     1327.23,
-     -3055.54
+     1328.36,
+     -3054.15
     ]
    },
    "frontage_ft": 25.1,
@@ -16394,38 +16308,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.01,
-     -3063.72
+     1274.15,
+     -3062.33
     ],
     [
-     1273.09,
-     -3071.49
+     1274.22,
+     -3070.1
     ],
     [
-     1327.41,
-     -3070.97
+     1328.54,
+     -3069.58
     ],
     [
-     1327.32,
-     -3063.2
+     1328.45,
+     -3061.8
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.01,
-     -3063.72
+     1274.15,
+     -3062.33
     ],
     "SW_street": [
-     1273.09,
-     -3071.49
+     1274.22,
+     -3070.1
     ],
     "SE_rear": [
-     1327.41,
-     -3070.97
+     1328.54,
+     -3069.58
     ],
     "NE_rear": [
-     1327.32,
-     -3063.2
+     1328.45,
+     -3061.8
     ]
    },
    "frontage_ft": 25.5,
@@ -16451,38 +16365,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.09,
-     -3071.49
+     1274.22,
+     -3070.1
     ],
     [
-     1273.27,
-     -3089.65
+     1274.4,
+     -3088.26
     ],
     [
-     1327.63,
-     -3089.13
+     1328.76,
+     -3087.73
     ],
     [
-     1327.41,
-     -3070.97
+     1328.54,
+     -3069.58
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.09,
-     -3071.49
+     1274.22,
+     -3070.1
     ],
     "SW_street": [
-     1273.27,
-     -3089.65
+     1274.4,
+     -3088.26
     ],
     "SE_rear": [
-     1327.63,
-     -3089.13
+     1328.76,
+     -3087.73
     ],
     "NE_rear": [
-     1327.41,
-     -3070.97
+     1328.54,
+     -3069.58
     ]
    },
    "frontage_ft": 59.6,
@@ -16508,38 +16422,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.27,
-     -3089.65
+     1274.4,
+     -3088.26
     ],
     [
-     1273.55,
-     -3117.41
+     1274.68,
+     -3116.02
     ],
     [
-     1327.96,
-     -3116.89
+     1329.09,
+     -3115.5
     ],
     [
-     1327.63,
-     -3089.13
+     1328.76,
+     -3087.73
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.27,
-     -3089.65
+     1274.4,
+     -3088.26
     ],
     "SW_street": [
-     1273.55,
-     -3117.41
+     1274.68,
+     -3116.02
     ],
     "SE_rear": [
-     1327.96,
-     -3116.89
+     1329.09,
+     -3115.5
     ],
     "NE_rear": [
-     1327.63,
-     -3089.13
+     1328.76,
+     -3087.73
     ]
    },
    "frontage_ft": 91.1,
@@ -16565,38 +16479,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.55,
-     -3117.41
+     1274.68,
+     -3116.02
     ],
     [
-     1273.7,
-     -3132.78
+     1274.83,
+     -3131.39
     ],
     [
-     1328.15,
-     -3132.25
+     1329.28,
+     -3130.86
     ],
     [
-     1327.96,
-     -3116.89
+     1329.09,
+     -3115.5
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.55,
-     -3117.41
+     1274.68,
+     -3116.02
     ],
     "SW_street": [
-     1273.7,
-     -3132.78
+     1274.83,
+     -3131.39
     ],
     "SE_rear": [
-     1328.15,
-     -3132.25
+     1329.28,
+     -3130.86
     ],
     "NE_rear": [
-     1327.96,
-     -3116.89
+     1329.09,
+     -3115.5
     ]
    },
    "frontage_ft": 50.4,
@@ -16620,38 +16534,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.7,
-     -3132.78
+     1274.83,
+     -3131.39
     ],
     [
-     1273.78,
-     -3140.24
+     1274.91,
+     -3138.85
     ],
     [
-     1328.23,
-     -3139.71
+     1329.37,
+     -3138.32
     ],
     [
-     1328.15,
-     -3132.25
+     1329.28,
+     -3130.86
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.7,
-     -3132.78
+     1274.83,
+     -3131.39
     ],
     "SW_street": [
-     1273.78,
-     -3140.24
+     1274.91,
+     -3138.85
     ],
     "SE_rear": [
-     1328.23,
-     -3139.71
+     1329.37,
+     -3138.32
     ],
     "NE_rear": [
-     1328.15,
-     -3132.25
+     1329.28,
+     -3130.86
     ]
    },
    "frontage_ft": 24.5,
@@ -16676,38 +16590,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.78,
-     -3140.24
+     1274.91,
+     -3138.85
     ],
     [
-     1273.86,
-     -3148.25
+     1274.99,
+     -3146.86
     ],
     [
-     1328.33,
-     -3147.73
+     1329.46,
+     -3146.33
     ],
     [
-     1328.23,
-     -3139.71
+     1329.37,
+     -3138.32
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.78,
-     -3140.24
+     1274.91,
+     -3138.85
     ],
     "SW_street": [
-     1273.86,
-     -3148.25
+     1274.99,
+     -3146.86
     ],
     "SE_rear": [
-     1328.33,
-     -3147.73
+     1329.46,
+     -3146.33
     ],
     "NE_rear": [
-     1328.23,
-     -3139.71
+     1329.37,
+     -3138.32
     ]
    },
    "frontage_ft": 26.3,
@@ -16732,38 +16646,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.86,
-     -3148.25
+     1274.99,
+     -3146.86
     ],
     [
-     1273.93,
-     -3155.83
+     1275.06,
+     -3154.44
     ],
     [
-     1328.42,
-     -3155.31
+     1329.55,
+     -3153.91
     ],
     [
-     1328.33,
-     -3147.73
+     1329.46,
+     -3146.33
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.86,
-     -3148.25
+     1274.99,
+     -3146.86
     ],
     "SW_street": [
-     1273.93,
-     -3155.83
+     1275.06,
+     -3154.44
     ],
     "SE_rear": [
-     1328.42,
-     -3155.31
+     1329.55,
+     -3153.91
     ],
     "NE_rear": [
-     1328.33,
-     -3147.73
+     1329.46,
+     -3146.33
     ]
    },
    "frontage_ft": 24.9,
@@ -16788,38 +16702,38 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.93,
-     -3155.83
+     1275.06,
+     -3154.44
     ],
     [
-     1273.99,
-     -3161.87
+     1275.12,
+     -3160.48
     ],
     [
-     1328.49,
-     -3161.34
+     1329.63,
+     -3159.95
     ],
     [
-     1328.42,
-     -3155.31
+     1329.55,
+     -3153.91
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.93,
-     -3155.83
+     1275.06,
+     -3154.44
     ],
     "SW_street": [
-     1273.99,
-     -3161.87
+     1275.12,
+     -3160.48
     ],
     "SE_rear": [
-     1328.49,
-     -3161.34
+     1329.63,
+     -3159.95
     ],
     "NE_rear": [
-     1328.42,
-     -3155.31
+     1329.55,
+     -3153.91
     ]
    },
    "frontage_ft": 19.8,
@@ -16847,43 +16761,43 @@
    "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
-     1273.99,
-     -3161.87
+     1275.12,
+     -3160.48
     ],
     [
-     1274.35,
-     -3198.18
+     1275.5,
+     -3198.17
     ],
     [
-     1328.93,
-     -3197.56
+     1330.08,
+     -3197.54
     ],
     [
-     1328.49,
-     -3161.34
+     1329.63,
+     -3159.95
     ]
    ],
    "corners_local_m": {
     "NW_street": [
-     1273.99,
-     -3161.87
+     1275.12,
+     -3160.48
     ],
     "SW_street": [
-     1274.35,
-     -3198.18
+     1275.5,
+     -3198.17
     ],
     "SE_rear": [
-     1328.93,
-     -3197.56
+     1330.08,
+     -3197.54
     ],
     "NE_rear": [
-     1328.49,
-     -3161.34
+     1329.63,
+     -3159.95
     ]
    },
-   "frontage_ft": 119.1,
+   "frontage_ft": 123.7,
    "depth_ft": 178.9,
-   "area_m2": 1977.93,
+   "area_m2": 2053.19,
    "geometry_tier": "inferred",
    "sources": [
     "sanborn_1911_chicago_v3_sheet_20",

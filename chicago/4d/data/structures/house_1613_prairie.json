@@ -28,15 +28,15 @@
     "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
    },
    "position": {
-    "utm_e": 448497.332,
-    "utm_n": 4634413.556,
+    "utm_e": 448498.462,
+    "utm_n": 4634414.946,
     "rotation_deg": 179.611,
     "symbolic_location": "1613 S. Prairie Avenue, parcel prairie_1613 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "confidence": "inferred",
     "sources": [
      "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The rear corner of the main body's rectangle (lot frame u 15.250, v -2.650 m from the middle of the rear lot line): the draft's rear wall, kept, and the traced main part's world-north wall (the trace runs v -2.69 to -2.56 there), 0.9 m north of where the draft's fit stopped. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line, so K01's local south is the world's north on this side of the avenue.",
+    "note": "The rear corner of the main body's rectangle (lot frame u 15.250, v -2.650 m from the middle of the rear lot line): the draft's rear wall, kept, and the traced main part's world-north wall (the trace runs v -2.69 to -2.56 there), 0.9 m north of where the draft's fit stopped. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line, so K01's local south is the world's north on this side of the avenue.",
     "derivation": {
      "method": "not_derivable",
      "reason": "The four derivation methods re-derive from the 1835 files; this position is the 1904 parcel's lot frame (tools/draft_prairie_1904.py lot_frame, through the T-1250 fit) at the corner the note names."
