@@ -102,8 +102,11 @@ assert(/<span class="tab-label"[^>]*>Move<\/span>/.test(html.slice(html.indexOf(
 // ---- the Navigator's Move app opens the section ---------------------------------------
 assert.equal(APP.id, 'move');
 assert.equal(APP.label, 'Move');
-const opened = [];
-APP.launch({ actions: { openSection: (id) => opened.push(id) } });
-assert.deepEqual(opened, ['travel'], 'Move opens the one picker');
+// T-2620: the drawer's sections moved into the device, so Move is no longer a launch that
+// opens the drawer's Move section: it holds that section in its own screen.
+const { SECTION_HOME, APP_SECTIONS } = await import('../renderers/web/js/apps/drawer-host.js');
+assert.equal(SECTION_HOME.travel, 'move', 'the one picker lives in the Move app');
+assert.deepEqual(APP_SECTIONS.move, ['travel'], 'and Move holds only that section');
+assert.ok(!APP.launch && typeof APP.mount === 'function' && typeof APP.shown === 'function', 'Move is a screen, not a launch');
 
 console.log('test_nav_move: one picker, one slider, named speeds, Go to\'s choice and the markup hold');

@@ -1,0 +1,76 @@
+{
+  "ticket": "T-2598",
+  "measured": {
+    "on": "2026-10-17T17:34:27.728Z",
+    "build": "e62b79251",
+    "machine": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz ×4",
+    "seconds": 424,
+    "method": "the prairie walk: /1904/, welcome entered, the eye stood at each station, residency let finish its uploads, 3 frames; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "walk": "prairie",
+      "captures": [
+        {
+          "id": "glessner-aloft-ne",
+          "working": {
+            "resident": 40,
+            "sources": 63
+          },
+          "all": {
+            "resident": 63,
+            "sources": 63
+          },
+          "aloft": {
+            "flying": true,
+            "altitude": 60,
+            "settled": {
+              "flying": true,
+              "altitude": 60
+            }
+          },
+          "noise": {
+            "pixels": 440529,
+            "share": 0.16090620206004821,
+            "psnr": 26.975435435807235
+          },
+          "residency": {
+            "pixels": 300046,
+            "share": 0.10959383446562934,
+            "psnr": 29.13483014602454
+          }
+        },
+        {
+          "id": "street-prairie-1600-south",
+          "working": {
+            "resident": 24,
+            "sources": 63
+          },
+          "all": {
+            "resident": 63,
+            "sources": 63
+          },
+          "noise": {
+            "pixels": 1184803,
+            "share": 0.43275732339834905,
+            "psnr": 20.310636821769243
+          },
+          "residency": {
+            "pixels": 934456,
+            "share": 0.34131638541894954,
+            "psnr": 21.399630056670915
+          }
+        }
+      ],
+      "errors": [],
+      "steps": [],
+      "over": 0,
+      "seconds": {
+        "captures": 424
+      }
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "year": "1835",
+  "source": "published",
+  "throttle": 4,
+  "rebuild": "spread",
+  "gl": "llvmpipe",
+  "noGaze": false,
+  "ceilingMs": {
+    "full": 60,
+    "balanced": 32,
+    "light": 21
+  },
+  "p95CeilingMs": {
+    "full": 15,
+    "balanced": 9,
+    "light": 7
+  },
+  "readings": [
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "live": true,
+      "tier": "light",
+      "move": "walk",
+      "mode": "fixed",
+      "draws": 9,
+      "mean": 1375.06,
+      "sd": 815.12,
+      "median": 1073.6,
+      "p95": 3530.7,
+      "max": 3530.7,
+      "over33": 8,
+      "over50": 8,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 42.8,
+      "offscreen": 72
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "live": true,
+      "tier": "light",
+      "move": "walk",
+      "mode": "adaptive",
+      "draws": 13,
+      "mean": 986.05,
+      "sd": 373.62,
+      "median": 979.6,
+      "p95": 1934.7,
+      "max": 1934.7,
+      "over33": 12,
+      "over50": 12,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 31.4,
+      "offscreen": 80
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "live": true,
+      "tier": "light",
+      "move": "turn",
+      "mode": "fixed",
+      "draws": 8,
+      "mean": 1663.29,
+      "sd": 1204.99,
+      "median": 1859.4,
+      "p95": 3783,
+      "max": 3783,
+      "over33": 7,
+      "over50": 7,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 33.2,
+      "offscreen": 56
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "live": true,
+      "tier": "light",
+      "move": "turn",
+      "mode": "adaptive",
+      "draws": 8,
+      "mean": 1648.36,
+      "sd": 1341.07,
+      "median": 1906.5,
+      "p95": 4388.1,
+      "max": 4388.1,
+      "over33": 7,
+      "over50": 6,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 29.2,
+      "offscreen": 48
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "live": true,
+      "tier": "light",
+      "move": "flight",
+      "mode": "fixed",
+      "draws": 10,
+      "mean": 1238.52,
+      "sd": 501.12,
+      "median": 1307.1,
+      "p95": 1994.3,
+      "max": 1994.3,
+      "over33": 9,
+      "over50": 8,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 33,
+      "offscreen": 64
+    },
+    {
+      "viewport": "mobile",
+      "throttle": 4,
+      "live": true,
+      "tier": "light",
+      "move": "flight",
+      "mode": "adaptive",
+      "draws": 10,
+      "mean": 1268.66,
+      "sd": 518.72,
+      "median": 1324.9,
+      "p95": 2132.3,
+      "max": 2132.3,
+      "over33": 9,
+      "over50": 8,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 26.9,
+      "offscreen": 64
+    }
+  ],
+  "rasterisers": {
+    "mobile": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)"
+  },
+  "profiles": {
+    "mobile": {
+      "selfMs": [
+        [
+          "readPixels :0",
+          63222
+        ],
+        [
+          "driveLive :1",
+          6736
+        ],
+        [
+          "(idle) :0",
+          5830
+        ],
+        [
+          "getProgramInfoLog :0",
+          2056
+        ],
+        [
+          "(program) :0",
+          339
+        ],
+        [
+          "getBoundingSphereAt three.core.js:26976",
+          331
+        ],
+        [
+          "onBeforeRender three.core.js:27473",
+          181
+        ],
+        [
+          "fromArray three.core.js:11126",
+          169
+        ],
+        [
+          "surfaceAt walker.js:236",
+          165
+        ],
+        [
+          "updateGroundReach terrain.js:953",
+          131
+        ]
+      ],
+      "totalMs": [
+        [
+          "onAnimationFrame three.module.js:16",
+          64792
+        ],
+        [
+          "(anon) main.js:4554",
+          64791
+        ],
+        [
+          "onAnimationFrame three.module.js:17545",
+          64791
+        ],
+        [
+          "tick main.js:4418",
+          64787
+        ],
+        [
+          "look target.js:43",
+          63582
+        ],
+        [
+          "pick main.js:4075",
+          63579
+        ],
+        [
+          "pickAt gpu-pick.js:318",
+          63578
+        ],
+        [
+          "(anon) gpu-pick.js:310",
+          63578
+        ],
+        [
+          "gpuPick gpu-pick.js:171",
+          63560
+        ],
+        [
+          "readPixels :0",
+          63222
+        ]
+      ]
+    }
+  }
+}

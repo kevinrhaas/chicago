@@ -21,6 +21,9 @@
  *     load: () => import('./x.js'),  // lazy: a module whose default (or itself) has
  *                                    // mount(el, ctx) and unmount(el, ctx), loaded on first open
  *     mount(el, ctx), unmount(el, ctx), // eager, for something tiny
+ *     shown(el, ctx), hidden(el, ctx), // optional, on the app or its module: each time its
+ *                                    // screen comes into sight, and when it leaves (another
+ *                                    // app opens, or the device docks) — T-2620's sections
  *     launch(ctx),                   // a stub: runs and docks the device — the drawer's
  *                                    // sections until they move in (T-2620). It may go with
  *                                    // a screen: returning false falls through to it.
@@ -245,8 +248,12 @@ export function createRail({
     const ctx = context();
     if (s.app.when && !seen.has(id)) { seen.add(id); writeSeen(storage, seen); }
     s.button.classList.remove('is-new');
+    // Await only what is asynchronous: an app already mounted (or mounted synchronously)
+    // switches in the same task, so a caller can focus into it at once (G and Go to).
+    const settle = (v) => (v && typeof v.then === 'function' ? v : null);
     if (s.app.launch) {
-      const handled = await s.app.launch(ctx);
+      let handled = s.app.launch(ctx);
+      if (settle(handled)) handled = await handled;
       if (handled !== false) { onLaunch(id, by); return true; }
       if (!s.app.panel && !s.app.load && !s.app.mount) return false;
     }
@@ -258,10 +265,14 @@ export function createRail({
         s.module = mod?.default ?? mod;
       }
       if (ticket !== switching) return false; // a later choice won the race
-      await (s.module ?? s.app).mount?.(panel, ctx);
+      const mounting = settle((s.module ?? s.app).mount?.(panel, ctx));
+      if (mounting) await mounting;
       s.mounted = true;
+      if (ticket !== switching) return false;
     }
     const was = current;
+    const prev = was && was !== id ? apps.get(was) : null;
+    if (prev?.mounted) (prev.module ?? prev.app).hidden?.(prev.panel, ctx);
     current = id;
     for (const other of apps.values()) {
       const on = other.app.id === id;
@@ -277,6 +288,17 @@ export function createRail({
     return true;
   }
 
+  /** The device's screen went out of sight (docked, or down to its rail) or came back. */
+  let visible = true;
+  function setVisible(on) {
+    if (on === visible) return;
+    visible = on;
+    const s = current ? apps.get(current) : null;
+    if (!s?.mounted) return;
+    const ctx = context();
+    if (on) (s.module ?? s.app).shown?.(s.panel, ctx);
+    else (s.module ?? s.app).hidden?.(s.panel, ctx);
+  }
   // The arrows move focus along the tabs that show (and Home and End to the ends);
   // Enter or Space opens one, as the button it is. Moving focus never opens an app on
   // its own: some apps are launches that dock the device.
@@ -307,6 +329,7 @@ export function createRail({
     unregister,
     evaluate,
     select,
+    setVisible,
     get current() { return current; },
     has: (id) => apps.has(id),
     /** The tab of an app, for the keyboard (navigator.js). */

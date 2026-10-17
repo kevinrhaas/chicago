@@ -99,7 +99,10 @@ export function createHud({
   onConfidence, onConfidenceKey = null, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop, onShowGuide,
   isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
 }) {
-  const $ = (id) => root.querySelector(`#${id}`);
+  // T-2620: the drawer's sections live inside the Navigator now (a sibling of #hud), so
+  // lookups by id and of the sections' own parts are made in the document, not under #hud.
+  const doc = root.ownerDocument ?? document;
+  const $ = (id) => doc.getElementById(id) ?? root.querySelector(`#${id}`);
   const badgeYear = root.querySelector('.badge-year');
   const badgeSub = root.querySelector('.badge-sub');
   const badgeAlt = $('badge-alt');
@@ -300,7 +303,11 @@ export function createHud({
 
   function panelOpen() { return panel && !panel.hasAttribute('hidden'); }
 
-  function setPanel(open) {
+  // T-2620: the drawer is gone; its sections are Navigator apps. `host` is the Navigator's
+  // adapter (apps/drawer-host.js): setPanel and selectTab keep their meaning — open the
+  // section, close it — and the host shows or docks the app that holds it.
+  let host = null;
+  function setPanel(open, { fromHost = false } = {}) {
     if (!panel) return;
     // Leaving focus on a control inside a drawer that has slid off-screen
     // strands the keyboard: the next Tab goes somewhere invisible.
@@ -316,6 +323,7 @@ export function createHud({
     // can be operated at all — the panel would look fine and do nothing.
     if (open && document.pointerLockElement) document.exitPointerLock?.();
     onHelp?.(!!open);
+    if (!fromHost) host?.[open ? 'open' : 'close']?.(currentTab);
   }
 
   btnHelp?.addEventListener('click', () => setPanel(!panelOpen()));
@@ -326,7 +334,9 @@ export function createHud({
   // The control-help popover is gone: the controls live in the Navigator's Guide, which
   // shows touch or keyboard from controls/intent.js. Settings' "Show the controls" opens it.
   function showControlHelp() {
-    setPanel(false);
+    // T-2620: with the sections in the Navigator, switching to Guide puts Settings' section
+    // away itself; closing it first would dock the device only to open it again.
+    if (!host) setPanel(false);
     if (document.pointerLockElement) document.exitPointerLock?.();
     onShowGuide?.();
     return true;
@@ -388,7 +398,7 @@ export function createHud({
    *  restores the section's own name. */
   let backAction = null;
   function setTitle(text, onBack = null) {
-    const tab = root.querySelector(`.panel-tab[data-tab="${currentTab}"]`);
+    const tab = doc.querySelector(`.panel-tab[data-tab="${currentTab}"]`);
     // The head says the section's full name, which the rail cannot always afford:
     // eight tabs share 390 px on a phone, so a long one carries a short label and
     // a `data-title`. Where there is no `data-title` the two are the same word.
@@ -400,16 +410,20 @@ export function createHud({
   panelBack?.addEventListener('click', () => backAction?.());
 
   const panelScroll = $('panel-scroll');
-  function selectTab(want) {
+  function selectTab(want, { fromHost = false } = {}) {
     // A section the scene does not carry (T-1740) is never selected, by any route.
-    if (root.querySelector(`.panel-tab[data-tab="${want}"]`)?.hidden) return;
+    // T-2620: Go to retired with the drawer; asking for it opens the Jaunts app's own Go to.
+    if (doc.querySelector(`.panel-tab[data-tab="${want}"]`)?.hidden) {
+      if (want === 'goto' && !fromHost) host?.show?.('goto');
+      return;
+    }
     currentTab = want;
-    root.querySelectorAll('.panel-tab').forEach((x) => {
+    doc.querySelectorAll('.panel-tab').forEach((x) => {
       const on = x.dataset.tab === want;
       x.classList.toggle('is-on', on);
       x.setAttribute('aria-selected', String(on));
     });
-    root.querySelectorAll('.panel-body').forEach((s) => {
+    doc.querySelectorAll('.panel-body').forEach((s) => {
       s.toggleAttribute('hidden', s.dataset.panel !== want);
     });
     setTitle(null);
@@ -418,14 +432,15 @@ export function createHud({
     if (panelScroll) panelScroll.scrollTop = 0;
     if (want === 'whatsnew') void openWhatsNew().catch(() => {});
     onTab?.(want);
+    if (!fromHost && panelOpen()) host?.show?.(want);
   }
   /** A section can ask to be told when it is shown (the hub repaints, the
    *  Go to list refreshes its distances). */
   let onTab = null;
 
   // The rail is a list of sections: the arrow keys walk it when one has focus.
-  root.querySelector('.panel-tabs')?.addEventListener('keydown', (e) => {
-    const tabs = [...root.querySelectorAll('.panel-tab')].filter((t) => !t.hidden);
+  doc.querySelector('.panel-tabs')?.addEventListener('keydown', (e) => {
+    const tabs = [...doc.querySelectorAll('.panel-tab')].filter((t) => !t.hidden);
     const i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
     const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
@@ -436,7 +451,7 @@ export function createHud({
     selectTab(next.dataset.tab);
   });
 
-  root.querySelectorAll('.panel-tab').forEach((tab) => {
+  doc.querySelectorAll('.panel-tab').forEach((tab) => {
     tab.addEventListener('click', () => selectTab(tab.dataset.tab));
   });
 
@@ -614,7 +629,7 @@ export function createHud({
       if (glyph) glyph.innerHTML = PACE_GLYPH[pace] ?? '';
       btnPace.title = `Your pace — ${PACES[pace]?.label ?? pace}. Tap for ${PACES[nextPace(pace)]?.label} (P)`;
     }
-    root.querySelectorAll('#s-move .seg-btn').forEach((b) => {
+    doc.querySelectorAll('#s-move .seg-btn').forEach((b) => {
       b.setAttribute('aria-checked', String(b.dataset.mode === mode));
       b.classList.toggle('is-on', b.dataset.mode === mode);
     });
@@ -632,7 +647,7 @@ export function createHud({
     if (moveReadout) moveReadout.textContent = slider.readout;
     const note = $('travel-note');
     if (note) note.textContent = view.note;
-    root.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
+    doc.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
       b.setAttribute('aria-checked', String(b.dataset.arrive === view.arrive));
       b.classList.toggle('is-on', b.dataset.arrive === view.arrive);
     });
@@ -672,10 +687,10 @@ export function createHud({
     settings.travelMode = groundPace();
   }
   btnPace?.addEventListener('click', () => setPace(nextPace(groundPace())));
-  root.querySelectorAll('#s-move .seg-btn').forEach((b) => {
+  doc.querySelectorAll('#s-move .seg-btn').forEach((b) => {
     b.addEventListener('click', () => setMoveMode(b.dataset.mode));
   });
-  root.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
+  doc.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
     b.addEventListener('click', () => {
       settings.arriveChosen = true;
       setTravelMode(travelModeFor(b.dataset.arrive, groundPace()));
@@ -714,7 +729,7 @@ export function createHud({
   // js/goto.js; the HUD only hands it the section, the shared destinations
   // model, and the visitor's position, and tells it when to go.
   const goTo = createGoTo({
-    root: root.querySelector('[data-panel="goto"]'),
+    root: doc.querySelector('[data-panel="goto"]'),
     destinations, visitor, isTouch, settings,
     units: () => settings.units,
     onGoTo: (target) => { setPanel(false); onGoTo?.(target); },
@@ -755,12 +770,14 @@ export function createHud({
      *  no route can select it. */
     omitTabs(ids) {
       for (const id of ids) {
-        const tab = root.querySelector(`.panel-tab[data-tab="${id}"]`);
+        const tab = doc.querySelector(`.panel-tab[data-tab="${id}"]`);
         if (tab) tab.hidden = true;
-        root.querySelector(`.panel-body[data-panel="${id}"]`)?.setAttribute('hidden', '');
+        doc.querySelector(`.panel-body[data-panel="${id}"]`)?.setAttribute('hidden', '');
       }
       if (ids.includes(currentTab)) selectTab('goto');
     },
+    /** T-2620: the Navigator's adapter for the sections it now holds. */
+    setHost(h) { host = h; },
     /** Let one listener know which section is showing. */
     onTabChange(fn) { onTab = fn; },
     get tab() { return currentTab; },

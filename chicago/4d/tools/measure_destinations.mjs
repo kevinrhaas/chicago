@@ -1,4 +1,8 @@
-/** Published T-1277 acceptance. Writes screenshots/receipts outside the source tree. */
+/** Published T-1277 acceptance. Writes screenshots/receipts outside the source tree.
+ *  T-2620: the drawer's Go to list retired with the drawer; Go to is the Jaunts app's own
+ *  segment (T-2630), the arrival's search (#welcome-search, rows .welcome-destination), so
+ *  this drives that. It lists 40 rows at a time, so the inventory is read off the search it
+ *  renders, and a row with no known address is disabled rather than opening a card. */
 import fs from 'node:fs';import path from 'node:path';import http from 'node:http';import zlib from 'node:zlib';import assert from 'node:assert/strict';import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../../site/4d');
 const out=process.env.DESTINATIONS_EVIDENCE || '/tmp/destinations-evidence';fs.mkdirSync(out,{recursive:true});
@@ -13,11 +17,15 @@ try { for (const width of [390,1280]) {
  await ctx.addInitScript(()=>localStorage.setItem('chicago4d.settings',JSON.stringify({detail:'light',travelMode:'instantly'})));
  const page=await ctx.newPage(),errors=[];page.setDefaultTimeout(90000);page.on('pageerror',e=>errors.push(e.message));
  console.log('START',width);await page.goto(url,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__chicago4d?.ready,null,{timeout:180000});await page.locator('#home-roam').click();
- const inventory=await page.evaluate(()=>{const a=window.__chicago4d;a.renderer.setAnimationLoop(null);a.hud.setPanel(true);a.hud.selectTab('goto');a.hud.setHidden('reconstructed',false,{announce:false});return {count:a.destinations.count,rows:document.querySelectorAll('.jump-result').length,shared:a.destinations.targets===a.hud.goTo.targets};});
- assert.equal(inventory.rows,inventory.count);assert.ok(inventory.shared);
- await page.locator('#jump-search').fill('peck');
- assert.ok(await page.locator('[data-jump-kind="structure"][data-jump-id="peck_store"]').count());
- const firm=page.locator('[data-jump-kind="business"][data-jump-id="biz_p_f_peck"]');assert.equal(await firm.count(),1);await firm.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,`${width}-search.png`)});
+ const openGoTo=()=>page.evaluate(async()=>{const a=window.__chicago4d;a.hud.setHidden('reconstructed',false,{announce:false});await a.openJaunts('goto');});
+ const row=(kind,id)=>page.locator(`#welcome-results .welcome-destination[data-kind="${kind}"][data-id="${id}"]`);
+ await page.evaluate(()=>window.__chicago4d.renderer.setAnimationLoop(null));await openGoTo();await page.locator('#welcome-search').waitFor({state:'visible'});
+ const inventory=await page.evaluate(()=>{const a=window.__chicago4d,d=a.destinations;return {count:d.count,rows:d.search('',{kind:'all',includeReconstructed:true}).length,shown:document.querySelectorAll('#welcome-results .welcome-destination').length,shared:d.targets===a.hud.goTo.targets};});
+ assert.equal(inventory.rows,inventory.count);assert.equal(inventory.shown,Math.min(40,inventory.count));assert.ok(inventory.shared);
+ await page.locator('#welcome-search').fill('peck');
+ assert.ok(await row('structure','peck_store').count());
+ const firm=row('business','biz_p_f_peck');assert.equal(await firm.count(),1);await firm.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,`${width}-search.png`)});
+ // In the town a pick goes there as the retired drawer list did (goToTarget, T-2620): to the firm's building, its card open.
  await firm.click();await page.waitForFunction(()=>window.__chicago4d.popup.openId==='peck_store');await page.evaluate(()=>window.__chicago4d.popup.close());
  const proof=await page.evaluate(()=>{
   const a=window.__chicago4d,d=a.destinations;
@@ -36,14 +44,14 @@ try { for (const width of [390,1280]) {
  assert.ok(proof.safeStructures.length>300);for(const r of proof.safeStructures){assert.ok(r.ok&&!r.blocked&&r.distance<0.01,JSON.stringify(r));}
  assert.equal(proof.dismiss,false);assert.equal(proof.unlocated,false);assert.ok(proof.unchanged);
  for(const t of [proof.unknown,proof.business]){
-  assert.ok(t?.limit);await page.evaluate(()=>{const a=window.__chicago4d;a.hud.setPanel(true);a.hud.selectTab('goto');a.hud.goTo.setKind('all');});
-  await page.locator('#jump-search').fill(t.label);
-  const row=page.locator(`[data-jump-kind="${t.kind}"][data-jump-id="${t.id}"]`);
-  assert.equal((await row.locator('.jump-dist').textContent()).trim(),'');
-  const before=await page.evaluate(()=>{const s=window.__chicago4d.walker.state;return [s.e,s.n];});await row.click();
-  await page.waitForFunction(t=>window.__chicago4d[t.kind==='person'?'people':'businesses'].state.open===t.id,t);
+  assert.ok(t?.limit);await openGoTo();
+  await page.locator('#welcome-search').fill(t.label);
+  const unlocated=row(t.kind,t.id);
+  // No invented distance and no invented destination: the row says so and cannot be chosen.
+  assert.equal(await unlocated.locator('.welcome-dist').count(),0);
+  assert.ok(await unlocated.isDisabled());assert.match(await unlocated.textContent(),/no known starting place/);
+  const before=await page.evaluate(()=>{const s=window.__chicago4d.walker.state;return [s.e,s.n];});await unlocated.click({force:true});
   assert.deepEqual(await page.evaluate(()=>{const s=window.__chicago4d.walker.state;return [s.e,s.n];}),before);
-  assert.equal(await page.locator('.hud-panel').getAttribute('hidden'),null);
   if(t.kind==='person')await page.screenshot({path:path.join(out,`${width}-unlocated.png`)});
  }
  assert.deepEqual(errors,[]);results.push({width,inventory,safeStructures:proof.safeStructures.length,resolution:proof.resolution,spawned:proof.spawned,errors});

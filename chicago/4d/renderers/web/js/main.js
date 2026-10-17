@@ -108,6 +108,7 @@ import { createRoamTip } from './roam-tip.js';
 import { plateFor as jauntPlate } from './pictures.js';
 import { jauntModeFor } from './getting-there.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
+import { install as installDrawerHost, goToPick } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
@@ -4036,7 +4037,14 @@ async function boot() {
     // T-2630: the Navigator's Jaunts app hands back what it borrowed before the card shows.
     onShow: () => api.jauntsApp?.restore(),
     // T-2613: into the town is the journey's next state — on a Jaunt, or exploring.
-    enter: target => { const ok = enterWorld({ spawn: target }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
+    // T-2620: in the town a pick goes through goToTarget (see goToPick); from the gate, in.
+    enter: goToPick({
+      inTown: () => !gateOpen && enteredWorld,
+      goTo: (target) => goToTarget(target),
+      enterWorld: (target) => enterWorld({ spawn: target }),
+      dock: () => navigatorUi?.dock(),
+      entered: () => journey.go(jauntEntering ? 'on-jaunt' : 'exploring'),
+    }),
     resume: () => { const ok = enterWorld({ resume: true }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
     pause: () => {
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
@@ -4292,6 +4300,15 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // T-2620: the drawer's sections now live in the Navigator's apps; hud.setPanel and
+  // hud.selectTab open and close them there.
+  // Go to is not a drawer section any more but the Jaunts app's own segment (T-2630): G and
+  // hud.selectTab('goto') open it. Its search takes focus for a keyboard, not on a phone,
+  // where focusing raises the on-screen keyboard over the list the tap was for.
+  installDrawerHost({ hud, navigator: navigatorUi, openGoTo: async () => {
+    await api.openJaunts?.('goto');
+    if (coarse && document.activeElement?.id === 'welcome-search') document.activeElement.blur();
+  } });
   // (T-2655's year chip opens Jump through T-2626's #year-badge binding above.)
   // T-2662: a locked term's first appearance explains itself on tap — the Navigator's
   // Confidence view, and the Evidence hub's Liberties (the arrival's intro marks its own).

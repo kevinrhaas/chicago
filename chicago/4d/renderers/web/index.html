@@ -199,12 +199,10 @@
         <span class="pace-glyph" aria-hidden="true"></span> <span class="chip-label" id="pace-label">Walk</span>
       </button>
       <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
-      <!-- A hamburger, not a "?". Behind it are the controls, every place you can
-           go, the settings and the release notes; a question mark promises help
-           and hides four fifths of the interface. -->
-      <button id="btn-help" class="chip icon" aria-label="Menu"
-        title="Menu — controls, places, settings and what's new (H)"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span
-        class="chip-dot" id="help-dot" hidden aria-hidden="true"></span></button>
+      <!-- T-2620: the hamburger is gone with the drawer; its sections are the Navigator's
+           apps. What's new's dot stays here until the Navigator moves it onto its
+           Settings icon (apps/drawer-host.js). -->
+      <span class="chip-dot" id="help-dot" hidden aria-hidden="true"></span>
       <!-- T-2626 (§10): the compass and the mini map are one round instrument, top right, on its own line under the chips —
            the map, north up, inside a compass ring whose tick turns with your heading, and
            the heading in degrees under it. A tap opens Map. -->
@@ -674,7 +672,7 @@
         <dt><kbd>M</kbd></dt><dd>the whole map — the small one shows the ground around you</dd>
         <dt><kbd>N</kbd></dt><dd>open or close the Navigator</dd>
         <dt><kbd>1</kbd>–<kbd>9</kbd></dt><dd>open a Navigator app, in the order of its rail</dd>
-        <dt><kbd>H</kbd></dt><dd>this menu</dd>
+        <dt><kbd>H</kbd></dt><dd>the Navigator</dd>
         <dt><kbd>Esc</kbd></dt><dd>release the cursor</dd>
       </dl>
       <dl class="keys" id="keys-touch" hidden>
