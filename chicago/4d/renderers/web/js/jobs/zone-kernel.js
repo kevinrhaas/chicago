@@ -18,14 +18,20 @@
  * of a walk whose ground this worker does not hold (it was dropped, or the walk
  * was sent without one): the page asks its own finder for those, so a missing
  * ground costs time, never a different plant.
+ *
+ * T-2696: and the rest of each slot's ground in the same reply — water, floor,
+ * corridor band and height (flora-ground.js `groundAnswers`) — which the deal
+ * reads instead of asking terrain, the floor circles and streets on the page.
+ * One reply, not a third job: the deal needs both answers of a slot together.
  */
 import { groundZones, ZONE_UNASKED } from '../flora-zones.js';
+import { groundAnswers, GROUND_UNASKED } from '../flora-ground.js';
 
 const grounds = new Map();
 
 /** Keep a page's ground (flora-zones.js `heldGround`) under its key. */
 export function holdGround({ key, ground }) {
-  grounds.set(key, groundZones(ground));
+  grounds.set(key, { zoneAt: groundZones(ground), groundAt: groundAnswers(ground) });
   return {};
 }
 
@@ -36,11 +42,24 @@ export function dropGround({ key }) {
 }
 
 /** Each slot's community, as the page's `zones` place (1-based, 0 for none,
- *  `ZONE_UNASKED` where the page must ask), for a walk's slots `e`, `n`. */
+ *  `ZONE_UNASKED` where the page must ask), for a walk's slots `e`, `n`; and
+ *  (T-2696) its ground's GROUND_* `flags` (`GROUND_UNASKED` where the page must
+ *  ask) with the ground's height `y`, full precision, so the plant stands where
+ *  the page would have stood it. */
 export function slotZones({ ground, e, n }) {
-  const zoneAt = ground == null ? null : grounds.get(ground);
+  const held = ground == null ? null : grounds.get(ground);
   const zone = new Uint8Array(e.length);
-  if (!zoneAt) zone.fill(ZONE_UNASKED);
-  else for (let i = 0; i < e.length; i++) zone[i] = zoneAt(e[i], n[i]);
-  return { zone };
+  const flags = new Uint8Array(e.length);
+  const y = new Float64Array(e.length);
+  if (!held) zone.fill(ZONE_UNASKED);
+  else for (let i = 0; i < e.length; i++) zone[i] = held.zoneAt(e[i], n[i]);
+  const groundAt = held?.groundAt;
+  if (!groundAt) flags.fill(GROUND_UNASKED);
+  else {
+    for (let i = 0; i < e.length; i++) {
+      flags[i] = groundAt(e[i], n[i]);
+      y[i] = groundAt.y;
+    }
+  }
+  return { zone, flags, y };
 }

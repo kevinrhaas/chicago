@@ -213,6 +213,36 @@ function featherCover(ring, width, e, n) {
   return 1 - t * t * (3 - 2 * t);
 }
 
+/**
+ * T-2696. The yards' interiors and feathers filed on a world grid by their
+ * bounding boxes, in their own order, so `suppressesSward` asks only those that
+ * can contain the point. A point inside a box is in a cell that box was filed
+ * in (both ends of each range are inclusive, as the box test is), and each
+ * cell keeps the lists' order, so the first interior that answers is the one
+ * the full walk would have reached first: the answer is the same, and only the
+ * misses are no longer paid for.
+ */
+const SWARD_CELL_M = 16;
+function swardGrid(interiors, featherList) {
+  const cells = new Map();
+  const key = (i, j) => (i + 32768) * 65536 + (j + 32768);
+  const file = (b, item, list) => {
+    for (let i = Math.floor(b.minE / SWARD_CELL_M); i <= Math.floor(b.maxE / SWARD_CELL_M); i++) {
+      for (let j = Math.floor(b.minN / SWARD_CELL_M); j <= Math.floor(b.maxN / SWARD_CELL_M); j++) {
+        const k = key(i, j);
+        let cell = cells.get(k);
+        if (!cell) { cell = { interiors: [], feathers: [] }; cells.set(k, cell); }
+        cell[list].push(item);
+      }
+    }
+  };
+  for (const i of interiors) file(i.bbox, i, 'interiors');
+  for (const f of featherList) file(f.bbox, f, 'feathers');
+  return {
+    at: (e, n) => cells.get(key(Math.floor(e / SWARD_CELL_M), Math.floor(n / SWARD_CELL_M))),
+  };
+}
+
 /** A ring, with any repeated closing vertex dropped. */
 function ring(path) {
   const pts = path.map((p) => [p[0], p[1]]);
@@ -794,13 +824,45 @@ export async function createFencedGround({
   }
   // An array, not the map's iterator: the sward asks this of every slot.
   const featherList = [...feathers.values()].filter(Boolean);
+  const swardCells = swardGrid(out.interiors, featherList);
 
   /** Is this point inside a fenced interior — the question `flora.js` asks
    *  through `main.js`'s block-list composition, and the question the smoke asks
    *  through `plantableAt`. Cheap rejection on the bounding box first: this runs
-   *  once per lattice slot per frame rebuild. */
+   *  once per lattice slot per frame rebuild.
+   *
+   *  T-2696: and only the interiors and feathers whose box reaches the point's
+   *  cell are asked (`swardGrid`). Every one of them was walked for every slot,
+   *  and it was the largest single cost of a spread pass's deal on the main
+   *  thread at the throttled phone profile (a CPU profile of the turn put 3.4 s
+   *  of its 7 s in here). `suppressesSwardScan` keeps the full walk, and
+   *  `checkSwardGrid` holds the two to the same answer. */
   out.suppressesSward = (e, n) => {
-    for (const i of out.interiors) {
+    const cell = swardCells.at(e, n);
+    return cell ? swardAnswer(cell.interiors, cell.feathers, e, n) : false;
+  };
+  out.suppressesSwardScan = (e, n) => swardAnswer(out.interiors, featherList, e, n);
+  /** T-2696: `count` points over the yards' own boxes, the bucketed answer
+   *  against the full walk. `differ` must be 0. */
+  out.checkSwardGrid = (count = 20000) => {
+    const boxes = [...out.interiors.map((i) => i.bbox), ...featherList.map((f) => f.bbox)];
+    let s = 0x2696;
+    const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
+    const res = { asked: 0, suppressed: 0, differ: 0, first: [] };
+    for (let k = 0; k < count && boxes.length; k++) {
+      const b = boxes[Math.floor(rnd() * boxes.length)];
+      const e = b.minE - 3 + rnd() * (b.maxE - b.minE + 6);
+      const n = b.minN - 3 + rnd() * (b.maxN - b.minN + 6);
+      const got = out.suppressesSward(e, n);
+      const want = out.suppressesSwardScan(e, n);
+      res.asked++;
+      if (want) res.suppressed++;
+      if (got !== want) { res.differ++; if (res.first.length < 5) res.first.push({ e, n, got, want }); }
+    }
+    return res;
+  };
+  function swardAnswer(interiors, feathersOf, e, n) {
+    for (const i of interiors) {
       const b = i.bbox;
       if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
       if (pointInPolygon(i.pts, e, n)) {
@@ -809,8 +871,8 @@ export async function createFencedGround({
         return i.feather ? i.feather.cover(e, n) > ditherHash(e, n) : true;
       }
     }
-    for (let k = 0; k < featherList.length; k++) {
-      const f = featherList[k];
+    for (let k = 0; k < feathersOf.length; k++) {
+      const f = feathersOf[k];
       const b = f.bbox;
       if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
       if (pointInPolygon(f.outer, e, n) && !pointInPolygon(f.ring, e, n)) {
@@ -818,7 +880,7 @@ export async function createFencedGround({
       }
     }
     return false;
-  };
+  }
   /** Which treatment covers this point, or null — so a gate can ask "is the
    *  ground here a working yard" rather than "is something drawn here". */
   out.treatmentAt = (e, n) => {

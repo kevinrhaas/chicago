@@ -45,7 +45,8 @@ const CAMERAS = Number(argv[argv.indexOf('--cameras') + 1]) || 300;
 const WANT_FN = ['scatter', 'scatterOnPool', 'outsideFrustum', 'rngFrom', 'hash3', 'frac',
   'feistel', 'stratum', 'blockPhase', 'morton', 'spread16', 'vdc', 'stratumHalf',
   'walkJob', 'walkKey', 'sendWalk'];
-const WANT_CONST = ['CONE_KEEP_M', 'STRAT_SALT', 'STRAT_BLOCK_SHIFT', 'WALK_WAIT', 'MAY_WAIT'];
+const WANT_CONST = ['CONE_KEEP_M', 'STRAT_SALT', 'STRAT_BLOCK_SHIFT', 'WALK_WAIT', 'MAY_WAIT',
+  'HELD_SLOT'];
 
 /** `function NAME(` or `function* NAME(` at column 0, to its own closing brace. */
 function sliceFunction(src, name) {

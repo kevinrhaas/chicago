@@ -6,6 +6,9 @@
  *   and cuts the ground GLB itself while the frontage still comes prebuilt (T-2693's
  *   before: dev as it was). Each row carries `terrain`: the phase, its longest task
  *   and whether its ground came prebuilt.
+ * --no-prebuilt-base: refuse data/prebuilt/<year>/base.* alone, so the page lays and
+ *   cuts its own distant base (T-2709's before). Every row carries `base`: the
+ *   distant-base measure after frontage, its longest task and whether it came prebuilt.
  * --no-prebuilt: refuse data/prebuilt/, so the page builds frontage itself (T-2677's
  * before). Every row quotes the frontage layer's wall time, the longest task inside
  * it, and whether its timber came prebuilt.
@@ -83,9 +86,11 @@ export async function snapshot(page) {
     }
     const fr = performance.getEntriesByName('frontage', 'measure')[0];
     const frontage = fr ? { ms: Math.round(fr.duration), startedAt: fr.startTime, prebuilt: a.frontage?.prebuilt ?? null } : null;
+    const bm = performance.getEntriesByName('distant-base', 'measure')[0];
+    const base = bm ? { ms: Math.round(bm.duration), startedAt: bm.startTime, prebuilt: a.terrainPrebuiltBase ?? null } : null;
     const tp = a.boot?.timings()?.find(p => p.id === 'terrain');
     const terrain = tp ? { ms: Math.round((tp.endedAt - tp.startedAt)), startedAt: tp.startedAt, prebuilt: a.terrainPrebuilt ?? null } : null;
-    return { frontage, terrain, roll: a.roll, flora: a.flora.stats, trees: a.trees.stats, hashes,
+    return { frontage, base, terrain, roll: a.roll, flora: a.flora.stats, trees: a.trees.stats, hashes,
       probe: window.bootProbe, phases: a.boot?.timings(), readyAt: a.boot?.readyAt, renderedAt: a.boot?.renderedAt };
   });
   // The census reads drawn buffers, and since streams are released after upload
@@ -103,6 +108,11 @@ export async function snapshot(page) {
     d.terrain.longestTaskMs = Math.round(Math.max(0, ...d.probe.tasks
       .filter(t => t.at + t.duration > startedAt && t.at < startedAt + ms).map(t => t.duration)));
   }
+  for (const part of [d.base].filter(Boolean)) {
+    const { startedAt, ms } = part;
+    part.longestTaskMs = Math.round(Math.max(0, ...d.probe.tasks
+      .filter(t => t.at + t.duration > startedAt && t.at < startedAt + ms).map(t => t.duration)));
+  }
   if (d.frontage) {
     const { startedAt, ms } = d.frontage;
     d.frontage.longestTaskMs = Math.round(Math.max(0, ...d.probe.tasks
@@ -114,7 +124,7 @@ async function main() {
   const args = process.argv.slice(2), arg = name => args.includes(name) ? args[args.indexOf(name) + 1] : undefined;
   const env = await environment(arg('--root'));
   const phone = args.includes('--phone');
-  const result = { measuredAt: new Date().toISOString(), machine: `${os.type()} ${os.release()} ${os.arch()} / ${os.cpus()[0].model}`, browser: env.browser.version(), conditions: `Headless Chromium; 390×780 touch and 1280×800; ${phone ? '4x CPU throttle (the phone profile), network unthrottled' : 'no CPU throttle'}; fresh context cold, repeat navigation warm${args.includes('--no-prebuilt') ? '; data/prebuilt/ refused' : ''}${args.includes('--no-prebuilt-ground') ? '; data/prebuilt/*/ground.* refused' : ''}.`, rows: [] };
+  const result = { measuredAt: new Date().toISOString(), machine: `${os.type()} ${os.release()} ${os.arch()} / ${os.cpus()[0].model}`, browser: env.browser.version(), conditions: `Headless Chromium; 390×780 touch and 1280×800; ${phone ? '4x CPU throttle (the phone profile), network unthrottled' : 'no CPU throttle'}; fresh context cold, repeat navigation warm${args.includes('--no-prebuilt') ? '; data/prebuilt/ refused' : ''}${args.includes('--no-prebuilt-ground') ? '; data/prebuilt/*/ground.* refused' : ''}${args.includes('--no-prebuilt-base') ? '; data/prebuilt/*/base.* refused' : ''}.`, rows: [] };
   const baselineDoc = arg('--compare') && JSON.parse(fs.readFileSync(arg('--compare'), 'utf8'));
   const baseline = baselineDoc?.rows ?? baselineDoc;
   try {
@@ -123,6 +133,7 @@ async function main() {
         const ctx = await env.browser.newContext({ viewport: device === 'mobile' ? { width: 390, height: 780 } : { width: 1280, height: 800 }, hasTouch: device === 'mobile' });
         await ctx.addInitScript(observeBoot, { detail });
         if (args.includes('--no-prebuilt-ground')) await ctx.route('**/data/prebuilt/*/ground.*', route => route.fulfill({ status: 404, body: '' }));
+        if (args.includes('--no-prebuilt-base')) await ctx.route('**/data/prebuilt/*/base.*', route => route.fulfill({ status: 404, body: '' }));
         if (args.includes('--no-prebuilt')) await ctx.route('**/data/prebuilt/**', route => route.fulfill({ status: 404, body: '' }));
         const page = await ctx.newPage();
         if (phone) await (await ctx.newCDPSession(page)).send('Emulation.setCPUThrottlingRate', { rate: 4 });
@@ -140,6 +151,7 @@ async function main() {
           result.rows.push(row);
           if (!args.includes('--json')) console.log(`${device}/${detail}/${cache}: flora paint gap ${row.floraMaxPaintGapMs.toFixed(1)} ms; longest task ${row.longestTaskMs} ms\n`
             + (row.terrain ? `  terrain: ${row.terrain.ms} ms, longest task in it ${row.terrain.longestTaskMs} ms, ground ${row.terrain.prebuilt?.used ? 'prebuilt' : `cut here (${row.terrain.prebuilt?.why})`}\n` : '')
+            + (row.base ? `  distant base: ${row.base.ms} ms after frontage, longest task in it ${row.base.longestTaskMs} ms, ${row.base.prebuilt?.used ? 'prebuilt' : `cut here (${row.base.prebuilt?.why})`}\n` : '')
             + (row.frontage ? `  frontage: ${row.frontage.ms} ms, longest task in it ${row.frontage.longestTaskMs} ms, ${row.frontage.prebuilt?.used ? 'prebuilt' : `built here (${row.frontage.prebuilt?.why})`}\n` : '')
             + row.phases?.map(p => `  ${p.id}: ${p.seconds?.toFixed(3)} s`).join('\n'));
         }

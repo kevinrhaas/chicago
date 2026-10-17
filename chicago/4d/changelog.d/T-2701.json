@@ -1,8 +1,0 @@
-{
-  "title": "The long street walks, woodpiles and distant walk tops get lighter",
-  "kind": "improvement",
-  "items": [
-    "Every plank walk, fence and yard piece in 1835 now stores each corner in 8 bytes instead of 12, within a millimetre of where it stood, with no extra draw calls.",
-    "On a phone that is about 4 MB less geometry for the walks and woodpiles; taps and shadows read the same timber."
-  ]
-}
