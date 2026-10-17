@@ -1538,6 +1538,19 @@ for (const [label, viewport, touch] of [
           await new Promise((r) => setTimeout(r, 50));
         }
       }
+      // T-2632 (found on #965's desktop 13 run): the Navigator WIDENS too. On a desktop
+      // its open is a .28 s width transition from the 58 px rail to 400 px, and the
+      // transition's clock only moves when the page gets to draw; on a runner where a
+      // frame of the town takes seconds, a fixed wait can end with the panel still a
+      // sliver, Home's three choices squeezed into 0-wide columns and drawn over one
+      // another — "covered at its own centre by <button class=\"nav-choice\">". Waited
+      // for the same way as the drawer: the hit-test still runs, on the settled box.
+      const device = el.closest('#navigator');
+      if (device?.getAnimations) {
+        for (let i = 0; i < 60 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+          await new Promise((r) => setTimeout(r, 50));
+        }
+      }
       // The same scroll `page.click` would do, in the same round trip as the
       // reading — a result row far down the Go-to list is off the panel's
       // viewport until this runs, and `elementFromPoint` would then answer for
@@ -15161,6 +15174,10 @@ for (const [label, viewport, touch] of [
       api.roamTip.hide();
       const second = await roam();
       api.jauntsApp?.restore();
+      // Back as it was found: Home its app (the dock reopens its last app), docked.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      api.roamTip.hide();
       return { first, second };
     });
     const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.';
