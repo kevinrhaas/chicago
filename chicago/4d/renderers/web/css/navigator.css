@@ -1,0 +1,255 @@
+/* navigator.css — the Navigator, the handheld that knows where you are (T-2617, NAV-201;
+   DESIGN §06, mockups M3 and M4).
+
+   One device on every machine: it reads only the skin tokens skins.css and walk.css
+   define (panel, edge, ink, accent, signal, lamp, screen, fonts, radii, the detent and
+   machine easings), so Control Room, Precision Brass, Retro Future and Deep Space each
+   dress it without a rule of their own.
+
+   It is a sibling of #hud and follows the HUD's state from there: hidden before the
+   visitor enters, out of reach while the arrival device is back up (#hud[inert]), and
+   on a phone out of the way while the drawer's sheet is open.
+
+   Phone (≤ 620 px): a bottom sheet with three heights, `data-detent` dock (64 px),
+   half (48 % of the screen, the world still in view above it) and full (82 %, for
+   reading). Desktop: a 400 px panel down the left edge that collapses to its 56 px
+   rail. Height and width change over 280 ms on the detent easing; with reduced motion,
+   at once. */
+
+/* ---- the design system's small parts, ported as plain CSS (DS components.css) --- */
+.c4d-label { font: var(--label-weight, 400) var(--fs-label, 10px)/1.5 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: var(--label-tracking, .14em); text-transform: uppercase; color: var(--ink-dim); }
+.c4d-mono { font-family: var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; }
+.c4d-lamp { --lamp-c: var(--ok, #8CF5A8); display: inline-flex; align-items: center; gap: 8px; }
+.c4d-lamp-bulb { width: var(--lamp-size, 9px); height: var(--lamp-size, 9px); border-radius: 50%; flex: none;
+  background: color-mix(in srgb, var(--lamp-c) 22%, #000); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .6); }
+.c4d-lamp[data-on="true"] .c4d-lamp-bulb {
+  background: radial-gradient(circle at 35% 30%, #fff 0, var(--lamp-c) 45%, color-mix(in srgb, var(--lamp-c) 70%, #000) 100%);
+  box-shadow: 0 0 10px var(--lamp-c), 0 0 2px var(--lamp-c); }
+
+/* ---- the device ------------------------------------------------------------- */
+.navigator {
+  position: fixed;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  background: var(--panel-solid, var(--panel));
+  border: 1px solid var(--edge-strong, var(--edge));
+  border-radius: 18px;
+  box-shadow: var(--shadow), var(--inset-bezel, none);
+  font-family: var(--font-body, inherit);
+  overflow: hidden;
+  outline: none;
+  pointer-events: auto;
+}
+.hud[hidden] ~ .navigator { display: none; }
+.hud[inert] ~ .navigator { visibility: hidden; pointer-events: none; }
+/* Open, it reads above a Jaunt's panel (z 31); docked, it sits under it. */
+.navigator:not([data-detent="dock"]):not([data-detent="rail"]) { z-index: 33; }
+
+.nav-screw { position: absolute; width: 7px; height: 7px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--ink) 40%, var(--edge-strong, var(--edge))) 0 1.4px, var(--edge-strong, var(--edge)) 2px 3.5px);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35); }
+.nav-screw-tl { top: 7px; left: 7px; } .nav-screw-tr { top: 7px; right: 7px; }
+.nav-screw-bl { bottom: 7px; left: 7px; } .nav-screw-br { bottom: 7px; right: 7px; }
+
+.nav-grip { display: none; }
+
+.nav-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 22px 0 20px;
+  border-bottom: 1px solid var(--edge);
+  font: 400 10px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .18em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+.nav-label { color: var(--ink); }
+.nav-code { margin-left: auto; overflow: hidden; text-overflow: ellipsis; }
+.nav-date { color: var(--accent); font-variant-numeric: tabular-nums; }
+
+.nav-body { flex: 1; min-height: 0; display: flex; }
+
+.nav-rail {
+  flex: none;
+  width: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0 14px;
+  border-right: 1px solid var(--edge);
+  background: color-mix(in srgb, #000 22%, transparent);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.nav-app {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-faint, var(--ink-dim));
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.nav-app svg { width: 20px; height: 20px; }
+.nav-app:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.nav-app:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.nav-app.is-on { color: var(--accent); background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent));
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.nav-app[hidden] { display: none; }
+.nav-collapse { margin-top: auto; }
+
+.nav-screen {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.nav-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ink) 3%, transparent);
+}
+.nav-block[hidden] { display: none; }
+.nav-k { font: var(--label-weight, 400) 10px/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint, var(--ink-dim)); }
+.nav-k-row { display: flex; justify-content: space-between; gap: 10px; }
+.nav-step { color: var(--accent); font-variant-numeric: tabular-nums; }
+.nav-place { font: 500 19px/1.2 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0); overflow-wrap: anywhere; }
+.nav-front .nav-place { font-size: 17px; }
+.nav-sub { font-size: 14px; line-height: 1.45; color: var(--ink-dim); }
+.nav-jaunt-title { font-size: 16px; font-weight: 600; line-height: 1.3; }
+.nav-meter { display: block; height: 4px; margin-top: 6px; border-radius: 2px; background: color-mix(in srgb, #000 55%, transparent); overflow: hidden; }
+.nav-meter i { display: block; height: 100%; width: 0; border-radius: 2px; background: var(--accent); transition: width .28s var(--ease-machine, ease); }
+
+/* The one signal-red key on this screen (DESIGN §06 "Bezel & keys"). */
+.nav-key {
+  align-self: flex-start;
+  margin-top: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--signal-deep, #8E1F18);
+  border-radius: var(--r-control, 4px);
+  background: var(--signal, #D6352B);
+  color: var(--signal-ink, #FFF1EC);
+  box-shadow: var(--shadow-button, 0 2px 0 rgba(0, 0, 0, .45));
+  font: 500 12px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .12s var(--ease-machine, ease), box-shadow .12s;
+}
+.nav-key:active { transform: translateY(2px); box-shadow: none; }
+.nav-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-key[hidden] { display: none; }
+
+.nav-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.nav-tile { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; border: 1px solid var(--edge);
+  border-radius: 10px; font-size: 15px; }
+
+/* ---- desktop: the left panel and its rail ------------------------------------ */
+@media (min-width: 621px) {
+  .navigator {
+    left: 10px;
+    top: calc(20px + var(--hud-row) + var(--safe-t));
+    bottom: calc(10px + var(--safe-b));
+    width: 400px;
+    max-width: calc(100vw - 20px);
+    transition: width .28s var(--ease-detent, ease);
+  }
+  .navigator[data-detent="rail"] { width: 58px; }
+  .navigator[data-detent="rail"] .nav-head > :not(.nav-lamp),
+  .navigator[data-detent="rail"] .nav-screen { display: none; }
+  .navigator[data-detent="rail"] .nav-head { justify-content: center; padding: 0; }
+  .navigator[data-detent="rail"] .nav-screw { display: none; }
+  .navigator[data-detent="rail"] .nav-collapse svg { transform: rotate(180deg); }
+  /* The compass, the map and the street readout move over for the rail or the panel. */
+  body.has-navigator .navigation-stack { left: 78px; transition: left .28s var(--ease-detent, ease); }
+  html[data-navigator="open"] .navigation-stack { left: 420px; }
+  /* A Jaunt's panel keeps clear of the rail. */
+  html[data-navigator] .jaunt-panel, html[data-navigator] .jaunt-context-card { left: 76px; }
+}
+@media (min-width: 621px) and (max-width: 900px) {
+  html[data-navigator] .jaunt-panel { left: 76px; right: 8px; }
+}
+
+/* ---- phone: the bottom sheet --------------------------------------------------- */
+@media (max-width: 620px) {
+  .navigator {
+    left: 8px;
+    right: 8px;
+    bottom: calc(8px + var(--safe-b));
+    height: 64px;
+    border-radius: 20px;
+    transition: height .28s var(--ease-detent, ease);
+    touch-action: none;
+  }
+  .navigator[data-detent="half"] { height: calc(var(--vh, 100vh) * .48); }
+  .navigator[data-detent="full"] { height: calc(var(--vh, 100vh) * .82); }
+  .navigator.is-dragging { transition: none; }
+  .navigator .nav-screen { touch-action: pan-y; }
+  .nav-grip {
+    display: block;
+    flex: none;
+    width: 100%;
+    height: 18px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: grab;
+    touch-action: none;
+  }
+  .nav-grip i { display: block; width: 40px; height: 4px; margin: 7px auto 0; border-radius: 2px; background: var(--edge-strong, var(--edge)); }
+  .nav-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .nav-head { min-height: 38px; gap: 8px; padding: 0 16px; letter-spacing: .1em; border-bottom-color: transparent; touch-action: none; cursor: grab; }
+  .navigator:not([data-detent="dock"]) .nav-head { border-bottom-color: var(--edge); }
+  .nav-rail { width: 52px; }
+  .nav-collapse { display: none; }
+  .navigator[data-detent="dock"] .nav-body { visibility: hidden; }
+  .nav-screw-bl, .nav-screw-br { display: none; }
+  /* The hint, the ride's banner and the rise pad stand above the dock. */
+  body.has-navigator .hud { padding-bottom: calc(82px + var(--safe-b)); }
+  body.has-navigator .rise-pad { bottom: calc(92px + var(--safe-b)); }
+  /* The drawer's sheet and the device share the bottom of a phone: the drawer wins. */
+  .hud.panel-open ~ .navigator { visibility: hidden; pointer-events: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigator, .nav-meter i, body.has-navigator .navigation-stack { transition: none !important; }
+}
+
+/* ---- the arrival device's back face wears the Navigator's screen code --------- */
+.gate-code { display: none; }
+.gate[data-state="welcome"] .gate-code {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: -8px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--edge);
+  font: 400 10px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .18em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+@media (max-height: 500px) { .gate[data-state="welcome"] .gate-code { display: none; } }

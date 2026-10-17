@@ -28,11 +28,12 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
-import { createTerrain, enuToWorld, fetchPrebuiltGround, groundTiling, hazeReachM } from './terrain.js';
+import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
@@ -94,6 +95,9 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
+import { createNavigator } from './navigator.js';
+import { createTarget } from './target.js';
+import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
@@ -1496,6 +1500,11 @@ const journey = createJourney();
 api.journey = journey;
 // Back to the Observatory is the journey's recall, from wherever the link sits.
 gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
+// T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
+// Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
+const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
+api.gesture = gesture;
+Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -1723,6 +1732,8 @@ async function boot() {
   // arrive under the scene phase; createTerrain uploads them in the ground GLB's
   // place when they are this page's, and loads the GLB otherwise. Never rejects.
   const groundPrebuilt = fetchPrebuiltGround({ dataBase: bases.dataBase, year: String(YEAR), build: pageBuild() });
+  // T-2709: and the distant base, laid over frontage's crossings and cut at publish.
+  const basePrebuilt = fetchPrebuiltBase({ dataBase: bases.dataBase, year: String(YEAR), build: pageBuild() });
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
@@ -1830,12 +1841,15 @@ async function boot() {
     // T-2502: ground off the box, where the scene names one (1812: down the South Branch).
     apronPath: loaded.scene.terrain_apron ?? null,
     prebuilt: groundPrebuilt,
+    prebuiltBase: basePrebuilt,
     confidence,
     problems,
   });
   if (!terrain.loaded) throw new Error('Terrain heightfield did not load');
   /** T-2693: whether the ground's tiles came prebuilt, and if not, why not. */
   api.terrainPrebuilt = terrain.prebuilt;
+  /** T-2709: whether the distant base came prebuilt, and if not, why not. */
+  api.terrainPrebuiltBase = terrain.prebuiltBase;
   scene3d.add(terrain.group);
   /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
    *  and lets go of its page arrays (upload-release.js), keeping back what this
@@ -2177,8 +2191,12 @@ async function boot() {
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;
-  // T-2600: the distant base's cells are cut on the job pool.
+  // T-2600: the distant base's cells are cut on the job pool. T-2709: unless it
+  // came prebuilt, when it is already the batch and this resolves false at once.
+  performance.mark('distant-base:start');
   await terrain.batchDistantGround();
+  // Read by tools/measure_boot_phases.mjs, beside the frontage measure above.
+  performance.measure('distant-base', 'distant-base:start');
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
    * walker stands on (T-0119): the river walk's crossing footway lies over the
@@ -3359,6 +3377,8 @@ async function boot() {
 
   const intent = createIntent();
   const backends = createBackendSwitch(intent);
+  // T-2614: CLICK TO ENGAGE LOOK belongs to the desktop backend only.
+  backends.onChange(name => gesture.setLook({ backend: name }));
 
   // The travel controller: instantly, on foot, by wagon, on horseback, or flying.
   // It writes the shared intent the way a backend does, so the walker keeps its
@@ -3388,6 +3408,7 @@ async function boot() {
     domElement: canvas,
     onLockChange: (locked) => {
       hud.setLocked(locked);
+      gesture.setLook({ locked });
       if (!locked) hud.say('Pointer released — click the view to look around again');
     },
   });
@@ -3774,6 +3795,8 @@ async function boot() {
 
   // ---- gate ------------------------------------------------------------- //
 
+  // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
+  let navigatorUi = null, target = null;
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3792,13 +3815,15 @@ async function boot() {
     hudRoot.inert = false;
     hud.show();
     if (firstEntry) hud.restore();
+    // T-2617: into the town with the Navigator docked (§07: Free roam docks it), and
+    // the probe looks again at whatever the eye has just been set down in front of.
+    navigatorUi?.dock();
+    target?.invalidate();
     backends.activate(coarse ? touch : pointerlock);
     if (firstEntry) hud.showControlHelp({ auto: true });
-    // Audio requires the entry gesture; movement capture requires a later one.
-    try {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (Ctx && !api.audio) { api.audio = new Ctx(); api.audio.resume?.(); }
-    } catch { /* Audio is optional. */ }
+    // T-2614: audio was resumed by the Home choice that brought us here (gesture-gate.js);
+    // the look waits for a click on the scene, and the tag says so until it is taken.
+    gesture.setLook({ inWorld: true, backend: backends.name, locked: pointerlock.isLocked });
     hud.say(backends.name === 'touch'
       ? 'Left thumb walks · drag the right side to look · tap a building'
       : 'W A S D to walk · E to inspect what you are looking at');
@@ -3894,6 +3919,7 @@ async function boot() {
       gateOpen = true;
       gateFrame.reset();
       backends.activate(null);
+      gesture.setLook({ inWorld: false });
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
       hud.dismissControlHelp({ remember: false });
@@ -3902,6 +3928,40 @@ async function boot() {
     },
     hasEntered: () => enteredWorld,
   });
+
+  // ---- the Navigator (T-2617) ------------------------------------------- //
+  // RIGHT IN FRONT OF YOU is inspect()'s own aim "down the crosshair" (no point
+  // given), over the structure layers whose hits carry a building record, nearest
+  // first, within 40 m. target.js decides when to look; T-2627 and T-2638 read it too.
+  target = createTarget({
+    pick: () => {
+      let best = null;
+      for (const layer of [buildings, enclosures, frontage]) {
+        const hit = layer?.pickAt?.(null, camera);
+        if (!hit) continue;
+        const record = loaded.registry.get(hit.id) ?? hit.record ?? null;
+        if (!record) continue;
+        if (!best || hit.distance < best.distance) best = { id: hit.id, record, distance: hit.distance };
+      }
+      return best;
+    },
+    pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
+  });
+  api.target = target;
+  navigatorUi = createNavigator({
+    root: document.getElementById('navigator'),
+    scene: loaded.scene,
+    hud,
+    target,
+    where: createWhere({ streets, grid: streetGrid?.grid ?? null }),
+    pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
+    jaunt: () => jauntRuntime?.state ?? null,
+    move: () => ({ flying: hud.flying, pace: hud.settings.pace, riding: (travel?.state?.phase ?? 'idle') !== 'idle' }),
+    confidence: () => hud.confidenceOn,
+    units: () => hud.settings.units,
+    onInspect: (id) => pick(id),
+  });
+  api.navigator = navigatorUi;
 
   // ---- resize ----------------------------------------------------------- //
 
@@ -4063,6 +4123,7 @@ async function boot() {
     api.player.flying = st.flying;
     hud.setAltitude(st.altitude);
     navigation.update({ e: st.e, n: st.n, bearingDeg: walker.bearingDeg });
+    if (!gateOpen) { target?.tick(performance.now()); navigatorUi?.update(); }
 
     // Wall-clock, not the clamped dt: a clamped dt reports a healthy 20 fps on
     // a machine that is actually drawing three frames a second.

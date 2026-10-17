@@ -1,4 +1,34 @@
 export const CHANGELOG = [ // newest first
+  { v: 1924, ts: '2026-10-17T06:27:11.355Z', date: 'Oct 17, 2026, 1:27 AM CT', title: 'The distant ground arrives ready-made', kind: 'change',
+    items: [
+      'The ground that stretches to the horizon is now laid and cut when the site is published, so a phone no longer builds it each time the town opens. That removes about half a second of work from opening the town on the phone profile.',
+      'It adds 0.7 MB to the first download and still fits the 29 MB budget. On a data-saving or slow connection the browser builds the ground itself instead.',
+    ] },
+  { v: 1923, ts: '2026-10-17T05:55:19.873Z', date: 'Oct 17, 2026, 12:55 AM CT', title: 'Turning in place costs a third less as the prairie is redealt', kind: 'improvement',
+    items: [
+      'Whether a patch of ground is water, a floor, a trodden street verge, and how high it stands, are now answered in the background beside its plant community.',
+      'Fenced yards are looked up by where you stand rather than one by one, and that was the largest single cost of redealing the prairie.',
+      'On a phone-speed test a redeal now costs about 40 % less main-thread time when turning and about 20 % less when walking. Every plant lands exactly where it did before.',
+    ] },
+  { v: 1922, ts: '2026-10-17T05:42:52.515Z', date: 'Oct 17, 2026, 12:42 AM CT', title: 'The long street walks, woodpiles and distant walk tops get lighter', kind: 'improvement',
+    items: [
+      'Every plank walk, fence and yard piece in 1835 now stores each corner in 8 bytes instead of 12, within a millimetre of where it stood, with no extra draw calls.',
+      'On a phone that is about 4 MB less geometry for the walks and woodpiles; taps and shadows read the same timber.',
+    ] },
+  { v: 1921, ts: '2026-10-17T05:42:52.515Z', date: 'Oct 17, 2026, 12:42 AM CT', title: 'The Navigator: a handheld that knows where you are', kind: 'feature',
+    items: [
+      'A Navigator now rides with you in the town. On a phone it sits at the bottom of the screen and opens to half or most of it: tap the handle or drag it.',
+      'On a laptop it is a panel down the left side that folds to a strip of icons.',
+      'Its Home screen says where you are ("Prairie Avenue & East Eighteenth Street, facing west · 10:30 am"), which building is right in front of you, with an Inspect key, and the Jaunt you are on.',
+      'It also shows how you are moving and whether the Confidence view is on. The other icons open Go to, People, Evidence, Settings and the rest, where they are today.',
+      'The scene\'s hour is chosen, not recorded, and is listed under Liberties. There is no weather record, so the Navigator names no weather.',
+    ] },
+  { v: 1920, ts: '2026-10-17T05:35:56.970Z', date: 'Oct 17, 2026, 12:35 AM CT', title: 'Your first tap after landing starts the sound and the look controls', kind: 'feature',
+    items: [
+      'With Tap to enter gone, your first tap on a Home choice, on the scene or on a Navigator control is what lets the town\'s sound start. On iPhone and iPad that tap is all it needs, with no warnings.',
+      'On a computer, a small CLICK TO ENGAGE LOOK tag sits under the crosshair once you are in the town. Click the scene and the mouse takes over looking around; the tag goes away for good.',
+      'Phones and tablets never show the tag. They look around by dragging, as before.',
+    ] },
   { v: 1919, ts: '2026-10-17T05:10:11.965Z', date: 'Oct 17, 2026, 12:10 AM CT', title: 'Nothing you can see changed: the 1835 ground arrives ready-cut', kind: 'improvement',
     items: [
       'The town looks exactly as before. What changed is how its ground reaches your device.',

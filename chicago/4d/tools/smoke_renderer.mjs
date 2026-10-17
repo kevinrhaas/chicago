@@ -10386,7 +10386,14 @@ for (const [label, viewport, touch] of [
       desktopHelpShown: getComputedStyle(document.getElementById('control-help-desktop')).display !== 'none',
       touchHelpShown: getComputedStyle(document.getElementById('control-help-touch')).display !== 'none',
       overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
+      lookTag: !document.getElementById('look-tag').hidden,
+      locked: !!document.pointerLockElement,
     }));
+    // T-2614: CLICK TO ENGAGE LOOK is the desktop's own, shown in the town until the
+    // first click on the scene takes the pointer; a touch device never shows it.
+    check(`${label}: CLICK TO ENGAGE LOOK shows only on a pointer-lock device, before lock`,
+      touch ? !chrome.lookTag : chrome.lookTag && !chrome.locked,
+      `look tag shown ${chrome.lookTag}, pointer locked ${chrome.locked}`);
     check(`${label}: tap-to-start reveals the walkthrough`,
       chrome.gateHidden && chrome.hudShown,
       `gate hidden ${chrome.gateHidden}, hud shown ${chrome.hudShown}`);
@@ -14934,6 +14941,34 @@ for (const [label, viewport, touch] of [
     const viaHud = await page.evaluate(() => window.__chicago4d.confidenceView);
     check(`${label}: the HUD toggle drives the confidence view`, viaHud === true, `${viaHud}`);
     await clickChrome('#btn-confidence');
+
+    // --- the Navigator (T-2617) ----------------------------------------------
+    // In the town the device is docked (a 64 px sheet on a phone, the rail on a
+    // desktop); its handle opens it by hand, Home reads the street, the scene's
+    // clock and the Move and Confidence view tiles, and the code docks it again.
+    // The handle is hit-tested like any chrome, so a device the HUD covers fails here.
+    await page.evaluate(() => { window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
+    const navDocked = await page.evaluate(() => ({ detent: window.__chicago4d.navigator?.detent ?? null,
+      box: (() => { const b = document.getElementById('navigator')?.getBoundingClientRect(); return b ? { w: Math.round(b.width), h: Math.round(b.height), bottom: Math.round(b.bottom) } : null; })(),
+      innerHeight }));
+    check(`${label}: the Navigator rides docked in the town`,
+      ['dock', 'rail'].includes(navDocked.detent) && navDocked.box && navDocked.box.h > 0 && navDocked.box.bottom <= navDocked.innerHeight,
+      JSON.stringify(navDocked));
+    await clickChrome(touch ? '#nav-grip' : '#nav-collapse');
+    const navHome = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      for (let i = 0; i < 40 && !/:/.test(document.getElementById('nav-where-detail')?.textContent ?? ''); i++) await new Promise((r) => setTimeout(r, 100));
+      const s = api.navigator.snapshot();
+      const out = { ...s, focus: document.activeElement?.id ?? null, overflow: document.documentElement.scrollWidth > innerWidth };
+      api.navigator.dock();
+      out.after = api.navigator.detent;
+      return out;
+    });
+    check(`${label}: the Navigator opens by hand on Home, and Home says where you are`,
+      ['half', 'open'].includes(navHome.detent) && navHome.where.length > 0 && /(am|pm)$/.test(navHome.whereDetail)
+      && /^facing /.test(navHome.whereDetail) && navHome.move.length > 0 && ['On', 'Off'].includes(navHome.confidence)
+      && navHome.focus === 'nav-home-title' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
+      JSON.stringify(navHome));
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.

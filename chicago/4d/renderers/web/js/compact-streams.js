@@ -548,25 +548,32 @@ export function compactStreams(THREE) {
   const _sphere = new THREE.Sphere();
   const _tri = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
   const _hit = new THREE.Vector3();
+  const _corner = [0, 0, 0];
 
   /**
    * `Mesh.raycast` for a boxed mesh: three's own reads the -1..1 grid. The
    * same test — the sphere, then each face against the ray in the mesh's frame,
-   * culled by the material's side — over the decoded positions. Assigned as
-   * `mesh.raycast`; a mesh whose arrays were let go of answers nothing, as the
-   * raycast never could there.
+   * culled by the material's side — over the decoded positions, the faces an
+   * index and draw range name where the mesh has them (the far walk tops,
+   * T-2701), as three's own walks them. Assigned as `mesh.raycast`; a mesh
+   * whose arrays were let go of answers nothing, as the raycast never could.
    */
   function raycastBoxed(raycaster, intersects) {
     const geo = this.geometry;
     const pos = geo?.getAttribute('position');
-    if (!pos?.array || !geo.boundingSphere) return;
+    const index = geo?.index;
+    if (!pos?.array || (index && !index.array) || !geo.boundingSphere) return;
     _sphere.copy(geo.boundingSphere).applyMatrix4(this.matrixWorld);
     if (!raycaster.ray.intersectsSphere(_sphere)) return;
     _inverse.copy(this.matrixWorld).invert();
     _ray.copy(raycaster.ray).applyMatrix4(_inverse);
     const side = Array.isArray(this.material) ? THREE.DoubleSide : this.material.side;
-    for (let f = 0; f < pos.count / 3; f += 1) {
-      for (let v = 0; v < 3; v += 1) boxedPositionAt(geo, f * 3 + v, _tri[v]);
+    const start = Math.max(0, geo.drawRange.start);
+    const end = Math.min(index ? index.count : pos.count, geo.drawRange.start + geo.drawRange.count);
+    for (let i = start; i + 2 < end; i += 3) {
+      const f = Math.floor(i / 3);
+      for (let v = 0; v < 3; v += 1) _corner[v] = index ? index.getX(i + v) : i + v;
+      for (let v = 0; v < 3; v += 1) boxedPositionAt(geo, _corner[v], _tri[v]);
       const [va, vb, vc] = _tri;
       const got = side === THREE.BackSide ? _ray.intersectTriangle(vc, vb, va, true, _hit)
         : _ray.intersectTriangle(va, vb, vc, side === THREE.FrontSide, _hit);
@@ -577,7 +584,7 @@ export function compactStreams(THREE) {
       const normal = new THREE.Vector3();
       THREE.Triangle.getNormal(va, vb, vc, normal);
       intersects.push({ distance, point, object: this, faceIndex: f,
-        face: { a: f * 3, b: f * 3 + 1, c: f * 3 + 2, normal, materialIndex: 0 } });
+        face: { a: _corner[0], b: _corner[1], c: _corner[2], normal, materialIndex: 0 } });
     }
   }
 

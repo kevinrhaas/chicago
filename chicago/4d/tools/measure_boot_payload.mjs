@@ -110,6 +110,10 @@ async function measure() {
     if (process.argv.includes('--no-prebuilt-ground')) {
       await context.route('**/data/prebuilt/*/ground.*', (route) => route.fulfill({ status: 404, body: '' }));
     }
+    // T-2709's before: the distant base's prebuild refused, so the page lays and cuts its own.
+    if (process.argv.includes('--no-prebuilt-base')) {
+      await context.route('**/data/prebuilt/*/base.*', (route) => route.fulfill({ status: 404, body: '' }));
+    }
     // T-2710's before: the streets prebuild refused, so the page lays its own road.
     if (process.argv.includes('--no-prebuilt-streets')) {
       await context.route('**/data/prebuilt/*/streets.*', (route) => route.fulfill({ status: 404, body: '' }));
@@ -117,7 +121,7 @@ async function measure() {
     const page = await context.newPage();
     const failures = [];
     // A layer refused above is the before being measured, not a failure.
-    const refused = (url) => [['--no-prebuilt-ground', 'ground'], ['--no-prebuilt-streets', 'streets']]
+    const refused = (url) => [['--no-prebuilt-ground', 'ground'], ['--no-prebuilt-base', 'base'], ['--no-prebuilt-streets', 'streets']]
       .some(([flag, layer]) => process.argv.includes(flag) && new RegExp(`/data/prebuilt/\\d{4}/${layer}\\.`).test(url));
     page.on('requestfailed', (r) => { if (!refused(r.url())) failures.push(`${r.url()} ${r.failure()?.errorText}`); });
     page.on('response', (r) => {

@@ -40,10 +40,10 @@
  *       over frontage's own crossing footprints) and the STREETS' surfaces at
  *       both ridge layouts, each cut into spatial-batch pieces, into
  *       DIR/<year>/{base,streets}.{bin,json}; --parity reads the live page at
- *       `light` and at `full`. The streets are uploaded since T-2710, with ONE
- *       BUFFER PER LAYOUT (streets.{light,full}.bin) so a visitor fetches only
- *       the one their detail draws; publish.sh writes them and check_published.mjs
- *       holds them current (streets.js § THE STREETS, PREBUILT).
+ *       `light` and at `full`. The base is uploaded since T-2709 (terrain.js §
+ *       THE DISTANT BASE, PREBUILT; publish.sh asks for it), and the streets since
+ *       T-2710, with ONE BUFFER PER LAYOUT (streets.{light,full}.bin) so a visitor
+ *       fetches only the one their detail draws (streets.js § THE STREETS, PREBUILT).
  *   … --layer yards — T-2704, piece 2 of T-2694
  *       The same four modes for the YARDS: the enclosure records laid by
  *       enclosures.js's and yards.js's own createEnclosures and
@@ -146,13 +146,13 @@ async function pageModules() {
     return new Response(fs.readFileSync(file), { status: 200 });
   };
   const { Heightfield, loadGlbMesh, conformGroundToField, tileGround, groundTileGrid, groundTiling,
-    distantBaseGeometry } = await import(pathToFileURL(path.join(WEB, 'js/terrain.js')).href);
+    distantBaseGeometry, footprintsKey, prebuiltPieceSpans } = await import(pathToFileURL(path.join(WEB, 'js/terrain.js')).href);
   const { streetSurfaces, streetLayoutOf } = await import(pathToFileURL(path.join(WEB, 'js/streets.js')).href);
   const { createFrontage } = await import(pathToFileURL(path.join(WEB, 'js/frontage.js')).href);
   const { spatialPieces, spatialBatch, batchPieces } =
     await import(pathToFileURL(path.join(WEB, 'js/spatial-batch.js')).href);
   loaded = { Heightfield, createFrontage, loadGlbMesh, conformGroundToField, tileGround, groundTileGrid,
-    groundTiling, distantBaseGeometry, streetSurfaces, streetLayoutOf, spatialPieces, spatialBatch, batchPieces };
+    groundTiling, distantBaseGeometry, footprintsKey, prebuiltPieceSpans, streetSurfaces, streetLayoutOf, spatialPieces, spatialBatch, batchPieces };
   return loaded;
 }
 
@@ -343,7 +343,7 @@ const GROUND_FORMAT = 1;
 // T-2710: format 2 splits the streets into one buffer per layout (packStreets).
 const STREETS_FORMAT = 2;
 const LAYERS = { frontage: { format: FORMAT }, ground: { format: GROUND_FORMAT },
-  base: { format: 1 }, streets: { format: STREETS_FORMAT } };
+  base: { format: 2 }, streets: { format: STREETS_FORMAT } };
 const ARRAYS = { Float32Array, Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array };
 const THREE_URL = () => pathToFileURL(path.join(THREE_DIR, 'three.module.js')).href;
 
@@ -388,22 +388,30 @@ function packGround(year, built, inputs, buildId, gzip = false) {
   return { bin, index };
 }
 
-/** Each tile's pieces laid into the buffer: the attributes once, then where each piece's arrays lie. */
-function packTiles(builtTiles, place) {
+/** Each tile's pieces laid into the buffer: the attributes once, then where each piece's arrays lie.
+ *  `counts` (T-2709): write a tile's pieces as their counts and let the reader
+ *  derive where they lie (terrain.js prebuiltPieceSpans), held here to the spans. */
+function packTiles(builtTiles, place, { counts = false } = {}) {
   const at = (bytes) => { const { offset, byteLength } = place(bytes); return [offset, byteLength]; };
   return builtTiles.map((t) => {
     const pieces = t.thin ? [t] : t.pieces;
     const schema = ({ attributes }) => attributes.map(({ name, type, itemSize, normalized }) => ({ name, type, itemSize, normalized }));
     const attributes = schema(pieces[0]);
     for (const p of pieces) assert.deepStrictEqual(schema(p), attributes, `${t.name}: its pieces disagree on their attributes`);
-    return { name: t.name, ...(t.thin ? { thin: true } : {}), ...('ridged' in t ? { ridged: t.ridged } : {}), attributes,
-      pieces: pieces.map((p) => [p.attributes.map((x) => at(x.bytes)), p.index ? [p.index.type, ...at(p.index.bytes)] : null]) };
+    const spans = pieces.map((p) => [p.attributes.map((x) => at(x.bytes)), p.index ? [p.index.type, ...at(p.index.bytes)] : null]);
+    const head = { name: t.name, ...(t.thin ? { thin: true } : {}), ...('ridged' in t ? { ridged: t.ridged } : {}), attributes };
+    if (!counts) return { ...head, pieces: spans };
+    const compact = { ...head, at: spans[0][0][0][0], counts: pieces.flatMap((p) => [
+      p.attributes[0].bytes.byteLength / (p.attributes[0].itemSize * ARRAYS[p.attributes[0].type].BYTES_PER_ELEMENT),
+      p.index ? p.index.bytes.byteLength / ARRAYS[p.index.type].BYTES_PER_ELEMENT : -1]) };
+    assert.deepStrictEqual(loaded.prebuiltPieceSpans(compact), spans, `${t.name}: its counts do not reproduce where its pieces lie`);
+    return compact;
   });
 }
 
 /** A prebuilt ground (or base, or streets) read back the way a page would: each tile's pieces batched. */
 export async function replayGround(index, bin) {
-  const { batchPieces } = await pageModules();
+  const { batchPieces, prebuiltPieceSpans } = await pageModules();
   const THREE = await import(THREE_URL());
   const view = (a) => new ARRAYS[a.type](bin.buffer.slice(bin.byteOffset + a.offset,
     bin.byteOffset + a.offset + a.byteLength));
@@ -414,7 +422,7 @@ export async function replayGround(index, bin) {
     return geo;
   };
   return index.tiles.map((t) => {
-    const pieces = t.pieces.map(([arrays, ix]) => ({
+    const pieces = prebuiltPieceSpans(t).map(([arrays, ix]) => ({
       attributes: t.attributes.map((a, i) => ({ ...a, offset: arrays[i][0], byteLength: arrays[i][1] })),
       index: ix && { type: ix[0], offset: ix[1], byteLength: ix[2] } }));
     const mesh = t.thin ? new THREE.Mesh(geometry(pieces[0])) : batchPieces(pieces.map(geometry));
@@ -481,7 +489,10 @@ export async function buildBase(scene) {
   const tiles = [{ name, pieces: m.spatialPieces(geometry).map(geometryBuffers) }];
   const ms = performance.now() - started;
   await drain();
-  return { tiles, source: [{ name, geometry }], ms, footprints: footprints.length };
+  // T-2709: what the page holds the footprints frontage publishes to, and what
+  // its protectGroundUnder returns when they match (terrain.js footprintsKey).
+  return { tiles, source: [{ name, geometry }], ms, footprints: footprints.length,
+    footprintsKey: m.footprintsKey(footprints), adaptive: geometry.userData.adaptiveGround ?? null };
 }
 
 export async function buildStreets(scene) {
@@ -555,13 +566,15 @@ const PIECES_TICKET = { base: 'T-2703', streets: 'T-2703' };
 
 function packPieces(layer, year, built, inputs, buildId, gzip = false) {
   const { place, bin: concat } = layout();
-  const tiles = packTiles(built.tiles, place);
+  // T-2709: the base's 7,503 pieces go as counts, a fifth of the index on the wire.
+  const tiles = packTiles(built.tiles, place, { counts: layer === 'base' });
   const bin = concat();
   const index = {
     layer, year, format: LAYERS[layer].format, ticket: PIECES_TICKET[layer], build: buildId,
     bin: gzip ? `${layer}.bin.gz` : `${layer}.bin`, encoding: gzip ? 'gzip' : null, passes: gzip ? GZIP_PASSES : 0,
     bytes: bin.length, sha256: sha(bin), inputs,
-    ...(layer === 'base' ? { footprints: built.footprints } : { records: built.records }), tiles,
+    ...(layer === 'base' ? { footprints: built.footprints, footprints_key: built.footprintsKey, adaptive: built.adaptive }
+      : { records: built.records }), tiles,
   };
   return { bin, index };
 }
@@ -601,7 +614,7 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
       fs.writeFileSync(path.join(dir, index.bin), gzip ? gzipped(bin) : bin);
       fs.writeFileSync(path.join(dir, `${layer}.json`), JSON.stringify(index) + '\n');
       results.push({ layer, year, dir, ms: Math.round(built.ms), bytes: bin.length, sha256: index.sha256,
-        meshes: index.tiles.length, pieces: index.tiles.reduce((n, t) => n + t.pieces.length, 0),
+        meshes: index.tiles.length, pieces: index.tiles.reduce((n, t) => n + (t.counts ? t.counts.length / 2 : t.pieces.length), 0),
         inputs: inputs.files.length, index, built });
     }
     if (layers.includes('yards')) results.push(await buildYardsInto(dir, scene, year, buildId, gzip));
@@ -622,7 +635,7 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
 /* -------------------------------------------------------------------------- */
 
 /** Why DIR's prebuild of `layer` may not ship, or [] when every index is current. */
-export const PREBUILT_LAYERS = Object.freeze(['frontage', 'ground', 'streets']);
+export const PREBUILT_LAYERS = Object.freeze(['frontage', 'ground', 'base', 'streets']);
 
 export function stale(outDir, layer = 'frontage') {
   if (!LAYERS[layer]) return [`no layer ${layer}`];
@@ -867,7 +880,17 @@ async function selfTestPieces(layer, a, b, ok) {
     ok(same(replayed, page), `${r.year}: every ${layer} mesh batched from the file equals the page's own spatialBatch of it, attribute for attribute (${page.length})`);
     const inputs = r.index.inputs.files.map((f) => f.path);
     ok(PIECES_INPUTS[layer].every((re) => inputs.some((f) => re.test(f))), `${r.year}: the ${layer} input hash covers its code, the kernel and its data`);
-    if (layer === 'base') ok(r.index.footprints > 0, `${r.year}: the base is laid over frontage's crossing footprints (${r.index.footprints})`);
+    if (layer === 'base') {
+      ok(r.index.footprints > 0, `${r.year}: the base is laid over frontage's crossing footprints (${r.index.footprints})`);
+      // T-2709: the page uploads the base only over the footprints it was laid over.
+      const m = await pageModules();
+      const { footprints } = await buildFrontage(frontageScenes().find((sc) => sceneYear(sc) === r.year));
+      ok(r.index.footprints_key === m.footprintsKey(footprints) && /^[0-9a-f]{8}:\d+$/.test(r.index.footprints_key),
+        `${r.year}: the index carries the key of the footprints frontage publishes (${r.index.footprints_key})`);
+      ok(m.footprintsKey(footprints.slice(1)) !== r.index.footprints_key, `${r.year}: a footprint fewer is another key`);
+      const { PREBUILT_BASE_FORMAT } = await import(pathToFileURL(path.join(WEB, 'js/terrain.js')).href);
+      ok(PREBUILT_BASE_FORMAT === LAYERS.base.format, `base: the page reads the format this tool writes (${PREBUILT_BASE_FORMAT} = ${LAYERS.base.format})`);
+    }
     if (layer === 'streets') {
       // Node's own Math is not the page's (portable-math.js), so the build is only the
       // page's while the road turns through portable-math.js: held here, beside the
@@ -969,6 +992,8 @@ async function parityPieces(results, root, layers) {
         const sp = window.__chicago4d.streetsPrebuilt;
         return { base: await Promise.all(base.map(read)), streets: await Promise.all(streets.map(read)),
           detail: window.__chicago4d.detail ?? null,
+          // T-2709: on a published tree the base is the file's, and the page says so.
+          prebuiltBase: window.__chicago4d.terrainPrebuiltBase ?? null,
           // T-2710: whether the road read here was batched from the published file.
           streetsPrebuilt: sp ? { used: sp.used, why: sp.why, layout: sp.layout ?? null } : null };
       });
@@ -981,7 +1006,7 @@ async function parityPieces(results, root, layers) {
         const got = live[layer];
         const { attributes, matched } = compareTiles(got, want, o.diffs, `${detail} ${layer}`);
         o.details.push({ detail, meshes: got.length, pieces: got.reduce((n, m) => n + (m.pieces ?? 1), 0), attributes, matched,
-          ...(layer === 'streets' ? { prebuilt: live.streetsPrebuilt } : {}) });
+          ...(layer === 'base' ? { prebuilt: live.prebuiltBase } : layer === 'streets' ? { prebuilt: live.streetsPrebuilt } : {}) });
         o.meshes += got.length;
         o.pieces += got.reduce((n, m) => n + (m.pieces ?? 1), 0);
         o.attributes += attributes;
@@ -1267,7 +1292,7 @@ async function main() {
     for (const p of [report.parity, report.ground_parity, report.yards_parity, ...(report.pieces_parity ?? [])].filter(Boolean)) {
       console.log(`parity ${p.layer ?? 'frontage'} ${p.year}: ${p.matched}/${p.attributes} attributes of ${p.meshes} meshes byte-equal `
         + `to the page; ${p.pageerrors.length} page errors`);
-      for (const d of p.details ?? []) if (d.prebuilt) console.log(`  ${d.detail}: ${d.prebuilt.used ? `batched from the prebuilt ${d.prebuilt.layout} buffer` : `laid by the page (${d.prebuilt.why})`}`);
+      for (const d of p.details ?? []) if (d.prebuilt) console.log(`  ${d.detail}: ${d.prebuilt.used ? `batched from the prebuilt ${d.prebuilt.layout ? `${d.prebuilt.layout} ` : ''}buffer` : `laid by the page (${d.prebuilt.why})`}`);
       for (const d of p.diffs) console.log(`  differs: ${d}`);
     }
   }

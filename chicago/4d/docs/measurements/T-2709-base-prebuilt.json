@@ -1,0 +1,211 @@
+{
+ "ticket": "T-2709",
+ "parent": "T-2705",
+ "measured": "2026-10-17",
+ "machine": "steward runner, 4 cores, no GPU (SwiftShader), headless Chromium; one reading per cell",
+ "build": {
+  "tool": "node tools/prebuild_layers.mjs --layer base (run by publish.sh)",
+  "layer": "base",
+  "year": "1835",
+  "ms": 97,
+  "bytes": 3905164,
+  "sha256": "4d14707825176ac1f57b941d42e21746dbb1f117b3380b5830118e80b7f159ca",
+  "meshes": 1,
+  "pieces": 7503,
+  "inputs": 57,
+  "footprints": 105,
+  "index_bytes": 53284,
+  "bin_gz_bytes": 726189,
+  "index_bytes_listing_every_piece": 540469,
+  "note": "the base tile carries each piece as its counts (terrain.js prebuiltPieceSpans), not its spans: 540,469 -> 53,284 bytes of index"
+ },
+ "parity": {
+  "tool": "node tools/prebuild_layers.mjs --parity --layer base --root ../../site/4d",
+  "layer": "base",
+  "year": "1835",
+  "url": "/walk/?year=1835",
+  "details": [
+   {
+    "detail": "light",
+    "meshes": 1,
+    "pieces": 7503,
+    "attributes": 3,
+    "matched": 3,
+    "prebuilt": {
+     "used": true,
+     "why": null,
+     "build": "38836fa8b",
+     "bytes": 3905164,
+     "pieces": 7503
+    }
+   },
+   {
+    "detail": "full",
+    "meshes": 1,
+    "pieces": 7503,
+    "attributes": 3,
+    "matched": 3,
+    "prebuilt": {
+     "used": true,
+     "why": null,
+     "build": "38836fa8b",
+     "bytes": 3905164,
+     "pieces": 7503
+    }
+   }
+  ],
+  "meshes": 2,
+  "pieces": 15006,
+  "attributes": 6,
+  "matched": 6,
+  "bytes": 3905164,
+  "pageerrors": [],
+  "diffs": []
+ },
+ "payload": {
+  "tool": "node tools/measure_boot_payload.mjs [--no-prebuilt-base]",
+  "budget_mb": 29,
+  "before": {
+   "mb": 28.226,
+   "requests": 999,
+   "what": "--no-prebuilt-base: the page lays and cuts its own base (dev)"
+  },
+  "after": {
+   "mb": 28.923,
+   "requests": 1001
+  },
+  "first_reading_with_the_full_index": {
+   "mb": 29.037,
+   "note": "over the budget by 37 KB, which is why the index went to counts"
+  }
+ },
+ "phases": {
+  "tool": "node tools/measure_boot_phases.mjs --published --quick --phone [--no-prebuilt-base]",
+  "before": {
+   "conditions": "Headless Chromium; 390×780 touch and 1280×800; 4x CPU throttle (the phone profile), network unthrottled; fresh context cold, repeat navigation warm; data/prebuilt/*/base.* refused.",
+   "machine": "Linux 6.17.0-1022-azure x64 / AMD EPYC 9V45 96-Core Processor",
+   "browser": "156.0.8078.4",
+   "measuredAt": "2026-10-17T05:26:20.766Z",
+   "rows": [
+    {
+     "device": "mobile",
+     "detail": "light",
+     "cache": "cold",
+     "terrain": {
+      "ms": 3212,
+      "longestTaskMs": 2079,
+      "groundPrebuilt": true
+     },
+     "frontage": {
+      "ms": 585,
+      "longestTaskMs": 649,
+      "prebuilt": true
+     },
+     "distant_base": {
+      "ms": 448,
+      "longestTaskMs": 649,
+      "prebuilt": {
+       "used": false,
+       "why": "no prebuilt base (404)"
+      }
+     },
+     "terrain_frontage_base_ms": 4245,
+     "boot_longest_task_ms": 9538,
+     "ready_ms": 47165,
+    },
+    {
+     "device": "mobile",
+     "detail": "light",
+     "cache": "warm",
+     "terrain": {
+      "ms": 3311,
+      "longestTaskMs": 2120,
+      "groundPrebuilt": true
+     },
+     "frontage": {
+      "ms": 504,
+      "longestTaskMs": 718,
+      "prebuilt": true
+     },
+     "distant_base": {
+      "ms": 475,
+      "longestTaskMs": 543,
+      "prebuilt": {
+       "used": false,
+       "why": "no prebuilt base (404)"
+      }
+     },
+     "terrain_frontage_base_ms": 4290,
+     "boot_longest_task_ms": 9112,
+     "ready_ms": 46272,
+    }
+   ]
+  },
+  "after": {
+   "conditions": "Headless Chromium; 390×780 touch and 1280×800; 4x CPU throttle (the phone profile), network unthrottled; fresh context cold, repeat navigation warm.",
+   "machine": "Linux 6.17.0-1022-azure x64 / AMD EPYC 9V45 96-Core Processor",
+   "browser": "156.0.8078.4",
+   "measuredAt": "2026-10-17T05:24:33.910Z",
+   "rows": [
+    {
+     "device": "mobile",
+     "detail": "light",
+     "cache": "cold",
+     "terrain": {
+      "ms": 3362,
+      "longestTaskMs": 2071,
+      "groundPrebuilt": true
+     },
+     "frontage": {
+      "ms": 395,
+      "longestTaskMs": 481,
+      "prebuilt": true
+     },
+     "distant_base": {
+      "ms": 1,
+      "longestTaskMs": 475,
+      "prebuilt": {
+       "used": true,
+       "why": null,
+       "build": "38836fa8b",
+       "bytes": 3905164,
+       "pieces": 7503
+      }
+     },
+     "terrain_frontage_base_ms": 3758,
+     "boot_longest_task_ms": 10501,
+     "ready_ms": 47843,
+    },
+    {
+     "device": "mobile",
+     "detail": "light",
+     "cache": "warm",
+     "terrain": {
+      "ms": 3441,
+      "longestTaskMs": 2148,
+      "groundPrebuilt": true
+     },
+     "frontage": {
+      "ms": 401,
+      "longestTaskMs": 625,
+      "prebuilt": true
+     },
+     "distant_base": {
+      "ms": 0,
+      "longestTaskMs": 460,
+      "prebuilt": {
+       "used": true,
+       "why": null,
+       "build": "38836fa8b",
+       "bytes": 3905164,
+       "pieces": 7503
+      }
+     },
+     "terrain_frontage_base_ms": 3842,
+     "boot_longest_task_ms": 9453,
+     "ready_ms": 46466,
+    }
+   ]
+  }
+ }
+}
