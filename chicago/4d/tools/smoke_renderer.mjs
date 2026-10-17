@@ -8559,7 +8559,9 @@ for (const [label, viewport, touch] of [
       const order = [...(pageEl?.children ?? [])].map((c) => [...c.classList].find((k) => k.startsWith('insp-')) ?? c.tagName);
       const sections = [...(pageEl?.querySelectorAll('.insp-sec .insp-h') ?? [])].map((h) => h.textContent.trim());
       const lines = [...(pageEl?.querySelectorAll('.insp-chip, .insp-key dd, .insp-person strong, .insp-look-item, .insp-fact') ?? [])];
-      const text = pageEl?.innerText ?? '';
+      // textContent, not innerText: the address line is styled uppercase, and innerText returns
+      // the rendered case once the page is visible, which no longer matches the address it holds.
+      const text = pageEl?.textContent ?? '';
       const address = pageEl?.querySelector('.insp-address')?.textContent.trim() ?? '';
       const out = { source: pageEl?.dataset.source ?? null, order, sections, lines: lines.length,
         undotted: lines.filter((l) => !l.querySelector('.fact-dot')).map((l) => l.textContent.trim()).slice(0, 4),
@@ -17230,7 +17232,9 @@ for (const [label, viewport, touch] of [
           const order = [...(pageEl?.children ?? [])].map((c) => [...c.classList].find((k) => k.startsWith('insp-')) ?? c.tagName);
           const sections = [...(pageEl?.querySelectorAll('.insp-sec .insp-h') ?? [])].map((h) => h.textContent.trim());
           const lines = [...(pageEl?.querySelectorAll('.insp-chip, .insp-key dd, .insp-person strong, .insp-look-item, .insp-fact') ?? [])];
-          const text = pageEl?.innerText ?? '';
+          // textContent, not innerText: the address line is styled uppercase, and innerText returns
+          // the rendered case once the page is visible, which no longer matches the address it holds.
+          const text = pageEl?.textContent ?? '';
           const address = pageEl?.querySelector('.insp-address')?.textContent.trim() ?? '';
           const out = { source: pageEl?.dataset.source ?? null, order, sections, lines: lines.length,
             undotted: lines.filter((l) => !l.querySelector('.fact-dot')).map((l) => l.textContent.trim()).slice(0, 4),
