@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 610,
+  "count": 611,
   "liberties": [
     {
       "id": "L1",
@@ -40431,6 +40431,54 @@
         {
           "label": "Recorded",
           "text": "2026-10-17 (T-2712)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-keith-band-pitch-2724",
+      "title": "Keith's checker band: the points' pitch along a row read, their rows kept",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.stone_finish"
+        }
+      ],
+      "recorded": "2026-10-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the diamond points of Keith's checker band (1808 Prairie) stand 0.28 m apart along each row, a point on every other step of a 0.14 m pitch with the next row's points over the gaps, where they stood 0.336 m apart; each point keeps T-2679's section (0.21 m wide, 0.14 m deep, 0.09 m proud), so the plain ground between neighbours in a row narrows from about 0.12 to 0.07 m. The five rows, 0.168 m deep, and the band's 0.84 m are unchanged (T-2724, piece 1 of T-2714)."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "the pitch along a row. Through each picture's own camera the band's units repeat every 21 px along a row in the 1888 Keith plate (inland-1888, the plate's least occluded stretch, x 480-700) against the old build's 25-26 px, which calibrates the plate's units at about 0.28 m without trusting that camera's absolute scale; Florian 1948 reads 10 px against the old build's about 13 (11 now), and Nickel 1967 6 px against about 8 (6 now)."
+        },
+        {
+          "label": "What is invented",
+          "text": "nothing new. The row depth stays on T-2679's two cameras (five rows about 0.8-0.9 m deep) rather than on the plate's own row reading (about 14 px, nearer 0.2 m a row), which is the weaker of its two readings and is not taken; the points' section is still T-2679's drawn one (L-k01-keith-boss-2679)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper print of the street front's crown, read for the rows' depth as this entry read their pitch."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.stone_finish`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2724 (piece 1 of T-2714)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-17 (T-2724)."
         }
       ]
     },

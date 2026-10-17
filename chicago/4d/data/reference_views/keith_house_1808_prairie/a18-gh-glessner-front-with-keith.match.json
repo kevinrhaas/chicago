@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-glessner-front-with-keith",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "73fe5d6c8053fa1454bb5adedde2c55e7411f159fe670e481faa362395f8005d",
+  "glb_sha256": "a2024ae284aa61387bff0891563d722d5ee29ad4c8ec53d000ec7d6c0e74cd47",
   "camera_sha256": "01b2829a0d77a4ace70e97c6f5ffae64fe78622cd1cfcb1d8840fde1ba060153",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-glessner-front-with-keith-side-by-side.jpg",
   "verdict": "differs",
@@ -50,6 +50,10 @@
     {
       "what": "T-2579: Keith's slice and Glessner's front do not fit one level camera as the two models are placed: the Keith-only fit puts Glessner's north-east corner 54 px aside and 71 px low (its Taylor-fit corners, translated), and no level camera holds both buildings within 20 px (best joint RMS 22 px). So Keith's height or set-back relative to Glessner differs from the placement, which is the relative-height question this view was kept for. T-2680: it is the camera, not the placement. The fit held the principal point at x 584. Freed, Keith's five controls and Glessner's north-east eave corner hold one level camera within 1.6 px (cx 671, f 2492). The grade corner read at y 1265 is the top of the parkway curb in front of Glessner, which hides the building's foot: the joint fit puts the foot at y 1294, behind that curb (y 1258-1295). The eave reading itself sits on the downpipe's leader head, so it is a weak control, and this print gives no evidence that Keith's height or set-back against Glessner differs from the placement.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: Keith's front is edge-on behind the return; the band's units are not resolved.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
