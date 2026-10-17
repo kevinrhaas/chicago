@@ -16,7 +16,7 @@ import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/na
 import { APPS } from '../renderers/web/js/apps/index.js';
 import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS, goToPick } from '../renderers/web/js/apps/drawer-host.js';
 import * as mapView from '../renderers/web/js/apps/map-view.js';
-import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M } from '../renderers/web/js/target-tag.js';
+import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M, HOLD_MS, FADE_MS } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -697,6 +697,58 @@ for (const phone of [true, false]) {
   tag.setEnabled(true); advance(400);
   assert.equal(tagEl.textContent, 'Glessner House · 38 ft', 'back in the town, the dwell runs on what is in front');
   assert.equal(tag.current.id, 'glessner_house');
+}
+
+// ---- T-2736: the target tag is a glance, not a sign — it holds, fades, and stays gone for that
+// building until the reticle leaves it; the Inspect key stays while the building is in front ------
+{
+  assert.equal(HOLD_MS, 3000); assert.equal(FADE_MS, 600);
+  let clock = 0;
+  const timers = [];
+  const wait = (fn, ms) => { const t = { at: clock + ms, fn, live: true }; timers.push(t); return t; };
+  const cancel = (t) => { t.live = false; };
+  const advance = (ms) => { const end = clock + ms; for (;;) {
+    const due = timers.filter((x) => x.live && x.at <= end).sort((a, b) => a.at - b.at)[0];
+    if (!due) break; clock = due.at; due.live = false; due.fn(); } clock = end; };
+  let hear = null, now = null;
+  const target = { on: (fn) => { hear = fn; return () => { hear = null; }; }, current: () => now };
+  const el = () => { const cls = new Set(); return { hidden: true, textContent: '', setAttribute() {}, addEventListener() {},
+    classList: { add: (c) => cls.add(c), remove: (c) => cls.delete(c), contains: (c) => cls.has(c) } }; };
+  const tagEl = el(), keyEl = el();
+  createTargetTag({ target, tagEl, keyEl, wait, cancel });
+  const glessner = { id: 'glessner_house', record: { sidecar: { name: 'Glessner House' } }, distance: 11.6 };
+  now = glessner; hear(glessner); advance(DWELL_MS);
+  assert.equal(tagEl.hidden, false, 'shown after the dwell');
+  advance(HOLD_MS - 1);
+  assert.equal(tagEl.classList.contains('is-fading'), false, 'held, not yet fading');
+  advance(1);
+  assert.equal(tagEl.classList.contains('is-fading'), true, 'then it fades');
+  assert.equal(tagEl.hidden, false, 'still in the page while it fades');
+  advance(FADE_MS);
+  assert.equal(tagEl.hidden, true, 'and is gone once faded');
+  assert.equal(tagEl.classList.contains('is-fading'), false);
+  assert.equal(keyEl.hidden, false, 'Inspect stays one tap away while the building is in front');
+  // The probe re-answering the same building (a step closer, back from a menu) does not bring it back.
+  hear({ ...glessner, distance: 9 }); advance(HOLD_MS + FADE_MS);
+  assert.equal(tagEl.hidden, true, 'gone for that building until the reticle leaves it');
+  // Looking away and back shows it again, for another glance.
+  now = null; hear(null);
+  assert.equal(keyEl.hidden, true);
+  now = glessner; hear(glessner); advance(DWELL_MS);
+  assert.equal(tagEl.hidden, false, 'looking back shows it again');
+  advance(HOLD_MS + FADE_MS);
+  assert.equal(tagEl.hidden, true, 'and it fades again');
+  // A new building mid-fade starts its own dwell and its own hold.
+  now = null; hear(null); now = glessner; hear(glessner); advance(DWELL_MS + HOLD_MS + 100);
+  assert.equal(tagEl.classList.contains('is-fading'), true);
+  const keith = { id: 'keith_house', record: { sidecar: { name: 'Keith House' } }, distance: 20 };
+  now = keith; hear(keith);
+  assert.equal(tagEl.hidden, true, 'a new building hides the fading tag at once');
+  assert.equal(tagEl.classList.contains('is-fading'), false);
+  advance(DWELL_MS);
+  assert.equal(tagEl.hidden, false); assert.equal(tagEl.textContent, 'Keith House · 66 ft');
+  advance(HOLD_MS - 1);
+  assert.equal(tagEl.hidden, false, 'with a full hold of its own');
 }
 
 // ---- T-2619: the dock — closed, it shows the lamp, the label, the year and the icon of the
