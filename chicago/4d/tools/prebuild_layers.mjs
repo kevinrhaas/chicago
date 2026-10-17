@@ -35,6 +35,15 @@
  *       Default is frontage alone, so publish.sh and check_published.mjs are
  *       unchanged until T-2693 makes the page upload the ground (see § the
  *       ground, below).
+ *   … --layer yards — T-2704, piece 2 of T-2694
+ *       The same four modes for the YARDS: the enclosure records laid by
+ *       enclosures.js's and yards.js's own createEnclosures and
+ *       createFencedGround, and each of the five surfaces' pieces as
+ *       spatial-batch.js cut them, into DIR/<year>/yards.{bin,json}. The
+ *       self-test batches the file's pieces and holds every surface to the
+ *       layer's own batch of it; --parity reads the live page's yard surfaces.
+ *       Not in publish.sh until T-2705 makes the page upload them (see § the
+ *       yards, below).
  *
  * WHAT IS AND IS NOT IN THE FILE. Every mesh the layer builds from its records:
  * the town's timber and each chunk (a block face's walk, crossing and fence).
@@ -424,6 +433,7 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
         meshes: index.tiles.length, pieces: index.tiles.reduce((n, t) => n + t.pieces.length, 0),
         inputs: inputs.files.length, index, built });
     }
+    if (layers.includes('yards')) results.push(await buildYardsInto(dir, scene, year, buildId, gzip));
     if (!layers.includes('frontage')) continue;
     const built = await buildFrontage(scene);
     const inputs = inputsOf([...dataRead, ...modulesRead]);
@@ -658,6 +668,231 @@ async function selfTestGround(a, b, ok) {
   refusals(a, first[0], ok);
 }
 
+/* -------------------------------------------------------------------------- */
+/* the yards (T-2704)                                                          */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * THE YARDS' FIVE SURFACES, PARTITIONED — T-2704, piece 2 of T-2694. After the
+ * ground's 222, the yards are five more of the page's spatial-batch calls: each
+ * fenced interior's treatment (sward, worn earth, garden bed, path, …) laid as one
+ * draped surface per treatment and cut into 40 m pieces by spatialBatchAsync.
+ * Here the page's own createEnclosures reads the enclosure records and the
+ * page's own createFencedGround lays them over terrain.js's Heightfield, exactly
+ * as main.js mounts them. The cut is not done a second time: in Node the job pool
+ * runs every kernel in place (no Worker), so `tapPartitions` reads each
+ * `partitionTriangles` answer createFencedGround's own spatialPiecesAsync asked
+ * for, in the order it asked, and the file carries those pieces. The meshes the
+ * layer batched from them are the self-test's reference. Materials, the bed's
+ * canvas and the confidence patch are the page's; this carries geometry.
+ */
+const YARDS_FORMAT = 1;
+LAYERS.yards = { format: YARDS_FORMAT };
+
+let yardsLoaded = null;
+async function yardModules() {
+  if (yardsLoaded) return yardsLoaded;
+  const m = await pageModules();
+  const { createEnclosures } = await import(pathToFileURL(path.join(WEB, 'js/enclosures.js')).href);
+  const { createFencedGround } = await import(pathToFileURL(path.join(WEB, 'js/yards.js')).href);
+  const { KERNELS } = await import(pathToFileURL(path.join(WEB, 'js/jobs/kernels.js')).href);
+  yardsLoaded = { ...m, createEnclosures, createFencedGround, KERNELS };
+  return yardsLoaded;
+}
+
+/**
+ * The yards draw two shared tiles on a canvas before they lay a surface
+ * (streets.js roadGrit, the bed's drills) and, unlike the lettering, do not
+ * decline a canvas that answers no context. The tiles are materials, never
+ * geometry, so for the length of the yards build a canvas answers a 2D context
+ * that paints nothing; the page-wide stub stays as frontage needs it.
+ */
+async function withPaintedCanvas(fn) {
+  const image = (w, h) => ({ width: w, height: h, data: new Uint8ClampedArray(w * h * 4) });
+  const context = new Proxy({}, { get: (_, key) => (key === 'createImageData' || key === 'getImageData'
+    ? (...a) => (typeof a[0] === 'object' ? image(a[0].width, a[0].height) : image(a[a.length - 2], a[a.length - 1]))
+    : () => {}), set: () => true });
+  const createElement = document.createElement;
+  const hadImageData = 'ImageData' in globalThis;
+  const ImageDataWas = globalThis.ImageData;
+  document.createElement = () => ({ width: 0, height: 0, getContext: () => context });
+  globalThis.ImageData ??= class { constructor(data, width, height) { Object.assign(this, { data, width, height }); } };
+  try {
+    return await fn();
+  } finally {
+    document.createElement = createElement;
+    if (hadImageData) globalThis.ImageData = ImageDataWas; else delete globalThis.ImageData;
+  }
+}
+
+/** Run `fn` with every partitionTriangles answer recorded, in the order asked. */
+async function tapPartitions(KERNELS, fn) {
+  const kernel = KERNELS.partitionTriangles;
+  const asked = [];
+  KERNELS.partitionTriangles = (job) => {
+    const answer = kernel(job);
+    asked.push({ job, answer });
+    return answer;
+  };
+  try {
+    return { value: await fn(), asked };
+  } finally {
+    KERNELS.partitionTriangles = kernel;
+  }
+}
+
+export async function buildYards(scene) {
+  const m = await yardModules();
+  dataRead.clear();
+  const year = sceneYear(scene);
+  const { terrain } = await sceneTerrain(scene, m.Heightfield);
+  const dataBase = pathToFileURL(path.join(ROOT, 'data') + '/');
+  const problems = [];
+  const started = performance.now();
+  // main.js: the fences first, and the yards over the records they read.
+  const enclosures = await m.createEnclosures({ dataBase, terrain, problems });
+  const { value: layer, asked } = await withPaintedCanvas(() => tapPartitions(m.KERNELS,
+    () => m.createFencedGround({ records: enclosures.records, terrain, problems })));
+  const ms = performance.now() - started;
+  await drain();
+  const meshes = layer.group.children.filter((c) => c.isMesh);
+  if (!meshes.length) throw new Error(`yards ${year}: no surface was laid (${problems.join('; ')})`);
+  if (asked.length !== meshes.length) {
+    throw new Error(`yards ${year}: ${asked.length} partitions asked for ${meshes.length} surfaces`);
+  }
+  const surfaces = meshes.map((mesh, i) => {
+    const { job, answer } = asked[i];
+    const triangles = answer.pieces.reduce((n, p) => n + (p.index ? p.index.length : p.arrays[job.positionAt].length / 3), 0) / 3;
+    if (!mesh.isBatchedMesh || mesh.userData.spatialBatch?.triangles !== triangles) {
+      throw new Error(`yards ${year}: ${mesh.name} is not the batch of partition ${i}`);
+    }
+    // normalized is not in the job; it is the batch's own attribute's, which
+    // spatialPieces copied from the surface.
+    const kind = Object.fromEntries(Object.entries(mesh.geometry.attributes).map(([n, a]) => [n, a.normalized]));
+    return { name: mesh.name, pieces: answer.pieces.map((p) => ({
+      attributes: job.attributes.map((a, j) => ({ name: a.name, type: p.arrays[j].constructor.name,
+        itemSize: a.itemSize, normalized: !!kind[a.name],
+        bytes: new Uint8Array(p.arrays[j].buffer, p.arrays[j].byteOffset, p.arrays[j].byteLength) })),
+      index: p.index ? { type: p.index.constructor.name,
+        bytes: new Uint8Array(p.index.buffer, p.index.byteOffset, p.index.byteLength) } : null })) };
+  });
+  return { surfaces, meshes, census: { ...layer.census }, records: enclosures.records.length,
+    problems: problems.filter((p) => p.startsWith('yards:')), ms };
+}
+
+function packYards(year, built, inputs, buildId, gzip = false) {
+  const { place, bin: concat } = layout();
+  // The ground's shape: a surface states its attributes once, a piece only where
+  // its arrays lie.
+  const at = (bytes) => { const { offset, byteLength } = place(bytes); return [offset, byteLength]; };
+  const schema = ({ attributes }) => attributes.map(({ name, type, itemSize, normalized }) => ({ name, type, itemSize, normalized }));
+  const surfaces = built.surfaces.map((s) => {
+    const attributes = schema(s.pieces[0]);
+    for (const p of s.pieces) assert.deepStrictEqual(schema(p), attributes, `${s.name}: its pieces disagree on their attributes`);
+    return { name: s.name, attributes,
+      pieces: s.pieces.map((p) => [p.attributes.map((x) => at(x.bytes)), p.index ? [p.index.type, ...at(p.index.bytes)] : null]) };
+  });
+  const bin = concat();
+  const index = {
+    layer: 'yards', year, format: YARDS_FORMAT, ticket: 'T-2704', build: buildId,
+    bin: gzip ? 'yards.bin.gz' : 'yards.bin', encoding: gzip ? 'gzip' : null, passes: gzip ? GZIP_PASSES : 0,
+    bytes: bin.length, sha256: sha(bin), inputs, records: built.records, census: built.census,
+    problems: built.problems, surfaces,
+  };
+  return { bin, index };
+}
+
+/** A prebuilt yards file read back the way a page would: each surface's pieces batched. */
+export async function replayYards(index, bin) {
+  return replayGround({ tiles: index.surfaces }, bin);
+}
+
+async function buildYardsInto(dir, scene, year, buildId, gzip) {
+  const built = await buildYards(scene);
+  const inputs = inputsOf([...dataRead, ...modulesRead]);
+  const { bin, index } = packYards(year, built, inputs, buildId, gzip);
+  fs.writeFileSync(path.join(dir, index.bin), gzip ? gzipped(bin) : bin);
+  fs.writeFileSync(path.join(dir, 'yards.json'), JSON.stringify(index) + '\n');
+  return { layer: 'yards', year, dir, ms: Math.round(built.ms), bytes: bin.length, sha256: index.sha256,
+    meshes: index.surfaces.length, pieces: index.surfaces.reduce((n, s) => n + s.pieces.length, 0),
+    inputs: inputs.files.length, index, built };
+}
+
+/** The yards' acceptance: the live page's surfaces, by hash, against the file batched in Node. */
+async function parityYards(results, root) {
+  const r = results.find((x) => x.year === '1835' && x.layer === 'yards');
+  const bin = fs.readFileSync(path.join(r.dir, r.index.bin));
+  const node = (await replayYards(r.index, bin)).map(tileHashes);
+  const { environment } = await import('./measure_boot_phases.mjs');
+  const env = await environment(root);
+  const url = root === ROOT ? env.url.replace('/walk/', '/renderers/web/') : env.url;
+  try {
+    const page = await env.browser.newPage({ viewport: { width: 1280, height: 800 } });
+    const errors = [];
+    page.on('pageerror', (e) => errors.push(e.message));
+    await page.goto(url);
+    await page.waitForFunction(() => window.__chicago4d?.ready, null, { timeout: 300000 });
+    const live = await page.evaluate(async () => {
+      const hex = async (a) => [...new Uint8Array(await crypto.subtle.digest('SHA-256',
+        new Uint8Array(a.buffer, a.byteOffset, a.byteLength)))].map((b) => b.toString(16).padStart(2, '0')).join('');
+      const out = [];
+      for (const mesh of window.__chicago4d.yards.group.children) {
+        if (!mesh.isMesh) continue;
+        const g = mesh.geometry;
+        const attributes = [];
+        for (const [name, a] of Object.entries(g.attributes)) {
+          attributes.push([name, a.array?.constructor.name ?? null, a.array ? await hex(a.array) : null]);
+        }
+        out.push({ name: mesh.name, batched: !!mesh.isBatchedMesh, pieces: mesh.userData.spatialBatch?.pieces ?? null,
+          attributes, index: g.index?.array ? await hex(g.index.array) : null });
+      }
+      return out;
+    });
+    const diffs = [];
+    if (live.length !== node.length) diffs.push(`surfaces: page ${live.length}, node ${node.length}`);
+    let attributes = 0;
+    let matched = 0;
+    live.forEach((m, i) => {
+      const n = node[i];
+      if (!n || n.name !== m.name || n.batched !== m.batched || n.pieces !== m.pieces) {
+        diffs.push(`surface ${i}: page ${m.name}/${m.pieces} pieces, node ${n?.name}/${n?.pieces} pieces`);
+        return;
+      }
+      for (const [name, type, hash] of m.attributes) {
+        attributes += 1;
+        const b = n.attributes.find((x) => x[0] === name);
+        if (b && b[1] === type && b[2] === hash) matched += 1;
+        else diffs.push(`surface ${i} (${m.name}) ${name}: page ${type}/${hash?.slice(0, 12)}, node ${b?.[1]}/${b?.[2].slice(0, 12)}`);
+      }
+      if (m.attributes.length !== n.attributes.length) diffs.push(`surface ${i}: attribute count differs`);
+      if (m.index !== n.index) diffs.push(`surface ${i}: index differs`);
+    });
+    return { layer: 'yards', year: '1835', url: url.replace(/^http:\/\/127\.0\.0\.1:\d+/, ''), meshes: live.length,
+      pieces: live.reduce((s, m) => s + (m.pieces ?? 1), 0), attributes, matched, bytes: r.bytes, pageerrors: errors, diffs };
+  } finally {
+    await env.close();
+  }
+}
+
+async function selfTestYards(a, b, ok) {
+  const first = await build(a, null, { layers: ['yards'] });
+  const second = await build(b, null, { layers: ['yards'] });
+  ok(first.length > 0, `${first.length} scene(s) built their yards`);
+  const same = (x, y) => { try { assert.deepStrictEqual(x, y); return true; } catch { return false; } };
+  for (const [i, r] of first.entries()) {
+    ok(r.sha256 === second[i].sha256, `${r.year}: two yards builds are byte-identical (${r.bytes} bytes, ${r.meshes} surfaces, ${r.pieces} pieces)`);
+    const bin = fs.readFileSync(path.join(r.dir, 'yards.bin'));
+    const replayed = (await replayYards(r.index, bin)).map(tileHashes);
+    const page = r.built.meshes.map(tileHashes);
+    ok(same(replayed, page), `${r.year}: every surface batched from the file equals createFencedGround's own batch of it, attribute for attribute (${page.length} surfaces)`);
+    const inputs = r.index.inputs.files.map((f) => f.path);
+    ok(['js/yards.js', 'js/enclosures.js', 'js/spatial-batch.js', 'js/jobs/spatial-kernel.js', 'heightfield.json', 'enclosures/index.json']
+      .every((tail) => inputs.some((f) => f.endsWith(tail))), `${r.year}: the input hash covers the records, the field and the code that laid and cut them`);
+  }
+  ok(stale(a, 'yards').length === 0, 'yards: a fresh build is current');
+  refusals(a, first[0], ok);
+}
+
 async function main() {
   const layers = (flag('--layer') ?? 'frontage').split(',');
   for (const l of layers) if (!LAYERS[l]) { console.error(`prebuild_layers: no layer ${l} (${Object.keys(LAYERS).join(', ')})`); process.exit(2); }
@@ -675,6 +910,7 @@ async function main() {
     try {
       if (layers.includes('frontage')) await selfTestFrontage(a, b, ok);
       if (layers.includes('ground')) await selfTestGround(a, b, ok);
+      if (layers.includes('yards')) await selfTestYards(a, b, ok);
     } finally {
       fs.rmSync(a, { recursive: true, force: true });
       fs.rmSync(b, { recursive: true, force: true });
@@ -684,26 +920,27 @@ async function main() {
   const out = path.resolve(flag('--out') ?? fs.mkdtempSync(path.join(os.tmpdir(), 'prebuild-')));
   const results = await build(out, flag('--build'), { gzip: has('--gzip'), layers });
   const report = { out, scenes: results.map(({ index, dir, built, ...r }) => ({ ...r,
-    ...(r.layer === 'frontage' ? { census: index.census } : { tiling: index.tiling, conform: index.conform }) })) };
+    ...(r.layer === 'ground' ? { tiling: index.tiling, conform: index.conform } : { census: index.census }) })) };
   if (has('--parity')) {
     const root = path.resolve(flag('--root') ?? ROOT);
     if (layers.includes('frontage')) report.parity = await parity(results, root);
     if (layers.includes('ground')) report.ground_parity = await parityGround(results, root);
+    if (layers.includes('yards')) report.yards_parity = await parityYards(results, root);
   }
   if (has('--json')) console.log(JSON.stringify(report, null, 1));
   else {
     for (const r of report.scenes) {
-      console.log(`${r.year}: ${r.layer} built in ${r.ms} ms — ${r.meshes} ${r.layer === 'ground' ? `tiles, ${r.pieces} pieces` : 'meshes'}, `
+      console.log(`${r.year}: ${r.layer} built in ${r.ms} ms — ${r.meshes} ${r.layer === 'ground' ? `tiles, ${r.pieces} pieces` : r.layer === 'yards' ? `surfaces, ${r.pieces} pieces` : 'meshes'}, `
         + `${r.bytes} bytes, ${r.inputs} inputs → ${path.join(out, r.year)}`);
     }
-    for (const p of [report.parity, report.ground_parity].filter(Boolean)) {
+    for (const p of [report.parity, report.ground_parity, report.yards_parity].filter(Boolean)) {
       console.log(`parity ${p.layer ?? 'frontage'} ${p.year}: ${p.matched}/${p.attributes} attributes of ${p.meshes} meshes byte-equal `
         + `to the page; ${p.pageerrors.length} page errors`);
       for (const d of p.diffs) console.log(`  differs: ${d}`);
     }
   }
   const bad = (p) => p && (p.diffs.length || p.pageerrors.length || p.matched !== p.attributes);
-  if (bad(report.parity) || bad(report.ground_parity)) process.exit(1);
+  if (bad(report.parity) || bad(report.ground_parity) || bad(report.yards_parity)) process.exit(1);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
