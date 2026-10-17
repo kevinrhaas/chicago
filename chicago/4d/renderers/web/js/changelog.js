@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1972, ts: '2026-10-17T20:11:31.767Z', date: 'Oct 17, 2026, 3:11 PM CT', title: 'All destinations asks before it takes you home', kind: 'feature',
+    items: [
+      'All destinations on the arrival card, and Recall in Jump, now ask first: Return to the Temporal Observatory? Cancel keeps you where you are.',
+      'Return plays a short reverse jump: the transfer rings close in, the lamps run Arrive, Lock, Scan backwards and the year rolls forward to today, then the Observatory opens on the ring\'s last pulse.',
+      'With reduced motion the question stays and the animation is skipped.',
+    ] },
   { v: 1971, ts: '2026-10-17T20:06:52.368Z', date: 'Oct 17, 2026, 3:06 PM CT', title: 'The grass at your feet is now dealt by the graphics card', kind: 'feature',
     items: [
       'The tufts in the ring around you are now chosen and placed by the graphics card from the same rules the page used. Which species, how tall, which way it leans and its colour all come from the shader. It reads the ground map that follows you as you walk.',
