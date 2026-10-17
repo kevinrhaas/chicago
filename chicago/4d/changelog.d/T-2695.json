@@ -1,8 +1,0 @@
-{
-  "title": "Less work on the main thread as the prairie is redealt",
-  "kind": "improvement",
-  "items": [
-    "As you walk or turn, the question of which plant community a patch of ground belongs to is now answered in the background, off the thread that draws the frame.",
-    "On a phone-speed test the redeal costs about a sixth less main-thread time per pass, walking or turning. Every plant lands exactly where it did before."
-  ]
-}
