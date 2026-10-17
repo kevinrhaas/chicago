@@ -1381,6 +1381,10 @@ function readSeasonPreference() {
   const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
   return { season, treesShown: saved.streetTrees !== 'hidden' };
 }
+/** T-2692: whether Settings shows the 1904 lot lines; hidden unless chosen. */
+function readLotLinesPreference() {
+  try { return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.lotLines === 'shown'; } catch { return false; }
+}
 /** The street elms' mode for a season, or hidden. */
 function streetTreeMode(season, treesShown) {
   return treesShown ? (SEASON_TREE_MODE[season] ?? 'summer') : 'hidden';
@@ -2047,6 +2051,7 @@ async function boot() {
   });
   scene3d.add(streetGrid.group);
   api.streetGrid = streetGrid;
+  streetGrid.setLotLines(readLotLinesPreference());
 
   // T-2473 — the parkway elms of the 1904 district (data/street_trees/<scene>.json),
   // built with trees.js's own tree and drawn as one instanced batch. Only a scene
@@ -3208,6 +3213,9 @@ async function boot() {
         seasonState.treesShown = value !== 'hidden';
         void streetTrees.setMode(streetTreeMode(seasonState.season, seasonState.treesShown))
           .then(() => gateFrame.invalidate());
+      } else if (key === 'lotLines') {
+        streetGrid.setLotLines(value === 'shown');
+        gateFrame.invalidate();
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -3231,6 +3239,7 @@ async function boot() {
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
+  document.getElementById('row-lot-lines')?.toggleAttribute('hidden', !streetGrid.lotLines);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     omit: api.drawerOmitted.topics,

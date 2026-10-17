@@ -55,6 +55,8 @@ const DEFAULT_SETTINGS = {
   season: 'summer',
   // T-2473: the 1904 parkway elms, 'shown' or 'hidden'.
   streetTrees: 'shown',
+  // T-2692: the 1904 parcel lines on the ground, 'hidden' or 'shown'.
+  lotLines: 'hidden',
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, run, wagon, horse) and
@@ -582,6 +584,7 @@ export function createHud({
   wireSelect('s-governor', 'governor', 'adaptive');
   wireSelect('s-season', 'season', 'summer');
   wireSelect('s-street-trees', 'streetTrees', 'shown');
+  wireSelect('s-lot-lines', 'lotLines', 'hidden');
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
