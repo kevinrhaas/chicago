@@ -69,6 +69,8 @@ const DEFAULT_SETTINGS = {
   // T-2652: whether the visitor has picked a getting-there choice themselves. Until they
   // have, a Jaunt rides at its own recommended mode (js/getting-there.js § jauntModeFor).
   arriveChosen: false,
+  // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
+  snapTurn: false,
 };
 
 function readSettings() {
@@ -712,6 +714,7 @@ export function createHud({
     store(SET_KEY, JSON.stringify(settings));
   });
   wireToggle('s-head-bob', 'headBob');
+  wireToggle('s-snap-turn', 'snapTurn');
   paintMove();
 
   // The ride in progress: where to, how far is left, and the one way to stop it

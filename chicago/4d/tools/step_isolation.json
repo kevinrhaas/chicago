@@ -5558,6 +5558,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_move_comfort.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_nav_guide.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5579,6 +5583,10 @@
       "wrote_ignored": []
     },
     "tools/test_nav_move.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_telemetry.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5751,6 +5759,10 @@
       "wrote_ignored": []
     },
     "tools/test_time_stream.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_tour.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

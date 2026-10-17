@@ -14,7 +14,7 @@ export default register('hud', {
   'tab.guide': 'Guide',
   'tab.whatsnew': "What's new",
   'menu.unread': "Guide, settings and what's new — {n} unread (H)",
-  'move.note': 'The speeds for walking, running, a wagon and a horse are under',
+  'move.note': 'The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under',
   'move.mode': 'How you move',
   'sources.list': 'Source list',
   'sources.grades': 'Attested, Inferred, Reconstructed: what each word promises',

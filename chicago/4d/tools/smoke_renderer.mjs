@@ -9439,16 +9439,67 @@ for (const [label, viewport, touch] of [
       JSON.stringify(tagShown));
     if (tagShown.shown) {
       await clickChrome('#target-tag');
+      // Since T-2638/T-2639 Inspect is its own screen, not the card: the tap opens the
+      // Navigator on Inspect, holding the tagged building.
       const tagOpened = await page.evaluate(async () => {
         const api = window.__chicago4d;
-        for (let i = 0; i < 30 && !api.popup.openId; i++) await new Promise((r) => setTimeout(r, 100));
-        const out = { open: api.popup.openId ?? null, detent: api.navigator?.detent ?? null };
-        api.popup.close();
+        const screen = () => document.getElementById('nav-app-inspect');
+        for (let i = 0; i < 60 && !(api.navigator?.app === 'inspect' && screen()?.dataset.structure); i++) await new Promise((r) => setTimeout(r, 100));
+        const out = { app: api.navigator?.app ?? null, open: screen()?.dataset.structure ?? null, detent: api.navigator?.detent ?? null };
+        await api.navigator?.select('home'); api.navigator?.dock?.(); api.popup.close();
         return out;
       });
       check(`${label}: a tap on the target tag opens Inspect on that building (T-2627)`,
-        tagOpened.open === 'sauganash_hotel', JSON.stringify(tagOpened));
+        tagOpened.app === 'inspect' && tagOpened.open === 'sauganash_hotel', JSON.stringify(tagOpened));
     }
+
+    // T-2639 (here, in the town: the device is hidden behind the welcome gate). Inspect's tabs
+    // over the card's content: all six open and fill; People shows the
+    // card's "who was here" for a seated record with a way into the People app, and a record
+    // held for review carries its note exactly as its card does.
+    const inspectTabs1835 = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+      const root = () => document.getElementById('nav-app-inspect');
+      async function open(id) {
+        a.pick(id);
+        await a.navigator.select('inspect');
+        a.navigator.open(2);   // as a visitor opens the sheet to read it (a phone docks it otherwise)
+        await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+      }
+      async function tab(key) {
+        root().querySelector(`[data-insp-tab="${key}"]`)?.click();
+        await wait(() => ['yes', 'failed'].includes(root().querySelector(`[data-insp-pane="${key}"]`)?.dataset.filled ?? (key === 'overview' ? 'yes' : '')));
+        const pane = root().querySelector(`[data-insp-pane="${key}"]`);
+        return { shown: !!pane && !pane.hidden && pane.checkVisibility(), filled: key === 'overview' ? 'yes' : pane?.dataset.filled,
+          text: pane?.innerText ?? '', html: pane?.innerHTML ?? '',
+          selected: root().querySelector(`[data-insp-tab="${key}"]`)?.getAttribute('aria-selected') };
+      }
+      const current = () => root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
+      await open('hogan_store');
+      const out = { tabs: [...root().querySelectorAll('.insp-tab')].map((b) => b.textContent.trim()), panes: {} };
+      for (const k of ['overview', 'people', 'design', 'story', 'photos', 'sources']) {
+        const r = await tab(k);
+        out.panes[k] = { shown: r.shown, filled: r.filled, selected: r.selected, len: r.text.length };
+      }
+      const people = await tab('people');
+      out.people = { households: (people.html.match(/class="res-hh"/g) ?? []).length,
+        link: !!root().querySelector('[data-insp-pane="people"] [data-person]'), hogan: /John S\. C\. Hogan/.test(people.text) };
+      out.plumbing = /\bdata\/residents\/|[a-z]+_[a-z]+\.json/.test((await tab('sources')).text);
+      await open('mckee_log_house');
+      const held = await tab('people');
+      out.held = /Held pending consultation/.test(held.text);
+      await open('hogan_store');
+      out.reopened = current();
+      await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+      return out;
+    });
+    check(`${label}: Inspect's six tabs open over the card's content, People lists the household and a held record's note (T-2639)`,
+      JSON.stringify(inspectTabs1835.tabs) === JSON.stringify(['Overview', 'People', 'Design', 'Story', 'Photos', 'Sources'])
+      && Object.values(inspectTabs1835.panes).every((p) => p.shown && p.filled === 'yes' && p.selected === 'true' && p.len > 0)
+      && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
+      && inspectTabs1835.held && !inspectTabs1835.plumbing,
+      JSON.stringify(inspectTabs1835).slice(0, 700));
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -13496,7 +13547,9 @@ for (const [label, viewport, touch] of [
     // And free-fly must NOT be resettled — up there the eye height is an
     // altitude the visitor is flying, and dropping them to standing height mid
     // flight would be the setting reaching somewhere it has no business.
-    await clickChrome('.panel-tab[data-tab="settings"]');
+    // ---- T-2653: eye height lives in Move › Comfort now; the checks below are unchanged.
+    await clickChrome('.panel-tab[data-tab="travel"]');
+    // ---- end T-2653 (the tab)
     const eye = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const el = document.getElementById('s-eye');
@@ -13549,6 +13602,30 @@ for (const [label, viewport, touch] of [
     check(`${label}: the eye height range covers short to tall without absurdity`,
       eye.min <= 1.5 && eye.max >= 2.0 && eye.max <= 3.0,
       `${eye.min}–${eye.max} m`);
+    // ---- T-2653: Move › Comfort — the head bob, the eye height and snap-turn sit together,
+    // each is stored as it changes, and the eye height's Why names the researched figure.
+    const comfort = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const stored = () => JSON.parse(localStorage.getItem('chicago4d.settings') || '{}');
+      const group = document.querySelector('[data-panel="travel"]');
+      const inMove = ['s-head-bob', 's-eye', 's-snap-turn', 'eye-note'].filter((id) => group?.querySelector(`#${id}`));
+      const snap = document.getElementById('s-snap-turn');
+      const bob = document.getElementById('s-head-bob');
+      const before = { snap: snap.checked, bob: bob.checked, snapSetting: api.hud.settings.snapTurn };
+      snap.click(); bob.click();
+      const on = { snap: stored().snapTurn, bob: stored().headBob, eye: stored().eyeHeight };
+      snap.click(); bob.click();
+      const off = { snap: stored().snapTurn, bob: stored().headBob };
+      return { inMove, before, on, off, why: document.getElementById('eye-note')?.textContent.replace(/\s+/g, ' ').trim().slice(0, 40),
+        heading: document.getElementById('move-comfort')?.textContent.trim(), settingsEye: !!document.querySelector('[data-panel="settings"] #s-eye') };
+    });
+    check(`${label}: Move's Comfort holds the head bob, the eye height and snap-turn, each stored as it changes (T-2653)`,
+      comfort.inMove.length === 4 && comfort.heading === 'Comfort' && !comfort.settingsEye
+      && comfort.before.snap === false && comfort.before.snapSetting === false && comfort.before.bob === true
+      && comfort.on.snap === true && comfort.on.bob === false && Math.abs(comfort.on.eye - 1.68) < 0.005
+      && comfort.off.snap === false && comfort.off.bob === true && /^The default, 1\.68 m/.test(comfort.why ?? ''),
+      JSON.stringify(comfort));
+    // ---- end T-2653
 
     // --- typing is not driving ---------------------------------------------
     //
@@ -14122,7 +14199,8 @@ for (const [label, viewport, touch] of [
       const modes = [...document.querySelectorAll('#s-move .seg-btn')].map((b) => b.dataset.mode);
       const arrives = [...document.querySelectorAll('#s-arrive .seg-btn')].map((b) => b.textContent.trim());
       const panel = document.querySelector('[data-panel="travel"]');
-      const shape = { ranges: panel.querySelectorAll('input[type="range"]').length,
+      // One speed slider: Move › Comfort's eye height is not a speed (T-2653).
+      const shape = { ranges: [...panel.querySelectorAll('input[type="range"]')].filter((el) => el.id !== 's-eye').length,
         gone: ['s-travel', 's-pace', 's-wagon-speed', 's-horse-speed'].filter((id) => document.getElementById(id)) };
       pick('horse');
       arrive('ride');
@@ -15525,6 +15603,98 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // ---- T-2663: Tour mode, the Field Check (QA-16, and QA-19's second half). Started from
+    // the section Guide opens; each step moves on only on its own action. Step 02's turn is
+    // a real drag on the touch build; with a mouse, pointer lock cannot be driven headless,
+    // so the camera is turned directly, as step 03's walk moves the walker directly (the
+    // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
+    // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
+    // cleanly; Replay starts again, and a full pass ends on Finish.
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="controls"]');
+    await clickChrome('#tour-start');
+    const tourView = () => page.evaluate(() => ({ shown: !document.getElementById('tour').hidden,
+      count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
+      waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
+      step: window.__chicago4d.tour.step }));
+    const tourWait = (n) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout: 8_000, polling: 100 }).catch(() => {});
+    const t1 = await tourView();
+    await clickChrome('#tour-next');
+    await tourWait(1);
+    const t2 = await tourView();
+    // 02: look around.
+    if (touch) {
+      for (let pass = 0; pass < 3; pass++) {
+        await page.evaluate(() => {
+          const c = window.__chicago4d.renderer?.domElement ?? document.querySelector('canvas'); const r = c.getBoundingClientRect();
+          const ev = (type, x) => c.dispatchEvent(new PointerEvent(type, { pointerId: 41, pointerType: 'touch', bubbles: true, cancelable: true, clientX: x, clientY: r.top + r.height * 0.45 }));
+          ev('pointerdown', r.left + r.width * 0.55); ev('pointermove', r.left + r.width * 0.75); ev('pointermove', r.left + r.width * 0.95); ev('pointerup', r.left + r.width * 0.95);
+          window.__chicago4d.step();
+        });
+      }
+    } else {
+      await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 0 }); });
+      await page.waitForTimeout(300);
+      await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 90 }); });
+    }
+    await tourWait(2);
+    const turned = await tourView();
+    // 03: walk five metres.
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e + 6, local_n: w.state.n, yaw_deg: 90 }); });
+    await tourWait(3);
+    const walked = await tourView();
+    const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('chicago4d.tour') || 'null'));
+    // Reload at 4: what a reload reads, resumed.
+    const resumed = await page.evaluate(() => window.__chicago4d.tour.resume() && window.__chicago4d.tour.step);
+    // 04: open a building's record. 05: go deeper (a card tab).
+    await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
+    await tourWait(4);
+    const inspected = await tourView();
+    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="record"]')?.click());
+    await tourWait(5);
+    const deeper = await tourView();
+    // Skip at 6.
+    await clickChrome('#tour-skip');
+    const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
+      dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
+    // Replay, and a full pass to Finish: 06 on the Confidence view chip, 07 on Finish.
+    await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
+    await clickChrome('#tour-next');
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
+    await tourWait(2);
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e - 6, local_n: w.state.n, yaw_deg: 200 }); });
+    await tourWait(3);
+    await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
+    await tourWait(4);
+    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="images"]')?.click());
+    await tourWait(5);
+    await page.evaluate(() => window.__chicago4d.popup.close());
+    const confWas = await page.evaluate(() => window.__chicago4d.hud.confidenceOn);
+    await clickChrome('#btn-confidence');
+    await tourWait(6);
+    const last = await tourView();
+    await clickChrome('#tour-next');
+    const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
+      shown: !document.getElementById('tour').hidden }));
+    if (!confWas) await page.evaluate(() => window.__chicago4d.hud.setConfidence(false, { announce: false }));
+    // Back as it was found: no card, Home the Navigator's app, docked (the dock reopens its
+    // last app, and later parts expect Home).
+    await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.popup.close();
+      await api.navigator.select('home');
+      api.navigator.dock();
+    });
+    check(`${label}: the Field Check moves on only on each step's own action, resumes at 4, skips cleanly at 6, replays and finishes (T-2663)`,
+      t1.shown && t1.count === 'Field check · 1 / 7' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+      && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3 && /^Tap the /.test(walked.bubble ?? '')
+      && stored?.active === true && stored?.step === 3 && resumed === 3
+      && inspected.step === 4 && deeper.step === 5 && /Confidence view/.test(deeper.bubble ?? '')
+      && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
+      && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
+    // ---- end T-2663
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.
@@ -15624,6 +15794,72 @@ for (const [label, viewport, touch] of [
       && roamTip.second.level === 0 && !roamTip.second.showing,
       JSON.stringify(roamTip));
     // ---- end T-2634
+
+    // T-2623: the telemetry strip at the foot of the device — FIELD, DRIFT, SIG and the RECALL
+    // lamp, aria-hidden, ticking every 800 ms while the device is open and can be seen, and not
+    // at all while it is docked, the tab is hidden, or the visitor asks for reduced motion (QA-06).
+    // The draws are held while it is timed (holdDraws above): on a software rasteriser a
+    // frame can hold the main thread for seconds, and no timer could fire through it.
+    await holdDraws(true);
+    const strip = await page.evaluate(async () => {
+      const api = window.__chicago4d, tm = api.navigator.telemetry, el = document.querySelector('#navigator .nav-telemetry');
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const read = () => ({ running: tm.running, ticks: tm.ticks, shown: !!el && el.getClientRects().length > 0 });
+      const out = { exists: !!tm && !!el, ariaHidden: el?.getAttribute('aria-hidden'),
+        cells: el ? [...el.querySelectorAll('[data-t]')].map((c) => c.dataset.t) : [] };
+      out.docked = read();
+      api.navigator.open(1);
+      tm.sync();
+      const t0 = tm.ticks;
+      await wait(3300);
+      out.open = { ...read(), ticked: tm.ticks - t0, text: el?.textContent ?? '' };
+      // The tab hidden: the strip stops at once and stays still.
+      Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
+      document.dispatchEvent(new Event('visibilitychange'));
+      const h0 = tm.ticks;
+      await wait(1800);
+      out.hidden = { ...read(), ticked: tm.ticks - h0 };
+      delete document.hidden;
+      document.dispatchEvent(new Event('visibilitychange'));
+      out.back = read();
+      // What a tick costs: the strip's whole frame-time share.
+      const c0 = performance.now();
+      for (let i = 0; i < 200; i++) tm.tick();
+      out.tickMs = (performance.now() - c0) / 200;
+      api.navigator.dock();
+      tm.sync();
+      out.redocked = read();
+      return out;
+    });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const still = await page.evaluate(async () => {
+      const api = window.__chicago4d, tm = api.navigator.telemetry, el = document.querySelector('#navigator .nav-telemetry');
+      api.navigator.open(1);
+      tm.sync();
+      const t0 = tm.ticks;
+      await new Promise((r) => setTimeout(r, 1800));
+      const out = { running: tm.running, ticked: tm.ticks - t0, text: el?.textContent ?? '' };
+      api.navigator.dock();
+      return out;
+    });
+    await page.emulateMedia({ reducedMotion: null });
+    await holdDraws(false);
+    check(`${label}: the Navigator's telemetry strip is aria-hidden and carries FIELD, DRIFT, SIG and RECALL (T-2623)`,
+      strip.exists && strip.ariaHidden === 'true'
+        && JSON.stringify(strip.cells) === JSON.stringify(['field', 'drift', 'sig', 'recall'])
+        && /FIELD\s*0\.9\d\d/.test(strip.open.text) && /DRIFT\s*±\d\.\d D/.test(strip.open.text) && /SIG\s*[▮▯]{4}/.test(strip.open.text),
+      JSON.stringify({ exists: strip.exists, aria: strip.ariaHidden, cells: strip.cells, text: strip.open.text }));
+    check(`${label}: the strip ticks every 800 ms while the device is open, and not while it is docked or the tab is hidden (T-2623)`,
+      strip.docked.running === false && strip.docked.shown === false
+        && strip.open.running === true && strip.open.shown === true && strip.open.ticked >= 2 && strip.open.ticked <= 5
+        && strip.hidden.running === false && strip.hidden.ticked === 0 && strip.back.running === true
+        && strip.redocked.running === false,
+      JSON.stringify({ docked: strip.docked, open: { ...strip.open, text: undefined }, hidden: strip.hidden, back: strip.back, redocked: strip.redocked }));
+    check(`${label}: under reduced motion the strip stands still at its steady reading (T-2623, QA-06)`,
+      still.running === false && still.ticked === 0 && /0\.998/.test(still.text),
+      JSON.stringify(still));
+    check(`${label}: a telemetry tick costs no measurable frame time (T-2623)`,
+      strip.tickMs < 0.5, `${strip.tickMs.toFixed(3)} ms a tick`);
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
@@ -17693,6 +17929,44 @@ for (const [label, viewport, touch] of [
           && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
           && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
           JSON.stringify(inspectRecord).slice(0, 700));
+        // T-2639. On 1904: People lists the Glessner household from the directory (T-2702); a
+        // newly inspected building opens on Overview; the same building keeps its tab.
+        const inspectTabs1904 = await page.evaluate(async () => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          async function open(id) {
+            a.pick(id);
+            await a.navigator.select('inspect');
+            a.navigator.open(2);   // as a visitor opens the sheet to read it (a phone docks it otherwise)
+            await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+          }
+          async function tab(key) {
+            root().querySelector(`[data-insp-tab="${key}"]`)?.click();
+            await wait(() => ['yes', 'failed'].includes(root().querySelector(`[data-insp-pane="${key}"]`)?.dataset.filled ?? (key === 'overview' ? 'yes' : '')));
+            const pane = root().querySelector(`[data-insp-pane="${key}"]`);
+            return { shown: !!pane && !pane.hidden && pane.checkVisibility(), filled: key === 'overview' ? 'yes' : pane?.dataset.filled,
+              text: pane?.innerText ?? '', html: pane?.innerHTML ?? '',
+              selected: root().querySelector(`[data-insp-tab="${key}"]`)?.getAttribute('aria-selected') };
+          }
+          const current = () => root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
+          await open('glessner_house');
+          const people = await tab('people');
+          const out = { people: [...root().querySelectorAll('[data-insp-pane="people"] [data-person] .nav-person-name')].map((n) => n.textContent.trim()),
+            story: (await tab('story')).text.includes('1885') };
+          await tab('photos');
+          await open('pullman_house_1729_prairie');
+          out.newOpensOn = current();
+          await tab('design');
+          await open('pullman_house_1729_prairie');
+          out.sameKeeps = current();
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        });
+        check(`${label}: Inspect's People tab lists the Glessner household; a new building opens on Overview and the same keeps its tab (T-2639)`,
+          inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
+          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
+          JSON.stringify(inspectTabs1904));
         // >>> T-2640 (QA-10): Show me on each Look for item of Glessner House turns the camera to
         // the record's own view of the feature — its bearing and pitch, the house down the
         // crosshair — and the outline shows for 2 s. Never aimed where the record names no camera.

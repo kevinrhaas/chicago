@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
 <link rel="stylesheet" href="./css/inspect.css">
+<link rel="stylesheet" href="./css/tour.css">
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
@@ -336,14 +337,34 @@
            by goToTarget like Go to, so it takes this choice too. -->
       <p class="legend-note" id="arrive-note">Go to and Jaunts both use this choice. A Jaunt that cannot
         be travelled that way, and every Jaunt until you choose here, keeps the way it recommends.</p>
-      <label class="field row check-field"><span>Rider's head moves with the horse's gait</span>
-        <input type="checkbox" id="s-head-bob"></label>
       <p class="legend-note">These are ways of moving the camera, not claims about the past: a
         run, a light wagon, a horse, and a burst of speed on <kbd>Shift</kbd>. The slider sets the
         speed of the mode you picked and names it. Ride there takes you to a place you choose
         along the streets where they run; Fly over lifts you over the town and sets you down at
         the door. Any movement of your own stops the ride; where no walkable route exists you are
         taken straight there.</p>
+      <!-- Comfort (T-2653, DESIGN §07 "Move"): the head bob, the eye height and snap-turn,
+           each a choice about the view and never about the town. -->
+      <h3 class="legend-h" id="move-comfort">Comfort</h3>
+      <label class="field row check-field"><span>Rider's head moves with the horse's gait</span>
+        <input type="checkbox" id="s-head-bob"></label>
+      <!-- Eye height is a CLAIM about 1835, so the default is the researched
+           figure and the slider says where that figure sits. Raising it is a
+           comfort choice about the view, not a correction. -->
+      <label class="field"><span>Eye height <b id="v-eye"></b></span>
+        <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
+      <details class="why"><summary>Why this default</summary>
+        <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
+          man in the 1830s United States — this walkthrough puts your eye where a person of the
+          period had theirs, which is lower than a modern viewer expects and lower than the
+          prairie grass beside you, because both of those are true of the place. Raise it if the
+          view is uncomfortable; it changes only the camera, never the town.</p>
+      </details>
+      <!-- Snap-turn: a drag to look on a touch screen turns the view in 30° steps instead
+           of smoothly, which many people find easier on the stomach. Touch only: a mouse
+           keeps its smooth look. -->
+      <label class="field row check-field"><span>Turn in steps when you drag to look (touch screens)</span>
+        <input type="checkbox" id="s-snap-turn"></label>
     </section>
     <!-- Everyone the sources put in this town. js/people.js renders the directory;
          the household browser the Evidence panel used to carry lives at its foot,
@@ -577,19 +598,7 @@
       </div>
       <div class="settings-group">
         <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse are under</span> <b data-str="hud.tab.move">Move</b>.</p>
-        <!-- Eye height is a CLAIM about 1835, so the default is the researched
-             figure and the slider says where that figure sits. Raising it is a
-             comfort choice about the view, not a correction. -->
-        <label class="field"><span>Eye height <b id="v-eye"></b></span>
-          <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
-        <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
-            man in the 1830s United States — this walkthrough puts your eye where a person of the
-            period had theirs, which is lower than a modern viewer expects and lower than the
-            prairie grass beside you, because both of those are true of the place. Raise it if the
-            view is uncomfortable; it changes only the camera, never the town.</p>
-        </details>
+        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
       </div>
       <div class="settings-group">
         <h4>View</h4>
@@ -674,6 +683,10 @@
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
+      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
+           section Guide opens until Guide's own screen lands (T-2661). -->
+      <div class="field row"><span>Tour mode: a sixty-second field check</span>
+        <button class="setting-button" id="tour-start" type="button">Take the field check</button></div>
       <dl class="keys" id="keys-desktop">
         <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>walk</dd>
         <dt><kbd>Shift</kbd></dt><dd>run</dd>
@@ -748,6 +761,21 @@
      sheet at three heights (DOCK, HALF, FULL); on a desktop a 400 px left panel that
      collapses to its rail. The rail's apps are registered from js/apps/ (T-2618); Home's
      screen is the one written here. -->
+<!-- T-2663 (NAV-801): Tour mode, the Field Check. js/tour.js runs its seven steps and
+     js/tour-overlay.js paints this: the step, the task, the bubble, WAITING FOR INPUT and
+     Skip, with a spotlight on the step's target. Only its card takes pointer events. -->
+<div id="tour" class="tour" hidden>
+  <div class="tour-hole" aria-hidden="true" hidden></div>
+  <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">
+    <header class="tour-head"><span id="tour-count">Field check · 1 / 7</span>
+      <button type="button" class="tour-skip" id="tour-skip">Skip <span aria-hidden="true">×</span></button></header>
+    <p class="tour-task" id="tour-task"></p>
+    <p class="tour-bubble" id="tour-bubble" aria-live="polite"></p>
+    <p class="tour-status" id="tour-status">Waiting for input</p>
+    <button type="button" class="tour-next" id="tour-next" hidden>Next</button>
+  </section>
+</div>
+
 <section id="navigator" class="navigator" aria-label="Navigator" data-str-label="nav.name" data-detent="dock" tabindex="-1">
   <span class="nav-screw nav-screw-tl" aria-hidden="true"></span><span class="nav-screw nav-screw-tr" aria-hidden="true"></span>
   <span class="nav-screw nav-screw-bl" aria-hidden="true"></span><span class="nav-screw nav-screw-br" aria-hidden="true"></span>

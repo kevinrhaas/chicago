@@ -156,6 +156,11 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "The Navigator's telemetry strip ticks every 800 ms only while the device is open and seen, never with the tab hidden or under reduced motion, on the portal's own numbers (T-2623)" \
+  node tools/test_nav_telemetry.mjs
+# T-2663: Tour mode, the Field Check.
+step "The Field Check's seven steps each move on only on their own action, resume after a reload, skip and replay, in bubbles of 14 words or fewer (T-2663)" \
+  node tools/test_tour.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
@@ -192,6 +197,9 @@ step "Guide lists the seven locked terms with their lines and answers its two qu
 # T-2652: getting there — one choice for Go to, the Map and Jaunts.
 step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
   node tools/test_getting_there.mjs
+# T-2653: Move's comfort settings.
+step "Move's Comfort holds the head bob, the eye height at its researched default with its Why, and snap-turn on touch (T-2653)" \
+  node tools/test_move_comfort.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
