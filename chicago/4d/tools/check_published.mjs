@@ -67,6 +67,9 @@ const COPIES = [
   ['data/loading/statuses.json', 'data/loading/statuses.json'],
   // The arrival's time-stream decks (T-2611); js/time-stream.js fetches them on arrival.
   ['data/timestream/', 'data/timestream/'],
+  // The Guide's glossary and questions (T-2662), copied verbatim; tools/check_guide.py gates
+  // the source, and the Guide reads faq.json the first time it opens.
+  ['data/guide/', 'data/guide/'],
   ['data/residents/', 'data/residents/'],
   ['data/enclosures/', 'data/enclosures/'],
   ['data/signage/', 'data/signage/'],

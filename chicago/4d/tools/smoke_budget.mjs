@@ -194,6 +194,9 @@ const COVERAGE = [
   // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
   // the tree does not hold is refused as rot.
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-2662 (prepared): the Guide's glossary and FAQ. No module reads them until the Navigator
+  // Guide (T-2661) lands; check_guide.py holds them in check.sh.
+  ['data/guide/', NONE, 'the Guide glossary and FAQ, read by no module yet: check_guide.py'],
   // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
   ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
   // T-2702: 1904's own household cards and the directory compiled from them. main.js
