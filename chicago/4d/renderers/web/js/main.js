@@ -96,6 +96,7 @@ import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
+import { createRoamTip } from './roam-tip.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createWhere } from './where.js';
@@ -3785,6 +3786,13 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null;
+  // T-2634: Free roam's one-time tip, once per device.
+  const roamTip = createRoamTip({ el: document.getElementById('roam-tip') });
+  api.roamTip = roamTip;
+  // Any first move of the visitor's own puts the tip away: it has said its piece.
+  for (const type of ['pointerdown', 'keydown']) {
+    window.addEventListener(type, (e) => { if (roamTip.showing && e.target?.id !== 'roam-tip') roamTip.hide(); }, { capture: true });
+  }
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3815,6 +3823,9 @@ async function boot() {
     hud.say(backends.name === 'touch'
       ? 'Left thumb walks · drag the right side to look · tap a building'
       : 'W A S D to walk · E to inspect what you are looking at');
+    // T-2634: Free roam (no destination, not a resume) docks the Navigator, above, and
+    // the first time on this device says how to inspect.
+    if (!resume && !destination) roamTip.show({ touch: backends.name === 'touch' });
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
@@ -3998,7 +4009,7 @@ async function boot() {
         // T-2630: what the Navigator's Jaunts app asks of the page.
         jauntList: () => openJauntList(),
         gotoList: () => api.welcome.refresh?.(),
-        freeRoam: () => navigatorUi?.dock(),
+        freeRoam: () => { navigatorUi?.dock(); roamTip.show({ touch: backends.name === 'touch' }); },
         map: () => navigation.setFullVisible(true),
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),

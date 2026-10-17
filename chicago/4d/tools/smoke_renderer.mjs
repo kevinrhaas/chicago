@@ -15021,6 +15021,36 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // ---- T-2634: Free roam docks the Navigator and, once per device, says how to inspect.
+    const roamTip = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      const roam = async () => {
+        api.navigator.open(1);
+        await api.navigator.select('jaunts');
+        document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click();
+        document.querySelector('#nav-app-jaunts .nav-roam')?.click();
+        await pause(100);
+        const tip = document.getElementById('roam-tip');
+        return { level: api.navigator.level, showing: !!tip && !tip.hidden, text: tip?.textContent ?? '',
+          stored: localStorage.getItem('chicago4d.roamTipSeen'), backend: api.controlBackend };
+      };
+      api.roamTip.forget();
+      const first = await roam();
+      const box = document.getElementById('roam-tip')?.getBoundingClientRect();
+      first.inView = !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.bottom <= innerHeight;
+      api.roamTip.hide();
+      const second = await roam();
+      api.jauntsApp?.restore();
+      return { first, second };
+    });
+    const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.';
+    check(`${label}: Free roam docks the Navigator and shows "${tipWords}" once per device (T-2634)`,
+      roamTip.first.level === 0 && roamTip.first.showing && roamTip.first.text === tipWords && roamTip.first.stored === '1' && roamTip.first.inView
+      && roamTip.second.level === 0 && !roamTip.second.showing,
+      JSON.stringify(roamTip));
+    // ---- end T-2634
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the

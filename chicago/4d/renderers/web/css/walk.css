@@ -1083,6 +1083,19 @@ body.is-touch .crosshair { display: none; }
   text-align: center;
 }
 .hint.on { opacity: 1; }
+/* T-2634: Free roam's one-time tip — a pill above the docked Navigator, gone on a tap or
+   after a few seconds. */
+.roam-tip {
+  position: fixed; left: 50%; bottom: calc(92px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  z-index: 2; pointer-events: auto; max-width: calc(100vw - 32px);
+  margin: 0; padding: 10px 16px; min-height: 44px; cursor: pointer;
+  font: 600 13px/1.3 var(--font-ui, inherit); color: var(--ink); text-align: center;
+  background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 999px; box-shadow: var(--shadow);
+  animation: roam-tip-in .24s ease-out both;
+}
+.roam-tip[hidden] { display: none; }
+@keyframes roam-tip-in { from { opacity: 0; transform: translate(-50%, 6px); } }
+@media (prefers-reduced-motion: reduce) { .roam-tip { animation: none; } }
 
 /* T-2547: the crash guard's card — detail lowered after a memory crash, or a lost
    display. Above the gate (40) so it reads during the arrival too; hung below the

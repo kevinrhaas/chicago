@@ -144,6 +144,9 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
+# T-2634: Free roam's one-time tip.
+step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
+  node tools/test_roam_tip.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
