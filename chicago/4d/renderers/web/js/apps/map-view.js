@@ -280,6 +280,7 @@ export function mount(el, ctx = {}) {
     if (paint()) last = key;
   }
   const timer = win.setInterval?.(tick, TICK_MS);
+  timer?.unref?.(); // a test's fake page never keeps its process alive
   el._mapTimer = timer;
   el._mapApi = {
     paint,

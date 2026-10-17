@@ -706,7 +706,9 @@ for (const phone of [true, false]) {
   assert.equal(await nav.openLink({ app: 'no-such-app' }), false, 'a link to an app the rail does not have is ignored');
   assert.deepEqual(calls, []);
   await nav.openLink({ app: 'map' });
-  assert.deepEqual(calls.at(-1), ['map'], '?nav=map opens the Map');
+  // T-2654: Map is its own screen now, not a stub that opened the pop-out.
+  assert.equal(nav.app, 'map', '?nav=map opens the Map');
+  assert.ok(nav.level > 0, 'and the device opens to show it');
   await nav.openLink({ app: 'jaunts' });
   assert.deepEqual(calls.at(-1), ['jaunts'], '?nav=jaunts opens Jaunts');
   await nav.openLink({ app: 'inspect', id: 'glessner_house', tab: 'design' });
