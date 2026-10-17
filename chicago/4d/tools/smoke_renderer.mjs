@@ -15020,6 +15020,91 @@ for (const [label, viewport, touch] of [
       && navHome.rail.at(-2) === 'guide' && /^SCR 08 · JUMP$/.test(navHome.jumpCode) && navHome.jumpRecall && /^SCR 01 · HOME$/.test(navHome.homeCode),
       JSON.stringify({ rail: navHome.rail, jumpCode: navHome.jumpCode, jumpRecall: navHome.jumpRecall, homeCode: navHome.homeCode }));
 
+    // ---- T-2663: Tour mode, the Field Check (QA-16, and QA-19's second half). Started from
+    // the section Guide opens; each step moves on only on its own action. Step 02's turn is
+    // a real drag on the touch build; with a mouse, pointer lock cannot be driven headless,
+    // so the camera is turned directly, as step 03's walk moves the walker directly (the
+    // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
+    // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
+    // cleanly; Replay starts again, and a full pass ends on Finish.
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="controls"]');
+    await clickChrome('#tour-start');
+    const tourView = () => page.evaluate(() => ({ shown: !document.getElementById('tour').hidden,
+      count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
+      waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
+      step: window.__chicago4d.tour.step }));
+    const tourWait = (n) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout: 8_000, polling: 100 }).catch(() => {});
+    const t1 = await tourView();
+    await clickChrome('#tour-next');
+    await tourWait(1);
+    const t2 = await tourView();
+    // 02: look around.
+    if (touch) {
+      for (let pass = 0; pass < 3; pass++) {
+        await page.evaluate(() => {
+          const c = window.__chicago4d.renderer?.domElement ?? document.querySelector('canvas'); const r = c.getBoundingClientRect();
+          const ev = (type, x) => c.dispatchEvent(new PointerEvent(type, { pointerId: 41, pointerType: 'touch', bubbles: true, cancelable: true, clientX: x, clientY: r.top + r.height * 0.45 }));
+          ev('pointerdown', r.left + r.width * 0.55); ev('pointermove', r.left + r.width * 0.75); ev('pointermove', r.left + r.width * 0.95); ev('pointerup', r.left + r.width * 0.95);
+          window.__chicago4d.step();
+        });
+      }
+    } else {
+      await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 0 }); });
+      await page.waitForTimeout(300);
+      await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 90 }); });
+    }
+    await tourWait(2);
+    const turned = await tourView();
+    // 03: walk five metres.
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e + 6, local_n: w.state.n, yaw_deg: 90 }); });
+    await tourWait(3);
+    const walked = await tourView();
+    const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('chicago4d.tour') || 'null'));
+    // Reload at 4: what a reload reads, resumed.
+    const resumed = await page.evaluate(() => window.__chicago4d.tour.resume() && window.__chicago4d.tour.step);
+    // 04: open a building's record. 05: go deeper (a card tab).
+    await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
+    await tourWait(4);
+    const inspected = await tourView();
+    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="record"]')?.click());
+    await tourWait(5);
+    const deeper = await tourView();
+    // Skip at 6.
+    await clickChrome('#tour-skip');
+    const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
+      dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
+    // Replay, and a full pass to Finish: 06 on the Confidence view chip, 07 on Finish.
+    await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
+    await clickChrome('#tour-next');
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
+    await tourWait(2);
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e - 6, local_n: w.state.n, yaw_deg: 200 }); });
+    await tourWait(3);
+    await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
+    await tourWait(4);
+    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="images"]')?.click());
+    await tourWait(5);
+    await page.evaluate(() => window.__chicago4d.popup.close());
+    const confWas = await page.evaluate(() => window.__chicago4d.hud.confidenceOn);
+    await clickChrome('#btn-confidence');
+    await tourWait(6);
+    const last = await tourView();
+    await clickChrome('#tour-next');
+    const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
+      shown: !document.getElementById('tour').hidden }));
+    if (!confWas) await page.evaluate(() => window.__chicago4d.hud.setConfidence(false, { announce: false }));
+    check(`${label}: the Field Check moves on only on each step's own action, resumes at 4, skips cleanly at 6, replays and finishes (T-2663)`,
+      t1.shown && t1.count === 'Field check · 1 / 7' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+      && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3 && /^Tap the /.test(walked.bubble ?? '')
+      && stored?.active === true && stored?.step === 3 && resumed === 3
+      && inspected.step === 4 && deeper.step === 5 && /Confidence view/.test(deeper.bubble ?? '')
+      && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
+      && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
+    // ---- end T-2663
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the

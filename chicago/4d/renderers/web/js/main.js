@@ -96,6 +96,8 @@ import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
+import { createTour } from './tour.js';
+import { createTourOverlay } from './tour-overlay.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createWhere } from './where.js';
@@ -2852,10 +2854,17 @@ async function boot() {
   // own card in the drawer (T-1325). Late-bound on purpose — `openBusiness` is
   // declared with the business index, several hundred lines below, and only ever
   // runs on a tap.
+  // T-2663: what the Field Check reads — how often a building's record opened, and how
+  // often a deeper layer of one (the card from Inspect's Full record, or a card tab).
+  const tourCounts = { opens: 0, deeper: 0, confChanges: 0 };
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
-    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures(); },
+    onShow: (record) => {
+      tourCounts.opens++; tourCounts.deeper++;
+      void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures();
+    },
   });
+  popupRoot.addEventListener('click', (e) => { if (e.target.closest?.('[data-pop-tab]')) tourCounts.deeper++; });
   // The pictures of each building, for the card's Images tab (T-2389). Off the boot path
   // for the liberties' reason: only the card reads it, so it is fetched the first time a
   // card is drawn. publish.sh writes it (tools/compile_pictures.py); a failure leaves the
@@ -3079,11 +3088,11 @@ async function boot() {
     lowered: crashBoot.lowered,
     device,
     structureVersion: loaded.versionState,
-    onConfidence: (on) => confidence.set(on),
+    onConfidence: (on) => { confidence.set(on); tourCounts.confChanges++; },
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); },
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); tourCounts.confChanges++; },
     onSetting: (key, value) => {
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
@@ -3836,6 +3845,8 @@ async function boot() {
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
+    // T-2663: a Field Check left running before a reload picks up at the same step.
+    if (firstEntry && !api.tour?.running) api.tour?.resume();
     return true;
   }
   let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;
@@ -4025,6 +4036,31 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+
+  // ---- T-2663: Tour mode, the Field Check ------------------------------------------
+  // Seven steps (js/tour.js), each completing on its real action, read here every quarter
+  // second while it runs; replayed from the section Guide opens (#tour-start); a reload
+  // mid-tour resumes at the same step once the visitor is back in the town.
+  let tourTimer = null, tourApp = null;
+  const tourOverlay = createTourOverlay({ onNext: () => tour.press(), onSkip: () => tour.skip() });
+  const tour = createTour({
+    probe: () => {
+      // Inspect opening on a structure counts as opening its record, as the card does.
+      const app = navigatorUi?.app ?? null;
+      if (app === 'inspect' && tourApp !== 'inspect') tourCounts.opens++;
+      tourApp = app;
+      return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, ...tourCounts,
+        confidence: hud.confidenceOn || hud.hiddenLevels.length > 0,
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
+    },
+    render: (v) => {
+      tourOverlay.paint(v);
+      if (v && !tourTimer) tourTimer = setInterval(() => { tour.tick(); tourOverlay.place(); }, 250);
+      if (!v && tourTimer) { clearInterval(tourTimer); tourTimer = null; }
+    },
+  });
+  api.tour = tour;
+  document.getElementById('tour-start')?.addEventListener('click', () => { hud.setPanel(false); tour.start(); });
 
   // ---- resize ----------------------------------------------------------- //
 
