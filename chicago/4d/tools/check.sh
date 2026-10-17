@@ -98,7 +98,7 @@ selftest "Frontage built in Node is byte-identical build to build, and a prebuil
 selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
   node tools/prebuild_layers.mjs --self-test --layer ground
 
-selftest "The distant base and the streets' surfaces cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, the street trig is portable-math.js's, and a prebuild from changed inputs is refused (T-2703)" \
+selftest "The distant base and the streets' surfaces cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, the street trig is portable-math.js's, the base carries the key of the footprints it was laid over in the format the page reads (T-2709), and a prebuild from changed inputs is refused (T-2703)" \
   node tools/prebuild_layers.mjs --self-test --layer base,streets
 
 selftest "The yards' five surfaces laid and cut in Node are byte-identical build to build, batch exactly as createFencedGround's own do, and a prebuild from changed inputs is refused (T-2704)" \
@@ -3717,8 +3717,9 @@ step "publish.sh produces a mirror that matches its source" \
 # since it was written, or a buffer its index did not hash. check_published.mjs asks
 # the same of the mirror; this is the tool's own --check, run where the mirror is.
 # T-2693: and the ground's tiles, which the page uploads in the ground GLB's place.
-step "the published prebuilt frontage and ground are current against every file they were built from (T-2677, T-2693)" \
-  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground
+# T-2709: and the distant base, which createTerrain batches in place of its own cut.
+step "the published prebuilt frontage, ground and distant base are current against every file they were built from (T-2677, T-2693, T-2709)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base
 
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a
