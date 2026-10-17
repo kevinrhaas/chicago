@@ -156,7 +156,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
           const locators = [claim.locator, claim.reasoning, claim.liberty ? 'Declared narrative reconstruction.' : null, ...sources].filter(Boolean);
           evidence.append(node('p', locators.join(' · '), 'jaunt-meta'));
         }
-        const toggle = button('Evidence for this stop', () => {
+        const toggle = button('Sources for this stop', () => {
           evidence.hidden = !evidence.hidden; toggle.setAttribute('aria-expanded', String(!evidence.hidden));
         });
         toggle.setAttribute('aria-expanded', 'false'); item.append(toggle, evidence); stops.append(item);

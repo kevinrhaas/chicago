@@ -2900,6 +2900,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_strings.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_structure_corridors.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5534,6 +5538,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_nav_jaunts.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_nav_jump.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5594,6 +5602,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_prebuilt_index.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_program_cache_key.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5639,6 +5651,10 @@
       "wrote_ignored": []
     },
     "tools/test_street_travel.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_strings.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

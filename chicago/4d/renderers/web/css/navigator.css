@@ -368,6 +368,28 @@ button.nav-person:hover { border-color: var(--accent); }
 button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .nav-person-name { font-size: 16px; font-weight: 600; }
 
+/* ---- T-2630: Home's three choices and the Jaunts app's segments ------------------ */
+.nav-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.nav-choice { display: flex; flex-direction: column; gap: 3px; min-height: 52px; padding: 9px 10px; text-align: left;
+  border: 1px solid var(--edge); border-radius: 10px; background: transparent; color: var(--ink); cursor: pointer;
+  font: inherit; }
+.nav-choice strong { font-size: 14px; font-weight: 600; }
+.nav-choice span { font-size: 11px; color: var(--ink-dim); line-height: 1.25; }
+.nav-choice:hover { border-color: var(--accent); }
+.nav-choice:focus-visible, .nav-segment:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-segments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; margin-bottom: 12px;
+  border: 1px solid var(--edge); border-radius: 10px; }
+.nav-segment { min-height: 40px; border: 0; border-radius: 7px; background: transparent; color: var(--ink-dim); cursor: pointer;
+  font: 500 11px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; }
+.nav-segment.is-on { background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent)); color: var(--accent); }
+.nav-seg-panel[hidden] { display: none; }
+.nav-seg-panel .welcome-region { margin-top: 0; }
+.nav-roam-line { margin: 4px 0 14px; font-size: 15px; }
+.nav-roam { width: 100%; min-height: 44px; }
+@media (max-width: 420px) { .nav-choice span { display: none; } .nav-choice { min-height: 44px; } }
+/* Signal red stays Recall's (Jump); Free roam is a plain accent key. */
+.nav-key.nav-roam { border-color: var(--accent); background: transparent; color: var(--accent); box-shadow: none; }
+.nav-key.nav-roam:hover { background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent)); }
 /* T-2622: the rail's tabs sit in a wrapper of their own (role="tablist"), laid out by the
    rail as if it were not there. Focus is always visible: on a tab, on an app's screen when
    focus moves into it on open, and on Home's heading. */

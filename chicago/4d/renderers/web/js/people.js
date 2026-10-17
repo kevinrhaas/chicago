@@ -38,6 +38,7 @@
  * untouched, under "Browse by household".
  */
 
+import { gradeTerm } from './strings/terms.js';
 import { TIER_TITLE } from './attribute-tiers.js';
 import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
@@ -62,7 +63,8 @@ function n(x) {
 
 /** How a row is known, in the words the mark and the card use. */
 const KNOWN_LABEL = {
-  documented: 'documented',
+  // T-2624: "documented" is a retired word (section 03); the mark says what it means.
+  documented: 'named in a source',
   letter_list: 'letter list',
   civic_mint: 'civic record',
   projected: 'projected',
@@ -105,7 +107,7 @@ const KNOWN_TITLE = {
   documented: 'Named by a source outside the post-office lists and the civic-list consolidation',
   letter_list: 'Known only from the post office’s lists of uncalled-for letters — a name, and nothing else',
   civic_mint: 'Minted by the evidence consolidation from a poll, tax or muster list, or a contemporary paper',
-  projected: 'A projected resident: documented once or twice and placed by nothing',
+  projected: 'A projected resident: named once or twice and placed by nothing',
   // T-1353. Not a rung on the four above: those grade how well the town knew a
   // RESIDENT, and this person was not one. The town census counts them on a row of
   // their own for the same reason.
@@ -248,7 +250,7 @@ function filterSpecs(people) {
     },
     {
       key: 'known', label: 'How known',
-      options: [['documented', 'documented'], ['letter_list', 'letter list only'],
+      options: [['documented', 'named in a source'], ['letter_list', 'letter list only'],
         ['civic_mint', 'civic record'], ['projected', 'projected resident'],
         // T-1353. The one pill here that is not about a resident's evidence: it is
         // about whether this person lived in the town at all.
@@ -827,9 +829,9 @@ export async function mountPeople({
         All people</button>
       <h3 class="people-card-name">${escapeHtml(r.name)}</h3>
       <p class="people-card-meta">
-        <i class="grade-dot grade-${escapeHtml(r.grade)}"></i>${escapeHtml(r.grade)}
+        <i class="grade-dot grade-${escapeHtml(r.grade)}"></i>${escapeHtml(gradeTerm(r.grade).label || r.grade)}
         · <span class="person-mark mark-${escapeHtml(r.how_known)}" title="${escapeHtml(knownTitle)}">${
-          escapeHtml(r.how_known === 'documented' ? 'documented' : KNOWN_LABEL[r.how_known])}</span>${
+          escapeHtml(KNOWN_LABEL[r.how_known] ?? r.how_known)}</span>${
         r.occupation ? ` · ${escapeHtml(words(r.occupation))}` : ''}
         <br><span class="people-card-hh">${escapeHtml(words(r.relationship))} of <b>${escapeHtml(r.household_name)}</b>${
           r.division && r.division !== 'unplaced'
