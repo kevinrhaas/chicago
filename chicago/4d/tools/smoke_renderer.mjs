@@ -1577,6 +1577,24 @@ for (const [label, viewport, touch] of [
     }, sel);
     if (why) throw new Error(`clickChrome: ${why}`);
   };
+  // T-2613: Home appears halfway through the landing's flip, not at ready (the old
+  // #gate-btn sat on screen at ready), so a click on #home-roam waits for the journey
+  // to land. Bounded, and loud: a landing that never comes fails here by name, with
+  // the journey state and the landing phase it stopped in.
+  const untilLanded = async (timeout = 90_000) => {
+    try {
+      await page.waitForFunction(() => document.documentElement.dataset.journey === 'landed',
+        null, { timeout, polling: 100 });
+    } catch {
+      const at = await page.evaluate(() => ({
+        journey: document.documentElement.dataset.journey ?? '(none)',
+        landing: document.querySelector('.gate-card')?.dataset.landing ?? '(none)',
+        gate: document.getElementById('gate')?.dataset.state ?? '(none)',
+      })).catch(() => ({}));
+      throw new Error(`the landing never reached "landed" within ${timeout / 1000} s after ready — `
+        + `journey ${at.journey}, landing phase ${at.landing}, gate ${at.gate}`);
+    }
+  };
 
   const errors = [];
   // T-1788: anything asked for under humans/ — a figure, its records or the contract.
@@ -10258,6 +10276,7 @@ for (const [label, viewport, touch] of [
       await clickChrome(sel);
       console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
     };
+    await untilLanded();
     await timedChrome('#home-roam');
     await page.waitForTimeout(150);
     // Entry leaves the pointer free; release defensively for older builds.
@@ -14828,6 +14847,7 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
+    await untilLanded();
     await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
@@ -14875,6 +14895,7 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
+    await untilLanded();
     await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
