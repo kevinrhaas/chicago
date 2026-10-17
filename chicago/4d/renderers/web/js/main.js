@@ -99,6 +99,8 @@ import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
+import { createTour } from './tour.js';
+import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
 import { createRoamTip } from './roam-tip.js';
 import { plateFor as jauntPlate } from './pictures.js';
@@ -106,6 +108,7 @@ import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { install as installDrawerHost, goToPick } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
+import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -2900,10 +2903,17 @@ async function boot() {
   // own card in the drawer (T-1325). Late-bound on purpose — `openBusiness` is
   // declared with the business index, several hundred lines below, and only ever
   // runs on a tap.
+  // T-2663: what the Field Check reads — how often a building's record opened, and how
+  // often a deeper layer of one (the card from Inspect's Full record, or a card tab).
+  const tourCounts = { opens: 0, deeper: 0, confChanges: 0 };
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
-    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures(); },
+    onShow: (record) => {
+      tourCounts.opens++; tourCounts.deeper++;
+      void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures();
+    },
   });
+  popupRoot.addEventListener('click', (e) => { if (e.target.closest?.('[data-pop-tab]')) tourCounts.deeper++; });
   // The pictures of each building, for the card's Images tab (T-2389). Off the boot path
   // for the liberties' reason: only the card reads it, so it is fetched the first time a
   // card is drawn. publish.sh writes it (tools/compile_pictures.py); a failure leaves the
@@ -3133,16 +3143,16 @@ async function boot() {
     lowered: crashBoot.lowered,
     device,
     structureVersion: loaded.versionState,
-    onConfidence: (on) => confidence.set(on),
+    onConfidence: (on) => { confidence.set(on); tourCounts.confChanges++; },
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); tourCounts.confChanges++; api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
       gateFrame.invalidate();
-      if (key === 'speed' || key === 'wagonSpeed' || key === 'horseSpeed' || key === 'eyeHeight' || key === 'pace') {
+      if (key === 'speed' || key === 'runSpeed' || key === 'wagonSpeed' || key === 'horseSpeed' || key === 'eyeHeight' || key === 'pace') {
         // The slider values and the pace compose into WALK in one place —
         // travel.applyPace() — so a wagon seat and a raised eye-height slider
         // add rather than overwrite each other. Applied to the standing eye
@@ -3902,6 +3912,8 @@ async function boot() {
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
+    // T-2663: a Field Check left running before a reload picks up at the same step.
+    if (firstEntry && !api.tour?.running) api.tour?.resume();
     return true;
   }
   let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;
@@ -4016,6 +4028,7 @@ async function boot() {
       backends.activate(null);
       gesture.setLook({ inWorld: false });
       targetTag?.setEnabled(false);
+      api.showMe?.cancel(); // T-2640: no camera turn carries on behind the arrival device
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
       hud.setPanel(false);
@@ -4102,6 +4115,66 @@ async function boot() {
   });
   targetTag.setEnabled(!gateOpen);
   api.targetTag = targetTag;
+  // T-2640 (§08 "Look for", §13): Show me stands you outside the building on the line its
+  // record's camera looks along, faces that bearing, and pulses an outline on the building.
+  const showMeOutline = document.getElementById('show-me-outline');
+  let showMeId = null, showMeOutlineGen = 0;
+  function paintShowMeOutline() {
+    const fp = footprints.find((f) => f.id === showMeId);
+    if (!showMeOutline || !fp) return false;
+    const record = loaded.registry.get(showMeId);
+    const h = buildingBounds[showMeId]?.size?.[1] ?? record?.sidecar?.attributes?.wall_height_m?.value ?? 8;
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity, ahead = 0;
+    const v = new THREE.Vector3();
+    for (const [e, n] of fp.pts) {
+      const g = terrain.surfaceHeight(e, n);
+      for (const up of [0, h]) {
+        v.copy(enuToWorld(e, n, g + up)).project(camera);
+        if (v.z < 1) ahead++;
+        const x = (v.x + 1) / 2 * innerWidth, y = (1 - v.y) / 2 * innerHeight;
+        x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y);
+      }
+    }
+    if (!ahead) return false;
+    const pad = 8;
+    Object.assign(showMeOutline.style, { left: `${Math.max(0, x0 - pad)}px`, top: `${Math.max(0, y0 - pad)}px`,
+      width: `${Math.min(innerWidth, x1 + pad) - Math.max(0, x0 - pad)}px`, height: `${Math.min(innerHeight, y1 + pad) - Math.max(0, y0 - pad)}px` });
+    return true;
+  }
+  const showMe = createShowMe({
+    pose: () => ({ e: walker.state.e, n: walker.state.n, yaw: walker.bearingDeg, pitch: walker.state.pitch * 180 / Math.PI, flying: hud.flying }),
+    place: ({ e, n, yaw, pitch }) => walker.teleport({ local_e: e, local_n: n, yaw_deg: yaw, pitch_deg: pitch }),
+    land: () => hud.setFly(false, { announce: false }),
+    // Drawn once the camera has drawn the frame it moved to (two animation frames); resolves
+    // then, so show-me.js counts the 2 s from there. A later call supersedes a pending draw.
+    outline: ({ on, pulse }) => {
+      const gen = ++showMeOutlineGen;
+      if (!showMeOutline) return undefined;
+      if (!on) { showMeOutline.hidden = true; showMeOutline.classList.remove('is-pulsing'); return undefined; }
+      return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (gen === showMeOutlineGen && paintShowMeOutline()) {
+          showMeOutline.hidden = false;
+          showMeOutline.classList.toggle('is-pulsing', !!pulse);
+        }
+        resolve();
+      })));
+    },
+  });
+  function showMeFor(id, item) {
+    const fp = footprints.find((f) => f.id === id);
+    // Stand where the router lets you stand, and where no other building is in the way.
+    const sighted = (e, n, we, wn) => {
+      const lo = [Math.min(e, we) - 1, Math.min(n, wn) - 1], hi = [Math.max(e, we) + 1, Math.max(n, wn) + 1];
+      const near = footprints.filter((f) => f.id !== id && f.pts.some(([x, y]) => x >= lo[0] - 30 && x <= hi[0] + 30 && y >= lo[1] - 30 && y <= hi[1] + 30));
+      return !crossesShowMe([e, n], [we, wn], near.map((f) => f.pts));
+    };
+    const target = planShowMe(item, fp?.pts, { blocked: (e, n) => !!router.blockedAt?.(e, n), sighted });
+    if (!target) return Promise.resolve(false);
+    travel?.stop?.('show-me');
+    showMeId = id;
+    return showMe.show(target);
+  }
+  api.showMe = { show: showMeFor, get last() { return showMe.last; }, cancel: () => showMe.cancel() };
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -4172,6 +4245,8 @@ async function boot() {
           if (hit && tab) document.querySelector(`#popup [data-pop-tab="${tab}"]`)?.click();
           return hit;
         },
+        // T-2640: Show me — only along a camera the building's own summary record names.
+        showMe: (id, item) => showMeFor(id, item),
       },
     }),
   });
@@ -4220,6 +4295,31 @@ async function boot() {
       const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } });
     }
   }
+
+  // ---- T-2663: Tour mode, the Field Check ------------------------------------------
+  // Seven steps (js/tour.js), each completing on its real action, read here every quarter
+  // second while it runs; replayed from the section Guide opens (#tour-start); a reload
+  // mid-tour resumes at the same step once the visitor is back in the town.
+  let tourTimer = null, tourApp = null;
+  const tourOverlay = createTourOverlay({ onNext: () => tour.press(), onSkip: () => tour.skip() });
+  const tour = createTour({
+    probe: () => {
+      // Inspect opening on a structure counts as opening its record, as the card does.
+      const app = navigatorUi?.app ?? null;
+      if (app === 'inspect' && tourApp !== 'inspect') tourCounts.opens++;
+      tourApp = app;
+      return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, ...tourCounts,
+        confidence: hud.confidenceOn || hud.hiddenLevels.length > 0,
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
+    },
+    render: (v) => {
+      tourOverlay.paint(v);
+      if (v && !tourTimer) tourTimer = setInterval(() => { tour.tick(); tourOverlay.place(); }, 250);
+      if (!v && tourTimer) { clearInterval(tourTimer); tourTimer = null; }
+    },
+  });
+  api.tour = tour;
+  document.getElementById('tour-start')?.addEventListener('click', () => { hud.setPanel(false); tour.start(); });
 
   // ---- resize ----------------------------------------------------------- //
 

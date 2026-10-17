@@ -10751,8 +10751,18 @@ for (const [label, viewport, touch] of [
         mapCaption: document.querySelector('.overview-caption')?.textContent?.trim(),
         mapAria: document.getElementById('overview-map')?.getAttribute('aria-label'),
         speedLabel: document.getElementById('v-speed')?.textContent?.trim(),
-        paceLabels: ['v-speed', 'v-wagon-speed', 'v-horse-speed'].map(
-          (id) => [id, document.getElementById(id)?.textContent?.trim() ?? null]),
+        // ---- T-2651: Move has one slider, re-ranged for the mode picked, so each
+        // ground mode's readout is read through it in turn, then the pace put back.
+        paceLabels: (() => {
+          const was = api.hud.settings.pace;
+          const out = ['walk', 'run', 'wagon', 'horse'].map((pace) => {
+            api.setPace(pace);
+            return [pace, document.getElementById('v-speed')?.textContent?.trim() ?? null];
+          });
+          api.setPace(was);
+          return out;
+        })(),
+        // ---- end T-2651
         units: document.getElementById('s-units')?.value,
         mapSize: [mapCanvas.width, mapCanvas.height],
         // T-1142. The BACKING store is CSS px x dpr and so differs between the
@@ -10806,11 +10816,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: walking speed is presented as a named gait in miles per hour`,
       PACE_READOUT.test(nav.speedLabel ?? '') && !/m\/s/.test(nav.speedLabel ?? ''),
       `speed label ${nav.speedLabel}`);
-    // And all three ground paces, because the readout is one function (hud.js
-    // § gaitReadout) and a fault in it reaches the wagon and the horse too.
+    // And all four ground modes, because the readout is one function (move-modes.js
+    // § speedWords) and a fault in it reaches the run, the wagon and the horse too.
     const badPace = nav.paceLabels.filter(([, text]) => !PACE_READOUT.test(text ?? ''));
-    check(`${label}: every pace slider names its gait beside an imperial speed`,
-      nav.paceLabels.length === 3 && badPace.length === 0,
+    check(`${label}: the speed slider names the gait beside an imperial speed in every mode`,
+      nav.paceLabels.length === 4 && badPace.length === 0,
       badPace.length
         ? badPace.map(([id, text]) => `${id} reads ${JSON.stringify(text)}`).join('; ')
         : nav.paceLabels.map(([id, text]) => `${id} ${text}`).join(', '));
@@ -13530,6 +13540,13 @@ for (const [label, viewport, touch] of [
         return above();
       };
       api.setFly(false);
+      // ---- T-2651 (found on its desktop 7,13 run): setFly(false) only ASKS the walker to
+      // land on its next update. Part 7 ends at the aerial anchor (from_above, 175 m up),
+      // and in a 7,13 run nothing between lands it, so on a runner that drew no frame in
+      // between, the default was read at 175 m. Land it now, as the next update would:
+      // the claim is about standing, and this part establishes its own state (T-0369).
+      api.walker.setFlying(false);
+      // ---- end T-2651
       const dflt = above();
       const readoutAtDefault = document.getElementById('v-eye')?.textContent ?? '';
       const raised = await move(2.2);
@@ -13826,19 +13843,43 @@ for (const [label, viewport, touch] of [
       const WALK = api.walkBudget;
       const w = api.walker;
       const stored = () => JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').travelMode;
-      const modes = [...document.querySelectorAll('#s-travel .seg-btn')].map((b) => b.dataset.mode);
-      document.querySelector('#s-travel .seg-btn[data-mode="horse"]').click();
-      const chosen = { stored: stored(), mode: api.travel.mode,
-        on: document.querySelector('#s-travel .seg-btn.is-on')?.dataset.mode,
-        checked: document.querySelector('#s-travel .seg-btn[aria-checked="true"]')?.dataset.mode };
-      document.querySelector('#s-travel .seg-btn[data-mode="instantly"]').click();
-      const restored = { stored: stored(), mode: api.travel.mode };
+      // ---- T-2651: Move — one picker (Walk, Run, Wagon, Horse, Fly), one slider for
+      // the mode picked, and Go to's choice under them (Teleport, Ride there, Fly over).
+      const pick = (m) => document.querySelector(`#s-move .seg-btn[data-mode="${m}"]`).click();
+      const arrive = (a) => document.querySelector(`#s-arrive .seg-btn[data-arrive="${a}"]`).click();
+      const onMove = () => document.querySelector('#s-move .seg-btn.is-on')?.dataset.mode;
+      const modes = [...document.querySelectorAll('#s-move .seg-btn')].map((b) => b.dataset.mode);
+      const arrives = [...document.querySelectorAll('#s-arrive .seg-btn')].map((b) => b.textContent.trim());
+      const panel = document.querySelector('[data-panel="travel"]');
+      const shape = { ranges: panel.querySelectorAll('input[type="range"]').length,
+        gone: ['s-travel', 's-pace', 's-wagon-speed', 's-horse-speed'].filter((id) => document.getElementById(id)) };
+      pick('horse');
+      arrive('ride');
+      const chosen = { stored: stored(), mode: api.travel.mode, pace: api.hud.settings.pace,
+        on: document.querySelector('#s-arrive .seg-btn.is-on')?.dataset.arrive,
+        checked: document.querySelector('#s-arrive .seg-btn[aria-checked="true"]')?.dataset.arrive };
+      pick('wagon');
+      const follows = { stored: stored(), mode: api.travel.mode };
+      arrive('instantly');
+      pick('walk');
+      const restored = { stored: stored(), mode: api.travel.mode, pace: api.hud.settings.pace };
+      // Fly on the picker is the top bar's Walk/Fly key, and the slider steps aside.
+      pick('fly');
+      const flew = { flying: api.hud.flying, on: onMove(), pressed: document.getElementById('btn-fly')?.getAttribute('aria-pressed'),
+        sliderHidden: document.getElementById('move-speed-field')?.hidden === true };
+      pick('walk');
+      const landed = { flying: api.hud.flying, on: onMove(), sliderHidden: document.getElementById('move-speed-field')?.hidden === true };
+      api.setFly(true);
+      landed.viaKey = onMove();
+      api.setFly(false);
+      landed.afterKey = onMove();
+      // ---- end T-2651 (the picker); the slider is read below
       // The paces, read through the walker's WALK and its eye.
       const eye = () => +(w.state.eyeY - w.state.groundY).toFixed(3);
       api.setFly(false);
       api.walker.teleport({ local_e: -155.24, local_n: -251.19, yaw_deg: 0 });
       const paces = {};
-      for (const pace of ['horse', 'wagon', 'walk']) {
+      for (const pace of ['horse', 'wagon', 'run', 'walk']) {
         api.setPace(pace);
         paces[pace] = { speed: WALK.speed, sprint: WALK.sprintSpeed, eye: eye(),
           chip: document.getElementById('btn-pace')?.dataset.pace };
@@ -13847,18 +13888,32 @@ for (const [label, viewport, touch] of [
       // T-0823: each pace has its own slider, and the walker's WALK follows the
       // one for the pace in force. Read the three stored values, each slider's
       // ceiling, and what the readout SAYS as the horse's slider is dragged.
-      const sliders = { walk: api.hud.settings.speed, wagon: api.hud.settings.wagonSpeed, horse: api.hud.settings.horseSpeed };
-      const range = (id) => { const el = document.getElementById(id); return el && { min: Number(el.min), max: Number(el.max), value: Number(el.value) }; };
-      const drag = (id, v) => { const el = document.getElementById(id); el.value = String(v); el.dispatchEvent(new Event('input', { bubbles: true })); return document.getElementById(id.replace('s-', 'v-'))?.textContent.trim() ?? ''; };
-      const ranges = { walk: range('s-speed'), wagon: range('s-wagon-speed'), horse: range('s-horse-speed') };
-      api.setPace('horse');
+      const sliders = { walk: api.hud.settings.speed, run: api.hud.settings.runSpeed,
+        wagon: api.hud.settings.wagonSpeed, horse: api.hud.settings.horseSpeed };
+      // ---- T-2651: the ONE slider, #s-speed, takes the picked mode's range, value,
+      // label and named speed; dragging it moves only that mode's stored value.
+      const one = () => { const el = document.getElementById('s-speed');
+        return { min: Number(el.min), max: Number(el.max), value: Number(el.value),
+          label: document.getElementById('move-speed-label')?.textContent.trim() }; };
+      const drag = (v) => { const el = document.getElementById('s-speed'); el.value = String(v);
+        el.dispatchEvent(new Event('input', { bubbles: true })); return document.getElementById('v-speed')?.textContent.trim() ?? ''; };
+      const ranges = {};
+      for (const m of ['walk', 'run', 'wagon', 'horse']) { pick(m); ranges[m] = one(); }
+      pick('horse');
       const before = api.hud.settings.horseSpeed;
-      const gaits = { canter: drag('s-horse-speed', 6.5), gallop: drag('s-horse-speed', 10), top: drag('s-horse-speed', 26.82) };
+      const gaits = { canter: drag(6.5), gallop: drag(10), top: drag(26.82) };
       const atTop = { speed: WALK.speed, sprint: WALK.sprintSpeed };
-      drag('s-horse-speed', before);
-      const afterDrag = { speed: WALK.speed, sprint: WALK.sprintSpeed };
-      gaits.walkWord = drag('s-speed', api.hud.settings.speed);
-      gaits.wagonWord = drag('s-wagon-speed', api.hud.settings.wagonSpeed);
+      drag(before);
+      const afterDrag = { speed: WALK.speed, sprint: WALK.sprintSpeed, others: [api.hud.settings.speed, api.hud.settings.wagonSpeed] };
+      pick('walk');
+      gaits.walkWord = drag(api.hud.settings.speed);
+      pick('run');
+      gaits.runWord = drag(api.hud.settings.runSpeed);
+      pick('wagon');
+      const wagonWas = api.hud.settings.wagonSpeed;
+      gaits.rattling = drag(10.97);
+      gaits.wagonWord = drag(wagonWas);
+      // ---- end T-2651 (the slider)
       api.setPace('walk');
       const eyeSetting = api.hud.settings.eyeHeight;
       // The gait: horse, own input forward on a street, peak over one second.
@@ -13870,7 +13925,7 @@ for (const [label, viewport, touch] of [
       bobBox.click();
       const back = { setting: api.hud.settings.headBob, checked: bobBox.checked };
       api.setPace('walk');
-      return { modes, chosen, restored, paces, slider, sliders, ranges, gaits, atTop, afterDrag, eyeSetting, on, off, back };
+      return { modes, arrives, shape, chosen, follows, restored, flew, landed, paces, slider, sliders, ranges, gaits, atTop, afterDrag, eyeSetting, on, off, back };
     }, gaitLoop);
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const reduced = await page.evaluate((loop) => {
@@ -13881,13 +13936,23 @@ for (const [label, viewport, touch] of [
       return r;
     }, gaitLoop);
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    check(`${label}: Travel offers instantly, walk, wagon, horse and fly`,
-      travelUi.modes.join(',') === 'instantly,walk,wagon,horse,fly', travelUi.modes.join(','));
-    check(`${label}: the travel mode chosen is the one the walker rides and the one stored`,
-      travelUi.chosen.stored === 'horse' && travelUi.chosen.mode === 'horse'
-      && travelUi.chosen.on === 'horse' && travelUi.chosen.checked === 'horse'
-      && travelUi.restored.stored === 'instantly' && travelUi.restored.mode === 'instantly',
-      `${JSON.stringify(travelUi.chosen)} -> ${JSON.stringify(travelUi.restored)}`);
+    // ---- T-2651: Move — one picker, Go to's choice under it, Fly the top bar's Fly.
+    check(`${label}: Move offers one picker, Walk, Run, Wagon, Horse or Fly, one slider, and the old pickers and sliders are gone`,
+      travelUi.modes.join(',') === 'walk,run,wagon,horse,fly' && travelUi.shape.ranges === 1 && travelUi.shape.gone.length === 0,
+      JSON.stringify({ modes: travelUi.modes, shape: travelUi.shape }));
+    check(`${label}: Go to's choice is Teleport, Ride there or Fly over; Ride there rides at the mode picked, follows it, and is the one stored`,
+      travelUi.arrives.join(',') === 'Teleport,Ride there,Fly over'
+      && travelUi.chosen.stored === 'horse' && travelUi.chosen.mode === 'horse' && travelUi.chosen.pace === 'horse'
+      && travelUi.chosen.on === 'ride' && travelUi.chosen.checked === 'ride'
+      && travelUi.follows.stored === 'wagon' && travelUi.follows.mode === 'wagon'
+      && travelUi.restored.stored === 'instantly' && travelUi.restored.mode === 'instantly' && travelUi.restored.pace === 'walk',
+      `${JSON.stringify(travelUi.chosen)} -> ${JSON.stringify(travelUi.follows)} -> ${JSON.stringify(travelUi.restored)}`);
+    check(`${label}: Fly on the picker is the top bar's Walk/Fly key, the slider steps aside, and the key shows on the picker`,
+      travelUi.flew.flying === true && travelUi.flew.on === 'fly' && travelUi.flew.pressed === 'true' && travelUi.flew.sliderHidden
+      && travelUi.landed.flying === false && travelUi.landed.on === 'walk' && !travelUi.landed.sliderHidden
+      && travelUi.landed.viaKey === 'fly' && travelUi.landed.afterKey === 'walk',
+      JSON.stringify({ flew: travelUi.flew, landed: travelUi.landed }));
+    // ---- end T-2651 (the picker)
     // T-0823 RESTATED, NOT WEAKENED. The horse's 6.5/11 and the wagon's 3.6 were
     // constants; each pace now has its own slider, so the claim is that WALK
     // follows THAT pace's stored value — sprint = value × factor (2.28 on foot,
@@ -13903,17 +13968,28 @@ for (const [label, viewport, touch] of [
       && Math.abs(travelUi.paces.wagon.eye - (travelUi.eyeSetting + 0.5)) < 0.01
       && near(travelUi.paces.walk.speed, sp.walk) && near(travelUi.paces.walk.sprint, Math.min(sp.walk * 2.28, 8.94))
       && Math.abs(travelUi.paces.walk.eye - travelUi.eyeSetting) < 0.01
-      && sp.walk === 1.45 && sp.wagon === 3.6 && sp.horse === 6.5
+      && near(travelUi.paces.run.speed, sp.run) && near(travelUi.paces.run.sprint, Math.min(sp.run * 1.6, 8.94))
+      && Math.abs(travelUi.paces.run.eye - travelUi.eyeSetting) < 0.01
+      && sp.walk === 1.45 && sp.run === 3.4 && sp.wagon === 3.6 && sp.horse === 6.5
       && travelUi.paces.horse.chip === 'horse' && travelUi.paces.walk.chip === 'walk',
       JSON.stringify({ ...travelUi.paces, sliders: sp, eye: travelUi.eyeSetting }));
-    check(`${label}: the three pace sliders top out at 20, 30 and 60 mph and name the gait as they move`,
-      travelUi.ranges.walk?.max === 8.94 && travelUi.ranges.wagon?.max === 13.41 && travelUi.ranges.horse?.max === 26.82
+    // ---- T-2651: the one slider takes each mode's range (T-0823's ceilings, Run's jog
+    // floor) and names the speed as it moves; dragging it moves that mode alone.
+    const rg = travelUi.ranges;
+    check(`${label}: the one slider takes the picked mode's range, 20, 20, 30 and 60 mph, and names the speed as it moves`,
+      rg.walk?.min === 0.5 && rg.walk?.max === 8.94 && rg.run?.min === 2.6 && rg.run?.max === 8.94
+      && rg.wagon?.max === 13.41 && rg.horse?.max === 26.82
+      && rg.walk.label === 'Walk speed' && rg.run.label === 'Run speed' && rg.wagon.label === 'Wagon speed' && rg.horse.label === 'Horse speed'
+      && near(rg.walk.value, sp.walk) && near(rg.run.value, sp.run) && near(rg.wagon.value, sp.wagon) && near(rg.horse.value, sp.horse)
       && /^canter · /.test(travelUi.gaits.canter) && /^gallop · /.test(travelUi.gaits.gallop)
       && /^beyond any horse · /.test(travelUi.gaits.top) && /60\.0 mph|96\.5 km\/h/.test(travelUi.gaits.top)
-      && /^walk · /.test(travelUi.gaits.walkWord) && /^steady roll · /.test(travelUi.gaits.wagonWord)
+      && /^walk · /.test(travelUi.gaits.walkWord) && /^jog · /.test(travelUi.gaits.runWord)
+      && /^rattling along · /.test(travelUi.gaits.rattling) && /^steady roll · /.test(travelUi.gaits.wagonWord)
       && travelUi.atTop.speed === 26.82 && travelUi.atTop.sprint === 26.82
-      && near(travelUi.afterDrag.speed, 6.5) && near(travelUi.afterDrag.sprint, 11.05),
-      JSON.stringify({ ranges: travelUi.ranges, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
+      && near(travelUi.afterDrag.speed, 6.5) && near(travelUi.afterDrag.sprint, 11.05)
+      && near(travelUi.afterDrag.others[0], sp.walk) && near(travelUi.afterDrag.others[1], sp.wagon),
+      JSON.stringify({ ranges: rg, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
+    // ---- end T-2651 (the slider)
     check(`${label}: the horse's gait moves the rider's eye a few centimetres, and stops when they do`,
       travelUi.on.peak >= 0.03 && travelUi.on.peak <= 0.10 && travelUi.on.after === 0
       && travelUi.on.speed > 1,
@@ -15143,6 +15219,98 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // ---- T-2663: Tour mode, the Field Check (QA-16, and QA-19's second half). Started from
+    // the section Guide opens; each step moves on only on its own action. Step 02's turn is
+    // a real drag on the touch build; with a mouse, pointer lock cannot be driven headless,
+    // so the camera is turned directly, as step 03's walk moves the walker directly (the
+    // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
+    // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
+    // cleanly; Replay starts again, and a full pass ends on Finish.
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
+    // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
+    await openSection('controls');
+    await clickChrome('#tour-start');
+    const tourView = () => page.evaluate(() => ({ shown: !document.getElementById('tour').hidden,
+      count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
+      waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
+      step: window.__chicago4d.tour.step }));
+    const tourWait = (n) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout: 8_000, polling: 100 }).catch(() => {});
+    const t1 = await tourView();
+    await clickChrome('#tour-next');
+    await tourWait(1);
+    const t2 = await tourView();
+    // 02: look around.
+    if (touch) {
+      for (let pass = 0; pass < 3; pass++) {
+        await page.evaluate(() => {
+          const c = window.__chicago4d.renderer?.domElement ?? document.querySelector('canvas'); const r = c.getBoundingClientRect();
+          const ev = (type, x) => c.dispatchEvent(new PointerEvent(type, { pointerId: 41, pointerType: 'touch', bubbles: true, cancelable: true, clientX: x, clientY: r.top + r.height * 0.45 }));
+          ev('pointerdown', r.left + r.width * 0.55); ev('pointermove', r.left + r.width * 0.75); ev('pointermove', r.left + r.width * 0.95); ev('pointerup', r.left + r.width * 0.95);
+          window.__chicago4d.step();
+        });
+      }
+    } else {
+      await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 0 }); });
+      await page.waitForTimeout(300);
+      await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 90 }); });
+    }
+    await tourWait(2);
+    const turned = await tourView();
+    // 03: walk five metres.
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e + 6, local_n: w.state.n, yaw_deg: 90 }); });
+    await tourWait(3);
+    const walked = await tourView();
+    const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('chicago4d.tour') || 'null'));
+    // Reload at 4: what a reload reads, resumed.
+    const resumed = await page.evaluate(() => window.__chicago4d.tour.resume() && window.__chicago4d.tour.step);
+    // 04: open a building's record. 05: go deeper (a card tab).
+    await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
+    await tourWait(4);
+    const inspected = await tourView();
+    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="record"]')?.click());
+    await tourWait(5);
+    const deeper = await tourView();
+    // Skip at 6.
+    await clickChrome('#tour-skip');
+    const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
+      dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
+    // Replay, and a full pass to Finish: 06 on the Confidence view chip, 07 on Finish.
+    await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
+    await clickChrome('#tour-next');
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
+    await tourWait(2);
+    await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e - 6, local_n: w.state.n, yaw_deg: 200 }); });
+    await tourWait(3);
+    await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
+    await tourWait(4);
+    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="images"]')?.click());
+    await tourWait(5);
+    await page.evaluate(() => window.__chicago4d.popup.close());
+    const confWas = await page.evaluate(() => window.__chicago4d.hud.confidenceOn);
+    await clickChrome('#btn-confidence');
+    await tourWait(6);
+    const last = await tourView();
+    await clickChrome('#tour-next');
+    const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
+      shown: !document.getElementById('tour').hidden }));
+    if (!confWas) await page.evaluate(() => window.__chicago4d.hud.setConfidence(false, { announce: false }));
+    // Back as it was found: no card, Home the Navigator's app, docked (the dock reopens its
+    // last app, and later parts expect Home).
+    await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.popup.close();
+      await api.navigator.select('home');
+      api.navigator.dock();
+    });
+    check(`${label}: the Field Check moves on only on each step's own action, resumes at 4, skips cleanly at 6, replays and finishes (T-2663)`,
+      t1.shown && t1.count === 'Field check · 1 / 7' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+      && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3 && /^Tap the /.test(walked.bubble ?? '')
+      && stored?.active === true && stored?.step === 3 && resumed === 3
+      && inspected.step === 4 && deeper.step === 5 && /Confidence view/.test(deeper.bubble ?? '')
+      && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
+      && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
+    // ---- end T-2663
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.
@@ -17310,6 +17478,46 @@ for (const [label, viewport, touch] of [
           && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
           && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
           JSON.stringify(inspectRecord).slice(0, 700));
+        // >>> T-2640 (QA-10): Show me on each Look for item of Glessner House turns the camera to
+        // the record's own view of the feature — its bearing and pitch, the house down the
+        // crosshair — and the outline shows for 2 s. Never aimed where the record names no camera.
+        const showMe = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          a.pick(id);
+          await a.navigator.select('inspect');
+          for (let i = 0; i < 100 && !document.querySelector('#nav-app-inspect .insp-showme'); i++) await new Promise((r) => setTimeout(r, 100));
+          const items = [...document.querySelectorAll('#nav-app-inspect .insp-look-item')];
+          const summaries = await a.inspectSummaries();
+          const look = summaries?.summaries?.[id]?.lookFor ?? [];
+          const out = { items: items.length, buttons: document.querySelectorAll('#nav-app-inspect .insp-showme').length, turns: [] };
+          a.popup.close();
+          for (let i = 0; i < items.length; i++) {
+            const btn = items[i].querySelector('.insp-showme');
+            if (!btn) continue;
+            const before = a.showMe.last?.at ?? -1;
+            btn.click();
+            for (let k = 0; k < 80 && (a.showMe.last?.at ?? -1) === before; k++) await new Promise((r) => setTimeout(r, 100));
+            // The outline is drawn on the frame after the camera lands (two animation frames), and
+            // a frame can take seconds on a loaded runner: wait for it, up to about 5 s.
+            for (let k = 0; k < 50 && document.getElementById('show-me-outline').hidden; k++) await new Promise((r) => setTimeout(r, 100));
+            a.target.invalidate();
+            const t = a.target.current(150);
+            const outline = document.getElementById('show-me-outline');
+            const want = look[i]?.camera ?? null;
+            const yaw = ((a.player.bearingDeg % 360) + 360) % 360;
+            out.turns.push({ feature: items[i].dataset.feature, want, yaw: +yaw.toFixed(1), pitch: +a.player.pitchDeg.toFixed(1),
+              aimed: t?.id ?? null, outline: !outline.hidden, pulsing: outline.classList.contains('is-pulsing') });
+          }
+          a.navigator.dock();
+          return out;
+        }, 'glessner_house');
+        const near = (x, y) => Math.abs(((x - y + 540) % 360) - 180) <= 2;
+        check(`${label}: Show me turns the camera to each Look for feature of Glessner House, and the outline shows (T-2640)`,
+          showMe.items === 3 && showMe.buttons === 3 && showMe.turns.length === 3
+          && showMe.turns.every((t) => t.want && near(t.yaw, t.want.yaw) && Math.abs(t.pitch - t.want.pitch) <= 2
+            && t.aimed === 'glessner_house' && t.outline),
+          JSON.stringify(showMe));
+        // <<< T-2640
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')

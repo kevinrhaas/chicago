@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 1953, ts: '2026-10-17T13:03:21.969Z', date: 'Oct 17, 2026, 8:03 AM CT', title: 'A sixty-second Field Check teaches the Navigator', kind: 'feature',
+    items: [
+      'Take the field check (in the section Guide opens) walks you through seven short steps: the Navigator, looking, walking, opening a building\'s file, going deeper, the Confidence view, and what to do next.',
+      'Each step waits until you actually do it. Skip is always there, and a highlight with the rest of the screen dimmed shows where to look.',
+      'If you reload partway through, the check picks up at the same step. You can take it again any time.',
+    ] },
+  { v: 1952, ts: '2026-10-17T12:43:56.988Z', date: 'Oct 17, 2026, 7:43 AM CT', title: 'Move: one picker for how you get about', kind: 'feature',
+    items: [
+      'The Travel tab is now Move. You pick Walk, Run, Wagon, Horse or Fly in one row, instead of answering two questions.',
+      'One slider sets the speed of the mode you picked. Its range changes with the mode, and it still names the speed as you drag, from a jog to rattling along to beyond any horse.',
+      'Run is new: on foot like Walk, with its own speed, starting at a jog.',
+      'Under the picker, choose what happens when you pick a place: Teleport, Ride there along the streets at your mode, or Fly over.',
+    ] },
+  { v: 1951, ts: '2026-10-17T12:34:52.161Z', date: 'Oct 17, 2026, 7:34 AM CT', title: 'Show me: Inspect turns your view to what to look for', kind: 'feature',
+    items: [
+      'In Inspect, each Look for line now has a Show me key, for example on Glessner House\'s great arch on 18th Street.',
+      'Tap it and your view glides in under a second to the spot the record names, facing the feature, and an amber outline pulses round the house for two seconds.',
+      'With reduced motion the view cuts there at once and the outline stays still. If you are flying, you come down to the viewpoint first.',
+      'Show me only appears where the building\'s record names a view of the feature. It never guesses one.',
+    ] },
   { v: 1950, ts: '2026-10-17T12:18:12.219Z', date: 'Oct 17, 2026, 7:18 AM CT', title: 'Guide explains the words we use', kind: 'feature',
     items: [
       'Guide in the Navigator now has a glossary of seven words, each with one plain line: Attested, Inferred, Reconstructed, Confidence view, Liberties, Sources and Jaunts.',

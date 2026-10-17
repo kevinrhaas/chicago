@@ -1615,6 +1615,7 @@ kbd {
 .field > span b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .field.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .field.row > span { margin: 0; }
+.field[hidden] { display: none; }
 .field input[type="range"] { width: 100%; accent-color: var(--accent); }
 .field select {
   padding: 5px 8px; border-radius: 8px;
