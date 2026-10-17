@@ -155,6 +155,8 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
+step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
+  node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \

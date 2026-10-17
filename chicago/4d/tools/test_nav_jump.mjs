@@ -138,7 +138,7 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   assert.match(css, /prefers-reduced-motion: reduce\) \{\s*\.nav-jump-ring, \.nav-jump-ring i \{ animation: none; \}/);
   assert.match(css, /\.nav-key[\s\S]*?background: var\(--signal/, 'the key is signal red');
   const main = readFileSync(path.join(web, 'js/main.js'), 'utf8');
-  assert.match(main, /#year-badge \.badge-year[\s\S]*navigatorUi\.select\('jump'\)/, 'the year chip opens Jump');
+  assert.match(main, /getElementById\('year-badge'\)\?\.addEventListener\('click', \(\) => \{ void navigatorUi\?\.select\('jump'\)/, 'the year chip opens Jump (T-2626\'s #year-badge button)');
 }
 
 console.log('NAV JUMP PASS — three era cards, HERE on yours; a pick runs the ring and the transfer stamp, then the page; Escape aborts; RECALL the one red key');
