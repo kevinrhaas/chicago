@@ -338,6 +338,26 @@ check('a geometry whose page arrays were freed is read from the range kept for i
   assert.ok(opaque.drawn.includes(unknown) && ghost.drawn.includes(unknown), 'no range: both passes');
 });
 
+check('when the ghosting ends, the next frame takes the ghost layer off everything it was put on', () => {
+  const v = C.createConfidenceView();
+  const t = town(v);
+  const r = recordingRenderer(), cam = new THREE.PerspectiveCamera();
+  const masks = () => { const m = []; t.scene.traverse((o) => m.push(o.layers.mask)); return m; };
+  const before = masks();
+  v.set(true);
+  v.setGrade('reconstructed', { mode: 'ghost' });
+  v.render(r, t.scene, cam);
+  assert.notDeepEqual(masks(), before, 'ghosting put objects on its layer');
+  v.resetGrades();
+  v.render(r, t.scene, cam);
+  assert.deepEqual(masks(), before, 'one plain frame later, every layer mask is as it was');
+  assert.equal(v.ghostStats.targets, 0);
+  // and a second ghost starts afresh
+  v.setGrade('inferred', { mode: 'ghost' });
+  v.render(r, t.scene, cam);
+  assert.ok(r.seen.at(-1).drawn.includes(t.mixed));
+});
+
 check('disposing a material disposes its twin', () => {
   const v = C.createConfidenceView();
   const t = town(v);

@@ -555,6 +555,7 @@ export function createConfidenceView({
   }
 
   let targets = [];
+  let lights = [];
   let builtFor = null;
   let builtAtPatch = -1;
   let framesSinceBuild = 0;
@@ -565,9 +566,11 @@ export function createConfidenceView({
   /** Every object with a patched material, and the lights, put on GHOST_LAYER. */
   function collectGhostTargets(scene) {
     for (const o of targets) o.layers.disable(GHOST_LAYER);
+    for (const o of lights) o.layers.disable(GHOST_LAYER);
     targets = [];
+    lights = [];
     scene.traverse((o) => {
-      if (o.isLight) { o.layers.enable(GHOST_LAYER); return; }
+      if (o.isLight) { o.layers.enable(GHOST_LAYER); lights.push(o); return; }
       if (!(o.isMesh || o.isPoints || o.isLine)) return;
       if (isPatched(o.material)) targets.push(o);
     });
@@ -613,6 +616,22 @@ export function createConfidenceView({
     ghostStats.opaqueSkipped = next.opaqueObjects.length
       + next.opaqueInstances.reduce((n, [, ids]) => n + ids.length, 0);
     ghostStats.ghostSkipped = next.ghostInstances.reduce((n, [, ids]) => n + ids.length, 0);
+  }
+  /**
+   * The ghosting has ended: take GHOST_LAYER back off every object and light it was
+   * put on, and drop the lists, so a town that has been ghosted is left exactly as
+   * one that never was (the next ghost walks the scene afresh).
+   */
+  function forgetGhost() {
+    for (const o of targets) o.layers.disable(GHOST_LAYER);
+    for (const o of plan.ghostTargets) o.layers.disable(GHOST_LAYER);
+    for (const o of lights) o.layers.disable(GHOST_LAYER);
+    targets = [];
+    lights = [];
+    plan = { opaqueObjects: [], opaqueInstances: [], ghostTargets: [], ghostInstances: [] };
+    builtFor = null;
+    planKey = '';
+    ghostStats.targets = 0;
   }
   /** Hide objects / instances for one pass; returns the function that puts them back. */
   function leaveOut(objects, instances) {
@@ -667,6 +686,8 @@ export function createConfidenceView({
 
   return {
     uniforms,
+    /** The camera layer the ghost pass draws on, for a reader that checks it is left clean. */
+    GHOST_LAYER,
     patch,
     ensureAttribute,
     census,
@@ -759,7 +780,11 @@ export function createConfidenceView({
      * 2-4 ms over the plain one, and 120 frames puts it under 1 ms over.
      */
     render(renderer, scene, camera) {
-      if (!this.ghosting) { renderer.render(scene, camera); return 0; }
+      if (!this.ghosting) {
+        if (builtFor) forgetGhost();
+        renderer.render(scene, camera);
+        return 0;
+      }
       framesSinceBuild += 1;
       if (builtFor !== scene || builtAtPatch !== patchCount || framesSinceBuild >= REBUILD_FRAMES) collectGhostTargets(scene);
       const key = JSON.stringify([this.modes, hidden]);

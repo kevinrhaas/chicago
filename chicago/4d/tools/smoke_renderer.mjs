@@ -7369,13 +7369,53 @@ for (const [label, viewport, touch] of [
       d.worst >= 6 && d.mean >= 0.6,
       `cell delta mean ${d.mean?.toFixed(2)}, worst ${d.worst} (need worst>=6)`);
 
+    await page.evaluate(() => window.__chicago4d.setConfidenceView(false));
+    const back = await page.evaluate(() => window.__chicago4d.capture());
+    const dBack = signatureDistance(off, back);
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    // With the clock held these are two captures of one unchanged scene, so the
+    // restored frame should be the SAME frame. The residual left is readback
+    // noise, not weather; a confidence tint left enabled changes the mean
+    // broadly (the assertion immediately above pins that at >= 0.6).
+    check(`${label}: turning it off restores the render`,
+      dBack.mean <= 0.1 && dBack.worst <= 3,
+      `residual mean ${dBack.mean?.toFixed(2)}, worst-cell delta ${dBack.worst}`);
+
     // T-2646: every grade's look is its own — tint, dither or ghost, at any
-    // opacity, from the view's test hook. X-RAY (Inferred ghosted at 50 %,
+    // opacity, from the view's test hook. This runs AFTER the restore check above,
+    // so that check keeps the timing it was written for. With these steps between
+    // its two captures, a desktop runner read a residual of 0.18 / worst 10 there
+    // (#921, run 38995642080) that did not reproduce here: the same sequence, run
+    // locally at 1280x800 with and without the ghost pass, read the two `off`
+    // frames identical. On a loaded runner these ghost frames take tens of seconds,
+    // long enough for the town's own asynchronous work to change a cell, so the
+    // pixel comparison is the wrong instrument for a leak. What the ghost pass could
+    // leave behind is asserted directly instead, after the view is off again: no
+    // object still on the ghost layer, no ghost twin left on any mesh, and the
+    // renderer, camera and scene settings it touches as they were. X-RAY (Inferred ghosted at 50 %,
     // Reconstructed at 25 %) draws the ghosts in a pass of their own, after the
     // frame, and the frame's draw calls — both passes, renderer.info counts them
     // together — must still sit inside the budget. A dithered Attested must
     // change the frame too, and putting every look back must give back the
     // BY GRADE frame exactly.
+    const ghostState = () => page.evaluate(() => {
+      const a = window.__chicago4d, r = a.renderer, bit = (1 << a.confidence.GHOST_LAYER) >>> 0;
+      const onLayer = [], twins = [];
+      a.scene3d.traverse((o) => {
+        if ((o.layers.mask & bit) !== 0) onLayer.push(o.name || o.type);
+        for (const m of [].concat(o.material ?? [])) {
+          if (m && 'CHICAGO_GHOST_PASS' in (m.defines ?? {})) twins.push(o.name || o.type);
+        }
+      });
+      return JSON.stringify({ onLayer: onLayer.slice(0, 5), onLayerCount: onLayer.length,
+        twins: twins.slice(0, 5), twinCount: twins.length, autoClear: r.autoClear,
+        shadow: r.shadowMap.autoUpdate, reset: r.info.autoReset, mask: a.camera.layers.mask,
+        bg: a.scene3d.background?.uuid ?? String(a.scene3d.background) });
+    });
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    const stateBefore = await ghostState();
+    await page.evaluate(() => window.__chicago4d.setConfidenceView(true));
+    const onAgain = await page.evaluate(() => window.__chicago4d.capture());
     const xray = await page.evaluate(() => {
       const a = window.__chicago4d, c = a.confidence;
       c.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
@@ -7386,7 +7426,7 @@ for (const [label, viewport, touch] of [
                ghost: c.ghostStats, modes: c.modes };
     });
     const xrayFrame = await page.evaluate(() => window.__chicago4d.capture());
-    const dXray = signatureDistance(on, xrayFrame);
+    const dXray = signatureDistance(onAgain, xrayFrame);
     check(`${label}: X-RAY ghosts two grades in a pass drawn last, inside the draw budget (T-2646)`,
       xray.ghosting === true && xray.ghost.lastCalls > 0 && xray.calls <= xray.budget,
       JSON.stringify(xray));
@@ -7400,10 +7440,10 @@ for (const [label, viewport, touch] of [
       c.setGrade('inferred', { mode: 'dither', opacity: 0.3 });
     });
     const ditherFrame = await page.evaluate(() => window.__chicago4d.capture());
-    const dDither = signatureDistance(on, ditherFrame);
+    const dDither = signatureDistance(onAgain, ditherFrame);
     const resetLooks = await page.evaluate(() => window.__chicago4d.confidence.resetGrades());
     const backToGrade = await page.evaluate(() => window.__chicago4d.capture());
-    const dBackToGrade = signatureDistance(on, backToGrade);
+    const dBackToGrade = signatureDistance(onAgain, backToGrade);
     check(`${label}: dithering Attested and Inferred changes the BY GRADE frame (T-2646)`,
       dDither.worst >= 6,
       `cell delta mean ${dDither.mean?.toFixed(2)}, worst ${dDither.worst} (need worst>=6)`);
@@ -7411,18 +7451,14 @@ for (const [label, viewport, touch] of [
       dBackToGrade.mean <= 0.1 && dBackToGrade.worst <= 3
         && resetLooks.reconstructed.mode === 'dither' && resetLooks.attested.mode === 'tint',
       `residual mean ${dBackToGrade.mean?.toFixed(2)}, worst ${dBackToGrade.worst}; ${JSON.stringify(resetLooks)}`);
-
     await page.evaluate(() => window.__chicago4d.setConfidenceView(false));
-    const back = await page.evaluate(() => window.__chicago4d.capture());
-    const dBack = signatureDistance(off, back);
+    await page.evaluate(() => window.__chicago4d.capture());
+    const stateAfter = await ghostState();
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
-    // With the clock held these are two captures of one unchanged scene, so the
-    // restored frame should be the SAME frame. The residual left is readback
-    // noise, not weather; a confidence tint left enabled changes the mean
-    // broadly (the assertion immediately above pins that at >= 0.6).
-    check(`${label}: turning it off restores the render`,
-      dBack.mean <= 0.1 && dBack.worst <= 3,
-      `residual mean ${dBack.mean?.toFixed(2)}, worst-cell delta ${dBack.worst}`);
+    check(`${label}: the ghost pass leaves no layer, twin material or renderer setting behind (T-2646)`,
+      stateAfter === stateBefore && JSON.parse(stateAfter).onLayerCount === 0
+        && JSON.parse(stateAfter).twinCount === 0,
+      `before ${stateBefore}; after ${stateAfter}`);
 
     // --- the confidence machinery is INERT when nothing is switched on -------
     //
