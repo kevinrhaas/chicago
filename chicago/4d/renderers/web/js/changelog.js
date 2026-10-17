@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1911, ts: '2026-10-17T03:17:35.486Z', date: 'Oct 16, 2026, 10:17 PM CT', title: 'Every caption and summary is checked for an 8th-grade reading level', kind: 'chore',
+    items: [
+      'Every building summary, fact, time-stream caption and tour bubble is now scored for reading level before it can ship. Copy must read at grade 9 or easier, with no sentence over 20 words, and tour bubbles stay at 14 words or fewer.',
+      'Six lines of the Glessner House summary were split or reworded to pass, with the same facts and sources. One is the note under its owner, which now reads in three short sentences. The arrival\'s time-stream captions already passed.',
+    ] },
   { v: 1910, ts: '2026-10-17T03:00:37.058Z', date: 'Oct 16, 2026, 10:00 PM CT', title: 'The prairie\'s planting grid now has a graphics-card version', kind: 'chore',
     items: [
       'Nothing you can see changed. The grid that decides where each grass tuft, flower and shrub stands now has a graphics-card version, ready for the near grass to be drawn without the phone\'s processor laying it out at every step.',
