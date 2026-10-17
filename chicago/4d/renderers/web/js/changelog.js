@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1924, ts: '2026-10-17T06:27:11.355Z', date: 'Oct 17, 2026, 1:27 AM CT', title: 'The distant ground arrives ready-made', kind: 'change',
+    items: [
+      'The ground that stretches to the horizon is now laid and cut when the site is published, so a phone no longer builds it each time the town opens. That removes about half a second of work from opening the town on the phone profile.',
+      'It adds 0.7 MB to the first download and still fits the 29 MB budget. On a data-saving or slow connection the browser builds the ground itself instead.',
+    ] },
   { v: 1923, ts: '2026-10-17T05:55:19.873Z', date: 'Oct 17, 2026, 12:55 AM CT', title: 'Turning in place costs a third less as the prairie is redealt', kind: 'improvement',
     items: [
       'Whether a patch of ground is water, a floor, a trodden street verge, and how high it stands, are now answered in the background beside its plant community.',
