@@ -91,6 +91,9 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
+import { createNavigator } from './navigator.js';
+import { createTarget } from './target.js';
+import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
@@ -3730,6 +3733,8 @@ async function boot() {
 
   // ---- gate ------------------------------------------------------------- //
 
+  // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
+  let navigatorUi = null, target = null;
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3748,6 +3753,10 @@ async function boot() {
     hudRoot.inert = false;
     hud.show();
     if (firstEntry) hud.restore();
+    // T-2617: into the town with the Navigator docked (§07: Free roam docks it), and
+    // the probe looks again at whatever the eye has just been set down in front of.
+    navigatorUi?.dock();
+    target?.invalidate();
     backends.activate(coarse ? touch : pointerlock);
     if (firstEntry) hud.showControlHelp({ auto: true });
     // Audio requires the entry gesture; movement capture requires a later one.
@@ -3858,6 +3867,40 @@ async function boot() {
     },
     hasEntered: () => enteredWorld,
   });
+
+  // ---- the Navigator (T-2617) ------------------------------------------- //
+  // RIGHT IN FRONT OF YOU is inspect()'s own aim "down the crosshair" (no point
+  // given), over the structure layers whose hits carry a building record, nearest
+  // first, within 40 m. target.js decides when to look; T-2627 and T-2638 read it too.
+  target = createTarget({
+    pick: () => {
+      let best = null;
+      for (const layer of [buildings, enclosures, frontage]) {
+        const hit = layer?.pickAt?.(null, camera);
+        if (!hit) continue;
+        const record = loaded.registry.get(hit.id) ?? hit.record ?? null;
+        if (!record) continue;
+        if (!best || hit.distance < best.distance) best = { id: hit.id, record, distance: hit.distance };
+      }
+      return best;
+    },
+    pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
+  });
+  api.target = target;
+  navigatorUi = createNavigator({
+    root: document.getElementById('navigator'),
+    scene: loaded.scene,
+    hud,
+    target,
+    where: createWhere({ streets, grid: streetGrid?.grid ?? null }),
+    pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
+    jaunt: () => jauntRuntime?.state ?? null,
+    move: () => ({ flying: hud.flying, pace: hud.settings.pace, riding: (travel?.state?.phase ?? 'idle') !== 'idle' }),
+    confidence: () => hud.confidenceOn,
+    units: () => hud.settings.units,
+    onInspect: (id) => pick(id),
+  });
+  api.navigator = navigatorUi;
 
   // ---- resize ----------------------------------------------------------- //
 
@@ -4016,6 +4059,7 @@ async function boot() {
     api.player.flying = st.flying;
     hud.setAltitude(st.altitude);
     navigation.update({ e: st.e, n: st.n, bearingDeg: walker.bearingDeg });
+    if (!gateOpen) { target?.tick(performance.now()); navigatorUi?.update(); }
 
     // Wall-clock, not the clamped dt: a clamped dt reports a healthy 20 fps on
     // a machine that is actually drawing three frames a second.
