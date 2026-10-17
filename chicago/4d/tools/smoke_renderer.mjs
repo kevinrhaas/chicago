@@ -10403,7 +10403,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: no horizontal overflow`, chrome.overflow);
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
-    const guide = await page.evaluate(() => {
+    const guide = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const sheet = document.querySelector('#nav-app-guide #guide-controls');
       const list = sheet?.querySelector('dl');
@@ -10416,7 +10416,7 @@ for (const [label, viewport, touch] of [
         snake: /[a-z0-9]+_[a-z0-9]+/i.test(sheet?.textContent ?? '') };
       // Put the device back as it was found: Home its app, docked. The dock remembers its
       // last app, and T-2619's checks in part 13 expect it to open on Home.
-      api.navigator.select('home');
+      await api.navigator.select('home');
       api.navigator.dock();
       return out;
     });
@@ -13205,7 +13205,7 @@ for (const [label, viewport, touch] of [
       && reopenedGuide.label === 'Show the controls' && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
     // Back as it was found: Home, docked (T-2619's dock opens on its last app).
-    await page.evaluate(() => { window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     // ---- end T-2661 (part 12)
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
