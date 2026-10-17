@@ -58,6 +58,8 @@ const DEFAULT_SETTINGS = {
   season: 'summer',
   // T-2473: the 1904 parkway elms, 'shown' or 'hidden'.
   streetTrees: 'shown',
+  // T-2692: the 1904 parcel lines on the ground, 'hidden' or 'shown'.
+  lotLines: 'hidden',
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, run, wagon, horse) and
@@ -585,10 +587,15 @@ export function createHud({
   wireSelect('s-governor', 'governor', 'adaptive');
   wireSelect('s-season', 'season', 'summer');
   wireSelect('s-street-trees', 'streetTrees', 'shown');
+  wireSelect('s-lot-lines', 'lotLines', 'hidden');
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
   wireToggle('s-look-tag', 'lookTag');
+  // T-2741: the toggle names the scene's own year — "1904 / current street names" — not
+  // the 1835 it said in every year.
+  const streetNamesLabel = $('s-street-names-label');
+  if (streetNamesLabel && scene?.id) streetNamesLabel.textContent = `${scene.id} / current street names`;
 
   // ---- Move: how you move, its speed, and how Go to takes you there (T-2651) ----
   //
@@ -790,6 +797,15 @@ export function createHud({
     travelBanner,
     setPace,
     setTravelMode,
+    /** T-2741: flip a Show toggle from outside Settings (the compass's street button), so
+     *  the checkbox, the stored choice and the scene all move together. */
+    setToggle(key, on) {
+      settings[key] = !!on;
+      const box = { streetNames: 's-street-names', compass: 's-compass', overviewMap: 's-overview-map' }[key];
+      if (box && $(box)) $(box).checked = !!on;
+      onSetting?.(key, settings[key]);
+      store(SET_KEY, JSON.stringify(settings));
+    },
     setMoveMode,
     paintMove,
     /** The getting-there choice, for Go to, the Map and Jaunts (T-2652). */

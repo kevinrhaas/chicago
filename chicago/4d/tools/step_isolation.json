@@ -2624,6 +2624,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/build_modern_streets.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/build_order_book_1835.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5563,6 +5567,10 @@
       "wrote_ignored": []
     },
     "tools/test_merge_ready.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_modern_streets.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
