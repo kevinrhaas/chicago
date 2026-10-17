@@ -3,7 +3,7 @@
  * owns firm identity and scene-date location; fallback rows are explicitly derived.
  */
 import { displayName, searchTerms } from './display-name.js';
-import { KINDS, placeKind, presenceGrade } from './place-kinds.js';
+import { KINDS, placeKind, structureGrade } from './place-kinds.js';
 
 export const normal = value => String(value ?? '').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const words = value => String(value ?? '').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
@@ -39,7 +39,7 @@ export function createDestinations({ scene, index, registry, people, positionOf,
     const s = record?.sidecar ?? {}, name = displayName(s, id), group = placeKind(s, id, name), pos = position(id);
     const fn = words(s.attributes?.function?.value).split(';')[0].trim().replace(/^tavern inn$/, 'tavern & inn');
     targets.push({ kind: 'structure', group, id, label: name.title, sub: fn || labels[group],
-      presence: presenceGrade(s), position: s.placement?.position_confidence || 'reconstructed',
+      presence: structureGrade(s), position: s.placement?.position_confidence || 'reconstructed',
       e: pos?.e, n: pos?.n, limit: pos ? null : 'No known address',
       search: normal([searchTerms(s, id), fn, labels[group]].filter(Boolean).join(' ')) });
   }

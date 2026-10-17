@@ -10,6 +10,13 @@
   "asset": "gltf/mark_kimball_house_2108_prairie_coach_house__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "a20-glessner-rees-coach-house-2014"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

@@ -134,7 +134,9 @@ function collectMeshes(structureNode) {
  * grade, unclamped. What changes is only what the SHAPE in front of you claims.
  */
 function existenceFloor(record) {
-  const grade = record?.sidecar?.documented_range?.confidence;
+  // The structure's own grade where it has one (T-2686): a building a picture shows
+  // is not dithered as an invention, whatever its stood-here grade says.
+  const grade = record?.sidecar?.grade?.value ?? record?.sidecar?.documented_range?.confidence;
   if (grade === 'reconstructed') return { force: 1.0 };
   if (grade === 'attested' || grade === 'inferred') return { ceiling: 0.5 };
   // No stated existence grade: leave the channel exactly as authored rather

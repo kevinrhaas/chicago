@@ -9,6 +9,18 @@
   "asset": "gltf/elbridge_keith_house_1900_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 6 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a19-cgy-1900-keith-2024",
+      "a19-cgy-1900-keith-exterior",
+      "a19-cgy-1906-keith-photo",
+      "a19-gh-keith-1900-historic",
+      "a19-gh-prairie-1800-1900-elevations",
+      "a19-nrhp-keith-1972-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

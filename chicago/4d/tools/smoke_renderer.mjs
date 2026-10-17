@@ -2215,7 +2215,8 @@ for (const [label, viewport, touch] of [
           streetGrades: (() => {
             const out = { attested: [], inferred: [], reconstructed: [], wornInvented: 0 };
             for (const rec of a.streets.records) {
-              (out[rec.geometry_confidence] ?? out.reconstructed).push(rec.id);
+              // The ribbon's grade (T-2686): the street's own, else its line's.
+              (out[rec.grade?.value ?? rec.geometry_confidence] ?? out.reconstructed).push(rec.id);
               if (rec.wear_confidence === 'reconstructed'
                 || rec.surface_confidence === 'reconstructed') out.wornInvented += 1;
             }
@@ -13316,13 +13317,14 @@ for (const [label, viewport, touch] of [
     // position grade did not leave the row — it moved to `data-jump-position`
     // and is compared record for record as before. The presence rule is
     // inlined here rather than imported, so the gate cannot agree with the app
-    // by sharing its mistake: `documented_range.confidence`, else the position
-    // grade, else `reconstructed`.
+    // by sharing its mistake: the structure's own `grade` (T-2686, AGENTS.md
+    // rule 12 — pictured, recorded, or placed by our reconstruction), else
+    // `documented_range.confidence`, else the position grade, else `reconstructed`.
     const jumps = await page.evaluate(() => {
       const api = window.__chicago4d;
       const input = document.getElementById('jump-search');
       const registry = api.registry;
-      const presenceOf = (s) => s?.documented_range?.confidence
+      const presenceOf = (s) => s?.grade?.value || s?.documented_range?.confidence
         || s?.placement?.position_confidence || 'reconstructed';
       const positionOf = (s) => s?.placement?.position_confidence || 'reconstructed';
       const rowsNow = () => [...document.querySelectorAll('#jump-results .jump-result')];

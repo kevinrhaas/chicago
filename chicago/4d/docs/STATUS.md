@@ -1,3 +1,24 @@
+## T-2558 — H0, the WebGPU bake-off, measured (2026-10-16)
+
+Nothing in the town changed. RENDERING.md's H0 spike ran for the first time: three's
+WebGPURenderer with the confidence view as a TSL node, on the eleven 1904 structures within
+60 m of Glessner House, against walk/'s own engine (WebGLRenderer + `confidence.js`) on the
+identical block, at the phone profile and desktop. The kill criteria were committed to
+RENDERING.md § 8 before the spike code; the memo answers them there.
+
+**Verdict: NO-GO for H1 as measured, on K5 (memory) alone.** Boots, assets, the confidence
+view's pixels, capture parity, the WebGL2 fallback and the moving frame time all pass. At
+the phone profile the WebGPU page held 494.0 MiB against the baseline's 447.7 MiB: a 2048²
+colour attachment on the shadow map (16 MiB), a half-float MSAA output pipeline (17 MiB),
+and a 39.5 MiB shortfall in the GL meter's reading of the baseline that is not explained
+(written onto T-2602, since walk/'s own memory ceilings stand on that meter).
+
+**Unverified, said plainly:** every millisecond here is SwiftShader, a software rasteriser,
+so K6's 0.31× is a ratio on the steward runner and not a phone's frame time. TRAA under
+motion was not built and is moved to H1's entry. The spike (`renderers/web-hd/`) is not
+published. [The memo](RENDERING.md#h0--the-bake-off-memo-t-2558-2026-10-16) ·
+[the reading](measurements/t-2558-h0-bakeoff.json).
+
 ## T-2635 — the building summary record and its gate (2026-10-16)
 
 Design doc "Field Navigator Mk II" §12. `data/summary.schema.json` shapes the authored

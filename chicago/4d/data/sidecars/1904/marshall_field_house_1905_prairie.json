@@ -9,6 +9,28 @@
   "asset": "gltf/marshall_field_house_1905_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 16 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a19-cgy-1905-field-1893-engraving",
+      "a19-cgy-1905-field-1955",
+      "a19-cgy-1905-field-923",
+      "a19-cgy-1905-field-school",
+      "a19-cgy-1905-field-tribune-1955",
+      "a19-cgy-1905-field-winter",
+      "a19-field-cdn-dn0003324",
+      "a19-gh-1981-donnelley-warehouse-1905-site",
+      "a19-gh-field-g85-1-15-38",
+      "a19-gh-prairie-1800-1900-elevations",
+      "a19-nby-newchicagoalbum-1883-residences",
+      "a19-pictorial-1893-field",
+      "a19-pictorial-1896-field",
+      "cgs-1905-tribune-1955-remnants",
+      "cgs-tribune-1898-01-09-death-strip",
+      "nps-1905-tribune-1928-06-03-famous-homes-field-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

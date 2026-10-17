@@ -9,6 +9,14 @@
   "asset": "gltf/dent_house_1823_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-cgy-1823-dent-engraving",
+      "a19-nby-newchicagoalbum-1883-residences"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",

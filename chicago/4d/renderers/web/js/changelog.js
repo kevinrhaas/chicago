@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 1894, ts: '2026-10-16T22:31:30.529Z', date: 'Oct 16, 2026, 5:31 PM CT', title: 'The plank walks and fences arrive ready-made', kind: 'improvement',
+    items: [
+      'The town\'s plank walks, crossings, fences, posts and stoops are now built once, when the site is published, and downloaded ready to draw. Your device used to build them itself at every visit.',
+      'On a phone-speed processor that part of opening the town drops from about 3.3 seconds to under one, and the page stops freezing while it happens.',
+      'A first visit downloads about 7 MB more to pay for it. If the ready-made copy is missing or does not match this version of the town, the page builds its own as before.',
+    ] },
+  { v: 1893, ts: '2026-10-16T22:26:23.026Z', date: 'Oct 16, 2026, 5:26 PM CT', title: 'Every building is graded by whether a picture of it exists', kind: 'change',
+    items: [
+      'A building is now Attested when a photograph, print or drawing shows it whole, Inferred when only maps or written records say it stood, and Reconstructed when our reconstruction of the town placed it.',
+      'Every card opens with that grade and the reason for it. The Confidence menu\'s counts and the Go to list use it too.',
+      'On Prairie Avenue in 1904, 59 buildings are Attested by their pictures. The other 92 are known from the Sanborn map and records, so they are Inferred until a picture of them turns up.',
+      'In 1835 the Sauganash, the Green Tree and the Dearborn Street drawbridge are Attested. Every street drawn on the 1830 plat or the 1834 surveys is now Attested too.',
+      'Each detail on a card keeps its own grade, as before.',
+    ] },
+  { v: 1892, ts: '2026-10-16T22:18:30.015Z', date: 'Oct 16, 2026, 5:18 PM CT', title: 'Grades now read gold, silver and bronze everywhere', kind: 'change',
+    items: [
+      'Attested is gold, Inferred is silver and Reconstructed is bronze, a clear brown that no longer looks like a darker gold. The same three colours mark every grade: the dots on a building card, the chips on a person, the legend, the census bars and the Confidence chip and menu in the HUD.',
+      'With the Confidence view on, the town is tinted to match. Attested buildings and ground turn gold, Inferred ones silver, and Reconstructed ones bronze under their dither.',
+      'Each colour has a light-theme and a dark-theme value that stays readable on every machine\'s panel, and the three stay apart for the common kinds of colour blindness.',
+      'A person card\'s Attested and Inferred chips no longer sit on a solid block of their own colour, which had made their words hard to read.',
+    ] },
+  { v: 1891, ts: '2026-10-16T21:58:45.833Z', date: 'Oct 16, 2026, 4:58 PM CT', title: 'A stalled jump says where it stopped, and offers two ways on', kind: 'fix',
+    items: [
+      'If the town fails to load, the arrival now reads "The jump stalled somewhere around 1992.", using the year the ticker had reached.',
+      'TRY AGAIN reloads your destination; BACK TO THE OBSERVATORY takes you home to pick another.',
+      'What failed to load is folded away under "Details for your teacher", so the screen no longer shows file addresses or error text.',
+    ] },
   { v: 1890, ts: '2026-10-16T21:52:42.846Z', date: 'Oct 16, 2026, 4:52 PM CT', title: 'Keith\'s rooftop lattice sits down on its moulded course', kind: 'fix',
     items: [
       'At 1808 Prairie, the pierced lattice, its coping and the corner pinnacles now stand 0.2 m lower, seated on the moulded course just above the carved boss.',
