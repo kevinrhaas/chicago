@@ -159,8 +159,9 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 33.7 MB**, re-set on 2026-10-17 by T-2710 for the prebuilt
-streets (§ 4i). T-2693 had set it at 29 MB the same day for the prebuilt ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
+**The boot payload budget is 36.2 MB**, re-set on 2026-10-17 by T-2711 for the prebuilt
+yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
+T-2693 at 29 MB for the prebuilt ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
 (§ 4f). T-1973 had set it at 13 MB on 2026-10-02 for the reasons in
 § 4a. It was set at 12 MB, 1.66× the measured 7.223 MB:
 tight enough that a careless import into `walk/js/` or an unmetered new boot
@@ -172,7 +173,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 33.7 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 36.2 MB budget
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -625,10 +626,71 @@ or an unmetered boot fetch still shows against under 1 MB. **Shipping one layout
 (T-2709) still have to measure their own bytes against this number. The lever § 4g names —
 ship the partition, not the float32 vertices — applies here too.
 
+### 4j. The yards ship prebuilt, re-measured 2026-10-17 (T-2711) — and the budget is 36.2 MB
+
+T-2705's third piece. The yards' five surfaces (worn and trodden earth, the dooryard green,
+the garden beds and the road earth at the doors: 1,155 fenced interiors, 86,738 cells) were
+laid on the heightfield, given normals and cut into 932 pieces at every boot.
+`tools/publish.sh` now runs yards.js's own `createFencedGround` in Node over enclosures.js's
+own records (`tools/prebuild_layers.mjs --layer yards`, byte-equal to the page since T-2704)
+and writes `data/prebuilt/1835/yards.json` (the index, 0.09 MB) and `yards.bin.gz` (28.1 MB
+raw, 3.22 MB gzipped twice). The page batches the pieces when every enclosure record and the
+heightfield it read hash to what the index lists, and lays its own otherwise (yards.js § THE
+YARDS, PREBUILT). The fenced interiors themselves, which the sward and the gates ask, are
+still the page's own. Read on the published page, 25 of 25 attributes over the 5 surfaces are
+byte-equal to the Node build (`prebuild_layers.mjs --layer yards --parity --root ../../site/4d`),
+with zero page errors.
+
+The phase readings below are of one published tree: dev after T-2709, with this piece on it.
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell). The row's `yards` is
+the layer's own wall time (`performance.measure('yards')` in main.js, new here).
+`--no-prebuilt-yards` is the before: everything else still comes prebuilt and the page lays
+its own yards, which is what dev did.
+
+| mobile · light | yards | longest task overlapping it | ground phase | ready |
+|---|---|---|---|---|
+| cold, yards laid in the browser | 4,140 ms | 6,057 ms | 33.5 s | 81.8 s |
+| cold, yards prebuilt | 1,709 ms | 4,326 ms | 30.9 s | 79.6 s |
+| warm, yards laid in the browser | 4,046 ms | 5,835 ms | 31.7 s | 80.3 s |
+| warm, yards prebuilt | 1,737 ms | 4,000 ms | 28.7 s | 77.6 s |
+
+The layer is **2.4 s shorter cold and 2.3 s shorter warm**, and the ground phase it sits in
+moves by about as much. What is left of the layer is the interiors (each one's openest point
+is a grid search) and the batching itself. The longest task overlapping it starts before
+the layer, so it is not the yards' alone; it fell by about 1.8 s. The boot's own longest task
+(15.2-15.8 s) is elsewhere and did not move.
+
+**What the visitor downloads.** `tools/measure_boot_payload.mjs`, with and without
+`--no-prebuilt-yards`, first read on dev after T-2709: **28.950 MB → 32.055 MB**, 1,008 →
+1,010 requests. The `.gz` files go 17.524 → 20.597 MB (the buffer, 3.07 MB on the wire) and
+the `.json` files gain the index's 0.03 MB on the wire. Re-read after merging T-2710's
+streets (§ 4i) and the Navigator pieces that landed beside them, one published tree:
+**32.935 MB → 36.040 MB**, 1,023 → 1,025 requests, the same 3.1 MB. So this is a trade of
+about **3.1 MB more on a first visit for 2.4 s less CPU** at the phone profile, 1.3 MB per
+second saved, against the ground's 3.5 (§ 4g) and the frontage's 2.8 (§ 4f): the cheapest
+second the prebuild has bought. On the measure tools' slow-phone network (1.6 Mbit/s) it is
+about 16 s more download. It starts before the scene phase and runs under scene, terrain and
+buildings. A warm visit, or a kept year (T-2561's pack holds `data/prebuilt/1835/`), pays
+nothing, and a visitor saving data or on a 3G or slower connection is never offered it.
+
+**The tree.** `tools/site_budget.py`, on the merged tree: 300.869 MB of 320, 19.131 MB of
+headroom, with the yards' 3.31 MB and both street buffers in it.
+
+**Why 36.2 MB.** The owner's T-2560 ask is the same as § 4g's and § 4i's, and § 4i's 33.7 MB
+left 0.77 MB of room, which the yards' 3.1 MB cannot fit inside. The number is the 36.040 MB
+measured plus about 0.16 MB. Two readings of one tree here differed by 0.03 MB, so a little
+more than that is kept, enough that the next run on this tree does not go red on noise.
+§ 4b's rule still holds: a careless import or an unmetered boot fetch shows against well
+under 1 MB of room. With the frontage, ground, base, streets and yards all prebuilt, T-2705's
+pieces are in; the next byte this budget gives up should come from § 4g's lever (ship the
+partition, not the float32 vertices) before another re-set.
+
 ## 5. What the gate does now
 
 - **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 33.7 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 36.2 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
