@@ -13264,6 +13264,13 @@ for (const [label, viewport, touch] of [
         return above();
       };
       api.setFly(false);
+      // ---- T-2651 (found on its desktop 7,13 run): setFly(false) only ASKS the walker to
+      // land on its next update. Part 7 ends at the aerial anchor (from_above, 175 m up),
+      // and in a 7,13 run nothing between lands it, so on a runner that drew no frame in
+      // between, the default was read at 175 m. Land it now, as the next update would:
+      // the claim is about standing, and this part establishes its own state (T-0369).
+      api.walker.setFlying(false);
+      // ---- end T-2651
       const dflt = above();
       const readoutAtDefault = document.getElementById('v-eye')?.textContent ?? '';
       const raised = await move(2.2);
