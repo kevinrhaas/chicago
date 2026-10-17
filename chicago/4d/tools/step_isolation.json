@@ -5522,15 +5522,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_guide_glossary.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_goto_cleanup.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_goto_confidence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_guide_glossary.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5607,6 +5607,10 @@
       "wrote_ignored": []
     },
     "tools/test_outbuilding_forge.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_pacing_read.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
