@@ -19,8 +19,8 @@
  */
 export const TURN_MS = 900;
 export const PULSE_MS = 2000;
-/** How far outside the footprint the stand is, and how far it may step back to clear a roof. */
-export const STAND_CLEAR_M = 18;
+/** How far outside the wall the stand is, and how far it may step back to find a clear spot. */
+export const STAND_CLEAR_M = 14;
 export const STAND_MAX_EXTRA_M = 40;
 
 const DEG = Math.PI / 180;
@@ -45,23 +45,58 @@ export function footprintCentre(points) {
   return { e, n, r };
 }
 
+/** Is [e, n] inside the ring (even-odd)? */
+export function inside([e, n], ring) {
+  let hit = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [ei, ni] = ring[i], [ej, nj] = ring[j];
+    if ((ni > n) !== (nj > n) && e < ((ej - ei) * (n - ni)) / (nj - ni) + ei) hit = !hit;
+  }
+  return hit;
+}
+
+/** How far from the centre, looking back along -bearing, the footprint's wall is. */
+export function wallDistance(c, footprint, se, sn) {
+  let d = 0;
+  while (d < c.r + 1 && inside([c.e - se * d, c.n - sn * d], footprint)) d += 0.5;
+  return d;
+}
+
 /**
- * Where to stand for one Look for item: on the far side of the building's centre from where
- * the camera looks, clear of the footprint, stepping back a metre at a time (up to
- * STAND_MAX_EXTRA_M) while `blocked(e, n)` says that spot is inside something. Null when the
- * record names no camera, there is no footprint, or no clear stand exists.
+ * Where to stand for one Look for item: on the line that looks along the record's bearing
+ * through the building's centre, STAND_CLEAR_M outside its wall, stepping back a metre at a
+ * time (up to STAND_MAX_EXTRA_M) while `blocked(e, n)` says the spot is inside something or
+ * `sighted(e, n, we, wn)` says another building stands between it and the wall. Null when
+ * the record names no camera, there is no footprint, or no spot both stands and sees.
  */
-export function plan(item, footprint, { blocked = () => false } = {}) {
+export function plan(item, footprint, { blocked = () => false, sighted = () => true } = {}) {
   const cam = cameraOf(item);
   const c = footprintCentre(footprint);
   if (!cam || !c) return null;
   const se = Math.sin(cam.yaw * DEG), sn = Math.cos(cam.yaw * DEG);
+  const wall = wallDistance(c, footprint, se, sn);
+  const we = c.e - se * wall, wn = c.n - sn * wall;
   for (let extra = 0; extra <= STAND_MAX_EXTRA_M; extra += 1) {
-    const d = c.r + STAND_CLEAR_M + extra;
+    const d = wall + STAND_CLEAR_M + extra;
     const e = c.e - se * d, n = c.n - sn * d;
-    if (!blocked(e, n)) return { e, n, yaw: cam.yaw, pitch: cam.pitch, feature: item.feature ?? null, distance: d };
+    if (!blocked(e, n) && sighted(e, n, we, wn)) {
+      return { e, n, yaw: cam.yaw, pitch: cam.pitch, feature: item.feature ?? null, distance: d };
+    }
   }
   return null;
+}
+
+/** Does the segment a→b cross any ring? (The line of sight, against other footprints.) */
+export function crosses(a, b, rings) {
+  const side = (p, q, r) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]);
+  for (const ring of rings) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const c = ring[j], d = ring[i];
+      if (side(a, b, c) * side(a, b, d) < 0 && side(c, d, a) * side(c, d, b) < 0) return true;
+    }
+    if (inside(a, ring)) return true;
+  }
+  return false;
 }
 
 /** Ease in and out (cubic), for the turn. */

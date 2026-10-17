@@ -602,12 +602,20 @@ for (const phone of [true, false]) {
     const back = Math.atan2(100 - p.e, 50 - p.n) * 180 / Math.PI;
     assert(Math.abs(sm.turnBy(back, item.camera.yaw)) < 1e-6, `${item.feature}: faces the house along yaw ${item.camera.yaw}`);
     assert.equal(p.pitch, item.camera.pitch);
-    assert(Math.hypot(p.e - 100, p.n - 50) >= Math.hypot(10, 10) + sm.STAND_CLEAR_M - 1e-6, 'and stands clear of the footprint');
+    assert(Math.hypot(p.e - 100, p.n - 50) >= 10 + sm.STAND_CLEAR_M - 0.5 && !sm.inside([p.e, p.n], house), 'and stands clear of its wall');
   }
   // A stand inside another building steps back; with nowhere clear, Show me is refused.
   const blockedNear = (e, n) => Math.hypot(e - 100, n - 50) < 40;
   assert(Math.hypot(...(({ e, n }) => [e - 100, n - 50])(sm.plan(glessner.lookFor[1], house, { blocked: blockedNear }))) >= 40);
   assert.equal(sm.plan(glessner.lookFor[1], house, { blocked: () => true }), null);
+  // Another building on the line of sight hides the feature from every stand behind it: refused.
+  const across = [[95, 72], [105, 72], [105, 80], [95, 80]]; // north of the house, across the street
+  assert.equal(sm.plan(glessner.lookFor[1], house, { sighted: (e, n, we, wn) => !sm.crosses([e, n], [we, wn], [across]) }), null);
+  assert.equal(sm.crosses([100, 100], [100, 60], [across]), true);
+  assert.equal(sm.crosses([120, 100], [120, 60], [across]), false);
+  const aside = sm.plan(glessner.lookFor[1], house, { sighted: (e, n, we, wn) => !sm.crosses([e, n], [we, wn], [[[130, 72], [140, 72], [140, 80], [130, 80]]]) });
+  assert(aside && aside.n < 80, 'a building off the line changes nothing');
+  assert.equal(sm.plan(glessner.lookFor[1], house, { sighted: () => false }), null, 'no spot that sees it: refused, not guessed');
   assert.equal(sm.turnBy(350, 10), 20); assert.equal(sm.turnBy(10, 350), -20);
   assert.equal(sm.easeInOut(0), 0); assert.equal(sm.easeInOut(1), 1); assert(Math.abs(sm.easeInOut(0.5) - 0.5) < 1e-9);
 

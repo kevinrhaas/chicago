@@ -101,7 +101,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
-import { createShowMe, plan as planShowMe } from './show-me.js';
+import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -4043,7 +4043,13 @@ async function boot() {
   });
   function showMeFor(id, item) {
     const fp = footprints.find((f) => f.id === id);
-    const target = planShowMe(item, fp?.pts, { blocked: (e, n) => !!router.blockedAt?.(e, n) });
+    // Stand where the router lets you stand, and where no other building is in the way.
+    const sighted = (e, n, we, wn) => {
+      const lo = [Math.min(e, we) - 1, Math.min(n, wn) - 1], hi = [Math.max(e, we) + 1, Math.max(n, wn) + 1];
+      const near = footprints.filter((f) => f.id !== id && f.pts.some(([x, y]) => x >= lo[0] - 30 && x <= hi[0] + 30 && y >= lo[1] - 30 && y <= hi[1] + 30));
+      return !crossesShowMe([e, n], [we, wn], near.map((f) => f.pts));
+    };
+    const target = planShowMe(item, fp?.pts, { blocked: (e, n) => !!router.blockedAt?.(e, n), sighted });
     if (!target) return Promise.resolve(false);
     travel?.stop?.('show-me');
     showMeId = id;
