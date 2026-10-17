@@ -5691,11 +5691,19 @@ for (const [label, viewport, touch] of [
     // at most the relief across its own width, measured per vertex, and each
     // stringer reaches the ground under its own line so the departure is
     // carried on timber rather than open to daylight.
+    // T-2688 — EVERY BOARD IS NOW ON A MILLIMETRE GRID (Int16 relative to its
+    // piece, compact-streams.js), which moves a vertex by at most POSITION_ERROR_M.
+    // The long street-edge chunks were float32 until then, and their highest
+    // flat-ground vertex read 0.180 m to the millimetre once on the grid; the
+    // band's two edges allow the grid's own millimetre and no more, and the
+    // reading prints to a tenth of one so a real rise past it shows.
+    const GRID_M = 0.001;
     check(`${label}: the plank decks tie into the ground they cross`,
-      frontage.sink >= -0.06 && frontage.deckTop > 0.05 && frontage.deckTop <= 0.18
+      frontage.sink >= -0.06 - GRID_M && frontage.deckTop > 0.05
+        && frontage.deckTop <= 0.18 + GRID_M
         && frontage.bandBreaches === 0,
-      `deepest ${frontage.sink?.toFixed(3)} m below grade, highest flat-ground deck `
-      + `vertex ${frontage.deckTop?.toFixed(3)} m above it, ${frontage.bandBreaches} `
+      `deepest ${frontage.sink?.toFixed(4)} m below grade, highest flat-ground deck `
+      + `vertex ${frontage.deckTop?.toFixed(4)} m above it, ${frontage.bandBreaches} `
       + `vertice(s) past even their own relief allowance (worst by `
       + `${frontage.worstBreach?.toFixed(3)} m)`);
     // THE WALK'S SIDE IS A MADE EDGE, NOT A ROW OF BOARD ENDS (T-0460). The
@@ -5844,7 +5852,12 @@ for (const [label, viewport, touch] of [
       // (the record's named chunks go 102 to 108: T-2134 +4, T-2148 +1, T-2150 +1):
       // 125, read on dev with no board lettered.
       // T-2195 — the Market wedge's three walk faces name three chunks of their own: 128.
-      frontage.authored === (frontage.census?.lettered === 1 ? 129 : 128)
+      // T-2688 — the meshes a 16-bit grid could not keep to the millimetre are cut
+      // into pieces that it does: the shared `frontage` mesh into 5, and 21 long
+      // street-edge chunks (68 to 342 m) into 61: 128 - 22 + 66 = 172, read in Node
+      // by prebuild_layers.mjs on the branch. No board moved; the reach banks each
+      // piece on its whole mesh's sphere, so it holds back what it held back.
+      frontage.authored === (frontage.census?.lettered === 1 ? 173 : 172)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5856,15 +5869,20 @@ for (const [label, viewport, touch] of [
       // both figures, so the next run that wonders whether the merge artefacts
       // are still arriving can read it off the log instead of re-measuring.
       true);
+    // T-2688 — ONE BATCH IN PIECES: the tops span 554 m from their centre, so the
+    // batch is cut where a 16-bit grid keeps the millimetre, 40 pieces, each drawn
+    // only while it holds a selected top. The pieces together are the one batch.
+    const farTopsCandidates = frontage.farWalkTops.reduce((n, m) => n + m.candidates, 0);
+    const farTopsDrawn = frontage.farWalkTops.reduce((n, m) => n + m.drawn, 0);
     check(`${label}: the distant walk draw is one exact derived top-face batch`,
-      frontage.farWalkTops.length === 1
+      frontage.farWalkTops.length === frontage.farWalkState?.pieces
+        && farTopsCandidates === frontage.farWalkState?.candidateTriangles
+        && farTopsDrawn === frontage.farWalkState?.triangles
         && frontage.farWalkTops.every((m) => m.name === 'frontage-far-walk-tops'
           && m.sharedMaterial && !m.castsShadow && m.groundHugging
-          && m.candidates === frontage.farWalkState?.candidateTriangles
           // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
           // T-2195 — dev already read 108620 (T-2174's walks); the wedge's three faces: 111472.
-          && m.candidates === 111472
-          && m.drawn === frontage.farWalkState?.triangles),
+          && farTopsCandidates === 111472),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
     // renderer (L135), and it is the record's wording rather than the renderer's:
