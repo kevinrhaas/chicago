@@ -28582,3 +28582,21 @@ which place Keith's height against Glessner and so the stack under the lattice i
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`; `keith_house_1808_prairie.as_built_1886.form.wall_head`.
 **Ticket:** T-2679 (piece 1 of T-2587).
 **Recorded:** 2026-10-16 (T-2679).
+
+### L-scene-hour-2617 — Each scene shows a chosen hour, not a recorded one
+
+**Decision:** the Navigator's Home prints the scene's clock beside where you stand ("facing west
+· 10:30 am"): 10:30 am in 1904 and 12:30 pm in 1835, read from each scene's
+`lighting.local_time`, the same hour the sun, the sky and the shadows are drawn at (T-2617).
+**What is read, not invented:** the date (1 July 1904, 1 July 1835), and the sun's position for
+that hour at the datum's latitude and longitude, which `world.js` computes rather than sets.
+**What is invented:** the hour itself. No record says when on that day a visitor stands there;
+each hour was chosen for the view its scene opens on and for walls the sun genuinely lights
+(the notes in `data/scenes/1904.json` and `data/scenes/1835.json`). The 1904 hour is in local
+mean solar time at the datum, which the city's clocks then kept about ten minutes behind; Home
+prints it as it stands.
+**What is left out:** the weather. There is no weather record for either day, so Home names none
+(no "warm"), and the sky draws no clouds (the note in `world.js`).
+**How to resolve:** a time of day the visitor sets, the sun following it (Jump, DESIGN §07).
+**Ticket:** T-2617.
+**Recorded:** 2026-10-17 (T-2617).
