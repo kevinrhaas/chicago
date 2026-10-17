@@ -8445,13 +8445,17 @@ for (const [label, viewport, touch] of [
       && presence.hogan?.composed === false && presence.saug?.composed === false,
       `account "${(presence.hogan?.account ?? '').slice(0, 120)}", composed ${presence.hogan?.composed}`);
     // T-0711: a record without a change_note is not left without a first
-    // sentence — the lead is composed from its own function and location, and
-    // says so with `data-composed`, so nothing composed can pass as recorded.
-    check(`${label}: a record without an account gets a lead composed from its function and location, marked as composed`,
+    // sentence — the lead is composed, and says so with `data-composed`, so nothing
+    // composed can pass as recorded. T-2636 RESTATED: it is templated from the
+    // record's function (fallback-summary.js) and no longer restates the recorded
+    // location, which the head's address line gives once; and it carries no id,
+    // path or snake_case (tools/test_fallback_summary.mjs holds every structure).
+    check(`${label}: a record without an account gets a templated lead from its function, marked as composed, the location not repeated`,
       presence.composed.hasChangeNote === false && presence.composed.composed === true
       && presence.composed.fn.length > 3
       && presence.composed.text.toLowerCase().includes(presence.composed.fn.toLowerCase())
-      && presence.composed.text.toLowerCase().includes(presence.composed.where.toLowerCase().slice(0, 40)),
+      && !presence.composed.text.toLowerCase().includes(presence.composed.where.toLowerCase().slice(0, 40))
+      && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\//.test(presence.composed.text),
       `"${presence.composed.text.slice(0, 160)}" — function "${presence.composed.fn}", `
       + `location "${presence.composed.where.slice(0, 60)}"`);
 
@@ -16857,9 +16861,21 @@ for (const [label, viewport, touch] of [
           const facts = [...document.querySelectorAll('#popup .pop-facts .fact')]
             .map((f) => [f.querySelector('dt')?.textContent.trim(), f.querySelector('dd')?.textContent.trim()]);
           const sidecar = a.registry.get('glessner_house')?.sidecar;
+          // T-2636 (QA-08): the head and lead of a building with no written summary.
+          const head = document.querySelector('#popup .pop-head');
+          const opening = [head, document.querySelector('#popup .pop-lead')]
+            .map((el) => el?.textContent.replace(/\s+/g, ' ').trim() ?? '').join(' ');
+          const lead = document.querySelector('#popup .pop-lead.pop-account');
           a.popup.close();
-          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status };
+          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status,
+            opening, composed: lead ? lead.hasAttribute('data-composed') : null,
+            where: head?.querySelector('.pop-where-line')?.textContent.trim() ?? '' };
         });
+        check(`${label}: QA-08 — Glessner's card opens with its address once, a templated lead, and no id, path or snake_case (T-2636)`,
+          (survivalCard.opening.match(/1800 (?:S\. )?Prairie Avenue/g) ?? []).length === 1
+          && /^1800 S\. Prairie Avenue/.test(survivalCard.where) && survivalCard.composed === true
+          && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
+          survivalCard.opening.slice(0, 300));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')

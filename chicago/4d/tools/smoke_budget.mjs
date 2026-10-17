@@ -384,6 +384,8 @@ const COVERAGE = [
   ['data/businesses.schema.json', [3, 13], 'the shape those records are refused against'],
   ['renderers/web/js/display-name.js', [3], 'the prose may not name a level the record is not'],
   ['renderers/web/js/popup.js', [3], 'the card a visitor opens'],
+  // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
+  ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
   ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],

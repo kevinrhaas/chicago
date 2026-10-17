@@ -7173,6 +7173,15 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2636. And the buildings nobody has written a summary for, which is most of them: the
+# card's head and lead are templated from the sidecar (renderers/web/js/fallback-summary.js),
+# never printed from a raw field. This runs the card's own composition over every structure
+# in every scene and refuses an id, snake_case word, path, link or ticket number anywhere in
+# the title, address, other names, kind line or lead, an address given twice, and a templated
+# lead over three sentences or sixty words; it also holds the card's lint to the gate's above.
+step "every building's card opens with its address once and no id, path or snake_case (T-2636)" \
+  node tools/test_fallback_summary.mjs
+
 # T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
 # generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
 # --check above holds the file itself). This holds what it must mean: exactly its own
