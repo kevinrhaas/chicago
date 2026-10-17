@@ -59,10 +59,10 @@ const DEFAULT_SETTINGS = {
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, wagon, horse) and
   // `travelMode` is how Go to takes you somewhere (instantly, or at a pace, or
-  // flying); they are two questions, so they are two keys. `gotoReconstructed`
-  // is whether the Go to list shows the reconstructed roofs (off by default —
-  // the owner's ruling). `headBob`: the rider's eye moves with the horse's gait.
-  pace: 'walk', travelMode: 'instantly', headBob: true, gotoReconstructed: false,
+  // flying); they are two questions, so they are two keys. (`gotoReconstructed`, the
+  // Go to list's own checkbox, is gone: Go to follows the Confidence view, T-2633.)
+  // `headBob`: the rider's eye moves with the horse's gait.
+  pace: 'walk', travelMode: 'instantly', headBob: true,
   // The wagon's and the horse's own speeds (T-0823); `speed` above is the walk's.
   wagonSpeed: 3.6, horseSpeed: 6.5,
 };
@@ -187,6 +187,8 @@ export function createHud({
   // (T-2647, js/apps/confidence-view.js), which reads and sets this state through
   // `hiddenLevels`, `setHidden` and `levelCounts`; the HUD keeps the state.
   let hiddenLevels = readHidden();
+  // T-2633: Go to dims what the Confidence view hides; repainted when that changes.
+  let afterHide = null;
 
   function readHidden() {
     try {
@@ -223,6 +225,7 @@ export function createHud({
     if (hide) hiddenLevels.add(level); else hiddenLevels.delete(level);
     paintHidden();
     onHideLevel?.(level, hide);
+    afterHide?.();
     confidenceChanged();
     if (announce) {
       // Name what is GONE, not what was clicked: a visitor who has hidden two
@@ -689,7 +692,9 @@ export function createHud({
     units: () => settings.units,
     onGoTo: (target) => { setPanel(false); onGoTo?.(target); },
     onPersist: (key, value) => { settings[key] = value; store(SET_KEY, JSON.stringify(settings)); },
+    hiddenGrades: () => [...hiddenLevels],
   });
+  afterHide = () => goTo.paint();
 
 
   window.addEventListener('keydown', (e) => {

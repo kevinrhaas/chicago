@@ -13632,13 +13632,19 @@ for (const [label, viewport, touch] of [
       api.hud.goTo.setKind('all');
       input.value = '';
       input.dispatchEvent(new Event('input', { bubbles: true }));
-      const toggle = document.getElementById('jump-reconstructed');
-      const setToggle = (on) => {
-        if (toggle.checked === on) return;
-        toggle.checked = on;
-        toggle.dispatchEvent(new Event('change', { bubbles: true }));
-      };
+      // ---- T-2633: Go to follows the Confidence view. The checkbox is gone; "off" is now
+      // Reconstructed hidden in the Confidence view, which lists those roofs dimmed with a
+      // reason, and "on" is nothing hidden, the default. The claims below are restated on
+      // the rows a visitor reads as live (not dimmed), never weakened.
+      const noCheckbox = !document.getElementById('jump-reconstructed');
+      const setToggle = (on) => api.hud.setHidden('reconstructed', !on, { announce: false });
+      const liveRows = () => structRows().filter((r) => !r.dataset.jumpHidden);
       setToggle(false);
+      const dimmedRows = structRows().filter((r) => r.dataset.jumpHidden === 'true');
+      const dimmed = { rows: dimmedRows.length, grades: [...new Set(dimmedRows.map((r) => r.dataset.jumpConfidence))],
+        why: dimmedRows.every((r) => /^Reconstructed is hidden in the Confidence view/.test(r.querySelector('.jump-why')?.textContent ?? '')),
+        listed: structRows().length };
+      // ---- end T-2633 (setup)
       // The registry's own tallies, counted here and not read off the app.
       const tally = { attested: 0, inferred: 0, reconstructed: 0 };
       const posTally = { attested: 0, inferred: 0, reconstructed: 0 };
@@ -13660,13 +13666,13 @@ for (const [label, viewport, touch] of [
       };
       const rows = rowsNow();
       const dflt = {
-        structures: structRows().length,
+        structures: liveRows().length,
         anchors: rows.filter((r) => r.dataset.jumpKind === 'anchor').length,
         intersections: rows.filter((r) => r.dataset.jumpKind === 'intersection').length,
         chippedNonStructures: rows.filter((r) => r.dataset.jumpKind !== 'structure'
           && r.querySelector('.conf')).length,
         // Only the two grades that stood here should be chipped before the toggle.
-        chipGrades: [...new Set(structRows().map((r) => r.querySelector('.conf')?.textContent.trim()))],
+        chipGrades: [...new Set(liveRows().map((r) => r.querySelector('.conf')?.textContent.trim()))],
         note: document.getElementById('jump-note')?.textContent ?? '',
         colours: {
           attested: colourOf('attested'),
@@ -13695,10 +13701,12 @@ for (const [label, viewport, touch] of [
       }
       const on = {
         structures: structRows().length,
+        dimmedAfter: structRows().filter((r) => r.dataset.jumpHidden).length,
         note: document.getElementById('jump-note')?.textContent ?? '',
         colours: { reconstructed: colourOf('reconstructed') },
       };
-      setToggle(false);
+      // T-2633: leave the Confidence view as a visitor finds it, nothing hidden.
+      setToggle(true);
       const all = {
         anchors: dflt.anchors,
         structures: dflt.structures,
@@ -13717,22 +13725,27 @@ for (const [label, viewport, touch] of [
         .map((b) => ({ id: b.dataset.jumpId, kind: b.dataset.jumpKind, text: b.textContent }));
       return { all, filtered, graded, mismatched, tally, posTally, nonReconstructed,
         dflt: { structures: dflt.structures, chipGrades: dflt.chipGrades, note: dflt.note },
-        on: { structures: on.structures, note: on.note }, colours, stored:
-          JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').gotoReconstructed };
+        on: { structures: on.structures, note: on.note, dimmedAfter: on.dimmedAfter }, colours, dimmed, noCheckbox };
     });
     // Was "jump menu includes every loaded structure" (=== registry.size). The
     // list now hides presence-reconstructed roofs by default, so the claim is
     // taken in both states: exactly the non-reconstructed records by default,
     // exactly the registry with the toggle on — and the toggle's own state is
     // persisted where the visitor's settings live.
-    check(`${label}: jump menu lists every structure that stood here, and every roof once asked`,
+    // ---- T-2633: restated for the Confidence view. With Reconstructed hidden, exactly the
+    // non-reconstructed records read live and every reconstructed one is listed dimmed with
+    // its reason; with nothing hidden, every roof reads live; and the checkbox is gone.
+    check(`${label}: jump menu lists every structure that stood here, and every roof dimmed while the Confidence view hides Reconstructed (T-2633)`,
       jumps.dflt.structures === jumps.nonReconstructed && jumps.nonReconstructed > 70
-      && jumps.on.structures === jumps.all.loaded && jumps.all.loaded > jumps.nonReconstructed
+      && jumps.dimmed.rows === jumps.tally.reconstructed && jumps.dimmed.listed === jumps.all.loaded
+      && jumps.dimmed.grades.every((g) => g === 'reconstructed') && jumps.dimmed.why
+      && jumps.on.structures === jumps.all.loaded && jumps.on.dimmedAfter === 0 && jumps.all.loaded > jumps.nonReconstructed
       && jumps.dflt.chipGrades.every((g) => g === 'attested' || g === 'inferred')
-      && jumps.stored === false,
-      `${jumps.dflt.structures} listed of ${jumps.nonReconstructed} non-reconstructed by default `
-      + `(chips ${jumps.dflt.chipGrades.join('/')}); ${jumps.on.structures} of ${jumps.all.loaded} `
-      + `loaded with the toggle on; stored gotoReconstructed ${jumps.stored}`);
+      && jumps.noCheckbox,
+      `${jumps.dflt.structures} live of ${jumps.nonReconstructed} non-reconstructed with Reconstructed hidden `
+      + `(chips ${jumps.dflt.chipGrades.join('/')}; dimmed ${JSON.stringify(jumps.dimmed)}); ${jumps.on.structures} of ${jumps.all.loaded} `
+      + `live with nothing hidden (${jumps.on.dimmedAfter} dimmed); checkbox gone ${jumps.noCheckbox}`);
+    // ---- end T-2633 (the list)
     // Against the compiled list, NOT against a literal. This assertion read
     // `=== 4` until T-0245 committed a fifth control point on South Water at
     // Franklin and turned a correct menu into a red gate — the same fault the
@@ -13776,13 +13789,12 @@ for (const [label, viewport, touch] of [
     // 288 reconstructed." — every figure against the registry tally computed
     // above, in both toggle states.
     check(`${label}: the tab counts its own list rather than quoting a written total`,
-      jumps.dflt.note.includes(`${jumps.nonReconstructed} of ${jumps.all.loaded} structures`)
-      && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are hidden`)
+      // T-2633: the note says what the Confidence view is dimming, with the same tallies.
+      jumps.dflt.note.includes(`${jumps.all.loaded} structures — the reconstructed ones are dimmed, because the Confidence view is hiding them`)
       && jumps.dflt.note.includes(`${jumps.tally.attested} are attested`)
       && jumps.dflt.note.includes(`${jumps.tally.inferred} inferred`)
       && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed`)
-      && jumps.on.note.includes(`${jumps.all.loaded} of ${jumps.all.loaded} structures`)
-      && jumps.on.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are showing`),
+      && jumps.on.note.includes(`${jumps.all.loaded} structures — every one listed`),
       `${jumps.dflt.note} / ${jumps.on.note} / ${JSON.stringify(jumps.tally)}`);
     check(`${label}: jump search finds an intersection by both street names`,
       jumps.filtered.some((r) => r.id === 'randolph_canal' && r.kind === 'intersection'),
@@ -13898,7 +13910,7 @@ for (const [label, viewport, touch] of [
       };
       // Back to All, every roof shown so every structure row is judged.
       api.hud.goTo.setKind('all');
-      api.hud.goTo.setIncludeReconstructed(true);
+      api.hud.setHidden('reconstructed', false, { announce: false }); // T-2633: every roof live
       const all = rows();
       const headingFor = (row) => {
         let el = row.previousElementSibling;
@@ -13924,7 +13936,6 @@ for (const [label, viewport, touch] of [
         dishonest: all.filter(r => !located(r) && (r.querySelector('.jump-dist')?.textContent.trim()
           || r.querySelector('.jump-dist')?.dataset.m || !targetFor(r)?.limit)).length,
       };
-      api.hud.goTo.setIncludeReconstructed(false);
       // Stand 100 m due east of the Sauganash, then 200 m: the row's metres
       // follow the visitor by ≈100 and the compass says west both times.
       const sp = api.structurePosition('sauganash_hotel');
@@ -15395,6 +15406,72 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
+    // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
+    // row says how far and which way from where you stand.
+    const gotoClean = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      await new Promise((r) => setTimeout(r, 200));
+      const kinds = [...document.querySelectorAll('#welcome-kinds button')];
+      const shown = kinds.filter((b) => !b.hidden && b.getClientRects().length);
+      const counts = shown.map((b) => { b.click(); return [b.textContent, document.querySelectorAll('#welcome-results .welcome-destination').length]; });
+      kinds[0]?.click();
+      const rows = [...document.querySelectorAll('#welcome-results .welcome-destination:not(:disabled)')].slice(0, 12);
+      const name = rows[0]?.querySelector('strong');
+      const out = { labels: kinds.map((b) => b.textContent), shown: shown.map((b) => b.textContent), counts,
+        withDistance: rows.filter((r) => /^(here|.+ (N|NNE|NE|ENE|E|ESE|SE|SSE|S|SSW|SW|WSW|W|WNW|NW|NNW))$/.test(r.querySelector('.welcome-dist')?.textContent.trim() ?? '')).length,
+        rows: rows.length, clamp: name ? getComputedStyle(name).webkitLineClamp : null,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1 };
+      api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Go to offers All · Places · People · Shops & work · Viewpoints, no empty chip, two-line names, and each row's distance and bearing (T-2632)`,
+      gotoClean.labels.join() === 'All,Places,People,Shops & work,Viewpoints' && gotoClean.shown[0] === 'All'
+      && gotoClean.counts.every(([, n]) => n > 0) && gotoClean.rows > 0 && gotoClean.withDistance === gotoClean.rows
+      && String(gotoClean.clamp) === '2' && gotoClean.overflow,
+      JSON.stringify(gotoClean));
+    // ---- end T-2632
+    // ---- T-2633: the Navigator's Go to follows the Confidence view too: with Reconstructed
+    // hidden, a reconstructed place is listed dimmed with its one-line reason, and is
+    // itself again the moment the grade is shown.
+    const gotoConfidence = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const target = api.destinations.targets.find((t) => t.kind === 'structure' && t.presence === 'reconstructed');
+      if (!target) return { target: null };
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      const search = document.getElementById('welcome-search');
+      const read = () => {
+        const row = [...document.querySelectorAll('#welcome-results .welcome-destination')].find((r) => r.dataset.id === target.id);
+        return { listed: !!row, dimmed: !!row?.classList.contains('is-hidden-grade'), why: row?.querySelector('.welcome-why')?.textContent ?? null };
+      };
+      search.value = target.label;
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.hud.setHidden('reconstructed', true, { announce: false });
+      const hidden = read();
+      api.hud.setHidden('reconstructed', false, { announce: false });
+      const shown = read();
+      search.value = '';
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return { target: target.id, hidden, shown };
+    });
+    check(`${label}: with Reconstructed hidden, Go to lists a reconstructed place dimmed with its reason, and plain again once shown (T-2633)`,
+      !!gotoConfidence.target && gotoConfidence.hidden.listed && gotoConfidence.hidden.dimmed
+      && /^Reconstructed is hidden in the Confidence view/.test(gotoConfidence.hidden.why ?? '')
+      && gotoConfidence.shown.listed && !gotoConfidence.shown.dimmed && gotoConfidence.shown.why === null,
+      JSON.stringify(gotoConfidence));
+    // ---- end T-2633 (Navigator Go to)
     // ---- T-2634: Free roam docks the Navigator and, once per device, says how to inspect.
     const roamTip = await page.evaluate(async () => {
       const api = window.__chicago4d;
