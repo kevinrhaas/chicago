@@ -118,7 +118,12 @@ function signatureOf(mesh) {
   if (geo.groups && geo.groups.length > 1) return null;
   const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
   if (mats.length !== 1 || !mats[0]) return null;
-  return `${mats[0].uuid}|${geo.index ? 'i' : 'n'}|${attrs.join(',')}`;
+  // A boxed mesh (T-2700) is a mesh too wide for one box, so its sphere spans
+  // more of the town than a cluster does, and in a bucket beside chunks of the
+  // same streams it would hold their cluster out of every merge it could take.
+  // It buckets with boxed meshes only, as it did beside the float chunks it was.
+  const boxed = geo.userData?.positionBoxes ? '|boxed' : '';
+  return `${mats[0].uuid}|${geo.index ? 'i' : 'n'}|${attrs.join(',')}${boxed}`;
 }
 
 /** The relative transform from a mesh's own space into its parent group's. */
