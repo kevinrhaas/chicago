@@ -10403,7 +10403,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: no horizontal overflow`, chrome.overflow);
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
-    const guide = await page.evaluate(() => {
+    const guide = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const sheet = document.querySelector('#nav-app-guide #guide-controls');
       const list = sheet?.querySelector('dl');
@@ -10414,6 +10414,9 @@ for (const [label, viewport, touch] of [
         inView: !!box && box.width > 0 && box.left >= -1 && box.right <= innerWidth + 1,
         overflow: document.documentElement.scrollWidth <= innerWidth + 1,
         snake: /[a-z0-9]+_[a-z0-9]+/i.test(sheet?.textContent ?? '') };
+      // Put the device back as it was found: Home its app, docked. The dock remembers its
+      // last app, and T-2619's checks in part 13 expect it to open on Home.
+      await api.navigator.select('home');
       api.navigator.dock();
       return out;
     });
@@ -13201,7 +13204,8 @@ for (const [label, viewport, touch] of [
       && reopenedGuide.scheme === (reopenedGuide.backend === 'touch' ? 'touch' : 'keyboard')
       && reopenedGuide.label === 'Show the controls' && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await page.evaluate(() => window.__chicago4d.navigator.dock());
+    // Back as it was found: Home, docked (T-2619's dock opens on its last app).
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     // ---- end T-2661 (part 12)
     // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
     // questions answer in 60 words or fewer, and a locked term's first appearance (the
