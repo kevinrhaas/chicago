@@ -1,3 +1,5 @@
+import { t } from './strings/index.js';
+import './strings/arrival.js';
 import { createLoadingContent } from './loading-content.js';
 import { arrivalTitles, scenePresentation } from './scene-presentation.js';
 /** Arrival presentation over the real boot controller (T-1247). */
@@ -84,7 +86,7 @@ function setDigits(host, year, animate) {
 
 /** T-2616: the failure sentence, at the year the ticker stalled on. */
 export function stalledLine(year) {
-  return `The jump stalled somewhere around ${Math.round(year)}.`;
+  return t('arrival.stalled', { year: Math.round(year) });
 }
 
 const MB = 1e6;
@@ -95,7 +97,7 @@ export function formatReadout({ bytes = 0, total = 0, rate = null, eta = null } 
   return {
     bytes: `${mb(bytes)} / ${mb(Math.max(bytes, total))} MB`,
     rate: rate == null ? '— MB/s' : `${(rate / MB).toFixed(rate >= 10 * MB ? 0 : 1)} MB/s`,
-    eta: ready ? 'LOCKED' : `T-${String(Math.floor(secs / 60)).padStart(2, '0')}:${String(secs % 60).padStart(2, '0')}`,
+    eta: ready ? t('arrival.readout.locked') : `T-${String(Math.floor(secs / 60)).padStart(2, '0')}:${String(secs % 60).padStart(2, '0')}`,
   };
 }
 
@@ -199,7 +201,7 @@ export function createArrival({
   if (phaseEl) phaseEl.setAttribute('aria-live', 'polite');
   if (yearEl) yearEl.setAttribute('aria-hidden', 'true');
   if (cardEl && !cardEl.textContent.trim()) {
-    cardEl.textContent = 'Drawing on previously researched sources';
+    cardEl.textContent = t('arrival.card.default');
   }
 
   const firstStartedAt = () => {
@@ -275,18 +277,18 @@ export function createArrival({
     content?.stop(true);
     stopTicker();
     if (settleRaf != null) cancelFrame(settleRaf);
-    const detail = message || (error ? `Could not finish the reconstruction — ${String(error.message || error)}`
-      : 'Could not finish the reconstruction.');
+    const detail = message || (error ? t('arrival.fail.detail', { error: String(error.message || error) })
+      : t('arrival.fail.plain'));
     if (phaseEl) phaseEl.textContent = headline || stalledLine(lastShown ?? displayedYear);
-    if (headlineEl) headlineEl.textContent = 'Jump stalled';
-    if (titleEl) titleEl.textContent = 'Jump stalled';
+    if (headlineEl) headlineEl.textContent = t('arrival.stalled.title');
+    if (titleEl) titleEl.textContent = t('arrival.stalled.title');
     if (detailEl) detailEl.textContent = detail;
     if (detailsEl) { detailsEl.open = false; detailsEl.hidden = false; }
     if (observatoryEl) observatoryEl.hidden = false;
     lampsEl?.querySelectorAll('[data-state="active"]').forEach(el => { el.dataset.state = 'fault'; });
     if (buttonEl) {
       buttonEl.disabled = false;
-      buttonEl.textContent = 'Try again';
+      buttonEl.textContent = t('arrival.retry');
       buttonEl.dataset.arrivalRetry = 'true';
     }
   }
@@ -310,7 +312,7 @@ export function createArrival({
       setBar(barEl, 1);
       barEl?.classList.add('done');
       paintReadout(now(), true);
-      if (phaseEl) phaseEl.textContent = content ? 'Ready to explore.'
+      if (phaseEl) phaseEl.textContent = content ? t('arrival.ready')
         : presentation.arrivalLine;
       land();
     };
@@ -362,7 +364,7 @@ export function createArrival({
   boot.on('phaseend', ({ phase }) => { if (phase?.essential) setLamp(phase.id, phase.error ? 'fault' : 'done'); });
   boot.on('error', event => {
     if (event.phase?.essential !== false) fail(event.phase?.error || 'Boot failed',
-      { message: `${event.phase?.label || 'Reconstruction'} failed — ${event.phase?.error || 'unknown error'}` });
+      { message: t('arrival.fail.phase', { phase: event.phase?.label || 'Reconstruction', error: event.phase?.error || 'unknown error' }) });
   });
   boot.on('ready', settle);
 
@@ -378,7 +380,7 @@ export function createArrival({
   showYear(displayedYear, false);
   setBar(barEl, 0);
   if (cardEl) cardEl.textContent = cardEl.textContent.trim()
-    || 'Drawing on previously researched sources';
+    || t('arrival.card.default');
 
   if (requestFrame) tickerRaf = requestFrame(tick);
 

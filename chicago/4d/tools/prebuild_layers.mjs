@@ -51,8 +51,9 @@
  *       spatial-batch.js cut them, into DIR/<year>/yards.{bin,json}. The
  *       self-test batches the file's pieces and holds every surface to the
  *       layer's own batch of it; --parity reads the live page's yard surfaces.
- *       Not in publish.sh until T-2705 makes the page upload them (see § the
- *       yards, below).
+ *       publish.sh asks for them since T-2711, when the page began uploading
+ *       them in place of laying them (yards.js § THE YARDS, PREBUILT), and
+ *       check_published.mjs holds them current.
  *
  * WHAT IS AND IS NOT IN THE FILE. Every mesh the layer builds from its records:
  * the town's timber and each chunk (a block face's walk, crossing and fence).
@@ -627,7 +628,18 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
     results.push({ layer: 'frontage', year, dir, ms: Math.round(built.ms), bytes: bin.length, sha256: index.sha256,
       meshes: index.meshes.length, inputs: inputs.files.length, index });
   }
+  // What was written, so the page asks for nothing else (js/prebuilt-index.js): a
+  // request for a year or layer not built here was a 404 on every /1904/ boot.
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.json'), JSON.stringify(listing(results, buildId)) + '\n');
   return results;
+}
+
+/** `data/prebuilt/index.json`: every year and layer this build wrote. */
+export function listing(results, buildId = null) {
+  const layers = {};
+  for (const r of results) (layers[r.year] ??= []).includes(r.layer) || layers[r.year].push(r.layer);
+  return { format: 1, build: buildId, layers };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -635,7 +647,7 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
 /* -------------------------------------------------------------------------- */
 
 /** Why DIR's prebuild of `layer` may not ship, or [] when every index is current. */
-export const PREBUILT_LAYERS = Object.freeze(['frontage', 'ground', 'base', 'streets']);
+export const PREBUILT_LAYERS = Object.freeze(['frontage', 'ground', 'base', 'streets', 'yards']);
 
 export function stale(outDir, layer = 'frontage') {
   if (!LAYERS[layer]) return [`no layer ${layer}`];
@@ -1242,6 +1254,8 @@ async function selfTestYards(a, b, ok) {
       .every((tail) => inputs.some((f) => f.endsWith(tail))), `${r.year}: the input hash covers the records, the field and the code that laid and cut them`);
   }
   ok(stale(a, 'yards').length === 0, 'yards: a fresh build is current');
+  const { PREBUILT_YARDS_FORMAT } = await import(pathToFileURL(path.join(WEB, 'js/yards.js')).href);
+  ok(PREBUILT_YARDS_FORMAT === YARDS_FORMAT, `yards: the page reads the format this tool writes (${PREBUILT_YARDS_FORMAT} = ${YARDS_FORMAT})`);
   refusals(a, first[0], ok);
 }
 
