@@ -27,7 +27,8 @@ export const UNARMED = Object.freeze(['observatory', 'locking', 'jumping', 'time
 
 const CONTROL = ':is(button, a[href], input, select, [role="button"], [role="tab"], [role="option"])';
 /** What a first tap may land on: Home's controls, the scene, the Navigator's controls. */
-export const GESTURE_TARGETS = ['#view', `#welcome ${CONTROL}`, `#navigator ${CONTROL}`].join(', ');
+// T-2619: the docked pill's face (#nav-head) opens the device too, so it is a control here.
+export const GESTURE_TARGETS = ['#view', `#welcome ${CONTROL}`, `#navigator ${CONTROL}`, '#nav-head'].join(', ');
 
 /** The events a browser grants user activation on. pointerdown is not one for touch, and
  * iOS Safari only resumes audio from touchend or click, so those are the ones heard. */
