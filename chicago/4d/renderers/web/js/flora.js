@@ -1628,7 +1628,9 @@ export async function createFlora({
         pass.uLatMode.value = u.mode;
         pass.uLatRing.value.set(...u.ring);
         pass.uLatCell.value.set(...u.cell);
-        pass.uDealCam.value.set(camE, camN);
+        // Zero: the pass hands the deal world points (flora-gpu-near.js
+        // `flSlotWorld`), not offsets from the camera.
+        pass.uDealCam.value.set(0, 0);
         pass.uDealEye.value.set(waterY, cone?.planes ? 1 : 0, cone?.eyeY ?? 0);
         count = Math.min(u.count, max);
         passGeo.setDrawRange(0, count);

@@ -1141,7 +1141,12 @@ correction). Every number quotes its anchor and viewport.
   placed slot's instance — root, height, spread, arch, yaw, colour, confidence and its OWN
   ring (`slotRing`'s handover, in GLSL) — into four RGBA32F targets; the tuft mesh
   (`flora-near-gpu`, one instance per slot) fetches them by `gl_InstanceID` and a slot the
-  deal did not place collapses to a point. The CPU walk is kept for the heads alone: it deals
+  deal did not place collapses to a point. Each slot's world point is computed from its
+  absolute cell and jitter (`flSlotWorld`, `scatter`'s `(c + fe) * cell`), not the
+  camera plus an offset, so a tuft is the same float32 point after every pass — the
+  camera-relative sum rounded differently as the walker moved, and the smoke's desktop
+  pop-in walk read the re-rounded tufts as plants arriving at full coverage inside their
+  ring. The CPU walk is kept for the heads alone: it deals
   into a sink that only counts (the census and `stats.sets` read it), and hangs a head only
   where the tile gives the GPU's deal the same answer (`drawsAt`), so the 0.27 % of slots
   where the tile and the CPU differ carry no head over bare ground. A slot the kept tile

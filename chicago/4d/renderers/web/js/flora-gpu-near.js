@@ -81,6 +81,30 @@ vec4 flNearRing(vec2 en) {
     uNearFade.w);
 }
 
+// The slot's WORLD position from its absolute cell and its jitter alone —
+// \`scatter\`'s \`(c + fe) * cell\` — so a slot is the same float32 point from every
+// camera. \`flLatticeSlot\`'s \`rel\` is camera-relative (T-2697), and the camera
+// plus \`rel\` rounds differently as the camera moves: the same tuft stood a few
+// microns elsewhere after each pass, and the deal's texel and hash lookups could
+// flip with it. The jitter is re-derived exactly as flLatticeSlot draws it.
+vec2 flSlotWorld(int id, uint cellSeed) {
+  int perCell = uLatGrid.w;
+  int k = id % perCell;
+  int cellIdx = id / perCell;
+  int c = uLatGrid.x + cellIdx % uLatGrid.z;
+  int r = uLatGrid.y + cellIdx / uLatGrid.z;
+  uint s = flHash3(cellSeed, uint(k), 0x68bc21ebu);
+  if (s == 0u) s = 1u;
+  s = flXorshift(s);
+  float je = float(s) / 4294967296.0;
+  s = flXorshift(s);
+  float jn = float(s) / 4294967296.0;
+  int sub = int(uLatDeal.x);
+  float fe = uLatMode == 2u ? je : (float(k % sub) + je) / float(sub);
+  float fn = uLatMode == 2u ? jn : (float(k / sub) + jn) / float(sub);
+  return vec2(float(c) + fe, float(r) + fn) * uLatCell.x;
+}
+
 // Is (east, north) inside the kept tile? FIELD_GLSL clamps a point outside it to
 // the edge texel, which is right for a read-back and wrong for a draw.
 bool flInTile(vec2 en) {
@@ -118,10 +142,14 @@ void main() {
   int id = gl_VertexID;
   v0 = vec4(0.0); v1 = vec4(0.0); v2 = vec4(0.0); v3 = vec4(0.0);
   vec2 rel; float u; uint rng; uint cellSeed;
-  if (flLatticeSlot(id, rel, u, rng, cellSeed) && flInTile(uDealCam + rel)) {
+  if (flLatticeSlot(id, rel, u, rng, cellSeed)) {
+    // The deal is asked at the slot's world point: \`uDealCam\` is held at zero
+    // for this pass, so \`flNearDeal\`'s \`uDealCam + rel\` IS that point, and the
+    // walker's clearance still reads the camera-relative distance.
+    vec2 en = flSlotWorld(id, cellSeed);
     int row; float vig;
     vec3 ground; vec4 fl; vec4 col;
-    if (flNearDeal(rel, length(rel), u, rng, row, vig, ground, fl, col) == 6) {
+    if (flInTile(en) && flNearDeal(en, length(rel), u, rng, row, vig, ground, fl, col) == 6) {
       v0 = vec4(ground.x, ground.y, -ground.z, 1.0);
       v1 = fl;
       v2 = col;
