@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1960, ts: '2026-10-17T18:08:42.937Z', date: 'Oct 17, 2026, 1:08 PM CT', title: 'Why this test machine cannot read the frame governor yet', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the town: this is a measurement of the frame governor that smooths walking on slow devices.',
+      'A second software renderer was tried in place of a phone\'s graphics chip. It still draws a frame about once a second, far too slow for the governor to act, so the reading waits for real hardware.',
+      'Most of that second turned out to be the check for which building is in front of you, which waits for each frame to finish. Making that check stop holding up the frame is now its own ticket.',
+    ] },
   { v: 1959, ts: '2026-10-17T17:57:07.665Z', date: 'Oct 17, 2026, 12:57 PM CT', title: 'The menu moves into the Navigator', kind: 'change',
     items: [
       'The menu button and its sliding drawer are gone. Everything that was in them now lives in the Navigator\'s apps.',
