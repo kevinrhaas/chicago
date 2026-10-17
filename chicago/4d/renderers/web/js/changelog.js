@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1973, ts: '2026-10-17T20:32:04.067Z', date: 'Oct 17, 2026, 3:32 PM CT', title: 'Keith house\'s loggia columns a touch taller, ruled between two photographs', kind: 'change',
+    items: [
+      '1808 Prairie (1904): the entrance loggia\'s paired columns now stand 2.5 m from pedestal to capital, up from 2.45 m, with the beam and balcony above them riding up the same 5 cm. Measured in the 1888 Inland Architect photograph against the third-storey window right beside them, they read 2.5 m.',
+      'The 1888 and 1965 photographs had seemed to disagree by half a metre on these columns. Both actually show them at the same proportion to their pedestals; the gap came from the two fitted cameras, one drawing the loggia too large and the other too small.',
+    ] },
   { v: 1972, ts: '2026-10-17T20:11:31.767Z', date: 'Oct 17, 2026, 3:11 PM CT', title: 'All destinations asks before it takes you home', kind: 'feature',
     items: [
       'All destinations on the arrival card, and Recall in Jump, now ask first: Return to the Temporal Observatory? Cancel keeps you where you are.',
