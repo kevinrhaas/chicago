@@ -28,15 +28,15 @@
     "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
    },
    "position": {
-    "utm_e": 448497.376,
-    "utm_n": 4634407.006,
+    "utm_e": 448498.506,
+    "utm_n": 4634408.396,
     "rotation_deg": 179.611,
     "symbolic_location": "1615 S. Prairie Avenue, parcel prairie_1615 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "confidence": "inferred",
     "sources": [
      "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The rear corner of the main body's rectangle on the party wall: 1613's own south-rear corner (its record's local u 0, v 6.55, turned by 1613's rotation and set at 1613's position), so the two houses close on one party wall and one rear line, as the sheet draws them (trace s20fp-1615-b1 p1 runs x 1412.07-1424.71 and y -2988.86 to -2995.43 in the datum's local metres; 1613's p1 runs x 1412.08-1424.70 and down to y -2988.88). The draft stood 0.32 m off 1613's wall and 0.25 m deeper. Through the T-1250 fit of the sheet: its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees, 1613's, turns the plan's u axis onto the lot's rear-to-street line, so K01's local north is the world's south on this side of the avenue.",
+    "note": "The rear corner of the main body's rectangle on the party wall: 1613's own south-rear corner (its record's local u 0, v 6.55, turned by 1613's rotation and set at 1613's position), so the two houses close on one party wall and one rear line, as the sheet draws them (trace s20fp-1615-b1 p1 runs x 1412.07-1424.71 and y -2988.86 to -2995.43 in the datum's local metres; 1613's p1 runs x 1412.08-1424.70 and down to y -2988.88). The draft stood 0.32 m off 1613's wall and 0.25 m deeper. Through the T-1250 fit of the sheet: its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees, 1613's, turns the plan's u axis onto the lot's rear-to-street line, so K01's local north is the world's south on this side of the avenue.",
     "derivation": {
      "method": "not_derivable",
      "reason": "The four derivation methods re-derive from the 1835 files; this position is house_1613_prairie's local corner (u 0, v 6.55) carried through that record's own placement (tools/draft_prairie_1904.py footprint_uv's rotation convention), so the party wall is one line."

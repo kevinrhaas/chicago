@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { cheapenGlass } from './glass.js';
+import { initKTX2, registerKTX2 } from './ktx2.js';
 const $=id=>document.getElementById(id), base=new URL('../../',import.meta.url), dataURL=new URL('data/comparisons/glessner/',base);
 const loadJSON=async name=>{const r=await fetch(new URL(name,dataURL));if(!r.ok)throw Error(`${name}: HTTP ${r.status}`);return r.json()};
 const referenceURL=path=>{const r=globalThis.ROOT_SERVED;return new URL(r?.dirs.some(d=>path.startsWith(d))&&!r.keep?.includes(path)?r.base+path:`prairie-1904/${path}`,base)};
@@ -9,7 +10,11 @@ const [data,baselineReport,auditReport]=await Promise.all([loadJSON('observation
 let report=auditReport,loadedDigest='',loadedName='',loadedDetail='';
 const scene=new THREE.Scene();scene.background=new THREE.Color('#d9ddd7');scene.add(new THREE.HemisphereLight(0xf4f4ee,0x555e51,2.3));const key=new THREE.DirectionalLight(0xffffff,2.4);key.position.set(35,65,45);scene.add(key);
 const renderer=new THREE.WebGLRenderer({canvas:$('model'),antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
-const camera=new THREE.PerspectiveCamera(),loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);let object,active,serial=0;
+// T-2596: the v4 derivatives now REQUIRE KHR_texture_basisu — there is no image path to
+// fall back to — so this page takes the renderer's own KTX2 loader (T-2595), which still
+// transcodes to RGBA8 where the GPU has no block format.
+initKTX2(renderer);
+const camera=new THREE.PerspectiveCamera(),loader=registerKTX2(new GLTFLoader().setMeshoptDecoder(MeshoptDecoder));let object,active,serial=0;
 const gltfVector=p=>new THREE.Vector3(p[0],p[2],-p[1]);
 function setCamera(c){
  const [r,u,f]=c.basis_right_up_forward.map(gltfVector);camera.position.copy(gltfVector(c.position_m));camera.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(r,u,f.negate()));camera.updateMatrixWorld(true);

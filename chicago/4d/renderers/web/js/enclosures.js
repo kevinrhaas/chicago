@@ -99,7 +99,7 @@ import { gateBoxes } from './gates.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams } from './compact-streams.js';
 
-const { compactNormals } = compactStreams(THREE);
+const { compactNormals, quantizeMeshPositions } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -825,6 +825,9 @@ export async function createEnclosures({
       // fence, so the frustum can leave it out.
       geo.computeBoundingSphere();
       const mesh = new THREE.Mesh(geo, mat);
+      // Int16 x 4 positions relative to the chunk, its box in the mesh's matrix
+      // (T-2687, compact-streams.js): 8 bytes a vertex for 12.
+      quantizeMeshPositions(mesh);
       mesh.name = 'enclosure-chunk';
       mesh.castShadow = true;
       mesh.receiveShadow = true;

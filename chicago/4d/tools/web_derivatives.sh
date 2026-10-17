@@ -196,26 +196,35 @@ record_version() {
 # Both output files must complete before record-web/pack claims either is fresh.
 produce_light_version() {
   [ "$1" = "$GLESSNER_V4" ] || return 0
-  local light="${1%.glb}.light.glb" source optimized output
+  local light="${1%.glb}.light.glb" source optimized ktxed output
   source="$(mktemp -t gltflight-source.XXXXXX.glb)"
   optimized="$(mktemp -t gltflight-opt.XXXXXX.glb)"
+  ktxed="$(mktemp -t gltflight-ktx2.XXXXXX.glb)"
   output="$(mktemp -t gltflight-web.XXXXXX.glb)"
+  # T-2596: the light tier takes the same KTX2 recipe as the full derivative,
+  # its textures capped at 1024 (a quarter of the 2048 tier's GPU residency).
+  # --texture-compress false for the main loop's own reason: optimize's default
+  # re-encodes every image, and the encode starts from the master's own pixels.
+  # An image-free source (the producer fixture's) skips the encode; the encode
+  # itself is FATAL-on-failure, so a light derivative that still carries a PNG
+  # or JPEG never reaches the tree.
   if ! python3 tools/structure_versions.py build-light "$1" "$source" \
-    || ! "${GT_NPX[@]}" gltf-transform optimize "$source" "$optimized" --compress false --simplify false --palette false 2>&1 | tail -2 \
+    || ! "${GT_NPX[@]}" gltf-transform optimize "$source" "$optimized" --compress false --simplify false --palette false --texture-compress false 2>&1 | tail -2 \
+    || ! { [ "$(glb_images "$optimized" | cut -d' ' -f1)" = "0" ] || { encode_textures "$optimized" "$ktxed" 1024 && mv -f "$ktxed" "$optimized"; }; } \
     || ! "${GT_NPX[@]}" gltf-transform meshopt "$optimized" "$output" --quantize-position 16 2>&1 | tail -2; then
-    rm -f "$source" "$optimized" "$output"
+    rm -f "$source" "$optimized" "$ktxed" "$output"
     echo "   FATAL: v4 light derivative failed; no full-copy fallback, record, or repack." >&2
     return 1
   fi
   local stamp
   stamp="$(strings "$output" 2>/dev/null | grep -o 'glTF-Transform v[0-9][0-9.]*' | head -1 || true)"
   if [ "$stamp" != "glTF-Transform v$GT_CORE_VERSION" ]; then
-    rm -f "$source" "$optimized" "$output"
+    rm -f "$source" "$optimized" "$ktxed" "$output"
     echo "   FATAL: v4 light derivative has an unpinned transform stamp." >&2
     return 1
   fi
   mv "$output" "$OUT/$light"
-  rm -f "$source" "$optimized"
+  rm -f "$source" "$optimized" "$ktxed"
   printf '   %s  %s bytes (same-version reduced geometry)\n' "$light" "$(wc -c < "$OUT/$light" | tr -d ' ')"
 }
 
@@ -368,9 +377,10 @@ if [ -n "$resolved_cli" ]; then
   # that still carries a PNG or JPEG after the encode is a FATAL here, and
   # assertion 10 of tools/measure_web_derivatives.py refuses one in the tree.
   #
-  # The Glessner v4 set is not encoded here yet: its full and light files ship
-  # inside a three-file recovery package with its own hashes and a baseline page
-  # that reads them, and T-2596 owns that. measure_web_derivatives.py names it.
+  # The Glessner v4 master joined this path in T-2596: the full derivative
+  # encodes at the same 2048 cap as every textured master, the light one at
+  # 1024 (produce_light_version), and the three-file recovery package, the
+  # manifest record and the baseline page's audit moved in the same run.
   # The constraint on human assets (T-1786, data/humans/contract.json § delivery)
   # is unchanged: no human asset ships.
   # How many images a GLB carries, and how many of them are still PNG/JPEG.
@@ -592,11 +602,13 @@ PY
     # A textured master goes to KTX2 (T-2595): `optimize` leaves its images alone
     # (its default re-encodes every JPEG through sharp, and the KTX2 encode should
     # start from the master's own pixels, not a second lossy generation of them),
-    # and the encode runs between `optimize` and `meshopt`. Untextured masters and
-    # the Glessner v4 set (T-2596) take exactly the path they always took.
+    # and the encode runs between `optimize` and `meshopt`. Untextured masters take
+    # exactly the path they always took. The Glessner v4 master joined this path in
+    # T-2596; the older Glessner versions (pre-v4, v2, v3) stay off it — their
+    # derivatives are not part of that ticket's three-file package.
     ktx=0; texflags=()
     case "$(basename "$f")" in glessner_house__as_built_1887*) glessner=1 ;; *) glessner=0 ;; esac
-    if [ "$rel" != "$GLESSNER_V4" ] && [ "$glessner" = "0" ] && [ "$(glb_images "$f" | cut -d' ' -f1)" != "0" ]; then
+    if { [ "$glessner" = "0" ] || [ "$rel" = "$GLESSNER_V4" ]; } && [ "$(glb_images "$f" | cut -d' ' -f1)" != "0" ]; then
       ktx=1; texflags=(--texture-compress false)
     fi
     if "${GT_NPX[@]}" gltf-transform optimize "$f" "$tmp" "${compress[@]}" "${texflags[@]}" 2>&1 | tail -2 \
