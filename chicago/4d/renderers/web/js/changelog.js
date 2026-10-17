@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1919, ts: '2026-10-17T05:10:11.965Z', date: 'Oct 17, 2026, 12:10 AM CT', title: 'Nothing you can see changed: the 1835 ground arrives ready-cut', kind: 'improvement',
+    items: [
+      'The town looks exactly as before. What changed is how its ground reaches your device.',
+      'The 1835 ground now comes already cut into its 223 tiles and 9,405 pieces, so the page only hands them to the graphics card. On a slow phone that takes about 2.6 seconds off the ground\'s loading step.',
+      'The trade is a bigger first download: about 9 MB more, once. On a data-saving or slow connection the page skips it and cuts the ground itself, as it always did.',
+      'If the ready-cut ground is missing or out of date, the page also cuts its own.',
+    ] },
   { v: 1918, ts: '2026-10-17T04:45:51.473Z', date: 'Oct 16, 2026, 11:45 PM CT', title: 'Nothing you can see yet: roads and far ground cut ahead', kind: 'chore',
     items: [
       'Nothing in the scene changed. This is another step toward phones downloading the town instead of building it at every visit.',
