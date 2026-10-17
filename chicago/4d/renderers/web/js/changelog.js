@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1922, ts: '2026-10-17T05:42:52.515Z', date: 'Oct 17, 2026, 12:42 AM CT', title: 'The long street walks, woodpiles and distant walk tops get lighter', kind: 'improvement',
+    items: [
+      'Every plank walk, fence and yard piece in 1835 now stores each corner in 8 bytes instead of 12, within a millimetre of where it stood, with no extra draw calls.',
+      'On a phone that is about 4 MB less geometry for the walks and woodpiles; taps and shadows read the same timber.',
+    ] },
+  { v: 1921, ts: '2026-10-17T05:42:52.515Z', date: 'Oct 17, 2026, 12:42 AM CT', title: 'The Navigator: a handheld that knows where you are', kind: 'feature',
+    items: [
+      'A Navigator now rides with you in the town. On a phone it sits at the bottom of the screen and opens to half or most of it: tap the handle or drag it.',
+      'On a laptop it is a panel down the left side that folds to a strip of icons.',
+      'Its Home screen says where you are ("Prairie Avenue & East Eighteenth Street, facing west · 10:30 am"), which building is right in front of you, with an Inspect key, and the Jaunt you are on.',
+      'It also shows how you are moving and whether the Confidence view is on. The other icons open Go to, People, Evidence, Settings and the rest, where they are today.',
+      'The scene\'s hour is chosen, not recorded, and is listed under Liberties. There is no weather record, so the Navigator names no weather.',
+    ] },
   { v: 1920, ts: '2026-10-17T05:35:56.970Z', date: 'Oct 17, 2026, 12:35 AM CT', title: 'Your first tap after landing starts the sound and the look controls', kind: 'feature',
     items: [
       'With Tap to enter gone, your first tap on a Home choice, on the scene or on a Navigator control is what lets the town\'s sound start. On iPhone and iPad that tap is all it needs, with no warnings.',
