@@ -3413,6 +3413,8 @@ async function boot() {
       riseDown: document.getElementById('rise-down'),
     },
     onViewport: () => resize(),
+    // T-2653: Move › Comfort's snap-turn, read on each drag so a change takes at once.
+    snapTurn: () => !!hud.settings.snapTurn,
   });
 
   let gateOpen = true;

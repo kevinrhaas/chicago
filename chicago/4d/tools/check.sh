@@ -151,6 +151,9 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
 # T-2651: Move — one picker and one slider.
 step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider whose range and named speeds follow the mode (T-2651)" \
   node tools/test_nav_move.mjs
+# T-2653: Move's comfort settings.
+step "Move's Comfort holds the head bob, the eye height at its researched default with its Why, and snap-turn on touch (T-2653)" \
+  node tools/test_move_comfort.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \

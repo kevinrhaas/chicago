@@ -23,8 +23,26 @@ const STICK_RADIUS = 52;           // px to full deflection
 const DEAD_ZONE = 6;               // px before anything moves
 const TAP_MS = 260;                // hold shorter than this...
 const TAP_SLOP = 12;               // ...and moved less than this = a tap
+// Snap-turn (T-2653, a comfort setting under Move): with it on, a drag to look turns
+// the view in whole steps — SNAP_DEG for every SNAP_PX of sideways drag — rather than
+// smoothly. Pitch stays smooth: it is the sweep sideways that unsettles.
+export const SNAP_DEG = 30;
+export const SNAP_PX = 48;
 
-export function createTouchBackend({ intent, domElement, ui = {}, onViewport }) {
+/**
+ * Sideways drag, carried over from earlier moves, as whole snap steps. Returns the yaw
+ * to turn now (radians, + is left, as the intent has it) and the drag still carried.
+ * A drag to the right turns right, as the smooth look does.
+ */
+export function snapYaw(carryPx, dxPx, { stepDeg = SNAP_DEG, px = SNAP_PX } = {}) {
+  let carry = carryPx + dxPx;
+  let steps = 0;
+  while (carry >= px) { carry -= px; steps -= 1; }
+  while (carry <= -px) { carry += px; steps += 1; }
+  return { yaw: steps * stepDeg * (Math.PI / 180), carry };
+}
+
+export function createTouchBackend({ intent, domElement, ui = {}, onViewport, snapTurn = () => false }) {
   const { layer, stick, knob, risePad, riseUp, riseDown } = ui;
 
   /** pointerId -> { role, startX, startY, x, y, t0, moved } */
@@ -137,7 +155,13 @@ export function createTouchBackend({ intent, domElement, ui = {}, onViewport }) 
 
     if (p.role === 'look') {
       // Look is a DELTA, accumulated into the intent and consumed by the walker.
-      intent.yawDelta -= (x - p.x) * LOOK_SENSITIVITY;
+      if (snapTurn()) {
+        const step = snapYaw(p.carry ?? 0, x - p.x);
+        p.carry = step.carry;
+        intent.yawDelta += step.yaw;
+      } else {
+        intent.yawDelta -= (x - p.x) * LOOK_SENSITIVITY;
+      }
       intent.pitchDelta -= (y - p.y) * LOOK_SENSITIVITY;
     } else {
       let dx = x - p.startX;

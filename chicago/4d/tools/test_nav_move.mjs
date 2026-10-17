@@ -89,7 +89,9 @@ for (const gone of ['s-travel', 's-pace', 's-wagon-speed', 's-horse-speed', 'v-w
 assert.deepEqual([...panel.matchAll(/data-mode="([a-z]+)"/g)].map((m) => m[1]), MOVE_MODES, 'one picker, in order');
 assert.equal((panel.match(/role="radiogroup"/g) ?? []).length, 2, 'the picker, and Go to\'s choice');
 assert.deepEqual([...panel.matchAll(/data-arrive="([a-z]+)"[^>]*>([^<]+)</g)].map((m) => m[2]), ['Teleport', 'Ride there', 'Fly over']);
-assert.equal((panel.match(/type="range"/g) ?? []).length, 1, 'one slider');
+// One speed slider; Comfort below it holds the eye height's own (T-2653).
+const speedPart = panel.includes('id="move-comfort"') ? panel.slice(0, panel.indexOf('id="move-comfort"')) : panel;
+assert.equal((speedPart.match(/type="range"/g) ?? []).length, 1, 'one slider');
 // What a visitor reads: no ids, paths or snake_case in the section's words.
 const words = panel.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, ' ');
 assert(!/[a-z]+_[a-z]+|\.js\b|\//.test(words), `the section's words: ${words.replace(/\s+/g, ' ').trim()}`);
