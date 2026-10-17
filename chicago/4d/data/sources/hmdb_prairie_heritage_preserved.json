@@ -1,0 +1,22 @@
+{
+  "id": "hmdb_prairie_heritage_preserved",
+  "type": "website",
+  "citation": "'A Heritage Preserved', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308723.",
+  "date": "accessed 2026-10-17",
+  "describes_date": "1857-1904",
+  "url": "https://www.hmdb.org/m.asp?m=308723",
+  "locator": "An introduction, then one entry per surviving house, each headed by its address and a name line giving the residence, the year built and the architect, then one or two sentences.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A modern interpretive marker's text, cited in words only; nothing is copied into the scene.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-17 (T-2747) from the HMdb page through a fetch that returned the inscription in short quoted segments; the marker itself was not visited. The Prairie library read the same page on 2026-09-26 (chicago/prairie_1904_v1/research/building-research.json) and its readings of the name lines agree with this one.",
+  "note": "Entries read: 1800 'John Glessner Residence. Built 1887; Henry Hobson Richardson, architect', 'Designed in the Richardsonian Romanesque style, the house is wrapped around a spacious light-filled courtyard'; 1801 'William W. Kimball Residence. Built 1890; Solon S. Beman, architect', 'Built for the prominent Chicago piano and organ manufacturer in the French Chateauesque style'; 1811 'Joseph G. Coleman Residence. Built 1886; Cobb & Frost, architects', 'Cobb & Frost were well known for their designs in the Romanesque style, executed here in rough-faced brown sandstone'; 1900 'Elbridge G. Keith Residence. Built 1870; John W. Roberts, architect', 'The last surviving example of the popular Second Empire style, which dominated the street by the 1880s'; 1919 'Marshall Field Jr. Residence. Built 1867; architect unknown', 'This house was enlarged and improved several times, the last being in 1902' 'when D. H. Burnham & Company built a huge addition for Marshall Field Jr.,' 'who had acquired the property in 1890'.",
+  "what_it_supplies": [
+    "year built, architect and style as the marker states them for 1800, 1801, 1811, 1900 and 1919 Prairie"
+  ],
+  "what_it_does_not_supply": [
+    "anything about the houses' state in 1904 beyond what each entry dates"
+  ]
+}
