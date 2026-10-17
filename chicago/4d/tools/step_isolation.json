@@ -5614,6 +5614,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_pacing_read.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_people_scene.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5655,6 +5659,10 @@
       "wrote_ignored": []
     },
     "tools/test_program_cache_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_recall.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

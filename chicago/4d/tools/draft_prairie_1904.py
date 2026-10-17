@@ -274,6 +274,27 @@ def _area(r):
     return (r[2] - r[0]) * (r[3] - r[1])
 
 
+def _gap(r, s):
+    """Clear distance between two rectangles (0 when they touch or overlap)."""
+    du = max(r[0] - s[2], s[0] - r[2], 0.0)
+    dv = max(r[1] - s[3], s[1] - r[3], 0.0)
+    return math.hypot(du, dv)
+
+
+def _close_gap(r, s):
+    """`r` stretched across the clear strip to meet `s` on each axis it stands apart on."""
+    u0, v0, u1, v1 = r
+    if r[0] > s[2]:
+        u0 = s[2]
+    elif r[2] < s[0]:
+        u1 = s[0]
+    if r[1] > s[3]:
+        v0 = s[3]
+    elif r[3] < s[1]:
+        v1 = s[1]
+    return (u0, v0, u1, v1)
+
+
 def _touches(r, s, eps=0.3):
     """Two plan rectangles that share an edge or overlap (within `eps` metres)."""
     return max(r[0], s[0]) - min(r[2], s[2]) <= eps and max(r[1], s[1]) - min(r[3], s[3]) <= eps
@@ -604,6 +625,15 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
             # a small piece touching nothing of its building (1729's 4 x 2.5 m range standing
             # 2 m off the side wall) is an outbuilding of one storey, not a two-storey shaft
             st, rf = 1, "flat"
+        if n and fit.get("snap_gap_m") and role in ("wing", "bay", "range", "porch"):
+            others = [q["rect"] for q in kept if q is not p]
+            near = min(others, key=lambda s: _gap(r, s)) if others else None
+            if near is not None and not _touches(r, near) and _gap(r, near) <= fit["snap_gap_m"]:
+                # a piece left a few metres clear of everything else of its building (1729's
+                # 5 m stone range 2.5 m off the south wall) reads as a tower on the lawn: the
+                # sheet draws one building, so it stands against its nearest wall (T-2738)
+                r = _close_gap(r, near)
+                depth = r[2] - r[0]
         parts.append({"id": f"r{n + 1}", "role": role, "storeys": st, "roof": rf,
                       "rect": [round(r[0] - mu0, 3) + 0.0, round(r[1] - mv0, 3) + 0.0,
                                round(r[2] - mu0, 3) + 0.0, round(r[3] - mv0, 3) + 0.0],
