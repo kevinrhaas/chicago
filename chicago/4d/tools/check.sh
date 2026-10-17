@@ -7203,6 +7203,16 @@ step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8
 step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
   node tools/test_arrival_telemetry.mjs
 
+# T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
+# tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a
+# sentence (a bubble to 14 words, section 11). A string under 12 words is scored in its
+# file's pool rather than alone, because the formula is a passage measure; the tool's
+# header has the syllable rules and the measurement behind that floor.
+step "every summary, fact, caption and bubble reads at Flesch-Kincaid grade 9 or lower, 20 words a sentence (T-2669)" \
+  python3 tools/check_reading_level.py --check
+selftest "…and a planted grade-12 sentence, a 21-word sentence, a 15-word bubble and a file of short hard lines are refused (T-2669)" \
+  python3 tools/check_reading_level.py --self-test
+
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
 # an impression: both shapes stand until the last record moves, and a half-migrated layer
