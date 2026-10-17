@@ -14,6 +14,7 @@ import { createWhere, polygonDistance, facingWords, clockWords, screenDate } fro
 import { createNavigator, snapLevel, tapLevel, detentHeights, moveWords, DOCK_PX, dockPill, dockYear, JOYSTICK_CLEAR_PX, DOCK_PILL_PX } from '../renderers/web/js/navigator.js';
 import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/nav-rail.js';
 import { APPS } from '../renderers/web/js/apps/index.js';
+import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -538,6 +539,53 @@ for (const phone of [true, false]) {
   assert.equal(reads, 1, 'and not read again');
 }
 
+// ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
+// a tap (or the quick column's Inspect key) opens Inspect --------------------------------------
+{
+  assert.equal(DWELL_MS, 400); assert.equal(TAG_WITHIN_M, 40);
+  const glessner = { id: 'glessner_house', record: { id: 'glessner_house', sidecar: { name: 'Glessner House' } }, distance: 11.6 };
+  assert.equal(tagWords(glessner), 'Glessner House · 38 ft');
+  assert.equal(tagWords({ id: 'keith_house_1808_prairie', record: {}, distance: 20 }).includes('_'), false, 'no snake_case in the tag');
+  let clock = 0;
+  const timers = [];
+  const wait = (fn, ms) => { const t = { at: clock + ms, fn, live: true }; timers.push(t); return t; };
+  const cancel = (t) => { t.live = false; };
+  const advance = (ms) => { clock += ms; for (const t of timers.filter((x) => x.live && x.at <= clock)) { t.live = false; t.fn(); } };
+  let hear = null, within = null, now = null;
+  const target = { on: (fn, o) => { hear = fn; within = o.within; return () => { hear = null; }; }, current: () => now };
+  const el = () => { const ls = {}; return { hidden: true, textContent: '', attrs: {}, setAttribute(k, v) { this.attrs[k] = v; },
+    addEventListener(t, fn) { ls[t] = fn; }, click() { ls.click?.(); } }; };
+  const tagEl = el(), keyEl = el();
+  const opened = [];
+  const tag = createTargetTag({ target, tagEl, keyEl, wait, cancel, onInspect: (t) => opened.push(t.id) });
+  assert.equal(within, 40, 'the tag listens within the Inspect distance');
+  now = glessner; hear(glessner);
+  advance(399);
+  assert.equal(tagEl.hidden, true, 'nothing before the dwell');
+  advance(1);
+  assert.equal(tagEl.hidden, false, 'after 400 ms of rest the tag shows');
+  assert.equal(tagEl.textContent, 'Glessner House · 38 ft');
+  assert.equal(keyEl.hidden, false, 'and the quick column offers Inspect');
+  tagEl.click(); keyEl.click();
+  assert.deepEqual(opened, ['glessner_house', 'glessner_house'], 'a tap on the tag or the key opens Inspect on it');
+  // A glance away hides it at once; a glance past a building shows nothing.
+  now = null; hear(null);
+  assert.equal(tagEl.hidden, true); assert.equal(keyEl.hidden, true);
+  const other = { id: 'keith_house', record: { sidecar: { name: 'Keith House' } }, distance: 20 };
+  now = other; hear(other); advance(200);
+  now = null; hear(null); advance(400);
+  assert.equal(tagEl.hidden, true, 'a building passed in under 400 ms never shows');
+  // Out of the town (Home, a menu) it never shows, and coming back reads the probe again.
+  now = glessner; hear(glessner); advance(400);
+  tag.setEnabled(false);
+  assert.equal(tagEl.hidden, true);
+  hear(other); advance(400);
+  assert.equal(tagEl.hidden, true, 'disabled, nothing shows');
+  tag.setEnabled(true); advance(400);
+  assert.equal(tagEl.textContent, 'Glessner House · 38 ft', 'back in the town, the dwell runs on what is in front');
+  assert.equal(tag.current.id, 'glessner_house');
+}
+
 // ---- T-2619: the dock — closed, it shows the lamp, the label, the year and the icon of the
 // app it opens to; one tap (or a swipe up) opens that last app at HALF -------------------
 {
@@ -617,6 +665,11 @@ for (const phone of [true, false]) {
   }
   assert.match(css, /\.28s var\(--ease-detent/, 'a height change takes 280 ms on the detent easing');
   assert.match(html, /<link rel="stylesheet" href="\.\/css\/navigator\.css">/);
+  // T-2627: the quick column holds two buttons at most — Walk/Fly and the Inspect key.
+  const quick = html.slice(html.indexOf('<div class="quick-column"'), html.indexOf('</div>', html.indexOf('<div class="quick-column"')));
+  assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column never holds more than two buttons');
+  assert.match(quick, /id="btn-fly"/); assert.match(quick, /id="btn-inspect"[^>]*hidden/);
+  assert.match(html, /<button type="button" class="target-tag" id="target-tag" hidden><\/button>/);
   // T-2619: the closed device's year and app icon, and the pill on a phone.
   assert.match(section, /id="nav-dock-app" aria-hidden="true"/);
   assert.match(section, /id="nav-dock-year" aria-hidden="true"/);

@@ -53,7 +53,7 @@ import { createStreets, fetchPrebuiltStreets } from './streets.js';
 import { createEnclosures } from './enclosures.js';
 import { loadOrdinanceLimits } from './ordinances.js';
 import { loadAgencies } from './agencies.js';
-import { createFencedGround } from './yards.js';
+import { createFencedGround, fetchPrebuiltYards } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
@@ -101,6 +101,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
+import { createTargetTag } from './target-tag.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -1804,6 +1805,12 @@ async function boot() {
     ? fetchPrebuiltStreets({ dataBase: bases.dataBase,
       year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild(), ...detailOpts() })
     : null;
+  // T-2711: and the yards' five surfaces, which the fenced ground uploads in place
+  // of laying them (yards.js § THE YARDS, PREBUILT). Never rejects.
+  const yardsPrebuilt = draws('enclosures')
+    ? fetchPrebuiltYards({ dataBase: bases.dataBase,
+      year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
+    : null;
   /**
    * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
    * below read the 1835 town's records just as the drawn layers do — its residents,
@@ -2124,8 +2131,11 @@ async function boot() {
   // bake. Mounted after the streets so a frontage fence is drawn against the
   // travelled way it stands on, and before the vegetation because the ground
   // inside one now decides what may grow there — see the fenced ground below.
+  // T-2711: hashed as they are read when the yards may come prebuilt from them.
+  const enclosureHashes = yardsPrebuilt && globalThis.crypto?.subtle ? new Map() : null;
   const enclosures = await createEnclosures({
     dataBase: layerBase('enclosures'), terrain, confidence, problems: layerProblems('enclosures'), ...detailOpts(),
+    hashes: enclosureHashes,
   });
   scene3d.add(enclosures.group);
   settleOnGpu(enclosures.group);
@@ -2146,9 +2156,12 @@ async function boot() {
    * not take the ground with it. It takes the enclosure records straight off the
    * layer above rather than re-fetching them.
    */
+  performance.mark('yards:start');
   const yards = await createFencedGround({
     records: enclosures.records, terrain, confidence, problems,
+    prebuilt: yardsPrebuilt, recordHashes: enclosureHashes,
   });
+  performance.measure('yards', 'yards:start');
   scene3d.add(yards.group);
   settleOnGpu(yards.group);
   api.yards = yards;
@@ -3819,7 +3832,7 @@ async function boot() {
   // ---- gate ------------------------------------------------------------- //
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
-  let navigatorUi = null, target = null;
+  let navigatorUi = null, target = null, targetTag = null;
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3842,6 +3855,7 @@ async function boot() {
     // the probe looks again at whatever the eye has just been set down in front of.
     navigatorUi?.dock();
     target?.invalidate();
+    targetTag?.setEnabled(true);
     backends.activate(coarse ? touch : pointerlock);
     if (firstEntry) hud.showControlHelp({ auto: true });
     // T-2614: audio was resumed by the Home choice that brought us here (gesture-gate.js);
@@ -3950,6 +3964,7 @@ async function boot() {
       gateFrame.reset();
       backends.activate(null);
       gesture.setLook({ inWorld: false });
+      targetTag?.setEnabled(false);
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
       hud.dismissControlHelp({ remember: false });
@@ -3998,6 +4013,24 @@ async function boot() {
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
   });
   api.target = target;
+  // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
+  // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
+  // (its stub opens the card until the dossier lands, T-2638), handing it this target.
+  targetTag = createTargetTag({
+    target,
+    tagEl: document.getElementById('target-tag'),
+    keyEl: document.getElementById('btn-inspect'),
+    units: () => hud.settings.units,
+    onInspect: (t) => {
+      // Inspect opens on what is selected first, so a card left open on another
+      // building is put away before the tag hands over its own.
+      if (popup.openId && popup.openId !== t.id) popup.close();
+      if (navigatorUi?.select) void navigatorUi.select('inspect');
+      else pick(t.id);
+    },
+  });
+  targetTag.setEnabled(!gateOpen);
+  api.targetTag = targetTag;
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -4021,6 +4054,8 @@ async function boot() {
       scene: loaded.scene,
       journey: journey.state,
       selected: popup.openId ?? null,
+      // T-2627: what the HUD's tag is showing, for Inspect when the device's own probe is idle.
+      target: targetTag?.current ?? null,
       // A scene has people when it has a people directory: 1835 loads its own at boot for the
       // drawer (the `residents` layer); a scene without that layer is asked after ready, with a
       // HEAD, and its directory is fetched only when People first opens (1904, T-2702).
