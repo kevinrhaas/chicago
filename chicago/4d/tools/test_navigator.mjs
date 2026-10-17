@@ -642,8 +642,10 @@ for (const phone of [true, false]) {
   assert.deepEqual(calls, []);
   await nav.openLink({ app: 'map' });
   assert.deepEqual(calls.at(-1), ['map'], '?nav=map opens the Map');
+  // Jaunts is a screen since T-2630 (no longer a launch), so the link opens it in the device.
   await nav.openLink({ app: 'jaunts' });
-  assert.deepEqual(calls.at(-1), ['jaunts'], '?nav=jaunts opens Jaunts');
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(nav.app, 'jaunts', '?nav=jaunts opens Jaunts');
   await nav.openLink({ app: 'inspect', id: 'glessner_house', tab: 'design' });
   assert.deepEqual(calls.at(-1), ['card', 'glessner_house'], '?nav=inspect:glessner_house opens that building (its card until the dossier lands)');
   assert.deepEqual(nav.link, { app: 'inspect', id: 'glessner_house', tab: 'design' }, 'the app reads its id and tab off ctx.link');
