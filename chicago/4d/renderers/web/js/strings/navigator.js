@@ -14,6 +14,8 @@ export default register('nav', {
   lower: 'Lower the Navigator',
   collapse: 'Collapse the Navigator',
   'collapse.short': 'Collapse',
+  close: 'Close the Navigator',
+  'close.short': 'Close',
   'open.short': 'Open',
   'where.k': 'You are at',
   'where.looking': 'Looking for the street…',

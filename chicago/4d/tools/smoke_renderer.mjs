@@ -15164,6 +15164,19 @@ for (const [label, viewport, touch] of [
     check(`${label}: settings toggle all three navigation aids`,
       toggles.hidden.compass && toggles.hidden.map && toggles.hidden.street && toggles.restored,
       JSON.stringify(toggles));
+    // T-2736 (owner, 2026-10-17): Settings › Show turns the look-at tag off and on; on by default.
+    const lookTag = await page.evaluate(() => {
+      const box = document.getElementById('s-look-tag');
+      const api = window.__chicago4d;
+      const out = { present: !!box, onByDefault: box?.checked === true };
+      box?.click();
+      out.off = api.hud?.settings?.lookTag === false && document.getElementById('target-tag').hidden;
+      box?.click();
+      out.backOn = box?.checked === true && api.hud?.settings?.lookTag === true;
+      return out;
+    });
+    check(`${label}: Settings › Show turns the look-at tag off and back on (T-2736)`,
+      lookTag.present && lookTag.onByDefault && lookTag.off && lookTag.backOn, JSON.stringify(lookTag));
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -15598,6 +15611,52 @@ for (const [label, viewport, touch] of [
       && String(gotoClean.clamp) === '2' && gotoClean.overflow,
       JSON.stringify(gotoClean));
     // ---- end T-2632
+    // ---- T-2740: Go to's order. Nearest is the default; the other orders are offered only
+    // where the scene has something to sort on; Address runs by street then number, a row
+    // with nothing to sort on follows the rest, and the choice holds for the session.
+    const gotoSort = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      await new Promise((r) => setTimeout(r, 200));
+      const select = document.getElementById('welcome-sort');
+      const options = [...(select?.options ?? [])].map((o) => o.value);
+      const first = select?.value;
+      const box = select?.getBoundingClientRect();
+      const visible = !!box && box.width > 0 && box.right <= innerWidth + 1;
+      const orders = {};
+      for (const id of options) {
+        select.value = id; select.dispatchEvent(new Event('change'));
+        orders[id] = [...document.querySelectorAll('#welcome-results .welcome-destination')].map((r) => ({ kind: r.dataset.kind, id: r.dataset.id }));
+      }
+      const target = (row) => api.destinations.byId(row.kind, row.id);
+      const addresses = (orders.address ?? []).map((row) => target(row)?.address ?? null);
+      const firstMissing = addresses.findIndex((a) => !a);
+      const numbered = addresses.slice(0, firstMissing < 0 ? addresses.length : firstMissing);
+      const addressOk = !options.includes('address') || (numbered.length > 0
+        && numbered.every((a, i) => !i || a.street > numbered[i - 1].street || (a.street === numbered[i - 1].street && a.number >= numbered[i - 1].number))
+        && addresses.slice(numbered.length).every((a) => !a));
+      const stored = sessionStorage.getItem('chicago4d.goto.sort');
+      select.value = 'near'; select.dispatchEvent(new Event('change'));
+      const out = { options, first, visible, addressOk, stored, last: options.at(-1),
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1,
+        // The furthest row heads Furthest: no row Nearest lists is further away.
+        farthest: (() => {
+          const v = api.walker.state, d = (row) => { const t = target(row); return Number.isFinite(t?.e) ? Math.hypot(t.e - v.e, t.n - v.n) : -1; };
+          return !orders.far?.length || orders.near.every((r) => d(r) <= d(orders.far[0]) + 0.01);
+        })() };
+      api.jauntsApp?.restore();
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Go to sorts by nearest (default), furthest, address, name and owner, address by street then number, and keeps the choice (T-2740)`,
+      gotoSort.first === 'near' && gotoSort.options[0] === 'near' && gotoSort.options.includes('far') && gotoSort.options.includes('name')
+      && gotoSort.visible && gotoSort.overflow && gotoSort.addressOk && gotoSort.stored === gotoSort.last
+      && gotoSort.farthest,
+      JSON.stringify(gotoSort));
+    // ---- end T-2740
     // ---- T-2633: the Navigator's Go to follows the Confidence view too: with Reconstructed
     // hidden, a reconstructed place is listed dimmed with its one-line reason, and is
     // itself again the moment the grade is shown.

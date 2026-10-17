@@ -11,12 +11,21 @@
  * Inspect distance) and waits out the dwell on a timer. Losing the target hides the tag
  * at once; a new one waits its own 400 ms. No DOM beyond the two elements it is handed,
  * no THREE: tools/test_navigator.mjs drives it with fakes.
+ *
+ * T-2736 (owner, 2026-10-17: "if you see it it should show and then disappear"): the
+ * tag is a glance, not a sign. It holds HOLD_MS, fades over FADE_MS (`.is-fading`), and
+ * stays gone for that building until the reticle leaves it; looking back shows it again.
+ * The Inspect key stays while the building is in the reticle, so Inspect is one tap away.
+ * Settings › Show › "Name of what you look at" turns the tag off (`setTagShown`); the
+ * Inspect key stays either way.
  */
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
 
 export const DWELL_MS = 400;
 export const TAG_WITHIN_M = 40;
+export const HOLD_MS = 3000;
+export const FADE_MS = 600;
 
 /** The tag's words: the building's display name and its distance, in the visitor's units. */
 export function tagWords(t, units = 'imperial') {
@@ -35,18 +44,31 @@ export function createTargetTag({
   onInspect = () => {},
   dwell = DWELL_MS,
   within = TAG_WITHIN_M,
+  hold = HOLD_MS,
+  fade = FADE_MS,
+  tagShown = true,
   wait = (fn, ms) => setTimeout(fn, ms),
   cancel = (id) => clearTimeout(id),
 } = {}) {
   let shown = null;    // the target the tag is showing
   let pending = null;  // the timer waiting out the dwell
+  let fading = null;   // the timer holding, then fading, the tag
+  let spent = null;    // the id whose tag has faded: it stays gone until the reticle leaves it
   let enabled = true;
+  let tagOn = !!tagShown;
+
+  function stopFade() {
+    if (fading !== null) { cancel(fading); fading = null; }
+    tagEl?.classList?.remove('is-fading');
+  }
 
   function paint(t) {
+    const fresh = !!t && t.id !== shown?.id;
     shown = t;
+    if (!t) spent = null;
     const words = tagWords(t, units());
     if (tagEl) {
-      tagEl.hidden = !t;
+      tagEl.hidden = !t || !tagOn || spent === t.id;
       if (t) {
         tagEl.textContent = words;
         tagEl.setAttribute?.('aria-label', `Inspect ${words}`);
@@ -55,6 +77,18 @@ export function createTargetTag({
     if (keyEl) {
       keyEl.hidden = !t;
       if (t) keyEl.setAttribute?.('aria-label', `Inspect ${words}`);
+    }
+    if (!t || fresh) stopFade();
+    if (t && fresh) {
+      fading = wait(() => {
+        tagEl?.classList?.add('is-fading');
+        fading = wait(() => {
+          fading = null;
+          spent = t.id;
+          tagEl?.classList?.remove('is-fading');
+          if (tagEl) tagEl.hidden = true;
+        }, fade);
+      }, hold);
     }
   }
 
@@ -82,6 +116,11 @@ export function createTargetTag({
     setEnabled(on) {
       enabled = !!on;
       hear(enabled ? target?.current?.(within) ?? null : null);
+    },
+    /** Settings › Show: the visitor's choice to see the tag at all (the Inspect key stays). */
+    setTagShown(on) {
+      tagOn = !!on;
+      if (!tagOn) { stopFade(); if (tagEl) tagEl.hidden = true; }
     },
     open,
     dispose() { off?.(); hear(null); },

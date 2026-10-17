@@ -1,4 +1,36 @@
 export const CHANGELOG = [ // newest first
+  { v: 1969, ts: '2026-10-17T19:59:13.656Z', date: 'Oct 17, 2026, 2:59 PM CT', title: 'A frame pacing reading you can take on your own phone', kind: 'chore',
+    items: [
+      'On the dev preview, Settings → Performance has a Read frame pacing button. It walks, turns and flies for about half a minute at Light, once with Frame pacing on Fixed and once on Adaptive, then puts you back where you were.',
+      'It shows how steady each move\'s frames were (the spread and the slow 5 %) and whether Adaptive made them steadier, with a Copy button to send the result back.',
+      'This test machine draws a frame every two or three seconds, too slowly to say whether Adaptive helps, so the reading is taken on a phone. Production does not show the button.',
+    ] },
+  { v: 1968, ts: '2026-10-17T19:59:13.656Z', date: 'Oct 17, 2026, 2:59 PM CT', title: '1625 Prairie\'s front rises as its photograph\'s steep stone gable', kind: 'improvement',
+    items: [
+      'The McBirney house\'s front now rises to a coped stone gable 18.85 m high, as the 1890 photograph shows it. Before, it stopped at a slate roof with one dormer.',
+      'The gable has three arched attic windows and an oval window near its peak, each placed where the photograph has it.',
+      'The south wall rises to the photograph\'s 13 m eave, and the tall chimney now stands on the north party wall beside the gable.',
+      'Two things are not read from the picture: the gable stands 0.3 m off the photograph\'s centre, and its face steps out slightly under the attic windows. Both are listed as liberties.',
+    ] },
+  { v: 1967, ts: '2026-10-17T19:59:13.656Z', date: 'Oct 17, 2026, 2:59 PM CT', title: 'Go to sorts by nearest, furthest, address, name or owner', kind: 'feature',
+    items: [
+      'A small sort control sits beside the All, Places and Viewpoints filters in Go to. Nearest is the default, so the closest places now come first.',
+      'Address runs street by street and then by house number, so 1600 Prairie comes before 1604. 1835 had no house numbers yet, so its list does not offer Address.',
+      'Owner lists buildings by the family the records name for them, such as the Glessners at 1800 Prairie or the Sherman house at 2100, with their coach houses beside them.',
+      'A row with nothing to sort on, such as a viewpoint under Address, comes after the rest. Your choice holds until you close the tab.',
+    ] },
+  { v: 1966, ts: '2026-10-17T19:59:13.656Z', date: 'Oct 17, 2026, 2:59 PM CT', title: 'Prairie Avenue\'s draft houses lose their last towers and floating porches', kind: 'fix',
+    items: [
+      'The stone shaft on the Pullman lawn at 1729 now stands against the south wall as a one-storey side block.',
+      'Fifteen other detached pieces on the unworked drafts close up against their nearest wall in the same way.',
+      'Draft porches no longer hang in the air: each is a solid stone stoop with steps down to the lawn.',
+      'The finished houses are untouched; each draft still waits for its own refine pass.',
+    ] },
+  { v: 1965, ts: '2026-10-17T19:59:13.656Z', date: 'Oct 17, 2026, 2:59 PM CT', title: 'The Navigator has a close button at its top right', kind: 'improvement',
+    items: [
+      'The open Navigator now shows an X at the right end of its header. It closes the device the way the collapse arrow does: to its rail on a laptop, down to the dock on a phone.',
+      'The X and the collapse arrow are drawn alike in every appearance, and on a phone the X is easy to hit with a thumb.',
+    ] },
   { v: 1964, ts: '2026-10-17T18:49:44.756Z', date: 'Oct 17, 2026, 1:49 PM CT', title: 'The home page\'s destination footage plays in black and white', kind: 'polish',
     items: [
       'The live clip on each destination card now plays in black and white, toned like the stills it replaced, so the feed reads as an old transmission.',

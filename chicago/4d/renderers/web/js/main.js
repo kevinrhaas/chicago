@@ -115,6 +115,7 @@ import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './sh
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
@@ -3202,6 +3203,8 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'lookTag') {
+        api.targetTag?.setTagShown(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
@@ -4124,6 +4127,7 @@ async function boot() {
     tagEl: document.getElementById('target-tag'),
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
+    tagShown: hud.settings.lookTag !== false,
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
@@ -4902,6 +4906,9 @@ async function boot() {
     /** T-2597: the boot pool, and the most GLB bytes it held unparsed at once. */
     bootPool: { get: () => loaded.bootPool, enumerable: true },
   });
+  // T-2732: Settings' dev-only Read frame pacing, for the reading T-2733 takes on
+  // a phone. Mounted after the live readings above, which it drives and restores.
+  mountPacingRead({ api, hud });
 
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;
