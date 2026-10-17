@@ -3967,6 +3967,10 @@ async function boot() {
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
     onInspect: (id) => pick(id),
+    // T-2622: its keys wait for the arrival to close, and Escape goes to the drawer or a
+    // building card first when one is open.
+    keysActive: () => !gateOpen,
+    escFree: () => (document.getElementById('panel')?.hidden ?? true) && !popup.openId,
     // T-2618: the rail's apps (js/apps/), and what they read the page through. An app
     // takes what it needs from `ctx` — the api object included — and never imports main.js.
     apps: NAVIGATOR_APPS,

@@ -196,8 +196,10 @@ function miniDom() {
     'nav-jaunt', 'nav-jaunt-step', 'nav-jaunt-title', 'nav-jaunt-bar', 'nav-move', 'nav-confidence']) add(home, 'div', id);
   return { root, doc, docEl, body, byId, rail };
 }
-const railIds = (dom) => dom.rail.children.filter((b) => b.dataset.app && !b.hidden).map((b) => b.dataset.app);
-const button = (dom, id) => dom.rail.children.find((b) => b.dataset.app === id);
+// T-2622: the tabs sit in the rail's tablist wrapper, in front of the collapse key.
+const tabsOf = (dom) => dom.rail.children.find((c) => c.classList.contains('nav-tabs'))?.children ?? [];
+const railIds = (dom) => tabsOf(dom).filter((b) => b.dataset.app && !b.hidden).map((b) => b.dataset.app);
+const button = (dom, id) => tabsOf(dom).find((b) => b.dataset.app === id);
 const fakeStorage = () => { const m = new Map(); return { getItem: (k) => m.get(k) ?? null, setItem: (k, v) => m.set(k, String(v)), m }; };
 
 // ---- nav-rail.js: the registry on its own ---------------------------------------------
@@ -242,6 +244,17 @@ const fakeStorage = () => { const m = new Map(); return { getItem: (k) => m.get(
   assert.throws(() => rail.register({ id: 'two', label: 'Two', panel: 'x', load() {} }), /needs one of/);
   assert.throws(() => rail.register({ id: 'none', label: 'None' }), /needs one of/);
   assert.equal(dom.rail.children.at(-1).id, 'nav-collapse', 'apps go in front of the collapse key');
+  // T-2622: the rail is a tablist (its own wrapper, since the collapse key is no tab), each
+  // app a labelled tab, its screen a tabpanel labelled by it.
+  const tablist = dom.rail.children.find((c) => c.classList.contains('nav-tabs'));
+  assert.equal(tablist.getAttribute('role'), 'tablist');
+  assert.equal(tablist.getAttribute('aria-label'), 'Navigator apps');
+  assert.deepEqual(dom.rail.children.map((c) => c.id || c.className), ['nav-tabs', 'nav-collapse']);
+  for (const b of tabsOf(dom)) {
+    assert.equal(b.getAttribute('role'), 'tab', `${b.dataset.app} is a tab`);
+    assert.ok(b.getAttribute('aria-label'), `${b.dataset.app}'s tab is labelled`);
+    assert.equal(b.getAttribute('aria-pressed'), null, 'a tab says aria-selected, never aria-pressed');
+  }
   assert.equal(button(dom, 'settings').classList.contains('nav-app-foot-first'), true, 'Settings starts the foot');
 
   await rail.select('home', { by: 'quiet' });
@@ -307,7 +320,14 @@ const fakeStorage = () => { const m = new Map(); return { getItem: (k) => m.get(
   reduced = true;
   await rail.select('home', { by: 'hand' });
   assert(dom.byId.get('nav-home').classList.contains('is-fading'), 'a crossfade instead under reduced motion');
-  assert.deepEqual(button(dom, 'home').getAttribute('aria-pressed'), 'true');
+  assert.deepEqual(button(dom, 'home').getAttribute('aria-selected'), 'true');
+  assert.equal(button(dom, 'home').tabIndex, 0, 'roving focus: the open app\'s tab is the rail\'s Tab stop');
+  assert.equal(button(dom, 'jaunts').tabIndex, -1);
+  assert.equal(button(dom, 'jaunts').getAttribute('aria-selected'), 'false');
+  assert.equal(jumpPanel.getAttribute('role'), 'tabpanel');
+  assert.equal(jumpPanel.getAttribute('aria-labelledby'), 'nav-tab-jump');
+  assert.equal(button(dom, 'jump').getAttribute('aria-controls'), 'nav-app-jump');
+  assert.equal(jumpPanel.tabIndex, -1, 'an app\'s screen takes focus on open');
   assert.deepEqual(rail.unregister('jump'), true);
   assert.equal(button(dom, 'jump'), undefined, 'unregister takes the icon out');
 }
@@ -357,7 +377,8 @@ for (const phone of [true, false]) {
   // Opening by hand: Home paints at once and focus moves into it.
   dom.byId.get(phone ? 'nav-grip' : 'nav-collapse').dispatch('click');
   assert.equal(nav.detent, phone ? 'half' : 'open', `${label}: one tap opens it`);
-  assert.equal(dom.byId.get('nav-home-title').focused, 1, `${label}: focus moves into Home on open`);
+  // T-2622: onto Home's screen, which shows its focus ring (the heading is visually hidden).
+  assert.equal(dom.byId.get('nav-home').focused, 1, `${label}: focus moves into Home on open`);
   // 1904 has no people records and nothing within 40 m of the reticle yet: no People, no Inspect.
   assert.deepEqual(nav.apps, ['home', 'jaunts', 'map', 'confidence', 'move', 'jump', 'guide', 'settings'], `${label}: the usual eight`);
   const s = nav.snapshot();
@@ -424,10 +445,10 @@ for (const phone of [true, false]) {
 
   // Docked by the code (entering the town), focus stays where it was.
   nav.open(1);
-  const focused = dom.byId.get('nav-home-title').focused;
+  const focused = dom.byId.get('nav-home').focused;
   nav.dock();
   nav.open(1);
-  assert.equal(dom.byId.get('nav-home-title').focused, focused, 'nothing moves focus when the code opens or docks it');
+  assert.equal(dom.byId.get('nav-home').focused, focused, 'nothing moves focus when the code opens or docks it');
   t = 10_000; nav.dock();
   assert.equal(nav.update(), false, 'a docked device does not repaint Home');
 
@@ -523,6 +544,78 @@ for (const phone of [true, false]) {
   assert.match(html, /class="gate-code" aria-hidden="true"><span>NAVIGATOR MK II<\/span><span>SCR 01 · HOME<\/span>/,
     'the arrival device wears the screen code on its back face');
 }
+
+// ---- the keyboard (T-2622, §14 Accessibility; QA-05, QA-19) ------------------------------
+for (const phone of [false, true]) {
+  const dom = miniDom();
+  const keys = { fns: [], addEventListener(type, fn) { if (type === 'keydown') this.fns.push(fn); } };
+  const press = (key, extra = {}) => {
+    const e = { key, shiftKey: false, metaKey: false, ctrlKey: false, altKey: false, target: null, defaultPrevented: false,
+      preventDefault() { this.defaultPrevented = true; }, ...extra };
+    for (const fn of keys.fns) fn(e);
+    return e.defaultPrevented;
+  };
+  let active = true, escFree = true;
+  const calls = [];
+  const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1904.json'), isPhone: () => phone, storage: fakeStorage(),
+    apps: APPS, keyTarget: keys, keysActive: () => active, escFree: () => escFree, viewportHeight: () => 780,
+    context: () => ({ scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
+      actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']) } }) });
+  await Promise.resolve();
+  const where = phone ? 'phone' : 'desktop';
+  const shut = nav.detent;
+  const home = dom.byId.get('nav-home');
+  const grip = dom.byId.get('nav-grip');
+
+  active = false;
+  assert.equal(press('n'), false, `${where}: no key works while the arrival is up`);
+  assert.equal(nav.detent, shut);
+  active = true;
+
+  const f0 = home.focused;
+  assert.equal(press('n'), true, `${where}: N is taken`);
+  assert.equal(nav.level, 1, `${where}: N opens the Navigator`);
+  assert.equal(home.focused, f0 + 1, `${where}: and focus moves into it`);
+  assert.equal(press('N'), true);
+  assert.equal(nav.level, 0, `${where}: N again closes it`);
+  assert.equal(grip.focused > 0, true, `${where}: focus goes back to the grip, a visible place to stand`);
+
+  assert.equal(press('n', { target: { tagName: 'INPUT' } }), false, `${where}: N in a text field is a letter`);
+  assert.equal(nav.level, 0);
+  assert.equal(press('n', { ctrlKey: true }), false, `${where}: Ctrl+N is the browser's`);
+
+  assert.equal(press('Tab', { shiftKey: true }), false, `${where}: Shift+Tab is left alone`);
+  assert.equal(press('Tab'), true, `${where}: Tab from the scene opens the Navigator`);
+  assert.equal(nav.level, 1);
+  assert.equal(press('Tab'), false, `${where}: with it open, Tab moves focus as Tab does`);
+
+  // 1–9: the rail's apps in the order they show.
+  const order = nav.apps;
+  const jumpAt = order.indexOf('jump') + 1;
+  assert.ok(jumpAt >= 1 && jumpAt <= 9, `${where}: Jump is within reach of a digit (${order.join(', ')})`);
+  assert.equal(press(String(jumpAt)), true);
+  for (let i = 0; i < 5; i += 1) await Promise.resolve();
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(nav.app, 'jump', `${where}: ${jumpAt} opens the ${jumpAt}th app, Jump`);
+  assert.ok(dom.byId.get('nav-app-jump')?.focused >= 1, `${where}: focus moves into the app's screen`);
+  if (order.length < 9) assert.equal(press('9'), false, `${where}: a digit with no app behind it is not taken`);
+  const moveAt = order.indexOf('move') + 1;
+  press(String(moveAt));
+  await new Promise((r) => setTimeout(r, 0));
+  assert.deepEqual(calls.at(-1), ['section', 'travel'], `${where}: a digit runs a launch app (Move opens its section)`);
+
+  // Escape closes it — at once when nothing else is waiting for it.
+  nav.open();
+  escFree = false;
+  assert.equal(press('Escape'), false, `${where}: Escape goes to the drawer or a card first`);
+  assert.equal(nav.level, 1);
+  escFree = true;
+  assert.equal(press('Escape'), true);
+  assert.equal(nav.level, 0, `${where}: Escape closes the Navigator`);
+  assert.equal(press('Escape'), false, `${where}: a closed Navigator leaves Escape alone`);
+}
+
+console.log('NAVIGATOR KEYS PASS — N and Tab-from-the-scene toggle it, 1–9 open the rail\'s apps, Escape closes it; focus moves into the app and back to the grip; nothing fires while typing or before landing');
 
 console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each asker within its own distance (Home 100 m); the street at the 1904 spawn is Prairie & Eighteenth; '
   + 'DOCK, HALF and FULL by tap, drag and flick, the desktop panel to its rail; Home paints the place, the target, the Jaunt, Move and the Confidence view; the rail opens the drawer’s sections');
