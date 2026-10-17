@@ -101,6 +101,8 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
+import { createRoamTip } from './roam-tip.js';
+import { plateFor as jauntPlate } from './pictures.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
@@ -3860,6 +3862,13 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
+  // T-2634: Free roam's one-time tip, once per device.
+  const roamTip = createRoamTip({ el: document.getElementById('roam-tip') });
+  api.roamTip = roamTip;
+  // Any first move of the visitor's own puts the tip away: it has said its piece.
+  for (const type of ['pointerdown', 'keydown']) {
+    window.addEventListener(type, (e) => { if (roamTip.showing && e.target?.id !== 'roam-tip') roamTip.hide(); }, { capture: true });
+  }
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3891,6 +3900,9 @@ async function boot() {
     hud.say(backends.name === 'touch'
       ? 'Left thumb walks · drag the right side to look · tap a building'
       : 'W A S D to walk · E to inspect what you are looking at');
+    // T-2634: Free roam (no destination, not a resume) docks the Navigator, above, and
+    // the first time on this device says how to inspect.
+    if (!resume && !destination) roamTip.show({ touch: backends.name === 'touch' });
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
@@ -3920,6 +3932,9 @@ async function boot() {
       }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
+        plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
+          .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -3968,11 +3983,13 @@ async function boot() {
   api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
   // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
   // app (T-2630), which shows the same list wherever it is.
+  let jauntPictures = null;
   async function openJauntList() {
     const root = document.getElementById('welcome-jaunts-content');
     try {
       root.setAttribute('aria-busy', 'true');
-      await ensureJaunts();
+      // T-2631: the pictures file, for the cards' plates, fetched alongside — never at boot.
+      [, jauntPictures] = await Promise.all([ensureJaunts(), ensurePictures().catch(() => null)]);
       if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
       await jauntPreview.open(jauntReturnId); jauntReturnId = null;
     } catch {
@@ -4042,6 +4059,27 @@ async function boot() {
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
   });
   api.target = target;
+  // T-2654: the active Jaunt's stops as field points, for the Map app's dotted route. Each
+  // stop resolves the way the Jaunt itself travels to it; kept until the Jaunt changes.
+  let jauntRouteMemo = { id: null, stops: [] };
+  // `jauntState`, not `s`: main.js binds `s` to a building's sidecar elsewhere, and
+  // tools/validate.py's sidecar scan follows that name.
+  function mapJauntRoute() {
+    const jauntState = jauntRuntime?.state;
+    if (!jauntState?.jaunt?.stops?.length) return null;
+    if (jauntRouteMemo.id !== jauntState.jaunt.id) {
+      const stops = [];
+      for (const stop of jauntState.jaunt.stops) {
+        const r = destinations.resolve(stop.destination);
+        const t = r?.structureId ? { kind: 'structure', id: r.structureId } : r;
+        const at = t ? travel.destinationOf(t, { card: false }) : null;
+        if (at && Number.isFinite(at.e) && Number.isFinite(at.n)) stops.push({ id: stop.id, p: [at.e, at.n] });
+      }
+      jauntRouteMemo = { id: jauntState.jaunt.id, stops };
+    }
+    const current = jauntState.visited?.[jauntState.stopIndex]?.id;
+    return { stops: jauntRouteMemo.stops.map((x) => x.p), at: jauntRouteMemo.stops.findIndex((x) => x.id === current) };
+  }
   // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
   // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
   // (its stub opens the card until the dossier lands, T-2638), handing it this target.
@@ -4101,8 +4139,13 @@ async function boot() {
         // T-2630: what the Navigator's Jaunts app asks of the page.
         jauntList: () => openJauntList(),
         gotoList: () => api.welcome.refresh?.(),
-        freeRoam: () => navigatorUi?.dock(),
+        freeRoam: () => { navigatorUi?.dock(); roamTip.show({ touch: backends.name === 'touch' }); },
         map: () => navigation.setFullVisible(true),
+        // T-2654: the Map app's Go (the getting-there style decides how), the active
+        // Jaunt's stops for its dotted route, and a ride's remaining waypoints.
+        goTo: (id) => goToTarget({ kind: 'structure', id }),
+        jauntRoute: () => mapJauntRoute(),
+        travelRoute: () => travel.routeAhead(),
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
         peopleDirectory: () => peopleDirectory.load(),
