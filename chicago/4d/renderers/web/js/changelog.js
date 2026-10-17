@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1913, ts: '2026-10-17T03:33:12.620Z', date: 'Oct 16, 2026, 10:33 PM CT', title: 'Less work on the main thread as the prairie is redealt', kind: 'improvement',
+    items: [
+      'As you walk or turn, the question of which plant community a patch of ground belongs to is now answered in the background, off the thread that draws the frame.',
+      'On a phone-speed test the redeal costs about a sixth less main-thread time per pass, walking or turning. Every plant lands exactly where it did before.',
+    ] },
   { v: 1912, ts: '2026-10-17T03:20:12.396Z', date: 'Oct 16, 2026, 10:20 PM CT', title: 'You land straight on the Navigator\'s Home, with no Tap to enter', kind: 'feature',
     items: [
       'When the town is ready the last digit drops into place, the digits turn green and the small line reads ARRIVED · 1904.07.01.',
