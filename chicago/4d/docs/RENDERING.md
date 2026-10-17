@@ -1078,3 +1078,15 @@ correction). Every number quotes its anchor and viewport.
   IoU within tolerance; any drift is a contract bug, not a style difference.
 - **Rubric passes**: the §0/G0 protocol — independent critic, eight axes, five anchors,
   written justification, fix per axis below 8, four-iteration cap, regression gate.
+- **Flora walk parity, shader against CPU** (T-2697, the first piece of T-2557's GPU near
+  grass): `node tools/check_flora_gpu_lattice.mjs --gpu [--write]` compiles
+  `renderers/web/js/flora-gpu-lattice.js` — flora.js's lattice walk as GLSL, one slot per
+  instance id — into a transform-feedback program in Chromium and reads every slot back
+  against `jobs/lattice-kernel.js` (held bit-equal to `scatter` by
+  `check_lattice_kernel.mjs`): the slots kept and their order, cell seed and stream to the
+  bit, position within 1 mm, deal rank within 2^-20. First reading, SwiftShader on the
+  runner: 308 walks (every layer's lattice at all 18 of the 1835 anchors, and 200 random),
+  373,710 slots, no disagreement; position within 0.042 mm, rank within 1.6e-7
+  (`docs/measurements/t-2697-flora-gpu-lattice.json`). The bare command, in `check.sh`,
+  holds the shader's walk constants to flora.js's without a browser. Not applied in the
+  shader: the view cone, which is a CPU economy; the GPU's own frustum clip replaces it.
