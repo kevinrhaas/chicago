@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1903, ts: '2026-10-17T00:49:03.994Z', date: 'Oct 16, 2026, 7:49 PM CT', title: 'The jump to your year now shows landmark years as they pass', kind: 'feature',
+    items: [
+      'As the year ticker rolls back from today, the arrival screen cuts to a one-line caption for about two seconds whenever it passes a landmark year: 1966, when architects bought the Glessner House for $35,000 to save it, or 1871, when the Great Fire left about 100,000 people homeless.',
+      'Each destination has its own deck: eleven years on the way to 1904, nine on the way to 1835 and ten on the way to 1812.',
+      'A quick load shows at most three, the most important first. A slow one shows up to eight, so a long wait tells you more.',
+      'Every caption is Attested and cites a source you can check, among them the 1909 Plan of Chicago, the 1933 fair\'s own guidebook and a 1920 front page on the Black Sox.',
+      'The trip to 1812 passes 1832 to 1836, the years of the Treaty of Chicago and the removal of the Potawatomi, with no caption. That history needs review by Native scholars before it is told here.',
+      'Screen readers hear each caption once. Reduced motion shows the captions with no fade.',
+    ] },
   { v: 1902, ts: '2026-10-17T00:10:40.383Z', date: 'Oct 16, 2026, 7:10 PM CT', title: 'Glessner House\'s web models now ship GPU-compressed textures', kind: 'improvement',
     items: [
       'The Glessner v4 full and light web models are re-encoded in KTX2, joining the Prairie houses\' texture path.',
