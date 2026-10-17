@@ -4031,6 +4031,27 @@ async function boot() {
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
   });
   api.target = target;
+  // T-2654: the active Jaunt's stops as field points, for the Map app's dotted route. Each
+  // stop resolves the way the Jaunt itself travels to it; kept until the Jaunt changes.
+  let jauntRouteMemo = { id: null, stops: [] };
+  // `jauntState`, not `s`: main.js binds `s` to a building's sidecar elsewhere, and
+  // tools/validate.py's sidecar scan follows that name.
+  function mapJauntRoute() {
+    const jauntState = jauntRuntime?.state;
+    if (!jauntState?.jaunt?.stops?.length) return null;
+    if (jauntRouteMemo.id !== jauntState.jaunt.id) {
+      const stops = [];
+      for (const stop of jauntState.jaunt.stops) {
+        const r = destinations.resolve(stop.destination);
+        const t = r?.structureId ? { kind: 'structure', id: r.structureId } : r;
+        const at = t ? travel.destinationOf(t, { card: false }) : null;
+        if (at && Number.isFinite(at.e) && Number.isFinite(at.n)) stops.push({ id: stop.id, p: [at.e, at.n] });
+      }
+      jauntRouteMemo = { id: jauntState.jaunt.id, stops };
+    }
+    const current = jauntState.visited?.[jauntState.stopIndex]?.id;
+    return { stops: jauntRouteMemo.stops.map((x) => x.p), at: jauntRouteMemo.stops.findIndex((x) => x.id === current) };
+  }
   // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
   // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
   // (its stub opens the card until the dossier lands, T-2638), handing it this target.
@@ -4092,6 +4113,11 @@ async function boot() {
         gotoList: () => api.welcome.refresh?.(),
         freeRoam: () => navigatorUi?.dock(),
         map: () => navigation.setFullVisible(true),
+        // T-2654: the Map app's Go (the getting-there style decides how), the active
+        // Jaunt's stops for its dotted route, and a ride's remaining waypoints.
+        goTo: (id) => goToTarget({ kind: 'structure', id }),
+        jauntRoute: () => mapJauntRoute(),
+        travelRoute: () => travel.routeAhead(),
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
         peopleDirectory: () => peopleDirectory.load(),
