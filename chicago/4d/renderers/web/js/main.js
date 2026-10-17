@@ -1469,6 +1469,9 @@ api.crashGuard = crashGuard.state;
 // what the smoke's probes read, where `getAttribute('position')` now hands
 // back the -1..1 the GPU sees on a quantized mesh.
 api.positionsInMetres = compactStreams(THREE).positionsInMetres;
+// Its confidence per vertex, wherever the layer keeps it (T-2689): what the smoke's
+// probes read on a layer that keeps no float `_confidence` stream.
+api.confidenceOf = compactStreams(THREE).confidenceOf;
 const bootProfile = cachedDeviceProfile(bootStorage, null);
 const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
 const crashBoot = crashGuard.boot({
