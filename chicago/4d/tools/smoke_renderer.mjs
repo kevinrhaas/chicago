@@ -9406,6 +9406,55 @@ for (const [label, viewport, touch] of [
 
     await page.evaluate(() => window.__chicago4d.popup.close());
 
+    // T-2639 (here, in the town: the device is hidden behind the welcome gate). Inspect's tabs
+    // over the card's content: all six open and fill; People shows the
+    // card's "who was here" for a seated record with a way into the People app, and a record
+    // held for review carries its note exactly as its card does.
+    const inspectTabs1835 = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+      const root = () => document.getElementById('nav-app-inspect');
+      async function open(id) {
+        a.pick(id);
+        await a.navigator.select('inspect');
+        a.navigator.open(2);   // as a visitor opens the sheet to read it (a phone docks it otherwise)
+        await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+      }
+      async function tab(key) {
+        root().querySelector(`[data-insp-tab="${key}"]`)?.click();
+        await wait(() => ['yes', 'failed'].includes(root().querySelector(`[data-insp-pane="${key}"]`)?.dataset.filled ?? (key === 'overview' ? 'yes' : '')));
+        const pane = root().querySelector(`[data-insp-pane="${key}"]`);
+        return { shown: !!pane && !pane.hidden && pane.checkVisibility(), filled: key === 'overview' ? 'yes' : pane?.dataset.filled,
+          text: pane?.innerText ?? '', html: pane?.innerHTML ?? '',
+          selected: root().querySelector(`[data-insp-tab="${key}"]`)?.getAttribute('aria-selected') };
+      }
+      const current = () => root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
+      await open('hogan_store');
+      const out = { tabs: [...root().querySelectorAll('.insp-tab')].map((b) => b.textContent.trim()), panes: {} };
+      for (const k of ['overview', 'people', 'design', 'story', 'photos', 'sources']) {
+        const r = await tab(k);
+        out.panes[k] = { shown: r.shown, filled: r.filled, selected: r.selected, len: r.text.length };
+      }
+      const people = await tab('people');
+      out.people = { households: (people.html.match(/class="res-hh"/g) ?? []).length,
+        link: !!root().querySelector('[data-insp-pane="people"] [data-person]'), hogan: /John S\. C\. Hogan/.test(people.text) };
+      out.plumbing = /\bdata\/residents\/|[a-z]+_[a-z]+\.json/.test((await tab('sources')).text);
+      await open('mckee_log_house');
+      const held = await tab('people');
+      out.held = /Held pending consultation/.test(held.text);
+      await open('hogan_store');
+      out.reopened = current();
+      await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+      return out;
+    });
+    check(`${label}: Inspect's six tabs open over the card's content, People lists the household and a held record's note (T-2639)`,
+      JSON.stringify(inspectTabs1835.tabs) === JSON.stringify(['Overview', 'People', 'Design', 'Story', 'Photos', 'Sources'])
+      && Object.values(inspectTabs1835.panes).every((p) => p.shown && p.filled === 'yes' && p.selected === 'true' && p.len > 0)
+      && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
+      && inspectTabs1835.held && !inspectTabs1835.plumbing,
+      JSON.stringify(inspectTabs1835).slice(0, 700));
+
+
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
     // Software rasterisation runs this scene at a handful of frames a second,
@@ -17086,6 +17135,44 @@ for (const [label, viewport, touch] of [
           && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
           && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
           JSON.stringify(inspectRecord).slice(0, 700));
+        // T-2639. On 1904: People lists the Glessner household from the directory (T-2702); a
+        // newly inspected building opens on Overview; the same building keeps its tab.
+        const inspectTabs1904 = await page.evaluate(async () => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          async function open(id) {
+            a.pick(id);
+            await a.navigator.select('inspect');
+            a.navigator.open(2);   // as a visitor opens the sheet to read it (a phone docks it otherwise)
+            await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+          }
+          async function tab(key) {
+            root().querySelector(`[data-insp-tab="${key}"]`)?.click();
+            await wait(() => ['yes', 'failed'].includes(root().querySelector(`[data-insp-pane="${key}"]`)?.dataset.filled ?? (key === 'overview' ? 'yes' : '')));
+            const pane = root().querySelector(`[data-insp-pane="${key}"]`);
+            return { shown: !!pane && !pane.hidden && pane.checkVisibility(), filled: key === 'overview' ? 'yes' : pane?.dataset.filled,
+              text: pane?.innerText ?? '', html: pane?.innerHTML ?? '',
+              selected: root().querySelector(`[data-insp-tab="${key}"]`)?.getAttribute('aria-selected') };
+          }
+          const current = () => root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
+          await open('glessner_house');
+          const people = await tab('people');
+          const out = { people: [...root().querySelectorAll('[data-insp-pane="people"] [data-person] .nav-person-name')].map((n) => n.textContent.trim()),
+            story: (await tab('story')).text.includes('1885') };
+          await tab('photos');
+          await open('pullman_house_1729_prairie');
+          out.newOpensOn = current();
+          await tab('design');
+          await open('pullman_house_1729_prairie');
+          out.sameKeeps = current();
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        });
+        check(`${label}: Inspect's People tab lists the Glessner household; a new building opens on Overview and the same keeps its tab (T-2639)`,
+          inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
+          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
+          JSON.stringify(inspectTabs1904));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')

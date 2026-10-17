@@ -93,6 +93,7 @@ import { mountLiberties } from './liberties.js';
 import { createRouter } from './route.js';
 import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
+import { openPictureViewer } from './pictures.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
@@ -3974,6 +3975,7 @@ async function boot() {
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
   });
   api.target = target;
+  let inspectHold = null; // T-2639: the building Inspect holds once it has closed the card
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -3992,7 +3994,9 @@ async function boot() {
       api,
       scene: loaded.scene,
       journey: journey.state,
-      selected: popup.openId ?? null,
+      // The card's building, or the one Inspect is holding: on a phone the card hides the
+      // device, so Inspect closes it and holds its building for as long as Inspect stays open.
+      selected: popup.openId ?? (navigatorUi?.app === 'inspect' ? inspectHold : (inspectHold = null)),
       // A scene has people when it has a people directory: 1835 loads its own at boot for the
       // drawer (the `residents` layer); a scene without that layer is asked after ready, with a
       // HEAD, and its directory is fetched only when People first opens (1904, T-2702).
@@ -4016,6 +4020,26 @@ async function boot() {
         inspectSummaries: () => ensureInspect(),
         pictures: () => ensurePictures(),
         record: (id) => loaded.registry.get(id) ?? null,
+        // T-2639: the card's content as Inspect's tabs show it, once the lazy data it reads
+        // (liberties, pictures, a seated record's household notes) is in hand.
+        cardSections: async (id) => {
+          const record = loaded.registry.get(id);
+          if (!record) return null;
+          ensureHouseholdNotes(record);
+          await Promise.all([ensureLiberties(), ensurePictures(), householdNotes.get(record.id)].map((x) => Promise.resolve(x).catch(() => null)));
+          return popup.sections(record);
+        },
+        // A person by directory id: in the drawer's People section where the scene has one
+        // (1835), else the Navigator's People screen (1904, T-1740).
+        openPerson: (id) => {
+          if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
+            hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
+          }
+          return navigatorUi?.select?.('people');
+        },
+        openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
+        holdInspect: (id) => { inspectHold = id ?? null; },
+        closeCard: () => popup.close(),
         openCard: (id, tab) => {
           const hit = pick(id);
           if (hit && tab) document.querySelector(`#popup [data-pop-tab="${tab}"]`)?.click();

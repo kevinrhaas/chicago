@@ -63,3 +63,29 @@
   .insp-swipe { scroll-behavior: auto; }
 }
 .insp-full { background: transparent; color: var(--ink); font: 500 0.9375rem/1.2 var(--font-body, inherit); cursor: pointer; }
+
+/* The tabs (T-2639): Overview · People · Design · Story · Photos · Sources. One row that
+   scrolls sideways on a phone rather than wrapping, each tab a 44 px target. */
+.insp-tabs { display: flex; gap: 4px; margin: 0 0 12px; overflow-x: auto; overscroll-behavior-x: contain;
+  border-bottom: 1px solid var(--edge); scrollbar-width: none; }
+.insp-tabs::-webkit-scrollbar { display: none; }
+.insp-tab { flex: 0 0 auto; min-height: 44px; padding: 0 12px; border: 0; border-bottom: 2px solid transparent;
+  background: transparent; color: var(--ink-dim); cursor: pointer;
+  font: var(--label-weight, 400) 0.75rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; }
+.insp-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent, currentColor); }
+.insp-tab:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
+.insp-pane[hidden] { display: none; }
+
+/* The card's own sections, shown in Inspect's other tabs: the few rules card.css scopes to
+   the floating card, repeated here so they read the same. */
+.insp-card { font-size: 0.875rem; line-height: 1.5; color: var(--ink); overflow-wrap: anywhere; }
+.insp-card .pop-residents, .insp-card .pop-lodging { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
+.insp-card > .pop-sec:first-child, .insp-card > .pop-flags:first-child { margin-top: 0; }
+.insp-card table.attrs { table-layout: fixed; }
+.insp-people-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.insp-person-link { cursor: pointer; text-align: left; background: transparent; color: var(--ink); font: inherit; min-height: 44px; }
+.insp-timeline { display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; }
+.insp-when { display: grid; grid-template-columns: 3.2rem 1fr; gap: 8px; align-items: baseline; }
+.insp-date { font: var(--label-weight, 400) 0.75rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
+.insp-what { font: 400 1rem/1.45 var(--font-body, inherit); }
