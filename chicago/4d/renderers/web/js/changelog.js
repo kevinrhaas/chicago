@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1910, ts: '2026-10-17T03:00:37.058Z', date: 'Oct 16, 2026, 10:00 PM CT', title: 'The prairie\'s planting grid now has a graphics-card version', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The grid that decides where each grass tuft, flower and shrub stands now has a graphics-card version, ready for the near grass to be drawn without the phone\'s processor laying it out at every step.',
+      'Read back from the browser at every scene anchor, it puts all 373,710 test plants exactly where the current code does, within a twentieth of a millimetre.',
+    ] },
   { v: 1909, ts: '2026-10-17T02:35:11.154Z', date: 'Oct 16, 2026, 9:35 PM CT', title: '1904 gets its first residents: John and Frances Glessner', kind: 'add',
     items: [
       'The 1904 town now has a list of who lived there, starting with John and Frances Glessner at 1800 Prairie Avenue. Both are drawn from their own records, with nothing invented.',
