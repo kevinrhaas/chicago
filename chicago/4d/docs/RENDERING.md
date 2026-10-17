@@ -1090,3 +1090,22 @@ correction). Every number quotes its anchor and viewport.
   (`docs/measurements/t-2697-flora-gpu-lattice.json`). The bare command, in `check.sh`,
   holds the shader's walk constants to flora.js's without a browser. Not applied in the
   shader: the view cone, which is a CPU economy; the GPU's own frustum clip replaces it.
+- **Near deal parity, shader against flora.js** (T-2706, the first piece of T-2699 under
+  T-2557's GPU near grass): `node tools/measure_flora_gpu_deal.mjs [--viewport mobile|desktop]
+  [--write] [--self-test]` draws `renderers/web/js/flora-gpu-deal.js` — the near slot's rule
+  as GLSL (community, turf, the matrix share and the weight walk, floors, the trodden verge,
+  water substrates, the woody band, the walker's clearance, and placeGraminoid's seven
+  draws) — on top of T-2697's walk and T-2698's tile, one point per instance id, and reads
+  every slot back against flora.js's own `dealNearSlot` (the function the draw calls, via
+  `nearField.deal`) at all 22 critic stations. A differing slot is binned `field` (the tile
+  answers differently from the CPU there), `float32` (a threshold within an ulp) or `rule`,
+  and any `rule` fails the run. First reading, SwiftShader on the runner: 10,648 phone
+  slots (`light`) and 29,190 desktop slots (`full`), **0 rule and 0 float32
+  disagreements**; the tile's 0.77 % and 0.55 % are the whole difference. Plants per m²
+  1.2233 against 1.2253 (phone) and 1.2314 against 1.2309 (desktop), every species' share
+  within 1 sigma of the CPU's; instance attributes within 0.03 mm and colour within 3e-5.
+  **Exclusion hits are not zero**: 31 and 46 GPU tufts stand where the CPU says BLOCKED, all
+  at the wharf, the river bank and the market's edge, which is the tile's BLOCKED miss
+  (T-2698: `working-bank.js`'s per-point hash) — T-2708 has to close it before it draws
+  (`docs/measurements/t-2706-flora-gpu-deal.json`). `--self-test` swaps the tint's two draws
+  and must be refused (265 rule disagreements at sixteenth_prairie).

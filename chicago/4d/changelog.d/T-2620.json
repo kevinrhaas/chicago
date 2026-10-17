@@ -3,7 +3,8 @@
   "kind": "change",
   "items": [
     "The menu button and its sliding drawer are gone. Everything that was in them now lives in the Navigator's apps.",
-    "Jaunts holds Go to. Move holds the travel settings. People holds people and businesses, and Guide holds the controls and Evidence.",
+    "Map holds Go to's list of places, with a key to the whole map. Move holds how you get around.",
+    "People holds people and Shops & work. Guide holds the guide and Sources.",
     "Settings holds the settings and What's new. Its amber dot shows on the Settings icon when there are new notes.",
     "No row of eight menu tabs to scroll sideways: each app shows at most two."
   ]

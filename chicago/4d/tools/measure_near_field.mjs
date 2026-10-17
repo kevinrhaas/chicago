@@ -3,7 +3,7 @@
  *
  *   node tools/measure_near_field.mjs [--source] [--viewport mobile|desktop]
  *                                     [--stations a,b] [--texels 0.125,0.25]
- *                                     [--write]
+ *                                     [--walk] [--write]
  *
  * THE QUESTION. T-2557 deals the near ring's grass in the vertex shader. The
  * deal asks five things of the ground at every slot — community, water, short
@@ -32,6 +32,19 @@
  *   5. Today's near re-deal at the station: the walker teleported a metre short
  *      and then onto the station, and the second `flora.update` — one near pass,
  *      the far shrubs' 4 m step not crossed — timed in one frame.
+ *
+ *   6. With `--walk` (T-2707), THE TILE KEPT ALONG A WALK: `nearField.keeper`
+ *      walked 24 m east, north, west and south of the station in 1 m steps —
+ *      twelve re-centres of 8 m, each re-rasterising only the strip it exposed
+ *      — once with every texel asked on the page (`pool: false`) and once with
+ *      the strips asked of the job pool. Quoted: the main thread's ms per metre
+ *      walked (the keeper's own `mainMs`: its updates, and the finishes and
+ *      writes of each landing) against the near re-deal's per metre and the
+ *      whole tile built on the page every 8 m; its worst single step; and the
+ *      kept tile, back at the station, against (3)'s built tile texel for
+ *      texel. Step 4's GPU read-back then reads the KEPT tile, through its
+ *      wrap. `--walk` defaults `--texels` to the spec texel and writes
+ *      docs/measurements/t-2707-near-field-keeper.json.
  *
  * THE STATIONS are the critic's: every anchor of the year's scene, plus the four
  * pose stations `tools/critic_shots.mjs` keeps (SWEEP_STATIONS there — copied,
@@ -66,15 +79,18 @@ const argv = process.argv.slice(2);
 const flag = (name) => { const i = argv.indexOf(name); return i < 0 ? null : argv[i + 1]; };
 const wantSource = argv.includes('--source');
 const wantWrite = argv.includes('--write');
+const wantWalk = argv.includes('--walk');
 const ONLY_VIEW = flag('--viewport') || '';
 const PICK = (flag('--stations') || '').split(',').filter(Boolean);
-const TEXELS = (flag('--texels') || '0.0625,0.125,0.25,0.5').split(',').map(Number);
+const TEXELS = (flag('--texels') || (wantWalk ? '0.125' : '0.0625,0.125,0.25,0.5'))
+  .split(',').map(Number);
 const SPAN_M = 32;
 const ROOT = wantSource ? APP : path.resolve(APP, '../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.FIELD_PORT || 4198);
 const YEAR = process.env.FIELD_YEAR || '1835';
-const OUT = path.join(APP, 'docs/measurements/t-2698-near-field.json');
+const OUT = path.join(APP, wantWalk ? 'docs/measurements/t-2707-near-field-keeper.json'
+  : 'docs/measurements/t-2698-near-field.json');
 
 /** tools/critic_shots.mjs SWEEP_STATIONS, the four that are poses. */
 const POSES = [
@@ -116,7 +132,7 @@ await new Promise((r) => server.listen(PORT, r));
 const base = `http://127.0.0.1:${PORT}`;
 
 /** Runs in the page: one station, every reading above. */
-async function pageRead({ st, texels, span }) {
+async function pageRead({ st, texels, span, doWalk }) {
   const api = window.__chicago4d;
   const nf = api.flora.nearField;
   const F = nf.flags;
@@ -193,16 +209,68 @@ async function pageRead({ st, texels, span }) {
     if (texel === nf.spec.texel) specTile = tile;
   }
 
-  // 4. Through the GPU, at the spec texel.
+  // 6. The tile kept along a walk, on the page and then on the pool.
+  let walk = null;
+  let keptTile = null;
+  if (doWalk && specTile) {
+    walk = {};
+    const LEG = 24;
+    for (const mode of ['main', 'pool']) {
+      const k = nf.keeper({ pool: mode === 'pool' });
+      const w0 = performance.now();
+      k.update(e, n);
+      await k.settled();
+      const first = { mainMs: k.stats.mainMs, wallMs: performance.now() - w0 };
+      const m0 = k.stats.mainMs, f0 = k.stats.finishMs, t0 = k.stats.texels;
+      const r0 = k.stats.recentres;
+      let ce = e, cn = n, metres = 0, worst = 0;
+      const w1 = performance.now();
+      for (const [de, dn] of [[1, 0], [0, 1], [-1, 0], [0, -1]]) {
+        for (let s = 0; s < LEG; s++) {
+          ce += de; cn += dn; metres++;
+          const a = k.stats.mainMs;
+          k.update(ce, cn);
+          await k.settled();
+          worst = Math.max(worst, k.stats.mainMs - a);
+        }
+      }
+      const mainMs = k.stats.mainMs - m0;
+      // Back at the station: the kept tile against the one built whole there.
+      const t = k.tile;
+      const vs = { origin: t.e0 === specTile.e0 && t.n0 === specTile.n0, community: 0, flags: 0,
+        height: 0, heightMaxMm: 0 };
+      for (let j = 0; j < t.size; j++) {
+        for (let i = 0; i < t.size; i++) {
+          const q = ((j + t.wj) % t.size) * t.size + (i + t.wi) % t.size;
+          const b = j * t.size + i;
+          if (t.cls[2 * q] !== specTile.cls[2 * b]) vs.community++;
+          if (t.cls[2 * q + 1] !== specTile.cls[2 * b + 1]) vs.flags++;
+          const dh = Math.abs(t.height[q] - specTile.height[b]);
+          if (dh) vs.height++;
+          vs.heightMaxMm = Math.max(vs.heightMaxMm, dh * 1000);
+        }
+      }
+      walk[mode] = { first, metres, recentres: k.stats.recentres - r0,
+        texels: k.stats.texels - t0, pooled: k.stats.pooled, unasked: k.stats.unasked,
+        mainMs, finishMs: k.stats.finishMs - f0, worstStepMs: worst,
+        wallMs: performance.now() - w1, perMetreMs: mainMs / metres,
+        wrap: [t.wi, t.wj], vsBuild: vs };
+      if (mode === 'pool') keptTile = t;
+    }
+  }
+
+  // 4. Through the GPU, at the spec texel — the kept tile, through its wrap,
+  // when step 6 kept one.
   let gpu = null;
-  if (specTile) {
+  const gt = keptTile ?? specTile;
+  if (gt) {
     const THREE = await import('three');
     const r = api.renderer;
-    const { size } = specTile;
-    const cls = new THREE.DataTexture(specTile.cls, size, size, THREE.RGIntegerFormat,
+    const { size } = gt;
+    const cls = new THREE.DataTexture(gt.cls, size, size, THREE.RGIntegerFormat,
       THREE.UnsignedByteType);
     cls.internalFormat = 'RG8UI';
-    const hgt = new THREE.DataTexture(specTile.height, size, size, THREE.RedFormat,
+    const hgt = new THREE.DataTexture(gt.height, size, size, THREE.RedFormat,
       THREE.FloatType);
     hgt.internalFormat = 'R32F';
     for (const t of [cls, hgt]) {
@@ -220,8 +288,9 @@ async function pageRead({ st, texels, span }) {
       glslVersion: THREE.GLSL3,
       uniforms: {
         uFieldClass: { value: cls }, uFieldHeight: { value: hgt },
-        uFieldOrigin: { value: new THREE.Vector2(specTile.e0, specTile.n0) },
-        uFieldTexel: { value: specTile.texel }, uFieldSize: { value: size },
+        uFieldOrigin: { value: new THREE.Vector2(gt.e0, gt.n0) },
+        uFieldTexel: { value: gt.texel }, uFieldSize: { value: size },
+        uFieldWrap: { value: new THREE.Vector2(gt.wi ?? 0, gt.wj ?? 0) },
         uTarget: { value: new THREE.Vector2(W, H) },
       },
       vertexShader: `precision highp float; precision highp int;
@@ -265,21 +334,21 @@ void main() { o = vec4(float(vCls.x), float(vCls.y), vH, 1.0); }`,
     // Anything else that differs from the mirror is the GLSL disagreeing with
     // `sampleField`, and fails the run.
     const f = Math.fround;
-    const texelOf = (v, o) => [Math.floor((v - o) / specTile.texel),
-      Math.floor(f(f(f(v) - f(o)) / f(specTile.texel)))];
+    const texelOf = (v, o) => [Math.floor((v - o) / gt.texel),
+      Math.floor(f(f(f(v) - f(o)) / f(gt.texel)))];
     let mirrorMiss = 0, float32Edge = 0, mirrorDh = 0;
     for (let s = 0; s < N; s++) {
       const g = back(s);
-      const c = nf.sample(specTile, slots[2 * s], slots[2 * s + 1], m);
+      const c = nf.sample(gt, slots[2 * s], slots[2 * s + 1], m);
       if (!c || g[0] !== c[0] || g[1] !== c[1]) {
-        const [i64, i32] = texelOf(slots[2 * s], specTile.e0);
-        const [j64, j32] = texelOf(slots[2 * s + 1], specTile.n0);
+        const [i64, i32] = texelOf(slots[2 * s], gt.e0);
+        const [j64, j32] = texelOf(slots[2 * s + 1], gt.n0);
         if (i64 !== i32 || j64 !== j32) float32Edge++;
         else mirrorMiss++;
       }
       if (c) mirrorDh = Math.max(mirrorDh, Math.abs(g[2] - c[2]) * 1000);
     }
-    gpu = { texel: specTile.texel, size, readMs: gpuMs, glError: glErr,
+    gpu = { texel: gt.texel, size, wrap: [gt.wi ?? 0, gt.wj ?? 0], kept: gt === keptTile, readMs: gpuMs, glError: glErr,
       unwritten: buf.filter((_, i) => i % 4 === 3 && i / 4 < N && buf[i] !== 1).length,
       vsMirror: { classMiss: mirrorMiss, float32Edge, heightMaxMm: mirrorDh },
       vsCpu: compare(back) };
@@ -288,14 +357,14 @@ void main() { o = vec4(float(vCls.x), float(vCls.y), vH, 1.0); }`,
   const present = new Set();
   for (let s = 0; s < N; s++) present.add(cpu[3 * s]);
   return { id: st.id, e, n, slots: N, communities: [...present].sort((a, b) => a - b),
-    queryMs, redealMs, redealt, tiles, gpu };
+    queryMs, redealMs, redealt, tiles, gpu, walk };
 }
 
 const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
   args: ['--enable-unsafe-swiftshader'],
 });
-const report = { ticket: 'T-2698', year: YEAR, measured: new Date().toISOString(),
+const report = { ticket: wantWalk ? 'T-2707' : 'T-2698', year: YEAR, measured: new Date().toISOString(),
   source: wantSource ? 'working tree' : 'published mirror', spanM: SPAN_M, viewports: [] };
 let failed = false;
 for (const vp of VIEWPORTS) {
@@ -318,7 +387,7 @@ for (const vp of VIEWPORTS) {
     + `spec texel ${meta.spec.texel} m x ${meta.spec.size}, re-centre ${meta.spec.recentre} m`);
   const rows = [];
   for (const st of STATIONS) {
-    const r = await page.evaluate(pageRead, { st, texels: TEXELS, span: SPAN_M });
+    const r = await page.evaluate(pageRead, { st, texels: TEXELS, span: SPAN_M, doWalk: wantWalk });
     rows.push(r);
     const t = r.tiles.map((x) => `${x.texel}m ${(x.share.any * 100).toFixed(2)}%/${x.buildMs.toFixed(0)}ms`).join('  ');
     const g = r.gpu;
@@ -326,6 +395,20 @@ for (const vp of VIEWPORTS) {
       + `re-deal ${r.redealMs.toFixed(1)} ms (${r.redealt}/5) | ${t} | gpu any ${g ? (g.vsCpu.share.any * 100).toFixed(2) : '-'}% `
       + `vs-mirror ${g?.vsMirror.classMiss ?? '-'}+${g?.vsMirror.float32Edge ?? '-'}f32 dh ${g?.vsMirror.heightMaxMm.toFixed(3) ?? '-'} mm `
       + `h p95 ${g?.vsCpu.heightMm.p95.toFixed(1) ?? '-'} mm`);
+    if (r.walk) {
+      for (const [mode, w] of Object.entries(r.walk)) {
+        const v = w.vsBuild;
+        console.log(`    kept on ${mode.padEnd(4)}: ${w.perMetreMs.toFixed(2)} ms/m main thread over ${w.metres} m `
+          + `(${w.recentres} re-centres, ${w.texels} texels, worst step ${w.worstStepMs.toFixed(1)} ms, `
+          + `finish ${w.finishMs.toFixed(0)} ms; first tile ${w.first.mainMs.toFixed(0)} ms main / ${w.first.wallMs.toFixed(0)} ms wall)`
+          + `${mode === 'pool' ? ` pooled ${w.pooled} unasked ${w.unasked}` : ''} | vs build: `
+          + `${v.origin ? '' : 'ORIGIN DIFFERS '}community ${v.community} flags ${v.flags} height ${v.height} (max ${v.heightMaxMm.toFixed(3)} mm)`);
+        if (!v.origin || v.community || v.flags || v.height) {
+          console.log(`    KEPT TILE DIFFERS FROM THE BUILT ONE (${mode})`);
+          failed = true;
+        }
+      }
+    }
     if (g && (g.vsMirror.classMiss || g.unwritten || g.glError)) {
       console.log(`    GPU READ-BACK FAILED: ${JSON.stringify({ classMiss: g.vsMirror.classMiss, unwritten: g.unwritten, glError: g.glError })}`);
       failed = true;
@@ -372,6 +455,25 @@ for (const vp of VIEWPORTS) {
     + `(+${summary.gpuFloat32Edge} where float32 puts the slot in the next texel)`);
   console.log(`    per metre walked: near re-deal ${summary.perMetre.redealMs.toFixed(1)} ms; tile `
     + Object.entries(summary.perMetre.tileMs).map(([t, v]) => `${t} m ${v.toFixed(1)} ms`).join(', '));
+  if (wantWalk) {
+    const walkOf = (mode) => {
+      const ws = rows.map((r) => r.walk?.[mode]).filter(Boolean);
+      const pm = ws.map((w) => w.perMetreMs).sort((a, b) => a - b);
+      return { stations: ws.length, perMetreMsMedian: pm[Math.floor(pm.length / 2)] ?? null,
+        perMetreMsMax: pm.at(-1) ?? null,
+        worstStepMsMax: Math.max(...ws.map((w) => w.worstStepMs)),
+        firstMainMsMedian: ws.map((w) => w.first.mainMs).sort((a, b) => a - b)[Math.floor(ws.length / 2)],
+        pooled: ws.reduce((a, w) => a + w.pooled, 0), unasked: ws.reduce((a, w) => a + w.unasked, 0),
+        differingTexels: ws.reduce((a, w) => a + w.vsBuild.community + w.vsBuild.flags + w.vsBuild.height, 0) };
+    };
+    summary.walk = { main: walkOf('main'), pool: walkOf('pool') };
+    const spec = summary.perMetre.tileMs[meta.spec.texel];
+    console.log(`    THE KEPT TILE, main-thread ms per metre walked (median over stations): `
+      + `pool ${summary.walk.pool.perMetreMsMedian.toFixed(2)} (max ${summary.walk.pool.perMetreMsMax.toFixed(2)}, worst step ${summary.walk.pool.worstStepMsMax.toFixed(1)} ms), `
+      + `page strips ${summary.walk.main.perMetreMsMedian.toFixed(2)}, whole tile on the page ${spec.toFixed(2)}; `
+      + `near re-deal ${summary.perMetre.redealMs.toFixed(2)}. Texels differing from the built tile: `
+      + `${summary.walk.pool.differingTexels} pool, ${summary.walk.main.differingTexels} page`);
+  }
   console.log(`  pageerrors: ${errors.length}${errors.length ? ` ${JSON.stringify(errors.slice(0, 3))}` : ''}`);
   if (errors.length) failed = true;
   report.viewports.push({ id: vp.id, detail: meta.detail, ring: meta.ring, step: meta.step, spec: meta.spec,

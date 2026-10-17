@@ -1,4 +1,42 @@
 export const CHANGELOG = [ // newest first
+  { v: 1931, ts: '2026-10-17T08:12:18.449Z', date: 'Oct 17, 2026, 3:12 AM CT', title: 'The Navigator works from the keyboard', kind: 'feature',
+    items: [
+      'Press N to open or close the Navigator. Tab from the scene opens it too.',
+      'Press 1 to 9 to open the app at that place on the Navigator\'s rail. Escape closes the device.',
+      'Arrow keys move along the rail and Enter opens the app you are on. Focus jumps into the app\'s screen and always shows a clear outline.',
+      'When the Navigator closes, focus lands on its handle, so you are never left lost. Screen readers now hear the rail as a set of tabs, each named.',
+      'N used to open What\'s new. That now lives under Settings, or press H.',
+    ] },
+  { v: 1930, ts: '2026-10-17T07:53:11.899Z', date: 'Oct 17, 2026, 2:53 AM CT', title: 'The near grass\'s planting rules now have a graphics-card version', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The rules that decide which grass grows at each spot near you, and how tall, wide and green it is, now have a graphics-card version too. It is the next step toward drawing the near grass without the phone\'s processor laying it out at every step.',
+      'Checked in the browser at every critic viewpoint, on phone and desktop, it picks the same plant as the current code at all 39,838 spots wherever its ground map agrees. Its sizes match to a few hundredths of a millimetre.',
+    ] },
+  { v: 1929, ts: '2026-10-17T07:53:11.899Z', date: 'Oct 17, 2026, 2:53 AM CT', title: 'Nothing you can see changed: the 1835 streets arrive ready-laid', kind: 'improvement',
+    items: [
+      'The streets look exactly as before. What changed is how they reach your device.',
+      'The road is now laid over the ground before you arrive, so the page only hands it to the graphics card. On a slow phone that takes about 1.2 seconds off loading the streets.',
+      'You download only the version your detail setting draws: about 3 MB on a phone at the lightest detail, about 4 MB at the fuller ones. On a data-saving or slow connection the page lays the road itself, as it always did.',
+      'Changing detail later, or a ready-laid road that is missing or out of date, also makes the page lay its own.',
+    ] },
+  { v: 1928, ts: '2026-10-17T07:53:11.899Z', date: 'Oct 17, 2026, 2:53 AM CT', title: 'The ground map for shader-drawn grass is kept up in the background', kind: 'improvement',
+    items: [
+      'The near grass is moving onto the graphics card, which reads a small map of the ground around you: which plant community, water, short turf, floors and trodden verge, and how high it stands.',
+      'That map now follows you a strip at a time, built in the background, instead of being redrawn whole on the main thread every 8 m.',
+      'On a phone-speed test it costs about 0.7 ms of main-thread time per metre walked, down from about 11, and matches the whole-built map exactly at every critic station.',
+    ] },
+  { v: 1927, ts: '2026-10-17T07:53:11.899Z', date: 'Oct 17, 2026, 2:53 AM CT', title: 'The Keith house\'s north chimney drops behind its parapet', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the hall chimney no longer stands above the north parapet. Every photograph from 1887 to 1889 shows only the cowl vent there, against open sky.',
+      'Four more of the house\'s sixteen reference pictures now match the model.',
+    ] },
+  { v: 1926, ts: '2026-10-17T07:53:11.899Z', date: 'Oct 17, 2026, 2:53 AM CT', title: 'The closed Navigator is a small pill that opens your last app', kind: 'feature',
+    items: [
+      'On a phone, the closed Navigator is now a small pill at the bottom centre. It shows its green lamp, NAVIGATOR MK II, the year, and the icon of the app it will open to.',
+      'Tap the pill, or swipe up from it, and the Navigator opens at half height on the last app you used. The world stays in view above it.',
+      'The bottom-left corner stays clear, so your left thumb walks instead of opening the Navigator by mistake.',
+      'On a computer, the closed rail now reads top to bottom: the lamp, NAVIGATOR MK II on its side, then the year. Click it to open the last app.',
+    ] },
   { v: 1925, ts: '2026-10-17T06:42:44.796Z', date: 'Oct 17, 2026, 1:42 AM CT', title: 'The Navigator\'s rail of apps changes with where you are', kind: 'feature',
     items: [
       'The Navigator\'s side rail now holds its apps: Home, Jaunts, Map, Confidence view, Move, Jump, Guide and Settings.',

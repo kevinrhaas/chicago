@@ -10,7 +10,8 @@
  * every listener stays where it was bound, and `hud.setPanel` / `hud.selectTab` keep
  * their meaning (open a section, close it) through the adapter `install()` gives the HUD.
  *
- *   Jaunts    Go to                       (with Take a Jaunt above it)
+ *   Map       Go to's list of places      (under a key to the whole map; T-2630's Jaunts
+ *                                         app keeps the arrival's own search)
  *   Move      Travel
  *   People    People · Businesses         (1835; 1904 has its own People screen)
  *   Guide     Controls · Evidence
@@ -22,7 +23,7 @@
 
 /** Which app holds each of the drawer's sections. */
 export const SECTION_HOME = Object.freeze({
-  goto: 'jaunts', travel: 'move', people: 'people', businesses: 'people',
+  goto: 'map', travel: 'move', people: 'people', businesses: 'people',
   controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings',
 });
 export const APP_SECTIONS = Object.freeze(Object.entries(SECTION_HOME).reduce((m, [tab, app]) => {
