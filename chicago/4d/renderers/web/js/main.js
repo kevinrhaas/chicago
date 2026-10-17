@@ -28,6 +28,7 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
@@ -1496,6 +1497,11 @@ const journey = createJourney();
 api.journey = journey;
 // Back to the Observatory is the journey's recall, from wherever the link sits.
 gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
+// T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
+// Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
+const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
+api.gesture = gesture;
+Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -3346,6 +3352,8 @@ async function boot() {
 
   const intent = createIntent();
   const backends = createBackendSwitch(intent);
+  // T-2614: CLICK TO ENGAGE LOOK belongs to the desktop backend only.
+  backends.onChange(name => gesture.setLook({ backend: name }));
 
   // The travel controller: instantly, on foot, by wagon, on horseback, or flying.
   // It writes the shared intent the way a backend does, so the walker keeps its
@@ -3375,6 +3383,7 @@ async function boot() {
     domElement: canvas,
     onLockChange: (locked) => {
       hud.setLocked(locked);
+      gesture.setLook({ locked });
       if (!locked) hud.say('Pointer released — click the view to look around again');
     },
   });
@@ -3781,11 +3790,9 @@ async function boot() {
     if (firstEntry) hud.restore();
     backends.activate(coarse ? touch : pointerlock);
     if (firstEntry) hud.showControlHelp({ auto: true });
-    // Audio requires the entry gesture; movement capture requires a later one.
-    try {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (Ctx && !api.audio) { api.audio = new Ctx(); api.audio.resume?.(); }
-    } catch { /* Audio is optional. */ }
+    // T-2614: audio was resumed by the Home choice that brought us here (gesture-gate.js);
+    // the look waits for a click on the scene, and the tag says so until it is taken.
+    gesture.setLook({ inWorld: true, backend: backends.name, locked: pointerlock.isLocked });
     hud.say(backends.name === 'touch'
       ? 'Left thumb walks · drag the right side to look · tap a building'
       : 'W A S D to walk · E to inspect what you are looking at');
@@ -3881,6 +3888,7 @@ async function boot() {
       gateOpen = true;
       gateFrame.reset();
       backends.activate(null);
+      gesture.setLook({ inWorld: false });
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
       hud.dismissControlHelp({ remember: false });
