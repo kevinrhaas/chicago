@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// T-2634 (NAV-404): Free roam docks the Navigator and shows the one-time tip "Tap any
+// T-2634 (NAV-405): Free roam docks the Navigator and shows the one-time tip "Tap any
 // building to inspect it." — once per device, storage behind try/catch. Drives
 // js/roam-tip.js over a fake element, storage and clock; the smoke (part 13) takes Free
 // roam from the Navigator's Jaunts app in a page.
