@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1925, ts: '2026-10-17T06:42:44.796Z', date: 'Oct 17, 2026, 1:42 AM CT', title: 'The Navigator\'s rail of apps changes with where you are', kind: 'feature',
+    items: [
+      'The Navigator\'s side rail now holds its apps: Home, Jaunts, Map, Confidence view, Move, Jump, Guide and Settings.',
+      'Look at a building close by and an Inspect icon slides in. Look away and it leaves a moment later.',
+      'People joins them where a scene has people: the 1835 town, and in 1904 the Glessner household. An icon you have not opened yet carries a small amber dot.',
+      'Jump lists the other places you can go, marks the one you are in, and has a key back to the Observatory.',
+      'Switching apps flickers the screen like an old tube warming up, or simply fades with reduced motion.',
+    ] },
   { v: 1924, ts: '2026-10-17T06:27:11.355Z', date: 'Oct 17, 2026, 1:27 AM CT', title: 'The distant ground arrives ready-made', kind: 'change',
     items: [
       'The ground that stretches to the horizon is now laid and cut when the site is published, so a phone no longer builds it each time the town opens. That removes about half a second of work from opening the town on the phone profile.',
