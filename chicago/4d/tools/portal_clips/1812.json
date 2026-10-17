@@ -1,0 +1,91 @@
+{
+  "shots": [
+    {
+      "id": "river-east",
+      "label": "Down the river past the fort and the Kinzie house to the lake",
+      "pose": {
+        "from": [
+          990,
+          255
+        ],
+        "to": [
+          1030,
+          262
+        ],
+        "alt": 28,
+        "pitch": -12,
+        "yaw": {
+          "base": 90,
+          "amp": 10
+        }
+      }
+    },
+    {
+      "id": "fort-low",
+      "label": "The picket rows and blockhouses, close and low",
+      "orbit": {
+        "center": [
+          1152,
+          221
+        ],
+        "radius": 60,
+        "alt": 9,
+        "look_y": 6,
+        "bearing": 40,
+        "swing": 20
+      }
+    },
+    {
+      "id": "kinzie-across",
+      "label": "Across the river to the Kinzie house",
+      "orbit": {
+        "center": [
+          1158,
+          343
+        ],
+        "radius": 52,
+        "alt": 8,
+        "look_y": 4,
+        "bearing": 0,
+        "swing": 18
+      }
+    },
+    {
+      "id": "river-spit",
+      "label": "Up the river behind the spit, the fort on the left and the lake on the right",
+      "pose": {
+        "from": [
+          1290,
+          -130
+        ],
+        "to": [
+          1320,
+          -90
+        ],
+        "alt": 55,
+        "pitch": -14,
+        "yaw": {
+          "base": 0,
+          "amp": 8
+        }
+      }
+    },
+    {
+      "id": "fort-topdown",
+      "label": "Straight down over the fort and the river",
+      "pose": {
+        "from": [
+          1130,
+          140
+        ],
+        "to": [
+          1170,
+          160
+        ],
+        "alt": 130,
+        "pitch": -62,
+        "yaw": 15
+      }
+    }
+  ]
+}

@@ -2570,9 +2570,9 @@ for (const [label, viewport, touch] of [
       let widestSphere = 0;
       for (const mesh of meshes) {
         const g = mesh.geometry;
-        const pos = g.getAttribute('position');
+        const pos = window.__chicago4d.positionsInMetres(g);
         verts += pos.count;
-        widestSphere = Math.max(widestSphere, g.boundingSphere?.radius ?? Infinity);
+        widestSphere = Math.max(widestSphere, (g.boundingSphere?.radius ?? Infinity) * mesh.matrix.getMaxScaleOnAxis());
         for (let i = 0; i < pos.count; i++) {
           // world is (E, up, -N)
           const e0 = pos.getX(i);
@@ -2859,7 +2859,7 @@ for (const [label, viewport, touch] of [
         // describes its fence, and that must not fail this check.
         if (!(m.userData.recordIds ?? []).some((id) => /^town_lot_line_/.test(id))) continue;
         lotMeshes += 1;
-        const pos = m.geometry.getAttribute('position');
+        const pos = a.positionsInMetres(m.geometry);
         const conf = m.geometry.getAttribute('_confidence');
         for (let i = 0; i < pos.count; i += 3) {
           cells.add(`${Math.round(pos.getX(i) / 40)}:${Math.round(-pos.getZ(i) / 40)}`);
@@ -2958,7 +2958,7 @@ for (const [label, viewport, touch] of [
       let onLine = 0;
       let top = 0;
       for (const mesh of a.enclosures?.group?.children ?? []) {
-        const pos = mesh.geometry?.getAttribute('position');
+        const pos = mesh.geometry && a.positionsInMetres(mesh.geometry);
         for (let i = 0; pos && i < pos.count; i++) {
           const pe = pos.getX(i);
           const pn = -pos.getZ(i);
@@ -4113,7 +4113,7 @@ for (const [label, viewport, touch] of [
         return inside;
       };
       for (const geo of (items.length ? geos : [])) {
-        const pos = geo.getAttribute('position');
+        const pos = window.__chicago4d.positionsInMetres(geo);
         const owners = lotOwners.get(geo) ?? [];
         let ownerIndex = 0;
         for (let i = 0; i < pos.count; i++) {
@@ -4300,7 +4300,7 @@ for (const [label, viewport, touch] of [
           for (const geo of geos) {
             const c = geo.getAttribute('color');
             if (!c) return 0;
-            const pos = geo.getAttribute('position');
+            const pos = window.__chicago4d.positionsInMetres(geo);
             for (let i = 0; i < c.count; i++) {
               // The yard outbuildings carry their own tones (T-1960), counted below.
               if (obAt(pos.getX(i), -pos.getZ(i))) continue;
@@ -4816,6 +4816,8 @@ for (const [label, viewport, touch] of [
       // assertion below walks all of them.
       const timber = (f?.group?.children ?? [])
         .filter((c) => c.name === 'frontage' || c.name === 'frontage-chunk');
+      // In metres whether or not a chunk is quantized (T-2687), decoded once.
+      const metresOf = new Map(timber.map((t) => [t, a.positionsInMetres(t.geometry)]));
       const mesh = timber.find((c) => c.name === 'frontage');
       const letters = (f?.group?.children ?? []).find((c) => c.name === 'frontage-lettering');
       // THE SIGN POST IS RESOLVED BY WHAT IT IS, NOT BY BEING FIRST (T-1580).
@@ -4995,7 +4997,7 @@ for (const [label, viewport, touch] of [
         return hit;
       };
       for (const t of timber) {
-        const pos = t.geometry?.getAttribute('position');
+        const pos = metresOf.get(t);
         if (!pos) continue;
         verts += pos.count;
         for (let i = 0; i < pos.count; i++) {
@@ -5079,7 +5081,7 @@ for (const [label, viewport, touch] of [
         let found = 0;
         if (Number.isFinite(stand)) {
           for (const t of timber) {
-            const pos = t.geometry?.getAttribute('position');
+            const pos = metresOf.get(t);
             if (!pos) continue;
             for (let i = 0; i < pos.count; i++) {
               if (Math.abs(pos.getX(i) - e0) > 0.4) continue;
@@ -5143,7 +5145,7 @@ for (const [label, viewport, touch] of [
         // and fills every station the triangle spans with the height range it
         // covers there.
         for (const t of timber) {
-          const pos = t.geometry?.getAttribute('position');
+          const pos = metresOf.get(t);
           if (!pos) continue;
           for (let i = 0; i + 2 < pos.count; i += 3) {
             let lo3 = Infinity;
@@ -5242,7 +5244,7 @@ for (const [label, viewport, touch] of [
           let found = 0;
           let top = -Infinity;
           for (const t of timber) {
-            const pos = t.geometry?.getAttribute('position');
+            const pos = metresOf.get(t);
             if (!pos) continue;
             for (let i = 0; i < pos.count; i++) {
               if (!inPart(fp, pos.getX(i), -pos.getZ(i))) continue;
@@ -6240,7 +6242,7 @@ for (const [label, viewport, touch] of [
       let boardVerts = 0;
       for (const t of f?.group?.children ?? []) {
         if (t.name !== 'frontage' && t.name !== 'frontage-chunk') continue;
-        const pos = t.geometry?.getAttribute('position');
+        const pos = a.positionsInMetres(t.geometry);
         if (!pos) continue;
         for (let i = 0; i < pos.count; i++) {
           const e = pos.getX(i);

@@ -178,6 +178,8 @@ const COVERAGE = [
   ['renderers/web/glessner-baseline.html', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  // T-2685: the Observatory home page is not the walk; no smoke part loads it.
+  ['renderers/web/portal/', NONE, 'the Observatory home page: test_portal_clips.mjs --browser, write_entry_pages --self-test'],
   ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
   // T-2265: the K01 component contract and the Glessner baseline measured against it.
   // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.

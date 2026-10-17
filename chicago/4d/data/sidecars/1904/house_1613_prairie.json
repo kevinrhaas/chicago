@@ -25,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1424.632,
-    "local_n": -2982.244,
+    "local_e": 1425.762,
+    "local_n": -2980.854,
     "rotation_deg": 179.611,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 15.250, v -2.650 m from the middle of the rear lot line): the draft's rear wall, kept, and the traced main part's world-north wall (the trace runs v -2.69 to -2.56 there), 0.9 m north of where the draft's fit stopped. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line, so K01's local south is the world's north on this side of the avenue.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 15.250, v -2.650 m from the middle of the rear lot line): the draft's rear wall, kept, and the traced main part's world-north wall (the trace runs v -2.69 to -2.56 there), 0.9 m north of where the draft's fit stopped. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line, so K01's local south is the world's north on this side of the avenue.",
     "symbolic_location": "1613 S. Prairie Avenue, parcel prairie_1613 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,

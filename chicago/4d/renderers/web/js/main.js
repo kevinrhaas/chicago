@@ -60,6 +60,7 @@ import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
+import { compactStreams } from './compact-streams.js';
 import { createTextureResidency } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
@@ -1464,6 +1465,10 @@ try { bootStorage = window.localStorage; } catch { /* private mode */ }
 // cached (boot() re-reads it); a first visit guesses the platform default.
 const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
 api.crashGuard = crashGuard.state;
+// A layer's positions in metres, quantized or not (T-2687, compact-streams.js):
+// what the smoke's probes read, where `getAttribute('position')` now hands
+// back the -1..1 the GPU sees on a quantized mesh.
+api.positionsInMetres = compactStreams(THREE).positionsInMetres;
 const bootProfile = cachedDeviceProfile(bootStorage, null);
 const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
 const crashBoot = crashGuard.boot({
