@@ -629,16 +629,17 @@ const COVERAGE = [
  *  ceiling — a row may name parts its anchors do not reach — and an anchor found
  *  in no part at all has rotted, which also fails. */
 const ANCHORS = [
-  ['renderers/web/js/people.js', ['data-tab="people"', 'people-filters', 'people-card']],
-  ['renderers/web/js/businesses.js', ['data-tab="businesses"']],
+  // T-2620: a section is reached through its Navigator app (`openSection(tab)` in the smoke).
+  ['renderers/web/js/people.js', ["openSection('people')", 'people-filters', 'people-card']],
+  ['renderers/web/js/businesses.js', ["openSection('businesses')"]],
   ['renderers/web/js/seat.js', ['people-seat']],
   // householdHtml is the body of the People directory's person card (13) and of the
   // Evidence panel's household cards, mounted at #residents (14).
   ['renderers/web/js/residents.js', ['people-card', "getElementById('residents')"]],
   ['renderers/web/js/attribute-tiers.js', ['T-1158', 'people-card', "getElementById('residents')"]],
   ['renderers/web/js/agencies.js', ['.pop-agency']],
-  ['renderers/web/js/evidence.js', ['data-tab="evidence"']],
-  ['renderers/web/js/whatsnew.js', ['data-tab="whatsnew"']],
+  ['renderers/web/js/evidence.js', ["openSection('evidence')"]],
+  ['renderers/web/js/whatsnew.js', ["openSection('whatsnew')"]],
 ];
 
 /** The parts whose `if (stageOn(N)) {` … `} // end PART N` block contains `needle`. */
