@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1975, ts: '2026-10-17T21:19:10.688Z', date: 'Oct 17, 2026, 4:19 PM CT', title: 'No dark band at 18th and Prairie; lot lines off by default', kind: 'fix',
+    items: [
+      'Where 18th Street crosses Prairie Avenue, a dark strip no longer runs across the roadway. 18th\'s paving now fades softly into Prairie\'s.',
+      'The thin lot lines drawn over the 1904 roadways and lawns are hidden. Settings > Lot lines shows them again.',
+    ] },
   { v: 1974, ts: '2026-10-17T20:50:43.174Z', date: 'Oct 17, 2026, 3:50 PM CT', title: 'The compass names your street then and today, in every year', kind: 'fix',
     items: [
       'Under the compass, a readout gives the street you stand on in the scene\'s year and today\'s street, corner or house number. It works in 1812, 1835 and 1904. Before, it only ever appeared in 1835.',
