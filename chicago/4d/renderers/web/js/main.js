@@ -27,6 +27,7 @@ import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
 import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.js';
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
+import { createJourney } from './journey.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
@@ -1490,8 +1491,18 @@ api.boot = bootController;
 const bootForecast = createForecast({ ...bootCell, boot: bootController,
   meter: createNetMeter(), bytes: expectedBytes(bootCell) });
 bootController.forecast = bootForecast;
+// T-2613: one journey for the page — time-stream › landing › landed › exploring …
+const journey = createJourney();
+api.journey = journey;
+// Back to the Observatory is the journey's recall, from wherever the link sits.
+gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
 const arrival = createArrival({
   boot: bootController,
+  journey,
+  deviceEl: gate.querySelector('.gate-card'),
+  destinationEl: document.getElementById('arrival-destination'),
+  announceEl: document.getElementById('arrival-announce'),
+  targetDate: () => api.scene?.target_date,
   targetYear: YEAR,
   titleEl: document.getElementById('gate-title'),
   contentOptions: {
@@ -3855,8 +3866,9 @@ async function boot() {
         root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
       } finally { root.removeAttribute('aria-busy'); }
     },
-    enter: target => enterWorld({ spawn: target }),
-    resume: () => enterWorld({ resume: true }),
+    // T-2613: into the town is the journey's next state — on a Jaunt, or exploring.
+    enter: target => { const ok = enterWorld({ spawn: target }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
+    resume: () => { const ok = enterWorld({ resume: true }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
     pause: () => {
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
       gateOpen = true;

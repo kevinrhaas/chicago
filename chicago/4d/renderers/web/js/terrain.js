@@ -817,7 +817,7 @@ export async function createTerrain({
 
     /** The lake's edge as E per 40 m of N, read off this epoch's heightfield
      * (lakeshore.js) — the line the beach is measured from, by the ground
-     * shader and, through flora.js's extent matcher, by the sward and the
+     * shader and, through flora-zones.js's extent matcher, by the sward and the
      * trees. Null without a heightfield. T-1819. */
     lakeShore,
 
@@ -927,6 +927,9 @@ export async function createTerrain({
 
     /** True where the terrain is below the water surface. */
     isWater(e, n) { return heightfield.sample(e, n) < SHORE_Y; },
+    /** The height below which `isWater` answers true (T-2695: flora's worker
+     *  ground asks the same question of the same grid). */
+    shoreY: SHORE_Y,
 
     /** True where (e, n) is on the measured grid — where `surfaceHeight()` is
      * a sample rather than the out-of-bounds fallback (T-0110). */

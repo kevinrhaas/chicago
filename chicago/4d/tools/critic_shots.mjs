@@ -376,8 +376,8 @@ async function round(viewportName, viewport, dir) {
   }, null, { polling: 'raf', timeout: 180_000 });
   await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 180_000 });
 
-  const gate = await page.$('#gate-btn');
-  if (gate) await page.click('#gate-btn');
+  const gate = await page.$('#home-roam');
+  if (gate) await page.click('#home-roam');
   // The first-run guide is dismissible and covers a quarter of the frame; the
   // canvas screenshot excludes it either way, but a modal over the canvas can
   // still take pointer focus, so it goes.

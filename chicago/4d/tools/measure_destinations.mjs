@@ -12,7 +12,7 @@ try { for (const width of [390,1280]) {
  const ctx=await browser.newContext({viewport:{width,height:width===390?780:800},hasTouch:width===390});
  await ctx.addInitScript(()=>localStorage.setItem('chicago4d.settings',JSON.stringify({detail:'light',travelMode:'instantly'})));
  const page=await ctx.newPage(),errors=[];page.setDefaultTimeout(90000);page.on('pageerror',e=>errors.push(e.message));
- console.log('START',width);await page.goto(url,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__chicago4d?.ready,null,{timeout:180000});await page.locator('#gate-btn').click();
+ console.log('START',width);await page.goto(url,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__chicago4d?.ready,null,{timeout:180000});await page.locator('#home-roam').click();
  const inventory=await page.evaluate(()=>{const a=window.__chicago4d;a.renderer.setAnimationLoop(null);a.hud.setPanel(true);a.hud.selectTab('goto');a.hud.goTo.setIncludeReconstructed(true);return {count:a.destinations.count,rows:document.querySelectorAll('.jump-result').length,shared:a.destinations.targets===a.hud.goTo.targets};});
  assert.equal(inventory.rows,inventory.count);assert.ok(inventory.shared);
  await page.locator('#jump-search').fill('peck');

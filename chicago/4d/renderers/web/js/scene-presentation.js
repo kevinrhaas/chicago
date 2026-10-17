@@ -23,9 +23,15 @@ export function scenePresentation(value, targetDate) {
   const summer = date ? ['06', '07', '08'].includes(date.slice(5, 7)) : [1835, 1904].includes(year);
   const when = `${summer ? 'summer ' : ''}${year}`;
   const dated = date ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`)) : when;
-  return { year,
+  // T-2613: where the Navigator lands, said the same way on its Home, in its ARRIVED
+  // stamp and in the line a screen reader hears.
+  const place = year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'Fort Dearborn' : 'Chicago';
+  const where = year === 1904 ? `on ${place}` : year === 1812 ? `at ${place}` : `in ${place}`;
+  return { year, place,
     arrivalLine: `You have arrived in Chicago, ${when}.`,
-    welcomeTitle: `Welcome to Chicago, ${when}.`,
+    welcomeTitle: `You’re ${where}, ${when}.`,
+    announce: `Arrived: ${place}, ${dated}`,
+    stamp: `Arrived · ${date ? date.replace(/-/g, '.') : year}`,
     eyebrow: year === 1835 ? 'A town at the water’s edge' : year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'The first Fort Dearborn' : 'Chicago through time',
     intro: `Destination locked: ${year === 1904 ? 'Prairie Avenue' : 'Chicago'}, ${dated}. Reconstructed from the sources under Evidence.`,
     entries: year === 1835 ? EARLY_ENTRIES : year === 1904 ? prairieCards :
