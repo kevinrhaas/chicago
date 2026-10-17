@@ -10649,8 +10649,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: compass shows the live heading`,
       nav.compassShown && nav.east.direction === 'E' && nav.east.bearing === '090°',
       `${nav.east.direction} ${nav.east.bearing}`);
+    // T-2626: the inset is the round instrument's face, a fixed square — 112 px on a
+    // desktop, 92 px on a phone — at the T-1142 scale (asserted below).
+    const frame = touch ? { w: 92, h: 92 } : { w: 112, h: 112 };
     check(`${label}: the overview map is shown, captioned and read in imperial`,
-      nav.mapShown && nav.mapSize[0] >= 188 && nav.mapSize[1] >= 76
+      nav.mapShown && nav.mapSize[0] >= frame.w && nav.mapSize[1] >= frame.h
       && nav.east.snapshot.bounds.eMax - nav.east.snapshot.bounds.eMin > 1900
       && nav.mapCaption === 'map' && nav.units === 'imperial'
       && /feet|ft/.test(nav.mapAria ?? ''),
@@ -10666,7 +10669,6 @@ for (const [label, viewport, touch] of [
     // an edit that re-derives the height from `bounds` fails HERE rather than
     // shipping — which matters because T-0466 widens the field to four
     // kilometres and would walk the whole fault back in.
-    const frame = touch ? { w: 188, h: 76 } : { w: 248, h: 98 };
     check(`${label}: the overview inset is a fixed ${frame.w}x${frame.h} frame, not the field's shape`,
       Math.abs(nav.mapBox.w - frame.w) <= 1 && Math.abs(nav.mapBox.h - frame.h) <= 1,
       `inset ${nav.mapBox.w}x${nav.mapBox.h} css px (expected ${frame.w}x${frame.h}), `
@@ -10859,6 +10861,44 @@ for (const [label, viewport, touch] of [
       shut.hidden && !shut.apiOpen && shut.focus === 'overview-open',
       `hidden ${shut.hidden}, api ${shut.apiOpen}, focus ${JSON.stringify(shut.focus)} `
       + `(was ${JSON.stringify(pop.focus)} while open)`);
+    // T-2626 (§10): the compass and the map are one round instrument at the top right,
+    // its heading the camera's own; the amber year chip at the top left opens Jump.
+    const instrument = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 274 });
+      api.step();
+      const face = document.getElementById('overview-map').getBoundingClientRect();
+      const chip = document.getElementById('year-badge').getBoundingClientRect();
+      const out = {
+        round: getComputedStyle(document.getElementById('overview-map')).borderTopLeftRadius,
+        face: { w: Math.round(face.width), h: Math.round(face.height), right: Math.round(innerWidth - face.right), top: Math.round(face.top) },
+        bearing: document.getElementById('compass-bearing')?.textContent,
+        needle: document.getElementById('compass-needle')?.style.transform,
+        yaw: Math.round(((api.player.bearingDeg % 360) + 360) % 360),
+        chip: { left: Math.round(chip.left), top: Math.round(chip.top), year: document.querySelector('#year-badge .badge-year')?.textContent,
+          date: document.querySelector('#year-badge .badge-sub')?.textContent, tag: document.getElementById('year-badge').tagName },
+      };
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 });
+      api.step();
+      return out;
+    });
+    check(`${label}: the compass and the map are one round instrument at the top right, heading the camera's own (T-2626)`,
+      instrument.round === '50%' && Math.abs(instrument.face.w - instrument.face.h) <= 1 && instrument.face.right <= 24 && instrument.face.top < 200
+      && instrument.yaw === 274 && instrument.bearing === '274°' && instrument.needle === 'rotate(274deg)',
+      JSON.stringify(instrument));
+    await clickChrome('#year-badge');
+    const jumpOpen = await page.evaluate(async () => {
+      const n = window.__chicago4d.navigator;
+      for (let i = 0; i < 40 && n.app !== 'jump'; i++) await new Promise((r) => setTimeout(r, 100));
+      const out = { app: n.app, level: n.level };
+      await n.select('home'); n.dock();
+      return out;
+    });
+    check(`${label}: the amber year chip sits top left, reads 1835 · 07.01 and opens Jump (T-2626)`,
+      instrument.chip.tag === 'BUTTON' && instrument.chip.left <= 24 && instrument.chip.top < 80
+      && /^\d{4}$/.test(instrument.chip.year ?? '') && /^\d\d\.\d\d$/.test(instrument.chip.date ?? '')
+      && jumpOpen.app === 'jump' && jumpOpen.level > 0,
+      JSON.stringify({ chip: instrument.chip, jumpOpen }));
     // And the settings toggle owns BOTH of them: a pop-out standing over a map
     // the visitor has switched off is the setting not being obeyed.
     const offWhileHidden = await page.evaluate(() => {

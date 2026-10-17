@@ -2936,7 +2936,11 @@ async function boot() {
   api.loadLiberties = ensureLiberties;
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
+    // T-2626: the round instrument opens the Map app (its stub opens the whole field).
+    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
   });
+  // T-2626: the year chip opens the Jump app.
+  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
 
   // The people directory, compiled by tools/compile_scene.py compile_people from
   // data/residents/ — one row per person, so the Go to list can offer a person
