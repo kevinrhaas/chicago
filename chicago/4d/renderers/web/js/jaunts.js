@@ -203,7 +203,9 @@ export function replaySession(jaunt, saved, session = 1) {
 
 /** Adapters own UI and travel. Tokens invalidate every obsolete completion. */
 export function createJaunts({ scene = '1835', load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError,
-  estimate = () => null, contextForRoute = () => null, onComplete = () => {}, storage: suppliedStorage }) {
+  estimate = () => null, contextForRoute = () => null, onComplete = () => {}, storage: suppliedStorage,
+  // T-2652: the mode the visitor's getting-there choice asks of this Jaunt, or null for its own.
+  preferredMode = () => null }) {
   const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
@@ -260,7 +262,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const target = resolve(jaunt.stops[0].destination);
       if (!target || !enter(target) || !place(target)) throw new Error('Starting place unavailable');
       previousMode = travel.mode;
-      state = reduce(state, { type: 'START', jaunt, session: generation, mode });
+      state = reduce(state, { type: 'START', jaunt, session: generation, mode: mode ?? preferredMode(jaunt) ?? undefined });
       dispatch({ type: 'ARRIVE', session: generation, leg: state.leg });
       return true;
     } catch (error) { if (generation === serial && error.name !== 'AbortError') onError(error); return false; }

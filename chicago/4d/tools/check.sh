@@ -196,6 +196,9 @@ step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
+# T-2652: getting there — one choice for Go to, the Map and Jaunts.
+step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
+  node tools/test_getting_there.mjs
 # T-2653: Move's comfort settings.
 step "Move's Comfort holds the head bob, the eye height at its researched default with its Why, and snap-turn on touch (T-2653)" \
   node tools/test_move_comfort.mjs
