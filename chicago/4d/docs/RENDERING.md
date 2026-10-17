@@ -1109,3 +1109,28 @@ correction). Every number quotes its anchor and viewport.
   (T-2698: `working-bank.js`'s per-point hash) — T-2708 has to close it before it draws
   (`docs/measurements/t-2706-flora-gpu-deal.json`). `--self-test` swaps the tint's two draws
   and must be refused (265 rule disagreements at sixteenth_prairie).
+- **The tile's BLOCKED, slot for slot** (T-2715, the first piece of T-2708): T-2706's
+  31 phone and 46 desktop exclusion hits are **0 / 0** at all 22 critic stations
+  (`node tools/measure_flora_gpu_deal.mjs --write`, `remeasured: ["T-2715"]` in
+  `docs/measurements/t-2706-flora-gpu-deal.json`). Two misses made them. (1) The worked
+  bank's bare patches were a per-point sin-hash (`working-bank.js` `blocksGrowth`) no
+  raster can hold, and the wharf's 23-33 hits were all it. It now answers once per
+  `BANK_PATCH_M` square, the field tile's own 0.125 m world-aligned texel: wet test, wear,
+  apron and grass patch at the square's centre, the draw an integer hash of its index. The
+  bare share is the same draw against the same weight. (2) A street track edge through a
+  texel whose centre it misses (river_bank's last tuft). `nearField.atTexel` and the
+  keeper's strips ask the page's `growthEdges` (the track, which is always wider than a
+  texel's diagonal) at the texel's four corners, so the tile errs only toward exclusion,
+  and `growthPatch` (the yards, the ground strip and the bank) at the centre. Corners
+  alone are not enough for everything: Fort Dearborn's fences are thinner than a texel,
+  and moving them to corners left 6 kept texels unlike the built tile. Tile-against-CPU
+  disagreement at the slots fell from 0.77 % / 0.55 % to 0.27 % / 0.26 %. Plants per m² are
+  1.2212 against the CPU's 1.2260 (phone) and 1.2307 against 1.2337 (desktop), both 0.17
+  sigma under, which is the edge texels the tile now clears; every species' share is within
+  0.65 sigma. The cost, from a same-session before and after with `measure_near_field.mjs
+  --walk`: the pool-kept tile's main thread holds at 0.59 -> 0.63 ms a metre on the phone
+  (worst step 29.5 -> 31.1 ms; 0.98 desktop). Asking the track at both the centre and the
+  corners had cost 1.07 ms a metre and a 54.5 ms step, so the centre no longer asks it.
+  The whole tile built on the page (`nearField.build`, used by the tools and nothing in the
+  frame) asks the corners unshared: 10.0 -> 15.8 ms a metre. 0 kept texels differ from the
+  built tile on either viewport (`docs/measurements/t-2707-near-field-keeper.json`).
