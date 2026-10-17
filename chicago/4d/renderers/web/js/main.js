@@ -28,6 +28,7 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
@@ -113,8 +114,10 @@ import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
 import { createWhere } from './where.js';
+import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
@@ -1518,8 +1521,11 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 api.journey = journey;
-// Back to the Observatory is the journey's recall, from wherever the link sits.
-gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
+// Back to the Observatory is the journey's recall, from wherever the link sits. T-2735: the
+// way home asks first and plays the reverse ring (js/recall.js), so the journey moves to
+// `recall` only as the page actually leaves; a cancelled prompt leaves it where it was.
+recallHome?.onReturn(() => journey.recall());
+api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
@@ -1695,6 +1701,13 @@ async function boot() {
     powerPreference: 'high-performance',
     stencil: false,
   });
+  /**
+   * T-2716. The renderer's own `render`, taken before anything can swap it: the
+   * flora's near deal pass is PLACEMENT, not a frame, and harnesses that hold or
+   * time the frames by replacing `renderer.render` (the smoke's `holdDraws`,
+   * `measure_walk_frames.mjs`) must neither skip it nor count it as a draw.
+   */
+  const placementRender = renderer.render.bind(renderer);
   /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
    * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
@@ -2627,7 +2640,7 @@ async function boot() {
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
     verge: streets.verge, forbSeat,
-    confidence, problems: layerProblems('flora'), ...detailOpts(),
+    confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
   });
   scene3d.add(flora.group);
   let trees = await createTrees({
@@ -2735,7 +2748,7 @@ async function boot() {
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
           verge: streets.verge, forbSeat,
-          confidence, problems: layerProblems('flora'), detail: level,
+          confidence, problems: layerProblems('flora'), detail: level, renderer, placementRender,
         });
         next.trees = await createTrees({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
@@ -2881,7 +2894,7 @@ async function boot() {
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
         verge: streets.verge, forbSeat,
-        confidence, problems: layerProblems('flora'), ...detailOpts(),
+        confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
       });
       scene3d.add(flora.group);
 
@@ -3021,8 +3034,20 @@ async function boot() {
     return libertiesPromise;
   };
   api.loadLiberties = ensureLiberties;
+  // T-2741: where you stand in the scene's own year — the 1835 streets, the 1904 grid and,
+  // past it, the context city's named centrelines; 1812 has none — shared by the compass
+  // readout and Navigator Home. Today's streets load after the scene (navigation.setModern).
+  const contextStreetLines = (() => {
+    const doc = contextCity?.doc;
+    const S = Object.fromEntries((doc?.fields?.streets ?? []).map((k, i) => [k, i]));
+    const names = doc?.enums?.street_name ?? [];
+    return (doc?.streets ?? []).map((r) => ({
+      name: names[r[S.name]] ?? null, e0: r[S.e0], n0: r[S.n0], e1: r[S.e1], n1: r[S.n1],
+    })).filter((l) => l.name);
+  })();
+  const eraWhere = createWhere({ streets, grid: streetGrid?.grid ?? null, lines: contextStreetLines });
   const navigation = createNavigation({
-    root: hudRoot, terrain, registry: loaded.registry, streets,
+    root: hudRoot, terrain, registry: loaded.registry, streets, year: loaded.scene.id ?? YEAR, where: eraWhere,
     // T-2626: the round instrument opens the Map app (its stub opens the whole field).
     onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
   });
@@ -3202,6 +3227,8 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'lookTag') {
+        api.targetTag?.setTagShown(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
@@ -3455,6 +3482,18 @@ async function boot() {
   navigation.setMapVisible(hud.settings.overviewMap);
   navigation.setStreetVisible(hud.settings.streetNames);
   navigation.setUnits(hud.settings.units);
+  // T-2741: the compass's own street button is the Settings toggle, from the HUD.
+  document.getElementById('street-toggle')?.addEventListener('click', () => {
+    hud.setToggle('streetNames', !hud.settings.streetNames);
+  });
+  // Today's streets (data/modern/streets.json, the City's centrelines), in every year.
+  // Off the boot path: until they land the readout says no street, and a failed fetch
+  // leaves it saying so rather than holding the scene.
+  void loadModernStreets(bases.dataBase).then((m) => {
+    if (!m) { problems.push('modern streets: data/modern/streets.json did not load — today\'s names are not shown'); return; }
+    navigation.setModern(m);
+    api.modernStreets = m;
+  });
 
   // ---- input ------------------------------------------------------------ //
 
@@ -4124,6 +4163,7 @@ async function boot() {
     tagEl: document.getElementById('target-tag'),
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
+    tagShown: hud.settings.lookTag !== false,
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
@@ -4200,7 +4240,7 @@ async function boot() {
     root: document.getElementById('navigator'),
     scene: loaded.scene,
     target,
-    where: createWhere({ streets, grid: streetGrid?.grid ?? null }),
+    where: eraWhere,
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
     jaunt: () => jauntRuntime?.state ?? null,
     move: () => ({ flying: hud.flying, pace: hud.settings.pace, riding: (travel?.state?.phase ?? 'idle') !== 'idle' }),
@@ -4249,7 +4289,8 @@ async function boot() {
         goTo: (id) => goToTarget({ kind: 'structure', id }),
         jauntRoute: () => mapJauntRoute(),
         travelRoute: () => travel.routeAhead(),
-        recall: () => journey.recall(),
+        // T-2735: Recall asks first; the journey moves only as the page leaves.
+        recall: (href) => recallHome?.ask(href),
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
@@ -4902,6 +4943,9 @@ async function boot() {
     /** T-2597: the boot pool, and the most GLB bytes it held unparsed at once. */
     bootPool: { get: () => loaded.bootPool, enumerable: true },
   });
+  // T-2732: Settings' dev-only Read frame pacing, for the reading T-2733 takes on
+  // a phone. Mounted after the live readings above, which it drives and restores.
+  mountPacingRead({ api, hud });
 
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;

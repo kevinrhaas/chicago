@@ -2624,6 +2624,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/build_modern_streets.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/build_order_book_1835.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5522,15 +5526,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_guide_glossary.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_goto_cleanup.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_goto_confidence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_guide_glossary.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5559,6 +5563,10 @@
       "wrote_ignored": []
     },
     "tools/test_merge_ready.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_modern_streets.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5610,6 +5618,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_pacing_read.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_people_scene.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5651,6 +5663,10 @@
       "wrote_ignored": []
     },
     "tools/test_program_cache_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_recall.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

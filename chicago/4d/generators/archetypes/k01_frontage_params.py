@@ -741,7 +741,13 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     slab's `foot_m` under the wall head, `thickness_m`, and `proud_m` in front of the street
     eave's fascia; a row of K06 `lights` (`variant`, `sill_m` over grade, `width_m`,
     `height_m`, `at_m` from the centre); the `coping` band on the face; a pinnacle
-    `kneelers` each side on the ledge where the outline leaves the eave; a `finial`."""
+    `kneelers` each side on the ledge where the outline leaves the eave; a `finial`.
+    T-2730: 1625 Prairie's plain coped WALL GABLE is the same slab with a straight outline:
+    its `kneelers` and `finial` may be left out (the ledge alone is the kneeler stone), its
+    lights may be segment-headed and stand below the ledge, on the slab under the eave, an
+    `oculus` (`centre_m` over grade, `width_m`, `height_m`, a stone `ring_m` `proud_m` and
+    its glazing `bars_m`) may light its apex, and `fabric: "front"` dresses the slab in the
+    front's stone where 1812's wears the side walls' brick."""
     if not sg:
         return {}
     if roof_form != "hip":
@@ -760,39 +766,59 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     if pr[-1][1] < ridge + 0.3:
         raise ParamError(f"shaped_gable: its apex ({pr[-1][1]} m) stands at least 0.3 m over the hip's ridge ({ridge:.2f} m)")
     foot, t, proud = float(sg["foot_m"]), float(sg["thickness_m"]), float(sg["proud_m"])
-    if not eave - 1.5 <= foot < ye - 0.3:
-        raise ParamError("shaped_gable.foot_m: the slab starts under the street fascia, within 1.5 m of the wall head")
+    if not eave - 2.0 <= foot < ye - 0.3:
+        raise ParamError("shaped_gable.foot_m: the slab starts under the street fascia, within 2.0 m of the wall head")
     if not 0.02 <= proud <= 0.2 or not overhang + proud + 0.1 <= t <= 1.0:
         raise ParamError("shaped_gable: its face 0.02-0.2 m proud of the fascia, its back over the wall")
     li = sg["lights"]
     kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
-    if kit.get(li["variant"], {}).get("head") != "flat":
-        raise ParamError("shaped_gable.lights.variant: a flat-headed K06 variant")
+    if kit.get(li["variant"], {}).get("head") not in ("flat", "segmental"):
+        raise ParamError("shaped_gable.lights.variant: a flat- or segment-headed K06 variant")
     lw, lh, sill = float(li["width_m"]), float(li["height_m"]), float(li["sill_m"])
     at = sorted(float(x) for x in li["at_m"])
     ledge = ye + 0.12
-    if sill < ledge + 0.3:
+    if sg.get("kneelers") and sill < ledge + 0.3:
         raise ParamError("shaped_gable.lights: a light's sill stands 0.3 m over the kneelers' ledge")
+    if sill < foot + 0.3:   # T-2730: without kneelers a light may stand on the slab under the eave
+        raise ParamError("shaped_gable.lights: a light's sill stands 0.3 m over the slab's foot")
     from archetypes import k01_shaped_gable as ksg
     q = {"profile_m": pr}
     for x in at:
         need = abs(x) + lw / 2 + 0.15
         if need > ksg.half_width(q, sill + lh + 0.15) or need > ksg.half_width(q, sill):
             raise ParamError("shaped_gable.lights: every light stands 0.15 m inside the outline")
-    cp, kn, fn = sg["coping"], sg["kneelers"], sg["finial"]
+    cp, kn, fn = sg["coping"], sg.get("kneelers"), sg.get("finial")
     coping = {"width_m": float(cp["width_m"]), "proud_m": float(cp["proud_m"])}
     if not 0.1 <= coping["width_m"] <= 0.5 or not 0.0 < coping["proud_m"] <= 0.08:
         raise ParamError("shaped_gable.coping: a 0.1-0.5 m band, 0-0.08 m proud")
-    kne = {k_: float(kn[k_]) for k_ in ("at_m", "shaft_m", "top_m", "cap_m", "spire_m")}
-    hb, hl = width / 2 + overhang + 0.02, ksg.half_width(q, ledge)
-    if not hl + kne["shaft_m"] / 2 <= kne["at_m"] <= hb - kne["shaft_m"] / 2 or kne["top_m"] <= ledge + 0.2:
-        raise ParamError("shaped_gable.kneelers: each pinnacle stands on its ledge and rises from it")
-    fin = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
-    if not 0.2 <= fin["height_m"] <= 1.2 or not 0.04 <= fin["radius_m"] <= 0.3:
-        raise ParamError("shaped_gable.finial: 0.2-1.2 m high, 0.04-0.3 m in radius")
+    kne = {}
+    if kn:
+        kne = {k_: float(kn[k_]) for k_ in ("at_m", "shaft_m", "top_m", "cap_m", "spire_m")}
+        hb, hl = width / 2 + overhang + 0.02, ksg.half_width(q, ledge)
+        if not hl + kne["shaft_m"] / 2 <= kne["at_m"] <= hb - kne["shaft_m"] / 2 or kne["top_m"] <= ledge + 0.2:
+            raise ParamError("shaped_gable.kneelers: each pinnacle stands on its ledge and rises from it")
+    fin = {}
+    if fn:
+        fin = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
+        if not 0.2 <= fin["height_m"] <= 1.2 or not 0.04 <= fin["radius_m"] <= 0.3:
+            raise ParamError("shaped_gable.finial: 0.2-1.2 m high, 0.04-0.3 m in radius")
+    fabric = sg.get("fabric", "brick")
+    if fabric not in ("brick", "front"):
+        raise ParamError(f"shaped_gable.fabric {fabric!r}: brick (the side walls') or front (the front's stone)")
+    oc = {}
+    if sg.get("oculus"):   # T-2730: an oval light near the apex, in a stone ring
+        o_ = sg["oculus"]
+        oc = {k_: float(o_[k_]) for k_ in ("centre_m", "width_m", "height_m", "ring_m", "proud_m", "bars_m")}
+        if not 0.3 <= oc["width_m"] <= 1.5 or not 0.3 <= oc["height_m"] <= 1.5:
+            raise ParamError("shaped_gable.oculus: 0.3-1.5 m across and high")
+        if not 0.05 <= oc["ring_m"] <= 0.3 or not 0.0 < oc["proud_m"] <= 0.08 or not 0.0 <= oc["bars_m"] <= 0.08:
+            raise ParamError("shaped_gable.oculus: a 0.05-0.3 m ring 0-0.08 m proud, bars 0-0.08 m")
+        top, low = oc["centre_m"] + oc["height_m"] / 2 + oc["ring_m"], oc["centre_m"] - oc["height_m"] / 2 - oc["ring_m"]
+        if oc["width_m"] / 2 + oc["ring_m"] + 0.15 > ksg.half_width(q, top) or low < sill + lh + 0.3:
+            raise ParamError("shaped_gable.oculus: its ring stands 0.15 m inside the outline and 0.3 m over the lights")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at},
-            "coping": coping, "kneelers": kne, "finial": fin}
+            "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc}
 
 
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,

@@ -24095,6 +24095,13 @@ the fit left short of that wall, and any stone front, stands against it; a piece
 touching nothing else of its building is one storey; and a street body narrower than 5.5 m is
 widened about its middle to 5.5 m inside its own lot. The rules carry these as `fit.sliver_m`,
 `sliver_fill`, `sliver_overlap`, `detached_front_m`, `stray_m2` and `min_body_m`.
+**Swept again by T-2738 (2026-10-17):** the owner still saw a standing tower at 1729, the
+one-storey 5.3 m stone range the fit left 2.5 m off the south wall, and draft porches hanging
+on their posts a basement's height above the lawn. So, still with no source claimed: a piece
+standing 3 m or less clear of everything else of its building is stretched across the gap to
+the nearest wall (`fit.snap_gap_m`), since the sheet draws one building; and every draft porch
+is a solid stone stoop up to the principal floor with four steps down on its face away from
+the house, its posts and roof left to the house's own pass.
 **1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
@@ -26100,10 +26107,44 @@ rear section stepping out to the south under its mansard, which a K01 rear wing 
 are open in the match record for T-2435.
 **How to resolve:** T-2435 builds the gable (with T-2428's K01 wall gable) and brings the match
 record to `matches`; a later photograph of the house, ingested as a source, says what changed by 1904.
-**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.basement_lights`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.dormer`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
+**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.basement_lights`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
 **Ticket:** T-2432 (piece 1 of T-1869).
 **Review:** `docs/RESEARCH/k01-1625-mcbirney-2432/README.md`.
-**Recorded:** 2026-10-13 (T-2432).
+**Recorded:** 2026-10-13 (T-2432). **The gable, the knee wall and the north stack taken out of
+this liberty by T-2730 (2026-10-17):** the dormer is gone and the front now rises as the photograph's
+coped wall gable, under `L-k01-1625-mcbirney-wall-gable-2730`; `dormer` and `eave_overhang_m`
+(now read off the photograph) leave this entry's cover.
+
+### L-k01-1625-mcbirney-wall-gable-2730 — 1625 Prairie's front carried up as its photograph's coped wall gable, on the knee wall K01 lends the top storey
+
+**Decision:** the pedimented dormer T-2432 stood on 1625's hip is gone (T-2730, piece 3 of T-2435).
+The front is carried up, as the 1890 Inland Architect photograph
+(`inland_architect_1890_01_mcbirney_residence`) shows it, as a steep coped wall gable in the
+front's stone: K01's shaped-gable slab (T-2543's element, 1812's) with a straight outline, three
+segment-headed lights and an oval light near the apex, no kneeler pinnacles and no finial. The
+south side wall's eave rises to the photograph's knee wall at 13.0 m, and the tall stack stands on
+the north party wall beside the gable.
+**What is read, not invented.** Through the photograph's solved camera (38.6 px/m at the front's
+plane, grade y 795 px): the apex at 18.85 m; the rakes at about 60 and 66 degrees, built at 61; the
+south corner pier's top and the side eave at about 13.0-13.15 m; the three lights' sills and heads
+(11.53-13.34 m), centres (0.94 m apart) and one-over-one sash under segmental heads; the oval light's
+centre (15.56 m) and size (about 0.45 by 0.85 m of glass); the coping along both rakes; the stack's
+place (about 1.6 m behind the face, solved from its edges at x 180 and 217 px), width and top
+(about 17.7 m).
+**What is invented.** The slab's thickness (0.6 m) and its foot (11.22 m), where the gable's face
+steps 0.25 m proud of the wall below it: K01 stands the slab proud of the street fascia, and so of
+the eave gutter's street run, which the photograph does not show across the front; the photograph's
+front is one plane. The gable's centre, built on the front's, about 0.3 m (12 px) south of the
+photograph's apex and middle light. The oval light's tracery, built as a cross of bars. The ring's
+width. The knee wall carried as the second floor's storey running 5.8 m to the wall head (K01 has
+no attic storey; the attic floor at about 11.0 m is not built). The eave's 0.05 m projection. The
+stack 0.3 m in from the party wall (K01's rule for a stack in a hip) and its depth along the wall.
+**How to resolve:** T-2731 builds the front's detail and the rear section and brings the match
+record to `matches`; a K01 element that raises the front wall itself as a gable, with no slab proud
+of it, would take the step at 11.22 m away.
+**Ticket:** T-2730 (piece 3 of T-2435).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-17 (T-2730).
 
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
@@ -27308,6 +27349,8 @@ whose rights are cleared is in the tree (the scan this source reads is `check_re
 derived from it here) puts every dimension above on a side-by-side.
 
 **Revised:** 2026-10-16 (T-2681) — **taller columns, a deeper entablature and a shallower balcony front.** Read through the 1965 close view's camera (`a18-gh-1808-porch-1965`) and the plate's (`inland-1888`): both show the beam and cornice deeper (0.95-1.0 and 0.9 m) and the balcony's front shallower (0.7 and 0.8 m) than built; on the columns they disagree, the 1965 view reading 2.5-2.7 m and the plate about 2.25 m. Built at 2.45 m (T-2500's own reading of the plate, which 2.25 m had given up only to keep the balcony floor on the 5.9 m second-floor datum), 0.9 m and 0.75 m; the balcony floor stands at 6.35 m, under the 6.65 m second-storey sill. Still invented: the column height between two pictures that differ by about 0.5 m, each record holding its remainder open.
+
+**Revised:** 2026-10-17 (T-2725) — **the column ruled at 2.5 m; both cameras err at the loggia.** Both pictures stand the column at about 2.45 times its pedestal (the plate 190.5 px over about 77, the 1965 view 100 px over about 41), so they disagree only on scale. Read in the plate against the front's own ruler at the same image column, the third storey's north light (10.41-12.70 m, 159.5 px), and corrected for the loggia standing nearer the camera (1.08-1.095 for any heading 0-25 degrees north of square), the column reads 2.51 m (south pair) and 2.50 m (north pair) and the pedestal 1.02 m. Through their own cameras the plate's draws the column and pedestal alike about 7-9 % long and the 1965 view's 12-15 % short: each camera's scale at the loggia's depth, not the column. Built at 2.5 m (from 2.45), the entablature and balcony riding up 0.05 m with it. Still reconstructed: the reading rests on the model's front heights and on the light's opening read as its sash, about ±3 %.
 
 ### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
 

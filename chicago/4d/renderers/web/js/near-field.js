@@ -270,7 +270,9 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
   let want = null;
   let pending = null;
   let waiters = [];
-  const stats = { mainMs: 0, finishMs: 0, recentres: 0, texels: 0, whole: 0, lastMs: 0 };
+  // T-2716: bumped by `adopt`, so a re-centre started before it lands as nothing.
+  let generation = 0;
+  const stats = { mainMs: 0, finishMs: 0, recentres: 0, texels: 0, whole: 0, lastMs: 0, adopted: 0 };
   const keeper = { stats, spec, written: [],
     get tile() { return tile; },
     update(camE, camN) {
@@ -281,6 +283,34 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
         want = o;
         if (!pending) start();
       } else want = null;
+      stats.mainMs += now() - t0;
+      return tile;
+    },
+    /**
+     * T-2716. Take a tile built whole elsewhere (`buildField`, wrap zero) as the
+     * kept one, in this keeper's own wrap, so the next step is a strip again. A
+     * re-centre in flight is dropped when it lands: it was asked against the
+     * tile this replaces.
+     */
+    adopt(built) {
+      const t0 = now();
+      generation++;
+      const { wi, wj } = fieldWrap(built.e0, built.n0, spec);
+      for (let j = 0; j < size; j++) {
+        const row = ((j + wj) % size) * size;
+        for (let i = 0; i < size; i++) {
+          const k = row + (i + wi) % size;
+          const q = j * size + i;
+          cls[2 * k] = built.cls[2 * q];
+          cls[2 * k + 1] = built.cls[2 * q + 1];
+          height[k] = built.height[q];
+        }
+      }
+      tile = { e0: built.e0, n0: built.n0, wi, wj, texel, size, cls, height };
+      keeper.written = [{ x: 0, y: 0, w: size, h: size }];
+      target = null;
+      want = null;
+      stats.adopted++;
       stats.mainMs += now() - t0;
       return tile;
     },
@@ -295,9 +325,24 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
     target = o;
     const rects = exposedRects(tile, o.e0, o.n0, spec);
     const asked = rects.map((r) => Promise.resolve(ask(r, o.e0, o.n0, texel)).catch(() => null));
-    pending = Promise.all(asked).then((gots) => land(o, rects, gots));
+    const g = generation;
+    pending = Promise.all(asked).then((gots) => land(o, rects, gots, g));
   }
-  function land(o, rects, gots) {
+  function land(o, rects, gots, g = generation) {
+    if (g !== generation) {
+      // Asked against a tile `adopt` has since replaced: its strips are not
+      // this tile's, so nothing is written.
+      pending = null;
+      if (target === o) target = null;
+      if (want && tile && (want.e0 !== tile.e0 || want.n0 !== tile.n0)) start();
+      else want = null;
+      if (!pending) {
+        const w = waiters;
+        waiters = [];
+        for (const r of w) r(tile);
+      }
+      return;
+    }
     const t0 = now();
     const { wi, wj } = fieldWrap(o.e0, o.n0, spec);
     const written = [];

@@ -18,6 +18,12 @@ this is another thing, so it is its own element. The record names it as `shaped_
 The outline's own edges (the top of the slab) are stone coping; its faces are the side walls'
 brick. Every number a piece is cut to is the record's or is named here, and docs/LIBERTIES.md
 L-k01-1812-wheeler-front-2543 says which.
+
+T-2730: 1625 Prairie's front is the same slab with a straight outline — a plain coped WALL
+GABLE in the front's stone (`fabric: "front"`), its lights segment-headed and standing under
+the eave, no kneeler pinnacles and no finial, and an oval `oculus` in a stone ring near the
+apex, cut like a light and glazed here behind a cross of bars.
+L-k01-1625-mcbirney-wall-gable-2730 says which numbers are read and which are not.
 """
 
 from __future__ import annotations
@@ -72,6 +78,8 @@ def element(a, k5, ye):
     g = geometry(a.p, ye)
     a.shaped_gable_geom = g
     foot = a.p.shaped_gable["foot_m"]
+    if a.p.shaped_gable.get("fabric") == "front":
+        a.front_parapet_u = g["xb"] - 1e-6   # T-2730: _emit_shell dresses the slab in the front's stone
 
     def role(i, p_, q_):
         if abs(p_[1] - foot) < 1e-9 and abs(q_[1] - foot) < 1e-9:
@@ -104,7 +112,50 @@ def cutters(a, k5) -> list:
         for hole in o.holes:           # a grouped variant cuts one hole a bay
             rec = [(c - q[0], li["sill_m"] + q[1]) for q in hole]
             out.append(k5.extrude(rec, g["xf"] - rev, g["xf"] + 0.05, k5.frame("x"), "reveal", "window", "reveal"))
+    oc = sg.get("oculus")
+    if oc:   # T-2730: the oval light's recess, to the lights' reveal depth
+        ry = oc["centre_m"]
+        rec = [(g["zc"] - p_ * oc["width_m"] / 2, ry + q_ * oc["height_m"] / 2) for p_, q_ in _oval()]
+        out.append(k5.extrude(rec, g["xf"] - rev, g["xf"] + 0.05, k5.frame("x"), "reveal", "window", "reveal"))
     return out
+
+
+OVAL_SIDES = 24             # the oculus's polygon
+
+
+def _oval():
+    """The unit oval as (cos, sin) pairs, counter-clockwise."""
+    return [(math.cos(2 * math.pi * i / OVAL_SIDES), math.sin(2 * math.pi * i / OVAL_SIDES))
+            for i in range(OVAL_SIDES)]
+
+
+def _oculus(a, frame, sg, g, gseed, conf):
+    """T-2730: the oval light — its dark backing and glass at the recess's back, a cross of
+    glazing bars, and the stone ring proud of the face round it, laid as voussoirs."""
+    from . import k06_windows as k6
+    oc = sg["oculus"]
+    W = a.p.width_m
+    rev = k6.load()["parts"]["reveal_depth_m"]["value"]
+    s0, y0 = W / 2, oc["centre_m"]
+    rw, rh, ring = oc["width_m"] / 2, oc["height_m"] / 2, oc["ring_m"]
+    seed = a.instance("k01.opening.gable_oculus", "opening",
+                      {"width_m": oc["width_m"], "height_m": oc["height_m"], "ring_m": ring},
+                      {"centre": (g["xf"], y0, g["zc"])})
+    af = _af()
+    pane = [(s0 + c * rw, y0 + q * rh) for c, q in _oval()]
+    af._face(a, "backing", frame, [(s, y, -rev) for s, y in pane], (0, 0, 1), seed, conf)
+    af._face(a, "glass", frame, [(s, y, -rev + 0.03) for s, y in pane], (0, 0, 1), seed, conf)
+    b = oc["bars_m"] / 2
+    if b:
+        _prism(a, "sash", frame, [(s0 - rw, y0 - b), (s0 + rw, y0 - b), (s0 + rw, y0 + b), (s0 - rw, y0 + b)],
+               -rev, -rev + 0.06, seed, conf)
+        _prism(a, "sash", frame, [(s0 - b, y0 - rh), (s0 + b, y0 - rh), (s0 + b, y0 + rh), (s0 - b, y0 + rh)],
+               -rev, -rev + 0.06, seed, conf)
+    ov = _oval()
+    for (c0, q0), (c1, q1) in zip(ov, ov[1:] + ov[:1]):
+        poly = [(s0 + c0 * rw, y0 + q0 * rh), (s0 + c1 * rw, y0 + q1 * rh),
+                (s0 + c1 * (rw + ring), y0 + q1 * (rh + ring)), (s0 + c0 * (rw + ring), y0 + q0 * (rh + ring))]
+        _prism(a, "limestone_trim", frame, poly, 0.0, oc["proud_m"], gseed, conf)
 
 
 def _prism(a, mat, frame, poly, d0, d1, seed, conf):
@@ -162,13 +213,20 @@ def dress(a, roof_seed):
                 nx, ny = -nx, -ny
             A_, B_ = (W / 2 + sgn * w0, y0), (W / 2 + sgn * w1, y1)
             poly = [A_, B_, (B_[0] + nx * cw, B_[1] + ny * cw), (A_[0] + nx * cw, A_[1] + ny * cw)]
+            if w1 == 0.0 and not sg["finial"]:
+                # T-2730: with no finial over it the two rakes' coping meets mitred on the
+                # centre line, its inner edge cut where it crosses the apex's plumb line
+                t_ = (W / 2 - poly[3][0]) / dx
+                poly[2] = (W / 2, poly[3][1] + t_ * dy)
             _prism(a, "limestone_trim", frame, poly, 0.0, cp, gseed, conf)
+    if sg.get("oculus"):
+        _oculus(a, frame, sg, g, gseed, conf)
     # the kneelers: a square pinnacle on each ledge, a cap and a pyramid over it
     kn = sg["kneelers"]
-    hw = kn["shaft_m"] / 2
     xm = g["xf"] - sg["thickness_m"] / 2
     Fr = ((xm, 0.0, 0.0), R, N)
-    for sgn in (-1, 1):
+    hw = kn["shaft_m"] / 2 if kn else 0.0
+    for sgn in ((-1, 1) if kn else ()):  # T-2730: a plain coped gable's ledge is its kneeler
         s = W / 2 + sgn * kn["at_m"]
         y0, y1 = g["ledge"], kn["top_m"]
         pseed = a.instance("k01.roof.gable_pinnacle", "roof",
@@ -182,6 +240,8 @@ def dress(a, roof_seed):
                                 y1 + kn["cap_m"] + kn["spire_m"], pseed, conf)
     # the finial: a turned stone on the apex, let into it
     fn = sg["finial"]
+    if not fn:
+        return
     ya = g["apex"] - FINIAL_SINK_M
     fseed = a.instance("k01.roof.gable_finial", "roof", {"height_m": fn["height_m"], "radius_m": fn["radius_m"]},
                        {"foot": (xm, round(ya, 4), g["zc"])})
