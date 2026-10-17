@@ -22,7 +22,11 @@
  * raycast's `faceIndex`. The distance gives back the hit point on the ray.
  *
  * The id material transforms the stored positions and nothing else, which is
- * what the raycast tested: no relief, no discarded plank gap, no wind. It
+ * what the raycast tested: no relief, no discarded plank gap, no wind. A boxed
+ * mesh's position (T-2700, compact-streams.js) is read whole, as a vec4, and
+ * its padding lane's box is applied from the table its material carries, as
+ * that material's own vertex stage applies it; a lane naming none (a quantized
+ * chunk's 0, a float position's implied 1) leaves the position as stored. It
  * culls the side the chunk's own material culls, as the raycast did. And it
  * draws exactly the list it is handed, hidden or not — `THREE.Raycaster` does
  * not test `visible` either, and each layer already filters what it hands in.
@@ -44,6 +48,7 @@
  */
 
 import * as THREE from 'three';
+import { BOX_TABLE_MAX, POSITION_STEPS } from './compact-streams.js';
 
 let renderer = null;
 
@@ -54,13 +59,18 @@ export function setPickRenderer(r) { renderer = r ?? null; }
 export function pickReach(camera) { return Math.max(400, camera.position.y * 4); }
 
 const VERT = /* glsl */`
-in vec3 position;
+in vec4 position;
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
+uniform vec4 uBoxes[${BOX_TABLE_MAX}];
+uniform int uBoxCount;
 flat out highp uint vVertex;
 out vec3 vView;
 void main() {
-  vec4 mv = modelViewMatrix * vec4(position, 1.0);
+  vec3 p = position.xyz;
+  int box = int(position.w * ${POSITION_STEPS}.0 + 0.5) - 1;
+  if (box >= 0 && box < uBoxCount) p = p * uBoxes[box].w + uBoxes[box].xyz;
+  vec4 mv = modelViewMatrix * vec4(p, 1.0);
   vView = mv.xyz;
   vVertex = uint(gl_VertexID);
   gl_Position = projectionMatrix * mv;
@@ -117,7 +127,9 @@ function materialFor(side, batched = false) {
     m = new Kind({
       name: batched ? 'gpu-pick-id-batched' : 'gpu-pick-id', glslVersion: THREE.GLSL3,
       vertexShader: batched ? VERT_BATCHED : VERT, fragmentShader: batched ? FRAG_BATCHED : FRAG,
-      uniforms: { uSlot: { value: 0 } }, side,
+      uniforms: batched ? { uSlot: { value: 0 } } : {
+        uSlot: { value: 0 }, uBoxCount: { value: 0 }, uBoxes: { value: new Float32Array(4) },
+      }, side,
     });
     materials.set(key, m);
   }
@@ -128,9 +140,12 @@ function sideOf(src) {
   return Array.isArray(src.material) ? THREE.DoubleSide : (src.material?.side ?? THREE.FrontSide);
 }
 
-/** Each stand-in writes its own slot: set per object, during the one draw. */
+/** Each stand-in writes its own slot and its source's box table, during the one draw. */
 function writeSlot(_r, _s, _c, _g, material) {
   material.uniforms.uSlot.value = this.userData.slot;
+  const table = this.userData.boxes;
+  material.uniforms.uBoxCount.value = table ? table.count : 0;
+  if (table) material.uniforms.uBoxes.value = table.uniform.value;
   material.uniformsNeedUpdate = true;
 }
 
@@ -191,6 +206,7 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     stand.material = materialFor(sideOf(src));
     stand.matrixWorld.copy(src.matrixWorld);
     stand.userData.slot = i + 1;
+    stand.userData.boxes = src.material?.userData?.boxTable ?? null;
     stand.visible = true;
     stood += 1;
   }
@@ -227,7 +243,7 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     Object.assign(renderer.info.render, was.render);
     cam.clearViewOffset();
     // Hold no layer's geometry past the pick: a rebuilt layer disposes its old chunks.
-    for (let i = 0; i < stood; i += 1) pool[i].geometry = EMPTY;
+    for (let i = 0; i < stood; i += 1) { pool[i].geometry = EMPTY; pool[i].userData.boxes = null; }
   }
 
   const slot = texel[0];

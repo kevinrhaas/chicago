@@ -313,3 +313,61 @@ console.log('ARRIVAL CONTROLLER PASS — elapsed tick, optional isolation, failu
   assert.doesNotMatch(index, /Tap to enter/);
 }
 console.log('JOURNEY PASS — every transition once and in order; landing flash, flip to Home, inside 900 ms; reduced-motion crossfade');
+
+/* T-2614 (§14 "Gesture gating without a gate"): audio waits for the first trusted tap
+ * after landing on a Home choice, the scene or a Navigator control; the CLICK TO ENGAGE
+ * LOOK tag shows on the desktop backend only, in the town, until the pointer first locks. */
+{
+  const { createGestureGate, lookTagVisible, GESTURE_EVENTS } = await import('../renderers/web/js/gesture-gate.js');
+  const { createJourney } = await import('../renderers/web/js/journey.js');
+  const made = [];
+  class FakeContext {
+    constructor() { this.state = 'suspended'; this.played = 0; this.resumes = 0; this.destination = {}; made.push(this); }
+    createBuffer() { return {}; }
+    createBufferSource() { const ctx = this; return { connect() {}, start() { ctx.played++; } }; }
+    resume() { this.resumes++; this.state = 'running'; return Promise.resolve(); }
+  }
+  const listeners = {};
+  const target = { addEventListener(type, fn) { (listeners[type] ??= []).push(fn); }, removeEventListener(type) { delete listeners[type]; } };
+  const fire = (type, el, { isTrusted = true, key } = {}) => { for (const fn of listeners[type] ?? []) fn({ type, isTrusted, key, target: el }); };
+  // An element stand-in: closest() answers for the one place it sits.
+  const at = place => ({ closest: sel => (sel.split(', ').some(s => s.startsWith(place)) ? {} : null) });
+  const home = at('#welcome'), scene = at('#view'), navigator = at('#navigator'), elsewhere = at('#gate-observatory');
+  const journey = createJourney({ root: null });
+  const tagEl = { hidden: true };
+  let firsts = 0;
+  const gate = createGestureGate({ target, journey, AudioContext: FakeContext, tagEl, onGesture: () => firsts++ });
+  assert.deepEqual(Object.keys(listeners).sort(), [...GESTURE_EVENTS].sort(), 'the gate hears every activating event');
+  // In the time-stream nothing is a gesture yet: no context is even made.
+  fire('click', home); fire('touchend', scene);
+  assert.equal(gate.audio, null); assert.equal(made.length, 0);
+  journey.land(); journey.landed();
+  // A synthetic click, a tap on something that is not Home/scene/Navigator, a stray key: none count.
+  fire('click', home, { isTrusted: false }); fire('click', elsewhere); fire('keydown', home, { key: 'w' });
+  assert.equal(gate.audio, null, 'no AudioContext before a real gesture on Home, the scene or the Navigator');
+  // The first tap on a Home choice (iOS: touchend) makes and resumes the context.
+  fire('touchend', home);
+  assert.equal(made.length, 1); assert.equal(gate.audio.state, 'running'); assert.equal(made[0].played, 1, 'iOS unlock: one silent sample');
+  assert.equal(firsts, 1); assert.ok(gate.gestured);
+  // A context iOS suspends again is resumed by the next qualifying tap, and never remade.
+  gate.audio.state = 'interrupted'; fire('pointerup', scene);
+  assert.equal(gate.audio.state, 'running'); assert.equal(made.length, 1); assert.equal(firsts, 1);
+  fire('keydown', navigator, { key: 'Enter' }); assert.equal(made[0].resumes, 2, 'a running context is not resumed again');
+  // The look tag: desktop, in the town, until first lock — and never on touch.
+  assert.equal(lookTagVisible({ inWorld: true, backend: 'touch' }), false);
+  assert.equal(lookTagVisible({ inWorld: false, backend: 'pointerlock' }), false);
+  gate.setLook({ backend: 'pointerlock' }); assert.equal(tagEl.hidden, true, 'not on Home');
+  gate.setLook({ inWorld: true }); assert.equal(tagEl.hidden, false, 'CLICK TO ENGAGE LOOK in the town');
+  gate.setLook({ backend: 'touch' }); assert.equal(tagEl.hidden, true, 'a touch backend never shows it');
+  gate.setLook({ backend: 'pointerlock' }); assert.equal(tagEl.hidden, false);
+  gate.setLook({ locked: true }); assert.equal(tagEl.hidden, true, 'gone once the pointer locks');
+  gate.setLook({ locked: false }); assert.equal(tagEl.hidden, true, 'and it does not come back after Esc');
+  assert.ok(gate.engaged);
+  // No audio API at all (an old browser) is not an error.
+  const silent = createGestureGate({ target: null, journey: null, AudioContext: null });
+  assert.equal(silent.unlockAudio(), null);
+  // The page carries the tag, and main.js makes no AudioContext of its own any more.
+  assert.match(index, /id="look-tag"[^>]*hidden>Click to engage look</);
+  assert.doesNotMatch(main, /new Ctx\(\)|new (window\.)?(webkit)?AudioContext/, 'main.js must not make audio outside the gesture gate');
+}
+console.log('GESTURE GATE PASS — audio only on the first real tap after landing; look tag desktop-only until lock');

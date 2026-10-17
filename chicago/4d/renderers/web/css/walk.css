@@ -1053,6 +1053,20 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 body.is-locked .crosshair { opacity: 1; }
 body.is-touch .crosshair { display: none; }
+/* T-2614 (§14): CLICK TO ENGAGE LOOK, under the crosshair on a pointer-lock device until
+   the first click on the scene takes the pointer. Clicks pass through it to the scene. */
+.look-tag {
+  position: absolute; left: 50%; top: calc(50% + 18px); transform: translateX(-50%);
+  margin: 0; padding: 5px 10px; white-space: nowrap; pointer-events: none;
+  font: 600 11px/1.2 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink); background: var(--panel); border: 1px solid var(--edge);
+  border-radius: var(--r-control, 999px); box-shadow: var(--shadow);
+  animation: look-tag-in .24s ease-out both;
+}
+.look-tag[hidden], body.is-touch .look-tag { display: none; }
+@keyframes look-tag-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .look-tag { animation: none; } }
 
 .hud-bottom { margin-top: auto; display: flex; justify-content: center; }
 .hint {

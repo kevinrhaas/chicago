@@ -37,7 +37,8 @@ const mod = await import(moduleURL(source
   .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`)
   // T-2572: the pick module, loaded as itself with its own `three` import pointed home.
   .replace("from './gpu-pick.js'", `from 'data:text/javascript;base64,${Buffer.from(
-    readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
+    readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`)
+      .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`))
     .toString('base64')}'`)
   + '\nexport { timberBuf, plainTimber, laySegment, pushBox, plankGapAttribute, filterPlankGaps, PLANK_GAP_M };'));
 const confidenceSource = await readFile(path.join(web, 'js/confidence.js'), 'utf8');
@@ -45,7 +46,8 @@ const { createConfidenceView } = await import(moduleURL(
   confidenceSource.replace("from 'three'", `from '${threeURL}'`)));
 const farMergeSource = await readFile(path.join(web, 'js/far-merge.js'), 'utf8');
 const { createFarMerge } = await import(moduleURL(
-  farMergeSource.replace("from 'three'", `from '${threeURL}'`)));
+  farMergeSource.replace("from 'three'", `from '${threeURL}'`)
+      .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`)));
 
 const checks = [];
 const near = (a, b, why, eps = 1e-8) => assert.ok(Math.abs(a - b) <= eps,

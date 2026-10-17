@@ -105,10 +105,19 @@ async function measure() {
   });
   try {
     const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    // T-2693's before: the ground prebuild refused, so the page fetches and cuts
+    // the ground GLB itself, as dev did. Refused here, so never counted or failed.
+    if (process.argv.includes('--no-prebuilt-ground')) {
+      await context.route('**/data/prebuilt/*/ground.*', (route) => route.fulfill({ status: 404, body: '' }));
+    }
     const page = await context.newPage();
     const failures = [];
     page.on('requestfailed', (r) => failures.push(`${r.url()} ${r.failure()?.errorText}`));
-    page.on('response', (r) => { if (r.status() >= 400) failures.push(`${r.url()} HTTP ${r.status()}`); });
+    page.on('response', (r) => {
+      if (r.status() >= 400 && !(process.argv.includes('--no-prebuilt-ground') && /\/data\/prebuilt\/\d{4}\/ground\./.test(r.url()))) {
+        failures.push(`${r.url()} HTTP ${r.status()}`);
+      }
+    });
     await page.goto(`http://127.0.0.1:${port}/walk/?year=1835`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 90000 });
     await page.waitForTimeout(SETTLE_MS);

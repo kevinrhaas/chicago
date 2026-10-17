@@ -2832,6 +2832,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_position_boxes.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_published.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5390,6 +5394,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_confidence_looks.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_crash_guard.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5411,6 +5419,10 @@
       "wrote_ignored": []
     },
     "tools/test_facade_board_faces.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_fallback_summary.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

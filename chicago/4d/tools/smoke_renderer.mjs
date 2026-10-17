@@ -5712,11 +5712,19 @@ for (const [label, viewport, touch] of [
     // at most the relief across its own width, measured per vertex, and each
     // stringer reaches the ground under its own line so the departure is
     // carried on timber rather than open to daylight.
+    // T-2700 — THE SHARED MESH IS NOW ON A MILLIMETRE GRID (Int16 over each
+    // piece's box, compact-streams.js), which moves a vertex by at most
+    // POSITION_ERROR_M. It was float32 until then, and its highest flat-ground
+    // vertex read 0.180 m once on the grid (T-2688 read the same on its cut);
+    // the band's two edges allow the grid's own millimetre and no more, and the
+    // reading prints to a tenth of one so a real rise past it shows.
+    const GRID_M = 0.001;
     check(`${label}: the plank decks tie into the ground they cross`,
-      frontage.sink >= -0.06 && frontage.deckTop > 0.05 && frontage.deckTop <= 0.18
+      frontage.sink >= -0.06 - GRID_M && frontage.deckTop > 0.05
+        && frontage.deckTop <= 0.18 + GRID_M
         && frontage.bandBreaches === 0,
-      `deepest ${frontage.sink?.toFixed(3)} m below grade, highest flat-ground deck `
-      + `vertex ${frontage.deckTop?.toFixed(3)} m above it, ${frontage.bandBreaches} `
+      `deepest ${frontage.sink?.toFixed(4)} m below grade, highest flat-ground deck `
+      + `vertex ${frontage.deckTop?.toFixed(4)} m above it, ${frontage.bandBreaches} `
       + `vertice(s) past even their own relief allowance (worst by `
       + `${frontage.worstBreach?.toFixed(3)} m)`);
     // THE WALK'S SIDE IS A MADE EDGE, NOT A ROW OF BOARD ENDS (T-0460). The
@@ -7402,6 +7410,85 @@ for (const [label, viewport, touch] of [
       dBack.mean <= 0.1 && dBack.worst <= 3,
       `residual mean ${dBack.mean?.toFixed(2)}, worst-cell delta ${dBack.worst}`);
 
+    // T-2646: every grade's look is its own — tint, dither or ghost, at any
+    // opacity, from the view's test hook. This runs AFTER the restore check above,
+    // so that check keeps the timing it was written for. With these steps between
+    // its two captures, a desktop runner read a residual of 0.18 / worst 10 there
+    // (#921, run 38995642080) that did not reproduce here: the same sequence, run
+    // locally at 1280x800 with and without the ghost pass, read the two `off`
+    // frames identical. On a loaded runner these ghost frames take tens of seconds,
+    // long enough for the town's own asynchronous work to change a cell, so the
+    // pixel comparison is the wrong instrument for a leak. What the ghost pass could
+    // leave behind is asserted directly instead, after the view is off again: no
+    // object still on the ghost layer, no ghost twin left on any mesh, and the
+    // renderer, camera and scene settings it touches as they were. X-RAY (Inferred ghosted at 50 %,
+    // Reconstructed at 25 %) draws the ghosts in a pass of their own, after the
+    // frame, and the frame's draw calls — both passes, renderer.info counts them
+    // together — must still sit inside the budget. A dithered Attested must
+    // change the frame too, and putting every look back must give back the
+    // BY GRADE frame exactly.
+    const ghostState = () => page.evaluate(() => {
+      const a = window.__chicago4d, r = a.renderer, bit = (1 << a.confidence.GHOST_LAYER) >>> 0;
+      const onLayer = [], twins = [];
+      a.scene3d.traverse((o) => {
+        if ((o.layers.mask & bit) !== 0) onLayer.push(o.name || o.type);
+        for (const m of [].concat(o.material ?? [])) {
+          if (m && 'CHICAGO_GHOST_PASS' in (m.defines ?? {})) twins.push(o.name || o.type);
+        }
+      });
+      return JSON.stringify({ onLayer: onLayer.slice(0, 5), onLayerCount: onLayer.length,
+        twins: twins.slice(0, 5), twinCount: twins.length, autoClear: r.autoClear,
+        shadow: r.shadowMap.autoUpdate, reset: r.info.autoReset, mask: a.camera.layers.mask,
+        bg: a.scene3d.background?.uuid ?? String(a.scene3d.background) });
+    });
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    const stateBefore = await ghostState();
+    await page.evaluate(() => window.__chicago4d.setConfidenceView(true));
+    const onAgain = await page.evaluate(() => window.__chicago4d.capture());
+    const xray = await page.evaluate(() => {
+      const a = window.__chicago4d, c = a.confidence;
+      c.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
+      c.setGrade('reconstructed', { mode: 'ghost', opacity: 0.25 });
+      a.step();
+      const st = a.stats();
+      return { ghosting: c.ghosting, calls: st.drawCalls, budget: st.budget.drawCalls,
+               ghost: c.ghostStats, modes: c.modes };
+    });
+    const xrayFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const dXray = signatureDistance(onAgain, xrayFrame);
+    check(`${label}: X-RAY ghosts two grades in a pass drawn last, inside the draw budget (T-2646)`,
+      xray.ghosting === true && xray.ghost.lastCalls > 0 && xray.calls <= xray.budget,
+      JSON.stringify(xray));
+    check(`${label}: ghosting a grade changes the BY GRADE frame (T-2646)`,
+      dXray.worst >= 6,
+      `cell delta mean ${dXray.mean?.toFixed(2)}, worst ${dXray.worst} (need worst>=6)`);
+    await page.evaluate(() => {
+      const c = window.__chicago4d.confidence;
+      c.resetGrades();
+      c.setGrade('attested', { mode: 'dither', opacity: 0.3 });
+      c.setGrade('inferred', { mode: 'dither', opacity: 0.3 });
+    });
+    const ditherFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const dDither = signatureDistance(onAgain, ditherFrame);
+    const resetLooks = await page.evaluate(() => window.__chicago4d.confidence.resetGrades());
+    const backToGrade = await page.evaluate(() => window.__chicago4d.capture());
+    const dBackToGrade = signatureDistance(onAgain, backToGrade);
+    check(`${label}: dithering Attested and Inferred changes the BY GRADE frame (T-2646)`,
+      dDither.worst >= 6,
+      `cell delta mean ${dDither.mean?.toFixed(2)}, worst ${dDither.worst} (need worst>=6)`);
+    check(`${label}: putting every look back restores the BY GRADE frame (T-2646)`,
+      dBackToGrade.mean <= 0.1 && dBackToGrade.worst <= 3
+        && resetLooks.reconstructed.mode === 'dither' && resetLooks.attested.mode === 'tint',
+      `residual mean ${dBackToGrade.mean?.toFixed(2)}, worst ${dBackToGrade.worst}; ${JSON.stringify(resetLooks)}`);
+    await page.evaluate(() => window.__chicago4d.setConfidenceView(false));
+    await page.evaluate(() => window.__chicago4d.capture());
+    const stateAfter = await ghostState();
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    check(`${label}: the ghost pass leaves no layer, twin material or renderer setting behind (T-2646)`,
+      stateAfter === stateBefore && JSON.parse(stateAfter).onLayerCount === 0
+        && JSON.parse(stateAfter).twinCount === 0,
+      `before ${stateBefore}; after ${stateAfter}`);
+
     // --- the confidence machinery is INERT when nothing is switched on -------
     //
     // This is the assertion I owed after shipping a regression the whole suite
@@ -8445,13 +8532,17 @@ for (const [label, viewport, touch] of [
       && presence.hogan?.composed === false && presence.saug?.composed === false,
       `account "${(presence.hogan?.account ?? '').slice(0, 120)}", composed ${presence.hogan?.composed}`);
     // T-0711: a record without a change_note is not left without a first
-    // sentence — the lead is composed from its own function and location, and
-    // says so with `data-composed`, so nothing composed can pass as recorded.
-    check(`${label}: a record without an account gets a lead composed from its function and location, marked as composed`,
+    // sentence — the lead is composed, and says so with `data-composed`, so nothing
+    // composed can pass as recorded. T-2636 RESTATED: it is templated from the
+    // record's function (fallback-summary.js) and no longer restates the recorded
+    // location, which the head's address line gives once; and it carries no id,
+    // path or snake_case (tools/test_fallback_summary.mjs holds every structure).
+    check(`${label}: a record without an account gets a templated lead from its function, marked as composed, the location not repeated`,
       presence.composed.hasChangeNote === false && presence.composed.composed === true
       && presence.composed.fn.length > 3
       && presence.composed.text.toLowerCase().includes(presence.composed.fn.toLowerCase())
-      && presence.composed.text.toLowerCase().includes(presence.composed.where.toLowerCase().slice(0, 40)),
+      && !presence.composed.text.toLowerCase().includes(presence.composed.where.toLowerCase().slice(0, 40))
+      && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\//.test(presence.composed.text),
       `"${presence.composed.text.slice(0, 160)}" — function "${presence.composed.fn}", `
       + `location "${presence.composed.where.slice(0, 60)}"`);
 
@@ -10295,7 +10386,14 @@ for (const [label, viewport, touch] of [
       desktopHelpShown: getComputedStyle(document.getElementById('control-help-desktop')).display !== 'none',
       touchHelpShown: getComputedStyle(document.getElementById('control-help-touch')).display !== 'none',
       overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
+      lookTag: !document.getElementById('look-tag').hidden,
+      locked: !!document.pointerLockElement,
     }));
+    // T-2614: CLICK TO ENGAGE LOOK is the desktop's own, shown in the town until the
+    // first click on the scene takes the pointer; a touch device never shows it.
+    check(`${label}: CLICK TO ENGAGE LOOK shows only on a pointer-lock device, before lock`,
+      touch ? !chrome.lookTag : chrome.lookTag && !chrome.locked,
+      `look tag shown ${chrome.lookTag}, pointer locked ${chrome.locked}`);
     check(`${label}: tap-to-start reveals the walkthrough`,
       chrome.gateHidden && chrome.hudShown,
       `gate hidden ${chrome.gateHidden}, hud shown ${chrome.hudShown}`);
@@ -16897,9 +16995,21 @@ for (const [label, viewport, touch] of [
           const facts = [...document.querySelectorAll('#popup .pop-facts .fact')]
             .map((f) => [f.querySelector('dt')?.textContent.trim(), f.querySelector('dd')?.textContent.trim()]);
           const sidecar = a.registry.get('glessner_house')?.sidecar;
+          // T-2636 (QA-08): the head and lead of a building with no written summary.
+          const head = document.querySelector('#popup .pop-head');
+          const opening = [head, document.querySelector('#popup .pop-lead')]
+            .map((el) => el?.textContent.replace(/\s+/g, ' ').trim() ?? '').join(' ');
+          const lead = document.querySelector('#popup .pop-lead.pop-account');
           a.popup.close();
-          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status };
+          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status,
+            opening, composed: lead ? lead.hasAttribute('data-composed') : null,
+            where: head?.querySelector('.pop-where-line')?.textContent.trim() ?? '' };
         });
+        check(`${label}: QA-08 — Glessner's card opens with its address once, a templated lead, and no id, path or snake_case (T-2636)`,
+          (survivalCard.opening.match(/1800 (?:S\. )?Prairie Avenue/g) ?? []).length === 1
+          && /^1800 S\. Prairie Avenue/.test(survivalCard.where) && survivalCard.composed === true
+          && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
+          survivalCard.opening.slice(0, 300));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')

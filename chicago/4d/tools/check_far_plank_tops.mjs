@@ -23,7 +23,8 @@ const mod = await import(moduleURL(source.replace("from 'three'", `from '${three
   .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`)
   // T-2572: the pick module, loaded as itself with its own `three` import pointed home.
   .replace("from './gpu-pick.js'", `from 'data:text/javascript;base64,${Buffer.from(
-    readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
+    readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`)
+      .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(web, 'js/compact-streams.js')).href}'`))
     .toString('base64')}'`)
   + '\nexport { timberBuf, plainTimber, inWalkTone, laySegment, pushBox, plankGapAttribute, createFarWalkTops };'));
 const checks = [];

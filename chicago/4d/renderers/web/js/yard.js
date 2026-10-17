@@ -102,7 +102,10 @@ import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
 
-const { compactNormals, setColorsAndConfidence, compactUnitUvs, quantizeMeshPositions } = compactStreams(THREE);
+const {
+  compactNormals, setColorsAndConfidence, compactUnitUvs, quantizeMeshPositions, createBoxTable,
+  patchBoxTable, packPositionBoxes, boxDepthMaterial, raycastBoxed,
+} = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -3452,6 +3455,15 @@ export async function createYardGoods({
    */
   mat.customProgramCacheKey = () => (grain.problem ? 'chicago4d-yard-goods-timber'
     : 'chicago4d-yard-goods-timber-grain');
+  /**
+   * THE BOX TABLE (T-2700, compact-streams.js), patched after the key it
+   * extends. A goods chunk keeps the millimetre in one box, so its lane names
+   * none and it draws as it did; a chunk too wide for one box — the woodpile
+   * chunk, which is the whole town — is boxed piece by piece on this table and
+   * takes `boxDepthMaterial` and `raycastBoxed` as frontage's meshes do (T-2701).
+   */
+  const boxes = createBoxTable();
+  patchBoxTable(mat, boxes);
 
   const meshes = [];
   /**
@@ -3485,8 +3497,12 @@ export async function createYardGoods({
     chunk.buf.uv1 = null;
     const mesh = new THREE.Mesh(geo, mat);
     // Int16 x 4 positions relative to the chunk, its box in the mesh's matrix,
-    // where that keeps the millimetre (T-2687, compact-streams.js).
-    quantizeMeshPositions(mesh);
+    // where that keeps the millimetre (T-2687, compact-streams.js); boxed piece
+    // by piece on the material's table where it does not (T-2701).
+    if (!quantizeMeshPositions(mesh) && packPositionBoxes(geo, boxes)) {
+      mesh.raycast = raycastBoxed;
+      mesh.customDepthMaterial = boxDepthMaterial(boxes);
+    }
     mesh.name = 'yard-chunk';
     mesh.castShadow = true;
     mesh.receiveShadow = true;

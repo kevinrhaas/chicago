@@ -107,6 +107,9 @@ import { agencySectionHtml } from './agencies.js';
 import { picturesFor, picturesPaneHtml, hydratePictures, openPictureViewer, closePictureViewer } from './pictures.js';
 // An attribute's value in words, or nothing for a structured one (T-2609).
 import { claimValueText } from './claim-value.js';
+// The card's opening when no summary has been written: the address once, other names
+// that do not restate it, and a templated lead — never a raw field (T-2636).
+import { cardTitle, clean, fallbackAddress, fallbackSummary, otherNames } from './fallback-summary.js';
 
 const CONF_ORDER = { attested: 0, inferred: 1, reconstructed: 2 };
 
@@ -833,9 +836,26 @@ function roofWords(attrs) {
  * that a decision was made and nothing about what it rests on. The record's own
  * sentence follows it, from `review_reason` on the sidecar.
  */
-function headHtml(s, record, called, p, place) {
-  const aka = Array.isArray(s.aka) && s.aka.length
-    ? `<p class="pop-aka">also ${s.aka.map(escapeHtml).join(' · ')}</p>` : '';
+/**
+ * T-2636. What the head and the lead print, as plain strings, so the test
+ * (tools/test_fallback_summary.mjs) can hold every structure in every scene to the
+ * rule the card is built on: the address once, and no id, path or snake_case.
+ *
+ * - `title`: the record's name less any aside carrying an id or ticket number, and less
+ *   an address prefix the address line already gives.
+ * - `address`: the first short clean phrase of the recorded location (fallback-summary.js),
+ *   never the whole field — its survey reasoning, parcel ids and file paths stay in the
+ *   Evidence tab's "Where did it stand?", which still prints it in full.
+ * - `aka`: other names, without the ones that only restate the address.
+ * - `kind`: the use and the archetype, in words.
+ * - `lead`: the phase's own account, verbatim, when the record wrote one AND it is
+ *   clean; otherwise the templated summary, marked `composed`.
+ */
+export function cardOpening(s, called) {
+  const found = fallbackAddress(s);
+  const { title, addressInTitle } = cardTitle(called.title, found);
+  const address = addressInTitle ? '' : found;
+  const aka = otherNames(s, found);
 
   const kind = kindWords(s.attributes?.function?.value);
   const arche = archetypeWords(s.archetype);
@@ -843,15 +863,27 @@ function headHtml(s, record, called, p, place) {
   // the other, the longer one carries both and stands alone; otherwise the
   // function and the archetype are two facts and both are shown.
   const k = kind.toLowerCase(); const a = arche.toLowerCase();
-  const kindParts = kind && arche
+  const kindParts = (kind && arche
     ? (a.includes(k) ? [arche] : k.includes(a) ? [kind] : [kind, arche])
-    : [kind || arche].filter(Boolean);
-  const kindLine = kindParts.length
-    ? `<p class="pop-kind">${kindParts.map(escapeHtml).join(' · ')}</p>` : '';
+    : [kind || arche].filter(Boolean)).map(clean).filter(Boolean);
 
-  const whereLine = `<p class="pop-where-line"><strong>${
-    withDot(p.symbolic_location ?? 'Location not recorded', factDot(place.confidence, 'position'))
-  }</strong></p>`;
+  const account = s.change_note ? clean(String(s.change_note)) : '';
+  const today = s.attributes?.present_status?.value ? prettyValue(s.attributes.present_status.value) : '';
+  const lead = account || fallbackSummary(s, { kind, today }).text;
+  return { title, address, aka, kind: kindParts, lead, composed: !account };
+}
+
+function headHtml(s, record, called, p, place) {
+  const opening = cardOpening(s, called);
+  const aka = opening.aka.length
+    ? `<p class="pop-aka">also ${opening.aka.map(escapeHtml).join(' · ')}</p>` : '';
+  const kindLine = opening.kind.length
+    ? `<p class="pop-kind">${opening.kind.map(escapeHtml).join(' · ')}</p>` : '';
+  // The address, once. No clean phrase, no line: the full recorded location is in the
+  // Evidence tab either way.
+  const whereLine = opening.address ? `<p class="pop-where-line"><strong>${
+    withDot(opening.address, factDot(place.confidence, 'position'))
+  }</strong></p>` : '';
 
   const flags = [];
   // T-1727. WHICH BUILD THIS IS, first, because it qualifies everything under it: the
@@ -918,7 +950,7 @@ function headHtml(s, record, called, p, place) {
 
   return `<div class="pop-head">
     <div class="pop-title-row">
-      <h2>${escapeHtml(called.title)}</h2>
+      <h2>${escapeHtml(opening.title)}</h2>
       <button class="pop-close" type="button" data-close aria-label="Close">×</button>
     </div>
     ${s.id === 'glessner_house' ? `<p><a href="${new URL('../glessner-baseline.html', import.meta.url).href}" target="_blank" rel="noopener">Photographic comparison baseline ↗</a></p>` : ''}
@@ -932,49 +964,16 @@ function headHtml(s, record, called, p, place) {
 /**
  * The lead: the phase's own account, verbatim, when the record wrote one.
  *
- * Fourteen records (the Fort Dearborn buildings and the lighthouse) carry no
- * `change_note`. For those the lead is COMPOSED, and the rule is strict so that
- * the smoke can hold it: title, function words and symbolic location joined by
- * "was a … at …", then the first household's own `name` and `relation` as the
- * record wrote them ("The Murphy household lived and worked here."). No
- * adjective is added and no field is paraphrased; a record with neither
- * function nor location gets "{Title} stood here." and nothing more, because the
- * alternative is prose about a building the record says nothing about.
+ * A record with no account — every 1904 house, the Fort Dearborn buildings, the
+ * lighthouse — or one whose account carries a ticket number, an id or a path, gets
+ * the templated summary instead (fallback-summary.js, T-2636), marked
+ * `data-composed` so nothing composed can pass as recorded. It used to be composed
+ * around the whole recorded location, which is how the Glessner card came to open
+ * with the address three times and a parcel id and a file path twice (IMG_6942).
  */
-/** A location that already opens with its own preposition ("Inside the south-west
- *  of Fort Dearborn…", "At the south-west angle…") is joined as it stands, with
- *  its capital lowered; anything else is introduced with "at". */
-const LEADING_PREPOSITION = /^(at|on|in|inside|near|by|between|behind|beside|along|under|within|across|opposite|off|outside|over|astride|facing)\b/i;
-function whereClause(where) {
-  const w = String(where).trim().replace(/\.$/, '');
-  if (LEADING_PREPOSITION.test(w)) return w.charAt(0).toLowerCase() + w.slice(1);
-  // "at The open court" — an article keeps its capital only at a sentence start.
-  const lowered = /^(The|An?)\b/.test(w) ? w.charAt(0).toLowerCase() + w.slice(1) : w;
-  return `at ${lowered}`;
-}
-
-function composedLead(s, called, p) {
-  const title = called.title;
-  const fn = kindWords(s.attributes?.function?.value);
-  const where = p.symbolic_location;
-  // "Fort Dearborn — block-house was a block-house" says the noun twice; when the
-  // title already carries the function's words the sentence only needs the place.
-  const titled = fn && title.toLowerCase().includes(fn.toLowerCase());
-  const article = /^[aeiou]/i.test(fn) ? 'an' : 'a';
-  let text;
-  if (fn && !titled && where) text = `${title} was ${article} ${fn} ${whereClause(where)}.`;
-  else if (fn && !titled) text = `${title} was ${article} ${fn}.`;
-  else if (where) text = `${title} stood ${whereClause(where)}.`;
-  else text = `${title} stood here.`;
-  const h = Array.isArray(s.residents) ? s.residents[0] : null;
-  if (h?.name && h?.relation) text += ` ${String(h.name).trim()} ${String(h.relation).trim().replace(/\.$/, '')}.`;
-  return text;
-}
-
-function leadHtml(s, called, p) {
-  const text = s.change_note ? String(s.change_note) : composedLead(s, called, p);
-  const composed = s.change_note ? '' : ' data-composed';
-  return `<p class="pop-lead pop-account"${composed}>${escapeHtml(text)}</p>`;
+function leadHtml(s, called) {
+  const { lead, composed } = cardOpening(s, called);
+  return `<p class="pop-lead pop-account"${composed ? ' data-composed' : ''}>${escapeHtml(lead)}</p>`;
 }
 
 /**
@@ -1509,7 +1508,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
 
       root.innerHTML = `
         ${headHtml(s, record, called, p, place)}
-        ${leadHtml(s, called, p)}
+        ${leadHtml(s, called)}
         ${factsHtml(s, firms, currentFromSign)}
         ${lodgingSection(s)}
         ${residentsSection(householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s)}

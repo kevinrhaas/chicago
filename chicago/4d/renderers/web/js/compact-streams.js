@@ -47,6 +47,16 @@
  *     in metres in the mesh's frame is divided by the model matrix's scale
  *     (frontage.js, the plank-gap filter).
  *
+ * ONE DRAW, MANY BOXES (T-2700). A mesh too wide for one box is not cut into
+ * meshes — one matrix a draw would be one box a draw, and T-2688 measured that
+ * at 428 calls against a budget of 330. `packPositionBoxes` bins its triangles
+ * into boxes the grid keeps and writes each vertex relative to its own box,
+ * with the box's row in the material's table in the padding lane. The vertex
+ * stage reads the row (`patchBoxTable`, and gpu-pick.js), the faces stay in
+ * their order, and the mesh's matrix is the identity. Readers in metres take
+ * `boxedPositionAt` or `positionsInMetres`; three's raycast is `raycastBoxed`;
+ * a boxed caster's shadow is `boxDepthMaterial`.
+ *
  * CONFIDENCE (T-2689) is 0, 0.5 or 1 and the shader bands on 0.5 exactly, which
  * no 8-bit normalized value holds — so it no longer has a float32 stream of its
  * own in these layers. It goes where there is room already paid for:
@@ -189,6 +199,16 @@ export function compactStreams(THREE) {
   function positionsInMetres(geometry) {
     const src = geometry?.getAttribute('position');
     const q = geometry?.userData?.positionQuantized;
+    if (src && geometry.userData?.positionBoxes) {
+      if (!src.array) return null;
+      const out = new Float32Array(src.count * 3);
+      const p = new THREE.Vector3();
+      for (let i = 0; i < src.count; i += 1) {
+        boxedPositionAt(geometry, i, p);
+        out[i * 3] = p.x; out[i * 3 + 1] = p.y; out[i * 3 + 2] = p.z;
+      }
+      return new THREE.BufferAttribute(out, 3);
+    }
     if (!src || !q) return src ?? null;
     if (!src.array) return null;
     const out = new Float32Array(src.count * 3);
@@ -280,9 +300,299 @@ export function compactStreams(THREE) {
     return new THREE.BufferAttribute(new Float32Array(position.count).fill(v), 1);
   }
 
+  /* ------------------------------------------------ one draw, many boxes (T-2700) */
+
+  /**
+   * A MATERIAL'S BOX TABLE: the pieces of every mesh drawn with it, in lane
+   * order. `values` is flat, four numbers a piece (centre x, y, z and the
+   * uniform half-extent), and `uniform` is what the vertex stage reads.
+   */
+  function createBoxTable() {
+    return { count: 0, values: [], uniform: { value: new Float32Array(4) },
+      materials: new Set(), depth: null };
+  }
+
+  /** Write `flat` (four numbers a piece) into the table from piece `first` on. */
+  function writeBoxes(table, first, flat) {
+    const count = Math.max(table.count, first + flat.length / 4);
+    for (let i = 0; i < flat.length; i += 1) table.values[first * 4 + i] = flat[i];
+    const grew = boxSlots(table) !== Math.max(1, count);
+    table.count = count;
+    table.uniform.value = new Float32Array(Math.max(4, count * 4));
+    table.uniform.value.set(Array.from(table.values, (v) => v ?? 0));
+    // The array's length is compiled into the program, so a table that grew
+    // after a compile has every material that reads it compile again.
+    if (grew) for (const m of table.materials) m.needsUpdate = true;
+  }
+
+  /**
+   * CUT A MESH INTO BOXES THE GRID KEEPS, AND KEEP IT ONE MESH (T-2700). A
+   * non-indexed float32 triangle mesh is binned, triangle by triangle on its
+   * centre, into cells the 16-bit grid keeps to the millimetre (T-2688's cut:
+   * the widest box `quantizeMeshPositions` keeps, less the widest triangle).
+   * Each non-empty cell is a piece, and each piece's box goes into `table`. The
+   * positions are written as Int16 x 4 normalized: xyz relative to the vertex's
+   * own piece, and the padding lane w naming that piece (`lane / 32767`, the
+   * lane being the piece's row in the table plus one, so a lane of 0 — every
+   * quantized chunk's — and a float position's implied w of 1 name none).
+   *
+   * NOTHING IS REORDERED. Every face stays where it was, so a pick span, a lot
+   * item's span, a walk-top range and `gl_VertexID` read as they read before,
+   * and the mesh is still ONE draw: the vertex stage reads the box (see
+   * `patchBoxTable`). Returns false and leaves the geometry alone when it
+   * cannot be cut (indexed, interleaved, not float xyz, a triangle wider than
+   * the box) or the table has no room left.
+   */
+  function packPositionBoxes(geometry, table, maxErrorM = POSITION_ERROR_M) {
+    const src = geometry.getAttribute('position');
+    if (geometry.index || !src || src.isInterleavedBufferAttribute || src.itemSize !== 3
+      || !(src.array instanceof Float32Array) || !src.count || src.count % 3) return false;
+    const box = 4 * POSITION_STEPS * maxErrorM;
+    const a = src.array;
+    const faces = src.count / 3;
+    const lo = [Infinity, Infinity, Infinity];
+    const hi = [-Infinity, -Infinity, -Infinity];
+    const mid = new Float64Array(faces * 3);
+    let widest = 0;
+    for (let f = 0; f < faces; f += 1) {
+      for (let c = 0; c < 3; c += 1) {
+        const x0 = a[f * 9 + c], x1 = a[f * 9 + 3 + c], x2 = a[f * 9 + 6 + c];
+        const tlo = Math.min(x0, x1, x2), thi = Math.max(x0, x1, x2);
+        if (tlo < lo[c]) lo[c] = tlo;
+        if (thi > hi[c]) hi[c] = thi;
+        if (thi - tlo > widest) widest = thi - tlo;
+        mid[f * 3 + c] = (tlo + thi) / 2;
+      }
+    }
+    // A centre inside the cell puts its triangle inside the cell widened by half
+    // the widest triangle each side; the millimetre left over covers rounding.
+    const cell = box - widest - 0.001;
+    if (!(cell > 0)) return false;
+    const n = [0, 1, 2].map((c) => Math.floor((hi[c] - lo[c]) / cell) + 1);
+    const keyOf = new Float64Array(faces);
+    for (let f = 0; f < faces; f += 1) {
+      let key = 0;
+      for (let c = 2; c >= 0; c -= 1) {
+        key = key * n[c] + Math.min(n[c] - 1, Math.floor((mid[f * 3 + c] - lo[c]) / cell));
+      }
+      keyOf[f] = key;
+    }
+    const keys = [...new Set(keyOf)].sort((x, y) => x - y);
+    if (table.count + keys.length > BOX_TABLE_MAX) return false;
+    const pieceOf = new Map(keys.map((k, i) => [k, i]));
+    const plo = new Float64Array(keys.length * 3).fill(Infinity);
+    const phi = new Float64Array(keys.length * 3).fill(-Infinity);
+    const piece = new Uint16Array(faces);
+    for (let f = 0; f < faces; f += 1) {
+      const p = pieceOf.get(keyOf[f]);
+      piece[f] = p;
+      for (let v = 0; v < 9; v += 1) {
+        const x = a[f * 9 + v], c = p * 3 + (v % 3);
+        if (x < plo[c]) plo[c] = x;
+        if (x > phi[c]) phi[c] = x;
+      }
+    }
+    const flat = new Array(keys.length * 4);
+    for (let p = 0; p < keys.length; p += 1) {
+      let half = 0;
+      for (let c = 0; c < 3; c += 1) {
+        flat[p * 4 + c] = (plo[p * 3 + c] + phi[p * 3 + c]) / 2;
+        half = Math.max(half, (phi[p * 3 + c] - plo[p * 3 + c]) / 2);
+      }
+      // NaN fails the comparison, so a mesh carrying one stays float.
+      if (!(half / POSITION_STEPS / 2 <= maxErrorM)) return false;
+      flat[p * 4 + 3] = half > 0 ? half : 1;
+    }
+    const first = table.count;
+    const out = new Int16Array(src.count * 4);
+    for (let f = 0; f < faces; f += 1) {
+      const p = piece[f];
+      const k = POSITION_STEPS / flat[p * 4 + 3];
+      for (let v = 0; v < 3; v += 1) {
+        const i = f * 9 + v * 3, j = (f * 3 + v) * 4;
+        for (let c = 0; c < 3; c += 1) {
+          out[j + c] = Math.max(-POSITION_STEPS, Math.min(POSITION_STEPS,
+            Math.round((a[i + c] - flat[p * 4 + c]) * k)));
+        }
+        out[j + 3] = first + p + 1;
+      }
+    }
+    geometry.setAttribute('position', new THREE.BufferAttribute(out, 4, true));
+    geometry.userData.positionBoxes = { first, boxes: flat };
+    adoptPositionBoxes(geometry, table);
+    geometry.computeBoundingBox();
+    geometry.computeBoundingSphere();
+    return true;
+  }
+
+  /**
+   * Put a boxed geometry's pieces into `table` at the rows its lanes name — a
+   * prebuilt mesh arrives encoded (frontage.js `prebuiltGeometry`) — and make
+   * it boxed on the page: its lane bound for the vertex stage, and its bounds
+   * read in metres rather than off the -1..1 the grid stores.
+   */
+  function adoptPositionBoxes(geometry, table) {
+    const pb = geometry.userData?.positionBoxes;
+    if (!pb) return false;
+    if (pb.first + pb.boxes.length / 4 > BOX_TABLE_MAX) return false;
+    writeBoxes(table, pb.first, pb.boxes);
+    ensureBoxLane(geometry);
+    geometry.computeBoundingBox = function computeBoundingBox() {
+      const m = positionsInMetres(this);
+      if (m) (this.boundingBox ??= new THREE.Box3()).setFromBufferAttribute(m);
+    };
+    geometry.computeBoundingSphere = function computeBoundingSphere() {
+      const m = positionsInMetres(this);
+      if (!m) return;
+      const c = new THREE.Box3().setFromBufferAttribute(m).getCenter(new THREE.Vector3());
+      const v = new THREE.Vector3();
+      let r2 = 0;
+      for (let i = 0; i < m.count; i += 1) r2 = Math.max(r2, c.distanceToSquared(v.fromBufferAttribute(m, i)));
+      (this.boundingSphere ??= new THREE.Sphere()).set(c, Math.sqrt(r2));
+    };
+    return true;
+  }
+
+  /**
+   * Vertex `i` of `geometry` in its MESH's frame — what the vertex stage hands
+   * the model matrix. A boxed geometry's piece is applied; a quantized one is
+   * left on its -1..1 grid for the mesh's matrix to undo, as three would.
+   */
+  function boxedPositionAt(geometry, i, target) {
+    const src = geometry.getAttribute('position');
+    target.fromBufferAttribute(src, i);
+    const pb = geometry.userData?.positionBoxes;
+    if (!pb) return target;
+    const j = (Math.round(src.getW(i) * POSITION_STEPS) - 1 - pb.first) * 4;
+    const b = pb.boxes;
+    return target.set(target.x * b[j + 3] + b[j], target.y * b[j + 3] + b[j + 1],
+      target.z * b[j + 3] + b[j + 2]);
+  }
+
+  /**
+   * THE LANE, BOUND UNDER ITS OWN NAME. three declares `position` as a vec3,
+   * so no shader of a stock material can read its fourth lane. So the same
+   * attribute is handed to the vertex stage a second time, as `aChiBox`, a
+   * vec4 — the same object, so the same GPU buffer and not a byte more. It is
+   * a getter that is not enumerable: every reader that walks a geometry's
+   * attributes (the far merge, the prebuild, upload-release, the memory
+   * readings) sees the streams it always saw, and three, which looks a
+   * program's attributes up by name, finds it. A float position bound there
+   * reads w = 1, which names no box.
+   */
+  function ensureBoxLane(geometry) {
+    const attrs = geometry?.attributes;
+    if (!attrs || Object.prototype.hasOwnProperty.call(attrs, BOX_LANE)) return;
+    Object.defineProperty(attrs, BOX_LANE, {
+      get() { return this.position; }, enumerable: false, configurable: true,
+    });
+  }
+
+  const boxSlots = (table) => Math.max(1, table.count);
+
+  /**
+   * Decode the box in the vertex stage of `material` (T-2700): right after
+   * `<begin_vertex>`, so every patch after it — the plank-gap filter, the
+   * confidence — reads `transformed` in the mesh's metres, exactly as it read a
+   * float mesh's. Every mesh drawn with the material has its lane bound as it
+   * is drawn; one that names no box draws as it always did. Patch LAST, after
+   * any `customProgramCacheKey` of the layer's own: the key gains the table's
+   * length, which is compiled into the program.
+   */
+  function patchBoxTable(material, table) {
+    table.materials.add(material);
+    material.userData.boxTable = table;
+    const prior = material.onBeforeCompile;
+    material.onBeforeCompile = function (shader, renderer) {
+      prior?.call(this, shader, renderer);
+      shader.uniforms.uChiBoxes = table.uniform;
+      const slots = boxSlots(table);
+      shader.vertexShader = `attribute vec4 ${BOX_LANE};\nuniform vec4 uChiBoxes[${slots}];\n`
+        + shader.vertexShader.replace('#include <begin_vertex>', /* glsl */`#include <begin_vertex>
+{
+  int chiBox = int(${BOX_LANE}.w * ${POSITION_STEPS}.0 + 0.5) - 1;
+  if (chiBox >= 0 && chiBox < ${slots}) {
+    transformed = transformed * uChiBoxes[chiBox].w + uChiBoxes[chiBox].xyz;
+  }
+}`);
+    };
+    const key = material.customProgramCacheKey;
+    material.customProgramCacheKey = function customProgramCacheKey() {
+      return `${key.call(this)}|boxes:${boxSlots(table)}`;
+    };
+    const before = material.onBeforeRender;
+    material.onBeforeRender = function (renderer, scene, camera, geometry, ...rest) {
+      before?.call(this, renderer, scene, camera, geometry, ...rest);
+      ensureBoxLane(geometry);
+    };
+    material.needsUpdate = true;
+    return material;
+  }
+
+  /**
+   * The sun's pass for a boxed mesh: three's own depth material, decoding the
+   * box. Without it a caster's shadow is drawn from the -1..1 grid, a blob at
+   * the origin. One per table.
+   */
+  function boxDepthMaterial(table) {
+    if (table.depth) return table.depth;
+    const m = new THREE.MeshDepthMaterial();
+    m.name = 'box-table-depth';
+    m.customProgramCacheKey = () => 'chicago4d-box-table-depth';
+    table.depth = patchBoxTable(m, table);
+    return m;
+  }
+
+  const _inverse = new THREE.Matrix4();
+  const _ray = new THREE.Ray();
+  const _sphere = new THREE.Sphere();
+  const _tri = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
+  const _hit = new THREE.Vector3();
+  const _corner = [0, 0, 0];
+
+  /**
+   * `Mesh.raycast` for a boxed mesh: three's own reads the -1..1 grid. The
+   * same test — the sphere, then each face against the ray in the mesh's frame,
+   * culled by the material's side — over the decoded positions, the faces an
+   * index and draw range name where the mesh has them (the far walk tops,
+   * T-2701), as three's own walks them. Assigned as `mesh.raycast`; a mesh
+   * whose arrays were let go of answers nothing, as the raycast never could.
+   */
+  function raycastBoxed(raycaster, intersects) {
+    const geo = this.geometry;
+    const pos = geo?.getAttribute('position');
+    const index = geo?.index;
+    if (!pos?.array || (index && !index.array) || !geo.boundingSphere) return;
+    _sphere.copy(geo.boundingSphere).applyMatrix4(this.matrixWorld);
+    if (!raycaster.ray.intersectsSphere(_sphere)) return;
+    _inverse.copy(this.matrixWorld).invert();
+    _ray.copy(raycaster.ray).applyMatrix4(_inverse);
+    const side = Array.isArray(this.material) ? THREE.DoubleSide : this.material.side;
+    const start = Math.max(0, geo.drawRange.start);
+    const end = Math.min(index ? index.count : pos.count, geo.drawRange.start + geo.drawRange.count);
+    for (let i = start; i + 2 < end; i += 3) {
+      const f = Math.floor(i / 3);
+      for (let v = 0; v < 3; v += 1) _corner[v] = index ? index.getX(i + v) : i + v;
+      for (let v = 0; v < 3; v += 1) boxedPositionAt(geo, _corner[v], _tri[v]);
+      const [va, vb, vc] = _tri;
+      const got = side === THREE.BackSide ? _ray.intersectTriangle(vc, vb, va, true, _hit)
+        : _ray.intersectTriangle(va, vb, vc, side === THREE.FrontSide, _hit);
+      if (!got) continue;
+      const point = _hit.clone().applyMatrix4(this.matrixWorld);
+      const distance = raycaster.ray.origin.distanceTo(point);
+      if (distance < raycaster.near || distance > raycaster.far) continue;
+      const normal = new THREE.Vector3();
+      THREE.Triangle.getNormal(va, vb, vc, normal);
+      intersects.push({ distance, point, object: this, faceIndex: f,
+        face: { a: _corner[0], b: _corner[1], c: _corner[2], normal, materialIndex: 0 } });
+    }
+  }
+
   return {
     compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions, positionsInMetres,
     setColorsAndConfidence, uniformGrade, confidenceOf,
+    createBoxTable, packPositionBoxes, adoptPositionBoxes, boxedPositionAt, ensureBoxLane,
+    patchBoxTable, boxDepthMaterial, raycastBoxed,
   };
 }
 
@@ -324,3 +634,13 @@ export const POSITION_STEPS = 32767;
 
 /** The most a quantized position may move a vertex (T-2687): one millimetre. */
 export const POSITION_ERROR_M = 0.001;
+
+/**
+ * The rows a box table holds (T-2700): a vec4 each in the vertex stage. 128 is
+ * half of what WebGL 2 promises a vertex shader at the least (256 vectors), so
+ * three's own uniforms keep the rest; gpu-pick.js reads the same table.
+ */
+export const BOX_TABLE_MAX = 128;
+
+/** The name a boxed position's lane is bound under for the vertex stage. */
+export const BOX_LANE = 'aChiBox';

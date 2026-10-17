@@ -108,6 +108,19 @@ function markLayer(layer, keep) {
     if (!geo.boundingBox) geo.computeBoundingBox();
     if (o.isBatchedMesh) batchBounds(o);
     census.geometries += 1;
+    // T-2646: the Confidence view's ghost pass reads which grades a geometry
+    // holds off its `_confidence` channel; once the channel's page copy is gone,
+    // it reads the range kept here instead.
+    const conf = geo.attributes._confidence;
+    if (conf?.array && conf.itemSize === 1 && !keep.includes('_confidence')) {
+      let lo = Infinity, hi = -Infinity;
+      for (let i = 0; i < conf.count; i += 1) {
+        const v = conf.getX(i);
+        if (v < lo) lo = v;
+        if (v > hi) hi = v;
+      }
+      if (conf.count && Number.isFinite(lo) && Number.isFinite(hi)) geo.userData.confidenceRange = [lo, hi];
+    }
     for (const [attrName, attr] of Object.entries(geo.attributes)) {
       if (!keep.includes(attrName)) release(attr);
     }
