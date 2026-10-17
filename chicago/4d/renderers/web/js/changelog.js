@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1950, ts: '2026-10-17T12:18:12.219Z', date: 'Oct 17, 2026, 7:18 AM CT', title: 'Guide explains the words we use', kind: 'feature',
+    items: [
+      'Guide in the Navigator now has a glossary of seven words, each with one plain line: Attested, Inferred, Reconstructed, Confidence view, Liberties, Sources and Jaunts.',
+      'It also answers two questions in a few sentences each: Is this real? and What does Reconstructed mean?',
+      'Where one of these words first appears, it is underlined with dots. Tap it to see what it means.',
+    ] },
   { v: 1949, ts: '2026-10-17T11:53:51.478Z', date: 'Oct 17, 2026, 6:53 AM CT', title: 'Guide shows the controls for your device', kind: 'feature',
     items: [
       'Guide in the Navigator now lists the controls. On a phone it shows touch: your left thumb walks and the right side of the screen looks. On a computer it shows the keys and the mouse.',
