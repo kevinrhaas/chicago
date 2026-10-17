@@ -1,4 +1,44 @@
 export const CHANGELOG = [ // newest first
+  { v: 1942, ts: '2026-10-17T10:55:56.511Z', date: 'Oct 17, 2026, 5:55 AM CT', title: 'Inspect opens a building\'s front page in the Navigator', kind: 'feature',
+    items: [
+      'Aim at a building or tap it, then open Inspect in the Navigator: you get its front page. It has a photo where one is free to show, the address, the name, and chips for still standing, built and use.',
+      'Below them come a short summary, key facts, who lives there, things to look for, surprising facts you can swipe, and a bar showing how much is Attested, Inferred or Reconstructed.',
+      'Every fact line carries its grade dot. Glessner House reads from its own checked summary; every other building gets a plain summary built from its record.',
+      'Tap the confidence bar or Full record to open the building\'s card with its sources, pictures and Liberties, which stay there for now.',
+    ] },
+  { v: 1941, ts: '2026-10-17T10:51:21.938Z', date: 'Oct 17, 2026, 5:51 AM CT', title: 'The Keith house\'s roof vent cap stands a little taller', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the cowl vent\'s cap over the north parapet now stands 10 cm higher, as the 1888 Inland Architect photograph shows it.',
+      'One later photograph of the Glessner front shows no vent at all; it is now read as taken after the vent was removed.',
+    ] },
+  { v: 1940, ts: '2026-10-17T10:44:30.535Z', date: 'Oct 17, 2026, 5:44 AM CT', title: 'The grass shader\'s ground map agrees where grass may not grow', kind: 'fix',
+    items: [
+      'The worn river bank at the wharves now decides its bare patches in 12.5 cm squares, not point by point, so the map the grass shader will read holds exactly what the planters are told. The bank stays just as bare overall.',
+      'Wherever the streets\' cleared track crosses a square of that map, the whole square counts as cleared. The shader can no longer stand a tuft on the edge of a road.',
+      'Checked at all 22 test spots on phone and desktop: no shader-dealt tuft now stands where the town says grass cannot grow (there were 31 and 46). Plant density and the mix of species are unchanged within the reading\'s error, and keeping the map up to date costs the page no more while you walk.',
+    ] },
+  { v: 1939, ts: '2026-10-17T10:44:30.535Z', date: 'Oct 17, 2026, 5:44 AM CT', title: 'Jump between years from inside the town', kind: 'feature',
+    items: [
+      'The Navigator\'s Jump app shows all three destinations as small cards, each with its picture from the Observatory and its date. The year you are in is marked HERE.',
+      'Pick another year and the transfer ring closes over the town. That year then loads with its own year ticker and landing, just as a jump from the Observatory does.',
+      'Changed your mind? Press Escape or Abort while the ring is closing and you stay put.',
+      'RECALL takes you back to the Observatory. It is the only red key on the screen.',
+      'Tap the year in the corner of the screen to open Jump.',
+    ] },
+  { v: 1938, ts: '2026-10-17T10:06:19.029Z', date: 'Oct 17, 2026, 5:06 AM CT', title: 'A tag names the building you are looking at, with a quick Inspect key', kind: 'feature',
+    items: [
+      'Rest the centre of your view on a building close by for a moment and a small tag appears under it, for example SAUGANASH HOTEL · 85 FT.',
+      'Tap the tag, or press E, to open that building. An Inspect key appears on the right with it.',
+      'The right edge now holds a short quick column: the Walk/Fly toggle, plus Inspect when there is something to inspect. It never holds more than two buttons.',
+      'Look away and the tag goes at once. A building you only glance past never shows a tag.',
+    ] },
+  { v: 1937, ts: '2026-10-17T09:41:03.827Z', date: 'Oct 17, 2026, 4:41 AM CT', title: 'Nothing you can see changed: the 1835 yards arrive ready-laid', kind: 'improvement',
+    items: [
+      'The town looks exactly as before. What changed is how the ground inside its fences reaches your device.',
+      'The yards, pens, gardens and door paths of 1835 now come already laid and cut into their pieces, so the page only hands them to the graphics card. On a slow phone that takes about 2.4 seconds off loading them.',
+      'The trade is a bigger first download: about 3 MB more, once. On a data-saving or slow connection the page skips it and lays the yards itself, as it always did.',
+      'If the ready-laid yards are missing or were made from other records, the page also lays its own.',
+    ] },
   { v: 1936, ts: '2026-10-17T09:05:27.224Z', date: 'Oct 17, 2026, 4:05 AM CT', title: 'The Navigator gets its Jaunts app: Jaunts, Go to, Free roam', kind: 'feature',
     items: [
       'The Navigator\'s Home now offers the same three choices as the arrival: Take a Jaunt, Go to and Free roam.',

@@ -43,11 +43,16 @@ import {
 } from './terrain.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 import { WORKED_SHARE, ridgeHeight } from './streets.js';
+import { FIELD_SPEC } from './near-field.js';
 
 /** Grid spacing of the draped mesh, metres, by scene detail. Half the
  *  heightfield's 2.5 m lattice at the two upper tiers, the lattice itself on
  *  `light`, which is the floor and pays the fewest triangles. */
 const MESH_STEP_M = { full: 1.25, balanced: 1.25, light: 2.5 };
+/** The square `blocksGrowth` answers once (T-2715): the near field tile's texel,
+ *  so the tile's BLOCKED bit at a texel centre is the answer for every point in
+ *  it. `near-field.js`'s grid is world-aligned (`fieldOrigin` snaps to 8 m). */
+export const BANK_PATCH_M = FIELD_SPEC.texel;
 /** Above the heightfield, with polygon offset for the rest — the strip's lift. */
 const LIFT_M = 0.04;
 /**
@@ -429,19 +434,37 @@ export async function createWorkingBank({
   // The planters. The sward gives way where the shader draws earth — a seeded
   // draw against the earth's own weight there, so it thins into the patches
   // rather than stopping on a line. No tree stands on the worn band at all.
-  const hash = (e, n) => {
-    const s = Math.sin(e * 127.1 + n * 311.7) * 43758.5453;
-    return s - Math.floor(s);
+  //
+  // ONE ANSWER A FIELD TEXEL (T-2715). The draw used to be a per-point
+  // sin-hash, finer than anything a raster can hold: the near ring's field tile
+  // (near-field.js) samples this at its texel centres, so at the wharf 12-13 %
+  // of the tile's texels answered differently from the slot inside them, and the
+  // GPU deal stood 31 / 46 tufts on ground the CPU had left bare
+  // (docs/measurements/t-2706-flora-gpu-deal.json). Now every point is answered
+  // at the centre of the BANK_PATCH_M square it falls in — world-aligned, the
+  // tile's own grid — and the draw is an integer hash of that square's index,
+  // so the tile holds exactly what the planters are told. The bare share is the
+  // same draw against the same weight; the patches stop being finer than 12.5 cm,
+  // which is under the near ring's 0.37 m between slots.
+  const hash = (i, j) => {
+    let h = Math.imul(i, 0x27d4eb2d) ^ Math.imul(j, 0x165667b1) ^ 0x6b1a5e;
+    h = Math.imul(h ^ (h >>> 15), 0x85ebca6b);
+    h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35);
+    return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
   };
   handle.blocksGrowth = (e, n) => {
-    const wet = terrain.surfaceHeight(e, n) <= 0;
-    const { wear, apron } = wearParts(e, n, wet);
+    const i = Math.floor(e / BANK_PATCH_M);
+    const j = Math.floor(n / BANK_PATCH_M);
+    const ce = (i + 0.5) * BANK_PATCH_M;
+    const cn = (j + 0.5) * BANK_PATCH_M;
+    const wet = terrain.surfaceHeight(ce, cn) <= 0;
+    const { wear, apron } = wearParts(ce, cn, wet);
     if (wear <= 0) return false;
     // In the water at the worked foot nothing is spared; on the bank a patch
     // keeps most of its grass, not all of it — it is trodden round, not fenced.
     if (wet) return true;
-    const bare = wear * (1 - grassRule.keep * grassAt(e, n, apron, grassRule));
-    return hash(e, n) < bare;
+    const bare = wear * (1 - grassRule.keep * grassAt(ce, cn, apron, grassRule));
+    return hash(i, j) < bare;
   };
   handle.blocksTrees = (e, n) => wearParts(e, n).wear > treeCut;
 

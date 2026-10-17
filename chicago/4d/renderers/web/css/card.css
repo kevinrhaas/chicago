@@ -230,7 +230,7 @@
    framed (T-0824), so the navigation aids step aside the way they do for the
    drawer. Visibility, not display — the harness reads their `hidden` attribute. */
 @media (max-width: 620px) {
-  html.card-open :is(.navigation-stack, .hud-instrument) { visibility: hidden; }
+  html.card-open :is(.navigation-stack, .hud-instrument, .quick-column, .target-tag) { visibility: hidden; }
 }
 
 /* THE FIRMS IN THIS ROOF, on the Use row (T-1325). A building card could always

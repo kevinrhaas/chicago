@@ -34,6 +34,7 @@
      feature own its style. walk.css stays the base and the tokens. -->
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
+<link rel="stylesheet" href="./css/inspect.css">
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
@@ -220,9 +221,6 @@
            thing you decide while walking, not in a settings page. -->
       <button id="btn-pace" class="chip" data-pace="walk" title="Your pace — walk, wagon or horse (P)">
         <span class="pace-glyph" aria-hidden="true"></span> <span class="chip-label" id="pace-label">Walk</span>
-      </button>
-      <button id="btn-fly" class="chip" aria-pressed="false" title="Free-fly — rise above the town (F)">
-        <span class="fly-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></span> <span class="chip-label" id="fly-label">Fly</span>
       </button>
       <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
       <!-- A hamburger, not a "?". Behind it are the controls, every place you can
@@ -705,6 +703,17 @@
   <div class="crosshair" id="crosshair" aria-hidden="true"></div>
   <!-- T-2614: desktop only, until the first click on the scene takes the pointer. -->
   <p class="look-tag" id="look-tag" aria-hidden="true" hidden>Click to engage look</p>
+  <!-- T-2627 (§10): the target tag — after the reticle rests on a building for 400 ms, its
+       name and distance; a tap opens Inspect (so does E). -->
+  <button type="button" class="target-tag" id="target-tag" hidden></button>
+  <!-- T-2627: the quick column — the Walk/Fly toggle, and an Inspect key that appears with
+       a target. Never more than two buttons; everything else is in the Navigator's Move. -->
+  <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
+    <button id="btn-fly" class="chip" aria-pressed="false" title="Free-fly — rise above the town (F)">
+      <span class="fly-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></span> <span class="chip-label" id="fly-label">Fly</span>
+    </button>
+    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg> <span class="chip-label">Inspect</span></button>
+  </div>
 
   <div class="hud-bottom">
     <div class="travel-banner" id="travel-banner" role="status" hidden>
