@@ -74,6 +74,17 @@ step "The flora walk in GLSL carries flora.js's own walk constants (T-2697)" \
 selftest "the shader walk's constant check refuses a seed, salt or block shift one bit off" \
   node tools/check_flora_gpu_lattice.mjs --self-test
 
+# T-2707. The near field tile (near-field.js) is kept around the walker a strip at a
+# time — a toroidal tile, its strips asked of the job pool — and must stay the tile
+# `buildField` asks whole. No browser: a synthetic field, a walk over every kind of
+# re-centre. The town's own tile, asked of the pool, is read in Chromium by
+# `tools/measure_near_field.mjs --walk` (docs/measurements/t-2707-near-field-keeper.json).
+step "The kept near field tile is the built one after every re-centre, a strip at a time (T-2707)" \
+  node tools/check_near_field_keeper.mjs
+
+selftest "the kept-tile gate refuses a texel centre off, a wrap off and a strip not asked" \
+  node tools/check_near_field_keeper.mjs --self-test
+
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
@@ -3716,8 +3727,9 @@ step "publish.sh produces a mirror that matches its source" \
 # the same of the mirror; this is the tool's own --check, run where the mirror is.
 # T-2693: and the ground's tiles, which the page uploads in the ground GLB's place.
 # T-2709: and the distant base, which createTerrain batches in place of its own cut.
-step "the published prebuilt frontage, ground and distant base are current against every file they were built from (T-2677, T-2693, T-2709)" \
-  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base
+# T-2710: and the streets' two layouts, which the page batches instead of laying.
+step "the published prebuilt frontage, ground, distant base and streets are current against every file they were built from (T-2677, T-2693, T-2709, T-2710)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base,streets
 
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a

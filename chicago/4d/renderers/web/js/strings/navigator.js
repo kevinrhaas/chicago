@@ -10,6 +10,7 @@ export default register('nav', {
   'home.title': 'Navigator Home',
   rail: 'Navigator apps',
   open: 'Open the Navigator',
+  'open.on': 'Open the Navigator on {app}',
   lower: 'Lower the Navigator',
   collapse: 'Collapse the Navigator',
   'collapse.short': 'Collapse',

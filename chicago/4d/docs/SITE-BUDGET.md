@@ -159,8 +159,8 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 29 MB**, re-set on 2026-10-17 by T-2693 for the prebuilt
-ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
+**The boot payload budget is 33.7 MB**, re-set on 2026-10-17 by T-2710 for the prebuilt
+streets (§ 4i). T-2693 had set it at 29 MB the same day for the prebuilt ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
 (§ 4f). T-1973 had set it at 13 MB on 2026-10-02 for the reasons in
 § 4a. It was set at 12 MB, 1.66× the measured 7.223 MB:
 tight enough that a careless import into `walk/js/` or an unmetered new boot
@@ -172,7 +172,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 29 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 33.7 MB budget
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -575,10 +575,60 @@ frontage and ground already come prebuilt, the cut measured 0.45 s, and that is 
 piece removed. The boot's ready time moved inside the runner's noise (47.2 → 47.8 s cold,
 46.3 → 46.5 s warm), so no claim is made about it.
 
+### 4i. The streets ship prebuilt, one layout at a time, re-measured 2026-10-17 (T-2710) — and the budget is 33.7 MB
+
+T-2705's second piece (the base, § 4h, was its first). The road was laid over the heightfield and its three surfaces cut into
+40 m pieces at every boot, the same for every visitor. `tools/publish.sh` now lays them in
+Node with streets.js's own `streetLayoutOf` (`tools/prebuild_layers.mjs --layer streets`,
+byte-equal to the page since T-2703) and writes `data/prebuilt/1835/streets.json` (the index,
+0.17 MB, with each layout's counters and a hash of the records) and **one buffer per layout**:
+`streets.light.bin.gz` (unridged, 10.2 MB raw, 2.86 MB gzipped twice) and
+`streets.full.bin.gz` (ridged, 20.1 MB raw, 3.90 MB). A visitor fetches only the buffer
+their detail draws; a change of detail across `light` lays the road in the browser as
+before (streets.js § THE STREETS, PREBUILT). Read on the published page at `light` and at
+`full`, 42 of 42 street attributes are byte-equal to the Node build, each batched from the
+published buffer, with zero page errors (`prebuild_layers.mjs --layer streets --parity
+--root ../../site/4d`).
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell).
+`--no-prebuilt-streets` is the before: the frontage and the ground still come prebuilt. Read
+before T-2709's base landed; the road does not depend on the base, so the payload and the
+gate below were re-read after merging it, and these were not.
+
+| mobile · light | streets | ground phase | boot's longest task |
+|---|---|---|---|
+| cold, road laid in the browser | 1,575 ms | 33.66 s | 15,976 ms |
+| cold, road prebuilt | 360 ms | 31.36 s | 16,144 ms |
+| warm, road laid in the browser | 1,539 ms | 31.99 s | 15,711 ms |
+| warm, road prebuilt | 304 ms | 30.73 s | 15,420 ms |
+
+The streets layer is **1.2 s shorter cold and warm**. It runs inside the `ground` phase,
+which moved by about as much; the boot's longest task is not the road's.
+
+**What the visitor downloads.** `tools/measure_boot_payload.mjs`, the same published tree,
+with and without `--no-prebuilt-streets`, with § 4h's base in it: **28.949 MB → 32.907 MB**,
+1,008 → 1,010 requests (before the base: 28.227 → 32.185 MB, the same 3.96 MB).
+That reading is the tool's 1280×800 desktop, which boots at `full` and so fetches the ridged
+buffer (3.90 MB) and the index; a phone at `light` fetches the 2.86 MB unridged one instead.
+A data-saving or 3G connection is never offered the prebuild and lays its own road, as for
+the ground.
+
+**The tree.** `tools/site_budget.py` (check.sh): 297.62 MB of 320, 22.38 MB of headroom, with
+both street buffers in it (6.94 MB).
+
+**Why 33.7 MB.** The owner's T-2560 ruling, as in § 4f and § 4g: a bigger download up front
+for a town that renders fast once you are in it. The number is the 32.907 MB measured plus
+the 0.8 MB of room § 4g set (the base had used all but 0.05 MB of it), so a careless import
+or an unmetered boot fetch still shows against under 1 MB. **Shipping one layout, not both, is what kept this to
+3.96 MB:** the two buffers are 6.94 MB together. The yards (T-2711) and the distant base
+(T-2709) still have to measure their own bytes against this number. The lever § 4g names —
+ship the partition, not the float32 vertices — applies here too.
+
 ## 5. What the gate does now
 
 - **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 29 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 33.7 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
