@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1915, ts: '2026-10-17T04:12:52.063Z', date: 'Oct 16, 2026, 11:12 PM CT', title: 'Nothing you can see yet: the yards cut ahead of time', kind: 'chore',
+    items: [
+      'Nothing in the scene changed. This is the next step toward phones downloading the town instead of building it at every visit.',
+      'The same tool that cuts the ground now lays the town\'s yard ground in its five surfaces (dooryard greens, garden beds and three kinds of bare earth) and cuts them into 932 pieces, using the page\'s own code. All 25 of their buffers match what the page builds, byte for byte.',
+      'The next step makes the page load these pieces instead of building them, and measures the boot before and after.',
+    ] },
   { v: 1914, ts: '2026-10-17T03:42:57.445Z', date: 'Oct 16, 2026, 10:42 PM CT', title: 'Building cards open with the address once and plain words', kind: 'fix',
     items: [
       'Tap a building that has no written summary and its card now gives the address once, near the top. It no longer repeats it three times or shows internal labels like a parcel code or a file name.',
