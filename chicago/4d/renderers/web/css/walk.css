@@ -2158,3 +2158,11 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-stops li { padding: 10px 0; }
 .jaunt-evidence { border-left: 2px solid var(--brass); padding-left: 10px; }
 .jaunt-window-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+/* T-2662: a locked term's first appearance, tappable for its one plain line. */
+.locked-term { all: unset; cursor: help; color: inherit; border-bottom: 1px dotted currentColor; }
+.locked-term:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.term-tip { position: fixed; z-index: 60; pointer-events: auto; padding: 10px 12px; font-size: 13px; line-height: 1.4;
+  color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 10px; box-shadow: var(--shadow); }
+.term-tip[hidden] { display: none; }
+.term-tip strong { margin-right: 4px; }
