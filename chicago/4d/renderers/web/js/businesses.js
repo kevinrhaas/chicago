@@ -182,8 +182,8 @@ const GRADE_TITLE = {
 
 /** The two liberties a compiled business can owe, in the schema's own words. */
 const LIBERTY = {
-  survival_required: 'Documented before 1 July 1835 and assumed still trading on it.',
-  backdating_required: 'Documented only after 1 July 1835 and assumed already open on it.',
+  survival_required: 'Attested before 1 July 1835 and assumed still trading on it.',
+  backdating_required: 'Attested only after 1 July 1835 and assumed already open on it.',
 };
 
 /** A date as a card prints it: the ISO day where there is one, the year alone

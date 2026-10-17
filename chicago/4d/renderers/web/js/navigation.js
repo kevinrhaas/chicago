@@ -61,9 +61,16 @@ const CARDINALS = [
  * in.  tools/smoke_renderer.mjs asserts these numbers against the live element
  * at both viewports, so an edit that reintroduces the dependency fails there.
  */
-const INSET = { wide: { w: 248, h: 98 }, narrow: { w: 188, h: 76 } };
+/*
+ * T-2626 (DESIGN §10). The compass and the inset are now ONE round instrument, so the
+ * frame is a square the round face is cut from: 112 px on a desktop, 92 px on a phone.
+ * The rule above is untouched — still constants, still never derived from `bounds` —
+ * and so is the zoom: M_PER_PX keeps the T-1142 scale (2 020 m over 248 px), so the
+ * window shows the same ground per pixel it always did, now through a round face.
+ */
+const INSET = { wide: { w: 112, h: 112 }, narrow: { w: 92, h: 92 } };
 const INSET_SPAN_E_M = 2020;
-const M_PER_PX = INSET_SPAN_E_M / INSET.wide.w;
+const M_PER_PX = INSET_SPAN_E_M / 248;
 const NARROW_MAX_PX = 560;
 
 /**
@@ -108,7 +115,7 @@ function structureOutlines(registry) {
   return out;
 }
 
-export function createNavigation({ root, terrain, registry, streets } = {}) {
+export function createNavigation({ root, terrain, registry, streets, onOpen = null } = {}) {
   const compass = root?.querySelector('#compass');
   const needle = root?.querySelector('#compass-needle');
   const direction = root?.querySelector('#compass-direction');
@@ -396,7 +403,8 @@ export function createNavigation({ root, terrain, registry, streets } = {}) {
   function update({ e = 0, n = 0, bearingDeg = 0 } = {}) {
     const b = normalBearing(bearingDeg);
     player = { e, n, bearingDeg: b };
-    if (needle) needle.style.transform = `translate(-50%, -88%) rotate(${b}deg)`;
+    // T-2626: the needle is the instrument ring's heading tick, turned about its centre.
+    if (needle) needle.style.transform = `rotate(${b}deg)`;
     if (direction) direction.textContent = cardinal(b);
     if (bearingLabel) bearingLabel.textContent = `${String(Math.round(b) % 360).padStart(3, '0')}°`;
     if (compass) compass.setAttribute('aria-label', `Heading ${cardinal(b)}, ${Math.round(b)} degrees`);
@@ -491,7 +499,9 @@ export function createNavigation({ root, terrain, registry, streets } = {}) {
     return units;
   }
 
-  openButton?.addEventListener('click', () => setFullVisible(!fullOpen));
+  // T-2626: the instrument opens the Map app (a stub that opens this pop-out until the
+  // Map app lands), so the wiring is one line to change; without one, the pop-out itself.
+  openButton?.addEventListener('click', () => (onOpen && !fullOpen ? onOpen() : setFullVisible(!fullOpen)));
   fullClose?.addEventListener('click', () => setFullVisible(false));
   // The backdrop, but not the card standing on it.
   full?.addEventListener('click', (e) => {
