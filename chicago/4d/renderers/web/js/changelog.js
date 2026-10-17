@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1916, ts: '2026-10-17T04:15:52.507Z', date: 'Oct 16, 2026, 11:15 PM CT', title: 'Each grade can be tinted, dithered or ghosted in the Confidence view', kind: 'feature',
+    items: [
+      'Behind the scenes, the Confidence view can now give each grade its own look: tinted toward its colour, dithered like today\'s Reconstructed massing, or drawn as a see-through ghost, each at any strength from 0 to 100%.',
+      'A ghosted grade is truly see-through. It is drawn last and without hiding what stands behind it, so a Reconstructed building can be looked through to the Attested one beyond it.',
+      'Nothing changes on screen yet. The Confidence view still looks as it did: Attested gold, Inferred silver, Reconstructed bronze and dithered. The Navigator\'s Confidence view, with its presets and per-grade controls, is built on this next.',
+    ] },
   { v: 1915, ts: '2026-10-17T04:12:52.063Z', date: 'Oct 16, 2026, 11:12 PM CT', title: 'Nothing you can see yet: the yards cut ahead of time', kind: 'chore',
     items: [
       'Nothing in the scene changed. This is the next step toward phones downloading the town instead of building it at every visit.',
