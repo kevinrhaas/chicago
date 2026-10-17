@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1971, ts: '2026-10-17T20:06:52.368Z', date: 'Oct 17, 2026, 3:06 PM CT', title: 'The grass at your feet is now dealt by the graphics card', kind: 'feature',
+    items: [
+      'The tufts in the ring around you are now chosen and placed by the graphics card from the same rules the page used. Which species, how tall, which way it leans and its colour all come from the shader. It reads the ground map that follows you as you walk.',
+      'The page still walks the ring for the flower heads, and hangs a head only where the card has drawn its plant, so no flower floats over bare ground.',
+      'Side by side with the old drawing at a prairie stand, the frame is the same to the eye: every tuft the page would have placed, the card places, at the same spot.',
+    ] },
   { v: 1970, ts: '2026-10-17T20:03:54.849Z', date: 'Oct 17, 2026, 3:03 PM CT', title: 'The look-at tag shows, then fades', kind: 'fix',
     items: [
       'The tag naming the building in front of you now fades after about three seconds instead of hanging in the view. Look away and back to see it again.',
