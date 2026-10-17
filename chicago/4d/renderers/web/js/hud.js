@@ -23,7 +23,6 @@ const THEME_KEY = 'chicago4d.theme';
 const CONF_KEY = 'chicago4d.confidence';
 const HIDE_KEY = 'chicago4d.confidence.hidden';
 const SET_KEY = 'chicago4d.settings';
-const CONTROL_HELP_KEY = 'chicago4d.controlHelpDismissed';
 
 const DEFAULT_SETTINGS = {
   // eyeHeight defaults to WALK.eyeHeight — the researched figure, not a taste.
@@ -90,7 +89,7 @@ function store(key, value) {
 
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
-  onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
+  onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop, onShowGuide,
   isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
@@ -103,7 +102,6 @@ export function createHud({
   const btnTheme = $('btn-theme');
   const btnHelp = $('btn-help');
   const panel = $('panel');
-  const controlHelp = $('control-help');
   const hint = $('hint');
   const settings = readSettings();
   settings.units = normalUnitSystem(settings.units);
@@ -328,9 +326,6 @@ export function createHud({
     // and on a phone the navigation readouts hide under the sheet.
     root.classList.toggle('panel-open', !!open);
     btnHelp?.setAttribute('aria-pressed', String(!!open));
-    // The navigation guide and the drawer share the right-hand slot; the guide
-    // steps aside without being marked read, so it returns on the next boot.
-    if (open && controlHelp && !controlHelp.hasAttribute('hidden')) dismissControlHelp({ remember: false });
     // Release the pointer lock on open. While the cursor is captured for
     // looking around, every click goes to the canvas and none of these controls
     // can be operated at all — the panel would look fine and do nothing.
@@ -341,27 +336,19 @@ export function createHud({
   btnHelp?.addEventListener('click', () => setPanel(!panelOpen()));
   $('panel-close')?.addEventListener('click', () => setPanel(false));
 
-  function dismissControlHelp({ remember = true } = {}) {
-    if (!controlHelp) return;
-    controlHelp.setAttribute('hidden', '');
-    if (remember) store(CONTROL_HELP_KEY, '1');
-    onHelp?.(false);
-  }
-
-  function showControlHelp({ auto = false } = {}) {
-    if (!controlHelp || (auto && readStored(CONTROL_HELP_KEY, '0') === '1')) return false;
+  // ---- The controls: Guide's sheet in the Navigator (T-2661) ----------------
+  //
+  // The control-help popover is gone: the controls live in the Navigator's Guide, which
+  // shows touch or keyboard from controls/intent.js. Settings' "Show the controls" opens it.
+  function showControlHelp() {
     setPanel(false);
-    controlHelp.removeAttribute('hidden');
     if (document.pointerLockElement) document.exitPointerLock?.();
-    onHelp?.(true);
+    onShowGuide?.();
     return true;
   }
-
-  $('control-help-close')?.addEventListener('click', () => dismissControlHelp());
-  $('control-help-gotit')?.addEventListener('click', () => dismissControlHelp());
+  /** Nothing to dismiss now that the popover is gone; kept for callers written before it. */
+  function dismissControlHelp() { return false; }
   $('s-show-control-help')?.addEventListener('click', () => showControlHelp());
-  $('control-help-desktop')?.toggleAttribute('hidden', !!isTouch);
-  $('control-help-touch')?.toggleAttribute('hidden', !isTouch);
 
   // ---- What's new ---------------------------------------------------------
   //

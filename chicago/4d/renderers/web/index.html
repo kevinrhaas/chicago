@@ -252,25 +252,6 @@
     </div>
   </div>
 
-  <div class="control-help" id="control-help" role="dialog"
-    aria-labelledby="control-help-title" hidden>
-    <button class="control-help-close" id="control-help-close" type="button"
-      aria-label="Dismiss navigation help">×</button>
-    <strong id="control-help-title">How to explore</strong>
-    <div id="control-help-desktop" class="control-help-grid">
-      <kbd>W A S D</kbd><span>walk</span><kbd>mouse</kbd><span>look around</span>
-      <kbd>Shift</kbd><span>run</span><kbd>click / E</kbd><span>inspect a building</span>
-      <kbd>F</kbd><span>fly or walk</span><kbd>H</kbd><span>the menu</span>
-      <kbd>G</kbd><span>go to a place</span><kbd>M</kbd><span>the whole map</span>
-    </div>
-    <div id="control-help-touch" class="control-help-grid" hidden>
-      <kbd>left stick</kbd><span>walk</span><kbd>drag right</kbd><span>look around</span>
-      <kbd>tap</kbd><span>inspect</span><kbd>Fly</kbd><span>switch walk / aerial view</span>
-      <kbd>tap the map</kbd><span>see the whole field</span>
-    </div>
-    <button class="control-help-gotit" id="control-help-gotit" type="button">Got it</button>
-  </div>
-
   <div class="navigation-stack" aria-label="Navigation aids">
     <div id="street-readout" class="street-readout" aria-live="polite" hidden>
       <span class="street-mode" id="street-mode">On street</span>
@@ -681,8 +662,9 @@
             <option value="shown">Shown</option>
             <option value="hidden">Hidden</option>
           </select></label>
-        <div class="field row"><span>Navigation guide</span>
-          <button class="setting-button" id="s-show-control-help" type="button">Show guide</button>
+        <!-- T-2661: the controls are Guide's, in the Navigator; this opens it there. -->
+        <div class="field row"><span>Guide</span>
+          <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
     </section>

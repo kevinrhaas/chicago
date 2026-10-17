@@ -440,3 +440,11 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .nav-screen:focus-visible, .nav-screen > h2:focus-visible, #nav-home-title:focus-visible {
   outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 8px;
 }
+
+/* ---- Guide's controls sheet (T-2661): touch or keyboard, as the visitor is using -- */
+.nav-guide-seg { display: flex; width: 100%; margin: 10px 0 8px; }
+.nav-guide-seg .seg-btn { min-height: 44px; }
+.nav-guide-keys { margin-top: 10px; gap: 9px 14px; }
+.nav-guide-keys dt { white-space: normal; max-width: 10em; color: var(--ink-dim); font-size: 13px; }
+.nav-guide-keys dd { font-size: 14px; line-height: 1.4; }
+.nav-guide-keys kbd { margin: 0 2px 2px 0; }

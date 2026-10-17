@@ -10464,9 +10464,8 @@ for (const [label, viewport, touch] of [
     const chrome = await page.evaluate(() => ({
       gateHidden: document.getElementById('gate').hasAttribute('hidden'),
       hudShown: !document.getElementById('hud').hasAttribute('hidden'),
-      controlHelpShown: !document.getElementById('control-help').hasAttribute('hidden'),
-      desktopHelpShown: getComputedStyle(document.getElementById('control-help-desktop')).display !== 'none',
-      touchHelpShown: getComputedStyle(document.getElementById('control-help-touch')).display !== 'none',
+      // T-2661: the control-help popover is gone; Guide in the Navigator has the controls.
+      controlHelpGone: document.getElementById('control-help') === null,
       overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       lookTag: !document.getElementById('look-tag').hidden,
       locked: !!document.pointerLockElement,
@@ -10479,20 +10478,37 @@ for (const [label, viewport, touch] of [
     check(`${label}: tap-to-start reveals the walkthrough`,
       chrome.gateHidden && chrome.hudShown,
       `gate hidden ${chrome.gateHidden}, hud shown ${chrome.hudShown}`);
-    check(`${label}: first entry shows the navigation guide for the active input mode`,
-      chrome.controlHelpShown
-      && (touch ? chrome.touchHelpShown && !chrome.desktopHelpShown
-        : chrome.desktopHelpShown && !chrome.touchHelpShown),
-      JSON.stringify(chrome));
+    // ---- T-2661: Guide's controls sheet replaces the control-help popover ----------
+    // First entry puts no popover over the town; Guide in the Navigator shows the
+    // controls for the input in use — touch on the phone, keyboard on the laptop — read
+    // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
-    await timedChrome('#control-help-gotit');
-    const controlHelpDismissed = await page.evaluate(() => ({
-      hidden: document.getElementById('control-help').hasAttribute('hidden'),
-      stored: localStorage.getItem('chicago4d.controlHelpDismissed'),
-    }));
-    check(`${label}: the navigation guide dismisses and remembers the choice`,
-      controlHelpDismissed.hidden && controlHelpDismissed.stored === '1',
-      JSON.stringify(controlHelpDismissed));
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const guide = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const sheet = document.querySelector('#nav-app-guide #guide-controls');
+      const list = sheet?.querySelector('dl');
+      const box = sheet?.getBoundingClientRect();
+      const out = { gone: document.getElementById('control-help') === null, app: api.navigator.app, detent: api.navigator.detent,
+        backend: api.controlBackend, scheme: sheet?.dataset.scheme ?? null, rows: list?.querySelectorAll('dt').length ?? 0,
+        keys: list?.querySelectorAll('kbd').length ?? 0, text: (sheet?.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 160),
+        inView: !!box && box.width > 0 && box.left >= -1 && box.right <= innerWidth + 1,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(sheet?.textContent ?? '') };
+      // Put the device back as it was found: Home its app, docked. The dock remembers its
+      // last app, and T-2619's checks in part 13 expect it to open on Home.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: first entry puts no control-help popover over the town; Guide's sheet shows the ${touch ? 'touch' : 'keyboard'} controls in use (T-2661)`,
+      chrome.controlHelpGone && guide.gone && guide.app === 'guide' && guide.detent !== 'dock' && guide.detent !== 'rail'
+      && guide.scheme === (touch ? 'touch' : 'keyboard') && guide.rows >= 6
+      && (touch ? guide.keys === 0 && /left thumb/i.test(guide.text) : guide.keys >= 10 && guide.backend === 'pointerlock')
+      && guide.inView && guide.overflow && !guide.snake,
+      JSON.stringify({ chrome, guide }));
+    // ---- end T-2661 (part 6)
 
     // --- the confidence menu takes its own clicks (T-0108) -------------------
     //
@@ -13307,15 +13323,28 @@ for (const [label, viewport, touch] of [
     // control junction must have a button; a real search must narrow both kinds.
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
+    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator.
     await clickChrome('#s-show-control-help');
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'guide'
+      && !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
     const reopenedGuide = await page.evaluate(() => ({
-      shown: !document.getElementById('control-help').hasAttribute('hidden'),
+      app: window.__chicago4d.navigator.app,
+      detent: window.__chicago4d.navigator.detent,
+      scheme: document.querySelector('#nav-app-guide #guide-controls')?.dataset.scheme ?? null,
+      backend: window.__chicago4d.controlBackend,
+      label: document.getElementById('s-show-control-help')?.textContent.trim(),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
     }));
-    check(`${label}: Settings can reopen the dismissed navigation guide`,
-      reopenedGuide.shown && reopenedGuide.panelHidden,
+    check(`${label}: Settings' Show the controls opens Guide's controls sheet in the Navigator (T-2661)`,
+      reopenedGuide.app === 'guide' && reopenedGuide.detent !== 'dock' && reopenedGuide.detent !== 'rail'
+      // By now a key the smoke pressed may have handed even the phone to the keyboard:
+      // the sheet follows the controls that are live, so it is read against those.
+      && reopenedGuide.scheme === (reopenedGuide.backend === 'touch' ? 'touch' : 'keyboard')
+      && reopenedGuide.label === 'Show the controls' && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await clickChrome('#control-help-close');
+    // Back as it was found: Home, docked (T-2619's dock opens on its last app).
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+    // ---- end T-2661 (part 12)
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
