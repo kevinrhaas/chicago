@@ -1,0 +1,8 @@
+{
+  "title": "The near grass's planting rules now have a graphics-card version",
+  "kind": "chore",
+  "items": [
+    "Nothing you can see changed. The rules that decide which grass grows at each spot near you, and how tall, wide and green it is, now have a graphics-card version too. It is the next step toward drawing the near grass without the phone's processor laying it out at every step.",
+    "Checked in the browser at every critic viewpoint, on phone and desktop, it picks the same plant as the current code at all 39,838 spots wherever its ground map agrees. Its sizes match to a few hundredths of a millimetre."
+  ]
+}
