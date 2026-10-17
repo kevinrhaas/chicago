@@ -336,12 +336,13 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 59126156,
-      "sha256": "bc5a2ccf7eff0691e91c3ac32a67b97f6e7aa608189e3932584cfbd8aecf3011",
+      "bytes": 43829952,
+      "sha256": "b07e5199ccc174c5f461a7f7e1d145265fad156451986104d074f2e3fa583773",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
         "KHR_mesh_quantization",
+        "KHR_texture_basisu",
         "KHR_texture_transform"
       ],
       "nodes": [
@@ -362,9 +363,9 @@
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 32547448,
-        "pixels": 61341000,
-        "gpu_rgba8_mip_bytes": 327152000,
+        "encoded_bytes": 17249782,
+        "pixels": 62390272,
+        "gpu_rgba8_mip_bytes": 332748117,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -658,12 +659,13 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 32534812,
-      "sha256": "1ec43bfdeeaf745acca4c9528235cc6c548713e6fbf4ea84fc852185209bad6a",
+      "bytes": 15521960,
+      "sha256": "cd016d847acaf8b9af69c808e8383f9e66723a822b719172565e45b29f5c8d98",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
         "KHR_mesh_quantization",
+        "KHR_texture_basisu",
         "KHR_texture_transform"
       ],
       "nodes": [
@@ -684,10 +686,10 @@
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 29192873,
-        "pixels": 58195272,
-        "gpu_rgba8_mip_bytes": 310374784,
-        "largest_px": 2048
+        "encoded_bytes": 12178585,
+        "pixels": 34078720,
+        "gpu_rgba8_mip_bytes": 181753173,
+        "largest_px": 1024
       },
       "bbox_m": {
         "min": [
