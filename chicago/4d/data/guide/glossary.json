@@ -1,0 +1,64 @@
+{
+  "_doc": "The Guide's glossary (T-2662, design doc section 03 'Locked terms', NAV-804). One row per locked term, in the order section 03 lists them; `meaning` is what a visitor reads on tap and in the Guide, at most 15 words. `rests_on` names the files in this repository that make the meaning true, and is data, never shown. Gated by tools/check_guide.py.",
+  "terms": [
+    {
+      "term": "Attested",
+      "meaning": "A source says so, and we name it.",
+      "rests_on": [
+        "AGENTS.md",
+        "data/sources"
+      ],
+      "note": "Section 03 drafts 'A source from the time says so.' Not used: an Attested fact here can rest on later scholarship (a 1963 survey, a museum's own pages), and AGENTS.md defines the grade as 'a source states it. Cite the source.'"
+    },
+    {
+      "term": "Inferred",
+      "meaning": "Worked out from clues about this exact thing.",
+      "rests_on": [
+        "AGENTS.md"
+      ],
+      "note": "Section 03's line, with 'place' widened to 'thing': AGENTS.md says 'reasoned from evidence about this particular thing', and the grade is given to people and attributes as well as places."
+    },
+    {
+      "term": "Reconstructed",
+      "meaning": "No record exists. We built it so the street makes sense, and say so.",
+      "rests_on": [
+        "AGENTS.md",
+        "docs/LIBERTIES.md"
+      ],
+      "note": "Section 03's line as written."
+    },
+    {
+      "term": "Confidence view",
+      "meaning": "Recolor the world by grade, or hide a grade completely.",
+      "rests_on": [
+        "renderers/web/js/confidence.js"
+      ],
+      "note": "Section 03's line as written; confidence.js tints by grade and hides a grade (`setHidden`)."
+    },
+    {
+      "term": "Liberties",
+      "meaning": "Our list of the choices we made without a source, and why.",
+      "rests_on": [
+        "docs/LIBERTIES.md",
+        "data/liberties.json"
+      ],
+      "note": "Section 03 drafts 'Every choice we made without a source, listed by name.' Not used: the list has 608 entries, many covering a whole class of choices (one entry for hundreds of roofs), so it is not one row per choice. Each entry gives the decision and why."
+    },
+    {
+      "term": "Sources",
+      "meaning": "Where our facts come from: books, maps, photos, newspapers and more, each one named.",
+      "rests_on": [
+        "data/sources"
+      ],
+      "note": "Section 03 lists 'maps, photos, letters, newspapers'. The records are mostly websites and books, with photographs, maps, newspapers and seven manuscripts; 'and more' keeps the line true without a list."
+    },
+    {
+      "term": "Jaunts",
+      "meaning": "Short guided walks through the town, stop by stop.",
+      "rests_on": [
+        "data/jaunts"
+      ],
+      "note": "Section 03 gives no line. A jaunt is a walk with a premise, an opening and stops (data/jaunts/, 1835 and 1904)."
+    }
+  ]
+}
