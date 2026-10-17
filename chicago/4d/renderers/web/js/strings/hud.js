@@ -16,6 +16,10 @@ export default register('hud', {
   'menu.unread': "Guide, settings and what's new — {n} unread (H)",
   'move.note': 'The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under',
   'move.mode': 'How you move',
+  // T-2727: Move › When you pick a place, and a Jaunt that cannot go the visitor's way.
+  'move.jaunts': 'Jaunts use my choice',
+  'move.arrive.note': 'Go to and the map use this choice. Jaunts keep the way each recommends, unless Jaunts use my choice is on. Then they use yours where they can.',
+  'jaunt.keeps': 'Your choice ({way}) is not a way this Jaunt can be travelled, so it keeps the way it recommends.',
   'sources.list': 'Source list',
   'sources.grades': 'Attested, Inferred, Reconstructed: what each word promises',
   'levels.all': 'Showing every grade again',

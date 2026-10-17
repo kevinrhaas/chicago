@@ -16,7 +16,7 @@ export function filterJaunts(rows, query = '', family = '') {
 
 // T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
 // says the visitor holds this outing's keepsake.
-export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null }) {
+export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '' }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
   let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
@@ -69,10 +69,11 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     mode.setAttribute('aria-label', `How to move for ${row.title}`); mode.dataset.action = 'mode';
     const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
     duration.setAttribute('aria-live', 'polite');
-    // T-2652: the visitor's getting-there choice, where this outing allows it; else its own.
+    // T-2652/T-2727: a mode picked here by hand; else the visitor's getting-there choice,
+    // where Jaunts use it and this outing allows it; else its own. Only a hand pick is
+    // remembered, so turning Jaunts use my choice on or off reaches every card.
     let current = modes.get(row.id) || preferredMode(row) || row.default_mode || 'walk';
     const price = () => {
-      modes.set(row.id, current);
       const key = JSON.stringify([current, row.destinations, row.timing, row.stops]);
       if (!estimates.has(key)) { const e = estimate(row, current); estimates.set(key, { text: formatEstimate(e), s: e?.seconds }); }
       const { text, s } = estimates.get(key);
@@ -82,7 +83,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       for (const b of mode.children) b.setAttribute('aria-checked', String(b.dataset.mode === current));
     };
     for (const id of row.allowed_modes || ['walk']) {
-      const b = button('', () => { if (b.disabled) return; current = id; price(); }, 'jaunt-mode-pick');
+      const b = button('', () => { if (b.disabled) return; current = id; modes.set(row.id, id); price(); }, 'jaunt-mode-pick');
       b.dataset.mode = id; b.setAttribute('role', 'radio'); b.append(icon(id, 18));
       b.setAttribute('aria-label', PACES[id]?.label || id); b.title = PACES[id]?.label || id;
       mode.append(b);
@@ -96,6 +97,9 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     } else {
       const pace = node('div', '', 'jaunt-pace'); pace.append(mode, duration);
       details.append(pace, node('p', `Recommended: ${PACES[row.default_mode || 'walk']?.label || row.default_mode}. Fly is a viewing convenience, not historical transport.`, 'jaunt-meta'));
+      // T-2727: with Jaunts use my choice on, an outing that cannot go the visitor's way says so.
+      const keeps = modeNote(row);
+      if (keeps) { const p = node('p', keeps, 'jaunt-meta jaunt-keeps'); p.dataset.jauntKeeps = row.id; details.append(p); }
       if (onStart) {
         const start = button('', async () => {
           remember(row.id, 'start', section); start.disabled = true;

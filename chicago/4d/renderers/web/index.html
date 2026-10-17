@@ -306,10 +306,13 @@
           <button type="button" class="seg-btn" data-arrive="ride" role="radio" aria-checked="false">Ride there</button>
           <button type="button" class="seg-btn" data-arrive="fly" role="radio" aria-checked="false">Fly over</button>
         </div></div>
+      <!-- T-2727: whether Jaunts take that choice too. Off by default: a guided outing was
+           written around its own way of going. -->
+      <label class="field row check-field"><span data-str="hud.move.jaunts">Jaunts use my choice</span>
+        <input type="checkbox" id="s-jaunts-choice"></label>
       <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
            by goToTarget like Go to, so it takes this choice too. -->
-      <p class="legend-note" id="arrive-note">Go to and Jaunts both use this choice. A Jaunt that cannot
-        be travelled that way, and every Jaunt until you choose here, keeps the way it recommends.</p>
+      <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Go to and the map use this choice. Jaunts keep the way each recommends, unless Jaunts use my choice is on. Then they use yours where they can.</p>
       <p class="legend-note">These are ways of moving the camera, not claims about the past: a
         run, a light wagon, a horse, and a burst of speed on <kbd>Shift</kbd>. The slider sets the
         speed of the mode you picked and names it. Ride there takes you to a place you choose
