@@ -189,34 +189,9 @@
       class="badge-version" id="badge-version" role="note" hidden></span></button>
     <div class="hud-actions">
       <button id="btn-start" class="chip" aria-haspopup="dialog">Start / Jaunts</button>
-      <!-- One control, two questions. The chip toggles the colouring; the caret
-           opens the panel where a whole level can be removed from the view.
-           They belong together: "how sure are we" and "what is left if you keep
-           only what somebody wrote down" are the same enquiry at two depths. -->
-      <div class="chip-group" id="confidence-group">
-        <button id="btn-confidence" class="chip" aria-pressed="false" title="Recolour the scene by evidence quality (C)">
-          <span class="dot dot-conf"></span> <span class="chip-label">Confidence</span>
-        </button>
-        <button id="btn-confidence-more" class="chip icon chip-more" aria-expanded="false"
-          aria-controls="confidence-menu" title="Choose which levels of evidence to show">▾</button>
-        <div class="confidence-menu" id="confidence-menu" role="group"
-          aria-label="Which levels of evidence to show" hidden>
-          <p class="cm-title">Show only what is</p>
-          <label class="cm-row"><input type="checkbox" id="cm-attested" checked>
-            <span class="cm-sw sw-att"></span><span class="cm-label">Attested</span>
-            <span class="cm-count" id="cm-count-attested"></span></label>
-          <label class="cm-row"><input type="checkbox" id="cm-inferred" checked>
-            <span class="cm-sw sw-inf"></span><span class="cm-label">Inferred</span>
-            <span class="cm-count" id="cm-count-inferred"></span></label>
-          <label class="cm-row"><input type="checkbox" id="cm-reconstructed" checked>
-            <span class="cm-sw sw-rec"></span><span class="cm-label">Reconstructed</span>
-            <span class="cm-count" id="cm-count-reconstructed"></span></label>
-          <p class="cm-note" id="cm-note">Turning a level off removes it from the view
-            entirely. It works with the colouring off too — that is how you see what is
-            left of the town when only the recorded parts stand.</p>
-          <button type="button" class="cm-reset" id="cm-reset">Show everything</button>
-        </div>
-      </div>
+      <!-- T-2647: the Confidence chip, its caret and its checkbox menu moved into the
+           Navigator's Confidence view app (js/apps/confidence-view.js); C still
+           toggles BY GRADE. -->
       <!-- The pace you move at on your own feet — walk, run, wagon or horse. One tap
            from the walk, because "go as fast as a horse through the city" is a
            thing you decide while walking, not in a settings page. -->

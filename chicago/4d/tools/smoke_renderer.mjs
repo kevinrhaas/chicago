@@ -8077,10 +8077,14 @@ for (const [label, viewport, touch] of [
       api.hud.setHidden('reconstructed', true, { announce: false });
       await new Promise((r) => setTimeout(r, 120));
       const u = api.confidence.uniforms.uHideLevel.value;
+      // T-2647: the control is the Navigator's Confidence view app now; it shows the
+      // hidden grade unticked, its row dimmed.
+      await api.navigator.select('confidence');
+      await new Promise((r) => setTimeout(r, 600));
+      const box = document.getElementById('cm-reconstructed');
       return { uniform: [u.x, u.y, u.z], hidden: api.hud.hiddenLevels,
                colouring: api.confidenceView,
-               marked: !!document.getElementById('confidence-group')
-                 ?.classList.contains('has-hidden'),
+               marked: !!box && box.checked === false && !!box.closest('.nav-grade')?.classList.contains('is-off'),
                stored: window.localStorage.getItem('chicago4d.confidence.hidden') };
     });
     const thinnedTown = await page.evaluate(() => window.__chicago4d.capture());
@@ -8110,11 +8114,14 @@ for (const [label, viewport, touch] of [
     // The panel says how much of the town each level is, counted from the
     // registry rather than written down — this dataset's own shape, stated
     // before a visitor clicks anything.
-    const levelCounts = await page.evaluate(() => {
+    const levelCounts = await page.evaluate(async () => {
       const read = (l) => Number(document.getElementById(`cm-count-${l}`)?.textContent || -1);
-      return { attested: read('attested'), inferred: read('inferred'),
+      const out = { attested: read('attested'), inferred: read('inferred'),
                reconstructed: read('reconstructed'),
                structures: window.__chicago4d.registry.size };
+      await window.__chicago4d.navigator.select('home');
+      window.__chicago4d.navigator.dock();
+      return out;
     });
     check(`${label}: the control counts each level against the loaded town`,
       levelCounts.attested + levelCounts.inferred + levelCounts.reconstructed
@@ -10612,43 +10619,72 @@ for (const [label, viewport, touch] of [
     // 90 s on the steward runner at 9.7 s a frame. The box is read in the page in
     // one round trip (the menu has no transition to settle), and each click logs
     // its seconds.
+    //
+    // T-2647: the grade switches moved into the Navigator, and the Navigator WIDENS on a
+    // desktop — a .28 s width transition from the 58 px rail whose clock only moves when
+    // the page draws (clickChrome says the same, #975). A box read mid-transition is not
+    // where the switch ends up, so the mouse pressed empty panel: desktop part 6 read
+    // {"appOpen":true,"unchecked":false,"hidden":[]} on #974's first run. A visitor
+    // clicks a panel that has arrived; so does this — the device's running animations
+    // are waited out first (bounded), and the line names what is topmost at the point
+    // pressed, so a click that misses says what it hit instead of only that it missed.
     const timedClick = async (sel) => {
       const t0 = Date.now();
-      const at = await page.evaluate((s) => {
+      const at = await page.evaluate(async (s) => {
         const el = document.querySelector(s);
         if (!el) return `nothing matches ${s}`;
+        const device = el.closest('#navigator');
+        if (device?.getAnimations) {
+          // Up to 30 s: the transition ends on the first frame drawn after its .28 s, and a
+          // runner frame of the desktop town can take 8-10 s (T-2412).
+          for (let i = 0; i < 600 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+            await new Promise((r) => setTimeout(r, 50));
+          }
+        }
         el.scrollIntoView({ block: 'center', inline: 'center' });
         const b = el.getBoundingClientRect();
         if (b.width < 1 || b.height < 1) return `${s} has no box (${Math.round(b.width)}x${Math.round(b.height)})`;
-        return { x: b.x + b.width / 2, y: b.y + b.height / 2 };
+        const x = b.x + b.width / 2, y = b.y + b.height / 2;
+        const top = document.elementFromPoint(x, y);
+        let owner = top;
+        while (owner && !owner.id && owner !== document.body) owner = owner.parentElement;
+        const hit = !top ? 'nothing' : top === el || el.contains(top) ? 'itself'
+          : `<${top.tagName.toLowerCase()}>${owner?.id ? ` inside #${owner.id}` : ''}`;
+        return { x, y, hit };
       }, sel);
       if (typeof at === 'string') throw new Error(`part 6 mouse click: ${at}`);
       await page.mouse.click(at.x, at.y);
-      console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s (trusted mouse)`);
+      console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s (trusted mouse; topmost there: ${at.hit})`);
     };
-    await timedClick('#btn-confidence-more');
+    // T-2647: the grade switches live in the Navigator's Confidence view app now, which
+    // the code opens; the switches themselves still take the visitor's own mouse.
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+    await page.waitForTimeout(300);
     await timedClick('#cm-reconstructed');
     await page.waitForTimeout(120);
     const cmClick = await page.evaluate(() => ({
-      menuOpen: !document.getElementById('confidence-menu').hasAttribute('hidden'),
+      appOpen: window.__chicago4d.navigator.app === 'confidence' && !['dock', 'rail'].includes(window.__chicago4d.navigator.detent),
       unchecked: !document.getElementById('cm-reconstructed').checked,
-      marked: document.getElementById('confidence-group').classList.contains('has-hidden'),
+      hidden: window.__chicago4d.hud.hiddenLevels,
     }));
-    check(`${label}: a level checkbox takes the click and the menu stays open`,
-      cmClick.menuOpen && cmClick.unchecked && cmClick.marked,
+    check(`${label}: a grade switch in the Confidence view takes the click and the app stays open (T-2647)`,
+      cmClick.appOpen && cmClick.unchecked && cmClick.hidden.includes('reconstructed'),
       JSON.stringify(cmClick));
     // Put the town back the way it was, through the same real controls.
     await timedClick('#cm-reset');
-    await timedClick('#btn-confidence-more');
     await page.waitForTimeout(120);
-    const cmRestored = await page.evaluate(() => ({
-      menuShut: document.getElementById('confidence-menu').hasAttribute('hidden'),
-      allOn: ['cm-attested', 'cm-inferred', 'cm-reconstructed']
-        .every((id) => document.getElementById(id).checked),
-      marked: document.getElementById('confidence-group').classList.contains('has-hidden'),
-    }));
-    check(`${label}: reset restores every level and the caret shuts the menu`,
-      cmRestored.menuShut && cmRestored.allOn && !cmRestored.marked,
+    const cmRestored = await page.evaluate(async () => {
+      const out = {
+        allOn: ['cm-attested', 'cm-inferred', 'cm-reconstructed'].every((id) => document.getElementById(id).checked),
+        hidden: window.__chicago4d.hud.hiddenLevels,
+      };
+      await window.__chicago4d.navigator.select('home');
+      window.__chicago4d.navigator.dock();
+      out.docked = ['dock', 'rail'].includes(window.__chicago4d.navigator.detent);
+      return out;
+    });
+    check(`${label}: Show everything restores every grade, and the device docks again (T-2647)`,
+      cmRestored.allOn && cmRestored.hidden.length === 0 && cmRestored.docked,
       JSON.stringify(cmRestored));
 
     // T-2547: a clean boot carries no crash card (this page's session never died).
@@ -15133,12 +15169,72 @@ for (const [label, viewport, touch] of [
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
 
-    // The HUD toggle must drive the same view the harness does.
-    await clickChrome('#btn-confidence');
-    await page.waitForTimeout(100);
-    const viaHud = await page.evaluate(() => window.__chicago4d.confidenceView);
-    check(`${label}: the HUD toggle drives the confidence view`, viaHud === true, `${viaHud}`);
-    await clickChrome('#btn-confidence');
+    // T-2647: the Confidence view is a Navigator app of four presets — the HUD's chip,
+    // caret and checkbox menu are gone — and C still toggles BY GRADE.
+    const hudGone = await page.evaluate(() => ['btn-confidence', 'btn-confidence-more', 'confidence-menu', 'confidence-group']
+      .filter((id) => document.getElementById(id)));
+    check(`${label}: the HUD's Confidence chip, caret and menu are gone (T-2647)`, hudGone.length === 0, JSON.stringify(hudGone));
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+    await page.waitForTimeout(600);
+    const presetState = () => page.evaluate(() => {
+      const a = window.__chicago4d;
+      const pressed = [...document.querySelectorAll('#navigator .nav-preset[aria-pressed="true"]')].map((b) => b.dataset.preset);
+      const u = a.confidence.uniforms.uHideLevel.value;
+      return { on: a.confidenceView, pressed, hidden: a.hud.hiddenLevels, hide: [u.x, u.y, u.z], ghosting: a.confidence.ghosting,
+        modes: a.confidence.modes, readout: document.querySelector('#navigator .nav-readout')?.textContent ?? '' };
+    });
+    await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
+    await page.waitForTimeout(150);
+    const byGrade = await presetState();
+    await clickChrome('#navigator .nav-preset[data-preset="xray"]');
+    await page.waitForTimeout(150);
+    const xrayPreset = await presetState();
+    const xrayStats = await page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { calls: st.drawCalls, budget: st.budget.drawCalls }; });
+    await clickChrome('#navigator .nav-preset[data-preset="normal"]');
+    await page.waitForTimeout(150);
+    const normalPreset = await presetState();
+    check(`${label}: each Confidence view preset is one tap — BY GRADE colours, X-RAY ghosts, NORMAL clears (T-2647)`,
+      byGrade.on === true && JSON.stringify(byGrade.pressed) === '["bygrade"]' && byGrade.hidden.length === 0
+        && xrayPreset.on === true && JSON.stringify(xrayPreset.pressed) === '["xray"]' && xrayPreset.ghosting === true
+        && xrayPreset.modes.inferred === 'ghost' && xrayPreset.modes.reconstructed === 'ghost' && xrayPreset.modes.attested === 'tint'
+        && normalPreset.on === false && JSON.stringify(normalPreset.pressed) === '["normal"]' && normalPreset.ghosting === false
+        && /GRADE MASK 3\/3/.test(normalPreset.readout) && /MESHES \d/.test(normalPreset.readout) && /FRAME CLK/.test(normalPreset.readout),
+      JSON.stringify({ byGrade, xrayPreset, normalPreset }));
+    check(`${label}: X-RAY one tap away stays inside the draw budget (T-2647)`,
+      xrayStats.calls <= xrayStats.budget, JSON.stringify(xrayStats));
+    // QA-12: ATTESTED ONLY is exactly hiding Inferred and Reconstructed by hand.
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    await clickChrome('#navigator .nav-preset[data-preset="attested"]');
+    await page.waitForTimeout(150);
+    const attestedPreset = await presetState();
+    const attestedFrame = await page.evaluate(() => window.__chicago4d.capture());
+    await clickChrome('#navigator .nav-preset[data-preset="normal"]');
+    await page.evaluate(() => { const h = window.__chicago4d.hud; h.setHidden('inferred', true, { announce: false }); h.setHidden('reconstructed', true, { announce: false }); });
+    // The HUD tells the app the hidden set moved, and it repaints at once.
+    await page.waitForTimeout(300);
+    const byHand = await presetState();
+    const byHandFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const dAttested = signatureDistance(attestedFrame, byHandFrame);
+    check(`${label}: ATTESTED ONLY gives the same scene as hiding Inferred and Reconstructed by hand (T-2647, QA-12)`,
+      JSON.stringify(attestedPreset.hide) === '[0,1,1]' && attestedPreset.on === false
+        && JSON.stringify(attestedPreset.pressed) === '["attested"]'
+        && JSON.stringify(byHand.hide) === '[0,1,1]' && JSON.stringify(byHand.pressed) === '["attested"]'
+        && dAttested.mean <= 0.1 && dAttested.worst <= 3,
+      `${JSON.stringify({ attestedPreset: { ...attestedPreset, readout: undefined }, byHand: { ...byHand, readout: undefined } })} residual mean ${dAttested.mean?.toFixed(2)}, worst ${dAttested.worst}`);
+    await clickChrome('#navigator .nav-preset[data-preset="normal"]');
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    // C toggles BY GRADE, and again back to NORMAL. The device goes back to Home and docks,
+    // where the Navigator's own checks below expect to find it.
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('home'); n.dock(); document.activeElement?.blur?.(); });
+    await page.keyboard.press('c');
+    await page.waitForTimeout(150);
+    const cOn = await presetState();
+    await page.keyboard.press('c');
+    await page.waitForTimeout(150);
+    const cOff = await presetState();
+    check(`${label}: C toggles BY GRADE on and off (T-2647)`,
+      cOn.on === true && cOn.hidden.length === 0 && cOn.modes.reconstructed === 'dither' && cOff.on === false,
+      JSON.stringify({ cOn: { on: cOn.on, modes: cOn.modes }, cOff: { on: cOff.on } }));
 
     // --- the Navigator (T-2617) ----------------------------------------------
     // In the town the device is docked (a 64 px sheet on a phone, the rail on a
@@ -15440,7 +15536,10 @@ for (const [label, viewport, touch] of [
     await tourWait(5);
     await page.evaluate(() => window.__chicago4d.popup.close());
     const confWas = await page.evaluate(() => window.__chicago4d.hud.confidenceOn);
-    await clickChrome('#btn-confidence');
+    // T-2647: the Confidence view is the Navigator's app now; a preset other than Normal is
+    // the step's action.
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+    await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
     // T-2647: step 06 moves on at the tour's next tick, a 250 ms timer that on the desktop
     // runner runs only between frames of 8-10 s (T-2412); 8 s could end before one ran, and
     // the step-07 Next below was still hidden: "clickChrome: #tour-next has no box (0x0)"

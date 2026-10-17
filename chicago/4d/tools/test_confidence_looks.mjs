@@ -358,6 +358,28 @@ check('when the ghosting ends, the next frame takes the ghost layer off everythi
   assert.ok(r.seen.at(-1).drawn.includes(t.mixed));
 });
 
+check('under setGhostAsDither, a named layer ghosts as a dither in the opaque pass and never enters the ghost pass', () => {
+  const v = C.createConfidenceView();
+  const t = town(v);
+  const fence = new THREE.Group(); fence.name = 'enclosures';
+  const rail = v.patch(new THREE.MeshStandardMaterial());
+  const post = new THREE.Mesh(graded(1), rail);
+  fence.add(post); t.scene.add(fence);
+  v.setGhostAsDither(['enclosures']);
+  const r = recordingRenderer(), cam = new THREE.PerspectiveCamera();
+  v.set(true);
+  v.setGrade('reconstructed', { mode: 'ghost', opacity: 0.25 });
+  v.render(r, t.scene, cam);
+  const [opaque, ghost] = r.seen;
+  assert.ok('CHICAGO_GHOST_DITHER' in rail.defines, 'its material compiles the dither branch');
+  assert.ok(opaque.drawn.includes(post), 'it stays in the opaque pass, where its ghost is dithered');
+  assert.ok(!ghost.drawn.includes(post), 'and is not drawn again in the ghost pass');
+  assert.ok(ghost.drawn.includes(t.recon), 'the rest of the town still ghosts for real');
+  assert.ok(!('CHICAGO_GHOST_DITHER' in (t.patchedMat.defines ?? {})), 'a material outside the layer is untouched');
+  const { shader } = compiled(C.createConfidenceView());
+  assert.ok(/#ifdef CHICAGO_GHOST_DITHER[\s\S]*chicago_inMode\(1\.0\)/.test(shader.fragmentShader), 'the shader carries the branch');
+});
+
 check('disposing a material disposes its twin', () => {
   const v = C.createConfidenceView();
   const t = town(v);

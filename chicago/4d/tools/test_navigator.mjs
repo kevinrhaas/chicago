@@ -719,7 +719,7 @@ for (const phone of [true, false]) {
     const calls = [];
     const nav = createNavigator({ root: dom.root, scene: { id: '1904', target_date: '1904-07-01' }, isPhone: () => phone,
       viewportHeight: () => 844, now: () => t, storage: fakeStorage(), apps: APPS,
-      context: () => ({ scene: { id: '1904' }, hasPeople: false, actions: { confidenceMenu: () => calls.push('confidence') } }) });
+      context: () => ({ scene: { id: '1904' }, hasPeople: false, actions: { openSection: (section) => calls.push(section) } }) });
     await Promise.resolve();
     let d = nav.snapshot().dock;
     assert.equal(nav.level, 0, `${label}: it starts closed`);
@@ -733,11 +733,13 @@ for (const phone of [true, false]) {
     assert.equal(d.app, 'jump', `${label}: the dock remembers the last app`);
     assert.equal(d.label, 'Open the Navigator on Jump');
     assert.equal(dom.byId.get('nav-dock-app').dataset.app, 'jump');
-    // A stub (the Confidence view, until its own screen lands) runs and docks the device; it
-    // is not an app the dock opens to. (Map, then Jaunts, were the stub here until each
-    // became a screen: T-2654, T-2630.)
-    await nav.select('confidence');
-    assert.deepEqual(calls, ['confidence']);
+    // A stub runs and docks the device; it is not an app the dock opens to. (Map, Jaunts,
+    // the Confidence view and Settings were the stub here until each became a screen:
+    // T-2654, T-2630, T-2647, and T-2620's Settings, which holds the drawer's Settings and
+    // What's new. With none left on the rail, the test brings its own.)
+    nav.register({ id: 'stub', label: 'Stub', code: 'SCR 99', order: 95, icon: '<svg></svg>', launch: () => { calls.push('stub'); } });
+    await nav.select('stub');
+    assert.deepEqual(calls, ['stub']);
     assert.equal(nav.level, 0);
     assert.equal(nav.snapshot().dock.app, 'jump', `${label}: a stub leaves the dock on the last screen`);
     // One tap on the closed device opens that last app — at HALF on a phone.
@@ -1058,11 +1060,15 @@ for (const phone of [false, true]) {
   assert.equal(nav.app, 'jump', `${where}: ${jumpAt} opens the ${jumpAt}th app, Jump`);
   assert.ok(dom.byId.get('nav-app-jump')?.focused >= 1, `${where}: focus moves into the app's screen`);
   if (order.length < 9) assert.equal(press('9'), false, `${where}: a digit with no app behind it is not taken`);
-  // Move holds a screen since T-2620; the Confidence view is still a launch (its grade menu).
-  const confAt = order.indexOf('confidence') + 1;
-  press(String(confAt));
+  // Every rail app holds a screen now (Move and Settings since T-2620, the Confidence view
+  // since T-2647), so a launch app is the test's own.
+  nav.register({ id: 'stub', label: 'Stub', code: 'SCR 99', order: 95, icon: '<svg></svg>', launch: () => { calls.push(['stub']); } });
+  await Promise.resolve();
+  const stubAt = nav.apps.indexOf('stub') + 1;
+  assert.ok(stubAt >= 1 && stubAt <= 9, `${where}: the stub is within reach of a digit (${nav.apps.join(', ')})`);
+  press(String(stubAt));
   await new Promise((r) => setTimeout(r, 0));
-  assert.deepEqual(calls.at(-1), ['confidence-menu'], `${where}: a digit runs a launch app (the Confidence view opens its menu)`);
+  assert.deepEqual(calls.at(-1), ['stub'], `${where}: a digit runs a launch app`);
 
   // Escape closes it — at once when nothing else is waiting for it.
   nav.open();
