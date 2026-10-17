@@ -58,6 +58,9 @@ import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
 import { runJob, jobsOnWorkers, holdOnWorker } from './jobs/pool.js';
+// T-2698: the near deal's field as a world-anchored tile a shader can sample.
+import { FIELD_SPEC, FIELD_FLAGS, FIELD_GLSL, fieldOrigin, buildField, sampleField }
+  from './near-field.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -1392,6 +1395,11 @@ export async function createFlora({
       >= VERGE_KEEP_SHARE;
   }
 
+  /** T-2698: a species no turf ceiling admits, so `trodden` answers for the
+   *  ground alone — the field's TRODDEN bit, read per species in the shader. */
+  const TALLEST = { height: [0, Infinity] };
+  const zoneIndex = new Map(zones.map((z, i) => [z, i]));
+
   /** A community that stands in no water, for the plantable-ground question the
    *  gate asks without naming a species. */
   const NO_COMMUNITY = { standsInWater: false };
@@ -2229,6 +2237,45 @@ export async function createFlora({
       const sp = zone?.byId.get(speciesId);
       if (!sp) return null;
       return station(e, n, zone, sp);
+    },
+    /**
+     * T-2698. The near deal's field, for the shader that will deal the near
+     * ring itself (T-2557): `at` is the CPU's answer at one point — community
+     * (its index in `communities()` plus one, 0 = none), the FIELD_FLAGS and
+     * the ground height — asked through the very closures the deal asks;
+     * `build` rasterises it at the texel centres of the tile around a camera;
+     * `slots` is every slot of the near lattice there (no cone), the points
+     * `tools/measure_near_field.mjs` holds the tile to.
+     */
+    nearField: {
+      spec: FIELD_SPEC,
+      flags: FIELD_FLAGS,
+      glsl: FIELD_GLSL,
+      sample: sampleField,
+      at(e, n, out = [0, 0, 0]) {
+        const zone = finder(e, n);
+        let f = 0;
+        if (water.isWater(e, n)) f |= FIELD_FLAGS.WET;
+        if (zone?.turf) f |= FIELD_FLAGS.TURF;
+        if (station(e, n, NO_COMMUNITY, null, false) === null) f |= FIELD_FLAGS.BLOCKED;
+        if (zone && trodden(e, n, zone, TALLEST)) f |= FIELD_FLAGS.TRODDEN;
+        out[0] = zone ? zoneIndex.get(zone) + 1 : 0;
+        out[1] = f;
+        out[2] = terrain.surfaceHeight(e, n);
+        return out;
+      },
+      build(camE, camN, spec = FIELD_SPEC) {
+        const { e0, n0 } = fieldOrigin(camE, camN, spec);
+        return buildField(this.at, e0, n0, spec);
+      },
+      slots(camE, camN) {
+        const out = [];
+        const gen = scatter(camE, camN, tune.near.cell, tune.near.perCell,
+          rings.near.lattice.outer, rings.near.lattice.inner, 0x51ed27, 'strata', null,
+          (e, n) => { out.push(e, n); });
+        for (const _ of gen) { /* drained */ }
+        return Float64Array.from(out);
+      },
     },
     /** What each community may plant on each side of its waterline, by id. */
     substrates() {

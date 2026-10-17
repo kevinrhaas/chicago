@@ -2580,7 +2580,8 @@ for (const [label, viewport, touch] of [
           worst = Math.max(worst,
             box.minE - e0, e0 - box.maxE, box.minN - n0, n0 - box.maxN);
         }
-        const conf = g.getAttribute('_confidence');
+        // Wherever the layer keeps it: a chunk of one grade has no stream (T-2689).
+        const conf = window.__chicago4d.confidenceOf(g);
         if (!conf) continue;
         graded += 1;
         for (let i = 0; i < conf.count; i++) {
@@ -2860,7 +2861,7 @@ for (const [label, viewport, touch] of [
         if (!(m.userData.recordIds ?? []).some((id) => /^town_lot_line_/.test(id))) continue;
         lotMeshes += 1;
         const pos = a.positionsInMetres(m.geometry);
-        const conf = m.geometry.getAttribute('_confidence');
+        const conf = a.confidenceOf(m.geometry);
         for (let i = 0; i < pos.count; i += 3) {
           cells.add(`${Math.round(pos.getX(i) / 40)}:${Math.round(-pos.getZ(i) / 40)}`);
           if (conf && conf.getX(i) !== 1) ungraded += 1;
@@ -4060,8 +4061,10 @@ for (const [label, viewport, touch] of [
       let lowest = Infinity;
       let highest = -Infinity;
       let hasConfidence = geos.length > 0;
+      // The colour's fourth lane since T-2689; `confidenceOf` reads it back.
+      const confOf = new Map(geos.map((geo) => [geo, window.__chicago4d.confidenceOf(geo)]));
       for (const geo of geos) {
-        const conf = geo.getAttribute('_confidence');
+        const conf = confOf.get(geo);
         if (!conf) { hasConfidence = false; continue; }
         for (let i = 0; i < conf.count; i++) {
           const v = conf.getX(i);
@@ -4137,7 +4140,7 @@ for (const [label, viewport, touch] of [
               const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
               const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
               pl.vertices++;
-              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
+              if (confOf.get(geo)?.getX(i) !== 1) pl.badConfidence++;
               pl.minAlong = Math.min(pl.minAlong, along);
               pl.maxAlong = Math.max(pl.maxAlong, along);
               pl.minAcross = Math.min(pl.minAcross, across);
@@ -4839,7 +4842,7 @@ for (const [label, viewport, touch] of [
       let notReconstructed = 0;
       let verts = 0;
       for (const t of timber) {
-        const conf = t.geometry?.getAttribute('_confidence');
+        const conf = t.geometry && a.confidenceOf(t.geometry);
         if (!conf) continue;
         for (let i = 0; i < conf.count; i++) {
           const v = conf.getX(i);
