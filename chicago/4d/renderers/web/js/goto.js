@@ -44,7 +44,16 @@ const SEARCH_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" 
 
 const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 const normalBearing = (value) => ((Number(value) || 0) % 360 + 360) % 360;
-const cardinal = (bearing) => CARDINALS[Math.round(normalBearing(bearing) / 22.5) % CARDINALS.length];
+export const cardinal = (bearing) => CARDINALS[Math.round(normalBearing(bearing) / 22.5) % CARDINALS.length];
+/** How far a place is from where the visitor stands, and its compass bearing (T-2632). */
+export function placeDistance(t, v) {
+  if (!v || !Number.isFinite(t?.e) || !Number.isFinite(t?.n) || !Number.isFinite(v.e) || !Number.isFinite(v.n)) return null;
+  const dE = t.e - v.e; const dN = t.n - v.n;
+  return { m: Math.hypot(dE, dN), bearing: normalBearing(Math.atan2(dE, dN) * 180 / Math.PI) };
+}
+/** The arrow's turn: the bearing to the place less the way the visitor faces. */
+export const arrowTurn = (d, v) => Math.round(normalBearing(d.bearing - (v?.bearingDeg ?? 0)));
+export { ARROW_SVG };
 export function createGoTo({
   root, destinations, visitor = null,
   units = () => 'imperial', settings = {}, isTouch = false, onGoTo, onPersist,
@@ -106,16 +115,12 @@ export function createGoTo({
   function where() {
     try { return visitor?.() ?? null; } catch { return null; }
   }
-  function distOf(t, v) {
-    if (!v || !Number.isFinite(t.e) || !Number.isFinite(t.n)) return null;
-    const dE = t.e - v.e; const dN = t.n - v.n;
-    return { m: Math.hypot(dE, dN), bearing: normalBearing(Math.atan2(dE, dN) * 180 / Math.PI) };
-  }
+  const distOf = placeDistance;
 
   function distHtml(d, v) {
     if (!d) return '';
     if (d.m < 4) return 'here';
-    return `<i class="jump-arrow" style="--turn:${Math.round(normalBearing(d.bearing - (v?.bearingDeg ?? 0)))}deg">${ARROW_SVG}</i>`
+    return `<i class="jump-arrow" style="--turn:${arrowTurn(d, v)}deg">${ARROW_SVG}</i>`
       + `<span>${formatDistance(d.m, units())} ${cardinal(d.bearing)}</span>`;
   }
 
@@ -147,6 +152,9 @@ export function createGoTo({
       const id = pill.dataset.kind;
       const count = id === 'all' ? base.length : (n[id] || 0);
       pill.setAttribute('aria-pressed', String(id === kind));
+      // T-2632 (QA-14): a kind this scene has none of is not offered — no "Corners 0".
+      // The pressed one stays, so a visitor is never left on a filter they cannot see.
+      pill.hidden = id !== 'all' && id !== kind && (count === 0 || (id === 'people' && !destinations.peopleAvailable));
       const label = pill.querySelector('.jump-pill-n');
       if (id === 'people' && !destinations.peopleAvailable) {
         label.textContent = '';

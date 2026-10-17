@@ -67,6 +67,7 @@
 /* The light theme's accent is a dark amber, so the pressed pill's text flips light. */
 [data-theme="light"] .jump-pill[aria-pressed="true"] { color: var(--accent-ink, #faf8f3); }
 .jump-pill:disabled { opacity: .45; cursor: default; }
+.jump-pill[hidden] { display: none; } /* T-2632: a kind with nothing in it is not offered */
 .jump-pill-n {
   font-size: 10px;
   color: var(--ink-dim);
@@ -156,10 +157,15 @@
 
 .jump-main { display: grid; min-width: 0; gap: 1px; }
 .jump-result .jump-name {
+  /* T-2632: a long name wraps to two lines instead of losing its end. */
   min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  white-space: normal;
+  overflow-wrap: anywhere;
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.3;

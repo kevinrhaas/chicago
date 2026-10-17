@@ -1,4 +1,49 @@
 export const CHANGELOG = [ // newest first
+  { v: 1945, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'A first tip when you roam freely', kind: 'feature',
+    items: [
+      'The first time you choose Free roam on a device, a short tip tells you how to look closer: Tap any building to inspect it. With a mouse it says click, or press E.',
+      'The tip goes away when you tap it, when you start moving, or after a few seconds. It does not come back on that device.',
+    ] },
+  { v: 1944, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'Jaunt cards show a picture, your keepsakes and Continue', kind: 'feature',
+    items: [
+      'Where the project holds a credited picture of a Jaunt\'s stops, its card now shows that picture, with the holder named underneath. Where none is held, the card keeps its icon.',
+      'A Jaunt you have finished shows Keepsake earned on its card.',
+      'A Jaunt you paused sits at the top of the list as a Continue card. It shows which stop you are on, out of how many, and names the next one. It is still there after you reload the page.',
+    ] },
+  { v: 1943, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'The Navigator\'s Map: tap a building, then Go', kind: 'feature',
+    items: [
+      'The Navigator has a Map. It opens close up around you, with your arrow live on it. One key shows the whole field.',
+      'Tap a building on the map to see its name, its grade and how far away it is. Then press Go to travel there the way Move says you get places.',
+      'A Jaunt under way is drawn as a dotted line through its stops, with the next stop ringed. A ride under way shows as a dashed line to where it ends.',
+      'Confidence view colours paints every building on the map Attested, Inferred or Reconstructed.',
+      'The round compass-map instrument and the M key open it.',
+    ] },
+  { v: 1942, ts: '2026-10-17T10:55:56.511Z', date: 'Oct 17, 2026, 5:55 AM CT', title: 'Inspect opens a building\'s front page in the Navigator', kind: 'feature',
+    items: [
+      'Aim at a building or tap it, then open Inspect in the Navigator: you get its front page. It has a photo where one is free to show, the address, the name, and chips for still standing, built and use.',
+      'Below them come a short summary, key facts, who lives there, things to look for, surprising facts you can swipe, and a bar showing how much is Attested, Inferred or Reconstructed.',
+      'Every fact line carries its grade dot. Glessner House reads from its own checked summary; every other building gets a plain summary built from its record.',
+      'Tap the confidence bar or Full record to open the building\'s card with its sources, pictures and Liberties, which stay there for now.',
+    ] },
+  { v: 1941, ts: '2026-10-17T10:51:21.938Z', date: 'Oct 17, 2026, 5:51 AM CT', title: 'The Keith house\'s roof vent cap stands a little taller', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the cowl vent\'s cap over the north parapet now stands 10 cm higher, as the 1888 Inland Architect photograph shows it.',
+      'One later photograph of the Glessner front shows no vent at all; it is now read as taken after the vent was removed.',
+    ] },
+  { v: 1940, ts: '2026-10-17T10:44:30.535Z', date: 'Oct 17, 2026, 5:44 AM CT', title: 'The grass shader\'s ground map agrees where grass may not grow', kind: 'fix',
+    items: [
+      'The worn river bank at the wharves now decides its bare patches in 12.5 cm squares, not point by point, so the map the grass shader will read holds exactly what the planters are told. The bank stays just as bare overall.',
+      'Wherever the streets\' cleared track crosses a square of that map, the whole square counts as cleared. The shader can no longer stand a tuft on the edge of a road.',
+      'Checked at all 22 test spots on phone and desktop: no shader-dealt tuft now stands where the town says grass cannot grow (there were 31 and 46). Plant density and the mix of species are unchanged within the reading\'s error, and keeping the map up to date costs the page no more while you walk.',
+    ] },
+  { v: 1939, ts: '2026-10-17T10:44:30.535Z', date: 'Oct 17, 2026, 5:44 AM CT', title: 'Jump between years from inside the town', kind: 'feature',
+    items: [
+      'The Navigator\'s Jump app shows all three destinations as small cards, each with its picture from the Observatory and its date. The year you are in is marked HERE.',
+      'Pick another year and the transfer ring closes over the town. That year then loads with its own year ticker and landing, just as a jump from the Observatory does.',
+      'Changed your mind? Press Escape or Abort while the ring is closing and you stay put.',
+      'RECALL takes you back to the Observatory. It is the only red key on the screen.',
+      'Tap the year in the corner of the screen to open Jump.',
+    ] },
   { v: 1938, ts: '2026-10-17T10:06:19.029Z', date: 'Oct 17, 2026, 5:06 AM CT', title: 'A tag names the building you are looking at, with a quick Inspect key', kind: 'feature',
     items: [
       'Rest the centre of your view on a building close by for a moment and a small tag appears under it, for example SAUGANASH HOTEL · 85 FT.',

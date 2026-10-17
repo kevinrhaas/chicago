@@ -96,7 +96,7 @@ try {
     console.log(`JAUNT PLAY ${viewport.width}: previous/next complete`);
     await click(page.locator('[data-action=menu]'));
     const position = await page.evaluate(() => JSON.stringify(__chicago4d.walker.state));
-    await click(page.getByRole('button', { name: 'Resume Jaunt', exact: true })); await atStop();
+    await click(page.getByRole('button', { name: 'Continue', exact: true })); await atStop(); // T-2631
     assert.equal((await state()).stopIndex, beforePause.stopIndex);
     assert.equal(await page.evaluate(() => JSON.stringify(__chicago4d.walker.state)), position);
     }

@@ -34,6 +34,7 @@
      feature own its style. walk.css stays the base and the tokens. -->
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
+<link rel="stylesheet" href="./css/inspect.css">
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
@@ -737,6 +738,8 @@
       <button type="button" class="tb-stop" id="travel-stop">Stop</button>
     </div>
     <p class="hint" id="hint"></p>
+    <!-- T-2634: Free roam's one-time tip, once per device; a tap puts it away. -->
+    <button type="button" class="roam-tip" id="roam-tip" hidden></button>
   </div>
 
   <div id="touch-layer" class="touch-layer" hidden aria-hidden="true">
