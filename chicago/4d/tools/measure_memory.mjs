@@ -308,10 +308,12 @@ function installGlMeter() {
       const bytes = typeof data === 'number' ? (srcOffset || 0) : (srcLength || data?.byteLength || 0);
       setLevel(bound2d(gl, target), `${target}:${level}`, bytes || w * h);
     });
+    // `levels` is a GLsizei, so WebGL truncates a fractional count: three passes
+    // log2(n) + 1 for a non-power-of-two image, 11.29 for a 1254 px one (T-2720).
     wrap('texStorage2D', (gl, [target, levels, internal, w, h]) => {
       const tex = bound2d(gl, target);
       const faces = target === gl.TEXTURE_CUBE_MAP ? 6 : 1;
-      for (let l = 0; l < levels; l += 1) {
+      for (let l = 0; l < Math.trunc(levels); l += 1) {
         const lw = Math.max(1, w >> l); const lh = Math.max(1, h >> l);
         setLevel(tex, `${target}:${l}`, faces * (BLOCK[internal]
           ? blocks(lw) * blocks(lh) * BLOCK[internal] : lw * lh * bpp(internal)));
@@ -323,7 +325,7 @@ function installGlMeter() {
     });
     wrap('texStorage3D', (gl, [target, levels, internal, w, h, d]) => {
       const tex = bound2d(gl, target);
-      for (let l = 0; l < levels; l += 1) {
+      for (let l = 0; l < Math.trunc(levels); l += 1) {
         setLevel(tex, `${target}:${l}`, Math.max(1, w >> l) * Math.max(1, h >> l)
           * (target === 0x8C1A ? d : Math.max(1, d >> l)) * bpp(internal));
       }
