@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1970, ts: '2026-10-17T20:03:54.849Z', date: 'Oct 17, 2026, 3:03 PM CT', title: 'The look-at tag shows, then fades', kind: 'fix',
+    items: [
+      'The tag naming the building in front of you now fades after about three seconds instead of hanging in the view. Look away and back to see it again.',
+      'Long names are no longer cut off: the tag wraps to a second line so the whole name and the distance always show, on a phone too.',
+      'The Inspect button stays while the building is in front of you, so it is still one tap away after the tag fades.',
+      'Prefer it gone? Settings › Show › Name of what you look at turns it off. It is on unless you switch it off.',
+    ] },
   { v: 1969, ts: '2026-10-17T19:59:13.656Z', date: 'Oct 17, 2026, 2:59 PM CT', title: 'A frame pacing reading you can take on your own phone', kind: 'chore',
     items: [
       'On the dev preview, Settings → Performance has a Read frame pacing button. It walks, turns and flies for about half a minute at Light, once with Frame pacing on Fixed and once on Adaptive, then puts you back where you were.',
