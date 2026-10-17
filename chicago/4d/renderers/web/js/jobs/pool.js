@@ -95,14 +95,20 @@ function runSync(kind, payload) {
  * Run the kernel `kind` on `payload`, on the least-busy worker.
  * @param {string} kind a key of kernels.js `KERNELS`
  * @param {object} payload the kernel's argument; typed arrays and plain values
- * @param {{transfer?: Transferable[]}} [o] buffers to hand over rather than copy —
- *        the caller must not read them afterwards
+ * @param {{transfer?: Transferable[], worker?: number|null}} [o] buffers to hand
+ *        over rather than copy — the caller must not read them afterwards — and
+ *        the worker a `holdOnWorker` named, for a job that reads what it holds
  * @returns {Promise<object>} the kernel's result
  */
-export function runJob(kind, payload, { transfer = [] } = {}) {
+export function runJob(kind, payload, { transfer = [], worker = null } = {}) {
   const p = start();
   if (!p) return new Promise((resolve) => resolve(runSync(kind, payload)));
-  const slot = p.workers.reduce((a, b) => (b.pending.size < a.pending.size ? b : a));
+  const slot = (worker !== null && p.workers[worker])
+    || p.workers.reduce((a, b) => (b.pending.size < a.pending.size ? b : a));
+  return post(slot, kind, payload, transfer);
+}
+
+function post(slot, kind, payload, transfer = []) {
   const id = nextId++;
   return new Promise((resolve, reject) => {
     slot.pending.set(id, { resolve, reject });
@@ -113,6 +119,25 @@ export function runJob(kind, payload, { transfer = [] } = {}) {
       reject(err);
     }
   });
+}
+
+/**
+ * Run the kernel `kind` on ONE worker, for a kernel that keeps what it is sent
+ * (zone-kernel.js `holdGround`, T-2695); the jobs that read it are then sent to
+ * the same worker with `runJob`'s `worker` option. One worker and not every one,
+ * because what is held is megabytes and every copy is a phone's memory. It is
+ * the LAST worker, which the least-busy choice reaches last, so the pool's other
+ * jobs go round it while it is answering. A worker takes its messages in order,
+ * so a job sent after this finds it held. The payload is copied, never
+ * transferred: the caller keeps reading it. On the main thread it runs here.
+ * @returns {number|null} the worker, for `runJob`; null on the main thread
+ */
+export function holdOnWorker(kind, payload) {
+  const p = start();
+  if (!p) { runSync(kind, payload); return null; }
+  const at = p.workers.length - 1;
+  post(p.workers[at], kind, payload).catch(() => {});
+  return at;
 }
 
 /** Whether jobs are going to workers — false before the first job, too. */

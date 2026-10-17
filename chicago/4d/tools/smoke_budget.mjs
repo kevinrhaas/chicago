@@ -411,6 +411,10 @@ const COVERAGE = [
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
+  // T-2695. The zone finder, moved out of flora.js so a worker can run it, and the
+  // job that answers a spread pass's slots with it: the census parts read both.
+  ['renderers/web/js/flora-zones.js', [10, 11, 12], 'which community the flora census asks at a point'],
+  ['renderers/web/js/jobs/zone-kernel.js', [10, 11, 12], 'the zone answers a spread pass brings home from the job pool'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
