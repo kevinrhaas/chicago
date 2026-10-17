@@ -17032,6 +17032,21 @@ for (const [label, viewport, touch] of [
         && !c.clipped && c.inside && c.text && !/[a-z0-9]+_[a-z0-9]+/i.test(c.text)),
       `deck ${stream.state?.deck ?? 'not loaded'}; ${inFast} inside 8 s; ${stream.shown.map((c) => `${c.year}@${c.ticker}${c.clipped ? ' CLIPPED' : ''}${c.inside ? '' : ' OUTSIDE'}`).join(', ') || 'none shown'}`);
 
+    // T-2612: the telemetry on landing. Every one of the four named lamps lit (done) on its
+    // real phases, YEARS TO GO counted down to 0, and the log shows the deck's lines with
+    // no id or snake_case in them. The old lamp names (STRUCT, SYNC) are gone.
+    const tele = await p14.evaluate(() => ({
+      lamps: [...document.querySelectorAll('#arrival-lamps li')].map((li) => ({ group: li.dataset.group, state: li.dataset.state ?? null, text: li.textContent.trim() })),
+      years: document.querySelector('#arrival-readout [data-telemetry="years"]')?.textContent ?? null,
+      log: [...document.querySelectorAll('#arrival-log li')].map((li) => li.textContent),
+      state: window.__chicago4d.telemetry?.state ?? null,
+    }));
+    check(`${label}: the arrival's four named lamps all light on their boot phases, YEARS TO GO lands on 0, the log is the deck's (T-2612)`,
+      tele.lamps.length === 4 && tele.lamps.map((l) => l.group).join() === 'streets,buildings,trees,people'
+      && tele.lamps.every((l) => l.state === 'done') && !tele.lamps.some((l) => /struct|sync/i.test(l.text))
+      && tele.years === '0' && tele.log.some((t) => t.trim()) && !tele.log.some((t) => /[a-z0-9]+_[a-z0-9]+|\//i.test(t)),
+      `${tele.lamps.map((l) => `${l.text}:${l.state ?? 'dark'}`).join(' ')}; years ${tele.years}; log ${tele.log.join(' | ')}`);
+
     const welcome = await p14.evaluate(() => {
       const gate = document.getElementById('gate');
       const bar = document.getElementById('gate-bar');

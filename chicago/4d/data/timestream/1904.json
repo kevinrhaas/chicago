@@ -113,6 +113,16 @@
       "note": "The Plan, prepared by Daniel H. Burnham and Edward H. Bennett and published by the Commercial Club in 1909: 'The Lake front by right belongs to the people' (p. 50)."
     }
   ],
+  "log": {
+    "scene": "Syncing time mesh",
+    "terrain": "Rolling back the skyline",
+    "buildings": "Raising Prairie Avenue",
+    "ground": "Paving Eighteenth Street",
+    "flora": "Planting 1904 elms",
+    "people": "Locating Glessner household",
+    "interaction": "Arming the Navigator"
+  },
+  "log_note": "The arrival log's lines (T-2612, design doc section 05 'Telemetry: semi-real, on purpose'): one per boot phase, shown in mono caps while the phase runs and marked OK when it ends. They are machine lore in the Navigator's voice, not findings, and claim nothing a source has to carry; where a line names the place (the 1904 elms, the Sauganash Hotel, the fort's pickets) it names what the scene itself draws.",
   "held_back": [],
   "held_back_note": "The ticker on the way to 1904 passes no year of the 1833 treaty or the 1835 removal. No caption in any deck speaks of Native people, the 1833 Treaty of Chicago or the removal of the Potawatomi. Under the standing constraint in AGENTS.md (1835 and Indigenous history), a line about the removal would need the review_required and touches_removal flags and the review by Native scholars or community organisations, and a two-second caption in transit is not where that history should first be told. So the years whose landmark is the treaty or the removal are held back from the deck rather than captioned with something smaller, which would pass over them in silence."
 }
