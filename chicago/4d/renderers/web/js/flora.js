@@ -57,6 +57,9 @@ import { zoneFinder, heldGround, groundZones, waterDistance, ZONE_UNASKED } from
 import { GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP, GROUND_UNASKED, VERGE_CELL_M,
   VERGE_KEEP_SHARE, vergeBand, footprintCircles, circleGrid, onFloor, groundAnswers } from './flora-ground.js';
 import { vergeRecords } from './street-verge.js';
+// T-2707: the near field tile kept a strip at a time, its strips asked of the pool.
+import { FIELD_UNASKED, fieldKeeper } from './near-field.js';
+import { FIELD_TABLE_TURF, FIELD_TABLE_CEILING } from './jobs/zone-kernel.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
@@ -2346,6 +2349,55 @@ export async function createFlora({
       build(camE, camN, spec = FIELD_SPEC) {
         const { e0, n0 } = fieldOrigin(camE, camN, spec);
         return buildField(this.at, e0, n0, spec);
+      },
+      /**
+       * T-2707. The tile kept around a walker (near-field.js `fieldKeeper`): a
+       * re-centre re-rasterises only the strip it exposes, and the pool's worker
+       * that holds the zones' ground answers it (jobs/zone-kernel.js
+       * `fieldRect`), so the page adds only `growthBlocked` — the streets' track,
+       * the yards, the ground strip and the worked bank, which live here — and
+       * asks `at` whole for a texel the worker could not answer. `pool: false`
+       * asks every texel here, for the tool's before.
+       */
+      keeper({ spec = FIELD_SPEC, pool = true } = {}) {
+        const at = this.at;
+        const table = new Uint8Array(zones.length + 1);
+        zones.forEach((z, i) => {
+          table[i + 1] = (z.turf ? FIELD_TABLE_TURF : 0) | (z.turfCeiling ? FIELD_TABLE_CEILING : 0);
+        });
+        const o = [0, 0, 0];
+        const keeper = fieldKeeper({
+          spec,
+          ask: (r, e0, n0, texel) => (pool && groundKey
+            ? runJob('fieldRect', { ground: groundKey, e0, n0, texel, ...r, table },
+              { worker: groundWorker })
+            : null),
+          finish(got, { i0, j0, w, h }, e0, n0, texel, cls, height) {
+            if (got) keeper.stats.pooled += w * h;
+            for (let j = 0; j < h; j++) {
+              const n = n0 + (j0 + j + 0.5) * texel;
+              for (let i = 0; i < w; i++) {
+                const e = e0 + (i0 + i + 0.5) * texel;
+                const k = j * w + i;
+                const f = got ? got.flags[k] : FIELD_UNASKED;
+                if (f === FIELD_UNASKED) {
+                  if (got) keeper.stats.unasked++;
+                  at(e, n, o);
+                  cls[2 * k] = o[0]; cls[2 * k + 1] = o[1]; height[k] = o[2];
+                  continue;
+                }
+                cls[2 * k] = got.zone[k];
+                cls[2 * k + 1] = !(f & FIELD_FLAGS.BLOCKED) && growthBlocked(e, n)
+                  ? f | FIELD_FLAGS.BLOCKED : f;
+                height[k] = got.y[k];
+              }
+            }
+          },
+        });
+        // Texels the pool answered, and of those the ones it handed back to `at`.
+        keeper.stats.pooled = 0;
+        keeper.stats.unasked = 0;
+        return keeper;
       },
       slots(camE, camN) {
         const out = [];

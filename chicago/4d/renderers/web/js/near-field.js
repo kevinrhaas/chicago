@@ -38,6 +38,14 @@
  * near ring's whole lattice (7.6 m at `full`) inside the tile from anywhere in
  * the re-centre cell: half the tile less half a step is 12 m.
  *
+ * TOROIDAL (T-2707). The keeper below holds ONE tile and, on a re-centre,
+ * re-rasterises only the strip the step exposes — a quarter of the tile for an
+ * 8 m step along one axis, 7/16 on a diagonal — writing it where the strip that
+ * fell off the far side stood. A texel's place in the arrays is its WORLD texel
+ * index modulo `size`, so a tile is its origin plus that wrap (`fieldWrap`), and
+ * `sampleField` and `FIELD_GLSL` add the wrap before they index. A tile built
+ * whole by `buildField` has a wrap of zero, and reads exactly as it did.
+ *
  * Nothing here imports three.js, for the reason `turf-tile.js` gives: the tool
  * builds and samples the tile from the same code the page uploads.
  */
@@ -56,7 +64,8 @@
  *
  * THE BUILD IS THE COST: about 0.4 s a tile on the runner, ~50 ms per metre
  * walked against the near re-deal's 2-9 ms. It cannot be built on the main
- * thread as it is — it wants the job pool and a strip at a time.
+ * thread as it is — it wants the job pool and a strip at a time, which is what
+ * `fieldKeeper` does (T-2707).
  */
 export const FIELD_SPEC = Object.freeze({ texel: 0.125, size: 256, recentre: 8 });
 
@@ -116,12 +125,15 @@ export function buildField(at, e0, n0, spec = FIELD_SPEC) {
  */
 export function sampleField(tile, e, n, out = [0, 0, 0]) {
   const { e0, n0, texel, size, cls, height } = tile;
+  // T-2707: where a tile's local texel (0, 0) stands in its arrays.
+  const wi = tile.wi ?? 0, wj = tile.wj ?? 0;
   const fx = (e - e0) / texel;
   const fy = (n - n0) / texel;
   const i = Math.floor(fx);
   const j = Math.floor(fy);
   if (i < 0 || j < 0 || i >= size || j >= size) return null;
-  const k = j * size + i;
+  const at = (a, b) => ((b + wj) % size) * size + (a + wi) % size;
+  const k = at(i, j);
   out[0] = cls[2 * k];
   out[1] = cls[2 * k + 1];
   const gx = fx - 0.5, gy = fy - 0.5;
@@ -131,8 +143,8 @@ export function sampleField(tile, e, n, out = [0, 0, 0]) {
   const j1 = Math.min(j0 + 1, size - 1);
   const tx = Math.min(Math.max(gx - Math.floor(gx), 0), 1);
   const ty = Math.min(Math.max(gy - Math.floor(gy), 0), 1);
-  const h0 = height[j0 * size + i0] * (1 - tx) + height[j0 * size + i1] * tx;
-  const h1 = height[j1 * size + i0] * (1 - tx) + height[j1 * size + i1] * tx;
+  const h0 = height[at(i0, j0)] * (1 - tx) + height[at(i1, j0)] * tx;
+  const h1 = height[at(i0, j1)] * (1 - tx) + height[at(i1, j1)] * tx;
   out[2] = h0 * (1 - ty) + h1 * ty;
   return out;
 }
@@ -140,8 +152,10 @@ export function sampleField(tile, e, n, out = [0, 0, 0]) {
 /**
  * The shader's half (GLSL ES 3.00). `en` is a point in the town's (east, north)
  * metres — world x and -z. The uniforms are the tile's origin, its texel in
- * metres and its size in texels; `uFieldClass` is the RG8UI texture and
- * `uFieldHeight` the R32F one, both uploaded with `NearestFilter`. The near
+ * metres and its size in texels, and `uFieldWrap` where its local texel (0, 0)
+ * stands in the textures (T-2707: zero for a tile built whole, `fieldWrap` for
+ * a kept one); `uFieldClass` is the RG8UI texture and `uFieldHeight` the R32F
+ * one, both uploaded with `NearestFilter`. The near
  * grass material (T-2699) includes this chunk; `measure_near_field.mjs` reads
  * it back through the GPU against `sampleField` and the CPU's own answers.
  */
@@ -151,11 +165,14 @@ uniform highp sampler2D uFieldHeight;
 uniform vec2 uFieldOrigin;
 uniform float uFieldTexel;
 uniform int uFieldSize;
+uniform ivec2 uFieldWrap;
+
+ivec2 fieldWrapped(ivec2 t) { return (t + uFieldWrap) % uFieldSize; }
 
 uvec2 fieldClass(vec2 en) {
   ivec2 t = ivec2(floor((en - uFieldOrigin) / uFieldTexel));
   t = clamp(t, ivec2(0), ivec2(uFieldSize - 1));
-  return texelFetch(uFieldClass, t, 0).rg;
+  return texelFetch(uFieldClass, fieldWrapped(t), 0).rg;
 }
 
 float fieldHeight(vec2 en) {
@@ -163,10 +180,161 @@ float fieldHeight(vec2 en) {
   vec2 f = clamp(g - floor(g), 0.0, 1.0);
   ivec2 a = clamp(ivec2(floor(g)), ivec2(0), ivec2(uFieldSize - 1));
   ivec2 b = min(a + 1, ivec2(uFieldSize - 1));
-  float h00 = texelFetch(uFieldHeight, a, 0).r;
-  float h10 = texelFetch(uFieldHeight, ivec2(b.x, a.y), 0).r;
-  float h01 = texelFetch(uFieldHeight, ivec2(a.x, b.y), 0).r;
-  float h11 = texelFetch(uFieldHeight, b, 0).r;
+  float h00 = texelFetch(uFieldHeight, fieldWrapped(a), 0).r;
+  float h10 = texelFetch(uFieldHeight, fieldWrapped(ivec2(b.x, a.y)), 0).r;
+  float h01 = texelFetch(uFieldHeight, fieldWrapped(ivec2(a.x, b.y)), 0).r;
+  float h11 = texelFetch(uFieldHeight, fieldWrapped(b), 0).r;
   return mix(mix(h00, h10, f.x), mix(h01, h11, f.x), f.y);
 }
 `;
+
+/** T-2707. A texel the pool did not answer (off the measured grid, or no
+ *  ground held there): the page asks `at` for it, so a missing answer costs
+ *  time and never a different texel. */
+export const FIELD_UNASKED = 255;
+
+/** Where a tile at origin (`e0`, `n0`) keeps its local texel (0, 0): its world
+ *  texel index modulo `size`, so every tile over a point keeps it in one place. */
+export function fieldWrap(e0, n0, spec = FIELD_SPEC) {
+  const m = (v) => ((Math.round(v / spec.texel) % spec.size) + spec.size) % spec.size;
+  return { wi: m(e0), wj: m(n0) };
+}
+
+/**
+ * The texels a tile at (`e0`, `n0`) has that `prev` does not, as rectangles in
+ * the new tile's local texels: the columns the step east or west exposed, then
+ * the rows north or south of them less those columns. The whole tile when
+ * there is no `prev` or the step is a tile or more.
+ */
+export function exposedRects(prev, e0, n0, spec = FIELD_SPEC) {
+  const { texel, size } = spec;
+  const whole = [{ i0: 0, j0: 0, w: size, h: size }];
+  if (!prev || prev.texel !== texel || prev.size !== size) return whole;
+  const di = Math.round((e0 - prev.e0) / texel);
+  const dj = Math.round((n0 - prev.n0) / texel);
+  if (Math.abs(di) >= size || Math.abs(dj) >= size) return whole;
+  const rects = [];
+  const cw = Math.abs(di);
+  if (cw) rects.push({ i0: di > 0 ? size - cw : 0, j0: 0, w: cw, h: size });
+  if (dj) rects.push({ i0: di > 0 ? 0 : cw, j0: dj > 0 ? size - dj : 0, w: size - cw, h: Math.abs(dj) });
+  return rects;
+}
+
+/** A tile-local rectangle as the rectangles of the arrays it lands in once
+ *  wrapped (one to four), for an upload that sends only what changed. */
+export function storageRects(r, wi, wj, size) {
+  const cut = (a0, len) => {
+    const s = a0 % size;
+    return s + len <= size ? [[s, len]] : [[s, size - s], [0, s + len - size]];
+  };
+  const out = [];
+  for (const [y, h] of cut((r.j0 + wj) % size, r.h)) {
+    for (const [x, w] of cut((r.i0 + wi) % size, r.w)) out.push({ x, y, w, h });
+  }
+  return out;
+}
+
+/**
+ * T-2707 — THE TILE KEPT AROUND A WALKER, a strip at a time.
+ *
+ * `ask(rect, e0, n0, texel)` starts the answers for one tile-local rectangle of
+ * the tile at (e0, n0) and resolves with whatever it got (the pool's reply, or
+ * null); `finish(got, rect, e0, n0, texel, cls, height)` then fills the rect's
+ * own arrays — `cls` two bytes and `height` one float a texel, row by row
+ * northward — on the main thread, from `got` and from whatever only the main
+ * thread can answer. A texel's centre is always `e0 + (i0 + i + 0.5) * texel`
+ * from the TILE's origin, as `buildField` places it, so a kept tile and a built
+ * one ask the same points.
+ *
+ * `update(camE, camN)` is cheap when the origin has not moved. When it has, the
+ * rects the step exposed are asked, and the tile moves to its new origin only
+ * when every one has come home and been written over the strip that fell off:
+ * until then `tile` is the old one, which still covers the near lattice for the
+ * 4 m past the re-centre line (half the tile less half a step, against 7.6 m of
+ * lattice). One re-centre is in flight at a time; a step taken meanwhile is
+ * queued, and only the latest one is kept.
+ *
+ * `stats.mainMs` is the main thread's share — `update`, the asks being sent,
+ * and the finishes and the writes — and nothing the pool spent; `changed` is
+ * where the last re-centre wrote, in the arrays' own texels (`storageRects`).
+ */
+export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => performance.now() }) {
+  const { texel, size } = spec;
+  const cls = new Uint8Array(size * size * 2);
+  const height = new Float32Array(size * size);
+  let tile = null;
+  let target = null;
+  let want = null;
+  let pending = null;
+  let waiters = [];
+  const stats = { mainMs: 0, finishMs: 0, recentres: 0, texels: 0, whole: 0, lastMs: 0 };
+  const keeper = { stats, spec, changed: [],
+    get tile() { return tile; },
+    update(camE, camN) {
+      const t0 = now();
+      const o = fieldOrigin(camE, camN, spec);
+      const at = target ?? tile;
+      if (!at || at.e0 !== o.e0 || at.n0 !== o.n0) {
+        want = o;
+        if (!pending) start();
+      } else want = null;
+      stats.mainMs += now() - t0;
+      return tile;
+    },
+    /** Resolves when nothing is in flight (the tool's walk waits on it). */
+    settled() {
+      return pending ? new Promise((r) => waiters.push(r)) : Promise.resolve(tile);
+    },
+  };
+  function start() {
+    const o = want;
+    want = null;
+    target = o;
+    const rects = exposedRects(tile, o.e0, o.n0, spec);
+    const asked = rects.map((r) => Promise.resolve(ask(r, o.e0, o.n0, texel)).catch(() => null));
+    pending = Promise.all(asked).then((gots) => land(o, rects, gots));
+  }
+  function land(o, rects, gots) {
+    const t0 = now();
+    const { wi, wj } = fieldWrap(o.e0, o.n0, spec);
+    const changed = [];
+    let texels = 0;
+    for (let r = 0; r < rects.length; r++) {
+      const { i0, j0, w, h } = rects[r];
+      const rc = new Uint8Array(w * h * 2);
+      const rh = new Float32Array(w * h);
+      const f0 = now();
+      finish(gots[r], rects[r], o.e0, o.n0, texel, rc, rh);
+      stats.finishMs += now() - f0;
+      for (let j = 0; j < h; j++) {
+        const row = ((j0 + j + wj) % size) * size;
+        for (let i = 0; i < w; i++) {
+          const k = row + (i0 + i + wi) % size;
+          const q = j * w + i;
+          cls[2 * k] = rc[2 * q];
+          cls[2 * k + 1] = rc[2 * q + 1];
+          height[k] = rh[q];
+        }
+      }
+      texels += w * h;
+      changed.push(...storageRects(rects[r], wi, wj, size));
+    }
+    tile = { e0: o.e0, n0: o.n0, wi, wj, texel, size, cls, height };
+    keeper.changed = changed;
+    stats.recentres++;
+    stats.texels += texels;
+    if (texels === size * size) stats.whole++;
+    target = null;
+    pending = null;
+    if (want && (want.e0 !== o.e0 || want.n0 !== o.n0)) start();
+    else want = null;
+    stats.lastMs = now() - t0;
+    stats.mainMs += stats.lastMs;
+    if (!pending) {
+      const w = waiters;
+      waiters = [];
+      for (const r of w) r(tile);
+    }
+  }
+  return keeper;
+}
