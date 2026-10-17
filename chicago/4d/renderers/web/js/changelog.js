@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1956, ts: '2026-10-17T14:13:04.325Z', date: 'Oct 17, 2026, 9:13 AM CT', title: 'Comfort settings under Move', kind: 'feature',
+    items: [
+      'Move now has a Comfort section. It holds the horse\'s head bob, your eye height and a new snap-turn option.',
+      'Eye height has moved here from Settings. It still starts at 1.68 m, the period figure, and still explains why under Why this default.',
+      'Snap-turn is new and off unless you turn it on. When you drag to look on a touch screen, the view turns in 30° steps instead of sweeping, which many people find easier on the stomach.',
+    ] },
   { v: 1955, ts: '2026-10-17T13:37:53.773Z', date: 'Oct 17, 2026, 8:37 AM CT', title: 'The Navigator gets a ticking telemetry strip', kind: 'feature',
     items: [
       'A thin phosphor strip now runs along the foot of the open Navigator: FIELD, DRIFT and SIG readouts and a RECALL lamp, ticking every 800 ms like the Observatory\'s console at the front door. It runs on the same numbers and the same drift events.',
