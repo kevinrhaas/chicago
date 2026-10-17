@@ -3078,7 +3078,7 @@ async function boot() {
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); },
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
@@ -3918,6 +3918,8 @@ async function boot() {
     // T-2632: each Go to row's distance and bearing, from where the visitor stands.
     visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
     units: () => hud.settings.units,
+    // T-2633: Go to dims the grades the Confidence view is hiding.
+    hiddenGrades: () => hud.hiddenLevels,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: () => openJauntList(),
     // T-2630: the Navigator's Jaunts app hands back what it borrowed before the card shows.
