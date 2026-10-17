@@ -97,6 +97,7 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
+import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { markTerms } from './term-tips.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
@@ -1501,6 +1502,8 @@ const bootForecast = createForecast({ ...bootCell, boot: bootController,
 bootController.forecast = bootForecast;
 // T-2613: one journey for the page — time-stream › landing › landed › exploring …
 const journey = createJourney();
+// T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
+const navLink = parseNavLink(location.search);
 api.journey = journey;
 // Back to the Observatory is the journey's recall, from wherever the link sits.
 gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
@@ -2954,7 +2957,11 @@ async function boot() {
   api.loadLiberties = ensureLiberties;
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
+    // T-2626: the round instrument opens the Map app (its stub opens the whole field).
+    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
   });
+  // T-2626: the year chip opens the Jump app.
+  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
 
   // The people directory, compiled by tools/compile_scene.py compile_people from
   // data/residents/ — one row per person, so the Go to list can offer a person
@@ -3886,6 +3893,8 @@ async function boot() {
           jauntEntering = true;
           try {
             const ok = api.welcome.state === 'world' || (resume ? api.welcome.close() : api.welcome.enter(target.kind, target.id));
+            // T-2630: a Jaunt started from the Navigator's Jaunts app pockets the device.
+            if (ok) navigatorUi?.dock();
             return ok;
           } finally { jauntEntering = false; }
         },
@@ -3906,19 +3915,24 @@ async function boot() {
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
   api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
+  // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
+  // app (T-2630), which shows the same list wherever it is.
+  async function openJauntList() {
+    const root = document.getElementById('welcome-jaunts-content');
+    try {
+      root.setAttribute('aria-busy', 'true');
+      await ensureJaunts();
+      if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
+      await jauntPreview.open(jauntReturnId); jauntReturnId = null;
+    } catch {
+      root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
+    } finally { root.removeAttribute('aria-busy'); }
+  }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
-    onJaunts: async () => {
-      const root = document.getElementById('welcome-jaunts-content');
-      try {
-        root.setAttribute('aria-busy', 'true');
-        await ensureJaunts();
-        if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
-        await jauntPreview.open(jauntReturnId); jauntReturnId = null;
-      } catch {
-        root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
-      } finally { root.removeAttribute('aria-busy'); }
-    },
+    onJaunts: () => openJauntList(),
+    // T-2630: the Navigator's Jaunts app hands back what it borrowed before the card shows.
+    onShow: () => api.jauntsApp?.restore(),
     // T-2613: into the town is the journey's next state — on a Jaunt, or exploring.
     enter: target => { const ok = enterWorld({ spawn: target }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
     resume: () => { const ok = enterWorld({ resume: true }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
@@ -3986,6 +4000,10 @@ async function boot() {
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
     onInspect: (id) => pick(id),
+    // T-2622: its keys wait for the arrival to close, and Escape goes to the drawer or a
+    // building card first when one is open.
+    keysActive: () => !gateOpen,
+    escFree: () => (document.getElementById('panel')?.hidden ?? true) && !popup.openId,
     // T-2618: the rail's apps (js/apps/), and what they read the page through. An app
     // takes what it needs from `ctx` — the api object included — and never imports main.js.
     apps: NAVIGATOR_APPS,
@@ -4010,6 +4028,10 @@ async function boot() {
         openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
         inspect: (id) => (id ? pick(id) : pick()),
         jaunts: () => { api.welcome.show(); api.welcome.enter('jaunts'); },
+        // T-2630: what the Navigator's Jaunts app asks of the page.
+        jauntList: () => openJauntList(),
+        gotoList: () => api.welcome.refresh?.(),
+        freeRoam: () => navigatorUi?.dock(),
         map: () => navigation.setFullVisible(true),
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
@@ -4027,6 +4049,36 @@ async function boot() {
   // Confidence view, and the Evidence hub's Liberties (the arrival's intro marks its own).
   markTerms(document.getElementById('nav-home'));
   markTerms(document.querySelector('.ev-topic[data-topic="liberties"] .ev-topic-title'));
+  // T-2630 (§04 E, §07): the Navigator Home's three choices open the Jaunts app on their
+  // segment — Jaunts, Go to, Free roam — as the Welcome card's three do on the arrival.
+  api.openJaunts = async (segment = 'jaunts') => {
+    const ok = await navigatorUi?.select('jaunts');
+    if (ok) api.jauntsApp?.segment(segment, { by: 'hand' });
+    return !!ok;
+  };
+  for (const choice of document.querySelectorAll('#nav-home [data-segment]')) {
+    choice.addEventListener('click', () => { void api.openJaunts(choice.dataset.segment); });
+  }
+  // T-2621: Back closes the Navigator before it leaves the page (nav-link.js), and a deep
+  // link (?nav=app[:id]&tab=) opens its app once the landing is over. A link to an app the
+  // rail does not have, or to a building this scene does not hold, is dropped quietly.
+  api.navHistory = createNavHistory({ nav: navigatorUi });
+  if (navLink && navigatorUi?.has(navLink.app)) {
+    const link = navLink.app === 'inspect' && navLink.id && !loaded.registry.has(navLink.id)
+      ? null : navLink;
+    const open = () => {
+      if (!link) return;
+      // Jaunts opens on the arrival device itself; every other app is in the town, so the
+      // visitor is set down at the spawn (as Free roam does) and the device opens on it.
+      if (link.app !== 'jaunts' && api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+      void navigatorUi.openLink(link);
+      api.navLinkOpened = link;
+    };
+    if (journey.state === 'landed' || journey.state === 'exploring') open();
+    else {
+      const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } });
+    }
+  }
 
   // ---- resize ----------------------------------------------------------- //
 

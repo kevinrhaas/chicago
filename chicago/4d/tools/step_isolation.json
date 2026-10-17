@@ -5550,6 +5550,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_nav_jaunts.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_link.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_navigator.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5599,6 +5607,10 @@
       "wrote_ignored": []
     },
     "tools/test_pr_stuck.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_prebuilt_index.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

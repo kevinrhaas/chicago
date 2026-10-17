@@ -1,4 +1,46 @@
 export const CHANGELOG = [ // newest first
+  { v: 1936, ts: '2026-10-17T09:05:27.224Z', date: 'Oct 17, 2026, 4:05 AM CT', title: 'The Navigator gets its Jaunts app: Jaunts, Go to, Free roam', kind: 'feature',
+    items: [
+      'The Navigator\'s Home now offers the same three choices as the arrival: Take a Jaunt, Go to and Free roam.',
+      'Each choice opens the new Jaunts app on its own tab: Jaunts, Go to or Free roam. The Jaunts icon on the rail opens it too.',
+      'Jaunts lists the guided outings, and starting one tucks the Navigator away. Go to is the same search as on arrival, and picking a place takes you there.',
+      'Free roam pockets the Navigator so you can wander.',
+      'The arrival card keeps its three choices, and its lists are the same ones you see in the Navigator.',
+    ] },
+  { v: 1935, ts: '2026-10-17T09:05:27.224Z', date: 'Oct 17, 2026, 4:05 AM CT', title: 'One set of words across the arrival, the menu and the Navigator', kind: 'feature',
+    items: [
+      'The menu\'s sections have new names: Travel is now Move, Firms is now Shops & work, Evidence is now Sources and Controls is now Guide.',
+      'A building\'s card follows suit. Its Evidence tab and its Citations list are both called Sources now, and a house that changed use shows Stood here and Today in place of Modeled phase and Present status.',
+      'The front door and its manual say destination where they used to say coordinate: three destinations online, Destinations on file, All destinations.',
+      'A person\'s card now names the grade the way the rest of the town does (Attested, not attested), and an empty source field reads Unknown.',
+      'Behind the scenes every word on the arrival, the menu and the Navigator now comes from one table, checked so the seven key terms are always spelled the same way.',
+    ] },
+  { v: 1934, ts: '2026-10-17T09:05:27.224Z', date: 'Oct 17, 2026, 4:05 AM CT', title: 'No more missing-file error in 1904 and 1812', kind: 'fix',
+    items: [
+      'The page now asks for a prepared ground or base only for the years that have one, so 1904 and 1812 no longer log a missing file on arrival; they cut their own ground as before.',
+    ] },
+  { v: 1933, ts: '2026-10-17T09:05:27.224Z', date: 'Oct 17, 2026, 4:05 AM CT', title: 'An amber year chip and a round compass-map instrument', kind: 'feature',
+    items: [
+      'The date at the top left is now an amber LED chip, 1835 · 07.01. Tap it to open Jump in the Navigator.',
+      'The compass and the mini map have become one round instrument at the top right. The map sits inside a compass ring, and an amber tick on the ring turns with you.',
+      'Your heading in degrees sits under the instrument, for example S 180°. Tap the instrument to open the whole map.',
+      'It looks right in all four machine skins, on phones and on computers.',
+    ] },
+  { v: 1932, ts: '2026-10-17T09:05:27.224Z', date: 'Oct 17, 2026, 4:05 AM CT', title: 'Share a Navigator screen by link; Back closes the app first', kind: 'feature',
+    items: [
+      'A link can now open a Navigator app for you after you land. Share a year\'s address with the Map, Jaunts or Jump named in it, and that screen is waiting when the jump ends.',
+      'A link can name a building too, and that building\'s card opens once you arrive. It can name a tab as well, for when the building pages arrive.',
+      'A link to an app or building that is not there simply opens the town.',
+      'With the Navigator open, the browser\'s Back button closes it and keeps you in the town. Press Back again to leave the page as before.',
+    ] },
+  { v: 1931, ts: '2026-10-17T08:12:18.449Z', date: 'Oct 17, 2026, 3:12 AM CT', title: 'The Navigator works from the keyboard', kind: 'feature',
+    items: [
+      'Press N to open or close the Navigator. Tab from the scene opens it too.',
+      'Press 1 to 9 to open the app at that place on the Navigator\'s rail. Escape closes the device.',
+      'Arrow keys move along the rail and Enter opens the app you are on. Focus jumps into the app\'s screen and always shows a clear outline.',
+      'When the Navigator closes, focus lands on its handle, so you are never left lost. Screen readers now hear the rail as a set of tabs, each named.',
+      'N used to open What\'s new. That now lives under Settings, or press H.',
+    ] },
   { v: 1930, ts: '2026-10-17T07:53:11.899Z', date: 'Oct 17, 2026, 2:53 AM CT', title: 'The near grass\'s planting rules now have a graphics-card version', kind: 'chore',
     items: [
       'Nothing you can see changed. The rules that decide which grass grows at each spot near you, and how tall, wide and green it is, now have a graphics-card version too. It is the next step toward drawing the near grass without the phone\'s processor laying it out at every step.',
