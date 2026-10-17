@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1912, ts: '2026-10-17T03:20:12.396Z', date: 'Oct 16, 2026, 10:20 PM CT', title: 'You land straight on the Navigator\'s Home, with no Tap to enter', kind: 'feature',
+    items: [
+      'When the town is ready the last digit drops into place, the digits turn green and the small line reads ARRIVED · 1904.07.01.',
+      'A quick ARRIVED flash, then the device turns over to its Home, and the town behind it comes into focus.',
+      'Home offers three choices: Take a Jaunt, Go to… and Free roam.',
+      'Tap to enter is gone. If the jump stalls, the same spot shows TRY AGAIN.',
+      'With reduced motion the device crossfades instead of turning, and screen readers hear "Arrived: Prairie Avenue, 1 July 1904" (or the 1835 and 1812 lines).',
+    ] },
   { v: 1911, ts: '2026-10-17T03:17:35.486Z', date: 'Oct 16, 2026, 10:17 PM CT', title: 'Every caption and summary is checked for an 8th-grade reading level', kind: 'chore',
     items: [
       'Every building summary, fact, time-stream caption and tour bubble is now scored for reading level before it can ship. Copy must read at grade 9 or easier, with no sentence over 20 words, and tour bubbles stay at 14 words or fewer.',
