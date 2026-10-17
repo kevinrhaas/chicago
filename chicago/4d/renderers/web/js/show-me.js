@@ -114,7 +114,8 @@ export function createShowMe({
   pose,                       // () => { e, n, yaw, pitch, flying }
   place,                      // ({ e, n, yaw, pitch }) => void — set the walker there
   land = () => {},            // leave free-fly (a viewpoint is on the ground)
-  outline = () => {},         // ({ on, pulse }) => void — the outline on the building
+  outline = () => {},         // ({ on, pulse }) => void | Promise — the outline on the building;
+                              // a promise resolves once it is drawn, and the 2 s run from then
   reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
   frame = (fn) => globalThis.requestAnimationFrame?.(fn) ?? globalThis.setTimeout(() => fn(now()), 16),
   wait = (fn, ms) => globalThis.setTimeout(fn, ms),
@@ -127,9 +128,11 @@ export function createShowMe({
     if (id !== run) return;
     place(target);
     const pulse = !reduced();
-    outline({ on: true, pulse });
+    // The 2 s are counted from when the outline is drawn, not from when it was asked for: on
+    // a slow machine the frame that draws it can come late, and must not find it already off.
+    const drawn = outline({ on: true, pulse });
     last = { ...target, at: now(), cut: !pulse };
-    wait(() => { if (id === run) outline({ on: false, pulse: false }); }, PULSE_MS);
+    Promise.resolve(drawn).then(() => wait(() => { if (id === run) outline({ on: false, pulse: false }); }, PULSE_MS));
     resolve(true);
   }
 
@@ -137,6 +140,8 @@ export function createShowMe({
   function show(target) {
     const id = ++run;
     if (!target) return Promise.resolve(false);
+    // A new Show me puts away the last one's outline at once, so what shows is this one's.
+    outline({ on: false, pulse: false });
     return new Promise((resolve) => {
       const start = pose();
       // A viewpoint is on the ground: leave free-fly first, then turn from where you are.

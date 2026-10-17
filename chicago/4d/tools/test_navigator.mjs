@@ -720,6 +720,21 @@ for (const phone of [true, false]) {
     assert.equal(run.last.cut, reduced);
   }
   assert.equal(await sm.createShowMe({ pose: () => ({}), place: () => {} }).show(null), false, 'no plan, nothing moves');
+  // The 2 s count from when the outline is drawn (a slow frame must not find it already
+  // off), and a new Show me puts the last outline away first.
+  {
+    let drawnNow = null;
+    const seen = [], waits = [];
+    const late = sm.createShowMe({ pose: () => ({ e: 0, n: 0, yaw: 0, pitch: 0 }), place: () => {}, reduced: () => true,
+      outline: (o) => { seen.push(o); return o.on ? new Promise((r) => { drawnNow = r; }) : undefined; },
+      wait: (fn, ms) => waits.push({ fn, ms }) });
+    await late.show(sm.plan(glessner.lookFor[0], house));
+    assert.deepEqual(seen[0], { on: false, pulse: false }, 'the last outline is put away first');
+    await Promise.resolve();
+    assert.equal(waits.length, 0, 'no 2 s countdown before the outline is drawn');
+    drawnNow(); await Promise.resolve(); await Promise.resolve();
+    assert.equal(waits.length, 1); assert.equal(waits[0].ms, sm.PULSE_MS, 'it starts when the outline is drawn');
+  }
 
   // Inspect draws Show me only on Look for items whose record names a camera.
   const view = fs.readFileSync(path.join(ROOT, 'renderers/web/js/apps/inspect-view.js'), 'utf8');

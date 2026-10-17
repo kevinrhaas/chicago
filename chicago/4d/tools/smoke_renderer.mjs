@@ -17396,7 +17396,9 @@ for (const [label, viewport, touch] of [
             const before = a.showMe.last?.at ?? -1;
             btn.click();
             for (let k = 0; k < 80 && (a.showMe.last?.at ?? -1) === before; k++) await new Promise((r) => setTimeout(r, 100));
-            await new Promise((r) => setTimeout(r, 400));
+            // The outline is drawn on the frame after the camera lands (two animation frames), and
+            // a frame can take seconds on a loaded runner: wait for it, up to about 5 s.
+            for (let k = 0; k < 50 && document.getElementById('show-me-outline').hidden; k++) await new Promise((r) => setTimeout(r, 100));
             a.target.invalidate();
             const t = a.target.current(150);
             const outline = document.getElementById('show-me-outline');

@@ -4075,7 +4075,7 @@ async function boot() {
   // T-2640 (§08 "Look for", §13): Show me stands you outside the building on the line its
   // record's camera looks along, faces that bearing, and pulses an outline on the building.
   const showMeOutline = document.getElementById('show-me-outline');
-  let showMeId = null;
+  let showMeId = null, showMeOutlineGen = 0;
   function paintShowMeOutline() {
     const fp = footprints.find((f) => f.id === showMeId);
     if (!showMeOutline || !fp) return false;
@@ -4102,15 +4102,19 @@ async function boot() {
     pose: () => ({ e: walker.state.e, n: walker.state.n, yaw: walker.bearingDeg, pitch: walker.state.pitch * 180 / Math.PI, flying: hud.flying }),
     place: ({ e, n, yaw, pitch }) => walker.teleport({ local_e: e, local_n: n, yaw_deg: yaw, pitch_deg: pitch }),
     land: () => hud.setFly(false, { announce: false }),
+    // Drawn once the camera has drawn the frame it moved to (two animation frames); resolves
+    // then, so show-me.js counts the 2 s from there. A later call supersedes a pending draw.
     outline: ({ on, pulse }) => {
-      if (!showMeOutline) return;
-      if (!on) { showMeOutline.hidden = true; showMeOutline.classList.remove('is-pulsing'); return; }
-      // Drawn once the camera has drawn the frame it moved to.
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        if (!paintShowMeOutline()) return;
-        showMeOutline.hidden = false;
-        showMeOutline.classList.toggle('is-pulsing', !!pulse);
-      }));
+      const gen = ++showMeOutlineGen;
+      if (!showMeOutline) return undefined;
+      if (!on) { showMeOutline.hidden = true; showMeOutline.classList.remove('is-pulsing'); return undefined; }
+      return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (gen === showMeOutlineGen && paintShowMeOutline()) {
+          showMeOutline.hidden = false;
+          showMeOutline.classList.toggle('is-pulsing', !!pulse);
+        }
+        resolve();
+      })));
     },
   });
   function showMeFor(id, item) {
