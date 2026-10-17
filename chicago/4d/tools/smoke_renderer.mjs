@@ -11867,22 +11867,35 @@ for (const [label, viewport, touch] of [
     const swardAt = await swardStation();
     const rootLayer = await page.evaluate((st) => {
       const a = window.__chicago4d;
-      const out = { rootedPlants: 0, worstPlantRoot: 0 };
+      const out = { rootedPlants: 0, worstPlantRoot: 0, gpuRoots: 0, worstTileGround: 0 };
       if (!st) return out;
       a.walker.teleport({ local_e: st.e, local_n: st.n, yaw_deg: 180 });
       for (let i = 0; i < 3; i++) a.step();
       const waterY = a.terrain.heightfield?.meta?.water_surface_m ?? 0;
+      // T-2716: where the GPU draws the near ring (`flora.nearDraw`), its tufts
+      // root on the kept field tile's ground — the terrain asked at the tile's
+      // 0.125 m texel centres and blended between them — which is what they are
+      // held to here, at the same 1e-5 m. How far that ground stands from the
+      // terrain's own is the second number, with its own bar below.
+      const drawn = a.flora.nearDraw;
       for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
         'flora-shrub', 'flora-shrub-far']) {
         const mesh = a.flora.group.getObjectByName(name);
         const matrix = mesh?.instanceMatrix?.array;
         if (!matrix) continue;
+        const gpu = drawn && name === 'flora-near';
         for (let i = 0; i < mesh.count; i++) {
           const o = i * 16;
           const e = matrix[o + 12];
           const y = matrix[o + 13];
           const n = -matrix[o + 14];
-          const expected = a.terrain.isWater(e, n) ? waterY : a.terrain.surfaceHeight(e, n);
+          const wet = a.terrain.isWater(e, n);
+          let expected = wet ? waterY : a.terrain.surfaceHeight(e, n);
+          if (gpu && !wet) {
+            out.gpuRoots++;
+            out.worstTileGround = Math.max(out.worstTileGround, Math.abs(y - expected));
+            expected = drawn.groundAt(e, n) ?? Infinity;
+          }
           out.worstPlantRoot = Math.max(out.worstPlantRoot, Math.abs(y - expected));
           out.rootedPlants++;
         }
@@ -11895,6 +11908,15 @@ for (const [label, viewport, touch] of [
       !!swardAt && rootLayer.rootedPlants > 50 && rootLayer.worstPlantRoot < 1e-5,
       `${rootLayer.rootedPlants} roots at ${swardAt ? `${swardAt.zone} (${swardAt.e}, ${swardAt.n})`
         : 'no station off the turf'}, worst error ${rootLayer.worstPlantRoot}`);
+    // T-2716. The drawn near ring's ground against the terrain's. The tile's
+    // own height error at every near slot of the 22 critic stations is p95
+    // 0.29 mm and at worst 3.4 mm (phone) and 4.8 mm (desktop), where a crease
+    // falls inside a 0.125 m texel (`docs/measurements/t-2698-near-field.json`,
+    // tile 0.125). The bar is 5 mm: a tile misplaced by a texel reads in
+    // centimetres on any slope, and that is what it is for.
+    check(`${label}: the GPU near ring's ground stays within 5 mm of the terrain`,
+      rootLayer.gpuRoots === 0 || rootLayer.worstTileGround < 5e-3,
+      `${rootLayer.gpuRoots} GPU near roots, worst ${rootLayer.worstTileGround} m from the terrain`);
     check(`${label}: emergent flora stays within eight metres of a riverbank`,
       streetLayer.deepWaterPlants === 0,
       `${streetLayer.waterPlants} water plants, ${streetLayer.deepWaterPlants} in deep water`);

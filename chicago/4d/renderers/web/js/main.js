@@ -1697,6 +1697,13 @@ async function boot() {
     stencil: false,
   });
   /**
+   * T-2716. The renderer's own `render`, taken before anything can swap it: the
+   * flora's near deal pass is PLACEMENT, not a frame, and harnesses that hold or
+   * time the frames by replacing `renderer.render` (the smoke's `holdDraws`,
+   * `measure_walk_frames.mjs`) must neither skip it nor count it as a draw.
+   */
+  const placementRender = renderer.render.bind(renderer);
+  /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
    * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
    * stored settings are read. Until T-2110 the shipped default of `quality` was
@@ -2628,7 +2635,7 @@ async function boot() {
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
     verge: streets.verge, forbSeat,
-    confidence, problems: layerProblems('flora'), ...detailOpts(),
+    confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
   });
   scene3d.add(flora.group);
   let trees = await createTrees({
@@ -2736,7 +2743,7 @@ async function boot() {
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
           verge: streets.verge, forbSeat,
-          confidence, problems: layerProblems('flora'), detail: level,
+          confidence, problems: layerProblems('flora'), detail: level, renderer, placementRender,
         });
         next.trees = await createTrees({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
@@ -2882,7 +2889,7 @@ async function boot() {
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
         verge: streets.verge, forbSeat,
-        confidence, problems: layerProblems('flora'), ...detailOpts(),
+        confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
       });
       scene3d.add(flora.group);
 
