@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1898, ts: '2026-10-16T23:35:13.357Z', date: 'Oct 16, 2026, 6:35 PM CT', title: 'The home page\'s destination cards show live footage from each year', kind: 'feature',
+    items: [
+      'Each destination card now plays a short looping clip filmed in the app itself, in place of its old engraving or photograph.',
+      'Every year has a small library of views (aerials, a slow swing around a landmark, drifts along the river or street), and one is picked at random each time the page loads.',
+      'The feed is low resolution on purpose and comes through an unstable connection: now and then it blocks up, tears, flickers or drops to static, then settles again.',
+      'With reduced motion or Data Saver on, the card shows its still picture as before.',
+    ] },
   { v: 1897, ts: '2026-10-16T22:48:03.741Z', date: 'Oct 16, 2026, 5:48 PM CT', title: 'A sharp turn on a phone no longer freezes a frame', kind: 'improvement',
     items: [
       'Snapping round a corner, or arriving somewhere new, used to lay out the grass and flowers in front of you in one go — about a seventh of a second with the screen frozen on a mid-range phone.',
