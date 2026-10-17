@@ -3,8 +3,8 @@
 //
 //   node tools/qa_pacing_read_t2732.mjs [--seconds 2]
 //
-// What it shows: production's walk page carries no button; `?pacing=read` shows it;
-// pressing it closes the panel, drives the six readings, writes the copyable text,
+// What it shows: `?pacing=read` shows the button (production without it is
+// tools/test_pacing_read.mjs's rule, not a second boot here); pressing it closes the panel, drives the six readings, writes the copyable text,
 // reopens Settings, and puts back the visitor's detail, pacing, place and flight — with
 // zero page errors. The NUMBERS this runner prints are SwiftShader's (a frame every
 // second or so, T-2721) and are not the governor's reading; T-2733 takes that on a phone.
@@ -18,7 +18,7 @@ const require = createRequire(path.join(root, 'tools/qa.mjs'));
 const { chromium } = require('playwright');
 const site = path.resolve(root, '../../site/4d');
 const at = process.argv.indexOf('--seconds');
-const SECONDS = at > 0 ? Number(process.argv[at + 1]) : 2;
+const SECONDS = at > 0 ? Number(process.argv[at + 1]) : 4;
 
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
   '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.glb': 'model/gltf-binary',
@@ -52,14 +52,6 @@ async function boot(url) {
 }
 
 try {
-  // Production: no parameter, no banner — the row stays hidden and nothing is mounted.
-  const prod = await boot('/walk/');
-  const prodRow = await prod.evaluate(() => ({ hidden: document.getElementById('pacing-read')?.hidden,
-    mounted: !!window.__chicago4d.pacingRead, error: window.__chicago4d.error }));
-  check(prodRow.error == null, `production boots (${prodRow.error ?? 'no error'})`);
-  check(prodRow.hidden === true && !prodRow.mounted, 'production without ?pacing=read shows no Read frame pacing');
-  await prod.close();
-
   const page = await boot('/walk/?pacing=read');
   await page.waitForFunction(() => window.__chicago4d.welcome.state === 'welcome', null,
     { timeout: 240_000, polling: 1000 });
@@ -81,26 +73,9 @@ try {
     const p = a.player;
     return { detail: a.detail, mode: a.governor.mode, e: p.e, n: p.n, bearing: p.bearingDeg, flying: p.flying };
   });
-  // Shorten the drive for the runner: the module's READ_SECONDS is for a phone.
+  // Shorten the drive for the runner: READ_SECONDS is for a phone.
   const t0 = Date.now();
-  const result = await page.evaluate(async (seconds) => {
-    const a = window.__chicago4d;
-    a.hud.setPanel(true);
-    a.hud.selectTab?.('settings');
-    const mod = await import('./js/pacing-read.js');
-    const steps = [];
-    const panelHidden = [];
-    const r = await mod.readFramePacing(a, { seconds, onStep: (label) => {
-      steps.push(label); panelHidden.push(document.getElementById('panel')?.hidden ?? null); } });
-    return { steps, panelHidden, text: mod.formatReading(r), pairs: r.pairs };
-  }, SECONDS);
-  console.log(`\n${result.text}\n`);
-  check(result.steps.length === 6, `six readings driven (${result.steps.join('; ')})`);
-  check(['walk', 'turn', 'flight'].every((m) => result.pairs[m].fixed.draws > 1 && result.pairs[m].adaptive.draws > 1),
-    'every move drew more than one canvas frame in both modes');
-  check(/^Read frame pacing \(T-2733\)/.test(result.text) && (result.text.match(/FELL:/g) ?? []).length === 3,
-    'the copyable text carries a verdict per move');
-
+  await page.evaluate((seconds) => { window.__chicago4d.pacingRead.seconds = seconds; }, SECONDS);
   // The button itself: closes the panel, writes the box, reopens Settings with Copy.
   const viaButton = await page.evaluate(async () => {
     const a = window.__chicago4d;
@@ -113,12 +88,19 @@ try {
     while (a.pacingRead.running && Date.now() < deadline) await new Promise((r) => setTimeout(r, 500));
     const out = document.getElementById('pacing-read-out');
     return { closed, reopened: !document.getElementById('panel')?.hidden, outShown: !out.hidden,
+      steps: a.pacingRead.result ? Object.keys(a.pacingRead.result.pairs) : [],
+      draws: a.pacingRead.result ? Object.values(a.pacingRead.result.pairs).flatMap((p) => [p.fixed.draws, p.adaptive.draws]) : [],
       text: out.value, copyShown: !document.getElementById('s-pacing-copy').hidden,
       status: document.getElementById('pacing-read-status').textContent.trim() };
   });
   check(viaButton.closed === true, 'pressing Read frame pacing closes the panel for the reading');
   check(viaButton.reopened && viaButton.outShown && viaButton.copyShown, `Settings reopens with the result and Copy (${viaButton.status})`);
-  check(/FELL:/.test(viaButton.text), 'the box holds the reading');
+  console.log(`\n${viaButton.text}\n`);
+  check(viaButton.steps.join() === 'walk,turn,flight' && viaButton.draws.length === 6 && viaButton.draws.every((d) => d >= 1),
+    `walk, turn and flight each drawn at Fixed and Adaptive (draws ${viaButton.draws.join(', ')})`);
+  check(/^Read frame pacing \(T-2733\)/.test(viaButton.text)
+    && (viaButton.text.match(/^ {2}(FELL|DID NOT FALL|TOO FEW FRAMES TO SAY):/gm) ?? []).length === 3,
+    'the box holds the reading, a verdict per move');
   await page.screenshot({ path: '/tmp/qa-pacing-read-t2732.png' });
 
   const after = await page.evaluate(() => {

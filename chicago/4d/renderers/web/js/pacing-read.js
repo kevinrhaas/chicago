@@ -28,6 +28,10 @@ export const MOVES = ['walk', 'turn', 'flight'];
 export const MODES = ['fixed', 'adaptive'];
 export const READ_TIER = 'light';
 export const READ_SECONDS = 5;
+/** Fewer canvas draws than this in either mode and the pair says nothing: the
+ *  runner's software rasteriser gets two or three in five seconds (T-2721), a
+ *  phone at 60 Hz about three hundred. */
+export const MIN_DRAWS = 20;
 
 /** Is the action offered on this page? */
 export function pacingReadOffered(loc = globalThis.location, doc = globalThis.document) {
@@ -61,6 +65,12 @@ export function fell(pair) {
   return pair.adaptive.sd < pair.fixed.sd && pair.adaptive.p95 < pair.fixed.p95;
 }
 
+/** What the copied text says of a pair — and that it cannot say, on too few draws. */
+export function verdict(pair) {
+  if (Math.min(pair.fixed.draws, pair.adaptive.draws) < MIN_DRAWS) return 'TOO FEW FRAMES TO SAY';
+  return fell(pair) ? 'FELL' : 'DID NOT FALL';
+}
+
 /** The text the visitor copies back: one block, readable in a chat message. */
 export function formatReading(result) {
   const f = (x) => (Number.isFinite(x) ? x.toFixed(1) : '—');
@@ -80,7 +90,7 @@ export function formatReading(result) {
         + ` ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)}`);
     }
     const p = result.pairs[move];
-    lines.push(`  ${fell(p) ? 'FELL' : 'DID NOT FALL'}: sd ${f(p.fixed.sd)} → ${f(p.adaptive.sd)} ms,`
+    lines.push(`  ${verdict(p)}: sd ${f(p.fixed.sd)} → ${f(p.adaptive.sd)} ms,`
       + ` p95 ${f(p.fixed.p95)} → ${f(p.adaptive.p95)} ms`);
   }
   return lines.join('\n');
@@ -201,7 +211,8 @@ export function mountPacingRead({ api, hud, doc = document }) {
   const copy = doc.getElementById('s-pacing-copy');
   row.hidden = false;
   status.hidden = false;
-  const handle = { running: false, result: null, text: '' };
+  // `seconds` is a mode's drive; a harness on a slow rasteriser may shorten it.
+  const handle = { running: false, result: null, text: '', seconds: READ_SECONDS };
   btn.addEventListener('click', async () => {
     if (handle.running) return;
     handle.running = true;
@@ -210,7 +221,7 @@ export function mountPacingRead({ api, hud, doc = document }) {
     out.hidden = true;
     hud?.setPanel?.(false);
     try {
-      handle.result = await readFramePacing(api, {
+      handle.result = await readFramePacing(api, { seconds: handle.seconds,
         onStep: (label, i, n) => { status.textContent = `Reading ${i + 1} of ${n}: ${label}…`; },
       });
       handle.text = formatReading(handle.result);
@@ -224,6 +235,7 @@ export function mountPacingRead({ api, hud, doc = document }) {
       handle.running = false;
       btn.disabled = false;
       hud?.setPanel?.(true);
+      out.hidden ? status.scrollIntoView?.({ block: 'nearest' }) : out.scrollIntoView?.({ block: 'nearest' });
     }
   });
   copy.addEventListener('click', async () => {

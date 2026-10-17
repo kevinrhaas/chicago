@@ -113,6 +113,14 @@
  *   - The pick's own `renderer.render` calls into its 1x1 target were counted
  *     as frames until this: only a draw to the canvas is one now, and the rest
  *     are reported as `offscreen`.
+ *
+ * ## The same reading on a phone (T-2732)
+ *
+ * The owner chose to take T-2722's reading on his own phone (T-2733). The page
+ * carries it as Settings → Performance → Read frame pacing on the dev preview
+ * (or with `?pacing=read`): `renderers/web/js/pacing-read.js` drives the moves
+ * `driveLive` below drives, with its poses, tier and arithmetic (`summarise`),
+ * and prints a block to copy back. Change one and change the other.
  */
 import http from 'node:http';
 import fs from 'node:fs';

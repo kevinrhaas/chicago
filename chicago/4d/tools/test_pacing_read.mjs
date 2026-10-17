@@ -3,7 +3,7 @@
 // The page drive itself is shown by tools/qa_pacing_read_t2732.mjs in the real app.
 import assert from 'node:assert/strict';
 import {
-  pacingReadOffered, summarise, fell, formatReading, MOVES, MODES, READ_TIER,
+  pacingReadOffered, summarise, fell, verdict, formatReading, MOVES, MODES, READ_TIER, MIN_DRAWS,
 } from '../renderers/web/js/pacing-read.js';
 
 const loc = (pathname, search = '') => ({ pathname, search });
@@ -62,18 +62,29 @@ assert.equal(fell({ fixed: m(10, 40), adaptive: m(6, 45) }), false);
 assert.equal(fell({ fixed: m(10, 40), adaptive: m(12, 30) }), false);
 assert.equal(fell({ fixed: m(10, 40), adaptive: m(10, 40) }), false);
 
+// Below MIN_DRAWS in either mode the pair says it cannot say, whatever its numbers.
+{
+  const d = (draws, sd, p95) => ({ draws, sd, p95 });
+  assert.equal(verdict({ fixed: d(300, 10, 40), adaptive: d(300, 6, 30) }), 'FELL');
+  assert.equal(verdict({ fixed: d(300, 10, 40), adaptive: d(300, 12, 30) }), 'DID NOT FALL');
+  assert.equal(verdict({ fixed: d(MIN_DRAWS - 1, 10, 40), adaptive: d(300, 6, 30) }), 'TOO FEW FRAMES TO SAY');
+  assert.equal(verdict({ fixed: d(300, 10, 40), adaptive: d(2, 0, 0) }), 'TOO FEW FRAMES TO SAY');
+}
+
 // The copied text names the device and carries a row per move and mode plus its verdict.
 {
   const row = (sd, p95) => ({ draws: 300, mean: 16.8, sd, median: 16.7, p95, max: 70, over33: 3, over50: 1 });
   const pairs = Object.fromEntries(MOVES.map((mv) => [mv, { fixed: row(9, 33), adaptive: row(4, 17) }]));
   pairs.turn.adaptive = row(11, 20);
+  pairs.flight.fixed = { ...row(9, 33), draws: 3 };
   const text = formatReading({ when: '2026-10-17T18:00:00.000Z', tier: 'light', seconds: 5, build: 'v-test',
     device: { screen: '390x844 (screen 390x844)', ratio: 3, ua: 'Mozilla/5.0 (iPhone)' }, pairs });
   assert.match(text, /^Read frame pacing \(T-2733\)/);
   assert.match(text, /390x844 \(screen 390x844\) at ratio 3, detail light, 5 s a mode/);
   assert.match(text, /Mozilla\/5\.0 \(iPhone\)/);
-  for (const mv of MOVES) for (const md of MODES) assert.match(text, new RegExp(`^${mv}\\s+${md}\\s+300 `, 'm'));
-  assert.equal((text.match(/^ {2}FELL:/gm) ?? []).length, 2);
+  for (const mv of MOVES) for (const md of MODES) assert.match(text, new RegExp(`^${mv}\\s+${md}\\s+(300|3) `, 'm'));
+  assert.equal((text.match(/^ {2}FELL:/gm) ?? []).length, 1);
+  assert.equal((text.match(/^ {2}TOO FEW FRAMES TO SAY:/gm) ?? []).length, 1);
   assert.equal((text.match(/^ {2}DID NOT FALL:/gm) ?? []).length, 1);
   assert.match(text, /DID NOT FALL: sd 9\.0 → 11\.0 ms, p95 33\.0 → 20\.0 ms/);
 }
