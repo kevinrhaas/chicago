@@ -60,10 +60,10 @@ const DEFAULT_SETTINGS = {
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, run, wagon, horse) and
   // `travelMode` is how Go to takes you somewhere (instantly, or at a pace, or
-  // flying); they are two questions, so they are two keys. `gotoReconstructed`
-  // is whether the Go to list shows the reconstructed roofs (off by default —
-  // the owner's ruling). `headBob`: the rider's eye moves with the horse's gait.
-  pace: 'walk', travelMode: 'instantly', headBob: true, gotoReconstructed: false,
+  // flying); they are two questions, so they are two keys. (`gotoReconstructed`, the
+  // Go to list's own checkbox, is gone: Go to follows the Confidence view, T-2633.)
+  // `headBob`: the rider's eye moves with the horse's gait.
+  pace: 'walk', travelMode: 'instantly', headBob: true,
   // The wagon's and the horse's own speeds (T-0823) and the run's (T-2651); `speed`
   // above is the walk's.
   wagonSpeed: 3.6, horseSpeed: 6.5, runSpeed: 3.4,
@@ -184,6 +184,8 @@ export function createHud({
   const confMenu = $('confidence-menu');
   const btnConfMore = $('btn-confidence-more');
   let hiddenLevels = readHidden();
+  // T-2633: Go to dims what the Confidence view hides; repainted when that changes.
+  let afterHide = null;
 
   function readHidden() {
     try {
@@ -225,6 +227,7 @@ export function createHud({
     if (hide) hiddenLevels.add(level); else hiddenLevels.delete(level);
     paintHidden();
     onHideLevel?.(level, hide);
+    afterHide?.();
     if (announce) {
       // Name what is GONE, not what was clicked: a visitor who has hidden two
       // levels needs to know the town in front of them is partial.
@@ -747,7 +750,9 @@ export function createHud({
     units: () => settings.units,
     onGoTo: (target) => { setPanel(false); onGoTo?.(target); },
     onPersist: (key, value) => { settings[key] = value; store(SET_KEY, JSON.stringify(settings)); },
+    hiddenGrades: () => [...hiddenLevels],
   });
+  afterHide = () => goTo.paint();
 
 
   window.addEventListener('keydown', (e) => {
