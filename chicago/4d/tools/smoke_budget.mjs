@@ -601,6 +601,10 @@ const COVERAGE = [
   ['data/timestream/', [15], 'the time-stream decks the arrival fetches (T-2611)'],
   // T-2612: the lamps, YEARS TO GO and the log part 15 reads on the arrival it boots fresh.
   ['renderers/web/js/arrival-telemetry.js', [15], 'the arrival\u2019s lamps, YEARS TO GO and log (T-2612)'],
+  // T-2624: the string table. Every visible word of the arrival, the HUD and the Navigator
+  // reads from it, and parts all over the body assert those words, so a change to it is
+  // priced at the whole gate. tools/check_strings.py holds it in check.sh.
+  ['renderers/web/js/strings/', ALL, 'the words every panel and part reads (T-2624)'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than

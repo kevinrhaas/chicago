@@ -53,7 +53,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview }) {
     toggle.setAttribute('aria-expanded', 'false');
     // Travel mode: a row of small icon toggles instead of a full-width select.
     const mode = node('div', '', 'jaunt-modes'); mode.setAttribute('role', 'radiogroup');
-    mode.setAttribute('aria-label', `Travel mode for ${row.title}`); mode.dataset.action = 'mode';
+    mode.setAttribute('aria-label', `How to move for ${row.title}`); mode.dataset.action = 'mode';
     const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
     duration.setAttribute('aria-live', 'polite');
     let current = modes.get(row.id) || row.default_mode || 'walk';
