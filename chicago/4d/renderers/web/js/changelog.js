@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1963, ts: '2026-10-17T18:44:45.684Z', date: 'Oct 17, 2026, 1:44 PM CT', title: 'The memory meter checked against what the browser was asked to hold', kind: 'chore',
+    items: [
+      'Nothing in the town changed: this checks the instrument the walk\'s memory limits are measured with.',
+      'It reads exactly what the page asks the graphics card to hold, so the walk\'s memory limits stand as they are.',
+      'The gap it was suspected of is real memory the walk saves by sharing one picture between several surfaces.',
+    ] },
   { v: 1962, ts: '2026-10-17T18:13:55.153Z', date: 'Oct 17, 2026, 1:13 PM CT', title: 'Keith house\'s crown band packed closer, as the 1888 photograph shows', kind: 'change',
     items: [
       '1808 Prairie (1904): the diamond-pointed band under the parapet now stands its points 0.28 m apart along each row, not 0.34 m, so the band reads as close-packed stone the way the 1888 Inland Architect photograph, the 1948 and the 1967 views show it.',
