@@ -1,0 +1,24 @@
+{
+  "id": "hmdb_prairie_lost_houses_1600_1700",
+  "type": "website",
+  "citation": "'Lost Houses of Prairie Avenue: 1600-1700 Blocks', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308722.",
+  "date": "accessed 2026-10-17",
+  "describes_date": "1857-1904",
+  "url": "https://www.hmdb.org/m.asp?m=308722",
+  "locator": "One entry per house, each headed by its address and a name line giving the residence, the year built and the architect.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A modern interpretive marker's text, cited in words only; nothing is copied into the scene.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-17 (T-2747) from the HMdb page through a fetch that returned each entry's name line verbatim and its description only in paraphrase, so this record is cited for the name lines (owner, year built, architect) and for the plainest paraphrased facts, never as a quotation of the descriptions. The Prairie library read the same page on 2026-09-26 (chicago/prairie_1904_v1/research/building-research.json, marker_north) and agrees on every name line.",
+  "note": "Name lines read: 1612 'Joseph Goodman Residence. Built 1869; architect unknown'; 1638 'John G. Shortall-Robert B. Gregory Residence. Built 1868; John W. Roberts, architect'; 1701 'William G. Hibbard Residence. Built 1869; William Le Baron Jenney, architect'; 1721 'Wirt Dexter Residence. Built 1863; architect unknown'; 1729 'George M. Pullman Residence. Built 1870-1876; Henry S. Jaffay, architect'. In paraphrase: Hibbard headed a large wholesale hardware firm; Pullman's house held a theatre of about 200 seats, a pipe organ and a bowling alley, and Solon S. Beman's later additions included a palm room and a large conservatory. The marker spells the architect Jaffay; other accounts give Jaffray.",
+  "what_it_supplies": [
+    "each house's builder, year built and architect as the district's marker gives them",
+    "Pullman's theatre, organ and bowling alley and Beman's conservatory additions, in paraphrase"
+  ],
+  "what_it_does_not_supply": [
+    "the 1904 occupants",
+    "any measurement or appearance"
+  ]
+}

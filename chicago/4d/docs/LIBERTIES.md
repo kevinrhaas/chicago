@@ -28691,3 +28691,34 @@ entry read their pitch.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2724 (piece 1 of T-2714).
 **Recorded:** 2026-10-17 (T-2724).
+
+### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
+
+**Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
+(Romanesque, Second Empire, Italianate) — choose their houses, their order (north to south on foot), their
+reading times, their keepsakes and their framing as modern interpretation. No historical visit,
+conversation or occupant on 1 July 1904 is asserted. What each stop says about a house cites the district's
+markers, the house museum's history of the street, HABS or a period picture; where a house is still a
+district draft, its style is the T-1837 register's reading and cites that draft's own liberty.
+**Bounds:** The approved 1904 scene and its structure records; text only, exteriors only.
+**How to resolve:** Revise as interpretation; a stop's claim moves up a tier only when a source for that house
+says it.
+**Applies to:** `data/jaunts/prairie-famous-names.json`, `data/jaunts/prairie-architects.json`,
+`data/jaunts/prairie-style-romanesque.json`, `data/jaunts/prairie-style-second-empire.json`,
+`data/jaunts/prairie-style-italianate.json`.
+**Recorded:** 2026-10-17 (T-2747).
+
+### L-jaunt-prairie-built-so-far — The built-so-far walk: detail levels, areas and order
+
+**Decision:** The "built so far" walk includes every 1904 building modelled past the district draft and
+orders it by a detail ladder this project defines for its own models (5 its own model; 4 a kit build matched
+to a picture; 3 a kit build checked against a picture; 2 a kit build with no solved picture; 1 a draft
+reshaped from a picture), grouped into areas of buildings within 60 m of each other and walked down one side
+of the street and back up the other. The ladder, the grouping, the order, the reading times and the keepsake
+are this project's description of its own work, not history.
+**Bounds:** Written only by `tools/jaunt_built_so_far.py` from the compiled 1904 records and their image-gate
+verdicts; `check.sh` fails when the committed walk no longer matches them.
+**How to resolve:** Not a historical claim and never promoted to one; the ladder changes in the tool and its
+docstring together.
+**Applies to:** `data/jaunts/prairie-built-so-far.json`.
+**Recorded:** 2026-10-17 (T-2747).

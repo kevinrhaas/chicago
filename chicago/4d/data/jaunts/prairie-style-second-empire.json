@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Architectural style",
+  "featured": false,
+  "review_required": false,
+  "id": "prairie-style-second-empire",
+  "scene": "1904",
+  "title": "Style walk: Second Empire",
+  "premise": "Mansard roofs with dormers: six Second Empire houses from 1620 to 2115 Prairie, the street's most popular style.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "STYLE WALK: SECOND EMPIRE. Look for the mansard: a steep roof slope that holds a whole storey, with dormers set in it. The Glessner House Museum calls it the street's most popular style. Six houses, north to south.",
+    "read_s": 16
+  },
+  "stops": [
+    {
+      "id": "law",
+      "destination": {
+        "kind": "structure",
+        "id": "law_house_1620_prairie"
+      },
+      "text": "1620 Prairie. Robert Law's house, engraved in 1874: two storeys over a raised basement under a slated mansard with round-headed dormers, and its north part rising into a taller curved crown. Compare the engraving's roof with the one in front of you.",
+      "read_s": 18,
+      "evidence": [
+        "law-engraving",
+        "second-empire-museum",
+        "tour"
+      ],
+      "next": "pullman"
+    },
+    {
+      "id": "pullman",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie"
+      },
+      "text": "1729 Prairie. Pullman's house of 1870 to 1876, read by the district register as a brownstone main block under a mansard with dormers and cresting, entered by a portico on Prairie Avenue.",
+      "read_s": 13,
+      "evidence": [
+        "pullman-marker",
+        "pullman-draft",
+        "tour"
+      ],
+      "next": "jones"
+    },
+    {
+      "id": "jones",
+      "destination": {
+        "kind": "structure",
+        "id": "jones_house_1834_prairie"
+      },
+      "text": "1834 Prairie. Fernando Jones's house was built in 1866 as an Italianate house, and in 1886 it received a mansard addition to bring it into fashion with many of its neighbours. Here the style arrived late, as a new top storey.",
+      "read_s": 17,
+      "evidence": [
+        "jones-marker",
+        "tour"
+      ],
+      "next": "e-keith"
+    },
+    {
+      "id": "e-keith",
+      "destination": {
+        "kind": "structure",
+        "id": "elbridge_keith_house_1900_prairie"
+      },
+      "text": "1900 Prairie. Elbridge G. Keith's house of 1870, by John W. Roberts. The district marker calls it the last surviving example of the Second Empire style, which dominated Prairie Avenue by the 1880s. Look for the slate mansard over the corner bay.",
+      "read_s": 18,
+      "evidence": [
+        "ekeith-marker",
+        "ekeith-draft",
+        "tour"
+      ],
+      "next": "field"
+    },
+    {
+      "id": "field",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_house_1905_prairie"
+      },
+      "text": "1905 Prairie. Marshall Field's house, by Richard Morris Hunt, read by the district register as a broad brick and stone mansion under a mansard, with an angular corner bay, dormers and a central portico.",
+      "read_s": 14,
+      "evidence": [
+        "field-caption",
+        "field-museum",
+        "field-draft",
+        "tour"
+      ],
+      "next": "armour"
+    },
+    {
+      "id": "armour",
+      "destination": {
+        "kind": "structure",
+        "id": "armour_house_2115_prairie"
+      },
+      "text": "2115 Prairie. The district marker calls the Kelley-Armour house of 1871 a stately Second Empire residence. The register reads a patterned slate mansard with cresting over a central arched doorway under a pediment.",
+      "read_s": 14,
+      "evidence": [
+        "armour-marker",
+        "armour-draft",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the Second Empire walk. Count the mansards you passed: by the 1880s they lined the street.",
+      "read_s": 10,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "prairie-second-empire-note",
+    "title": "Second Empire field note",
+    "text": "A modern field note on the mansard and its dormers, not a period document."
+  },
+  "evidence": [
+    {
+      "id": "armour-draft",
+      "text": "The district draft reads the Kelley/Armour house from the T-1837 register: a patterned slate mansard and cresting, and a central arched doorway under a pediment.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-20-22-east-2352"
+    },
+    {
+      "id": "armour-marker",
+      "text": "David Kelley-Philip D. Armour Residence. Built 1871. Originally built for lumberman David Kelley, this stately Second Empire residence was for nearly 50 years the home of the family of meatpacker Philip D. Armour.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
+    },
+    {
+      "id": "ekeith-draft",
+      "text": "The district draft reads 1900 Prairie as Second Empire: a slate mansard and dormers over the mapped corner bay.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-18-20-west-2329"
+    },
+    {
+      "id": "ekeith-marker",
+      "text": "Elbridge G. Keith Residence. Built 1870; John W. Roberts, architect. The last surviving example of the popular Second Empire style, which dominated the street by the 1880s.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1900 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-caption",
+      "text": "Marshall Field Sr. residence at 1905 S. Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The transcription page's photograph caption."
+    },
+    {
+      "id": "field-draft",
+      "text": "The district draft reads the Field house from the T-1837 register as Second Empire: a broad brick and stone mansion, mansard, angular corner bay, dormers and a central portico.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-18-20-east-2330"
+    },
+    {
+      "id": "field-museum",
+      "text": "Richard Morris Hunt of New York and Henry Hobson Richardson of Boston were engaged to design the Marshall Field house and another; George Pullman and Marshall Field both acquired property on the street.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraphs on its first great houses and its architects."
+    },
+    {
+      "id": "jones-marker",
+      "text": "Fernando Jones Residence. Built 1866; John M. Van Osdel, architect. In 1886, the Italianate residence received a mansard addition to bring it into fashion with many of its neighbors.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
+    },
+    {
+      "id": "law-engraving",
+      "text": "The 1874 engraving shows a house of two storeys over a raised basement under a slated mansard with round-headed dormers, its north part rising into a taller curved crown.",
+      "confidence": "attested",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "locator": "The whole vignette: the street front, the north side wall and the mansard roof."
+    },
+    {
+      "id": "pullman-draft",
+      "text": "The district draft reads the Pullman house from the T-1837 register: a brownstone main block, mansard, dormers and cresting, and a Prairie portico.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-16-18-east-2335"
+    },
+    {
+      "id": "pullman-marker",
+      "text": "The district marker names George M. Pullman Residence, built 1870-1876, Henry S. Jaffay architect, and (read in paraphrase) a theatre of about 200 seats, a pipe organ and a bowling alley, with later additions by Solon S. Beman including a palm room and a large conservatory.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "second-empire-museum",
+      "text": "Of the street's styles, the most popular being the Second Empire with its steeply-pitched mansard roof.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraph on its styles."
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    }
+  ],
+  "liberties": [
+    "L-draft-prairie-16-18-east-2335",
+    "L-draft-prairie-18-20-east-2330",
+    "L-draft-prairie-18-20-west-2329",
+    "L-draft-prairie-20-22-east-2352",
+    "L-jaunt-prairie-walks"
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Architecture",
+  "featured": true,
+  "review_required": false,
+  "id": "prairie-architects",
+  "scene": "1904",
+  "title": "Prairie Avenue: the architects",
+  "premise": "Walk south past houses by Jenney, Richardson, Cobb & Frost, Burnham & Root, Beman and Hunt, ending at the Burnham & Root house that started their run on the street.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "WALK: ARCHITECTS. Seven houses, 1701 to 2100 Prairie, north to south on foot. Each stop names who designed the house, from the district markers and period notices. Exteriors only.",
+    "read_s": 12
+  },
+  "stops": [
+    {
+      "id": "jenney",
+      "destination": {
+        "kind": "structure",
+        "id": "hibbard_house_1701_prairie"
+      },
+      "text": "1701 Prairie. William G. Hibbard's house of 1869, designed by William Le Baron Jenney for the president of a large wholesale hardware firm. The district register reads it as Italianate: a low hipped roof on bracketed eaves.",
+      "read_s": 16,
+      "evidence": [
+        "hibbard-marker",
+        "hibbard-draft",
+        "tour"
+      ],
+      "next": "richardson"
+    },
+    {
+      "id": "richardson",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "1800 Prairie. Henry Hobson Richardson's house for John J. Glessner. Richardson died on 26 April 1886; building began on 1 June 1886 and was finished on 1 December 1887, in his Romanesque manner.",
+      "read_s": 14,
+      "evidence": [
+        "glessner-marker",
+        "glessner-dates",
+        "tour"
+      ],
+      "next": "cobb-frost"
+    },
+    {
+      "id": "cobb-frost",
+      "destination": {
+        "kind": "structure",
+        "id": "keith_house_1808_prairie"
+      },
+      "text": "1808 Prairie, next door. Cobb and Frost's house for Osborn R. Keith, announced in 1886 as a three-storey dwelling, 38 by 80 feet, with a granite front, at a cost of forty thousand dollars.",
+      "read_s": 14,
+      "evidence": [
+        "keith-notice",
+        "tour"
+      ],
+      "next": "burnham-root"
+    },
+    {
+      "id": "burnham-root",
+      "destination": {
+        "kind": "structure",
+        "id": "wheeler_house_1812_prairie"
+      },
+      "text": "1812 Prairie. George H. Wheeler's house of 1884 by Burnham and Root: a picturesque brick row house in the Dutch vernacular style, its front carried up as a tall shaped gable over a stone first storey.",
+      "read_s": 15,
+      "evidence": [
+        "wheeler-marker",
+        "wheeler-photo",
+        "tour"
+      ],
+      "next": "beman"
+    },
+    {
+      "id": "beman",
+      "destination": {
+        "kind": "structure",
+        "id": "kimball_house_1801_prairie"
+      },
+      "text": "1801 Prairie, across the avenue. Solon S. Beman designed this house for William W. Kimball in 1890 in the French Chateauesque style. Beman also added the palm room and conservatory to Pullman's house up the street.",
+      "read_s": 15,
+      "evidence": [
+        "kimball-marker",
+        "pullman-marker",
+        "tour"
+      ],
+      "next": "hunt"
+    },
+    {
+      "id": "hunt",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_house_1905_prairie"
+      },
+      "text": "1905 Prairie. Marshall Field's house. The Glessner House Museum names Richard Morris Hunt of New York as the architect engaged for it, with Henry Hobson Richardson of Boston named in the same breath.",
+      "read_s": 14,
+      "evidence": [
+        "field-caption",
+        "field-museum",
+        "tour"
+      ],
+      "next": "sherman"
+    },
+    {
+      "id": "sherman",
+      "destination": {
+        "kind": "structure",
+        "id": "sherman_house_2100_prairie"
+      },
+      "text": "2100 Prairie. John B. Sherman's house of 1874, the first of nearly a dozen Burnham and Root commissions here. Sherman managed the Union Stock Yards, his daughter Margaret married Daniel Burnham during construction, and he recommended the firm to his neighbours.",
+      "read_s": 17,
+      "evidence": [
+        "sherman-marker",
+        "burnham-museum",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the walk at 2100 Prairie. Burnham and Root became the street's most prolific architects; look for their other fronts as you explore.",
+      "read_s": 10,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "prairie-architects-list",
+    "title": "Prairie Avenue architects' list",
+    "text": "An interpretive list of six architects and the houses the walk paired them with; a modern note, not a period document."
+  },
+  "evidence": [
+    {
+      "id": "burnham-museum",
+      "text": "Burnham & Root received nearly a dozen commissions on the street, beginning with the John Sherman house at 2100 S. Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraph on its architects."
+    },
+    {
+      "id": "field-caption",
+      "text": "Marshall Field Sr. residence at 1905 S. Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The transcription page's photograph caption."
+    },
+    {
+      "id": "field-museum",
+      "text": "Richard Morris Hunt of New York and Henry Hobson Richardson of Boston were engaged to design the Marshall Field house and another; George Pullman and Marshall Field both acquired property on the street.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraphs on its first great houses and its architects."
+    },
+    {
+      "id": "glessner-dates",
+      "text": "HABS dates the building from June 1, 1886 to December 1, 1887; the house museum gives Richardson's death as April 26, 1886.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_richardson_page"
+      ],
+      "locator": "HABS Part I.A.2, date of erection, data page 2; the museum biography's paragraph on his death."
+    },
+    {
+      "id": "glessner-marker",
+      "text": "John Glessner Residence. Built 1887; Henry Hobson Richardson, architect. Designed in the Richardsonian Romanesque style, the house is wrapped around a spacious light-filled courtyard.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1800 S. Prairie Avenue entry."
+    },
+    {
+      "id": "hibbard-draft",
+      "text": "The district draft reads the Hibbard house from the T-1837 register as an Italianate mansion with a rear addition: a low hip on bracketed eaves over a stone-based body, and the 1874 rear range.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-16-18-east-2335"
+    },
+    {
+      "id": "hibbard-marker",
+      "text": "William G. Hibbard Residence. Built 1869; William Le Baron Jenney, architect; Hibbard was president of a large wholesale hardware firm (read in paraphrase).",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "keith-notice",
+      "text": "For O. R. Keith, three story dwelling, 38 by 80 feet, 1808 Prairie avenue, granite front; cost $40,000.",
+      "confidence": "attested",
+      "sources": [
+        "inland_architect_1886_09_keith_notice"
+      ],
+      "locator": "Printed p. 28, right column near foot, paragraph beginning Architects Cobb & Frost report."
+    },
+    {
+      "id": "kimball-marker",
+      "text": "William W. Kimball Residence. Built 1890; Solon S. Beman, architect. Built for the prominent Chicago piano and organ manufacturer in the French Chateauesque style.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1801 S. Prairie Avenue entry."
+    },
+    {
+      "id": "pullman-marker",
+      "text": "The district marker names George M. Pullman Residence, built 1870-1876, Henry S. Jaffay architect, and (read in paraphrase) a theatre of about 200 seats, a pipe organ and a bowling alley, with later additions by Solon S. Beman including a palm room and a large conservatory.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "sherman-marker",
+      "text": "John B. Sherman Residence. Built 1874; Burnham & Root, architects. Sherman was manager of the Union Stock Yards; his daughter Margaret married the architect Daniel Burnham during construction, and Sherman often recommended the firm to his neighbors, making them the most prolific architects represented on the street.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2100 S. Prairie Avenue entry."
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "wheeler-marker",
+      "text": "George H. Wheeler Residence. Built 1884; Burnham & Root, architects. A picturesque brick row house in the Dutch vernacular style.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1812 S. Prairie Avenue entry."
+    },
+    {
+      "id": "wheeler-photo",
+      "text": "Albert Levy's photograph shows the front carried up as a tall shaped (Flemish) gable over brick upper storeys and a stone first storey.",
+      "confidence": "attested",
+      "sources": [
+        "levy_1812_prairie_photo"
+      ],
+      "locator": "The whole print: the street front of 1812 from the walk to the gable's finial."
+    }
+  ],
+  "liberties": [
+    "L-draft-prairie-16-18-east-2335",
+    "L-jaunt-prairie-walks"
+  ]
+}
