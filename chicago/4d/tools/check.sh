@@ -95,6 +95,9 @@ selftest "Frontage built in Node is byte-identical build to build, and a prebuil
 selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
   node tools/prebuild_layers.mjs --self-test --layer ground
 
+selftest "The yards' five surfaces laid and cut in Node are byte-identical build to build, batch exactly as createFencedGround's own do, and a prebuild from changed inputs is refused (T-2704)" \
+  node tools/prebuild_layers.mjs --self-test --layer yards
+
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
