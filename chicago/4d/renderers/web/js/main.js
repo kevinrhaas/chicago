@@ -53,7 +53,7 @@ import { createStreets, fetchPrebuiltStreets } from './streets.js';
 import { createEnclosures } from './enclosures.js';
 import { loadOrdinanceLimits } from './ordinances.js';
 import { loadAgencies } from './agencies.js';
-import { createFencedGround } from './yards.js';
+import { createFencedGround, fetchPrebuiltYards } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
@@ -102,6 +102,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
+import { createTargetTag } from './target-tag.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -1805,6 +1806,12 @@ async function boot() {
     ? fetchPrebuiltStreets({ dataBase: bases.dataBase,
       year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild(), ...detailOpts() })
     : null;
+  // T-2711: and the yards' five surfaces, which the fenced ground uploads in place
+  // of laying them (yards.js § THE YARDS, PREBUILT). Never rejects.
+  const yardsPrebuilt = draws('enclosures')
+    ? fetchPrebuiltYards({ dataBase: bases.dataBase,
+      year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
+    : null;
   /**
    * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
    * below read the 1835 town's records just as the drawn layers do — its residents,
@@ -2125,8 +2132,11 @@ async function boot() {
   // bake. Mounted after the streets so a frontage fence is drawn against the
   // travelled way it stands on, and before the vegetation because the ground
   // inside one now decides what may grow there — see the fenced ground below.
+  // T-2711: hashed as they are read when the yards may come prebuilt from them.
+  const enclosureHashes = yardsPrebuilt && globalThis.crypto?.subtle ? new Map() : null;
   const enclosures = await createEnclosures({
     dataBase: layerBase('enclosures'), terrain, confidence, problems: layerProblems('enclosures'), ...detailOpts(),
+    hashes: enclosureHashes,
   });
   scene3d.add(enclosures.group);
   settleOnGpu(enclosures.group);
@@ -2147,9 +2157,12 @@ async function boot() {
    * not take the ground with it. It takes the enclosure records straight off the
    * layer above rather than re-fetching them.
    */
+  performance.mark('yards:start');
   const yards = await createFencedGround({
     records: enclosures.records, terrain, confidence, problems,
+    prebuilt: yardsPrebuilt, recordHashes: enclosureHashes,
   });
+  performance.measure('yards', 'yards:start');
   scene3d.add(yards.group);
   settleOnGpu(yards.group);
   api.yards = yards;
@@ -3827,7 +3840,7 @@ async function boot() {
   // ---- gate ------------------------------------------------------------- //
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
-  let navigatorUi = null, target = null;
+  let navigatorUi = null, target = null, targetTag = null;
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3850,6 +3863,7 @@ async function boot() {
     // the probe looks again at whatever the eye has just been set down in front of.
     navigatorUi?.dock();
     target?.invalidate();
+    targetTag?.setEnabled(true);
     backends.activate(coarse ? touch : pointerlock);
     if (firstEntry) hud.showControlHelp({ auto: true });
     // T-2614: audio was resumed by the Home choice that brought us here (gesture-gate.js);
@@ -3909,6 +3923,8 @@ async function boot() {
           try {
             const ok = api.welcome.state === 'world' || (resume ? api.welcome.close() : api.welcome.enter(target.kind, target.id));
             if (ok) hud.dismissControlHelp({ remember: false });
+            // T-2630: a Jaunt started from the Navigator's Jaunts app pockets the device.
+            if (ok) navigatorUi?.dock();
             return ok;
           } finally { jauntEntering = false; }
         },
@@ -3929,19 +3945,24 @@ async function boot() {
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
   api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
+  // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
+  // app (T-2630), which shows the same list wherever it is.
+  async function openJauntList() {
+    const root = document.getElementById('welcome-jaunts-content');
+    try {
+      root.setAttribute('aria-busy', 'true');
+      await ensureJaunts();
+      if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
+      await jauntPreview.open(jauntReturnId); jauntReturnId = null;
+    } catch {
+      root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
+    } finally { root.removeAttribute('aria-busy'); }
+  }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
-    onJaunts: async () => {
-      const root = document.getElementById('welcome-jaunts-content');
-      try {
-        root.setAttribute('aria-busy', 'true');
-        await ensureJaunts();
-        if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
-        await jauntPreview.open(jauntReturnId); jauntReturnId = null;
-      } catch {
-        root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
-      } finally { root.removeAttribute('aria-busy'); }
-    },
+    onJaunts: () => openJauntList(),
+    // T-2630: the Navigator's Jaunts app hands back what it borrowed before the card shows.
+    onShow: () => api.jauntsApp?.restore(),
     // T-2613: into the town is the journey's next state — on a Jaunt, or exploring.
     enter: target => { const ok = enterWorld({ spawn: target }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
     resume: () => { const ok = enterWorld({ resume: true }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
@@ -3951,6 +3972,7 @@ async function boot() {
       gateFrame.reset();
       backends.activate(null);
       gesture.setLook({ inWorld: false });
+      targetTag?.setEnabled(false);
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
       hud.dismissControlHelp({ remember: false });
@@ -4000,6 +4022,26 @@ async function boot() {
   });
   api.target = target;
   let inspectHold = null; // T-2639: the building Inspect holds once it has closed the card
+  // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
+  // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
+  // (Inspect's own screen since T-2638/T-2639), handing it this target.
+  targetTag = createTargetTag({
+    target,
+    tagEl: document.getElementById('target-tag'),
+    keyEl: document.getElementById('btn-inspect'),
+    units: () => hud.settings.units,
+    onInspect: (t) => {
+      // Inspect opens on what is selected first, so a card left open on another
+      // building is put away before the tag hands over its own.
+      if (popup.openId && popup.openId !== t.id) popup.close();
+      // …and Inspect drops the building it was holding for the tag's (T-2639).
+      inspectHold = t.id ?? null;
+      if (navigatorUi?.select) void navigatorUi.select('inspect');
+      else pick(t.id);
+    },
+  });
+  targetTag.setEnabled(!gateOpen);
+  api.targetTag = targetTag;
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -4025,6 +4067,8 @@ async function boot() {
       // The card's building, or the one Inspect is holding: on a phone the card hides the
       // device, so Inspect closes it and holds its building for as long as Inspect stays open.
       selected: popup.openId ?? (navigatorUi?.app === 'inspect' ? inspectHold : (inspectHold = null)),
+      // T-2627: what the HUD's tag is showing, for Inspect when the device's own probe is idle.
+      target: targetTag?.current ?? null,
       // A scene has people when it has a people directory: 1835 loads its own at boot for the
       // drawer (the `residents` layer); a scene without that layer is asked after ready, with a
       // HEAD, and its directory is fetched only when People first opens (1904, T-2702).
@@ -4038,6 +4082,10 @@ async function boot() {
         openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
         inspect: (id) => (id ? pick(id) : pick()),
         jaunts: () => { api.welcome.show(); api.welcome.enter('jaunts'); },
+        // T-2630: what the Navigator's Jaunts app asks of the page.
+        jauntList: () => openJauntList(),
+        gotoList: () => api.welcome.refresh?.(),
+        freeRoam: () => navigatorUi?.dock(),
         map: () => navigation.setFullVisible(true),
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
@@ -4077,6 +4125,16 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // T-2630 (§04 E, §07): the Navigator Home's three choices open the Jaunts app on their
+  // segment — Jaunts, Go to, Free roam — as the Welcome card's three do on the arrival.
+  api.openJaunts = async (segment = 'jaunts') => {
+    const ok = await navigatorUi?.select('jaunts');
+    if (ok) api.jauntsApp?.segment(segment, { by: 'hand' });
+    return !!ok;
+  };
+  for (const choice of document.querySelectorAll('#nav-home [data-segment]')) {
+    choice.addEventListener('click', () => { void api.openJaunts(choice.dataset.segment); });
+  }
   // T-2621: Back closes the Navigator before it leaves the page (nav-link.js), and a deep
   // link (?nav=app[:id]&tab=) opens its app once the landing is over. A link to an app the
   // rail does not have, or to a building this scene does not hold, is dropped quietly.

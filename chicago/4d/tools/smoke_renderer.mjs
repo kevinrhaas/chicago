@@ -9408,6 +9408,38 @@ for (const [label, viewport, touch] of [
 
     await page.evaluate(() => window.__chicago4d.popup.close());
 
+    // T-2627 (§10): the reticle resting on the Sauganash (26 m) shows the target tag — its
+    // name and distance — after the 400 ms dwell, with the quick column's Inspect key; a
+    // tap on the tag opens it. Polled on a clock: the probe answers from the render loop.
+    const tagShown = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.target.invalidate();
+      const tag = document.getElementById('target-tag');
+      for (let i = 0; i < 150 && tag.hidden; i++) await new Promise((r) => setTimeout(r, 100));
+      const quick = [...document.querySelectorAll('#quick-column > button')];
+      return { shown: !tag.hidden, text: tag.textContent, upper: getComputedStyle(tag).textTransform,
+        current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+    });
+    check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
+      tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text) && tagShown.upper === 'uppercase'
+      && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
+      JSON.stringify(tagShown));
+    if (tagShown.shown) {
+      await clickChrome('#target-tag');
+      // Since T-2638/T-2639 Inspect is its own screen, not the card: the tap opens the
+      // Navigator on Inspect, holding the tagged building.
+      const tagOpened = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        const screen = () => document.getElementById('nav-app-inspect');
+        for (let i = 0; i < 60 && !(api.navigator?.app === 'inspect' && screen()?.dataset.structure); i++) await new Promise((r) => setTimeout(r, 100));
+        const out = { app: api.navigator?.app ?? null, open: screen()?.dataset.structure ?? null, detent: api.navigator?.detent ?? null };
+        await api.navigator?.select('home'); api.navigator?.dock?.(); api.popup.close();
+        return out;
+      });
+      check(`${label}: a tap on the target tag opens Inspect on that building (T-2627)`,
+        tagOpened.app === 'inspect' && tagOpened.open === 'sauganash_hotel', JSON.stringify(tagOpened));
+    }
+
     // T-2639 (here, in the town: the device is hidden behind the welcome gate). Inspect's tabs
     // over the card's content: all six open and fill; People shows the
     // card's "who was here" for a seated record with a way into the People app, and a record
@@ -9455,7 +9487,6 @@ for (const [label, viewport, touch] of [
       && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
       && inspectTabs1835.held && !inspectTabs1835.plumbing,
       JSON.stringify(inspectTabs1835).slice(0, 700));
-
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -15189,6 +15220,45 @@ for (const [label, viewport, touch] of [
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
       && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
+
+    // --- the Jaunts app (T-2630): Home's choices open its segments ----------------
+    // Navigator Home offers the arrival's three choices; each opens the Jaunts app on its
+    // segment (Jaunts · Go to · Free roam, a tablist). Go to is the Welcome card's own
+    // search, lent to the device; the rail opens the app too; Free roam docks it; and the
+    // card gets its list and search back, in place, when it shows again.
+    await page.evaluate(() => { window.__chicago4d.hud.setPanel(false); window.__chicago4d.navigator.open(1); window.__chicago4d.navigator.select('home'); });
+    await page.waitForTimeout(400);
+    await clickChrome('#nav-home [data-segment="goto"]');
+    await page.waitForFunction(() => window.__chicago4d.jauntsApp?.current === 'goto', null, { timeout: 15_000, polling: 100 }).catch(() => {});
+    const segGoto = await page.evaluate(() => {
+      const app = document.getElementById('nav-app-jaunts');
+      const picker = document.getElementById('welcome-picker');
+      return { app: window.__chicago4d.navigator.app, choices: [...document.querySelectorAll('#nav-home [data-segment]')].map((b) => b.dataset.segment),
+        tabs: [...(app?.querySelectorAll('[role="tablist"] [role="tab"]') ?? [])].map((t) => `${t.textContent}:${t.getAttribute('aria-selected')}`),
+        pickerInApp: !!app?.contains(picker), pickerShown: !!picker?.checkVisibility?.(),
+        rows: document.querySelectorAll('#nav-app-jaunts .welcome-destination').length };
+    });
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="jaunts"]')?.click());
+    await page.waitForTimeout(600);
+    const segJaunts = await page.evaluate(() => ({ current: window.__chicago4d.jauntsApp?.current,
+      listInApp: !!document.getElementById('nav-app-jaunts')?.contains(document.getElementById('welcome-jaunts-content')) }));
+    await page.evaluate(() => window.__chicago4d.navigator.select('home'));
+    await clickChrome('#nav-rail [data-app="jaunts"]');
+    await page.waitForTimeout(400);
+    const viaRail = await page.evaluate(() => window.__chicago4d.navigator.app);
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click());
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts .nav-roam')?.click());
+    await page.waitForTimeout(400);
+    const roamed = await page.evaluate(() => window.__chicago4d.navigator.level);
+    await page.evaluate(() => window.__chicago4d.jauntsApp?.restore());
+    const restored = await page.evaluate(() => ({ list: document.getElementById('welcome-jaunts-content')?.parentElement?.id ?? null,
+      picker: document.getElementById('welcome-picker')?.parentElement?.id ?? null, pickerHidden: document.getElementById('welcome-picker')?.hidden }));
+    check(`${label}: Navigator Home's three choices open the Jaunts app on their segment; the rail opens it; Free roam docks it; the Welcome card gets its list and search back (T-2630)`,
+      segGoto.choices.join() === 'jaunts,goto,roam' && segGoto.app === 'jaunts'
+      && segGoto.tabs.join() === 'Jaunts:false,Go to:true,Free roam:false' && segGoto.pickerInApp && segGoto.pickerShown && segGoto.rows > 0
+      && segJaunts.current === 'jaunts' && segJaunts.listInApp && viaRail === 'jaunts' && roamed === 0
+      && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
+      JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
