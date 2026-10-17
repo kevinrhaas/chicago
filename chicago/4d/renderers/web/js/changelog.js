@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1920, ts: '2026-10-17T05:35:56.970Z', date: 'Oct 17, 2026, 12:35 AM CT', title: 'Your first tap after landing starts the sound and the look controls', kind: 'feature',
+    items: [
+      'With Tap to enter gone, your first tap on a Home choice, on the scene or on a Navigator control is what lets the town\'s sound start. On iPhone and iPad that tap is all it needs, with no warnings.',
+      'On a computer, a small CLICK TO ENGAGE LOOK tag sits under the crosshair once you are in the town. Click the scene and the mouse takes over looking around; the tag goes away for good.',
+      'Phones and tablets never show the tag. They look around by dragging, as before.',
+    ] },
   { v: 1919, ts: '2026-10-17T05:10:11.965Z', date: 'Oct 17, 2026, 12:10 AM CT', title: 'Nothing you can see changed: the 1835 ground arrives ready-cut', kind: 'improvement',
     items: [
       'The town looks exactly as before. What changed is how its ground reaches your device.',
