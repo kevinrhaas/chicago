@@ -2588,9 +2588,9 @@ for (const [label, viewport, touch] of [
       let widestSphere = 0;
       for (const mesh of meshes) {
         const g = mesh.geometry;
-        const pos = g.getAttribute('position');
+        const pos = window.__chicago4d.positionsInMetres(g);
         verts += pos.count;
-        widestSphere = Math.max(widestSphere, g.boundingSphere?.radius ?? Infinity);
+        widestSphere = Math.max(widestSphere, (g.boundingSphere?.radius ?? Infinity) * mesh.matrix.getMaxScaleOnAxis());
         for (let i = 0; i < pos.count; i++) {
           // world is (E, up, -N)
           const e0 = pos.getX(i);
@@ -2598,7 +2598,8 @@ for (const [label, viewport, touch] of [
           worst = Math.max(worst,
             box.minE - e0, e0 - box.maxE, box.minN - n0, n0 - box.maxN);
         }
-        const conf = g.getAttribute('_confidence');
+        // Wherever the layer keeps it: a chunk of one grade has no stream (T-2689).
+        const conf = window.__chicago4d.confidenceOf(g);
         if (!conf) continue;
         graded += 1;
         for (let i = 0; i < conf.count; i++) {
@@ -2877,8 +2878,8 @@ for (const [label, viewport, touch] of [
         // describes its fence, and that must not fail this check.
         if (!(m.userData.recordIds ?? []).some((id) => /^town_lot_line_/.test(id))) continue;
         lotMeshes += 1;
-        const pos = m.geometry.getAttribute('position');
-        const conf = m.geometry.getAttribute('_confidence');
+        const pos = a.positionsInMetres(m.geometry);
+        const conf = a.confidenceOf(m.geometry);
         for (let i = 0; i < pos.count; i += 3) {
           cells.add(`${Math.round(pos.getX(i) / 40)}:${Math.round(-pos.getZ(i) / 40)}`);
           if (conf && conf.getX(i) !== 1) ungraded += 1;
@@ -2976,7 +2977,7 @@ for (const [label, viewport, touch] of [
       let onLine = 0;
       let top = 0;
       for (const mesh of a.enclosures?.group?.children ?? []) {
-        const pos = mesh.geometry?.getAttribute('position');
+        const pos = mesh.geometry && a.positionsInMetres(mesh.geometry);
         for (let i = 0; pos && i < pos.count; i++) {
           const pe = pos.getX(i);
           const pn = -pos.getZ(i);
@@ -4078,8 +4079,10 @@ for (const [label, viewport, touch] of [
       let lowest = Infinity;
       let highest = -Infinity;
       let hasConfidence = geos.length > 0;
+      // The colour's fourth lane since T-2689; `confidenceOf` reads it back.
+      const confOf = new Map(geos.map((geo) => [geo, window.__chicago4d.confidenceOf(geo)]));
       for (const geo of geos) {
-        const conf = geo.getAttribute('_confidence');
+        const conf = confOf.get(geo);
         if (!conf) { hasConfidence = false; continue; }
         for (let i = 0; i < conf.count; i++) {
           const v = conf.getX(i);
@@ -4131,7 +4134,7 @@ for (const [label, viewport, touch] of [
         return inside;
       };
       for (const geo of (items.length ? geos : [])) {
-        const pos = geo.getAttribute('position');
+        const pos = window.__chicago4d.positionsInMetres(geo);
         const owners = lotOwners.get(geo) ?? [];
         let ownerIndex = 0;
         for (let i = 0; i < pos.count; i++) {
@@ -4155,7 +4158,7 @@ for (const [label, viewport, touch] of [
               const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
               const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
               pl.vertices++;
-              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
+              if (confOf.get(geo)?.getX(i) !== 1) pl.badConfidence++;
               pl.minAlong = Math.min(pl.minAlong, along);
               pl.maxAlong = Math.max(pl.maxAlong, along);
               pl.minAcross = Math.min(pl.minAcross, across);
@@ -4318,7 +4321,7 @@ for (const [label, viewport, touch] of [
           for (const geo of geos) {
             const c = geo.getAttribute('color');
             if (!c) return 0;
-            const pos = geo.getAttribute('position');
+            const pos = window.__chicago4d.positionsInMetres(geo);
             for (let i = 0; i < c.count; i++) {
               // The yard outbuildings carry their own tones (T-1960), counted below.
               if (obAt(pos.getX(i), -pos.getZ(i))) continue;
@@ -4834,6 +4837,8 @@ for (const [label, viewport, touch] of [
       // assertion below walks all of them.
       const timber = (f?.group?.children ?? [])
         .filter((c) => c.name === 'frontage' || c.name === 'frontage-chunk');
+      // In metres whether or not a chunk is quantized (T-2687), decoded once.
+      const metresOf = new Map(timber.map((t) => [t, a.positionsInMetres(t.geometry)]));
       const mesh = timber.find((c) => c.name === 'frontage');
       const letters = (f?.group?.children ?? []).find((c) => c.name === 'frontage-lettering');
       // THE SIGN POST IS RESOLVED BY WHAT IT IS, NOT BY BEING FIRST (T-1580).
@@ -4855,7 +4860,7 @@ for (const [label, viewport, touch] of [
       let notReconstructed = 0;
       let verts = 0;
       for (const t of timber) {
-        const conf = t.geometry?.getAttribute('_confidence');
+        const conf = t.geometry && a.confidenceOf(t.geometry);
         if (!conf) continue;
         for (let i = 0; i < conf.count; i++) {
           const v = conf.getX(i);
@@ -5013,7 +5018,7 @@ for (const [label, viewport, touch] of [
         return hit;
       };
       for (const t of timber) {
-        const pos = t.geometry?.getAttribute('position');
+        const pos = metresOf.get(t);
         if (!pos) continue;
         verts += pos.count;
         for (let i = 0; i < pos.count; i++) {
@@ -5097,7 +5102,7 @@ for (const [label, viewport, touch] of [
         let found = 0;
         if (Number.isFinite(stand)) {
           for (const t of timber) {
-            const pos = t.geometry?.getAttribute('position');
+            const pos = metresOf.get(t);
             if (!pos) continue;
             for (let i = 0; i < pos.count; i++) {
               if (Math.abs(pos.getX(i) - e0) > 0.4) continue;
@@ -5161,7 +5166,7 @@ for (const [label, viewport, touch] of [
         // and fills every station the triangle spans with the height range it
         // covers there.
         for (const t of timber) {
-          const pos = t.geometry?.getAttribute('position');
+          const pos = metresOf.get(t);
           if (!pos) continue;
           for (let i = 0; i + 2 < pos.count; i += 3) {
             let lo3 = Infinity;
@@ -5260,7 +5265,7 @@ for (const [label, viewport, touch] of [
           let found = 0;
           let top = -Infinity;
           for (const t of timber) {
-            const pos = t.geometry?.getAttribute('position');
+            const pos = metresOf.get(t);
             if (!pos) continue;
             for (let i = 0; i < pos.count; i++) {
               if (!inPart(fp, pos.getX(i), -pos.getZ(i))) continue;
@@ -6258,7 +6263,7 @@ for (const [label, viewport, touch] of [
       let boardVerts = 0;
       for (const t of f?.group?.children ?? []) {
         if (t.name !== 'frontage' && t.name !== 'frontage-chunk') continue;
-        const pos = t.geometry?.getAttribute('position');
+        const pos = a.positionsInMetres(t.geometry);
         if (!pos) continue;
         for (let i = 0; i < pos.count; i++) {
           const e = pos.getX(i);
@@ -16969,6 +16974,10 @@ for (const [label, viewport, touch] of [
     // showed. Recorded from the first byte, before any page script can run.
     await ctx14.addInitScript(() => {
       window.__arrivalYears = [];
+      // T-2611: each time-stream caption as it came up, with the ticker year beside it
+      // and whether its two lines fit the screen without being clipped.
+      window.__timeStream = [];
+      const t0 = performance.now();
       new MutationObserver(() => {
         const year = document.getElementById('arrival-year')?.dataset.year;
         if (year && year !== window.__arrivalYears.at(-1)?.year) {
@@ -16978,7 +16987,16 @@ for (const [label, viewport, touch] of [
             // T-2613: and where the journey stood, since landing rewrites that line.
             journey: document.documentElement.dataset.journey ?? null });
         }
-      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year'] });
+        const ts = document.getElementById('arrival-timestream');
+        if (ts?.dataset.state === 'on' && ts.dataset.year !== window.__timeStream.at(-1)?.year) {
+          const text = ts.querySelector('[data-ts="text"]'), screen = ts.closest('.arrival-screen');
+          const r = ts.getBoundingClientRect(), sr = screen?.getBoundingClientRect();
+          window.__timeStream.push({ year: ts.dataset.year, ticker: year ?? null, at: Math.round(performance.now() - t0),
+            text: text?.textContent ?? '', // A clamped line is 20 px; a few px is only a face's glyphs overhanging the box.
+            clipped: !!text && text.scrollHeight > text.clientHeight + 6,
+            inside: !!sr && r.left >= sr.left - 0.5 && r.right <= sr.right + 0.5 && r.bottom <= sr.bottom + 0.5 });
+        }
+      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year', 'data-state'] });
     });
     // The path is chrome, not rendering, so the town is drawn at `light` — the tier a
     // touch device boots into anyway — as a visitor who chose it in Settings would see
@@ -17063,6 +17081,38 @@ for (const [label, viewport, touch] of [
     check(`${label}: on landing the small line reads ARRIVED and the scene's date (T-2613)`,
       !!arrivedLine.date && new RegExp(`^arrived · ${arrivedLine.date.replace(/-/g, '\\.')}$`, 'i').test(arrivedLine.line ?? ''),
       JSON.stringify(arrivedLine));
+
+    // T-2611: the time-stream captions. Each shows only as the ticker passes its year
+    // (the ticker at or below it), never twice, never clipped and inside the screen; at
+    // most 8 on any load and at most 3 on a fast one (landed inside 8 s); and the deck
+    // reached the page at all, so a mirror that dropped data/timestream/ fails by name.
+    const stream = await p14.evaluate(() => ({ shown: window.__timeStream,
+      state: window.__chicago4d.timeStream?.state ?? null }));
+    // A trip is fast while it is under 8 s (time-stream.js SLOW_AFTER_MS): no more than
+    // three captions may have come up inside that, however long this trip then ran.
+    const inFast = (stream.state?.shown ?? []).filter((c) => c.at < 8000).length;
+    check(`${label}: time-stream captions show only as the ticker passes their year, once each, unclipped, 3 fast and 8 slow (T-2611)`,
+      !!stream.state && stream.state.deck >= 8 && stream.shown.length <= 8
+      && inFast <= 3
+      && new Set(stream.shown.map((c) => c.year)).size === stream.shown.length
+      && stream.shown.every((c) => c.ticker != null && Number(c.ticker) <= Number(c.year)
+        && !c.clipped && c.inside && c.text && !/[a-z0-9]+_[a-z0-9]+/i.test(c.text)),
+      `deck ${stream.state?.deck ?? 'not loaded'}; ${inFast} inside 8 s; ${stream.shown.map((c) => `${c.year}@${c.ticker}${c.clipped ? ' CLIPPED' : ''}${c.inside ? '' : ' OUTSIDE'}`).join(', ') || 'none shown'}`);
+
+    // T-2612: the telemetry on landing. Every one of the four named lamps lit (done) on its
+    // real phases, YEARS TO GO counted down to 0, and the log shows the deck's lines with
+    // no id or snake_case in them. The old lamp names (STRUCT, SYNC) are gone.
+    const tele = await p14.evaluate(() => ({
+      lamps: [...document.querySelectorAll('#arrival-lamps li')].map((li) => ({ group: li.dataset.group, state: li.dataset.state ?? null, text: li.textContent.trim() })),
+      years: document.querySelector('#arrival-readout [data-telemetry="years"]')?.textContent ?? null,
+      log: [...document.querySelectorAll('#arrival-log li')].map((li) => li.textContent),
+      state: window.__chicago4d.telemetry?.state ?? null,
+    }));
+    check(`${label}: the arrival's four named lamps all light on their boot phases, YEARS TO GO lands on 0, the log is the deck's (T-2612)`,
+      tele.lamps.length === 4 && tele.lamps.map((l) => l.group).join() === 'streets,buildings,trees,people'
+      && tele.lamps.every((l) => l.state === 'done') && !tele.lamps.some((l) => /struct|sync/i.test(l.text))
+      && tele.years === '0' && tele.log.some((t) => t.trim()) && !tele.log.some((t) => /[a-z0-9]+_[a-z0-9]+|\//i.test(t)),
+      `${tele.lamps.map((l) => `${l.text}:${l.state ?? 'dark'}`).join(' ')}; years ${tele.years}; log ${tele.log.join(' | ')}`);
 
     const welcome = await p14.evaluate(() => {
       const gate = document.getElementById('gate');

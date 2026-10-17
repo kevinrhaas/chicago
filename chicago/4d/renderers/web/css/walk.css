@@ -366,6 +366,9 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .arrival-lamps li[data-state="active"] i::after { animation: arrival-blink .7s steps(1, end) infinite; }
 .arrival-lamps li[data-state="done"] { --lc: var(--ok, var(--accent)); }
 .arrival-lamps li[data-state="fault"] { --lc: var(--alert, #E0457B); }
+/* T-2612: some of a lamp's phases done and none running (STREETS before the ground). */
+.arrival-lamps li[data-state="partial"] { --lc: var(--lamp, #F3A43B); }
+.arrival-lamps li[data-state="partial"] i::after { opacity: .45; }
 
 .arrival-screen {
   position: relative; overflow: hidden; display: grid;
@@ -423,9 +426,39 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 /* A failed boot hides the card; its row keeps its height so the device does not jump. */
 .arrival-card[hidden] { display: -webkit-box; visibility: hidden; }
 .arrival-card[data-loading-kind="error"] { color: var(--alert, #E0457B); }
+/* T-2611: the time-stream caption. It lies over the headline and log rows (top = the
+   screen's padding + the 12 px head + its 6 px gap; height = the 22 px headline, a gap
+   and the three 16 px log rows), so the screen cuts to it and back without a reflow.
+   Reading text, so the body face and never mono (design doc section 13). A 70-character
+   caption takes two lines at 16 px on a 390 px phone; the clamp allows a third (3 x 20 px
+   plus the label fits the 76 px) for the wider faces, Saira in Deep Space. */
+.arrival-timestream {
+  position: absolute; left: 14px; right: 14px; top: calc(11px + 12px + 6px); height: calc(22px + 6px + 3 * 16px);
+  display: grid; align-content: start; gap: 4px; margin: 0; pointer-events: none;
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity .18s var(--ease-machine, ease-out), transform .18s var(--ease-machine, ease-out), visibility 0s linear .18s;
+}
+.arrival-timestream[data-state="on"] {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .18s var(--ease-machine, ease-out), transform .18s var(--ease-machine, ease-out), visibility 0s;
+}
+.arrival-screen[data-timestream="on"] :is(.arrival-headline, .arrival-log) { visibility: hidden; }
+.arrival-timestream p { margin: 0; min-width: 0; }
+.arrival-timestream-head {
+  display: flex; gap: 10px; align-items: baseline; overflow: hidden; white-space: nowrap;
+  font-size: 9px; line-height: 12px; letter-spacing: .18em; text-transform: uppercase; opacity: .78;
+}
+.arrival-timestream-head b { font-weight: 500; letter-spacing: .12em; opacity: 1; }
+.arrival-timestream-head [data-ts="grade"] { margin-left: auto; opacity: .85; }
+.arrival-timestream-text {
+  overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3;
+  font: 500 17px/20px var(--font-body, system-ui, sans-serif); letter-spacing: .005em; text-transform: none;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--screen-ink, #8CF5A8) 40%, transparent);
+}
 
 .arrival-readout {
-  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); margin: 0;
+  /* T-2612: a fourth cell, YEARS TO GO; two rows of two on a phone (below). */
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); margin: 0;
   border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
   background: color-mix(in srgb, var(--panel-raised, var(--panel)) 55%, transparent);
 }
@@ -440,6 +473,11 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; color: var(--ink);
 }
 .arrival-readout dd[data-read="eta"] { color: var(--lamp, var(--accent)); }
+.arrival-readout dd[data-telemetry="years"] { color: var(--lamp, var(--accent)); }
+/* T-2612: the log's line for a phase still running ends in an ellipsis, not OK. */
+.arrival-log li.run::after { content: "…"; }
+.arrival-log li.fault::after { content: "FAULT"; color: var(--alert, #E0457B); }
+.arrival-log li.skip::after { content: "SKIP"; opacity: .55; }
 
 @keyframes arrival-blink { 50% { opacity: .15; } }
 @keyframes arrival-roll { to { transform: translateY(420%); } }
@@ -447,17 +485,24 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 @media (prefers-reduced-motion: reduce) {
   .arrival-screen::before, .arrival-live i, .arrival-headline::after,
   .arrival-lamps li[data-state="active"] i::after, .arrival-log li.fresh { animation: none; }
+  .arrival-timestream, .arrival-timestream[data-state="on"] { transition: none; transform: none; }
 }
 @media (max-width: 520px) {
   .gate:not([data-state="welcome"]) .gate-card { padding: 16px 14px 12px; }
   .arrival-instrument { gap: 8px; margin: 10px 0 8px; }
   .arrival-deck { gap: 12px; padding: 9px 10px 10px; }
   .arrival-window .arrival-year { width: min(156px, 40vw); }
-  .arrival-lamps { gap: 8px 6px; }
+  /* T-2612: four named lamps stack in one column, so BUILDINGS is never clipped. */
+  .arrival-lamps { grid-template-columns: minmax(0, 1fr); gap: 7px; }
   .arrival-lamps li { gap: 5px; font-size: 8.5px; letter-spacing: .1em; }
   .arrival-screen { padding: 10px 12px 11px; font-size: 10.5px; }
   .arrival-headline { font-size: 13.5px; }
+  .arrival-timestream { left: 12px; right: 12px; top: calc(10px + 12px + 6px); }
+  .arrival-timestream-text { font-size: 16px; line-height: 20px; }
+  .arrival-readout { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .arrival-readout > div { padding: 6px 7px 7px; }
+  .arrival-readout > div:nth-child(odd) { border-left: 0; }
+  .arrival-readout > div:nth-child(n + 3) { border-top: 1px solid var(--edge); }
   .arrival-readout dd { font-size: 11.5px; }
 }
 

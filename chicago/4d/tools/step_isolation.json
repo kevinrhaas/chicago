@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-16",
+  "measured": "2026-10-17",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 861,
   "tools": {
@@ -2728,6 +2728,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_confidence_lane.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_conservatory_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2893,6 +2897,10 @@
       "wrote_ignored": []
     },
     "tools/check_timber_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_timestream.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5338,6 +5346,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_arrival_telemetry.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_boot_forecast.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5514,6 +5526,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_portal_clips.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_pr_lap_checkout.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5643,6 +5659,10 @@
       "wrote_ignored": []
     },
     "tools/test_ticket_stale_block.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_time_stream.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

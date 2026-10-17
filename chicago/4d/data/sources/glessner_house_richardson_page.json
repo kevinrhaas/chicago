@@ -1,0 +1,23 @@
+{
+  "id": "glessner_house_richardson_page",
+  "type": "website",
+  "citation": "Glessner House, Henry Hobson Richardson (biography of the architect). Read 16 October 2026.",
+  "author": "Glessner House",
+  "url": "https://www.glessnerhouse.org/henry-hobson-richardson",
+  "locator": "The biography's paragraph on his death and legacy: 'Richardson died from Bright's disease (nephritis) on April 26, 1886, leaving behind seventeen unfinished commissions, including Glessner house', and the closing paragraph: 'Glessner House is Richardson's only commission in Chicago that is still standing today.'",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only. No website text or images reused as an asset; no rights clearance asserted.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved and read 2026-10-16. No archived snapshot verified.",
+  "note": "Later scholarship by the house museum. It is cited for the date of Richardson's death, which no other 4D source gives: J. J. Glessner's 1923 Story of a House (glessner_story_of_a_house_1923) says Richardson marked the drawings for the lighting fixtures three weeks before his death and called the house his last work, but gives no date. With HABS's 'built June 1, 1886 to December 1, 1887' (habs_glessner_house_il_1015_data_pages), and Glessner's own account that the digging began on 1 June 1886, it puts the architect's death about five weeks before construction began. Some references give 27 April for the death; this record carries the museum's 26 April and nothing in the summary depends on the day.",
+  "what_it_supplies": [
+    "the date of H. H. Richardson's death, 26 April 1886, and that Glessner House was among his unfinished commissions",
+    "that Glessner House is Richardson's only Chicago commission still standing"
+  ],
+  "what_it_does_not_supply": [
+    "anything about the 1904 fabric",
+    "the date construction began (HABS and the 1923 Story of a House give it)"
+  ]
+}

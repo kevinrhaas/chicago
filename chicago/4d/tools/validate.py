@@ -228,8 +228,8 @@ WIDE_RANGE_YEARS = 12
 # Two 320 MiB app allowances plus the 129.136 MiB of other site content total
 # 769.136 MiB, below the 1 GiB platform ceiling. Storage hygiene only, as above: the
 # boot payload is untouched (no textured house is in the 1835 boot). §9 of
-# docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) is expected to
-# hand some back, since its 28 PNG maps are larger than their UASTC equivalents.
+# docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) handed 30.81 MiB
+# back, and the tree then read 268.87 MiB.
 SITE_BUDGET_MB = 320
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90

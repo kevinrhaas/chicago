@@ -70,6 +70,9 @@ step "The structures batch stores normals, uvs and tones compact and aligned, ea
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 
+step "Frontage, yard and enclosure confidence keep 0, 0.5 and 1 exact in the colour lane or as one grade, and nothing else is squeezed in (T-2689)" \
+  node tools/check_confidence_lane.mjs
+
 step "Emitted plank crossings remain above the distant terrain (T-2037)" \
   node tools/check_plank_ground.mjs
 
@@ -78,6 +81,9 @@ step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
 
 selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
+
+selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
+  node tools/prebuild_layers.mjs --self-test --layer ground
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -3360,6 +3366,12 @@ step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)"
 
 step "source browser counts and filters" \
   node tools/test_sources_view.mjs
+
+# The home page's destination clips (T-2685): every clip a card names ships in both
+# formats, nothing ships unnamed, and the weight stays capped. `--browser` drives the
+# page itself; no smoke part loads the Observatory.
+step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
+  node tools/test_portal_clips.mjs
 
 step "shared destinations and safe stand-offs (T-1277)" \
   node tools/test_destinations.mjs
@@ -7152,6 +7164,24 @@ step "every building summary record is graded, sourced, within its lengths and f
 
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
+
+# T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
+# years each, captioned as the ticker passes them (design doc section 05). The page shows
+# the strings as written, so this refuses a caption with no grade, no source, a source
+# that does not resolve, no note, more than 70 characters or 20 words, an id, path or
+# ticket number (T-2635's lint, imported), a year the ticker never passes, a tie in
+# importance (the fast-load pick), and Native history without its review flags and reason.
+step "every time-stream caption is graded, sourced, at most 70 characters and free of ids" \
+  python3 tools/check_timestream.py --check
+selftest "…and each planted fault (no grade, no source, an invented source, too long, an id, a removal caption unflagged) is refused" \
+  python3 tools/check_timestream.py --self-test
+step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8 slow, once each (T-2611)" \
+  node tools/test_time_stream.mjs
+# T-2612. The arrival telemetry: YEARS TO GO, the four lamps named for what a visitor sees
+# (STREETS, BUILDINGS, TREES, PEOPLE) on the real boot phases, and the log's lines from the
+# destination's deck — held against the real boot controller for all three destinations.
+step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
+  node tools/test_arrival_telemetry.mjs
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than

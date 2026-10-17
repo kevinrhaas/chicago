@@ -30,15 +30,15 @@
         "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the 1904 parcels make of these sheets. FROM: the T-1837 building register reports an 1892 east addition to the Pullman house, and the wing toward the stable is read as part of it; the register is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the house's loss in 1922; same footing, the year's last day."
       },
       "position": {
-        "utm_e": 448536.148,
-        "utm_n": 4634226.987,
+        "utm_e": 448537.28,
+        "utm_n": 4634228.379,
         "rotation_deg": -0.815,
         "symbolic_location": "1729 S. Prairie Avenue: east side of Prairie between 16th and 18th Streets, the corner lot on 18th Street, parcel prairie_1729 (data/street_grid/1904.json); on the south face of the house's east wing, looking onto the court between the house and the garage.",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The bay's centre on the wing's south wall line, read off the committed sheet 20 raster at pixel (4756.5, 5514) — the middle of the semicircle's chord, where it leaves the wing's south line — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 2.46 m RMS): local E 1463.45, N -3168.81. The bearing is the sheet's own rotation in that fit (0.815 degrees), so the wing runs along the sheet's ruled lines.",
+        "note": "The bay's centre on the wing's south wall line, read off the committed sheet 20 raster at pixel (4756.5, 5514) — the middle of the semicircle's chord, where it leaves the wing's south line — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 3.08 m RMS): local E 1464.58, N -3167.42. The bearing is the sheet's own rotation in that fit (0.815 degrees; T-2691 joined it to sheet 28 at 18th Street by a shift alone), so the wing runs along the sheet's ruled lines.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; none reads a 1911 Sanborn sheet. This position is pixel (4756.5, 5514) of the committed sheet 20 raster carried through the similarity in data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json (local_e = a*px + b*py + c, local_n = d*px + e*py + f) plus the datum origin, and the note carries the pixel and the result so the sum can be recomputed by hand."
