@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1976, ts: '2026-10-17T23:19:44.641Z', date: 'Oct 17, 2026, 6:19 PM CT', title: '1904 walking tours: famous names, architects, three styles, built so far', kind: 'feature',
+    items: [
+      'Jaunts in 1904 now offer six walks on Prairie Avenue: the famous names (Pullman, Glessner, Kimball, the two Marshall Fields, Armour), the architects (Jenney, Richardson, Cobb & Frost, Burnham & Root, Beman, Hunt), and Romanesque, Second Empire and Italianate style walks.',
+      'Built so far: a walk through every building modelled past the district draft, 29 today, most detailed first and kept area by area. It is rewritten from the building records, so it grows as buildings are built out.',
+      'Each stop\'s facts come from the district\'s markers, the Glessner House history of the street, HABS or a period picture; style readings of unworked houses are marked as the district register\'s.',
+    ] },
   { v: 1975, ts: '2026-10-17T21:19:10.688Z', date: 'Oct 17, 2026, 4:19 PM CT', title: 'No dark band at 18th and Prairie; lot lines off by default', kind: 'fix',
     items: [
       'Where 18th Street crosses Prairie Avenue, a dark strip no longer runs across the roadway. 18th\'s paving now fades softly into Prairie\'s.',
