@@ -194,6 +194,9 @@ const COVERAGE = [
   // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
   // the tree does not hold is refused as rot.
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-2662 (prepared): the Guide's glossary and FAQ. No module reads them until the Navigator
+  // Guide (T-2661) lands; check_guide.py holds them in check.sh.
+  ['data/guide/', NONE, 'the Guide glossary and FAQ, read by no module yet: check_guide.py'],
   // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
   ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
   // T-2702: 1904's own household cards and the directory compiled from them. main.js
@@ -273,6 +276,11 @@ const COVERAGE = [
   // priced on the source it changed, which is the only thing it changes now.
 
   // --- PART 1: the enclosure layer, the plantings inside it, and the signs
+  // T-2638: Inspect, the Navigator's Overview front page. Part 3 reads it on a fallback
+  // building (Hogan's store), part 14 on the Glessner summary record and the 1904 tabs, part 4
+  // the 1835 tabs once in the town (T-2639); part 13 the rail.
+  ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
+  ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],
@@ -386,7 +394,7 @@ const COVERAGE = [
   ['data/businesses/', [3, 13], 'the compiled business records and their index'],
   ['data/businesses.schema.json', [3, 13], 'the shape those records are refused against'],
   ['renderers/web/js/display-name.js', [3], 'the prose may not name a level the record is not'],
-  ['renderers/web/js/popup.js', [3], 'the card a visitor opens'],
+  ['renderers/web/js/popup.js', [3, 4, 14], 'the card a visitor opens, and its sections in Inspect\'s tabs (parts 4, 14; T-2639)'],
   // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
   ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],

@@ -14,7 +14,9 @@ import { createWhere, polygonDistance, facingWords, clockWords, screenDate } fro
 import { createNavigator, snapLevel, tapLevel, detentHeights, moveWords, DOCK_PX, dockPill, dockYear, JOYSTICK_CLEAR_PX, DOCK_PILL_PX } from '../renderers/web/js/navigator.js';
 import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/nav-rail.js';
 import { APPS } from '../renderers/web/js/apps/index.js';
-import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS } from '../renderers/web/js/apps/drawer-host.js';
+import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS, goToPick } from '../renderers/web/js/apps/drawer-host.js';
+import * as mapView from '../renderers/web/js/apps/map-view.js';
+import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -157,7 +159,8 @@ function miniDom() {
       setAttribute(k, v) { this.attrs[k] = String(v); }, getAttribute(k) { return this.attrs[k] ?? null; },
       addEventListener(type, fn) { (listeners[type] ??= []).push(fn); },
       dispatch(type, ev = {}) { for (const fn of listeners[type] ?? []) fn({ preventDefault() {}, target: el, button: 0, ...ev }); },
-      append(...cs) { for (const c of cs) { c.parent?.children.splice(c.parent.children.indexOf(c), 1); c.parent = el; el.children.push(c); } },
+      // A string is a text node in the DOM (Element.append); this fake keeps elements only.
+      append(...cs) { for (const c of cs) { if (typeof c === 'string') continue; c.parent?.children.splice(c.parent.children.indexOf(c), 1); c.parent = el; el.children.push(c); } },
       insertBefore(c, ref) {
         c.parent?.children.splice(c.parent.children.indexOf(c), 1);
         c.parent = el;
@@ -386,7 +389,9 @@ for (const phone of [true, false]) {
     storage: fakeStorage(),
     apps: APPS,
     context: () => ({ api: { hud: fakeHud }, scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
-      actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']), inspect: (id) => calls.push(['card', id]) } }),
+      actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']), inspect: (id) => calls.push(['card', id]),
+        jauntList: () => calls.push(['jaunt-list']), gotoList: () => calls.push(['goto-list']), freeRoam: () => calls.push(['roam']),
+        map: () => calls.push(['map']) } }),
   });
   await Promise.resolve();
   assert.equal(dom.body.classList.contains('has-navigator'), true);
@@ -467,16 +472,36 @@ for (const phone of [true, false]) {
   assert.equal(fakeHud.open, false, 'docking closes it');
   nav.open(1);
   assert.equal(fakeHud.open, true, 'and opening again brings it back');
-  await nav.select('jaunts');
-  assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'goto'], 'Jaunts holds Go to');
-  const lead = dom.byId.get('nav-jaunts-open');
-  assert(lead && lead.parent === dom.byId.get('nav-app-jaunts'), 'under a Take a Jaunt key');
-  lead.dispatch('click');
-  assert.deepEqual(calls.at(-1), ['jaunts'], 'which opens the Jaunts list');
-  assert.equal(nav.detent, phone ? 'dock' : 'rail');
+  // Go to is not a section: it is the Jaunts app's own segment (T-2630), and the drawer's
+  // Go to list retires with the drawer (T-2620).
+  assert.equal(SECTION_HOME.goto, undefined, 'no app holds the drawer\u2019s Go to list');
 
   // The HUD's own calls keep their meaning through the adapter (hud.setPanel / selectTab).
-  const adapter = installDrawerHost({ hud: fakeHud, navigator: nav, doc: dom.doc });
+  const goTos = [];
+  fakeHud.tab = 'goto';
+  const adapter = installDrawerHost({ hud: fakeHud, navigator: nav, doc: dom.doc, openGoTo: () => goTos.push('goto') });
+  assert.equal(fakeHud.tab, 'controls', 'the HUD\u2019s opening section moves off the retired Go to');
+  assert.equal(dom.panel.children[0].children.find((t) => t.dataset.tab === 'goto').hidden, true, 'Go to\u2019s tab leaves the row for good');
+  adapter.open('goto');
+  assert.deepEqual(goTos, ['goto'], 'asking for Go to opens the Jaunts app\u2019s Go to');
+  // A pick in that Go to, in the town, goes there (goToTarget) and pockets the device; the
+  // gate is shut, so enterWorld (the way in) would refuse it. From the gate, a pick enters.
+  {
+    const log = [];
+    let town = true;
+    const pick = goToPick({ inTown: () => town, goTo: (t) => { log.push(['go', t.id]); return t.id !== 'nowhere'; },
+      enterWorld: (t) => { log.push(['enter', t?.id ?? null]); return true; }, dock: () => log.push(['dock']), entered: () => log.push(['entered']) });
+    assert.equal(pick({ kind: 'business', id: 'biz_p_f_peck' }), true, 'in the town a Go to pick goes there');
+    assert.deepEqual(log, [['go', 'biz_p_f_peck'], ['dock']], 'through goToTarget, never enterWorld, and the device docks');
+    log.length = 0;
+    assert.equal(pick({ kind: 'structure', id: 'nowhere' }), false, 'a pick goToTarget refuses is refused');
+    assert.deepEqual(log, [['go', 'nowhere']], 'and the device stays open on the list');
+    log.length = 0;
+    assert.equal(pick(null), false, 'no target, no move');
+    town = false; log.length = 0;
+    assert.equal(pick({ kind: 'anchor', id: 'lake_at_canal' }), true);
+    assert.deepEqual(log, [['enter', 'lake_at_canal'], ['entered']], 'from the gate a pick is the way in');
+  }
   assert.equal(button(dom, 'settings').children.some((c) => c.id === 'help-dot'), true, 'What\u2019s new\u2019s dot rides the Settings icon');
   fakeHud.tab = 'evidence';
   adapter.open('evidence');
@@ -491,6 +516,24 @@ for (const phone of [true, false]) {
   nav.open(1);
   adapter.close();
   assert.equal(nav.detent, phone ? 'half' : 'open', 'but closing a section never docks Home');
+  // T-2630: Jaunts is a real screen now — three segments, Jaunts first, its list asked for.
+  nav.open(1);
+  await nav.select('jaunts');
+  const jaunts = dom.byId.get('nav-app-jaunts');
+  assert(jaunts && !jaunts.hidden, 'Jaunts opens in its own screen');
+  assert.equal(dom.byId.get('nav-code').textContent, 'SCR 02 · JAUNTS');
+  const segs = jaunts.children[0];
+  assert.equal(segs.getAttribute('role'), 'tablist');
+  assert.deepEqual(segs.children.map((b) => b.textContent), ['Jaunts', 'Go to', 'Free roam'], 'Jaunts · Go to · Free roam');
+  assert.deepEqual(segs.children.map((b) => b.getAttribute('aria-selected')), ['true', 'false', 'false']);
+  assert.deepEqual(calls.at(-1), ['jaunt-list'], 'the Jaunts segment asks for the Jaunts list');
+  segs.children[1].dispatch('click');
+  assert.deepEqual(calls.at(-1), ['goto-list'], 'Go to asks for the search');
+  assert.equal(jaunts.children[2].hidden, false, 'and shows its panel');
+  segs.children[2].dispatch('click');
+  const roamKey = jaunts.children[3].children.find((c) => c.className.split(' ').includes('nav-roam'));
+  roamKey.dispatch('click');
+  assert.deepEqual(calls.at(-1), ['roam'], 'Free roam pockets the device');
 
   // Jump is a real, lazy screen: loaded on first open, with HERE on this scene and the Recall key.
   nav.open(1);
@@ -499,7 +542,8 @@ for (const phone of [true, false]) {
   assert(jump && !jump.hidden, 'Jump opens in its own screen');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 08 · JUMP');
   const cards = jump.children[0].children;
-  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV'], '1835 is a link, 1904 (here) is not');
+  // T-2655: all three destinations, in the Observatory's order (1812 is a link too).
+  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A'], '1835 and 1812 are links, 1904 (here) is not');
   assert.equal(cards[1].getAttribute('aria-current'), 'page');
   assert.equal(cards[0].href, '../1835/');
   assert.equal(jump.children[1].href, '../', 'Recall goes back to the Observatory');
@@ -576,7 +620,8 @@ for (const phone of [true, false]) {
     assert.equal(n2.detent, 'dock', '…and the device docked');
   }
   // Every section the drawer had has an app to hold it, and no app holds more than two.
-  assert.deepEqual(Object.keys(SECTION_HOME).sort(), ['businesses', 'controls', 'evidence', 'goto', 'people', 'settings', 'travel', 'whatsnew']);
+  // Go to is the Jaunts app's own (T-2630); the drawer's Go to list retired with it (T-2620).
+  assert.deepEqual(Object.keys(SECTION_HOME).sort(), ['businesses', 'controls', 'evidence', 'people', 'settings', 'travel', 'whatsnew']);
   assert(Object.values(APP_SECTIONS).every((t) => t.length <= 2) && Object.keys(APP_SECTIONS).every((a) => APPS.some((x) => x.id === a)));
 
   const none = createNavigator({ root: miniDom().root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
@@ -607,37 +652,51 @@ for (const phone of [true, false]) {
   assert.equal(reads, 1, 'and not read again');
 }
 
-// ---- T-2625: the HUD declutter — Start / Jaunts, the Confidence chip and caret, pace, theme
-// and the menu leave the HUD; each lives in the Navigator ----------------------------------------
+// ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
+// a tap (or the quick column's Inspect key) opens Inspect --------------------------------------
 {
-  const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
-  const top = html.slice(html.indexOf('<div class="hud-top">'), html.indexOf('<div class="hud-moved"'));
-  for (const id of ['btn-start', 'btn-confidence', 'btn-confidence-more', 'btn-pace', 'btn-theme', 'btn-help']) {
-    assert(!top.includes(`id="${id}"`), `the HUD's top row no longer holds #${id}`);
-  }
-  const parked = html.slice(html.indexOf('<div class="hud-moved"'), html.indexOf('<div class="control-help"'));
-  assert(/id="btn-start"/.test(parked) && /id="confidence-group"/.test(parked) && /id="cm-reset"/.test(parked), 'Start / Jaunts and the Confidence group wait for their apps');
-  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 1);
-  const settings = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
-  assert(/id="btn-theme"/.test(settings), 'light / dark lives in Settings');
-  assert(!/id="btn-pace"/.test(html), 'the pace chip is gone; Move holds the pace');
-  // The Confidence app takes the chip, caret and menu in as they are.
-  const { default: conf } = await import('../renderers/web/js/apps/confidence.js');
-  assert.equal(conf.launch, undefined, 'the Confidence app is a screen now, not a stub');
-  const group = { parentElement: null };
-  let clicked = 0, timer = null;
-  const menu = { hidden: true };
-  const doc = { createElement: () => ({ className: '', textContent: '' }),
-    getElementById: (id) => ({ 'confidence-group': group, 'confidence-menu': menu, 'btn-confidence-more': { click: () => { clicked++; menu.hidden = false; } } }[id] ?? null),
-    defaultView: { setTimeout: (fn) => { timer = fn; } } };
-  const kids = [];
-  const el = { ownerDocument: doc, hidden: false, append: (...c) => { for (const x of c) { kids.push(x); x.parentElement = el; } } };
-  conf.mount(el);
-  assert.equal(group.parentElement, el, 'the group moves into the app');
-  conf.shown(el);
-  assert.equal(clicked, 0, 'the menu opens after the opening click has finished');
-  timer();
-  assert.equal(clicked, 1); assert.equal(menu.hidden, false, 'opening the app shows the levels');
+  assert.equal(DWELL_MS, 400); assert.equal(TAG_WITHIN_M, 40);
+  const glessner = { id: 'glessner_house', record: { id: 'glessner_house', sidecar: { name: 'Glessner House' } }, distance: 11.6 };
+  assert.equal(tagWords(glessner), 'Glessner House · 38 ft');
+  assert.equal(tagWords({ id: 'keith_house_1808_prairie', record: {}, distance: 20 }).includes('_'), false, 'no snake_case in the tag');
+  let clock = 0;
+  const timers = [];
+  const wait = (fn, ms) => { const t = { at: clock + ms, fn, live: true }; timers.push(t); return t; };
+  const cancel = (t) => { t.live = false; };
+  const advance = (ms) => { clock += ms; for (const t of timers.filter((x) => x.live && x.at <= clock)) { t.live = false; t.fn(); } };
+  let hear = null, within = null, now = null;
+  const target = { on: (fn, o) => { hear = fn; within = o.within; return () => { hear = null; }; }, current: () => now };
+  const el = () => { const ls = {}; return { hidden: true, textContent: '', attrs: {}, setAttribute(k, v) { this.attrs[k] = v; },
+    addEventListener(t, fn) { ls[t] = fn; }, click() { ls.click?.(); } }; };
+  const tagEl = el(), keyEl = el();
+  const opened = [];
+  const tag = createTargetTag({ target, tagEl, keyEl, wait, cancel, onInspect: (t) => opened.push(t.id) });
+  assert.equal(within, 40, 'the tag listens within the Inspect distance');
+  now = glessner; hear(glessner);
+  advance(399);
+  assert.equal(tagEl.hidden, true, 'nothing before the dwell');
+  advance(1);
+  assert.equal(tagEl.hidden, false, 'after 400 ms of rest the tag shows');
+  assert.equal(tagEl.textContent, 'Glessner House · 38 ft');
+  assert.equal(keyEl.hidden, false, 'and the quick column offers Inspect');
+  tagEl.click(); keyEl.click();
+  assert.deepEqual(opened, ['glessner_house', 'glessner_house'], 'a tap on the tag or the key opens Inspect on it');
+  // A glance away hides it at once; a glance past a building shows nothing.
+  now = null; hear(null);
+  assert.equal(tagEl.hidden, true); assert.equal(keyEl.hidden, true);
+  const other = { id: 'keith_house', record: { sidecar: { name: 'Keith House' } }, distance: 20 };
+  now = other; hear(other); advance(200);
+  now = null; hear(null); advance(400);
+  assert.equal(tagEl.hidden, true, 'a building passed in under 400 ms never shows');
+  // Out of the town (Home, a menu) it never shows, and coming back reads the probe again.
+  now = glessner; hear(glessner); advance(400);
+  tag.setEnabled(false);
+  assert.equal(tagEl.hidden, true);
+  hear(other); advance(400);
+  assert.equal(tagEl.hidden, true, 'disabled, nothing shows');
+  tag.setEnabled(true); advance(400);
+  assert.equal(tagEl.textContent, 'Glessner House · 38 ft', 'back in the town, the dwell runs on what is in front');
+  assert.equal(tag.current.id, 'glessner_house');
 }
 
 // ---- T-2619: the dock — closed, it shows the lamp, the label, the year and the icon of the
@@ -660,7 +719,7 @@ for (const phone of [true, false]) {
     const calls = [];
     const nav = createNavigator({ root: dom.root, scene: { id: '1904', target_date: '1904-07-01' }, isPhone: () => phone,
       viewportHeight: () => 844, now: () => t, storage: fakeStorage(), apps: APPS,
-      context: () => ({ scene: { id: '1904' }, hasPeople: false, actions: { map: () => calls.push('map') } }) });
+      context: () => ({ scene: { id: '1904' }, hasPeople: false, actions: { openSection: (section) => calls.push(section) } }) });
     await Promise.resolve();
     let d = nav.snapshot().dock;
     assert.equal(nav.level, 0, `${label}: it starts closed`);
@@ -674,9 +733,13 @@ for (const phone of [true, false]) {
     assert.equal(d.app, 'jump', `${label}: the dock remembers the last app`);
     assert.equal(d.label, 'Open the Navigator on Jump');
     assert.equal(dom.byId.get('nav-dock-app').dataset.app, 'jump');
-    // A stub (Map) runs and docks the device; it is not an app the dock opens to.
-    await nav.select('map');
-    assert.deepEqual(calls, ['map']);
+    // A stub runs and docks the device; it is not an app the dock opens to. (Map, Jaunts,
+    // the Confidence view and Settings were the stub here until each became a screen:
+    // T-2654, T-2630, T-2647, and T-2620's Settings, which holds the drawer's Settings and
+    // What's new. With none left on the rail, the test brings its own.)
+    nav.register({ id: 'stub', label: 'Stub', code: 'SCR 99', order: 95, icon: '<svg></svg>', launch: () => { calls.push('stub'); } });
+    await nav.select('stub');
+    assert.deepEqual(calls, ['stub']);
     assert.equal(nav.level, 0);
     assert.equal(nav.snapshot().dock.app, 'jump', `${label}: a stub leaves the dock on the last screen`);
     // One tap on the closed device opens that last app — at HALF on a phone.
@@ -701,6 +764,193 @@ for (const phone of [true, false]) {
   }
 }
 
+// ---- T-2640: Show me — the camera turns to a Look for feature, only along a camera the
+// building's summary record names; 900 ms ease-in-out, a cut with reduced motion ----------------
+{
+  const sm = await import('../renderers/web/js/show-me.js');
+  const glessner = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/summaries/glessner_house.json'), 'utf8'));
+  // A square house 20 m a side, centred at (100, 50).
+  const house = [[90, 40], [110, 40], [110, 60], [90, 60]];
+  assert.equal(sm.cameraOf({ text: 'x' }), null, 'no camera named, nothing to aim at');
+  assert.equal(sm.cameraOf({ camera: { yaw: 10 } }), null);
+  assert.deepEqual(sm.cameraOf({ camera: { yaw: -90, pitch: 5 } }), { yaw: 270, pitch: 5 });
+  assert.equal(sm.plan(glessner.lookFor[0], null), null, 'no footprint, no stand: never a guess');
+  for (const item of glessner.lookFor) {
+    const p = sm.plan(item, house);
+    assert(p, `${item.feature}: the record's camera gives a stand`);
+    // The stand looks along the record's bearing through the house's centre.
+    const back = Math.atan2(100 - p.e, 50 - p.n) * 180 / Math.PI;
+    assert(Math.abs(sm.turnBy(back, item.camera.yaw)) < 1e-6, `${item.feature}: faces the house along yaw ${item.camera.yaw}`);
+    assert.equal(p.pitch, item.camera.pitch);
+    assert(Math.hypot(p.e - 100, p.n - 50) >= 10 + sm.STAND_CLEAR_M - 0.5 && !sm.inside([p.e, p.n], house), 'and stands clear of its wall');
+  }
+  // A stand inside another building steps back; with nowhere clear, Show me is refused.
+  const blockedNear = (e, n) => Math.hypot(e - 100, n - 50) < 40;
+  assert(Math.hypot(...(({ e, n }) => [e - 100, n - 50])(sm.plan(glessner.lookFor[1], house, { blocked: blockedNear }))) >= 40);
+  assert.equal(sm.plan(glessner.lookFor[1], house, { blocked: () => true }), null);
+  // Another building on the line of sight hides the feature from every stand behind it: refused.
+  const across = [[95, 72], [105, 72], [105, 80], [95, 80]]; // north of the house, across the street
+  assert.equal(sm.plan(glessner.lookFor[1], house, { sighted: (e, n, we, wn) => !sm.crosses([e, n], [we, wn], [across]) }), null);
+  assert.equal(sm.crosses([100, 100], [100, 60], [across]), true);
+  assert.equal(sm.crosses([120, 100], [120, 60], [across]), false);
+  const aside = sm.plan(glessner.lookFor[1], house, { sighted: (e, n, we, wn) => !sm.crosses([e, n], [we, wn], [[[130, 72], [140, 72], [140, 80], [130, 80]]]) });
+  assert(aside && aside.n < 80, 'a building off the line changes nothing');
+  assert.equal(sm.plan(glessner.lookFor[1], house, { sighted: () => false }), null, 'no spot that sees it: refused, not guessed');
+  // A house round a courtyard has its centre outside its walls: the stand is still outside
+  // the far wall, not in the yard.
+  const ring = [[0, 0], [40, 0], [40, 40], [0, 40], [0, 30], [30, 30], [30, 10], [0, 10]]; // a C open to the west
+  const cp = sm.plan({ feature: 'x', camera: { yaw: 270, pitch: 5 } }, ring);
+  assert(cp.e > 40 && !sm.inside([cp.e, cp.n], ring), `the stand clears the far (east) wall (${cp.e.toFixed(1)}, ${cp.n.toFixed(1)})`);
+  assert.equal(sm.turnBy(350, 10), 20); assert.equal(sm.turnBy(10, 350), -20);
+  assert.equal(sm.easeInOut(0), 0); assert.equal(sm.easeInOut(1), 1); assert(Math.abs(sm.easeInOut(0.5) - 0.5) < 1e-9);
+
+  for (const reduced of [false, true]) {
+    let clock = 0;
+    const frames = [], timers = [];
+    let at = { e: 0, n: 0, yaw: 300, pitch: 0, flying: true };
+    const placed = [], outlines = [];
+    let landed = 0;
+    const run = sm.createShowMe({ pose: () => at, place: (q) => { placed.push(q); at = { ...at, ...q }; },
+      land: () => { landed++; at.flying = false; }, outline: (o) => outlines.push(o), reduced: () => reduced,
+      frame: (fn) => frames.push(fn), wait: (fn, ms) => timers.push({ fn, ms }), now: () => clock });
+    const target = sm.plan(glessner.lookFor[1], house);
+    const done = run.show(target);
+    assert.equal(landed, 1, 'flying, it comes down to the viewpoint first');
+    if (!reduced) {
+      while (frames.length) { clock += 100; frames.shift()(); }
+      assert(placed.length >= 9, 'a glide over about 900 ms');
+      assert.equal(clock >= sm.TURN_MS, true);
+    } else {
+      assert.equal(placed.length, 1, 'reduced motion: one cut, no glide');
+    }
+    assert.equal(await done, true);
+    assert.deepEqual([at.e, at.n, at.yaw, at.pitch], [target.e, target.n, target.yaw, target.pitch], 'and it ends exactly on the record’s view');
+    assert.deepEqual(outlines.at(-1), { on: true, pulse: !reduced }, reduced ? 'the outline shows, still' : 'the outline pulses');
+    assert.equal(timers.at(-1).ms, sm.PULSE_MS, 'for 2 s');
+    timers.at(-1).fn();
+    assert.deepEqual(outlines.at(-1), { on: false, pulse: false });
+    assert.equal(run.last.cut, reduced);
+  }
+  assert.equal(await sm.createShowMe({ pose: () => ({}), place: () => {} }).show(null), false, 'no plan, nothing moves');
+  // The 2 s count from when the outline is drawn (a slow frame must not find it already
+  // off), and a new Show me puts the last outline away first.
+  {
+    let drawnNow = null;
+    const seen = [], waits = [];
+    const late = sm.createShowMe({ pose: () => ({ e: 0, n: 0, yaw: 0, pitch: 0 }), place: () => {}, reduced: () => true,
+      outline: (o) => { seen.push(o); return o.on ? new Promise((r) => { drawnNow = r; }) : undefined; },
+      wait: (fn, ms) => waits.push({ fn, ms }) });
+    await late.show(sm.plan(glessner.lookFor[0], house));
+    assert.deepEqual(seen[0], { on: false, pulse: false }, 'the last outline is put away first');
+    await Promise.resolve();
+    assert.equal(waits.length, 0, 'no 2 s countdown before the outline is drawn');
+    drawnNow(); await Promise.resolve(); await Promise.resolve();
+    assert.equal(waits.length, 1); assert.equal(waits[0].ms, sm.PULSE_MS, 'it starts when the outline is drawn');
+  }
+
+  // Inspect draws Show me only on Look for items whose record names a camera.
+  const view = fs.readFileSync(path.join(ROOT, 'renderers/web/js/apps/inspect-view.js'), 'utf8');
+  assert.match(view, /if \(cameraOf\(l\) && ctx\.actions\?\.showMe\)/);
+}
+
+// ---- T-2654: the Map app — the whole field in the device, tap a building to preview, Go;
+// the active Jaunt dotted; a legend in the Confidence view colours -----------------------------
+{
+  const { inside, hitBuilding, fitField, nearView, buildingName, centroid, NEAR_K } = mapView;
+  const sq = (e, n, s, id, grade) => Object.assign([[e - s, n - s], [e + s, n - s], [e + s, n + s], [e - s, n + s]], { id, grade });
+  const yard = sq(0, 0, 30, 'yard', 'inferred'), shed = sq(5, 5, 4, 'shed', 'reconstructed'), far = sq(100, 0, 5, 'far', 'attested');
+  assert.equal(inside([0, 0], yard), true); assert.equal(inside([40, 0], yard), false);
+  assert.equal(hitBuilding([yard, shed, far], 5, 5)?.id, 'shed', 'the smallest footprint under the tap wins');
+  assert.equal(hitBuilding([yard, shed, far], -20, -20)?.id, 'yard');
+  assert.equal(hitBuilding([yard, shed, far], 108, 0, 10)?.id, 'far', 'a near miss finds the nearest house');
+  assert.equal(hitBuilding([yard, shed, far], 300, 300), null);
+  assert.deepEqual(centroid(far), [100, 0]);
+  const field = { eMin: -1000, eMax: 1020, nMin: -3800, nMax: 1120, widthM: 2020, depthM: 4920 };
+  const f = fitField(field, 300, 600);
+  assert(f.w <= 300 && f.h <= 600 && Math.abs(f.h / f.w - 4920 / 2020) < 0.02, 'the whole field keeps its shape');
+  const v = nearView(field, { e: 0, n: 0 }, 300, 345);
+  assert(Math.abs((v.eMax - v.eMin) - 300 / NEAR_K) < 1e-6 && Math.abs((v.eMin + v.eMax) / 2) < 1e-6, 'close up, centred on you');
+  assert.equal(nearView(field, { e: -999, n: 0 }, 300, 345).eMin, field.eMin, 'and kept inside the field');
+  assert.equal(buildingName({ sidecar: { name: 'Sauganash Hotel' } }, 'sauganash_hotel'), 'Sauganash Hotel');
+  assert.equal(buildingName({}, 'lot_7_block_16'), 'A building', 'never an id');
+
+  // Mount over a fake page: a canvas that records what is drawn.
+  const calls = [];
+  const g = new Proxy({}, { get: (_, k) => (k in g2 ? g2[k] : (...a) => calls.push([k, ...a])), set: (_, k, val) => { g2[k] = val; calls.push(['set', k, val]); return true; } });
+  const g2 = { setLineDash: (d) => calls.push(['dash', d.join(',')]), getImageData: () => ({ data: [] }) };
+  const listeners = new Map();
+  const mk = (tag) => {
+    const el = { tagName: tag.toUpperCase(), children: [], hidden: false, textContent: '', className: '', style: {}, attrs: {}, isConnected: true,
+      classList: { s: new Set(), add(c) { this.s.add(c); } },
+      append(...c) { el.children.push(...c); }, replaceChildren(...c) { el.children = c; },
+      setAttribute(k, val) { el.attrs[k] = String(val); }, getAttribute(k) { return el.attrs[k] ?? null; },
+      addEventListener(t, fn) { listeners.set(`${el.className}|${t}`, fn); },
+      getBoundingClientRect: () => ({ left: 0, top: 0, width: 320, height: 520 }),
+      getContext: () => g, width: 0, height: 0 };
+    return el;
+  };
+  const doc = { createElement: mk, documentElement: {}, defaultView: { devicePixelRatio: 1, setInterval: () => 1, clearInterval() {}, localStorage: null,
+    getComputedStyle: () => ({ getPropertyValue: (k) => ({ '--grade-attested': '#a', '--grade-inferred': '#b', '--grade-reconstructed': '#c', '--accent': '#d' }[k] ?? '') }) } };
+  const el = mk('div'); el.ownerDocument = doc;
+  let player = { e: 0, n: 0, bearingDeg: 90 };
+  const went = [];
+  const navigation = { field: () => field, player, outlines: [yard, shed, far], drawView: (dest, view) => calls.push(['field', view.eMin]), drawMarker: (dest, x, y) => calls.push(['arrow', Math.round(x), Math.round(y)]), units: 'imperial' };
+  const docked = [], opened = [];
+  const ctx = { api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }]]) },
+    navigator: { level: 1, detent: 'half', dock: () => docked.push(1), open: (l) => opened.push(l) },
+    actions: { goTo: (id) => { went.push(id); return true; }, jauntRoute: () => ({ stops: [[0, 0], [20, 10], [40, 0]], at: 1 }), travelRoute: () => [] } };
+  mapView.mount(el, ctx);
+  const [scope, preview, bar, foot] = el.children;
+  mapView.shown(el, ctx);
+  assert.deepEqual(opened, [2], 'on a phone the Map opens at FULL, not HALF');
+  assert.equal(el.children.length, 4);
+  assert(calls.some((c) => c[0] === 'arrow'), 'your arrow is drawn');
+  assert(calls.some((c) => c[0] === 'dash' && c[1] === '1.5,4'), 'the active Jaunt route is dotted');
+  assert.equal(el._mapApi.zoom, 'near', 'it opens close up around you');
+  assert.match(foot.textContent, /Whole field/);
+  const [zoomBtn, legendBtn, legend] = bar.children;
+  assert.equal(legendBtn.textContent, 'Confidence view colours', 'the locked term, exactly');
+  assert.deepEqual(legend.children.map((li) => li.children[1].textContent), ['Attested', 'Inferred', 'Reconstructed']);
+  assert.equal(legend.hidden, true);
+  calls.length = 0;
+  listeners.get('nav-map-toggle nav-map-legend-toggle|click')();
+  assert.equal(legend.hidden, false); assert.equal(legendBtn.attrs['aria-pressed'], 'true');
+  assert(calls.some((c) => c[0] === 'set' && c[1] === 'fillStyle' && c[2] === '#c'), 'footprints take the Confidence view colours');
+  // Tap the shed (at the centre of the close-up the shed is 5 m north-east of you).
+  const view = el._mapApi.view, k = el._mapApi.size.k;
+  listeners.get('nav-map-canvas|click')({ clientX: (5 - view.eMin) * k, clientY: (view.nMax - 5) * k });
+  assert.equal(el._mapApi.selected, 'shed');
+  assert.equal(preview.hidden, false);
+  assert.equal(preview.children[1].textContent, 'Tool shed');
+  assert.match(preview.children[2].textContent, /^Reconstructed · \d+ ft away$/);
+  listeners.get('nav-key nav-map-go|click')();
+  assert.deepEqual(went, ['shed'], 'Go travels there');
+  assert.deepEqual(docked, [1], 'and on a phone the device steps down so the ride is in view');
+  el._mapApi.setZoom('field');
+  assert.equal(zoomBtn.textContent, 'Close up');
+  assert.match(foot.textContent, /east to west/);
+  mapView.unmount(el);
+  assert.equal(el.children.length, 0);
+}
+
+// ---- T-2625: the HUD declutter — Start / Jaunts, pace, theme and the menu leave the HUD; each
+// lives in the Navigator (the Confidence chip and caret left with T-2647) --------------------
+{
+  const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
+  const top = html.slice(html.indexOf('<div class="hud-top">'), html.indexOf('<div class="hud-moved"'));
+  assert(top.length > 100, 'the HUD markup comes before the parked controls');
+  for (const id of ['btn-start', 'btn-confidence', 'btn-confidence-more', 'btn-pace', 'btn-theme', 'btn-help']) {
+    assert(!top.includes(`id="${id}"`), `the HUD's top row no longer holds #${id}`);
+  }
+  const parked = html.slice(html.indexOf('<div class="hud-moved"'), html.indexOf('</div>', html.indexOf('<div class="hud-moved"')));
+  assert(/id="btn-start"/.test(parked), 'Start / Jaunts waits, hidden, with its id; the Jaunts app holds its choices');
+  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 1);
+  const settings = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
+  assert(/id="btn-theme"/.test(settings), 'light / dark lives in Settings');
+  assert(!/id="btn-pace"/.test(html), 'the pace chip is gone; Move holds the pace');
+  assert(/id="s-move"/.test(html), 'Move\'s picker holds the pace');
+}
+
 // ---- the markup and the stylesheet ----------------------------------------------------
 {
   const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
@@ -719,6 +969,11 @@ for (const phone of [true, false]) {
   }
   assert.match(css, /\.28s var\(--ease-detent/, 'a height change takes 280 ms on the detent easing');
   assert.match(html, /<link rel="stylesheet" href="\.\/css\/navigator\.css">/);
+  // T-2627: the quick column holds two buttons at most — Walk/Fly and the Inspect key.
+  const quick = html.slice(html.indexOf('<div class="quick-column"'), html.indexOf('</div>', html.indexOf('<div class="quick-column"')));
+  assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column never holds more than two buttons');
+  assert.match(quick, /id="btn-fly"/); assert.match(quick, /id="btn-inspect"[^>]*hidden/);
+  assert.match(html, /<button type="button" class="target-tag" id="target-tag" hidden><\/button>/);
   // T-2619: the closed device's year and app icon, and the pill on a phone.
   assert.match(section, /id="nav-dock-app" aria-hidden="true"/);
   assert.match(section, /id="nav-dock-year" aria-hidden="true"/);
@@ -743,12 +998,19 @@ for (const phone of [true, false]) {
   assert.equal(await nav.openLink({ app: 'no-such-app' }), false, 'a link to an app the rail does not have is ignored');
   assert.deepEqual(calls, []);
   await nav.openLink({ app: 'map' });
-  assert.deepEqual(calls.at(-1), ['map'], '?nav=map opens the Map');
+  // T-2654: Map is its own screen now, not a stub that opened the pop-out.
+  assert.equal(nav.app, 'map', '?nav=map opens the Map');
+  assert.ok(nav.level > 0, 'and the device opens to show it');
+  // Jaunts is a screen since T-2630 (no longer a launch), so the link opens it in the device.
   await nav.openLink({ app: 'jaunts' });
-  // T-2620: Jaunts is a screen (the drawer's Go to, with Take a Jaunt), not a stub any more.
+  await new Promise((r) => setTimeout(r, 0));
   assert.equal(nav.app, 'jaunts', '?nav=jaunts opens Jaunts');
   await nav.openLink({ app: 'inspect', id: 'glessner_house', tab: 'design' });
-  assert.deepEqual(calls.at(-1), ['card', 'glessner_house'], '?nav=inspect:glessner_house opens that building (its card until the dossier lands)');
+  // T-2638: the dossier has landed, so the link opens Inspect's own screen on that building
+  // (the link's id is offered as the one selected), not the card.
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(nav.app, 'inspect', '?nav=inspect:glessner_house opens Inspect');
+  assert.ok(!calls.some((c) => c[0] === 'card'), 'and not the building card');
   assert.deepEqual(nav.link, { app: 'inspect', id: 'glessner_house', tab: 'design' }, 'the app reads its id and tab off ctx.link');
   await nav.openLink({ app: 'jump' });
   await new Promise((r) => setTimeout(r, 0));
@@ -777,7 +1039,7 @@ for (const phone of [false, true]) {
   const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1904.json'), isPhone: () => phone, storage: fakeStorage(),
     apps: APPS, keyTarget: keys, keysActive: () => active, escFree: () => escFree, viewportHeight: () => 780,
     context: () => ({ scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
-      actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']), map: () => calls.push(['map']) } }) });
+      actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']), confidenceMenu: () => calls.push(['confidence-menu']) } }) });
   await Promise.resolve();
   const where = phone ? 'phone' : 'desktop';
   const shut = nav.detent;
@@ -816,11 +1078,15 @@ for (const phone of [false, true]) {
   assert.equal(nav.app, 'jump', `${where}: ${jumpAt} opens the ${jumpAt}th app, Jump`);
   assert.ok(dom.byId.get('nav-app-jump')?.focused >= 1, `${where}: focus moves into the app's screen`);
   if (order.length < 9) assert.equal(press('9'), false, `${where}: a digit with no app behind it is not taken`);
-  // T-2620 made Move a screen; Map is still a launch (it opens the whole field).
-  const mapAt = order.indexOf('map') + 1;
-  press(String(mapAt));
+  // Every rail app holds a screen now (Move and Settings since T-2620, the Confidence view
+  // since T-2647), so a launch app is the test's own.
+  nav.register({ id: 'stub', label: 'Stub', code: 'SCR 99', order: 95, icon: '<svg></svg>', launch: () => { calls.push(['stub']); } });
+  await Promise.resolve();
+  const stubAt = nav.apps.indexOf('stub') + 1;
+  assert.ok(stubAt >= 1 && stubAt <= 9, `${where}: the stub is within reach of a digit (${nav.apps.join(', ')})`);
+  press(String(stubAt));
   await new Promise((r) => setTimeout(r, 0));
-  assert.deepEqual(calls.at(-1), ['map'], `${where}: a digit runs a launch app (Map opens the whole field)`);
+  assert.deepEqual(calls.at(-1), ['stub'], `${where}: a digit runs a launch app`);
 
   // Escape closes it — at once when nothing else is waiting for it.
   nav.open();

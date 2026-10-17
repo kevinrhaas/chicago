@@ -873,6 +873,18 @@ export function cardOpening(s, called) {
   return { title, address, aka, kind: kindParts, lead, composed: !account };
 }
 
+/** The held-pending-consultation flag (T-0268), one renderer for the card's head and for
+ *  Inspect's People tab (T-2639), so a review note reads the same in both. */
+function heldFlagHtml(s) {
+  const reason = typeof s.review_reason === 'string' ? s.review_reason.trim() : '';
+  return `<span class="pop-flag pop-flag-held"><strong>Held pending consultation.</strong>
+      This record touches the standing constraint on depicting Indigenous history in
+      1835: the project depicts the built fabric and stops there until the people
+      whose history it is have been consulted.${
+        reason ? `<em class="pop-held-why">${escapeHtml(reason)}</em>` : ''
+      }</span>`;
+}
+
 function headHtml(s, record, called, p, place) {
   const opening = cardOpening(s, called);
   const aka = opening.aka.length
@@ -937,15 +949,7 @@ function headHtml(s, record, called, p, place) {
   // compiler through the module the two of them share (T-0268). Before this the
   // reason lived in a 400-word `research_note` the card shows verbatim and folded
   // away, which is a reason a visitor never reads.
-  if (s.review_required === true) {
-    const reason = typeof s.review_reason === 'string' ? s.review_reason.trim() : '';
-    flags.push(`<span class="pop-flag pop-flag-held"><strong>Held pending consultation.</strong>
-      This record touches the standing constraint on depicting Indigenous history in
-      1835: the project depicts the built fabric and stops there until the people
-      whose history it is have been consulted.${
-        reason ? `<em class="pop-held-why">${escapeHtml(reason)}</em>` : ''
-      }</span>`);
-  }
+  if (s.review_required === true) flags.push(heldFlagHtml(s));
   const flagBlock = flags.length ? `<div class="pop-flags">${flags.join('')}</div>` : '';
 
   return `<div class="pop-head">
@@ -1430,6 +1434,63 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
      *   the Use row leads with the firm it hangs for instead of making the visitor
      *   work out that the board and the house are the same thing.
      */
+    /**
+     * T-2639. The card's content for one record as Inspect's tabs show it, built by the same
+     * section renderers and from the same loaded state (liberties, pictures, households,
+     * agencies) as the card itself, so the two cannot describe one building two ways while
+     * both exist. HTML strings; nothing here touches the card's own DOM or its open state.
+     *   people  — the held flag where the record is under review, how many slept here,
+     *             who was here, and the agencies that held it
+     *   design  — its shape, and the attribute table with each value's grade and why
+     *   story   — whether it was here on the scene date, and its phase
+     *   photos  — the Images pane (thumbnails wait in data-src until hydrated)
+     *   sources — the basis, the position's argument, the fire limit, the citations,
+     *             Liberties and open questions, and the record's own foot
+     */
+    sections(record) {
+      if (!record?.sidecar) return null;
+      const s = record.sidecar;
+      const p = s.placement ?? {};
+      const place = { confidence: p.position_confidence, sources: p.position_sources, note: p.position_note };
+      const residents = householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s;
+      const called = displayName(s, record.id);
+      // Inspect never prints the dossier's file path (§12): the link says what it opens.
+      const doc = s.research_doc
+        ? `<a href="${escapeHtml(docBase + s.research_doc)}" target="_blank" rel="noopener">Read the research dossier ↗</a>`
+        : 'No dossier has been written for this building yet.';
+      return {
+        people: `${s.review_required === true ? `<div class="pop-flags">${heldFlagHtml(s)}</div>` : ''}
+          ${lodgingSection(s)}
+          ${residentsSection(residents)}
+          ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}`,
+        hasResidents: Array.isArray(residents.residents) && residents.residents.length > 0,
+        households: (Array.isArray(residents.residents) ? residents.residents : [])
+          .map((h) => ({ household: h.household ?? null, name: h.name ?? '' })),
+        design: `${shapeSection(s)}
+          <section class="pop-sec">
+            <h3>Attributes and evidence</h3>
+            <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
+          </section>`,
+        story: presenceSection(s),
+        photos: picturesPaneHtml(pictures, record.id, { open: true, failed: picturesFailed }),
+        sources: `${basisSection(s, place)}
+          ${whereSection(p, place)}
+          ${ordinanceSection(ordinanceLimits, p)}
+          <section class="pop-sec">
+            <h3>Sources</h3>
+            <ol class="cites">${citationItems(s.citations)}</ol>
+          </section>
+          ${libertySection(liberties, record.id)}
+          ${openQuestionSection(openQuestions, record.id)}
+          ${researchSection(s)}
+          ${called.spec ? `<p class="pop-spec">Reconstruction reference <code>${escapeHtml(called.spec)}</code></p>` : ''}
+          <p class="pop-foot">${doc}</p>`,
+      };
+    },
+
+    /** The pictures file the card holds, for Inspect's Photos viewer. */
+    get picturesDoc() { return pictures; },
+
     show(record, { fromSign = false } = {}) {
       if (!record?.sidecar) return false;
       onShow?.(record);

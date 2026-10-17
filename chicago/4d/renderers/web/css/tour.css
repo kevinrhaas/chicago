@@ -1,0 +1,36 @@
+/* T-2663 (NAV-801): Tour mode, the Field Check (section 11, M10). The overlay takes no
+   pointer events, so the visitor acts on the real page; only the card does. A step with a
+   target rings it and dims the rest of the screen to 55 %. */
+.tour { position: fixed; inset: 0; z-index: 50; pointer-events: none; }
+.tour[hidden] { display: none; }
+.tour-hole { position: fixed; border-radius: 14px; border: 2px solid var(--accent);
+  box-shadow: 0 0 0 9999px rgb(0 0 0 / 55%); transition: left .2s ease, top .2s ease, width .2s ease, height .2s ease; }
+.tour-hole[hidden] { display: none; }
+.tour-card {
+  pointer-events: auto; position: fixed; left: 50%; transform: translateX(-50%);
+  top: calc(64px + env(safe-area-inset-top, 0px)); width: min(360px, calc(100vw - 32px));
+  padding: 12px 14px; color: var(--ink); background: var(--panel-solid);
+  border: 1px solid var(--accent); border-radius: 14px; box-shadow: var(--shadow);
+}
+.tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.tour-skip { min-height: 44px; min-width: 44px; padding: 0 10px; border: 1px solid var(--edge); border-radius: 999px;
+  background: transparent; color: var(--ink); font: inherit; letter-spacing: .1em; cursor: pointer; }
+.tour-task { margin: 6px 0 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); }
+.tour-bubble { margin: 4px 0 0; font-size: 16px; line-height: 1.35; font-weight: 600; }
+.tour-status { margin: 8px 0 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
+.tour-status::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%;
+  background: var(--accent); animation: tour-wait 1.2s ease-in-out infinite; vertical-align: 1px; }
+.tour-status[hidden] { display: none; }
+.tour-next { margin-top: 10px; min-height: 44px; width: 100%; border: 0; border-radius: 10px; cursor: pointer;
+  background: var(--accent); color: var(--accent-ink, var(--panel-solid)); font: 600 14px/1 var(--font-ui, inherit); }
+.tour-next[hidden] { display: none; }
+.tour-skip:focus-visible, .tour-next:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* On a phone the HUD's chips take two rows; the card sits below them. (Step 06 rings the
+   Navigator, where the Confidence view app lives, T-2647.) */
+@media (max-width: 520px) { .tour-card { top: calc(108px + env(safe-area-inset-top, 0px)); } }
+@keyframes tour-wait { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) {
+  .tour-hole { transition: none; }
+  .tour-status::before { animation: none; }
+}

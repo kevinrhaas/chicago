@@ -67,6 +67,7 @@
 /* The light theme's accent is a dark amber, so the pressed pill's text flips light. */
 [data-theme="light"] .jump-pill[aria-pressed="true"] { color: var(--accent-ink, #faf8f3); }
 .jump-pill:disabled { opacity: .45; cursor: default; }
+.jump-pill[hidden] { display: none; } /* T-2632: a kind with nothing in it is not offered */
 .jump-pill-n {
   font-size: 10px;
   color: var(--ink-dim);
@@ -76,23 +77,11 @@
 .jump-pill-n:empty { display: none; }
 .jump-touch .jump-pill { min-height: 38px; padding: 6px 13px; font-size: 12.5px; }
 
-.jump-toggle {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 30px;
-  margin: 0 0 6px;
-  padding: 2px 0;
-  color: var(--ink-dim);
-  font-size: 11.5px;
-  cursor: pointer;
-  user-select: none;
-}
-.jump-toggle input[type="checkbox"] { width: 16px; height: 16px; margin: 0; flex: none; accent-color: var(--accent); }
-.jump-toggle b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
-.jump-toggle:hover { color: var(--ink); }
-.jump-touch .jump-toggle { min-height: 44px; font-size: 12.5px; }
-.jump-touch .jump-toggle input[type="checkbox"] { width: 20px; height: 20px; }
+/* T-2633: Go to follows the Confidence view. A row whose grade it hides is dimmed and
+   says why in one line; the old "Include reconstructed roofs" checkbox is gone. */
+.jump-result.is-hidden-grade .jump-name, .jump-result.is-hidden-grade .jump-sub,
+.jump-result.is-hidden-grade .jump-side { opacity: .5; }
+.jump-result small.jump-why { display: block; color: var(--ink-dim); font-size: 11px; line-height: 1.3; white-space: normal; font-style: italic; }
 
 /* ---- the list: fills the pane, the drawer's own column scrolls -------------------- */
 .jump-results {
@@ -156,10 +145,15 @@
 
 .jump-main { display: grid; min-width: 0; gap: 1px; }
 .jump-result .jump-name {
+  /* T-2632: a long name wraps to two lines instead of losing its end. */
   min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  white-space: normal;
+  overflow-wrap: anywhere;
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.3;

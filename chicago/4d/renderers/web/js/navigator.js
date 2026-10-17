@@ -27,6 +27,7 @@
 import { t as str } from './strings/index.js';
 import './strings/navigator.js';
 import { facingWords, clockWords, screenDate } from './where.js';
+import { mountTelemetry } from './nav-telemetry.js';
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
 import { createRail } from './nav-rail.js';
@@ -153,11 +154,13 @@ export function createNavigator({
   // T-2621: a deep link's { app, id, tab }, handed to the app it opens through ctx.link.
   // Until the dossier lands (T-2638), an Inspect link's building is offered as the one
   // selected, so Inspect's stub opens that building's card.
+  // T-2627: while the rail is not looking (a docked phone), the page's own target — the
+  // HUD's tag — stands in, so Inspect opened from the HUD knows what it was opened on.
   let link = null;
   const ctx = () => {
     const page = context();
     const linked = link?.app === 'inspect' && link.id ? { selected: link.id } : null;
-    return { ...page, ...linked, link, target: near, isPhone: isPhone(), navigator: api };
+    return { ...page, ...linked, link, target: near ?? page.target ?? null, isPhone: isPhone(), navigator: api };
   };
   // T-2621: who wants to hear the device change (nav-link.js holds Back for it).
   const changeFns = new Set();
@@ -185,6 +188,8 @@ export function createNavigator({
     if (!want && unNear) { unNear(); unNear = null; near = null; }
   }
   let railAt = -Infinity;
+  let telemetry = null;
+  let telemetryAt = -Infinity;
 
   // ---- heights ----
   let level = 0;
@@ -217,6 +222,7 @@ export function createNavigator({
     listenNear();
     // T-2620: an app holding the drawer's sections closes them while the screen is out of sight.
     registry.setVisible(level > 0);
+    telemetry?.sync();
     if (railShows()) registry.evaluate();
     if (level > 0 && registry.current === 'home') refresh(true);
     changed();
@@ -417,6 +423,7 @@ export function createNavigator({
     update() {
       const t = now();
       if (railShows() && t - railAt >= 250) { railAt = t; registry.evaluate(t); }
+      if (t - telemetryAt >= 250) { telemetryAt = t; telemetry?.sync(); }
       return refresh(false);
     },
     refresh: () => refresh(true),
@@ -434,6 +441,10 @@ export function createNavigator({
   };
   for (const app of apps) registry.register(app);
   paintLevel();
+  // The telemetry strip at the foot of the device (T-2623, nav-telemetry.js): it ticks only
+  // while the device is open and can be seen, and never under reduced motion.
+  telemetry = mountTelemetry({ host: root, open: () => level > 0 });
+  api.telemetry = telemetry;
   listenNear();
   registry.setVisible(level > 0);
   if (registry.has('home')) void registry.select('home', { by: 'quiet' });

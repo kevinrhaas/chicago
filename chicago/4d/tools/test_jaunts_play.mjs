@@ -29,7 +29,7 @@ try {
     // Match the shared smoke's software-renderer action budget. Assertions stay unchanged.
     page.setDefaultTimeout(90000);
     page.on('pageerror', e => errors.push(e.message));
-    page.on('request', r => { if (/jaunts\/|jaunts.js|jaunt-panel.js|jaunt-preview.js|jaunt.css/.test(r.url())) requests.push(r.url()); });
+    page.on('request', r => { if (/jaunts\/|(?<!apps\/)jaunts\.js|jaunt-panel.js|jaunt-preview.js|jaunt.css/.test(r.url())) requests.push(r.url()); });
     await page.route('**/jaunts/catalog.json', r => r.fulfill({ json: catalog }));
     await page.route('**/jaunts/fixture-*.json', r => {
       const id = path.basename(new URL(r.request().url()).pathname, '.json');
@@ -82,7 +82,8 @@ try {
     await page.waitForSelector('#popup:not([hidden])'); await layout('popup');
     await page.screenshot({ path: path.join(out, `${viewport.width}-detail.png`) });
     await page.evaluate(() => __chicago4d.popup.close()); await atStop();
-    await page.locator('#btn-help').evaluate(el => el.click());
+    // T-2620: the menu button retired with the drawer; its sections open in the Navigator.
+    await page.evaluate(() => __chicago4d.hud.setPanel(true));
     await page.waitForSelector('#panel:not([hidden])'); await layout('panel');
     await page.screenshot({ path: path.join(out, `${viewport.width}-drawer.png`) });
     await page.evaluate(() => __chicago4d.hud.setPanel(false));
@@ -96,7 +97,7 @@ try {
     console.log(`JAUNT PLAY ${viewport.width}: previous/next complete`);
     await click(page.locator('[data-action=menu]'));
     const position = await page.evaluate(() => JSON.stringify(__chicago4d.walker.state));
-    await click(page.getByRole('button', { name: 'Resume Jaunt', exact: true })); await atStop();
+    await click(page.getByRole('button', { name: 'Continue', exact: true })); await atStop(); // T-2631
     assert.equal((await state()).stopIndex, beforePause.stopIndex);
     assert.equal(await page.evaluate(() => JSON.stringify(__chicago4d.walker.state)), position);
     }

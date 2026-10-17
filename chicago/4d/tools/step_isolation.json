@@ -2800,6 +2800,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_guide.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_haze_reach.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5406,6 +5410,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_confidence_presets.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_crash_guard.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5443,6 +5451,10 @@
       "wrote_ignored": []
     },
     "tools/test_gate_frame.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_getting_there.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5510,6 +5522,18 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_guide_glossary.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_goto_cleanup.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_goto_confidence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_house_front.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5538,7 +5562,35 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_move_comfort.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_guide.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_jaunt_cards.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_jaunts.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_jump.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_nav_link.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_move.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_telemetry.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5607,6 +5659,10 @@
       "wrote_ignored": []
     },
     "tools/test_restamp_inputs.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_roam_tip.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5707,6 +5763,10 @@
       "wrote_ignored": []
     },
     "tools/test_time_stream.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_tour.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
