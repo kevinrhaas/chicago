@@ -1,0 +1,25 @@
+{
+  "id": "chicago_street_center_lines",
+  "type": "dataset",
+  "citation": "City of Chicago, Department of Innovation and Technology. Street Center Lines (Transportation.geojson), osd-street-center-line release, last edited 2014-10-15.",
+  "author": "City of Chicago",
+  "date": "2014-10-15",
+  "describes_date": "2014",
+  "repository": "GitHub, Chicago/osd-street-center-line (mirror of the Chicago Data Portal street centerline dataset)",
+  "url": "https://github.com/Chicago/osd-street-center-line",
+  "tier": 4,
+  "rights_status": "cleared",
+  "rights_note": "Released by the City of Chicago under the MIT License (Copyright (c) 2013 City of Chicago); the clip in data/modern/streets.json carries that notice by citing this record.",
+  "asset_use": "orientation",
+  "verified": true,
+  "note": "TODAY'S streets, not historical evidence. Supplies the present-day street names, centrelines and block address ranges the compass readout and the overview map show under every year (T-2741), so a visitor knows the modern street and house number they stand at. Nothing in a period layer is read off it or traced from it.",
+  "locator": "data/modern/streets.json, clipped and projected by tools/build_modern_streets.py",
+  "what_it_supplies": [
+    "Modern street names and centreline geometry for downtown and the near South Side",
+    "Each segment's grid coordinate (EWNS) and its block's address ranges, left and right"
+  ],
+  "what_it_does_not_supply": [
+    "Anything about 1812, 1835 or 1904",
+    "Renames after 2014 (Ida B. Wells Dr, DuSable Lake Shore Dr), which the tool applies and lists in the clip"
+  ]
+}

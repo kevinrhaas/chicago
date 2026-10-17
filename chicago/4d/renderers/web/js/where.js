@@ -10,6 +10,11 @@
  *   1904  the Sanborn-traced street grid (street-grid.js `grid`): one carriageway
  *         polygon per street segment, named by the grid's own `name_1904`.
  *
+ * T-2741: and, in 1904, the faded context city's named centrelines (context.js, data/
+ * context/1904.json `streets`) where the traced grid does not reach, so the compass can
+ * say "Michigan Avenue" a block west of the grid. A centreline counts from the edge of
+ * its carriageway (`lineHalfWidth`), the way a grid polygon counts from its kerb.
+ *
  * Where two streets are both within `corner` metres you are at their corner
  * ("Prairie Avenue & East Eighteenth Street"); one street within that is the street
  * you are on; one within `near` metres is the street you are near. Otherwise the
@@ -43,17 +48,26 @@ export function polygonDistance(e, n, poly) {
   return best;
 }
 
-export function createWhere({ streets = null, grid = null, corner = 10, near = 60 } = {}) {
+export function createWhere({ streets = null, grid = null, lines = [], lineHalfWidth = 5.8, corner = 10, near = 60 } = {}) {
   const ways = (grid?.carriageways ?? [])
     .filter((c) => c?.street && c.polygon_local_m?.length >= 3)
     .map((c) => ({ street: c.street, name: grid.streets?.[c.street]?.name_1904 ?? null, poly: c.polygon_local_m }))
     .filter((w) => w.name);
+  // `{ name, e0, n0, e1, n1 }`, keyed by name so a street the grid also draws is one street.
+  const named = (lines ?? []).filter((l) => l?.name && [l.e0, l.n0, l.e1, l.n1].every(Number.isFinite));
+  const gridNames = new Set(ways.map((w) => w.name));
 
   function fromGrid(e, n) {
     const byStreet = new Map();
     for (const w of ways) {
       const d = polygonDistance(e, n, w.poly);
       if (!byStreet.has(w.street) || d < byStreet.get(w.street).d) byStreet.set(w.street, { name: w.name, d });
+    }
+    for (const l of named) {
+      if (gridNames.has(l.name)) continue;
+      const d = Math.max(0, segmentDistance(e, n, l.e0, l.n0, l.e1, l.n1) - lineHalfWidth);
+      const k = `line:${l.name}`;
+      if (!byStreet.has(k) || d < byStreet.get(k).d) byStreet.set(k, { name: l.name, d });
     }
     const ranked = [...byStreet.values()].sort((a, b) => a.d - b.d);
     const close = ranked.filter((r) => r.d <= corner);
@@ -73,9 +87,11 @@ export function createWhere({ streets = null, grid = null, corner = 10, near = 6
   }
 
   return {
+    /** T-2741: the scene draws no streets at all (1812), so "none here" means "none yet". */
+    get empty() { return !ways.length && !named.length && !(streets?.records?.length); },
     /** `{ mode: 'corner'|'on'|'near', place }` or null. */
     at(e, n, bearingDeg = 0) {
-      if (ways.length) return fromGrid(e, n);
+      if (ways.length || named.length) return fromGrid(e, n);
       return fromStreets(e, n, bearingDeg);
     },
   };

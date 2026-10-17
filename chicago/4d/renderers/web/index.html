@@ -224,21 +224,28 @@
           <button type="button" class="overview-open" id="overview-open"
             aria-label="Open the map"></button>
         </div>
-        <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
-          <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
+        <div class="compass-row">
+          <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
+            <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
+          </div>
+          <!-- T-2741: show or hide the street readout (and today's streets on the map) right
+               here, the same switch as Settings > Show. -->
+          <button type="button" class="street-toggle" id="street-toggle" aria-pressed="true"
+            aria-controls="street-readout" title="Street names: then and today"
+            aria-label="Street names: then and today"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 6h11l3 2.5L16 11H5z"/><path d="M19 13H8l-3 2.5L8 18h11z"/></svg></button>
+        </div>
+        <!-- T-2741: where you stand, in the scene's year and today — the era street (none in
+             1812) over today's street, corner or house number, read off the City's own
+             centrelines (data/modern/streets.json). -->
+        <div id="street-readout" class="street-readout" aria-live="polite" hidden>
+          <span class="street-line street-era"><b id="street-era-year"></b><strong id="street-historic"></strong></span>
+          <span class="street-line street-today"><b>Today</b><span class="street-modern" id="street-modern"></span></span>
+          <span class="street-approach" id="street-approach" hidden></span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="navigation-stack" aria-label="Navigation aids">
-    <div id="street-readout" class="street-readout" aria-live="polite" hidden>
-      <span class="street-mode" id="street-mode">On street</span>
-      <strong id="street-historic"></strong>
-      <span class="street-modern" id="street-modern"></span>
-      <span class="street-approach" id="street-approach" hidden></span>
-    </div>
-  </div>
 
   <!-- THE WHOLE FIELD, ON DEMAND (T-1142). The inset beside the compass is a
        WINDOW — a fixed frame at a fixed scale that travels with the visitor,
@@ -651,7 +658,7 @@
           <input type="checkbox" id="s-compass"></label>
         <label class="field row check-field"><span>Overview map</span>
           <input type="checkbox" id="s-overview-map"></label>
-        <label class="field row check-field"><span>1835 / current street names</span>
+        <label class="field row check-field"><span id="s-street-names-label">Street names, then and today</span>
           <input type="checkbox" id="s-street-names"></label>
         <label class="field row check-field"><span>Name of what you look at</span>
           <input type="checkbox" id="s-look-tag"></label>
