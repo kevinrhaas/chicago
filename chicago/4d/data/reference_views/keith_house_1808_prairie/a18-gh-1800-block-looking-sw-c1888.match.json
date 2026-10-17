@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1800-block-looking-sw-c1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c69d636400e3973604616eb18d2b520333390c5bfaf01fc363fec69e2fcc2d31",
+  "glb_sha256": "f56cd19dfb90e9406e8d0374a34dc9522a6f8f12047a88c4f8d90d3df0d2cc26",
   "camera_sha256": "494643f7955b634df54b0ca595da48f169788e2a9da2f400d49a7c70ff20afff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-side-by-side.jpg",
   "verdict": "differs",
@@ -56,8 +56,8 @@
       "status": "open"
     },
     {
-      "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580).",
-      "status": "open"
+      "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580). T-2712: fixed — the hall stack now stops at 16.1 m, under the return's coping, and the render shows sky over the coping beside the cowl as the picture does; the cowl's pipe rises from the stack's top.",
+      "status": "fixed"
     },
     {
       "what": "T-2578: the ventilator's pipe reads pale beside the granite, as the print shows it (the colour itself is reconstructed: the print is monochrome).",

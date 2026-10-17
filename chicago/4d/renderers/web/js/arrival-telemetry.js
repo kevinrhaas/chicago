@@ -23,23 +23,20 @@
  * the boot, and a missing element simply paints nothing.
  */
 
+import { t } from './strings/index.js';
+import './strings/arrival.js';
+
+// T-2624: the lamp names and the machine lines live in the string table (js/strings/arrival.js).
 export const LAMP_GROUPS = [
-  ['streets', 'Streets', ['scene', 'terrain', 'ground']],
-  ['buildings', 'Buildings', ['buildings']],
-  ['trees', 'Trees', ['flora']],
-  ['people', 'People', ['people', 'interaction']],
+  ['streets', t('arrival.lamp.streets'), ['scene', 'terrain', 'ground']],
+  ['buildings', t('arrival.lamp.buildings'), ['buildings']],
+  ['trees', t('arrival.lamp.trees'), ['flora']],
+  ['people', t('arrival.lamp.people'), ['people', 'interaction']],
 ];
 
 /** Each phase's machine line, used until (or unless) the deck names its own. */
-export const MACHINE_LINES = {
-  scene: 'Syncing time mesh',
-  terrain: 'Rolling back the skyline',
-  buildings: 'Raising the buildings',
-  ground: 'Laying the streets',
-  flora: 'Planting the trees',
-  people: 'Reading the directory',
-  interaction: 'Arming the Navigator',
-};
+export const MACHINE_LINES = Object.fromEntries(['scene', 'terrain', 'buildings', 'ground', 'flora', 'people', 'interaction']
+  .map(id => [id, t(`arrival.log.${id}`)]));
 
 export function yearsToGo(year, targetYear) {
   const y = Math.round(Number(year)), t = Math.round(Number(targetYear));
