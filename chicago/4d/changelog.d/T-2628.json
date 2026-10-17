@@ -1,0 +1,7 @@
+{
+  "title": "Nothing you can see changed: the HUD stays within a tenth of the screen",
+  "kind": "chore",
+  "items": [
+    "Nothing you can see changed. A new check measures how much of a phone screen the HUD covers and holds it to 10 % or less, so the town stays in view as the Navigator grows."
+  ]
+}
