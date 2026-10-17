@@ -109,7 +109,11 @@ export function createHud({
   settings.units = normalUnitSystem(settings.units);
 
   if (badgeYear) badgeYear.textContent = scene?.id ?? '';
-  if (badgeSub) badgeSub.textContent = formatSceneDate(scene?.target_date);
+  // T-2626: the year chip reads as LED digits, 1904 · 07.01; it says the date in words
+  // to a screen reader, with what a tap does.
+  if (badgeSub) badgeSub.textContent = (/^\d{4}-(\d{2})-(\d{2})/.exec(scene?.target_date ?? '') ?? []).slice(1).join('.');
+  $('year-badge')?.setAttribute('aria-label',
+    `${[formatSceneDate(scene?.target_date), scene?.id].filter(Boolean).join(' ')}. Open Jump`);
 
   // Theme: dark by default — this is a walkthrough, and a bright interface over
   // a daylight scene is the one combination that reads as neither.
@@ -724,7 +728,7 @@ export function createHud({
     const k = e.key.toLowerCase();
     if (k === 'h' || k === '?') { e.preventDefault(); setPanel(!panelOpen()); }
     else if (k === 'c') { e.preventDefault(); setConfidence(!confidenceOn); }
-    else if (k === 'n') { e.preventDefault(); setPanel(true); selectTab('whatsnew'); }
+    // T-2622: N is the Navigator's now (navigator.js); What's new is under Settings and H.
     else if (k === 'g') { e.preventDefault(); openGoTo(); }
     else if (k === 'f') { e.preventDefault(); setFly(!flying); }
     else if (k === 'p') { e.preventDefault(); setPace(PACE_CYCLE[(PACE_CYCLE.indexOf(settings.pace) + 1) % PACE_CYCLE.length]); }

@@ -2059,6 +2059,12 @@ export async function fetchPrebuiltStreets({ dataBase, year, build, detail = 'fu
   if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
     return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection lays its own streets` };
   }
+  // Ask only for what publish wrote (prebuilt-index.js), as the ground and base do.
+  // Imported here, not at the top: the node harnesses that load this file as a data:
+  // URL never reach the fetch.
+  const { prebuiltAbsent } = await import('./prebuilt-index.js');
+  const absent = await prebuiltAbsent({ dataBase, year, build, layer: 'streets' });
+  if (absent) return { why: `${absent}, so the page lays its own streets` };
   const base = new URL(`prebuilt/${year}/`, dataBase);
   const layout = streetsLayoutAt(detail);
   try {

@@ -180,9 +180,11 @@
 </div>
 <div id="hud" class="hud" hidden>
   <div class="hud-top">
-    <div class="badge" id="year-badge"><span class="badge-year">1835</span><span class="badge-sub">1 July</span><span
+    <!-- T-2626 (§10): the year chip — amber LED digits, 1904 · 07.01. A tap opens Jump. -->
+    <button type="button" class="badge year-chip" id="year-badge" aria-label="Jump to another year or place"><span
+      class="badge-year">1835</span><span class="badge-dot" aria-hidden="true">·</span><span class="badge-sub">07.01</span><span
       class="badge-alt" id="badge-alt" hidden></span><span
-      class="badge-version" id="badge-version" role="note" hidden></span></div>
+      class="badge-version" id="badge-version" role="note" hidden></span></button>
     <div class="hud-actions">
       <button id="btn-start" class="chip" aria-haspopup="dialog">Start / Jaunts</button>
       <!-- One control, two questions. The chip toggles the colouring; the caret
@@ -229,6 +231,26 @@
       <button id="btn-help" class="chip icon" aria-label="Menu"
         title="Menu — controls, places, settings and what's new (H)"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span
         class="chip-dot" id="help-dot" hidden aria-hidden="true"></span></button>
+      <!-- T-2626 (§10): the compass and the mini map are one round instrument, top right, on its own line under the chips —
+           the map, north up, inside a compass ring whose tick turns with your heading, and
+           the heading in degrees under it. A tap opens Map. -->
+      <div class="hud-instrument" id="hud-instrument" aria-label="Compass and map">
+        <div id="overview-map" class="overview-map" aria-label="Overview map">
+          <canvas id="overview-map-canvas" aria-hidden="true"></canvas>
+          <span class="overview-north" aria-hidden="true">N</span>
+          <span class="overview-caption" aria-hidden="true">map</span>
+          <span class="instrument-ring" aria-hidden="true">
+            <span class="compass-n">N</span><span class="compass-e">E</span>
+            <span class="compass-s">S</span><span class="compass-w">W</span>
+            <span class="compass-needle" id="compass-needle"></span>
+          </span>
+          <button type="button" class="overview-open" id="overview-open"
+            aria-label="Open the map"></button>
+        </div>
+        <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
+          <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -252,21 +274,6 @@
   </div>
 
   <div class="navigation-stack" aria-label="Navigation aids">
-    <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
-      <span class="compass-dial" aria-hidden="true">
-        <span class="compass-n">N</span><span class="compass-e">E</span>
-        <span class="compass-s">S</span><span class="compass-w">W</span>
-        <span class="compass-needle" id="compass-needle">↑</span>
-      </span>
-      <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
-    </div>
-    <div id="overview-map" class="overview-map" aria-label="Overview map">
-      <canvas id="overview-map-canvas" aria-hidden="true"></canvas>
-      <span class="overview-north" aria-hidden="true">N</span>
-      <span class="overview-caption" aria-hidden="true">map</span>
-      <button type="button" class="overview-open" id="overview-open"
-        aria-label="Open the whole map"></button>
-    </div>
     <div id="street-readout" class="street-readout" aria-live="polite" hidden>
       <span class="street-mode" id="street-mode">On street</span>
       <strong id="street-historic"></strong>
@@ -692,7 +699,8 @@
         <dt><kbd>Space</kbd> <kbd>Q</kbd></dt><dd>up / down <em>(while flying)</em></dd>
         <dt><kbd>G</kbd></dt><dd>go to a viewpoint, a building or a street corner</dd>
         <dt><kbd>M</kbd></dt><dd>the whole map — the small one shows the ground around you</dd>
-        <dt><kbd>N</kbd></dt><dd>what's new</dd>
+        <dt><kbd>N</kbd></dt><dd>open or close the Navigator</dd>
+        <dt><kbd>1</kbd>–<kbd>9</kbd></dt><dd>open a Navigator app, in the order of its rail</dd>
         <dt><kbd>H</kbd></dt><dd>this menu</dd>
         <dt><kbd>Esc</kbd></dt><dd>release the cursor</dd>
       </dl>
@@ -757,7 +765,7 @@
     <nav class="nav-rail" id="nav-rail" aria-label="Navigator apps" data-str-label="nav.rail">
       <button class="nav-app nav-collapse" type="button" id="nav-collapse" aria-label="Collapse the Navigator" title="Collapse"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
     </nav>
-    <div class="nav-screen" id="nav-home" role="group" aria-labelledby="nav-home-title">
+    <div class="nav-screen" id="nav-home" role="tabpanel" aria-labelledby="nav-home-title" tabindex="-1">
       <h2 id="nav-home-title" class="visually-hidden" tabindex="-1" data-str="nav.home.title">Navigator Home</h2>
       <section class="nav-block" aria-labelledby="nav-where-k">
         <span class="nav-k" id="nav-where-k" data-str="nav.where.k">You are at</span>

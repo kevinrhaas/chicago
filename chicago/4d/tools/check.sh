@@ -115,6 +115,9 @@ selftest "The distant base and the streets' surfaces cut in Node are byte-identi
 selftest "The yards' five surfaces laid and cut in Node are byte-identical build to build, batch exactly as createFencedGround's own do, and a prebuild from changed inputs is refused (T-2704)" \
   node tools/prebuild_layers.mjs --self-test --layer yards
 
+step "The page asks only for the prebuilt layers publish listed: a year with no prebuild makes no 404 request (dev mobile smoke fix)" \
+  node tools/test_prebuilt_index.mjs
+
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
@@ -153,6 +156,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
+  node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \

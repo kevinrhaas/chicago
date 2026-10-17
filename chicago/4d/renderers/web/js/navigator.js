@@ -103,12 +103,22 @@ export function createNavigator({
   isPhone = () => globalThis.matchMedia?.(`(max-width: ${PHONE_MAX_PX}px)`).matches ?? false,
   viewportHeight = () => globalThis.innerHeight ?? 780,
   now = () => (globalThis.performance?.now?.() ?? Date.now()),
+  // T-2622: the keyboard. `keysActive` is false while the arrival gate is up; `escFree`
+  // says no other surface (the drawer, a building card) is waiting for Escape.
+  keysActive = () => true,
+  escFree = () => true,
+  keyTarget = root?.ownerDocument?.defaultView ?? globalThis,
 } = {}) {
   if (!root) return null;
   const $ = (id) => root.querySelector(`#${id}`);
   const html = root.ownerDocument?.documentElement;
   const grip = $('nav-grip'), head = $('nav-head'), rail = $('nav-rail'), collapse = $('nav-collapse');
   const title = $('nav-home-title');
+  // T-2622: focus goes to Home's screen itself, which shows its focus ring; the heading
+  // that names it is visually hidden, so focus on it would be invisible.
+  const homeScreen = $('nav-home');
+  if (homeScreen && homeScreen.getAttribute?.('tabindex') == null) homeScreen.tabIndex = -1;
+  const focusTarget = (id) => (id && id !== 'home' ? root.querySelector(`#nav-app-${id}`) : homeScreen ?? title);
   const out = {
     where: $('nav-where'), whereDetail: $('nav-where-detail'),
     frontName: $('nav-front-name'), frontDetail: $('nav-front-detail'), inspect: $('nav-inspect'),
@@ -140,15 +150,28 @@ export function createNavigator({
   // `ctx` is the page's context (main.js) plus what only the device knows: the target
   // within 40 m (Inspect's rule), the shape it is in, and the device itself.
   let near = null;
-  const ctx = () => ({ ...context(), target: near, isPhone: isPhone(), navigator: api });
+  // T-2621: a deep link's { app, id, tab }, handed to the app it opens through ctx.link.
+  // Until the dossier lands (T-2638), an Inspect link's building is offered as the one
+  // selected, so Inspect's stub opens that building's card.
+  let link = null;
+  const ctx = () => {
+    const page = context();
+    const linked = link?.app === 'inspect' && link.id ? { selected: link.id } : null;
+    return { ...page, ...linked, link, target: near, isPhone: isPhone(), navigator: api };
+  };
+  // T-2621: who wants to hear the device change (nav-link.js holds Back for it).
+  const changeFns = new Set();
+  const changed = () => { for (const fn of changeFns) { try { fn({ app: registry?.current ?? null, level }); } catch { /* a listener never stops the device */ } } };
   const registry = createRail({
     rail, screens: root.querySelector('.nav-body'), codeEl: $('nav-code'), doc: root.ownerDocument,
     context: ctx, before: collapse ?? null, storage,
     onOpen: (id, by) => {
+      if (id !== link?.app) link = null;
+      queueMicrotask(changed);
       paintDock(id);
       if (by === 'quiet') return;
       if (level === 0) setLevel(1, { by, focus: false });
-      if (by === 'hand') (id === 'home' ? title : root.querySelector(`#nav-app-${id}`))?.focus?.({ preventScroll: true });
+      if (by === 'hand') focusTarget(id)?.focus?.({ preventScroll: true });
       if (id === 'home') refresh(true);
     },
     onLaunch: () => setLevel(0, { by: 'app' }),
@@ -194,8 +217,9 @@ export function createNavigator({
     listenNear();
     if (railShows()) registry.evaluate();
     if (level > 0 && registry.current === 'home') refresh(true);
+    changed();
     if (focus && was === 0 && level > 0) {
-      (registry.current && registry.current !== 'home' ? root.querySelector(`#nav-app-${registry.current}`) : title)?.focus?.({ preventScroll: true });
+      focusTarget(registry.current)?.focus?.({ preventScroll: true });
     }
     return root.dataset.detent;
   }
@@ -311,12 +335,72 @@ export function createNavigator({
 
   globalThis.matchMedia?.(`(max-width: ${PHONE_MAX_PX}px)`)?.addEventListener?.('change', () => setLevel(Math.min(level, names().length - 1)));
 
+  // ---- the keyboard (T-2622, §14 Accessibility; QA-05, QA-19) ----
+  // N toggles the device, and so does Tab while focus is on the scene itself; 1–9 open
+  // the rail's apps in the order they show; Escape closes it. Focus goes into the app on
+  // open (its screen, or Home's heading) and back to the grip on close, so a keyboard
+  // visitor always has a visible place to stand. Nothing here fires while typing.
+  const typing = (el) => !!el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName ?? ''));
+  const onScene = (el) => !el || el === root.ownerDocument?.body || el.tagName === 'CANVAS';
+  function close(by = 'hand') {
+    setLevel(0, { by });
+    // The handle that reopens it: the grip on a phone, the collapse key on the rail.
+    const shown = (el) => !!el && (el.offsetParent !== null || el.getClientRects?.().length > 0);
+    (shown(grip) ? grip : collapse ?? grip)?.focus?.({ preventScroll: true });
+  }
+  function onKey(e) {
+    if (!e?.key || e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || !keysActive()) return;
+    const active = root.ownerDocument?.activeElement ?? null;
+    if (typing(e.target) || typing(active)) return;
+    const inside = !!active && root.contains?.(active);
+    if (e.key === 'n' || e.key === 'N') {
+      e.preventDefault();
+      if (level > 0) close();
+      else setLevel(1, { by: 'hand' });
+      return;
+    }
+    if (e.key === 'Tab' && !e.shiftKey && level === 0 && onScene(active)) {
+      e.preventDefault();
+      setLevel(1, { by: 'hand' });
+      return;
+    }
+    if (/^[1-9]$/.test(e.key)) {
+      const id = registry.shown()[Number(e.key) - 1];
+      if (!id) return;
+      e.preventDefault();
+      void registry.select(id, { by: 'hand' });
+      return;
+    }
+    if (e.key === 'Escape' && level > 0 && (inside || escFree())) {
+      // Escape inside the device closes it; elsewhere only when nothing else wants it.
+      e.preventDefault();
+      close();
+    }
+  }
+  keyTarget?.addEventListener?.('keydown', onKey);
+
   api = {
     /** Add an app to the rail (nav-rail.js says what an app is); returns its unregister. */
     register: (app) => registry.register(app),
     unregister: (id) => registry.unregister(id),
     /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks). */
     select: (id) => registry.select(id, { by: 'code' }),
+    has: (id) => registry.has(id),
+    /** T-2621: open what a deep link names; an app the rail does not have is ignored. */
+    openLink(next) {
+      if (!next?.app || !registry.has(next.app)) return Promise.resolve(false);
+      link = { app: next.app, id: next.id ?? null, tab: next.tab ?? null };
+      return registry.select(next.app, { by: 'link' });
+    },
+    get link() { return link; },
+    /** T-2621: close whatever is open — back to Home, docked (what Back does). */
+    closeApp() {
+      link = null;
+      if (registry.current && registry.current !== 'home' && registry.has('home')) void registry.select('home', { by: 'quiet' });
+      return setLevel(0, { by: 'back' });
+    },
+    /** T-2621: hear the device change: fn({ app, level }); returns its unsubscribe. */
+    onChange(fn) { changeFns.add(fn); return () => changeFns.delete(fn); },
     get app() { return registry.current; },
     get apps() { return registry.shown(); },
     rail: () => registry.snapshot(),
