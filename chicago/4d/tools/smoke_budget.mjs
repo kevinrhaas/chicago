@@ -434,6 +434,8 @@ const COVERAGE = [
   ['renderers/web/js/shrub-grain.js', [10, 11, 12], 'the sward\'s grain'],
   ['renderers/web/js/fauna.js', [10, 11, 14], 'the wildlife, drawn and in the panel'],
   ['renderers/web/js/streets.js', [2, 7, 8, 10, 11, 12], 'the street edge, the roads read from two stations in part 7 and one in part 8 with the aid, and the street names'],
+  // T-2703: the trig streets.js lays its road with, and nothing else imports it.
+  ['renderers/web/js/portable-math.js', [2, 7, 8, 10, 11, 12], 'the trig streets.js lays the road with (imported by nothing else), so the street parts'],
   ['data/flora/', [10, 11, 12, 14], 'what grows here'],
   ['data/fauna/', [10, 11, 14], 'the wildlife'],
   ['data/streets/', [2, 7, 8, 10, 11, 12], 'the street records'],
