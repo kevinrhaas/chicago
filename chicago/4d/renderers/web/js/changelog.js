@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1953, ts: '2026-10-17T13:03:21.969Z', date: 'Oct 17, 2026, 8:03 AM CT', title: 'A sixty-second Field Check teaches the Navigator', kind: 'feature',
+    items: [
+      'Take the field check (in the section Guide opens) walks you through seven short steps: the Navigator, looking, walking, opening a building\'s file, going deeper, the Confidence view, and what to do next.',
+      'Each step waits until you actually do it. Skip is always there, and a highlight with the rest of the screen dimmed shows where to look.',
+      'If you reload partway through, the check picks up at the same step. You can take it again any time.',
+    ] },
   { v: 1952, ts: '2026-10-17T12:43:56.988Z', date: 'Oct 17, 2026, 7:43 AM CT', title: 'Move: one picker for how you get about', kind: 'feature',
     items: [
       'The Travel tab is now Move. You pick Walk, Run, Wagon, Horse or Fly in one row, instead of answering two questions.',
