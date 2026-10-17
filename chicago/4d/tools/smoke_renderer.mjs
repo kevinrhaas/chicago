@@ -14031,7 +14031,8 @@ for (const [label, viewport, touch] of [
       for (const pace of ['horse', 'wagon', 'run', 'walk']) {
         api.setPace(pace);
         paces[pace] = { speed: WALK.speed, sprint: WALK.sprintSpeed, eye: eye(),
-          chip: document.getElementById('btn-pace')?.dataset.pace };
+          // T-2625: the pace chip left the HUD; the pace is Move's picker (T-2651).
+          chip: document.querySelector('#s-move .seg-btn[aria-checked="true"]')?.dataset.mode };
       }
       const slider = api.hud.settings.speed;
       // T-0823: each pace has its own slider, and the walker's WALK follows the
@@ -15235,6 +15236,49 @@ for (const [label, viewport, touch] of [
     check(`${label}: C toggles BY GRADE on and off (T-2647)`,
       cOn.on === true && cOn.hidden.length === 0 && cOn.modes.reconstructed === 'dither' && cOff.on === false,
       JSON.stringify({ cOn: { on: cOn.on, modes: cOn.modes }, cOff: { on: cOff.on } }));
+    // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
+    // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
+    // presets (T-2647), the pace in Move, light or dark in Settings. Crossing onto a new
+    // street shows its name as a toast for about 2 s, then it fades.
+    const declutter = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator;
+      const top = document.querySelector('.hud-top');
+      const gone = ['btn-start', 'btn-confidence', 'btn-confidence-more', 'btn-pace', 'btn-theme', 'btn-help']
+        .filter((id) => top.querySelector(`#${id}`));
+      const device = document.getElementById('navigator');
+      const inside = async (app, sel) => {
+        await n.select(app);
+        for (let i = 0; i < 40; i++) {
+          const el = device.querySelector(sel);
+          if (el && el.getBoundingClientRect().width > 0) return true;
+          await new Promise((r) => setTimeout(r, 100));
+        }
+        return false;
+      };
+      const reach = { start: await inside('jaunts', '#nav-seg-jaunts'), confidence: await inside('confidence', '.nav-preset'),
+        pace: await inside('move', '#s-move'), theme: await inside('settings', '#btn-theme') };
+      await n.select('home'); n.dock();
+      // The toast: stands on different streets.
+      const stands = [[20, -40], [180, 90], [-127.7, -292], [-155.24, -251.19], [107, -103]];
+      let first = null, crossed = null;
+      for (const [e, nn] of stands) {
+        api.walker.teleport({ local_e: e, local_n: nn, yaw_deg: 0 }); api.step();
+        const t = api.navigation.streetToast;
+        if (!t.street) continue;
+        if (first === null) { first = t.street; continue; }
+        if (t.street !== first) { crossed = { ...t }; break; }
+      }
+      await new Promise((r) => setTimeout(r, 2600));
+      const after = api.navigation.streetToast;
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 }); api.step();
+      return { gone, reach, first, crossed, faded: !after.on };
+    });
+    check(`${label}: the HUD's top row holds none of what moved, and each is in the Navigator (T-2625)`,
+      declutter.gone.length === 0 && Object.values(declutter.reach).every(Boolean),
+      JSON.stringify(declutter));
+    check(`${label}: crossing onto a new street shows its name, which fades after about 2 s (T-2625)`,
+      !!declutter.crossed?.on && declutter.faded, JSON.stringify({ first: declutter.first, crossed: declutter.crossed, faded: declutter.faded }));
+    // <<< T-2625
 
     // --- the Navigator (T-2617) ----------------------------------------------
     // In the town the device is docked (a 64 px sheet on a phone, the rail on a
@@ -18128,9 +18172,10 @@ for (const [label, viewport, touch] of [
       await p14.evaluate(() => !document.pointerLockElement && document.getElementById('gate').hidden));
 
     // --- a jaunt from the menu, at its first stop ----------------------------------
-    await tap('#btn-start');
-    await until(() => window.__chicago4d.welcome.state === 'welcome');
-    await tap('#welcome-jaunts');
+    // T-2625: Start / Jaunts left the HUD; its Jaunts are the Navigator's Jaunts app (T-2630),
+    // which lends the Welcome card's own list, and a Jaunt started there pockets the device.
+    await p14.evaluate(() => window.__chicago4d.navigator.select('jaunts'));
+    await until(() => !!document.getElementById('nav-app-jaunts')?.contains(document.getElementById('welcome-jaunts-content')));
     await until(() => !!document.querySelector('[data-jaunt="new-in-chicago"] [data-action="start"]'));
     await tap('[data-jaunt="new-in-chicago"] [data-action="start"]');
     await atStop();

@@ -933,6 +933,24 @@ for (const phone of [true, false]) {
   assert.equal(el.children.length, 0);
 }
 
+// ---- T-2625: the HUD declutter — Start / Jaunts, pace, theme and the menu leave the HUD; each
+// lives in the Navigator (the Confidence chip and caret left with T-2647) --------------------
+{
+  const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
+  const top = html.slice(html.indexOf('<div class="hud-top">'), html.indexOf('<div class="hud-moved"'));
+  assert(top.length > 100, 'the HUD markup comes before the parked controls');
+  for (const id of ['btn-start', 'btn-confidence', 'btn-confidence-more', 'btn-pace', 'btn-theme', 'btn-help']) {
+    assert(!top.includes(`id="${id}"`), `the HUD's top row no longer holds #${id}`);
+  }
+  const parked = html.slice(html.indexOf('<div class="hud-moved"'), html.indexOf('</div>', html.indexOf('<div class="hud-moved"')));
+  assert(/id="btn-start"/.test(parked), 'Start / Jaunts waits, hidden, with its id; the Jaunts app holds its choices');
+  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 1);
+  const settings = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
+  assert(/id="btn-theme"/.test(settings), 'light / dark lives in Settings');
+  assert(!/id="btn-pace"/.test(html), 'the pace chip is gone; Move holds the pace');
+  assert(/id="s-move"/.test(html), 'Move\'s picker holds the pace');
+}
+
 // ---- the markup and the stylesheet ----------------------------------------------------
 {
   const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');

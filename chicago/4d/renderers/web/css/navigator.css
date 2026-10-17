@@ -604,3 +604,10 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
 .nav-faq-item > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; font-size: 14px; }
 .nav-faq-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .nav-faq-item > p { margin: 0 0 12px; }
+
+/* T-2625 (§10 "In-world HUD"): Start / Jaunts left the HUD. It waits here out of sight,
+   its id and listener intact; its choices are the Jaunts app's (T-2630). */
+.hud-moved, .hud-moved[hidden] { display: none; }
+/* Settings › View: the light / dark switch, moved from the HUD. */
+.theme-row { align-items: center; justify-content: space-between; gap: 12px; }
+.theme-row #btn-theme { box-shadow: none; }
