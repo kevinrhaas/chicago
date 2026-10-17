@@ -16,6 +16,7 @@ import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSys
 import { createGoTo } from './goto.js';
 import { PACES } from './travel.js';
 import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
+import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
@@ -66,9 +67,10 @@ const DEFAULT_SETTINGS = {
   // The wagon's and the horse's own speeds (T-0823) and the run's (T-2651); `speed`
   // above is the walk's.
   wagonSpeed: 3.6, horseSpeed: 6.5, runSpeed: 3.4,
-  // T-2652: whether the visitor has picked a getting-there choice themselves. Until they
-  // have, a Jaunt rides at its own recommended mode (js/getting-there.js § jauntModeFor).
-  arriveChosen: false,
+  // T-2727: Move › Jaunts use my choice. Off, every Jaunt travels the way it recommends; on,
+  // it takes the getting-there choice where it can (js/getting-there.js § jauntChoice).
+  // Replaces T-2652's hidden `arriveChosen` rule. Anything but a stored `true` reads as off.
+  jauntsFollowChoice: false,
   // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
   snapTurn: false,
 };
@@ -82,6 +84,9 @@ function readSettings() {
       saved.season ??= saved.streetTrees;
       saved.streetTrees = 'shown';
     }
+    // T-2727: the retired rule's key goes, and the switch is on only if it was turned on.
+    delete saved.arriveChosen;
+    saved.jauntsFollowChoice = jauntsFollowFrom(saved);
     return { ...DEFAULT_SETTINGS, ...saved };
   } catch { return { ...DEFAULT_SETTINGS }; }
 }
@@ -692,10 +697,19 @@ export function createHud({
   });
   doc.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
     b.addEventListener('click', () => {
-      settings.arriveChosen = true;
       setTravelMode(travelModeFor(b.dataset.arrive, groundPace()));
     });
   });
+  // T-2727: Jaunts use my choice. Read strictly: only a stored true turns it on.
+  const jauntsChoice = $('s-jaunts-choice');
+  if (jauntsChoice) {
+    jauntsChoice.checked = settings.jauntsFollowChoice === true;
+    jauntsChoice.addEventListener('change', () => {
+      settings.jauntsFollowChoice = jauntsChoice.checked;
+      onSetting?.('jauntsFollowChoice', settings.jauntsFollowChoice);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  }
   moveSlider?.addEventListener('input', () => {
     const key = PACES[groundPace()].settingKey;
     settings[key] = Number(moveSlider.value);
@@ -789,7 +803,7 @@ export function createHud({
     setMoveMode,
     paintMove,
     /** The getting-there choice, for Go to, the Map and Jaunts (T-2652). */
-    get gettingThere() { return { travelMode: settings.travelMode, pace: groundPace(), chosen: !!settings.arriveChosen }; },
+    get gettingThere() { return { travelMode: settings.travelMode, pace: groundPace(), follow: settings.jauntsFollowChoice === true }; },
     /** Move's mode: 'fly' while flying, else the ground pace (T-2651). */
     get moveMode() { return flying ? 'fly' : groundPace(); },
     showControlHelp,
