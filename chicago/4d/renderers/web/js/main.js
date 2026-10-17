@@ -2957,8 +2957,10 @@ async function boot() {
   api.loadLiberties = ensureLiberties;
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
-    // T-2626: the round instrument opens the Map app (its stub opens the whole field).
-    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
+    // T-2626: the round instrument opens the whole field. (T-2620: the Map app now holds Go
+    // to's list of places under its own key to the whole field, so the instrument goes
+    // straight to the field, as the Map app's stub did.)
+    onOpen: () => navigation.setFullVisible(true),
   });
   // T-2626: the year chip opens the Jump app.
   document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
