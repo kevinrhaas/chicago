@@ -14993,7 +14993,8 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator opens by hand on Home, and Home says where you are`,
       ['half', 'open'].includes(navHome.detent) && navHome.where.length > 0 && /(am|pm)$/.test(navHome.whereDetail)
       && /^facing /.test(navHome.whereDetail) && navHome.move.length > 0 && ['On', 'Off'].includes(navHome.confidence)
-      && navHome.focus === 'nav-home-title' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
+      // T-2622: focus moves onto Home's screen (it shows its ring; the heading is hidden).
+      && navHome.focus === 'nav-home' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
       JSON.stringify(navHome));
     check(`${label}: the Navigator's rail holds ten apps at most, Home first and Settings last, and Jump opens and closes (T-2618)`,
       navHome.rail.length <= 10 && navHome.rail[0] === 'home' && navHome.rail[1] === 'jaunts' && navHome.rail.at(-1) === 'settings'
@@ -15012,6 +15013,53 @@ for (const [label, viewport, touch] of [
     check(`${label}: one tap on the closed Navigator opens the last app${touch ? ' at HALF' : ''}`,
       navLast.detent === (touch ? 'half' : 'open') && navLast.app === 'jump' && navLast.dockApp === 'jump' && navLast.after === 'home',
       JSON.stringify(navLast));
+
+    // --- the Navigator by keyboard (T-2622, QA-19 first half) --------------------
+    // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
+    // device opens and closes by keyboard alone: N opens it with focus inside and visible,
+    // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
+    // one, Escape closes it and leaves focus, visibly, on the grip.
+    await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
+    const visibleFocus = () => page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return { id: null, visible: false };
+      const cs = getComputedStyle(el);
+      return { id: el.id || el.dataset?.app || el.tagName, inNav: !!el.closest('#navigator'),
+        visible: el.matches(':focus-visible') && cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0 };
+    });
+    const aria = await page.evaluate(() => {
+      const list = document.querySelector('#nav-rail [role="tablist"]');
+      const tabs = [...(list?.querySelectorAll('[role="tab"]') ?? [])].filter((b) => !b.hidden);
+      return { list: !!list, label: list?.getAttribute('aria-label') ?? '', tabs: tabs.length,
+        labelled: tabs.every((b) => (b.getAttribute('aria-label') ?? b.textContent).trim().length > 0),
+        selected: tabs.filter((b) => b.getAttribute('aria-selected') === 'true').length,
+        stray: [...(list?.children ?? [])].filter((c) => c.getAttribute('role') !== 'tab').length,
+        panels: [...document.querySelectorAll('#navigator [role="tabpanel"]')].every((p) => !!(p.getAttribute('aria-labelledby') || p.getAttribute('aria-label'))) };
+    });
+    await page.keyboard.press('n');
+    await page.waitForTimeout(350);
+    const keyOpen = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    const order = await page.evaluate(() => window.__chicago4d.navigator.apps);
+    const jumpAt = order.indexOf('jump') + 1;
+    if (jumpAt >= 1 && jumpAt <= 9) await page.keyboard.press(String(jumpAt));
+    await page.waitForTimeout(500);
+    const keyJump = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.evaluate(() => document.querySelector('#nav-rail [role="tab"][aria-selected="true"]')?.focus());
+    await page.keyboard.press('Home');
+    const tabHome = await page.evaluate(() => document.activeElement?.dataset?.app ?? null);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(400);
+    const keyHome = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(350);
+    const keyShut = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    check(`${label}: the Navigator's rail is a tablist of labelled tabs, and the device opens, switches and closes by keyboard with focus always visible (T-2622)`,
+      aria.list && aria.label === 'Navigator apps' && aria.tabs >= 2 && aria.labelled && aria.selected === 1 && aria.stray === 0 && aria.panels
+      && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
+      && keyJump.app === 'jump' && keyJump.focus.id === 'nav-app-jump' && keyJump.focus.visible
+      && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
