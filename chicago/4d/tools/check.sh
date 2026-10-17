@@ -163,6 +163,9 @@ step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's lis
 # T-2634: Free roam's one-time tip.
 step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
   node tools/test_roam_tip.mjs
+# T-2631: Jaunt cards and Continue.
+step "Each Jaunt card shows a credited plate of its own stops or none, its keepsake once earned, and an outing in progress pinned on top with Continue (T-2631)" \
+  node tools/test_nav_jaunt_cards.mjs
 step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
   node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \

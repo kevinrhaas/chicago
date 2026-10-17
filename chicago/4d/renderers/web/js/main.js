@@ -100,6 +100,7 @@ import { createEvidenceHub } from './evidence.js';
 import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { createRoamTip } from './roam-tip.js';
+import { plateFor as jauntPlate } from './pictures.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
@@ -3920,6 +3921,9 @@ async function boot() {
       }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
+        plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
+          .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -3968,11 +3972,13 @@ async function boot() {
   api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
   // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
   // app (T-2630), which shows the same list wherever it is.
+  let jauntPictures = null;
   async function openJauntList() {
     const root = document.getElementById('welcome-jaunts-content');
     try {
       root.setAttribute('aria-busy', 'true');
-      await ensureJaunts();
+      // T-2631: the pictures file, for the cards' plates, fetched alongside — never at boot.
+      [, jauntPictures] = await Promise.all([ensureJaunts(), ensurePictures().catch(() => null)]);
       if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
       await jauntPreview.open(jauntReturnId); jauntReturnId = null;
     } catch {

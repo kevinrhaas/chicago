@@ -2135,6 +2135,19 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-length[data-size="l"] { --g2: currentColor; --g3: currentColor; }
 .jaunt-length:empty { display: none; }
 .jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
+/* T-2631: a route's plate (a credited picture of its stops), its keepsake, and the outing
+   in progress pinned on top with Continue. */
+.jaunt-type.has-plate { overflow: hidden; padding: 0; background: var(--step); }
+.jaunt-plate { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); }
+.jaunt-credit { margin: 2px 0 0; font: 400 9.5px/1.3 var(--font-mono, ui-monospace, monospace); color: var(--ink-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jaunt-kept { color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent); border-radius: 999px; padding: 0 6px; }
+.jaunt-continue { border-color: var(--accent); }
+.jaunt-continue-k { margin: 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); }
+.jaunt-continue h3 { margin: 2px 0 0; }
+.jaunt-continue-next { margin: 2px 0 8px; color: var(--ink-dim); }
+.jaunt-continue [data-action="continue"] { min-height: 44px; font-weight: 600; }
 .jaunt-actions { display: flex; align-items: center; gap: 4px; }
 .jaunt-start { width: 40px; height: 40px; display: grid; place-items: center; padding: 0 0 0 2px; cursor: pointer;
   color: var(--accent-ink, var(--panel-solid)); border: 0; border-radius: 50%; background: var(--accent);
