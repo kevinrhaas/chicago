@@ -28,6 +28,7 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
@@ -1518,8 +1519,11 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 api.journey = journey;
-// Back to the Observatory is the journey's recall, from wherever the link sits.
-gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
+// Back to the Observatory is the journey's recall, from wherever the link sits. T-2735: the
+// way home asks first and plays the reverse ring (js/recall.js), so the journey moves to
+// `recall` only as the page actually leaves; a cancelled prompt leaves it where it was.
+recallHome?.onReturn(() => journey.recall());
+api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
@@ -4249,7 +4253,8 @@ async function boot() {
         goTo: (id) => goToTarget({ kind: 'structure', id }),
         jauntRoute: () => mapJauntRoute(),
         travelRoute: () => travel.routeAhead(),
-        recall: () => journey.recall(),
+        // T-2735: Recall asks first; the journey moves only as the page leaves.
+        recall: (href) => recallHome?.ask(href),
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
