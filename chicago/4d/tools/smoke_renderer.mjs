@@ -5712,11 +5712,19 @@ for (const [label, viewport, touch] of [
     // at most the relief across its own width, measured per vertex, and each
     // stringer reaches the ground under its own line so the departure is
     // carried on timber rather than open to daylight.
+    // T-2700 — THE SHARED MESH IS NOW ON A MILLIMETRE GRID (Int16 over each
+    // piece's box, compact-streams.js), which moves a vertex by at most
+    // POSITION_ERROR_M. It was float32 until then, and its highest flat-ground
+    // vertex read 0.180 m once on the grid (T-2688 read the same on its cut);
+    // the band's two edges allow the grid's own millimetre and no more, and the
+    // reading prints to a tenth of one so a real rise past it shows.
+    const GRID_M = 0.001;
     check(`${label}: the plank decks tie into the ground they cross`,
-      frontage.sink >= -0.06 && frontage.deckTop > 0.05 && frontage.deckTop <= 0.18
+      frontage.sink >= -0.06 - GRID_M && frontage.deckTop > 0.05
+        && frontage.deckTop <= 0.18 + GRID_M
         && frontage.bandBreaches === 0,
-      `deepest ${frontage.sink?.toFixed(3)} m below grade, highest flat-ground deck `
-      + `vertex ${frontage.deckTop?.toFixed(3)} m above it, ${frontage.bandBreaches} `
+      `deepest ${frontage.sink?.toFixed(4)} m below grade, highest flat-ground deck `
+      + `vertex ${frontage.deckTop?.toFixed(4)} m above it, ${frontage.bandBreaches} `
       + `vertice(s) past even their own relief allowance (worst by `
       + `${frontage.worstBreach?.toFixed(3)} m)`);
     // THE WALK'S SIDE IS A MADE EDGE, NOT A ROW OF BOARD ENDS (T-0460). The

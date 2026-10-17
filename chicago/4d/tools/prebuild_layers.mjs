@@ -81,8 +81,10 @@ const ROOT = path.resolve(here, '..');
 const WEB = path.join(ROOT, 'renderers/web');
 const THREE_DIR = path.join(WEB, 'vendor/three-0.185.1');
 /** 2 since T-2677: the tape, pick spans, walk-top ranges, spheres and build.
- *  3 since T-2687: each mesh's position, uniform scale and quantization. */
-const FORMAT = 4;
+ *  3 since T-2687: each mesh's position, uniform scale and quantization.
+ *  4 since T-2689: the colour lane's confidence. 5 since T-2700: a boxed
+ *  mesh's pieces. The page's PREBUILT_FORMAT (frontage.js) is the same number. */
+const FORMAT = 5;
 /** Built by the page for itself, never carried in the file (see the header). */
 const PAGE_ONLY = new Set(['frontage-far-walk-tops', 'frontage-lettering']);
 
@@ -230,6 +232,8 @@ export function meshBuffers(group) {
       bounding_sphere: s ? { center: s.center.toArray(), radius: s.radius } : null,
       position: mesh.position.toArray(), scale: mesh.scale.x,
       position_quantized: g.userData.positionQuantized ?? null,
+      // A boxed mesh's pieces (T-2700): each vertex's lane names a row of these.
+      position_boxes: g.userData.positionBoxes ?? null,
       // The colour's fourth lane is the confidence (T-2689, compact-streams.js).
       confidence_lane: g.userData.confidenceLane ?? null });
   }
@@ -289,6 +293,7 @@ function pack(year, built, inputs, buildId, gzip = false) {
     index: m.index ? { type: m.index.type, ...place(m.index.bytes) } : null,
     bounding_sphere: m.bounding_sphere, walk_top_ranges: m.walk_top_ranges,
     position: m.position, scale: m.scale, position_quantized: m.position_quantized, confidence_lane: m.confidence_lane,
+    position_boxes: m.position_boxes,
   }));
   const bin = concat();
   const index = {
@@ -722,7 +727,7 @@ async function selfTestFrontage(a, b, ok) {
     ok(replayed.layer.prebuilt.used, `${r.year}: the page's createFrontage takes the prebuild (${replayed.layer.prebuilt.why ?? 'used'})`);
     const same = (x, y) => { try { assert.deepStrictEqual(x, y); return true; } catch { return false; } };
     const bytes = (ms) => ms.map((m) => [m.name, m.userData, m.castShadow, m.receiveShadow, m.renderOrder,
-      m.position, m.scale, m.position_quantized, m.confidence_lane, m.attributes.map((x) => [x.name, x.type, x.itemSize, x.normalized, sha(x.bytes)])]);
+      m.position, m.scale, m.position_quantized, m.position_boxes, m.confidence_lane, m.attributes.map((x) => [x.name, x.type, x.itemSize, x.normalized, sha(x.bytes)])]);
     ok(same(bytes(replayed.meshes), bytes(fresh.meshes)), `${r.year}: replayed meshes equal the build's, attribute for attribute (${fresh.meshes.length})`);
     const { relief: _a, ...cr } = replayed.census;
     const { relief: _b, ...cf } = fresh.census;

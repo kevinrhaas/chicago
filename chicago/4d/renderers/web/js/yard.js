@@ -102,7 +102,10 @@ import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
 
-const { compactNormals, setColorsAndConfidence, compactUnitUvs, quantizeMeshPositions } = compactStreams(THREE);
+const {
+  compactNormals, setColorsAndConfidence, compactUnitUvs, quantizeMeshPositions, createBoxTable,
+  patchBoxTable,
+} = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -3452,6 +3455,15 @@ export async function createYardGoods({
    */
   mat.customProgramCacheKey = () => (grain.problem ? 'chicago4d-yard-goods-timber'
     : 'chicago4d-yard-goods-timber-grain');
+  /**
+   * THE BOX TABLE (T-2700, compact-streams.js), patched after the key it
+   * extends. Every chunk here still keeps the millimetre in one box or stays
+   * float, so its lane names none and it draws as it did; the woodpile chunk,
+   * too wide for one box, is the piece that moves onto the table (T-2701), and
+   * it will take `boxDepthMaterial` and `raycastBoxed` as frontage's mesh does.
+   */
+  const boxes = createBoxTable();
+  patchBoxTable(mat, boxes);
 
   const meshes = [];
   /**

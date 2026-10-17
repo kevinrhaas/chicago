@@ -89,6 +89,9 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
 
+step "A mesh too wide for one box stays one draw: each vertex boxed by its padding lane, read back within the millimetre, faces in order, raycast and bounds in metres (T-2700)" \
+  node tools/check_position_boxes.mjs
+
 selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
 
