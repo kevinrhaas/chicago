@@ -7,7 +7,7 @@
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
       "bytes": 7911756,
-      "sha256": "c69d636400e3973604616eb18d2b520333390c5bfaf01fc363fec69e2fcc2d31",
+      "sha256": "f56cd19dfb90e9406e8d0374a34dc9522a6f8f12047a88c4f8d90d3df0d2cc26",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -261,8 +261,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 3655632,
-      "sha256": "0b33488d80d774f26c89169147d1b225677cd6efb9460bedea461e6d3add56b6",
+      "bytes": 3655640,
+      "sha256": "fbef4d6ff7f10a2fa9666a8ffc25cc1819131dcf381cb064125c7f44d370a9e4",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",

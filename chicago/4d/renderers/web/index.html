@@ -67,8 +67,8 @@
   <div class="gate-card">
     <!-- T-2617: on its back face (Home) the arrival device wears the Navigator's screen code. -->
     <div class="gate-code" aria-hidden="true"><span>NAVIGATOR MK II</span><span>SCR 01 · HOME</span></div>
-    <p class="gate-eyebrow">4D Chicago · Arrival</p>
-    <h1 id="gate-title" tabindex="-1">Preparing your arrival</h1>
+    <p class="gate-eyebrow" data-str="arrival.eyebrow">4D Chicago · Arrival</p>
+    <h1 id="gate-title" tabindex="-1" data-str="arrival.title.0">Preparing your arrival</h1>
     <!-- T-2164: the arrival as a portable machine — the front door's console in a
          handheld case. Every row below is a fixed height, so the device never grows or
          shrinks as statuses cycle. The year window, lamps, log and readout are
@@ -107,34 +107,34 @@
         </ul>
       </div>
       <div class="arrival-screen">
-        <div class="arrival-screen-head" aria-hidden="true"><span>Screen 01 · Arrival sequence</span><span class="arrival-live"><i></i>Link</span></div>
-        <p id="arrival-headline" class="arrival-headline" aria-hidden="true">Preparing your arrival</p>
+        <div class="arrival-screen-head" aria-hidden="true"><span data-str="arrival.screen.head">Screen 01 · Arrival sequence</span><span class="arrival-live"><i></i>Link</span></div>
+        <p id="arrival-headline" class="arrival-headline" aria-hidden="true" data-str="arrival.title.0">Preparing your arrival</p>
         <ol id="arrival-log" class="arrival-log" aria-hidden="true"><li></li><li></li><li></li></ol>
-        <p id="arrival-card" class="arrival-card" aria-live="polite">Drawing on previously researched sources</p>
+        <p id="arrival-card" class="arrival-card" aria-live="polite" data-str="arrival.card.default">Drawing on previously researched sources</p>
         <!-- T-2611: the time-stream. As the ticker passes a landmark year this screen cuts to
              its caption for about 2 s (js/time-stream.js, from data/timestream/<year>.json),
              over the headline and log rows, so the device does not change size. The words
              are spoken once, by the polite line under it; the visible copy stays silent. -->
         <div id="arrival-timestream" class="arrival-timestream" data-state="off" aria-hidden="true">
-          <p class="arrival-timestream-head"><span>Time-stream</span><b data-ts="year"></b><span data-ts="grade"></span></p>
+          <p class="arrival-timestream-head"><span data-str="arrival.timestream.head">Time-stream</span><b data-ts="year"></b><span data-ts="grade"></span></p>
           <p class="arrival-timestream-text" data-ts="text"></p>
         </div>
         <p id="arrival-timestream-say" class="visually-hidden" aria-live="polite"></p>
       </div>
       <dl id="arrival-readout" class="arrival-readout" aria-hidden="true">
-        <div><dt>Payload</dt><dd data-read="bytes">— MB</dd></div>
-        <div><dt>Link</dt><dd data-read="rate">— MB/s</dd></div>
-        <div><dt>ETA</dt><dd data-read="eta">T-··:··</dd></div>
+        <div><dt data-str="arrival.readout.payload">Payload</dt><dd data-read="bytes">— MB</dd></div>
+        <div><dt data-str="arrival.readout.link">Link</dt><dd data-read="rate">— MB/s</dd></div>
+        <div><dt data-str="arrival.readout.eta">ETA</dt><dd data-read="eta">T-··:··</dd></div>
         <!-- T-2612: the ticker's distance from the destination, painted by arrival-telemetry.js. -->
-        <div><dt>Years to go</dt><dd data-telemetry="years">—</dd></div>
+        <div><dt data-str="arrival.readout.years">Years to go</dt><dd data-telemetry="years">—</dd></div>
       </dl>
     </div>
-    <p class="gate-sub" id="gate-sub" aria-live="polite" hidden>Loading the scene…</p>
+    <p class="gate-sub" id="gate-sub" aria-live="polite" hidden data-str="arrival.sub.loading">Loading the scene…</p>
     <p id="arrival-announce" class="visually-hidden" role="status" aria-live="polite"></p>
     <div class="gate-bar" id="gate-bar" role="progressbar" aria-label="Preparing the selected scene"
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <div id="welcome" hidden>
-      <p class="welcome-intro">Destination locked: Chicago, 1 July 1835. Reconstructed from the sources under Evidence.</p>
+      <p class="welcome-intro">Destination locked: Chicago, 1 July 1835. Reconstructed from the sources under Sources.</p>
       <details id="welcome-about" class="welcome-about" hidden>
         <summary></summary>
         <div id="welcome-about-cards"></div>
@@ -162,12 +162,12 @@
         <p id="welcome-message" role="status"></p>
       </section>
     </div>
-    <button id="gate-btn" class="gate-btn" disabled>Try again</button>
+    <button id="gate-btn" class="gate-btn" disabled data-str="arrival.retry">Try again</button>
     <!-- T-2616: the failure state. #gate-btn turns into TRY AGAIN; this goes home; what
          failed to load stays folded under the details, out of a student's way. -->
-    <a id="gate-observatory" class="gate-btn gate-btn-secondary" href="../" hidden>Back to the Observatory</a>
-    <details id="gate-details" class="gate-details" hidden><summary>Details for your teacher</summary><p id="gate-detail"></p></details>
-    <button id="welcome-close" class="welcome-link" hidden>Return to the town</button>
+    <a id="gate-observatory" class="gate-btn gate-btn-secondary" href="../" hidden data-str="arrival.observatory">Back to the Observatory</a>
+    <details id="gate-details" class="gate-details" hidden><summary data-str="arrival.details">Details for your teacher</summary><p id="gate-detail"></p></details>
+    <button id="welcome-close" class="welcome-link" hidden data-str="arrival.return">Return to the town</button>
     <p class="gate-keys">
       <span class="k">W A S D</span> walk · <span class="k">Shift</span> run ·
       <span class="k">mouse</span> look · <span class="k">E</span> inspect ·
@@ -181,9 +181,11 @@
 </div>
 <div id="hud" class="hud" hidden>
   <div class="hud-top">
-    <div class="badge" id="year-badge"><span class="badge-year">1835</span><span class="badge-sub">1 July</span><span
+    <!-- T-2626 (§10): the year chip — amber LED digits, 1904 · 07.01. A tap opens Jump. -->
+    <button type="button" class="badge year-chip" id="year-badge" aria-label="Jump to another year or place"><span
+      class="badge-year">1835</span><span class="badge-dot" aria-hidden="true">·</span><span class="badge-sub">07.01</span><span
       class="badge-alt" id="badge-alt" hidden></span><span
-      class="badge-version" id="badge-version" role="note" hidden></span></div>
+      class="badge-version" id="badge-version" role="note" hidden></span></button>
     <div class="hud-actions">
       <button id="btn-start" class="chip" aria-haspopup="dialog">Start / Jaunts</button>
       <!-- One control, two questions. The chip toggles the colouring; the caret
@@ -230,6 +232,26 @@
       <button id="btn-help" class="chip icon" aria-label="Menu"
         title="Menu — controls, places, settings and what's new (H)"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span
         class="chip-dot" id="help-dot" hidden aria-hidden="true"></span></button>
+      <!-- T-2626 (§10): the compass and the mini map are one round instrument, top right, on its own line under the chips —
+           the map, north up, inside a compass ring whose tick turns with your heading, and
+           the heading in degrees under it. A tap opens Map. -->
+      <div class="hud-instrument" id="hud-instrument" aria-label="Compass and map">
+        <div id="overview-map" class="overview-map" aria-label="Overview map">
+          <canvas id="overview-map-canvas" aria-hidden="true"></canvas>
+          <span class="overview-north" aria-hidden="true">N</span>
+          <span class="overview-caption" aria-hidden="true">map</span>
+          <span class="instrument-ring" aria-hidden="true">
+            <span class="compass-n">N</span><span class="compass-e">E</span>
+            <span class="compass-s">S</span><span class="compass-w">W</span>
+            <span class="compass-needle" id="compass-needle"></span>
+          </span>
+          <button type="button" class="overview-open" id="overview-open"
+            aria-label="Open the map"></button>
+        </div>
+        <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
+          <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -253,21 +275,6 @@
   </div>
 
   <div class="navigation-stack" aria-label="Navigation aids">
-    <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
-      <span class="compass-dial" aria-hidden="true">
-        <span class="compass-n">N</span><span class="compass-e">E</span>
-        <span class="compass-s">S</span><span class="compass-w">W</span>
-        <span class="compass-needle" id="compass-needle">↑</span>
-      </span>
-      <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
-    </div>
-    <div id="overview-map" class="overview-map" aria-label="Overview map">
-      <canvas id="overview-map-canvas" aria-hidden="true"></canvas>
-      <span class="overview-north" aria-hidden="true">N</span>
-      <span class="overview-caption" aria-hidden="true">map</span>
-      <button type="button" class="overview-open" id="overview-open"
-        aria-label="Open the whole map"></button>
-    </div>
     <div id="street-readout" class="street-readout" aria-live="polite" hidden>
       <span class="street-mode" id="street-mode">On street</span>
       <strong id="street-historic"></strong>
@@ -300,14 +307,14 @@
        reads it); drawer.css turns it into a slide rather than a display switch. -->
   <div class="hud-panel" id="panel" hidden>
     <nav class="panel-tabs" role="tablist" aria-label="Menu sections">
-      <button class="panel-tab is-on" data-tab="goto" role="tab" aria-selected="true" title="Go to"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span class="tab-label">Go to</span></button>
-      <button class="panel-tab" data-tab="travel" role="tab" aria-selected="false" title="Travel"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h3l2-5h6l2 5h3"/><path d="M9 12l1.5-4h3L15 12"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/><path d="M12 8V4"/></svg><span class="tab-label">Travel</span></button>
-      <button class="panel-tab" data-tab="people" role="tab" aria-selected="false" title="People"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.5A5 5 0 0 1 22 19"/></svg><span class="tab-label">People</span></button>
-      <button class="panel-tab" data-tab="businesses" data-title="Businesses" role="tab" aria-selected="false" title="Businesses"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 4.7 5.2A1.6 1.6 0 0 1 6.2 4.2h11.6a1.6 1.6 0 0 1 1.5 1L21 9.5"/><path d="M4.5 9.5v9a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-9"/><path d="M3 9.5a2.6 2.6 0 0 0 5 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 5 0"/><path d="M9.5 20v-5h5v5"/></svg><span class="tab-label">Firms</span></button>
-      <button class="panel-tab" data-tab="evidence" role="tab" aria-selected="false" title="Evidence"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg><span class="tab-label">Evidence</span></button>
-      <button class="panel-tab" data-tab="settings" role="tab" aria-selected="false" title="Settings"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h8M16 17h4"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="17" r="2"/></svg><span class="tab-label">Settings</span></button>
-      <button class="panel-tab" data-tab="controls" role="tab" aria-selected="false" title="Controls"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg><span class="tab-label">Controls</span></button>
-      <button class="panel-tab" data-tab="whatsnew" role="tab" aria-selected="false" title="What's new"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2H4.5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="tab-label">What's new</span><span class="tab-dot" id="whatsnew-dot" hidden aria-hidden="true"></span></button>
+      <button class="panel-tab is-on" data-tab="goto" role="tab" aria-selected="true" title="Go to" data-str-title="hud.tab.goto"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span class="tab-label" data-str="hud.tab.goto">Go to</span></button>
+      <button class="panel-tab" data-tab="travel" role="tab" aria-selected="false" title="Move" data-str-title="hud.tab.move"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h3l2-5h6l2 5h3"/><path d="M9 12l1.5-4h3L15 12"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/><path d="M12 8V4"/></svg><span class="tab-label" data-str="hud.tab.move">Move</span></button>
+      <button class="panel-tab" data-tab="people" role="tab" aria-selected="false" title="People" data-str-title="hud.tab.people"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.5A5 5 0 0 1 22 19"/></svg><span class="tab-label" data-str="hud.tab.people">People</span></button>
+      <button class="panel-tab" data-tab="businesses" data-title="Shops &amp; work" role="tab" aria-selected="false" title="Shops &amp; work" data-str-title="hud.tab.shops"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 4.7 5.2A1.6 1.6 0 0 1 6.2 4.2h11.6a1.6 1.6 0 0 1 1.5 1L21 9.5"/><path d="M4.5 9.5v9a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-9"/><path d="M3 9.5a2.6 2.6 0 0 0 5 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 5 0"/><path d="M9.5 20v-5h5v5"/></svg><span class="tab-label" data-str="hud.tab.shops.short">Shops</span></button>
+      <button class="panel-tab" data-tab="evidence" role="tab" aria-selected="false" title="Sources" data-str-title="hud.tab.sources"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg><span class="tab-label" data-str="hud.tab.sources">Sources</span></button>
+      <button class="panel-tab" data-tab="settings" role="tab" aria-selected="false" title="Settings" data-str-title="hud.tab.settings"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h8M16 17h4"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="17" r="2"/></svg><span class="tab-label" data-str="hud.tab.settings">Settings</span></button>
+      <button class="panel-tab" data-tab="controls" role="tab" aria-selected="false" title="Guide" data-str-title="hud.tab.guide"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg><span class="tab-label" data-str="hud.tab.guide">Guide</span></button>
+      <button class="panel-tab" data-tab="whatsnew" role="tab" aria-selected="false" title="What's new" data-str-title="hud.tab.whatsnew"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2H4.5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="tab-label" data-str="hud.tab.whatsnew">What's new</span><span class="tab-dot" id="whatsnew-dot" hidden aria-hidden="true"></span></button>
     </nav>
     <header class="panel-head">
       <button class="panel-back" id="panel-back" type="button" aria-label="Back" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -323,7 +330,7 @@
          js/hud.js paints the controls; js/travel.js owns the moving. -->
     <section class="panel-body" data-panel="travel" hidden>
       <div class="field"><span>How you get there</span>
-        <div class="seg" role="radiogroup" id="s-travel" aria-label="Travel mode">
+        <div class="seg" role="radiogroup" id="s-travel" aria-label="How you move" data-str-label="hud.move.mode">
           <button type="button" class="seg-btn" data-mode="instantly" role="radio" aria-checked="true">Instantly</button>
           <button type="button" class="seg-btn" data-mode="walk" role="radio" aria-checked="false">Walk</button>
           <button type="button" class="seg-btn" data-mode="wagon" role="radio" aria-checked="false">Wagon</button>
@@ -397,7 +404,7 @@
         </ul>
         <p class="legend-note">Every building is clickable. The tint and the citation come from the
           same record, so they cannot drift apart. Dimensional uncertainty is separate: a building
-          can be well documented in character and still have a guessed size, and the popup says so.</p>
+          can be well sourced in character and still have a guessed size, and the popup says so.</p>
       </div>
 
       <div class="ev-topic" data-topic="city">
@@ -409,7 +416,7 @@
       </div>
 
       <div class="ev-topic" data-topic="sources">
-        <h3 class="legend-h ev-topic-title">Sources</h3>
+        <h3 class="legend-h ev-topic-title" data-str="hud.sources.list">Source list</h3>
         <div id="sources" aria-busy="true"><p class="legend-note">Open Sources to load the catalog.</p></div>
       </div>
 
@@ -443,7 +450,7 @@
         <details class="ev-about">
           <summary>About this list</summary>
           <p class="legend-note">The buildings are not the only things making claims here. The
-            terrain is a research record too — a documented water surface, three division levels
+            terrain is a research record too — a sourced water surface, three division levels
             argued out of period narrative feet, a bank face and a river cross-section that no
             source describes at all — and it dithers under the confidence view like everything
             else while never saying what was graded. These are its own statements, each with its
@@ -492,7 +499,7 @@
             recorded for <b>1 July</b> — what each one is doing in its community, how much of it
             the record asks for, how tall and how wide, whether it is in flower on the day, and
             the sources behind all of it. The communities' boundaries are the weakest claim here
-            and each says so: the vegetation is documented, but no survey drew the line between
+            and each says so: the vegetation is in the sources, but no survey drew the line between
             one community and the next. Where a community asks for more small plants than the
             sward lattice can hold, the card says <b>what share of the record you are actually
             standing in</b> — under the dense timber it is half of one per cent, and that is a
@@ -587,7 +594,7 @@
       </div>
       <div class="settings-group">
         <h4>Movement</h4>
-        <p class="legend-note">Walking, wagon and horse speeds live under <b>Travel</b>.</p>
+        <p class="legend-note"><span data-str="hud.move.note">Walking, wagon and horse speeds live under</span> <b data-str="hud.tab.move">Move</b>.</p>
         <!-- Eye height is a CLAIM about 1835, so the default is the researched
              figure and the slider says where that figure sits. Raising it is a
              comfort choice about the view, not a correction. -->
@@ -693,7 +700,8 @@
         <dt><kbd>Space</kbd> <kbd>Q</kbd></dt><dd>up / down <em>(while flying)</em></dd>
         <dt><kbd>G</kbd></dt><dd>go to a viewpoint, a building or a street corner</dd>
         <dt><kbd>M</kbd></dt><dd>the whole map — the small one shows the ground around you</dd>
-        <dt><kbd>N</kbd></dt><dd>what's new</dd>
+        <dt><kbd>N</kbd></dt><dd>open or close the Navigator</dd>
+        <dt><kbd>1</kbd>–<kbd>9</kbd></dt><dd>open a Navigator app, in the order of its rail</dd>
         <dt><kbd>H</kbd></dt><dd>this menu</dd>
         <dt><kbd>Esc</kbd></dt><dd>release the cursor</dd>
       </dl>
@@ -741,41 +749,44 @@
      sheet at three heights (DOCK, HALF, FULL); on a desktop a 400 px left panel that
      collapses to its rail. The rail's apps are registered from js/apps/ (T-2618); Home's
      screen is the one written here. -->
-<section id="navigator" class="navigator" aria-label="Navigator" data-detent="dock" tabindex="-1">
+<section id="navigator" class="navigator" aria-label="Navigator" data-str-label="nav.name" data-detent="dock" tabindex="-1">
   <span class="nav-screw nav-screw-tl" aria-hidden="true"></span><span class="nav-screw nav-screw-tr" aria-hidden="true"></span>
   <span class="nav-screw nav-screw-bl" aria-hidden="true"></span><span class="nav-screw nav-screw-br" aria-hidden="true"></span>
-  <button id="nav-grip" class="nav-grip" type="button" aria-label="Open the Navigator" aria-expanded="false" aria-controls="nav-home"><i aria-hidden="true"></i></button>
+  <button id="nav-grip" class="nav-grip" type="button" aria-label="Open the Navigator" data-str-label="nav.open" aria-expanded="false" aria-controls="nav-home"><i aria-hidden="true"></i></button>
   <header class="nav-head" id="nav-head">
     <span class="c4d-lamp nav-lamp" data-on="true" aria-hidden="true"><i class="c4d-lamp-bulb"></i></span>
-    <span class="nav-label">NAVIGATOR MK II</span>
-    <span class="nav-code" id="nav-code">SCR 01 · HOME</span>
+    <span class="nav-label" data-str="nav.label">NAVIGATOR MK II</span>
+    <!-- T-2619: shown only while the device is closed — the year and the icon of the app it opens to. -->
+    <span class="nav-dock-app" id="nav-dock-app" aria-hidden="true"></span>
+    <span class="nav-dock-year" id="nav-dock-year" aria-hidden="true"></span>
+    <span class="nav-code" id="nav-code" data-str="nav.home.code">SCR 01 · HOME</span>
     <span class="nav-date" id="nav-date"></span>
   </header>
   <div class="nav-body">
-    <nav class="nav-rail" id="nav-rail" aria-label="Navigator apps">
+    <nav class="nav-rail" id="nav-rail" aria-label="Navigator apps" data-str-label="nav.rail">
       <button class="nav-app nav-collapse" type="button" id="nav-collapse" aria-label="Collapse the Navigator" title="Collapse"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
     </nav>
-    <div class="nav-screen" id="nav-home" role="group" aria-labelledby="nav-home-title">
-      <h2 id="nav-home-title" class="visually-hidden" tabindex="-1">Navigator Home</h2>
+    <div class="nav-screen" id="nav-home" role="tabpanel" aria-labelledby="nav-home-title" tabindex="-1">
+      <h2 id="nav-home-title" class="visually-hidden" tabindex="-1" data-str="nav.home.title">Navigator Home</h2>
       <section class="nav-block" aria-labelledby="nav-where-k">
-        <span class="nav-k" id="nav-where-k">You are at</span>
-        <strong class="nav-place" id="nav-where">Looking for the street…</strong>
+        <span class="nav-k" id="nav-where-k" data-str="nav.where.k">You are at</span>
+        <strong class="nav-place" id="nav-where" data-str="nav.where.looking">Looking for the street…</strong>
         <span class="nav-sub" id="nav-where-detail"></span>
       </section>
       <section class="nav-block nav-front" id="nav-front" aria-labelledby="nav-front-k" aria-live="polite">
-        <span class="nav-k" id="nav-front-k">Right in front of you</span>
-        <strong class="nav-place" id="nav-front-name">Nothing close by</strong>
+        <span class="nav-k" id="nav-front-k" data-str="nav.front.k">Right in front of you</span>
+        <strong class="nav-place" id="nav-front-name" data-str="nav.front.none">Nothing close by</strong>
         <span class="nav-sub" id="nav-front-detail"></span>
         <button class="nav-key" id="nav-inspect" type="button" hidden>Inspect <span aria-hidden="true">→</span></button>
       </section>
       <section class="nav-block" id="nav-jaunt" aria-labelledby="nav-jaunt-k" hidden>
-        <span class="nav-k nav-k-row"><span id="nav-jaunt-k">Jaunt in progress</span><span class="nav-step" id="nav-jaunt-step"></span></span>
+        <span class="nav-k nav-k-row"><span id="nav-jaunt-k" data-str="nav.jaunt.k">Jaunt in progress</span><span class="nav-step" id="nav-jaunt-step"></span></span>
         <strong class="nav-jaunt-title" id="nav-jaunt-title"></strong>
         <span class="nav-meter" aria-hidden="true"><i id="nav-jaunt-bar"></i></span>
       </section>
       <div class="nav-tiles">
-        <span class="nav-tile"><span class="nav-k">Move</span><span id="nav-move">Walking</span></span>
-        <span class="nav-tile"><span class="nav-k">Confidence view</span><span id="nav-confidence">Off</span></span>
+        <span class="nav-tile"><span class="nav-k" data-str="nav.tile.move">Move</span><span id="nav-move">Walking</span></span>
+        <span class="nav-tile"><span class="nav-k" data-str="nav.tile.confidence">Confidence view</span><span id="nav-confidence">Off</span></span>
       </div>
     </div>
   </div>
