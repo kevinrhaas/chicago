@@ -15100,6 +15100,36 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
+    // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
+    // row says how far and which way from where you stand.
+    const gotoClean = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      await new Promise((r) => setTimeout(r, 200));
+      const kinds = [...document.querySelectorAll('#welcome-kinds button')];
+      const shown = kinds.filter((b) => !b.hidden && b.getClientRects().length);
+      const counts = shown.map((b) => { b.click(); return [b.textContent, document.querySelectorAll('#welcome-results .welcome-destination').length]; });
+      kinds[0]?.click();
+      const rows = [...document.querySelectorAll('#welcome-results .welcome-destination:not(:disabled)')].slice(0, 12);
+      const name = rows[0]?.querySelector('strong');
+      const out = { labels: kinds.map((b) => b.textContent), shown: shown.map((b) => b.textContent), counts,
+        withDistance: rows.filter((r) => /^(here|.+ (N|NNE|NE|ENE|E|ESE|SE|SSE|S|SSW|SW|WSW|W|WNW|NW|NNW))$/.test(r.querySelector('.welcome-dist')?.textContent.trim() ?? '')).length,
+        rows: rows.length, clamp: name ? getComputedStyle(name).webkitLineClamp : null,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1 };
+      api.jauntsApp?.restore();
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Go to offers All · Places · People · Shops & work · Viewpoints, no empty chip, two-line names, and each row's distance and bearing (T-2632)`,
+      gotoClean.labels.join() === 'All,Places,People,Shops & work,Viewpoints' && gotoClean.shown[0] === 'All'
+      && gotoClean.counts.every(([, n]) => n > 0) && gotoClean.rows > 0 && gotoClean.withDistance === gotoClean.rows
+      && String(gotoClean.clamp) === '2' && gotoClean.overflow,
+      JSON.stringify(gotoClean));
+    // ---- end T-2632
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the

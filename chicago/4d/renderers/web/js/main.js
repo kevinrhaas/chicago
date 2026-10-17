@@ -3915,6 +3915,9 @@ async function boot() {
     } finally { root.removeAttribute('aria-busy'); }
   }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    // T-2632: each Go to row's distance and bearing, from where the visitor stands.
+    visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
+    units: () => hud.settings.units,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: () => openJauntList(),
     // T-2630: the Navigator's Jaunts app hands back what it borrowed before the card shows.

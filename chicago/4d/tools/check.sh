@@ -155,6 +155,9 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
+# T-2632: Go to cleanup.
+step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
+  node tools/test_goto_cleanup.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
