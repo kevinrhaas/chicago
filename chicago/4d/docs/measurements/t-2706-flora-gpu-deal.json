@@ -1,0 +1,2768 @@
+{
+ "ticket": "T-2706",
+ "year": "1835",
+ "measured": "2026-10-17T05:03:57.717Z",
+ "source": "working tree",
+ "tolerances": {
+  "groundM": 0.001,
+  "sizeM": 0.001,
+  "yaw": 0.0001,
+  "rgb": 0.002
+ },
+ "viewports": [
+  {
+   "id": "desktop",
+   "detail": "full",
+   "ring": {
+    "outer": 7.6,
+    "inner": 0
+   },
+   "walk": {
+    "cell": 0.74,
+    "perCell": 4,
+    "salt": 5369127,
+    "draw": "strata"
+   },
+   "summary": {
+    "stations": 22,
+    "slots": 29190,
+    "bins": {
+     "field": 160,
+     "float32": 0,
+     "rule": 0
+    },
+    "share": {
+     "field": 0.005481,
+     "float32": 0,
+     "rule": 0
+    },
+    "float32Why": {},
+    "density": {
+     "cpuPerM2": 1.231437,
+     "gpuPerM2": 1.230936,
+     "seCpuPerM2": 0.017563,
+     "sigmas": 0.028525
+    },
+    "speciesShare": {
+     "maxAbsDiff": 0.001021,
+     "maxSigmas": 0.81711,
+     "totalVariation": 0.002208,
+     "rows": [
+      {
+       "id": "ammophila_breviligulata",
+       "cpu": 0.056957,
+       "gpu": 0.05698,
+       "diff": 0.000023,
+       "se": 0.003305,
+       "sigmas": 0.007013
+      },
+      {
+       "id": "andropogon_gerardii",
+       "cpu": 0.085639,
+       "gpu": 0.085674,
+       "diff": 0.000035,
+       "se": 0.003991,
+       "sigmas": 0.008733
+      },
+      {
+       "id": "bolboschoenus_fluviatilis",
+       "cpu": 0.010985,
+       "gpu": 0.010989,
+       "diff": 0.000004,
+       "se": 0.001487,
+       "sigmas": 0.003007
+      },
+      {
+       "id": "cakile_edentula",
+       "cpu": 0.000814,
+       "gpu": 0.000814,
+       "diff": 0,
+       "se": 0.000407,
+       "sigmas": 0.000814
+      },
+      {
+       "id": "calamagrostis_canadensis",
+       "cpu": 0.025224,
+       "gpu": 0.025031,
+       "diff": -0.000193,
+       "se": 0.002236,
+       "sigmas": 0.086404
+      },
+      {
+       "id": "calamovilfa_longifolia",
+       "cpu": 0.017901,
+       "gpu": 0.017908,
+       "diff": 0.000007,
+       "se": 0.001891,
+       "sigmas": 0.003853
+      },
+      {
+       "id": "carex_aquatilis",
+       "cpu": 0.007933,
+       "gpu": 0.007733,
+       "diff": -0.0002,
+       "se": 0.001265,
+       "sigmas": 0.158281
+      },
+      {
+       "id": "carex_lacustris",
+       "cpu": 0.005899,
+       "gpu": 0.005698,
+       "diff": -0.000201,
+       "se": 0.001092,
+       "sigmas": 0.184123
+      },
+      {
+       "id": "carex_stricta",
+       "cpu": 0.019731,
+       "gpu": 0.020147,
+       "diff": 0.000415,
+       "se": 0.001984,
+       "sigmas": 0.209235
+      },
+      {
+       "id": "euphorbia_polygonifolia",
+       "cpu": 0.001831,
+       "gpu": 0.001832,
+       "diff": 0.000001,
+       "se": 0.00061,
+       "sigmas": 0.001222
+      },
+      {
+       "id": "juncus_effusus",
+       "cpu": 0.002848,
+       "gpu": 0.003053,
+       "diff": 0.000205,
+       "se": 0.00076,
+       "sigmas": 0.269277
+      },
+      {
+       "id": "koeleria_macrantha",
+       "cpu": 0.151139,
+       "gpu": 0.151201,
+       "diff": 0.000062,
+       "se": 0.005109,
+       "sigmas": 0.012041
+      },
+      {
+       "id": "lathyrus_japonicus",
+       "cpu": 0.000407,
+       "gpu": 0.000407,
+       "diff": 0,
+       "se": 0.000288,
+       "sigmas": 0.000576
+      },
+      {
+       "id": "nuphar_advena",
+       "cpu": 0.000203,
+       "gpu": 0.000204,
+       "diff": 0,
+       "se": 0.000203,
+       "sigmas": 0.000407
+      },
+      {
+       "id": "opuntia_humifusa",
+       "cpu": 0.000407,
+       "gpu": 0.000407,
+       "diff": 0,
+       "se": 0.000288,
+       "sigmas": 0.000576
+      },
+      {
+       "id": "poa_pratensis",
+       "cpu": 0.086656,
+       "gpu": 0.086691,
+       "diff": 0.000035,
+       "se": 0.004012,
+       "sigmas": 0.00879
+      },
+      {
+       "id": "schizachyrium_scoparium",
+       "cpu": 0.421481,
+       "gpu": 0.421652,
+       "diff": 0.000172,
+       "se": 0.007043,
+       "sigmas": 0.024357
+      },
+      {
+       "id": "schoenoplectus_acutus",
+       "cpu": 0.008137,
+       "gpu": 0.007326,
+       "diff": -0.000811,
+       "se": 0.001281,
+       "sigmas": 0.632718
+      },
+      {
+       "id": "schoenoplectus_tabernaemontani",
+       "cpu": 0.00773,
+       "gpu": 0.008751,
+       "diff": 0.001021,
+       "se": 0.001249,
+       "sigmas": 0.81711
+      },
+      {
+       "id": "sparganium_eurycarpum",
+       "cpu": 0.004068,
+       "gpu": 0.003867,
+       "diff": -0.000202,
+       "se": 0.000908,
+       "sigmas": 0.22233
+      },
+      {
+       "id": "sporobolus_cryptandrus",
+       "cpu": 0.051465,
+       "gpu": 0.051486,
+       "diff": 0.000021,
+       "se": 0.003151,
+       "sigmas": 0.006647
+      },
+      {
+       "id": "sporobolus_heterolepis",
+       "cpu": 0.004272,
+       "gpu": 0.004274,
+       "diff": 0.000002,
+       "se": 0.00093,
+       "sigmas": 0.001869
+      },
+      {
+       "id": "sporobolus_michauxianus",
+       "cpu": 0.003051,
+       "gpu": 0.002849,
+       "diff": -0.000202,
+       "se": 0.000787,
+       "sigmas": 0.25712
+      },
+      {
+       "id": "trifolium_repens",
+       "cpu": 0.004679,
+       "gpu": 0.004681,
+       "diff": 0.000002,
+       "se": 0.000973,
+       "sigmas": 0.001956
+      },
+      {
+       "id": "typha_latifolia",
+       "cpu": 0.019935,
+       "gpu": 0.019536,
+       "diff": -0.000399,
+       "se": 0.001994,
+       "sigmas": 0.200088
+      },
+      {
+       "id": "zizania_aquatica",
+       "cpu": 0.00061,
+       "gpu": 0.000814,
+       "diff": 0.000204,
+       "se": 0.000352,
+       "sigmas": 0.578467
+      }
+     ]
+    },
+    "blockedHits": {
+     "cpu": 0,
+     "gpu": 46
+    },
+    "posMaxMm": 0.001673,
+    "groundVsMirrorMaxMm": 0.009072,
+    "groundVsCpuP95MmMax": 0.288934,
+    "maxDiff": {
+     "h": 0.000031,
+     "spread": 0.000001,
+     "arch": 0,
+     "yaw": 0.000001,
+     "rgb": 0.000028
+    }
+   },
+   "stations": [
+    {
+     "id": "sauganash",
+     "e": 107,
+     "n": -103,
+     "instances": 2024,
+     "slots": 1328,
+     "gpuKept": 1328,
+     "orderFaults": 0,
+     "posMaxMm": 0.001301,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1328
+      },
+      "gpu": {
+       "2": 1328
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 12.4,
+     "gpuMs": 133.3,
+     "tileMs": 406.9,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "sauganash_wing",
+     "e": 88,
+     "n": -110,
+     "instances": 2024,
+     "slots": 1330,
+     "gpuKept": 1330,
+     "orderFaults": 0,
+     "posMaxMm": 0.001466,
+     "cpuPlaced": 80,
+     "gpuPlaced": 81,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 1,
+     "codes": {
+      "cpu": {
+       "2": 243,
+       "3": 282,
+       "4": 725,
+       "6": 80
+      },
+      "gpu": {
+       "2": 243,
+       "3": 282,
+       "4": 724,
+       "6": 81
+      }
+     },
+     "bins": {
+      "field": 1,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000388,
+      "max": 0.000601
+     },
+     "groundVsCpuMm": {
+      "p95": 0.288934,
+      "max": 1.080135
+     },
+     "maxDiff": {
+      "h": 0.000001,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 8.3,
+     "gpuMs": 155.7,
+     "tileMs": 304.4,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "lake_market",
+     "e": 89.2,
+     "n": -110.4,
+     "instances": 2024,
+     "slots": 1325,
+     "gpuKept": 1325,
+     "orderFaults": 0,
+     "posMaxMm": 0.001321,
+     "cpuPlaced": 57,
+     "gpuPlaced": 58,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 1,
+     "codes": {
+      "cpu": {
+       "2": 370,
+       "3": 245,
+       "4": 653,
+       "6": 57
+      },
+      "gpu": {
+       "2": 370,
+       "3": 245,
+       "4": 652,
+       "6": 58
+      }
+     },
+     "bins": {
+      "field": 1,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000572,
+      "max": 0.000639
+     },
+     "groundVsCpuMm": {
+      "p95": 0.288844,
+      "max": 1.531048
+     },
+     "maxDiff": {
+      "h": 0.000001,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 3.9,
+     "gpuMs": 123.5,
+     "tileMs": 277.5,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "first_post_office",
+     "e": 113,
+     "n": -108,
+     "instances": 2024,
+     "slots": 1320,
+     "gpuKept": 1320,
+     "orderFaults": 0,
+     "posMaxMm": 0.001277,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1320
+      },
+      "gpu": {
+       "2": 1320
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 1.9,
+     "gpuMs": 123.4,
+     "tileMs": 298.3,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "forks",
+     "e": -100,
+     "n": -28,
+     "instances": 2116,
+     "slots": 1324,
+     "gpuKept": 1324,
+     "orderFaults": 0,
+     "posMaxMm": 0.001306,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1324
+      },
+      "gpu": {
+       "2": 1324
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2,
+     "gpuMs": 125.9,
+     "tileMs": 445,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "north_branch_bridge_deck",
+     "e": -81.59,
+     "n": 262.02,
+     "instances": 2116,
+     "slots": 1322,
+     "gpuKept": 1322,
+     "orderFaults": 0,
+     "posMaxMm": 0.001487,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1319,
+       "3": 3
+      },
+      "gpu": {
+       "2": 1319,
+       "3": 3
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 3.4,
+     "gpuMs": 123.7,
+     "tileMs": 425.5,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "lake_at_canal",
+     "e": -159.7,
+     "n": -108.4,
+     "instances": 2024,
+     "slots": 1324,
+     "gpuKept": 1324,
+     "orderFaults": 0,
+     "posMaxMm": 0.001595,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1324
+      },
+      "gpu": {
+       "2": 1324
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 1.9,
+     "gpuMs": 122.5,
+     "tileMs": 300.1,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "green_tree",
+     "e": -44.11,
+     "n": -121.52,
+     "instances": 2024,
+     "slots": 1330,
+     "gpuKept": 1330,
+     "orderFaults": 0,
+     "posMaxMm": 0.001327,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1330
+      },
+      "gpu": {
+       "2": 1330
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2.1,
+     "gpuMs": 124.9,
+     "tileMs": 399,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "south_water",
+     "e": 329.8,
+     "n": 7,
+     "instances": 1936,
+     "slots": 1320,
+     "gpuKept": 1320,
+     "orderFaults": 0,
+     "posMaxMm": 0.001554,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1283,
+       "3": 5,
+       "4": 32
+      },
+      "gpu": {
+       "2": 1285,
+       "3": 5,
+       "4": 30
+      }
+     },
+     "bins": {
+      "field": 6,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 3,
+     "gpuMs": 123.4,
+     "tileMs": 491.7,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "newberry_dole_wharf",
+     "e": 204.5,
+     "n": 9.8,
+     "instances": 2024,
+     "slots": 1326,
+     "gpuKept": 1326,
+     "orderFaults": 0,
+     "posMaxMm": 0.001632,
+     "cpuPlaced": 51,
+     "gpuPlaced": 46,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 33,
+     "codes": {
+      "cpu": {
+       "2": 446,
+       "3": 210,
+       "4": 618,
+       "5": 1,
+       "6": 51
+      },
+      "gpu": {
+       "2": 444,
+       "3": 211,
+       "4": 625,
+       "6": 46
+      }
+     },
+     "bins": {
+      "field": 74,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000315,
+      "max": 0.000478
+     },
+     "groundVsCpuMm": {
+      "p95": 0.000478,
+      "max": 1.011768
+     },
+     "maxDiff": {
+      "h": 0.000002,
+      "spread": 0.000001,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 13.7,
+     "gpuMs": 125.6,
+     "tileMs": 430.6,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "from_above",
+     "e": 60,
+     "n": -330,
+     "instances": 2116,
+     "slots": 1330,
+     "gpuKept": 1330,
+     "orderFaults": 0,
+     "posMaxMm": 0.001399,
+     "cpuPlaced": 113,
+     "gpuPlaced": 113,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1195,
+       "3": 22,
+       "6": 113
+      },
+      "gpu": {
+       "2": 1194,
+       "3": 23,
+       "6": 113
+      }
+     },
+     "bins": {
+      "field": 17,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000069,
+      "max": 0.000151
+     },
+     "groundVsCpuMm": {
+      "p95": 0.028381,
+      "max": 0.12077
+     },
+     "maxDiff": {
+      "h": 0.000003,
+      "spread": 0.000001,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000001
+     },
+     "cpuMs": 3.6,
+     "gpuMs": 118.3,
+     "tileMs": 503,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "kinzie_block",
+     "e": 994.86,
+     "n": 390.5,
+     "instances": 1936,
+     "slots": 1325,
+     "gpuKept": 1325,
+     "orderFaults": 0,
+     "posMaxMm": 0.001456,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1325
+      },
+      "gpu": {
+       "2": 1325
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2.1,
+     "gpuMs": 123.8,
+     "tileMs": 432.5,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "fort_dearborn",
+     "e": 1100,
+     "n": 175,
+     "instances": 1936,
+     "slots": 1331,
+     "gpuKept": 1331,
+     "orderFaults": 0,
+     "posMaxMm": 0.001176,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1331
+      },
+      "gpu": {
+       "2": 1331
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2.1,
+     "gpuMs": 123.2,
+     "tileMs": 623.9,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "lake_shore_south",
+     "e": 1340,
+     "n": -1000,
+     "instances": 2024,
+     "slots": 1329,
+     "gpuKept": 1329,
+     "orderFaults": 0,
+     "posMaxMm": 0.001257,
+     "cpuPlaced": 532,
+     "gpuPlaced": 532,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 795,
+       "5": 2,
+       "6": 532
+      },
+      "gpu": {
+       "3": 795,
+       "5": 2,
+       "6": 532
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.007425,
+      "max": 0.009072
+     },
+     "groundVsCpuMm": {
+      "p95": 0.109391,
+      "max": 2.151659
+     },
+     "maxDiff": {
+      "h": 0.00001,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.00001
+     },
+     "cpuMs": 8.2,
+     "gpuMs": 122.9,
+     "tileMs": 503.3,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "sixteenth_prairie",
+     "e": 1396.51,
+     "n": -2949.59,
+     "instances": 2116,
+     "slots": 1331,
+     "gpuKept": 1331,
+     "orderFaults": 0,
+     "posMaxMm": 0.001673,
+     "cpuPlaced": 775,
+     "gpuPlaced": 775,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 553,
+       "5": 3,
+       "6": 775
+      },
+      "gpu": {
+       "3": 553,
+       "5": 3,
+       "6": 775
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000031,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000013
+     },
+     "cpuMs": 19.2,
+     "gpuMs": 122.5,
+     "tileMs": 526.3,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "battle_reach_1812",
+     "e": 1460,
+     "n": -3050,
+     "instances": 2024,
+     "slots": 1336,
+     "gpuKept": 1336,
+     "orderFaults": 0,
+     "posMaxMm": 0.001445,
+     "cpuPlaced": 692,
+     "gpuPlaced": 692,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 640,
+       "5": 4,
+       "6": 692
+      },
+      "gpu": {
+       "3": 640,
+       "5": 4,
+       "6": 692
+      }
+     },
+     "bins": {
+      "field": 1,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000029,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000025
+     },
+     "cpuMs": 8.9,
+     "gpuMs": 122.8,
+     "tileMs": 512.4,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "eighteenth_prairie",
+     "e": 1401.86,
+     "n": -3206.93,
+     "instances": 1936,
+     "slots": 1330,
+     "gpuKept": 1330,
+     "orderFaults": 0,
+     "posMaxMm": 0.001457,
+     "cpuPlaced": 799,
+     "gpuPlaced": 799,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 527,
+       "5": 4,
+       "6": 799
+      },
+      "gpu": {
+       "3": 527,
+       "5": 4,
+       "6": 799
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000019,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000017
+     },
+     "cpuMs": 9.5,
+     "gpuMs": 125.3,
+     "tileMs": 513.8,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "cermak_prairie",
+     "e": 1407.06,
+     "n": -3764.87,
+     "instances": 1936,
+     "slots": 1326,
+     "gpuKept": 1326,
+     "orderFaults": 0,
+     "posMaxMm": 0.001511,
+     "cpuPlaced": 790,
+     "gpuPlaced": 790,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 532,
+       "5": 4,
+       "6": 790
+      },
+      "gpu": {
+       "3": 532,
+       "5": 4,
+       "6": 790
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000031,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000028
+     },
+     "cpuMs": 9.2,
+     "gpuMs": 127.9,
+     "tileMs": 515.5,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "prairie_south",
+     "e": 120,
+     "n": -330,
+     "instances": 2116,
+     "slots": 1324,
+     "gpuKept": 1324,
+     "orderFaults": 0,
+     "posMaxMm": 0.001265,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1324
+      },
+      "gpu": {
+       "2": 1324
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2.5,
+     "gpuMs": 124.3,
+     "tileMs": 491.4,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "prairie_west",
+     "e": -250,
+     "n": -150,
+     "instances": 2024,
+     "slots": 1323,
+     "gpuKept": 1323,
+     "orderFaults": 0,
+     "posMaxMm": 0.001346,
+     "cpuPlaced": 756,
+     "gpuPlaced": 756,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 46,
+       "3": 521,
+       "6": 756
+      },
+      "gpu": {
+       "2": 44,
+       "3": 523,
+       "6": 756
+      }
+     },
+     "bins": {
+      "field": 2,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000072,
+      "max": 0.000115
+     },
+     "groundVsCpuMm": {
+      "p95": 0.008366,
+      "max": 0.07734
+     },
+     "maxDiff": {
+      "h": 0.000001,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000001
+     },
+     "cpuMs": 14.3,
+     "gpuMs": 129.6,
+     "tileMs": 482.7,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "public_square",
+     "e": 550,
+     "n": -370,
+     "instances": 2116,
+     "slots": 1324,
+     "gpuKept": 1324,
+     "orderFaults": 0,
+     "posMaxMm": 0.001664,
+     "cpuPlaced": 220,
+     "gpuPlaced": 219,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 1059,
+       "3": 44,
+       "5": 1,
+       "6": 220
+      },
+      "gpu": {
+       "2": 1055,
+       "3": 48,
+       "5": 2,
+       "6": 219
+      }
+     },
+     "bins": {
+      "field": 38,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000029,
+      "max": 0.000053
+     },
+     "groundVsCpuMm": {
+      "p95": 0.000046,
+      "max": 0.042558
+     },
+     "maxDiff": {
+      "h": 0.000004,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000001
+     },
+     "cpuMs": 4.4,
+     "gpuMs": 129,
+     "tileMs": 568.8,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "river_bank",
+     "e": 180,
+     "n": 0,
+     "instances": 2116,
+     "slots": 1332,
+     "gpuKept": 1332,
+     "orderFaults": 0,
+     "posMaxMm": 0.001579,
+     "cpuPlaced": 51,
+     "gpuPlaced": 53,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 11,
+     "codes": {
+      "cpu": {
+       "2": 513,
+       "3": 198,
+       "4": 570,
+       "6": 51
+      },
+      "gpu": {
+       "2": 513,
+       "3": 198,
+       "4": 568,
+       "6": 53
+      }
+     },
+     "bins": {
+      "field": 20,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000213,
+      "max": 0.000266
+     },
+     "groundVsCpuMm": {
+      "p95": 0.000228,
+      "max": 1.301073
+     },
+     "maxDiff": {
+      "h": 0.000002,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 7.6,
+     "gpuMs": 122.6,
+     "tileMs": 456.3,
+     "glError": 0,
+     "rule": []
+    }
+   ],
+   "pageerrors": []
+  },
+  {
+   "id": "mobile",
+   "detail": "light",
+   "ring": {
+    "outer": 4.6,
+    "inner": 0
+   },
+   "walk": {
+    "cell": 0.74,
+    "perCell": 4,
+    "salt": 5369127,
+    "draw": "strata"
+   },
+   "summary": {
+    "stations": 22,
+    "slots": 10648,
+    "bins": {
+     "field": 82,
+     "float32": 0,
+     "rule": 0
+    },
+    "share": {
+     "field": 0.007701,
+     "float32": 0,
+     "rule": 0
+    },
+    "float32Why": {},
+    "density": {
+     "cpuPerM2": 1.223269,
+     "gpuPerM2": 1.225321,
+     "seCpuPerM2": 0.028921,
+     "sigmas": 0.070928
+    },
+    "speciesShare": {
+     "maxAbsDiff": 0.001685,
+     "maxSigmas": 0.996652,
+     "totalVariation": 0.005488,
+     "rows": [
+      {
+       "id": "ammophila_breviligulata",
+       "cpu": 0.051425,
+       "gpu": 0.051339,
+       "diff": -0.000086,
+       "se": 0.005222,
+       "sigmas": 0.016487
+      },
+      {
+       "id": "andropogon_gerardii",
+       "cpu": 0.085523,
+       "gpu": 0.085379,
+       "diff": -0.000143,
+       "se": 0.006612,
+       "sigmas": 0.021654
+      },
+      {
+       "id": "bolboschoenus_fluviatilis",
+       "cpu": 0.007826,
+       "gpu": 0.009487,
+       "diff": 0.001661,
+       "se": 0.002083,
+       "sigmas": 0.797303
+      },
+      {
+       "id": "cakile_edentula",
+       "cpu": 0.001118,
+       "gpu": 0.001116,
+       "diff": -0.000002,
+       "se": 0.00079,
+       "sigmas": 0.002369
+      },
+      {
+       "id": "calamagrostis_canadensis",
+       "cpu": 0.034097,
+       "gpu": 0.032924,
+       "diff": -0.001173,
+       "se": 0.004291,
+       "sigmas": 0.273422
+      },
+      {
+       "id": "calamovilfa_longifolia",
+       "cpu": 0.016769,
+       "gpu": 0.016741,
+       "diff": -0.000028,
+       "se": 0.003036,
+       "sigmas": 0.009247
+      },
+      {
+       "id": "carex_aquatilis",
+       "cpu": 0.008944,
+       "gpu": 0.008929,
+       "diff": -0.000015,
+       "se": 0.002226,
+       "sigmas": 0.006727
+      },
+      {
+       "id": "carex_lacustris",
+       "cpu": 0.00559,
+       "gpu": 0.004464,
+       "diff": -0.001125,
+       "se": 0.001763,
+       "sigmas": 0.638478
+      },
+      {
+       "id": "carex_stricta",
+       "cpu": 0.023477,
+       "gpu": 0.023996,
+       "diff": 0.000519,
+       "se": 0.00358,
+       "sigmas": 0.144907
+      },
+      {
+       "id": "euphorbia_polygonifolia",
+       "cpu": 0.001118,
+       "gpu": 0.001116,
+       "diff": -0.000002,
+       "se": 0.00079,
+       "sigmas": 0.002369
+      },
+      {
+       "id": "juncus_effusus",
+       "cpu": 0.005031,
+       "gpu": 0.005022,
+       "diff": -0.000008,
+       "se": 0.001673,
+       "sigmas": 0.005035
+      },
+      {
+       "id": "koeleria_macrantha",
+       "cpu": 0.148686,
+       "gpu": 0.148438,
+       "diff": -0.000249,
+       "se": 0.008412,
+       "sigmas": 0.029592
+      },
+      {
+       "id": "opuntia_humifusa",
+       "cpu": 0.000559,
+       "gpu": 0.000558,
+       "diff": -0.000001,
+       "se": 0.000559,
+       "sigmas": 0.001674
+      },
+      {
+       "id": "poa_pratensis",
+       "cpu": 0.085523,
+       "gpu": 0.085379,
+       "diff": -0.000143,
+       "se": 0.006612,
+       "sigmas": 0.021654
+      },
+      {
+       "id": "schizachyrium_scoparium",
+       "cpu": 0.421465,
+       "gpu": 0.420759,
+       "diff": -0.000706,
+       "se": 0.011675,
+       "sigmas": 0.060437
+      },
+      {
+       "id": "schoenoplectus_acutus",
+       "cpu": 0.006708,
+       "gpu": 0.005022,
+       "diff": -0.001685,
+       "se": 0.00193,
+       "sigmas": 0.873309
+      },
+      {
+       "id": "schoenoplectus_tabernaemontani",
+       "cpu": 0.006708,
+       "gpu": 0.008371,
+       "diff": 0.001663,
+       "se": 0.00193,
+       "sigmas": 0.861671
+      },
+      {
+       "id": "sparganium_eurycarpum",
+       "cpu": 0.004472,
+       "gpu": 0.004464,
+       "diff": -0.000007,
+       "se": 0.001577,
+       "sigmas": 0.004746
+      },
+      {
+       "id": "sporobolus_cryptandrus",
+       "cpu": 0.05422,
+       "gpu": 0.054129,
+       "diff": -0.000091,
+       "se": 0.005354,
+       "sigmas": 0.016954
+      },
+      {
+       "id": "sporobolus_heterolepis",
+       "cpu": 0.004472,
+       "gpu": 0.004464,
+       "diff": -0.000007,
+       "se": 0.001577,
+       "sigmas": 0.004746
+      },
+      {
+       "id": "sporobolus_michauxianus",
+       "cpu": 0.002795,
+       "gpu": 0.00279,
+       "diff": -0.000005,
+       "se": 0.001248,
+       "sigmas": 0.003749
+      },
+      {
+       "id": "trifolium_repens",
+       "cpu": 0.006149,
+       "gpu": 0.006138,
+       "diff": -0.00001,
+       "se": 0.001848,
+       "sigmas": 0.00557
+      },
+      {
+       "id": "typha_latifolia",
+       "cpu": 0.016769,
+       "gpu": 0.017857,
+       "diff": 0.001088,
+       "se": 0.003036,
+       "sigmas": 0.358385
+      },
+      {
+       "id": "zizania_aquatica",
+       "cpu": 0.000559,
+       "gpu": 0.001116,
+       "diff": 0.000557,
+       "se": 0.000559,
+       "sigmas": 0.996652
+      }
+     ]
+    },
+    "blockedHits": {
+     "cpu": 0,
+     "gpu": 31
+    },
+    "posMaxMm": 0.001127,
+    "groundVsMirrorMaxMm": 0.009072,
+    "groundVsCpuP95MmMax": 0.034573,
+    "maxDiff": {
+     "h": 0.000025,
+     "spread": 0.000001,
+     "arch": 0,
+     "yaw": 0.000001,
+     "rgb": 0.000019
+    }
+   },
+   "stations": [
+    {
+     "id": "sauganash",
+     "e": 107,
+     "n": -103,
+     "instances": 840,
+     "slots": 484,
+     "gpuKept": 484,
+     "orderFaults": 0,
+     "posMaxMm": 0.000853,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 484
+      },
+      "gpu": {
+       "2": 484
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 6.5,
+     "gpuMs": 153.8,
+     "tileMs": 425.7,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "sauganash_wing",
+     "e": 88,
+     "n": -110,
+     "instances": 840,
+     "slots": 480,
+     "gpuKept": 480,
+     "orderFaults": 0,
+     "posMaxMm": 0.000868,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 2,
+       "3": 119,
+       "4": 359
+      },
+      "gpu": {
+       "2": 2,
+       "3": 119,
+       "4": 359
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 1.3,
+     "gpuMs": 119.3,
+     "tileMs": 305.6,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "lake_market",
+     "e": 89.2,
+     "n": -110.4,
+     "instances": 840,
+     "slots": 484,
+     "gpuKept": 484,
+     "orderFaults": 0,
+     "posMaxMm": 0.000838,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 39,
+       "3": 112,
+       "4": 333
+      },
+      "gpu": {
+       "2": 39,
+       "3": 112,
+       "4": 333
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 1.8,
+     "gpuMs": 145.9,
+     "tileMs": 320.8,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "first_post_office",
+     "e": 113,
+     "n": -108,
+     "instances": 840,
+     "slots": 484,
+     "gpuKept": 484,
+     "orderFaults": 0,
+     "posMaxMm": 0.000961,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 484
+      },
+      "gpu": {
+       "2": 484
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2.4,
+     "gpuMs": 123.2,
+     "tileMs": 367.8,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "forks",
+     "e": -100,
+     "n": -28,
+     "instances": 900,
+     "slots": 486,
+     "gpuKept": 486,
+     "orderFaults": 0,
+     "posMaxMm": 0.000968,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 486
+      },
+      "gpu": {
+       "2": 486
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 0.8,
+     "gpuMs": 119.2,
+     "tileMs": 491.9,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "north_branch_bridge_deck",
+     "e": -81.59,
+     "n": 262.02,
+     "instances": 840,
+     "slots": 481,
+     "gpuKept": 481,
+     "orderFaults": 0,
+     "posMaxMm": 0.001089,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 479,
+       "3": 2
+      },
+      "gpu": {
+       "2": 479,
+       "3": 2
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 0.8,
+     "gpuMs": 121.2,
+     "tileMs": 442.1,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "lake_at_canal",
+     "e": -159.7,
+     "n": -108.4,
+     "instances": 840,
+     "slots": 485,
+     "gpuKept": 485,
+     "orderFaults": 0,
+     "posMaxMm": 0.000776,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 485
+      },
+      "gpu": {
+       "2": 485
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 1.4,
+     "gpuMs": 122.9,
+     "tileMs": 325.3,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "green_tree",
+     "e": -44.11,
+     "n": -121.52,
+     "instances": 784,
+     "slots": 482,
+     "gpuKept": 482,
+     "orderFaults": 0,
+     "posMaxMm": 0.000662,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 482
+      },
+      "gpu": {
+       "2": 482
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 0.9,
+     "gpuMs": 118.8,
+     "tileMs": 433.3,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "south_water",
+     "e": 329.8,
+     "n": 7,
+     "instances": 784,
+     "slots": 485,
+     "gpuKept": 485,
+     "orderFaults": 0,
+     "posMaxMm": 0.00078,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 469,
+       "3": 1,
+       "4": 15
+      },
+      "gpu": {
+       "2": 469,
+       "3": 1,
+       "4": 15
+      }
+     },
+     "bins": {
+      "field": 2,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 0.9,
+     "gpuMs": 120.1,
+     "tileMs": 521.4,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "newberry_dole_wharf",
+     "e": 204.5,
+     "n": 9.8,
+     "instances": 784,
+     "slots": 485,
+     "gpuKept": 485,
+     "orderFaults": 0,
+     "posMaxMm": 0.000978,
+     "cpuPlaced": 29,
+     "gpuPlaced": 33,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 23,
+     "codes": {
+      "cpu": {
+       "2": 122,
+       "3": 89,
+       "4": 244,
+       "5": 1,
+       "6": 29
+      },
+      "gpu": {
+       "2": 121,
+       "3": 90,
+       "4": 241,
+       "6": 33
+      }
+     },
+     "bins": {
+      "field": 44,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000203,
+      "max": 0.000478
+     },
+     "groundVsCpuMm": {
+      "p95": 0.000208,
+      "max": 0.000478
+     },
+     "maxDiff": {
+      "h": 0.000002,
+      "spread": 0.000001,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 3.9,
+     "gpuMs": 120.9,
+     "tileMs": 452.7,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "from_above",
+     "e": 60,
+     "n": -330,
+     "instances": 900,
+     "slots": 480,
+     "gpuKept": 480,
+     "orderFaults": 0,
+     "posMaxMm": 0.001127,
+     "cpuPlaced": 42,
+     "gpuPlaced": 42,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 427,
+       "3": 11,
+       "6": 42
+      },
+      "gpu": {
+       "2": 426,
+       "3": 12,
+       "6": 42
+      }
+     },
+     "bins": {
+      "field": 5,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.00007,
+      "max": 0.000088
+     },
+     "groundVsCpuMm": {
+      "p95": 0.034573,
+      "max": 0.12077
+     },
+     "maxDiff": {
+      "h": 0.000001,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2.5,
+     "gpuMs": 122.6,
+     "tileMs": 545.5,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "kinzie_block",
+     "e": 994.86,
+     "n": 390.5,
+     "instances": 784,
+     "slots": 486,
+     "gpuKept": 486,
+     "orderFaults": 0,
+     "posMaxMm": 0.000894,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 486
+      },
+      "gpu": {
+       "2": 486
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 0.9,
+     "gpuMs": 121.3,
+     "tileMs": 484.3,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "fort_dearborn",
+     "e": 1100,
+     "n": 175,
+     "instances": 784,
+     "slots": 487,
+     "gpuKept": 487,
+     "orderFaults": 0,
+     "posMaxMm": 0.000767,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 487
+      },
+      "gpu": {
+       "2": 487
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 1.1,
+     "gpuMs": 119.5,
+     "tileMs": 689.9,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "lake_shore_south",
+     "e": 1340,
+     "n": -1000,
+     "instances": 840,
+     "slots": 486,
+     "gpuKept": 486,
+     "orderFaults": 0,
+     "posMaxMm": 0.000881,
+     "cpuPlaced": 191,
+     "gpuPlaced": 191,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 293,
+       "5": 2,
+       "6": 191
+      },
+      "gpu": {
+       "3": 293,
+       "5": 2,
+       "6": 191
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.0076,
+      "max": 0.009072
+     },
+     "groundVsCpuMm": {
+      "p95": 0.009142,
+      "max": 1.072461
+     },
+     "maxDiff": {
+      "h": 0.000006,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000007
+     },
+     "cpuMs": 4.3,
+     "gpuMs": 120.6,
+     "tileMs": 578.1,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "sixteenth_prairie",
+     "e": 1396.51,
+     "n": -2949.59,
+     "instances": 900,
+     "slots": 487,
+     "gpuKept": 487,
+     "orderFaults": 0,
+     "posMaxMm": 0.000953,
+     "cpuPlaced": 283,
+     "gpuPlaced": 283,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 201,
+       "5": 3,
+       "6": 283
+      },
+      "gpu": {
+       "3": 201,
+       "5": 3,
+       "6": 283
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000024,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000013
+     },
+     "cpuMs": 7.7,
+     "gpuMs": 120.1,
+     "tileMs": 594.9,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "battle_reach_1812",
+     "e": 1460,
+     "n": -3050,
+     "instances": 840,
+     "slots": 480,
+     "gpuKept": 480,
+     "orderFaults": 0,
+     "posMaxMm": 0.000865,
+     "cpuPlaced": 247,
+     "gpuPlaced": 247,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 229,
+       "5": 4,
+       "6": 247
+      },
+      "gpu": {
+       "3": 229,
+       "5": 4,
+       "6": 247
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000025,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000015
+     },
+     "cpuMs": 3.7,
+     "gpuMs": 121.4,
+     "tileMs": 571.8,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "eighteenth_prairie",
+     "e": 1401.86,
+     "n": -3206.93,
+     "instances": 784,
+     "slots": 489,
+     "gpuKept": 489,
+     "orderFaults": 0,
+     "posMaxMm": 0.000865,
+     "cpuPlaced": 279,
+     "gpuPlaced": 279,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 206,
+       "5": 4,
+       "6": 279
+      },
+      "gpu": {
+       "3": 206,
+       "5": 4,
+       "6": 279
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000016,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000017
+     },
+     "cpuMs": 3.8,
+     "gpuMs": 120.3,
+     "tileMs": 586.1,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "cermak_prairie",
+     "e": 1407.06,
+     "n": -3764.87,
+     "instances": 784,
+     "slots": 491,
+     "gpuKept": 491,
+     "orderFaults": 0,
+     "posMaxMm": 0.000753,
+     "cpuPlaced": 286,
+     "gpuPlaced": 286,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 201,
+       "5": 4,
+       "6": 286
+      },
+      "gpu": {
+       "3": 201,
+       "5": 4,
+       "6": 286
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0.000025,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000019
+     },
+     "cpuMs": 4.2,
+     "gpuMs": 119.7,
+     "tileMs": 573.1,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "prairie_south",
+     "e": 120,
+     "n": -330,
+     "instances": 900,
+     "slots": 486,
+     "gpuKept": 486,
+     "orderFaults": 0,
+     "posMaxMm": 0.00096,
+     "cpuPlaced": 0,
+     "gpuPlaced": 0,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 486
+      },
+      "gpu": {
+       "2": 486
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "groundVsCpuMm": {
+      "p95": 0,
+      "max": 0
+     },
+     "maxDiff": {
+      "h": 0,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 0.8,
+     "gpuMs": 121.8,
+     "tileMs": 546.8,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "prairie_west",
+     "e": -250,
+     "n": -150,
+     "instances": 840,
+     "slots": 480,
+     "gpuKept": 480,
+     "orderFaults": 0,
+     "posMaxMm": 0.001048,
+     "cpuPlaced": 283,
+     "gpuPlaced": 283,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "3": 197,
+       "6": 283
+      },
+      "gpu": {
+       "3": 197,
+       "6": 283
+      }
+     },
+     "bins": {
+      "field": 0,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000066,
+      "max": 0.000107
+     },
+     "groundVsCpuMm": {
+      "p95": 0.01222,
+      "max": 0.061664
+     },
+     "maxDiff": {
+      "h": 0.000001,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000001
+     },
+     "cpuMs": 3.4,
+     "gpuMs": 120.7,
+     "tileMs": 515.1,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "public_square",
+     "e": 550,
+     "n": -370,
+     "instances": 840,
+     "slots": 478,
+     "gpuKept": 478,
+     "orderFaults": 0,
+     "posMaxMm": 0.001051,
+     "cpuPlaced": 101,
+     "gpuPlaced": 98,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 0,
+     "codes": {
+      "cpu": {
+       "2": 362,
+       "3": 14,
+       "5": 1,
+       "6": 101
+      },
+      "gpu": {
+       "2": 363,
+       "3": 15,
+       "5": 2,
+       "6": 98
+      }
+     },
+     "bins": {
+      "field": 17,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000033,
+      "max": 0.000041
+     },
+     "groundVsCpuMm": {
+      "p95": 0.000047,
+      "max": 0.042558
+     },
+     "maxDiff": {
+      "h": 0.000004,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0.000001,
+      "rgb": 0.000001
+     },
+     "cpuMs": 2.1,
+     "gpuMs": 119.7,
+     "tileMs": 643.9,
+     "glError": 0,
+     "rule": []
+    },
+    {
+     "id": "river_bank",
+     "e": 180,
+     "n": 0,
+     "instances": 840,
+     "slots": 482,
+     "gpuKept": 482,
+     "orderFaults": 0,
+     "posMaxMm": 0.001072,
+     "cpuPlaced": 48,
+     "gpuPlaced": 50,
+     "cpuBlockedHits": 0,
+     "gpuBlockedHits": 8,
+     "codes": {
+      "cpu": {
+       "2": 109,
+       "3": 91,
+       "4": 234,
+       "6": 48
+      },
+      "gpu": {
+       "2": 109,
+       "3": 91,
+       "4": 232,
+       "6": 50
+      }
+     },
+     "bins": {
+      "field": 14,
+      "float32": 0,
+      "rule": 0
+     },
+     "why": {},
+     "groundVsMirrorMm": {
+      "p95": 0.000213,
+      "max": 0.000264
+     },
+     "groundVsCpuMm": {
+      "p95": 0.000225,
+      "max": 1.301073
+     },
+     "maxDiff": {
+      "h": 0.000002,
+      "spread": 0,
+      "arch": 0,
+      "yaw": 0,
+      "rgb": 0
+     },
+     "cpuMs": 2.7,
+     "gpuMs": 119.2,
+     "tileMs": 459.1,
+     "glError": 0,
+     "rule": []
+    }
+   ],
+   "pageerrors": []
+  }
+ ]
+}

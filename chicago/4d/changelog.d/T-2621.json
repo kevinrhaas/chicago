@@ -1,0 +1,10 @@
+{
+  "title": "Share a Navigator screen by link; Back closes the app first",
+  "kind": "feature",
+  "items": [
+    "A link can now open a Navigator app for you after you land. Share a year's address with the Map, Jaunts or Jump named in it, and that screen is waiting when the jump ends.",
+    "A link can name a building too, and that building's card opens once you arrive. It can name a tab as well, for when the building pages arrive.",
+    "A link to an app or building that is not there simply opens the town.",
+    "With the Navigator open, the browser's Back button closes it and keeps you in the town. Press Back again to leave the page as before."
+  ]
+}
