@@ -163,6 +163,12 @@ step "Navigator Jump: three era cards with HERE, the in-world ring and transfer 
   node tools/test_nav_jump.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
+# T-2632: Go to cleanup.
+step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
+  node tools/test_goto_cleanup.mjs
+# T-2633: Go to follows the Confidence view.
+step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
+  node tools/test_goto_confidence.mjs
 # T-2634: Free roam's one-time tip.
 step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
   node tools/test_roam_tip.mjs
@@ -177,6 +183,9 @@ step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
   node tools/test_frame_governor.mjs
+# T-2661: Guide's controls sheet.
+step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
+  node tools/test_nav_guide.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \

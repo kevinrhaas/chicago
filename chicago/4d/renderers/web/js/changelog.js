@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 1947, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to follows the Confidence view', kind: 'improvement',
+    items: [
+      'The Include reconstructed roofs checkbox is gone from Go to. Every place is listed.',
+      'When the Confidence view hides Reconstructed, those places stay in Go to but are dimmed, with one line saying they are hidden in the Confidence view. Show the grade again and they are back to normal.',
+    ] },
+  { v: 1946, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to is tidier', kind: 'improvement',
+    items: [
+      'Go to\'s filters are now All, Places, People, Shops & work and Viewpoints. A filter with nothing in it for this year is not shown, so 1904 no longer offers Corners 0.',
+      'Long names wrap onto a second line instead of being cut off.',
+      'Every place in the list shows how far away it is and which way, with an arrow that points the way you would turn.',
+    ] },
   { v: 1945, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'A first tip when you roam freely', kind: 'feature',
     items: [
       'The first time you choose Free roam on a device, a short tip tells you how to look closer: Tap any building to inspect it. With a mouse it says click, or press E.',
