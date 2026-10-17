@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1949, ts: '2026-10-17T11:53:51.478Z', date: 'Oct 17, 2026, 6:53 AM CT', title: 'Guide shows the controls for your device', kind: 'feature',
+    items: [
+      'Guide in the Navigator now lists the controls. On a phone it shows touch: your left thumb walks and the right side of the screen looks. On a computer it shows the keys and the mouse.',
+      'If you switch between touch and keys, the list switches with you. You can also tap Touch or Keyboard to read the other list.',
+      'The "How to explore" pop-up that opened when you first arrived is gone. Settings\' Show the controls now opens Guide.',
+    ] },
+  { v: 1948, ts: '2026-10-17T11:53:51.478Z', date: 'Oct 17, 2026, 6:53 AM CT', title: 'Home\'s choices stay apart as the Navigator opens', kind: 'fix',
+    items: [
+      'On a computer, Take a Jaunt, Go to and Free roam no longer draw over one another for a moment while the Navigator widens from its rail.',
+    ] },
   { v: 1947, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to follows the Confidence view', kind: 'improvement',
     items: [
       'The Include reconstructed roofs checkbox is gone from Go to. Every place is listed.',
