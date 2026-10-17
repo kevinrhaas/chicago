@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1800-block-looking-sw-c1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "f56cd19dfb90e9406e8d0374a34dc9522a6f8f12047a88c4f8d90d3df0d2cc26",
+  "glb_sha256": "73fe5d6c8053fa1454bb5adedde2c55e7411f159fe670e481faa362395f8005d",
   "camera_sha256": "494643f7955b634df54b0ca595da48f169788e2a9da2f400d49a7c70ff20afff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-side-by-side.jpg",
   "verdict": "differs",
@@ -52,8 +52,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2578: the ventilator's cap stands higher over the coping in this print than in the render; this camera's residual or the cap's reconstructed set-back behind the face (T-2579's re-fitted cameras decide which).",
-      "status": "open"
+      "what": "T-2578: the ventilator's cap stands higher over the coping in this print than in the render; this camera's residual or the cap's reconstructed set-back behind the face (T-2579's re-fitted cameras decide which). T-2713: ruled through the re-fitted camera, not this one. This camera (T-1883's fit) cannot judge the cap's height: it puts the rear pinnacle about 60 px right of and 40 px below the photograph's (x 1366, y 170 against 1307, 130), so the return's run and fall over the coping are its own. Read through T-2579's re-fitted camera on the 1888 Glessner plate, the cap's top stood 3.5 px (0.1 m) beyond the render's, so the cap now stands 1.05 m over the coping (0.95 before); there the photograph's top and the render's now agree to 1-2 px (x 1080-1082 against 1081-1084). Measured in this picture against the return's own courses under it (about 22 px a 0.46 m course here, 25 px in the render), the cap reads about 0.94 m over the coping against the render's 0.64 m before; that excess beyond the plate's is left to this camera's re-fit.",
+      "status": "not shown"
     },
     {
       "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580). T-2712: fixed — the hall stack now stops at 16.1 m, under the return's coping, and the render shows sky over the coping beside the cowl as the picture does; the cowl's pipe rises from the stack's top.",
@@ -62,6 +62,10 @@
     {
       "what": "T-2578: the ventilator's pipe reads pale beside the granite, as the print shows it (the colour itself is reconstructed: the print is monochrome).",
       "status": "fixed"
+    },
+    {
+      "what": "T-2713: this view's camera (T-1883's fit, 9.1 px RMS on six front controls) places the rear pinnacle about 60 px right of and 40 px below the photograph's, so the north return reads longer and falls more steeply in the render than in the print. It needs a re-fit on the pinnacle apexes as T-2579 did for the other views before the return and the cap can be judged here; the print is faint at the apexes, which is why this run did not take it.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

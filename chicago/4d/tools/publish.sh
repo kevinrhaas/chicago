@@ -675,7 +675,9 @@ rm -rf "$SITE/data/prebuilt"
 # pieces, which createTerrain batches in place of its own grid and cut.
 # T-2710: and the streets' surfaces, one buffer per layout, which the page batches
 # instead of laying the road (streets.js § THE STREETS, PREBUILT).
-node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground,base,streets
+# T-2711: and the yards' five surfaces, which the page uploads in place of laying
+# them (yards.js § THE YARDS, PREBUILT).
+node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground,base,streets,yards
 
 echo "   build $BUILD_VERSION  $BUILD_CT"
 

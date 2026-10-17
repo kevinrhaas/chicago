@@ -276,6 +276,10 @@ const COVERAGE = [
   // priced on the source it changed, which is the only thing it changes now.
 
   // --- PART 1: the enclosure layer, the plantings inside it, and the signs
+  // T-2638: Inspect, the Navigator's Overview front page. Part 3 reads it on a fallback
+  // building (Hogan's store), part 14 on the Glessner summary record; part 13 the rail.
+  ['renderers/web/js/apps/inspect.js', [3, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
+  ['renderers/web/js/apps/inspect-view.js', [3, 14], 'Inspect\'s Overview front page (M7)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],

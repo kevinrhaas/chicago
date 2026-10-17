@@ -1,3 +1,35 @@
+## T-2638 — Inspect, the Overview front page (2026-10-17)
+
+Design doc §08, mockup M7. The Navigator's `inspect` app is no longer a stub that opened the card:
+it loads `js/apps/inspect-view.js` and draws the building in hand (`ctx.selected`, else the 40 m
+`ctx.target`) top to bottom in M7's order. The order is: plate, address line, name, status
+chips, summary, key facts, who lives here, Look for, notable facts (swipeable), and the
+Confidence meter.
+
+- **A building with a summary record** (Glessner House) reads `inspect/<scene>.json`, compiled at
+  publish by `compile_summaries.py` (T-2635). It is fetched once, the first time a target
+  appears (§14), never at boot. Its residents come from the 1904 directory (T-2702). Its meter
+  uses the compiler's own counts by grade (30 facts).
+- **Every other building** takes T-2636's opening: the address once, the title, and the
+  building's own account when it fits the front page's 3 sentences and 60 words, else the
+  templated summary. Its chips, households and meter show only what its sidecar states.
+- **The plate** is the first picture in the card's pictures file whose rights allow display (public
+  domain, no known restrictions) and that the image store holds, under a static CRT treatment.
+  A building with none has no plate yet; the render "from the Show me angle" is T-2640's.
+- **Every fact line carries its grade dot** (the card's `fact-dot`, named for a screen reader). The
+  use chip's dot is the grade of the building's own `function`.
+
+**Not done here, and why:** the floating card is not retired. Its Evidence, Images, Liberties and
+Record tabs are still the card, opened from Inspect's "Full record" and from the meter (on
+Evidence, where a fact's Sources are today), until the Inspect tabs land (T-2639). The keyboard
+inspect (Space, E, Escape) and the arrival framing still open and make room for the card, and
+the smoke's 79 `#popup` reads in parts 3 and 14 hold it unchanged. Look for has no SHOW ME
+button yet: the camera move is T-2640's, and a button that did nothing would be worse than none.
+
+**Verified:** two new smoke checks. Part 3 checks a building without a record (Hogan's store, on
+its fallback). Part 14 checks Glessner House from its record, in M7's exact order: the summary
+word for word, every line dotted, the address once, no ids, and no overflow.
+
 ## T-2636 — a building's card opens with its address once, in plain words (2026-10-16)
 
 Design doc "Field Navigator Mk II" §12, the fallback for a structure with no summary record;
