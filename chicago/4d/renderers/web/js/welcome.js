@@ -9,7 +9,10 @@ export const QUICK_STARTS = {
     ['forks', 'The forks', 'forks'], ['south_water', 'South Water St.', 'street'],
     ['newberry_dole_wharf', 'The wharf', 'wharf']],
 };
-export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false,
+  // T-2630: told before the card shows, so the Navigator's Jaunts app hands back the
+  // Jaunts list and the Go to search it borrowed.
+  onShow = () => {} }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -120,6 +123,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     }
   }
   function show({ focus = true } = {}) {
+    try { onShow(); } catch { /* the card shows regardless */ }
     pause(); state = 'welcome'; gate.hidden = false; gate.dataset.state = state;
     delete gate.dataset.region;
     body.hidden = false; picker.hidden = true; jaunts.hidden = true;
@@ -136,7 +140,9 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     if (focus) title.focus({ preventScroll: true });
   }
   function choose(type, id) {
-    if (state !== 'welcome') return false;
+    // T-2630: in the town, the Navigator's Go to (this same search, lent to it) picks a
+    // place too; only the card's own sub-views need the card.
+    if (state !== 'welcome' && !(state === 'world' && type !== 'jaunts' && type !== 'explore')) return false;
     if (type === 'jaunts' || type === 'explore') { region(type); return true; }
     const target = type === 'spawn' ? null : destinations.byId(type, id);
     if (type !== 'spawn' && !target) return false;
@@ -176,5 +182,6 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       event.preventDefault(); first?.focus();
     }
   }, true);
-  return { get state() { return state; }, enter: choose, show, close: returnToWorld };
+  // T-2630: `refresh` re-runs the search, for the Navigator's Go to when it shows.
+  return { get state() { return state; }, enter: choose, show, close: returnToWorld, refresh: () => render() };
 }

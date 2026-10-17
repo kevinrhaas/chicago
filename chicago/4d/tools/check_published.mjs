@@ -149,14 +149,17 @@ const TRANSFORMED = [
         + 'way it arrived); tools/test_changelog_mirror.mjs asserts the shim is what lands here and '
         + 'that it names the file it re-exports; and the smoke\'s What\'s-new leg loads the tab out of '
         + 'the published tree, which is the shim resolving or not.' },
-  { re: /^data\/prebuilt\/\d{4}\/(?:frontage|ground|base)\.(?:json|bin\.gz)$/,
+  { re: /^data\/prebuilt\/(?:index\.json|\d{4}\/(?:(?:frontage|ground|base)\.(?:json|bin\.gz)|streets\.(?:json|(?:light|full)\.bin\.gz)))$/,
     what: 'tools/prebuild_layers.mjs (run by publish.sh) writes the frontage layer\'s finished buffers, built '
         + 'in Node by the page\'s own createFrontage, with a hash of every file they were built from and the '
         + 'build id the page is stamped with, the buffer gzipped for the tree budget; the page inflates and '
         + 'uploads them instead of building them (T-2677); and the ground\'s tiles, cut into the page\'s 40 m '
         + 'pieces by terrain.js\'s and spatial-batch.js\'s own functions, uploaded in the ground GLB\'s place (T-2693); '
         + 'and the distant base, laid over frontage\'s crossing footprints and cut the same way, batched in place of '
-        + 'the page\'s own grid and cut (T-2709)',
+        + 'the page\'s own grid and cut (T-2709); and the streets\' surfaces laid by streets.js\'s own '
+        + 'streetLayoutOf, one buffer per layout, batched in place of laying the road (T-2710); and index.json, '
+        + 'the list of every year and layer it wrote, which the page reads before asking for any of them '
+        + '(js/prebuilt-index.js), so a year with no prebuild costs no 404',
     gate: 'this file refuses a prebuild whose inputs no longer hash to its index, or whose buffer is not the '
         + 'one its index hashed (prebuild_layers.mjs stale(), below); prebuild_layers.mjs --self-test '
         + '(check.sh) proves two builds byte-identical and the page\'s replay of one equal to its own build; '
@@ -292,6 +295,25 @@ if (existsSync(path.join(SITE, 'data/prebuilt'))) {
   for (const why of PREBUILT_LAYERS.flatMap((layer) => stale(path.join(SITE, 'data/prebuilt'), layer))) {
     problems.push(`data/prebuilt is stale — ${why}. publish.sh rebuilds it; a stale prebuild would hand `
       + 'the page timber built from other records or other code.');
+  }
+  // The page asks only for what index.json lists (js/prebuilt-index.js), so the list
+  // must be exactly what is on disk: a layer it omits is never used, and one it names
+  // that is missing is the 404 the list exists to prevent.
+  const listFile = path.join(SITE, 'data/prebuilt/index.json');
+  if (!existsSync(listFile)) {
+    problems.push('data/prebuilt has no index.json, so the page cannot tell which years were prebuilt '
+      + 'and would ask for, and 404 on, every year\'s layers.');
+  } else {
+    const list = JSON.parse(readFileSync(listFile, 'utf8'));
+    const onDisk = {};
+    for (const year of readdirSync(path.join(SITE, 'data/prebuilt'))) {
+      if (!/^\d{4}$/.test(year)) continue;
+      onDisk[year] = PREBUILT_LAYERS.filter((layer) => existsSync(path.join(SITE, 'data/prebuilt', year, `${layer}.json`))).sort();
+    }
+    const sorted = (o) => JSON.stringify(Object.fromEntries(Object.entries(o).map(([y, ls]) => [y, [...ls].sort()]).sort()));
+    if (sorted(onDisk) !== sorted(list.layers ?? {})) {
+      problems.push(`data/prebuilt/index.json lists ${sorted(list.layers ?? {})} and the mirror holds ${sorted(onDisk)}.`);
+    }
   }
 }
 if (problems.length) {

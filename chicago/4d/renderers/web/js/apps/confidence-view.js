@@ -18,6 +18,8 @@
  * second besides (for a look set from a test hook), so what it shows is the scene.
  */
 import { PRESETS, LEVELS, applyPreset, presetOf } from '../confidence-presets.js';
+import { t as str } from '../strings/index.js';
+import '../strings/hud.js';
 
 const NAMES = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
 const LOOK_WORDS = { tint: 'Tint', ghost: 'Ghost', dither: 'Dither' };
@@ -69,7 +71,7 @@ export function mount(el, ctx = {}) {
   const reset = make('button', { type: 'button', className: 'nav-showall', id: 'cm-reset' }, 'Show everything');
   reset.addEventListener('click', () => {
     for (const level of LEVELS) d.hud?.setHidden(level, false, { announce: false });
-    d.hud?.say?.('Showing every grade again');
+    d.hud?.say?.(str('hud.levels.all'));
     paint();
   });
   const note = make('p', { className: 'nav-sub nav-cm-note', id: 'cm-note' },

@@ -28600,3 +28600,24 @@ prints it as it stands.
 **How to resolve:** a time of day the visitor sets, the sun following it (Jump, DESIGN §07).
 **Ticket:** T-2617.
 **Recorded:** 2026-10-17 (T-2617).
+
+### L-k01-keith-hall-stack-2586 — Keith's hall stack: stopped under the return's coping, its top reconstructed
+
+**Decision:** the hall stack of 1808 Prairie (`chimney_positions` `hall`, the north one, behind the
+coursed north return) stops at 16.1 m, 0.14 m under the return's coping, where it stood 1.4 m over
+the deck's high line and so about 0.8 m over the coping (T-2712, piece 1 of T-2586, from T-2578's finding). The
+library stack is unchanged.
+**What is read, not invented:** that nothing but the cowl ventilator stands over the return's
+coping: the 1887 construction view, J. W. Taylor's c. 1887-89 view (2135), the 1888 Inland
+Architect Glessner plate and the c. 1888 view looking south-west all show clean sky there beside
+the cowl, and the c. 1888 view beside Glessner shows none either. Rendered from each of those
+cameras, the stack that stood there is gone and the coping reads against sky as the pictures do.
+**What is invented:** the stack's top (16.1 m, a ceiling the pictures set rather than a height
+they show); that the cowl's pipe carries the hall flue on from the stack's top (its foot already
+stood inside the stack's plan, T-2578: plausible, not shown); and that the stack exists at all,
+which still rests on the 1888 plan's hall fireplace (`chimney_positions`, inferred). The 1948
+view's low stub at the cowl's foot is later evidence and is not read back to 1904.
+**How to resolve:** a view from above the deck (none is known), or a section of the house.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`.
+**Ticket:** T-2712 (piece 1 of T-2586).
+**Recorded:** 2026-10-17 (T-2712).

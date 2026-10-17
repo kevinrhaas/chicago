@@ -68,7 +68,7 @@
     const card = document.querySelector('.gate-card');
     if (card && !card.querySelector('.skin-tools')) {
       const tools = document.createElement('div'); tools.className = 'skin-tools';
-      const home = document.createElement('a'); home.href = new URL('../', document.baseURI).href; home.textContent = '← All coordinates';
+      const home = document.createElement('a'); home.href = new URL('../', document.baseURI).href; home.textContent = '← All destinations';
       tools.append(home, dial()); card.append(tools);
     }
     const settings = document.querySelector('[data-panel="settings"]');

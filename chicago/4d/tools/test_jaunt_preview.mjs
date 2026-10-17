@@ -44,7 +44,7 @@ try {
     assert.match(await page.locator('.jaunt-stops').innerText(),/former mail corner/);
     assert.match(await page.locator('.jaunt-stops').innerText(),/by May 1835/);
     await page.screenshot({path:path.join(out,`${viewport.width}-preview.png`)});
-    await page.getByRole('button',{name:'Evidence for this stop'}).first().click();
+    await page.getByRole('button',{name:'Sources for this stop'}).first().click();
     assert.match(await page.locator('.jaunt-evidence').first().innerText(),/\[DOC\].*Kinzie/s);
     await page.keyboard.press('w');
     assert.equal(await page.evaluate(()=>!!document.pointerLockElement),false);
@@ -52,7 +52,7 @@ try {
     for (const size of viewport.width===390 ? [{width:320,height:568},{width:780,height:390},{width:390,height:780}] : [viewport]) {
       await page.setViewportSize(size);
       // The last button must be scroll-reachable, without horizontal overflow.
-      await page.getByRole('button',{name:'Evidence for this stop'}).last().scrollIntoViewIfNeeded();
+      await page.getByRole('button',{name:'Sources for this stop'}).last().scrollIntoViewIfNeeded();
       const layout=await page.evaluate(()=>({body:document.body.scrollWidth,viewport:innerWidth,controls:[...document.querySelectorAll('#welcome-jaunts-content button')].map(e=>e.getBoundingClientRect().height)}));
       assert(layout.body<=layout.viewport+1,JSON.stringify(layout));
       assert(layout.controls.every(h=>h>=44),'44px tap targets');

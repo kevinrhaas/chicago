@@ -16,6 +16,8 @@ import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSys
 import { createGoTo } from './goto.js';
 import { PACES, gaitName } from './travel.js';
 import { versionBadge } from './structure-versions.js';
+import { t as str } from './strings/index.js';
+import './strings/hud.js';
 
 const THEME_KEY = 'chicago4d.theme';
 const CONF_KEY = 'chicago4d.confidence';
@@ -107,7 +109,11 @@ export function createHud({
   settings.units = normalUnitSystem(settings.units);
 
   if (badgeYear) badgeYear.textContent = scene?.id ?? '';
-  if (badgeSub) badgeSub.textContent = formatSceneDate(scene?.target_date);
+  // T-2626: the year chip reads as LED digits, 1904 · 07.01; it says the date in words
+  // to a screen reader, with what a tap does.
+  if (badgeSub) badgeSub.textContent = (/^\d{4}-(\d{2})-(\d{2})/.exec(scene?.target_date ?? '') ?? []).slice(1).join('.');
+  $('year-badge')?.setAttribute('aria-label',
+    `${[formatSceneDate(scene?.target_date), scene?.id].filter(Boolean).join(' ')}. Open Jump`);
 
   // Theme: dark by default — this is a walkthrough, and a bright interface over
   // a daylight scene is the one combination that reads as neither.
@@ -224,7 +230,7 @@ export function createHud({
       const gone = LEVELS.filter((l) => hiddenLevels.has(l));
       say(gone.length
         ? `Hiding ${gone.map((l) => l[0].toUpperCase() + l.slice(1)).join(' and ')} — what stands is only what the rest of the evidence supports`
-        : 'Showing every grade again');
+        : str('hud.levels.all'));
     }
     return hide;
   }
@@ -235,9 +241,9 @@ export function createHud({
   function setFly(on, { announce = true } = {}) {
     flying = !!on;
     btnFly?.setAttribute('aria-pressed', String(flying));
-    if (flyLabel) flyLabel.textContent = flying ? 'Walk' : 'Fly';
+    if (flyLabel) flyLabel.textContent = str(flying ? 'hud.fly.walk' : 'hud.fly.fly');
     if (btnFly) {
-      btnFly.title = flying ? 'Back to walking (F)' : 'Free-fly — rise above the town (F)';
+      btnFly.title = str(flying ? 'hud.fly.back' : 'hud.fly.up');
     }
     if (!flying) { badgeAlt?.setAttribute('hidden', ''); badgeAlt?.parentElement?.classList.remove('has-alt'); }
     onFly?.(flying);
@@ -350,8 +356,7 @@ export function createHud({
     whatsNewDot?.toggleAttribute('hidden', n === 0);
     helpDot?.toggleAttribute('hidden', n === 0);
     if (n > 0) {
-      btnHelp?.setAttribute('title',
-        `Controls, settings and what's new — ${n} unread (H)`);
+      btnHelp?.setAttribute('title', str('hud.menu.unread', { n }));
     }
   }
   void paintUnseen();
@@ -365,7 +370,7 @@ export function createHud({
         await renderWhatsNew(host);
       } catch {
         whatsNewPainted = false;
-        if (host) host.textContent = 'The release notes could not load. Reopen this tab to retry.';
+        if (host) host.textContent = str('hud.notes.failed');
         return;
       } finally {
         host?.removeAttribute('aria-busy');
@@ -665,7 +670,7 @@ export function createHud({
     if (!banner) return;
     if (!state) { banner.setAttribute('hidden', ''); return; }
     const verb = $('travel-verb'); const dest = $('travel-dest'); const dist = $('travel-dist');
-    if (verb) verb.textContent = state.verb ?? 'Going to';
+    if (verb) verb.textContent = state.verb ?? str('hud.going');
     if (dest) dest.textContent = state.dest ?? '';
     if (dist) dist.textContent = Number.isFinite(state.dist_m) ? formatDistance(state.dist_m, settings.units) : '';
     banner.removeAttribute('hidden');
@@ -699,7 +704,7 @@ export function createHud({
     if (k === 'h' || k === '?') { e.preventDefault(); setPanel(!panelOpen()); }
     // C toggles BY GRADE (T-2647): the Confidence view's presets own what "on" means.
     else if (k === 'c') { e.preventDefault(); if (onConfidenceKey) onConfidenceKey(); else setConfidence(!confidenceOn); }
-    else if (k === 'n') { e.preventDefault(); setPanel(true); selectTab('whatsnew'); }
+    // T-2622: N is the Navigator's now (navigator.js); What's new is under Settings and H.
     else if (k === 'g') { e.preventDefault(); openGoTo(); }
     else if (k === 'f') { e.preventDefault(); setFly(!flying); }
     else if (k === 'p') { e.preventDefault(); setPace(PACE_CYCLE[(PACE_CYCLE.indexOf(settings.pace) + 1) % PACE_CYCLE.length]); }
