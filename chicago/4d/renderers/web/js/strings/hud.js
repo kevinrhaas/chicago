@@ -18,7 +18,7 @@ export default register('hud', {
   'move.mode': 'How you move',
   'sources.list': 'Source list',
   'sources.grades': 'Attested, Inferred, Reconstructed: what each word promises',
-  'levels.all': 'Showing every level again',
+  'levels.all': 'Showing every grade again',
   'fly.walk': 'Walk',
   'fly.fly': 'Fly',
   'fly.back': 'Back to walking (F)',

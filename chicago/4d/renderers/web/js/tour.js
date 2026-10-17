@@ -11,8 +11,8 @@
  * step completes on the real action the page has today, and says so here:
  *   - step 05's tabs are the building card's (Evidence, Images, Liberties, Record) until
  *     the Inspect tabs land (T-2639), so its bubble names the Full record, not "Design";
- *   - step 06 completes when the Confidence view is on or a grade is hidden, until the
- *     presets land (T-2647), when it becomes "a preset other than Normal";
+ *   - step 06 completes on a Confidence view preset other than Normal (T-2647): the
+ *     colouring on, or a grade hidden — the state every such preset puts in force;
  *   - step 07's Finish ends the tour; the NAVIGATOR LICENSE keepsake is T-2665's.
  *
  * `probe()` returns { yawDeg, e, n, opens, deeper, confidence, confChanges, scene, front }:
@@ -42,8 +42,10 @@ export const STEPS = [
     target: null, done: (p, base) => (p.opens ?? 0) > base.opens },
   { task: 'Go deeper', bubble: () => 'Front page first. The Full record goes deeper. Open it.',
     target: '#navigator', done: (p, base) => p.deeper > base.deeper },
+  // T-2647: the Confidence view is a Navigator app now (the HUD chip is gone), so the step
+  // rings the device; any preset but Normal — the colouring on, or a grade hidden — does it.
   { task: 'How sure are we?', bubble: () => 'How sure are we? Turn on the Confidence view.',
-    target: '#btn-confidence', done: (p, base) => !!p.confidence && (p.confChanges ?? 0) > base.confChanges },
+    target: '#navigator', done: (p, base) => !!p.confidence && (p.confChanges ?? 0) > base.confChanges },
   { task: 'Ready', bubble: () => 'Ready. Take a Jaunt, or Jump to another year.',
     target: '#navigator', action: 'finish' },
 ];

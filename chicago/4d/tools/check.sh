@@ -143,6 +143,8 @@ selftest "…and a bronze that is a darker gold, a drifted token or an unreadabl
 
 step "Each grade's look — tint, dither or ghost at an opacity — and the ghost pass drawn last with depthWrite off (T-2646)" \
   node tools/test_confidence_looks.mjs
+step "The Confidence view's presets — NORMAL, BY GRADE, ATTESTED ONLY (exactly the two grades hidden by hand), X-RAY — and C toggling BY GRADE (T-2647)" \
+  node tools/test_confidence_presets.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs

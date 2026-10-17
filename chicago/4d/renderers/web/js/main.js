@@ -37,6 +37,7 @@ import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, grou
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
+import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
@@ -1306,6 +1307,9 @@ const GLESSNER_V4_LIGHT_TRIANGLES = 1270000;
 // remains unchanged; the complete normal-loop smoke rechecks both ceilings.
 const BUDGET = { drawCalls: 330, triangles: DETAIL.full.triangles };
 
+/** localStorage, or null where the page may not have it (a private window, a sandbox). */
+const safeStorage = () => { try { return window.localStorage; } catch { return null; } };
+
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
  * name each one gives its own group.
@@ -1850,6 +1854,11 @@ async function boot() {
   });
 
   const confidence = createConfidenceView();
+  // T-2647: the furniture ghosts as a dither in the opaque pass, not in a second draw —
+  // X-RAY one tap away has to fit the draw budget (confidence.js § setGhostAsDither).
+  confidence.setGhostAsDither(FURNITURE_LAYERS);
+  // T-2647: the looks the visitor last chose (X-RAY's ghosts), before anything is drawn coloured.
+  restoreLooks(confidence, safeStorage());
 
   // The ground, the river, and the heightfield the walker stands on, all from
   // the scene's terrain epoch. Awaited: everything after this asks it how high
@@ -3145,6 +3154,8 @@ async function boot() {
     device,
     structureVersion: loaded.versionState,
     onConfidence: (on) => { confidence.set(on); tourCounts.confChanges++; },
+    // T-2647: C toggles the BY GRADE preset (confidence-presets.js).
+    onConfidenceKey: () => toggleByGrade({ hud, view: confidence, storage: safeStorage() }),
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
@@ -4230,7 +4241,6 @@ async function boot() {
         goTo: (id) => goToTarget({ kind: 'structure', id }),
         jauntRoute: () => mapJauntRoute(),
         travelRoute: () => travel.routeAhead(),
-        confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),

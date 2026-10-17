@@ -609,7 +609,7 @@ for (const phone of [true, false]) {
     const calls = [];
     const nav = createNavigator({ root: dom.root, scene: { id: '1904', target_date: '1904-07-01' }, isPhone: () => phone,
       viewportHeight: () => 844, now: () => t, storage: fakeStorage(), apps: APPS,
-      context: () => ({ scene: { id: '1904' }, hasPeople: false, actions: { confidenceMenu: () => calls.push('confidence') } }) });
+      context: () => ({ scene: { id: '1904' }, hasPeople: false, actions: { openSection: (section) => calls.push(section) } }) });
     await Promise.resolve();
     let d = nav.snapshot().dock;
     assert.equal(nav.level, 0, `${label}: it starts closed`);
@@ -623,11 +623,11 @@ for (const phone of [true, false]) {
     assert.equal(d.app, 'jump', `${label}: the dock remembers the last app`);
     assert.equal(d.label, 'Open the Navigator on Jump');
     assert.equal(dom.byId.get('nav-dock-app').dataset.app, 'jump');
-    // A stub (the Confidence view, until its own screen lands) runs and docks the device; it
-    // is not an app the dock opens to. (Map, then Jaunts, were the stub here until each
-    // became a screen: T-2654, T-2630.)
-    await nav.select('confidence');
-    assert.deepEqual(calls, ['confidence']);
+    // A stub (Settings, until its own screen lands) runs and docks the device; it is not an
+    // app the dock opens to. (Map, then Jaunts, then the Confidence view were the stub here
+    // until each became a screen: T-2654, T-2630, T-2647.)
+    await nav.select('settings');
+    assert.deepEqual(calls, ['settings']);
     assert.equal(nav.level, 0);
     assert.equal(nav.snapshot().dock.app, 'jump', `${label}: a stub leaves the dock on the last screen`);
     // One tap on the closed device opens that last app — at HALF on a phone.
