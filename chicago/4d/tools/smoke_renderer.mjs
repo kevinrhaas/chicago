@@ -1538,6 +1538,19 @@ for (const [label, viewport, touch] of [
           await new Promise((r) => setTimeout(r, 50));
         }
       }
+      // T-2632 (found on #965's desktop 13 run): the Navigator WIDENS too. On a desktop
+      // its open is a .28 s width transition from the 58 px rail to 400 px, and the
+      // transition's clock only moves when the page gets to draw; on a runner where a
+      // frame of the town takes seconds, a fixed wait can end with the panel still a
+      // sliver, Home's three choices squeezed into 0-wide columns and drawn over one
+      // another — "covered at its own centre by <button class=\"nav-choice\">". Waited
+      // for the same way as the drawer: the hit-test still runs, on the settled box.
+      const device = el.closest('#navigator');
+      if (device?.getAnimations) {
+        for (let i = 0; i < 60 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+          await new Promise((r) => setTimeout(r, 50));
+        }
+      }
       // The same scroll `page.click` would do, in the same round trip as the
       // reading — a result row far down the Go-to list is off the panel's
       // viewport until this runs, and `elementFromPoint` would then answer for
@@ -10940,47 +10953,103 @@ for (const [label, viewport, touch] of [
     // now lives. Opened through the real control with a real hit test, because
     // the opener is a transparent button laid over the inset and "covered by
     // something else" is exactly how that fails.
+    // T-2654: the whole field lives in the Navigator now — its Map app, opened by the round
+    // instrument (and M). It is where "renders the whole heightfield" is asserted: inked,
+    // fitted to the field's own shape, its size said in the visitor's units. A tap on a
+    // building previews it and Go travels there by the getting-there style.
     await clickChrome('#overview-open');
-    const pop = await page.evaluate(() => {
+    const pop = await page.evaluate(async () => {
       const api = window.__chicago4d;
-      const el = document.getElementById('overview-full');
-      const c = document.getElementById('overview-full-canvas');
-      const box = c.getBoundingClientRect();
-      const p = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
-      let ink = 0;
-      for (let i = 3; i < p.length; i += 404) if (p[i] > 0) ink++;
-      return {
-        open: !el.hasAttribute('hidden'),
-        apiOpen: api.navigation.fullOpen,
-        w: Math.round(box.width),
-        h: Math.round(box.height),
-        onScreen: box.width > 0 && box.height > 0
-          && box.top >= -1 && box.bottom <= window.innerHeight + 1,
-        ink,
-        foot: document.getElementById('overview-full-foot')?.textContent?.trim() ?? '',
-        focus: document.activeElement?.id ?? '',
+      const n = api.navigator;
+      const el = () => document.getElementById('nav-app-map');
+      for (let i = 0; i < 80 && !(n.app === 'map' && el()?.querySelector('canvas')?.getBoundingClientRect().width > 0 && el()?._mapApi); i++) {
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      // A phone opens Map at FULL; the sheet grows over 280 ms of (slow) frames, and the map
+      // re-fits as it does. Read it once the sheet has settled: the same box twice running.
+      let settled = '';
+      for (let i = 0; i < 60; i++) {
+        el()?._mapApi?.paint();
+        const b = el()?.querySelector('canvas')?.getBoundingClientRect();
+        const nb = document.getElementById('navigator')?.getBoundingClientRect();
+        const now = b && nb ? [b.top, b.width, b.height, nb.top, nb.height].map(Math.round).join(',') : '';
+        if (now && now === settled) break;
+        settled = now;
+        await new Promise((r) => setTimeout(r, 250));
+      }
+      const read = () => {
+        el()?._mapApi?.paint();
+        const c = el()?.querySelector('canvas');
+        const box = c?.getBoundingClientRect() ?? { width: 0, height: 0, top: 0, bottom: 0 };
+        let ink = 0;
+        if (c?.width) {
+          const p = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+          for (let i = 3; i < p.length; i += 404) if (p[i] > 0) ink++;
+        }
+        return { w: Math.round(box.width), h: Math.round(box.height), ink,
+          onScreen: box.width > 0 && box.height > 0 && box.top >= -1 && box.bottom <= window.innerHeight + 1,
+          foot: el()?.querySelector('.nav-map-foot')?.textContent?.trim() ?? '' };
       };
+      const near = { zoom: el()?._mapApi?.zoom, ...read() };
+      el()?._mapApi?.setZoom('field');
+      const whole = { zoom: el()?._mapApi?.zoom, ...read() };
+      el()?._mapApi?.setZoom('near');
+      return { app: n.app, detent: n.detent, fullOpen: api.navigation.fullOpen, near, whole };
     });
     const fieldAspect = (win.b.nMax - win.b.nMin) / (win.b.eMax - win.b.eMin);
-    check(`${label}: the pop-out renders the whole heightfield`,
-      pop.open && pop.apiOpen && pop.ink > 0 && pop.onScreen
-      && Math.abs(pop.h / pop.w - fieldAspect) < 0.05
+    check(`${label}: the round instrument opens the Navigator's Map, close up and the whole field (T-2654)`,
+      pop.app === 'map' && pop.detent === (touch ? 'full' : 'open') && !pop.fullOpen
+      && pop.near.zoom === 'near' && pop.near.ink > 0 && pop.near.onScreen
+      && pop.whole.zoom === 'field' && pop.whole.ink > 0 && pop.whole.onScreen
+      && Math.abs(pop.whole.h / Math.max(1, pop.whole.w) - fieldAspect) < 0.05
       // The foot says how far across the field is, in the visitor's own units —
-      // `formatDistance` abbreviates, so this reads the abbreviations it emits
-      // rather than the words it does not ("1.3 mi", not "1.3 miles").
-      && /\b(ft|feet|yd|mi|miles?)\b/.test(pop.foot),
-      `${pop.w}x${pop.h} px, aspect ${(pop.h / pop.w).toFixed(3)} against the field's `
-      + `${fieldAspect.toFixed(3)}, ${pop.ink} inked samples, foot ${JSON.stringify(pop.foot)}`);
-    await page.keyboard.press('Escape');
-    const shut = await page.evaluate(() => ({
-      hidden: document.getElementById('overview-full').hasAttribute('hidden'),
-      apiOpen: window.__chicago4d.navigation.fullOpen,
-      focus: document.activeElement?.id ?? '',
-    }));
-    check(`${label}: Escape puts the pop-out away and hands focus back to the map`,
-      shut.hidden && !shut.apiOpen && shut.focus === 'overview-open',
-      `hidden ${shut.hidden}, api ${shut.apiOpen}, focus ${JSON.stringify(shut.focus)} `
-      + `(was ${JSON.stringify(pop.focus)} while open)`);
+      // `formatDistance` abbreviates, so this reads the abbreviations it emits.
+      && /\b(ft|feet|yd|mi|miles?)\b/.test(pop.whole.foot),
+      `${JSON.stringify(pop)}; whole-field aspect ${(pop.whole.h / Math.max(1, pop.whole.w)).toFixed(3)} against the field's ${fieldAspect.toFixed(3)}`);
+    // Tap a building on the close-up: the preview names it; Go travels there.
+    const mapGo = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const el = document.getElementById('nav-app-map');
+      const m = el?._mapApi;
+      const c = el?.querySelector('canvas');
+      if (!m || !c) return { missing: 'map' };
+      m.paint();
+      const v = m.view, { k } = m.size, p = api.player;
+      const centre = (r) => { let e = 0, n = 0; for (const [x, y] of r) { e += x; n += y; } return [e / r.length, n / r.length]; };
+      const pickable = api.navigation.outlines.map((r) => ({ r, c: centre(r) }))
+        .filter(({ r, c: [e, n] }) => r.id && api.registry.get(r.id)
+          && e > v.eMin + 10 && e < v.eMax - 10 && n > v.nMin + 10 && n < v.nMax - 10
+          && Math.hypot(e - p.e, n - p.n) >= 40)
+        .sort((a, b) => Math.hypot(a.c[0] - p.e, a.c[1] - p.n) - Math.hypot(b.c[0] - p.e, b.c[1] - p.n));
+      const chosen = pickable[0];
+      if (!chosen) return { missing: 'a building on the close-up' };
+      const [ce, cn] = chosen.c;
+      const b = c.getBoundingClientRect();
+      c.dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: b.left + (ce - v.eMin) * k, clientY: b.top + (v.nMax - cn) * k }));
+      const preview = el.querySelector('.nav-map-preview');
+      const sel = m.selected;
+      const ring = api.navigation.outlines.find((r) => r.id === sel);
+      const sc = ring ? centre(ring) : [ce, cn];
+      return { chosen: chosen.r.id, selected: sel, shown: !preview.hidden, name: preview.querySelector('.nav-place')?.textContent ?? '',
+        sub: preview.querySelector('.nav-sub')?.textContent ?? '', centre: sc, before: Math.round(Math.hypot(sc[0] - p.e, sc[1] - p.n)) };
+    });
+    if (mapGo.shown) await clickChrome('#nav-app-map .nav-map-go');
+    const went = await page.evaluate(async (centre) => {
+      const api = window.__chicago4d;
+      await new Promise((r) => setTimeout(r, 400));
+      const t = api.travel.state;
+      const out = { phase: t.phase, dest: t.dest_id, after: centre ? Math.round(Math.hypot(api.player.e - centre[0], api.player.n - centre[1])) : null,
+        detent: api.navigator.detent };
+      api.travel.stop?.('smoke');
+      api.navigator.dock();
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 });
+      api.step();
+      return out;
+    }, mapGo.centre ?? null);
+    check(`${label}: a tap on a building in the Map previews it, and Go travels there (T-2654)`,
+      !!mapGo.selected && mapGo.shown && mapGo.name.length > 0 && !/_/.test(mapGo.name) && /(ft|yd|mi|m) away$/.test(mapGo.sub)
+      && (went.dest === mapGo.selected || (went.after !== null && went.after <= mapGo.before - 20)),
+      JSON.stringify({ mapGo, went }));
     // T-2626 (§10): the compass and the map are one round instrument at the top right,
     // its heading the camera's own; the amber year chip at the top left opens Jump.
     const instrument = await page.evaluate(() => {
@@ -15304,6 +15373,40 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // ---- T-2634: Free roam docks the Navigator and, once per device, says how to inspect.
+    const roamTip = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      const roam = async () => {
+        api.navigator.open(1);
+        await api.navigator.select('jaunts');
+        document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click();
+        document.querySelector('#nav-app-jaunts .nav-roam')?.click();
+        await pause(100);
+        const tip = document.getElementById('roam-tip');
+        return { level: api.navigator.level, showing: !!tip && !tip.hidden, text: tip?.textContent ?? '',
+          stored: localStorage.getItem('chicago4d.roamTipSeen'), backend: api.controlBackend };
+      };
+      api.roamTip.forget();
+      const first = await roam();
+      const box = document.getElementById('roam-tip')?.getBoundingClientRect();
+      first.inView = !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.bottom <= innerHeight;
+      api.roamTip.hide();
+      const second = await roam();
+      api.jauntsApp?.restore();
+      // Back as it was found: Home its app (the dock reopens its last app), docked.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      api.roamTip.hide();
+      return { first, second };
+    });
+    const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.';
+    check(`${label}: Free roam docks the Navigator and shows "${tipWords}" once per device (T-2634)`,
+      roamTip.first.level === 0 && roamTip.first.showing && roamTip.first.text === tipWords && roamTip.first.stored === '1' && roamTip.first.inView
+      && roamTip.second.level === 0 && !roamTip.second.showing,
+      JSON.stringify(roamTip));
+    // ---- end T-2634
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the
@@ -17727,9 +17830,23 @@ for (const [label, viewport, touch] of [
     // --- Menu pauses, Resume returns, End is quick ----------------------------------
     await tap('#jaunt-panel [data-action="menu"]');
     await until(() => window.__chicago4d.welcome.state === 'welcome');
-    await until(() => [...document.querySelectorAll('#welcome-jaunts-content button')]
-      .some((x) => x.textContent.trim() === 'Resume Jaunt'));
-    await tap('#welcome-jaunts-content button', 'Resume Jaunt');
+    // ---- T-2631: the paused outing leads the list as a Continue card — where you are,
+    // and the next stop by name — and its Continue returns to the same stop.
+    await until(() => !!document.querySelector('#welcome-jaunts-content .jaunt-continue [data-action="continue"]'));
+    const continueCard = await p14.evaluate(() => {
+      const card = document.querySelector('#welcome-jaunts-content .jaunt-continue');
+      const list = document.getElementById('welcome-jaunts-content');
+      const first = [...list.querySelectorAll('.jaunt-continue, .jaunt-card, .jaunt-daybook-chip')][0];
+      return { kicker: card?.querySelector('.jaunt-continue-k')?.textContent.trim(), title: card?.querySelector('h3')?.textContent.trim(),
+        next: card?.querySelector('.jaunt-continue-next')?.textContent.trim(), leads: first === card,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(card?.textContent ?? '') };
+    });
+    check(`${label}: a paused Jaunt leads the list as a Continue card naming its stop and the next one (T-2631)`,
+      /^Continue · Stop 2 of \d+$/.test(continueCard.kicker ?? '') && !!continueCard.title
+      && /^Next: \S/.test(continueCard.next ?? '') && continueCard.leads && !continueCard.snake,
+      JSON.stringify(continueCard));
+    await tap('#welcome-jaunts-content .jaunt-continue [data-action="continue"]');
+    // ---- end T-2631
     await atStop();
     check(`${label}: the Jaunts menu pauses the outing and Resume returns to the same stop`,
       (await jaunt()).stopIndex === 1);
