@@ -19,7 +19,11 @@
  *     readers that walk a geometry's streams see what they saw;
  *   - the material patch decodes right after `<begin_vertex>`, before the
  *     patches beneath it, and its program key carries the table's length;
- *   - frontage's shared mesh is ONE boxed mesh with its matrix the identity.
+ *   - frontage's shared mesh is ONE boxed mesh with its matrix the identity;
+ *   - every frontage position is Int16 x 4, 8 B (T-2701): the long street-edge
+ *     chunks and the far walk tops boxed on the shared mesh's table, each
+ *     within the millimetre of the floats it was, and a boxed raycast walks an
+ *     index and draw range as three's own does.
  *
  * It does not compile GLSL or draw: pixel parity and call counts are the
  * smoke's (stages 1-2 and 5), and a tap through gpu-pick.js is
@@ -273,15 +277,94 @@ check('1835: every shared-mesh vertex reads back within the millimetre of the fl
   was.setAttribute('position', src);
   holdToSource('frontage_1835', mesh.geometry, was, mesh.material.userData.boxTable);
 });
-check('1835: every other frontage mesh names no box, and draws as it did', () => {
+check('1835: every frontage position is 8 B — one box where it keeps the millimetre, boxed where it does not (T-2701)', () => {
+  const tally = {};
+  let rows = 0;
   for (const c of group.children) {
-    if (c.name === 'frontage' || !c.isMesh) continue;
-    assert.ok(!c.geometry.userData.positionBoxes, `${c.name} is boxed`);
+    if (!c.isMesh) continue;
     const p = c.geometry.getAttribute('position');
-    if (p.array instanceof Int16Array) {
+    assert.ok(p.array instanceof Int16Array && p.itemSize === 4, `${c.name} positions are ${p.array.constructor.name} x ${p.itemSize}`);
+    const pb = c.geometry.userData.positionBoxes;
+    const kind = `${c.name}${pb ? ' boxed' : ''}`;
+    tally[kind] = (tally[kind] ?? 0) + 1;
+    if (!pb) {
       for (let i = 3; i < p.array.length; i += 4) assert.equal(p.array[i], 0, `${c.name} carries a lane`);
+      continue;
     }
+    rows += pb.boxes.length / 4;
+    assert.ok(c.matrix.equals(new THREE.Matrix4()), `boxed ${c.name} carries a matrix`);
+    assert.equal(c.material.userData.boxTable, group.children.find((m) => m.name === 'frontage').material.userData.boxTable,
+      `boxed ${c.name} is not on frontage's table`);
+    assert.notEqual(c.raycast, THREE.Mesh.prototype.raycast, `boxed ${c.name} raycasts the -1..1 grid`);
+    assert.ok(c.customDepthMaterial?.isMeshDepthMaterial, `boxed ${c.name} casts from the -1..1 grid`);
   }
+  assert.ok(tally['frontage-far-walk-tops boxed'] === 1, 'the far walk tops are not boxed');
+  assert.ok(tally['frontage-chunk boxed'] > 0, 'no street-edge chunk is boxed');
+  assert.ok(rows <= BOX_TABLE_MAX, `${rows} rows past the table's ${BOX_TABLE_MAX}`);
+  readings.frontage_meshes = tally;
+  readings.frontage_table_rows = rows;
+});
+check('1835: every boxed chunk and the far walk tops read back within the millimetre of the floats they were', () => {
+  const table = group.children.find((m) => m.name === 'frontage').material.userData.boxTable;
+  const worst = {};
+  for (const c of group.children) {
+    if (!c.isMesh || c.name === 'frontage' || !c.geometry.userData.positionBoxes) continue;
+    const src = sources.get(c.geometry);
+    assert.ok(src, `${c.name}'s float positions were never seen`);
+    const was = new THREE.BufferGeometry();
+    was.setAttribute('position', src);
+    holdToSource('boxed', c.geometry, was, table);
+    const r = readings.boxed;
+    const w = (worst[c.name] ??= { meshes: 0, pieces: 0, worst_cpu_mm: 0, worst_vertex_stage_mm: 0 });
+    w.meshes += 1;
+    w.pieces += r.pieces;
+    w.worst_cpu_mm = Math.max(w.worst_cpu_mm, r.worst_cpu_mm);
+    w.worst_vertex_stage_mm = Math.max(w.worst_vertex_stage_mm, r.worst_vertex_stage_mm);
+  }
+  delete readings.boxed;
+  readings.frontage_boxed = worst;
+});
+check('a boxed raycast walks the faces an index and draw range name, as three\'s own does', () => {
+  const g = townWalk(31);
+  const float = g.clone();
+  const t = cs.createBoxTable();
+  assert.ok(cs.packPositionBoxes(g, t));
+  const faces = g.getAttribute('position').count / 3;
+  const pick = [];
+  for (let f = 1; f < faces; f += 3) pick.push(f * 3 + 2, f * 3 + 1, f * 3);
+  const index = new THREE.BufferAttribute(new Uint32Array(pick), 1);
+  g.setIndex(index); float.setIndex(index.clone());
+  const half = Math.floor(pick.length / 6) * 3;
+  g.setDrawRange(0, half); float.setDrawRange(0, half);
+  const mat = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide });
+  const boxed = new THREE.Mesh(g, mat);
+  boxed.raycast = cs.raycastBoxed;
+  const plain = new THREE.Mesh(float, mat);
+  const rc = new THREE.Raycaster();
+  const src = float.getAttribute('position');
+  const c = new THREE.Vector3(), v = new THREE.Vector3();
+  let same = 0, hits = 0, differ = 0, undrawn = 0;
+  for (let k = 0; k < 400; k += 1) {
+    // Aimed at the centre of every face in turn, drawn or not: a raycast that
+    // ignored the index or the range would land on the faces three skips.
+    const f = Math.floor((k * faces) / 400);
+    c.set(0, 0, 0);
+    for (let j = 0; j < 3; j += 1) c.add(v.fromBufferAttribute(src, f * 3 + j));
+    c.divideScalar(3);
+    const from = c.clone().add(new THREE.Vector3(3 * Math.sin(k), 20, 3 * Math.cos(k)));
+    rc.set(from, c.clone().sub(from).normalize());
+    const a = rc.intersectObject(plain, false)[0];
+    const b = rc.intersectObject(boxed, false)[0];
+    if (!a) undrawn += 1;
+    if (!!a !== !!b || (a && (a.faceIndex !== b.faceIndex || a.face.a !== b.face.a || a.face.c !== b.face.c))) {
+      differ += 1;
+      continue;
+    }
+    if (a) { hits += 1; same += 1; }
+  }
+  // A ray within the grid's millimetre of an edge may fall either side of it.
+  assert.ok(hits > 50 && undrawn > 50 && differ <= 2, `${differ} of 400 rays answer otherwise than three's (${hits} alike)`);
+  readings.indexed_raycast = { rays: 400, hits, same_face: same, three_misses: undrawn, differ };
 });
 
 const failed = checks.filter((c) => !c.ok);

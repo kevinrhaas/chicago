@@ -1432,12 +1432,13 @@ function createFarWalkTops(group, sources, material) {
     vertices += selected.length;
   }
   const geometry = new THREE.BufferGeometry();
+  let boxed = false;
   if (entries.length) {
     for (const [name, attribute] of Object.entries(entries[0].source.geometry.attributes)) {
       if (name === 'position') {
-        // In the group's frame, as float32: a source chunk may be quantized over
-        // its own box (T-2687) or boxed piece by piece (T-2700), each on its own
-        // grid, and this mesh is neither.
+        // In the group's frame, as float32 for now: a source chunk may be
+        // quantized over its own box (T-2687) or boxed piece by piece (T-2700),
+        // each on its own grid; this copy is boxed on its own grid below.
         const packed = new Float32Array(vertices * 3);
         const p = new THREE.Vector3();
         let offset = 0;
@@ -1470,12 +1471,22 @@ function createFarWalkTops(group, sources, material) {
       geometry.userData.confidenceLane = 'color';
     }
     geometry.computeBoundingSphere();
+    // The copy spans the town, so it is boxed piece by piece on the material's
+    // own table (T-2701): 8 B a position for 12, still one draw. Before the
+    // index goes on — a boxing takes the triangles as they lie, and the index
+    // below names vertices it never moves.
+    const table = material.userData.boxTable;
+    if (table && packPositionBoxes(geometry, table)) boxed = true;
   }
   const index = new THREE.BufferAttribute(new Uint32Array(vertices), 1);
   index.setUsage(THREE.DynamicDrawUsage);
   geometry.setIndex(index);
   geometry.setDrawRange(0, 0);
   const mesh = new THREE.Mesh(geometry, material);
+  if (boxed) {
+    mesh.raycast = raycastBoxed;
+    mesh.customDepthMaterial = boxDepthMaterial(material.userData.boxTable);
+  }
   mesh.name = 'frontage-far-walk-tops';
   mesh.userData.farWalkTops = true;
   mesh.userData.groundHugging = true;
@@ -2265,7 +2276,10 @@ export async function createFrontage({
     cgeo.computeBoundingSphere();
     releaseTimberBuf(chunk.buf);
     const cmesh = new THREE.Mesh(cgeo, mat);
-    quantizeMeshPositions(cmesh);
+    // One box where it keeps the millimetre (T-2687); the long street-edge
+    // chunks, too wide for one, boxed piece by piece and still one draw (T-2701).
+    if (!quantizeMeshPositions(cmesh)) packPositionBoxes(cgeo, boxes);
+    boxMesh(cmesh);
     cmesh.renderOrder = 1;                 // same street-decal ordering as above
     cmesh.name = 'frontage-chunk';
     // T-0127 — GROUND-HUGGING TIMBER OPTS OUT OF THE SHADOW MAP. The flag is on
