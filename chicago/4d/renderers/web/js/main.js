@@ -33,7 +33,7 @@ import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
-import { createTerrain, enuToWorld, fetchPrebuiltGround, groundTiling, hazeReachM } from './terrain.js';
+import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
@@ -96,6 +96,7 @@ import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
+import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
@@ -1732,6 +1733,8 @@ async function boot() {
   // arrive under the scene phase; createTerrain uploads them in the ground GLB's
   // place when they are this page's, and loads the GLB otherwise. Never rejects.
   const groundPrebuilt = fetchPrebuiltGround({ dataBase: bases.dataBase, year: String(YEAR), build: pageBuild() });
+  // T-2709: and the distant base, laid over frontage's crossings and cut at publish.
+  const basePrebuilt = fetchPrebuiltBase({ dataBase: bases.dataBase, year: String(YEAR), build: pageBuild() });
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
@@ -1833,12 +1836,15 @@ async function boot() {
     // T-2502: ground off the box, where the scene names one (1812: down the South Branch).
     apronPath: loaded.scene.terrain_apron ?? null,
     prebuilt: groundPrebuilt,
+    prebuiltBase: basePrebuilt,
     confidence,
     problems,
   });
   if (!terrain.loaded) throw new Error('Terrain heightfield did not load');
   /** T-2693: whether the ground's tiles came prebuilt, and if not, why not. */
   api.terrainPrebuilt = terrain.prebuilt;
+  /** T-2709: whether the distant base came prebuilt, and if not, why not. */
+  api.terrainPrebuiltBase = terrain.prebuiltBase;
   scene3d.add(terrain.group);
   /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
    *  and lets go of its page arrays (upload-release.js), keeping back what this
@@ -2173,8 +2179,12 @@ async function boot() {
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;
-  // T-2600: the distant base's cells are cut on the job pool.
+  // T-2600: the distant base's cells are cut on the job pool. T-2709: unless it
+  // came prebuilt, when it is already the batch and this resolves false at once.
+  performance.mark('distant-base:start');
   await terrain.batchDistantGround();
+  // Read by tools/measure_boot_phases.mjs, beside the frontage measure above.
+  performance.measure('distant-base', 'distant-base:start');
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
    * walker stands on (T-0119): the river walk's crossing footway lies over the
@@ -3908,6 +3918,26 @@ async function boot() {
   });
 
   // ---- the Navigator (T-2617) ------------------------------------------- //
+  // T-2618: whether this scene has a people directory, without paying for it at boot.
+  const peopleDirectory = (() => {
+    const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase);
+    let known = people ? true : false, asked = !!people, loading = null;
+    return {
+      get known() { return known; },
+      /** After ready: a HEAD, so a scene with no `residents` layer can still show People. */
+      ask() {
+        if (asked) return;
+        asked = true;
+        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then((r) => { known = r.ok; }, () => { known = false; });
+      },
+      load() {
+        if (people) return Promise.resolve(people);
+        loading ??= fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+        return loading;
+      },
+    };
+  })();
+
   // RIGHT IN FRONT OF YOU is inspect()'s own aim "down the crosshair" (no point
   // given), over the structure layers whose hits carry a building record, nearest
   // first, within 40 m. target.js decides when to look; T-2627 and T-2638 read it too.
@@ -3929,7 +3959,6 @@ async function boot() {
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
-    hud,
     target,
     where: createWhere({ streets, grid: streetGrid?.grid ?? null }),
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
@@ -3938,6 +3967,33 @@ async function boot() {
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
     onInspect: (id) => pick(id),
+    // T-2618: the rail's apps (js/apps/), and what they read the page through. An app
+    // takes what it needs from `ctx` — the api object included — and never imports main.js.
+    apps: NAVIGATOR_APPS,
+    context: () => ({
+      api,
+      scene: loaded.scene,
+      journey: journey.state,
+      selected: popup.openId ?? null,
+      // A scene has people when it has a people directory: 1835 loads its own at boot for the
+      // drawer (the `residents` layer); a scene without that layer is asked after ready, with a
+      // HEAD, and its directory is fetched only when People first opens (1904, T-2702).
+      hasPeople: peopleDirectory.known,
+      peopleSection: !document.querySelector('.panel-tab[data-tab="people"]')?.hidden && !!people,
+      confidenceOn: hud.confidenceOn,
+      jaunt: jauntRuntime?.state ?? null,
+      whatsNewUnread: !document.getElementById('help-dot')?.hidden,
+      actions: {
+        // The drawer's own sections, where they are until they move in (T-2620).
+        openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
+        inspect: (id) => (id ? pick(id) : pick()),
+        jaunts: () => { api.welcome.show(); api.welcome.enter('jaunts'); },
+        map: () => navigation.setFullVisible(true),
+        confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
+        recall: () => journey.recall(),
+        peopleDirectory: () => peopleDirectory.load(),
+      },
+    }),
   });
   api.navigator = navigatorUi;
 
@@ -4488,6 +4544,7 @@ async function boot() {
   // Install the hooks only after the final startup geometry is in the scene.
   refreshGlessnerOcclusion();
   api.ready = true;
+  setTimeout(() => peopleDirectory.ask(), 0);
   if (!bootController.finish()) {
     api.ready = false;
     if (gateBtn) gateBtn.disabled = true;

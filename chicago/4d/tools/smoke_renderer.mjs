@@ -14960,6 +14960,14 @@ for (const [label, viewport, touch] of [
       for (let i = 0; i < 40 && !/:/.test(document.getElementById('nav-where-detail')?.textContent ?? ''); i++) await new Promise((r) => setTimeout(r, 100));
       const s = api.navigator.snapshot();
       const out = { ...s, focus: document.activeElement?.id ?? null, overflow: document.documentElement.scrollWidth > innerWidth };
+      // T-2618: the rail is the registry's — ten icons at most, Home and Jaunts first, Guide and
+      // Settings at the foot — and a lazy app (Jump) opens in its own screen and back.
+      out.rail = api.navigator.apps;
+      await api.navigator.select('jump');
+      out.jumpCode = document.getElementById('nav-code')?.textContent ?? '';
+      out.jumpRecall = !!document.querySelector('#nav-app-jump a[href="../"]');
+      await api.navigator.select('home');
+      out.homeCode = document.getElementById('nav-code')?.textContent ?? '';
       api.navigator.dock();
       out.after = api.navigator.detent;
       return out;
@@ -14969,6 +14977,10 @@ for (const [label, viewport, touch] of [
       && /^facing /.test(navHome.whereDetail) && navHome.move.length > 0 && ['On', 'Off'].includes(navHome.confidence)
       && navHome.focus === 'nav-home-title' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
       JSON.stringify(navHome));
+    check(`${label}: the Navigator's rail holds ten apps at most, Home first and Settings last, and Jump opens and closes (T-2618)`,
+      navHome.rail.length <= 10 && navHome.rail[0] === 'home' && navHome.rail[1] === 'jaunts' && navHome.rail.at(-1) === 'settings'
+      && navHome.rail.at(-2) === 'guide' && /^SCR 08 · JUMP$/.test(navHome.jumpCode) && navHome.jumpRecall && /^SCR 01 · HOME$/.test(navHome.homeCode),
+      JSON.stringify({ rail: navHome.rail, jumpCode: navHome.jumpCode, jumpRecall: navHome.jumpRecall, homeCode: navHome.homeCode }));
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.

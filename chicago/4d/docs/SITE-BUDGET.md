@@ -531,6 +531,50 @@ gather from the 1.26 MB GLB it already conforms would give most of the 9.1 MB ba
 written up on T-2694, the town's other spatial-batch callers, which has to measure its own
 bytes against this number and argue its own re-set.
 
+### 4h. The distant base ships prebuilt, measured 2026-10-17 (T-2709) — inside the 29 MB
+
+T-2705's first piece. The distant base is the field gridded every 6 m, laid again over
+frontage's 105 crossing footprints and cut into 7,503 pieces of 40 m at every boot.
+`tools/publish.sh` now runs those same functions in Node (`tools/prebuild_layers.mjs
+--layer base`) and writes `data/prebuilt/1835/base.json` (the index, 53 KB) and
+`base.bin.gz` (3.9 MB raw, 0.73 MB gzipped twice). createTerrain batches the file's
+pieces in place of its own grid (terrain.js § THE DISTANT BASE, PREBUILT). Frontage is
+built after the terrain, so the index carries the key of the footprints it was laid over,
+and protectGroundUnder lays and cuts its own base if frontage publishes others. Read on
+the published page at `light` and at `full`, 6 of 6 base attributes over 7,503 pieces are
+byte-equal to the Node build, the page reports the base as prebuilt, and there are zero
+page errors (`docs/measurements/T-2709-base-prebuilt.json`).
+
+**The bytes, against § 4g's 29 MB.** `tools/measure_boot_payload.mjs`, the same published
+tree with and without `--no-prebuilt-base`: **28.226 → 28.923 MB**, 999 → 1,001
+requests, 77 KB of room left. The first reading was **29.037 MB**, 37 KB over the budget.
+That index listed every piece's spans, 0.54 MB raw and about 0.12 MB on the wire. The base
+tile now carries each piece's vertex and index counts, and the page derives the spans with
+the packer's own alignment rule (`prebuiltPieceSpans`). The packer refuses to write a tile
+those counts do not reproduce. That brought the index to 53 KB, and the budget is not re-set.
+**The next two pieces need room this one did not have.** The streets (T-2710) are 7.1 MB
+gzipped across both layouts, and the yards (T-2711) are 3.2 MB. The ground's own 0.80 MB
+index would shrink the same way.
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell). `--no-prebuilt-base`
+is the before: the page lays and cuts its own base, as dev does.
+
+| mobile · light | terrain | frontage | distant base, after frontage | the three |
+|---|---|---|---|---|
+| cold, base laid in the browser | 3,212 ms | 585 ms | 448 ms | 4,245 ms |
+| cold, base prebuilt | 3,362 ms | 395 ms | 1 ms | 3,758 ms |
+| warm, base laid in the browser | 3,311 ms | 504 ms | 475 ms | 4,290 ms |
+| warm, base prebuilt | 3,441 ms | 401 ms | 0 ms | 3,842 ms |
+
+The base's step after frontage is gone. Frontage is about 0.15 s shorter because it no
+longer has to lay the protected grid. Terrain is about 0.14 s longer because it batches
+the 7,503 pieces from the file. Net, the three are **0.49 s shorter cold and 0.45 s shorter
+warm**. T-2703 quoted the base at 0.8 s on the source tree; on the published tree, where the
+frontage and ground already come prebuilt, the cut measured 0.45 s, and that is what this
+piece removed. The boot's ready time moved inside the runner's noise (47.2 → 47.8 s cold,
+46.3 → 46.5 s warm), so no claim is made about it.
+
 ## 5. What the gate does now
 
 - **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
