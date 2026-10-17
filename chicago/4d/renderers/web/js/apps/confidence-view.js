@@ -81,6 +81,9 @@ export function mount(el, ctx = {}) {
   readout.append(mask, meshCell, clock);
   el.append(presets, rows, reset, note, readout);
 
+  // The counts walk the whole registry, so they are taken again only when it changes size
+  // (a scene's records arriving), not on every repaint.
+  let counts = null, countsAt = -1;
   function paint() {
     const hud = d.hud, view = d.view;
     if (!hud || !view) return;
@@ -88,7 +91,8 @@ export function mount(el, ctx = {}) {
     const on = hud.confidenceOn;
     const current = presetOf({ on, hidden: [...hidden], view });
     for (const b of presets.children) b.setAttribute('aria-pressed', String(b.dataset.preset === current));
-    const counts = hud.levelCounts?.() ?? {};
+    const size = d.api?.registry?.size ?? 0;
+    if (!counts || size !== countsAt) { counts = hud.levelCounts?.() ?? {}; countsAt = size; }
     let meshes = 0;
     for (const level of LEVELS) {
       const c = cells[level];

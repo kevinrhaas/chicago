@@ -15686,7 +15686,7 @@ for (const [label, viewport, touch] of [
       count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
       waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
       step: window.__chicago4d.tour.step }));
-    const tourWait = (n) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout: 8_000, polling: 100 }).catch(() => {});
+    const tourWait = (n, timeout = 8_000) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout, polling: 100 }).catch(() => {});
     const t1 = await tourView();
     await clickChrome('#tour-next');
     await tourWait(1);
@@ -15743,7 +15743,11 @@ for (const [label, viewport, touch] of [
     // the step's action.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
     await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
-    await tourWait(6);
+    // T-2647: step 06 moves on at the tour's next tick, a 250 ms timer that on the desktop
+    // runner runs only between frames of 8-10 s (T-2412); 8 s could end before one ran, and
+    // the step-07 Next below was still hidden: "clickChrome: #tour-next has no box (0x0)"
+    // on #974's desktop part 13. Waited for, bounded; `last.step === 6` still decides.
+    await tourWait(6, 60_000);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
