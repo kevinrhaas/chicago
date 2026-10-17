@@ -2,7 +2,7 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2c9e8170a5c07807a0d4f0fc617e3f8c84e62369a52407e032d4d8857dc95960",
+  "glb_sha256": "c08df6fede844b4f1d69273f37628c0016e0dd6a966c4820e0986ad304e99da2",
   "camera_sha256": "95ef55fe597125fa212e06ba6af0af5ef13437d278a7399a967719ce5592eef2",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
@@ -24,13 +24,13 @@
     },
     {
       "what": "the gable: the photograph carries the whole front up as a steep coped WALL GABLE, about 57 degrees, its apex about 18.8 m over grade, three segment-headed lights in the attic at 11.6-13.4 m and an oculus near the apex; the build has a 45-degree slated hip and a single-light pedimented dormer on the front's centre line, its light at the gable lights' height and its apex about 4 m lower",
-      "status": "open",
-      "how": "T-2435, with T-2428's K01 wall gable"
+      "status": "fixed",
+      "how": "T-2730: the front carried up as K01's shaped-gable slab with a straight coped outline in the front's stone: the apex at 18.85 m within about 7 px of the photograph's, the rakes at 61 degrees against its 60-66, its south foot on the 13.0 m ledge where the corner pier's top stands; the three lights segment-headed one-over-one sash at 11.53-13.34 m, 0.94 m apart, within about 5 px of the photograph's; the oval light at 15.56 m in its stone ring with a cross of bars for its tracery. The gable stands on the front's centre line, about 0.3 m (12 px) south of the photograph's, and its face steps 0.25 m proud of the wall at 11.22 m, under the lights (L-k01-1625-mcbirney-wall-gable-2730)"
     },
     {
       "what": "the south side wall's eave: the photograph's runs about 13 m over grade, a knee wall under the attic; the build's eave is the third floor's, 11.0 m",
-      "status": "open",
-      "how": "T-2435, with the wall gable"
+      "status": "fixed",
+      "how": "T-2730: the wall head at 13.0 m, the second floor's storey carrying the knee wall (K01 has no attic storey), the eave plain at 0.05 m; the hip's ridge at 16.8 m behind the gable"
     },
     {
       "what": "the windows' kind: the photograph's ground- and first-floor windows are leaded casements, two lights under a transom, mullioned, in dressed quoined surrounds; its second-floor windows single one-over-one sash under segmental heads, the middle one standing a little south of the windows under it; the build has K06 two-over-two sash under flat stone lintels, all on one bay line",
@@ -49,8 +49,8 @@
     },
     {
       "what": "the stacks: the photograph's tall stack stands on the north party wall near the front, beside the gable; the build's stands 9.4 m behind the front (a K01 stack may not stand in the dormer's body)",
-      "status": "open",
-      "how": "T-2435, with the wall gable"
+      "status": "fixed",
+      "how": "T-2730: the tall stack on the north party wall about 1.6 m behind the gable's face, solved through the camera from its edges (x 180 and 217 px), 1.0 m along the front and its top at 17.7 m, within about 6 px of the photograph's; built 0.3 m in from the party wall, the K01 rule for a stack in a hip"
     },
     {
       "what": "the four-storey rear section: the photograph shows it stepping out to the south behind the main body under a mansard with a dormer and a stack, as the 1911 sheet traces it (s20-1625-a1); not built, a K01 rear wing standing only behind the main body inside its width",

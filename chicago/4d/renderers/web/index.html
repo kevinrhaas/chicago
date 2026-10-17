@@ -158,7 +158,11 @@
           <label for="welcome-search" class="visually-hidden">Search places</label>
           <input id="welcome-search" type="search" placeholder="Search places, businesses or people" autocomplete="off">
         </div>
-        <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
+        <div class="welcome-filters">
+          <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
+          <!-- T-2740: how the list is ordered: nearest (the default), furthest, address, name, owner. -->
+          <label class="welcome-sort"><span class="visually-hidden">Sort by</span><select id="welcome-sort"></select></label>
+        </div>
         <div id="welcome-results" class="welcome-results" aria-label="Starting places"></div>
         <p id="welcome-message" role="status"></p>
       </section>
@@ -628,6 +632,17 @@
           </select></label>
         <p class="legend-note" id="governor-line"></p>
         <p class="legend-note" id="device-line" hidden></p>
+        <!-- T-2732: dev preview (or ?pacing=read) only — pacing-read.js unhides it. -->
+        <div class="field row" id="pacing-read" hidden><span>Frame pacing reading</span>
+          <span class="pacing-read-actions">
+            <button class="setting-button" id="s-pacing-copy" type="button" hidden>Copy</button>
+            <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
+          </span>
+        </div>
+        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
+          half a minute at Light, Fixed then Adaptive, and puts you back where you were.</p>
+        <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
+          aria-label="Frame pacing reading"></textarea>
       </div>
       <div class="settings-group">
         <h4>Show</h4>
@@ -766,6 +781,8 @@
     <span class="nav-dock-year" id="nav-dock-year" aria-hidden="true"></span>
     <span class="nav-code" id="nav-code" data-str="nav.home.code">SCR 01 · HOME</span>
     <span class="nav-date" id="nav-date"></span>
+    <!-- T-2742: the open device's close key; it does what the rail's collapse arrow does. -->
+    <button class="nav-close" type="button" id="nav-close" aria-label="Close the Navigator" data-str-label="nav.close" title="Close" data-str-title="nav.close.short"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </header>
   <div class="nav-body">
     <nav class="nav-rail" id="nav-rail" aria-label="Navigator apps" data-str-label="nav.rail">
