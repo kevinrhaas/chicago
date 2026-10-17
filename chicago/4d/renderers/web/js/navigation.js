@@ -72,6 +72,8 @@ const INSET = { wide: { w: 112, h: 112 }, narrow: { w: 92, h: 92 } };
 const INSET_SPAN_E_M = 2020;
 const M_PER_PX = INSET_SPAN_E_M / 248;
 const NARROW_MAX_PX = 560;
+/** T-2625: how long the street toast stays up after you cross onto a new street. */
+export const STREET_TOAST_MS = 2000;
 
 /**
  * The background holds the WHOLE field at twice the inset's scale.  Twice, so
@@ -166,6 +168,7 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
   let lastPaint = { e: Infinity, n: Infinity, bearingDeg: Infinity };
   let lastStreet = { e: Infinity, n: Infinity, bearingDeg: Infinity };
   let streetState = null;
+  let toastStreet = null, toastTimer = 0, toastAt = 0;
 
   /** World metres -> background pixels. The background IS the whole field. */
   function point(e, n) {
@@ -444,6 +447,15 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     }
     if (streetMode) streetMode.textContent = mode;
     if (streetHistoric) streetHistoric.textContent = historic;
+    // T-2625 (§10): a toast, not a fixture — crossing onto a new street shows its name for
+    // about 2 s, then it fades. `hidden` stays the setting's (and the harness's) to own.
+    if (historic && historic !== toastStreet) {
+      toastStreet = historic;
+      streetReadout?.classList.add('is-toast');
+      toastAt = Date.now();
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => streetReadout?.classList.remove('is-toast'), STREET_TOAST_MS);
+    }
     if (streetModern) streetModern.textContent = `Today: ${modern}`;
 
     const upcoming = streetState.upcoming;
@@ -537,6 +549,8 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     get streetVisible() { return streetVisible; },
     get units() { return units; },
     get streetState() { return streetState; },
+    /** T-2625: the street toast — showing now, for which street, and since when. */
+    get streetToast() { return { on: !!streetReadout?.classList.contains('is-toast'), street: toastStreet, at: toastAt }; },
     snapshot() {
       return {
         ...player, compassVisible, mapVisible, streetVisible, streetState, units,

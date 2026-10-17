@@ -365,3 +365,20 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
   html[data-jaunt-active][data-navigator="open"] .jaunt-panel,
   html[data-jaunt-active][data-navigator="open"] .jaunt-context-card { left: 424px; }
 }
+
+/* T-2625 (§10 "In-world HUD"): what left the HUD. Parked out of sight until its app takes
+   it in; inside the device the Confidence chip, its caret and the level menu lay out as a
+   screen, not a dropdown, and Start / Jaunts sits beside Take a Jaunt. */
+.hud-moved, .hud-moved[hidden] { display: none; }
+.nav-screen #confidence-group { flex-wrap: wrap; gap: 0; align-self: flex-start; width: 100%; }
+.nav-screen #confidence-group > .chip { box-shadow: none; }
+.nav-screen #confidence-group > #btn-confidence .chip-label { display: inline; }
+.nav-screen .confidence-menu {
+  position: static; flex: 0 0 100%; width: auto; margin-top: 10px; box-shadow: none;
+}
+.nav-confidence-lead { margin: 0; }
+.nav-jaunts-lead { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.nav-jaunts-lead > .nav-jaunts-start { min-height: 44px; box-shadow: none; }
+/* Settings › Display: the light / dark switch, moved from the HUD. */
+.theme-row { align-items: center; justify-content: space-between; gap: 12px; }
+.theme-row #btn-theme { box-shadow: none; }

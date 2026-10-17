@@ -462,6 +462,9 @@ const VARIANTS = {
       catalogs > 0 && await page.locator('#welcome-jaunts-content button', { hasText: 'Try again' }).isVisible(), `${catalogs} refused`);
     await still(page, 'catalog-failed');
     await exploreOnMyOwn(v, page);
+    // T-2625: Start / Jaunts lives in the Navigator's Jaunts app.
+    await page.evaluate(() => window.__chicago4d.navigator?.select('jaunts'));
+    await until(page, () => document.getElementById('btn-start')?.getBoundingClientRect().width > 0);
     await tap(page, '#btn-start');
     await until(page, () => window.__chicago4d.welcome.state === 'welcome');
     refuseCatalog = false;

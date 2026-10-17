@@ -22,7 +22,16 @@ export default {
       b.id = 'nav-jaunts-open';
       b.textContent = 'Take a Jaunt';
       b.addEventListener('click', () => { ctx.navigator?.dock?.(); ctx.actions?.jaunts?.(); });
-      return b;
+      // T-2625: Start / Jaunts left the HUD (§10). The same button (#btn-start, which the
+      // arrival device reads) sits beside it: back to the landing's three choices.
+      const start = doc.getElementById('btn-start');
+      if (!start) return b;
+      const row = doc.createElement('div');
+      row.className = 'nav-jaunts-lead';
+      start.classList.add('nav-jaunts-start');
+      start.textContent = 'Jaunt, Go to or Free roam';
+      row.append(b, start);
+      return row;
     },
   }),
 };

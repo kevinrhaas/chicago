@@ -586,6 +586,39 @@ for (const phone of [true, false]) {
   assert.equal(reads, 1, 'and not read again');
 }
 
+// ---- T-2625: the HUD declutter — Start / Jaunts, the Confidence chip and caret, pace, theme
+// and the menu leave the HUD; each lives in the Navigator ----------------------------------------
+{
+  const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
+  const top = html.slice(html.indexOf('<div class="hud-top">'), html.indexOf('<div class="hud-moved"'));
+  for (const id of ['btn-start', 'btn-confidence', 'btn-confidence-more', 'btn-pace', 'btn-theme', 'btn-help']) {
+    assert(!top.includes(`id="${id}"`), `the HUD's top row no longer holds #${id}`);
+  }
+  const parked = html.slice(html.indexOf('<div class="hud-moved"'), html.indexOf('<div class="control-help"'));
+  assert(/id="btn-start"/.test(parked) && /id="confidence-group"/.test(parked) && /id="cm-reset"/.test(parked), 'Start / Jaunts and the Confidence group wait for their apps');
+  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 1);
+  const settings = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
+  assert(/id="btn-theme"/.test(settings), 'light / dark lives in Settings');
+  assert(!/id="btn-pace"/.test(html), 'the pace chip is gone; Move holds the pace');
+  // The Confidence app takes the chip, caret and menu in as they are.
+  const { default: conf } = await import('../renderers/web/js/apps/confidence.js');
+  assert.equal(conf.launch, undefined, 'the Confidence app is a screen now, not a stub');
+  const group = { parentElement: null };
+  let clicked = 0, timer = null;
+  const menu = { hidden: true };
+  const doc = { createElement: () => ({ className: '', textContent: '' }),
+    getElementById: (id) => ({ 'confidence-group': group, 'confidence-menu': menu, 'btn-confidence-more': { click: () => { clicked++; menu.hidden = false; } } }[id] ?? null),
+    defaultView: { setTimeout: (fn) => { timer = fn; } } };
+  const kids = [];
+  const el = { ownerDocument: doc, hidden: false, append: (...c) => { for (const x of c) { kids.push(x); x.parentElement = el; } } };
+  conf.mount(el);
+  assert.equal(group.parentElement, el, 'the group moves into the app');
+  conf.shown(el);
+  assert.equal(clicked, 0, 'the menu opens after the opening click has finished');
+  timer();
+  assert.equal(clicked, 1); assert.equal(menu.hidden, false, 'opening the app shows the levels');
+}
+
 // ---- the markup and the stylesheet ----------------------------------------------------
 {
   const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');

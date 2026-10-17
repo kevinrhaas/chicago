@@ -10477,7 +10477,13 @@ for (const [label, viewport, touch] of [
       await page.mouse.click(at.x, at.y);
       console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s (trusted mouse)`);
     };
-    await timedClick('#btn-confidence-more');
+    // >>> T-2625: the Confidence chip and caret left the HUD for the Navigator's Confidence
+    // app, which opens with the level menu showing; the clicks below are the same real ones.
+    await page.evaluate(async () => {
+      await window.__chicago4d.navigator.select('confidence');
+      for (let i = 0; i < 40 && document.getElementById('confidence-menu').hidden; i++) await new Promise((r) => setTimeout(r, 50));
+    });
+    // <<< T-2625
     await timedClick('#cm-reconstructed');
     await page.waitForTimeout(120);
     const cmClick = await page.evaluate(() => ({
@@ -10501,6 +10507,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: reset restores every level and the caret shuts the menu`,
       cmRestored.menuShut && cmRestored.allOn && !cmRestored.marked,
       JSON.stringify(cmRestored));
+    await page.evaluate(() => window.__chicago4d.navigator.dock()); // T-2625
 
     // T-2547: a clean boot carries no crash card (this page's session never died).
     const cleanBoot = await page.evaluate(() => ({ guard: !!window.__chicago4d.crashGuard,
@@ -13912,7 +13919,8 @@ for (const [label, viewport, touch] of [
       for (const pace of ['horse', 'wagon', 'walk']) {
         api.setPace(pace);
         paces[pace] = { speed: WALK.speed, sprint: WALK.sprintSpeed, eye: eye(),
-          chip: document.getElementById('btn-pace')?.dataset.pace };
+          // T-2625: the pace chip left the HUD; the pace is the Move app's Travel choice.
+          chip: document.querySelector('#s-pace .seg-btn[aria-checked="true"]')?.dataset.pace };
       }
       const slider = api.hud.settings.speed;
       // T-0823: each pace has its own slider, and the walker's WALK follows the
@@ -14985,12 +14993,51 @@ for (const [label, viewport, touch] of [
       JSON.stringify(toggles));
     await clickChrome('#panel-close');
 
-    // The HUD toggle must drive the same view the harness does.
+    // The Confidence view switch must drive the same view the harness does.
+    // >>> T-2625: it lives in the Navigator's Confidence app now, not the HUD.
+    await page.evaluate(() => window.__chicago4d.navigator.select('confidence'));
     await clickChrome('#btn-confidence');
     await page.waitForTimeout(100);
     const viaHud = await page.evaluate(() => window.__chicago4d.confidenceView);
-    check(`${label}: the HUD toggle drives the confidence view`, viaHud === true, `${viaHud}`);
+    check(`${label}: the Confidence view switch in the Navigator drives the view`, viaHud === true, `${viaHud}`);
     await clickChrome('#btn-confidence');
+    // The HUD's top row holds none of what left it, and each is reachable in the Navigator;
+    // C still toggles the view; crossing onto a new street shows a 2 s toast, then it fades.
+    const declutter = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator;
+      const top = document.querySelector('.hud-top');
+      const gone = ['btn-start', 'btn-confidence', 'btn-confidence-more', 'btn-pace', 'btn-theme', 'btn-help']
+        .filter((id) => top.querySelector(`#${id}`));
+      const inside = async (app, id) => { await n.select(app); await new Promise((r) => setTimeout(r, 150));
+        const el = document.getElementById(id); return !!el && document.getElementById('navigator').contains(el) && el.getBoundingClientRect().width > 0; };
+      const reach = { start: await inside('jaunts', 'btn-start'), confidence: await inside('confidence', 'btn-confidence'),
+        pace: await inside('move', 's-pace'), theme: await inside('settings', 'btn-theme') };
+      n.dock();
+      const was = api.confidenceView;
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'c', code: 'KeyC', bubbles: true }));
+      const cKey = api.confidenceView !== was;
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'c', code: 'KeyC', bubbles: true }));
+      // The toast: two stands on different streets.
+      const stands = [[20, -40], [180, 90], [-127.7, -292], [-155.24, -251.19], [107, -103]];
+      let first = null, crossed = null;
+      for (const [e, nn] of stands) {
+        api.walker.teleport({ local_e: e, local_n: nn, yaw_deg: 0 }); api.step();
+        const t = api.navigation.streetToast;
+        if (!t.street) continue;
+        if (first === null) { first = t.street; continue; }
+        if (t.street !== first) { crossed = { ...t }; break; }
+      }
+      await new Promise((r) => setTimeout(r, 2600));
+      const after = api.navigation.streetToast;
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 }); api.step();
+      return { gone, reach, cKey, first, crossed, faded: !after.on };
+    });
+    check(`${label}: the HUD's top row holds none of what moved, and each is in the Navigator (T-2625)`,
+      declutter.gone.length === 0 && Object.values(declutter.reach).every(Boolean) && declutter.cKey,
+      JSON.stringify(declutter));
+    check(`${label}: crossing onto a new street shows its name, which fades after about 2 s (T-2625)`,
+      !!declutter.crossed?.on && declutter.faded, JSON.stringify({ first: declutter.first, crossed: declutter.crossed, faded: declutter.faded }));
+    // <<< T-2625
 
     // --- the Navigator (T-2617) ----------------------------------------------
     // In the town the device is docked (a 64 px sheet on a phone, the rail on a
@@ -17305,6 +17352,9 @@ for (const [label, viewport, touch] of [
       await p14.evaluate(() => !document.pointerLockElement && document.getElementById('gate').hidden));
 
     // --- a jaunt from the menu, at its first stop ----------------------------------
+    // T-2625: Start / Jaunts lives in the Navigator's Jaunts app now.
+    await p14.evaluate(() => window.__chicago4d.navigator.select('jaunts'));
+    await until(() => document.getElementById('btn-start')?.getBoundingClientRect().width > 0);
     await tap('#btn-start');
     await until(() => window.__chicago4d.welcome.state === 'welcome');
     await tap('#welcome-jaunts');

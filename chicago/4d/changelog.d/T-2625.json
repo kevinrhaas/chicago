@@ -1,0 +1,11 @@
+{
+  "title": "A cleaner view: the HUD's buttons move into the Navigator",
+  "kind": "feature",
+  "items": [
+    "The row of buttons along the top is gone. What stays is the amber year chip, Walk/Fly and the round compass-map instrument, so far more of the town shows, above all on a phone.",
+    "Start / Jaunts now sits in the Navigator's Jaunts app, beside Take a Jaunt.",
+    "The Confidence view switch and its Attested, Inferred and Reconstructed levels are in the Navigator's Confidence view app. C still turns the colouring on and off.",
+    "Your pace is chosen in Move, and light or dark is in Settings.",
+    "The street name now appears for about two seconds when you cross onto a new street, then fades."
+  ]
+}

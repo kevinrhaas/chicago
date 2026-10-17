@@ -152,7 +152,13 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   }
   function returnToWorld() {
     if (state !== 'welcome' || !hasEntered() || !resume()) return false;
-    state = 'world'; gate.dataset.state = state; $('btn-start').focus(); return true;
+    state = 'world'; gate.dataset.state = state;
+    // T-2625: Start / Jaunts lives in the Navigator now; focus returns to it where it shows,
+    // else to the Navigator's own handle (the grip on a phone, the rail's key on a desktop).
+    const back = ['btn-start', 'nav-grip', 'nav-collapse'].map((id) => document.getElementById(id))
+      .find((el) => el?.checkVisibility?.() ?? el?.getClientRects?.().length > 0);
+    (back ?? $('btn-start')).focus();
+    return true;
   }
   $('welcome-jaunts').addEventListener('click', () => region('jaunts'));
   $('welcome-explore').addEventListener('click', () => region('explore'));

@@ -97,7 +97,8 @@ try {
     assert.equal(await page.evaluate(() => __chicago4d.walker.state.n), pause.n);
     await page.keyboard.press('Escape');
     assert.equal(await page.evaluate(() => __chicago4d.welcome.state), 'world');
-    assert.equal(await page.evaluate(() => document.activeElement.id), 'btn-start');
+    // T-2625: Start / Jaunts moved into the Navigator; focus returns to it, or to the device's handle.
+    assert(['btn-start', 'nav-grip', 'nav-collapse'].includes(await page.evaluate(() => document.activeElement.id)));
     assert.equal(await page.evaluate(() => JSON.stringify(__chicago4d.hud.settings)), settings);
     await page.locator('#btn-start').dispatchEvent('click');
     // T-2614 (QA-04): on the phone a real tap on Free roam is the gesture that starts audio.
