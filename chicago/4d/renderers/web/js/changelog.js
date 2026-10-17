@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1904, ts: '2026-10-17T01:09:42.944Z', date: 'Oct 16, 2026, 8:09 PM CT', title: 'Glessner House gets its written front page, ready for Inspect', kind: 'add',
+    items: [
+      'The Glessner House now has a short written summary, checked line by line against its sources. You will read it when the new Inspect card arrives; until then it waits behind the scenes.',
+      'It tells who built the house, what to look for from the street, and three surprises. One is that the Glessners\' daughter later built the Nutshell Studies, tiny crime scenes police still train with.',
+      'Two new sources sit in the Sources list: the Glessner House museum\'s pages on the family and on its architect, H. H. Richardson, who died about five weeks before digging began.',
+    ] },
   { v: 1903, ts: '2026-10-17T00:49:03.994Z', date: 'Oct 16, 2026, 7:49 PM CT', title: 'The jump to your year now shows landmark years as they pass', kind: 'feature',
     items: [
       'As the year ticker rolls back from today, the arrival screen cuts to a one-line caption for about two seconds whenever it passes a landmark year: 1966, when architects bought the Glessner House for $35,000 to save it, or 1871, when the Great Fire left about 100,000 people homeless.',
