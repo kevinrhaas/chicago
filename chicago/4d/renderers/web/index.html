@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
 <link rel="stylesheet" href="./css/inspect.css">
+<link rel="stylesheet" href="./css/tour.css">
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
@@ -216,10 +217,10 @@
           <button type="button" class="cm-reset" id="cm-reset">Show everything</button>
         </div>
       </div>
-      <!-- The pace you move at on your own feet — walk, wagon or horse. One tap
+      <!-- The pace you move at on your own feet — walk, run, wagon or horse. One tap
            from the walk, because "go as fast as a horse through the city" is a
            thing you decide while walking, not in a settings page. -->
-      <button id="btn-pace" class="chip" data-pace="walk" title="Your pace — walk, wagon or horse (P)">
+      <button id="btn-pace" class="chip" data-pace="walk" title="Your pace — walk, run, wagon or horse (P)">
         <span class="pace-glyph" aria-hidden="true"></span> <span class="chip-label" id="pace-label">Walk</span>
       </button>
       <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
@@ -307,38 +308,39 @@
     <!-- How you get there — instantly, on foot, by wagon, on horseback, or flying.
          js/hud.js paints the controls; js/travel.js owns the moving. -->
     <section class="panel-body" data-panel="travel" hidden>
-      <div class="field"><span>How you get there</span>
-        <div class="seg" role="radiogroup" id="s-travel" aria-label="How you move" data-str-label="hud.move.mode">
-          <button type="button" class="seg-btn" data-mode="instantly" role="radio" aria-checked="true">Instantly</button>
-          <button type="button" class="seg-btn" data-mode="walk" role="radio" aria-checked="false">Walk</button>
+      <!-- Move (T-2651, DESIGN §07 M6): one picker for how you move, one slider for
+           the mode picked. Fly is the same free flight as the Walk/Fly key in the top
+           bar; the four ground modes each keep their own speed (T-0823), named as the
+           slider moves. The ceilings are the owner's: 20 mph on foot, 30 by wagon, 60
+           on horseback, and the readout says plainly when a figure is past any man or
+           any horse. -->
+      <div class="field"><span>How you move</span>
+        <div class="seg" role="radiogroup" id="s-move" aria-label="How you move" data-str-label="hud.move.mode">
+          <button type="button" class="seg-btn" data-mode="walk" role="radio" aria-checked="true">Walk</button>
+          <button type="button" class="seg-btn" data-mode="run" role="radio" aria-checked="false">Run</button>
           <button type="button" class="seg-btn" data-mode="wagon" role="radio" aria-checked="false">Wagon</button>
           <button type="button" class="seg-btn" data-mode="horse" role="radio" aria-checked="false">Horse</button>
           <button type="button" class="seg-btn" data-mode="fly" role="radio" aria-checked="false">Fly</button>
         </div></div>
-      <div class="field"><span>Your own pace, on the streets</span>
-        <div class="seg" role="radiogroup" id="s-pace" aria-label="Your pace">
-          <button type="button" class="seg-btn" data-pace="walk" role="radio" aria-checked="true">Walk</button>
-          <button type="button" class="seg-btn" data-pace="wagon" role="radio" aria-checked="false">Wagon</button>
-          <button type="button" class="seg-btn" data-pace="horse" role="radio" aria-checked="false">Horse</button>
-        </div></div>
-      <!-- Each pace's own speed, named as the slider moves (T-0823). The ceilings
-           are the owner's: 20 mph on foot, 30 by wagon, 60 on horseback — the
-           readout says plainly when a figure is past any man or any horse. -->
-      <label class="field"><span>On foot <b id="v-speed"></b></span>
+      <label class="field" id="move-speed-field"><span><span id="move-speed-label">Walk speed</span> <b id="v-speed"></b></span>
         <input type="range" id="s-speed" min="0.5" max="8.94" step="0.01"></label>
-      <label class="field"><span>By wagon <b id="v-wagon-speed"></b></span>
-        <input type="range" id="s-wagon-speed" min="0.5" max="13.41" step="0.01"></label>
-      <label class="field"><span>On horseback <b id="v-horse-speed"></b></span>
-        <input type="range" id="s-horse-speed" min="0.5" max="26.82" step="0.01"></label>
       <p class="legend-note" id="travel-note"></p>
+      <!-- How Go to takes you to a place you picked. Ride there goes along the
+           streets at the mode above. -->
+      <div class="field"><span>When you pick a place</span>
+        <div class="seg" role="radiogroup" id="s-arrive" aria-label="When you pick a place">
+          <button type="button" class="seg-btn" data-arrive="instantly" role="radio" aria-checked="true">Teleport</button>
+          <button type="button" class="seg-btn" data-arrive="ride" role="radio" aria-checked="false">Ride there</button>
+          <button type="button" class="seg-btn" data-arrive="fly" role="radio" aria-checked="false">Fly over</button>
+        </div></div>
       <label class="field row check-field"><span>Rider's head moves with the horse's gait</span>
         <input type="checkbox" id="s-head-bob"></label>
-      <p class="legend-note">These paces are how the camera moves, not claims about 1835: a light
-        wagon, a horse, and a gallop on <kbd>Shift</kbd>; the sliders above set each one, and name
-        the pace you are asking for. Choosing a place in Go to takes you there at the pace above,
-        along the streets where they run — Fly lifts you over the town and sets you down at the
-        door. Any movement of your own stops the ride; where no walkable route exists you are
-        taken straight there, as before.</p>
+      <p class="legend-note">These are ways of moving the camera, not claims about the past: a
+        run, a light wagon, a horse, and a burst of speed on <kbd>Shift</kbd>. The slider sets the
+        speed of the mode you picked and names it. Ride there takes you to a place you choose
+        along the streets where they run; Fly over lifts you over the town and sets you down at
+        the door. Any movement of your own stops the ride; where no walkable route exists you are
+        taken straight there.</p>
     </section>
     <!-- Everyone the sources put in this town. js/people.js renders the directory;
          the household browser the Evidence panel used to carry lives at its foot,
@@ -572,7 +574,7 @@
       </div>
       <div class="settings-group">
         <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">Walking, wagon and horse speeds live under</span> <b data-str="hud.tab.move">Move</b>.</p>
+        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse are under</span> <b data-str="hud.tab.move">Move</b>.</p>
         <!-- Eye height is a CLAIM about 1835, so the default is the researched
              figure and the slider says where that figure sits. Raising it is a
              comfort choice about the view, not a correction. -->
@@ -669,6 +671,10 @@
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
+      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
+           section Guide opens until Guide's own screen lands (T-2661). -->
+      <div class="field row"><span>Tour mode: a sixty-second field check</span>
+        <button class="setting-button" id="tour-start" type="button">Take the field check</button></div>
       <dl class="keys" id="keys-desktop">
         <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>walk</dd>
         <dt><kbd>Shift</kbd></dt><dd>run</dd>
@@ -714,6 +720,8 @@
     </button>
     <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg> <span class="chip-label">Inspect</span></button>
   </div>
+  <!-- T-2640: Show me pulses this outline on the building for 2 s. -->
+  <div class="show-me-outline" id="show-me-outline" aria-hidden="true" hidden></div>
 
   <div class="hud-bottom">
     <div class="travel-banner" id="travel-banner" role="status" hidden>
@@ -741,6 +749,21 @@
      sheet at three heights (DOCK, HALF, FULL); on a desktop a 400 px left panel that
      collapses to its rail. The rail's apps are registered from js/apps/ (T-2618); Home's
      screen is the one written here. -->
+<!-- T-2663 (NAV-801): Tour mode, the Field Check. js/tour.js runs its seven steps and
+     js/tour-overlay.js paints this: the step, the task, the bubble, WAITING FOR INPUT and
+     Skip, with a spotlight on the step's target. Only its card takes pointer events. -->
+<div id="tour" class="tour" hidden>
+  <div class="tour-hole" aria-hidden="true" hidden></div>
+  <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">
+    <header class="tour-head"><span id="tour-count">Field check · 1 / 7</span>
+      <button type="button" class="tour-skip" id="tour-skip">Skip <span aria-hidden="true">×</span></button></header>
+    <p class="tour-task" id="tour-task"></p>
+    <p class="tour-bubble" id="tour-bubble" aria-live="polite"></p>
+    <p class="tour-status" id="tour-status">Waiting for input</p>
+    <button type="button" class="tour-next" id="tour-next" hidden>Next</button>
+  </section>
+</div>
+
 <section id="navigator" class="navigator" aria-label="Navigator" data-str-label="nav.name" data-detent="dock" tabindex="-1">
   <span class="nav-screw nav-screw-tl" aria-hidden="true"></span><span class="nav-screw nav-screw-tr" aria-hidden="true"></span>
   <span class="nav-screw nav-screw-bl" aria-hidden="true"></span><span class="nav-screw nav-screw-br" aria-hidden="true"></span>

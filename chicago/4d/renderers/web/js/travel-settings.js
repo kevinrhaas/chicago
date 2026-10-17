@@ -14,6 +14,14 @@ export const PACES = {
     settingKey: 'speed', defaultSpeed: 1.45, maxSpeed: 8.94, sprintFactor: 2.28,
     hint: 'your own two feet',
   },
+  // Running (T-2651): on foot, the walk's network and eye, with its own slider that
+  // starts at a jog — `minSpeed` is the slider's floor — so Walk and Run are two
+  // settings a visitor can flip between rather than one slider dragged back and forth.
+  run: {
+    label: 'Run', verb: 'Running to', eyeOffset: 0, turnRate: 150,
+    settingKey: 'runSpeed', defaultSpeed: 3.4, minSpeed: 2.6, maxSpeed: 8.94, sprintFactor: 1.6,
+    hint: 'on foot, at a run',
+  },
   wagon: {
     label: 'Wagon', verb: 'Driving to', eyeOffset: 0.5, turnRate: 70,
     settingKey: 'wagonSpeed', defaultSpeed: 3.6, maxSpeed: 13.41, sprintFactor: 1,
@@ -42,7 +50,7 @@ export function paceSpeed(pace, settings = {}) {
   if (!p?.settingKey) return null;
   const stored = Number(settings[p.settingKey]);
   const base = Number.isFinite(stored) ? stored : p.defaultSpeed;
-  return clamp(base, 0.5, p.maxSpeed);
+  return clamp(base, p.minSpeed ?? 0.5, p.maxSpeed);
 }
 
 /**

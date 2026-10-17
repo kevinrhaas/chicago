@@ -1,0 +1,24 @@
+{
+  "_doc": "The Guide's FAQ (T-2662, NAV-804). Each answer at most 60 words, every sentence at most 20, reading grade 9 or lower (design doc section 03). `rests_on` names the files that make the answer true, and is data, never shown. Gated by tools/check_guide.py.",
+  "questions": [
+    {
+      "q": "Is this real?",
+      "a": "Partly, and we show you which parts. Every building you tap lists its facts with a grade. Attested means a source says so. Inferred means we worked it out from clues. Reconstructed means we built it so the street makes sense. Tap any fact to see where it comes from.",
+      "rests_on": [
+        "AGENTS.md",
+        "renderers/web/js/popup.js",
+        "data/sources"
+      ]
+    },
+    {
+      "q": "What does Reconstructed mean?",
+      "a": "No source shows it, so we built it within limits: what fits the place, the year and the evidence nearby. Most buildings in the 1835 town are Reconstructed. We never pass one off as recorded. Each carries the grade Reconstructed, and our big choices are listed in Liberties.",
+      "rests_on": [
+        "AGENTS.md",
+        "docs/LIBERTIES.md",
+        "data/liberties.json",
+        "data/sidecars/1835"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
 import { scenePresentation } from './scene-presentation.js';
 import { iconSvg } from './menu-icons.js';
+import { markTerms } from './term-tips.js';
 import { placeDistance, arrowTurn, cardinal, ARROW_SVG, hiddenReason } from './goto.js';
 import { formatDistance } from './units.js';
 
@@ -179,6 +180,8 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     const presentation = scenePresentation(scene.id, scene.target_date);
     title.textContent = presentation.welcomeTitle;
     gate.querySelector('.welcome-intro').textContent = presentation.intro;
+    // T-2662: the intro is where Reconstructed and Sources first appear: tap either for its line.
+    markTerms(gate.querySelector('.welcome-intro'));
     about(presentation.year);
     // T-2613: the eyebrow is the device's ARRIVED stamp; Free roam (#home-roam) is the
     // third choice, straight into the town.

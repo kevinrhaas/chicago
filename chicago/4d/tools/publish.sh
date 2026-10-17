@@ -572,6 +572,10 @@ cp data/loading/statuses.json "$SITE/data/loading/statuses.json"
 # data/timestream/<year>.json while the scene loads; tools/check_timestream.py gates them.
 mkdir -p "$SITE/data/timestream"
 cp -f data/timestream/*.json "$SITE/data/timestream/"
+# T-2662: the Guide's glossary and questions, data/guide/ (tools/check_guide.py gates them);
+# the Guide reads faq.json the first time it opens.
+mkdir -p "$SITE/data/guide"
+cp -f data/guide/*.json "$SITE/data/guide/"
 
 if [ -d data/flora ]; then
   rm -rf "$SITE/data/flora"
