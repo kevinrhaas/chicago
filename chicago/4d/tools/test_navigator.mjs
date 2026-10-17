@@ -524,5 +524,38 @@ for (const phone of [true, false]) {
     'the arrival device wears the screen code on its back face');
 }
 
+// ---- deep links and Back (T-2621) ------------------------------------------------------
+{
+  const dom = miniDom();
+  const calls = [];
+  const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
+    apps: APPS, viewportHeight: () => 780,
+    context: () => ({ scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
+      actions: { inspect: (id) => calls.push(['card', id]), map: () => calls.push(['map']), jaunts: () => calls.push(['jaunts']) } }) });
+  await Promise.resolve();
+  const seen = [];
+  const off = nav.onChange((s) => seen.push(s));
+  assert.equal(nav.has('map'), true);
+  assert.equal(await nav.openLink({ app: 'no-such-app' }), false, 'a link to an app the rail does not have is ignored');
+  assert.deepEqual(calls, []);
+  await nav.openLink({ app: 'map' });
+  assert.deepEqual(calls.at(-1), ['map'], '?nav=map opens the Map');
+  await nav.openLink({ app: 'jaunts' });
+  assert.deepEqual(calls.at(-1), ['jaunts'], '?nav=jaunts opens Jaunts');
+  await nav.openLink({ app: 'inspect', id: 'glessner_house', tab: 'design' });
+  assert.deepEqual(calls.at(-1), ['card', 'glessner_house'], '?nav=inspect:glessner_house opens that building (its card until the dossier lands)');
+  assert.deepEqual(nav.link, { app: 'inspect', id: 'glessner_house', tab: 'design' }, 'the app reads its id and tab off ctx.link');
+  await nav.openLink({ app: 'jump' });
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(nav.app, 'jump');
+  assert.ok(nav.level > 0, 'a screen app opens the device');
+  assert.ok(seen.some((x) => x.app === 'jump' && x.level > 0), 'onChange hears the open app');
+  nav.closeApp();
+  assert.equal(nav.app, 'home');
+  assert.equal(nav.level, 0, 'closeApp: back to Home, docked — what Back does');
+  assert.equal(nav.link, null);
+  off();
+}
+
 console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each asker within its own distance (Home 100 m); the street at the 1904 spawn is Prairie & Eighteenth; '
   + 'DOCK, HALF and FULL by tap, drag and flick, the desktop panel to its rail; Home paints the place, the target, the Jaunt, Move and the Confidence view; the rail opens the drawer’s sections');
