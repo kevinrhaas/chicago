@@ -149,11 +149,12 @@ const TRANSFORMED = [
         + 'way it arrived); tools/test_changelog_mirror.mjs asserts the shim is what lands here and '
         + 'that it names the file it re-exports; and the smoke\'s What\'s-new leg loads the tab out of '
         + 'the published tree, which is the shim resolving or not.' },
-  { re: /^data\/prebuilt\/\d{4}\/frontage\.(?:json|bin\.gz)$/,
+  { re: /^data\/prebuilt\/\d{4}\/(?:frontage|ground)\.(?:json|bin\.gz)$/,
     what: 'tools/prebuild_layers.mjs (run by publish.sh) writes the frontage layer\'s finished buffers, built '
         + 'in Node by the page\'s own createFrontage, with a hash of every file they were built from and the '
         + 'build id the page is stamped with, the buffer gzipped for the tree budget; the page inflates and '
-        + 'uploads them instead of building them (T-2677)',
+        + 'uploads them instead of building them (T-2677); and the ground\'s tiles, cut into the page\'s 40 m '
+        + 'pieces by terrain.js\'s and spatial-batch.js\'s own functions, uploaded in the ground GLB\'s place (T-2693)',
     gate: 'this file refuses a prebuild whose inputs no longer hash to its index, or whose buffer is not the '
         + 'one its index hashed (prebuild_layers.mjs stale(), below); prebuild_layers.mjs --self-test '
         + '(check.sh) proves two builds byte-identical and the page\'s replay of one equal to its own build; '
@@ -285,8 +286,8 @@ if (unmapped.length) {
 // A mirror with no data/prebuilt/ is not stale — the page builds its own timber —
 // and the sandboxes that publish one file (test_ticket_mirror.mjs) have none.
 if (existsSync(path.join(SITE, 'data/prebuilt'))) {
-  const { stale } = await import('./prebuild_layers.mjs');
-  for (const why of stale(path.join(SITE, 'data/prebuilt'))) {
+  const { stale, PREBUILT_LAYERS } = await import('./prebuild_layers.mjs');
+  for (const why of PREBUILT_LAYERS.flatMap((layer) => stale(path.join(SITE, 'data/prebuilt'), layer))) {
     problems.push(`data/prebuilt is stale — ${why}. publish.sh rebuilds it; a stale prebuild would hand `
       + 'the page timber built from other records or other code.');
   }

@@ -159,8 +159,9 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 20 MB**, re-set on 2026-10-16 by T-2677 for the prebuilt
-frontage timber (§ 4f). T-1973 had set it at 13 MB on 2026-10-02 for the reasons in
+**The boot payload budget is 29 MB**, re-set on 2026-10-17 by T-2693 for the prebuilt
+ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
+(§ 4f). T-1973 had set it at 13 MB on 2026-10-02 for the reasons in
 § 4a. It was set at 12 MB, 1.66× the measured 7.223 MB:
 tight enough that a careless import into `walk/js/` or an unmetered new boot
 fetches cannot accumulate silently (each is visible against 60 % spent), and
@@ -171,7 +172,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 20 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 29 MB budget
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -472,10 +473,68 @@ unmetered boot fetch still shows against under 1 MB of room. The next prebuilt l
 (T-2678, the spatial-batch chunks) has to measure its own bytes against this number and
 argue its own re-set.
 
+### 4g. The ground ships prebuilt, re-measured 2026-10-17 (T-2693) — and the budget is 29 MB
+
+T-2678's second piece. The 1835 ground was loaded, conformed to the heightfield, cut into
+223 tiles and partitioned into 9,405 pieces at every boot. That came to 3.0 s of the
+terrain phase at the phone profile (T-2692's reading). `tools/publish.sh` now runs those
+same functions in Node (`tools/prebuild_layers.mjs --layer ground`) and writes
+`data/prebuilt/1835/ground.json` (the index, 0.80 MB) and `ground.bin.gz` (27.6 MB raw,
+10.63 MB gzipped twice). The page batches the pieces and does **not** fetch the ground GLB
+(terrain.js § THE GROUND, PREBUILT). Read on the published page, 669 of 669 ground
+attributes over 223 tiles are byte-equal to the Node build
+(`prebuild_layers.mjs --layer ground --parity --root ../../site/4d`), with zero page errors.
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell).
+`--no-prebuilt-ground` is the before: the frontage still comes prebuilt and the page cuts
+its own ground, which is what dev did.
+
+| mobile · light | terrain | longest task in it | boot's longest task |
+|---|---|---|---|
+| cold, ground cut in the browser | 8,760 ms | 4,100 ms | 16,504 ms |
+| cold, ground prebuilt | 6,172 ms | 4,021 ms | 17,229 ms |
+| warm, ground cut in the browser | 8,812 ms | 3,946 ms | 15,775 ms |
+| warm, ground prebuilt | 6,050 ms | 4,038 ms | 16,690 ms |
+
+The terrain phase is **2.6 s shorter cold and 2.8 s shorter warm**. Its longest task did not
+move: that task is not the ground's cut, which mostly ran on the job pool already (T-2599).
+The boot's longest task is not terrain's at all. Its spread between rows (15.8 to 17.2 s)
+is the runner's noise on a single reading.
+
+**What the visitor downloads.** `tools/measure_boot_payload.mjs`, the same published tree,
+with and without `--no-prebuilt-ground`: **19.109 MB → 28.195 MB**, 992 → 993 requests.
+The `.gz` files go 6.694 → 16.831 MB and the `.json` files gain the 0.21 MB index on the
+wire. The `.glb` files go 4.885 → 3.628 MB: the published ground GLB is meshopt-packed and
+costs only **1.26 MB** on the wire. (T-2692's reading guessed the prebuild could replace a
+30.5 MB GLB. That figure was the source GLB in `assets/`, and the page never fetches it.)
+So this is a trade of about **9.1 MB more on a first visit for 2.6 s less CPU** at the phone
+profile. On the measure tools' slow-phone network (1.6 Mbit/s) that is about 48 s more
+download. The download starts before the scene phase, so it runs under scene and buildings.
+A warm visit, or a kept year (T-2561's pack holds `data/prebuilt/1835/`), pays nothing.
+
+**Where the trade is refused.** A visitor who has asked to save data, or whose browser rates
+the connection 3G or slower (`navigator.connection`), is never offered the prebuild. The
+page fetches the 1.3 MB GLB and cuts the ground itself.
+
+**The tree.** `tools/site_budget.py`: 289.730 MB of 320, 30.270 MB of headroom, with the
+ground's 11.42 MB in it.
+
+**Why 29 MB.** The owner, on T-2560, asked for *"a big package app download that happens
+up front so the app is lightning fast rendering when you are walking or flying"*. The
+ground was the next 3 s of that boot (T-2692). The number is the 28.195 MB measured plus
+about the 0.8 MB of room the 20 MB budget left. § 4b's rule still holds for everything
+else: a careless import or an unmetered boot fetch shows against under 1 MB of room.
+**The next lever is bytes, not CPU.** The prebuild ships every vertex as float32 because
+batching copies them as they are. A format that ships only the partition and lets the page
+gather from the 1.26 MB GLB it already conforms would give most of the 9.1 MB back. That is
+written up on T-2694, the town's other spatial-batch callers, which has to measure its own
+bytes against this number and argue its own re-set.
+
 ## 5. What the gate does now
 
 - **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 20 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 29 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.

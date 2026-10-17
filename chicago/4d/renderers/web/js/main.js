@@ -32,7 +32,7 @@ import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
-import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
+import { createTerrain, enuToWorld, fetchPrebuiltGround, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
@@ -1719,6 +1719,10 @@ async function boot() {
   // drawn only when something it is made of has changed — see gate-frame.js.
   const gateFrame = createGateFrame({ renderer, scene: scene3d, camera });
 
+  // T-2693: the ground's tiles, prebuilt at publish, start downloading now so they
+  // arrive under the scene phase; createTerrain uploads them in the ground GLB's
+  // place when they are this page's, and loads the GLB otherwise. Never rejects.
+  const groundPrebuilt = fetchPrebuiltGround({ dataBase: bases.dataBase, year: String(YEAR), build: pageBuild() });
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
@@ -1819,10 +1823,13 @@ async function boot() {
     sceneId: loaded.scene.id ?? YEAR,
     // T-2502: ground off the box, where the scene names one (1812: down the South Branch).
     apronPath: loaded.scene.terrain_apron ?? null,
+    prebuilt: groundPrebuilt,
     confidence,
     problems,
   });
   if (!terrain.loaded) throw new Error('Terrain heightfield did not load');
+  /** T-2693: whether the ground's tiles came prebuilt, and if not, why not. */
+  api.terrainPrebuilt = terrain.prebuilt;
   scene3d.add(terrain.group);
   /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
    *  and lets go of its page arrays (upload-release.js), keeping back what this
