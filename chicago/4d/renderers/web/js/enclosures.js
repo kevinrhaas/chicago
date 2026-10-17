@@ -663,10 +663,15 @@ function orderRuns(records) {
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
 
-async function getJSON(url) {
+async function getJSON(url, hashes = null, key = null) {
   const res = await fetch(url, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
-  return res.json();
+  if (!hashes) return res.json();
+  // T-2711: read as bytes, so the yards' prebuild can be held to these records.
+  const bytes = await res.arrayBuffer();
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+  hashes.set(key, Array.from(digest, (b) => b.toString(16).padStart(2, '0')).join(''));
+  return JSON.parse(new TextDecoder().decode(bytes));
 }
 
 /**
@@ -692,12 +697,14 @@ const PLANK_LEVELS = new Set(['light', 'balanced']);
 
 /**
  * @param {object} o dataBase (data/ root) · terrain · confidence · problems ·
- *                   detail (the scene-detail level, `full` by default)
+ *                   detail (the scene-detail level, `full` by default) ·
+ *                   hashes (T-2711: a Map each record's SHA-256 is set into,
+ *                   keyed `data/enclosures/<file>`, for the yards' prebuild)
  * @returns {Promise<{group: THREE.Group, records: object[], census: object,
  *                    setDetail: function, dispose: function}>}
  */
 export async function createEnclosures({
-  dataBase, terrain, confidence = null, problems = [], detail = 'full',
+  dataBase, terrain, confidence = null, problems = [], detail = 'full', hashes = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'enclosures';
@@ -715,7 +722,7 @@ export async function createEnclosures({
   }
   let index;
   try {
-    index = await getJSON(new URL('enclosures/index.json', dataBase));
+    index = await getJSON(new URL('enclosures/index.json', dataBase), hashes, 'data/enclosures/index.json');
   } catch (err) {
     // Degrade to NOTHING drawn plus a recorded problem, never to an invented
     // fence: the same contract the vegetation layers keep.
@@ -726,7 +733,7 @@ export async function createEnclosures({
   const loaded = await Promise.all(wanted.map(async (e) => {
     if (!e.file) return [e.id, null, 'the manifest gave no file'];
     try {
-      return [e.id, await getJSON(new URL(`enclosures/${e.file}`, dataBase)), null];
+      return [e.id, await getJSON(new URL(`enclosures/${e.file}`, dataBase), hashes, `data/enclosures/${e.file}`), null];
     } catch (err) { return [e.id, null, err.message]; }
   }));
 

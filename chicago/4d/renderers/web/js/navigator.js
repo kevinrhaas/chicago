@@ -153,11 +153,13 @@ export function createNavigator({
   // T-2621: a deep link's { app, id, tab }, handed to the app it opens through ctx.link.
   // Until the dossier lands (T-2638), an Inspect link's building is offered as the one
   // selected, so Inspect's stub opens that building's card.
+  // T-2627: while the rail is not looking (a docked phone), the page's own target — the
+  // HUD's tag — stands in, so Inspect opened from the HUD knows what it was opened on.
   let link = null;
   const ctx = () => {
     const page = context();
     const linked = link?.app === 'inspect' && link.id ? { selected: link.id } : null;
-    return { ...page, ...linked, link, target: near, isPhone: isPhone(), navigator: api };
+    return { ...page, ...linked, link, target: near ?? page.target ?? null, isPhone: isPhone(), navigator: api };
   };
   // T-2621: who wants to hear the device change (nav-link.js holds Back for it).
   const changeFns = new Set();
