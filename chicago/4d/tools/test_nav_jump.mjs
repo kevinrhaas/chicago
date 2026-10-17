@@ -20,7 +20,13 @@ function fakeDoc() {
       tagName: tag.toUpperCase(), className: '', textContent: '', innerHTML: '', dataset: {}, attrs: {}, children: [], parent: null,
       href: '', src: '', alt: '', type: '',
       setAttribute(k, v) { this.attrs[k] = String(v); }, getAttribute(k) { return this.attrs[k] ?? null; },
-      append(...cs) { for (const c of cs) { c.parent = el; el.children.push(c); } },
+      // A string is a text node, as in the DOM (the cards space their words with them).
+      append(...cs) {
+        for (let c of cs) {
+          if (typeof c === 'string') c = { nodeType: 3, className: '', textContent: c, children: [], dataset: {}, getAttribute: () => null };
+          c.parent = el; el.children.push(c);
+        }
+      },
       replaceChildren(...cs) { el.children = []; el.append(...cs); },
       remove() { if (el.parent) { el.parent.children.splice(el.parent.children.indexOf(el), 1); el.parent = null; } },
       addEventListener(type, fn) { (fns[type] ??= []).push(fn); },
@@ -44,7 +50,9 @@ function fakeDoc() {
   return doc;
 }
 const walk = (el, out = []) => { for (const c of el.children) { out.push(c); walk(c, out); } return out; };
-const text = (el) => [el.textContent, ...el.children.map(text)].join(' ');
+// What the DOM's textContent gives: the text, run together with no separator added — so
+// a card whose words touch ("1835Here") reads as it would in a page (T-2655 mobile smoke).
+const text = (el) => [el.textContent, ...el.children.map(text)].join('');
 
 // ---- the cards ---------------------------------------------------------------------
 {

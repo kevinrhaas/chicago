@@ -101,12 +101,14 @@ export function mount(el, ctx = {}, opts = {}) {
     const k = doc.createElement('span');
     k.className = 'nav-k nav-k-row';
     k.append(Object.assign(doc.createElement('span'), { textContent: String(d.year) }));
-    if (isHere) k.append(Object.assign(doc.createElement('span'), { className: 'nav-step nav-here', textContent: 'Here' }));
+    // The spaces keep the words apart for a screen reader and for anything reading the
+    // card's text ("1835 Here", not "1835Here"); flex drops them from the layout.
+    if (isHere) k.append(' ', Object.assign(doc.createElement('span'), { className: 'nav-step nav-here', textContent: 'Here' }));
     const name = Object.assign(doc.createElement('strong'), { className: 'nav-place', textContent: p.place });
     const sub = Object.assign(doc.createElement('span'), { className: 'nav-sub',
       textContent: `${p.eyebrow !== p.place ? `${p.eyebrow} · ` : ''}${dateWords(d.date)}` });
     const text = Object.assign(doc.createElement('span'), { className: 'nav-jump-text' });
-    text.append(k, name, sub);
+    text.append(k, ' ', name, ' ', sub);
     card.append(plate, text);
     list.append(card);
   }
