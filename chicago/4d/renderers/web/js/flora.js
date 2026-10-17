@@ -57,6 +57,9 @@ import { zoneFinder, heldGround, groundZones, waterDistance, ZONE_UNASKED } from
 import { GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP, GROUND_UNASKED, VERGE_CELL_M,
   VERGE_KEEP_SHARE, vergeBand, footprintCircles, circleGrid, onFloor, groundAnswers } from './flora-ground.js';
 import { vergeRecords } from './street-verge.js';
+// T-2707: the near field tile kept a strip at a time, its strips asked of the pool.
+import { FIELD_UNASKED, fieldKeeper } from './near-field.js';
+import { FIELD_TABLE_TURF, FIELD_TABLE_CEILING } from './jobs/zone-kernel.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
@@ -64,6 +67,8 @@ import { runJob, jobsOnWorkers, holdOnWorker } from './jobs/pool.js';
 // T-2698: the near deal's field as a world-anchored tile a shader can sample.
 import { FIELD_SPEC, FIELD_FLAGS, FIELD_GLSL, fieldOrigin, buildField, sampleField }
   from './near-field.js';
+// T-2706: the near deal's species and placement as GLSL, and its slot codes.
+import { NEAR_DEAL, dealTable } from './flora-gpu-deal.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -1090,8 +1095,8 @@ const NO_VERGE = Object.assign(() => null, { records: [] });
  */
 export async function createFlora({
   checkpoint = () => null,
-  dataBase, terrain, footprints = [], growthBlocked = () => false, verge = NO_VERGE,
-  forbSeat = () => null,
+  dataBase, terrain, footprints = [], growthBlocked = () => false, growthEdges = null,
+  growthPatch = null, verge = NO_VERGE, forbSeat = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
 } = {}) {
   const group = new THREE.Group();
@@ -1442,6 +1447,24 @@ export async function createFlora({
   /** Ground the plant stands on, or null if it may not stand here. `wet` is the
    *  caller's already-computed water test, since the placer asks it once per
    *  lattice slot to choose which half of the community it may pick from. */
+  /** T-2715: whether `growthEdges` reaches a corner of the square of half-side
+   *  `half` centred on (e, n). See `nearField.atTexel`. */
+  function edgeCorners(e, n, half) {
+    if (growthEdges === null) return false;
+    return growthEdges(e - half, n - half) || growthEdges(e + half, n - half)
+      || growthEdges(e - half, n + half) || growthEdges(e + half, n + half);
+  }
+  /** `growthEdges` at the (w + 1) x (h + 1) texel corners from (e0, n0), row by
+   *  row northward, or null when there are none to ask. */
+  function edgeLattice(e0, n0, w, h, texel) {
+    if (growthEdges === null) return null;
+    const out = new Uint8Array((w + 1) * (h + 1));
+    for (let j = 0; j <= h; j++) {
+      for (let i = 0; i <= w; i++) out[j * (w + 1) + i] = growthEdges(e0 + i * texel, n0 + j * texel) ? 1 : 0;
+    }
+    return out;
+  }
+
   function station(e, n, zone, species, wet = wetAt(e, n)) {
     if (growthBlocked(e, n)) return null;
     if (trodden(e, n, zone, species)) return null;
@@ -1524,6 +1547,72 @@ export async function createFlora({
     return cone;
   }
 
+  /**
+   * ONE NEAR SLOT'S DEAL (T-2706): the near ring's whole per-slot rule, out of
+   * `rebuildGround` so that `nearField.deal` asks the very same code the draw
+   * does, slot for slot, when `tools/measure_flora_gpu_deal.mjs` holds the
+   * shader's deal (`flora-gpu-deal.js`) to it. It places the tuft into `set`
+   * and returns the slot's ring, or null when the slot carries nothing;
+   * `_nearDealt` says which (`NEAR_DEAL`) and, when placed, the species, the
+   * ground and the height. `census` false leaves the drawn census alone, which
+   * is what a reading that is not a rebuild must do.
+   */
+  function dealNearSlot(e, n, r, rng, u, z, cone, set, census) {
+    const out = _nearDealt;
+    out.sp = null;
+    out.zone = null;
+    // This slot's own outer boundary. The near ring carries no fringe (its
+    // edge is never the one a visitor reads as a line — the mid ring's is),
+    // so the offset is zero and the whole of the move is the handover.
+    //
+    // A slot the handover has already carried past is PLACED ANYWAY, at
+    // coverage zero, and the mid ring's matching `return` is not copied
+    // here on purpose: every slot inside the lattice is still dealt a
+    // species and still counted by the drawn census, exactly as before, so
+    // this run moves no community's population and no cover figure. The
+    // vertex program collapses a plant outside its ring to a point, which
+    // is what it already did for the annulus between the fade and the
+    // lattice, so the frame pays nothing for them either.
+    const zone = zoneOf(e, n, z);
+    if (!zone || !zone.graminoids.length) { out.code = NEAR_DEAL.none; return null; }
+    // T-2122: no near tufts on short turf. The turf's texture is the
+    // ground there, and a 0.05-0.20 m sward drawn as blades only to the
+    // near ring was a band of plants growing up out of bare ground a few
+    // metres ahead on every step — the owner, 2026-10-05: "things
+    // constantly pop up". Returned before the deal, as the mid and far
+    // bands already do here, so no turf slot is counted as drawn.
+    if (zone.turf) { out.code = NEAR_DEAL.turf; return null; }
+    out.zone = zone;
+    const ring = slotRing(rings.near, e, n, 0, _ring);
+    // The community's own recorded matrix cover decides whether this slot
+    // carries a plant — the same rule the forb layer has always applied to
+    // its own recorded densities, on the field the matrix layer ignored.
+    // Cover and species come off the slot's ONE stratified draw (K49(d)):
+    // the rank-1 lattice the forb layer uses stripes a dense layer, so this
+    // one is a block permutation instead. See `stratum` and `dealt`.
+    const wet = wetAt(e, n);
+    const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
+      zone.matrixShare, u);
+    if (!sp) { out.code = NEAR_DEAL.undealt; return null; }
+    const c = census ? zone.census?.matrix : null;
+    countDealt(c, sp, wet);
+    out.sp = sp;
+    const y = station(e, n, zone, sp, wet);
+    if (y === null) { if (c) c.row.rejStation++; out.code = NEAR_DEAL.station; return null; }
+    if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) {
+      if (c) c.row.rejWalker++;
+      out.code = NEAR_DEAL.walker;
+      return null;
+    }
+    countDraw(c, sp, wet);
+    set.ring(ring);
+    out.code = NEAR_DEAL.placed;
+    out.y = y;
+    out.h = placeGraminoid(set, sp, e, y, n, rng);
+    return ring;
+  }
+  const _nearDealt = { code: 0, zone: null, sp: null, y: 0, h: 0 };
+
   function* rebuildGround(camE, camN, cone) {
     nearSet.reset();
     midSet.reset();
@@ -1542,56 +1631,20 @@ export async function createFlora({
     yield* scatter(camE, camN, tune.near.cell, tune.near.perCell,
       near.lattice.outer, near.lattice.inner, 0x51ed27, 'strata', cone,
       (e, n, r, rng, _cellSeed, u, z) => {
-        // This slot's own outer boundary. The near ring carries no fringe (its
-        // edge is never the one a visitor reads as a line — the mid ring's is),
-        // so the offset is zero and the whole of the move is the handover.
-        //
-        // A slot the handover has already carried past is PLACED ANYWAY, at
-        // coverage zero, and the mid ring's matching `return` is not copied
-        // here on purpose: every slot inside the lattice is still dealt a
-        // species and still counted by the drawn census, exactly as before, so
-        // this run moves no community's population and no cover figure. The
-        // vertex program collapses a plant outside its ring to a point, which
-        // is what it already did for the annulus between the fade and the
-        // lattice, so the frame pays nothing for them either.
-        const zone = zoneOf(e, n, z);
-        if (!zone || !zone.graminoids.length) return;
-        // T-2122: no near tufts on short turf. The turf's texture is the
-        // ground there, and a 0.05-0.20 m sward drawn as blades only to the
-        // near ring was a band of plants growing up out of bare ground a few
-        // metres ahead on every step — the owner, 2026-10-05: "things
-        // constantly pop up". Returned before the deal, as the mid and far
-        // bands already do here, so no turf slot is counted as drawn.
-        if (zone.turf) return;
-        const ring = slotRing(near, e, n, 0, _ring);
-        // The community's own recorded matrix cover decides whether this slot
-        // carries a plant — the same rule the forb layer has always applied to
-        // its own recorded densities, on the field the matrix layer ignored.
-        // Cover and species come off the slot's ONE stratified draw (K49(d)):
-        // the rank-1 lattice the forb layer uses stripes a dense layer, so this
-        // one is a block permutation instead. See `stratum` and `dealt`.
-        const wet = wetAt(e, n);
-        const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
-          zone.matrixShare, u);
-        if (!sp) return;
-        const c = zone.census?.matrix;
-        countDealt(c, sp, wet);
-        const y = station(e, n, zone, sp, wet);
-        if (y === null) { if (c) c.row.rejStation++; return; }
-        if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) { if (c) c.row.rejWalker++; return; }
+        const ring = dealNearSlot(e, n, r, rng, u, z, cone, nearSet, true);
+        if (ring === null) return;
         // The head is placed off the height the PLANT was actually given, and
         // only if the plant was actually drawn. Round 1 drew the two from
         // independent draws of the same range, so a 2.0 m cordgrass spike
         // could stand over a 1.25 m tuft — which is the pair of flower heads
         // the critic found floating unattached in the open sky.
-        countDraw(c, sp, wet);
-        nearSet.ring(ring);
-        const h = placeGraminoid(nearSet, sp, e, y, n, rng);
+        //
         // The head rides its PLANT'S ring now, not the layer's. On a spread
         // boundary the layer's ring answers for no particular tuft, and a head
         // hung on it would go on being drawn out to 7 m over a plant whose own
         // handover had already taken it away at five — a flower in the sky with
         // nothing under it, which is R-BUG7 rebuilt from the other end.
+        const { sp, y, h } = _nearDealt;
         const headRing = headRingAt(ring, _headRing);
         if (h > 0 && r <= headRing[0] + step) {
           maybeHead(heads, sp, e, y, n, rng, h, headRing);
@@ -2331,6 +2384,23 @@ export async function createFlora({
       flags: FIELD_FLAGS,
       glsl: FIELD_GLSL,
       sample: sampleField,
+      /**
+       * T-2715. `at` at a TEXEL: the point's own answer, and BLOCKED as well
+       * wherever `growthEdges` (the page passes the streets' track) reaches any
+       * of the texel's four corners. A track edge through a texel whose centre it
+       * misses used to leave the tile unblocked under a slot the CPU blocks — the
+       * one tuft at river_bank after the bank went per-texel. What `growthEdges`
+       * holds must be wider than a texel's diagonal, so a band that reaches any
+       * point of the texel reaches a corner, and the tile errs only on the side
+       * of exclusion. Everything else in `growthBlocked` is `growthPatch`, asked
+       * at the centre: the worked bank already answers a texel at a time
+       * (`working-bank.js` BANK_PATCH_M), and a fence is thinner than a texel.
+       */
+      atTexel(e, n, out = [0, 0, 0], texel = FIELD_SPEC.texel) {
+        this.at(e, n, out);
+        if (!(out[1] & FIELD_FLAGS.BLOCKED) && edgeCorners(e, n, texel / 2)) out[1] |= FIELD_FLAGS.BLOCKED;
+        return out;
+      },
       at(e, n, out = [0, 0, 0]) {
         const zone = finder(e, n);
         let f = 0;
@@ -2345,13 +2415,113 @@ export async function createFlora({
       },
       build(camE, camN, spec = FIELD_SPEC) {
         const { e0, n0 } = fieldOrigin(camE, camN, spec);
-        return buildField(this.at, e0, n0, spec);
+        return buildField((e, n, out) => this.atTexel(e, n, out, spec.texel), e0, n0, spec);
+      },
+      /**
+       * T-2707. The tile kept around a walker (near-field.js `fieldKeeper`): a
+       * re-centre re-rasterises only the strip it exposes, and the pool's worker
+       * that holds the zones' ground answers it (jobs/zone-kernel.js
+       * `fieldRect`), so the page adds only `growthBlocked` — the streets' track,
+       * the yards, the ground strip and the worked bank, which live here — and
+       * asks `at` whole for a texel the worker could not answer. `pool: false`
+       * asks every texel here, for the tool's before.
+       */
+      keeper({ spec = FIELD_SPEC, pool = true } = {}) {
+        const at = this.at;
+        const table = new Uint8Array(zones.length + 1);
+        zones.forEach((z, i) => {
+          table[i + 1] = (z.turf ? FIELD_TABLE_TURF : 0) | (z.turfCeiling ? FIELD_TABLE_CEILING : 0);
+        });
+        const o = [0, 0, 0];
+        const keeper = fieldKeeper({
+          spec,
+          ask: (r, e0, n0, texel) => (pool && groundKey
+            ? runJob('fieldRect', { ground: groundKey, e0, n0, texel, ...r, table },
+              { worker: groundWorker })
+            : null),
+          finish(got, { i0, j0, w, h }, e0, n0, texel, cls, height) {
+            if (got) keeper.stats.pooled += w * h;
+            // The strip's corner lattice, asked once and shared by the four
+            // texels round each corner (see `atTexel`).
+            const corner = edgeLattice(e0 + i0 * texel, n0 + j0 * texel, w, h, texel);
+            const edged = (i, j) => corner !== null && (corner[j * (w + 1) + i]
+              || corner[j * (w + 1) + i + 1] || corner[(j + 1) * (w + 1) + i]
+              || corner[(j + 1) * (w + 1) + i + 1]);
+            for (let j = 0; j < h; j++) {
+              const n = n0 + (j0 + j + 0.5) * texel;
+              for (let i = 0; i < w; i++) {
+                const e = e0 + (i0 + i + 0.5) * texel;
+                const k = j * w + i;
+                const f = got ? got.flags[k] : FIELD_UNASKED;
+                if (f === FIELD_UNASKED) {
+                  if (got) keeper.stats.unasked++;
+                  // `atTexel`, with the strip's own corners.
+                  at(e, n, o);
+                  cls[2 * k] = o[0]; height[k] = o[2];
+                  cls[2 * k + 1] = edged(i, j) ? o[1] | FIELD_FLAGS.BLOCKED : o[1];
+                  continue;
+                }
+                cls[2 * k] = got.zone[k];
+                // With the corners asked, the centre need only ask `growthPatch`:
+                // a band that reaches the centre reaches a corner, and asking the
+                // track at both doubled the page's share of a re-centre (T-2715's
+                // walk reading: 0.59 -> 1.07 ms a metre, worst step 29 -> 55 ms).
+                const blocked = corner === null ? growthBlocked(e, n)
+                  : edged(i, j) || (growthPatch !== null && growthPatch(e, n));
+                cls[2 * k + 1] = !(f & FIELD_FLAGS.BLOCKED) && blocked ? f | FIELD_FLAGS.BLOCKED : f;
+                height[k] = got.y[k];
+              }
+            }
+          },
+        });
+        // Texels the pool answered, and of those the ones it handed back to `at`.
+        keeper.stats.pooled = 0;
+        keeper.stats.unasked = 0;
+        return keeper;
       },
       slots(camE, camN) {
         const out = [];
         const gen = scatter(camE, camN, tune.near.cell, tune.near.perCell,
           rings.near.lattice.outer, rings.near.lattice.inner, 0x51ed27, 'strata', null,
           (e, n) => { out.push(e, n); });
+        for (const _ of gen) { /* drained */ }
+        return Float64Array.from(out);
+      },
+      /** T-2706: the water's surface, where a wet station stands. */
+      waterY,
+      /** T-2706: the near walk's own arguments, for `latticeUniforms`. */
+      walk: { cell: tune.near.cell, perCell: tune.near.perCell, salt: 0x51ed27, draw: 'strata' },
+      /** The communities and their graminoid subsets packed for the shader. */
+      table() { return dealTable(zones); },
+      /**
+       * What every slot `slots` walks CAME TO, through `dealNearSlot` itself —
+       * the draw's own deal with the census left alone and nothing drawn.
+       * DEAL_STRIDE numbers a slot (see `flora-gpu-deal.js`); `rowOf` is a
+       * `table()`'s, so the species reads as the shader's row number.
+       */
+      deal(camE, camN, rowOf) {
+        const out = [];
+        let got = null;
+        const sink = {
+          ring() {},
+          push(e, y, n, yaw, h, spread, arch, r, g, b, conf) {
+            got = [yaw, h, spread, arch, r, g, b, conf];
+            return true;
+          },
+        };
+        const draws = [];
+        const gen = scatter(camE, camN, tune.near.cell, tune.near.perCell,
+          rings.near.lattice.outer, rings.near.lattice.inner, 0x51ed27, 'strata', null,
+          (e, n, d, rng, _cellSeed, u) => {
+            got = null;
+            draws.length = 0;
+            dealNearSlot(e, n, d, () => { const v = rng(); draws.push(v); return v; },
+              u, undefined, null, sink, false);
+            const o = _nearDealt;
+            const row = o.sp ? rowOf(zoneIndex.get(o.zone), o.sp) : -1;
+            out.push(e, n, u, o.code, row, o.code === NEAR_DEAL.placed ? o.y : NaN,
+              ...(got ?? [NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN]), draws[4] ?? NaN);
+          });
         for (const _ of gen) { /* drained */ }
         return Float64Array.from(out);
       },

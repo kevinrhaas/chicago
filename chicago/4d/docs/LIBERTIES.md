@@ -28400,8 +28400,10 @@ stops there (sky straight behind it in every view that sees it), so the model's 
 **What is read, not invented:** that the ventilator exists, is a single inclined pipe with an
 upright cowl of bowl and disc, rises near the rear pinnacle and leans forward; its place along the
 return (about 0.5 to 0.6 of it in all four views, built at 3.3 m behind the front); its height over
-the coping against the rear pinnacle's (about 1.85 times it in Taylor 2135, built at 0.95 m); and
-the pipe's and cap's widths against the 0.46 m courses (about 0.28 m and 0.58 m).
+the coping against the rear pinnacle's (about 1.85 times it in Taylor 2135, built at 0.95 m), raised
+to 1.05 m by T-2713 where T-2579's re-fitted camera on the 1888 Glessner plate reads the cap's top
+0.1 m beyond the render's (3.5 px at 37 px/m; now within 1-2 px); and the pipe's and cap's widths
+against the 0.46 m courses (about 0.28 m and 0.58 m).
 **What is invented:** the riser hidden behind the parapet and where it meets the deck; its depth
 behind the north face (0.6 m), which sets its foot inside the hall stack's plan and so reads as
 that flue's termination — plausible, not shown; the elbow's height under the coping; the bowl's
@@ -28409,13 +28411,16 @@ and the disc's sections; and its colour, a plain pale grey standing for galvaniz
 monochrome prints show only as paler than its cap and close to the granite; and that it
 still stands in the 1904 scene this phase serves (it is there in 1887-89 and gone by 1948, and
 when it went is not known).
-**How to resolve:** the re-fitted cameras of T-2579, which decide whether the c. 1888 view's
-higher-seeming cap is a residual or a shallower set-back; and the hall stack's height (left for
-T-2580), which the same pictures show below the coping where the model stands it above.
+**How to resolve:** a re-fit of the c. 1888 view looking south-west, whose T-1883 camera puts the
+rear pinnacle about 60 px off and still reads the cap higher than the plate does (T-2713 left that
+excess to the camera, not the cowl); and the undated Glessner-front view, which shows no cowl at
+any bounded set-back and is read by T-2713 as later than its removal (probably 1890s-1920s,
+T-2216): a date for that picture would confirm or overturn that reading. The hall stack's height
+was settled by T-2712 (it stops under the coping).
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2578 (piece 2 of T-2567).
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
-**Recorded:** 2026-10-16 (T-2578).
+**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713).
 
 ### L-k01-keith-south-strip-2581 — Keith's south corner: a straight strip of the front's stone, 2.1 m deep
 
@@ -28600,3 +28605,24 @@ prints it as it stands.
 **How to resolve:** a time of day the visitor sets, the sun following it (Jump, DESIGN §07).
 **Ticket:** T-2617.
 **Recorded:** 2026-10-17 (T-2617).
+
+### L-k01-keith-hall-stack-2586 — Keith's hall stack: stopped under the return's coping, its top reconstructed
+
+**Decision:** the hall stack of 1808 Prairie (`chimney_positions` `hall`, the north one, behind the
+coursed north return) stops at 16.1 m, 0.14 m under the return's coping, where it stood 1.4 m over
+the deck's high line and so about 0.8 m over the coping (T-2712, piece 1 of T-2586, from T-2578's finding). The
+library stack is unchanged.
+**What is read, not invented:** that nothing but the cowl ventilator stands over the return's
+coping: the 1887 construction view, J. W. Taylor's c. 1887-89 view (2135), the 1888 Inland
+Architect Glessner plate and the c. 1888 view looking south-west all show clean sky there beside
+the cowl, and the c. 1888 view beside Glessner shows none either. Rendered from each of those
+cameras, the stack that stood there is gone and the coping reads against sky as the pictures do.
+**What is invented:** the stack's top (16.1 m, a ceiling the pictures set rather than a height
+they show); that the cowl's pipe carries the hall flue on from the stack's top (its foot already
+stood inside the stack's plan, T-2578: plausible, not shown); and that the stack exists at all,
+which still rests on the 1888 plan's hall fireplace (`chimney_positions`, inferred). The 1948
+view's low stub at the cowl's foot is later evidence and is not read back to 1904.
+**How to resolve:** a view from above the deck (none is known), or a section of the house.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`.
+**Ticket:** T-2712 (piece 1 of T-2586).
+**Recorded:** 2026-10-17 (T-2712).
