@@ -2056,6 +2056,10 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-destination .welcome-dist i svg { width: 14px; height: 14px; }
 
 .welcome-kinds button[hidden] { display: none; }
+/* T-2633: dimmed while the Confidence view hides its grade, with the reason. */
+.welcome-destination.is-hidden-grade strong, .welcome-destination.is-hidden-grade .welcome-dest-text > span,
+.welcome-destination.is-hidden-grade .welcome-dist { opacity: .5; }
+.welcome-destination .welcome-why { display: block; margin-top: 2px; font-size: 11px; font-style: italic; color: var(--ink-dim); }
 .welcome-destination span { font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
 .welcome-destination:disabled { opacity: .6; cursor: default; }
 #welcome-message { font-size: 13px; margin: 0; }
