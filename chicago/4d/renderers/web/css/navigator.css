@@ -378,6 +378,12 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
    (apps/drawer-host.js); here it loses the drawer's frame and fills the screen, and shows
    only that app's own tabs — never more than two, so no tab row scrolls sideways. */
 .nav-screen:has(> .hud-panel) { padding: 0; gap: 0; overflow: hidden; }
+/* Guide (T-2661 + T-2620): the controls sheet, then the drawer's Guide · Sources under it;
+   the screen scrolls as one, so the sheet never squeezes the sections out of a phone's HALF. */
+.nav-screen:has(> .nav-guide-sheet) { overflow-y: auto; }
+.nav-screen:has(> .nav-guide-sheet) > .hud-panel { flex: none; }
+.nav-screen:has(> .nav-guide-sheet) .panel-scroll { overflow: visible; }
+.nav-guide-sheet { padding: 12px 16px 8px; }
 .navigator .hud-panel {
   position: static;
   inset: auto;
@@ -464,7 +470,17 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
 .nav-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .nav-choice { display: flex; flex-direction: column; gap: 3px; min-height: 52px; padding: 9px 10px; text-align: left;
   border: 1px solid var(--edge); border-radius: 10px; background: transparent; color: var(--ink); cursor: pointer;
-  font: inherit; }
+  font: inherit;
+  /* A choice shrinks with its column and never spills onto its neighbour. While the
+     panel grows — the desktop's from its 58 px rail, the phone's from its dock pill — the
+     columns start near zero, and a grid item's default min-width (its longest word) and
+     a fixed 10 px of inline padding each set a floor wider than the column, so Go to and
+     Free roam drew over one another until it settled. The inline padding is a share of
+     the grid area (12 %, which is 10 px or more in any column at rest: about 90 px on a
+     phone, 98 px on a desktop), so at rest it is the same 10 px and while narrow it
+     shrinks with the column; only the 1 px borders remain, inside the 8 px gap. */
+  padding-inline: min(10px, 12%);
+  min-width: 0; overflow: hidden; overflow-wrap: anywhere; }
 .nav-choice strong { font-size: 14px; font-weight: 600; }
 .nav-choice span { font-size: 11px; color: var(--ink-dim); line-height: 1.25; }
 .nav-choice:hover { border-color: var(--accent); }
@@ -490,3 +506,11 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
 .nav-screen:focus-visible, .nav-screen > h2:focus-visible, #nav-home-title:focus-visible {
   outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 8px;
 }
+
+/* ---- Guide's controls sheet (T-2661): touch or keyboard, as the visitor is using -- */
+.nav-guide-seg { display: flex; width: 100%; margin: 10px 0 8px; }
+.nav-guide-seg .seg-btn { min-height: 44px; }
+.nav-guide-keys { margin-top: 10px; gap: 9px 14px; }
+.nav-guide-keys dt { white-space: normal; max-width: 10em; color: var(--ink-dim); font-size: 13px; }
+.nav-guide-keys dd { font-size: 14px; line-height: 1.4; }
+.nav-guide-keys kbd { margin: 0 2px 2px 0; }
