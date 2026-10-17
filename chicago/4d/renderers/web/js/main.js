@@ -3979,20 +3979,22 @@ async function boot() {
   // T-2654: the active Jaunt's stops as field points, for the Map app's dotted route. Each
   // stop resolves the way the Jaunt itself travels to it; kept until the Jaunt changes.
   let jauntRouteMemo = { id: null, stops: [] };
+  // `jauntState`, not `s`: main.js binds `s` to a building's sidecar elsewhere, and
+  // tools/validate.py's sidecar scan follows that name.
   function mapJauntRoute() {
-    const s = jauntRuntime?.state;
-    if (!s?.jaunt?.stops?.length) return null;
-    if (jauntRouteMemo.id !== s.jaunt.id) {
+    const jauntState = jauntRuntime?.state;
+    if (!jauntState?.jaunt?.stops?.length) return null;
+    if (jauntRouteMemo.id !== jauntState.jaunt.id) {
       const stops = [];
-      for (const stop of s.jaunt.stops) {
+      for (const stop of jauntState.jaunt.stops) {
         const r = destinations.resolve(stop.destination);
         const t = r?.structureId ? { kind: 'structure', id: r.structureId } : r;
         const at = t ? travel.destinationOf(t, { card: false }) : null;
         if (at && Number.isFinite(at.e) && Number.isFinite(at.n)) stops.push({ id: stop.id, p: [at.e, at.n] });
       }
-      jauntRouteMemo = { id: s.jaunt.id, stops };
+      jauntRouteMemo = { id: jauntState.jaunt.id, stops };
     }
-    const current = s.visited?.[s.stopIndex]?.id;
+    const current = jauntState.visited?.[jauntState.stopIndex]?.id;
     return { stops: jauntRouteMemo.stops.map((x) => x.p), at: jauntRouteMemo.stops.findIndex((x) => x.id === current) };
   }
   navigatorUi = createNavigator({
