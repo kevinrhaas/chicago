@@ -126,6 +126,7 @@
       </dl>
     </div>
     <p class="gate-sub" id="gate-sub" aria-live="polite" hidden>Loading the scene…</p>
+    <p id="arrival-announce" class="visually-hidden" role="status" aria-live="polite"></p>
     <div class="gate-bar" id="gate-bar" role="progressbar" aria-label="Preparing the selected scene"
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <div id="welcome" hidden>
@@ -135,8 +136,11 @@
         <div id="welcome-about-cards"></div>
       </details>
       <div class="welcome-actions">
-        <button id="welcome-jaunts" class="welcome-action" aria-expanded="false" aria-controls="welcome-jaunts-region"><strong>Jaunts</strong><span>Guided outings</span></button>
-        <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>Starting at…</strong><span>Pick a place</span></button>
+        <!-- T-2613: Navigator Home's three choices (M2). Free roam was #gate-btn, which now
+             only ever says TRY AGAIN on a stalled jump. -->
+        <button id="welcome-jaunts" class="welcome-action" aria-expanded="false" aria-controls="welcome-jaunts-region"><strong>Take a Jaunt</strong><span>A guided outing</span></button>
+        <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>Go to…</strong><span>A house, a person, a shop</span></button>
+        <button id="home-roam" class="welcome-action" type="button"><strong>Free roam</strong><span>Wander on your own</span></button>
         <button id="welcome-back" class="welcome-back" type="button" aria-label="Back to the arrival choices" title="Back"></button>
       </div>
       <div id="welcome-pack" class="welcome-pack" role="group" aria-label="Keep this year on this device" hidden></div>
@@ -154,7 +158,7 @@
         <p id="welcome-message" role="status"></p>
       </section>
     </div>
-    <button id="gate-btn" class="gate-btn" disabled>Tap to enter</button>
+    <button id="gate-btn" class="gate-btn" disabled>Try again</button>
     <!-- T-2616: the failure state. #gate-btn turns into TRY AGAIN; this goes home; what
          failed to load stays folded under the details, out of a student's way. -->
     <a id="gate-observatory" class="gate-btn gate-btn-secondary" href="../" hidden>Back to the Observatory</a>

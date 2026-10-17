@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 1912, ts: '2026-10-17T03:20:12.396Z', date: 'Oct 16, 2026, 10:20 PM CT', title: 'You land straight on the Navigator\'s Home, with no Tap to enter', kind: 'feature',
+    items: [
+      'When the town is ready the last digit drops into place, the digits turn green and the small line reads ARRIVED · 1904.07.01.',
+      'A quick ARRIVED flash, then the device turns over to its Home, and the town behind it comes into focus.',
+      'Home offers three choices: Take a Jaunt, Go to… and Free roam.',
+      'Tap to enter is gone. If the jump stalls, the same spot shows TRY AGAIN.',
+      'With reduced motion the device crossfades instead of turning, and screen readers hear "Arrived: Prairie Avenue, 1 July 1904" (or the 1835 and 1812 lines).',
+    ] },
+  { v: 1911, ts: '2026-10-17T03:17:35.486Z', date: 'Oct 16, 2026, 10:17 PM CT', title: 'Every caption and summary is checked for an 8th-grade reading level', kind: 'chore',
+    items: [
+      'Every building summary, fact, time-stream caption and tour bubble is now scored for reading level before it can ship. Copy must read at grade 9 or easier, with no sentence over 20 words, and tour bubbles stay at 14 words or fewer.',
+      'Six lines of the Glessner House summary were split or reworded to pass, with the same facts and sources. One is the note under its owner, which now reads in three short sentences. The arrival\'s time-stream captions already passed.',
+    ] },
+  { v: 1910, ts: '2026-10-17T03:00:37.058Z', date: 'Oct 16, 2026, 10:00 PM CT', title: 'The prairie\'s planting grid now has a graphics-card version', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The grid that decides where each grass tuft, flower and shrub stands now has a graphics-card version, ready for the near grass to be drawn without the phone\'s processor laying it out at every step.',
+      'Read back from the browser at every scene anchor, it puts all 373,710 test plants exactly where the current code does, within a twentieth of a millimetre.',
+    ] },
+  { v: 1909, ts: '2026-10-17T02:35:11.154Z', date: 'Oct 16, 2026, 9:35 PM CT', title: '1904 gets its first residents: John and Frances Glessner', kind: 'add',
+    items: [
+      'The 1904 town now has a list of who lived there, starting with John and Frances Glessner at 1800 Prairie Avenue. Both are drawn from their own records, with nothing invented.',
+      'Their grown children are not listed: by 1904 both had married and moved out. No source names the household\'s staff, so none appear yet.',
+      'You will meet them on the Glessner House\'s new Inspect page, under Who lives here, when it arrives. The 1904 menu still has no People section until the new People app is ready.',
+    ] },
   { v: 1908, ts: '2026-10-17T02:13:40.629Z', date: 'Oct 16, 2026, 9:13 PM CT', title: 'A phone in 1835 holds about 19 MB less', kind: 'fix',
     items: [
       'Nothing you can see changed. On a phone, the 1835 town now holds about 19 MB less once it is drawn (590 MB to 570 MB), which is where phones were running out of memory.',

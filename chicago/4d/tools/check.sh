@@ -64,6 +64,16 @@ step "The flora lattice walk on a worker hands the deal the slots the in-frame w
 selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
   node tools/check_lattice_kernel.mjs --self-test
 
+# T-2697. The same walk as GLSL (flora-gpu-lattice.js), the first piece of T-2557's
+# GPU near grass. This step needs no browser: it holds the shader's constants to
+# flora.js's. The slot-for-slot readback is `--gpu`, in Chromium, and is filed at
+# docs/measurements/t-2697-flora-gpu-lattice.json.
+step "The flora walk in GLSL carries flora.js's own walk constants (T-2697)" \
+  node tools/check_flora_gpu_lattice.mjs
+
+selftest "the shader walk's constant check refuses a seed, salt or block shift one bit off" \
+  node tools/check_flora_gpu_lattice.mjs --self-test
+
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
@@ -7166,6 +7176,18 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
+# generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
+# --check above holds the file itself). This holds what it must mean: exactly its own
+# cards' people and none of 1835's (the T-1739 fault), each in a 1904 structure, the
+# Glessner summary's residents among them — and T-1740 still true, 1904 listing no
+# `residents` layer, so the drawer's 1835-shaped People section stays off.
+step "the 1904 people directory is its own, and the drawer still offers no People section (T-2702)" \
+  python3 tools/test_people_scene.py
+
+selftest "…and a card with no source, no grade, a home not in the scene or a late arrival is refused" \
+  python3 tools/test_people_scene.py --self-test
+
 # T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
 # years each, captioned as the ticker passes them (design doc section 05). The page shows
 # the strings as written, so this refuses a caption with no grade, no source, a source
@@ -7183,6 +7205,16 @@ step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8
 # destination's deck — held against the real boot controller for all three destinations.
 step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
   node tools/test_arrival_telemetry.mjs
+
+# T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
+# tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a
+# sentence (a bubble to 14 words, section 11). A string under 12 words is scored in its
+# file's pool rather than alone, because the formula is a passage measure; the tool's
+# header has the syllable rules and the measurement behind that floor.
+step "every summary, fact, caption and bubble reads at Flesch-Kincaid grade 9 or lower, 20 words a sentence (T-2669)" \
+  python3 tools/check_reading_level.py --check
+selftest "…and a planted grade-12 sentence, a 21-word sentence, a 15-word bubble and a file of short hard lines are refused (T-2669)" \
+  python3 tools/check_reading_level.py --self-test
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than

@@ -14,10 +14,12 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
   const search = $('welcome-search'), list = $('welcome-results'), message = $('welcome-message');
-  const spawn = $('gate-btn'), back = $('welcome-back');
+  const roam = $('home-roam'), back = $('welcome-back');
   let state = 'arrival', kind = 'all', limit = 40;
   $('welcome-jaunts').insertAdjacentHTML('afterbegin', iconSvg('jaunts', 22));
   $('welcome-explore').insertAdjacentHTML('afterbegin', iconSvg('start', 22));
+  roam.insertAdjacentHTML('afterbegin', iconSvg('explore', 22));
+  roam.setAttribute('aria-label', isTouch ? 'Free roam: tap to enter Chicago' : 'Free roam: enter Chicago');
   back.innerHTML = iconSvg('back', 20);
   search.insertAdjacentHTML('beforebegin', iconSvg('search', 16));
   const listed = QUICK_STARTS[scene.id] || (scene.anchors || []).slice(0, 5).map(a => [a.id, a.label || a.id, 'view']);
@@ -125,16 +127,11 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     $('welcome-jaunts').setAttribute('aria-expanded', 'false');
     const presentation = scenePresentation(scene.id, scene.target_date);
     title.textContent = presentation.welcomeTitle;
-    gate.querySelector('.gate-eyebrow').textContent = presentation.eyebrow;
     gate.querySelector('.welcome-intro').textContent = presentation.intro;
     about(presentation.year);
-    // The arrival's own button becomes the third choice: straight into the town.
-    // Kept before the back arrow, so the gate's first buttons stay the visible choices.
-    if (spawn.parentElement !== back.parentElement) back.before(spawn);
-    spawn.classList.add('welcome-action');
-    spawn.innerHTML = `${iconSvg('explore', 22)}<strong>Explore<span class="welcome-long"> by myself</span></strong><span>Free roam</span>`;
-    spawn.setAttribute('aria-label', isTouch ? 'Explore by myself: tap to enter Chicago' : 'Explore by myself: enter Chicago');
-    spawn.disabled = false;
+    // T-2613: the eyebrow is the device's ARRIVED stamp; Free roam (#home-roam) is the
+    // third choice, straight into the town.
+    gate.querySelector('.gate-eyebrow').textContent = presentation.stamp;
     close.hidden = !hasEntered();
     if (focus) title.focus({ preventScroll: true });
   }
@@ -160,7 +157,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   $('welcome-jaunts').addEventListener('click', () => region('jaunts'));
   $('welcome-explore').addEventListener('click', () => region('explore'));
   back.addEventListener('click', top);
-  $('gate-btn').addEventListener('click', () => choose('spawn'));
+  roam.addEventListener('click', () => choose('spawn'));
   $('btn-start').addEventListener('click', show);
   close.addEventListener('click', returnToWorld);
   search.addEventListener('input', () => { limit = 40; render(); });

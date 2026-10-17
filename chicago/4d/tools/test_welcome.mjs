@@ -28,11 +28,14 @@ try {
     });
     const page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
     await page.goto(`http://127.0.0.1:${server.address().port}/walk/?year=1835&seed=1278`);
-    await page.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', null, { timeout: 180000 });
+    // T-2613: Home opens halfway through the landing; read it once the landing has finished
+    // (its reduced-motion crossfade is the one animation allowed before that).
+    await page.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome'
+      && document.documentElement.dataset.journey === 'landed', null, { timeout: 180000 });
     const initial = await page.evaluate(() => {
       const visible = el => { const b = el.getBoundingClientRect(); return b.top >= 0 && b.bottom <= innerHeight && b.left >= 0 && b.right <= innerWidth; };
       return { focus: document.activeElement.id, state: __chicago4d.welcome.state,
-        actions: ['welcome-jaunts','welcome-explore','gate-btn'].every(id => visible(document.getElementById(id))),
+        actions: ['welcome-jaunts','welcome-explore','home-roam'].every(id => visible(document.getElementById(id))),
         help: document.getElementById('control-help').hidden,
         progress: getComputedStyle(document.getElementById('gate-bar')).display,
         animation: getComputedStyle(document.querySelector('.gate-card')).animationName,
@@ -90,7 +93,7 @@ try {
     assert.equal(await page.evaluate(() => document.activeElement.id), 'btn-start');
     assert.equal(await page.evaluate(() => JSON.stringify(__chicago4d.hud.settings)), settings);
     await page.locator('#btn-start').dispatchEvent('click');
-    await page.locator('#gate-btn').dispatchEvent('click');
+    await page.locator('#home-roam').dispatchEvent('click');
     const spawn = await page.evaluate(() => ({ actual: { e: __chicago4d.walker.state.e, n: __chicago4d.walker.state.n }, spawn: __chicago4d.scene.spawn, locked: !!document.pointerLockElement }));
     assert(Math.hypot(spawn.actual.e - spawn.spawn.local_e, spawn.actual.n - spawn.spawn.local_n) < .01); assert(!spawn.locked);
     if (!touch) {
