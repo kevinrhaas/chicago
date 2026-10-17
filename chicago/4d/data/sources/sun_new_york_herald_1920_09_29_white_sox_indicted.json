@@ -1,0 +1,24 @@
+{
+ "id": "sun_new_york_herald_1920_09_29_white_sox_indicted",
+ "type": "newspaper",
+ "citation": "The Sun and the New York Herald (New York), September 29, 1920, p. 1: 'EIGHT WHITE SOX INDICTED FOR THROWING 1919 SERIES; CICOTTE CONFESSES PLOT'.",
+ "date": "1920-09-29",
+ "describes_date": "the 1919 World Series, and the Cook County grand jury's indictments of 28 September 1920",
+ "repository": "Library of Congress, Chronicling America",
+ "url": "https://www.loc.gov/resource/sn83030273/1920-09-29/ed-1/?sp=1",
+ "locator": "Front page, the column headed 'EIGHT WHITE SOX INDICTED FOR THROWING 1919 SERIES', datelined Chicago, Sept. 28: the jury 'indicted seven White Sox players and one former member of the team for throwing the 1919 world's series to the Cincinnati Reds'; Cicotte's and Jackson's confessions; 'The White Sox players were fixed and paid before the series games were started.'",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A United States newspaper of 1920, out of copyright; digitized for Chronicling America.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-10-16 (T-2611) in the Library of Congress OCR text of the page (the resource's full-text file); quoted with the OCR's scanning errors corrected. The page image was not opened.",
+ "note": "A New York paper reporting a Chicago grand jury the day after it sat, so tier 1 for the indictments and the confessions it prints, and for the fix as the jury and the confessions described it. Used for one time-stream caption on the way to 1904 (the year 1919); nothing in any scene is built from it.",
+ "what_it_supplies": [
+  "that eight White Sox players (seven current, one former) were indicted on 28 September 1920 for throwing the 1919 World Series to Cincinnati",
+  "that Eddie Cicotte and Joe Jackson confessed to the grand jury"
+ ],
+ "what_it_does_not_supply": [
+  "the verdict: the trial came in 1921, after this issue"
+ ]
+}

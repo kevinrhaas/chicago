@@ -568,6 +568,10 @@ fi
 # T-1275: compact optional loading library, never research assets.
 mkdir -p "$SITE/data/loading"
 cp data/loading/statuses.json "$SITE/data/loading/statuses.json"
+# T-2611: the arrival's time-stream decks, one per destination. js/time-stream.js fetches
+# data/timestream/<year>.json while the scene loads; tools/check_timestream.py gates them.
+mkdir -p "$SITE/data/timestream"
+cp -f data/timestream/*.json "$SITE/data/timestream/"
 
 if [ -d data/flora ]; then
   rm -rf "$SITE/data/flora"

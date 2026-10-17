@@ -16922,6 +16922,10 @@ for (const [label, viewport, touch] of [
     // showed. Recorded from the first byte, before any page script can run.
     await ctx14.addInitScript(() => {
       window.__arrivalYears = [];
+      // T-2611: each time-stream caption as it came up, with the ticker year beside it
+      // and whether its two lines fit the screen without being clipped.
+      window.__timeStream = [];
+      const t0 = performance.now();
       new MutationObserver(() => {
         const year = document.getElementById('arrival-year')?.dataset.year;
         if (year && year !== window.__arrivalYears.at(-1)?.year) {
@@ -16929,7 +16933,16 @@ for (const [label, viewport, touch] of [
             // T-2610: the small line over the ticker, as it read when this year showed.
             destination: document.getElementById('arrival-destination')?.textContent ?? null });
         }
-      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year'] });
+        const ts = document.getElementById('arrival-timestream');
+        if (ts?.dataset.state === 'on' && ts.dataset.year !== window.__timeStream.at(-1)?.year) {
+          const text = ts.querySelector('[data-ts="text"]'), screen = ts.closest('.arrival-screen');
+          const r = ts.getBoundingClientRect(), sr = screen?.getBoundingClientRect();
+          window.__timeStream.push({ year: ts.dataset.year, ticker: year ?? null, at: Math.round(performance.now() - t0),
+            text: text?.textContent ?? '', // A clamped line is 20 px; a few px is only a face's glyphs overhanging the box.
+            clipped: !!text && text.scrollHeight > text.clientHeight + 6,
+            inside: !!sr && r.left >= sr.left - 0.5 && r.right <= sr.right + 0.5 && r.bottom <= sr.bottom + 0.5 });
+        }
+      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year', 'data-state'] });
     });
     // The path is chrome, not rendering, so the town is drawn at `light` — the tier a
     // touch device boots into anyway — as a visitor who chose it in Settings would see
@@ -17001,6 +17014,23 @@ for (const [label, viewport, touch] of [
       && years.every((y) => y.destination === years[0].destination)
       && !/Destination year/i.test(await p14.evaluate(() => document.getElementById('gate').textContent)),
       [...new Set(years.map((y) => y.destination))].join(' | '));
+
+    // T-2611: the time-stream captions. Each shows only as the ticker passes its year
+    // (the ticker at or below it), never twice, never clipped and inside the screen; at
+    // most 8 on any load and at most 3 on a fast one (landed inside 8 s); and the deck
+    // reached the page at all, so a mirror that dropped data/timestream/ fails by name.
+    const stream = await p14.evaluate(() => ({ shown: window.__timeStream,
+      state: window.__chicago4d.timeStream?.state ?? null }));
+    // A trip is fast while it is under 8 s (time-stream.js SLOW_AFTER_MS): no more than
+    // three captions may have come up inside that, however long this trip then ran.
+    const inFast = (stream.state?.shown ?? []).filter((c) => c.at < 8000).length;
+    check(`${label}: time-stream captions show only as the ticker passes their year, once each, unclipped, 3 fast and 8 slow (T-2611)`,
+      !!stream.state && stream.state.deck >= 8 && stream.shown.length <= 8
+      && inFast <= 3
+      && new Set(stream.shown.map((c) => c.year)).size === stream.shown.length
+      && stream.shown.every((c) => c.ticker != null && Number(c.ticker) <= Number(c.year)
+        && !c.clipped && c.inside && c.text && !/[a-z0-9]+_[a-z0-9]+/i.test(c.text)),
+      `deck ${stream.state?.deck ?? 'not loaded'}; ${inFast} inside 8 s; ${stream.shown.map((c) => `${c.year}@${c.ticker}${c.clipped ? ' CLIPPED' : ''}${c.inside ? '' : ' OUTSIDE'}`).join(', ') || 'none shown'}`);
 
     const welcome = await p14.evaluate(() => {
       const gate = document.getElementById('gate');
