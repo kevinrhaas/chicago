@@ -40,7 +40,6 @@ export function jumpTo(d, {
   storage = (() => { try { return globalThis.sessionStorage; } catch { return null; } })(),
 } = {}) {
   if (pending) return false;
-  try { storage?.setItem(TRANSFER_KEY, String(Date.now())); } catch { /* the ring's tail is decoration */ }
   const overlay = doc.createElement('div');
   overlay.className = 'nav-jump-ring';
   overlay.setAttribute('role', 'status');
@@ -65,7 +64,16 @@ export function jumpTo(d, {
   const onKey = (e) => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation?.(); stop(); } };
   abort.addEventListener('click', stop);
   doc.addEventListener?.('keydown', onKey, true);
-  const timer = wait(() => { pending = null; go(d.href); }, reduced ? 0 : RING_MS);
+  // The transfer stamp is written as the page goes, not when the ring starts: the far page
+  // opens on the ring's tail only if the stamp is under 10 s old when it loads (skin.js),
+  // and on a busy machine the ring's own timer can fire several seconds late (it waits for
+  // the frame in hand), which used to age the stamp out before the far page could read it.
+  // An aborted jump writes none, so a later visit is never mistaken for its far end.
+  const timer = wait(() => {
+    pending = null;
+    try { storage?.setItem(TRANSFER_KEY, String(Date.now())); } catch { /* the ring's tail is decoration */ }
+    go(d.href);
+  }, reduced ? 0 : RING_MS);
   pending = { timer, overlay, onKey };
   return true;
 }

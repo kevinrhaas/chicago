@@ -100,10 +100,12 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   assert.ok(ring, 'the transfer ring closes over the town');
   assert.equal(ring.getAttribute('role'), 'status');
   assert.match(text(ring), /Jumping to 1835/);
-  assert.ok(stored.get('chicago4d.transfer') > 0, 'the Observatory\'s transfer stamp is written, so the arrival starts on the ring\'s tail');
+  assert.equal(stored.has('chicago4d.transfer'), false, 'no stamp while the ring runs: a late timer must not age it');
   assert.equal(timers.at(-1).ms, RING_MS, `the ring runs ${RING_MS} ms`);
   assert.equal(jumpTo(DESTINATIONS[2], { doc }), false, 'one jump at a time');
+  const before = Date.now();
   timers.at(-1).fn();
+  assert.ok(stored.get('chicago4d.transfer') >= before, 'the Observatory\'s transfer stamp is written as the page goes, so the arrival starts on the ring\'s tail');
   assert.deepEqual(calls.at(-1), ['go', '../1835/'], 'then the destination page, which runs its own time-stream and landing');
   unmount(panel);
   assert.equal(panel.children.length, 0);
@@ -114,10 +116,12 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   const doc = fakeDoc();
   const gone = [];
   const timers = [];
+  const kept = new Map();
   jumpTo(DESTINATIONS[0], { doc, reduced: false, go: (h) => gone.push(h), wait: (fn, ms) => { timers.push({ fn, ms }); return timers.length; },
-    cancel: (id) => { timers[id - 1].fn = null; }, storage: null });
+    cancel: (id) => { timers[id - 1].fn = null; }, storage: { setItem: (k, v) => kept.set(k, v) } });
   doc.key('Escape');
   assert.equal(timers[0].fn, null, 'Escape aborts the jump');
+  assert.equal(kept.size, 0, 'an aborted jump leaves no transfer stamp');
   assert.equal(doc.body.children.length, 0, 'and takes the ring away');
   jumpTo(DESTINATIONS[0], { doc, reduced: false, go: (h) => gone.push(h), wait: (fn, ms) => { timers.push({ fn, ms }); return timers.length; },
     cancel: (id) => { timers[id - 1].fn = null; }, storage: null });
