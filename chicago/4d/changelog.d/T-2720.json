@@ -1,0 +1,9 @@
+{
+  "title": "The memory meter checked against what the browser was asked to hold",
+  "kind": "chore",
+  "items": [
+    "Nothing in the town changed: this checks the instrument the walk's memory limits are measured with.",
+    "It reads exactly what the page asks the graphics card to hold, so the walk's memory limits stand as they are.",
+    "The gap it was suspected of is real memory the walk saves by sharing one picture between several surfaces."
+  ]
+}
