@@ -13859,7 +13859,11 @@ for (const [label, viewport, touch] of [
       api.pick('sauganash_hotel');
       await settle(() => getComputedStyle(popup).visibility === 'visible');
       const openHidden = popup.hasAttribute('hidden');
+      // T-2620: a section that is its app's whole screen (Settings), so the reading below is
+      // that screen's; Guide's sections sit under its sheet, down its scroll, by design.
+      api.hud.selectTab('settings');
       api.hud.setPanel(true);
+      await settle(() => !!panel.closest('.nav-screen:not([hidden])') && !['dock', 'rail'].includes(api.navigator?.detent));
       const tucked = await settle(() => getComputedStyle(popup).visibility === 'hidden'
         || !intersects(popup.getBoundingClientRect(), panel.getBoundingClientRect()));
       const pr = panel.getBoundingClientRect();
@@ -13876,6 +13880,13 @@ for (const [label, viewport, touch] of [
         badgeBottom: Math.round(br.bottom),
         innerHeight,
       };
+      // T-2620: the sections sit in the open Navigator's app screen, not a drawer of their own.
+      const nav = document.getElementById('navigator');
+      const screen = panel.closest('.nav-screen');
+      const nr = nav?.getBoundingClientRect(), sr = screen?.getBoundingClientRect();
+      out.inNav = { detent: api.navigator?.detent ?? null,
+        nav: nr ? [Math.round(nr.top), Math.round(nr.bottom)] : null,
+        screen: sr ? [Math.round(sr.top), Math.round(sr.bottom)] : null };
       api.hud.setPanel(false);
       out.back = await settle(() => getComputedStyle(popup).visibility === 'visible'
         && getComputedStyle(popup).transform === 'none');
@@ -13890,10 +13901,17 @@ for (const [label, viewport, touch] of [
       + `intersects the drawer ${drawer.tuckedIntersects}`);
     check(`${label}: closing the drawer brings the tucked card back`,
       drawer.back && drawer.backHidden === false, `back ${drawer.back}, hidden ${drawer.backHidden}`);
-    check(`${label}: the drawer reaches the bottom of the screen and starts under the year badge`,
-      // T-2620: the sections live in the Navigator, which stands a 10 px bezel off the bottom.
-      drawer.panelBottom >= drawer.innerHeight - 24 && (touch || drawer.panelTop >= drawer.badgeBottom),
-      `drawer ${drawer.panelTop}–${drawer.panelBottom} of ${drawer.innerHeight}, badge bottom ${drawer.badgeBottom}`);
+    // Was "the drawer reaches the bottom of the screen and starts under the year badge". T-2620:
+    // the sections are no drawer now but the open Navigator's app screen, which ends above the
+    // device's own foot (its telemetry strip, T-2623). So: the device is open, the panel lies
+    // inside it and fills its app's screen to the foot, all of it on screen, and on a laptop
+    // it starts under the year badge as the drawer did.
+    check(`${label}: the sections fill the open Navigator's app screen, on screen, and start under the year badge`,
+      !['dock', 'rail', null].includes(drawer.inNav.detent) && !!drawer.inNav.nav && !!drawer.inNav.screen
+      && drawer.panelTop >= drawer.inNav.nav[0] && drawer.panelBottom <= drawer.inNav.nav[1]
+      && Math.abs(drawer.panelBottom - drawer.inNav.screen[1]) <= 2 && drawer.panelTop >= 0 && drawer.panelBottom <= drawer.innerHeight
+      && (touch || drawer.panelTop >= drawer.badgeBottom),
+      `sections ${drawer.panelTop}–${drawer.panelBottom} of ${drawer.innerHeight}, in ${JSON.stringify(drawer.inNav)}, badge bottom ${drawer.badgeBottom}`);
 
     // (T-0702/T-0703's Go-to pills, groups, distances and keyboard retired with the drawer's
     // Go to list, T-2620; see the note above.)
