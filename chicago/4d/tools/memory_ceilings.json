@@ -69,41 +69,41 @@
     },
     "1904": {
       "desktop": {
-        "total_bytes": 1835008000,
-        "reading_bytes": 1664648636,
+        "total_bytes": 1625292800,
+        "reading_bytes": 1460974346,
         "tier": "full",
         "reading_mb": {
-          "total": 1587.5,
-          "js_heap": 128.0,
-          "arraybuffers": 710.9,
-          "gpu_buffers": 224.3,
-          "gpu_textures": 524.4
+          "total": 1393.3,
+          "js_heap": 129.4,
+          "arraybuffers": 757.2,
+          "gpu_buffers": 223.0,
+          "gpu_textures": 283.7
         },
         "lowered_by": {
-          "ticket": "T-2595",
-          "on": "2026-10-16T14:34:11.434Z",
-          "build": "3f772e396",
-          "reading": "docs/measurements/T-2595-memory-desktop.json",
-          "note": "the 20 textured Prairie houses in KTX2"
+          "ticket": "T-2718",
+          "on": "2026-10-17T17:15:22.450Z",
+          "build": "e62b79251",
+          "reading": "docs/measurements/T-2718-memory-desktop.json",
+          "note": "texture residency (T-2598) at spawn on desktop: 59 of 61 house pictures resident, 96.7 of a 512 MiB budget, 0 uploads pending when read. GPU textures 283.7 MB against 524.4 at T-2595; arraybuffers rose 710.9 -> 757.2 MB on this build, not read to its owner here (no heap snapshot taken)"
         }
       },
       "mobile": {
-        "total_bytes": 1284505600,
-        "reading_bytes": 1159352756,
+        "total_bytes": 996147200,
+        "reading_bytes": 891440113,
         "tier": "light",
         "reading_mb": {
-          "total": 1105.6,
-          "js_heap": 211.5,
-          "arraybuffers": 358.5,
-          "gpu_buffers": 151.6,
-          "gpu_textures": 384.0
+          "total": 850.1,
+          "js_heap": 210.4,
+          "arraybuffers": 372.4,
+          "gpu_buffers": 149.9,
+          "gpu_textures": 117.4
         },
         "lowered_by": {
-          "ticket": "T-2595",
-          "on": "2026-10-16T14:26:23.387Z",
-          "build": "3f772e396",
-          "reading": "docs/measurements/T-2595-memory.json",
-          "note": "the 20 textured Prairie houses in KTX2; the same build with --ktx2-off reads 1329.4 MB total and 510.2 MB of GPU textures against 1105.6 and 384.0 (docs/measurements/T-2595-memory-ktx2-off.json)"
+          "ticket": "T-2718",
+          "on": "2026-10-17T17:09:52.425Z",
+          "build": "e62b79251",
+          "reading": "docs/measurements/T-2718-memory-mobile.json",
+          "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
         }
       }
     }

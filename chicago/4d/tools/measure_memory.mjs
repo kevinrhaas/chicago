@@ -703,6 +703,26 @@ for (const year of YEARS) {
       await ctx.close();
       continue;
     }
+    // T-2718: texture residency paces its uploads (4 MiB a frame on a phone), so 3
+    // frames + 1 s can read the spawn mid-upload — low, and a ceiling set on it
+    // too tight. Settle it as the walk does, and record what it held.
+    const spawnResidency = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const frame = () => new Promise((r) => requestAnimationFrame(r));
+      const t0 = Date.now();
+      const before = api.residency?.pending ?? 0;
+      while ((api.residency?.pending ?? 0) > 0 && Date.now() - t0 < 120_000) await frame();
+      await frame();
+      const r = api.residency;
+      return r && { pendingAtRead: before, settleMs: Date.now() - t0, resident: r.resident, sources: r.sources,
+        residentBytes: r.residentBytes, budgetBytes: r.budgetBytes, wantedBytes: r.wantedBytes,
+        pending: r.pending, uploads: r.uploads, evictions: r.evictions, overBudget: r.overBudget };
+    });
+    if (spawnResidency) {
+      console.log(`  residency at spawn: ${spawnResidency.pendingAtRead} pending after 3 frames + 1 s, settled in `
+        + `${spawnResidency.settleMs} ms · resident ${spawnResidency.resident}/${spawnResidency.sources} = `
+        + `${MB(spawnResidency.residentBytes)} of ${MB(spawnResidency.budgetBytes)} MB (pending ${spawnResidency.pending})`);
+    }
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('HeapProfiler.enable');
     await cdp.send('HeapProfiler.collectGarbage');
@@ -725,7 +745,7 @@ for (const year of YEARS) {
         textureBytes: scene.layers.reduce((s, l) => s + l.textureBytes, 0),
         cpuNeverUploaded: scene.layers.reduce((s, l) => s + l.cpuNeverUploaded, 0),
       },
-      uploadRelease: scene.uploadRelease, ktx2: await page.evaluate(() => window.__chicago4d.ktx2 ?? null), errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
+      uploadRelease: scene.uploadRelease, residency: spawnResidency, ktx2: await page.evaluate(() => window.__chicago4d.ktx2 ?? null), errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
     if (heap.backingStorageSize === undefined) row.note = 'this Chromium reports no backingStorageSize; arraybuffers read 0';
     if (SNAPSHOT) {
       const ts = Date.now();
