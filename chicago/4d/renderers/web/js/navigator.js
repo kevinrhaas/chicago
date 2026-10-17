@@ -33,6 +33,23 @@ export const PHONE_DETENTS = Object.freeze(['dock', 'half', 'full']);
 export const DESK_DETENTS = Object.freeze(['rail', 'open']);
 export const PHONE_MAX_PX = 620;
 export const DOCK_PX = 64;
+/** T-2619: the docked pill's width on a phone, and the bottom-left corner it keeps clear —
+ * the touch stick's 116 px ring held against the left edge, plus an 8 px gutter — so a
+ * resting left thumb walks instead of opening the device. 390 px leaves 127 px each side. */
+export const DOCK_PILL_PX = 136;
+export const JOYSTICK_CLEAR_PX = 124;
+
+/** Where the docked pill stands on a phone `vw` px wide: centred, between `left` and `right`. */
+export function dockPill(vw, width = DOCK_PILL_PX) {
+  const left = Math.round((vw - width) / 2);
+  return { left, right: left + width, width, clear: left >= JOYSTICK_CLEAR_PX };
+}
+
+/** The dock's year: the scene's own, from its date or its id. */
+export function dockYear(scene = {}) {
+  const m = /^(\d{4})/.exec(String(scene.target_date ?? scene.id ?? ''));
+  return m ? m[1] : '';
+}
 const HALF = 0.48, FULL = 0.82;
 /** RIGHT IN FRONT OF YOU: the building across the street, not only the one at your elbow. */
 export const FRONT_M = 100;
@@ -99,6 +116,22 @@ export function createNavigator({
   };
   const dateEl = $('nav-date');
   if (dateEl) dateEl.textContent = screenDate(scene.target_date);
+  // T-2619: the closed device always shows its lamp, its label, the year and the icon of
+  // the app it will open to (the last one opened; Home at first).
+  const dockYearEl = $('nav-dock-year'), dockAppEl = $('nav-dock-app');
+  if (dockYearEl) dockYearEl.textContent = dockYear(scene);
+  let dockApp = null;
+  const appButton = (id) => [...(rail?.querySelectorAll?.('.nav-app') ?? [])].find((b) => b.dataset?.app === id) ?? null;
+  const appLabel = (id) => appButton(id)?.getAttribute?.('aria-label') ?? '';
+  function paintDock(id = dockApp) {
+    dockApp = id;
+    const icon = id ? appButton(id)?.querySelector?.('svg') : null;
+    if (dockAppEl) {
+      dockAppEl.replaceChildren?.(...(icon ? [icon.cloneNode(true)] : []));
+      if (dockAppEl.dataset) dockAppEl.dataset.app = id ?? '';
+    }
+    paintGrip();
+  }
   const clock = clockWords(scene.lighting?.local_time);
   root.ownerDocument?.body?.classList.add('has-navigator');
 
@@ -111,6 +144,7 @@ export function createNavigator({
     rail, screens: root.querySelector('.nav-body'), codeEl: $('nav-code'), doc: root.ownerDocument,
     context: ctx, before: collapse ?? null, storage,
     onOpen: (id, by) => {
+      paintDock(id);
       if (by === 'quiet') return;
       if (level === 0) setLevel(1, { by, focus: false });
       if (by === 'hand') (id === 'home' ? title : root.querySelector(`#nav-app-${id}`))?.focus?.({ preventScroll: true });
@@ -141,10 +175,15 @@ export function createNavigator({
     }
     const open = level > 0;
     grip?.setAttribute('aria-expanded', String(open));
-    grip?.setAttribute('aria-label', open ? 'Lower the Navigator' : 'Open the Navigator');
+    paintGrip();
     collapse?.setAttribute('aria-label', open ? 'Collapse the Navigator' : 'Open the Navigator');
     if (collapse) collapse.title = open ? 'Collapse' : 'Open';
     return detent;
+  }
+  function paintGrip() {
+    const name = dockApp ? appLabel(dockApp) : '';
+    grip?.setAttribute('aria-label', level > 0 ? 'Lower the Navigator'
+      : name ? `Open the Navigator on ${name}` : 'Open the Navigator');
   }
   function setLevel(next, { by = 'code', focus = by === 'hand' } = {}) {
     const max = names().length - 1;
@@ -214,10 +253,11 @@ export function createNavigator({
     handle?.addEventListener('pointerup', endDrag);
     handle?.addEventListener('pointercancel', endDrag);
   }
-  // The head is also a tap target on a phone: a docked device opens from it.
+  // The head is also a tap target: a docked device (the phone's pill, the desktop's rail)
+  // opens from it to the last app it showed, at HALF on a phone (T-2619).
   head?.addEventListener('click', () => {
     if (suppressClick) { suppressClick = false; return; }
-    if (isPhone() && level === 0) setLevel(1, { by: 'hand' });
+    if (level === 0) setLevel(1, { by: 'hand' });
   });
 
   // ---- Home ----
@@ -297,6 +337,7 @@ export function createNavigator({
     snapshot() {
       return {
         detent: root.dataset.detent, level,
+        dock: { year: dockYearEl?.textContent ?? '', app: dockApp, label: grip?.getAttribute?.('aria-label') ?? '' },
         where: out.where?.textContent ?? '', whereDetail: out.whereDetail?.textContent ?? '',
         front: shown ? { id: shown.id, name: out.frontName?.textContent ?? '', distance: shown.distance } : null,
         jaunt: out.jaunt && !out.jaunt.hidden ? { step: out.jauntStep?.textContent ?? '', title: out.jauntTitle?.textContent ?? '' } : null,

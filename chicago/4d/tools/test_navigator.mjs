@@ -11,7 +11,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createTarget } from '../renderers/web/js/target.js';
 import { createWhere, polygonDistance, facingWords, clockWords, screenDate } from '../renderers/web/js/where.js';
-import { createNavigator, snapLevel, tapLevel, detentHeights, moveWords, DOCK_PX } from '../renderers/web/js/navigator.js';
+import { createNavigator, snapLevel, tapLevel, detentHeights, moveWords, DOCK_PX, dockPill, dockYear, JOYSTICK_CLEAR_PX, DOCK_PILL_PX } from '../renderers/web/js/navigator.js';
 import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/nav-rail.js';
 import { APPS } from '../renderers/web/js/apps/index.js';
 
@@ -502,6 +502,67 @@ for (const phone of [true, false]) {
   assert.equal(reads, 1, 'and not read again');
 }
 
+// ---- T-2619: the dock — closed, it shows the lamp, the label, the year and the icon of the
+// app it opens to; one tap (or a swipe up) opens that last app at HALF -------------------
+{
+  assert.equal(dockYear({ target_date: '1904-07-01' }), '1904');
+  assert.equal(dockYear({ id: '1835' }), '1835');
+  assert.equal(dockYear({}), '');
+  const pill = dockPill(390);
+  assert.equal(pill.width, DOCK_PILL_PX);
+  assert(pill.clear && pill.left >= JOYSTICK_CLEAR_PX && 390 - pill.right >= JOYSTICK_CLEAR_PX,
+    `on a 390 px phone the pill (${pill.left}–${pill.right}) keeps the joystick corner clear`);
+  for (const phone of [true, false]) {
+    const label = phone ? 'phone' : 'desktop';
+    const dom = miniDom();
+    const head = dom.byId.get('nav-head');
+    const add = (tag, id) => { const e = dom.doc.createElement(tag); e.id = id; head.append(e); return e; };
+    add('span', 'nav-dock-app'); add('span', 'nav-dock-year');
+    let t = 0;
+    const calls = [];
+    const nav = createNavigator({ root: dom.root, scene: { id: '1904', target_date: '1904-07-01' }, isPhone: () => phone,
+      viewportHeight: () => 844, now: () => t, storage: fakeStorage(), apps: APPS,
+      context: () => ({ scene: { id: '1904' }, hasPeople: false, actions: { map: () => calls.push('map') } }) });
+    await Promise.resolve();
+    let d = nav.snapshot().dock;
+    assert.equal(nav.level, 0, `${label}: it starts closed`);
+    assert.equal(d.year, '1904', `${label}: the closed device shows the year`);
+    assert.equal(d.app, 'home', `${label}: and the app it opens to, Home at first`);
+    assert.equal(d.label, 'Open the Navigator on Home');
+    // Open another screen, then close it: the dock now opens to that one.
+    assert.equal(await nav.select('jump'), true);
+    nav.dock();
+    d = nav.snapshot().dock;
+    assert.equal(d.app, 'jump', `${label}: the dock remembers the last app`);
+    assert.equal(d.label, 'Open the Navigator on Jump');
+    assert.equal(dom.byId.get('nav-dock-app').dataset.app, 'jump');
+    // A stub (Map) runs and docks the device; it is not an app the dock opens to.
+    await nav.select('map');
+    assert.deepEqual(calls, ['map']);
+    assert.equal(nav.level, 0);
+    assert.equal(nav.snapshot().dock.app, 'jump', `${label}: a stub leaves the dock on the last screen`);
+    // One tap on the closed device opens that last app — at HALF on a phone.
+    dom.byId.get(phone ? 'nav-grip' : 'nav-head').dispatch('click');
+    assert.equal(nav.detent, phone ? 'half' : 'open', `${label}: one tap opens it`);
+    assert.equal(nav.app, 'jump', `${label}: on the last app`);
+    assert.equal(dom.byId.get('nav-grip').getAttribute('aria-label'), 'Lower the Navigator');
+    nav.dock();
+    if (phone) {
+      // The pill's face (the head) opens it too, and so does a swipe up from it.
+      head.dispatch('click');
+      assert.equal(nav.detent, 'half', 'a tap on the pill opens it at HALF');
+      nav.dock();
+      t = 1000; head.dispatch('pointerdown', { pointerId: 7, clientY: 810 });
+      t = 1040; head.dispatch('pointermove', { pointerId: 7, clientY: 760 });
+      t = 1080; head.dispatch('pointermove', { pointerId: 7, clientY: 700 });
+      head.dispatch('pointerup', { pointerId: 7, clientY: 700 });
+      head.dispatch('click');
+      assert.equal(nav.detent, 'half', 'a swipe up from the dock opens it at HALF');
+      assert.equal(nav.app, 'jump');
+    }
+  }
+}
+
 // ---- the markup and the stylesheet ----------------------------------------------------
 {
   const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
@@ -520,6 +581,11 @@ for (const phone of [true, false]) {
   }
   assert.match(css, /\.28s var\(--ease-detent/, 'a height change takes 280 ms on the detent easing');
   assert.match(html, /<link rel="stylesheet" href="\.\/css\/navigator\.css">/);
+  // T-2619: the closed device's year and app icon, and the pill on a phone.
+  assert.match(section, /id="nav-dock-app" aria-hidden="true"/);
+  assert.match(section, /id="nav-dock-year" aria-hidden="true"/);
+  assert.match(css, /--dock-w: 136px/, 'the pill is as wide as navigator.js says');
+  assert.match(css, /\[data-detent="dock"\]:not\(\.is-dragging\) \{ left: calc\(50% - var\(--dock-w\) \/ 2\)/, 'the pill sits at the bottom centre');
   assert.match(html, /class="gate-code" aria-hidden="true"><span>NAVIGATOR MK II<\/span><span>SCR 01 · HOME<\/span>/,
     'the arrival device wears the screen code on its back face');
 }
