@@ -23,7 +23,7 @@
  */
 
 import * as THREE from 'three';
-import { spatialBatchAsync } from './spatial-batch.js';
+import { spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 import { vergeAt } from './street-verge.js';
 // T-2703: the road's geometry turns through these, not Math's, so every engine —
@@ -1802,9 +1802,10 @@ function weldNormals(geo) {
   nor.needsUpdate = true;
 }
 
-async function meshOf(surface, buf, confidence, aidUniform, grit) {
-  if (!buf.idx.length) return null;
-  const geo = geometryOf(surface, buf);
+async function meshOf(surface, buf, confidence, aidUniform, grit, pieces = null) {
+  // T-2710: or the surface's pieces read off the prebuild, batched as they are.
+  if (!pieces && !buf.idx.length) return null;
+  const geo = pieces ? null : geometryOf(surface, buf);
   const tones = DIRT_TONES[surface] ?? DIRT_TONES.worn_earth;
   const mat = new THREE.MeshStandardMaterial({
     transparent: true,
@@ -1940,8 +1941,8 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
   };
   confidence?.patch(mat);
   // T-2600: the road's 40 m cells are cut on the job pool; the batch is the same.
-  const mesh = await spatialBatchAsync(geo, mat);
-  geo.dispose();
+  const mesh = pieces ? batchPieces(pieces, mat) : await spatialBatchAsync(geo, mat);
+  geo?.dispose();
   mesh.name = `streets-${surface}`;
   mesh.receiveShadow = true;
   mesh.castShadow = false;
@@ -1999,17 +2000,160 @@ const ridgeAt = (level) => level !== 'light';
  * spatialPieces and the page's batches are made of exactly those pieces.
  */
 export function streetSurfaces({ terrain, records = [], detail = 'full' } = {}) {
-  const { buffers } = streetLayout(records, terrain).layOut(ridgeAt(detail));
-  return [...buffers].filter(([, buf]) => buf.idx.length)
-    .map(([surface, buf]) => ({ surface, geometry: geometryOf(surface, buf) }));
+  return streetLayoutOf({ terrain, records, detail }).surfaces;
 }
 
-export async function createStreets({ terrain, records = [], confidence = null, detail = 'full' } = {}) {
+/** T-2710. streetSurfaces with the layout's counters, which the prebuild carries as `stats`. */
+export function streetLayoutOf({ terrain, records = [], detail = 'full' } = {}) {
+  const { buffers, counts } = streetLayout(records, terrain).layOut(ridgeAt(detail));
+  return { counts, surfaces: [...buffers].filter(([, buf]) => buf.idx.length)
+    .map(([surface, buf]) => ({ surface, geometry: geometryOf(surface, buf) })) };
+}
+
+/* -------------------------------------------------------------------------- */
+/* THE STREETS, PREBUILT (T-2710)                                              */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * T-2710, piece 2 of T-2705. Laying the road over the heightfield and cutting its
+ * three surfaces into 40 m pieces was the streets layer's 1.4 s of boot at the
+ * phone profile, the same for every visitor. `tools/publish.sh` lays them in Node
+ * with this file's own streetLayoutOf and spatial-batch.js's spatialPieces
+ * (`tools/prebuild_layers.mjs --layer streets`, byte-equal to the page since
+ * T-2703) and writes `data/prebuilt/<year>/streets.json` with ONE BUFFER PER
+ * LAYOUT, `streets.light.bin.gz` (unridged) and `streets.full.bin.gz` (ridged),
+ * so a visitor downloads only the layout their detail draws. The page batches
+ * those pieces (`batchPieces`) and lays nothing at boot.
+ *
+ * WHEN IT IS USED. Only when every one of these holds; otherwise the road is laid
+ * in the browser exactly as before (the source tree always is):
+ *   - the page carries a build stamp and the prebuild was written by the same
+ *     publish (`index.build`), so the code that laid it is the page's own;
+ *   - it is this scene's (`index.year`);
+ *   - the records this page draws serialise (JSON.stringify) to the SHA-256 the
+ *     index carries for the records it was laid from;
+ *   - the heightfield it was laid over is the one this page's terrain hashed
+ *     (terrain.js § THE GROUND, PREBUILT hashes it when it is offered a ground;
+ *     a field nobody hashed is refused rather than trusted);
+ *   - the buffer is the length the index says;
+ *   - the visitor has not asked to save data and the connection is not 3G or slower.
+ * A CHANGE OF DETAIL across `light` re-lays the road in the browser as before:
+ * the other layout's buffer is never fetched, and the boot's is let go once
+ * batched. `tools/check_published.mjs` refuses a published prebuild whose inputs
+ * have moved, so the page's checks are the second line.
+ */
+export const PREBUILT_STREETS_FORMAT = 2;
+
+/** Which of the prebuild's two buffers `detail` draws. */
+export const streetsLayoutAt = (detail) => (ridgeAt(detail) ? 'full' : 'light');
+
+/**
+ * Fetch `data/prebuilt/<year>/streets.json` and the buffer for `detail`'s layout,
+ * or say why not. Started by main.js before the scene phase, so the download runs
+ * under it. Resolves `{ index, bin, layout }` or `{ why }`; it never rejects.
+ */
+export async function fetchPrebuiltStreets({ dataBase, year, build, detail = 'full' }) {
+  if (!dataBase || !year) return { why: 'no scene year to fetch streets for' };
+  if (!build) return { why: 'this page carries no build stamp, so it lays its own streets (the source tree)' };
+  const link = globalThis.navigator?.connection;
+  if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
+    return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection lays its own streets` };
+  }
+  const base = new URL(`prebuilt/${year}/`, dataBase);
+  const layout = streetsLayoutAt(detail);
+  try {
+    const res = await fetch(new URL('streets.json', base));
+    if (!res.ok) return { why: `no prebuilt streets (${res.status})` };
+    const index = await res.json();
+    if (index.format !== PREBUILT_STREETS_FORMAT) {
+      return { why: `prebuilt streets format ${index.format}, this page reads ${PREBUILT_STREETS_FORMAT}` };
+    }
+    if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
+    const want = index.bins?.[layout];
+    if (!want) return { why: `the prebuild carries no ${layout} layout` };
+    const binRes = await fetch(new URL(want.bin, base));
+    if (!binRes.ok) return { why: `no prebuilt ${layout} streets buffer (${binRes.status})` };
+    let bin = await binRes.arrayBuffer();
+    // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
+    // Content-Encoding has inflated the outer pass, so read the magic bytes.
+    const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));
+    if (index.encoding === 'gzip' && head[0] === 0x1f && head[1] === 0x8b) {
+      if (typeof DecompressionStream !== 'function') return { why: 'this browser cannot inflate the prebuilt streets' };
+      const { runJob } = await import('./jobs/pool.js');
+      const { bytes } = await runJob('inflateGzip', { bytes: new Uint8Array(bin), passes: index.passes ?? 1 },
+        { transfer: [bin] });
+      bin = bytes.byteOffset === 0 && bytes.byteLength === bytes.buffer.byteLength
+        ? bytes.buffer : bytes.slice().buffer;
+    }
+    if (bin.byteLength !== want.bytes) {
+      return { why: `prebuilt ${layout} streets buffer is ${bin.byteLength} bytes, its index says ${want.bytes}` };
+    }
+    return { index, bin, layout };
+  } catch (err) {
+    return { why: `prebuilt streets did not load: ${err.message}` };
+  }
+}
+
+async function sha256Hex(bytes) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+  return Array.from(digest, (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/** Why `offered` may not stand for this page's streets at `layout`, or null when it may. */
+async function prebuiltStreetsRefusal(offered, { sceneId, records, terrain, layout }) {
+  const { index } = offered;
+  if (!index) return offered.why ?? 'none offered';
+  if (String(index.year) !== String(sceneId)) return `prebuilt for ${index.year}, this scene is ${sceneId}`;
+  if (offered.layout !== layout) return `prebuilt ${offered.layout} layout fetched, this page lays ${layout}`;
+  if (!globalThis.crypto?.subtle) return 'this page cannot hash what it read (no SubtleCrypto)';
+  if (await sha256Hex(new TextEncoder().encode(JSON.stringify(records))) !== index.recordsSha256) {
+    return 'laid from other street records';
+  }
+  const field = terrain?.prebuilt?.field;
+  if (!field) return 'the heightfield was not hashed, so there is nothing to hold the road to';
+  for (const f of index.inputs.files.filter((x) => /\/heightfield\.[^/]+$/.test(x.path))) {
+    if (field[f.path] !== f.sha256) return `laid over another heightfield (${f.path})`;
+  }
+  return null;
+}
+
+/** The prebuild's surfaces at `layout`, each its pieces' geometries over the buffer. */
+function prebuiltStreetPieces(index, bin, layout) {
+  const view = (type, offset, byteLength) => new globalThis[type](bin, offset,
+    byteLength / globalThis[type].BYTES_PER_ELEMENT);
+  return index.tiles.filter((t) => t.ridged === (layout === 'full')).map((t) => ({
+    surface: t.name.replace(/^streets-/, ''),
+    pieces: t.pieces.map(([arrays, ix]) => {
+      const geo = new THREE.BufferGeometry();
+      if (ix) geo.setIndex(new THREE.BufferAttribute(view(...ix), 1));
+      t.attributes.forEach((a, i) => {
+        geo.setAttribute(a.name, new THREE.BufferAttribute(view(a.type, ...arrays[i]), a.itemSize, a.normalized));
+      });
+      return geo;
+    }),
+  }));
+}
+
+export async function createStreets({ terrain, records = [], confidence = null, detail = 'full',
+  /** T-2710: `{ index, bin, layout }` from `fetchPrebuiltStreets` (or a promise of
+   *  it), batched in place of laying the road when it is current (THE STREETS, PREBUILT). */
+  prebuilt = null, sceneId = null } = {}) {
   const group = new THREE.Group();
   group.name = 'streets';
   const { prepared, layOut } = streetLayout(records, terrain);
   let ridge = ridgeAt(detail);
-  const first = layOut(ridge);
+  const prebuiltStreets = { used: false, why: prebuilt ? null : 'none offered' };
+  let replay = null;
+  if (prebuilt) {
+    const offered = await prebuilt;
+    prebuiltStreets.why = await prebuiltStreetsRefusal(offered,
+      { sceneId, records, terrain, layout: streetsLayoutAt(detail) });
+    if (!prebuiltStreets.why) replay = offered;
+  }
+  const first = replay
+    ? { buffers: new Map(prebuiltStreetPieces(replay.index, replay.bin, replay.layout)
+      .map(({ surface, pieces }) => [surface, { pieces }])), counts: { ...replay.index.stats[replay.layout] } }
+    : layOut(ridge);
   const buffers = first.buffers;
   const stats = first.counts;
   const resources = [];
@@ -2021,12 +2165,20 @@ export async function createStreets({ terrain, records = [], confidence = null, 
   // T-2600: every surface is partitioned on the job pool at once, and joins the
   // group in the order it was laid, so the layer is the same one.
   const surfaces = [...buffers];
-  const builds = await Promise.all(surfaces.map(([surface, buf]) => meshOf(surface, buf, confidence, aidUniform, grit)));
+  const builds = await Promise.all(surfaces.map(([surface, buf]) => meshOf(surface, buf, confidence, aidUniform, grit,
+    buf.pieces ?? null)));
   builds.forEach((built, i) => {
     if (!built) return;
     group.add(built.mesh);
     resources.push({ ...built, surface: surfaces[i][0] });
   });
+  if (replay) {
+    // The batches hold copies; the resolved promise must not keep the buffer alive.
+    Object.assign(prebuiltStreets, { used: true, why: null, build: replay.index.build, layout: replay.layout,
+      bytes: replay.index.bins[replay.layout].bytes, surfaces: resources.length });
+    replay.bin = null;
+    replay.index = null;
+  }
   // Which change of detail is the latest; an older one still on the pool when a
   // newer one is asked for is dropped when it lands rather than drawn.
   let detailAsked = 0;
@@ -2134,6 +2286,8 @@ export async function createStreets({ terrain, records = [], confidence = null, 
     get legibilityAid() { return aidUniform.value; },
     /** Whether the panels are laid on the ridge at the current detail. */
     get ridged() { return ridge; },
+    /** T-2710: whether the boot's road came prebuilt, and if not, why not. */
+    prebuilt: prebuiltStreets,
     /**
      * A change of scene detail, applied in place: the same materials, new
      * geometry. Resolves whether anything was rebuilt — only a move across
