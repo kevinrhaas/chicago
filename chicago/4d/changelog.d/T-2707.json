@@ -1,0 +1,9 @@
+{
+  "title": "The ground map for shader-drawn grass is kept up in the background",
+  "kind": "improvement",
+  "items": [
+    "The near grass is moving onto the graphics card, which reads a small map of the ground around you: which plant community, water, short turf, floors and trodden verge, and how high it stands.",
+    "That map now follows you a strip at a time, built in the background, instead of being redrawn whole on the main thread every 8 m.",
+    "On a phone-speed test it costs about 0.7 ms of main-thread time per metre walked, down from about 11, and matches the whole-built map exactly at every critic station."
+  ]
+}
