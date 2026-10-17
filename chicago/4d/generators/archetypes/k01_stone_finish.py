@@ -129,7 +129,7 @@ def validate(f, width):
     if not .8<=f['deck_drop_m']<=2 or not 0<=f['stone_return_m']<=8:
         raise ValueError('stone_finish: concealed deck and side stone return outside bounds')
     d=f['diaper']
-    if set(d)-{'units','gap_m','unit_width_m'}!={'bottom_m','top_m','pitch_m','proud_m','stagger','relief_m'} or not (
+    if set(d)-{'units','gap_m','unit_width_m','row_m'}!={'bottom_m','top_m','pitch_m','proud_m','stagger','relief_m'} or not (
             d['bottom_m']<d['top_m'] and .12<=d['pitch_m']<=.6 and .02<=d['proud_m']<=.15 and
             0<=d['stagger']<=.5 and .008<=d['relief_m'][0]<=d['relief_m'][1]<=.046):
         raise ValueError('stone_finish.diaper: measured band, staggered rows and bounded rock relief')
@@ -140,6 +140,10 @@ def validate(f, width):
         raise ValueError('stone_finish.diaper: units rock_faced or diamond_point, a gap of at most 0.5 m')
     if d.get('units')=='diamond_point' and not d['pitch_m']<=d.get('unit_width_m',d['pitch_m'])<2*d['pitch_m']-.04:
         raise ValueError('stone_finish.diaper.unit_width_m: a point at least one row deep, its row neighbours apart')
+    # T-2714: a diamond-point band may rise in rows deeper than its units are pitched along
+    # them (row_m), as the 1888 Keith plate lays its points closer in a row than a row is deep
+    if 'row_m' in d and (d.get('units')!='diamond_point' or not d['pitch_m']<=d['row_m']<=.6):
+        raise ValueError('stone_finish.diaper.row_m: diamond points only, a row at least one pitch deep')
     if d.get('units')!='diamond_point' and (d['pitch_m']<.2 or 'gap_m' in d or 'unit_width_m' in d):
         raise ValueError('stone_finish.diaper: rock-faced units are at least 0.2 m and lie on the head band')
     c=f['colonnettes']
@@ -270,7 +274,7 @@ def dress(a):
                           (cr*.42,neck+.3),(cr*.42,neck+.33),(cr,neck+.34),(cr,neck+.38),(cr*.5,cap_top-.005),
                           (.02,cap_top)],20),'vent_galvanized',side)
     di=f['diaper']; y0,y1,pitch=di['bottom_m'],di['top_m'],di['pitch_m']
-    rows=max(1,round((y1-y0)/pitch)); cols=max(1,round((W-.5)/pitch))
+    rows=max(1,round((y1-y0)/di.get('row_m',pitch))); cols=max(1,round((W-.5)/pitch))
     step=(W-.5)/cols
     rng=random.Random(seed^0xD1A9)
     gap=di.get('gap_m',0.)
