@@ -88,11 +88,18 @@ export async function spatialPiecesAsync(geometry, cells = {}) {
   }
 }
 
-function batchOf(geometry, pieces, material) {
-  const index = geometry.getIndex();
-  const count = index ? index.count : geometry.getAttribute('position').count;
+/**
+ * The batch of a partition's pieces, in their order. The pieces carry every
+ * triangle of the source exactly once, so the source's index (or position) count
+ * is theirs summed, and a partition read back from a file (T-2692's prebuilt
+ * ground) batches exactly as one cut on this page does.
+ */
+export function batchPieces(pieces, material) {
+  const indexed = !!pieces[0]?.getIndex();
+  const count = pieces.reduce((sum, p) => sum
+    + (indexed ? p.getIndex().count : p.getAttribute('position').count), 0);
   const vertices = pieces.reduce((sum, p) => sum + p.getAttribute('position').count, 0);
-  const batch = new THREE.BatchedMesh(pieces.length, vertices, index ? count : 0, material);
+  const batch = new THREE.BatchedMesh(pieces.length, vertices, indexed ? count : 0, material);
   for (const piece of pieces) {
     batch.addInstance(batch.addGeometry(piece));
     piece.dispose();
@@ -104,10 +111,10 @@ function batchOf(geometry, pieces, material) {
 }
 
 export function spatialBatch(geometry, material) {
-  return batchOf(geometry, spatialPieces(geometry), material);
+  return batchPieces(spatialPieces(geometry), material);
 }
 
 /** `spatialBatch` with its partition on the job pool; the same batch, resolved. */
 export async function spatialBatchAsync(geometry, material) {
-  return batchOf(geometry, await spatialPiecesAsync(geometry), material);
+  return batchPieces(await spatialPiecesAsync(geometry), material);
 }
