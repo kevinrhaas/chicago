@@ -10290,7 +10290,14 @@ for (const [label, viewport, touch] of [
       desktopHelpShown: getComputedStyle(document.getElementById('control-help-desktop')).display !== 'none',
       touchHelpShown: getComputedStyle(document.getElementById('control-help-touch')).display !== 'none',
       overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
+      lookTag: !document.getElementById('look-tag').hidden,
+      locked: !!document.pointerLockElement,
     }));
+    // T-2614: CLICK TO ENGAGE LOOK is the desktop's own, shown in the town until the
+    // first click on the scene takes the pointer; a touch device never shows it.
+    check(`${label}: CLICK TO ENGAGE LOOK shows only on a pointer-lock device, before lock`,
+      touch ? !chrome.lookTag : chrome.lookTag && !chrome.locked,
+      `look tag shown ${chrome.lookTag}, pointer locked ${chrome.locked}`);
     check(`${label}: tap-to-start reveals the walkthrough`,
       chrome.gateHidden && chrome.hudShown,
       `gate hidden ${chrome.gateHidden}, hud shown ${chrome.hudShown}`);
