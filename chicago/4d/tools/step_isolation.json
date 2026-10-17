@@ -2800,6 +2800,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_guide.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_haze_reach.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5510,6 +5514,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_guide_glossary.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_goto_cleanup.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5543,6 +5551,10 @@
       "wrote_ignored": []
     },
     "tools/test_merge_ready.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_guide.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

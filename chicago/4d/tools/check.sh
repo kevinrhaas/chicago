@@ -183,6 +183,12 @@ step "The frame governor holds a moving frame steady and leaves a still one alon
 # T-2651: Move — one picker and one slider.
 step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider whose range and named speeds follow the mode (T-2651)" \
   node tools/test_nav_move.mjs
+# T-2661: Guide's controls sheet.
+step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
+  node tools/test_nav_guide.mjs
+# T-2662: the Guide's glossary and questions, and first appearances explained on tap.
+step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
+  node tools/test_guide_glossary.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
@@ -7234,6 +7240,17 @@ selftest "…and each planted fault (no grade, unsourced Attested, too long, a s
 # lead over three sentences or sixty words; it also holds the card's lint to the gate's above.
 step "every building's card opens with its address once and no id, path or snake_case (T-2636)" \
   node tools/test_fallback_summary.mjs
+
+# T-2662 (prepared ahead of its claim). The Guide's glossary and FAQ, data/guide/: the seven
+# locked terms of design doc section 03 with one-line meanings, and "Is this real?" and "What
+# does Reconstructed mean?". Exactly the locked terms, in order; a meaning at most 15 words, an
+# answer at most 60, a sentence at most 20, reading grade 9 or lower; no lower-case grade word or
+# retired term; the summary records' lint; and every claim names the files that make it true.
+step "the Guide's glossary and FAQ use the locked terms exactly, within their lengths and grade 9" \
+  python3 tools/check_guide.py --check
+
+selftest "…and each planted fault (a missing term, a long answer, a retired word, a claim resting on nothing) is refused" \
+  python3 tools/check_guide.py --self-test
 
 # T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
 # generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's

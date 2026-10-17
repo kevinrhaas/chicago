@@ -1583,48 +1583,13 @@ ol.cites ul.cite-lim-not li { opacity: .95; }
    css/drawer.css; this file keeps the base pieces the sections share
    (.field, .check-field, kbd, .keys, .legend-*). */
 
-.control-help {
-  pointer-events: auto;
-  position: absolute;
-  top: 54px;
-  right: 0;
-  width: min(330px, calc(100vw - 24px));
-  padding: 14px 14px 12px;
-  border: 1px solid var(--edge);
-  border-radius: var(--r);
-  background: var(--panel-solid);
-  color: var(--ink);
-  box-shadow: var(--shadow);
-  font-size: 12px;
-}
-.control-help[hidden], .control-help-grid[hidden] { display: none; }
-.control-help > strong { display: block; margin: 0 28px 10px 0; font-size: 14px; }
-.control-help-close {
-  position: absolute; top: 7px; right: 8px;
-  width: 28px; height: 28px; border: 0; border-radius: 8px;
-  background: transparent; color: var(--ink-dim); font-size: 18px; cursor: pointer;
-}
-.control-help-close:hover { color: var(--ink); background: rgb(255 255 255 / 8%); }
-.control-help-grid {
-  display: grid;
-  grid-template-columns: auto 1fr auto 1fr;
-  align-items: center;
-  gap: 7px 9px;
-}
-.control-help-grid kbd { margin: 0; white-space: nowrap; }
-.control-help-gotit, .setting-button {
+.setting-button {
   border: 1px solid var(--edge); border-radius: 8px;
   background: rgb(255 255 255 / 8%); color: var(--ink);
   font: inherit; cursor: pointer;
+  padding: 5px 9px;
 }
-.control-help-gotit { width: 100%; margin-top: 12px; padding: 7px 10px; }
-.setting-button { padding: 5px 9px; }
-.control-help-gotit:hover, .setting-button:hover { background: rgb(255 255 255 / 14%); }
-
-@media (max-width: 520px) {
-  .control-help { top: 92px; right: 0; width: min(310px, calc(100vw - 16px)); }
-  .control-help-grid { grid-template-columns: auto 1fr; }
-}
+.setting-button:hover { background: rgb(255 255 255 / 14%); }
 
 .keys { display: grid; grid-template-columns: auto 1fr; gap: 7px 13px; margin: 0; }
 /* [hidden] is display:none at UA-stylesheet strength; any display rule on the
@@ -2194,3 +2159,11 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-stops li { padding: 10px 0; }
 .jaunt-evidence { border-left: 2px solid var(--brass); padding-left: 10px; }
 .jaunt-window-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+/* T-2662: a locked term's first appearance, tappable for its one plain line. */
+.locked-term { all: unset; cursor: help; color: inherit; border-bottom: 1px dotted currentColor; }
+.locked-term:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.term-tip { position: fixed; z-index: 60; pointer-events: auto; padding: 10px 12px; font-size: 13px; line-height: 1.4;
+  color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 10px; box-shadow: var(--shadow); }
+.term-tip[hidden] { display: none; }
+.term-tip strong { margin-right: 4px; }

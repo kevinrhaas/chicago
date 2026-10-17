@@ -10464,9 +10464,8 @@ for (const [label, viewport, touch] of [
     const chrome = await page.evaluate(() => ({
       gateHidden: document.getElementById('gate').hasAttribute('hidden'),
       hudShown: !document.getElementById('hud').hasAttribute('hidden'),
-      controlHelpShown: !document.getElementById('control-help').hasAttribute('hidden'),
-      desktopHelpShown: getComputedStyle(document.getElementById('control-help-desktop')).display !== 'none',
-      touchHelpShown: getComputedStyle(document.getElementById('control-help-touch')).display !== 'none',
+      // T-2661: the control-help popover is gone; Guide in the Navigator has the controls.
+      controlHelpGone: document.getElementById('control-help') === null,
       overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       lookTag: !document.getElementById('look-tag').hidden,
       locked: !!document.pointerLockElement,
@@ -10479,20 +10478,37 @@ for (const [label, viewport, touch] of [
     check(`${label}: tap-to-start reveals the walkthrough`,
       chrome.gateHidden && chrome.hudShown,
       `gate hidden ${chrome.gateHidden}, hud shown ${chrome.hudShown}`);
-    check(`${label}: first entry shows the navigation guide for the active input mode`,
-      chrome.controlHelpShown
-      && (touch ? chrome.touchHelpShown && !chrome.desktopHelpShown
-        : chrome.desktopHelpShown && !chrome.touchHelpShown),
-      JSON.stringify(chrome));
+    // ---- T-2661: Guide's controls sheet replaces the control-help popover ----------
+    // First entry puts no popover over the town; Guide in the Navigator shows the
+    // controls for the input in use — touch on the phone, keyboard on the laptop — read
+    // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
-    await timedChrome('#control-help-gotit');
-    const controlHelpDismissed = await page.evaluate(() => ({
-      hidden: document.getElementById('control-help').hasAttribute('hidden'),
-      stored: localStorage.getItem('chicago4d.controlHelpDismissed'),
-    }));
-    check(`${label}: the navigation guide dismisses and remembers the choice`,
-      controlHelpDismissed.hidden && controlHelpDismissed.stored === '1',
-      JSON.stringify(controlHelpDismissed));
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const guide = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const sheet = document.querySelector('#nav-app-guide #guide-controls');
+      const list = sheet?.querySelector('dl');
+      const box = sheet?.getBoundingClientRect();
+      const out = { gone: document.getElementById('control-help') === null, app: api.navigator.app, detent: api.navigator.detent,
+        backend: api.controlBackend, scheme: sheet?.dataset.scheme ?? null, rows: list?.querySelectorAll('dt').length ?? 0,
+        keys: list?.querySelectorAll('kbd').length ?? 0, text: (sheet?.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 160),
+        inView: !!box && box.width > 0 && box.left >= -1 && box.right <= innerWidth + 1,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(sheet?.textContent ?? '') };
+      // Put the device back as it was found: Home its app, docked. The dock remembers its
+      // last app, and T-2619's checks in part 13 expect it to open on Home.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: first entry puts no control-help popover over the town; Guide's sheet shows the ${touch ? 'touch' : 'keyboard'} controls in use (T-2661)`,
+      chrome.controlHelpGone && guide.gone && guide.app === 'guide' && guide.detent !== 'dock' && guide.detent !== 'rail'
+      && guide.scheme === (touch ? 'touch' : 'keyboard') && guide.rows >= 6
+      && (touch ? guide.keys === 0 && /left thumb/i.test(guide.text) : guide.keys >= 10 && guide.backend === 'pointerlock')
+      && guide.inView && guide.overflow && !guide.snake,
+      JSON.stringify({ chrome, guide }));
+    // ---- end T-2661 (part 6)
 
     // --- the confidence menu takes its own clicks (T-0108) -------------------
     //
@@ -13317,15 +13333,65 @@ for (const [label, viewport, touch] of [
     // control junction must have a button; a real search must narrow both kinds.
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
+    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator.
     await clickChrome('#s-show-control-help');
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'guide'
+      && !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
     const reopenedGuide = await page.evaluate(() => ({
-      shown: !document.getElementById('control-help').hasAttribute('hidden'),
+      app: window.__chicago4d.navigator.app,
+      detent: window.__chicago4d.navigator.detent,
+      scheme: document.querySelector('#nav-app-guide #guide-controls')?.dataset.scheme ?? null,
+      backend: window.__chicago4d.controlBackend,
+      label: document.getElementById('s-show-control-help')?.textContent.trim(),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
     }));
-    check(`${label}: Settings can reopen the dismissed navigation guide`,
-      reopenedGuide.shown && reopenedGuide.panelHidden,
+    check(`${label}: Settings' Show the controls opens Guide's controls sheet in the Navigator (T-2661)`,
+      reopenedGuide.app === 'guide' && reopenedGuide.detent !== 'dock' && reopenedGuide.detent !== 'rail'
+      // By now a key the smoke pressed may have handed even the phone to the keyboard:
+      // the sheet follows the controls that are live, so it is read against those.
+      && reopenedGuide.scheme === (reopenedGuide.backend === 'touch' ? 'touch' : 'keyboard')
+      && reopenedGuide.label === 'Show the controls' && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await clickChrome('#control-help-close');
+    // Back as it was found: Home, docked (T-2619's dock opens on its last app).
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+    // ---- end T-2661 (part 12)
+    // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
+    // questions answer in 60 words or fewer, and a locked term's first appearance (the
+    // Navigator Home's Confidence view) shows its line on tap.
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
+      || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
+      null, { timeout: 15_000, polling: 100 }).catch(() => {});
+    const guideWords = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const g = document.querySelector('#nav-app-guide #guide-glossary');
+      const faq = [...document.querySelectorAll('#nav-app-guide #guide-faq details')];
+      const out = {
+        terms: [...(g?.querySelectorAll('dt') ?? [])].map((d) => d.textContent.trim()),
+        lines: [...(g?.querySelectorAll('dd') ?? [])].map((d) => d.textContent.trim()).filter(Boolean).length,
+        questions: faq.map((d) => d.querySelector('summary')?.textContent.trim()),
+        longest: Math.max(0, ...faq.map((d) => (d.querySelector('p')?.textContent.trim().split(/\s+/) ?? []).length)),
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(document.getElementById('nav-app-guide')?.textContent ?? ''),
+      };
+      api.navigator.select('home');
+      const term = document.querySelector('#nav-home .locked-term');
+      term?.click();
+      const tip = document.getElementById('term-tip');
+      const box = tip?.getBoundingClientRect();
+      out.tap = { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden, text: tip?.textContent.trim() ?? '',
+        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight };
+      term?.click();
+      out.tap.away = !tip || tip.hidden;
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, and a term's first appearance explains itself on tap (T-2662)`,
+      guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
+      && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
+      && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
+      && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
+      JSON.stringify(guideWords));
+    // ---- end T-2662
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
@@ -17599,6 +17665,46 @@ for (const [label, viewport, touch] of [
           && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
           && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
           JSON.stringify(inspectRecord).slice(0, 700));
+        // >>> T-2640 (QA-10): Show me on each Look for item of Glessner House turns the camera to
+        // the record's own view of the feature — its bearing and pitch, the house down the
+        // crosshair — and the outline shows for 2 s. Never aimed where the record names no camera.
+        const showMe = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          a.pick(id);
+          await a.navigator.select('inspect');
+          for (let i = 0; i < 100 && !document.querySelector('#nav-app-inspect .insp-showme'); i++) await new Promise((r) => setTimeout(r, 100));
+          const items = [...document.querySelectorAll('#nav-app-inspect .insp-look-item')];
+          const summaries = await a.inspectSummaries();
+          const look = summaries?.summaries?.[id]?.lookFor ?? [];
+          const out = { items: items.length, buttons: document.querySelectorAll('#nav-app-inspect .insp-showme').length, turns: [] };
+          a.popup.close();
+          for (let i = 0; i < items.length; i++) {
+            const btn = items[i].querySelector('.insp-showme');
+            if (!btn) continue;
+            const before = a.showMe.last?.at ?? -1;
+            btn.click();
+            for (let k = 0; k < 80 && (a.showMe.last?.at ?? -1) === before; k++) await new Promise((r) => setTimeout(r, 100));
+            // The outline is drawn on the frame after the camera lands (two animation frames), and
+            // a frame can take seconds on a loaded runner: wait for it, up to about 5 s.
+            for (let k = 0; k < 50 && document.getElementById('show-me-outline').hidden; k++) await new Promise((r) => setTimeout(r, 100));
+            a.target.invalidate();
+            const t = a.target.current(150);
+            const outline = document.getElementById('show-me-outline');
+            const want = look[i]?.camera ?? null;
+            const yaw = ((a.player.bearingDeg % 360) + 360) % 360;
+            out.turns.push({ feature: items[i].dataset.feature, want, yaw: +yaw.toFixed(1), pitch: +a.player.pitchDeg.toFixed(1),
+              aimed: t?.id ?? null, outline: !outline.hidden, pulsing: outline.classList.contains('is-pulsing') });
+          }
+          a.navigator.dock();
+          return out;
+        }, 'glessner_house');
+        const near = (x, y) => Math.abs(((x - y + 540) % 360) - 180) <= 2;
+        check(`${label}: Show me turns the camera to each Look for feature of Glessner House, and the outline shows (T-2640)`,
+          showMe.items === 3 && showMe.buttons === 3 && showMe.turns.length === 3
+          && showMe.turns.every((t) => t.want && near(t.yaw, t.want.yaw) && Math.abs(t.pitch - t.want.pitch) <= 2
+            && t.aimed === 'glessner_house' && t.outline),
+          JSON.stringify(showMe));
+        // <<< T-2640
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
