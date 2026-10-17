@@ -652,6 +652,95 @@ for (const phone of [true, false]) {
   }
 }
 
+// ---- T-2640: Show me — the camera turns to a Look for feature, only along a camera the
+// building's summary record names; 900 ms ease-in-out, a cut with reduced motion ----------------
+{
+  const sm = await import('../renderers/web/js/show-me.js');
+  const glessner = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/summaries/glessner_house.json'), 'utf8'));
+  // A square house 20 m a side, centred at (100, 50).
+  const house = [[90, 40], [110, 40], [110, 60], [90, 60]];
+  assert.equal(sm.cameraOf({ text: 'x' }), null, 'no camera named, nothing to aim at');
+  assert.equal(sm.cameraOf({ camera: { yaw: 10 } }), null);
+  assert.deepEqual(sm.cameraOf({ camera: { yaw: -90, pitch: 5 } }), { yaw: 270, pitch: 5 });
+  assert.equal(sm.plan(glessner.lookFor[0], null), null, 'no footprint, no stand: never a guess');
+  for (const item of glessner.lookFor) {
+    const p = sm.plan(item, house);
+    assert(p, `${item.feature}: the record's camera gives a stand`);
+    // The stand looks along the record's bearing through the house's centre.
+    const back = Math.atan2(100 - p.e, 50 - p.n) * 180 / Math.PI;
+    assert(Math.abs(sm.turnBy(back, item.camera.yaw)) < 1e-6, `${item.feature}: faces the house along yaw ${item.camera.yaw}`);
+    assert.equal(p.pitch, item.camera.pitch);
+    assert(Math.hypot(p.e - 100, p.n - 50) >= 10 + sm.STAND_CLEAR_M - 0.5 && !sm.inside([p.e, p.n], house), 'and stands clear of its wall');
+  }
+  // A stand inside another building steps back; with nowhere clear, Show me is refused.
+  const blockedNear = (e, n) => Math.hypot(e - 100, n - 50) < 40;
+  assert(Math.hypot(...(({ e, n }) => [e - 100, n - 50])(sm.plan(glessner.lookFor[1], house, { blocked: blockedNear }))) >= 40);
+  assert.equal(sm.plan(glessner.lookFor[1], house, { blocked: () => true }), null);
+  // Another building on the line of sight hides the feature from every stand behind it: refused.
+  const across = [[95, 72], [105, 72], [105, 80], [95, 80]]; // north of the house, across the street
+  assert.equal(sm.plan(glessner.lookFor[1], house, { sighted: (e, n, we, wn) => !sm.crosses([e, n], [we, wn], [across]) }), null);
+  assert.equal(sm.crosses([100, 100], [100, 60], [across]), true);
+  assert.equal(sm.crosses([120, 100], [120, 60], [across]), false);
+  const aside = sm.plan(glessner.lookFor[1], house, { sighted: (e, n, we, wn) => !sm.crosses([e, n], [we, wn], [[[130, 72], [140, 72], [140, 80], [130, 80]]]) });
+  assert(aside && aside.n < 80, 'a building off the line changes nothing');
+  assert.equal(sm.plan(glessner.lookFor[1], house, { sighted: () => false }), null, 'no spot that sees it: refused, not guessed');
+  // A house round a courtyard has its centre outside its walls: the stand is still outside
+  // the far wall, not in the yard.
+  const ring = [[0, 0], [40, 0], [40, 40], [0, 40], [0, 30], [30, 30], [30, 10], [0, 10]]; // a C open to the west
+  const cp = sm.plan({ feature: 'x', camera: { yaw: 270, pitch: 5 } }, ring);
+  assert(cp.e > 40 && !sm.inside([cp.e, cp.n], ring), `the stand clears the far (east) wall (${cp.e.toFixed(1)}, ${cp.n.toFixed(1)})`);
+  assert.equal(sm.turnBy(350, 10), 20); assert.equal(sm.turnBy(10, 350), -20);
+  assert.equal(sm.easeInOut(0), 0); assert.equal(sm.easeInOut(1), 1); assert(Math.abs(sm.easeInOut(0.5) - 0.5) < 1e-9);
+
+  for (const reduced of [false, true]) {
+    let clock = 0;
+    const frames = [], timers = [];
+    let at = { e: 0, n: 0, yaw: 300, pitch: 0, flying: true };
+    const placed = [], outlines = [];
+    let landed = 0;
+    const run = sm.createShowMe({ pose: () => at, place: (q) => { placed.push(q); at = { ...at, ...q }; },
+      land: () => { landed++; at.flying = false; }, outline: (o) => outlines.push(o), reduced: () => reduced,
+      frame: (fn) => frames.push(fn), wait: (fn, ms) => timers.push({ fn, ms }), now: () => clock });
+    const target = sm.plan(glessner.lookFor[1], house);
+    const done = run.show(target);
+    assert.equal(landed, 1, 'flying, it comes down to the viewpoint first');
+    if (!reduced) {
+      while (frames.length) { clock += 100; frames.shift()(); }
+      assert(placed.length >= 9, 'a glide over about 900 ms');
+      assert.equal(clock >= sm.TURN_MS, true);
+    } else {
+      assert.equal(placed.length, 1, 'reduced motion: one cut, no glide');
+    }
+    assert.equal(await done, true);
+    assert.deepEqual([at.e, at.n, at.yaw, at.pitch], [target.e, target.n, target.yaw, target.pitch], 'and it ends exactly on the record’s view');
+    assert.deepEqual(outlines.at(-1), { on: true, pulse: !reduced }, reduced ? 'the outline shows, still' : 'the outline pulses');
+    assert.equal(timers.at(-1).ms, sm.PULSE_MS, 'for 2 s');
+    timers.at(-1).fn();
+    assert.deepEqual(outlines.at(-1), { on: false, pulse: false });
+    assert.equal(run.last.cut, reduced);
+  }
+  assert.equal(await sm.createShowMe({ pose: () => ({}), place: () => {} }).show(null), false, 'no plan, nothing moves');
+  // The 2 s count from when the outline is drawn (a slow frame must not find it already
+  // off), and a new Show me puts the last outline away first.
+  {
+    let drawnNow = null;
+    const seen = [], waits = [];
+    const late = sm.createShowMe({ pose: () => ({ e: 0, n: 0, yaw: 0, pitch: 0 }), place: () => {}, reduced: () => true,
+      outline: (o) => { seen.push(o); return o.on ? new Promise((r) => { drawnNow = r; }) : undefined; },
+      wait: (fn, ms) => waits.push({ fn, ms }) });
+    await late.show(sm.plan(glessner.lookFor[0], house));
+    assert.deepEqual(seen[0], { on: false, pulse: false }, 'the last outline is put away first');
+    await Promise.resolve();
+    assert.equal(waits.length, 0, 'no 2 s countdown before the outline is drawn');
+    drawnNow(); await Promise.resolve(); await Promise.resolve();
+    assert.equal(waits.length, 1); assert.equal(waits[0].ms, sm.PULSE_MS, 'it starts when the outline is drawn');
+  }
+
+  // Inspect draws Show me only on Look for items whose record names a camera.
+  const view = fs.readFileSync(path.join(ROOT, 'renderers/web/js/apps/inspect-view.js'), 'utf8');
+  assert.match(view, /if \(cameraOf\(l\) && ctx\.actions\?\.showMe\)/);
+}
+
 // ---- T-2654: the Map app — the whole field in the device, tap a building to preview, Go;
 // the active Jaunt dotted; a legend in the Confidence view colours -----------------------------
 {

@@ -188,6 +188,12 @@
       "measured": "2026-10-17",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check runs node over renderers/web/js/strings/ and js/apps/ to list the table, reads the static pages and only prints, and --self-test plants its faults in memory and in a temporary directory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the table is authored (T-2624)."
     },
+    "check_guide.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-17",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check reads data/guide/glossary.json and faq.json and checks that each rests_on path exists, and only prints; --self-test plants its faults in memory. Both write nothing (git status --porcelain identical before and after). It declares no write mode: the glossary and FAQ are authored (T-2662, prepared)."
+    },
     "check_timestream.py": {
       "placement": "not_a_writer",
       "write_mode": null,

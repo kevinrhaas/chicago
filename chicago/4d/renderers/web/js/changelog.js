@@ -1,4 +1,46 @@
 export const CHANGELOG = [ // newest first
+  { v: 1954, ts: '2026-10-17T13:35:15.054Z', date: 'Oct 17, 2026, 8:35 AM CT', title: 'Inspect gets six tabs: Overview, People, Design, Story, Photos, Sources', kind: 'feature',
+    items: [
+      'Inspect now has six tabs. A building you have not looked at yet always opens on Overview, and the same building keeps the tab you left it on.',
+      'People lists who lived or worked there. In 1904 that is John and Frances Glessner; in 1835, a building\'s households, with a way into the People app. A record held for review shows its note, as its card does.',
+      'Design, Story, Photos and Sources show the building card\'s own attributes, dates, pictures, sources and Liberties for now. On a phone, opening Inspect puts the card away so the two don\'t pile up.',
+    ] },
+  { v: 1953, ts: '2026-10-17T13:03:21.969Z', date: 'Oct 17, 2026, 8:03 AM CT', title: 'A sixty-second Field Check teaches the Navigator', kind: 'feature',
+    items: [
+      'Take the field check (in the section Guide opens) walks you through seven short steps: the Navigator, looking, walking, opening a building\'s file, going deeper, the Confidence view, and what to do next.',
+      'Each step waits until you actually do it. Skip is always there, and a highlight with the rest of the screen dimmed shows where to look.',
+      'If you reload partway through, the check picks up at the same step. You can take it again any time.',
+    ] },
+  { v: 1952, ts: '2026-10-17T12:43:56.988Z', date: 'Oct 17, 2026, 7:43 AM CT', title: 'Move: one picker for how you get about', kind: 'feature',
+    items: [
+      'The Travel tab is now Move. You pick Walk, Run, Wagon, Horse or Fly in one row, instead of answering two questions.',
+      'One slider sets the speed of the mode you picked. Its range changes with the mode, and it still names the speed as you drag, from a jog to rattling along to beyond any horse.',
+      'Run is new: on foot like Walk, with its own speed, starting at a jog.',
+      'Under the picker, choose what happens when you pick a place: Teleport, Ride there along the streets at your mode, or Fly over.',
+    ] },
+  { v: 1951, ts: '2026-10-17T12:34:52.161Z', date: 'Oct 17, 2026, 7:34 AM CT', title: 'Show me: Inspect turns your view to what to look for', kind: 'feature',
+    items: [
+      'In Inspect, each Look for line now has a Show me key, for example on Glessner House\'s great arch on 18th Street.',
+      'Tap it and your view glides in under a second to the spot the record names, facing the feature, and an amber outline pulses round the house for two seconds.',
+      'With reduced motion the view cuts there at once and the outline stays still. If you are flying, you come down to the viewpoint first.',
+      'Show me only appears where the building\'s record names a view of the feature. It never guesses one.',
+    ] },
+  { v: 1950, ts: '2026-10-17T12:18:12.219Z', date: 'Oct 17, 2026, 7:18 AM CT', title: 'Guide explains the words we use', kind: 'feature',
+    items: [
+      'Guide in the Navigator now has a glossary of seven words, each with one plain line: Attested, Inferred, Reconstructed, Confidence view, Liberties, Sources and Jaunts.',
+      'It also answers two questions in a few sentences each: Is this real? and What does Reconstructed mean?',
+      'Where one of these words first appears, it is underlined with dots. Tap it to see what it means.',
+    ] },
+  { v: 1949, ts: '2026-10-17T11:53:51.478Z', date: 'Oct 17, 2026, 6:53 AM CT', title: 'Guide shows the controls for your device', kind: 'feature',
+    items: [
+      'Guide in the Navigator now lists the controls. On a phone it shows touch: your left thumb walks and the right side of the screen looks. On a computer it shows the keys and the mouse.',
+      'If you switch between touch and keys, the list switches with you. You can also tap Touch or Keyboard to read the other list.',
+      'The "How to explore" pop-up that opened when you first arrived is gone. Settings\' Show the controls now opens Guide.',
+    ] },
+  { v: 1948, ts: '2026-10-17T11:53:51.478Z', date: 'Oct 17, 2026, 6:53 AM CT', title: 'Home\'s choices stay apart as the Navigator opens', kind: 'fix',
+    items: [
+      'On a computer, Take a Jaunt, Go to and Free roam no longer draw over one another for a moment while the Navigator widens from its rail.',
+    ] },
   { v: 1947, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to follows the Confidence view', kind: 'improvement',
     items: [
       'The Include reconstructed roofs checkbox is gone from Go to. Every place is listed.',
