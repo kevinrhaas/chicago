@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// T-2633 (NAV-403b): Go to follows the Confidence view. The "Include reconstructed roofs"
+// T-2633 (NAV-404): Go to follows the Confidence view. The "Include reconstructed roofs"
 // checkbox is gone; every roof is listed, and a row whose grade the Confidence view hides
 // is dimmed with a one-line reason, then itself again once the grade is shown. Drives the
 // real goto.js over a stub panel and the real destinations inventory; the smoke (part 13)
