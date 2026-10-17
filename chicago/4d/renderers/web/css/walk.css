@@ -618,6 +618,10 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   font-variant-numeric: tabular-nums;
 }
 .compass[hidden], .overview-map[hidden], .street-readout[hidden] { display: none; }
+/* T-2625 (§10): the street readout is a 2 s toast when you cross onto a new street. */
+.street-readout { opacity: 0; transition: opacity .45s ease; }
+.street-readout.is-toast { opacity: 1; transition-duration: .2s; }
+@media (prefers-reduced-motion: reduce) { .street-readout { transition: none; } }
 .compass strong { min-width: 29px; color: var(--ink); font-size: 11.5px; }
 .compass > span:last-child { color: var(--ink-dim); }
 .overview-map {
@@ -1816,6 +1820,8 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
     position: fixed; left: 12px; right: 12px; width: auto;
     top: calc(20px + var(--hud-row) + var(--safe-t));
   }
+  /* T-2625: inside the Navigator it is part of the screen, not a dropdown. */
+  .nav-screen .confidence-menu { position: static; }
 }
 
 /* An agency held here (T-1041). A HOLDING IS A RELATION, and the styling has one job
