@@ -430,6 +430,10 @@ const COVERAGE = [
   // job that answers a spread pass's slots with it: the census parts read both.
   ['renderers/web/js/flora-zones.js', [10, 11, 12], 'which community the flora census asks at a point'],
   ['renderers/web/js/jobs/zone-kernel.js', [10, 11, 12], 'the zone answers a spread pass brings home from the job pool'],
+  // T-2696. The rest of a slot's ground, answered beside its zone on that worker,
+  // and the corridor bands both sides ask: the census parts read what they plant.
+  ['renderers/web/js/flora-ground.js', [10, 11, 12], "the water, floor, verge and height a spread pass's slots bring home"],
+  ['renderers/web/js/street-verge.js', [10, 11, 12], 'where in a street corridor the flora census asks a turf plant'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],

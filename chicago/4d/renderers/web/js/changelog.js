@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1923, ts: '2026-10-17T05:55:19.873Z', date: 'Oct 17, 2026, 12:55 AM CT', title: 'Turning in place costs a third less as the prairie is redealt', kind: 'improvement',
+    items: [
+      'Whether a patch of ground is water, a floor, a trodden street verge, and how high it stands, are now answered in the background beside its plant community.',
+      'Fenced yards are looked up by where you stand rather than one by one, and that was the largest single cost of redealing the prairie.',
+      'On a phone-speed test a redeal now costs about 40 % less main-thread time when turning and about 20 % less when walking. Every plant lands exactly where it did before.',
+    ] },
   { v: 1922, ts: '2026-10-17T05:42:52.515Z', date: 'Oct 17, 2026, 12:42 AM CT', title: 'The long street walks, woodpiles and distant walk tops get lighter', kind: 'improvement',
     items: [
       'Every plank walk, fence and yard piece in 1835 now stores each corner in 8 bytes instead of 12, within a millimetre of where it stood, with no extra draw calls.',

@@ -53,7 +53,10 @@ import * as THREE from 'three';
 import { SHRUB_GRAIN, FAR_SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 // T-2125: where a community's edge is asked, so the edges blend and wander.
 import { ZONE_BLEND_MAX_M } from './zone-blend.js';
-import { zoneFinder, pointInPolygon, heldGround, groundZones, waterDistance, ZONE_UNASKED } from './flora-zones.js';
+import { zoneFinder, heldGround, groundZones, waterDistance, ZONE_UNASKED } from './flora-zones.js';
+import { GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP, GROUND_UNASKED, VERGE_CELL_M,
+  VERGE_KEEP_SHARE, vergeBand, footprintCircles, circleGrid, onFloor, groundAnswers } from './flora-ground.js';
+import { vergeRecords } from './street-verge.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
@@ -1073,6 +1076,10 @@ const GRASS_SHAPE = {
 /* the module                                                                  */
 /* -------------------------------------------------------------------------- */
 
+/** No street corridors: a layer built without streets.js. It holds no records,
+ *  so a worker answers its slots' bands as the page would — outside them all. */
+const NO_VERGE = Object.assign(() => null, { records: [] });
+
 /**
  * @param {object} o  dataBase (data/ root) · terrain (createTerrain's return) ·
  *   footprints (nothing grows through a wall) · growthBlocked (a narrow dated
@@ -1085,7 +1092,7 @@ const GRASS_SHAPE = {
  */
 export async function createFlora({
   checkpoint = () => null,
-  dataBase, terrain, footprints = [], growthBlocked = () => false, verge = () => null,
+  dataBase, terrain, footprints = [], growthBlocked = () => false, verge = NO_VERGE,
   forbSeat = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
 } = {}) {
@@ -1234,6 +1241,14 @@ export async function createFlora({
   // the deal reaches it is asked here, as before.
   const ground = jobsOnWorkers() ? heldGround(zones, terrain, water, finder) : null;
   const groundKey = ground ? `flora-ground-${++groundSerial}` : null;
+  // T-2696: and the rest of a slot's ground with it — its floors and its streets'
+  // corridors, which with the heightfield it already holds answer water, floor,
+  // verge and height there too (flora-ground.js). A `verge` that brings no
+  // records cannot be asked on a worker, so its slots are asked here.
+  if (ground && verge.records) {
+    ground.floors = footprints.map((f) => f.pts);
+    ground.streets = vergeRecords(verge.records);
+  }
   const groundWorker = ground ? holdOnWorker('holdGround', { key: groundKey, ground }) : null;
   if (ground) {
     stats.groundBytes = ground.hf.data.byteLength + ground.water.toWater.byteLength
@@ -1371,6 +1386,24 @@ export async function createFlora({
   };
 
   /**
+   * T-2696 — the slot's ground as the worker answered it (flora-ground.js), or
+   * -1 when the deal must ask: no answer came home in time, the slot is off the
+   * measured grid, or (e, n) is not the slot `scatterOnPool` is dealing — a
+   * station asked anywhere else is always asked here.
+   */
+  function heldFlags(e, n) {
+    const h = HELD_SLOT;
+    if (!h.at || h.e !== e || h.n !== n) return -1;
+    const f = h.at.flags[h.i];
+    return f === GROUND_UNASKED ? -1 : f;
+  }
+  /** Whether the slot is under water, off its worker answer when there is one. */
+  function wetAt(e, n) {
+    const f = heldFlags(e, n);
+    return f < 0 ? water.isWater(e, n) : (f & GROUND_WET) !== 0;
+  }
+
+  /**
    * T-2094 — A STREET'S VERGE IN TOWN IS CROPPED TO THE TOWN'S OWN TURF.
    *
    * Inside an opened street's corridor, a plant of a turf community taller than
@@ -1390,9 +1423,11 @@ export async function createFlora({
    */
   function trodden(e, n, zone, species) {
     if (!zone?.turfCeiling || !species?.height || species.height[1] <= zone.turfCeiling) return false;
-    const at = verge(e, n);
-    if (!at) return false;
-    if (at.band !== 'verge' || at.edgeM > VERGE_KEEP_M) return true;
+    // T-2696: the band, from the slot's worker answer when it brought one.
+    const f = heldFlags(e, n);
+    const band = f < 0 ? vergeBand(verge(e, n)) : f & (GROUND_TRODDEN | GROUND_KEEP);
+    if (!band) return false;
+    if (band === GROUND_TRODDEN) return true;
     return hash3(Math.floor(e / VERGE_CELL_M), Math.floor(n / VERGE_CELL_M), 0x2094) / 4294967296
       >= VERGE_KEEP_SHARE;
   }
@@ -1409,7 +1444,7 @@ export async function createFlora({
   /** Ground the plant stands on, or null if it may not stand here. `wet` is the
    *  caller's already-computed water test, since the placer asks it once per
    *  lattice slot to choose which half of the community it may pick from. */
-  function station(e, n, zone, species, wet = water.isWater(e, n)) {
+  function station(e, n, zone, species, wet = wetAt(e, n)) {
     if (growthBlocked(e, n)) return null;
     if (trodden(e, n, zone, species)) return null;
     // THE FLOOR TEST COMES BEFORE THE WATER TEST, and the order is the bug it
@@ -1422,12 +1457,9 @@ export async function createFlora({
     // T-2096: only the floors whose circle reaches this slot's cell are asked.
     // The whole list was walked for every slot of every rebuild, and it was the
     // largest single cost of a turn in place (tools/measure_walk_frames.mjs).
-    const near = blocks.at(e, n);
-    if (near) for (const b of near) {
-      const dx = e - b.e;
-      const dz = n - b.n;
-      if (dx * dx + dz * dz < b.r2 && pointInPolygon(b.pts, e, n)) return null;
-    }
+    // T-2696: and a slot whose worker answer is home is not asked at all.
+    const f = heldFlags(e, n);
+    if (f < 0 ? onFloor(blocks, e, n) : f & GROUND_FLOOR) return null;
     if (wet) {
       // A water BUFFER is not permission for every member of that community to
       // stand in the channel. Only records whose recorded `substrate` puts them
@@ -1442,7 +1474,7 @@ export async function createFlora({
     // `nymphaea_odorata` are 0.01-0.10 m tall, so the failure was quiet — pads at
     // ankle height standing on the soil of the marsh edge rather than on water.
     if (species?.substrate === 'open_water') return null;
-    const y = terrain.surfaceHeight(e, n);
+    const y = f < 0 ? terrain.surfaceHeight(e, n) : HELD_SLOT.at.y[HELD_SLOT.i];
     // T-1056 — A WOODY PLANT HAS NO STATION ON GROUND THE LAKE STILL REWORKS,
     // and which ground that is comes off the ZONE RECORD.
     //
@@ -1537,7 +1569,7 @@ export async function createFlora({
     // Cover and species come off the slot's ONE stratified draw (K49(d)):
     // the rank-1 lattice the forb layer uses stripes a dense layer, so this
     // one is a block permutation instead. See `stratum` and `dealt`.
-    const wet = water.isWater(e, n);
+    const wet = wetAt(e, n);
     const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
       zone.matrixShare, u);
     if (!sp) { out.code = NEAR_DEAL.undealt; return null; }
@@ -1620,7 +1652,7 @@ export async function createFlora({
         // Applying it to one layer and not the other would put a seam at the
         // near/mid crossover exactly where the change of representation is
         // supposed to be invisible.
-        const wet = water.isWater(e, n);
+        const wet = wetAt(e, n);
         const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
           zone.matrixShare, u);
         if (!sp) return;
@@ -1670,7 +1702,7 @@ export async function createFlora({
         // is used at all — of the half of the community that may stand on this
         // side of the waterline, which is why there are two of them. It and the
         // species come off the slot's ONE low-discrepancy draw; see `dealt`.
-        const wet = water.isWater(e, n);
+        const wet = wetAt(e, n);
         const sp = dealt(wet ? zone.wet.forbs : zone.dry.forbs,
           wet ? zone.forbShareWet : zone.forbShare, u);
         if (!sp) return;
@@ -1725,7 +1757,7 @@ export async function createFlora({
         if (r > f.fade[0] + off + step) return;
         const zone = zoneOf(e, n, z);
         if (!zone || !zone.shrubs.length) return;
-        const wet = water.isWater(e, n);
+        const wet = wetAt(e, n);
         const sp = dealt(wet ? zone.wet.shrubs : zone.dry.shrubs,
           wet ? zone.shrubShareWet : zone.shrubShare, u);
         if (!sp) return;
@@ -1781,7 +1813,7 @@ export async function createFlora({
           const zone = zoneOf(e, n, z);
           if (!zone || !zone.graminoids.length) return;
           if (zone.turf) return;
-          const wet = water.isWater(e, n);
+          const wet = wetAt(e, n);
           // T-0209. THE FAR BAND DEALS THE WHOLE COMMUNITY, not just its grass.
           // Until this it dealt `graminoids` alone, so every flowering
           // community past the mid ring was a hundred per cent matrix however
@@ -1942,7 +1974,7 @@ export async function createFlora({
         if (r > outer + fs.step) return;
         const zone = zoneOf(e, n, z);
         if (!zone || !zone.shrubs.length) return;
-        const wet = water.isWater(e, n);
+        const wet = wetAt(e, n);
         const sp = dealt(wet ? zone.wet.shrubs : zone.dry.shrubs,
           wet ? zone.shrubShareWet : zone.shrubShare, u);
         if (!sp) return;
@@ -1989,7 +2021,7 @@ export async function createFlora({
           if (!zone || !zone.graminoids.length) return;
           // T-2085: no carry on turf — past its own rings the ground carries it.
           if (zone.turf) return;
-          const wet = water.isWater(e, n);
+          const wet = wetAt(e, n);
           const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
             zone.matrixShare, u);
           if (!sp) return;
@@ -2054,7 +2086,10 @@ export async function createFlora({
   const farPass = { name: 'far', make: rebuildFarShrubs, at: 'farShrub', yawAt: 'farShrubYaw',
     reach: tune.farShrub.step, pending: null, cost: null, waits: 0 };
   stats.spread = { landings: 0, drained: 0, abandoned: 0, frames: 0, ms: 0, waits: 0,
-    jumps: 0, jumpFrames: 0, passes: { near: 0, far: 0 }, last: { near: null, far: null } };
+    jumps: 0, jumpFrames: 0, passes: { near: 0, far: 0 }, last: { near: null, far: null },
+    // T-2696: the slots a spread pass dealt off the pool, and how many of them
+    // had their worker's zone and ground answers home when the deal reached them.
+    slots: { dealt: 0, zoned: 0, grounded: 0 } };
 
   /** Run, start or advance one pass this frame. True if its sets changed. */
   function runPass(p, f, due) {
@@ -2145,7 +2180,7 @@ export async function createFlora({
     const { e, n, yaw } = f;
     f.camera.getWorldQuaternion(tmpQ);
     const cone = f.cone && { ...f.cone, jobs: true, walks: [], ahead: new Map(),
-      ground: groundKey, groundWorker };
+      ground: groundKey, groundWorker, tally: stats.spread.slots };
     if (cone && jobsOnWorkers()) {
       for (const w of p.walks ?? []) {
         const job = walkJob(e, n, w, cone);
@@ -2228,15 +2263,59 @@ export async function createFlora({
      */
     checkHeldZones(count = 20000) {
       if (!ground) return { held: false };
-      const zoneAt = groundZones(structuredClone(ground));
+      const clone = structuredClone(ground);
+      const zoneAt = groundZones(clone);
+      const groundAt = groundAnswers(clone);
       const hf = terrain.heightfield;
       let s = 0x2695;
       const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
-      const out = { held: true, asked: 0, unasked: 0, differ: 0, first: [] };
+      const out = { held: true, asked: 0, unasked: 0, differ: 0, first: [],
+        ground: groundAt ? { asked: 0, differ: 0, wet: 0, floor: 0, trodden: 0, keep: 0, first: [] } : null };
+      // T-2696: the ground answers too, at the same points and at as many again
+      // where floors and corridors are — near a footprint, and near a street's
+      // line — which a uniform draw over the whole grid would mostly miss.
+      const circles = footprintCircles(footprints);
+      const lines = (verge.records ?? []).filter((r) => r.path?.length);
+      const near = (k) => {
+        if (k % 2 === 1 && circles.length) {
+          const c = circles[Math.floor(rnd() * circles.length)];
+          const r = Math.sqrt(c.r2) + 4;
+          return [c.e + (rnd() * 2 - 1) * r, c.n + (rnd() * 2 - 1) * r];
+        }
+        if (lines.length) {
+          const l = lines[Math.floor(rnd() * lines.length)];
+          const p = l.path[Math.floor(rnd() * l.path.length)];
+          const r = l.corridor_width_m * 0.5 + 3;
+          return [p[0] + (rnd() * 2 - 1) * r, p[1] + (rnd() * 2 - 1) * r];
+        }
+        return null;
+      };
+      const askGround = (e, n) => {
+        const f = groundAt(e, n);
+        if (f === GROUND_UNASKED) return;
+        const g = out.ground;
+        g.asked++;
+        const page = (water.isWater(e, n) ? GROUND_WET : 0)
+          | (onFloor(blocks, e, n) ? GROUND_FLOOR : 0) | vergeBand(verge(e, n));
+        const y = terrain.surfaceHeight(e, n);
+        if (f & GROUND_WET) g.wet++;
+        if (f & GROUND_FLOOR) g.floor++;
+        if (f & GROUND_TRODDEN) g.trodden++;
+        if (f & GROUND_KEEP) g.keep++;
+        if (f !== page || groundAt.y !== y) {
+          g.differ++;
+          if (g.first.length < 5) g.first.push({ e, n, worker: [f, groundAt.y], page: [page, y] });
+        }
+      };
       for (let k = 0; k < count; k++) {
         // A tenth of the points off the grid's edge, to read the hand-back too.
         const e = hf.originE - 20 + rnd() * (hf.widthM + 40);
         const n = hf.originN - 20 + rnd() * (hf.depthM + 40);
+        if (groundAt) {
+          askGround(e, n);
+          const p = near(k);
+          if (p) askGround(p[0], p[1]);
+        }
         const z = zoneAt(e, n);
         if (z === ZONE_UNASKED) { out.unasked++; continue; }
         out.asked++;
@@ -3849,56 +3928,6 @@ async function auditCoverage(terrain, finder, checkpoint) {
   return land ? bare / land : 0;
 }
 
-/** Buildings as centre + radius + polygon, so most rejections are one test. */
-function footprintCircles(footprints) {
-  return footprints.map((f) => {
-    let e = 0;
-    let n = 0;
-    for (const p of f.pts) { e += p[0]; n += p[1]; }
-    e /= f.pts.length;
-    n /= f.pts.length;
-    let r2 = 0;
-    for (const p of f.pts) r2 = Math.max(r2, (p[0] - e) ** 2 + (p[1] - n) ** 2);
-    // A metre of clearance: a wall meeting the sward flush reads as a wall
-    // sunk in a lawn.
-    const r = Math.sqrt(r2) + 1.0;
-    return { e, n, r2: r * r, pts: f.pts };
-  });
-}
-
-/**
- * T-2096. The floor circles bucketed on a world grid, so `station` asks only
- * the ones that can contain the slot. Every circle is filed in every cell its
- * bounding square touches, and a point inside a circle is inside that square,
- * so the bucket holds every circle the full list would have matched: the answer
- * is the same and only the misses are no longer paid for.
- */
-const CIRCLE_CELL_M = 8;
-function circleGrid(circles) {
-  const cells = new Map();
-  const key = (i, j) => (i + 32768) * 65536 + (j + 32768);
-  for (const b of circles) {
-    const r = Math.sqrt(b.r2);
-    const i0 = Math.floor((b.e - r) / CIRCLE_CELL_M);
-    const i1 = Math.floor((b.e + r) / CIRCLE_CELL_M);
-    const j0 = Math.floor((b.n - r) / CIRCLE_CELL_M);
-    const j1 = Math.floor((b.n + r) / CIRCLE_CELL_M);
-    for (let i = i0; i <= i1; i++) {
-      for (let j = j0; j <= j1; j++) {
-        const k = key(i, j);
-        const list = cells.get(k);
-        if (list) list.push(b); else cells.set(k, [b]);
-      }
-    }
-  }
-  return {
-    size: circles.length,
-    at(e, n) {
-      return cells.get(key(Math.floor(e / CIRCLE_CELL_M), Math.floor(n / CIRCLE_CELL_M)));
-    },
-  };
-}
-
 /* -------------------------------------------------------------------------- */
 /* the lattice                                                                 */
 /* -------------------------------------------------------------------------- */
@@ -3911,16 +3940,6 @@ function smoothstep(lo, hi, x) {
   const t = Math.min(1, Math.max(0, (x - lo) / (hi - lo)));
   return t * t * (3 - 2 * t);
 }
-
-/**
- * T-2094 — the trodden verge's kept weeds (`trodden`): within this far of the
- * corridor's edge, one VERGE_CELL_M cell in VERGE_KEEP_SHARE keeps its tall
- * plants. 2.6 m is a plank walk (1.83 m) and its 0.2 m clearance standing at
- * the lot line, plus the half metre at its street edge a boot does not reach.
- */
-const VERGE_KEEP_M = 2.6;
-const VERGE_CELL_M = 1.5;
-const VERGE_KEEP_SHARE = 0.22;
 
 /** T-2094. The tallest recorded height of a community's low layer. */
 function turfCeilingOf(species) {
@@ -4450,6 +4469,9 @@ let groundSerial = 0;
  * frame instead, so nothing ever spins waiting on a message it cannot receive.
  */
 const WALK_WAIT = Object.freeze({ waiting: true });
+/** T-2696. The slot `scatterOnPool` is handing `emit`, with its worker reply
+ *  (`at`, `{flags, y}`) and its place in it; `at` is null between slots. */
+const HELD_SLOT = { at: null, i: 0, e: NaN, n: NaN };
 const MAY_WAIT = Symbol('may wait');
 
 /**
@@ -4477,15 +4499,22 @@ function* scatterOnPool(camE, camN, cell, perCell, radius, inner, salt, draw, co
     if (walk.failed || (yield WALK_WAIT) !== MAY_WAIT) walk.slots = latticeSlots(job);
   }
   const { e, n, d, u, cellSeed, rng, rowEnd } = walk.slots;
+  const tally = cone.tally;
   let i = 0;
   for (let row = 0; row < rowEnd.length; row++) {
     // T-2695: each slot's community, once the worker's answer is home (read per
     // row, as it may land between two frames of the deal); until then the deal
     // asks its own finder. Slot for slot the walk taken here, so it indexes both.
+    // T-2696: and its ground with it, which the deal reads off HELD_SLOT for
+    // the slot it is given and for no other point.
     const zone = sent.zone;
+    const ground = sent.ground;
     for (; i < rowEnd[row]; i++) {
       if (cone.planes && outsideFrustum(cone, e[i], n[i], d[i])) continue;
+      if (ground) { HELD_SLOT.at = ground; HELD_SLOT.i = i; HELD_SLOT.e = e[i]; HELD_SLOT.n = n[i]; }
       emit(e[i], n[i], d[i], rngFrom(rng[i]), cellSeed[i], u[i], zone?.[i]);
+      HELD_SLOT.at = null;
+      if (tally) { tally.dealt++; if (zone) tally.zoned++; if (ground) tally.grounded++; }
     }
     yield { done: row + 1, total };
   }
@@ -4493,12 +4522,14 @@ function* scatterOnPool(camE, camN, cell, perCell, radius, inner, salt, draw, co
 
 /** T-2695. A walk sent to the pool, and its slots' communities asked as soon as
  *  they are home (jobs/zone-kernel.js): a second job, so the slots — what a pass
- *  waits on — come home no later than they did. `zone` is null until then. */
+ *  waits on — come home no later than they did. `zone` is null until then.
+ *  T-2696: `ground` is the same reply's water, floor, verge and height, slot for
+ *  slot (`{flags, y}`), or null. */
 function sendWalk(job, worker) {
-  const sent = { slots: runJob('latticeSlots', job), zone: null };
+  const sent = { slots: runJob('latticeSlots', job), zone: null, ground: null };
   if (job.ground != null) {
     sent.slots.then((s) => runJob('slotZones', { ground: job.ground, e: s.e, n: s.n }, { worker }))
-      .then((r) => { sent.zone = r.zone; }, () => {});
+      .then((r) => { sent.ground = r.flags ? r : null; sent.zone = r.zone; }, () => {});
   }
   return sent;
 }
