@@ -268,11 +268,17 @@ const FRAGMENT_DISCARD = /* glsl */`
   if (uConfMode > 0.0) {
     vec3 chicagoW = chicago_grade(vConfidence) * uConfMode;
     // A ghosted grade is not in the opaque pass at all — it is drawn, blended,
-    // in the ghost pass after everything else — and casts no shadow.
+    // in the ghost pass after everything else — and casts no shadow. On a
+    // material marked CHICAGO_GHOST_DITHER (the town's furniture, see
+    // setGhostAsDither) a ghost is drawn here instead, as a dither at its opacity.
+#ifdef CHICAGO_GHOST_DITHER
+    vec3 chicagoDither = chicagoW * (chicago_inMode(2.0) + chicago_inMode(1.0));
+#else
     if (dot(chicagoW, chicago_inMode(1.0)) >= 0.5) discard;
     // A dithered grade keeps its opacity of its fragments: the Reconstructed
     // massing path, for whichever grade asks for it.
     vec3 chicagoDither = chicagoW * chicago_inMode(2.0);
+#endif
     float dith = chicagoDither.x + chicagoDither.y + chicagoDither.z;
     if (dith > 0.0) {
       float keep = mix(1.0, dot(chicagoDither, uGradeOpacity) / dith, dith);
@@ -515,7 +521,26 @@ export function createConfidenceView({
     twins.set(material, twin);
     return twin;
   }
-  const ghostable = (m) => !!m && patched.has(m) && !(m.transmission > 0) && m.visible !== false;
+  // THE FURNITURE GHOSTS AS A DITHER (T-2647). A second pass costs a draw call for
+  // every object it draws, and on the desktop smoke's own frame X-RAY measured 335
+  // calls against a budget of 330: opaque 187 + ghost 148, of which the furniture
+  // layers (fences, yards, frontage, wharves, boats) were about 100 — small things,
+  // mostly of mixed grade, so drawn in both passes. Under `setGhostAsDither(names)`
+  // the materials under those named layers are marked CHICAGO_GHOST_DITHER: their
+  // ghosted fragments are screen-door dithered at the ghost's opacity in the opaque
+  // pass (no blend, no extra draw), and they are never put in the ghost pass.
+  const ditherGhost = new WeakSet();
+  let ditherRoots = new Set();
+  function markDither(m) {
+    if (!m || !patched.has(m) || ditherGhost.has(m)) return;
+    ditherGhost.add(m);
+    m.defines = { ...(m.defines || {}), CHICAGO_GHOST_DITHER: '' };
+    m.needsUpdate = true;
+  }
+  const ghostable = (m) => !!m && patched.has(m) && !ditherGhost.has(m) && !(m.transmission > 0) && m.visible !== false;
+  const allDither = (m) => (Array.isArray(m)
+    ? m.every((x) => !patched.has(x) || ditherGhost.has(x)) && m.some((x) => ditherGhost.has(x))
+    : ditherGhost.has(m));
   const isPatched = (m) => (Array.isArray(m) ? m.some((x) => patched.has(x)) : patched.has(m));
 
   // What each patched object holds, as confidence ranges: per instance for a
@@ -574,6 +599,11 @@ export function createConfidenceView({
     for (const o of lights) o.layers.disable(GHOST_LAYER);
     targets = [];
     lights = [];
+    for (const name of ditherRoots) {
+      scene.getObjectByName(name)?.traverse((o) => {
+        for (const m of [].concat(o.material ?? [])) markDither(m);
+      });
+    }
     scene.traverse((o) => {
       if (o.isLight) { o.layers.enable(GHOST_LAYER); lights.push(o); return; }
       if (!(o.isMesh || o.isPoints || o.isLine)) return;
@@ -589,6 +619,7 @@ export function createConfidenceView({
     const gone = GRADE_NAMES.map((l) => hidden[l]);
     const next = { opaqueObjects: [], opaqueInstances: [], ghostTargets: [], ghostInstances: [] };
     for (const o of targets) {
+      if (allDither(o.material)) continue; // ghosts as a dither, in the opaque pass
       const ranges = o.isBatchedMesh ? o.userData?.confidenceRanges : null;
       const canGhost = Array.isArray(o.material) ? o.material.some(ghostable) : ghostable(o.material);
       if (ranges) {
@@ -763,6 +794,16 @@ export function createConfidenceView({
     },
     /** What the ghost pass drew last: objects it can draw, passes run, draw calls of the last. */
     get ghostStats() { return { ...ghostStats }; },
+    /**
+     * Name the layers (scene groups, by name) whose materials ghost as a dither in
+     * the opaque pass rather than in the ghost pass — the town's furniture (main.js
+     * FURNITURE_LAYERS). Taken up the next time the ghost pass walks the scene.
+     */
+    setGhostAsDither(names = []) {
+      ditherRoots = new Set(names);
+      builtFor = null;
+      return [...ditherRoots];
+    },
 
     /**
      * Draw the frame: `renderer.render(scene, camera)`, and — only while a grade is

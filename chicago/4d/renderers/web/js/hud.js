@@ -88,7 +88,7 @@ function store(key, value) {
 
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
-  onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
+  onConfidence, onConfidenceKey = null, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
   isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
@@ -172,9 +172,9 @@ export function createHud({
   // Chicago is recoverable, and it should be one click away rather than
   // something only the dataset knows.
   const LEVELS = ['attested', 'inferred', 'reconstructed'];
-  const confGroup = $('confidence-group');
-  const confMenu = $('confidence-menu');
-  const btnConfMore = $('btn-confidence-more');
+  // The chip, its caret and its menu moved into the Navigator's Confidence view app
+  // (T-2647, js/apps/confidence-view.js), which reads and sets this state through
+  // `hiddenLevels`, `setHidden` and `levelCounts`; the HUD keeps the state.
   let hiddenLevels = readHidden();
 
   function readHidden() {
@@ -204,11 +204,6 @@ export function createHud({
   }
 
   function paintHidden() {
-    for (const level of LEVELS) {
-      const box = $(`cm-${level}`);
-      if (box) box.checked = !hiddenLevels.has(level);
-    }
-    confGroup?.classList.toggle('has-hidden', hiddenLevels.size > 0);
     store(HIDE_KEY, JSON.stringify([...hiddenLevels]));
   }
 
@@ -222,37 +217,11 @@ export function createHud({
       // levels needs to know the town in front of them is partial.
       const gone = LEVELS.filter((l) => hiddenLevels.has(l));
       say(gone.length
-        ? `Hiding ${gone.join(' and ')} — what stands is only what the rest of the evidence supports`
-        : 'Showing every level again');
+        ? `Hiding ${gone.map((l) => l[0].toUpperCase() + l.slice(1)).join(' and ')} — what stands is only what the rest of the evidence supports`
+        : 'Showing every grade again');
     }
     return hide;
   }
-
-  function setConfMenu(open) {
-    if (!confMenu) return;
-    confMenu.toggleAttribute('hidden', !open);
-    btnConfMore?.setAttribute('aria-expanded', String(!!open));
-    if (open && document.pointerLockElement) document.exitPointerLock?.();
-  }
-
-  btnConfMore?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    setConfMenu(confMenu?.hasAttribute('hidden'));
-  });
-  for (const level of LEVELS) {
-    $(`cm-${level}`)?.addEventListener('change', (e) => setHidden(level, !e.target.checked));
-  }
-  $('cm-reset')?.addEventListener('click', () => {
-    for (const level of LEVELS) setHidden(level, false, { announce: false });
-    say('Showing every level again');
-  });
-  // Click-away, but not click-inside: the panel holds three checkboxes a visitor
-  // will often want to toggle in one visit.
-  document.addEventListener('click', (e) => {
-    if (!confMenu || confMenu.hasAttribute('hidden')) return;
-    if (confGroup?.contains(e.target)) return;
-    setConfMenu(false);
-  });
 
   // ---- free-fly -----------------------------------------------------------
 
@@ -722,7 +691,8 @@ export function createHud({
     }
     const k = e.key.toLowerCase();
     if (k === 'h' || k === '?') { e.preventDefault(); setPanel(!panelOpen()); }
-    else if (k === 'c') { e.preventDefault(); setConfidence(!confidenceOn); }
+    // C toggles BY GRADE (T-2647): the Confidence view's presets own what "on" means.
+    else if (k === 'c') { e.preventDefault(); if (onConfidenceKey) onConfidenceKey(); else setConfidence(!confidenceOn); }
     else if (k === 'n') { e.preventDefault(); setPanel(true); selectTab('whatsnew'); }
     else if (k === 'g') { e.preventDefault(); openGoTo(); }
     else if (k === 'f') { e.preventDefault(); setFly(!flying); }
@@ -763,6 +733,8 @@ export function createHud({
     setConfidence,
     get hiddenLevels() { return [...hiddenLevels]; },
     setHidden,
+    /** How many structures sit at each grade (and the count cells painted, where shown). */
+    levelCounts: () => paintCounts(),
     /** Push the stored choice into the renderer at boot, without announcing it. */
     applyHidden() {
       paintCounts();
