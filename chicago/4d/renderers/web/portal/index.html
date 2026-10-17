@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="walk/portal/portal.css">
 <script src="walk/js/skin.js"></script>
 <script>/* T-2119: the machine cold-starts before first paint; a safety lets go if portal.js never runs. */(function(){var r=document.documentElement;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('booting');setTimeout(function(){r.classList.remove('booting')},6000)})();</script>
+<script src="walk/js/machine-drift.js" defer></script>
 <script src="walk/portal/portal.js" defer></script>
 <script src="walk/portal/clips.js" defer></script>
 </head>

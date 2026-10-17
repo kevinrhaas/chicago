@@ -25,6 +25,7 @@
  * reads its values once every half second, and only while Home is showing.
  */
 import { facingWords, clockWords, screenDate } from './where.js';
+import { mountTelemetry } from './nav-telemetry.js';
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
 import { createRail } from './nav-rail.js';
@@ -127,6 +128,8 @@ export function createNavigator({
     if (!want && unNear) { unNear(); unNear = null; near = null; }
   }
   let railAt = -Infinity;
+  let telemetry = null;
+  let telemetryAt = -Infinity;
 
   // ---- heights ----
   let level = 0;
@@ -153,6 +156,7 @@ export function createNavigator({
     paintLevel();
     listen(level > 0);
     listenNear();
+    telemetry?.sync();
     if (railShows()) registry.evaluate();
     if (level > 0 && registry.current === 'home') refresh(true);
     if (focus && was === 0 && level > 0) {
@@ -291,6 +295,7 @@ export function createNavigator({
     update() {
       const t = now();
       if (railShows() && t - railAt >= 250) { railAt = t; registry.evaluate(t); }
+      if (t - telemetryAt >= 250) { telemetryAt = t; telemetry?.sync(); }
       return refresh(false);
     },
     refresh: () => refresh(true),
@@ -307,6 +312,10 @@ export function createNavigator({
   };
   for (const app of apps) registry.register(app);
   paintLevel();
+  // The telemetry strip at the foot of the device (T-2623, nav-telemetry.js): it ticks only
+  // while the device is open and can be seen, and never under reduced motion.
+  telemetry = mountTelemetry({ host: root, open: () => level > 0 });
+  api.telemetry = telemetry;
   listenNear();
   if (registry.has('home')) void registry.select('home', { by: 'quiet' });
   registry.evaluate();
