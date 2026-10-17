@@ -59,7 +59,7 @@
  *  * The timber is ONE draw call for the whole layer, the way the fences and
  *    the signboards are. The lettering is a second, because a painted name is a
  *    texture and timber is not — and it exists only when a board carries text.
- *  * It marks itself. Every vertex carries `_confidence`, so the whole layer
+ *  * It marks itself. Every vertex carries its grade, so the whole layer
  *    disappears when a visitor hides `reconstructed` and the frontage goes back
  *    to bare ground. That is the truthful behaviour: no source record in this
  *    repository states that a walk stood here on 1 July 1835.
@@ -79,9 +79,9 @@ import { gateBoxes } from './gates.js';
 import { packGrain } from './relief-pack.js';
 import { ktx2State, loadSheet } from './ktx2.js';
 import { layerPick } from './gpu-pick.js';
-import { compactStreams } from './compact-streams.js';
+import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
 
-const { compactNormals, compactColors } = compactStreams(THREE);
+const { compactNormals, setColorsAndConfidence, quantizeMeshPositions } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -575,8 +575,9 @@ function plankGapAttribute(seams) {
  *
  * No new faces, material or render pass; no depth bias. Ground and buildings
  * still occlude the filtered walk. Far merging copies this attribute with the
- * other vertex streams: frontage chunks already use their parent coordinate
- * system and have identity transforms. Reach culling remains a separate policy.
+ * other vertex streams, and writes the merged positions in the parent's frame
+ * (a quantized chunk's matrix applied, T-2687). Reach culling remains a
+ * separate policy.
  */
 function filterPlankGaps(material) {
   const viewport = new THREE.Vector4();
@@ -609,8 +610,10 @@ uniform float uChiPlankGapEnabled;
 ` + shader.vertexShader.replace('#include <begin_vertex>', /* glsl */`
 #include <begin_vertex>
 if (uChiPlankGapEnabled > 0.0 && dot(aChiPlankGap, aChiPlankGap) > 0.0) {
+  // Metres in the mesh's frame; a quantized mesh (T-2687) carries its scale in
+  // the model matrix, and a float one a scale of 1.
   vec3 chiGapDelta = vec3(aChiPlankGap.x, 0.0, aChiPlankGap.y)
-    * ${(PLANK_GAP_M / 2).toFixed(6)};
+    * (${(PLANK_GAP_M / 2).toFixed(6)} / length(modelMatrix[0].xyz));
   vec4 chiGap0 = projectionMatrix * (modelViewMatrix * vec4(transformed, 1.0));
   vec4 chiGap1 = projectionMatrix
     * (modelViewMatrix * vec4(transformed + 2.0 * chiGapDelta, 1.0));
@@ -1428,6 +1431,24 @@ function createFarWalkTops(group, sources, material) {
   const geometry = new THREE.BufferGeometry();
   if (entries.length) {
     for (const [name, attribute] of Object.entries(entries[0].source.geometry.attributes)) {
+      if (name === 'position') {
+        // In the group's frame, as float32: a source chunk may be quantized over
+        // its own box (T-2687), each on its own grid, and this mesh is not.
+        const packed = new Float32Array(vertices * 3);
+        const p = new THREE.Vector3();
+        let offset = 0;
+        for (const entry of entries) {
+          const source = entry.source;
+          const original = source.geometry.getAttribute('position');
+          source.updateMatrix();
+          for (const vertex of entry.selected) {
+            p.fromBufferAttribute(original, vertex).applyMatrix4(source.matrix);
+            packed[offset++] = p.x; packed[offset++] = p.y; packed[offset++] = p.z;
+          }
+        }
+        geometry.setAttribute(name, new THREE.BufferAttribute(packed, 3));
+        continue;
+      }
       const size = attribute.itemSize;
       const packed = new attribute.array.constructor(vertices * size);
       let offset = 0;
@@ -1438,6 +1459,11 @@ function createFarWalkTops(group, sources, material) {
         }
       }
       geometry.setAttribute(name, new THREE.BufferAttribute(packed, size, attribute.normalized));
+    }
+    // The tone's fourth lane is the confidence on every source (T-2689), so on
+    // the copy too: `confidenceOf` reads it as it reads them.
+    if (entries.every((entry) => entry.source.geometry.userData.confidenceLane === 'color')) {
+      geometry.userData.confidenceLane = 'color';
     }
     geometry.computeBoundingSphere();
   }
@@ -1545,7 +1571,9 @@ async function getJSON(url) {
  * moved, so the page's check is the second line, for a visitor whose cache holds
  * one release's prebuild beside another's page.
  */
-export const PREBUILT_FORMAT = 2;
+/** 3 since T-2687: each mesh's quantized-position transform travels with it.
+ *  4 since T-2689: the colour's fourth lane is the confidence, and says so. */
+export const PREBUILT_FORMAT = 4;
 
 /** The page's own build id, from the stamp publish.sh writes into it. */
 export function pageBuild(doc = globalThis.document) {
@@ -1612,7 +1640,21 @@ function prebuiltGeometry(m, bin) {
   const s = m.bounding_sphere;
   if (s) geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(...s.center), s.radius);
   else geo.computeBoundingSphere();
+  if (m.position_quantized) geo.userData.positionQuantized = m.position_quantized;
+  if (m.confidence_lane) geo.userData.confidenceLane = m.confidence_lane;
   return geo;
+}
+
+/**
+ * Put a prebuilt mesh where its build left it. A mesh whose positions were
+ * quantized (T-2687, compact-streams.js) holds Int16 over its own box, and the
+ * box is the mesh's position and uniform scale: without them every chunk is
+ * drawn as a one-metre blob at the origin, which is what a format-2 replay did.
+ */
+function placePrebuilt(mesh, m) {
+  if (m.position) mesh.position.fromArray(m.position);
+  if (typeof m.scale === 'number') mesh.scale.setScalar(m.scale);
+  mesh.updateMatrix();
 }
 
 /**
@@ -2071,10 +2113,10 @@ export async function createFrontage({
   const geo = replay ? prebuiltGeometry(replay.index.meshes[0], replay.bin) : new THREE.BufferGeometry();
   if (!replay) {
     geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
-    // Normals and tones in compact normalized formats (T-2569, compact-streams.js).
+    // Normals and tones in compact normalized formats (T-2569, compact-streams.js),
+    // the confidence in the tone's fourth lane (T-2689).
     geo.setAttribute('normal', compactNormals(buf.nrm.view()));
-    geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
-    geo.setAttribute('color', compactColors(buf.col.view()));
+    setColorsAndConfidence(geo, buf.col.view(), buf.conf.float32());
     geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
     geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
     geo.computeBoundingSphere();
@@ -2127,7 +2169,8 @@ export async function createFrontage({
   else grain.apply(mat);
   out.census.relief = grain.problem ? null : grain.id;
   filterPlankGaps(mat);
-  confidence?.patch(mat);
+  // The grade is read from the tone's fourth lane, not a float stream (T-2689).
+  confidence?.patch(mat, { packed: COLOR_LANE_CONFIDENCE });
   /**
    * ITS OWN PROGRAM CACHE KEY. three caches a compiled program under a key
    * ending in `customProgramCacheKey()`, whose default is the SOURCE TEXT of
@@ -2139,6 +2182,11 @@ export async function createFrontage({
   mat.customProgramCacheKey = () => 'chicago4d-frontage-timber-subpixel-gaps';
 
   const mesh = new THREE.Mesh(geo, mat);
+  // Int16 x 4 positions relative to the mesh, its box in its matrix, where that
+  // keeps the millimetre (T-2687, compact-streams.js). The chunks below do the
+  // same; a replay takes the build's own transform with its buffers.
+  if (replay) placePrebuilt(mesh, replay.index.meshes[0]);
+  else quantizeMeshPositions(mesh);
   /**
    * DRAWN AFTER THE STREET RIBBON, and the owner's report is why. The road is a
    * decal: depthWrite off, polygonOffset -8/-32 so it hugs the terrain without
@@ -2172,6 +2220,7 @@ export async function createFrontage({
     ranges: replay ? replay.index.meshes[0].walk_top_ranges : buf.walkTopRanges }];
   for (const m of replay ? replay.index.meshes.slice(1) : []) {
     const cmesh = new THREE.Mesh(prebuiltGeometry(m, replay.bin), mat);
+    placePrebuilt(cmesh, m);
     cmesh.renderOrder = m.renderOrder;
     cmesh.name = m.name;
     cmesh.castShadow = m.castShadow;
@@ -2185,13 +2234,13 @@ export async function createFrontage({
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
     cgeo.setAttribute('normal', compactNormals(chunk.buf.nrm.view()));
-    cgeo.setAttribute('_confidence', new THREE.BufferAttribute(chunk.buf.conf.float32(), 1));
-    cgeo.setAttribute('color', compactColors(chunk.buf.col.view()));
+    setColorsAndConfidence(cgeo, chunk.buf.col.view(), chunk.buf.conf.float32());
     cgeo.setAttribute('uv', new THREE.BufferAttribute(chunk.buf.uv.float32(), 2));
     cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();
     releaseTimberBuf(chunk.buf);
     const cmesh = new THREE.Mesh(cgeo, mat);
+    quantizeMeshPositions(cmesh);
     cmesh.renderOrder = 1;                 // same street-decal ordering as above
     cmesh.name = 'frontage-chunk';
     // T-0127 — GROUND-HUGGING TIMBER OPTS OUT OF THE SHADOW MAP. The flag is on

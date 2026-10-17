@@ -148,8 +148,8 @@ and comparing material tables costs about a second for all 334 assets.
     ships `KHR_texture_basisu`: a JPEG goes up to the GPU as RGBA8, about 5.6 MB for a
     1024² sheet with its mips, and a Basis texture stays in a block format at a quarter
     to an eighth of that. Measured on the 20 textured Prairie houses, which carried 232
-    JPEGs between them until T-2595. The Glessner v4 set is exempt by name
-    (`RASTER_EXEMPT`) until T-2596 re-encodes it.
+    JPEGs between them until T-2595. The Glessner v4 set was the last exemption, by name,
+    until T-2596 re-encoded it; there is no exception now.
 """
 
 from __future__ import annotations
@@ -201,11 +201,9 @@ EPOCH_PREFIXES = ("terrain__", "water__")
 # Assertion 10 (T-2595). A web derivative ships its images as KTX2 (KHR_texture_basisu),
 # never as PNG or JPEG: a JPEG is decoded to RGBA8 on the GPU, four bytes a texel and a
 # third again for its mips, where a Basis texture stays in a block format at half a byte
-# to a byte. The Glessner v4 set is the one exception, named here rather than by a size
-# rule, and T-2596 is the ticket that re-encodes it and deletes this line.
+# to a byte. The Glessner v4 set was the one exception, named here rather than by a size
+# rule, until T-2596 re-encoded it and deleted the exemption.
 RASTER_MIMES = ("image/png", "image/jpeg")
-RASTER_EXEMPT = {"glessner_house__as_built_1887.glb": "T-2596",
-                 "glessner_house__as_built_1887.light.glb": "T-2596"}
 
 # glTF component types that carry a normalised integer, and their divisor.
 NORMALISED = {5120: 127.0, 5121: 255.0, 5122: 32767.0, 5123: 65535.0}
@@ -521,7 +519,7 @@ def assertions(result: dict, baseline: dict) -> list[str]:
     # Assertion 10 (T-2595). No PNG or JPEG in a web derivative.
     for row in result["rows"]:
         n = row.get("raster_images", 0)
-        if n and row["name"] not in RASTER_EXEMPT:
+        if n:
             problems.append(
                 f"{row['name']}: the shipped derivative carries {n} PNG/JPEG image(s), which a "
                 f"GPU holds as uncompressed RGBA8. tools/web_derivatives.sh encodes every "

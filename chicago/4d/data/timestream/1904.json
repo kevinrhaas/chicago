@@ -1,0 +1,128 @@
+{
+  "scene": "1904",
+  "about": "The time-stream deck (T-2611, design doc section 05): landmark years the arrival's ticker passes on its way down from the present year to 1904. A caption shows for about two seconds as the ticker passes its year — at most 3 on a fast load (the highest importance first), up to 8 on a slow one. These are facts about the years BETWEEN now and the destination, shown in transit; they put nothing in the scene. Every caption is graded and every source resolves in data/sources/; tools/check_timestream.py refuses one that is not, or that runs over 70 characters.",
+  "captions": [
+    {
+      "year": 1976,
+      "text": "The Glessner House is named a National Historic Landmark.",
+      "grade": "attested",
+      "importance": 3,
+      "sources": [
+        "glessner_house_current_status"
+      ],
+      "note": "Glessner House, 'Designations': '1976 - National Historic Landmark'."
+    },
+    {
+      "year": 1966,
+      "text": "A group of architects buys the Glessner House for $35,000 to save it.",
+      "grade": "attested",
+      "importance": 12,
+      "sources": [
+        "glessner_house_current_status"
+      ],
+      "note": "Glessner House: local architects and early preservationists formed the Chicago School of Architecture Foundation in April 1966 'in order to save Glessner House'; 'The Foundation bought the house for $35,000 in December 1966'."
+    },
+    {
+      "year": 1963,
+      "text": "A federal survey measures and photographs the Glessner House.",
+      "grade": "attested",
+      "importance": 4,
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "HABS No. ILL-1015: photographs and written data pages prepared in August 1963 by the Historic American Buildings Survey."
+    },
+    {
+      "year": 1946,
+      "text": "A printing research lab moves in and keeps the floor plan intact.",
+      "grade": "attested",
+      "importance": 6,
+      "sources": [
+        "glessner_house_current_status"
+      ],
+      "note": "Glessner House: 'in 1946, the Lithographic Technical Foundation leased the house and converted it for their use, leaving the original floorplan intact'."
+    },
+    {
+      "year": 1937,
+      "text": "Depression bills are too high, so the architects hand the house back.",
+      "grade": "attested",
+      "importance": 5,
+      "sources": [
+        "glessner_house_current_status"
+      ],
+      "note": "Glessner House: 'The high costs of maintenance in Depression-era Chicago led the CCAIA to return the house to the Glessner family in 1937.'"
+    },
+    {
+      "year": 1933,
+      "text": "Chicago throws itself a 100th-birthday fair, on land made in the lake.",
+      "grade": "attested",
+      "importance": 10,
+      "sources": [
+        "century_of_progress_1933_official_guide"
+      ],
+      "note": "The guide: Chicago 'is stirred to celebrate her own Centennial', counting from 'its incorporation as a village, in 1833' (scan leaves 16-18), on '424 acres of barren, sandy, man-made land — wrested from the bottom of Lake Michigan' (scan leaf 88)."
+    },
+    {
+      "year": 1924,
+      "text": "The Glessners sign a promise: one day their house goes to architects.",
+      "grade": "attested",
+      "importance": 7,
+      "sources": [
+        "glessner_house_current_status"
+      ],
+      "note": "Glessner House: 'On December 1, 1924, the Glessners and the Chicago Chapter of the American Institute of Architects signed a deed of gift that would give the house to the CCAIA upon the Glessners' deaths'."
+    },
+    {
+      "year": 1923,
+      "text": "John Glessner writes The Story of a House, a booklet for his children.",
+      "grade": "attested",
+      "importance": 8,
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "note": "The booklet, written for his children George and Frances and signed 'Faithfully your father, John J. Glessner', March 1923."
+    },
+    {
+      "year": 1919,
+      "text": "Gamblers fix the World Series. Eight White Sox are charged in 1920.",
+      "grade": "attested",
+      "importance": 9,
+      "sources": [
+        "sun_new_york_herald_1920_09_29_white_sox_indicted"
+      ],
+      "note": "The Sun and the New York Herald, 29 Sept 1920: the grand jury 'indicted seven White Sox players and one former member of the team for throwing the 1919 world's series'; 'The White Sox players were fixed and paid before the series games were started.'"
+    },
+    {
+      "year": 1911,
+      "text": "Fire-insurance mapmakers draw the Glessner House, stone walls and all.",
+      "grade": "attested",
+      "importance": 2,
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Sanborn 1911, vol. 3 sheet 28: the 1800 Prairie lot and the Glessner House footprint, drawn as stone."
+    },
+    {
+      "year": 1909,
+      "text": "Burnham's Plan of Chicago says the lakefront belongs to the people.",
+      "grade": "attested",
+      "importance": 11,
+      "sources": [
+        "burnham_bennett_1909_plan_of_chicago"
+      ],
+      "note": "The Plan, prepared by Daniel H. Burnham and Edward H. Bennett and published by the Commercial Club in 1909: 'The Lake front by right belongs to the people' (p. 50)."
+    }
+  ],
+  "log": {
+    "scene": "Syncing time mesh",
+    "terrain": "Rolling back the skyline",
+    "buildings": "Raising Prairie Avenue",
+    "ground": "Paving Eighteenth Street",
+    "flora": "Planting 1904 elms",
+    "people": "Locating Glessner household",
+    "interaction": "Arming the Navigator"
+  },
+  "log_note": "The arrival log's lines (T-2612, design doc section 05 'Telemetry: semi-real, on purpose'): one per boot phase, shown in mono caps while the phase runs and marked OK when it ends. They are machine lore in the Navigator's voice, not findings, and claim nothing a source has to carry; where a line names the place (the 1904 elms, the Sauganash Hotel, the fort's pickets) it names what the scene itself draws.",
+  "held_back": [],
+  "held_back_note": "The ticker on the way to 1904 passes no year of the 1833 treaty or the 1835 removal. No caption in any deck speaks of Native people, the 1833 Treaty of Chicago or the removal of the Potawatomi. Under the standing constraint in AGENTS.md (1835 and Indigenous history), a line about the removal would need the review_required and touches_removal flags and the review by Native scholars or community organisations, and a two-second caption in transit is not where that history should first be told. So the years whose landmark is the treaty or the removal are held back from the deck rather than captioned with something smaller, which would pass over them in silence."
+}

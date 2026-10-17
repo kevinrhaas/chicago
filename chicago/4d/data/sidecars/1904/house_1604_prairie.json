@@ -25,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1366.982,
-    "local_n": -2973.04,
+    "local_e": 1368.112,
+    "local_n": -2971.65,
     "rotation_deg": -0.578,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the three-storey main body's rectangle (lot frame u 34.650, v -3.850 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.578 degrees turns the plan's u axis onto the lot's own rear-to-street line. T-2343 moved it 8.40 m toward the street and 0.60 m south of the district draft's corner (T-2334): the draft read the whole traced outline as one three-storey body 20.5 m deep, and the sheet prints '3B' only on the front 12.2 m, behind a yellow entry strip, with '2B' and '2' on the pieces behind it (see rear_wings).",
+    "position_note": "The rear corner of the three-storey main body's rectangle (lot frame u 34.650, v -3.850 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.578 degrees turns the plan's u axis onto the lot's own rear-to-street line. T-2343 moved it 8.40 m toward the street and 0.60 m south of the district draft's corner (T-2334): the draft read the whole traced outline as one three-storey body 20.5 m deep, and the sheet prints '3B' only on the front 12.2 m, behind a yellow entry strip, with '2B' and '2' on the pieces behind it (see rear_wings).",
     "symbolic_location": "1604 S. Prairie Avenue, parcel prairie_1604 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,

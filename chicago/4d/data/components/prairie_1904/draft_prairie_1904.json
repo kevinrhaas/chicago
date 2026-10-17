@@ -8,7 +8,13 @@
     "coverage": 0.9,
     "min_rect_m2": 2.5,
     "min_side_m": 1.2,
-    "swallowed": 0.75
+    "swallowed": 0.75,
+    "sliver_m": 2.5,
+    "sliver_fill": 0.85,
+    "sliver_overlap": 0.25,
+    "detached_front_m": 2.0,
+    "min_body_m": 5.5,
+    "stray_m2": 15
   },
   "heights": {
     "_doc": "Masonry houses: principal storey 3.9 m and upper storeys 3.5, 3.3 and 3.1 m floor to floor (RECONSTRUCTION-RULES.md: principal 3.2-4.2, upper 2.9-3.7), over a basement whose principal floor stands 1.4 m above grade (the K01 contract's 0.8-1.8). Service buildings: a 3.4 m carriage storey and a 2.8 m loft. A half storey is the roof's: a mansard's 3.0 m lower face, or dormers in a hip.",
@@ -124,7 +130,7 @@
           "liberty": "L-draft-prairie-16-18-east-2335"
         }
       },
-      "fit_note": "the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed",
+      "fit_note": "the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed",
       "rear_ticket": {
         "west": "T-1932",
         "east": "T-1933"

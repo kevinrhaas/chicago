@@ -58,6 +58,9 @@ import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
 import { runJob, jobsOnWorkers } from './jobs/pool.js';
+// T-2698: the near deal's field as a world-anchored tile a shader can sample.
+import { FIELD_SPEC, FIELD_FLAGS, FIELD_GLSL, fieldOrigin, buildField, sampleField }
+  from './near-field.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -746,6 +749,17 @@ const CONE_YAW_STEP = 0.20;
  * frames after a move has to find one whole lattice, as it always did.
  */
 const SPREAD_MAX_MS = 250;
+/**
+ * T-2683. A JUMP — a snap turn, an arrival — leaves no margin to spread a pass
+ * over, so it used to be dealt in the one frame that needed it: 136 ms at the
+ * walk's right turn on the throttled phone profile. It is dealt over a few
+ * frames instead, with the old lattice drawn until it lands, at the slice that
+ * puts the last whole pass's cost over `JUMP_FRAMES` and never more than
+ * `JUMP_SLICE_MS` a frame — well under the 50 ms a long task starts at.
+ * SPREAD_MAX_MS still finishes one a slow renderer cannot land in time.
+ */
+const JUMP_FRAMES = 6;
+const JUMP_SLICE_MS = 30;
 
 /** Conservative camera azimuth, quantized outward in five-degree buckets.
  * A level-camera cone misses ground exposed by a downward flight view; using
@@ -1362,6 +1376,11 @@ export async function createFlora({
     return hash3(Math.floor(e / VERGE_CELL_M), Math.floor(n / VERGE_CELL_M), 0x2094) / 4294967296
       >= VERGE_KEEP_SHARE;
   }
+
+  /** T-2698: a species no turf ceiling admits, so `trodden` answers for the
+   *  ground alone — the field's TRODDEN bit, read per species in the shader. */
+  const TALLEST = { height: [0, Infinity] };
+  const zoneIndex = new Map(zones.map((z, i) => [z, i]));
 
   /** A community that stands in no water, for the plantable-ground question the
    *  gate asks without naming a species. */
@@ -1985,7 +2004,7 @@ export async function createFlora({
   const farPass = { name: 'far', make: rebuildFarShrubs, at: 'farShrub', yawAt: 'farShrubYaw',
     reach: tune.farShrub.step, pending: null, cost: null, waits: 0 };
   stats.spread = { landings: 0, drained: 0, abandoned: 0, frames: 0, ms: 0, waits: 0,
-    passes: { near: 0, far: 0 }, last: { near: null, far: null } };
+    jumps: 0, jumpFrames: 0, passes: { near: 0, far: 0 }, last: { near: null, far: null } };
 
   /** Run, start or advance one pass this frame. True if its sets changed. */
   function runPass(p, f, due) {
@@ -1998,8 +2017,21 @@ export async function createFlora({
     // started on time and not early, because starting a pass early that
     // cannot then be spread only adds passes (measured on a ride: 367 against
     // 221).
-    const spread = f.spread && (p.cost ?? 0) > f.budgetMs
-      && f.pace * 4 <= p.reach / 2 && f.turnRate * 4 <= CONE_YAW_STEP / 2;
+    const smooth = f.pace * 4 <= p.reach / 2 && f.turnRate * 4 <= CONE_YAW_STEP / 2;
+    const costly = (p.cost ?? 0) > f.budgetMs;
+    const spread = f.spread && costly && smooth;
+    // T-2683: except the snap turn and the arrival, on the animation loop.
+    // Neither leaves margin to spread over, but both are ONE jump and not a
+    // pace kept up: the pass is dealt from where the camera landed, over a
+    // few frames (`JUMP_FRAMES`), and the old lattice draws until it lands.
+    // A horse is smooth at its pace and keeps its one-frame pass. A cone
+    // that changed is not a jump (`f.spread` is false): that pass is T-2682's.
+    if (p.pending?.jump) {
+      // The camera jumped AGAIN, or the cone changed under it: deal afresh.
+      if (f.spread && smooth) return advance(p, f, jumpSlice(p, f));
+      p.pending = null;
+      stats.spread.abandoned++;
+    }
     if (p.pending && !spread) {
       // Dealt for a pose the camera has jumped from: dropped uncommitted. The
       // sets still hold the last whole lattice on the GPU, and `due` decides
@@ -2013,6 +2045,11 @@ export async function createFlora({
     if (!p.pending) {
       if (!spread) {
         if (!due) return false;
+        if (f.spread && costly) {
+          begin(p, f, true);
+          stats.spread.jumps++;
+          return advance(p, f, jumpSlice(p, f));
+        }
         const t0 = performance.now();
         for (const _ of p.make(e, n, f.cone)) { /* runtime synchronous path */ }
         p.cost = performance.now() - t0;
@@ -2031,15 +2068,7 @@ export async function createFlora({
       const lead = Math.min(p.reach / 2, Math.max(f.pace, frames * f.pace));
       const leadYaw = Math.min(CONE_YAW_STEP / 2, frames * f.turnRate);
       if (d + lead <= p.reach && dy + leadYaw <= CONE_YAW_STEP) return false;
-      f.camera.getWorldQuaternion(tmpQ);
-      // T-2604: a spread pass sends its lattice walks to the job pool (the cone
-      // carries the mark, because it is what every walk of the pass is given).
-      p.pending = { gen: p.make(e, n, f.cone && { ...f.cone, jobs: true }), e, n, yaw,
-        spent: 0, frames: 0, waits: 0,
-        t0: performance.now(),
-        // Where the camera stood, so a gate can deal the same pass in one frame
-        // and compare the two plant for plant.
-        camera: [tmpV.x, tmpV.y, tmpV.z, ...tmpQ.toArray()] };
+      begin(p, f, false);
     }
     // The frames left before the camera reaches the edge of the lattice on
     // screen, at this frame's pace and turn, less one for the frame this one
@@ -2050,7 +2079,51 @@ export async function createFlora({
       f.turnRate > 0 ? (CONE_YAW_STEP - dy) / f.turnRate : Infinity) - 2;
     const late = left < 1 || performance.now() - p.pending.t0 > SPREAD_MAX_MS;
     const owed = Math.max(0, (p.cost ?? f.budgetMs) - p.pending.spent);
-    const slice = late ? Infinity : Math.max(f.budgetMs, owed / Math.max(1, left));
+    return advance(p, f, late ? Infinity : Math.max(f.budgetMs, owed / Math.max(1, left)));
+  }
+
+  /**
+   * Start a pass to be dealt over frames. T-2604: its lattice walks go to the
+   * job pool (the cone carries the mark, because it is what every walk of the
+   * pass is given). T-2683: and they go ALL AT ONCE — the walks the last pass
+   * of this kind made are sent now, from this pass's centre and cone, so a
+   * walk is on a worker before the deal reaches it rather than waiting a frame
+   * for its reply when it does. A walk the pass makes that was not sent ahead
+   * (the first pass, a tier change) is sent when it is reached, as before.
+   */
+  function begin(p, f, jump) {
+    const { e, n, yaw } = f;
+    f.camera.getWorldQuaternion(tmpQ);
+    const cone = f.cone && { ...f.cone, jobs: true, walks: [], ahead: new Map() };
+    if (cone && jobsOnWorkers()) {
+      for (const w of p.walks ?? []) {
+        const job = walkJob(e, n, w, cone);
+        const reply = runJob('latticeSlots', job);
+        reply.catch(() => {}); // one never asked for is not an error
+        cone.ahead.set(walkKey(job), reply);
+      }
+    }
+    p.pending = { gen: p.make(e, n, cone), cone, e, n, yaw, jump,
+      spent: 0, frames: 0, waits: 0,
+      t0: performance.now(),
+      // Where the camera stood, so a gate can deal the same pass in one frame
+      // and compare the two plant for plant.
+      camera: [tmpV.x, tmpV.y, tmpV.z, ...tmpQ.toArray()] };
+  }
+
+  /** T-2683. A jump pass's slice: its last whole cost over `JUMP_FRAMES`, at
+   *  least the frame budget, and never past `JUMP_SLICE_MS` with what this
+   *  frame has dealt already counted (a snap turns both passes at once); all
+   *  of it once it is late. */
+  function jumpSlice(p, f) {
+    if (performance.now() - p.pending.t0 > SPREAD_MAX_MS) return Infinity;
+    return Math.max(f.budgetMs,
+      Math.min(JUMP_SLICE_MS - f.dealt, (p.cost ?? f.budgetMs) / JUMP_FRAMES));
+  }
+
+  /** Deal a slice of the pass in flight; land it if it ran to its end. */
+  function advance(p, f, slice) {
+    const late = slice === Infinity;
     const t0 = performance.now();
     let done = false;
     // T-2604: a walk still on a worker ends the slice, and is collected next
@@ -2062,6 +2135,7 @@ export async function createFlora({
     } while (!done && performance.now() - t0 < slice);
     p.pending.spent += performance.now() - t0;
     p.pending.frames++;
+    f.dealt += performance.now() - t0;
     if (!done) return false;
     land(p, late);
     return true;
@@ -2074,14 +2148,19 @@ export async function createFlora({
     centres[p.yawAt] = q.yaw;
     p.cost = q.spent;
     p.waits = q.waits;
+    // T-2683: the walks this pass made, for the next one to send ahead.
+    if (q.cone?.walks.length) p.walks = q.cone.walks;
     const sp = stats.spread;
     sp.landings++;
     if (drained) sp.drained++;
     sp.frames += q.frames;
     sp.ms += q.spent;
     sp.waits += q.waits;
+    // T-2683: the frames a jump pass drew the old lattice for, its landing one
+    // included — what a snap turn costs the visitor to look at.
+    if (q.jump) sp.jumpFrames += q.frames;
     sp.last[p.name] = { e: q.e, n: q.n, yaw: q.yaw, frames: q.frames, ms: q.spent, waits: q.waits,
-      camera: q.camera, pass: ++sp.passes[p.name] };
+      jump: q.jump, camera: q.camera, pass: ++sp.passes[p.name] };
     p.pending = null;
   }
 
@@ -2111,6 +2190,45 @@ export async function createFlora({
       const sp = zone?.byId.get(speciesId);
       if (!sp) return null;
       return station(e, n, zone, sp);
+    },
+    /**
+     * T-2698. The near deal's field, for the shader that will deal the near
+     * ring itself (T-2557): `at` is the CPU's answer at one point — community
+     * (its index in `communities()` plus one, 0 = none), the FIELD_FLAGS and
+     * the ground height — asked through the very closures the deal asks;
+     * `build` rasterises it at the texel centres of the tile around a camera;
+     * `slots` is every slot of the near lattice there (no cone), the points
+     * `tools/measure_near_field.mjs` holds the tile to.
+     */
+    nearField: {
+      spec: FIELD_SPEC,
+      flags: FIELD_FLAGS,
+      glsl: FIELD_GLSL,
+      sample: sampleField,
+      at(e, n, out = [0, 0, 0]) {
+        const zone = finder(e, n);
+        let f = 0;
+        if (water.isWater(e, n)) f |= FIELD_FLAGS.WET;
+        if (zone?.turf) f |= FIELD_FLAGS.TURF;
+        if (station(e, n, NO_COMMUNITY, null, false) === null) f |= FIELD_FLAGS.BLOCKED;
+        if (zone && trodden(e, n, zone, TALLEST)) f |= FIELD_FLAGS.TRODDEN;
+        out[0] = zone ? zoneIndex.get(zone) + 1 : 0;
+        out[1] = f;
+        out[2] = terrain.surfaceHeight(e, n);
+        return out;
+      },
+      build(camE, camN, spec = FIELD_SPEC) {
+        const { e0, n0 } = fieldOrigin(camE, camN, spec);
+        return buildField(this.at, e0, n0, spec);
+      },
+      slots(camE, camN) {
+        const out = [];
+        const gen = scatter(camE, camN, tune.near.cell, tune.near.perCell,
+          rings.near.lattice.outer, rings.near.lattice.inner, 0x51ed27, 'strata', null,
+          (e, n) => { out.push(e, n); });
+        for (const _ of gen) { /* drained */ }
+        return Float64Array.from(out);
+      },
     },
     /** What each community may plant on each side of its waterline, by id. */
     substrates() {
@@ -2385,7 +2503,7 @@ export async function createFlora({
       // cone needs the lattice where the camera now is, in this frame, exactly
       // as before. So does a caller that set no budget — every tool that drives
       // `step()` and reads the buffers straight after.
-      const frame = { e, n, yaw, cone, pace, turnRate, budgetMs, camera,
+      const frame = { e, n, yaw, cone, pace, turnRate, budgetMs, camera, dealt: 0,
         spread: Number.isFinite(budgetMs) && !coneChanged
           && centres.near !== null && centres.farShrub !== null };
       // The far shrubs and the carries first, on their own step, as before.
@@ -4589,11 +4707,18 @@ const MAY_WAIT = Symbol('may wait');
  * pass walks in `scatter` as it always did.
  */
 function* scatterOnPool(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emit) {
-  const job = { camE, camN, cell, perCell, radius, inner, salt, draw,
-    cone: { fe: cone.fe, fn: cone.fn, cos: cone.cos, margin: cone.margin } };
+  const w = { cell, perCell, radius, inner, salt, draw };
+  const job = walkJob(camE, camN, w, cone);
+  // T-2683: the walk the pass sent ahead for this one, if it sent one; and this
+  // walk written down, for the next pass to send ahead in its turn.
+  const key = walkKey(job);
+  const ahead = cone.ahead?.get(key);
+  cone.ahead?.delete(key);
+  cone.walks?.push(w);
   const total = Math.ceil((camN + radius) / cell) - Math.floor((camN - radius) / cell) + 1;
   const walk = { slots: null, failed: false };
-  runJob('latticeSlots', job).then((slots) => { walk.slots = slots; }, () => { walk.failed = true; });
+  (ahead ?? runJob('latticeSlots', job))
+    .then((slots) => { walk.slots = slots; }, () => { walk.failed = true; });
   yield { done: 0, total };
   while (!walk.slots) {
     if (walk.failed || (yield WALK_WAIT) !== MAY_WAIT) walk.slots = latticeSlots(job);
@@ -4608,6 +4733,16 @@ function* scatterOnPool(camE, camN, cell, perCell, radius, inner, salt, draw, co
     yield { done: row + 1, total };
   }
 }
+
+/** The lattice walk a worker is sent: the walk's own numbers at a centre and a
+ *  cone. One constructor, so a walk sent ahead (T-2683) and the walk the deal
+ *  then asks for are the same job and read the same key. */
+function walkJob(camE, camN, w, cone) {
+  return { camE, camN, cell: w.cell, perCell: w.perCell, radius: w.radius, inner: w.inner,
+    salt: w.salt, draw: w.draw,
+    cone: { fe: cone.fe, fn: cone.fn, cos: cone.cos, margin: cone.margin } };
+}
+function walkKey(job) { return JSON.stringify(job); }
 
 /** Weighted pick from a compiled species list (weights sum to 1). */
 /**

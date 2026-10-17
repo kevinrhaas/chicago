@@ -118,6 +118,8 @@ export function createArrival({
   targetYear = 1835,
   titleEl,
   onWelcome = () => {},
+  // T-2611: told each year the ticker shows, as it shows it (the time-stream captions).
+  onYear = () => {},
   currentYear = new Date().getFullYear(),
   reducedMotion = typeof matchMedia === 'function'
     ? matchMedia('(prefers-reduced-motion: reduce)').matches : false,
@@ -212,6 +214,7 @@ export function createArrival({
     if (rounded === lastShown || (lastShown != null && rounded > lastShown)) return;
     lastShown = rounded;
     setDigits(yearEl, rounded, animate && !reducedMotion);
+    try { onYear(rounded); } catch { /* optional presentation never stops the ticker */ }
   }
 
   function sync(event) {

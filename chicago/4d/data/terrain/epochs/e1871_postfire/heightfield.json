@@ -21,11 +21,11 @@
    -2900.0
   ]
  },
- "min_m": -2.4372,
+ "min_m": -2.4371,
  "max_m": 4.6026,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
- "water_fraction": 0.2606,
+ "water_fraction": 0.2601,
  "relief_ft": {
   "land_min": 0.0,
   "land_max": 15.1,
@@ -41,5 +41,5 @@
   "ground": "gltf/terrain__e1871_postfire.glb",
   "water": "gltf/water__e1871_postfire.glb"
  },
- "inputs_sha256": "19aaf24cc3d121eb2cd6aaa7dbc37e73280b19bb9a2864ccb075054974c37fff"
+ "inputs_sha256": "a5a6e606ab0aa084de4a2eee0359c8e465165b9383466ca90b80d553f999c881"
 }

@@ -24082,6 +24082,19 @@ share one. A wall within 0.9 m of a lot line is left blind as a party wall.
 1911 sheet carried to 1904 on T-1841's ruling), never the parcel; the full storeys are the sheet's
 printed notation (attested); the fabric is the sheet's colour as the register reads it. No source
 is claimed for any form, and no house's draft copies another's.
+**Swept by T-2690 (2026-10-16), for every block drafted under these rules:** the owner, looking
+at 1729 from 18th Street, found houses flanked by "several tall towers". They were the fit's own
+leftovers, built full height: strips under 2.5 m thick that a slightly skewed outline
+leaves along a part's sides, a portico or bay standing clear of the street wall, and street
+bodies three or four metres wide. So, still with no source claimed: a strip under 2.5 m is
+folded into the rectangle it lies against when the box over both is at least 85 % inside the
+traced fill (so a rectangle may now reach up to 15 % past the drawn outline, where the
+outline steps), and a strip nothing can take stands one storey under a flat roof; a piece
+standing more than 2 m clear in front of the street wall is a one-storey porch; a bay or porch
+the fit left short of that wall, and any stone front, stands against it; a piece under 15 m²
+touching nothing else of its building is one storey; and a street body narrower than 5.5 m is
+widened about its middle to 5.5 m inside its own lot. The rules carry these as `fit.sliver_m`,
+`sliver_fill`, `sliver_overlap`, `detached_front_m`, `stray_m2` and `min_body_m`.
 **1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
@@ -27293,6 +27306,8 @@ principal floor (nine risers) where the plate reads about 2.0 m.
 balcony panel, the scrolled cheek walls and the stone's tone. The plate's camera solved once a copy
 whose rights are cleared is in the tree (the scan this source reads is `check_required`, so no asset is
 derived from it here) puts every dimension above on a side-by-side.
+
+**Revised:** 2026-10-16 (T-2681) — **taller columns, a deeper entablature and a shallower balcony front.** Read through the 1965 close view's camera (`a18-gh-1808-porch-1965`) and the plate's (`inland-1888`): both show the beam and cornice deeper (0.95-1.0 and 0.9 m) and the balcony's front shallower (0.7 and 0.8 m) than built; on the columns they disagree, the 1965 view reading 2.5-2.7 m and the plate about 2.25 m. Built at 2.45 m (T-2500's own reading of the plate, which 2.25 m had given up only to keep the balcony floor on the 5.9 m second-floor datum), 0.9 m and 0.75 m; the balcony floor stands at 6.35 m, under the 6.65 m second-storey sill. Still invented: the column height between two pictures that differ by about 0.5 m, each record holding its remainder open.
 
 ### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
 

@@ -25,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1466.758,
-    "local_n": -3070.245,
-    "rotation_deg": 179.605,
+    "local_e": 1469.888,
+    "local_n": -3067.841,
+    "rotation_deg": 179.61,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 4.250, v -14.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.605 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.250, v -15.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.61 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1701 S. Prairie Avenue, parcel prairie_1701 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -46,16 +46,16 @@
         0.0
       ],
       [
-        5.25,
+        10.0,
         0.0
       ],
       [
-        5.25,
-        13.25
+        10.0,
+        14.5
       ],
       [
         0.0,
-        13.25
+        14.5
       ]
     ],
     "confidence": "inferred",
@@ -92,75 +92,49 @@
             "rect": [
               0.0,
               0.0,
-              5.25,
-              13.25
+              10.0,
+              14.5
             ],
-            "from": "s20fp-1701-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 73% of its fill"
+            "from": "s20fp-1701-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
           },
           {
             "id": "r2",
-            "role": "wing",
-            "storeys": 2,
+            "role": "range",
+            "storeys": 1,
             "roof": "flat",
             "rect": [
-              5.25,
-              -1.0,
-              7.5,
-              7.0
+              5.5,
+              15.25,
+              9.0,
+              17.75
             ],
-            "from": "s20fp-1701-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 73% of its fill"
+            "from": "s20fp-1701-b2 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 49% of its fill"
           },
           {
             "id": "r3",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              -2.0,
-              6.75,
-              0.0,
-              13.5
-            ],
-            "from": "s20fp-1701-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 73% of its fill"
-          },
-          {
-            "id": "r4",
             "role": "range",
             "storeys": 1,
             "roof": "flat",
             "rect": [
-              3.5,
-              14.25,
-              7.0,
-              16.75
-            ],
-            "from": "s20fp-1701-b2 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 48% of its fill"
-          },
-          {
-            "id": "r5",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -4.25,
-              14.0,
-              -0.75,
-              16.25
+              -2.25,
+              15.0,
+              1.25,
+              17.25
             ],
             "from": "s20fp-1701-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 48% of its fill"
           }
         ],
         "lot_v": [
-          -1.781,
-          31.281
+          -0.78,
+          32.28
         ],
-        "street_u": 57.487
+        "street_u": 59.494
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1701-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 73% of its fill; s20fp-1701-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 73% of its fill; s20fp-1701-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 73% of its fill; s20fp-1701-b2 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 48% of its fill; s20fp-1701-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 48% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1701-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill; s20fp-1701-b2 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 49% of its fill; s20fp-1701-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 48% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -174,7 +148,7 @@
         ],
         "roof_pitch_deg": 40,
         "mansard_lower_m": 3.0,
-        "front_bays": 5,
+        "front_bays": 6,
         "entrance": "centre",
         "side_spacing_m": 2.6,
         "chimneys": 0,

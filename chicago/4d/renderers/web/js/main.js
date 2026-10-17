@@ -62,6 +62,7 @@ import { setPickRenderer } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
+import { compactStreams } from './compact-streams.js';
 import { createTextureResidency } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
 import { createWharves } from './wharves.js';
@@ -69,6 +70,8 @@ import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
+import { createTimeStream } from './time-stream.js';
+import { createTelemetry } from './arrival-telemetry.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -1464,6 +1467,13 @@ try { bootStorage = window.localStorage; } catch { /* private mode */ }
 // cached (boot() re-reads it); a first visit guesses the platform default.
 const crashGuard = createCrashGuard({ year: YEAR, order: DETAIL_ORDER });
 api.crashGuard = crashGuard.state;
+// A layer's positions in metres, quantized or not (T-2687, compact-streams.js):
+// what the smoke's probes read, where `getAttribute('position')` now hands
+// back the -1..1 the GPU sees on a quantized mesh.
+api.positionsInMetres = compactStreams(THREE).positionsInMetres;
+// Its confidence per vertex, wherever the layer keeps it (T-2689): what the smoke's
+// probes read on a layer that keeps no float `_confidence` stream.
+api.confidenceOf = compactStreams(THREE).confidenceOf;
 const bootProfile = cachedDeviceProfile(bootStorage, null);
 const bootGuess = bootProfile ? deviceChoice(bootProfile.cls, { touch: prefersTouch() }) : null;
 const crashBoot = crashGuard.boot({
@@ -1512,17 +1522,31 @@ const arrival = createArrival({
   buttonEl: gateBtn,
   forecast: bootForecast,
   headlineEl: document.getElementById('arrival-headline'),
-  logEl: document.getElementById('arrival-log'),
+  // T-2612: the log is the telemetry's (one line per boot phase, from the deck), so the
+  // arrival no longer files its status cards there.
+  logEl: null,
   lampsEl: document.getElementById('arrival-lamps'),
   readoutEl: document.getElementById('arrival-readout'),
   observatoryEl: document.getElementById('gate-observatory'),
   detailsEl: document.getElementById('gate-details'),
   detailEl: document.getElementById('gate-detail'),
+  onYear: year => { api.timeStream?.passYear(year); api.telemetry?.year(year); },
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
 if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
+// T-2611: the time-stream captions — this destination's deck of landmark years, shown as
+// the ticker passes each (3 at most on a fast load, up to 8 on a slow one). Optional:
+// the fetch never joins the ready barrier, and no deck simply shows no caption.
+// T-2612: YEARS TO GO, the four named lamps and the log, over the same boot.
+api.telemetry = createTelemetry({ boot: bootController, targetYear: Number(YEAR) || 1835,
+  lampsEl: document.getElementById('arrival-lamps'), logEl: document.getElementById('arrival-log'),
+  yearsEl: document.querySelector('#arrival-readout [data-telemetry="years"]') });
+api.timeStream = createTimeStream({ boot: bootController, forecast: bootForecast,
+  el: document.getElementById('arrival-timestream'), sayEl: document.getElementById('arrival-timestream-say'),
+  onDeck: deck => api.telemetry?.setDeck(deck) });
+void api.timeStream.load(new URL(`timestream/${YEAR}.json`, resolveBases().dataBase));
 bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
 bootController.on('ready', () => crashGuard.live());
 const bootCheckpoint = createCheckpoint();
