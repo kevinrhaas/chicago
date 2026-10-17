@@ -1,0 +1,10 @@
+{
+  "title": "The look-at tag shows, then fades",
+  "kind": "fix",
+  "items": [
+    "The tag naming the building in front of you now fades after about three seconds instead of hanging in the view. Look away and back to see it again.",
+    "Long names are no longer cut off: the tag wraps to a second line so the whole name and the distance always show, on a phone too.",
+    "The Inspect button stays while the building is in front of you, so it is still one tap away after the tag fades.",
+    "Prefer it gone? Settings › Show › Name of what you look at turns it off. It is on unless you switch it off."
+  ]
+}

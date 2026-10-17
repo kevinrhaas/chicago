@@ -15164,6 +15164,19 @@ for (const [label, viewport, touch] of [
     check(`${label}: settings toggle all three navigation aids`,
       toggles.hidden.compass && toggles.hidden.map && toggles.hidden.street && toggles.restored,
       JSON.stringify(toggles));
+    // T-2736 (owner, 2026-10-17): Settings › Show turns the look-at tag off and on; on by default.
+    const lookTag = await page.evaluate(() => {
+      const box = document.getElementById('s-look-tag');
+      const api = window.__chicago4d;
+      const out = { present: !!box, onByDefault: box?.checked === true };
+      box?.click();
+      out.off = api.hud?.settings?.lookTag === false && document.getElementById('target-tag').hidden;
+      box?.click();
+      out.backOn = box?.checked === true && api.hud?.settings?.lookTag === true;
+      return out;
+    });
+    check(`${label}: Settings › Show turns the look-at tag off and back on (T-2736)`,
+      lookTag.present && lookTag.onByDefault && lookTag.off && lookTag.backOn, JSON.stringify(lookTag));
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.

@@ -1107,15 +1107,22 @@ body.is-touch .crosshair { display: none; }
    It is a button: a tap opens Inspect. */
 .target-tag {
   position: absolute; left: 50%; top: calc(50% + 46px); transform: translateX(-50%);
-  max-width: min(320px, calc(100vw - 120px)); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  /* T-2736: the whole name and distance, wrapped to a second line when it is long — never
+     cut off. A pill on one line, a rounded box on two. */
+  width: max-content; max-width: min(440px, calc(100vw - 120px)); white-space: normal; overflow-wrap: break-word;
+  text-align: center; text-wrap: balance;
   margin: 0; padding: 6px 12px; pointer-events: auto; cursor: pointer;
-  font: 600 11px/1.2 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  font: 600 11px/1.35 var(--font-label, var(--font-mono, ui-monospace, monospace));
   letter-spacing: .14em; text-transform: uppercase;
   color: var(--ink); background: var(--panel); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--edge));
-  border-radius: var(--r-control, 999px); box-shadow: var(--shadow);
+  border-radius: min(var(--r-control, 999px), 14px); box-shadow: var(--shadow);
   animation: look-tag-in .2s ease-out both;
+  transition: opacity .6s ease;
 }
 .target-tag[hidden] { display: none; }
+/* T-2736: it holds a few seconds, then fades (target-tag.js FADE_MS matches). */
+.target-tag.is-fading { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .target-tag { animation: none; transition: none; } }
 .target-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* T-2627: the quick column — Walk/Fly and, with a target, Inspect. Right edge, centred;
    two buttons at most. */
