@@ -200,6 +200,7 @@ function miniDom() {
   const head = add(root, 'header', 'nav-head');
   add(head, 'span', 'nav-code');
   add(head, 'span', 'nav-date');
+  add(head, 'button', 'nav-close');
   const navBody = add(root, 'div', null, ['nav-body']);
   const rail = add(navBody, 'nav', 'nav-rail');
   add(rail, 'button', 'nav-collapse');
@@ -1080,6 +1081,33 @@ for (const phone of [false, true]) {
   assert.equal(nav.level, 0, `${where}: Escape closes the Navigator`);
   assert.equal(press('Escape'), false, `${where}: a closed Navigator leaves Escape alone`);
 }
+
+// ---- the close key (T-2742): the header's X does what the collapse arrow does ----------
+for (const phone of [false, true]) {
+  const dom = miniDom();
+  const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1904.json'), isPhone: () => phone, storage: fakeStorage(),
+    apps: APPS, keyTarget: null, viewportHeight: () => 780,
+    context: () => ({ scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false, actions: {} }) });
+  await Promise.resolve();
+  const where = phone ? 'phone' : 'desktop';
+  const x = dom.byId.get('nav-close');
+  for (const opened of [1, 2]) {
+    nav.open(opened);
+    assert.ok(nav.level > 0, `${where}: open`);
+    let stopped = 0;
+    x.dispatch('pointerdown', { stopPropagation() { stopped += 1; } });
+    x.dispatch('click', { stopPropagation() { stopped += 1; } });
+    assert.equal(nav.level, 0, `${where}: the X closes it, from level ${opened}`);
+    assert.equal(nav.detent, phone ? 'dock' : 'rail', `${where}: to the dock or the rail, where the collapse arrow sends it`);
+    assert.equal(stopped, 2, `${where}: its press starts no drag, and its tap never reaches the head's "open when docked" tap`);
+  }
+  // close()'s own focus rule: the mini DOM lays nothing out, so the grip counts as shown.
+  assert.ok(dom.byId.get('nav-grip').focused > 0, `${where}: focus goes back to the handle that reopens it`);
+  // The head's own tap, which the X's tap stops short of, would have reopened it.
+  dom.byId.get('nav-head').dispatch('click');
+  assert.ok(nav.level > 0, `${where}: (the head's tap does reopen a docked device, which is why the X stops its click)`);
+}
+console.log('NAVIGATOR CLOSE KEY PASS — the header\'s X docks the device on a phone and folds it to the rail on a desktop, without starting a drag or reopening through the head');
 
 console.log('NAVIGATOR KEYS PASS — N and Tab-from-the-scene toggle it, 1–9 open the rail\'s apps, Escape closes it; focus moves into the app and back to the grip; nothing fires while typing or before landing');
 
