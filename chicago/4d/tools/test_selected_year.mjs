@@ -52,7 +52,7 @@ for (const reducedMotion of [false, true]) {
   const arrival = createArrival({ boot, targetYear: 1904, titleEl, phaseEl, reducedMotion,
     now: () => clock, requestFrame: fn => { callback = fn; return 1; }, cancelFrame() {} });
   clock = 3001; callback();
-  assert.equal(titleEl.textContent, reducedMotion ? 'Preparing your arrival' : 'Setting temporal coordinates');
+  assert.equal(titleEl.textContent, reducedMotion ? 'Preparing your arrival' : 'Setting the time dial');
   arrival.fail(new Error('test failure'));
   const title = titleEl.textContent; clock = 7000; callback();
   assert.equal(titleEl.textContent, title); assert.equal(phaseEl.hidden, false);

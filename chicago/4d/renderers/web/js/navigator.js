@@ -24,6 +24,8 @@
  * a non-modal region); nothing moves focus when the device docks itself. The device
  * reads its values once every half second, and only while Home is showing.
  */
+import { t as str } from './strings/index.js';
+import './strings/navigator.js';
 import { facingWords, clockWords, screenDate } from './where.js';
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
@@ -79,10 +81,9 @@ export function tapLevel(level, count = 3) { return level >= count - 1 ? 0 : lev
 
 /** MOVE, in words. */
 export function moveWords({ flying = false, pace = 'walk', riding = false } = {}) {
-  if (flying) return 'Flying';
-  const ways = { walk: 'Walking', wagon: 'By wagon', horse: 'On horseback' };
-  const how = ways[pace] ?? 'Walking';
-  return riding ? `${how}, on the way` : how;
+  if (flying) return str('nav.move.fly');
+  const how = str(`nav.move.${pace}`, null, str('nav.move.walk'));
+  return riding ? str('nav.move.riding', { how }) : how;
 }
 
 export function createNavigator({
@@ -149,11 +150,24 @@ export function createNavigator({
   // `ctx` is the page's context (main.js) plus what only the device knows: the target
   // within 40 m (Inspect's rule), the shape it is in, and the device itself.
   let near = null;
-  const ctx = () => ({ ...context(), target: near, isPhone: isPhone(), navigator: api });
+  // T-2621: a deep link's { app, id, tab }, handed to the app it opens through ctx.link.
+  // Until the dossier lands (T-2638), an Inspect link's building is offered as the one
+  // selected, so Inspect's stub opens that building's card.
+  let link = null;
+  const ctx = () => {
+    const page = context();
+    const linked = link?.app === 'inspect' && link.id ? { selected: link.id } : null;
+    return { ...page, ...linked, link, target: near, isPhone: isPhone(), navigator: api };
+  };
+  // T-2621: who wants to hear the device change (nav-link.js holds Back for it).
+  const changeFns = new Set();
+  const changed = () => { for (const fn of changeFns) { try { fn({ app: registry?.current ?? null, level }); } catch { /* a listener never stops the device */ } } };
   const registry = createRail({
     rail, screens: root.querySelector('.nav-body'), codeEl: $('nav-code'), doc: root.ownerDocument,
     context: ctx, before: collapse ?? null, storage,
     onOpen: (id, by) => {
+      if (id !== link?.app) link = null;
+      queueMicrotask(changed);
       paintDock(id);
       if (by === 'quiet') return;
       if (level === 0) setLevel(1, { by, focus: false });
@@ -186,14 +200,13 @@ export function createNavigator({
     const open = level > 0;
     grip?.setAttribute('aria-expanded', String(open));
     paintGrip();
-    collapse?.setAttribute('aria-label', open ? 'Collapse the Navigator' : 'Open the Navigator');
-    if (collapse) collapse.title = open ? 'Collapse' : 'Open';
+    collapse?.setAttribute('aria-label', str(open ? 'nav.collapse' : 'nav.open'));
+    if (collapse) collapse.title = str(open ? 'nav.collapse.short' : 'nav.open.short');
     return detent;
   }
   function paintGrip() {
     const name = dockApp ? appLabel(dockApp) : '';
-    grip?.setAttribute('aria-label', level > 0 ? 'Lower the Navigator'
-      : name ? `Open the Navigator on ${name}` : 'Open the Navigator');
+    grip?.setAttribute('aria-label', str(level > 0 ? 'nav.lower' : name ? 'nav.open.on' : 'nav.open', { app: name }));
   }
   function setLevel(next, { by = 'code', focus = by === 'hand' } = {}) {
     const max = names().length - 1;
@@ -204,6 +217,7 @@ export function createNavigator({
     listenNear();
     if (railShows()) registry.evaluate();
     if (level > 0 && registry.current === 'home') refresh(true);
+    changed();
     if (focus && was === 0 && level > 0) {
       focusTarget(registry.current)?.focus?.({ preventScroll: true });
     }
@@ -277,17 +291,17 @@ export function createNavigator({
   function paintFront(t) {
     shown = t;
     if (!t) {
-      put(out.frontName, 'Nothing close by');
-      put(out.frontDetail, `Turn toward a building within ${formatDistance(FRONT_M, units())}.`);
+      put(out.frontName, str('nav.front.none'));
+      put(out.frontDetail, str('nav.front.turn', { distance: formatDistance(FRONT_M, units()) }));
       if (out.inspect) out.inspect.hidden = true;
       return;
     }
-    const name = displayName(t.record?.sidecar ?? {}, t.id).title || 'A building';
+    const name = displayName(t.record?.sidecar ?? {}, t.id).title || str('nav.front.building');
     put(out.frontName, name);
-    put(out.frontDetail, `${formatDistance(t.distance, units())} away`);
+    put(out.frontDetail, str('nav.front.away', { distance: formatDistance(t.distance, units()) }));
     if (out.inspect) {
       out.inspect.hidden = false;
-      out.inspect.setAttribute('aria-label', `Inspect ${name}`);
+      out.inspect.setAttribute('aria-label', str('nav.inspect', { name }));
     }
   }
   function refresh(force = false) {
@@ -296,7 +310,7 @@ export function createNavigator({
     paintedAt = t0;
     const p = pose();
     const at = where?.at?.(p.e, p.n, p.bearingDeg) ?? null;
-    put(out.where, at?.place ? at.place.charAt(0).toUpperCase() + at.place.slice(1) : 'Off the streets');
+    put(out.where, at?.place ? at.place.charAt(0).toUpperCase() + at.place.slice(1) : str('nav.where.off'));
     put(out.whereDetail, [facingWords(p.bearingDeg), clock].filter(Boolean).join(' · '));
     if (target) paintFront(target.current(FRONT_M));
     const j = jaunt();
@@ -309,7 +323,7 @@ export function createNavigator({
       if (out.jauntBar) out.jauntBar.style.width = `${Math.round((at1 / stops) * 100)}%`;
     }
     put(out.move, moveWords(move()));
-    put(out.confidence, confidence() ? 'On' : 'Off');
+    put(out.confidence, str(confidence() ? 'nav.on' : 'nav.off'));
     return true;
   }
   // The probe looks only while Home is showing: a docked device costs the frame nothing.
@@ -371,6 +385,22 @@ export function createNavigator({
     unregister: (id) => registry.unregister(id),
     /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks). */
     select: (id) => registry.select(id, { by: 'code' }),
+    has: (id) => registry.has(id),
+    /** T-2621: open what a deep link names; an app the rail does not have is ignored. */
+    openLink(next) {
+      if (!next?.app || !registry.has(next.app)) return Promise.resolve(false);
+      link = { app: next.app, id: next.id ?? null, tab: next.tab ?? null };
+      return registry.select(next.app, { by: 'link' });
+    },
+    get link() { return link; },
+    /** T-2621: close whatever is open — back to Home, docked (what Back does). */
+    closeApp() {
+      link = null;
+      if (registry.current && registry.current !== 'home' && registry.has('home')) void registry.select('home', { by: 'quiet' });
+      return setLevel(0, { by: 'back' });
+    },
+    /** T-2621: hear the device change: fn({ app, level }); returns its unsubscribe. */
+    onChange(fn) { changeFns.add(fn); return () => changeFns.delete(fn); },
     get app() { return registry.current; },
     get apps() { return registry.shown(); },
     rail: () => registry.snapshot(),
