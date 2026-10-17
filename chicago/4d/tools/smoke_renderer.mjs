@@ -15219,6 +15219,8 @@ for (const [label, viewport, touch] of [
       search.value = '';
       search.dispatchEvent(new Event('input', { bubbles: true }));
       api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
       api.navigator.dock();
       return { target: target.id, hidden, shown };
     });
