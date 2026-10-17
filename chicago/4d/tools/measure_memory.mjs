@@ -18,7 +18,9 @@
  *
  * WHAT IS READ, per year × viewport, from the published year door (`/1835/`, as a
  * visitor arrives), after the welcome is entered at spawn, a few frames are drawn
- * so every layer is on the GPU, and two forced GCs:
+ * so every layer is on the GPU, texture residency is let finish its uploads
+ * (T-2718: it paces them, so a reading taken before could read low), and two
+ * forced GCs:
  *
  *   js heap ....... `Runtime.getHeapUsage().usedSize`: the V8 heap after GC.
  *   arraybuffers .. `Runtime.getHeapUsage().backingStorageSize`: the bytes behind
@@ -632,8 +634,29 @@ for (const year of YEARS) {
       const only = argAt('--stands')?.split(',');
       for (const stand of STANDS.filter((st) => !only || only.includes(st.id))) {
         const { id, ...at } = stand;
-        await page.evaluate((x) => window.__chicago4d.walker.teleport(x), at);
+        // T-2718: an aloft stand flies through the HUD first, as `goTo` does — a
+        // walker teleported aloft with the HUD's intent still on foot is put back on
+        // the ground the next frame, and the shot is of the road at -30°.
+        const aloft = await page.evaluate((x) => {
+          const api = window.__chicago4d;
+          api.setFly(typeof x.altitude_m === 'number');
+          api.walker.teleport(x);
+          return { flying: api.walker.state.flying, altitude: api.walker.state.altitude };
+        }, at);
         const working = await settle();
+        if (typeof at.altitude_m === 'number') {
+          // The walker's own state: `api.flying` / `api.altitude` are copied once
+          // by Object.assign and read false / 0 whatever the eye is doing.
+          const now = await page.evaluate(() => {
+            const { flying, altitude } = window.__chicago4d.walker.state;
+            return { flying, altitude };
+          });
+          if (!now.flying || now.altitude < at.altitude_m / 2) {
+            console.log(`::error::${id}: asked for ${at.altitude_m} m aloft, the eye is ${now.flying ? 'flying' : 'on foot'} at ${now.altitude.toFixed(1)} m — this stand did not frame what it names`);
+            process.exitCode = 1;
+          }
+          Object.assign(aloft, { settled: now });
+        }
         const a = await shoot();
         await page.evaluate(() => window.__chicago4d.textureResidency?.everything());
         const all = await settle();
@@ -642,7 +665,7 @@ for (const year of YEARS) {
         await settle();
         const d = await shoot();
         const diff = await compare({ a, c, d });
-        results.push({ id, working, all, ...diff });
+        results.push({ id, working, all, ...(typeof at.altitude_m === 'number' ? { aloft } : {}), ...diff });
         // Each stand is written as it is read: a phone stand costs minutes under
         // SwiftShader, and a run cut off at its clock keeps what it finished.
         if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify({ ticket: 'T-2598', partial: true, viewport: vp.id, captures: results }, null, 2)}\n`);
@@ -703,6 +726,26 @@ for (const year of YEARS) {
       await ctx.close();
       continue;
     }
+    // T-2718: texture residency paces its uploads (4 MiB a frame on a phone), so 3
+    // frames + 1 s can read the spawn mid-upload — low, and a ceiling set on it
+    // too tight. Settle it as the walk does, and record what it held.
+    const spawnResidency = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const frame = () => new Promise((r) => requestAnimationFrame(r));
+      const t0 = Date.now();
+      const before = api.residency?.pending ?? 0;
+      while ((api.residency?.pending ?? 0) > 0 && Date.now() - t0 < 120_000) await frame();
+      await frame();
+      const r = api.residency;
+      return r && { pendingAtRead: before, settleMs: Date.now() - t0, resident: r.resident, sources: r.sources,
+        residentBytes: r.residentBytes, budgetBytes: r.budgetBytes, wantedBytes: r.wantedBytes,
+        pending: r.pending, uploads: r.uploads, evictions: r.evictions, overBudget: r.overBudget };
+    });
+    if (spawnResidency) {
+      console.log(`  residency at spawn: ${spawnResidency.pendingAtRead} pending after 3 frames + 1 s, settled in `
+        + `${spawnResidency.settleMs} ms · resident ${spawnResidency.resident}/${spawnResidency.sources} = `
+        + `${MB(spawnResidency.residentBytes)} of ${MB(spawnResidency.budgetBytes)} MB (pending ${spawnResidency.pending})`);
+    }
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('HeapProfiler.enable');
     await cdp.send('HeapProfiler.collectGarbage');
@@ -725,7 +768,7 @@ for (const year of YEARS) {
         textureBytes: scene.layers.reduce((s, l) => s + l.textureBytes, 0),
         cpuNeverUploaded: scene.layers.reduce((s, l) => s + l.cpuNeverUploaded, 0),
       },
-      uploadRelease: scene.uploadRelease, ktx2: await page.evaluate(() => window.__chicago4d.ktx2 ?? null), errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
+      uploadRelease: scene.uploadRelease, residency: spawnResidency, ktx2: await page.evaluate(() => window.__chicago4d.ktx2 ?? null), errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
     if (heap.backingStorageSize === undefined) row.note = 'this Chromium reports no backingStorageSize; arraybuffers read 0';
     if (SNAPSHOT) {
       const ts = Date.now();
@@ -752,7 +795,7 @@ const reading = {
     on: new Date().toISOString(), build,
     machine: `${os.cpus()[0]?.model?.trim()} ×${os.cpus().length}`,
     seconds: Math.round((Date.now() - started) / 1000),
-    method: 'published year door, welcome entered at spawn, 3 frames + 1 s, two forced GCs; '
+    method: 'published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; '
       + 'heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter',
   },
   rows,
@@ -770,7 +813,8 @@ if (WALK) {
     if (row.residency?.problems?.length) console.log(`::warning::${row.viewport}: ${row.residency.problems.join('; ')}`);
   }
   console.log(`\n${rows.length} walk(s) in ${reading.measured.seconds} s`);
-  process.exit(red ? 1 : 0);
+  // An aloft stand that did not get aloft has already set exitCode (T-2718).
+  process.exit(red ? 1 : (process.exitCode ?? 0));
 }
 printReading(reading);
 console.log(`\n${rows.length} reading(s) in ${reading.measured.seconds} s`);

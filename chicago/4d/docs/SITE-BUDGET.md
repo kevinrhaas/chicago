@@ -835,6 +835,38 @@ The budgets come from the Prairie Avenue walk
 Captures (`--captures`, `T-2598-captures-mobile.json`): at four Glessner stands on
 the phone, the frame with every picture forced resident differs from the working
 frames by less than the scene's own motion between them (2.8 / 21.1 / 11.8 / 17.5 %
-of pixels against 3.7 / 30.4 / 17.5 / 22.3 %). The aerial stand, the street-eye
-stands and the moving p95 frame time are not yet read; the steward runner's
-SwiftShader draws one frame in seconds, so the p95 needs a GPU.
+of pixels against 3.7 / 30.4 / 17.5 / 22.3 %).
+
+**The other four stands, read 2026-10-17 (T-2718,** `T-2718-captures-mobile-a.json`,
+`-b.json`, phone): the same holds at all four. Residency against motion:
+
+| stand | resident | C against A or D | A against D (motion) |
+|---|---|---|---|
+| glessner-aloft-ne (60 m, -30°) | 40/63 | 10.96 % | 16.09 % |
+| street-prairie-1600-south | 24/63 | 34.13 % | 43.28 % |
+| street-prairie-1800-north | 56/63 | 30.94 % | 41.63 % |
+| street-18th-east | 53/63 | 22.75 % | 34.46 % |
+
+The aerial stand had never been read aloft: `--captures` teleported the walker to
+60 m with the HUD's intent still on foot, and the next frame put the eye back on the
+road, pitched 30° down at the asphalt. Its first reading was 0 px against 0 px,
+which is a frame with no house in it and not evidence. The tool now flies through the
+HUD first, as `goTo` does, and fails an aloft stand whose eye is not aloft when it is
+read. The moving p95 frame time is still not read; the steward runner's SwiftShader
+draws one frame in seconds, so it needs a GPU (T-2719).
+
+**The 1904 memory ceilings, re-read at spawn with residency (T-2718).** The spawn
+reading now lets residency finish its paced uploads before it reads (it was already
+settled at both viewports: 0 pending after 3 frames + 1 s). `tools/memory_ceilings.json`
+lowered to the readings by its own rule (reading + 10 %, up to 25 MiB):
+
+| 1904 | before (T-2595) | GPU textures | now | GPU textures | ceiling |
+|---|---|---|---|---|---|
+| phone (light) | 1105.6 MB | 384.0 | **850.1 MB** | 117.4 | 1225 → **950 MiB** |
+| desktop (full) | 1587.5 MB | 524.4 | **1393.3 MB** | 283.7 | 1750 → **1550 MiB** |
+
+At spawn the phone holds 56 of 63 house pictures resident (62.7 of 256 MiB) and
+desktop 59 of 61 (96.7 of 512 MiB). Arraybuffers rose (phone 358.5 → 372.4, desktop
+710.9 → 757.2 MB); no heap snapshot was taken, so whose they are is not read here.
+These stand on the GL meter that T-2558's H0 run found may read WebGL textures about
+40 MiB low on one page (T-2720).
