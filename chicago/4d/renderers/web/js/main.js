@@ -101,6 +101,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
+import { createTargetTag } from './target-tag.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -2572,8 +2573,16 @@ async function boot() {
    * ticket undoing another one. The sward is the only layer that gives way.
    */
   const stripBlocks = api.groundStrip?.blocksGrowth ?? null;
-  const swardBlocked = (e, n) => streets.blocksGrowth(e, n) || yards.suppressesSward(e, n)
+  // T-2715: the two halves the near field tile asks apart (flora.js
+  // `nearField.atTexel`). The streets' track — the track and 0.65 m either side,
+  // always wider than a texel's diagonal — at the texel's corners; the yards,
+  // the ground strip and the worked bank (which answers a texel at a time
+  // already) at its centre. Fort Dearborn's fences are thinner than a texel, so
+  // corners alone would miss them.
+  const swardEdges = (e, n) => streets.blocksGrowth(e, n);
+  const swardPatch = (e, n) => yards.suppressesSward(e, n)
     || (stripBlocks !== null && stripBlocks(e, n)) || workingBank.blocksGrowth(e, n);
+  const swardBlocked = (e, n) => swardEdges(e, n) || swardPatch(e, n);
   // The trees give way to the travelled track, as before, and since T-1771 to
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
@@ -2598,7 +2607,8 @@ async function boot() {
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-    growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
+    growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
+    verge: streets.verge, forbSeat,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
@@ -2705,7 +2715,8 @@ async function boot() {
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-          growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
+          growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
+          verge: streets.verge, forbSeat,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
@@ -2850,7 +2861,8 @@ async function boot() {
       flora.dispose?.();
       flora = await createFlora({
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-        growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
+        growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
+        verge: streets.verge, forbSeat,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);
@@ -3820,7 +3832,7 @@ async function boot() {
   // ---- gate ------------------------------------------------------------- //
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
-  let navigatorUi = null, target = null;
+  let navigatorUi = null, target = null, targetTag = null;
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3843,6 +3855,7 @@ async function boot() {
     // the probe looks again at whatever the eye has just been set down in front of.
     navigatorUi?.dock();
     target?.invalidate();
+    targetTag?.setEnabled(true);
     backends.activate(coarse ? touch : pointerlock);
     if (firstEntry) hud.showControlHelp({ auto: true });
     // T-2614: audio was resumed by the Home choice that brought us here (gesture-gate.js);
@@ -3951,6 +3964,7 @@ async function boot() {
       gateFrame.reset();
       backends.activate(null);
       gesture.setLook({ inWorld: false });
+      targetTag?.setEnabled(false);
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
       hud.dismissControlHelp({ remember: false });
@@ -3999,6 +4013,24 @@ async function boot() {
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
   });
   api.target = target;
+  // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
+  // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
+  // (its stub opens the card until the dossier lands, T-2638), handing it this target.
+  targetTag = createTargetTag({
+    target,
+    tagEl: document.getElementById('target-tag'),
+    keyEl: document.getElementById('btn-inspect'),
+    units: () => hud.settings.units,
+    onInspect: (t) => {
+      // Inspect opens on what is selected first, so a card left open on another
+      // building is put away before the tag hands over its own.
+      if (popup.openId && popup.openId !== t.id) popup.close();
+      if (navigatorUi?.select) void navigatorUi.select('inspect');
+      else pick(t.id);
+    },
+  });
+  targetTag.setEnabled(!gateOpen);
+  api.targetTag = targetTag;
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -4022,6 +4054,8 @@ async function boot() {
       scene: loaded.scene,
       journey: journey.state,
       selected: popup.openId ?? null,
+      // T-2627: what the HUD's tag is showing, for Inspect when the device's own probe is idle.
+      target: targetTag?.current ?? null,
       // A scene has people when it has a people directory: 1835 loads its own at boot for the
       // drawer (the `residents` layer); a scene without that layer is asked after ready, with a
       // HEAD, and its directory is fetched only when People first opens (1904, T-2702).
@@ -4047,6 +4081,7 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // (T-2655's year chip opens Jump through T-2626's #year-badge binding above.)
   // T-2630 (§04 E, §07): the Navigator Home's three choices open the Jaunts app on their
   // segment — Jaunts, Go to, Free roam — as the Welcome card's three do on the arrival.
   api.openJaunts = async (segment = 'jaunts') => {
