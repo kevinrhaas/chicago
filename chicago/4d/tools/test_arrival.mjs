@@ -55,7 +55,7 @@ assert.match(index, /id="gate-sub"[^>]*aria-live="polite"/,
 assert.match(index, /id="arrival-card"/, 'the source/status card slot must exist');
 
 assert.match(index, /id="gate-observatory"[^>]*href="\.\.\/"[^>]*hidden/, 'the way back to the Observatory waits, hidden, for a failure');
-assert.match(index, /<details id="gate-details"[^>]*hidden><summary>Details for your teacher<\/summary><p id="gate-detail"><\/p><\/details>/,
+assert.match(index, /<details id="gate-details"[^>]*hidden><summary[^>]*>Details for your teacher<\/summary><p id="gate-detail"><\/p><\/details>/,
   'the failure detail is folded under "Details for your teacher"');
 console.log('ARRIVAL A11Y PASS — year hidden, phase line polite, card slot present');
 

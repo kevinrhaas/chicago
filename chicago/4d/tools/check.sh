@@ -115,6 +115,9 @@ selftest "The distant base and the streets' surfaces cut in Node are byte-identi
 selftest "The yards' five surfaces laid and cut in Node are byte-identical build to build, batch exactly as createFencedGround's own do, and a prebuild from changed inputs is refused (T-2704)" \
   node tools/prebuild_layers.mjs --self-test --layer yards
 
+step "The page asks only for the prebuilt layers publish listed: a year with no prebuild makes no 404 request (dev mobile smoke fix)" \
+  node tools/test_prebuilt_index.mjs
+
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
@@ -158,6 +161,8 @@ step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's lis
 # T-2631: Jaunt cards and Continue.
 step "Each Jaunt card shows a credited plate of its own stops or none, its keepsake once earned, and an outing in progress pinned on top with Continue (T-2631)" \
   node tools/test_nav_jaunt_cards.mjs
+step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
+  node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
@@ -7244,6 +7249,17 @@ step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8
 # destination's deck — held against the real boot controller for all three destinations.
 step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
   node tools/test_arrival_telemetry.mjs
+# T-2624. The Navigator string table (js/strings/, one section per app; each Navigator
+# app's manifest carries its own name and screen code). Refuses a locked term spelled any
+# other way, a retired or renamed word of design doc section 03, an id, path or ticket
+# number (compile_summaries.lint_string), page markup whose first paint is not the
+# table's, and drift from the Guide's locked list and glossary (T-2662) when both are in.
+step "every Navigator, HUD and arrival string is in the table, the locked terms exact and section 03's renames applied (T-2624)" \
+  python3 tools/check_strings.py --check
+selftest "…and a misspelt locked term, a retired or renamed word, an id and a page that paints otherwise are each refused" \
+  python3 tools/check_strings.py --self-test
+step "string table: sections register and extend, placeholders fill, no key ever shown (T-2624)" \
+  node tools/test_strings.mjs
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a
