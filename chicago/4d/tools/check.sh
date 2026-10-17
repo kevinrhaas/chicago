@@ -156,6 +156,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
+  node tools/test_nav_jump.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
 # T-2632: Go to cleanup.
@@ -164,6 +166,12 @@ step "Go to offers All, Places, People, Shops & work and Viewpoints with no empt
 # T-2633: Go to follows the Confidence view.
 step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
   node tools/test_goto_confidence.mjs
+# T-2634: Free roam's one-time tip.
+step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
+  node tools/test_roam_tip.mjs
+# T-2631: Jaunt cards and Continue.
+step "Each Jaunt card shows a credited plate of its own stops or none, its keepsake once earned, and an outing in progress pinned on top with Continue (T-2631)" \
+  node tools/test_nav_jaunt_cards.mjs
 step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
   node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
@@ -3741,8 +3749,9 @@ step "publish.sh produces a mirror that matches its source" \
 # T-2693: and the ground's tiles, which the page uploads in the ground GLB's place.
 # T-2709: and the distant base, which createTerrain batches in place of its own cut.
 # T-2710: and the streets' two layouts, which the page batches instead of laying.
-step "the published prebuilt frontage, ground, distant base and streets are current against every file they were built from (T-2677, T-2693, T-2709, T-2710)" \
-  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base,streets
+# T-2711: and the yards' five surfaces, which the page uploads in place of laying them.
+step "the published prebuilt frontage, ground, distant base, streets and yards are current against every file they were built from (T-2677, T-2693, T-2709, T-2710, T-2711)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base,streets,yards
 
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a
