@@ -158,7 +158,11 @@
           <label for="welcome-search" class="visually-hidden">Search places</label>
           <input id="welcome-search" type="search" placeholder="Search places, businesses or people" autocomplete="off">
         </div>
-        <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
+        <div class="welcome-filters">
+          <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
+          <!-- T-2740: how the list is ordered: nearest (the default), furthest, address, name, owner. -->
+          <label class="welcome-sort"><span class="visually-hidden">Sort by</span><select id="welcome-sort"></select></label>
+        </div>
         <div id="welcome-results" class="welcome-results" aria-label="Starting places"></div>
         <p id="welcome-message" role="status"></p>
       </section>

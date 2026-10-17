@@ -4,6 +4,11 @@ import { iconSvg } from './menu-icons.js';
 import { markTerms } from './term-tips.js';
 import { placeDistance, arrowTurn, cardinal, ARROW_SVG, hiddenReason } from './goto.js';
 import { formatDistance } from './units.js';
+import { SORTS, normal } from './destinations.js';
+
+/** T-2740: the chosen order lasts the session (a tab), like the rest of an outing. */
+const SORT_KEY = 'chicago4d.goto.sort';
+const sortStore = (() => { try { return globalThis.sessionStorage ?? null; } catch { return null; } })();
 
 /** Go to's filters (T-2632, DESIGN §07): All, then Places · People · Shops & work ·
  *  Viewpoints. A kind the scene has none of is not offered. Corners stay in All's search. */
@@ -43,6 +48,9 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   const search = $('welcome-search'), list = $('welcome-results'), message = $('welcome-message');
   const roam = $('home-roam'), back = $('welcome-back');
   let state = 'arrival', kind = 'all', limit = 40;
+  let sort = (() => { try { return sortStore?.getItem(SORT_KEY); } catch { return null; } })();
+  const sorts = destinations.sorts ?? SORTS;
+  if (!sorts.some(s => s.id === sort)) sort = 'near';
   $('welcome-jaunts').insertAdjacentHTML('afterbegin', iconSvg('jaunts', 22));
   $('welcome-explore').insertAdjacentHTML('afterbegin', iconSvg('start', 22));
   roam.insertAdjacentHTML('afterbegin', iconSvg('explore', 22));
@@ -74,8 +82,19 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     });
     $('welcome-kinds').appendChild(button);
   }
+  const sortSelect = $('welcome-sort');
+  if (sortSelect) {
+    for (const { id, label } of sorts) sortSelect.add(new Option(label, id, false, id === sort));
+    sortSelect.value = sort;
+    sortSelect.addEventListener('change', () => {
+      sort = sorts.some(s => s.id === sortSelect.value) ? sortSelect.value : 'near'; limit = 40;
+      try { sortStore?.setItem(SORT_KEY, sort); } catch { /* the order still applies to this page */ }
+      render(); list.scrollTop = 0;
+    });
+  }
   function render() {
-    const rows = destinations.search(search.value, { kind, includeReconstructed: true });
+    let here = null; try { here = visitor(); } catch { here = null; }
+    const rows = destinations.search(search.value, { kind, includeReconstructed: true, sort, visitor: here });
     list.replaceChildren(); message.textContent = '';
     for (const row of rows.slice(0, limit)) {
       const button = document.createElement('button');
@@ -86,6 +105,9 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       const located = Number.isFinite(row.e) && Number.isFinite(row.n);
       // No invented destination for a person or firm whose address is unknown.
       detail.textContent = located ? row.sub : `${row.label} — no known starting place`;
+      // T-2740: the line says what the list is ordered by when the title does not.
+      const by = sort === 'owner' ? row.owner : sort === 'address' ? row.address?.text : null;
+      if (by && !normal(row.label).includes(normal(sort === 'address' ? String(row.address.number) : by))) detail.textContent += ` · ${by}`;
       const text = document.createElement('div'); text.className = 'welcome-dest-text';
       text.append(name, ' ', detail);
       button.append(text); button.disabled = !located;
@@ -97,7 +119,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
         text.append(' ', why);
       }
       // T-2632: how far, and which way, from where you stand.
-      let v = null; try { v = visitor(); } catch { v = null; }
+      const v = here;
       const d = located ? rowDistance(row, v, units()) : null;
       if (d) {
         const dist = document.createElement('span'); dist.className = 'welcome-dist';

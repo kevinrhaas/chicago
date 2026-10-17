@@ -1,0 +1,10 @@
+{
+  "title": "Go to sorts by nearest, furthest, address, name or owner",
+  "kind": "feature",
+  "items": [
+    "A small sort control sits beside the All, Places and Viewpoints filters in Go to. Nearest is the default, so the closest places now come first.",
+    "Address runs street by street and then by house number, so 1600 Prairie comes before 1604. 1835 had no house numbers yet, so its list does not offer Address.",
+    "Owner lists buildings by the family the records name for them, such as the Glessners at 1800 Prairie or the Sherman house at 2100, with their coach houses beside them.",
+    "A row with nothing to sort on, such as a viewpoint under Address, comes after the rest. Your choice holds until you close the tab."
+  ]
+}
