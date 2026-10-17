@@ -287,7 +287,10 @@ function render(root, ctx) {
   page.append(full);
 
   // The tabs. A new building opens on Overview; the same building keeps its tab.
-  const tab = tabFor === id ? lastTab : 'overview';
+  // A deep link (?nav=inspect:<id>&tab=, T-2621) opens its tab the first time this building
+  // draws; after that the visitor's own choice is kept.
+  const linked = ctx.link?.app === 'inspect' && ctx.link.id === id && TABS.some(([k]) => k === ctx.link.tab) ? ctx.link.tab : null;
+  const tab = tabFor === id ? lastTab : (linked ?? 'overview');
   tabFor = id;
   const bar = el(doc, 'nav', 'insp-tabs');
   bar.setAttribute('role', 'tablist');
