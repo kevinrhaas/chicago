@@ -1,9 +1,0 @@
-{
-  "title": "Go to is tidier",
-  "kind": "improvement",
-  "items": [
-    "Go to's filters are now All, Places, People, Shops & work and Viewpoints. A filter with nothing in it for this year is not shown, so 1904 no longer offers Corners 0.",
-    "Long names wrap onto a second line instead of being cut off.",
-    "Every place in the list shows how far away it is and which way, with an arrow that points the way you would turn."
-  ]
-}
