@@ -540,8 +540,11 @@ visual phase in the whole program.
   At rest it is neutral, so still frames and captures are unchanged; Settings → Frame
   pacing → Fixed turns it off. `tools/test_frame_governor.mjs` (in check.sh) and
   `measure_walk_frames.mjs --live --stills` are its gates. The measured fall in moving
-  frame-time sd and p95 is T-2592: this runner's SwiftShader frames come seconds apart,
-  far outside the range the governor acts in.*
+  frame-time sd and p95 is T-2722, waiting on where it is read: this runner's frames come
+  about a second apart on SwiftShader AND on Mesa's llvmpipe (`--gl llvmpipe`, weighed as
+  a stand-in by T-2721 and rejected), far outside the range the governor acts in. T-2721
+  also found that most of a live frame here is the gaze target's synchronous one-pixel
+  pick (`readPixels`, 63 of 72 s of moves), now T-2723.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke
@@ -1039,7 +1042,7 @@ what WebGL was asked for.
 
 **Not answered here, and why.** TRAA under motion (moved to H1's entry, see the criteria
 above). Any frame time on a real GPU: K6's ratio is SwiftShader's, and the moving reading on
-hardware stays with T-2592.
+hardware stays with T-2722 (T-2592's reading, split).
 
 **What would change the verdict.** K5 re-read with the shadow attachment and the half-float
 output target priced or dropped, and the GL meter's 39.5 MiB shortfall explained (T-2720

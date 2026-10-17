@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 1962, ts: '2026-10-17T18:13:55.153Z', date: 'Oct 17, 2026, 1:13 PM CT', title: 'Keith house\'s crown band packed closer, as the 1888 photograph shows', kind: 'change',
+    items: [
+      '1808 Prairie (1904): the diamond-pointed band under the parapet now stands its points 0.28 m apart along each row, not 0.34 m, so the band reads as close-packed stone the way the 1888 Inland Architect photograph, the 1948 and the 1967 views show it.',
+      'Three more of the house\'s sixteen photographs now read as matching the model, eight in all.',
+    ] },
+  { v: 1961, ts: '2026-10-17T18:13:55.153Z', date: 'Oct 17, 2026, 1:13 PM CT', title: 'Phone memory ceiling for 1904 lowered after texture residency', kind: 'chore',
+    items: [
+      'Nothing you can see changed. 1904 now reads 850 MB on a phone when you arrive, down from 1,106 MB, because house pictures load only near you. The check that holds it now allows 950 MB, down from 1,225 MB.',
+      'We checked four more views, including one from above Glessner House. Holding fewer pictures in memory changed fewer pixels than the swaying trees did.',
+    ] },
+  { v: 1960, ts: '2026-10-17T18:08:42.937Z', date: 'Oct 17, 2026, 1:08 PM CT', title: 'Why this test machine cannot read the frame governor yet', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the town: this is a measurement of the frame governor that smooths walking on slow devices.',
+      'A second software renderer was tried in place of a phone\'s graphics chip. It still draws a frame about once a second, far too slow for the governor to act, so the reading waits for real hardware.',
+      'Most of that second turned out to be the check for which building is in front of you, which waits for each frame to finish. Making that check stop holding up the frame is now its own ticket.',
+    ] },
+  { v: 1959, ts: '2026-10-17T17:57:07.665Z', date: 'Oct 17, 2026, 12:57 PM CT', title: 'The menu moves into the Navigator', kind: 'change',
+    items: [
+      'The menu button and its sliding drawer are gone. Everything that was in them now lives in the Navigator\'s apps.',
+      'Move holds how you get around. Go to lives in the Jaunts app, so the menu\'s own Go to list is gone.',
+      'People holds people and Shops & work. Guide holds the guide and Sources.',
+      'Settings holds the settings and What\'s new. Its amber dot shows on the Settings icon when there are new notes.',
+      'No row of eight menu tabs to scroll sideways: each app shows at most two.',
+      'On a phone, the ride\'s banner and Stop button sit above the Navigator instead of under it.',
+    ] },
   { v: 1958, ts: '2026-10-17T16:52:19.432Z', date: 'Oct 17, 2026, 11:52 AM CT', title: 'The Confidence view moves into the Navigator, with four presets', kind: 'feature',
     items: [
       'The Confidence view now has its own app in the Navigator, in place of the HUD\'s Confidence chip, its arrow and its checkbox menu. Four presets are one tap each: Normal, By grade, Attested only and X-ray.',

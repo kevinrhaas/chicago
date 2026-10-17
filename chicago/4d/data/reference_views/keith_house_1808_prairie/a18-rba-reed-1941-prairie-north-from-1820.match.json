@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-reed-1941-prairie-north-from-1820",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "73fe5d6c8053fa1454bb5adedde2c55e7411f159fe670e481faa362395f8005d",
+  "glb_sha256": "a2024ae284aa61387bff0891563d722d5ee29ad4c8ec53d000ec7d6c0e74cd47",
   "camera_sha256": "2583522f2a71f4b5a618930d224748f1a2feedac27071a0541aa493e1e4b07b2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
   "verdict": "matches",
@@ -37,6 +37,10 @@
     },
     {
       "what": "T-2681: the loggia's columns 0.2 m taller and its balcony 0.3 m higher move it 4-6 px here, inside this camera's 4.6 px RMS; this view cannot tell the old heights from the new.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: Keith's front is not seen from this side; the band is not in the frame.",
       "status": "not shown"
     }
   ],
