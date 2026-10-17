@@ -15,6 +15,7 @@ import { createNavigator, snapLevel, tapLevel, detentHeights, moveWords, DOCK_PX
 import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/nav-rail.js';
 import { APPS } from '../renderers/web/js/apps/index.js';
 import * as mapView from '../renderers/web/js/apps/map-view.js';
+import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -156,7 +157,8 @@ function miniDom() {
       setAttribute(k, v) { this.attrs[k] = String(v); }, getAttribute(k) { return this.attrs[k] ?? null; },
       addEventListener(type, fn) { (listeners[type] ??= []).push(fn); },
       dispatch(type, ev = {}) { for (const fn of listeners[type] ?? []) fn({ preventDefault() {}, target: el, button: 0, ...ev }); },
-      append(...cs) { for (const c of cs) { c.parent?.children.splice(c.parent.children.indexOf(c), 1); c.parent = el; el.children.push(c); } },
+      // A string is a text node in the DOM (Element.append); this fake keeps elements only.
+      append(...cs) { for (const c of cs) { if (typeof c === 'string') continue; c.parent?.children.splice(c.parent.children.indexOf(c), 1); c.parent = el; el.children.push(c); } },
       insertBefore(c, ref) {
         c.parent?.children.splice(c.parent.children.indexOf(c), 1);
         c.parent = el;
@@ -452,7 +454,8 @@ for (const phone of [true, false]) {
   assert(jump && !jump.hidden, 'Jump opens in its own screen');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 08 · JUMP');
   const cards = jump.children[0].children;
-  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV'], '1835 is a link, 1904 (here) is not');
+  // T-2655: all three destinations, in the Observatory's order (1812 is a link too).
+  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A'], '1835 and 1812 are links, 1904 (here) is not');
   assert.equal(cards[1].getAttribute('aria-current'), 'page');
   assert.equal(cards[0].href, '../1835/');
   assert.equal(jump.children[1].href, '../', 'Recall goes back to the Observatory');
@@ -537,6 +540,53 @@ for (const phone of [true, false]) {
   assert.deepEqual(inspected, ['glessner_house'], 'a tap takes you to the house they live in');
   await nav4.select('home'); await nav4.select('people');
   assert.equal(reads, 1, 'and not read again');
+}
+
+// ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
+// a tap (or the quick column's Inspect key) opens Inspect --------------------------------------
+{
+  assert.equal(DWELL_MS, 400); assert.equal(TAG_WITHIN_M, 40);
+  const glessner = { id: 'glessner_house', record: { id: 'glessner_house', sidecar: { name: 'Glessner House' } }, distance: 11.6 };
+  assert.equal(tagWords(glessner), 'Glessner House · 38 ft');
+  assert.equal(tagWords({ id: 'keith_house_1808_prairie', record: {}, distance: 20 }).includes('_'), false, 'no snake_case in the tag');
+  let clock = 0;
+  const timers = [];
+  const wait = (fn, ms) => { const t = { at: clock + ms, fn, live: true }; timers.push(t); return t; };
+  const cancel = (t) => { t.live = false; };
+  const advance = (ms) => { clock += ms; for (const t of timers.filter((x) => x.live && x.at <= clock)) { t.live = false; t.fn(); } };
+  let hear = null, within = null, now = null;
+  const target = { on: (fn, o) => { hear = fn; within = o.within; return () => { hear = null; }; }, current: () => now };
+  const el = () => { const ls = {}; return { hidden: true, textContent: '', attrs: {}, setAttribute(k, v) { this.attrs[k] = v; },
+    addEventListener(t, fn) { ls[t] = fn; }, click() { ls.click?.(); } }; };
+  const tagEl = el(), keyEl = el();
+  const opened = [];
+  const tag = createTargetTag({ target, tagEl, keyEl, wait, cancel, onInspect: (t) => opened.push(t.id) });
+  assert.equal(within, 40, 'the tag listens within the Inspect distance');
+  now = glessner; hear(glessner);
+  advance(399);
+  assert.equal(tagEl.hidden, true, 'nothing before the dwell');
+  advance(1);
+  assert.equal(tagEl.hidden, false, 'after 400 ms of rest the tag shows');
+  assert.equal(tagEl.textContent, 'Glessner House · 38 ft');
+  assert.equal(keyEl.hidden, false, 'and the quick column offers Inspect');
+  tagEl.click(); keyEl.click();
+  assert.deepEqual(opened, ['glessner_house', 'glessner_house'], 'a tap on the tag or the key opens Inspect on it');
+  // A glance away hides it at once; a glance past a building shows nothing.
+  now = null; hear(null);
+  assert.equal(tagEl.hidden, true); assert.equal(keyEl.hidden, true);
+  const other = { id: 'keith_house', record: { sidecar: { name: 'Keith House' } }, distance: 20 };
+  now = other; hear(other); advance(200);
+  now = null; hear(null); advance(400);
+  assert.equal(tagEl.hidden, true, 'a building passed in under 400 ms never shows');
+  // Out of the town (Home, a menu) it never shows, and coming back reads the probe again.
+  now = glessner; hear(glessner); advance(400);
+  tag.setEnabled(false);
+  assert.equal(tagEl.hidden, true);
+  hear(other); advance(400);
+  assert.equal(tagEl.hidden, true, 'disabled, nothing shows');
+  tag.setEnabled(true); advance(400);
+  assert.equal(tagEl.textContent, 'Glessner House · 38 ft', 'back in the town, the dwell runs on what is in front');
+  assert.equal(tag.current.id, 'glessner_house');
 }
 
 // ---- T-2619: the dock — closed, it shows the lamp, the label, the year and the icon of the
@@ -700,6 +750,11 @@ for (const phone of [true, false]) {
   }
   assert.match(css, /\.28s var\(--ease-detent/, 'a height change takes 280 ms on the detent easing');
   assert.match(html, /<link rel="stylesheet" href="\.\/css\/navigator\.css">/);
+  // T-2627: the quick column holds two buttons at most — Walk/Fly and the Inspect key.
+  const quick = html.slice(html.indexOf('<div class="quick-column"'), html.indexOf('</div>', html.indexOf('<div class="quick-column"')));
+  assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column never holds more than two buttons');
+  assert.match(quick, /id="btn-fly"/); assert.match(quick, /id="btn-inspect"[^>]*hidden/);
+  assert.match(html, /<button type="button" class="target-tag" id="target-tag" hidden><\/button>/);
   // T-2619: the closed device's year and app icon, and the pill on a phone.
   assert.match(section, /id="nav-dock-app" aria-hidden="true"/);
   assert.match(section, /id="nav-dock-year" aria-hidden="true"/);
@@ -732,7 +787,11 @@ for (const phone of [true, false]) {
   await new Promise((r) => setTimeout(r, 0));
   assert.equal(nav.app, 'jaunts', '?nav=jaunts opens Jaunts');
   await nav.openLink({ app: 'inspect', id: 'glessner_house', tab: 'design' });
-  assert.deepEqual(calls.at(-1), ['card', 'glessner_house'], '?nav=inspect:glessner_house opens that building (its card until the dossier lands)');
+  // T-2638: the dossier has landed, so the link opens Inspect's own screen on that building
+  // (the link's id is offered as the one selected), not the card.
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(nav.app, 'inspect', '?nav=inspect:glessner_house opens Inspect');
+  assert.ok(!calls.some((c) => c[0] === 'card'), 'and not the building card');
   assert.deepEqual(nav.link, { app: 'inspect', id: 'glessner_house', tab: 'design' }, 'the app reads its id and tab off ctx.link');
   await nav.openLink({ app: 'jump' });
   await new Promise((r) => setTimeout(r, 0));

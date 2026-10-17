@@ -8546,6 +8546,46 @@ for (const [label, viewport, touch] of [
       `"${presence.composed.text.slice(0, 160)}" — function "${presence.composed.fn}", `
       + `location "${presence.composed.where.slice(0, 60)}"`);
 
+    // T-2638. Inspect, the Navigator's Overview front page (§08, M7), on a building with no
+    // summary record: Hogan's store takes the templated fallback (T-2636), in M7's order, every
+    // fact line with its grade dot, the address once, no id, path or ticket number.
+    const inspectFallback = await page.evaluate(async (id) => {
+      const a = window.__chicago4d;
+      a.pick(id);
+      await a.navigator.select('inspect');
+      for (let i = 0; i < 100 && !(document.getElementById('nav-app-inspect')?.dataset.structure === id
+        && document.querySelector('#nav-app-inspect .insp-page')); i++) await new Promise((r) => setTimeout(r, 100));
+      const pageEl = document.querySelector('#nav-app-inspect .insp-page');
+      const order = [...(pageEl?.children ?? [])].map((c) => [...c.classList].find((k) => k.startsWith('insp-')) ?? c.tagName);
+      const sections = [...(pageEl?.querySelectorAll('.insp-sec .insp-h') ?? [])].map((h) => h.textContent.trim());
+      const lines = [...(pageEl?.querySelectorAll('.insp-chip, .insp-key dd, .insp-person strong, .insp-look-item, .insp-fact') ?? [])];
+      // textContent, not innerText: the address line is styled uppercase, and innerText returns
+      // the rendered case once the page is visible, which no longer matches the address it holds.
+      const text = pageEl?.textContent ?? '';
+      const address = pageEl?.querySelector('.insp-address')?.textContent.trim() ?? '';
+      const out = { source: pageEl?.dataset.source ?? null, order, sections, lines: lines.length,
+        undotted: lines.filter((l) => !l.querySelector('.fact-dot')).map((l) => l.textContent.trim()).slice(0, 4),
+        address, addressTimes: address ? text.split(address).length - 1 : 0,
+        summary: pageEl?.querySelector('.insp-summary')?.textContent.trim() ?? '',
+        meter: pageEl?.querySelector('.insp-meter')?.getAttribute('aria-label') ?? '',
+        plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}/.test(text),
+        code: document.getElementById('nav-code')?.textContent ?? '',
+        overflow: document.documentElement.scrollWidth > innerWidth };
+      await a.navigator.select('home');
+      a.navigator.dock();
+      a.popup.close();
+      return out;
+    }, 'hogan_store');
+    check(`${label}: Inspect's front page shows a building without a record on its fallback, in M7's order, every line dotted (T-2638)`,
+      inspectFallback.source === 'fallback' && inspectFallback.code === 'SCR 03 · INSPECT'
+      && inspectFallback.order.indexOf('insp-name') > inspectFallback.order.indexOf('insp-address')
+      && inspectFallback.order.indexOf('insp-summary') > inspectFallback.order.indexOf('insp-name')
+      && inspectFallback.order.indexOf('insp-meter') > inspectFallback.order.indexOf('insp-summary')
+      && inspectFallback.lines > 0 && inspectFallback.undotted.length === 0
+      && inspectFallback.addressTimes === 1 && !inspectFallback.plumbing && !inspectFallback.overflow
+      && /\d+ facts/.test(inspectFallback.meter),
+      JSON.stringify(inspectFallback).slice(0, 600));
+
     // The position's argument, on the line that shows the position. Three of the
     // eight placements are derived from bank geometry because no corner survives;
     // the card showed the conclusion and hid the reasoning behind nothing.
@@ -9367,6 +9407,35 @@ for (const [label, viewport, touch] of [
       rayPick === 'sauganash_hotel', `got ${rayPick}`);
 
     await page.evaluate(() => window.__chicago4d.popup.close());
+
+    // T-2627 (§10): the reticle resting on the Sauganash (26 m) shows the target tag — its
+    // name and distance — after the 400 ms dwell, with the quick column's Inspect key; a
+    // tap on the tag opens it. Polled on a clock: the probe answers from the render loop.
+    const tagShown = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.target.invalidate();
+      const tag = document.getElementById('target-tag');
+      for (let i = 0; i < 150 && tag.hidden; i++) await new Promise((r) => setTimeout(r, 100));
+      const quick = [...document.querySelectorAll('#quick-column > button')];
+      return { shown: !tag.hidden, text: tag.textContent, upper: getComputedStyle(tag).textTransform,
+        current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+    });
+    check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
+      tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text) && tagShown.upper === 'uppercase'
+      && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
+      JSON.stringify(tagShown));
+    if (tagShown.shown) {
+      await clickChrome('#target-tag');
+      const tagOpened = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        for (let i = 0; i < 30 && !api.popup.openId; i++) await new Promise((r) => setTimeout(r, 100));
+        const out = { open: api.popup.openId ?? null, detent: api.navigator?.detent ?? null };
+        api.popup.close();
+        return out;
+      });
+      check(`${label}: a tap on the target tag opens Inspect on that building (T-2627)`,
+        tagOpened.open === 'sauganash_hotel', JSON.stringify(tagOpened));
+    }
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -15157,6 +15226,50 @@ for (const [label, viewport, touch] of [
       && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
+    // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
+    // The chip is hit-tested like any chrome. The screen shows the three destinations with
+    // HERE on this one only, and RECALL as its one signal-red key. Picking another runs
+    // the transfer ring and writes the Observatory's stamp; Escape aborts it here, so this
+    // page stays (part 15 makes a real jump and lands).
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.hud.setPanel(false); });
+    await clickChrome('#year-badge .badge-year');
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'jump'
+      && !!document.querySelector('#nav-app-jump .nav-jump'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const jumpScreen = await page.evaluate(() => {
+      const el = document.getElementById('nav-app-jump');
+      const cards = [...(el?.querySelectorAll('.nav-jump') ?? [])];
+      const keys = [...(el?.querySelectorAll('.nav-key') ?? [])];
+      const signal = getComputedStyle(document.documentElement).getPropertyValue('--signal').trim();
+      const bg = keys[0] ? getComputedStyle(keys[0]).backgroundColor : '';
+      const probe = document.createElement('i'); probe.style.color = signal; document.body.append(probe);
+      const signalRgb = getComputedStyle(probe).color; probe.remove();
+      return { app: window.__chicago4d.navigator.app, years: cards.map((c) => c.dataset.year),
+        here: cards.filter((c) => c.getAttribute('aria-current') === 'page').map((c) => c.dataset.year),
+        hereWord: cards.filter((c) => /\bhere\b/i.test(c.textContent)).length,
+        keys: keys.length, recall: keys[0]?.getAttribute('href') ?? null, red: !!bg && bg === signalRgb,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(el?.textContent ?? '') };
+    });
+    const other = jumpScreen.years.find((y) => y !== String(YEAR));
+    if (other) await page.evaluate((y) => document.querySelector(`#nav-app-jump .nav-jump[data-year="${y}"]`)?.click(), other);
+    const ring = await page.evaluate(() => ({ ring: !!document.querySelector('.nav-jump-ring'),
+      label: document.querySelector('.nav-jump-ring-label')?.textContent ?? '',
+      stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 }));
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(150);
+    const aborted = await page.evaluate(() => ({ ring: !!document.querySelector('.nav-jump-ring'), href: location.href,
+      stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 }));
+    await page.waitForTimeout(1300);
+    const stayed = await page.evaluate(() => location.href);
+    await page.evaluate(() => window.__chicago4d.navigator.dock());
+    check(`${label}: the year chip opens Jump — three era cards, HERE on this one, RECALL the one signal-red key; a pick runs the ring and Escape aborts it, leaving no transfer stamp (T-2655)`,
+      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812' && jumpScreen.here.join() === String(YEAR)
+      && jumpScreen.hereWord === 1 && jumpScreen.keys === 1 && jumpScreen.recall === '../' && jumpScreen.red && !jumpScreen.snake
+      // The stamp is written as the page leaves, not as the ring starts (44450de1), so a
+      // ring that is aborted leaves none: part 15's real jump reads it on arrival.
+      && ring.ring && ring.label.includes(other) && !ring.stamp && !aborted.ring && stayed === aborted.href
+      && !aborted.stamp,
+      JSON.stringify({ jumpScreen, other, ring, aborted, stayed }));
+
     // --- the Jaunts app (T-2630): Home's choices open its segments ----------------
     // Navigator Home offers the arrival's three choices; each opens the Jaunts app on its
     // segment (Jaunts · Go to · Free roam, a tablist). Go to is the Welcome card's own
@@ -17224,6 +17337,46 @@ for (const [label, viewport, touch] of [
           && /^1800 S\. Prairie Avenue/.test(survivalCard.where) && survivalCard.composed === true
           && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
           survivalCard.opening.slice(0, 300));
+        // T-2638. Inspect's front page on the building that has a summary record: Glessner House
+        // in M7's exact order (plate, address, name, chips, summary, key facts, who lives here,
+        // Look for, notable facts, the Confidence meter), the record's summary word for word, the
+        // Glessners from the 1904 directory (T-2702), every fact line dotted, the address once.
+        const inspectRecord = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          a.pick(id);
+          await a.navigator.select('inspect');
+          for (let i = 0; i < 100 && !(document.getElementById('nav-app-inspect')?.dataset.structure === id
+            && document.querySelector('#nav-app-inspect .insp-page')); i++) await new Promise((r) => setTimeout(r, 100));
+          const pageEl = document.querySelector('#nav-app-inspect .insp-page');
+          const order = [...(pageEl?.children ?? [])].map((c) => [...c.classList].find((k) => k.startsWith('insp-')) ?? c.tagName);
+          const sections = [...(pageEl?.querySelectorAll('.insp-sec .insp-h') ?? [])].map((h) => h.textContent.trim());
+          const lines = [...(pageEl?.querySelectorAll('.insp-chip, .insp-key dd, .insp-person strong, .insp-look-item, .insp-fact') ?? [])];
+          // textContent, not innerText: the address line is styled uppercase, and innerText returns
+          // the rendered case once the page is visible, which no longer matches the address it holds.
+          const text = pageEl?.textContent ?? '';
+          const address = pageEl?.querySelector('.insp-address')?.textContent.trim() ?? '';
+          const out = { source: pageEl?.dataset.source ?? null, order, sections, lines: lines.length,
+            undotted: lines.filter((l) => !l.querySelector('.fact-dot')).map((l) => l.textContent.trim()).slice(0, 4),
+            address, addressTimes: address ? text.split(address).length - 1 : 0,
+            summary: pageEl?.querySelector('.insp-summary')?.textContent.trim() ?? '',
+            meter: pageEl?.querySelector('.insp-meter')?.getAttribute('aria-label') ?? '',
+            plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}/.test(text),
+            code: document.getElementById('nav-code')?.textContent ?? '',
+            overflow: document.documentElement.scrollWidth > innerWidth };
+          await a.navigator.select('home');
+          a.navigator.dock();
+          a.popup.close();
+          return out;
+        }, 'glessner_house');
+        check(`${label}: Inspect's front page shows Glessner House from its summary record in M7's order, every line dotted (T-2638)`,
+          inspectRecord.source === 'record'
+          && JSON.stringify(inspectRecord.order) === JSON.stringify(['insp-plate', 'insp-address', 'insp-name', 'insp-chips',
+            'insp-summary', 'insp-key', 'insp-sec', 'insp-sec', 'insp-sec', 'insp-meter', 'insp-full'])
+          && JSON.stringify(inspectRecord.sections) === JSON.stringify(['Who lives here · 1904', 'Look for', 'Notable facts'])
+          && /^A granite fortress on the street/.test(inspectRecord.summary)
+          && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
+          && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
+          JSON.stringify(inspectRecord).slice(0, 700));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
@@ -17573,6 +17726,31 @@ for (const [label, viewport, touch] of [
       (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
     if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
 
+    // --- Jump, for real (T-2655): from this year to another, ring › time-stream › landing ----
+    // Into the town, the Jump app from the year chip, a pick: the ring runs in the world,
+    // the destination's own page loads and runs its arrival from the ring's tail (the
+    // Observatory's transfer stamp), the ticker rolls down and the device lands in the
+    // year picked. Only on the published mirror, where the year pages are.
+    if (wantPublished) {
+      await p14.evaluate(() => { window.__chicago4d.welcome.enter('spawn'); });
+      await p14.waitForFunction(() => window.__chicago4d.welcome.state === 'world', null, { timeout: 30_000, polling: 250 });
+      await p14.evaluate(() => window.__chicago4d.navigator.select('jump'));
+      await until(() => !!document.querySelector('#nav-app-jump .nav-jump:not([aria-current])'));
+      const to = await p14.evaluate(() => {
+        const card = [...document.querySelectorAll('#nav-app-jump a.nav-jump')].find((c) => c.dataset.year === (window.__chicago4d.scene?.id === '1904' ? '1835' : '1904'));
+        card?.click();
+        return card?.dataset.year ?? null;
+      });
+      const ringShown = await p14.evaluate(() => !!document.querySelector('.nav-jump-ring'));
+      await p14.waitForURL(new RegExp(`/${to}/`), { timeout: 30_000 });
+      await p14.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', null, { timeout: 240_000, polling: 500 });
+      const landed = await p14.evaluate(() => ({ year: window.__chicago4d.scene?.id ?? null, journey: document.documentElement.dataset.journey ?? null,
+        transfer: document.documentElement.dataset.transfer ?? null, years: (window.__arrivalYears ?? []).map((y) => y.year) }));
+      check(`${label}: Jump runs the ring in the town, then the picked year's own time-stream and landing, and arrives there (T-2655)`,
+        !!to && ringShown && String(landed.year) === to && landed.journey === 'landed' && landed.transfer === 'true'
+        && landed.years.length >= 2 && Number(landed.years[0]) > Number(to) && landed.years.at(-1) === to,
+        JSON.stringify({ to, ringShown, landed: { ...landed, years: `${landed.years[0]} … ${landed.years.at(-1)} (${landed.years.length})` } }));
+    }
     // --- a shared screen: ?nav=jump opens after the landing, Back closes it (T-2621) ----
     // The same fresh context, a new load of the page with a deep link. After the landing
     // the visitor is set down in the town with Jump open on the Navigator; Back closes
