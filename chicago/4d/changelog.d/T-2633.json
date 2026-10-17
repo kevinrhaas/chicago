@@ -1,8 +1,0 @@
-{
-  "title": "Go to follows the Confidence view",
-  "kind": "improvement",
-  "items": [
-    "The Include reconstructed roofs checkbox is gone from Go to. Every place is listed.",
-    "When the Confidence view hides Reconstructed, those places stay in Go to but are dimmed, with one line saying they are hidden in the Confidence view. Show the grade again and they are back to normal."
-  ]
-}
