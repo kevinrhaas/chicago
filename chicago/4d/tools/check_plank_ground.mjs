@@ -186,7 +186,7 @@ await check('repeated terrain replacement disposes each geometry once',()=>{
  const body=terrainSource.match(/protectGroundUnder\(footprints\) \{([\s\S]*?)\n    \},/)?.[1];
  assert.ok(body,'the terrain API exists');
  const run=new Function('groundBase','heightfield','gridGeometry','GROUND_BASE_STEP','disposables',
-  `return function(footprints){${body}}`)(groundBase,{loaded:true},make,baseStride,disposables);
+  `let baseReplay=null;return function(footprints){${body}}`)(groundBase,{loaded:true},make,baseStride,disposables);
  run([]);run([]);
  assert.equal(disposables.length,1);assert.equal(disposables[0],groundBase.geometry);
  for(const d of disposables)d.dispose();
@@ -208,7 +208,7 @@ await check('batching and repeated crossing protection preserve placement and re
  const build=(geometry,mat)=>{const mesh=spatialBatch(geometry,mat);track(mesh.geometry);return mesh;};
  const buildAsync=async(geometry,mat)=>{const mesh=await spatialBatchAsync(geometry,mat);track(mesh.geometry);return mesh;};
  const api=new Function('groundBase','heightfield','gridGeometry','GROUND_BASE_STEP','disposables','spatialBatch','spatialBatchAsync','group',
-  `return {protect(footprints){${protect}},async batch(){${batch}},current:()=>groundBase};`)(initial,{loaded:true},make,baseStride,disposables,build,buildAsync,group);
+  `let baseReplay=null;return {protect(footprints){${protect}},async batch(){${batch}},current:()=>groundBase};`)(initial,{loaded:true},make,baseStride,disposables,build,buildAsync,group);
  api.protect([]);assert.equal(await api.batch(),true);assert.equal(await api.batch(),false);
  api.protect([]);api.protect([]);
  const current=api.current();

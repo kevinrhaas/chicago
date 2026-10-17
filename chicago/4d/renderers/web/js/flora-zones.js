@@ -52,8 +52,24 @@ export function heldGround(zones, terrain, water, finder) {
  * `flora.checkHeldZones` holds the two together on the page.
  */
 export function groundZones(g) {
-  const { data, cols, rows, cellM, originE, originN } = g.hf;
-  const sample = (e, n) => {
+  const sample = gridSampler(g.hf);
+  const isWater = (e, n) => sample(e, n) < g.shoreY;
+  const terrain = { heightfield: { loaded: true, ...g.hf }, lakeShore: g.lakeShore,
+    surfaceHeight: sample, isWater };
+  const water = { distance: (e, n) => waterDistance(g.water, isWater, e, n) };
+  const find = zoneFinder(g.zones, terrain, water, g.blend);
+  const place = new Map(g.zones.map((z, i) => [z, i + 1]));
+  return (e, n) => {
+    if (!onGrid(g.hf, e, n)) return ZONE_UNASKED;
+    return place.get(find(e, n)) ?? 0;
+  };
+}
+
+/** The measured grid's bilinear height at (e, n), the same arithmetic as
+ *  terrain.js `Heightfield.sample` inside its bounds (T-2695; shared with
+ *  flora-ground.js's worker answers since T-2696). Callers stay on the grid. */
+export function gridSampler({ data, cols, rows, cellM, originE, originN }) {
+  return (e, n) => {
     const gx = (e - originE) / cellM;
     const gy = (n - originN) / cellM;
     const x0 = Math.min(Math.floor(gx), cols - 2);
@@ -66,18 +82,13 @@ export function groundZones(g) {
     const h01 = data[r1 + x0], h11 = data[r1 + x0 + 1];
     return (h00 * (1 - fx) + h10 * fx) * (1 - fy) + (h01 * (1 - fx) + h11 * fx) * fy;
   };
-  const isWater = (e, n) => sample(e, n) < g.shoreY;
-  const terrain = { heightfield: { loaded: true, ...g.hf }, lakeShore: g.lakeShore,
-    surfaceHeight: sample, isWater };
-  const water = { distance: (e, n) => waterDistance(g.water, isWater, e, n) };
-  const find = zoneFinder(g.zones, terrain, water, g.blend);
-  const place = new Map(g.zones.map((z, i) => [z, i + 1]));
-  return (e, n) => {
-    const gx = (e - originE) / cellM;
-    const gy = (n - originN) / cellM;
-    if (!(gx >= 0 && gy >= 0 && gx <= cols - 1 && gy <= rows - 1)) return ZONE_UNASKED;
-    return place.get(find(e, n)) ?? 0;
-  };
+}
+
+/** Whether (e, n) is on the measured grid `hf`: where `gridSampler` answers. */
+export function onGrid({ cols, rows, cellM, originE, originN }, e, n) {
+  const gx = (e - originE) / cellM;
+  const gy = (n - originN) / cellM;
+  return gx >= 0 && gy >= 0 && gx <= cols - 1 && gy <= rows - 1;
 }
 
 /** Metres to the shore from (e, n): to the nearest water cell on land, to the
