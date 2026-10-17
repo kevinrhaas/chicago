@@ -1,3 +1,27 @@
+## T-2636 — a building's card opens with its address once, in plain words (2026-10-16)
+
+Design doc "Field Navigator Mk II" §12, the fallback for a structure with no summary record;
+fixes the owner's IMG_6942, where the 1904 Glessner card opened with the address three times
+and "parcel prairie_1800 (data/street_grid/1904.json)" twice. `renderers/web/js/fallback-summary.js`
+templates the head and lead from the sidecar and lints every phrase before it goes in (the
+JavaScript twin of `compile_summaries.py`'s lint — no id, snake_case, path, link or ticket
+number); a phrase that fails is left out, never shown cleaned. The address line is the first
+short clean phrase of `symbolic_location` (or a source's `lot_address`), given once: other
+names that restate it are dropped, a title that opens with it loses the prefix, and a title
+that already holds it takes the line's place. A title's bracketed aside carrying a ticket
+number ("(district draft; refined by T-1894)") is dropped. The lead is the phase's own
+account verbatim when it is clean, else at most three templated sentences: what it was
+(storeys, material, use), how long it had stood like this, and who lived here or what it is
+today, marked `data-composed`. `tools/test_fallback_summary.mjs` (in `check.sh`) runs the
+card's own `cardOpening` over all 886 structures in 1812, 1835 and 1904 and finds none of
+those problems; the smoke's composed-lead check is restated (it no longer repeats the
+location) and part 14 gains QA-08 on the Glessner card.
+
+**Not changed here:** 35 phase accounts that carry a ticket number, id or path now fall back to
+the template rather than print; their words are still in the sidecar and should be cleaned at
+the source. The Go to list and other surfaces still print the raw names with their working
+asides — that is NAV-1003's lint, not this card.
+
 ## T-2702 — the 1904 people directory, starting with the Glessners (2026-10-17)
 
 Owner ruling 2026-10-17: "File it in band 3." The pilot for this is T-2637, and this PR fills

@@ -1,4 +1,35 @@
 export const CHANGELOG = [ // newest first
+  { v: 1918, ts: '2026-10-17T04:45:51.473Z', date: 'Oct 16, 2026, 11:45 PM CT', title: 'Nothing you can see yet: roads and far ground cut ahead', kind: 'chore',
+    items: [
+      'Nothing in the scene changed. This is another step toward phones downloading the town instead of building it at every visit.',
+      'A new tool builds the three road surfaces and the far ground under the town on the server, using the page\'s own code. All 45 of their buffers match what the page builds, byte for byte, at light and full detail.',
+      'To make that possible the roads now do their angle math the same way in every browser. Before, Chrome and the server could disagree on the last digit of a turn, and Safari laid its own.',
+      'On a throttled phone the roads take about 1.4 seconds of the load and the far ground 0.8 seconds. A later step makes the page load these pieces instead.',
+    ] },
+  { v: 1917, ts: '2026-10-17T04:26:25.379Z', date: 'Oct 16, 2026, 11:26 PM CT', title: 'The plank walks\' shared mesh keeps one draw with a lighter footprint', kind: 'improvement',
+    items: [
+      'The town-wide plank-walk mesh now stores each corner in 8 bytes instead of 12, within a millimetre of where it stood, and still draws in a single call.',
+      'Taps, shadows and the distant walk tops read the same timber they did before.',
+    ] },
+  { v: 1916, ts: '2026-10-17T04:15:52.507Z', date: 'Oct 16, 2026, 11:15 PM CT', title: 'Each grade can be tinted, dithered or ghosted in the Confidence view', kind: 'feature',
+    items: [
+      'Behind the scenes, the Confidence view can now give each grade its own look: tinted toward its colour, dithered like today\'s Reconstructed massing, or drawn as a see-through ghost, each at any strength from 0 to 100%.',
+      'A ghosted grade is truly see-through. It is drawn last and without hiding what stands behind it, so a Reconstructed building can be looked through to the Attested one beyond it.',
+      'Nothing changes on screen yet. The Confidence view still looks as it did: Attested gold, Inferred silver, Reconstructed bronze and dithered. The Navigator\'s Confidence view, with its presets and per-grade controls, is built on this next.',
+    ] },
+  { v: 1915, ts: '2026-10-17T04:12:52.063Z', date: 'Oct 16, 2026, 11:12 PM CT', title: 'Nothing you can see yet: the yards cut ahead of time', kind: 'chore',
+    items: [
+      'Nothing in the scene changed. This is the next step toward phones downloading the town instead of building it at every visit.',
+      'The same tool that cuts the ground now lays the town\'s yard ground in its five surfaces (dooryard greens, garden beds and three kinds of bare earth) and cuts them into 932 pieces, using the page\'s own code. All 25 of their buffers match what the page builds, byte for byte.',
+      'The next step makes the page load these pieces instead of building them, and measures the boot before and after.',
+    ] },
+  { v: 1914, ts: '2026-10-17T03:42:57.445Z', date: 'Oct 16, 2026, 10:42 PM CT', title: 'Building cards open with the address once and plain words', kind: 'fix',
+    items: [
+      'Tap a building that has no written summary and its card now gives the address once, near the top. It no longer repeats it three times or shows internal labels like a parcel code or a file name.',
+      'Under it, a short summary is built from what the record knows: what the building was, what it was made of, how long it had stood, and who lived there or what it is today. On Prairie Avenue in 1904 that reads, for the Glessner House, "It was a stone residence. It had stood like this since 1887. Today: still standing — Glessner House museum."',
+      'Names that carried working notes, such as "refined by" and a number, now show just the name.',
+      'Where a building\'s own written account is clean, it still leads the card, word for word. The full recorded location, with its reasoning, is still on the card\'s Evidence tab, under "Where did it stand?".',
+    ] },
   { v: 1913, ts: '2026-10-17T03:33:12.620Z', date: 'Oct 16, 2026, 10:33 PM CT', title: 'Less work on the main thread as the prairie is redealt', kind: 'improvement',
     items: [
       'As you walk or turn, the question of which plant community a patch of ground belongs to is now answered in the background, off the thread that draws the frame.',

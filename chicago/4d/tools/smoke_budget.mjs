@@ -384,6 +384,8 @@ const COVERAGE = [
   ['data/businesses.schema.json', [3, 13], 'the shape those records are refused against'],
   ['renderers/web/js/display-name.js', [3], 'the prose may not name a level the record is not'],
   ['renderers/web/js/popup.js', [3], 'the card a visitor opens'],
+  // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
+  ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
   ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],
@@ -436,6 +438,8 @@ const COVERAGE = [
   ['renderers/web/js/shrub-grain.js', [10, 11, 12], 'the sward\'s grain'],
   ['renderers/web/js/fauna.js', [10, 11, 14], 'the wildlife, drawn and in the panel'],
   ['renderers/web/js/streets.js', [2, 7, 8, 10, 11, 12], 'the street edge, the roads read from two stations in part 7 and one in part 8 with the aid, and the street names'],
+  // T-2703: the trig streets.js lays its road with, and nothing else imports it.
+  ['renderers/web/js/portable-math.js', [2, 7, 8, 10, 11, 12], 'the trig streets.js lays the road with (imported by nothing else), so the street parts'],
   ['data/flora/', [10, 11, 12, 14], 'what grows here'],
   ['data/fauna/', [10, 11, 14], 'the wildlife'],
   ['data/streets/', [2, 7, 8, 10, 11, 12], 'the street records'],

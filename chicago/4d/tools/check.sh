@@ -89,11 +89,20 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
 
+step "A mesh too wide for one box stays one draw: each vertex boxed by its padding lane, read back within the millimetre, faces in order, raycast and bounds in metres (T-2700)" \
+  node tools/check_position_boxes.mjs
+
 selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
 
 selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
   node tools/prebuild_layers.mjs --self-test --layer ground
+
+selftest "The distant base and the streets' surfaces cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, the street trig is portable-math.js's, and a prebuild from changed inputs is refused (T-2703)" \
+  node tools/prebuild_layers.mjs --self-test --layer base,streets
+
+selftest "The yards' five surfaces laid and cut in Node are byte-identical build to build, batch exactly as createFencedGround's own do, and a prebuild from changed inputs is refused (T-2704)" \
+  node tools/prebuild_layers.mjs --self-test --layer yards
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -117,6 +126,9 @@ step "The grade colours are one set — gold, silver, bronze — legible on ever
   node tools/check_grade_colors.mjs
 selftest "…and a bronze that is a darker gold, a drifted token or an unreadable ink is refused (T-2671)" \
   node tools/check_grade_colors.mjs --self-test
+
+step "Each grade's look — tint, dither or ghost at an opacity — and the ghost pass drawn last with depthWrite off (T-2646)" \
+  node tools/test_confidence_looks.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
@@ -7172,6 +7184,15 @@ step "every building summary record is graded, sourced, within its lengths and f
 
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
+
+# T-2636. And the buildings nobody has written a summary for, which is most of them: the
+# card's head and lead are templated from the sidecar (renderers/web/js/fallback-summary.js),
+# never printed from a raw field. This runs the card's own composition over every structure
+# in every scene and refuses an id, snake_case word, path, link or ticket number anywhere in
+# the title, address, other names, kind line or lead, an address given twice, and a templated
+# lead over three sentences or sixty words; it also holds the card's lint to the gate's above.
+step "every building's card opens with its address once and no id, path or snake_case (T-2636)" \
+  node tools/test_fallback_summary.mjs
 
 # T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
 # generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
