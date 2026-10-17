@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1908, ts: '2026-10-17T02:13:40.629Z', date: 'Oct 16, 2026, 9:13 PM CT', title: 'A phone in 1835 holds about 19 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1835 town now holds about 19 MB less once it is drawn (590 MB to 570 MB), which is where phones were running out of memory.',
+      'The plank walks, fences and yard goods used to spend four bytes on every corner to say how sure the reconstruction is. That grade now rides in space the colour already paid for, or, for a fence, is stated once for the whole stretch.',
+      'The same views draw the same pixels as before, with the confidence view off or on.',
+    ] },
+  { v: 1907, ts: '2026-10-17T02:13:40.629Z', date: 'Oct 16, 2026, 9:13 PM CT', title: 'The ground under the near grass, packed for the graphics card', kind: 'chore',
+    items: [
+      'Nothing you can see changed. This is groundwork for drawing the grass at your feet on the graphics card, so walking stops pausing the phone while the grass is placed again.',
+      'What the grass needs to know about the ground — which plant community, water or not, short turf, a road or plank floor, and the ground\'s height — can now be packed into a 32 m square of 1/8 m cells that the graphics card reads.',
+      'Read back at every grass spot of 22 viewpoints, the card gives the same answer as before at 99 % of them. Heights are off by under a millimetre. Most of the rest are on the worn river bank, where the bare patches are scattered at random point by point.',
+    ] },
   { v: 1906, ts: '2026-10-17T01:35:58.522Z', date: 'Oct 16, 2026, 8:35 PM CT', title: 'Nothing you can see yet: the 1835 ground cut ahead of time', kind: 'chore',
     items: [
       'Nothing in the scene changed. This is the next step toward phones downloading the town instead of building it at every visit.',
