@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1931, ts: '2026-10-17T08:12:18.449Z', date: 'Oct 17, 2026, 3:12 AM CT', title: 'The Navigator works from the keyboard', kind: 'feature',
+    items: [
+      'Press N to open or close the Navigator. Tab from the scene opens it too.',
+      'Press 1 to 9 to open the app at that place on the Navigator\'s rail. Escape closes the device.',
+      'Arrow keys move along the rail and Enter opens the app you are on. Focus jumps into the app\'s screen and always shows a clear outline.',
+      'When the Navigator closes, focus lands on its handle, so you are never left lost. Screen readers now hear the rail as a set of tabs, each named.',
+      'N used to open What\'s new. That now lives under Settings, or press H.',
+    ] },
   { v: 1930, ts: '2026-10-17T07:53:11.899Z', date: 'Oct 17, 2026, 2:53 AM CT', title: 'The near grass\'s planting rules now have a graphics-card version', kind: 'chore',
     items: [
       'Nothing you can see changed. The rules that decide which grass grows at each spot near you, and how tall, wide and green it is, now have a graphics-card version too. It is the next step toward drawing the near grass without the phone\'s processor laying it out at every step.',
