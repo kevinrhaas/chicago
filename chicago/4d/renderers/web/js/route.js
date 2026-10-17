@@ -685,6 +685,7 @@ export function createRouter({
     const a = anchor(from);
     const b = anchor(to, 4, true);
     if (!a || !b) { stats.lastPlanMs = now() - t0; return null; }
+    if (mode === 'run') mode = 'walk'; // running is on foot: the walker's network (T-2651)
 
     let cells;
     const mask = mode === 'walk' ? 3 : 1;

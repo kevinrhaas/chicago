@@ -34,6 +34,8 @@
      feature own its style. walk.css stays the base and the tokens. -->
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
+<link rel="stylesheet" href="./css/inspect.css">
+<link rel="stylesheet" href="./css/tour.css">
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
@@ -186,9 +188,13 @@
       class="badge-alt" id="badge-alt" hidden></span><span
       class="badge-version" id="badge-version" role="note" hidden></span></button>
     <div class="hud-actions">
-      <button id="btn-fly" class="chip" aria-pressed="false" title="Free-fly — rise above the town (F)">
-        <span class="fly-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></span> <span class="chip-label" id="fly-label">Fly</span>
-      </button>
+      <!-- T-2625 (§10 "In-world HUD"): Start / Jaunts, the pace chip and the light / dark
+           switch left this row. Start / Jaunts's three choices are the Navigator's Jaunts app
+           (T-2630); the pace is Move's; light or dark is Settings › View. P still cycles the
+           pace. -->
+      <!-- T-2647: the Confidence chip, its caret and its checkbox menu moved into the
+           Navigator's Confidence view app (js/apps/confidence-view.js); C still
+           toggles BY GRADE. -->
       <!-- T-2620: the hamburger is gone with the drawer; its sections are the Navigator's
            apps. What's new's dot stays here until the Navigator moves it onto its
            Settings icon (apps/drawer-host.js). -->
@@ -216,58 +222,11 @@
     </div>
   </div>
 
-  <!-- T-2625 (§10 "In-world HUD"): moved out of the HUD into the Navigator. They wait here,
-       hidden, until their app first opens and takes them in (apps/confidence.js, apps/jaunts.js),
-       so every id and listener stays the one the page bound at boot. -->
+  <!-- T-2625: #btn-start, out of the HUD. It waits here, hidden, with its id and the
+       listener welcome.js bound at boot (it shows the Welcome card); a visitor reaches the
+       same three choices in the Navigator's Jaunts app (apps/jaunts-view.js). -->
   <div class="hud-moved" id="hud-moved" hidden>
     <button id="btn-start" class="chip" aria-haspopup="dialog">Start / Jaunts</button>
-    <!-- One control, two questions. The chip toggles the colouring; the caret
-         opens the panel where a whole level can be removed from the view.
-         They belong together: "how sure are we" and "what is left if you keep
-         only what somebody wrote down" are the same enquiry at two depths. -->
-    <div class="chip-group" id="confidence-group">
-      <button id="btn-confidence" class="chip" aria-pressed="false" title="Recolour the scene by evidence quality (C)">
-        <span class="dot dot-conf"></span> <span class="chip-label">Confidence</span>
-      </button>
-      <button id="btn-confidence-more" class="chip icon chip-more" aria-expanded="false"
-        aria-controls="confidence-menu" title="Choose which levels of evidence to show">▾</button>
-      <div class="confidence-menu" id="confidence-menu" role="group"
-        aria-label="Which levels of evidence to show" hidden>
-        <p class="cm-title">Show only what is</p>
-        <label class="cm-row"><input type="checkbox" id="cm-attested" checked>
-          <span class="cm-sw sw-att"></span><span class="cm-label">Attested</span>
-          <span class="cm-count" id="cm-count-attested"></span></label>
-        <label class="cm-row"><input type="checkbox" id="cm-inferred" checked>
-          <span class="cm-sw sw-inf"></span><span class="cm-label">Inferred</span>
-          <span class="cm-count" id="cm-count-inferred"></span></label>
-        <label class="cm-row"><input type="checkbox" id="cm-reconstructed" checked>
-          <span class="cm-sw sw-rec"></span><span class="cm-label">Reconstructed</span>
-          <span class="cm-count" id="cm-count-reconstructed"></span></label>
-        <p class="cm-note" id="cm-note">Turning a level off removes it from the view
-          entirely. It works with the colouring off too — that is how you see what is
-          left of the town when only the recorded parts stand.</p>
-        <button type="button" class="cm-reset" id="cm-reset">Show everything</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="control-help" id="control-help" role="dialog"
-    aria-labelledby="control-help-title" hidden>
-    <button class="control-help-close" id="control-help-close" type="button"
-      aria-label="Dismiss navigation help">×</button>
-    <strong id="control-help-title">How to explore</strong>
-    <div id="control-help-desktop" class="control-help-grid">
-      <kbd>W A S D</kbd><span>walk</span><kbd>mouse</kbd><span>look around</span>
-      <kbd>Shift</kbd><span>run</span><kbd>click / E</kbd><span>inspect a building</span>
-      <kbd>F</kbd><span>fly or walk</span><kbd>H</kbd><span>the Navigator</span>
-      <kbd>G</kbd><span>go to a place</span><kbd>M</kbd><span>the whole map</span>
-    </div>
-    <div id="control-help-touch" class="control-help-grid" hidden>
-      <kbd>left stick</kbd><span>walk</span><kbd>drag right</kbd><span>look around</span>
-      <kbd>tap</kbd><span>inspect</span><kbd>Fly</kbd><span>switch walk / aerial view</span>
-      <kbd>tap the map</kbd><span>see the whole field</span>
-    </div>
-    <button class="control-help-gotit" id="control-help-gotit" type="button">Got it</button>
   </div>
 
   <div class="navigation-stack" aria-label="Navigation aids">
@@ -325,38 +284,63 @@
     <!-- How you get there — instantly, on foot, by wagon, on horseback, or flying.
          js/hud.js paints the controls; js/travel.js owns the moving. -->
     <section class="panel-body" data-panel="travel" hidden>
-      <div class="field"><span>How you get there</span>
-        <div class="seg" role="radiogroup" id="s-travel" aria-label="How you move" data-str-label="hud.move.mode">
-          <button type="button" class="seg-btn" data-mode="instantly" role="radio" aria-checked="true">Instantly</button>
-          <button type="button" class="seg-btn" data-mode="walk" role="radio" aria-checked="false">Walk</button>
+      <!-- Move (T-2651, DESIGN §07 M6): one picker for how you move, one slider for
+           the mode picked. Fly is the same free flight as the Walk/Fly key in the top
+           bar; the four ground modes each keep their own speed (T-0823), named as the
+           slider moves. The ceilings are the owner's: 20 mph on foot, 30 by wagon, 60
+           on horseback, and the readout says plainly when a figure is past any man or
+           any horse. -->
+      <div class="field"><span>How you move</span>
+        <div class="seg" role="radiogroup" id="s-move" aria-label="How you move" data-str-label="hud.move.mode">
+          <button type="button" class="seg-btn" data-mode="walk" role="radio" aria-checked="true">Walk</button>
+          <button type="button" class="seg-btn" data-mode="run" role="radio" aria-checked="false">Run</button>
           <button type="button" class="seg-btn" data-mode="wagon" role="radio" aria-checked="false">Wagon</button>
           <button type="button" class="seg-btn" data-mode="horse" role="radio" aria-checked="false">Horse</button>
           <button type="button" class="seg-btn" data-mode="fly" role="radio" aria-checked="false">Fly</button>
         </div></div>
-      <div class="field"><span>Your own pace, on the streets</span>
-        <div class="seg" role="radiogroup" id="s-pace" aria-label="Your pace">
-          <button type="button" class="seg-btn" data-pace="walk" role="radio" aria-checked="true">Walk</button>
-          <button type="button" class="seg-btn" data-pace="wagon" role="radio" aria-checked="false">Wagon</button>
-          <button type="button" class="seg-btn" data-pace="horse" role="radio" aria-checked="false">Horse</button>
-        </div></div>
-      <!-- Each pace's own speed, named as the slider moves (T-0823). The ceilings
-           are the owner's: 20 mph on foot, 30 by wagon, 60 on horseback — the
-           readout says plainly when a figure is past any man or any horse. -->
-      <label class="field"><span>On foot <b id="v-speed"></b></span>
+      <label class="field" id="move-speed-field"><span><span id="move-speed-label">Walk speed</span> <b id="v-speed"></b></span>
         <input type="range" id="s-speed" min="0.5" max="8.94" step="0.01"></label>
-      <label class="field"><span>By wagon <b id="v-wagon-speed"></b></span>
-        <input type="range" id="s-wagon-speed" min="0.5" max="13.41" step="0.01"></label>
-      <label class="field"><span>On horseback <b id="v-horse-speed"></b></span>
-        <input type="range" id="s-horse-speed" min="0.5" max="26.82" step="0.01"></label>
       <p class="legend-note" id="travel-note"></p>
+      <!-- How you are taken to a place you picked, from Go to, the map or a Jaunt
+           (T-2652). Ride there goes along the streets at the mode above. -->
+      <div class="field"><span>When you pick a place</span>
+        <div class="seg" role="radiogroup" id="s-arrive" aria-label="When you pick a place">
+          <button type="button" class="seg-btn" data-arrive="instantly" role="radio" aria-checked="true">Teleport</button>
+          <button type="button" class="seg-btn" data-arrive="ride" role="radio" aria-checked="false">Ride there</button>
+          <button type="button" class="seg-btn" data-arrive="fly" role="radio" aria-checked="false">Fly over</button>
+        </div></div>
+      <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
+           by goToTarget like Go to, so it takes this choice too. -->
+      <p class="legend-note" id="arrive-note">Go to and Jaunts both use this choice. A Jaunt that cannot
+        be travelled that way, and every Jaunt until you choose here, keeps the way it recommends.</p>
+      <p class="legend-note">These are ways of moving the camera, not claims about the past: a
+        run, a light wagon, a horse, and a burst of speed on <kbd>Shift</kbd>. The slider sets the
+        speed of the mode you picked and names it. Ride there takes you to a place you choose
+        along the streets where they run; Fly over lifts you over the town and sets you down at
+        the door. Any movement of your own stops the ride; where no walkable route exists you are
+        taken straight there.</p>
+      <!-- Comfort (T-2653, DESIGN §07 "Move"): the head bob, the eye height and snap-turn,
+           each a choice about the view and never about the town. -->
+      <h3 class="legend-h" id="move-comfort">Comfort</h3>
       <label class="field row check-field"><span>Rider's head moves with the horse's gait</span>
         <input type="checkbox" id="s-head-bob"></label>
-      <p class="legend-note">These paces are how the camera moves, not claims about 1835: a light
-        wagon, a horse, and a gallop on <kbd>Shift</kbd>; the sliders above set each one, and name
-        the pace you are asking for. Choosing a place in Go to takes you there at the pace above,
-        along the streets where they run — Fly lifts you over the town and sets you down at the
-        door. Any movement of your own stops the ride; where no walkable route exists you are
-        taken straight there, as before.</p>
+      <!-- Eye height is a CLAIM about 1835, so the default is the researched
+           figure and the slider says where that figure sits. Raising it is a
+           comfort choice about the view, not a correction. -->
+      <label class="field"><span>Eye height <b id="v-eye"></b></span>
+        <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
+      <details class="why"><summary>Why this default</summary>
+        <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
+          man in the 1830s United States — this walkthrough puts your eye where a person of the
+          period had theirs, which is lower than a modern viewer expects and lower than the
+          prairie grass beside you, because both of those are true of the place. Raise it if the
+          view is uncomfortable; it changes only the camera, never the town.</p>
+      </details>
+      <!-- Snap-turn: a drag to look on a touch screen turns the view in 30° steps instead
+           of smoothly, which many people find easier on the stomach. Touch only: a mouse
+           keeps its smooth look. -->
+      <label class="field row check-field"><span>Turn in steps when you drag to look (touch screens)</span>
+        <input type="checkbox" id="s-snap-turn"></label>
     </section>
     <!-- Everyone the sources put in this town. js/people.js renders the directory;
          the household browser the Evidence panel used to carry lives at its foot,
@@ -590,23 +574,11 @@
       </div>
       <div class="settings-group">
         <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">Walking, wagon and horse speeds live under</span> <b data-str="hud.tab.move">Move</b>.</p>
-        <!-- Eye height is a CLAIM about 1835, so the default is the researched
-             figure and the slider says where that figure sits. Raising it is a
-             comfort choice about the view, not a correction. -->
-        <label class="field"><span>Eye height <b id="v-eye"></b></span>
-          <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
-        <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
-            man in the 1830s United States — this walkthrough puts your eye where a person of the
-            period had theirs, which is lower than a modern viewer expects and lower than the
-            prairie grass beside you, because both of those are true of the place. Raise it if the
-            view is uncomfortable; it changes only the camera, never the town.</p>
-        </details>
+        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
       </div>
       <div class="settings-group">
         <h4>View</h4>
-        <!-- T-2625: the light / dark switch moved here from the HUD (Settings › Display). -->
+        <!-- T-2625: the light / dark switch moved here from the HUD (Settings › View; the design calls it Display). -->
         <div class="field row theme-row"><span>Light or dark interface</span>
           <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
         </div>
@@ -684,12 +656,17 @@
             <option value="shown">Shown</option>
             <option value="hidden">Hidden</option>
           </select></label>
-        <div class="field row"><span>Navigation guide</span>
-          <button class="setting-button" id="s-show-control-help" type="button">Show guide</button>
+        <!-- T-2661: the controls are Guide's, in the Navigator; this opens it there. -->
+        <div class="field row"><span>Guide</span>
+          <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
+      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
+           section Guide opens until Guide's own screen lands (T-2661). -->
+      <div class="field row"><span>Tour mode: a sixty-second field check</span>
+        <button class="setting-button" id="tour-start" type="button">Take the field check</button></div>
       <dl class="keys" id="keys-desktop">
         <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>walk</dd>
         <dt><kbd>Shift</kbd></dt><dd>run</dd>
@@ -724,6 +701,19 @@
   <div class="crosshair" id="crosshair" aria-hidden="true"></div>
   <!-- T-2614: desktop only, until the first click on the scene takes the pointer. -->
   <p class="look-tag" id="look-tag" aria-hidden="true" hidden>Click to engage look</p>
+  <!-- T-2627 (§10): the target tag — after the reticle rests on a building for 400 ms, its
+       name and distance; a tap opens Inspect (so does E). -->
+  <button type="button" class="target-tag" id="target-tag" hidden></button>
+  <!-- T-2627: the quick column — the Walk/Fly toggle, and an Inspect key that appears with
+       a target. Never more than two buttons; everything else is in the Navigator's Move. -->
+  <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
+    <button id="btn-fly" class="chip" aria-pressed="false" title="Free-fly — rise above the town (F)">
+      <span class="fly-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></span> <span class="chip-label" id="fly-label">Fly</span>
+    </button>
+    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg> <span class="chip-label">Inspect</span></button>
+  </div>
+  <!-- T-2640: Show me pulses this outline on the building for 2 s. -->
+  <div class="show-me-outline" id="show-me-outline" aria-hidden="true" hidden></div>
 
   <div class="hud-bottom">
     <div class="travel-banner" id="travel-banner" role="status" hidden>
@@ -732,6 +722,8 @@
       <button type="button" class="tb-stop" id="travel-stop">Stop</button>
     </div>
     <p class="hint" id="hint"></p>
+    <!-- T-2634: Free roam's one-time tip, once per device; a tap puts it away. -->
+    <button type="button" class="roam-tip" id="roam-tip" hidden></button>
   </div>
 
   <div id="touch-layer" class="touch-layer" hidden aria-hidden="true">
@@ -749,6 +741,21 @@
      sheet at three heights (DOCK, HALF, FULL); on a desktop a 400 px left panel that
      collapses to its rail. The rail's apps are registered from js/apps/ (T-2618); Home's
      screen is the one written here. -->
+<!-- T-2663 (NAV-801): Tour mode, the Field Check. js/tour.js runs its seven steps and
+     js/tour-overlay.js paints this: the step, the task, the bubble, WAITING FOR INPUT and
+     Skip, with a spotlight on the step's target. Only its card takes pointer events. -->
+<div id="tour" class="tour" hidden>
+  <div class="tour-hole" aria-hidden="true" hidden></div>
+  <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">
+    <header class="tour-head"><span id="tour-count">Field check · 1 / 7</span>
+      <button type="button" class="tour-skip" id="tour-skip">Skip <span aria-hidden="true">×</span></button></header>
+    <p class="tour-task" id="tour-task"></p>
+    <p class="tour-bubble" id="tour-bubble" aria-live="polite"></p>
+    <p class="tour-status" id="tour-status">Waiting for input</p>
+    <button type="button" class="tour-next" id="tour-next" hidden>Next</button>
+  </section>
+</div>
+
 <section id="navigator" class="navigator" aria-label="Navigator" data-str-label="nav.name" data-detent="dock" tabindex="-1">
   <span class="nav-screw nav-screw-tl" aria-hidden="true"></span><span class="nav-screw nav-screw-tr" aria-hidden="true"></span>
   <span class="nav-screw nav-screw-bl" aria-hidden="true"></span><span class="nav-screw nav-screw-br" aria-hidden="true"></span>
@@ -773,6 +780,12 @@
         <strong class="nav-place" id="nav-where" data-str="nav.where.looking">Looking for the street…</strong>
         <span class="nav-sub" id="nav-where-detail"></span>
       </section>
+      <!-- T-2630: Home's three choices (§04 E), each opening the Jaunts app on its segment. -->
+      <div class="nav-choices" role="group" aria-label="What next">
+        <button class="nav-choice" type="button" data-segment="jaunts"><strong>Take a Jaunt</strong><span>A guided outing</span></button>
+        <button class="nav-choice" type="button" data-segment="goto"><strong>Go to…</strong><span>A house, a person, a shop</span></button>
+        <button class="nav-choice" type="button" data-segment="roam"><strong>Free roam</strong><span>Wander on your own</span></button>
+      </div>
       <section class="nav-block nav-front" id="nav-front" aria-labelledby="nav-front-k" aria-live="polite">
         <span class="nav-k" id="nav-front-k" data-str="nav.front.k">Right in front of you</span>
         <strong class="nav-place" id="nav-front-name" data-str="nav.front.none">Nothing close by</strong>

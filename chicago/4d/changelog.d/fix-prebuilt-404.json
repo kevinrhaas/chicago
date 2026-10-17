@@ -1,7 +1,0 @@
-{
-  "title": "No more missing-file error in 1904 and 1812",
-  "kind": "fix",
-  "items": [
-    "The page now asks for a prepared ground or base only for the years that have one, so 1904 and 1812 no longer log a missing file on arrival; they cut their own ground as before."
-  ]
-}

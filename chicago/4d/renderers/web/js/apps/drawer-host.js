@@ -10,11 +10,14 @@
  * every listener stays where it was bound, and `hud.setPanel` / `hud.selectTab` keep
  * their meaning (open a section, close it) through the adapter `install()` gives the HUD.
  *
- *   Jaunts    Go to                       (with Take a Jaunt above it)
  *   Move      Travel
  *   People    People · Businesses         (1835; 1904 has its own People screen)
  *   Guide     Controls · Evidence
  *   Settings  Settings · What's new       (What's new's dot rides the Settings icon)
+ *
+ * Go to is not among them: it is the Jaunts app's own segment (T-2630), the arrival's
+ * search lent to the device, so the drawer's Go to list retires with the drawer. Asking
+ * the HUD for it (G, or hud.selectTab('goto')) opens that segment instead (`openGoTo`).
  *
  * Each redesign is its own ticket (Jaunts/Go to E4, People, Settings T-2656, Evidence →
  * Guide T-2667); this moves the sections as they are.
@@ -22,7 +25,7 @@
 
 /** Which app holds each of the drawer's sections. */
 export const SECTION_HOME = Object.freeze({
-  goto: 'jaunts', travel: 'move', people: 'people', businesses: 'people',
+  travel: 'move', people: 'people', businesses: 'people',
   controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings',
 });
 export const APP_SECTIONS = Object.freeze(Object.entries(SECTION_HOME).reduce((m, [tab, app]) => {
@@ -78,11 +81,43 @@ export function sectionScreen(appId, { lead = null } = {}) {
 }
 
 /**
+ * What a Go to pick does (T-2620). The arrival's search is lent to the Navigator's Jaunts
+ * app as its Go to (T-2630), and with the drawer's Go to list retired it is the only Go to
+ * in the town. From the gate a pick is the way in (enterWorld). In the town the gate is
+ * shut and enterWorld refuses, so a pick goes there as the retired list did: goToTarget,
+ * in the visitor's travel mode, to the place's card. Then the device is pocketed.
+ */
+export function goToPick({ inTown, goTo, enterWorld, dock, entered }) {
+  return (target) => {
+    if (inTown()) {
+      const ok = !!target && !!goTo(target);
+      if (ok) dock?.();
+      return ok;
+    }
+    const ok = enterWorld(target);
+    if (ok) entered?.();
+    return ok;
+  };
+}
+
+/**
  * Hand the HUD its adapter, and move What's new's dot onto the Settings icon. Called once
  * main.js has both the HUD and the Navigator.
  */
-export function install({ hud, navigator, doc = globalThis.document }) {
+export function install({ hud, navigator, doc = globalThis.document, openGoTo = null }) {
   if (!hud || !navigator) return null;
+  // The drawer's Go to list retires with the drawer: its tab leaves the row for good, and
+  // any call for it opens the Jaunts app's Go to segment.
+  const gotoTab = doc.querySelector('.panel-tab[data-tab="goto"]');
+  if (gotoTab) gotoTab.hidden = true;
+  doc.querySelector('.panel-body[data-panel="goto"]')?.setAttribute('hidden', '');
+  // The HUD's opening section was Go to; with Go to gone, a bare "open the sections" (H,
+  // hud.setPanel(true)) opens the Guide's first, how to get about.
+  if (hud.tab === 'goto') hud.selectTab('controls', { fromHost: true });
+  const goTo = () => {
+    if (hud.panelOpen()) hud.setPanel(false, { fromHost: true });
+    openGoTo?.();
+  };
   const appFor = (tab) => SECTION_HOME[tab] ?? null;
   // An app opened for the first time may mount asynchronously (People loads a module): a
   // close that arrives before it has finished must still win, so every open and close
@@ -98,6 +133,7 @@ export function install({ hud, navigator, doc = globalThis.document }) {
   };
   const adapter = {
     open(tab) {
+      if (tab === 'goto') return goTo();
       const app = appFor(tab);
       if (app) openApp(app);
     },
@@ -106,6 +142,7 @@ export function install({ hud, navigator, doc = globalThis.document }) {
       if (APP_SECTIONS[navigator.app]) navigator.dock();
     },
     show(tab) {
+      if (tab === 'goto') return goTo();
       const app = appFor(tab);
       if (app && app !== navigator.app) openApp(app);
       else if (app) paintTabs(doc, app);

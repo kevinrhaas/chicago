@@ -14,7 +14,8 @@ import { markSeen, renderWhatsNew, unseenCount } from './whatsnew.js';
 import { isTyping } from './controls/pointerlock.js';
 import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSystem } from './units.js';
 import { createGoTo } from './goto.js';
-import { PACES, gaitName } from './travel.js';
+import { PACES } from './travel.js';
+import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
 import { versionBadge } from './structure-versions.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
@@ -23,7 +24,6 @@ const THEME_KEY = 'chicago4d.theme';
 const CONF_KEY = 'chicago4d.confidence';
 const HIDE_KEY = 'chicago4d.confidence.hidden';
 const SET_KEY = 'chicago4d.settings';
-const CONTROL_HELP_KEY = 'chicago4d.controlHelpDismissed';
 
 const DEFAULT_SETTINGS = {
   // eyeHeight defaults to WALK.eyeHeight — the researched figure, not a taste.
@@ -57,14 +57,20 @@ const DEFAULT_SETTINGS = {
   streetTrees: 'shown',
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
-  // The drawer's own choices. `pace` is how YOU move (walk, wagon, horse) and
+  // The drawer's own choices. `pace` is how YOU move (walk, run, wagon, horse) and
   // `travelMode` is how Go to takes you somewhere (instantly, or at a pace, or
-  // flying); they are two questions, so they are two keys. `gotoReconstructed`
-  // is whether the Go to list shows the reconstructed roofs (off by default —
-  // the owner's ruling). `headBob`: the rider's eye moves with the horse's gait.
-  pace: 'walk', travelMode: 'instantly', headBob: true, gotoReconstructed: false,
-  // The wagon's and the horse's own speeds (T-0823); `speed` above is the walk's.
-  wagonSpeed: 3.6, horseSpeed: 6.5,
+  // flying); they are two questions, so they are two keys. (`gotoReconstructed`, the
+  // Go to list's own checkbox, is gone: Go to follows the Confidence view, T-2633.)
+  // `headBob`: the rider's eye moves with the horse's gait.
+  pace: 'walk', travelMode: 'instantly', headBob: true,
+  // The wagon's and the horse's own speeds (T-0823) and the run's (T-2651); `speed`
+  // above is the walk's.
+  wagonSpeed: 3.6, horseSpeed: 6.5, runSpeed: 3.4,
+  // T-2652: whether the visitor has picked a getting-there choice themselves. Until they
+  // have, a Jaunt rides at its own recommended mode (js/getting-there.js § jauntModeFor).
+  arriveChosen: false,
+  // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
+  snapTurn: false,
 };
 
 function readSettings() {
@@ -90,7 +96,7 @@ function store(key, value) {
 
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
-  onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
+  onConfidence, onConfidenceKey = null, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop, onShowGuide,
   isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
 }) {
   // T-2620: the drawer's sections live inside the Navigator now (a sibling of #hud), so
@@ -106,7 +112,6 @@ export function createHud({
   const btnTheme = $('btn-theme');
   const btnHelp = $('btn-help');
   const panel = $('panel');
-  const controlHelp = $('control-help');
   const hint = $('hint');
   const settings = readSettings();
   settings.units = normalUnitSystem(settings.units);
@@ -157,11 +162,16 @@ export function createHud({
   }
 
   let confidenceOn = false;
+  /** Tell whoever shows the Confidence view's state (the Navigator's app, T-2647) that it moved. */
+  function confidenceChanged() {
+    try { document.dispatchEvent(new CustomEvent('chicago4d-confidence')); } catch { /* no DOM */ }
+  }
   function setConfidence(on, { announce = true } = {}) {
     confidenceOn = !!on;
     btnConf?.setAttribute('aria-pressed', String(confidenceOn));
     store(CONF_KEY, confidenceOn ? '1' : '0');
     onConfidence?.(confidenceOn);
+    confidenceChanged();
     if (announce) {
       say(confidenceOn
         ? 'Confidence view — gold is Attested, silver Inferred, dithered bronze Reconstructed'
@@ -181,10 +191,12 @@ export function createHud({
   // Chicago is recoverable, and it should be one click away rather than
   // something only the dataset knows.
   const LEVELS = ['attested', 'inferred', 'reconstructed'];
-  const confGroup = $('confidence-group');
-  const confMenu = $('confidence-menu');
-  const btnConfMore = $('btn-confidence-more');
+  // The chip, its caret and its menu moved into the Navigator's Confidence view app
+  // (T-2647, js/apps/confidence-view.js), which reads and sets this state through
+  // `hiddenLevels`, `setHidden` and `levelCounts`; the HUD keeps the state.
   let hiddenLevels = readHidden();
+  // T-2633: Go to dims what the Confidence view hides; repainted when that changes.
+  let afterHide = null;
 
   function readHidden() {
     try {
@@ -213,11 +225,6 @@ export function createHud({
   }
 
   function paintHidden() {
-    for (const level of LEVELS) {
-      const box = $(`cm-${level}`);
-      if (box) box.checked = !hiddenLevels.has(level);
-    }
-    confGroup?.classList.toggle('has-hidden', hiddenLevels.size > 0);
     store(HIDE_KEY, JSON.stringify([...hiddenLevels]));
   }
 
@@ -226,46 +233,24 @@ export function createHud({
     if (hide) hiddenLevels.add(level); else hiddenLevels.delete(level);
     paintHidden();
     onHideLevel?.(level, hide);
+    afterHide?.();
+    confidenceChanged();
     if (announce) {
       // Name what is GONE, not what was clicked: a visitor who has hidden two
       // levels needs to know the town in front of them is partial.
       const gone = LEVELS.filter((l) => hiddenLevels.has(l));
       say(gone.length
-        ? `Hiding ${gone.join(' and ')} — what stands is only what the rest of the evidence supports`
-        : 'Showing every level again');
+        ? `Hiding ${gone.map((l) => l[0].toUpperCase() + l.slice(1)).join(' and ')} — what stands is only what the rest of the evidence supports`
+        : str('hud.levels.all'));
     }
     return hide;
   }
 
-  function setConfMenu(open) {
-    if (!confMenu) return;
-    confMenu.toggleAttribute('hidden', !open);
-    btnConfMore?.setAttribute('aria-expanded', String(!!open));
-    if (open && document.pointerLockElement) document.exitPointerLock?.();
-  }
-
-  btnConfMore?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    setConfMenu(confMenu?.hasAttribute('hidden'));
-  });
-  for (const level of LEVELS) {
-    $(`cm-${level}`)?.addEventListener('change', (e) => setHidden(level, !e.target.checked));
-  }
-  $('cm-reset')?.addEventListener('click', () => {
-    for (const level of LEVELS) setHidden(level, false, { announce: false });
-    say(str('hud.levels.all'));
-  });
-  // Click-away, but not click-inside: the panel holds three checkboxes a visitor
-  // will often want to toggle in one visit.
-  document.addEventListener('click', (e) => {
-    if (!confMenu || confMenu.hasAttribute('hidden')) return;
-    if (confGroup?.contains(e.target)) return;
-    setConfMenu(false);
-  });
-
   // ---- free-fly -----------------------------------------------------------
 
   let flying = false;
+  // Move's picker shows Fly while flying (T-2651); it is wired further down.
+  let paintMoveHook = null;
   function setFly(on, { announce = true } = {}) {
     flying = !!on;
     btnFly?.setAttribute('aria-pressed', String(flying));
@@ -274,6 +259,7 @@ export function createHud({
       btnFly.title = str(flying ? 'hud.fly.back' : 'hud.fly.up');
     }
     if (!flying) { badgeAlt?.setAttribute('hidden', ''); badgeAlt?.parentElement?.classList.remove('has-alt'); }
+    paintMoveHook?.();
     onFly?.(flying);
     if (announce) {
       say(flying
@@ -332,9 +318,6 @@ export function createHud({
     // and on a phone the navigation readouts hide under the sheet.
     root.classList.toggle('panel-open', !!open);
     btnHelp?.setAttribute('aria-pressed', String(!!open));
-    // The navigation guide and the drawer share the right-hand slot; the guide
-    // steps aside without being marked read, so it returns on the next boot.
-    if (open && controlHelp && !controlHelp.hasAttribute('hidden')) dismissControlHelp({ remember: false });
     // Release the pointer lock on open. While the cursor is captured for
     // looking around, every click goes to the canvas and none of these controls
     // can be operated at all — the panel would look fine and do nothing.
@@ -346,27 +329,21 @@ export function createHud({
   btnHelp?.addEventListener('click', () => setPanel(!panelOpen()));
   $('panel-close')?.addEventListener('click', () => setPanel(false));
 
-  function dismissControlHelp({ remember = true } = {}) {
-    if (!controlHelp) return;
-    controlHelp.setAttribute('hidden', '');
-    if (remember) store(CONTROL_HELP_KEY, '1');
-    onHelp?.(false);
-  }
-
-  function showControlHelp({ auto = false } = {}) {
-    if (!controlHelp || (auto && readStored(CONTROL_HELP_KEY, '0') === '1')) return false;
-    setPanel(false);
-    controlHelp.removeAttribute('hidden');
+  // ---- The controls: Guide's sheet in the Navigator (T-2661) ----------------
+  //
+  // The control-help popover is gone: the controls live in the Navigator's Guide, which
+  // shows touch or keyboard from controls/intent.js. Settings' "Show the controls" opens it.
+  function showControlHelp() {
+    // T-2620: with the sections in the Navigator, switching to Guide puts Settings' section
+    // away itself; closing it first would dock the device only to open it again.
+    if (!host) setPanel(false);
     if (document.pointerLockElement) document.exitPointerLock?.();
-    onHelp?.(true);
+    onShowGuide?.();
     return true;
   }
-
-  $('control-help-close')?.addEventListener('click', () => dismissControlHelp());
-  $('control-help-gotit')?.addEventListener('click', () => dismissControlHelp());
+  /** Nothing to dismiss now that the popover is gone; kept for callers written before it. */
+  function dismissControlHelp() { return false; }
   $('s-show-control-help')?.addEventListener('click', () => showControlHelp());
-  $('control-help-desktop')?.toggleAttribute('hidden', !!isTouch);
-  $('control-help-touch')?.toggleAttribute('hidden', !isTouch);
 
   // ---- What's new ---------------------------------------------------------
   //
@@ -435,7 +412,11 @@ export function createHud({
   const panelScroll = $('panel-scroll');
   function selectTab(want, { fromHost = false } = {}) {
     // A section the scene does not carry (T-1740) is never selected, by any route.
-    if (doc.querySelector(`.panel-tab[data-tab="${want}"]`)?.hidden) return;
+    // T-2620: Go to retired with the drawer; asking for it opens the Jaunts app's own Go to.
+    if (doc.querySelector(`.panel-tab[data-tab="${want}"]`)?.hidden) {
+      if (want === 'goto' && !fromHost) host?.show?.('goto');
+      return;
+    }
     currentTab = want;
     doc.querySelectorAll('.panel-tab').forEach((x) => {
       const on = x.dataset.tab === want;
@@ -505,12 +486,6 @@ export function createHud({
     });
     return paint;
   }
-  // Each pace's slider names the gait as it moves — "trot · 8.1 mph" — because a
-  // number alone says nothing about what a horse is doing at it (T-0823).
-  const gaitReadout = (pace) => (v) => `${gaitName(pace, v)} · ${formatSpeed(v, settings.units)}`;
-  const paintSpeed = wireRange('s-speed', 'v-speed', 'speed', gaitReadout('walk'));
-  const paintWagon = wireRange('s-wagon-speed', 'v-wagon-speed', 'wagonSpeed', gaitReadout('wagon'));
-  const paintHorse = wireRange('s-horse-speed', 'v-horse-speed', 'horseSpeed', gaitReadout('horse'));
   // The readout names the researched default rather than only the number, so
   // moving off it is a visible choice instead of a silent drift.
   const paintEye = wireRange('s-eye', 'v-eye', 'eyeHeight',
@@ -537,11 +512,8 @@ export function createHud({
     units.addEventListener('change', () => {
       settings.units = normalUnitSystem(units.value);
       units.value = settings.units;
-      paintSpeed?.();
-      paintWagon?.();
-      paintHorse?.();
       paintEye?.();
-      paintTravelMode?.();
+      paintMove?.();
       goTo?.refreshDistances?.();
       setAltitude(lastAltitudeM);
       onSetting?.('units', settings.units);
@@ -614,87 +586,126 @@ export function createHud({
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
 
-  // ---- Travel: how Go to takes you there, and the pace you move at -------------
+  // ---- Move: how you move, its speed, and how Go to takes you there (T-2651) ----
   //
-  // Two questions, two controls. The segmented control in the Travel tab answers
-  // "how do I get to a place I chose"; the pace chip in the top bar (mirrored by
-  // the second control in the tab) answers "how fast do I move on my own". The
-  // numbers behind both live in js/travel.js PACES; this only paints them.
+  // DESIGN §07 M6. One picker — Walk, Run, Wagon, Horse, Fly — replaces the two the
+  // Travel tab used to ask (how Go to takes you, and your own pace), and one slider
+  // sets the speed of the mode picked: its range and its named speeds change with the
+  // mode. Fly is the top bar's Walk/Fly key, so picking it here is the same free
+  // flight and the picker shows it whichever way it was entered. Go to's choice is
+  // its own small question underneath: Teleport, Ride there (along the streets at
+  // the mode above) or Fly over. The numbers live in js/travel-settings.js PACES;
+  // this only paints them. The pace chip in the top bar cycles the ground modes.
   const btnPace = $('btn-pace');
   const paceLabel = $('pace-label');
-  const PACE_CYCLE = ['walk', 'wagon', 'horse'];
-  // Single-colour stroke glyphs, the rail's icon family at chip size. A walker,
-  // a cart, a horseshoe: the horseshoe rather than a horse because a horse's
+  const PACE_CYCLE = GROUND_MODES;
+  // Single-colour stroke glyphs, the rail's icon family at chip size. A walker, a
+  // runner, a cart, a horseshoe: the horseshoe rather than a horse because a horse's
   // head does not survive sixteen pixels of stroke and a shoe does.
   const svg = (body) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" `
     + `stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
   const PACE_GLYPH = {
     walk: svg('<circle cx="13.5" cy="4.5" r="1.9"/><path d="M12.6 8.2 11 13.4 8.2 20.5"/>'
       + '<path d="M11 13.4l3.2 2.6.3 4.5"/><path d="M12.6 8.2l3.4 2.6"/><path d="M12.6 8.2 9.6 10.6 7.4 9.6"/>'),
+    run: svg('<circle cx="15" cy="4.5" r="1.9"/><path d="M13.6 8.4 11 14l-4 6"/>'
+      + '<path d="M11 14l3.8 2.4-1.3 4.1"/><path d="M13.6 8.4l3 3.1 3.1-.7"/><path d="M13.6 8.4 9.6 9.6 7.6 12.4"/>'),
     wagon: svg('<path d="M3.5 9.5h11.5v6H4.5"/><path d="M15 12.5h3.2l2.3 3"/><circle cx="7.5" cy="18" r="2"/>'
       + '<circle cx="16.5" cy="18" r="2"/><path d="M9.5 18h5"/><path d="M5.5 9.5V6.5h7.5v3"/>'),
     horse: svg('<path d="M6.5 19.5v-8a5.5 5.5 0 0 1 11 0v8"/><path d="M4.5 19.5h4M15.5 19.5h4"/>'
       + '<path d="M8.5 9h.01M15.5 9h.01M7 13h.01M17 13h.01M7 16.5h.01M17 16.5h.01"/>'),
   };
-  function paintPace() {
-    const pace = PACE_CYCLE.includes(settings.pace) ? settings.pace : 'walk';
+  const groundPace = () => groundOf(settings.pace);
+  const moveSlider = $('s-speed');
+  const moveReadout = $('v-speed');
+  const moveLabel = $('move-speed-label');
+  const moveField = $('move-speed-field');
+  function paintMove() {
+    const view = moveView(settings, { flying });
+    const { pace, mode, slider } = view;
     if (paceLabel) paceLabel.textContent = PACES[pace]?.label ?? pace;
     if (btnPace) {
       btnPace.dataset.pace = pace;
       const glyph = btnPace.querySelector('.pace-glyph');
       if (glyph) glyph.innerHTML = PACE_GLYPH[pace] ?? '';
-      btnPace.title = `Your pace — ${PACES[pace]?.label ?? pace}. Tap for ${
-        PACES[PACE_CYCLE[(PACE_CYCLE.indexOf(pace) + 1) % PACE_CYCLE.length]]?.label} (P)`;
+      btnPace.title = `Your pace — ${PACES[pace]?.label ?? pace}. Tap for ${PACES[nextPace(pace)]?.label} (P)`;
     }
-    doc.querySelectorAll('#s-pace .seg-btn').forEach((b) => {
-      b.setAttribute('aria-checked', String(b.dataset.pace === pace));
-      b.classList.toggle('is-on', b.dataset.pace === pace);
+    doc.querySelectorAll('#s-move .seg-btn').forEach((b) => {
+      b.setAttribute('aria-checked', String(b.dataset.mode === mode));
+      b.classList.toggle('is-on', b.dataset.mode === mode);
     });
+    // The one slider: the picked mode's range, value and named speed. Fly has no
+    // slider — its speed grows with height — so the field is hidden and the note
+    // says so.
+    if (moveField) moveField.hidden = !slider.shown;
+    if (moveSlider) {
+      moveSlider.min = String(slider.min);
+      moveSlider.max = String(slider.max);
+      moveSlider.value = String(slider.value);
+      moveSlider.setAttribute('aria-label', slider.label);
+    }
+    if (moveLabel) moveLabel.textContent = slider.label;
+    if (moveReadout) moveReadout.textContent = slider.readout;
+    const note = $('travel-note');
+    if (note) note.textContent = view.note;
+    doc.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
+      b.setAttribute('aria-checked', String(b.dataset.arrive === view.arrive));
+      b.classList.toggle('is-on', b.dataset.arrive === view.arrive);
+    });
+  }
+  paintMoveHook = paintMove;
+  function setTravelMode(mode) {
+    if (!(mode in PACES)) return settings.travelMode;
+    settings.travelMode = mode;
+    store(SET_KEY, JSON.stringify(settings));
+    paintMove();
+    onSetting?.('travelMode', mode);
+    return mode;
   }
   function setPace(pace, { announce = true } = {}) {
     if (!PACE_CYCLE.includes(pace)) return settings.pace;
     settings.pace = pace;
     store(SET_KEY, JSON.stringify(settings));
-    paintPace();
+    // Ride there rides at the mode you move at, so it follows a new one.
+    if (arriveOf(settings.travelMode) === 'ride' && settings.travelMode !== pace) setTravelMode(pace);
+    paintMove();
     onSetting?.('pace', pace);
     if (announce) say(`${PACES[pace]?.label ?? pace} — ${PACES[pace]?.hint ?? ''}`.replace(/ — $/, ''));
     return pace;
   }
-  btnPace?.addEventListener('click', () => {
-    setPace(PACE_CYCLE[(PACE_CYCLE.indexOf(settings.pace) + 1) % PACE_CYCLE.length]);
-  });
-  doc.querySelectorAll('#s-pace .seg-btn').forEach((b) => {
-    b.addEventListener('click', () => setPace(b.dataset.pace));
-  });
-
-  function paintTravelMode() {
-    const mode = settings.travelMode in PACES ? settings.travelMode : 'instantly';
-    doc.querySelectorAll('#s-travel .seg-btn').forEach((b) => {
-      b.setAttribute('aria-checked', String(b.dataset.mode === mode));
-      b.classList.toggle('is-on', b.dataset.mode === mode);
-    });
-    const note = $('travel-note');
-    if (note) {
-      const cap = (id) => formatSpeed(PACES[id].maxSpeed, settings.units);
-      note.textContent = `Shift hurries you: ×${PACES.walk.sprintFactor} on foot, a gallop ×${PACES.horse.sprintFactor} `
-        + `in the saddle, nothing on a wagon — never past the slider's top (${cap('walk')} on foot, `
-        + `${cap('wagon')} by wagon, ${cap('horse')} on horseback).`;
-    }
-  }
-  function setTravelMode(mode) {
-    if (!(mode in PACES)) return settings.travelMode;
-    settings.travelMode = mode;
-    store(SET_KEY, JSON.stringify(settings));
-    paintTravelMode();
-    onSetting?.('travelMode', mode);
+  /** The picker: a ground mode lands you if you were flying; Fly takes off. */
+  function setMoveMode(mode) {
+    if (mode === 'fly') { if (!flying) setFly(true); return 'fly'; }
+    if (!PACE_CYCLE.includes(mode)) return flying ? 'fly' : groundPace();
+    if (flying) setFly(false, { announce: false });
+    if (settings.pace !== mode) setPace(mode); else paintMove();
     return mode;
   }
-  doc.querySelectorAll('#s-travel .seg-btn').forEach((b) => {
-    b.addEventListener('click', () => setTravelMode(b.dataset.mode));
+  // A Ride there stored before Run and the one picker (a ride by horse while the
+  // pace was the wagon) rides at the pace now, as the choice says. Not stored: the
+  // next choice the visitor makes stores it.
+  if (arriveOf(settings.travelMode) === 'ride' && settings.travelMode !== groundPace()) {
+    settings.travelMode = groundPace();
+  }
+  btnPace?.addEventListener('click', () => setPace(nextPace(groundPace())));
+  doc.querySelectorAll('#s-move .seg-btn').forEach((b) => {
+    b.addEventListener('click', () => setMoveMode(b.dataset.mode));
+  });
+  doc.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
+    b.addEventListener('click', () => {
+      settings.arriveChosen = true;
+      setTravelMode(travelModeFor(b.dataset.arrive, groundPace()));
+    });
+  });
+  moveSlider?.addEventListener('input', () => {
+    const key = PACES[groundPace()].settingKey;
+    settings[key] = Number(moveSlider.value);
+    if (moveReadout) moveReadout.textContent = moveView(settings, { flying }).slider.readout;
+    onSetting?.(key, settings[key]);
+    store(SET_KEY, JSON.stringify(settings));
   });
   wireToggle('s-head-bob', 'headBob');
-  paintPace();
-  paintTravelMode();
+  wireToggle('s-snap-turn', 'snapTurn');
+  paintMove();
 
   // The ride in progress: where to, how far is left, and the one way to stop it
   // that is not simply moving. Painted by travel.js through this, at most a few
@@ -723,7 +734,9 @@ export function createHud({
     units: () => settings.units,
     onGoTo: (target) => { setPanel(false); onGoTo?.(target); },
     onPersist: (key, value) => { settings[key] = value; store(SET_KEY, JSON.stringify(settings)); },
+    hiddenGrades: () => [...hiddenLevels],
   });
+  afterHide = () => goTo.paint();
 
 
   window.addEventListener('keydown', (e) => {
@@ -736,11 +749,12 @@ export function createHud({
     }
     const k = e.key.toLowerCase();
     if (k === 'h' || k === '?') { e.preventDefault(); setPanel(!panelOpen()); }
-    else if (k === 'c') { e.preventDefault(); setConfidence(!confidenceOn); }
+    // C toggles BY GRADE (T-2647): the Confidence view's presets own what "on" means.
+    else if (k === 'c') { e.preventDefault(); if (onConfidenceKey) onConfidenceKey(); else setConfidence(!confidenceOn); }
     // T-2622: N is the Navigator's now (navigator.js); What's new is under Settings and H.
     else if (k === 'g') { e.preventDefault(); openGoTo(); }
     else if (k === 'f') { e.preventDefault(); setFly(!flying); }
-    else if (k === 'p') { e.preventDefault(); setPace(PACE_CYCLE[(PACE_CYCLE.indexOf(settings.pace) + 1) % PACE_CYCLE.length]); }
+    else if (k === 'p') { e.preventDefault(); setPace(nextPace(groundPace())); }
     else if (e.key === 'Escape' && panelOpen()) setPanel(false);
   });
 
@@ -772,13 +786,20 @@ export function createHud({
     travelBanner,
     setPace,
     setTravelMode,
-    paintTravelMode,
+    setMoveMode,
+    paintMove,
+    /** The getting-there choice, for Go to, the Map and Jaunts (T-2652). */
+    get gettingThere() { return { travelMode: settings.travelMode, pace: groundPace(), chosen: !!settings.arriveChosen }; },
+    /** Move's mode: 'fly' while flying, else the ground pace (T-2651). */
+    get moveMode() { return flying ? 'fly' : groundPace(); },
     showControlHelp,
     dismissControlHelp,
     get confidenceOn() { return confidenceOn; },
     setConfidence,
     get hiddenLevels() { return [...hiddenLevels]; },
     setHidden,
+    /** How many structures sit at each grade (and the count cells painted, where shown). */
+    levelCounts: () => paintCounts(),
     /** Push the stored choice into the renderer at boot, without announcing it. */
     applyHidden() {
       paintCounts();

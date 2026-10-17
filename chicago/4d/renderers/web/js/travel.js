@@ -76,6 +76,8 @@ export const GAITS = {
   horse: [[1.8, 'walk'], [3.0, 'jog'], [4.5, 'trot'], [7.5, 'canter'], [12.5, 'gallop'],
     [20, 'racing gallop'], [Infinity, 'beyond any horse']],
 };
+// Running is on foot, so it shares the walk's words (T-2651).
+GAITS.run = GAITS.walk;
 
 /** `gaitName('horse', 8.1)` → 'gallop'. Unknown pace or value → ''. */
 export function gaitName(pace, metresPerSecond) {
@@ -88,7 +90,7 @@ export function gaitName(pace, metresPerSecond) {
 
 
 /** The paces that ride along the ground and take the router's route. */
-const GROUND = new Set(['walk', 'wagon', 'horse']);
+const GROUND = new Set(['walk', 'run', 'wagon', 'horse']);
 
 const LOOK_EPS = 0.002;        // radians/frame of the visitor's own look that ends a ride
 const GRACE_S = 0.25;          // look deltas ignored this long after go() (a settling mouse)
@@ -609,6 +611,8 @@ export function createTravel({
     simulate,
     router,
     destinationOf,
+    /** T-2654: the waypoints a ride under way has still to pass, for the Navigator's Map. */
+    routeAhead() { return ride ? ride.points.slice(ride.index).map(([e, n]) => [e, n]) : []; },
     get state() {
       return {
         phase,

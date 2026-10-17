@@ -109,10 +109,14 @@ function structureOutlines(registry) {
     const sin = Math.sin(th);
     const e0 = placement.local_e ?? 0;
     const n0 = placement.local_n ?? 0;
-    out.push(polygon.map(([u, v]) => [
+    const ring = polygon.map(([u, v]) => [
       e0 + u * cos + v * sin,
       n0 - u * sin + v * cos,
-    ]));
+    ]);
+    // T-2654: the Map app hit-tests these and colours them by the building's own grade.
+    ring.id = record.id ?? sidecar.id ?? null;
+    ring.grade = sidecar.grade?.value ?? sidecar.documented_range?.confidence ?? null;
+    out.push(ring);
   }
   return out;
 }
@@ -529,7 +533,8 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     if (!e.key || isTyping(e.target)) return;
     if (e.key === 'Escape') { if (fullOpen) setFullVisible(false); return; }
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (e.key.toLowerCase() === 'm') { e.preventDefault(); setFullVisible(!fullOpen); }
+    // T-2654: M opens the Navigator's Map, as the instrument does; the pop-out without one.
+    if (e.key.toLowerCase() === 'm') { e.preventDefault(); if (onOpen && !fullOpen) onOpen(); else setFullVisible(!fullOpen); }
   });
 
   window.addEventListener('resize', resize);
@@ -538,6 +543,26 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
   return {
     bounds,
     update,
+    // T-2654: what the Navigator's Map app draws with — the same whole-field picture,
+    // the same arrow and the same footprints — so the device and the inset agree.
+    outlines,
+    get player() { return { ...player }; },
+    field() { return { ...bounds, widthM: fieldE, depthM: fieldN }; },
+    /** Paint the whole field into `dest` (already scaled to CSS px), `w` x `h`. */
+    drawField(dest, w, h) {
+      if (!bgPainted) paintBackground();
+      dest.fillStyle = OUTSIDE;
+      dest.fillRect(0, 0, w, h);
+      blit(dest, bounds, 0, 0, w, h);
+    },
+    /** Paint the window `view` ({ eMin, eMax, nMin, nMax }, metres) of the field into `dest`. */
+    drawView(dest, view, w, h) {
+      if (!bgPainted) paintBackground();
+      dest.fillStyle = OUTSIDE;
+      dest.fillRect(0, 0, w, h);
+      blit(dest, view, 0, 0, w, h);
+    },
+    drawMarker(dest, x, y) { marker(dest, x, y); },
     setCompassVisible,
     setMapVisible,
     setStreetVisible,

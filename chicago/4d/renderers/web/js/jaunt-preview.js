@@ -2,11 +2,12 @@
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage }) {
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0;
   const contents = new Map();
-  const menu = createJauntMenu({ root, estimate, onStart, onPreview: select });
+  const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
+    kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode });
   const node = (tag, text, className) => {
     const el = document.createElement(tag); el.textContent = text;
     if (className) el.className = className;
@@ -114,8 +115,18 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         if (awarded) note.append(awarded);
         else if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
         if (journal) note.append(button('Open your daybook', () => showDaybook(session.jaunt.id)));
-      } else note.append(node('h3', `Resume ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', () => { menu.capture(); onResume(); }));
-      note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); })); prefix.push(note);
+      } else {
+        // T-2631: the outing in progress, pinned on top — where you are and what comes next.
+        const stops = session.jaunt.stops ?? [], at = session.stopIndex, next = stops[at + 1];
+        const label = stop => destinations.byId(stop.destination.kind, stop.destination.id)?.label || 'the next stop';
+        note.classList.add('jaunt-continue'); note.dataset.continue = session.jaunt.id;
+        const go = button('Continue', () => { menu.capture(); onResume(); }); go.dataset.action = 'continue';
+        note.append(node('p', `Continue · Stop ${at + 1} of ${stops.length || at + 1}`, 'jaunt-continue-k'), node('h3', session.jaunt.title),
+          node('p', next ? `Next: ${label(next)}` : 'Next: the end of the outing', 'jaunt-continue-next'), go);
+      }
+      note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); }));
+      // In progress, it leads the list; an outcome follows the daybook chip as before.
+      if (session.phase === 'menu') prefix.unshift(note); else prefix.push(note);
     }
     menu.show(rows, prefix, returnId, focusStart);
   }
