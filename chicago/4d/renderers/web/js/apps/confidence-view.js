@@ -13,9 +13,9 @@
  *   - Show everything, and the footer readout: GRADE MASK (grades shown of three),
  *     MESHES (structures standing at the grades shown) and FRAME CLK (frames a second).
  *
- * It reads the page through ctx.api (the HUD and the renderer's confidence view) and
- * repaints twice a second while it is open, so a change made anywhere — C, a hide by
- * hand, a test hook — is what it shows.
+ * It reads the page through ctx.api (the HUD and the renderer's confidence view). It
+ * repaints at once when the HUD says the colouring or the hidden set moved, and twice a
+ * second besides (for a look set from a test hook), so what it shows is the scene.
  */
 import { PRESETS, LEVELS, applyPreset, presetOf } from '../confidence-presets.js';
 
@@ -105,11 +105,15 @@ export function mount(el, ctx = {}) {
   paint();
   clearInterval(timer);
   timer = setInterval(paint, 500);
-  el.__confidencePaint = paint;
+  // A change made anywhere — C, a hide by hand, the HUD's own switch — repaints at once.
+  doc.removeEventListener('chicago4d-confidence', onChange);
+  onChange = paint;
+  doc.addEventListener('chicago4d-confidence', onChange);
 }
+let onChange = () => {};
 
 export function unmount(el) {
   clearInterval(timer);
   timer = null;
-  delete el.__confidencePaint;
+  el.ownerDocument?.removeEventListener('chicago4d-confidence', onChange);
 }

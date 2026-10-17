@@ -148,11 +148,16 @@ export function createHud({
   }
 
   let confidenceOn = false;
+  /** Tell whoever shows the Confidence view's state (the Navigator's app, T-2647) that it moved. */
+  function confidenceChanged() {
+    try { document.dispatchEvent(new CustomEvent('chicago4d-confidence')); } catch { /* no DOM */ }
+  }
   function setConfidence(on, { announce = true } = {}) {
     confidenceOn = !!on;
     btnConf?.setAttribute('aria-pressed', String(confidenceOn));
     store(CONF_KEY, confidenceOn ? '1' : '0');
     onConfidence?.(confidenceOn);
+    confidenceChanged();
     if (announce) {
       say(confidenceOn
         ? 'Confidence view — gold is Attested, silver Inferred, dithered bronze Reconstructed'
@@ -212,6 +217,7 @@ export function createHud({
     if (hide) hiddenLevels.add(level); else hiddenLevels.delete(level);
     paintHidden();
     onHideLevel?.(level, hide);
+    confidenceChanged();
     if (announce) {
       // Name what is GONE, not what was clicked: a visitor who has hidden two
       // levels needs to know the town in front of them is partial.

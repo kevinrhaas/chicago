@@ -8077,11 +8077,12 @@ for (const [label, viewport, touch] of [
     // The panel says how much of the town each level is, counted from the
     // registry rather than written down — this dataset's own shape, stated
     // before a visitor clicks anything.
-    const levelCounts = await page.evaluate(() => {
+    const levelCounts = await page.evaluate(async () => {
       const read = (l) => Number(document.getElementById(`cm-count-${l}`)?.textContent || -1);
       const out = { attested: read('attested'), inferred: read('inferred'),
                reconstructed: read('reconstructed'),
                structures: window.__chicago4d.registry.size };
+      await window.__chicago4d.navigator.select('home');
       window.__chicago4d.navigator.dock();
       return out;
     });
@@ -10476,11 +10477,12 @@ for (const [label, viewport, touch] of [
     // Put the town back the way it was, through the same real controls.
     await timedClick('#cm-reset');
     await page.waitForTimeout(120);
-    const cmRestored = await page.evaluate(() => {
+    const cmRestored = await page.evaluate(async () => {
       const out = {
         allOn: ['cm-attested', 'cm-inferred', 'cm-reconstructed'].every((id) => document.getElementById(id).checked),
         hidden: window.__chicago4d.hud.hiddenLevels,
       };
+      await window.__chicago4d.navigator.select('home');
       window.__chicago4d.navigator.dock();
       out.docked = ['dock', 'rail'].includes(window.__chicago4d.navigator.detent);
       return out;
@@ -14987,7 +14989,8 @@ for (const [label, viewport, touch] of [
     const attestedFrame = await page.evaluate(() => window.__chicago4d.capture());
     await clickChrome('#navigator .nav-preset[data-preset="normal"]');
     await page.evaluate(() => { const h = window.__chicago4d.hud; h.setHidden('inferred', true, { announce: false }); h.setHidden('reconstructed', true, { announce: false }); });
-    await page.waitForTimeout(150);
+    // The HUD tells the app the hidden set moved, and it repaints at once.
+    await page.waitForTimeout(300);
     const byHand = await presetState();
     const byHandFrame = await page.evaluate(() => window.__chicago4d.capture());
     const dAttested = signatureDistance(attestedFrame, byHandFrame);
@@ -14999,8 +15002,9 @@ for (const [label, viewport, touch] of [
       `${JSON.stringify({ attestedPreset: { ...attestedPreset, readout: undefined }, byHand: { ...byHand, readout: undefined } })} residual mean ${dAttested.mean?.toFixed(2)}, worst ${dAttested.worst}`);
     await clickChrome('#navigator .nav-preset[data-preset="normal"]');
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
-    // C toggles BY GRADE, and again back to NORMAL.
-    await page.evaluate(() => { window.__chicago4d.navigator.dock(); document.activeElement?.blur?.(); });
+    // C toggles BY GRADE, and again back to NORMAL. The device goes back to Home and docks,
+    // where the Navigator's own checks below expect to find it.
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('home'); n.dock(); document.activeElement?.blur?.(); });
     await page.keyboard.press('c');
     await page.waitForTimeout(150);
     const cOn = await presetState();
