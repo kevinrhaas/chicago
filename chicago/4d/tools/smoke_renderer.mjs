@@ -10544,24 +10544,45 @@ for (const [label, viewport, touch] of [
     // 90 s on the steward runner at 9.7 s a frame. The box is read in the page in
     // one round trip (the menu has no transition to settle), and each click logs
     // its seconds.
+    //
+    // T-2647: the grade switches moved into the Navigator, and the Navigator WIDENS on a
+    // desktop — a .28 s width transition from the 58 px rail whose clock only moves when
+    // the page draws (clickChrome says the same, #975). A box read mid-transition is not
+    // where the switch ends up, so the mouse pressed empty panel: desktop part 6 read
+    // {"appOpen":true,"unchecked":false,"hidden":[]} on #974's first run. A visitor
+    // clicks a panel that has arrived; so does this — the device's running animations
+    // are waited out first (bounded), and the line names what is topmost at the point
+    // pressed, so a click that misses says what it hit instead of only that it missed.
     const timedClick = async (sel) => {
       const t0 = Date.now();
-      const at = await page.evaluate((s) => {
+      const at = await page.evaluate(async (s) => {
         const el = document.querySelector(s);
         if (!el) return `nothing matches ${s}`;
+        const device = el.closest('#navigator');
+        if (device?.getAnimations) {
+          for (let i = 0; i < 200 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+            await new Promise((r) => setTimeout(r, 50));
+          }
+        }
         el.scrollIntoView({ block: 'center', inline: 'center' });
         const b = el.getBoundingClientRect();
         if (b.width < 1 || b.height < 1) return `${s} has no box (${Math.round(b.width)}x${Math.round(b.height)})`;
-        return { x: b.x + b.width / 2, y: b.y + b.height / 2 };
+        const x = b.x + b.width / 2, y = b.y + b.height / 2;
+        const top = document.elementFromPoint(x, y);
+        let owner = top;
+        while (owner && !owner.id && owner !== document.body) owner = owner.parentElement;
+        const hit = !top ? 'nothing' : top === el || el.contains(top) ? 'itself'
+          : `<${top.tagName.toLowerCase()}>${owner?.id ? ` inside #${owner.id}` : ''}`;
+        return { x, y, hit };
       }, sel);
       if (typeof at === 'string') throw new Error(`part 6 mouse click: ${at}`);
       await page.mouse.click(at.x, at.y);
-      console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s (trusted mouse)`);
+      console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s (trusted mouse; topmost there: ${at.hit})`);
     };
     // T-2647: the grade switches live in the Navigator's Confidence view app now, which
     // the code opens; the switches themselves still take the visitor's own mouse.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
-    await page.waitForTimeout(600);
+    await page.waitForTimeout(300);
     await timedClick('#cm-reconstructed');
     await page.waitForTimeout(120);
     const cmClick = await page.evaluate(() => ({
