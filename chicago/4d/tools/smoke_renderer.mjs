@@ -15315,6 +15315,11 @@ for (const [label, viewport, touch] of [
       for (const root of [document.getElementById('hud'), document.getElementById('navigator')]) {
         if (!root) continue;
         for (const el of [root, ...root.querySelectorAll('*')]) {
+          // CLICK TO ENGAGE LOOK (T-2614) is a one-time prompt, not the HUD's steady state: it
+          // goes at the first click on the scene and never shows with touch controls (part 6
+          // checks both). On the phone leg it can show here only because this run's earlier
+          // trusted mouse clicks made pointer lock the live controls (main.js, pointerType).
+          if (el.id === 'look-tag') continue;
           const r = el.getBoundingClientRect();
           if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
           if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
@@ -15331,7 +15336,8 @@ for (const [label, viewport, touch] of [
       const pct = (on * cell * cell) / (W * H) * 100;
       const biggest = boxes.map((b) => ({ id: String(b.id).slice(0, 40), a: Math.round((b.x1 - b.x0) * (b.y1 - b.y0)) }))
         .sort((a, b) => b.a - a.a).slice(0, 6);
-      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest };
+      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest,
+        controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
     const footprints = [await hudFootprint()];
