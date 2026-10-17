@@ -1,0 +1,10 @@
+{
+  "title": "Nothing you can see changed: the 1835 ground arrives ready-cut",
+  "kind": "improvement",
+  "items": [
+    "The town looks exactly as before. What changed is how its ground reaches your device.",
+    "The 1835 ground now comes already cut into its 223 tiles and 9,405 pieces, so the page only hands them to the graphics card. On a slow phone that takes about 2.6 seconds off the ground's loading step.",
+    "The trade is a bigger first download: about 9 MB more, once. On a data-saving or slow connection the page skips it and cuts the ground itself, as it always did.",
+    "If the ready-cut ground is missing or out of date, the page also cuts its own."
+  ]
+}

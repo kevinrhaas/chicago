@@ -47,7 +47,7 @@
  */
 
 import * as THREE from 'three';
-import { spatialBatch, spatialBatchAsync } from './spatial-batch.js';
+import { spatialBatch, spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { contextSample, replaceApron } from './coast-extension.js';
 import { apronGeometry, apronCut } from './terrain-apron.js';
@@ -409,6 +409,9 @@ export class Heightfield {
 export async function createTerrain({
   dataBase, assetBase, epochId, substrateBase = dataBase, confidence = null, problems = [],
   sceneId = null, apronPath = null,
+  /** T-2693: `{ index, bin }` from `fetchPrebuiltGround` (or a promise of it),
+   *  used in place of the ground GLB when it is current (THE GROUND, PREBUILT). */
+  prebuilt = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'terrain';
@@ -416,12 +419,17 @@ export async function createTerrain({
   const disposables = [];
 
   let meta = null;
+  // The bytes as fetched, so a prebuilt ground can be held to them (T-2693).
+  let metaBytes = null;
+  let binBytes = null;
   if (dataBase && epochId) {
     const metaUrl = new URL(`terrain/epochs/${epochId}/heightfield.json`, dataBase);
     try {
-      meta = await (await fetchOk(metaUrl)).json();
+      metaBytes = await (await fetchOk(metaUrl)).arrayBuffer();
+      meta = JSON.parse(new TextDecoder().decode(metaBytes));
       const bin = await (await fetchOk(new URL(meta.bin, metaUrl))).arrayBuffer();
       heightfield.adopt(meta, bin);
+      binBytes = bin;
     } catch (err) {
       problems.push(`terrain ${epochId}: no heightfield (${err.message}) — `
         + 'the ground is a flat plane at the datum and the walker will not climb a bank');
@@ -454,7 +462,19 @@ export async function createTerrain({
 
   let ground = null;
   const groundPath = meta?.glb?.ground;
-  if (groundPath && assetBase) {
+  // T-2693: the ground's tiles prebuilt at publish stand in for the GLB, which
+  // is then not fetched at all. Any refusal is recorded and the GLB loads.
+  const prebuiltGround = { used: false, why: prebuilt ? null : 'none offered' };
+  let replay = null;
+  if (prebuilt && groundPath && assetBase && heightfield.loaded) {
+    const offered = await prebuilt;
+    prebuiltGround.why = await prebuiltGroundRefusal(offered,
+      { sceneId, epochId, meta, metaBytes, binBytes, groundPath });
+    if (!prebuiltGround.why) replay = offered;
+  } else if (prebuilt) {
+    prebuiltGround.why = 'this epoch names no ground GLB or no heightfield loaded';
+  }
+  if (groundPath && assetBase && !replay) {
     ground = await loadGlbMesh(new URL(groundPath, assetBase))
       .catch((err) => {
         problems.push(`terrain ${epochId}: ${groundPath} (${err.message}) — `
@@ -463,7 +483,10 @@ export async function createTerrain({
       });
   }
   let groundFit = null;
-  if (ground) {
+  if (replay) {
+    // Conformed in Node by the same function, against the field just hashed.
+    groundFit = { ...replay.index.conform };
+  } else if (ground) {
     confidence?.ensureAttribute(ground.geometry, `terrain ${epochId} ground`);
     // BEFORE tiling, which splits this geometry into the meshes that are drawn.
     // See conformGroundToField: the published GLB's heights are quantised onto a
@@ -486,7 +509,7 @@ export async function createTerrain({
   }
   // T-2495: replace the straight extrusion outside Prairie Avenue with the
   // generated historical-map apron. Adopt its sampler only once both files load.
-  if (sceneId === '1904' && heightfield.loaded) {
+  if (sceneId === '1904' && heightfield.loaded && !replay) {
     try {
       const url = new URL(`terrain/epochs/${epochId}/context.json`, dataBase);
       const coast = await (await fetchOk(url)).json();
@@ -528,15 +551,17 @@ export async function createTerrain({
       apronGroundCut = null;
     }
   }
-  ground.material = groundMat;
-  ground.receiveShadow = true;
-  ground.castShadow = false;
+  if (ground) {
+    ground.material = groundMat;
+    ground.receiveShadow = true;
+    ground.castShadow = false;
+  }
   // The ground was `frustumCulled = false` because one mesh wrapped around the
   // camera always intersects the frustum, so testing it could only ever cost time
   // or throw the floor away by mistake. True of one mesh; not true of the ground.
   // Cut it into tiles and the half of the world behind you stops being drawn —
   // see tileGround() for the measurements behind the grid below.
-  const sourceTiles = tileGround(ground, groundTileGrid);
+  const sourceTiles = replay ? null : tileGround(ground, groundTileGrid);
   // Keep each source tile's draw call, but give its dense ground 40 m pieces
   // with independently tested bounds. The 240 m Light reach used to retain a
   // whole ~235 m tile when only its nearest corner was in range. Batching keeps
@@ -546,7 +571,17 @@ export async function createTerrain({
   // T-2599: the tiles are partitioned on the job pool, all at once, so the
   // densest ground in the town is cut into pieces off the main thread and on as
   // many cores as the pool has; the batches are the same, in the same order.
-  const tiles = sourceTiles && await Promise.all(sourceTiles.map(async (tile) => {
+  // T-2693: or, prebuilt, the same pieces read off the file and batched here.
+  let tiles = null;
+  if (replay) {
+    tiles = prebuiltGroundTiles(replay.index, replay.bin, groundMat);
+    lastGroundTiling = { ...replay.index.tiling };
+    Object.assign(prebuiltGround, { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes,
+      tiles: tiles.length });
+    // The batches hold copies; the resolved promise must not keep the buffer alive.
+    replay.bin = null;
+    replay.index = null;
+  } else tiles = sourceTiles && await Promise.all(sourceTiles.map(async (tile) => {
     if (tile.name.endsWith('__tthin')) return tile;
     const batch = await spatialBatchAsync(tile.geometry, tile.material);
     batch.name = tile.name;
@@ -565,7 +600,7 @@ export async function createTerrain({
       disposables.push(tile.isBatchedMesh ? tile : tile.geometry);
     }
     // The source mesh is never added to the scene, so nothing else will dispose it.
-    ground.geometry.dispose();
+    ground?.geometry.dispose();
     ground = tiles[0];
   } else {
     // A ground too coarse to tile is small enough not to need it.
@@ -814,6 +849,9 @@ export async function createTerrain({
      * and it is a number worth watching rather than asserting, because it
      * belongs to the compressor and not to this renderer. */
     groundFit,
+
+    /** T-2693: whether the ground's tiles came prebuilt, and if not, why not. */
+    prebuilt: prebuiltGround,
 
     /** The lake's edge as E per 40 m of N, read off this epoch's heightfield
      * (lakeshore.js) — the line the beach is measured from, by the ground
@@ -1142,6 +1180,146 @@ export function dequantizeGeometry(geo) {
     }
   }
   return geo;
+}
+
+/* -------------------------------------------------------------------------- */
+/* THE GROUND, PREBUILT (T-2693)                                               */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * T-2693, the second piece of T-2678. The 1835 ground's load, conform, tiling and
+ * partition cost 3.0 s of the terrain phase at the phone profile (T-2692's
+ * measurement), with the same answer for every visitor. `tools/publish.sh` runs
+ * this file's own loadGlbMesh, conformGroundToField and tileGround, and
+ * spatial-batch.js's spatialPieces, in Node (`tools/prebuild_layers.mjs --layer
+ * ground`, byte-equal to the page's batches since T-2692) and writes
+ * `data/prebuilt/<year>/ground.{json,bin.gz}`: every tile's 40 m pieces. The page
+ * then has only to batch them (`batchPieces`), and does not fetch the ground GLB.
+ * The trade is bytes for CPU: the published GLB is meshopt-packed, 1.3 MB on the
+ * wire, and the prebuild is 10.8 MB, so the first visit carries about 9 MB more
+ * for about 2.6 s less terrain at the phone profile (docs/SITE-BUDGET.md § 4g).
+ *
+ * WHEN IT IS USED. Only when every one of these holds; otherwise the ground is
+ * loaded and cut in the browser exactly as before (the source tree always is):
+ *   - the page carries a build stamp and the prebuild was written by the same
+ *     publish (`index.build`), so the GLB and the code that cut it are the
+ *     page's own — the GLB is the one input the page does not read itself;
+ *   - it is this scene's (`index.year`), and the scene lays no 1904 context
+ *     coast, which rewrites the ground after loading and is never prebuilt;
+ *   - the heightfield.json and heightfield.bin this page fetched hash (SHA-256)
+ *     to what the index lists for them, and the GLB the heightfield names is the
+ *     one the index was built from: the field it was conformed to is this one;
+ *   - the buffer is the length the index says;
+ *   - the visitor has not asked to save data and the browser does not rate the
+ *     connection 3G or slower (`navigator.connection`, where there is one).
+ * `tools/check_published.mjs` refuses a published prebuild whose inputs have
+ * moved, so the page's check is the second line, as it is for the frontage.
+ */
+export const PREBUILT_GROUND_FORMAT = 1;
+
+/**
+ * Fetch `data/prebuilt/<year>/ground.{json,bin}`, or say why not. Started by
+ * main.js before the scene phase, so the download runs under it. Resolves
+ * `{ index, bin }` or `{ why }`; it never rejects.
+ */
+export async function fetchPrebuiltGround({ dataBase, year, build }) {
+  if (!dataBase || !year) return { why: 'no scene year to fetch a ground for' };
+  if (!build) return { why: 'this page carries no build stamp, so it cuts its own ground (the source tree)' };
+  // The prebuild is about 10 MB on the wire against the ground GLB's 1.3 MB: a
+  // trade of bytes for the phone's CPU, which a visitor asking to save data, or on
+  // a connection the browser rates 3G or slower, is better off not making.
+  const link = globalThis.navigator?.connection;
+  if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
+    return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection loads the 1.3 MB ground GLB instead` };
+  }
+  const base = new URL(`prebuilt/${year}/`, dataBase);
+  try {
+    const res = await fetch(new URL('ground.json', base));
+    if (!res.ok) return { why: `no prebuilt ground (${res.status})` };
+    const index = await res.json();
+    if (index.format !== PREBUILT_GROUND_FORMAT) {
+      return { why: `prebuilt ground format ${index.format}, this page reads ${PREBUILT_GROUND_FORMAT}` };
+    }
+    if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
+    const binRes = await fetch(new URL(index.bin, base));
+    if (!binRes.ok) return { why: `no prebuilt ground buffer (${binRes.status})` };
+    let bin = await binRes.arrayBuffer();
+    // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
+    // Content-Encoding has inflated the outer pass, so read the magic bytes.
+    const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));
+    if (index.encoding === 'gzip' && head[0] === 0x1f && head[1] === 0x8b) {
+      if (typeof DecompressionStream !== 'function') return { why: 'this browser cannot inflate the prebuilt ground' };
+      // On a pool worker, as the frontage's is (jobs/inflate-kernel.js). Imported
+      // here: the Node harnesses that load this file never reach it.
+      const { runJob } = await import('./jobs/pool.js');
+      const { bytes } = await runJob('inflateGzip', { bytes: new Uint8Array(bin), passes: index.passes ?? 1 },
+        { transfer: [bin] });
+      bin = bytes.byteOffset === 0 && bytes.byteLength === bytes.buffer.byteLength
+        ? bytes.buffer : bytes.slice().buffer;
+    }
+    if (bin.byteLength !== index.bytes) {
+      return { why: `prebuilt ground buffer is ${bin.byteLength} bytes, its index says ${index.bytes}` };
+    }
+    return { index, bin };
+  } catch (err) {
+    return { why: `prebuilt ground did not load: ${err.message}` };
+  }
+}
+
+async function sha256Hex(bytes) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+  return Array.from(digest, (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/** Why `offered` may not stand for this page's ground, or null when it may. */
+async function prebuiltGroundRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, groundPath }) {
+  const { index } = offered;
+  if (!index) return offered.why ?? 'none offered';
+  if (String(index.year) !== String(sceneId)) return `prebuilt for ${index.year}, this scene is ${sceneId}`;
+  if (String(sceneId) === '1904') return 'the 1904 context coast rewrites the ground after loading';
+  if (!metaBytes || !binBytes) return 'no heightfield was read, so there is nothing to hold it to';
+  if (!globalThis.crypto?.subtle) return 'this page cannot hash what it read (no SubtleCrypto)';
+  const dir = `data/terrain/epochs/${epochId}/`;
+  const listed = new Map(index.inputs.files.map((f) => [f.path, f.sha256]));
+  if (!listed.has(`assets/${groundPath}`)) return `built from another ground GLB than ${groundPath}`;
+  const read = [[`${dir}heightfield.json`, metaBytes], [`${dir}${meta.bin}`, binBytes]];
+  for (const [file, bytes] of read) {
+    if (listed.get(file) !== await sha256Hex(bytes)) return `built from another heightfield (${file})`;
+  }
+  return null;
+}
+
+/** The prebuild's tiles: each tile's pieces batched, the thin remainder as itself. */
+function prebuiltGroundTiles(index, bin, material) {
+  const view = (type, offset, byteLength) => new globalThis[type](bin, offset,
+    byteLength / globalThis[type].BYTES_PER_ELEMENT);
+  const geometry = (t, [arrays, ix], own) => {
+    const geo = new THREE.BufferGeometry();
+    // A batch copies its pieces' arrays; the thin tile is drawn from its own, so
+    // it takes copies and the 27 MB buffer can go once the batches are made.
+    const read = (type, offset, byteLength) => (own ? view(type, offset, byteLength).slice()
+      : view(type, offset, byteLength));
+    if (ix) geo.setIndex(new THREE.BufferAttribute(read(...ix), 1));
+    t.attributes.forEach((a, i) => {
+      geo.setAttribute(a.name, new THREE.BufferAttribute(read(a.type, ...arrays[i]), a.itemSize, a.normalized));
+    });
+    return geo;
+  };
+  return index.tiles.map((t) => {
+    let mesh;
+    if (t.thin) {
+      const geo = geometry(t, t.pieces[0], true);
+      geo.computeBoundingSphere();
+      mesh = new THREE.Mesh(geo, material);
+      mesh.frustumCulled = true;
+    } else {
+      mesh = batchPieces(t.pieces.map((p) => geometry(t, p, false)), material);
+    }
+    mesh.name = t.name;
+    mesh.receiveShadow = true;
+    mesh.castShadow = false;
+    return mesh;
+  });
 }
 
 /** Load a GLB and hand back its first mesh, detached from the loaded scene.

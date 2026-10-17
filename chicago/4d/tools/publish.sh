@@ -665,7 +665,9 @@ JSON
 # else, and any page whose check fails, builds in the browser as before.
 # check_published.mjs refuses a prebuild whose inputs have since moved.
 rm -rf "$SITE/data/prebuilt"
-node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip
+# T-2693: and the ground's tiles, cut into the page's 40 m pieces, which the page
+# uploads in place of the ground GLB (terrain.js § THE GROUND, PREBUILT).
+node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground
 
 echo "   build $BUILD_VERSION  $BUILD_CT"
 
