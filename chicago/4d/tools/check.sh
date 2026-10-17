@@ -159,6 +159,9 @@ step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
   node tools/test_frame_governor.mjs
+# T-2661: Guide's controls sheet.
+step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
+  node tools/test_nav_guide.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \

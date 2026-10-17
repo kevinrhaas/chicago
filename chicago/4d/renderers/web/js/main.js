@@ -3059,6 +3059,8 @@ async function boot() {
   });
   api.destinations = destinations;
   const hud = createHud({
+    // T-2661: Settings' "Show the controls" opens Guide's controls sheet in the Navigator.
+    onShowGuide: () => navigatorUi?.select('guide'),
     destinations,
     root: hudRoot,
     scene: loaded.scene,
@@ -3448,8 +3450,7 @@ async function boot() {
     if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
-      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)
-          && document.getElementById('control-help').hidden) pointerlock.lock();
+      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)) pointerlock.lock();
     }
   }, { capture: true });
 
@@ -3821,7 +3822,8 @@ async function boot() {
     navigatorUi?.dock();
     target?.invalidate();
     backends.activate(coarse ? touch : pointerlock);
-    if (firstEntry) hud.showControlHelp({ auto: true });
+    // T-2661: no control-help popover on the way in; the line below says the two moves
+    // that matter, and Guide in the Navigator holds the rest.
     // T-2614: audio was resumed by the Home choice that brought us here (gesture-gate.js);
     // the look waits for a click on the scene, and the tag says so until it is taken.
     gesture.setLook({ inWorld: true, backend: backends.name, locked: pointerlock.isLocked });
@@ -3878,7 +3880,6 @@ async function boot() {
           jauntEntering = true;
           try {
             const ok = api.welcome.state === 'world' || (resume ? api.welcome.close() : api.welcome.enter(target.kind, target.id));
-            if (ok) hud.dismissControlHelp({ remember: false });
             return ok;
           } finally { jauntEntering = false; }
         },
@@ -3923,7 +3924,6 @@ async function boot() {
       gesture.setLook({ inWorld: false });
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
-      hud.dismissControlHelp({ remember: false });
       hud.setPanel(false);
       hudRoot.inert = true;
     },
@@ -3996,6 +3996,9 @@ async function boot() {
       confidenceOn: hud.confidenceOn,
       jaunt: jauntRuntime?.state ?? null,
       whatsNewUnread: !document.getElementById('help-dot')?.hidden,
+      // T-2661: the controls in use, for Guide's controls sheet (controls/intent.js).
+      controls: backends.name,
+      coarse,
       actions: {
         // The drawer's own sections, where they are until they move in (T-2620).
         openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
@@ -4005,6 +4008,7 @@ async function boot() {
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
         peopleDirectory: () => peopleDirectory.load(),
+        onControls: (fn) => backends.onChange(fn),
       },
     }),
   });
