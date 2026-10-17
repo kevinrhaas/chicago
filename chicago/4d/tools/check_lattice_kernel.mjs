@@ -44,7 +44,7 @@ const CAMERAS = Number(argv[argv.indexOf('--cameras') + 1]) || 300;
 
 const WANT_FN = ['scatter', 'scatterOnPool', 'outsideFrustum', 'rngFrom', 'hash3', 'frac',
   'feistel', 'stratum', 'blockPhase', 'morton', 'spread16', 'vdc', 'stratumHalf',
-  'walkJob', 'walkKey'];
+  'walkJob', 'walkKey', 'sendWalk'];
 const WANT_CONST = ['CONE_KEEP_M', 'STRAT_SALT', 'STRAT_BLOCK_SHIFT', 'WALK_WAIT', 'MAY_WAIT'];
 
 /** `function NAME(` or `function* NAME(` at column 0, to its own closing brace. */
@@ -149,7 +149,9 @@ async function drive(flora, mode, args, kernel) {
     // last pass wrote down; the deal must take THAT reply and send nothing.
     const w = { cell, perCell, radius, inner, salt, draw };
     const job = flora.walkJob(camE, camN, w, marked);
-    marked.ahead = new Map([[flora.walkKey(job), POOL.runJob('latticeSlots', job)]]);
+    // T-2695: a walk sent ahead is a `sendWalk` record — its slots' reply, and
+    // the zone answers that follow it (none here: the fixtures hold no ground).
+    marked.ahead = new Map([[flora.walkKey(job), { slots: POOL.runJob('latticeSlots', job), zone: null }]]);
     marked.walks = [];
     POOL.runJob = () => { throw new Error('a walk sent ahead was sent again'); };
   }
