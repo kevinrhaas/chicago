@@ -627,7 +627,18 @@ export async function build(outDir, buildId = null, { gzip = false, layers = ['f
     results.push({ layer: 'frontage', year, dir, ms: Math.round(built.ms), bytes: bin.length, sha256: index.sha256,
       meshes: index.meshes.length, inputs: inputs.files.length, index });
   }
+  // What was written, so the page asks for nothing else (js/prebuilt-index.js): a
+  // request for a year or layer not built here was a 404 on every /1904/ boot.
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.json'), JSON.stringify(listing(results, buildId)) + '\n');
   return results;
+}
+
+/** `data/prebuilt/index.json`: every year and layer this build wrote. */
+export function listing(results, buildId = null) {
+  const layers = {};
+  for (const r of results) (layers[r.year] ??= []).includes(r.layer) || layers[r.year].push(r.layer);
+  return { format: 1, build: buildId, layers };
 }
 
 /* -------------------------------------------------------------------------- */

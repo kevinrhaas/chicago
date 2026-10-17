@@ -570,6 +570,24 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   text-underline-offset: 3px;
 }
 .badge-version[hidden] { display: none; }
+/* T-2626 (§10): the year chip — amber LED digits in a dark well, 1904 · 07.01, on every
+   machine and in both themes (an LED is lit on a dark face). A tap opens Jump. */
+.year-chip {
+  font: inherit; color: var(--amber, #E2A63F); cursor: pointer; align-items: center; gap: 6px; padding: 6px 12px;
+  background: var(--screen, #0B0A07); border-color: color-mix(in srgb, var(--amber, #E2A63F) 38%, var(--edge));
+  -webkit-appearance: none; appearance: none; text-align: left;
+}
+.year-chip :is(.badge-year, .badge-dot, .badge-sub) {
+  font-family: var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; color: var(--amber, #E2A63F);
+  text-shadow: 0 0 6px color-mix(in srgb, var(--amber, #E2A63F) 55%, transparent);
+}
+.year-chip .badge-year { font-size: 17px; font-weight: 500; letter-spacing: .1em; }
+.year-chip .badge-sub { font-size: 13px; letter-spacing: .1em; }
+.year-chip .badge-dot { font-size: 13px; opacity: .7; }
+.year-chip :is(.badge-alt, .badge-version, .badge-version[data-tone]) { color: var(--amber, #E2A63F); border-left-color: rgba(255, 255, 255, .16); }
+.year-chip:hover { border-color: var(--amber, #E2A63F); }
+.year-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.year-chip:active { transform: translateY(1px); }
 .fly-glyph { font-size: 10px; opacity: .85; }
 
 .hud-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
@@ -602,31 +620,6 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .compass[hidden], .overview-map[hidden], .street-readout[hidden] { display: none; }
 .compass strong { min-width: 29px; color: var(--ink); font-size: 11.5px; }
 .compass > span:last-child { color: var(--ink-dim); }
-.compass-dial {
-  position: relative;
-  width: 26px;
-  height: 26px;
-  flex: none;
-  border: 1px solid var(--edge);
-  border-radius: 50%;
-  color: var(--ink-dim);
-  font-size: 6px;
-  line-height: 1;
-}
-.compass-n, .compass-e, .compass-s, .compass-w { position: absolute; }
-.compass-n { top: 2px; left: 50%; transform: translateX(-50%); color: var(--accent); }
-.compass-e { top: 50%; right: 2px; transform: translateY(-50%); }
-.compass-s { bottom: 2px; left: 50%; transform: translateX(-50%); }
-.compass-w { top: 50%; left: 2px; transform: translateY(-50%); }
-.compass-needle {
-  position: absolute;
-  top: 50%; left: 50%;
-  color: var(--accent);
-  font-size: 17px;
-  line-height: 1;
-  transform-origin: 50% 88%;
-  transform: translate(-50%, -88%);
-}
 .overview-map {
   position: relative;
   overflow: hidden;
@@ -718,6 +711,48 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 .overview-north { top: 4px; right: 4px; color: #f4b54f; font-weight: 700; }
 .overview-caption { right: 4px; bottom: 4px; color: #d5d0c4; }
+
+/* T-2626 (§10): the compass and the mini map as one round instrument, top right. The map
+   (north up, your arrow on it) is cut round inside a compass ring; the ring's tick turns
+   with your heading, and the heading in degrees sits under the face. A tap opens Map. */
+.hud-instrument {
+  /* The last item of the chip row, on a line of its own, so it stands under the chips
+     however many rows they wrap to; one max-content column pushed to the right edge. */
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: max-content;
+  justify-content: end;
+  justify-items: center;
+  gap: 5px;
+  margin-top: 4px;
+  pointer-events: none;
+}
+.hud-instrument .overview-map {
+  border-radius: 50%;
+  border: 2px solid var(--edge-strong, var(--edge));
+  background: var(--panel-solid, #16150F);
+}
+.hud-instrument .overview-map canvas { border-radius: 50%; }
+.hud-instrument :is(.overview-north, .overview-caption) { display: none; }
+.instrument-ring {
+  position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  box-shadow: inset 0 0 0 13px color-mix(in srgb, var(--panel-solid, #16150F) 84%, transparent),
+    inset 0 0 0 14px var(--edge);
+  font: 600 8px/1 var(--font-mono, ui-monospace, monospace); color: var(--ink-dim);
+}
+.instrument-ring :is(.compass-n, .compass-e, .compass-s, .compass-w) { position: absolute; }
+.instrument-ring .compass-n { top: 3px; left: 50%; transform: translateX(-50%); color: var(--accent); }
+.instrument-ring .compass-e { top: 50%; right: 4px; transform: translateY(-50%); }
+.instrument-ring .compass-s { bottom: 3px; left: 50%; transform: translateX(-50%); }
+.instrument-ring .compass-w { top: 50%; left: 4px; transform: translateY(-50%); }
+.instrument-ring .compass-needle { position: absolute; inset: 0; border-radius: 50%; transform-origin: 50% 50%; }
+.instrument-ring .compass-needle::before {
+  content: ""; position: absolute; left: 50%; top: -1px; transform: translateX(-50%);
+  border: 5px solid transparent; border-top: 8px solid var(--amber, #E2A63F); border-bottom: 0;
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--amber, #E2A63F) 60%, transparent));
+}
+.hud-instrument .compass { min-height: 22px; padding: 3px 10px; gap: 6px; font-family: var(--font-mono, ui-monospace, monospace); }
+.hud-instrument .compass strong { min-width: 0; color: var(--accent); }
 .street-readout {
   display: grid;
   width: 248px;
@@ -1709,13 +1744,15 @@ kbd {
   /* The version chip (T-1727) outranks the date too: it is the one fact that tells two
      phone screenshots apart. */
   .badge.has-version .badge-sub { display: none; }
+  .badge:is(.has-alt, .has-version) .badge-dot { display: none; }
   .badge-version { max-width: 9.5em; }
   .navigation-stack { top: calc(17px + var(--hud-row) + var(--safe-t)); }
-  .street-readout { width: 188px; }
+  /* T-2626: the compass no longer stands above it, so it rides up beside the chips' second row; it stays clear of them. */
+  .street-readout { width: 172px; }
   /* The mobile panel spans the same left edge as the navigation readouts. Hide
      them while it is open instead of letting its translucent surface mix the
      map into sliders and search results. Desktop keeps both columns visible. */
-  .hud.panel-open .navigation-stack { visibility: hidden; }
+  .hud.panel-open :is(.navigation-stack, .hud-instrument) { visibility: hidden; }
 }
 
 /* ---- the confidence control's second half ------------------------------- */
