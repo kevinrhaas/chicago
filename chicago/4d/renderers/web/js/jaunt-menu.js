@@ -16,7 +16,7 @@ export function filterJaunts(rows, query = '', family = '') {
 
 // T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
 // says the visitor holds this outing's keepsake.
-export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false }) {
+export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
   let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
@@ -69,7 +69,8 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     mode.setAttribute('aria-label', `How to move for ${row.title}`); mode.dataset.action = 'mode';
     const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
     duration.setAttribute('aria-live', 'polite');
-    let current = modes.get(row.id) || row.default_mode || 'walk';
+    // T-2652: the visitor's getting-there choice, where this outing allows it; else its own.
+    let current = modes.get(row.id) || preferredMode(row) || row.default_mode || 'walk';
     const price = () => {
       modes.set(row.id, current);
       const key = JSON.stringify([current, row.destinations, row.timing, row.stops]);

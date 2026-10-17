@@ -323,14 +323,18 @@
       <label class="field" id="move-speed-field"><span><span id="move-speed-label">Walk speed</span> <b id="v-speed"></b></span>
         <input type="range" id="s-speed" min="0.5" max="8.94" step="0.01"></label>
       <p class="legend-note" id="travel-note"></p>
-      <!-- How Go to takes you to a place you picked. Ride there goes along the
-           streets at the mode above. -->
+      <!-- How you are taken to a place you picked, from Go to, the map or a Jaunt
+           (T-2652). Ride there goes along the streets at the mode above. -->
       <div class="field"><span>When you pick a place</span>
         <div class="seg" role="radiogroup" id="s-arrive" aria-label="When you pick a place">
           <button type="button" class="seg-btn" data-arrive="instantly" role="radio" aria-checked="true">Teleport</button>
           <button type="button" class="seg-btn" data-arrive="ride" role="radio" aria-checked="false">Ride there</button>
           <button type="button" class="seg-btn" data-arrive="fly" role="radio" aria-checked="false">Fly over</button>
         </div></div>
+      <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
+           by goToTarget like Go to, so it takes this choice too. -->
+      <p class="legend-note" id="arrive-note">Go to and Jaunts both use this choice. A Jaunt that cannot
+        be travelled that way, and every Jaunt until you choose here, keeps the way it recommends.</p>
       <p class="legend-note">These are ways of moving the camera, not claims about the past: a
         run, a light wagon, a horse, and a burst of speed on <kbd>Shift</kbd>. The slider sets the
         speed of the mode you picked and names it. Ride there takes you to a place you choose
