@@ -82,6 +82,8 @@ export function createTimeStream({
   wait = (fn, ms) => setTimeout(fn, ms),
   cancel = id => clearTimeout(id),
   fetcher = typeof fetch === 'function' ? (...a) => fetch(...a) : null,
+  // T-2612: told the whole deck once it arrives (the telemetry log takes its `log` lines).
+  onDeck = () => {},
 } = {}) {
   const startedAt = now();
   let captions = [];
@@ -161,6 +163,7 @@ export function createTimeStream({
   function setDeck(deck) {
     const list = Array.isArray(deck?.captions) ? deck.captions : [];
     captions = list.filter(c => Number.isInteger(c?.year) && typeof c.text === 'string' && c.text.trim());
+    try { if (deck) onDeck(deck); } catch { /* the log is optional too */ }
     return captions.length;
   }
 
