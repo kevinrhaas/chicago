@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1937, ts: '2026-10-17T09:41:03.827Z', date: 'Oct 17, 2026, 4:41 AM CT', title: 'Nothing you can see changed: the 1835 yards arrive ready-laid', kind: 'improvement',
+    items: [
+      'The town looks exactly as before. What changed is how the ground inside its fences reaches your device.',
+      'The yards, pens, gardens and door paths of 1835 now come already laid and cut into their pieces, so the page only hands them to the graphics card. On a slow phone that takes about 2.4 seconds off loading them.',
+      'The trade is a bigger first download: about 3 MB more, once. On a data-saving or slow connection the page skips it and lays the yards itself, as it always did.',
+      'If the ready-laid yards are missing or were made from other records, the page also lays its own.',
+    ] },
   { v: 1936, ts: '2026-10-17T09:05:27.224Z', date: 'Oct 17, 2026, 4:05 AM CT', title: 'The Navigator gets its Jaunts app: Jaunts, Go to, Free roam', kind: 'feature',
     items: [
       'The Navigator\'s Home now offers the same three choices as the arrival: Take a Jaunt, Go to and Free roam.',
