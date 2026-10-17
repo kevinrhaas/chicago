@@ -142,6 +142,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
+  node tools/test_nav_jaunts.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \

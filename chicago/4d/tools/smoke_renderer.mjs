@@ -14982,6 +14982,45 @@ for (const [label, viewport, touch] of [
       && navHome.rail.at(-2) === 'guide' && /^SCR 08 · JUMP$/.test(navHome.jumpCode) && navHome.jumpRecall && /^SCR 01 · HOME$/.test(navHome.homeCode),
       JSON.stringify({ rail: navHome.rail, jumpCode: navHome.jumpCode, jumpRecall: navHome.jumpRecall, homeCode: navHome.homeCode }));
 
+    // --- the Jaunts app (T-2630): Home's choices open its segments ----------------
+    // Navigator Home offers the arrival's three choices; each opens the Jaunts app on its
+    // segment (Jaunts · Go to · Free roam, a tablist). Go to is the Welcome card's own
+    // search, lent to the device; the rail opens the app too; Free roam docks it; and the
+    // card gets its list and search back, in place, when it shows again.
+    await page.evaluate(() => { window.__chicago4d.hud.setPanel(false); window.__chicago4d.navigator.open(1); window.__chicago4d.navigator.select('home'); });
+    await page.waitForTimeout(400);
+    await clickChrome('#nav-home [data-segment="goto"]');
+    await page.waitForFunction(() => window.__chicago4d.jauntsApp?.current === 'goto', null, { timeout: 15_000, polling: 100 }).catch(() => {});
+    const segGoto = await page.evaluate(() => {
+      const app = document.getElementById('nav-app-jaunts');
+      const picker = document.getElementById('welcome-picker');
+      return { app: window.__chicago4d.navigator.app, choices: [...document.querySelectorAll('#nav-home [data-segment]')].map((b) => b.dataset.segment),
+        tabs: [...(app?.querySelectorAll('[role="tablist"] [role="tab"]') ?? [])].map((t) => `${t.textContent}:${t.getAttribute('aria-selected')}`),
+        pickerInApp: !!app?.contains(picker), pickerShown: !!picker?.checkVisibility?.(),
+        rows: document.querySelectorAll('#nav-app-jaunts .welcome-destination').length };
+    });
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="jaunts"]')?.click());
+    await page.waitForTimeout(600);
+    const segJaunts = await page.evaluate(() => ({ current: window.__chicago4d.jauntsApp?.current,
+      listInApp: !!document.getElementById('nav-app-jaunts')?.contains(document.getElementById('welcome-jaunts-content')) }));
+    await page.evaluate(() => window.__chicago4d.navigator.select('home'));
+    await clickChrome('#nav-rail [data-app="jaunts"]');
+    await page.waitForTimeout(400);
+    const viaRail = await page.evaluate(() => window.__chicago4d.navigator.app);
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click());
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts .nav-roam')?.click());
+    await page.waitForTimeout(400);
+    const roamed = await page.evaluate(() => window.__chicago4d.navigator.level);
+    await page.evaluate(() => window.__chicago4d.jauntsApp?.restore());
+    const restored = await page.evaluate(() => ({ list: document.getElementById('welcome-jaunts-content')?.parentElement?.id ?? null,
+      picker: document.getElementById('welcome-picker')?.parentElement?.id ?? null, pickerHidden: document.getElementById('welcome-picker')?.hidden }));
+    check(`${label}: Navigator Home's three choices open the Jaunts app on their segment; the rail opens it; Free roam docks it; the Welcome card gets its list and search back (T-2630)`,
+      segGoto.choices.join() === 'jaunts,goto,roam' && segGoto.app === 'jaunts'
+      && segGoto.tabs.join() === 'Jaunts:false,Go to:true,Free roam:false' && segGoto.pickerInApp && segGoto.pickerShown && segGoto.rows > 0
+      && segJaunts.current === 'jaunts' && segJaunts.listInApp && viaRail === 'jaunts' && roamed === 0
+      && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
+      JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the
