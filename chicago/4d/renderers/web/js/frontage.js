@@ -81,7 +81,7 @@ import { ktx2State, loadSheet } from './ktx2.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams } from './compact-streams.js';
 
-const { compactNormals, compactColors, quantizeMeshPositions } = compactStreams(THREE);
+const { compactNormals, compactColors, quantizeMeshPositions, cutForQuantization, rangesInPiece } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -1408,6 +1408,12 @@ function makeLettering(boards) {
  * A changing index submits eligible, reach-culled chunks in one shared-material
  * draw. The source and its replacement never draw together; farMerge hiding a
  * source is not a reason to replace it. No heights, gaps or support are inferred.
+ *
+ * T-2688: ONE DRAW A PIECE. The tops span the town (554 m from their centre),
+ * which no 16-bit grid keeps to the millimetre, so the batch is cut like the
+ * timber it copies (`cutForQuantization`) and each piece is quantized and keeps
+ * its own changing index. A piece with nothing selected is not drawn, so the
+ * cost is one call per piece that holds a far walk in view, not one per piece.
  */
 function createFarWalkTops(group, sources, material) {
   const entries = [];
@@ -1428,12 +1434,13 @@ function createFarWalkTops(group, sources, material) {
       sphere: mesh.geometry.boundingSphere.clone() });
     vertices += selected.length;
   }
-  const geometry = new THREE.BufferGeometry();
+  const whole = new THREE.BufferGeometry();
   if (entries.length) {
     for (const [name, attribute] of Object.entries(entries[0].source.geometry.attributes)) {
       if (name === 'position') {
         // In the group's frame, as float32: a source chunk may be quantized over
-        // its own box (T-2687), each on its own grid, and this mesh is not.
+        // its own box (T-2687), each on its own grid. The pieces are quantized
+        // over theirs below.
         const packed = new Float32Array(vertices * 3);
         const p = new THREE.Vector3();
         let offset = 0;
@@ -1446,7 +1453,7 @@ function createFarWalkTops(group, sources, material) {
             packed[offset++] = p.x; packed[offset++] = p.y; packed[offset++] = p.z;
           }
         }
-        geometry.setAttribute(name, new THREE.BufferAttribute(packed, 3));
+        whole.setAttribute(name, new THREE.BufferAttribute(packed, 3));
         continue;
       }
       const size = attribute.itemSize;
@@ -1458,35 +1465,51 @@ function createFarWalkTops(group, sources, material) {
           for (let k = 0; k < size; k++) packed[offset++] = original[vertex * size + k];
         }
       }
-      geometry.setAttribute(name, new THREE.BufferAttribute(packed, size, attribute.normalized));
+      whole.setAttribute(name, new THREE.BufferAttribute(packed, size, attribute.normalized));
     }
-    geometry.computeBoundingSphere();
+    whole.computeBoundingSphere();
   }
-  const index = new THREE.BufferAttribute(new Uint32Array(vertices), 1);
-  index.setUsage(THREE.DynamicDrawUsage);
-  geometry.setIndex(index);
-  geometry.setDrawRange(0, 0);
-  const mesh = new THREE.Mesh(geometry, material);
-  mesh.name = 'frontage-far-walk-tops';
-  mesh.userData.farWalkTops = true;
-  mesh.userData.groundHugging = true;
-  mesh.renderOrder = 1;
-  mesh.castShadow = false;
-  mesh.receiveShadow = true;
-  mesh.visible = false;
-  group.add(mesh);
+  const cut = cutForQuantization(whole);
+  if (cut) whole.dispose();
+  const pieces = (cut ?? [{ geometry: whole, faces: null }]).map(({ geometry, faces }) => {
+    const count = geometry.getAttribute('position')?.count ?? 0;
+    const index = new THREE.BufferAttribute(new Uint32Array(count), 1);
+    index.setUsage(THREE.DynamicDrawUsage);
+    geometry.setIndex(index);
+    geometry.setDrawRange(0, 0);
+    const mesh = new THREE.Mesh(geometry, material);
+    if (count) quantizeMeshPositions(mesh);
+    mesh.name = 'frontage-far-walk-tops';
+    mesh.userData.farWalkTops = true;
+    mesh.userData.groundHugging = true;
+    mesh.renderOrder = 1;
+    mesh.castShadow = false;
+    mesh.receiveShadow = true;
+    mesh.visible = false;
+    group.add(mesh);
+    return { mesh, geometry, index, faces, offset: 0 };
+  });
   group.updateWorldMatrix(true, true);
   for (const entry of entries) {
     entry.sphere.applyMatrix4(entry.source.matrixWorld);
-    // Indices are copied only when the selected chunk set changes.
-    entry.indices = Uint32Array.from({ length: entry.count }, (_, i) => entry.from + i);
+    // Indices are copied only when the selected chunk set changes: per piece,
+    // the run of this entry's vertices that landed there.
+    const span = [{ from: entry.from, to: entry.from + entry.count }];
+    entry.parts = [];
+    for (const piece of pieces) {
+      const [run] = piece.faces ? rangesInPiece(span, piece.faces, 3) : span;
+      if (!run) continue;
+      entry.parts.push({ piece,
+        indices: Uint32Array.from({ length: run.to - run.from }, (_, i) => run.from + i) });
+    }
     delete entry.selected;
   }
+  for (const piece of pieces) delete piece.faces;
   const frustum = new THREE.Frustum();
   const viewProjection = new THREE.Matrix4();
   const state = { candidateChunks: entries.length, candidateTriangles: vertices / 3,
     eligibleChunks: 0, eligibleTriangles: 0, activeChunks: 0, triangles: 0,
-    drawCalls: 0, indexUpdates: 0 };
+    drawCalls: 0, indexUpdates: 0, pieces: pieces.length };
   function update(camera, crossStreetWalks = true) {
     camera.updateMatrixWorld();
     viewProjection.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
@@ -1504,24 +1527,34 @@ function createFarWalkTops(group, sources, material) {
       if (active) { activeChunks++; triangles += entry.count / 3; }
     }
     if (changed) {
-      let offset = 0;
+      for (const piece of pieces) piece.offset = 0;
       for (const entry of entries) {
         if (!entry.active) continue;
-        index.array.set(entry.indices, offset);
-        offset += entry.count;
+        for (const { piece, indices } of entry.parts) {
+          piece.index.array.set(indices, piece.offset);
+          piece.offset += indices.length;
+        }
       }
-      index.clearUpdateRanges();
-      if (offset) index.addUpdateRange(0, offset);
-      index.needsUpdate = true;
-      geometry.setDrawRange(0, offset);
+      for (const piece of pieces) {
+        piece.index.clearUpdateRanges();
+        if (piece.offset) piece.index.addUpdateRange(0, piece.offset);
+        piece.index.needsUpdate = true;
+        piece.geometry.setDrawRange(0, piece.offset);
+      }
       state.indexUpdates++;
     }
-    mesh.visible = activeChunks > 0;
+    let drawCalls = 0;
+    for (const piece of pieces) {
+      piece.mesh.visible = piece.offset > 0;
+      if (piece.mesh.visible) drawCalls++;
+    }
     Object.assign(state, { eligibleChunks, eligibleTriangles, activeChunks,
-      triangles, drawCalls: activeChunks > 0 ? 1 : 0 });
+      triangles, drawCalls });
     return state;
   }
-  return { mesh, state, update, dispose: () => geometry.dispose() };
+  const meshes = pieces.map((piece) => piece.mesh);
+  return { mesh: meshes[0], meshes, state, update,
+    dispose: () => { for (const piece of pieces) piece.geometry.dispose(); } };
 }
 
 
@@ -1566,8 +1599,10 @@ async function getJSON(url) {
  * moved, so the page's check is the second line, for a visitor whose cache holds
  * one release's prebuild beside another's page.
  */
-/** 3 since T-2687: each mesh's quantized-position transform travels with it. */
-export const PREBUILT_FORMAT = 3;
+/** 3 since T-2687: each mesh's quantized-position transform travels with it.
+ *  4 since T-2688: the shared mesh is several pieces named `frontage`, each with
+ *  its `faceBase` and `reachSphere`, and the spans are read in their numbering. */
+export const PREBUILT_FORMAT = 4;
 
 /** The page's own build id, from the stamp publish.sh writes into it. */
 export function pageBuild(doc = globalThis.document) {
@@ -2103,7 +2138,7 @@ export async function createFrontage({
   }
 
   // T-2677: a replay takes every mesh's buffers from the prebuild instead.
-  const geo = replay ? prebuiltGeometry(replay.index.meshes[0], replay.bin) : new THREE.BufferGeometry();
+  const geo = replay ? null : new THREE.BufferGeometry();
   if (!replay) {
     geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
     // Normals and tones in compact normalized formats (T-2569, compact-streams.js).
@@ -2173,55 +2208,102 @@ export async function createFrontage({
    */
   mat.customProgramCacheKey = () => 'chicago4d-frontage-timber-subpixel-gaps';
 
-  const mesh = new THREE.Mesh(geo, mat);
-  // Int16 x 4 positions relative to the mesh, its box in its matrix, where that
-  // keeps the millimetre (T-2687, compact-streams.js). The chunks below do the
-  // same; a replay takes the build's own transform with its buffers.
-  if (replay) placePrebuilt(mesh, replay.index.meshes[0]);
-  else quantizeMeshPositions(mesh);
   /**
-   * DRAWN AFTER THE STREET RIBBON, and the owner's report is why. The road is a
-   * decal: depthWrite off, polygonOffset -8/-32 so it hugs the terrain without
-   * z-fighting it. At a grazing angle that offset outweighs the 6-11 cm a board
-   * stands above the ground, so a ribbon drawn after the planks paints STRAIGHT
-   * OVER a board crossing. Order is the whole fix: drawn after the ribbon, the
-   * planks pass their depth test (the decal writes no depth) and the crossing
-   * sits on the road the way a board laid on dirt does. Real occlusion is
-   * untouched - terrain writes depth, so a walk behind a rise stays hidden.
-   *
-   * THIS LINE ALONE DID NOT DO IT, and for two months it read as though it had
-   * (T-0625). `renderOrder` orders a mesh within its own render list, and until
-   * the material above joined the transparent list this mesh was in the other
-   * one — where three draws every opaque before any transparent, whatever their
-   * renderOrder. The ordering this comment describes only became real when the
-   * material got `transparent: true`; keep the two together.
+   * THE TIMBER IN PIECES THE 16-BIT GRID KEEPS (T-2688). Every mesh below is
+   * Int16 x 4 relative to itself, its box in its matrix (T-2687,
+   * compact-streams.js), and that keeps the millimetre only up to a half-extent
+   * of 65.5 m. The shared mesh reached 423 m and the long street-edge chunks
+   * 68 to 342 m, so each is cut into cells that fit (`cutForQuantization`) and
+   * every piece is quantized. What the pieces must not change:
+   *   - THE PICK. A chunk's piece carries the chunk's owner. The shared mesh's
+   *     spans are face ranges, so its pieces are numbered on from one another
+   *     (`faceBase`) and the spans re-read in that numbering.
+   *   - THE FAR WALK TOPS. Each piece carries its own share of the walk-top
+   *     ranges, and the far tops are cut from the pieces.
+   *   - THE REACH. A piece banks the WHOLE mesh's sphere (`reachSphere`, read
+   *     by main.js), so the reach holds back what it held back before and no
+   *     piece goes missing in the distance that its mesh would have drawn.
+   * A replay takes the build's own pieces, transforms and ranges with its buffers.
    */
-  mesh.renderOrder = 1;
-  mesh.name = 'frontage';
-  mesh.castShadow = true;
-  mesh.receiveShadow = true;
-  group.add(mesh);
+  const mainMeshes = [];
+  const chunkMeshes = [];
+  const walkTopSources = [];
+  const sphereOf = (g) => {
+    if (!g.boundingSphere) g.computeBoundingSphere();
+    return { center: g.boundingSphere.center.toArray(), radius: g.boundingSphere.radius };
+  };
+  const timberPieces = (g, ranges, spanList = null) => {
+    const cut = cutForQuantization(g);
+    if (!cut) return [{ geometry: g, ranges, spans: spanList, reachSphere: null }];
+    const reachSphere = sphereOf(g);
+    g.dispose();
+    return cut.map(({ geometry, faces }) => ({ geometry, reachSphere,
+      ranges: rangesInPiece(ranges, faces, 3),
+      spans: spanList ? rangesInPiece(spanList, faces) : null }));
+  };
+  const placeTimber = (geometry, list, ranges) => {
+    const m = new THREE.Mesh(geometry, mat);
+    group.add(m);
+    list.push(m);
+    walkTopSources.push({ mesh: m, ranges });
+    return m;
+  };
+  if (replay) {
+    for (const m of replay.index.meshes) {
+      const tmesh = placeTimber(prebuiltGeometry(m, replay.bin),
+        m.name === 'frontage' ? mainMeshes : chunkMeshes, m.walk_top_ranges);
+      placePrebuilt(tmesh, m);
+      tmesh.renderOrder = m.renderOrder;
+      tmesh.name = m.name;
+      tmesh.castShadow = m.castShadow;
+      tmesh.receiveShadow = m.receiveShadow;
+      Object.assign(tmesh.userData, m.userData);
+    }
+  } else {
+    const pieces = timberPieces(geo, buf.walkTopRanges, spans);
+    const renumbered = [];
+    let faceBase = 0;
+    for (const piece of pieces) {
+      const mesh = placeTimber(piece.geometry, mainMeshes, piece.ranges);
+      quantizeMeshPositions(mesh);
+      /**
+       * DRAWN AFTER THE STREET RIBBON, and the owner's report is why. The road is a
+       * decal: depthWrite off, polygonOffset -8/-32 so it hugs the terrain without
+       * z-fighting it. At a grazing angle that offset outweighs the 6-11 cm a board
+       * stands above the ground, so a ribbon drawn after the planks paints STRAIGHT
+       * OVER a board crossing. Order is the whole fix: drawn after the ribbon, the
+       * planks pass their depth test (the decal writes no depth) and the crossing
+       * sits on the road the way a board laid on dirt does. Real occlusion is
+       * untouched - terrain writes depth, so a walk behind a rise stays hidden.
+       *
+       * THIS LINE ALONE DID NOT DO IT, and for two months it read as though it had
+       * (T-0625). `renderOrder` orders a mesh within its own render list, and until
+       * the material above joined the transparent list this mesh was in the other
+       * one — where three draws every opaque before any transparent, whatever their
+       * renderOrder. The ordering this comment describes only became real when the
+       * material got `transparent: true`; keep the two together.
+       */
+      mesh.renderOrder = 1;
+      mesh.name = 'frontage';
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      if (piece.reachSphere) {
+        mesh.userData.reachSphere = piece.reachSphere;
+        mesh.userData.faceBase = faceBase;
+        for (const sp of piece.spans) {
+          renumbered.push({ ...sp, from: sp.from + faceBase, to: sp.to + faceBase });
+        }
+      }
+      faceBase += piece.geometry.getAttribute('position').count / 3;
+    }
+    if (pieces.length > 1) spans.splice(0, spans.length, ...renumbered);
+  }
 
   // The chunked walks (T-0119): one small mesh per polyline segment, sharing
   // the layer's material and render order, each with its own bounding sphere so
   // a reach of the river walk behind the camera culls instead of drawing. The
   // pick carries the owner on the mesh itself — a chunk is one walk's timber
   // and nothing else, so it needs no face-span arithmetic.
-  const chunkMeshes = [];
-  const walkTopSources = [{ mesh,
-    ranges: replay ? replay.index.meshes[0].walk_top_ranges : buf.walkTopRanges }];
-  for (const m of replay ? replay.index.meshes.slice(1) : []) {
-    const cmesh = new THREE.Mesh(prebuiltGeometry(m, replay.bin), mat);
-    placePrebuilt(cmesh, m);
-    cmesh.renderOrder = m.renderOrder;
-    cmesh.name = m.name;
-    cmesh.castShadow = m.castShadow;
-    cmesh.receiveShadow = m.receiveShadow;
-    Object.assign(cmesh.userData, m.userData);
-    group.add(cmesh);
-    chunkMeshes.push(cmesh);
-    walkTopSources.push({ mesh: cmesh, ranges: m.walk_top_ranges });
-  }
   for (const chunk of replay ? [] : chunks) {
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
@@ -2232,23 +2314,23 @@ export async function createFrontage({
     cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();
     releaseTimberBuf(chunk.buf);
-    const cmesh = new THREE.Mesh(cgeo, mat);
-    quantizeMeshPositions(cmesh);
-    cmesh.renderOrder = 1;                 // same street-decal ordering as above
-    cmesh.name = 'frontage-chunk';
-    // T-0127 — GROUND-HUGGING TIMBER OPTS OUT OF THE SHADOW MAP. The flag is on
-    // the MESH and not on the layer, because within this one layer the boards
-    // and the fences want different answers (see `standingChunk` above).
-    // `applyShadowTier` in main.js reads it; a tier that casts still casts
-    // everything else, and `light`, which casts nothing, is unaffected.
-    cmesh.userData.groundHugging = !chunk.standing;
-    cmesh.castShadow = !!chunk.standing;
-    cmesh.receiveShadow = true;
-    cmesh.userData.pickId = chunk.pickId;
-    if (chunk.crossStreet) cmesh.userData.crossStreet = true;
-    group.add(cmesh);
-    chunkMeshes.push(cmesh);
-    walkTopSources.push({ mesh: cmesh, ranges: chunk.buf.walkTopRanges });
+    for (const piece of timberPieces(cgeo, chunk.buf.walkTopRanges)) {
+      const cmesh = placeTimber(piece.geometry, chunkMeshes, piece.ranges);
+      quantizeMeshPositions(cmesh);
+      cmesh.renderOrder = 1;                 // same street-decal ordering as above
+      cmesh.name = 'frontage-chunk';
+      // T-0127 — GROUND-HUGGING TIMBER OPTS OUT OF THE SHADOW MAP. The flag is on
+      // the MESH and not on the layer, because within this one layer the boards
+      // and the fences want different answers (see `standingChunk` above).
+      // `applyShadowTier` in main.js reads it; a tier that casts still casts
+      // everything else, and `light`, which casts nothing, is unaffected.
+      cmesh.userData.groundHugging = !chunk.standing;
+      cmesh.castShadow = !!chunk.standing;
+      cmesh.receiveShadow = true;
+      cmesh.userData.pickId = chunk.pickId;
+      if (chunk.crossStreet) cmesh.userData.crossStreet = true;
+      if (piece.reachSphere) cmesh.userData.reachSphere = piece.reachSphere;
+    }
   }
   out.census.meshes = group.children.length;
   out.census.kerb = replay ? replay.index.census.kerb : edgeStats.kerb;
@@ -2311,10 +2393,12 @@ export async function createFrontage({
    * the face the raycast named, so the spans below read it unchanged.
    */
   // A cross street's walk the tier hides is not drawn, so it is not tapped (T-0192).
-  const pick = layerPick(() => [mesh, ...chunkMeshes.filter((c) => c.visible || !c.userData.crossStreet)], (hit) => {
+  const pick = layerPick(() => [...mainMeshes, ...chunkMeshes.filter((c) => c.visible || !c.userData.crossStreet)], (hit) => {
     let id = hit.object.userData.pickId ?? null;
     if (!id) {
-      const span = spans.find((sp) => hit.face >= sp.from && hit.face < sp.to);
+      // A piece of the shared mesh numbers its faces on from the pieces before it.
+      const face = hit.face + (hit.object.userData.faceBase ?? 0);
+      const span = spans.find((sp) => face >= sp.from && face < sp.to);
       if (!span) return null;
       id = span.id;
     }
@@ -2327,7 +2411,7 @@ export async function createFrontage({
   out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {
-    geo.dispose();
+    for (const m of mainMeshes) m.geometry.dispose();
     for (const c of chunkMeshes) c.geometry.dispose();
     farWalkTops.dispose();
     mat.dispose();

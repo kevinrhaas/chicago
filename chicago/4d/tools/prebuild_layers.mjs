@@ -57,8 +57,9 @@ const ROOT = path.resolve(here, '..');
 const WEB = path.join(ROOT, 'renderers/web');
 const THREE_DIR = path.join(WEB, 'vendor/three-0.185.1');
 /** 2 since T-2677: the tape, pick spans, walk-top ranges, spheres and build.
- *  3 since T-2687: each mesh's position, uniform scale and quantization. */
-const FORMAT = 3;
+ *  3 since T-2687: each mesh's position, uniform scale and quantization.
+ *  4 since T-2688: the shared mesh in pieces, with their face base and reach sphere. */
+const FORMAT = 4;
 /** Built by the page for itself, never carried in the file (see the header). */
 const PAGE_ONLY = new Set(['frontage-far-walk-tops', 'frontage-lettering']);
 

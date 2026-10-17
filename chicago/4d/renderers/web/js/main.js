@@ -1808,8 +1808,16 @@ async function boot() {
     const sphere = new THREE.Sphere();
     const beyond = (o) => {
       if (typeof reach !== 'number' || !o.isMesh || !o.geometry?.attributes.position) return false;
-      if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
-      sphere.copy(o.geometry.boundingSphere).applyMatrix4(o.matrixWorld);
+      // The reach's own sphere: a cut piece's is its whole mesh's (T-2688).
+      const whole = o.userData.reachSphere;
+      if (whole) {
+        sphere.center.fromArray(whole.center);
+        sphere.radius = whole.radius;
+        sphere.applyMatrix4(o.parent.matrixWorld);
+      } else {
+        if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
+        sphere.copy(o.geometry.boundingSphere).applyMatrix4(o.matrixWorld);
+      }
       return eye.distanceTo(sphere.center) - sphere.radius > reach;
     };
     layer.updateWorldMatrix(true, true);
@@ -2375,10 +2383,16 @@ async function boot() {
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
         if (o.userData.farMerged || o.userData.farWalkTops) return;
-        if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
-        const sph = o.geometry.boundingSphere?.clone();
+        // A piece of a mesh cut for its 16-bit grid (T-2688) banks the whole
+        // mesh's sphere, in its parent's frame, so the reach holds back what it
+        // held back before the cut.
+        const whole = o.userData.reachSphere;
+        if (!whole && !o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
+        const sph = whole
+          ? new THREE.Sphere(new THREE.Vector3().fromArray(whole.center), whole.radius)
+          : o.geometry.boundingSphere?.clone();
         if (!sph) return;
-        sph.applyMatrix4(o.matrixWorld);
+        sph.applyMatrix4(whole ? o.parent.matrixWorld : o.matrixWorld);
         furniture.spheres.push({ mesh: o, c: sph.center, r: sph.radius });
       });
     }

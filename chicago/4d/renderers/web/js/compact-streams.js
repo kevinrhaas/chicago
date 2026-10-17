@@ -36,7 +36,11 @@
  *     within `POSITION_ERROR_M` (1 mm: a half-extent up to 65.5 m) and is left
  *     float32 otherwise. The boards are 20 mm apart and a fence board is 22 mm
  *     thick, so a grid of a centimetre — what a town-long walk would get — moves
- *     the gaps a visitor can see. The long meshes are cut first (T-2688).
+ *     the gaps a visitor can see. The long meshes are cut first (T-2688):
+ *     `cutForQuantization` bins a mesh's triangles into cells whose box keeps
+ *     the millimetre, and the layer quantizes each piece. Each piece knows the
+ *     source face of every face it holds, so a pick span, a lot item's span or a
+ *     walk-top range is carried onto the piece by `rangesInPiece`.
  *   - THE SCALE IS UNIFORM, so three's normal matrix only shortens the normal
  *     and the shader's normalize undoes it (compact-attributes.js says the same
  *     of the structures batch, T-2575).
@@ -180,7 +184,108 @@ export function compactStreams(THREE) {
     return new THREE.BufferAttribute(out, 3);
   }
 
-  return { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions, positionsInMetres };
+  /**
+   * CUT A MESH THE GRID CANNOT KEEP (T-2688). A non-indexed float32 triangle
+   * mesh whose box is wider than `quantizeMeshPositions` keeps to the
+   * millimetre is binned, triangle by triangle on its centre, into a grid whose
+   * cell is that box less the widest triangle, so every cell's triangles fit in
+   * a box the grid keeps. Each non-empty cell is a piece, in cell order:
+   * `{ geometry, faces }`, where `faces[i]` is the source face the piece's face
+   * `i` was. Faces keep their source order within a piece, so a run of source
+   * faces lands in a piece as one run (`rangesInPiece`).
+   *
+   * Returns null, and leaves the geometry alone, when it already fits whole or
+   * cannot be cut: indexed, interleaved, not float xyz, or a triangle wider than
+   * the box itself. Every attribute is copied per vertex with its own type,
+   * size and normalization; the source is not disposed.
+   */
+  function cutForQuantization(geometry, maxErrorM = POSITION_ERROR_M) {
+    const src = geometry.getAttribute('position');
+    if (geometry.index || !src || src.isInterleavedBufferAttribute || src.itemSize !== 3
+      || !(src.array instanceof Float32Array) || !src.count || src.count % 3) return null;
+    // The widest box `quantizeMeshPositions` keeps: twice the half-extent it
+    // allows, 2 x 65.5 m at the millimetre.
+    const box = 4 * POSITION_STEPS * maxErrorM;
+    const a = src.array;
+    const faces = src.count / 3;
+    const lo = [Infinity, Infinity, Infinity];
+    const hi = [-Infinity, -Infinity, -Infinity];
+    const mid = new Float64Array(faces * 3);
+    let widest = 0;
+    for (let f = 0; f < faces; f += 1) {
+      for (let c = 0; c < 3; c += 1) {
+        const x0 = a[f * 9 + c], x1 = a[f * 9 + 3 + c], x2 = a[f * 9 + 6 + c];
+        const tlo = Math.min(x0, x1, x2), thi = Math.max(x0, x1, x2);
+        if (tlo < lo[c]) lo[c] = tlo;
+        if (thi > hi[c]) hi[c] = thi;
+        if (thi - tlo > widest) widest = thi - tlo;
+        mid[f * 3 + c] = (tlo + thi) / 2;
+      }
+    }
+    if (!(Math.max(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]) > box)) return null;
+    // A centre inside the cell puts its triangle inside the cell widened by half
+    // the widest triangle each side; the millimetre left over covers rounding.
+    const cell = box - widest - 0.001;
+    if (!(cell > 0)) return null;
+    const n = [0, 1, 2].map((c) => Math.floor((hi[c] - lo[c]) / cell) + 1);
+    const keyOf = new Float64Array(faces);
+    const count = new Map();
+    for (let f = 0; f < faces; f += 1) {
+      let key = 0;
+      for (let c = 2; c >= 0; c -= 1) {
+        key = key * n[c] + Math.min(n[c] - 1, Math.floor((mid[f * 3 + c] - lo[c]) / cell));
+      }
+      keyOf[f] = key;
+      count.set(key, (count.get(key) ?? 0) + 1);
+    }
+    const keys = [...count.keys()].sort((x, y) => x - y);
+    const cells = new Map(keys.map((k) => [k, { faces: new Uint32Array(count.get(k)), at: 0 }]));
+    for (let f = 0; f < faces; f += 1) {
+      const c = cells.get(keyOf[f]);
+      c.faces[c.at++] = f;
+    }
+    return keys.map((k) => {
+      const list = cells.get(k).faces;
+      const piece = new THREE.BufferGeometry();
+      for (const [name, attr] of Object.entries(geometry.attributes)) {
+        const run = 3 * attr.itemSize;
+        const from = attr.array;
+        const out = new from.constructor(list.length * run);
+        for (let i = 0; i < list.length; i += 1) {
+          out.set(from.subarray(list[i] * run, list[i] * run + run), i * run);
+        }
+        piece.setAttribute(name, new THREE.BufferAttribute(out, attr.itemSize, attr.normalized));
+      }
+      piece.computeBoundingSphere();
+      return { geometry: piece, faces: list };
+    });
+  }
+
+  /**
+   * `ranges` ({ from, to, ... } over the source's faces, or over its vertices
+   * when `unit` is 3) as they fall in one piece of `cutForQuantization`: each
+   * range with faces in the piece, every other field kept, and its `from` and
+   * `to` re-read in the piece's own faces (or vertices).
+   */
+  function rangesInPiece(ranges, faces, unit = 1) {
+    const at = (face) => {
+      let lo = 0, hi = faces.length;
+      while (lo < hi) {
+        const m = (lo + hi) >> 1;
+        if (faces[m] < face) lo = m + 1; else hi = m;
+      }
+      return lo;
+    };
+    const out = [];
+    for (const r of ranges) {
+      const from = at(r.from / unit), to = at(r.to / unit);
+      if (to > from) out.push({ ...r, from: from * unit, to: to * unit });
+    }
+    return out;
+  }
+
+  return { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions, positionsInMetres,
+    cutForQuantization, rangesInPiece };
 }
 
 /** Int16's normalized range: WebGL decodes `q` as `max(q / 32767, -1)`. */

@@ -26,6 +26,8 @@ const mod = await import(moduleURL(source.replace("from 'three'", `from '${three
     readFileSync(path.join(web, 'js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
     .toString('base64')}'`)
   + '\nexport { timberBuf, plainTimber, inWalkTone, laySegment, pushBox, plankGapAttribute, createFarWalkTops };'));
+const { positionsInMetres } = (await import(pathToFileURL(path.join(web, 'js/compact-streams.js')).href))
+  .compactStreams(THREE);
 const checks = [];
 function check(name, run) { run(); checks.push(name); }
 const material = new THREE.MeshStandardMaterial({ transparent: true, vertexColors: true });
@@ -63,12 +65,23 @@ const snapshots = sources.map(({ mesh }) => Object.fromEntries(Object.entries(me
   .map(([name, attribute]) => [name, attribute.array.slice()])));
 const batch = mod.createFarWalkTops(group, sources, material);
 check('all proxy attributes copy actual top vertices exactly; no furniture tops or invented gaps', () => {
+  // T-2688: the batch's positions are Int16 over its own box, so they are read
+  // back in metres and held to the grid's millimetre; every other stream is exact.
+  assert.equal(batch.meshes.length, 1);
+  assert.ok(batch.mesh.geometry.userData.positionQuantized);
+  const metres = positionsInMetres(batch.mesh.geometry);
   let vertex = 0;
   for (const { mesh, ranges } of sources) {
     const attrs = mesh.geometry.attributes;
     for (const { from, to } of ranges) for (let i = from; i < to; i += 3) {
       if (attrs.normal.getY(i) < .99) continue;
       for (let j = 0; j < 3; j++, vertex++) for (const [name, original] of Object.entries(attrs)) {
+        if (name === 'position') {
+          for (let k = 0; k < 3; k++) {
+            assert.ok(Math.abs(metres.array[vertex * 3 + k] - original.array[(i + j) * 3 + k]) <= 0.001);
+          }
+          continue;
+        }
         const copy = batch.mesh.geometry.getAttribute(name);
         assert.equal(copy.itemSize, original.itemSize);
         assert.equal(copy.normalized, original.normalized);
@@ -159,11 +172,34 @@ check('production frontage exposes an inert exact-top batch before any reach cul
   assert.equal(new Set(meshes.map(o => o.material)).size, 1);
 });
 const cost = { ...layer.farWalkTops };
+check('every timber position in the production layer is Int16 x 4 over a box the grid keeps (T-2688)', () => {
+  const timber = layer.group.children.filter(o => o.isMesh && o.material.name === 'frontage-timber');
+  assert.ok(layer.farWalkTops.pieces > 1, 'the town-wide far tops are cut');
+  for (const o of timber) {
+    const position = o.geometry.getAttribute('position');
+    assert.ok(position.array instanceof Int16Array && position.itemSize === 4, `${o.name} is quantized`);
+    assert.ok(o.scale.x <= 2 * 32767 * 0.001, `${o.name} keeps the millimetre (half-extent ${o.scale.x} m)`);
+  }
+});
+check('cut far tops draw one call per piece holding a selected top, and every selected top once', () => {
+  for (const o of layer.group.children) {
+    if (o.isMesh && !o.userData.farWalkTops) { o.visible = false; o.userData.reachCulled = true; }
+  }
+  const above = new THREE.PerspectiveCamera(80, 1, .1, 5000);
+  above.position.set(0, 1500, 0); above.lookAt(0, 0, 0);
+  const state = layer.updateFarWalks(above, true);
+  const pieces = layer.group.children.filter(o => o.userData.farWalkTops);
+  assert.equal(pieces.length, state.pieces);
+  assert.ok(state.drawCalls > 1 && state.drawCalls <= state.pieces);
+  assert.equal(state.drawCalls, pieces.filter(o => o.visible).length);
+  assert.equal(pieces.reduce((n, o) => n + o.geometry.drawRange.count, 0), state.triangles * 3);
+  assert.ok(pieces.every(o => o.visible === o.geometry.drawRange.count > 0));
+});
 layer.dispose();
 const report = { scope: 'CPU exact geometry/material/handover checks; published visibility, motion and frame budgets require browser validation.',
   checks, cost };
 if (process.argv.includes('--json')) console.log(JSON.stringify(report, null, 2));
 else {
   checks.forEach(name => console.log(`PASS ${name}`));
-  console.log(`PASS ${checks.length} far-plank checks; ${cost.candidateTriangles} total / ${cost.eligibleTriangles} light-eligible candidate triangles; at most one added draw`);
+  console.log(`PASS ${checks.length} far-plank checks; ${cost.candidateTriangles} total / ${cost.eligibleTriangles} light-eligible candidate triangles; at most one added draw a far piece (${cost.pieces} pieces)`);
 }

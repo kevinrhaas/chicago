@@ -102,7 +102,8 @@ import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
 import { compactStreams } from './compact-streams.js';
 
-const { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions } = compactStreams(THREE);
+const { compactNormals, compactColors, compactUnitUvs, quantizeMeshPositions,
+  cutForQuantization, rangesInPiece } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -3483,22 +3484,34 @@ export async function createYardGoods({
     // page (T-2063 — what got the 1835 tab killed on an iPhone).
     chunk.buf.pos = chunk.buf.nrm = chunk.buf.conf = chunk.buf.col = chunk.buf.uv = null;
     chunk.buf.uv1 = null;
-    const mesh = new THREE.Mesh(geo, mat);
-    // Int16 x 4 positions relative to the chunk, its box in the mesh's matrix,
-    // where that keeps the millimetre (T-2687, compact-streams.js).
-    quantizeMeshPositions(mesh);
-    mesh.name = 'yard-chunk';
-    mesh.castShadow = true;
-    mesh.receiveShadow = true;
-    mesh.userData.spans = chunk.spans;
-    mesh.userData.lotItemSpans = chunk.lotItemSpans;
-    if (woodChunks.has(chunk.key)) {
-      mesh.name = 'yard-woodpile-chunk';
-      woodGroup.add(mesh);
-    } else {
-      group.add(mesh);
+    // A chunk wider than a 16-bit grid keeps to the millimetre — the woodpiles'
+    // town-wide one reached 984 m — is cut into pieces that fit (T-2688), each
+    // carrying its share of the chunk's spans in its own faces, and banking the
+    // whole chunk's sphere for the reach (main.js), which holds back what it did.
+    const cut = cutForQuantization(geo);
+    const reachSphere = cut
+      ? { center: geo.boundingSphere.center.toArray(), radius: geo.boundingSphere.radius } : null;
+    if (cut) geo.dispose();
+    for (const { geometry, faces } of cut ?? [{ geometry: geo, faces: null }]) {
+      const mesh = new THREE.Mesh(geometry, mat);
+      // Int16 x 4 positions relative to the chunk, its box in the mesh's matrix,
+      // where that keeps the millimetre (T-2687, compact-streams.js).
+      quantizeMeshPositions(mesh);
+      mesh.name = 'yard-chunk';
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      mesh.userData.spans = faces ? rangesInPiece(chunk.spans, faces) : chunk.spans;
+      mesh.userData.lotItemSpans = faces
+        ? rangesInPiece(chunk.lotItemSpans, faces) : chunk.lotItemSpans;
+      if (reachSphere) mesh.userData.reachSphere = reachSphere;
+      if (woodChunks.has(chunk.key)) {
+        mesh.name = 'yard-woodpile-chunk';
+        woodGroup.add(mesh);
+      } else {
+        group.add(mesh);
+      }
+      meshes.push(mesh);
     }
-    meshes.push(mesh);
   }
   if (woodGroup.children.length) group.add(woodGroup);
   out.census.woodChunks = woodGroup.children.length;
