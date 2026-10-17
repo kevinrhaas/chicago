@@ -7157,6 +7157,18 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
+# generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
+# --check above holds the file itself). This holds what it must mean: exactly its own
+# cards' people and none of 1835's (the T-1739 fault), each in a 1904 structure, the
+# Glessner summary's residents among them — and T-1740 still true, 1904 listing no
+# `residents` layer, so the drawer's 1835-shaped People section stays off.
+step "the 1904 people directory is its own, and the drawer still offers no People section (T-2702)" \
+  python3 tools/test_people_scene.py
+
+selftest "…and a card with no source, no grade, a home not in the scene or a late arrival is refused" \
+  python3 tools/test_people_scene.py --self-test
+
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
 # an impression: both shapes stand until the last record moves, and a half-migrated layer

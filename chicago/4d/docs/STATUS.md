@@ -1,3 +1,34 @@
+## T-2702 — the 1904 people directory, starting with the Glessners (2026-10-17)
+
+Owner ruling 2026-10-17: "File it in band 3." The pilot for this is T-2637, and this PR fills
+its empty `residents`. `data/sidecars/1904/people.json` is compiled by the same generator as
+1835 (`compile_scene.py` `compile_people`), from 1904's own household cards in
+`data/residents_1904/households/`.
+
+- **The change to the generator.** Each scene has its own residents root: 1835 keeps
+  `data/residents/`, and a later scene has `data/residents_<scene>/`. The 1835 overlays
+  are named by scene id (`data/reconstruction/<scene>_*.json`), so they are simply absent
+  for 1904. A later scene's directory is compiled whenever it holds cards of its own,
+  whether or not it lists the `residents` layer.
+  - Before a later scene's card enters the directory, `scene_people_manifest` requires:
+    - every person graded, and every attested person with a source that resolves;
+    - every home a structure that stands in the scene;
+    - no arrival after the scene date.
+  - 1835's `people.json` is byte-identical (3,878 people).
+- **The Glessner household.** John J. and Frances M. Glessner, both attested, at
+  `glessner_house` from 1 December 1887. They are placed in the house in 1904 by Frances's
+  basement silversmith's workbench of that year (the museum's family page), and by HABS for
+  the ownership and their deaths in 1936 and 1932.
+  - Left out, as the card says: the grown children (both married in 1898; the daughter
+    moved to 1700 Prairie) and the staff, whom no source read names.
+- **The T-1740 rule is kept, not changed.** 1904 still lists no `residents` layer, so the
+  drawer offers no People section. That layer drives the drawer's People, City, Population
+  and Order book, which read the 1835 town's files and would show that apparatus with two
+  people in it. The directory is read by the summary records and, later, by the Navigator's
+  People app. So the smoke's assertion stays true, and it is unchanged.
+  - `tools/test_people_scene.py` (in `check.sh`) holds the directory to its cards and the
+    rule to its reason. Its `--self-test` plants eight faults and requires each one refused.
+
 ## T-2637 — the Glessner House summary record, the pilot (2026-10-16)
 
 `data/summaries/glessner_house.json`, the first authored front page (design doc §08/§12), for

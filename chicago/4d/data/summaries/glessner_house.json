@@ -68,7 +68,25 @@
       ]
     }
   ],
-  "residents": [],
+  "residents": [
+    {
+      "person": "glessner_john_j",
+      "role": "Farm-machine executive, a vice president of International Harvester",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_family_page"
+      ]
+    },
+    {
+      "person": "glessner_frances_m",
+      "role": "Silversmith and beekeeper, who kept a journal for forty years",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ]
+    }
+  ],
   "lookFor": [
     {
       "text": "Rough granite walls on both streets",

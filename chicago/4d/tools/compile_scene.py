@@ -899,7 +899,7 @@ def scene_people_manifest(scene_id: str, root: Path) -> dict | None:
     for path in sorted(hdir.glob("*.json")):
         rel = f"households/{path.name}"
         hh = load(path)
-        where = f"{root.relative_to(ROOT)}/{rel}"
+        where = f"{root.relative_to(ROOT) if root.is_relative_to(ROOT) else root}/{rel}"
         if hh.get("id") != path.stem:
             faults.append(f"{where}: id `{hh.get('id')}` is not the file's name")
         if hh.get("scene") != scene_id:
