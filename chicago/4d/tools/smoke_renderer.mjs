@@ -1538,6 +1538,19 @@ for (const [label, viewport, touch] of [
           await new Promise((r) => setTimeout(r, 50));
         }
       }
+      // The Navigator WIDENS too. On a desktop its open is a .28 s width transition from
+      // the 58 px rail to 400 px, and the transition's clock only moves when the page gets
+      // to draw; on a runner where a frame of the town takes seconds, a fixed wait can end
+      // with the panel still a sliver. T-2622's keyboard check ends on Escape (the panel
+      // collapsed to its rail) and T-2630's opens it and clicks Home's Go to after 400 ms:
+      // "covered at its own centre by <button class=\"nav-choice\">". Waited for the same
+      // way as the drawer: the hit-test still runs, on the settled box.
+      const device = el.closest('#navigator');
+      if (device?.getAnimations) {
+        for (let i = 0; i < 60 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+          await new Promise((r) => setTimeout(r, 50));
+        }
+      }
       // The same scroll `page.click` would do, in the same round trip as the
       // reading — a result row far down the Go-to list is off the panel's
       // viewport until this runs, and `elementFromPoint` would then answer for
@@ -8546,6 +8559,46 @@ for (const [label, viewport, touch] of [
       `"${presence.composed.text.slice(0, 160)}" — function "${presence.composed.fn}", `
       + `location "${presence.composed.where.slice(0, 60)}"`);
 
+    // T-2638. Inspect, the Navigator's Overview front page (§08, M7), on a building with no
+    // summary record: Hogan's store takes the templated fallback (T-2636), in M7's order, every
+    // fact line with its grade dot, the address once, no id, path or ticket number.
+    const inspectFallback = await page.evaluate(async (id) => {
+      const a = window.__chicago4d;
+      a.pick(id);
+      await a.navigator.select('inspect');
+      for (let i = 0; i < 100 && !(document.getElementById('nav-app-inspect')?.dataset.structure === id
+        && document.querySelector('#nav-app-inspect .insp-page')); i++) await new Promise((r) => setTimeout(r, 100));
+      const pageEl = document.querySelector('#nav-app-inspect .insp-page');
+      const order = [...(pageEl?.children ?? [])].map((c) => [...c.classList].find((k) => k.startsWith('insp-')) ?? c.tagName);
+      const sections = [...(pageEl?.querySelectorAll('.insp-sec .insp-h') ?? [])].map((h) => h.textContent.trim());
+      const lines = [...(pageEl?.querySelectorAll('.insp-chip, .insp-key dd, .insp-person strong, .insp-look-item, .insp-fact') ?? [])];
+      // textContent, not innerText: the address line is styled uppercase, and innerText returns
+      // the rendered case once the page is visible, which no longer matches the address it holds.
+      const text = pageEl?.textContent ?? '';
+      const address = pageEl?.querySelector('.insp-address')?.textContent.trim() ?? '';
+      const out = { source: pageEl?.dataset.source ?? null, order, sections, lines: lines.length,
+        undotted: lines.filter((l) => !l.querySelector('.fact-dot')).map((l) => l.textContent.trim()).slice(0, 4),
+        address, addressTimes: address ? text.split(address).length - 1 : 0,
+        summary: pageEl?.querySelector('.insp-summary')?.textContent.trim() ?? '',
+        meter: pageEl?.querySelector('.insp-meter')?.getAttribute('aria-label') ?? '',
+        plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}/.test(text),
+        code: document.getElementById('nav-code')?.textContent ?? '',
+        overflow: document.documentElement.scrollWidth > innerWidth };
+      await a.navigator.select('home');
+      a.navigator.dock();
+      a.popup.close();
+      return out;
+    }, 'hogan_store');
+    check(`${label}: Inspect's front page shows a building without a record on its fallback, in M7's order, every line dotted (T-2638)`,
+      inspectFallback.source === 'fallback' && inspectFallback.code === 'SCR 03 · INSPECT'
+      && inspectFallback.order.indexOf('insp-name') > inspectFallback.order.indexOf('insp-address')
+      && inspectFallback.order.indexOf('insp-summary') > inspectFallback.order.indexOf('insp-name')
+      && inspectFallback.order.indexOf('insp-meter') > inspectFallback.order.indexOf('insp-summary')
+      && inspectFallback.lines > 0 && inspectFallback.undotted.length === 0
+      && inspectFallback.addressTimes === 1 && !inspectFallback.plumbing && !inspectFallback.overflow
+      && /\d+ facts/.test(inspectFallback.meter),
+      JSON.stringify(inspectFallback).slice(0, 600));
+
     // The position's argument, on the line that shows the position. Three of the
     // eight placements are derived from bank geometry because no corner survives;
     // the card showed the conclusion and hid the reasoning behind nothing.
@@ -9367,6 +9420,35 @@ for (const [label, viewport, touch] of [
       rayPick === 'sauganash_hotel', `got ${rayPick}`);
 
     await page.evaluate(() => window.__chicago4d.popup.close());
+
+    // T-2627 (§10): the reticle resting on the Sauganash (26 m) shows the target tag — its
+    // name and distance — after the 400 ms dwell, with the quick column's Inspect key; a
+    // tap on the tag opens it. Polled on a clock: the probe answers from the render loop.
+    const tagShown = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.target.invalidate();
+      const tag = document.getElementById('target-tag');
+      for (let i = 0; i < 150 && tag.hidden; i++) await new Promise((r) => setTimeout(r, 100));
+      const quick = [...document.querySelectorAll('#quick-column > button')];
+      return { shown: !tag.hidden, text: tag.textContent, upper: getComputedStyle(tag).textTransform,
+        current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+    });
+    check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
+      tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text) && tagShown.upper === 'uppercase'
+      && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
+      JSON.stringify(tagShown));
+    if (tagShown.shown) {
+      await clickChrome('#target-tag');
+      const tagOpened = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        for (let i = 0; i < 30 && !api.popup.openId; i++) await new Promise((r) => setTimeout(r, 100));
+        const out = { open: api.popup.openId ?? null, detent: api.navigator?.detent ?? null };
+        api.popup.close();
+        return out;
+      });
+      check(`${label}: a tap on the target tag opens Inspect on that building (T-2627)`,
+        tagOpened.open === 'sauganash_hotel', JSON.stringify(tagOpened));
+    }
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -10382,9 +10464,8 @@ for (const [label, viewport, touch] of [
     const chrome = await page.evaluate(() => ({
       gateHidden: document.getElementById('gate').hasAttribute('hidden'),
       hudShown: !document.getElementById('hud').hasAttribute('hidden'),
-      controlHelpShown: !document.getElementById('control-help').hasAttribute('hidden'),
-      desktopHelpShown: getComputedStyle(document.getElementById('control-help-desktop')).display !== 'none',
-      touchHelpShown: getComputedStyle(document.getElementById('control-help-touch')).display !== 'none',
+      // T-2661: the control-help popover is gone; Guide in the Navigator has the controls.
+      controlHelpGone: document.getElementById('control-help') === null,
       overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       lookTag: !document.getElementById('look-tag').hidden,
       locked: !!document.pointerLockElement,
@@ -10397,20 +10478,37 @@ for (const [label, viewport, touch] of [
     check(`${label}: tap-to-start reveals the walkthrough`,
       chrome.gateHidden && chrome.hudShown,
       `gate hidden ${chrome.gateHidden}, hud shown ${chrome.hudShown}`);
-    check(`${label}: first entry shows the navigation guide for the active input mode`,
-      chrome.controlHelpShown
-      && (touch ? chrome.touchHelpShown && !chrome.desktopHelpShown
-        : chrome.desktopHelpShown && !chrome.touchHelpShown),
-      JSON.stringify(chrome));
+    // ---- T-2661: Guide's controls sheet replaces the control-help popover ----------
+    // First entry puts no popover over the town; Guide in the Navigator shows the
+    // controls for the input in use — touch on the phone, keyboard on the laptop — read
+    // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
-    await timedChrome('#control-help-gotit');
-    const controlHelpDismissed = await page.evaluate(() => ({
-      hidden: document.getElementById('control-help').hasAttribute('hidden'),
-      stored: localStorage.getItem('chicago4d.controlHelpDismissed'),
-    }));
-    check(`${label}: the navigation guide dismisses and remembers the choice`,
-      controlHelpDismissed.hidden && controlHelpDismissed.stored === '1',
-      JSON.stringify(controlHelpDismissed));
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const guide = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const sheet = document.querySelector('#nav-app-guide #guide-controls');
+      const list = sheet?.querySelector('dl');
+      const box = sheet?.getBoundingClientRect();
+      const out = { gone: document.getElementById('control-help') === null, app: api.navigator.app, detent: api.navigator.detent,
+        backend: api.controlBackend, scheme: sheet?.dataset.scheme ?? null, rows: list?.querySelectorAll('dt').length ?? 0,
+        keys: list?.querySelectorAll('kbd').length ?? 0, text: (sheet?.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 160),
+        inView: !!box && box.width > 0 && box.left >= -1 && box.right <= innerWidth + 1,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(sheet?.textContent ?? '') };
+      // Put the device back as it was found: Home its app, docked. The dock remembers its
+      // last app, and T-2619's checks in part 13 expect it to open on Home.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: first entry puts no control-help popover over the town; Guide's sheet shows the ${touch ? 'touch' : 'keyboard'} controls in use (T-2661)`,
+      chrome.controlHelpGone && guide.gone && guide.app === 'guide' && guide.detent !== 'dock' && guide.detent !== 'rail'
+      && guide.scheme === (touch ? 'touch' : 'keyboard') && guide.rows >= 6
+      && (touch ? guide.keys === 0 && /left thumb/i.test(guide.text) : guide.keys >= 10 && guide.backend === 'pointerlock')
+      && guide.inView && guide.overflow && !guide.snake,
+      JSON.stringify({ chrome, guide }));
+    // ---- end T-2661 (part 6)
 
     // --- the confidence menu takes its own clicks (T-0108) -------------------
     //
@@ -10649,8 +10747,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: compass shows the live heading`,
       nav.compassShown && nav.east.direction === 'E' && nav.east.bearing === '090°',
       `${nav.east.direction} ${nav.east.bearing}`);
+    // T-2626: the inset is the round instrument's face, a fixed square — 112 px on a
+    // desktop, 92 px on a phone — at the T-1142 scale (asserted below).
+    const frame = touch ? { w: 92, h: 92 } : { w: 112, h: 112 };
     check(`${label}: the overview map is shown, captioned and read in imperial`,
-      nav.mapShown && nav.mapSize[0] >= 188 && nav.mapSize[1] >= 76
+      nav.mapShown && nav.mapSize[0] >= frame.w && nav.mapSize[1] >= frame.h
       && nav.east.snapshot.bounds.eMax - nav.east.snapshot.bounds.eMin > 1900
       && nav.mapCaption === 'map' && nav.units === 'imperial'
       && /feet|ft/.test(nav.mapAria ?? ''),
@@ -10666,7 +10767,6 @@ for (const [label, viewport, touch] of [
     // an edit that re-derives the height from `bounds` fails HERE rather than
     // shipping — which matters because T-0466 widens the field to four
     // kilometres and would walk the whole fault back in.
-    const frame = touch ? { w: 188, h: 76 } : { w: 248, h: 98 };
     check(`${label}: the overview inset is a fixed ${frame.w}x${frame.h} frame, not the field's shape`,
       Math.abs(nav.mapBox.w - frame.w) <= 1 && Math.abs(nav.mapBox.h - frame.h) <= 1,
       `inset ${nav.mapBox.w}x${nav.mapBox.h} css px (expected ${frame.w}x${frame.h}), `
@@ -10818,47 +10918,141 @@ for (const [label, viewport, touch] of [
     // now lives. Opened through the real control with a real hit test, because
     // the opener is a transparent button laid over the inset and "covered by
     // something else" is exactly how that fails.
+    // T-2654: the whole field lives in the Navigator now — its Map app, opened by the round
+    // instrument (and M). It is where "renders the whole heightfield" is asserted: inked,
+    // fitted to the field's own shape, its size said in the visitor's units. A tap on a
+    // building previews it and Go travels there by the getting-there style.
     await clickChrome('#overview-open');
-    const pop = await page.evaluate(() => {
+    const pop = await page.evaluate(async () => {
       const api = window.__chicago4d;
-      const el = document.getElementById('overview-full');
-      const c = document.getElementById('overview-full-canvas');
-      const box = c.getBoundingClientRect();
-      const p = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
-      let ink = 0;
-      for (let i = 3; i < p.length; i += 404) if (p[i] > 0) ink++;
-      return {
-        open: !el.hasAttribute('hidden'),
-        apiOpen: api.navigation.fullOpen,
-        w: Math.round(box.width),
-        h: Math.round(box.height),
-        onScreen: box.width > 0 && box.height > 0
-          && box.top >= -1 && box.bottom <= window.innerHeight + 1,
-        ink,
-        foot: document.getElementById('overview-full-foot')?.textContent?.trim() ?? '',
-        focus: document.activeElement?.id ?? '',
+      const n = api.navigator;
+      const el = () => document.getElementById('nav-app-map');
+      for (let i = 0; i < 80 && !(n.app === 'map' && el()?.querySelector('canvas')?.getBoundingClientRect().width > 0 && el()?._mapApi); i++) {
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      // A phone opens Map at FULL; the sheet grows over 280 ms of (slow) frames, and the map
+      // re-fits as it does. Read it once the sheet has settled: the same box twice running.
+      let settled = '';
+      for (let i = 0; i < 60; i++) {
+        el()?._mapApi?.paint();
+        const b = el()?.querySelector('canvas')?.getBoundingClientRect();
+        const nb = document.getElementById('navigator')?.getBoundingClientRect();
+        const now = b && nb ? [b.top, b.width, b.height, nb.top, nb.height].map(Math.round).join(',') : '';
+        if (now && now === settled) break;
+        settled = now;
+        await new Promise((r) => setTimeout(r, 250));
+      }
+      const read = () => {
+        el()?._mapApi?.paint();
+        const c = el()?.querySelector('canvas');
+        const box = c?.getBoundingClientRect() ?? { width: 0, height: 0, top: 0, bottom: 0 };
+        let ink = 0;
+        if (c?.width) {
+          const p = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+          for (let i = 3; i < p.length; i += 404) if (p[i] > 0) ink++;
+        }
+        return { w: Math.round(box.width), h: Math.round(box.height), ink,
+          onScreen: box.width > 0 && box.height > 0 && box.top >= -1 && box.bottom <= window.innerHeight + 1,
+          foot: el()?.querySelector('.nav-map-foot')?.textContent?.trim() ?? '' };
       };
+      const near = { zoom: el()?._mapApi?.zoom, ...read() };
+      el()?._mapApi?.setZoom('field');
+      const whole = { zoom: el()?._mapApi?.zoom, ...read() };
+      el()?._mapApi?.setZoom('near');
+      return { app: n.app, detent: n.detent, fullOpen: api.navigation.fullOpen, near, whole };
     });
     const fieldAspect = (win.b.nMax - win.b.nMin) / (win.b.eMax - win.b.eMin);
-    check(`${label}: the pop-out renders the whole heightfield`,
-      pop.open && pop.apiOpen && pop.ink > 0 && pop.onScreen
-      && Math.abs(pop.h / pop.w - fieldAspect) < 0.05
+    check(`${label}: the round instrument opens the Navigator's Map, close up and the whole field (T-2654)`,
+      pop.app === 'map' && pop.detent === (touch ? 'full' : 'open') && !pop.fullOpen
+      && pop.near.zoom === 'near' && pop.near.ink > 0 && pop.near.onScreen
+      && pop.whole.zoom === 'field' && pop.whole.ink > 0 && pop.whole.onScreen
+      && Math.abs(pop.whole.h / Math.max(1, pop.whole.w) - fieldAspect) < 0.05
       // The foot says how far across the field is, in the visitor's own units —
-      // `formatDistance` abbreviates, so this reads the abbreviations it emits
-      // rather than the words it does not ("1.3 mi", not "1.3 miles").
-      && /\b(ft|feet|yd|mi|miles?)\b/.test(pop.foot),
-      `${pop.w}x${pop.h} px, aspect ${(pop.h / pop.w).toFixed(3)} against the field's `
-      + `${fieldAspect.toFixed(3)}, ${pop.ink} inked samples, foot ${JSON.stringify(pop.foot)}`);
-    await page.keyboard.press('Escape');
-    const shut = await page.evaluate(() => ({
-      hidden: document.getElementById('overview-full').hasAttribute('hidden'),
-      apiOpen: window.__chicago4d.navigation.fullOpen,
-      focus: document.activeElement?.id ?? '',
-    }));
-    check(`${label}: Escape puts the pop-out away and hands focus back to the map`,
-      shut.hidden && !shut.apiOpen && shut.focus === 'overview-open',
-      `hidden ${shut.hidden}, api ${shut.apiOpen}, focus ${JSON.stringify(shut.focus)} `
-      + `(was ${JSON.stringify(pop.focus)} while open)`);
+      // `formatDistance` abbreviates, so this reads the abbreviations it emits.
+      && /\b(ft|feet|yd|mi|miles?)\b/.test(pop.whole.foot),
+      `${JSON.stringify(pop)}; whole-field aspect ${(pop.whole.h / Math.max(1, pop.whole.w)).toFixed(3)} against the field's ${fieldAspect.toFixed(3)}`);
+    // Tap a building on the close-up: the preview names it; Go travels there.
+    const mapGo = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const el = document.getElementById('nav-app-map');
+      const m = el?._mapApi;
+      const c = el?.querySelector('canvas');
+      if (!m || !c) return { missing: 'map' };
+      m.paint();
+      const v = m.view, { k } = m.size, p = api.player;
+      const centre = (r) => { let e = 0, n = 0; for (const [x, y] of r) { e += x; n += y; } return [e / r.length, n / r.length]; };
+      const pickable = api.navigation.outlines.map((r) => ({ r, c: centre(r) }))
+        .filter(({ r, c: [e, n] }) => r.id && api.registry.get(r.id)
+          && e > v.eMin + 10 && e < v.eMax - 10 && n > v.nMin + 10 && n < v.nMax - 10
+          && Math.hypot(e - p.e, n - p.n) >= 40)
+        .sort((a, b) => Math.hypot(a.c[0] - p.e, a.c[1] - p.n) - Math.hypot(b.c[0] - p.e, b.c[1] - p.n));
+      const chosen = pickable[0];
+      if (!chosen) return { missing: 'a building on the close-up' };
+      const [ce, cn] = chosen.c;
+      const b = c.getBoundingClientRect();
+      c.dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: b.left + (ce - v.eMin) * k, clientY: b.top + (v.nMax - cn) * k }));
+      const preview = el.querySelector('.nav-map-preview');
+      const sel = m.selected;
+      const ring = api.navigation.outlines.find((r) => r.id === sel);
+      const sc = ring ? centre(ring) : [ce, cn];
+      return { chosen: chosen.r.id, selected: sel, shown: !preview.hidden, name: preview.querySelector('.nav-place')?.textContent ?? '',
+        sub: preview.querySelector('.nav-sub')?.textContent ?? '', centre: sc, before: Math.round(Math.hypot(sc[0] - p.e, sc[1] - p.n)) };
+    });
+    if (mapGo.shown) await clickChrome('#nav-app-map .nav-map-go');
+    const went = await page.evaluate(async (centre) => {
+      const api = window.__chicago4d;
+      await new Promise((r) => setTimeout(r, 400));
+      const t = api.travel.state;
+      const out = { phase: t.phase, dest: t.dest_id, after: centre ? Math.round(Math.hypot(api.player.e - centre[0], api.player.n - centre[1])) : null,
+        detent: api.navigator.detent };
+      api.travel.stop?.('smoke');
+      api.navigator.dock();
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 });
+      api.step();
+      return out;
+    }, mapGo.centre ?? null);
+    check(`${label}: a tap on a building in the Map previews it, and Go travels there (T-2654)`,
+      !!mapGo.selected && mapGo.shown && mapGo.name.length > 0 && !/_/.test(mapGo.name) && /(ft|yd|mi|m) away$/.test(mapGo.sub)
+      && (went.dest === mapGo.selected || (went.after !== null && went.after <= mapGo.before - 20)),
+      JSON.stringify({ mapGo, went }));
+    // T-2626 (§10): the compass and the map are one round instrument at the top right,
+    // its heading the camera's own; the amber year chip at the top left opens Jump.
+    const instrument = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 274 });
+      api.step();
+      const face = document.getElementById('overview-map').getBoundingClientRect();
+      const chip = document.getElementById('year-badge').getBoundingClientRect();
+      const out = {
+        round: getComputedStyle(document.getElementById('overview-map')).borderTopLeftRadius,
+        face: { w: Math.round(face.width), h: Math.round(face.height), right: Math.round(innerWidth - face.right), top: Math.round(face.top) },
+        bearing: document.getElementById('compass-bearing')?.textContent,
+        needle: document.getElementById('compass-needle')?.style.transform,
+        yaw: Math.round(((api.player.bearingDeg % 360) + 360) % 360),
+        chip: { left: Math.round(chip.left), top: Math.round(chip.top), year: document.querySelector('#year-badge .badge-year')?.textContent,
+          date: document.querySelector('#year-badge .badge-sub')?.textContent, tag: document.getElementById('year-badge').tagName },
+      };
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 });
+      api.step();
+      return out;
+    });
+    check(`${label}: the compass and the map are one round instrument at the top right, heading the camera's own (T-2626)`,
+      instrument.round === '50%' && Math.abs(instrument.face.w - instrument.face.h) <= 1 && instrument.face.right <= 24 && instrument.face.top < 200
+      && instrument.yaw === 274 && instrument.bearing === '274°' && instrument.needle === 'rotate(274deg)',
+      JSON.stringify(instrument));
+    await clickChrome('#year-badge');
+    const jumpOpen = await page.evaluate(async () => {
+      const n = window.__chicago4d.navigator;
+      for (let i = 0; i < 40 && n.app !== 'jump'; i++) await new Promise((r) => setTimeout(r, 100));
+      const out = { app: n.app, level: n.level };
+      await n.select('home'); n.dock();
+      return out;
+    });
+    check(`${label}: the amber year chip sits top left, reads 1835 · 07.01 and opens Jump (T-2626)`,
+      instrument.chip.tag === 'BUTTON' && instrument.chip.left <= 24 && instrument.chip.top < 80
+      && /^\d{4}$/.test(instrument.chip.year ?? '') && /^\d\d\.\d\d$/.test(instrument.chip.date ?? '')
+      && jumpOpen.app === 'jump' && jumpOpen.level > 0,
+      JSON.stringify({ chip: instrument.chip, jumpOpen }));
     // And the settings toggle owns BOTH of them: a pop-out standing over a map
     // the visitor has switched off is the setting not being obeyed.
     const offWhileHidden = await page.evaluate(() => {
@@ -13129,15 +13323,28 @@ for (const [label, viewport, touch] of [
     // control junction must have a button; a real search must narrow both kinds.
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
+    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator.
     await clickChrome('#s-show-control-help');
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'guide'
+      && !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
     const reopenedGuide = await page.evaluate(() => ({
-      shown: !document.getElementById('control-help').hasAttribute('hidden'),
+      app: window.__chicago4d.navigator.app,
+      detent: window.__chicago4d.navigator.detent,
+      scheme: document.querySelector('#nav-app-guide #guide-controls')?.dataset.scheme ?? null,
+      backend: window.__chicago4d.controlBackend,
+      label: document.getElementById('s-show-control-help')?.textContent.trim(),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
     }));
-    check(`${label}: Settings can reopen the dismissed navigation guide`,
-      reopenedGuide.shown && reopenedGuide.panelHidden,
+    check(`${label}: Settings' Show the controls opens Guide's controls sheet in the Navigator (T-2661)`,
+      reopenedGuide.app === 'guide' && reopenedGuide.detent !== 'dock' && reopenedGuide.detent !== 'rail'
+      // By now a key the smoke pressed may have handed even the phone to the keyboard:
+      // the sheet follows the controls that are live, so it is read against those.
+      && reopenedGuide.scheme === (reopenedGuide.backend === 'touch' ? 'touch' : 'keyboard')
+      && reopenedGuide.label === 'Show the controls' && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await clickChrome('#control-help-close');
+    // Back as it was found: Home, docked (T-2619's dock opens on its last app).
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+    // ---- end T-2661 (part 12)
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
@@ -13441,13 +13648,19 @@ for (const [label, viewport, touch] of [
       api.hud.goTo.setKind('all');
       input.value = '';
       input.dispatchEvent(new Event('input', { bubbles: true }));
-      const toggle = document.getElementById('jump-reconstructed');
-      const setToggle = (on) => {
-        if (toggle.checked === on) return;
-        toggle.checked = on;
-        toggle.dispatchEvent(new Event('change', { bubbles: true }));
-      };
+      // ---- T-2633: Go to follows the Confidence view. The checkbox is gone; "off" is now
+      // Reconstructed hidden in the Confidence view, which lists those roofs dimmed with a
+      // reason, and "on" is nothing hidden, the default. The claims below are restated on
+      // the rows a visitor reads as live (not dimmed), never weakened.
+      const noCheckbox = !document.getElementById('jump-reconstructed');
+      const setToggle = (on) => api.hud.setHidden('reconstructed', !on, { announce: false });
+      const liveRows = () => structRows().filter((r) => !r.dataset.jumpHidden);
       setToggle(false);
+      const dimmedRows = structRows().filter((r) => r.dataset.jumpHidden === 'true');
+      const dimmed = { rows: dimmedRows.length, grades: [...new Set(dimmedRows.map((r) => r.dataset.jumpConfidence))],
+        why: dimmedRows.every((r) => /^Reconstructed is hidden in the Confidence view/.test(r.querySelector('.jump-why')?.textContent ?? '')),
+        listed: structRows().length };
+      // ---- end T-2633 (setup)
       // The registry's own tallies, counted here and not read off the app.
       const tally = { attested: 0, inferred: 0, reconstructed: 0 };
       const posTally = { attested: 0, inferred: 0, reconstructed: 0 };
@@ -13469,13 +13682,13 @@ for (const [label, viewport, touch] of [
       };
       const rows = rowsNow();
       const dflt = {
-        structures: structRows().length,
+        structures: liveRows().length,
         anchors: rows.filter((r) => r.dataset.jumpKind === 'anchor').length,
         intersections: rows.filter((r) => r.dataset.jumpKind === 'intersection').length,
         chippedNonStructures: rows.filter((r) => r.dataset.jumpKind !== 'structure'
           && r.querySelector('.conf')).length,
         // Only the two grades that stood here should be chipped before the toggle.
-        chipGrades: [...new Set(structRows().map((r) => r.querySelector('.conf')?.textContent.trim()))],
+        chipGrades: [...new Set(liveRows().map((r) => r.querySelector('.conf')?.textContent.trim()))],
         note: document.getElementById('jump-note')?.textContent ?? '',
         colours: {
           attested: colourOf('attested'),
@@ -13504,10 +13717,12 @@ for (const [label, viewport, touch] of [
       }
       const on = {
         structures: structRows().length,
+        dimmedAfter: structRows().filter((r) => r.dataset.jumpHidden).length,
         note: document.getElementById('jump-note')?.textContent ?? '',
         colours: { reconstructed: colourOf('reconstructed') },
       };
-      setToggle(false);
+      // T-2633: leave the Confidence view as a visitor finds it, nothing hidden.
+      setToggle(true);
       const all = {
         anchors: dflt.anchors,
         structures: dflt.structures,
@@ -13526,22 +13741,27 @@ for (const [label, viewport, touch] of [
         .map((b) => ({ id: b.dataset.jumpId, kind: b.dataset.jumpKind, text: b.textContent }));
       return { all, filtered, graded, mismatched, tally, posTally, nonReconstructed,
         dflt: { structures: dflt.structures, chipGrades: dflt.chipGrades, note: dflt.note },
-        on: { structures: on.structures, note: on.note }, colours, stored:
-          JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').gotoReconstructed };
+        on: { structures: on.structures, note: on.note, dimmedAfter: on.dimmedAfter }, colours, dimmed, noCheckbox };
     });
     // Was "jump menu includes every loaded structure" (=== registry.size). The
     // list now hides presence-reconstructed roofs by default, so the claim is
     // taken in both states: exactly the non-reconstructed records by default,
     // exactly the registry with the toggle on — and the toggle's own state is
     // persisted where the visitor's settings live.
-    check(`${label}: jump menu lists every structure that stood here, and every roof once asked`,
+    // ---- T-2633: restated for the Confidence view. With Reconstructed hidden, exactly the
+    // non-reconstructed records read live and every reconstructed one is listed dimmed with
+    // its reason; with nothing hidden, every roof reads live; and the checkbox is gone.
+    check(`${label}: jump menu lists every structure that stood here, and every roof dimmed while the Confidence view hides Reconstructed (T-2633)`,
       jumps.dflt.structures === jumps.nonReconstructed && jumps.nonReconstructed > 70
-      && jumps.on.structures === jumps.all.loaded && jumps.all.loaded > jumps.nonReconstructed
+      && jumps.dimmed.rows === jumps.tally.reconstructed && jumps.dimmed.listed === jumps.all.loaded
+      && jumps.dimmed.grades.every((g) => g === 'reconstructed') && jumps.dimmed.why
+      && jumps.on.structures === jumps.all.loaded && jumps.on.dimmedAfter === 0 && jumps.all.loaded > jumps.nonReconstructed
       && jumps.dflt.chipGrades.every((g) => g === 'attested' || g === 'inferred')
-      && jumps.stored === false,
-      `${jumps.dflt.structures} listed of ${jumps.nonReconstructed} non-reconstructed by default `
-      + `(chips ${jumps.dflt.chipGrades.join('/')}); ${jumps.on.structures} of ${jumps.all.loaded} `
-      + `loaded with the toggle on; stored gotoReconstructed ${jumps.stored}`);
+      && jumps.noCheckbox,
+      `${jumps.dflt.structures} live of ${jumps.nonReconstructed} non-reconstructed with Reconstructed hidden `
+      + `(chips ${jumps.dflt.chipGrades.join('/')}; dimmed ${JSON.stringify(jumps.dimmed)}); ${jumps.on.structures} of ${jumps.all.loaded} `
+      + `live with nothing hidden (${jumps.on.dimmedAfter} dimmed); checkbox gone ${jumps.noCheckbox}`);
+    // ---- end T-2633 (the list)
     // Against the compiled list, NOT against a literal. This assertion read
     // `=== 4` until T-0245 committed a fifth control point on South Water at
     // Franklin and turned a correct menu into a red gate — the same fault the
@@ -13585,13 +13805,12 @@ for (const [label, viewport, touch] of [
     // 288 reconstructed." — every figure against the registry tally computed
     // above, in both toggle states.
     check(`${label}: the tab counts its own list rather than quoting a written total`,
-      jumps.dflt.note.includes(`${jumps.nonReconstructed} of ${jumps.all.loaded} structures`)
-      && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are hidden`)
+      // T-2633: the note says what the Confidence view is dimming, with the same tallies.
+      jumps.dflt.note.includes(`${jumps.all.loaded} structures — the reconstructed ones are dimmed, because the Confidence view is hiding them`)
       && jumps.dflt.note.includes(`${jumps.tally.attested} are attested`)
       && jumps.dflt.note.includes(`${jumps.tally.inferred} inferred`)
       && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed`)
-      && jumps.on.note.includes(`${jumps.all.loaded} of ${jumps.all.loaded} structures`)
-      && jumps.on.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are showing`),
+      && jumps.on.note.includes(`${jumps.all.loaded} structures — every one listed`),
       `${jumps.dflt.note} / ${jumps.on.note} / ${JSON.stringify(jumps.tally)}`);
     check(`${label}: jump search finds an intersection by both street names`,
       jumps.filtered.some((r) => r.id === 'randolph_canal' && r.kind === 'intersection'),
@@ -13707,7 +13926,7 @@ for (const [label, viewport, touch] of [
       };
       // Back to All, every roof shown so every structure row is judged.
       api.hud.goTo.setKind('all');
-      api.hud.goTo.setIncludeReconstructed(true);
+      api.hud.setHidden('reconstructed', false, { announce: false }); // T-2633: every roof live
       const all = rows();
       const headingFor = (row) => {
         let el = row.previousElementSibling;
@@ -13733,7 +13952,6 @@ for (const [label, viewport, touch] of [
         dishonest: all.filter(r => !located(r) && (r.querySelector('.jump-dist')?.textContent.trim()
           || r.querySelector('.jump-dist')?.dataset.m || !targetFor(r)?.limit)).length,
       };
-      api.hud.goTo.setIncludeReconstructed(false);
       // Stand 100 m due east of the Sauganash, then 200 m: the row's metres
       // follow the visitor by ≈100 and the compass says west both times.
       const sp = api.structurePosition('sauganash_hotel');
@@ -14482,7 +14700,7 @@ for (const [label, viewport, touch] of [
       && biz.counts.file === biz.counts.stated && biz.counts.stated > 150
       && biz.counts.rows === biz.counts.stated
       && new RegExp(`^${biz.counts.stated} firms`).test(biz.counts.countText)
-      && biz.counts.title === 'Businesses',
+      && biz.counts.title === 'Shops & work',
       JSON.stringify(biz.counts));
     check(`${label}: searching a good the papers advertised finds the houses that sold it`,
       biz.search.matched > 0 && biz.search.matched < biz.counts.stated
@@ -14754,7 +14972,7 @@ for (const [label, viewport, touch] of [
       return out;
     });
     check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
-      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 11
+      hub.hubShown && hub.title === 'Sources' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
       && hub.tiles[2]?.id === 'sources'
       && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
@@ -14905,7 +15123,7 @@ for (const [label, viewport, touch] of [
       && hub.cleared === hub.topic.total,
       JSON.stringify(hub.topic));
     check(`${label}: Back returns to the hub`,
-      hub.back.hubShown && hub.back.title === 'Evidence' && hub.back.topic === null && hub.back.backHidden,
+      hub.back.hubShown && hub.back.title === 'Sources' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
@@ -14954,6 +15172,24 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator rides docked in the town`,
       ['dock', 'rail'].includes(navDocked.detent) && navDocked.box && navDocked.box.h > 0 && navDocked.box.bottom <= navDocked.innerHeight,
       JSON.stringify(navDocked));
+    // T-2619: closed, the device always shows its lamp, its label, the year and the icon of
+    // the app it opens to; on a phone it is a pill at the bottom centre that keeps the
+    // bottom-left corner a resting left thumb walks from clear (JOYSTICK_CLEAR_PX, 124 px).
+    const navDock = await page.evaluate((isTouch) => {
+      const nav = document.getElementById('navigator');
+      const seen = (el) => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+        return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+      const b = nav.getBoundingClientRect();
+      const icon = isTouch ? document.querySelector('#nav-dock-app svg') : nav.querySelector('.nav-rail .nav-app.is-on svg');
+      return { left: Math.round(b.left), right: Math.round(innerWidth - b.right), height: Math.round(b.height),
+        lamp: seen(nav.querySelector('.nav-lamp')), label: seen(nav.querySelector('.nav-label')) ? nav.querySelector('.nav-label').textContent : null,
+        year: seen(document.getElementById('nav-dock-year')) ? document.getElementById('nav-dock-year').textContent : null,
+        icon: seen(icon), app: window.__chicago4d.navigator?.snapshot?.().dock?.app ?? null };
+    }, touch);
+    check(`${label}: the closed Navigator shows its lamp, its label, the year and the app it opens to`,
+      navDock.lamp && /^NAVIGATOR/.test(navDock.label ?? '') && /^\d{4}$/.test(navDock.year ?? '') && navDock.icon && navDock.app === 'home'
+      && (!touch || (navDock.height === 64 && navDock.left >= 124 && navDock.right >= 124)),
+      JSON.stringify(navDock));
     await clickChrome(touch ? '#nav-grip' : '#nav-collapse');
     const navHome = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -14975,12 +15211,278 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator opens by hand on Home, and Home says where you are`,
       ['half', 'open'].includes(navHome.detent) && navHome.where.length > 0 && /(am|pm)$/.test(navHome.whereDetail)
       && /^facing /.test(navHome.whereDetail) && navHome.move.length > 0 && ['On', 'Off'].includes(navHome.confidence)
-      && navHome.focus === 'nav-home-title' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
+      // T-2622: focus moves onto Home's screen (it shows its ring; the heading is hidden).
+      && navHome.focus === 'nav-home' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
       JSON.stringify(navHome));
     check(`${label}: the Navigator's rail holds ten apps at most, Home first and Settings last, and Jump opens and closes (T-2618)`,
       navHome.rail.length <= 10 && navHome.rail[0] === 'home' && navHome.rail[1] === 'jaunts' && navHome.rail.at(-1) === 'settings'
       && navHome.rail.at(-2) === 'guide' && /^SCR 08 · JUMP$/.test(navHome.jumpCode) && navHome.jumpRecall && /^SCR 01 · HOME$/.test(navHome.homeCode),
       JSON.stringify({ rail: navHome.rail, jumpCode: navHome.jumpCode, jumpRecall: navHome.jumpRecall, homeCode: navHome.homeCode }));
+    // T-2619: one tap on the closed device opens the LAST app it showed, at HALF on a phone.
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('jump'); n.dock(); });
+    await clickChrome(touch ? '#nav-grip' : '#nav-head');
+    const navLast = await page.evaluate(async () => {
+      const n = window.__chicago4d.navigator;
+      const out = { detent: n.detent, app: n.app, dockApp: n.snapshot().dock?.app ?? null };
+      await n.select('home'); n.dock();
+      out.after = n.snapshot().dock?.app ?? null;
+      return out;
+    });
+    check(`${label}: one tap on the closed Navigator opens the last app${touch ? ' at HALF' : ''}`,
+      navLast.detent === (touch ? 'half' : 'open') && navLast.app === 'jump' && navLast.dockApp === 'jump' && navLast.after === 'home',
+      JSON.stringify(navLast));
+
+    // --- the Navigator by keyboard (T-2622, QA-19 first half) --------------------
+    // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
+    // device opens and closes by keyboard alone: N opens it with focus inside and visible,
+    // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
+    // one, Escape closes it and leaves focus, visibly, on the grip.
+    await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
+    const visibleFocus = () => page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return { id: null, visible: false };
+      const cs = getComputedStyle(el);
+      return { id: el.id || el.dataset?.app || el.tagName, inNav: !!el.closest('#navigator'),
+        visible: el.matches(':focus-visible') && cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0 };
+    });
+    const aria = await page.evaluate(() => {
+      const list = document.querySelector('#nav-rail [role="tablist"]');
+      const tabs = [...(list?.querySelectorAll('[role="tab"]') ?? [])].filter((b) => !b.hidden);
+      return { list: !!list, label: list?.getAttribute('aria-label') ?? '', tabs: tabs.length,
+        labelled: tabs.every((b) => (b.getAttribute('aria-label') ?? b.textContent).trim().length > 0),
+        selected: tabs.filter((b) => b.getAttribute('aria-selected') === 'true').length,
+        stray: [...(list?.children ?? [])].filter((c) => c.getAttribute('role') !== 'tab').length,
+        panels: [...document.querySelectorAll('#navigator [role="tabpanel"]')].every((p) => !!(p.getAttribute('aria-labelledby') || p.getAttribute('aria-label'))) };
+    });
+    await page.keyboard.press('n');
+    await page.waitForTimeout(350);
+    const keyOpen = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    const order = await page.evaluate(() => window.__chicago4d.navigator.apps);
+    const jumpAt = order.indexOf('jump') + 1;
+    if (jumpAt >= 1 && jumpAt <= 9) await page.keyboard.press(String(jumpAt));
+    await page.waitForTimeout(500);
+    const keyJump = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.evaluate(() => document.querySelector('#nav-rail [role="tab"][aria-selected="true"]')?.focus());
+    await page.keyboard.press('Home');
+    const tabHome = await page.evaluate(() => document.activeElement?.dataset?.app ?? null);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(400);
+    const keyHome = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(350);
+    const keyShut = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    check(`${label}: the Navigator's rail is a tablist of labelled tabs, and the device opens, switches and closes by keyboard with focus always visible (T-2622)`,
+      aria.list && aria.label === 'Navigator apps' && aria.tabs >= 2 && aria.labelled && aria.selected === 1 && aria.stray === 0 && aria.panels
+      && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
+      && keyJump.app === 'jump' && keyJump.focus.id === 'nav-app-jump' && keyJump.focus.visible
+      && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
+
+    // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
+    // The chip is hit-tested like any chrome. The screen shows the three destinations with
+    // HERE on this one only, and RECALL as its one signal-red key. Picking another runs
+    // the transfer ring and writes the Observatory's stamp; Escape aborts it here, so this
+    // page stays (part 15 makes a real jump and lands).
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.hud.setPanel(false); });
+    await clickChrome('#year-badge .badge-year');
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'jump'
+      && !!document.querySelector('#nav-app-jump .nav-jump'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const jumpScreen = await page.evaluate(() => {
+      const el = document.getElementById('nav-app-jump');
+      const cards = [...(el?.querySelectorAll('.nav-jump') ?? [])];
+      const keys = [...(el?.querySelectorAll('.nav-key') ?? [])];
+      const signal = getComputedStyle(document.documentElement).getPropertyValue('--signal').trim();
+      const bg = keys[0] ? getComputedStyle(keys[0]).backgroundColor : '';
+      const probe = document.createElement('i'); probe.style.color = signal; document.body.append(probe);
+      const signalRgb = getComputedStyle(probe).color; probe.remove();
+      return { app: window.__chicago4d.navigator.app, years: cards.map((c) => c.dataset.year),
+        here: cards.filter((c) => c.getAttribute('aria-current') === 'page').map((c) => c.dataset.year),
+        hereWord: cards.filter((c) => /\bhere\b/i.test(c.textContent)).length,
+        keys: keys.length, recall: keys[0]?.getAttribute('href') ?? null, red: !!bg && bg === signalRgb,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(el?.textContent ?? '') };
+    });
+    const other = jumpScreen.years.find((y) => y !== String(YEAR));
+    if (other) await page.evaluate((y) => document.querySelector(`#nav-app-jump .nav-jump[data-year="${y}"]`)?.click(), other);
+    const ring = await page.evaluate(() => ({ ring: !!document.querySelector('.nav-jump-ring'),
+      label: document.querySelector('.nav-jump-ring-label')?.textContent ?? '',
+      stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 }));
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(150);
+    const aborted = await page.evaluate(() => ({ ring: !!document.querySelector('.nav-jump-ring'), href: location.href,
+      stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 }));
+    await page.waitForTimeout(1300);
+    const stayed = await page.evaluate(() => location.href);
+    await page.evaluate(() => window.__chicago4d.navigator.dock());
+    check(`${label}: the year chip opens Jump — three era cards, HERE on this one, RECALL the one signal-red key; a pick runs the ring and Escape aborts it, leaving no transfer stamp (T-2655)`,
+      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812' && jumpScreen.here.join() === String(YEAR)
+      && jumpScreen.hereWord === 1 && jumpScreen.keys === 1 && jumpScreen.recall === '../' && jumpScreen.red && !jumpScreen.snake
+      // The stamp is written as the page leaves, not as the ring starts (44450de1), so a
+      // ring that is aborted leaves none: part 15's real jump reads it on arrival.
+      && ring.ring && ring.label.includes(other) && !ring.stamp && !aborted.ring && stayed === aborted.href
+      && !aborted.stamp,
+      JSON.stringify({ jumpScreen, other, ring, aborted, stayed }));
+
+    // --- the Jaunts app (T-2630): Home's choices open its segments ----------------
+    // Navigator Home offers the arrival's three choices; each opens the Jaunts app on its
+    // segment (Jaunts · Go to · Free roam, a tablist). Go to is the Welcome card's own
+    // search, lent to the device; the rail opens the app too; Free roam docks it; and the
+    // card gets its list and search back, in place, when it shows again.
+    // ---- fix-home-choices-overlap: Home's three choices never draw over one another, not
+    // even while the desktop panel widens from its rail (sampled the moment it opens, every
+    // 40 ms until it settles): each choice ends before the next begins.
+    const choicesWhileOpening = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      await api.navigator.select('home');
+      api.navigator.dock();
+      await new Promise((r) => setTimeout(r, 400));
+      api.navigator.open(1);
+      const seen = [];
+      for (let i = 0; i < 12; i++) {
+        const r = [...document.querySelectorAll('#nav-home .nav-choice')].map((b) => b.getBoundingClientRect());
+        seen.push(r.map((b) => [Math.round(b.left), Math.round(b.right)]));
+        await new Promise((res) => setTimeout(res, 40));
+      }
+      api.navigator.dock();
+      return { seen, overlaps: seen.filter((row) => row.some((b, i) => i > 0 && row[i - 1][1] > b[0] + 1)).length };
+    });
+    check(`${label}: Home's three choices never draw over one another while the Navigator opens`,
+      choicesWhileOpening.overlaps === 0 && choicesWhileOpening.seen.length === 12,
+      JSON.stringify({ overlaps: choicesWhileOpening.overlaps, first: choicesWhileOpening.seen[0], last: choicesWhileOpening.seen.at(-1) }));
+    // ---- end fix-home-choices-overlap
+    await page.evaluate(() => { window.__chicago4d.hud.setPanel(false); window.__chicago4d.navigator.open(1); window.__chicago4d.navigator.select('home'); });
+    await page.waitForTimeout(400);
+    await clickChrome('#nav-home [data-segment="goto"]');
+    await page.waitForFunction(() => window.__chicago4d.jauntsApp?.current === 'goto', null, { timeout: 15_000, polling: 100 }).catch(() => {});
+    const segGoto = await page.evaluate(() => {
+      const app = document.getElementById('nav-app-jaunts');
+      const picker = document.getElementById('welcome-picker');
+      return { app: window.__chicago4d.navigator.app, choices: [...document.querySelectorAll('#nav-home [data-segment]')].map((b) => b.dataset.segment),
+        tabs: [...(app?.querySelectorAll('[role="tablist"] [role="tab"]') ?? [])].map((t) => `${t.textContent}:${t.getAttribute('aria-selected')}`),
+        pickerInApp: !!app?.contains(picker), pickerShown: !!picker?.checkVisibility?.(),
+        rows: document.querySelectorAll('#nav-app-jaunts .welcome-destination').length };
+    });
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="jaunts"]')?.click());
+    await page.waitForTimeout(600);
+    const segJaunts = await page.evaluate(() => ({ current: window.__chicago4d.jauntsApp?.current,
+      listInApp: !!document.getElementById('nav-app-jaunts')?.contains(document.getElementById('welcome-jaunts-content')) }));
+    await page.evaluate(() => window.__chicago4d.navigator.select('home'));
+    await clickChrome('#nav-rail [data-app="jaunts"]');
+    await page.waitForTimeout(400);
+    const viaRail = await page.evaluate(() => window.__chicago4d.navigator.app);
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click());
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts .nav-roam')?.click());
+    await page.waitForTimeout(400);
+    const roamed = await page.evaluate(() => window.__chicago4d.navigator.level);
+    await page.evaluate(() => window.__chicago4d.jauntsApp?.restore());
+    const restored = await page.evaluate(() => ({ list: document.getElementById('welcome-jaunts-content')?.parentElement?.id ?? null,
+      picker: document.getElementById('welcome-picker')?.parentElement?.id ?? null, pickerHidden: document.getElementById('welcome-picker')?.hidden }));
+    check(`${label}: Navigator Home's three choices open the Jaunts app on their segment; the rail opens it; Free roam docks it; the Welcome card gets its list and search back (T-2630)`,
+      segGoto.choices.join() === 'jaunts,goto,roam' && segGoto.app === 'jaunts'
+      && segGoto.tabs.join() === 'Jaunts:false,Go to:true,Free roam:false' && segGoto.pickerInApp && segGoto.pickerShown && segGoto.rows > 0
+      && segJaunts.current === 'jaunts' && segJaunts.listInApp && viaRail === 'jaunts' && roamed === 0
+      && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
+      JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
+
+    // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
+    // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
+    // row says how far and which way from where you stand.
+    const gotoClean = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      await new Promise((r) => setTimeout(r, 200));
+      const kinds = [...document.querySelectorAll('#welcome-kinds button')];
+      const shown = kinds.filter((b) => !b.hidden && b.getClientRects().length);
+      const counts = shown.map((b) => { b.click(); return [b.textContent, document.querySelectorAll('#welcome-results .welcome-destination').length]; });
+      kinds[0]?.click();
+      const rows = [...document.querySelectorAll('#welcome-results .welcome-destination:not(:disabled)')].slice(0, 12);
+      const name = rows[0]?.querySelector('strong');
+      const out = { labels: kinds.map((b) => b.textContent), shown: shown.map((b) => b.textContent), counts,
+        withDistance: rows.filter((r) => /^(here|.+ (N|NNE|NE|ENE|E|ESE|SE|SSE|S|SSW|SW|WSW|W|WNW|NW|NNW))$/.test(r.querySelector('.welcome-dist')?.textContent.trim() ?? '')).length,
+        rows: rows.length, clamp: name ? getComputedStyle(name).webkitLineClamp : null,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1 };
+      api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Go to offers All · Places · People · Shops & work · Viewpoints, no empty chip, two-line names, and each row's distance and bearing (T-2632)`,
+      gotoClean.labels.join() === 'All,Places,People,Shops & work,Viewpoints' && gotoClean.shown[0] === 'All'
+      && gotoClean.counts.every(([, n]) => n > 0) && gotoClean.rows > 0 && gotoClean.withDistance === gotoClean.rows
+      && String(gotoClean.clamp) === '2' && gotoClean.overflow,
+      JSON.stringify(gotoClean));
+    // ---- end T-2632
+    // ---- T-2633: the Navigator's Go to follows the Confidence view too: with Reconstructed
+    // hidden, a reconstructed place is listed dimmed with its one-line reason, and is
+    // itself again the moment the grade is shown.
+    const gotoConfidence = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const target = api.destinations.targets.find((t) => t.kind === 'structure' && t.presence === 'reconstructed');
+      if (!target) return { target: null };
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      const search = document.getElementById('welcome-search');
+      const read = () => {
+        const row = [...document.querySelectorAll('#welcome-results .welcome-destination')].find((r) => r.dataset.id === target.id);
+        return { listed: !!row, dimmed: !!row?.classList.contains('is-hidden-grade'), why: row?.querySelector('.welcome-why')?.textContent ?? null };
+      };
+      search.value = target.label;
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.hud.setHidden('reconstructed', true, { announce: false });
+      const hidden = read();
+      api.hud.setHidden('reconstructed', false, { announce: false });
+      const shown = read();
+      search.value = '';
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return { target: target.id, hidden, shown };
+    });
+    check(`${label}: with Reconstructed hidden, Go to lists a reconstructed place dimmed with its reason, and plain again once shown (T-2633)`,
+      !!gotoConfidence.target && gotoConfidence.hidden.listed && gotoConfidence.hidden.dimmed
+      && /^Reconstructed is hidden in the Confidence view/.test(gotoConfidence.hidden.why ?? '')
+      && gotoConfidence.shown.listed && !gotoConfidence.shown.dimmed && gotoConfidence.shown.why === null,
+      JSON.stringify(gotoConfidence));
+    // ---- end T-2633 (Navigator Go to)
+    // ---- T-2634: Free roam docks the Navigator and, once per device, says how to inspect.
+    const roamTip = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      const roam = async () => {
+        api.navigator.open(1);
+        await api.navigator.select('jaunts');
+        document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click();
+        document.querySelector('#nav-app-jaunts .nav-roam')?.click();
+        await pause(100);
+        const tip = document.getElementById('roam-tip');
+        return { level: api.navigator.level, showing: !!tip && !tip.hidden, text: tip?.textContent ?? '',
+          stored: localStorage.getItem('chicago4d.roamTipSeen'), backend: api.controlBackend };
+      };
+      api.roamTip.forget();
+      const first = await roam();
+      const box = document.getElementById('roam-tip')?.getBoundingClientRect();
+      first.inView = !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.bottom <= innerHeight;
+      api.roamTip.hide();
+      const second = await roam();
+      api.jauntsApp?.restore();
+      // Back as it was found: Home its app (the dock reopens its last app), docked.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      api.roamTip.hide();
+      return { first, second };
+    });
+    const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.';
+    check(`${label}: Free roam docks the Navigator and shows "${tipWords}" once per device (T-2634)`,
+      roamTip.first.level === 0 && roamTip.first.showing && roamTip.first.text === tipWords && roamTip.first.stored === '1' && roamTip.first.inView
+      && roamTip.second.level === 0 && !roamTip.second.showing,
+      JSON.stringify(roamTip));
+    // ---- end T-2634
 
     // T-2623: the telemetry strip at the foot of the device — FIELD, DRIFT, SIG and the RECALL
     // lamp, aria-hidden, ticking every 800 ms while the device is open and can be seen, and not
@@ -17076,10 +17578,50 @@ for (const [label, viewport, touch] of [
           && /^1800 S\. Prairie Avenue/.test(survivalCard.where) && survivalCard.composed === true
           && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
           survivalCard.opening.slice(0, 300));
+        // T-2638. Inspect's front page on the building that has a summary record: Glessner House
+        // in M7's exact order (plate, address, name, chips, summary, key facts, who lives here,
+        // Look for, notable facts, the Confidence meter), the record's summary word for word, the
+        // Glessners from the 1904 directory (T-2702), every fact line dotted, the address once.
+        const inspectRecord = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          a.pick(id);
+          await a.navigator.select('inspect');
+          for (let i = 0; i < 100 && !(document.getElementById('nav-app-inspect')?.dataset.structure === id
+            && document.querySelector('#nav-app-inspect .insp-page')); i++) await new Promise((r) => setTimeout(r, 100));
+          const pageEl = document.querySelector('#nav-app-inspect .insp-page');
+          const order = [...(pageEl?.children ?? [])].map((c) => [...c.classList].find((k) => k.startsWith('insp-')) ?? c.tagName);
+          const sections = [...(pageEl?.querySelectorAll('.insp-sec .insp-h') ?? [])].map((h) => h.textContent.trim());
+          const lines = [...(pageEl?.querySelectorAll('.insp-chip, .insp-key dd, .insp-person strong, .insp-look-item, .insp-fact') ?? [])];
+          // textContent, not innerText: the address line is styled uppercase, and innerText returns
+          // the rendered case once the page is visible, which no longer matches the address it holds.
+          const text = pageEl?.textContent ?? '';
+          const address = pageEl?.querySelector('.insp-address')?.textContent.trim() ?? '';
+          const out = { source: pageEl?.dataset.source ?? null, order, sections, lines: lines.length,
+            undotted: lines.filter((l) => !l.querySelector('.fact-dot')).map((l) => l.textContent.trim()).slice(0, 4),
+            address, addressTimes: address ? text.split(address).length - 1 : 0,
+            summary: pageEl?.querySelector('.insp-summary')?.textContent.trim() ?? '',
+            meter: pageEl?.querySelector('.insp-meter')?.getAttribute('aria-label') ?? '',
+            plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}/.test(text),
+            code: document.getElementById('nav-code')?.textContent ?? '',
+            overflow: document.documentElement.scrollWidth > innerWidth };
+          await a.navigator.select('home');
+          a.navigator.dock();
+          a.popup.close();
+          return out;
+        }, 'glessner_house');
+        check(`${label}: Inspect's front page shows Glessner House from its summary record in M7's order, every line dotted (T-2638)`,
+          inspectRecord.source === 'record'
+          && JSON.stringify(inspectRecord.order) === JSON.stringify(['insp-plate', 'insp-address', 'insp-name', 'insp-chips',
+            'insp-summary', 'insp-key', 'insp-sec', 'insp-sec', 'insp-sec', 'insp-meter', 'insp-full'])
+          && JSON.stringify(inspectRecord.sections) === JSON.stringify(['Who lives here · 1904', 'Look for', 'Notable facts'])
+          && /^A granite fortress on the street/.test(inspectRecord.summary)
+          && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
+          && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
+          JSON.stringify(inspectRecord).slice(0, 700));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
-          survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
+          survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
-          && survivalCard.facts.some(([k, v]) => k === 'Present status' && /Still standing.*Glessner House museum/.test(v))
+          && survivalCard.facts.some(([k, v]) => k === 'Today' && /Still standing.*Glessner House museum/.test(v))
           && survivalCard.range?.to === '1946-08-31'
           && survivalCard.status?.confidence === 'attested'
           && survivalCard.status?.sources?.includes('glessner_house_current_status')
@@ -17393,9 +17935,23 @@ for (const [label, viewport, touch] of [
     // --- Menu pauses, Resume returns, End is quick ----------------------------------
     await tap('#jaunt-panel [data-action="menu"]');
     await until(() => window.__chicago4d.welcome.state === 'welcome');
-    await until(() => [...document.querySelectorAll('#welcome-jaunts-content button')]
-      .some((x) => x.textContent.trim() === 'Resume Jaunt'));
-    await tap('#welcome-jaunts-content button', 'Resume Jaunt');
+    // ---- T-2631: the paused outing leads the list as a Continue card — where you are,
+    // and the next stop by name — and its Continue returns to the same stop.
+    await until(() => !!document.querySelector('#welcome-jaunts-content .jaunt-continue [data-action="continue"]'));
+    const continueCard = await p14.evaluate(() => {
+      const card = document.querySelector('#welcome-jaunts-content .jaunt-continue');
+      const list = document.getElementById('welcome-jaunts-content');
+      const first = [...list.querySelectorAll('.jaunt-continue, .jaunt-card, .jaunt-daybook-chip')][0];
+      return { kicker: card?.querySelector('.jaunt-continue-k')?.textContent.trim(), title: card?.querySelector('h3')?.textContent.trim(),
+        next: card?.querySelector('.jaunt-continue-next')?.textContent.trim(), leads: first === card,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(card?.textContent ?? '') };
+    });
+    check(`${label}: a paused Jaunt leads the list as a Continue card naming its stop and the next one (T-2631)`,
+      /^Continue · Stop 2 of \d+$/.test(continueCard.kicker ?? '') && !!continueCard.title
+      && /^Next: \S/.test(continueCard.next ?? '') && continueCard.leads && !continueCard.snake,
+      JSON.stringify(continueCard));
+    await tap('#welcome-jaunts-content .jaunt-continue [data-action="continue"]');
+    // ---- end T-2631
     await atStop();
     check(`${label}: the Jaunts menu pauses the outing and Resume returns to the same stop`,
       (await jaunt()).stopIndex === 1);
@@ -17424,6 +17980,50 @@ for (const [label, viewport, touch] of [
     check(`${label}: Explore on my own clears a paused jaunt`,
       (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
     if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
+
+    // --- Jump, for real (T-2655): from this year to another, ring › time-stream › landing ----
+    // Into the town, the Jump app from the year chip, a pick: the ring runs in the world,
+    // the destination's own page loads and runs its arrival from the ring's tail (the
+    // Observatory's transfer stamp), the ticker rolls down and the device lands in the
+    // year picked. Only on the published mirror, where the year pages are.
+    if (wantPublished) {
+      await p14.evaluate(() => { window.__chicago4d.welcome.enter('spawn'); });
+      await p14.waitForFunction(() => window.__chicago4d.welcome.state === 'world', null, { timeout: 30_000, polling: 250 });
+      await p14.evaluate(() => window.__chicago4d.navigator.select('jump'));
+      await until(() => !!document.querySelector('#nav-app-jump .nav-jump:not([aria-current])'));
+      const to = await p14.evaluate(() => {
+        const card = [...document.querySelectorAll('#nav-app-jump a.nav-jump')].find((c) => c.dataset.year === (window.__chicago4d.scene?.id === '1904' ? '1835' : '1904'));
+        card?.click();
+        return card?.dataset.year ?? null;
+      });
+      const ringShown = await p14.evaluate(() => !!document.querySelector('.nav-jump-ring'));
+      await p14.waitForURL(new RegExp(`/${to}/`), { timeout: 30_000 });
+      await p14.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', null, { timeout: 240_000, polling: 500 });
+      const landed = await p14.evaluate(() => ({ year: window.__chicago4d.scene?.id ?? null, journey: document.documentElement.dataset.journey ?? null,
+        transfer: document.documentElement.dataset.transfer ?? null, years: (window.__arrivalYears ?? []).map((y) => y.year) }));
+      check(`${label}: Jump runs the ring in the town, then the picked year's own time-stream and landing, and arrives there (T-2655)`,
+        !!to && ringShown && String(landed.year) === to && landed.journey === 'landed' && landed.transfer === 'true'
+        && landed.years.length >= 2 && Number(landed.years[0]) > Number(to) && landed.years.at(-1) === to,
+        JSON.stringify({ to, ringShown, landed: { ...landed, years: `${landed.years[0]} … ${landed.years.at(-1)} (${landed.years.length})` } }));
+    }
+    // --- a shared screen: ?nav=jump opens after the landing, Back closes it (T-2621) ----
+    // The same fresh context, a new load of the page with a deep link. After the landing
+    // the visitor is set down in the town with Jump open on the Navigator; Back closes
+    // the app and stays on this page; a link to an app the rail does not have would have
+    // been dropped quietly (test_nav_link.mjs, test_navigator.mjs).
+    await p14.goto(`${base}&nav=jump`, { waitUntil: 'domcontentloaded' });
+    await p14.waitForFunction(() => window.__chicago4d?.navLinkOpened?.app === 'jump' && window.__chicago4d.navigator?.app === 'jump',
+      null, { timeout: 240_000, polling: 500 });
+    const linked = await p14.evaluate(() => ({ app: window.__chicago4d.navigator.app, level: window.__chicago4d.navigator.level,
+      gate: document.getElementById('gate').hidden, held: window.__chicago4d.navHistory?.held ?? null, href: location.href }));
+    await p14.evaluate(() => history.back());
+    await p14.waitForFunction(() => window.__chicago4d?.navigator?.level === 0, null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const backed = await p14.evaluate(() => ({ app: window.__chicago4d?.navigator?.app ?? null, level: window.__chicago4d?.navigator?.level ?? null,
+      href: location.href, same: !!window.__chicago4d }));
+    check(`${label}: ?nav=jump opens Jump after the landing, and Back closes it and stays on the page (T-2621)`,
+      linked.app === 'jump' && linked.level > 0 && linked.gate && linked.held === true
+      && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
+      JSON.stringify({ linked, backed }));
     await ctx14.close();
     inStageWork = false;
     } // end PART 15 (T-2044; renumbered from 14 by T-2337)

@@ -1,6 +1,24 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
 import { scenePresentation } from './scene-presentation.js';
 import { iconSvg } from './menu-icons.js';
+import { placeDistance, arrowTurn, cardinal, ARROW_SVG, hiddenReason } from './goto.js';
+import { formatDistance } from './units.js';
+
+/** Go to's filters (T-2632, DESIGN §07): All, then Places · People · Shops & work ·
+ *  Viewpoints. A kind the scene has none of is not offered. Corners stay in All's search. */
+export const GO_TO_KINDS = [['all', 'All'], ['structure', 'Places'], ['person', 'People'],
+  ['business', 'Shops & work'], ['anchor', 'Viewpoints']];
+/** The filters a scene offers: All, and each kind it has at least one of. */
+export const offeredKinds = (destinations) => GO_TO_KINDS
+  .filter(([id]) => id === 'all' || destinations.search('', { kind: id, includeReconstructed: true }).length > 0);
+/** A row's distance and bearing from where the visitor stands: 'here' within 4 m, else
+ *  { words: '120 m NE', turn: degrees for the arrow }; null with no position. */
+export function rowDistance(row, v, units = 'imperial') {
+  const d = placeDistance(row, v);
+  if (!d) return null;
+  if (d.m < 4) return { here: true, words: 'here' };
+  return { here: false, words: `${formatDistance(d.m, units)} ${cardinal(d.bearing)}`, turn: arrowTurn(d, v) };
+}
 // T-2120: five one-tap starting points per scene, picked for what they show of the
 // town; any anchor the scene does not carry is skipped, and a scene with no list
 // offers its own first viewpoints instead.
@@ -9,7 +27,15 @@ export const QUICK_STARTS = {
     ['forks', 'The forks', 'forks'], ['south_water', 'South Water St.', 'street'],
     ['newberry_dole_wharf', 'The wharf', 'wharf']],
 };
-export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false,
+  // T-2630: told before the card shows, so the Navigator's Jaunts app hands back the
+  // Jaunts list and the Go to search it borrowed.
+  onShow = () => {},
+  // T-2632: where the visitor stands ({ e, n, bearingDeg }) and their units, for each row's
+  // distance and bearing.
+  visitor = () => null, units = () => 'imperial',
+  // T-2633: the grades the Confidence view is hiding; their rows are dimmed and say why.
+  hiddenGrades = () => [] }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -33,12 +59,13 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     button.addEventListener('click', () => choose('anchor', id));
     $('welcome-quick').appendChild(button);
   }
-  const kinds = [['all', 'All'], ['structure', 'Places'], ['business', 'Businesses'],
-    ['person', 'People'], ['intersection', 'Corners'], ['anchor', 'Views']];
-  for (const [id, label] of kinds) {
+  const offered = new Set(offeredKinds(destinations).map(([id]) => id));
+  for (const [id, label] of GO_TO_KINDS) {
     const button = document.createElement('button');
     button.type = 'button'; button.textContent = label; button.dataset.kind = id;
     button.setAttribute('aria-pressed', String(id === kind));
+    // T-2632 (QA-14): no chip for a kind with nothing in it — no "Corners 0".
+    if (!offered.has(id)) button.hidden = true;
     button.addEventListener('click', () => {
       kind = id; limit = 40;
       for (const b of $('welcome-kinds').children) b.setAttribute('aria-pressed', String(b === button));
@@ -58,7 +85,30 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       const located = Number.isFinite(row.e) && Number.isFinite(row.n);
       // No invented destination for a person or firm whose address is unknown.
       detail.textContent = located ? row.sub : `${row.label} — no known starting place`;
-      button.append(name, detail); button.disabled = !located;
+      const text = document.createElement('div'); text.className = 'welcome-dest-text';
+      text.append(name, ' ', detail);
+      button.append(text); button.disabled = !located;
+      // T-2633: a grade the Confidence view is hiding is dimmed, and says why in one line.
+      let off = null; try { off = new Set(hiddenGrades() ?? []); } catch { off = new Set(); }
+      if ((row.kind === 'structure' || row.kind === 'business') && row.presence && off.has(row.presence)) {
+        button.classList.add('is-hidden-grade'); button.dataset.hiddenGrade = row.presence;
+        const why = document.createElement('small'); why.className = 'welcome-why'; why.textContent = hiddenReason(row.presence);
+        text.append(' ', why);
+      }
+      // T-2632: how far, and which way, from where you stand.
+      let v = null; try { v = visitor(); } catch { v = null; }
+      const d = located ? rowDistance(row, v, units()) : null;
+      if (d) {
+        const dist = document.createElement('span'); dist.className = 'welcome-dist';
+        if (d.here) dist.append(d.words);
+        else {
+          const arrow = document.createElement('i'); arrow.setAttribute('aria-hidden', 'true');
+          arrow.style.setProperty('--turn', `${d.turn}deg`); arrow.innerHTML = ARROW_SVG;
+          const words = document.createElement('small'); words.textContent = d.words;
+          dist.append(arrow, words);
+        }
+        button.append(' ', dist);
+      }
       button.addEventListener('click', () => choose(row.kind, row.id));
       list.appendChild(button);
     }
@@ -120,6 +170,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     }
   }
   function show({ focus = true } = {}) {
+    try { onShow(); } catch { /* the card shows regardless */ }
     pause(); state = 'welcome'; gate.hidden = false; gate.dataset.state = state;
     delete gate.dataset.region;
     body.hidden = false; picker.hidden = true; jaunts.hidden = true;
@@ -136,7 +187,9 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     if (focus) title.focus({ preventScroll: true });
   }
   function choose(type, id) {
-    if (state !== 'welcome') return false;
+    // T-2630: in the town, the Navigator's Go to (this same search, lent to it) picks a
+    // place too; only the card's own sub-views need the card.
+    if (state !== 'welcome' && !(state === 'world' && type !== 'jaunts' && type !== 'explore')) return false;
     if (type === 'jaunts' || type === 'explore') { region(type); return true; }
     const target = type === 'spawn' ? null : destinations.byId(type, id);
     if (type !== 'spawn' && !target) return false;
@@ -176,5 +229,6 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       event.preventDefault(); first?.focus();
     }
   }, true);
-  return { get state() { return state; }, enter: choose, show, close: returnToWorld };
+  // T-2630: `refresh` re-runs the search, for the Navigator's Go to when it shows.
+  return { get state() { return state; }, enter: choose, show, close: returnToWorld, refresh: () => render() };
 }

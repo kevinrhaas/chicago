@@ -92,7 +92,7 @@
     });
     if (monitor) monitor.classList.remove('noisy');
     cards.forEach((c, i) => found(i));
-    status.textContent = '3 coordinates online · 1 nominal · 2 calibrating'; count.textContent = '03 / 03';
+    status.textContent = '3 destinations online · 1 nominal · 2 calibrating'; count.textContent = '03 / 03';
     station.textContent = 'HOLDING'; setAperture('open', 'OPEN');
     lamp('time', true); lamp('map', true); lamp('archive', true, true); lamp('field', true); lamp('recall', true, true); lamp('drift', false);
     gauge('flux', .72); gauge('coherence', .86); gauge('drift', .28);

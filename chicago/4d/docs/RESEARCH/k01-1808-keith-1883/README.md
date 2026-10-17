@@ -334,3 +334,42 @@ south-east pinnacle (T-2581); and Keith's slice not fitting one level camera wit
 Glessner's front as the two models are placed. The 1965 porch view's bow lights,
 which read "shorter" at the old 18 px fit, land within 2.5 px of the model at head
 and sill. No geometry changed; the GLB is the one T-2577 shipped.
+
+## T-2712 — the hall stack stopped under the return's coping (piece 1 of T-2586)
+
+T-2578 left the hall stack standing 0.8 m over the return's coping beside the cowl, where the
+1887 construction view, Taylor 2135, the rotated 1888 Glessner plate and the c. 1888 view
+looking SW all show sky. A flat roof's stack may now carry its own `top_m` (K01 params; it must
+clear the deck it stands on, the stone finish's 1.45 m drop taken, by 0.6 m), and the hall stack
+tops at 16.1 m, 0.14 m under the coping: hidden from every street camera, with the cowl's pipe
+rising 0.05 m clear of its cap before it bends over the coping (L-k01-keith-hall-stack-2586).
+All sixteen views were re-rendered and each new render diffed against the reviewed one: four are
+pixel-identical, four front views change by a sliver seen through the lattice's north openings,
+and the rest change only where the stack stood. The 1887 view, the 1888 Glessner plate and both
+Taylor 2135 records had the stack as their last open difference and now read `matches`; the
+c. 1888 SW view keeps its cap-height reading open, and the Glessner-front view its cap over the
+coping. The 1948 view's low stub at the cowl's foot is later fabric and is not read back.
+
+## T-2713 — the cowl's cap ruled (piece 2 of T-2586)
+
+T-2712 left two readings of the cowl's cap open, and they pull opposite ways: the c. 1888 view
+looking SW reads the cap higher over the coping than the render, and the undated Glessner-front
+view shows clean sky over the whole coping. Through T-2579's re-fitted Glessner-front camera
+(0.74 px) no cowl inside the record's bounds hides behind the return: at the 0.6 m set-back the
+cap clears the return's skyline by 45-129 px across the whole 0.4-1.6 m height range, and only at
+the 1.5 m limit, with the cap at 0.95 m or lower, does it drop behind, and then against the
+front's crown. Every other picture of 1887-89 shows the cowl, and by 1948 only its stub is
+left, so the Glessner-front view (probably 1890s-1920s, T-2216) is read as later than the
+cowl's removal and its cap item reads `not shown`.
+
+The height is taken from the best camera that sees the cap: T-2579's re-fit on the 1888 Glessner
+plate, where the photograph's cap top stood 3.5 px (0.1 m at 37 px/m) beyond the render's. The
+cap now stands 1.05 m over the coping (0.95 before), and on the plate the two tops agree to
+1-2 px. The c. 1888 SW view reads more again (about 0.94 m apparent over the coping against
+the render's 0.64 m, measured against the return's own courses under it), but its T-1883 camera
+puts the rear pinnacle about 60 px right of and 40 px below the photograph's, so the return's
+run and fall there are the camera's; that view keeps a new open item for its re-fit, which the
+print's faint apexes make a job of its own. All sixteen views were re-rendered; the verdicts
+stand where they were (the 1887 view, the plate and both Taylor 2135 records still read
+`matches`: on the plate the cap now agrees to 1-2 px, and in the two older registrations it moves
+toward the photograph's, which still reads it a little higher).

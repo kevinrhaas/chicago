@@ -61,9 +61,16 @@ const CARDINALS = [
  * in.  tools/smoke_renderer.mjs asserts these numbers against the live element
  * at both viewports, so an edit that reintroduces the dependency fails there.
  */
-const INSET = { wide: { w: 248, h: 98 }, narrow: { w: 188, h: 76 } };
+/*
+ * T-2626 (DESIGN §10). The compass and the inset are now ONE round instrument, so the
+ * frame is a square the round face is cut from: 112 px on a desktop, 92 px on a phone.
+ * The rule above is untouched — still constants, still never derived from `bounds` —
+ * and so is the zoom: M_PER_PX keeps the T-1142 scale (2 020 m over 248 px), so the
+ * window shows the same ground per pixel it always did, now through a round face.
+ */
+const INSET = { wide: { w: 112, h: 112 }, narrow: { w: 92, h: 92 } };
 const INSET_SPAN_E_M = 2020;
-const M_PER_PX = INSET_SPAN_E_M / INSET.wide.w;
+const M_PER_PX = INSET_SPAN_E_M / 248;
 const NARROW_MAX_PX = 560;
 
 /**
@@ -100,15 +107,19 @@ function structureOutlines(registry) {
     const sin = Math.sin(th);
     const e0 = placement.local_e ?? 0;
     const n0 = placement.local_n ?? 0;
-    out.push(polygon.map(([u, v]) => [
+    const ring = polygon.map(([u, v]) => [
       e0 + u * cos + v * sin,
       n0 - u * sin + v * cos,
-    ]));
+    ]);
+    // T-2654: the Map app hit-tests these and colours them by the building's own grade.
+    ring.id = record.id ?? sidecar.id ?? null;
+    ring.grade = sidecar.grade?.value ?? sidecar.documented_range?.confidence ?? null;
+    out.push(ring);
   }
   return out;
 }
 
-export function createNavigation({ root, terrain, registry, streets } = {}) {
+export function createNavigation({ root, terrain, registry, streets, onOpen = null } = {}) {
   const compass = root?.querySelector('#compass');
   const needle = root?.querySelector('#compass-needle');
   const direction = root?.querySelector('#compass-direction');
@@ -396,7 +407,8 @@ export function createNavigation({ root, terrain, registry, streets } = {}) {
   function update({ e = 0, n = 0, bearingDeg = 0 } = {}) {
     const b = normalBearing(bearingDeg);
     player = { e, n, bearingDeg: b };
-    if (needle) needle.style.transform = `translate(-50%, -88%) rotate(${b}deg)`;
+    // T-2626: the needle is the instrument ring's heading tick, turned about its centre.
+    if (needle) needle.style.transform = `rotate(${b}deg)`;
     if (direction) direction.textContent = cardinal(b);
     if (bearingLabel) bearingLabel.textContent = `${String(Math.round(b) % 360).padStart(3, '0')}°`;
     if (compass) compass.setAttribute('aria-label', `Heading ${cardinal(b)}, ${Math.round(b)} degrees`);
@@ -491,7 +503,9 @@ export function createNavigation({ root, terrain, registry, streets } = {}) {
     return units;
   }
 
-  openButton?.addEventListener('click', () => setFullVisible(!fullOpen));
+  // T-2626: the instrument opens the Map app (a stub that opens this pop-out until the
+  // Map app lands), so the wiring is one line to change; without one, the pop-out itself.
+  openButton?.addEventListener('click', () => (onOpen && !fullOpen ? onOpen() : setFullVisible(!fullOpen)));
   fullClose?.addEventListener('click', () => setFullVisible(false));
   // The backdrop, but not the card standing on it.
   full?.addEventListener('click', (e) => {
@@ -507,7 +521,8 @@ export function createNavigation({ root, terrain, registry, streets } = {}) {
     if (!e.key || isTyping(e.target)) return;
     if (e.key === 'Escape') { if (fullOpen) setFullVisible(false); return; }
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (e.key.toLowerCase() === 'm') { e.preventDefault(); setFullVisible(!fullOpen); }
+    // T-2654: M opens the Navigator's Map, as the instrument does; the pop-out without one.
+    if (e.key.toLowerCase() === 'm') { e.preventDefault(); if (onOpen && !fullOpen) onOpen(); else setFullVisible(!fullOpen); }
   });
 
   window.addEventListener('resize', resize);
@@ -516,6 +531,26 @@ export function createNavigation({ root, terrain, registry, streets } = {}) {
   return {
     bounds,
     update,
+    // T-2654: what the Navigator's Map app draws with — the same whole-field picture,
+    // the same arrow and the same footprints — so the device and the inset agree.
+    outlines,
+    get player() { return { ...player }; },
+    field() { return { ...bounds, widthM: fieldE, depthM: fieldN }; },
+    /** Paint the whole field into `dest` (already scaled to CSS px), `w` x `h`. */
+    drawField(dest, w, h) {
+      if (!bgPainted) paintBackground();
+      dest.fillStyle = OUTSIDE;
+      dest.fillRect(0, 0, w, h);
+      blit(dest, bounds, 0, 0, w, h);
+    },
+    /** Paint the window `view` ({ eMin, eMax, nMin, nMax }, metres) of the field into `dest`. */
+    drawView(dest, view, w, h) {
+      if (!bgPainted) paintBackground();
+      dest.fillStyle = OUTSIDE;
+      dest.fillRect(0, 0, w, h);
+      blit(dest, view, 0, 0, w, h);
+    },
+    drawMarker(dest, x, y) { marker(dest, x, y); },
     setCompassVisible,
     setMapVisible,
     setStreetVisible,

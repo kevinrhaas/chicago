@@ -16,12 +16,13 @@ import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSys
 import { createGoTo } from './goto.js';
 import { PACES, gaitName } from './travel.js';
 import { versionBadge } from './structure-versions.js';
+import { t as str } from './strings/index.js';
+import './strings/hud.js';
 
 const THEME_KEY = 'chicago4d.theme';
 const CONF_KEY = 'chicago4d.confidence';
 const HIDE_KEY = 'chicago4d.confidence.hidden';
 const SET_KEY = 'chicago4d.settings';
-const CONTROL_HELP_KEY = 'chicago4d.controlHelpDismissed';
 
 const DEFAULT_SETTINGS = {
   // eyeHeight defaults to WALK.eyeHeight — the researched figure, not a taste.
@@ -57,10 +58,10 @@ const DEFAULT_SETTINGS = {
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, wagon, horse) and
   // `travelMode` is how Go to takes you somewhere (instantly, or at a pace, or
-  // flying); they are two questions, so they are two keys. `gotoReconstructed`
-  // is whether the Go to list shows the reconstructed roofs (off by default —
-  // the owner's ruling). `headBob`: the rider's eye moves with the horse's gait.
-  pace: 'walk', travelMode: 'instantly', headBob: true, gotoReconstructed: false,
+  // flying); they are two questions, so they are two keys. (`gotoReconstructed`, the
+  // Go to list's own checkbox, is gone: Go to follows the Confidence view, T-2633.)
+  // `headBob`: the rider's eye moves with the horse's gait.
+  pace: 'walk', travelMode: 'instantly', headBob: true,
   // The wagon's and the horse's own speeds (T-0823); `speed` above is the walk's.
   wagonSpeed: 3.6, horseSpeed: 6.5,
 };
@@ -88,7 +89,7 @@ function store(key, value) {
 
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
-  onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
+  onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop, onShowGuide,
   isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
@@ -101,13 +102,16 @@ export function createHud({
   const btnTheme = $('btn-theme');
   const btnHelp = $('btn-help');
   const panel = $('panel');
-  const controlHelp = $('control-help');
   const hint = $('hint');
   const settings = readSettings();
   settings.units = normalUnitSystem(settings.units);
 
   if (badgeYear) badgeYear.textContent = scene?.id ?? '';
-  if (badgeSub) badgeSub.textContent = formatSceneDate(scene?.target_date);
+  // T-2626: the year chip reads as LED digits, 1904 · 07.01; it says the date in words
+  // to a screen reader, with what a tap does.
+  if (badgeSub) badgeSub.textContent = (/^\d{4}-(\d{2})-(\d{2})/.exec(scene?.target_date ?? '') ?? []).slice(1).join('.');
+  $('year-badge')?.setAttribute('aria-label',
+    `${[formatSceneDate(scene?.target_date), scene?.id].filter(Boolean).join(' ')}. Open Jump`);
 
   // Theme: dark by default — this is a walkthrough, and a bright interface over
   // a daylight scene is the one combination that reads as neither.
@@ -176,6 +180,8 @@ export function createHud({
   const confMenu = $('confidence-menu');
   const btnConfMore = $('btn-confidence-more');
   let hiddenLevels = readHidden();
+  // T-2633: Go to dims what the Confidence view hides; repainted when that changes.
+  let afterHide = null;
 
   function readHidden() {
     try {
@@ -217,6 +223,7 @@ export function createHud({
     if (hide) hiddenLevels.add(level); else hiddenLevels.delete(level);
     paintHidden();
     onHideLevel?.(level, hide);
+    afterHide?.();
     if (announce) {
       // Name what is GONE, not what was clicked: a visitor who has hidden two
       // levels needs to know the town in front of them is partial.
@@ -244,7 +251,7 @@ export function createHud({
   }
   $('cm-reset')?.addEventListener('click', () => {
     for (const level of LEVELS) setHidden(level, false, { announce: false });
-    say('Showing every level again');
+    say(str('hud.levels.all'));
   });
   // Click-away, but not click-inside: the panel holds three checkboxes a visitor
   // will often want to toggle in one visit.
@@ -260,9 +267,9 @@ export function createHud({
   function setFly(on, { announce = true } = {}) {
     flying = !!on;
     btnFly?.setAttribute('aria-pressed', String(flying));
-    if (flyLabel) flyLabel.textContent = flying ? 'Walk' : 'Fly';
+    if (flyLabel) flyLabel.textContent = str(flying ? 'hud.fly.walk' : 'hud.fly.fly');
     if (btnFly) {
-      btnFly.title = flying ? 'Back to walking (F)' : 'Free-fly — rise above the town (F)';
+      btnFly.title = str(flying ? 'hud.fly.back' : 'hud.fly.up');
     }
     if (!flying) { badgeAlt?.setAttribute('hidden', ''); badgeAlt?.parentElement?.classList.remove('has-alt'); }
     onFly?.(flying);
@@ -319,9 +326,6 @@ export function createHud({
     // and on a phone the navigation readouts hide under the sheet.
     root.classList.toggle('panel-open', !!open);
     btnHelp?.setAttribute('aria-pressed', String(!!open));
-    // The navigation guide and the drawer share the right-hand slot; the guide
-    // steps aside without being marked read, so it returns on the next boot.
-    if (open && controlHelp && !controlHelp.hasAttribute('hidden')) dismissControlHelp({ remember: false });
     // Release the pointer lock on open. While the cursor is captured for
     // looking around, every click goes to the canvas and none of these controls
     // can be operated at all — the panel would look fine and do nothing.
@@ -332,27 +336,19 @@ export function createHud({
   btnHelp?.addEventListener('click', () => setPanel(!panelOpen()));
   $('panel-close')?.addEventListener('click', () => setPanel(false));
 
-  function dismissControlHelp({ remember = true } = {}) {
-    if (!controlHelp) return;
-    controlHelp.setAttribute('hidden', '');
-    if (remember) store(CONTROL_HELP_KEY, '1');
-    onHelp?.(false);
-  }
-
-  function showControlHelp({ auto = false } = {}) {
-    if (!controlHelp || (auto && readStored(CONTROL_HELP_KEY, '0') === '1')) return false;
+  // ---- The controls: Guide's sheet in the Navigator (T-2661) ----------------
+  //
+  // The control-help popover is gone: the controls live in the Navigator's Guide, which
+  // shows touch or keyboard from controls/intent.js. Settings' "Show the controls" opens it.
+  function showControlHelp() {
     setPanel(false);
-    controlHelp.removeAttribute('hidden');
     if (document.pointerLockElement) document.exitPointerLock?.();
-    onHelp?.(true);
+    onShowGuide?.();
     return true;
   }
-
-  $('control-help-close')?.addEventListener('click', () => dismissControlHelp());
-  $('control-help-gotit')?.addEventListener('click', () => dismissControlHelp());
+  /** Nothing to dismiss now that the popover is gone; kept for callers written before it. */
+  function dismissControlHelp() { return false; }
   $('s-show-control-help')?.addEventListener('click', () => showControlHelp());
-  $('control-help-desktop')?.toggleAttribute('hidden', !!isTouch);
-  $('control-help-touch')?.toggleAttribute('hidden', !isTouch);
 
   // ---- What's new ---------------------------------------------------------
   //
@@ -375,8 +371,7 @@ export function createHud({
     whatsNewDot?.toggleAttribute('hidden', n === 0);
     helpDot?.toggleAttribute('hidden', n === 0);
     if (n > 0) {
-      btnHelp?.setAttribute('title',
-        `Controls, settings and what's new — ${n} unread (H)`);
+      btnHelp?.setAttribute('title', str('hud.menu.unread', { n }));
     }
   }
   void paintUnseen();
@@ -390,7 +385,7 @@ export function createHud({
         await renderWhatsNew(host);
       } catch {
         whatsNewPainted = false;
-        if (host) host.textContent = 'The release notes could not load. Reopen this tab to retry.';
+        if (host) host.textContent = str('hud.notes.failed');
         return;
       } finally {
         host?.removeAttribute('aria-busy');
@@ -690,7 +685,7 @@ export function createHud({
     if (!banner) return;
     if (!state) { banner.setAttribute('hidden', ''); return; }
     const verb = $('travel-verb'); const dest = $('travel-dest'); const dist = $('travel-dist');
-    if (verb) verb.textContent = state.verb ?? 'Going to';
+    if (verb) verb.textContent = state.verb ?? str('hud.going');
     if (dest) dest.textContent = state.dest ?? '';
     if (dist) dist.textContent = Number.isFinite(state.dist_m) ? formatDistance(state.dist_m, settings.units) : '';
     banner.removeAttribute('hidden');
@@ -709,7 +704,9 @@ export function createHud({
     units: () => settings.units,
     onGoTo: (target) => { setPanel(false); onGoTo?.(target); },
     onPersist: (key, value) => { settings[key] = value; store(SET_KEY, JSON.stringify(settings)); },
+    hiddenGrades: () => [...hiddenLevels],
   });
+  afterHide = () => goTo.paint();
 
 
   window.addEventListener('keydown', (e) => {
@@ -723,7 +720,7 @@ export function createHud({
     const k = e.key.toLowerCase();
     if (k === 'h' || k === '?') { e.preventDefault(); setPanel(!panelOpen()); }
     else if (k === 'c') { e.preventDefault(); setConfidence(!confidenceOn); }
-    else if (k === 'n') { e.preventDefault(); setPanel(true); selectTab('whatsnew'); }
+    // T-2622: N is the Navigator's now (navigator.js); What's new is under Settings and H.
     else if (k === 'g') { e.preventDefault(); openGoTo(); }
     else if (k === 'f') { e.preventDefault(); setFly(!flying); }
     else if (k === 'p') { e.preventDefault(); setPace(PACE_CYCLE[(PACE_CYCLE.indexOf(settings.pace) + 1) % PACE_CYCLE.length]); }

@@ -425,6 +425,7 @@ export async function createTerrain({
   // The bytes as fetched, so a prebuilt ground can be held to them (T-2693).
   let metaBytes = null;
   let binBytes = null;
+  let fieldHashes = null;
   if (dataBase && epochId) {
     const metaUrl = new URL(`terrain/epochs/${epochId}/heightfield.json`, dataBase);
     try {
@@ -433,6 +434,11 @@ export async function createTerrain({
       const bin = await (await fetchOk(new URL(meta.bin, metaUrl))).arrayBuffer();
       heightfield.adopt(meta, bin);
       binBytes = bin;
+      if (prebuilt && globalThis.crypto?.subtle) {
+        fieldHashes = Promise.all([metaBytes, bin].map(sha256Hex)).then(([json, raw]) => new Map([
+          [`data/terrain/epochs/${epochId}/heightfield.json`, json],
+          [`data/terrain/epochs/${epochId}/${meta.bin}`, raw]]), () => null);
+      }
     } catch (err) {
       problems.push(`terrain ${epochId}: no heightfield (${err.message}) — `
         + 'the ground is a flat plane at the datum and the walker will not climb a bank');
@@ -471,8 +477,11 @@ export async function createTerrain({
   let replay = null;
   if (prebuilt && groundPath && assetBase && heightfield.loaded) {
     const offered = await prebuilt;
+    const field = {};
     prebuiltGround.why = await prebuiltGroundRefusal(offered,
-      { sceneId, epochId, meta, metaBytes, binBytes, groundPath });
+      { sceneId, epochId, meta, metaBytes, binBytes, groundPath, field });
+    // T-2710: the SHA-256 of each heightfield file read, by path, when it was hashed.
+    if (Object.keys(field).length) prebuiltGround.field = field;
     if (!prebuiltGround.why) replay = offered;
   } else if (prebuilt) {
     prebuiltGround.why = 'this epoch names no ground GLB or no heightfield loaded';
@@ -892,6 +901,13 @@ export async function createTerrain({
     /** T-2709: whether the distant base came prebuilt, and if not, why not. */
     prebuiltBase: prebuiltDistant,
 
+    /** T-2711: the SHA-256 of the heightfield.json and .bin this page read, keyed
+     *  as a prebuild's inputs are (`data/terrain/epochs/<epoch>/…`), for a layer
+     *  whose prebuild was laid on this field (yards.js § THE YARDS, PREBUILT).
+     *  A promise, started as the field is read whenever a prebuilt ground is
+     *  offered (main.js always offers one), so the bytes are not kept; null otherwise. */
+    heightfieldHashes: () => fieldHashes,
+
     /** The lake's edge as E per 40 m of N, read off this epoch's heightfield
      * (lakeshore.js) — the line the beach is measured from, by the ground
      * shader and, through flora-zones.js's extent matcher, by the sward and the
@@ -1284,6 +1300,13 @@ async function fetchPrebuiltPieces({ dataBase, year, build, layer, format, own, 
   if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
     return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection ${instead}` };
   }
+  // Ask only for what publish wrote (prebuilt-index.js): it prebuilds the scenes that
+  // draw a frontage, and a request for any other year's layer was a 404 on every boot.
+  // Imported here, not at the top: the node harnesses that load this file as a data:
+  // URL never reach the fetch, as with jobs/pool.js below.
+  const { prebuiltAbsent } = await import('./prebuilt-index.js');
+  const absent = await prebuiltAbsent({ dataBase, year, build, layer });
+  if (absent) return { why: `${absent}, so the page ${own}` };
   const base = new URL(`prebuilt/${year}/`, dataBase);
   try {
     const res = await fetch(new URL(`${layer}.json`, base));
@@ -1324,8 +1347,8 @@ async function sha256Hex(bytes) {
 }
 
 /** Why `offered` may not stand for this page's ground, or null when it may. */
-async function prebuiltGroundRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, groundPath }) {
-  const why = await prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes });
+async function prebuiltGroundRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, groundPath, field = null }) {
+  const why = await prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, field });
   if (why) return why;
   if (!offered.index.inputs.files.some((f) => f.path === `assets/${groundPath}`)) {
     return `built from another ground GLB than ${groundPath}`;
@@ -1339,7 +1362,7 @@ async function prebuiltGroundRefusal(offered, { sceneId, epochId, meta, metaByte
  * heightfield this page fetched, by hash. The build stamp has already been held
  * to the page's (fetchPrebuiltPieces).
  */
-async function prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes }) {
+async function prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, field = null }) {
   const { index } = offered;
   if (!index) return offered.why ?? 'none offered';
   if (String(index.year) !== String(sceneId)) return `prebuilt for ${index.year}, this scene is ${sceneId}`;
@@ -1350,7 +1373,10 @@ async function prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, bin
   const listed = new Map(index.inputs.files.map((f) => [f.path, f.sha256]));
   const read = [[`${dir}heightfield.json`, metaBytes], [`${dir}${meta.bin}`, binBytes]];
   for (const [file, bytes] of read) {
-    if (listed.get(file) !== await sha256Hex(bytes)) return `built from another heightfield (${file})`;
+    const sha256 = await sha256Hex(bytes);
+    // T-2710: kept, so the streets' prebuild is held to the field this page read.
+    if (field) field[file] = sha256;
+    if (listed.get(file) !== sha256) return `built from another heightfield (${file})`;
   }
   return null;
 }
