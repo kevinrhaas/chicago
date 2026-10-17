@@ -1838,6 +1838,9 @@ for (const [label, viewport, touch] of [
     // gate can least afford.
     let streetLayer = null;
     if (anyStage(7, 10, 12)) {
+      // T-2741: today's streets load off the boot path; the readout below reads them.
+      await page.waitForFunction(() => window.__chicago4d?.navigation?.modernLoaded === true,
+        null, { timeout: 20_000 }).catch(() => {});
       streetLayer = await page.evaluate(() => {
         const a = window.__chicago4d;
         // Sample the dynamic flora from a known dry South Division viewpoint.
@@ -13432,18 +13435,20 @@ for (const [label, viewport, touch] of [
       + `dry alias ${streetLayer.worstDrySurfaceAlias}`);
     check(`${label}: street clearing removes travel-track plants but preserves the block`,
       streetLayer.clearsLake && streetLayer.keepsBlockGreen, JSON.stringify(streetLayer));
+    // T-2741: today's half is read off the City's centrelines (data/modern/streets.json),
+    // in the City's own abbreviations, and says the corner you stand at.
     check(`${label}: the readout shows both 1835 and current names at an intersection`,
       streetLayer.crossing.shown
       && streetLayer.crossing.state?.mode === 'intersection'
       && /Lake Street/.test(streetLayer.crossing.historic)
       && /La Salle Street/.test(streetLayer.crossing.historic)
-      && /W Lake Street/.test(streetLayer.crossing.modern)
-      && /LaSalle/.test(streetLayer.crossing.modern),
+      && /W Lake St\b/.test(streetLayer.crossing.modern)
+      && /N LaSalle St\b/.test(streetLayer.crossing.modern),
       JSON.stringify(streetLayer.crossing));
     check(`${label}: the street readout announces the next cross street ahead`,
       streetLayer.approaching.state?.mode === 'on'
       && streetLayer.approaching.historic === 'Market Street'
-      && /N Wacker Drive/.test(streetLayer.approaching.modern)
+      && /N Wacker Dr\b/.test(streetLayer.approaching.modern)
       && /Lake Street/.test(streetLayer.approaching.ahead)
       && /\d+ ft/.test(streetLayer.approaching.ahead)
       && !/\d+ m(?:\s|$)/.test(streetLayer.approaching.ahead),
@@ -17479,6 +17484,34 @@ for (const [label, viewport, touch] of [
       if (doorReady) {
         await enterTown();
         await page.evaluate(() => new Promise((r) => { requestAnimationFrame(() => requestAnimationFrame(r)); }));
+        // T-2741: in 1904 too, the compass says the street in the scene's year and today's,
+        // and the Settings toggle names 1904, not the 1835 it said in every year.
+        const streetNames1904 = await page.evaluate(async () => {
+          const a = window.__chicago4d;
+          for (let i = 0; i < 200 && !a.navigation.modernLoaded; i++) await new Promise((r) => setTimeout(r, 50));
+          a.walker.teleport({ local_e: 1401.9, local_n: -3207.0, yaw_deg: 0 });
+          a.step();
+          const at1800 = { era: document.getElementById('street-historic')?.textContent,
+            today: document.getElementById('street-modern')?.textContent };
+          a.walker.teleport({ local_e: 1415, local_n: -3150, yaw_deg: 0 });
+          a.step();
+          return {
+            at1800,
+            midBlock: { era: document.getElementById('street-historic')?.textContent,
+              today: document.getElementById('street-modern')?.textContent },
+            year: document.getElementById('street-era-year')?.textContent,
+            label: document.getElementById('s-street-names-label')?.textContent,
+            shown: !document.getElementById('street-readout')?.hasAttribute('hidden'),
+          };
+        });
+        check(`${label}: 1904 names Prairie Avenue then and the City's address now (T-2741)`,
+          streetNames1904.shown && streetNames1904.year === '1904'
+          && streetNames1904.label === '1904 / current street names'
+          && /Prairie Avenue/.test(streetNames1904.at1800.era) && /Eighteenth/.test(streetNames1904.at1800.era)
+          && /S Prairie Ave/.test(streetNames1904.at1800.today) && /E 18th St/.test(streetNames1904.at1800.today)
+          && streetNames1904.midBlock.era === 'Prairie Avenue'
+          && /^17\d\d S Prairie Ave$/.test(streetNames1904.midBlock.today),
+          JSON.stringify(streetNames1904));
         const at = await page.evaluate(({ neLot, lotMid, ghFront }) => {
           const a = window.__chicago4d;
           const lift = (e, n) => a.terrain.surfaceHeight(e, n) + 1.0;

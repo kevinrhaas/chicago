@@ -14,6 +14,7 @@
 
 import { formatDistance, normalUnitSystem } from './units.js';
 import { isTyping } from './controls/pointerlock.js';
+import { todayText } from './modern-streets.js';
 
 const DEG = Math.PI / 180;
 const CARDINALS = [
@@ -119,7 +120,11 @@ function structureOutlines(registry) {
   return out;
 }
 
-export function createNavigation({ root, terrain, registry, streets, onOpen = null } = {}) {
+/** T-2741: today's streets on the maps — a cool blue under the period ground's browns. */
+const MODERN_STROKE = 'rgba(96, 205, 235, .78)';
+const MODERN_LABEL = '#bfefff';
+
+export function createNavigation({ root, terrain, registry, streets, year = '', where = null, onOpen = null } = {}) {
   const compass = root?.querySelector('#compass');
   const needle = root?.querySelector('#compass-needle');
   const direction = root?.querySelector('#compass-direction');
@@ -132,10 +137,12 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
   const fullClose = root?.querySelector('#overview-full-close');
   const fullFoot = root?.querySelector('#overview-full-foot');
   const streetReadout = root?.querySelector('#street-readout');
-  const streetMode = root?.querySelector('#street-mode');
+  const streetYear = root?.querySelector('#street-era-year');
   const streetHistoric = root?.querySelector('#street-historic');
   const streetModern = root?.querySelector('#street-modern');
   const streetApproach = root?.querySelector('#street-approach');
+  const streetToggle = root?.querySelector('#street-toggle');
+  if (streetYear) streetYear.textContent = String(year || '');
   const ctx = canvas?.getContext('2d');
   const fullCtx = fullCanvas?.getContext('2d');
   const background = document.createElement('canvas');
@@ -170,6 +177,15 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
   let lastPaint = { e: Infinity, n: Infinity, bearingDeg: Infinity };
   let lastStreet = { e: Infinity, n: Infinity, bearingDeg: Infinity };
   let streetState = null;
+  // T-2741: where you are in the scene's own year (where.js — the 1835 streets, the 1904
+  // grid and context city; nothing in 1812) and today (modern-streets.js, loaded late).
+  let eraWhere = where;
+  let modern = null;
+  let eraState = null;
+  let todayState = null;
+  const modernLayer = document.createElement('canvas');
+  const ml = modernLayer.getContext('2d');
+  let modernPainted = false;
 
   /** World metres -> background pixels. The background IS the whole field. */
   function point(e, n) {
@@ -239,6 +255,98 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
       bg.stroke();
     }
     bg.restore();
+  }
+
+  /** Today's streets, once, at the background's scale, for the inset and the pop-out. */
+  function paintModernLayer() {
+    if (!ml || !modern) return;
+    modernLayer.width = Math.max(1, Math.round(fieldE * bgScale));
+    modernLayer.height = Math.max(1, Math.round(fieldN * bgScale));
+    ml.clearRect(0, 0, modernLayer.width, modernLayer.height);
+    strokeModern(ml, (e, n) => { const p = point(e, n); return [p.x, p.y]; }, 0.9 * SUPER);
+    modernPainted = true;
+  }
+
+  /** Stroke every modern centreline through `toPx` (and, given a `view`, only those in it). */
+  function strokeModern(dest, toPx, width, view = null) {
+    dest.save();
+    dest.strokeStyle = MODERN_STROKE;
+    dest.lineWidth = width;
+    dest.lineCap = 'round';
+    dest.lineJoin = 'round';
+    dest.beginPath();
+    for (const s of modern?.segments ?? []) {
+      if (view && (s.box[2] < view.eMin || s.box[0] > view.eMax || s.box[3] < view.nMin || s.box[1] > view.nMax)) continue;
+      for (let i = 0; i < s.pts.length; i += 2) {
+        const [x, y] = toPx(s.pts[i], s.pts[i + 1]);
+        if (i === 0) dest.moveTo(x, y); else dest.lineTo(x, y);
+      }
+    }
+    dest.stroke();
+    dest.restore();
+  }
+
+  /**
+   * Today's street names, close up only (the Map app's near view): one label per street,
+   * on its longest piece in the window, turned along it and kept upright.
+   */
+  function labelModern(dest, view, w, h) {
+    const k = w / (view.eMax - view.eMin);
+    if (k < 0.5 || !modern) return;
+    const toPx = (e, n) => [(e - view.eMin) * k, (view.nMax - n) * k];
+    const best = new Map();
+    for (const s of modern.segments) {
+      if (s.box[2] < view.eMin || s.box[0] > view.eMax || s.box[3] < view.nMin || s.box[1] > view.nMax) continue;
+      for (let i = 0; i + 3 < s.pts.length; i += 2) {
+        const [ax, ay] = toPx(s.pts[i], s.pts[i + 1]);
+        const [bx, by] = toPx(s.pts[i + 2], s.pts[i + 3]);
+        const mx = (ax + bx) / 2, my = (ay + by) / 2;
+        if (mx < 20 || mx > w - 20 || my < 12 || my > h - 12) continue;
+        const len = Math.hypot(bx - ax, by - ay);
+        const prev = best.get(s.name);
+        if (!prev || len > prev.len) best.set(s.name, { len, mx, my, ang: Math.atan2(by - ay, bx - ax) });
+      }
+    }
+    dest.save();
+    dest.font = '600 10px ui-sans-serif, system-ui, sans-serif';
+    dest.textAlign = 'center';
+    dest.textBaseline = 'middle';
+    dest.lineJoin = 'round';
+    for (const [name, b] of best) {
+      const label = name;
+      if (b.len < dest.measureText(label).width + 8) continue;
+      let ang = b.ang;
+      if (ang > Math.PI / 2) ang -= Math.PI;
+      if (ang < -Math.PI / 2) ang += Math.PI;
+      dest.save();
+      dest.translate(b.mx, b.my);
+      dest.rotate(ang);
+      dest.lineWidth = 3;
+      dest.strokeStyle = 'rgba(10, 22, 28, .85)';
+      dest.strokeText(label, 0, 0);
+      dest.fillStyle = MODERN_LABEL;
+      dest.fillText(label, 0, 0);
+      dest.restore();
+    }
+    dest.restore();
+  }
+
+  /** The modern layer's part under a window, when the street names are showing. */
+  function blitModern(dest, view, dx, dy, dw, dh) {
+    if (!streetVisible || !modern) return;
+    if (!modernPainted) paintModernLayer();
+    const eMin = Math.max(view.eMin, bounds.eMin);
+    const eMax = Math.min(view.eMax, bounds.eMax);
+    const nMin = Math.max(view.nMin, bounds.nMin);
+    const nMax = Math.min(view.nMax, bounds.nMax);
+    if (!(eMax > eMin && nMax > nMin)) return;
+    const kx = dw / (view.eMax - view.eMin);
+    const ky = dh / (view.nMax - view.nMin);
+    dest.drawImage(modernLayer,
+      (eMin - bounds.eMin) * bgScale, (bounds.nMax - nMax) * bgScale,
+      (eMax - eMin) * bgScale, (nMax - nMin) * bgScale,
+      dx + (eMin - view.eMin) * kx, dy + (view.nMax - nMax) * ky,
+      (eMax - eMin) * kx, (nMax - nMin) * ky);
   }
 
   function resize() {
@@ -330,6 +438,7 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     ctx.fillRect(0, 0, insetW, insetH);
     const view = viewport();
     blit(ctx, view, 0, 0, insetW, insetH);
+    blitModern(ctx, view, 0, 0, insetW, insetH);
     marker(ctx,
       (player.e - view.eMin) / M_PER_PX,
       (view.nMax - player.n) / M_PER_PX);
@@ -363,6 +472,7 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     fullCtx.fillStyle = OUTSIDE;
     fullCtx.fillRect(0, 0, w, h);
     blit(fullCtx, bounds, 0, 0, w, h);
+    blitModern(fullCtx, bounds, 0, 0, w, h);
 
     // Where the inset is looking, so the two maps read as one instrument.
     const view = viewport();
@@ -418,6 +528,8 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     if (Math.hypot(e - lastStreet.e, n - lastStreet.n) > 0.35
         || Math.abs(b - lastStreet.bearingDeg) > 2) {
       streetState = streets?.status?.(e, n, b) ?? null;
+      eraState = eraWhere?.at?.(e, n, b) ?? null;
+      todayState = modern?.at?.(e, n) ?? null;
       paintStreet();
       lastStreet = { e, n, bearingDeg: b };
     }
@@ -434,23 +546,23 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     return [...new Set(items.map((s) => s[key]).filter(Boolean))].join(' & ');
   }
 
+  /**
+   * T-2741: the readout under the compass — the street in the scene's own year, and the
+   * street and house number there today. 1812 has no streets; it says so and still gives
+   * today's. 1835 also says the next cross street ahead (streets.js `status`).
+   */
   function paintStreet() {
-    const show = streetVisible && !!streetState;
+    const show = streetVisible;
     streetReadout?.toggleAttribute('hidden', !show);
+    streetToggle?.setAttribute('aria-pressed', String(show));
     if (!show) return;
-    const records = streetState.streets ?? [];
-    const historic = joined(records, 'name_1835');
-    const modern = joined(records, 'name_2026');
-    let mode = 'On street';
-    if (streetState.mode === 'intersection') mode = 'At intersection';
-    if (streetState.mode === 'ahead') {
-      mode = `Ahead · ${formatDistance(streetState.distance_m, units)}`;
-    }
-    if (streetMode) streetMode.textContent = mode;
-    if (streetHistoric) streetHistoric.textContent = historic;
-    if (streetModern) streetModern.textContent = `Today: ${modern}`;
+    const era = eraState?.place ?? (eraWhere?.empty ? 'no streets yet' : 'no street here');
+    // Until today's streets have loaded, a dash rather than a claim that there are none.
+    const today = modern ? todayText(todayState) : '—';
+    if (streetHistoric) streetHistoric.textContent = era;
+    if (streetModern) streetModern.textContent = today;
 
-    const upcoming = streetState.upcoming;
+    const upcoming = streetState?.mode === 'on' ? streetState.upcoming : null;
     if (streetApproach) {
       const text = upcoming
         ? `Approaching ${upcoming.street.name_1835} · ${formatDistance(upcoming.ahead_m, units)}`
@@ -466,7 +578,22 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
       ? `. Approaching ${upcoming.street.name_1835}${upcomingModern ? `, today ${upcomingModern}` : ''}, in ${formatDistance(upcoming.ahead_m, units)}.`
       : '';
     streetReadout?.setAttribute('aria-label',
-      `${mode}. In 1835: ${historic}. Today: ${modern}${approachLabel}`);
+      `In ${year}: ${era}. Today: ${today}${approachLabel}`);
+  }
+
+  /** Today's streets, once they have loaded (main.js fetches them after the scene). */
+  function setModern(m) {
+    modern = m ?? null;
+    modernPainted = false;
+    lastStreet = { e: Infinity, n: Infinity, bearingDeg: Infinity };
+    lastPaint = { e: Infinity, n: Infinity, bearingDeg: Infinity };
+    update(player);
+  }
+
+  function setWhere(w) {
+    eraWhere = w ?? null;
+    lastStreet = { e: Infinity, n: Infinity, bearingDeg: Infinity };
+    update(player);
   }
 
   function setCompassVisible(on) {
@@ -491,6 +618,10 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
   function setStreetVisible(on) {
     streetVisible = !!on;
     paintStreet();
+    // Today's streets on the maps follow the same switch.
+    lastPaint = { e: Infinity, n: Infinity, bearingDeg: Infinity };
+    paintMap();
+    if (fullOpen) paintFull();
     return streetVisible;
   }
 
@@ -542,18 +673,28 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
       dest.fillStyle = OUTSIDE;
       dest.fillRect(0, 0, w, h);
       blit(dest, bounds, 0, 0, w, h);
+      blitModern(dest, bounds, 0, 0, w, h);
     },
-    /** Paint the window `view` ({ eMin, eMax, nMin, nMax }, metres) of the field into `dest`. */
+    /** Paint the window `view` ({ eMin, eMax, nMin, nMax }, metres) of the field into `dest`.
+     *  T-2741: with the street names on, today's streets are stroked over it (crisp at any
+     *  zoom, so not the inset's layer) and, close up, named. */
     drawView(dest, view, w, h) {
       if (!bgPainted) paintBackground();
       dest.fillStyle = OUTSIDE;
       dest.fillRect(0, 0, w, h);
       blit(dest, view, 0, 0, w, h);
+      if (streetVisible && modern) {
+        const k = w / (view.eMax - view.eMin);
+        strokeModern(dest, (e, n) => [(e - view.eMin) * k, (view.nMax - n) * k], 1.2, view);
+        labelModern(dest, view, w, h);
+      }
     },
     drawMarker(dest, x, y) { marker(dest, x, y); },
     setCompassVisible,
     setMapVisible,
     setStreetVisible,
+    setModern,
+    setWhere,
     setFullVisible,
     setUnits,
     get compassVisible() { return compassVisible; },
@@ -562,9 +703,13 @@ export function createNavigation({ root, terrain, registry, streets, onOpen = nu
     get streetVisible() { return streetVisible; },
     get units() { return units; },
     get streetState() { return streetState; },
+    /** T-2741: the scene year's place (where.js) and today's (modern-streets.js). */
+    get eraState() { return eraState; },
+    get todayState() { return todayState; },
+    get modernLoaded() { return !!modern; },
     snapshot() {
       return {
-        ...player, compassVisible, mapVisible, streetVisible, streetState, units,
+        ...player, compassVisible, mapVisible, streetVisible, streetState, eraState, todayState, units,
         bounds: { ...bounds },
         // The window, so a test can assert that it MOVES and that it CLAMPS
         // without reading pixels back out of a canvas.

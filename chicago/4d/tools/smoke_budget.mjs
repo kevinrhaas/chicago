@@ -415,6 +415,10 @@ const COVERAGE = [
   // --- and the batch merge out of part 7 into part 8.
   ['renderers/web/js/navigation.js', [7], 'navigation and its readouts'],
   ['renderers/web/js/hud.js', [7], 'the readouts a visitor navigates by'],
+  // T-2741: today's street and house number under the compass, and the street names'
+  // record of where you are in the scene's year, read where the street readout is.
+  ['renderers/web/js/modern-streets.js', [7], 'today\'s street and house number, under the compass'],
+  ['data/modern/', [7], 'today\'s streets (the City\'s centrelines), under the compass and on the maps'],
 
   // --- PART 9: what the light does to the town
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],

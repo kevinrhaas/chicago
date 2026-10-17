@@ -694,6 +694,16 @@ step "the 1904 context city and its streets re-derive and keep off Prairie Avenu
 selftest "…and a stand-in put on a Prairie Avenue lot or in the lake, or a street across Prairie, still fails it" \
   python3 tools/build_context_1904.py --self-test
 
+# T-2741. Today's streets under every year: the City of Chicago's centrelines clipped to the
+# scenes' ground (data/modern/streets.json), each with its block's address ranges, so the compass
+# says the street and house number you stand at today. The check holds the clip's shape, its
+# source record, and three corners this project already holds OSM control for.
+step "today's streets clip holds its shape and lands on the OSM control corners (T-2741)" \
+  python3 tools/build_modern_streets.py --check
+
+step "today's street and house number read off the City's block ranges, both sides' parity (T-2741)" \
+  node tools/test_modern_streets.mjs
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
