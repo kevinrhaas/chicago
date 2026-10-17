@@ -5,7 +5,7 @@
     "build": "e62b79251",
     "machine": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz ×4",
     "seconds": 324,
-    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
   },
   "rows": [
     {
