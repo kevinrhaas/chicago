@@ -1,0 +1,7001 @@
+{
+ "ticket": "T-2698",
+ "year": "1835",
+ "measured": "2026-10-17T01:00:41.149Z",
+ "source": "published mirror",
+ "spanM": 32,
+ "viewports": [
+  {
+   "id": "desktop",
+   "detail": "full",
+   "ring": {
+    "outer": 7.6,
+    "inner": 0
+   },
+   "step": 0.6,
+   "spec": {
+    "texel": 0.125,
+    "size": 256,
+    "recentre": 8
+   },
+   "communities": [
+    "z04_marsh",
+    "z11_lot_remnant",
+    "z10_settled_town",
+    "z03_sedge_meadow",
+    "z08_lakeshore",
+    "z09_sand_prairie",
+    "z05_riverbank_timber",
+    "z06_dense_forest",
+    "z02_mesic_prairie",
+    "z01_wet_prairie",
+    "z07_bur_oak_savanna"
+   ],
+   "summary": {
+    "slots": 29190,
+    "byTexel": [
+     {
+      "texel": 0.0625,
+      "size": 512,
+      "share": {
+       "community": 0.0018,
+       "any": 0.0069,
+       "WET": 0.0001,
+       "TURF": 0.0018,
+       "BLOCKED": 0.0049,
+       "TRODDEN": 0.0004
+      },
+      "buildMsMedian": 1695.5,
+      "buildMsMax": 2426.5,
+      "heightP95MmMax": 0.0554
+     },
+     {
+      "texel": 0.125,
+      "size": 256,
+      "share": {
+       "community": 0.0023,
+       "any": 0.009,
+       "WET": 0.0002,
+       "TURF": 0.0022,
+       "BLOCKED": 0.0064,
+       "TRODDEN": 0.0003
+      },
+      "buildMsMedian": 421,
+      "buildMsMax": 603,
+      "heightP95MmMax": 0.5803
+     },
+     {
+      "texel": 0.25,
+      "size": 128,
+      "share": {
+       "community": 0.004,
+       "any": 0.0131,
+       "WET": 0.0009,
+       "TURF": 0.0038,
+       "BLOCKED": 0.0081,
+       "TRODDEN": 0.0006
+      },
+      "buildMsMedian": 106.6,
+      "buildMsMax": 151.6,
+      "heightP95MmMax": 2.3175
+     },
+     {
+      "texel": 0.5,
+      "size": 64,
+      "share": {
+       "community": 0.0444,
+       "any": 0.0587,
+       "WET": 0.0014,
+       "TURF": 0.0159,
+       "BLOCKED": 0.0128,
+       "TRODDEN": 0.0026
+      },
+      "buildMsMedian": 27.2,
+      "buildMsMax": 38.7,
+      "heightP95MmMax": 7.6872
+     }
+    ],
+    "gpuVsCpuShare": {
+     "community": 0.0023,
+     "any": 0.009,
+     "WET": 0.0002,
+     "TURF": 0.0022,
+     "BLOCKED": 0.0064,
+     "TRODDEN": 0.0003
+    },
+    "gpuVsMirrorClassMiss": 0,
+    "gpuFloat32Edge": 1,
+    "queryMsMedian": 8.1,
+    "redealMsMedian": 5.6,
+    "perMetre": {
+     "redealMs": 9.3333,
+     "tileMs": {
+      "0.0625": 211.9375,
+      "0.125": 52.625,
+      "0.25": 13.325,
+      "0.5": 3.4
+     }
+    }
+   },
+   "stations": [
+    {
+     "id": "sauganash",
+     "e": 107,
+     "n": -103,
+     "slots": 1328,
+     "communities": [
+      3
+     ],
+     "queryMs": 8.6,
+     "redealMs": 4.3,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1084,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0016,
+        "max": 1.4035
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 265,
+       "miss": {
+        "community": 0,
+        "any": 5,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 5,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0038,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0038,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2909,
+        "max": 3.4349
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 67.1,
+       "miss": {
+        "community": 0,
+        "any": 11,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 11,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0083,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0083,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.3624,
+        "max": 7.4976
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 17.2,
+       "miss": {
+        "community": 0,
+        "any": 23,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 23,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0173,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0173,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 4.3046,
+        "max": 16.8565
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 32.9,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0004
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 5,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 5,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0038,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0038,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.291,
+        "max": 3.435
+       }
+      }
+     }
+    },
+    {
+     "id": "sauganash_wing",
+     "e": 88,
+     "n": -110,
+     "slots": 1330,
+     "communities": [
+      1,
+      3
+     ],
+     "queryMs": 1.8,
+     "redealMs": 4.4,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 984.6,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 1,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0015,
+        "WET": 0.0008,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0119,
+        "max": 1.4986
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 256.8,
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 1,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0023,
+        "WET": 0.0008,
+        "TURF": 0,
+        "BLOCKED": 0.0015,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2891,
+        "max": 3.6484
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 71.4,
+       "miss": {
+        "community": 0,
+        "any": 11,
+        "WET": 8,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0083,
+        "WET": 0.006,
+        "TURF": 0,
+        "BLOCKED": 0.0023,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.2276,
+        "max": 8.0836
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 15.7,
+       "miss": {
+        "community": 0,
+        "any": 14,
+        "WET": 9,
+        "TURF": 0,
+        "BLOCKED": 5,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0105,
+        "WET": 0.0068,
+        "TURF": 0,
+        "BLOCKED": 0.0038,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 4.97,
+        "max": 18.1316
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 20.9,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0009
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 1,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0023,
+        "WET": 0.0008,
+        "TURF": 0,
+        "BLOCKED": 0.0015,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.2889,
+        "max": 3.6479
+       }
+      }
+     }
+    },
+    {
+     "id": "lake_market",
+     "e": 89.2,
+     "n": -110.4,
+     "slots": 1325,
+     "communities": [
+      1,
+      3
+     ],
+     "queryMs": 1.8,
+     "redealMs": 2.3,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1012.3,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0081,
+        "max": 1.3163
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 259.3,
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0023,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0023,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2891,
+        "max": 3.5721
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 65.3,
+       "miss": {
+        "community": 0,
+        "any": 12,
+        "WET": 7,
+        "TURF": 0,
+        "BLOCKED": 5,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0091,
+        "WET": 0.0053,
+        "TURF": 0,
+        "BLOCKED": 0.0038,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.2029,
+        "max": 8.0836
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 17.2,
+       "miss": {
+        "community": 0,
+        "any": 16,
+        "WET": 9,
+        "TURF": 0,
+        "BLOCKED": 7,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0121,
+        "WET": 0.0068,
+        "TURF": 0,
+        "BLOCKED": 0.0053,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 4.742,
+        "max": 18.1316
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.1,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0009
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0023,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0023,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.2889,
+        "max": 3.572
+       }
+      }
+     }
+    },
+    {
+     "id": "first_post_office",
+     "e": 113,
+     "n": -108,
+     "slots": 1320,
+     "communities": [
+      3
+     ],
+     "queryMs": 5.7,
+     "redealMs": 3.3,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1167.2,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.001,
+        "max": 1.4035
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 294.3,
+       "miss": {
+        "community": 0,
+        "any": 4,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 4,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.003,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.003,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2664,
+        "max": 3.4349
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 75.6,
+       "miss": {
+        "community": 0,
+        "any": 7,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 7,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0053,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0053,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.1755,
+        "max": 7.4976
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 18.7,
+       "miss": {
+        "community": 0,
+        "any": 26,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 26,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0197,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0197,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 3.7463,
+        "max": 17.625
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 23.9,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0004
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 4,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 4,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.003,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.003,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.2665,
+        "max": 3.435
+       }
+      }
+     }
+    },
+    {
+     "id": "forks",
+     "e": -100,
+     "n": -28,
+     "slots": 1324,
+     "communities": [
+      3
+     ],
+     "queryMs": 8.1,
+     "redealMs": 7.4,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1579.1,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0367
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 398,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0083,
+        "max": 0.0975
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 100.7,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0015,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0377,
+        "max": 0.2157
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 25.5,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0015,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1202,
+        "max": 0.438
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.1,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0083,
+        "max": 0.0976
+       }
+      }
+     }
+    },
+    {
+     "id": "north_branch_bridge_deck",
+     "e": -81.59,
+     "n": 262.02,
+     "slots": 1322,
+     "communities": [
+      3,
+      7
+     ],
+     "queryMs": 3.9,
+     "redealMs": 3.4,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1471.3,
+       "miss": {
+        "community": 1,
+        "any": 5,
+        "WET": 0,
+        "TURF": 1,
+        "BLOCKED": 4,
+        "TRODDEN": 1
+       },
+       "share": {
+        "community": 0.0008,
+        "any": 0.0038,
+        "WET": 0,
+        "TURF": 0.0008,
+        "BLOCKED": 0.003,
+        "TRODDEN": 0.0008
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0001,
+        "max": 0.1106
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 370.6,
+       "miss": {
+        "community": 0,
+        "any": 7,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 7,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0053,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0053,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0219,
+        "max": 0.2975
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 94,
+       "miss": {
+        "community": 1,
+        "any": 15,
+        "WET": 0,
+        "TURF": 1,
+        "BLOCKED": 14,
+        "TRODDEN": 1
+       },
+       "share": {
+        "community": 0.0008,
+        "any": 0.0113,
+        "WET": 0,
+        "TURF": 0.0008,
+        "BLOCKED": 0.0106,
+        "TRODDEN": 0.0008
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1028,
+        "max": 0.6714
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 23.9,
+       "miss": {
+        "community": 5,
+        "any": 22,
+        "WET": 0,
+        "TURF": 5,
+        "BLOCKED": 17,
+        "TRODDEN": 5
+       },
+       "share": {
+        "community": 0.0038,
+        "any": 0.0166,
+        "WET": 0,
+        "TURF": 0.0038,
+        "BLOCKED": 0.0129,
+        "TRODDEN": 0.0038
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.3626,
+        "max": 1.5269
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 22.2,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0003
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 7,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 7,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0053,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0053,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.0219,
+        "max": 0.2975
+       }
+      }
+     }
+    },
+    {
+     "id": "lake_at_canal",
+     "e": -159.7,
+     "n": -108.4,
+     "slots": 1324,
+     "communities": [
+      3
+     ],
+     "queryMs": 1.2,
+     "redealMs": 2.2,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1125.6,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.8165
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 286.1,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0926,
+        "max": 1.8434
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 72.7,
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0023,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0023,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.7527,
+        "max": 4.0845
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 19.5,
+       "miss": {
+        "community": 0,
+        "any": 6,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 6,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0045,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0045,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.9641,
+        "max": 9.2094
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0003
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0926,
+        "max": 1.8434
+       }
+      }
+     }
+    },
+    {
+     "id": "green_tree",
+     "e": -44.11,
+     "n": -121.52,
+     "slots": 1330,
+     "communities": [
+      3
+     ],
+     "queryMs": 10.7,
+     "redealMs": 2,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1556,
+       "miss": {
+        "community": 0,
+        "any": 5,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0038,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0023,
+        "TRODDEN": 0.0015
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 1.8555
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 384.1,
+       "miss": {
+        "community": 0,
+        "any": 6,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 4,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0045,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.003,
+        "TRODDEN": 0.0015
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0123,
+        "max": 4.1091
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 95.7,
+       "miss": {
+        "community": 0,
+        "any": 13,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 10,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0098,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0075,
+        "TRODDEN": 0.0023
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0843,
+        "max": 8.6203
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 24,
+       "miss": {
+        "community": 0,
+        "any": 29,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 26,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0218,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0195,
+        "TRODDEN": 0.0023
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.7516,
+        "max": 17.6427
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 21.5,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0005
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 6,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 4,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0045,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.003,
+        "TRODDEN": 0.0015
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0123,
+        "max": 4.109
+       }
+      }
+     }
+    },
+    {
+     "id": "south_water",
+     "e": 329.8,
+     "n": 7,
+     "slots": 1320,
+     "communities": [
+      3,
+      4
+     ],
+     "queryMs": 2.9,
+     "redealMs": 3.2,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1922.1,
+       "miss": {
+        "community": 6,
+        "any": 7,
+        "WET": 0,
+        "TURF": 6,
+        "BLOCKED": 1,
+        "TRODDEN": 6
+       },
+       "share": {
+        "community": 0.0045,
+        "any": 0.0053,
+        "WET": 0,
+        "TURF": 0.0045,
+        "BLOCKED": 0.0008,
+        "TRODDEN": 0.0045
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 2.3142
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 473.2,
+       "miss": {
+        "community": 6,
+        "any": 9,
+        "WET": 0,
+        "TURF": 6,
+        "BLOCKED": 3,
+        "TRODDEN": 6
+       },
+       "share": {
+        "community": 0.0045,
+        "any": 0.0068,
+        "WET": 0,
+        "TURF": 0.0045,
+        "BLOCKED": 0.0023,
+        "TRODDEN": 0.0045
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2577,
+        "max": 4.7072
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 120.8,
+       "miss": {
+        "community": 10,
+        "any": 12,
+        "WET": 0,
+        "TURF": 10,
+        "BLOCKED": 2,
+        "TRODDEN": 10
+       },
+       "share": {
+        "community": 0.0076,
+        "any": 0.0091,
+        "WET": 0,
+        "TURF": 0.0076,
+        "BLOCKED": 0.0015,
+        "TRODDEN": 0.0076
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.3042,
+        "max": 9.4933
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 31.4,
+       "miss": {
+        "community": 44,
+        "any": 56,
+        "WET": 0,
+        "TURF": 44,
+        "BLOCKED": 12,
+        "TRODDEN": 44
+       },
+       "share": {
+        "community": 0.0333,
+        "any": 0.0424,
+        "WET": 0,
+        "TURF": 0.0333,
+        "BLOCKED": 0.0091,
+        "TRODDEN": 0.0333
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 4.8087,
+        "max": 19.0655
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.4,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0008
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 6,
+        "any": 9,
+        "WET": 0,
+        "TURF": 6,
+        "BLOCKED": 3,
+        "TRODDEN": 6
+       },
+       "share": {
+        "community": 0.0045,
+        "any": 0.0068,
+        "WET": 0,
+        "TURF": 0.0045,
+        "BLOCKED": 0.0023,
+        "TRODDEN": 0.0045
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2577,
+        "max": 4.7072
+       }
+      }
+     }
+    },
+    {
+     "id": "newberry_dole_wharf",
+     "e": 204.5,
+     "n": 9.8,
+     "slots": 1326,
+     "communities": [
+      1,
+      3,
+      4,
+      7
+     ],
+     "queryMs": 8.5,
+     "redealMs": 10.8,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1604.2,
+       "miss": {
+        "community": 3,
+        "any": 96,
+        "WET": 0,
+        "TURF": 3,
+        "BLOCKED": 93,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0.0023,
+        "any": 0.0724,
+        "WET": 0,
+        "TURF": 0.0023,
+        "BLOCKED": 0.0701,
+        "TRODDEN": 0.0023
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0554,
+        "max": 1.6466
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 407.6,
+       "miss": {
+        "community": 2,
+        "any": 108,
+        "WET": 3,
+        "TURF": 2,
+        "BLOCKED": 103,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0.0015,
+        "any": 0.0814,
+        "WET": 0.0023,
+        "TURF": 0.0015,
+        "BLOCKED": 0.0777,
+        "TRODDEN": 0.0015
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.5803,
+        "max": 4.7531
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 102.4,
+       "miss": {
+        "community": 3,
+        "any": 109,
+        "WET": 6,
+        "TURF": 3,
+        "BLOCKED": 100,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0.0023,
+        "any": 0.0822,
+        "WET": 0.0045,
+        "TURF": 0.0023,
+        "BLOCKED": 0.0754,
+        "TRODDEN": 0.0023
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.3175,
+        "max": 10.9099
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 25.8,
+       "miss": {
+        "community": 17,
+        "any": 125,
+        "WET": 16,
+        "TURF": 17,
+        "BLOCKED": 92,
+        "TRODDEN": 17
+       },
+       "share": {
+        "community": 0.0128,
+        "any": 0.0943,
+        "WET": 0.0121,
+        "TURF": 0.0128,
+        "BLOCKED": 0.0694,
+        "TRODDEN": 0.0128
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 7.6872,
+        "max": 22.9985
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 20.8,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0008
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 2,
+        "any": 108,
+        "WET": 3,
+        "TURF": 2,
+        "BLOCKED": 103,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0.0015,
+        "any": 0.0814,
+        "WET": 0.0023,
+        "TURF": 0.0015,
+        "BLOCKED": 0.0777,
+        "TRODDEN": 0.0015
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.5803,
+        "max": 4.7531
+       }
+      }
+     }
+    },
+    {
+     "id": "from_above",
+     "e": 60,
+     "n": -330,
+     "slots": 1330,
+     "communities": [
+      1,
+      3,
+      4
+     ],
+     "queryMs": 8.2,
+     "redealMs": 5.6,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1790.6,
+       "miss": {
+        "community": 16,
+        "any": 16,
+        "WET": 0,
+        "TURF": 16,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.012,
+        "any": 0.012,
+        "WET": 0,
+        "TURF": 0.012,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.1796
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 454.3,
+       "miss": {
+        "community": 17,
+        "any": 17,
+        "WET": 0,
+        "TURF": 17,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0128,
+        "any": 0.0128,
+        "WET": 0,
+        "TURF": 0.0128,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.029,
+        "max": 0.3671
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 114.5,
+       "miss": {
+        "community": 32,
+        "any": 32,
+        "WET": 0,
+        "TURF": 32,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0241,
+        "any": 0.0241,
+        "WET": 0,
+        "TURF": 0.0241,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1322,
+        "max": 0.7421
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 28.9,
+       "miss": {
+        "community": 142,
+        "any": 142,
+        "WET": 0,
+        "TURF": 142,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.1068,
+        "any": 0.1068,
+        "WET": 0,
+        "TURF": 0.1068,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.5253,
+        "max": 1.5012
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 17.1,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0002
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 17,
+        "any": 17,
+        "WET": 0,
+        "TURF": 17,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0128,
+        "any": 0.0128,
+        "WET": 0,
+        "TURF": 0.0128,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0291,
+        "max": 0.3671
+       }
+      }
+     }
+    },
+    {
+     "id": "kinzie_block",
+     "e": 994.86,
+     "n": 390.5,
+     "slots": 1325,
+     "communities": [
+      3
+     ],
+     "queryMs": 4.4,
+     "redealMs": 1.8,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1587.7,
+       "miss": {
+        "community": 0,
+        "any": 5,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 5,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0038,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0038,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.4906
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 396.8,
+       "miss": {
+        "community": 0,
+        "any": 10,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 10,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0075,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0075,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0197,
+        "max": 1.051
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 99.3,
+       "miss": {
+        "community": 0,
+        "any": 15,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 15,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0113,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0113,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.546,
+        "max": 2.176
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 25.1,
+       "miss": {
+        "community": 0,
+        "any": 32,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 32,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0242,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0242,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.5915,
+        "max": 4.426
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 20.8,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0006
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 10,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 10,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0075,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0075,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.0196,
+        "max": 1.0508
+       }
+      }
+     }
+    },
+    {
+     "id": "fort_dearborn",
+     "e": 1100,
+     "n": 175,
+     "slots": 1331,
+     "communities": [
+      3
+     ],
+     "queryMs": 12.4,
+     "redealMs": 1.9,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 2426.5,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0015,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0001,
+        "max": 0.1744
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 603,
+       "miss": {
+        "community": 0,
+        "any": 4,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 4,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.003,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.003,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0572,
+        "max": 0.3598
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 151.6,
+       "miss": {
+        "community": 0,
+        "any": 6,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 6,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0045,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0045,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2141,
+        "max": 0.8055
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 38.7,
+       "miss": {
+        "community": 0,
+        "any": 45,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 45,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0338,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0338,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.6258,
+        "max": 1.7751
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 20.3,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0027
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 4,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 4,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.003,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.003,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0006,
+        "p95": 0.0571,
+        "max": 0.3595
+       }
+      }
+     }
+    },
+    {
+     "id": "lake_shore_south",
+     "e": 1340,
+     "n": -1000,
+     "slots": 1329,
+     "communities": [
+      5,
+      6
+     ],
+     "queryMs": 8.2,
+     "redealMs": 10.7,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1840.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0002,
+        "max": 1.051
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 461.5,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0008,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0952,
+        "max": 2.1551
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 116.6,
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0015,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 1.0281,
+        "max": 4.3635
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 28.7,
+       "miss": {
+        "community": 336,
+        "any": 336,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.2528,
+        "any": 0.2528,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 4.1675,
+        "max": 8.9869
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0091
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0008,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0027,
+        "p95": 0.0924,
+        "max": 2.1517
+       }
+      }
+     }
+    },
+    {
+     "id": "sixteenth_prairie",
+     "e": 1396.51,
+     "n": -2949.59,
+     "slots": 1331,
+     "communities": [
+      5,
+      6
+     ],
+     "queryMs": 8.1,
+     "redealMs": 12,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1895.4,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 477.8,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 119,
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0015,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 29.4,
+       "miss": {
+        "community": 80,
+        "any": 80,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0601,
+        "any": 0.0601,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 16.8,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "battle_reach_1812",
+     "e": 1460,
+     "n": -3050,
+     "slots": 1336,
+     "communities": [
+      5,
+      6
+     ],
+     "queryMs": 8.3,
+     "redealMs": 12.2,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1897.6,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0007,
+        "any": 0.0007,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 470.7,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0007,
+        "any": 0.0007,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 117.3,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0007,
+        "any": 0.0007,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 29.3,
+       "miss": {
+        "community": 415,
+        "any": 415,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.3106,
+        "any": 0.3106,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 23.5,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 1,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0015,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "eighteenth_prairie",
+     "e": 1401.86,
+     "n": -3206.93,
+     "slots": 1330,
+     "communities": [
+      6
+     ],
+     "queryMs": 8.4,
+     "redealMs": 13,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1901,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 471.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 119,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 29.9,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 20.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "cermak_prairie",
+     "e": 1407.06,
+     "n": -3764.87,
+     "slots": 1326,
+     "communities": [
+      6
+     ],
+     "queryMs": 8.4,
+     "redealMs": 13.6,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1849,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 464.3,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 116.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 29.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 24,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "prairie_south",
+     "e": 120,
+     "n": -330,
+     "slots": 1324,
+     "communities": [
+      3
+     ],
+     "queryMs": 7.9,
+     "redealMs": 3.1,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1780.6,
+       "miss": {
+        "community": 0,
+        "any": 6,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 6,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0045,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0045,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0288
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 451.4,
+       "miss": {
+        "community": 0,
+        "any": 12,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 12,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0091,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0091,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.06
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 112,
+       "miss": {
+        "community": 0,
+        "any": 25,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 25,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0189,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0189,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.1225
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 27.8,
+       "miss": {
+        "community": 0,
+        "any": 46,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 46,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0347,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0347,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.2475
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 17.1,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 12,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 12,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0091,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0091,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.06
+       }
+      }
+     }
+    },
+    {
+     "id": "prairie_west",
+     "e": -250,
+     "n": -150,
+     "slots": 1323,
+     "communities": [
+      2,
+      3
+     ],
+     "queryMs": 7.8,
+     "redealMs": 10.3,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1695.5,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 1,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0008,
+        "any": 0.0008,
+        "WET": 0,
+        "TURF": 0.0008,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0304
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 421,
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 2,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0015,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0.0015,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0106,
+        "max": 0.0773
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 106.6,
+       "miss": {
+        "community": 3,
+        "any": 3,
+        "WET": 0,
+        "TURF": 3,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0023,
+        "any": 0.0023,
+        "WET": 0,
+        "TURF": 0.0023,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.054,
+        "max": 0.193
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 26.8,
+       "miss": {
+        "community": 3,
+        "any": 3,
+        "WET": 0,
+        "TURF": 3,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0023,
+        "any": 0.0023,
+        "WET": 0,
+        "TURF": 0.0023,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1711,
+        "max": 0.4055
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 21.6,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 2,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0015,
+        "any": 0.0015,
+        "WET": 0,
+        "TURF": 0.0015,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0106,
+        "max": 0.0773
+       }
+      }
+     }
+    },
+    {
+     "id": "public_square",
+     "e": 550,
+     "n": -370,
+     "slots": 1324,
+     "communities": [
+      3,
+      4
+     ],
+     "queryMs": 9.1,
+     "redealMs": 7,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 2068.8,
+       "miss": {
+        "community": 26,
+        "any": 26,
+        "WET": 0,
+        "TURF": 26,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0196,
+        "any": 0.0196,
+        "WET": 0,
+        "TURF": 0.0196,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0245
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 523.9,
+       "miss": {
+        "community": 38,
+        "any": 38,
+        "WET": 0,
+        "TURF": 38,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0287,
+        "any": 0.0287,
+        "WET": 0,
+        "TURF": 0.0287,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0558
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 131.3,
+       "miss": {
+        "community": 62,
+        "any": 62,
+        "WET": 0,
+        "TURF": 62,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0468,
+        "any": 0.0468,
+        "WET": 0,
+        "TURF": 0.0468,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0049,
+        "max": 0.1183
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 33.2,
+       "miss": {
+        "community": 248,
+        "any": 248,
+        "WET": 0,
+        "TURF": 248,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.1873,
+        "any": 0.1873,
+        "WET": 0,
+        "TURF": 0.1873,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1065,
+        "max": 0.2433
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 38,
+        "any": 38,
+        "WET": 0,
+        "TURF": 38,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0287,
+        "any": 0.0287,
+        "WET": 0,
+        "TURF": 0.0287,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0558
+       }
+      }
+     }
+    },
+    {
+     "id": "river_bank",
+     "e": 180,
+     "n": 0,
+     "slots": 1332,
+     "communities": [
+      1,
+      3,
+      4
+     ],
+     "queryMs": 6.3,
+     "redealMs": 10.6,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1638.6,
+       "miss": {
+        "community": 0,
+        "any": 27,
+        "WET": 1,
+        "TURF": 0,
+        "BLOCKED": 26,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0203,
+        "WET": 0.0008,
+        "TURF": 0,
+        "BLOCKED": 0.0195,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 1.8605
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 418.4,
+       "miss": {
+        "community": 0,
+        "any": 30,
+        "WET": 1,
+        "TURF": 0,
+        "BLOCKED": 29,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0225,
+        "WET": 0.0008,
+        "TURF": 0,
+        "BLOCKED": 0.0218,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2782,
+        "max": 3.7915
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 106.5,
+       "miss": {
+        "community": 1,
+        "any": 38,
+        "WET": 4,
+        "TURF": 1,
+        "BLOCKED": 33,
+        "TRODDEN": 1
+       },
+       "share": {
+        "community": 0.0008,
+        "any": 0.0285,
+        "WET": 0.003,
+        "TURF": 0.0008,
+        "BLOCKED": 0.0248,
+        "TRODDEN": 0.0008
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.4333,
+        "max": 8.0094
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 27.2,
+       "miss": {
+        "community": 6,
+        "any": 48,
+        "WET": 6,
+        "TURF": 6,
+        "BLOCKED": 36,
+        "TRODDEN": 6
+       },
+       "share": {
+        "community": 0.0045,
+        "any": 0.036,
+        "WET": 0.0045,
+        "TURF": 0.0045,
+        "BLOCKED": 0.027,
+        "TRODDEN": 0.0045
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 6.532,
+        "max": 17.8798
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 17.5,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0007
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 30,
+        "WET": 1,
+        "TURF": 0,
+        "BLOCKED": 29,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0225,
+        "WET": 0.0008,
+        "TURF": 0,
+        "BLOCKED": 0.0218,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2782,
+        "max": 3.7916
+       }
+      }
+     }
+    }
+   ],
+   "pageerrors": []
+  },
+  {
+   "id": "mobile",
+   "detail": "light",
+   "ring": {
+    "outer": 4.6,
+    "inner": 0
+   },
+   "step": 0.6,
+   "spec": {
+    "texel": 0.125,
+    "size": 256,
+    "recentre": 8
+   },
+   "communities": [
+    "z04_marsh",
+    "z11_lot_remnant",
+    "z10_settled_town",
+    "z03_sedge_meadow",
+    "z08_lakeshore",
+    "z09_sand_prairie",
+    "z05_riverbank_timber",
+    "z06_dense_forest",
+    "z02_mesic_prairie",
+    "z01_wet_prairie",
+    "z07_bur_oak_savanna"
+   ],
+   "summary": {
+    "slots": 10648,
+    "byTexel": [
+     {
+      "texel": 0.0625,
+      "size": 512,
+      "share": {
+       "community": 0.0022,
+       "any": 0.0094,
+       "WET": 0,
+       "TURF": 0.0022,
+       "BLOCKED": 0.0071,
+       "TRODDEN": 0.0005
+      },
+      "buildMsMedian": 1524.6,
+      "buildMsMax": 2150.6,
+      "heightP95MmMax": 0.0487
+     },
+     {
+      "texel": 0.125,
+      "size": 256,
+      "share": {
+       "community": 0.0024,
+       "any": 0.0117,
+       "WET": 0,
+       "TURF": 0.0023,
+       "BLOCKED": 0.0091,
+       "TRODDEN": 0.0005
+      },
+      "buildMsMedian": 386.4,
+      "buildMsMax": 541.5,
+      "heightP95MmMax": 0.5701
+     },
+     {
+      "texel": 0.25,
+      "size": 128,
+      "share": {
+       "community": 0.005,
+       "any": 0.0163,
+       "WET": 0.0001,
+       "TURF": 0.0047,
+       "BLOCKED": 0.011,
+       "TRODDEN": 0.0008
+      },
+      "buildMsMedian": 96.7,
+      "buildMsMax": 135.7,
+      "heightP95MmMax": 3.1335
+     },
+     {
+      "texel": 0.5,
+      "size": 64,
+      "share": {
+       "community": 0.0484,
+       "any": 0.0631,
+       "WET": 0.0004,
+       "TURF": 0.0188,
+       "BLOCKED": 0.0141,
+       "TRODDEN": 0.0026
+      },
+      "buildMsMedian": 24.6,
+      "buildMsMax": 33.8,
+      "heightP95MmMax": 9.2696
+     }
+    ],
+    "gpuVsCpuShare": {
+     "community": 0.0025,
+     "any": 0.0118,
+     "WET": 0,
+     "TURF": 0.0023,
+     "BLOCKED": 0.0091,
+     "TRODDEN": 0.0005
+    },
+    "gpuVsMirrorClassMiss": 0,
+    "gpuFloat32Edge": 1,
+    "queryMsMedian": 2.7,
+    "redealMsMedian": 1.4,
+    "perMetre": {
+     "redealMs": 2.3333,
+     "tileMs": {
+      "0.0625": 190.575,
+      "0.125": 48.3,
+      "0.25": 12.0875,
+      "0.5": 3.075
+     }
+    }
+   },
+   "stations": [
+    {
+     "id": "sauganash",
+     "e": 107,
+     "n": -103,
+     "slots": 484,
+     "communities": [
+      3
+     ],
+     "queryMs": 4,
+     "redealMs": 1.3,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 991.4,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 1.4035
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 247.4,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0041,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.4337,
+        "max": 3.4349
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 63.2,
+       "miss": {
+        "community": 0,
+        "any": 7,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 7,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0145,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0145,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.9049,
+        "max": 7.4976
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 15.6,
+       "miss": {
+        "community": 0,
+        "any": 16,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 16,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0331,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0331,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 6.2336,
+        "max": 16.8565
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 26.3,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0004
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0041,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.4333,
+        "max": 3.435
+       }
+      }
+     }
+    },
+    {
+     "id": "sauganash_wing",
+     "e": 88,
+     "n": -110,
+     "slots": 480,
+     "communities": [
+      1,
+      3
+     ],
+     "queryMs": 0.3,
+     "redealMs": 1.4,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 938.4,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 1.0997
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 237.8,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2024,
+        "max": 2.6597
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 61,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 1,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0021,
+        "WET": 0.0021,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.8534,
+        "max": 7.002
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 15.6,
+       "miss": {
+        "community": 0,
+        "any": 4,
+        "WET": 4,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0083,
+        "WET": 0.0083,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.8915,
+        "max": 18.1316
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0009
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.2025,
+        "max": 2.6599
+       }
+      }
+     }
+    },
+    {
+     "id": "lake_market",
+     "e": 89.2,
+     "n": -110.4,
+     "slots": 484,
+     "communities": [
+      1,
+      3
+     ],
+     "queryMs": 0.4,
+     "redealMs": 0.8,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 936.9,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0244,
+        "max": 1.0997
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 235.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2605,
+        "max": 2.6597
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 59.2,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.956,
+        "max": 5.7797
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 15.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.8594,
+        "max": 14.6312
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.3,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0006
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2605,
+        "max": 2.6599
+       }
+      }
+     }
+    },
+    {
+     "id": "first_post_office",
+     "e": 113,
+     "n": -108,
+     "slots": 484,
+     "communities": [
+      3
+     ],
+     "queryMs": 1,
+     "redealMs": 1,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1073,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0264,
+        "max": 0.7397
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 272,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0041,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2993,
+        "max": 1.7121
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 68.3,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0041,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.1755,
+        "max": 3.9843
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 17.2,
+       "miss": {
+        "community": 0,
+        "any": 7,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 7,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0145,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0145,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 3.1955,
+        "max": 8.4282
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.6,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0003
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0041,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.2994,
+        "max": 1.7121
+       }
+      }
+     }
+    },
+    {
+     "id": "forks",
+     "e": -100,
+     "n": -28,
+     "slots": 486,
+     "communities": [
+      3
+     ],
+     "queryMs": 2.8,
+     "redealMs": 0.8,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1504.2,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0218
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 383.8,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0499
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 94.1,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0295,
+        "max": 0.1199
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 23.6,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1169,
+        "max": 0.3571
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 22.5,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0001,
+        "max": 0.0499
+       }
+      }
+     }
+    },
+    {
+     "id": "north_branch_bridge_deck",
+     "e": -81.59,
+     "n": 262.02,
+     "slots": 481,
+     "communities": [
+      3,
+      7
+     ],
+     "queryMs": 0.6,
+     "redealMs": 1,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1367.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0001,
+        "max": 0.0979
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 341.3,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0021,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0251,
+        "max": 0.2542
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 85.1,
+       "miss": {
+        "community": 0,
+        "any": 6,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 6,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0125,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0125,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1215,
+        "max": 0.5666
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 21.4,
+       "miss": {
+        "community": 4,
+        "any": 12,
+        "WET": 0,
+        "TURF": 4,
+        "BLOCKED": 8,
+        "TRODDEN": 4
+       },
+       "share": {
+        "community": 0.0083,
+        "any": 0.0249,
+        "WET": 0,
+        "TURF": 0.0083,
+        "BLOCKED": 0.0166,
+        "TRODDEN": 0.0083
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.4589,
+        "max": 1.1917
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.4,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0003
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0021,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.0253,
+        "max": 0.2541
+       }
+      }
+     }
+    },
+    {
+     "id": "lake_at_canal",
+     "e": -159.7,
+     "n": -108.4,
+     "slots": 485,
+     "communities": [
+      3
+     ],
+     "queryMs": 0.6,
+     "redealMs": 0.5,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1035,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0111,
+        "max": 0.3809
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 259.3,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1898,
+        "max": 1.009
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 64.9,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.7116,
+        "max": 3.3362
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 16.2,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.4564,
+        "max": 7.9905
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0002
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1898,
+        "max": 1.009
+       }
+      }
+     }
+    },
+    {
+     "id": "green_tree",
+     "e": -44.11,
+     "n": -121.52,
+     "slots": 482,
+     "communities": [
+      3
+     ],
+     "queryMs": 3.9,
+     "redealMs": 1.3,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1392.9,
+       "miss": {
+        "community": 0,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 1
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0021,
+        "TRODDEN": 0.0021
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.2139
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 348.7,
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0062,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0021,
+        "TRODDEN": 0.0041
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0137,
+        "max": 1.9363
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 87.7,
+       "miss": {
+        "community": 0,
+        "any": 7,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 4,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0145,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0083,
+        "TRODDEN": 0.0062
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0667,
+        "max": 5.3813
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 21.9,
+       "miss": {
+        "community": 0,
+        "any": 5,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 2,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0104,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0041,
+        "TRODDEN": 0.0062
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2336,
+        "max": 12.2711
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 21.9,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0004
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0062,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0021,
+        "TRODDEN": 0.0041
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0138,
+        "max": 1.9362
+       }
+      }
+     }
+    },
+    {
+     "id": "south_water",
+     "e": 329.8,
+     "n": 7,
+     "slots": 485,
+     "communities": [
+      3,
+      4
+     ],
+     "queryMs": 0.7,
+     "redealMs": 0.7,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1746.9,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 1,
+        "BLOCKED": 0,
+        "TRODDEN": 1
+       },
+       "share": {
+        "community": 0.0021,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0.0021,
+        "BLOCKED": 0,
+        "TRODDEN": 0.0021
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0487,
+        "max": 0.7472
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 442.2,
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 2,
+        "BLOCKED": 0,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0.0041,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0.0041,
+        "BLOCKED": 0,
+        "TRODDEN": 0.0041
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.3499,
+        "max": 2.0154
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 111.1,
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 2,
+        "BLOCKED": 0,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0.0041,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0.0041,
+        "BLOCKED": 0,
+        "TRODDEN": 0.0041
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.1373,
+        "max": 4.5517
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 28.9,
+       "miss": {
+        "community": 18,
+        "any": 18,
+        "WET": 0,
+        "TURF": 18,
+        "BLOCKED": 0,
+        "TRODDEN": 18
+       },
+       "share": {
+        "community": 0.0371,
+        "any": 0.0371,
+        "WET": 0,
+        "TURF": 0.0371,
+        "BLOCKED": 0,
+        "TRODDEN": 0.0371
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 3.3888,
+        "max": 9.6244
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 21.2,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0002
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 2,
+        "BLOCKED": 0,
+        "TRODDEN": 2
+       },
+       "share": {
+        "community": 0.0041,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0.0041,
+        "BLOCKED": 0,
+        "TRODDEN": 0.0041
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.3499,
+        "max": 2.0154
+       }
+      }
+     }
+    },
+    {
+     "id": "newberry_dole_wharf",
+     "e": 204.5,
+     "n": 9.8,
+     "slots": 485,
+     "communities": [
+      1,
+      3,
+      7
+     ],
+     "queryMs": 3,
+     "redealMs": 5,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1485.3,
+       "miss": {
+        "community": 3,
+        "any": 57,
+        "WET": 0,
+        "TURF": 3,
+        "BLOCKED": 54,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0.0062,
+        "any": 0.1175,
+        "WET": 0,
+        "TURF": 0.0062,
+        "BLOCKED": 0.1113,
+        "TRODDEN": 0.0062
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 1.1767
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 376.3,
+       "miss": {
+        "community": 1,
+        "any": 64,
+        "WET": 0,
+        "TURF": 1,
+        "BLOCKED": 63,
+        "TRODDEN": 1
+       },
+       "share": {
+        "community": 0.0021,
+        "any": 0.132,
+        "WET": 0,
+        "TURF": 0.0021,
+        "BLOCKED": 0.1299,
+        "TRODDEN": 0.0021
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.5701,
+        "max": 3.3042
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 94.7,
+       "miss": {
+        "community": 3,
+        "any": 64,
+        "WET": 0,
+        "TURF": 3,
+        "BLOCKED": 61,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0.0062,
+        "any": 0.132,
+        "WET": 0,
+        "TURF": 0.0062,
+        "BLOCKED": 0.1258,
+        "TRODDEN": 0.0062
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 3.1335,
+        "max": 7.7365
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 23.2,
+       "miss": {
+        "community": 3,
+        "any": 59,
+        "WET": 0,
+        "TURF": 3,
+        "BLOCKED": 56,
+        "TRODDEN": 3
+       },
+       "share": {
+        "community": 0.0062,
+        "any": 0.1216,
+        "WET": 0,
+        "TURF": 0.0062,
+        "BLOCKED": 0.1155,
+        "TRODDEN": 0.0062
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 9.2696,
+        "max": 17.3569
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.3,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0005
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 1,
+        "any": 64,
+        "WET": 0,
+        "TURF": 1,
+        "BLOCKED": 63,
+        "TRODDEN": 1
+       },
+       "share": {
+        "community": 0.0021,
+        "any": 0.132,
+        "WET": 0,
+        "TURF": 0.0021,
+        "BLOCKED": 0.1299,
+        "TRODDEN": 0.0021
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.5702,
+        "max": 3.3042
+       }
+      }
+     }
+    },
+    {
+     "id": "from_above",
+     "e": 60,
+     "n": -330,
+     "slots": 480,
+     "communities": [
+      3,
+      4
+     ],
+     "queryMs": 2.7,
+     "redealMs": 1.6,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1654.8,
+       "miss": {
+        "community": 7,
+        "any": 7,
+        "WET": 0,
+        "TURF": 7,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0146,
+        "any": 0.0146,
+        "WET": 0,
+        "TURF": 0.0146,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.1796
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 416,
+       "miss": {
+        "community": 5,
+        "any": 5,
+        "WET": 0,
+        "TURF": 5,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0104,
+        "any": 0.0104,
+        "WET": 0,
+        "TURF": 0.0104,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0304,
+        "max": 0.3671
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 104.1,
+       "miss": {
+        "community": 16,
+        "any": 16,
+        "WET": 0,
+        "TURF": 16,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0333,
+        "any": 0.0333,
+        "WET": 0,
+        "TURF": 0.0333,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.168,
+        "max": 0.7421
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 26.2,
+       "miss": {
+        "community": 66,
+        "any": 66,
+        "WET": 0,
+        "TURF": 66,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.1375,
+        "any": 0.1375,
+        "WET": 0,
+        "TURF": 0.1375,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.6642,
+        "max": 1.5012
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 17.8,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 5,
+        "any": 5,
+        "WET": 0,
+        "TURF": 5,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0104,
+        "any": 0.0104,
+        "WET": 0,
+        "TURF": 0.0104,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0304,
+        "max": 0.3671
+       }
+      }
+     }
+    },
+    {
+     "id": "kinzie_block",
+     "e": 994.86,
+     "n": 390.5,
+     "slots": 486,
+     "communities": [
+      3
+     ],
+     "queryMs": 0.7,
+     "redealMs": 0.5,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1435.6,
+       "miss": {
+        "community": 0,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 1,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0021,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.4397
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 360.6,
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0062,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0062,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0338,
+        "max": 0.9949
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 90.7,
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0062,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0062,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.8619,
+        "max": 2.1052
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 22.5,
+       "miss": {
+        "community": 0,
+        "any": 11,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 11,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0226,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0226,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 2.8146,
+        "max": 4.3259
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.8,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0006
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0062,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0062,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.034,
+        "max": 0.995
+       }
+      }
+     }
+    },
+    {
+     "id": "fort_dearborn",
+     "e": 1100,
+     "n": 175,
+     "slots": 487,
+     "communities": [
+      3
+     ],
+     "queryMs": 4.1,
+     "redealMs": 0.5,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 2150.6,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0001,
+        "max": 0.0681
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 541.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0613,
+        "max": 0.2089
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 135.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.2362,
+        "max": 0.5596
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 33.8,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 0.6405,
+        "max": 1.2613
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 21.5,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0026
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0007,
+        "p95": 0.0629,
+        "max": 0.2085
+       }
+      }
+     }
+    },
+    {
+     "id": "lake_shore_south",
+     "e": 1340,
+     "n": -1000,
+     "slots": 486,
+     "communities": [
+      5,
+      6
+     ],
+     "queryMs": 2.8,
+     "redealMs": 4.2,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1672.6,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0002,
+        "max": 0.6699
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 417.7,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0021,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.024,
+        "max": 1.3511
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 105.1,
+       "miss": {
+        "community": 2,
+        "any": 2,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0041,
+        "any": 0.0041,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.4475,
+        "max": 2.7138
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 26.2,
+       "miss": {
+        "community": 138,
+        "any": 138,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.284,
+        "any": 0.284,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0001,
+        "p95": 2.8813,
+        "max": 5.9543
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.8,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0091
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0021,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0.0039,
+        "p95": 0.024,
+        "max": 1.3554
+       }
+      }
+     }
+    },
+    {
+     "id": "sixteenth_prairie",
+     "e": 1396.51,
+     "n": -2949.59,
+     "slots": 487,
+     "communities": [
+      5,
+      6
+     ],
+     "queryMs": 2.8,
+     "redealMs": 3.8,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1710.2,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 429.6,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 107.7,
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0021,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 26.7,
+       "miss": {
+        "community": 16,
+        "any": 16,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0329,
+        "any": 0.0329,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "battle_reach_1812",
+     "e": 1460,
+     "n": -3050,
+     "slots": 480,
+     "communities": [
+      5,
+      6
+     ],
+     "queryMs": 2.7,
+     "redealMs": 3.7,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1694.2,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 423.2,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 105.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 26.9,
+       "miss": {
+        "community": 161,
+        "any": 161,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.3354,
+        "any": 0.3354,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.3,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 1,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 1,
+        "any": 1,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0021,
+        "any": 0.0021,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "eighteenth_prairie",
+     "e": 1401.86,
+     "n": -3206.93,
+     "slots": 489,
+     "communities": [
+      6
+     ],
+     "queryMs": 2.8,
+     "redealMs": 4.4,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1700.8,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 436.4,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 106.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 26.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 20.5,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "cermak_prairie",
+     "e": 1407.06,
+     "n": -3764.87,
+     "slots": 491,
+     "communities": [
+      6
+     ],
+     "queryMs": 2.9,
+     "redealMs": 3.8,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1656.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 413.1,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 102.5,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 25.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 17.9,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "prairie_south",
+     "e": 120,
+     "n": -330,
+     "slots": 486,
+     "communities": [
+      3
+     ],
+     "queryMs": 2.6,
+     "redealMs": 0.8,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1629.9,
+       "miss": {
+        "community": 0,
+        "any": 3,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 3,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0062,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0062,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 410.8,
+       "miss": {
+        "community": 0,
+        "any": 5,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 5,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0103,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0103,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 103.5,
+       "miss": {
+        "community": 0,
+        "any": 11,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 11,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0226,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0226,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 26,
+       "miss": {
+        "community": 0,
+        "any": 20,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 20,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0412,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0412,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 5,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 5,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0103,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0103,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+       }
+      }
+     }
+    },
+    {
+     "id": "prairie_west",
+     "e": -250,
+     "n": -150,
+     "slots": 480,
+     "communities": [
+      2
+     ],
+     "queryMs": 2.5,
+     "redealMs": 3.7,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1524.6,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0304
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 386.4,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0136,
+        "max": 0.0617
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 96.7,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0583,
+        "max": 0.1242
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 24.6,
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1591,
+        "max": 0.3284
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18.2,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0137,
+        "max": 0.0617
+       }
+      }
+     }
+    },
+    {
+     "id": "public_square",
+     "e": 550,
+     "n": -370,
+     "slots": 478,
+     "communities": [
+      3,
+      4
+     ],
+     "queryMs": 2.9,
+     "redealMs": 2.2,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1868.2,
+       "miss": {
+        "community": 12,
+        "any": 12,
+        "WET": 0,
+        "TURF": 12,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0251,
+        "any": 0.0251,
+        "WET": 0,
+        "TURF": 0.0251,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0167
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 471.9,
+       "miss": {
+        "community": 17,
+        "any": 17,
+        "WET": 0,
+        "TURF": 17,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0356,
+        "any": 0.0356,
+        "WET": 0,
+        "TURF": 0.0356,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.0425
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 118.6,
+       "miss": {
+        "community": 29,
+        "any": 29,
+        "WET": 0,
+        "TURF": 29,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0607,
+        "any": 0.0607,
+        "WET": 0,
+        "TURF": 0.0607,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0009,
+        "max": 0.105
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 29.8,
+       "miss": {
+        "community": 109,
+        "any": 109,
+        "WET": 0,
+        "TURF": 109,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.228,
+        "any": 0.228,
+        "WET": 0,
+        "TURF": 0.228,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0754,
+        "max": 0.2381
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 19.7,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0001
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 17,
+        "any": 17,
+        "WET": 0,
+        "TURF": 17,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0.0356,
+        "any": 0.0356,
+        "WET": 0,
+        "TURF": 0.0356,
+        "BLOCKED": 0,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.0001,
+        "max": 0.0426
+       }
+      }
+     }
+    },
+    {
+     "id": "river_bank",
+     "e": 180,
+     "n": 0,
+     "slots": 482,
+     "communities": [
+      1,
+      3
+     ],
+     "queryMs": 1.7,
+     "redealMs": 4.2,
+     "redealt": 5,
+     "tiles": [
+      {
+       "texel": 0.0625,
+       "size": 512,
+       "buildMs": 1468.2,
+       "miss": {
+        "community": 0,
+        "any": 17,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 17,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0353,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0353,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0,
+        "max": 0.8508
+       }
+      },
+      {
+       "texel": 0.125,
+       "size": 256,
+       "buildMs": 372.9,
+       "miss": {
+        "community": 0,
+        "any": 20,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 20,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0415,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0415,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1618,
+        "max": 2.0561
+       }
+      },
+      {
+       "texel": 0.25,
+       "size": 128,
+       "buildMs": 93.2,
+       "miss": {
+        "community": 0,
+        "any": 23,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 23,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0477,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0477,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 1.4333,
+        "max": 6.5581
+       }
+      },
+      {
+       "texel": 0.5,
+       "size": 64,
+       "buildMs": 23.2,
+       "miss": {
+        "community": 0,
+        "any": 30,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 30,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0622,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0622,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 6.5613,
+        "max": 15.6177
+       }
+      }
+     ],
+     "gpu": {
+      "texel": 0.125,
+      "size": 256,
+      "readMs": 18,
+      "glError": 0,
+      "unwritten": 0,
+      "vsMirror": {
+       "classMiss": 0,
+       "float32Edge": 0,
+       "heightMaxMm": 0.0004
+      },
+      "vsCpu": {
+       "miss": {
+        "community": 0,
+        "any": 20,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 20,
+        "TRODDEN": 0
+       },
+       "share": {
+        "community": 0,
+        "any": 0.0415,
+        "WET": 0,
+        "TURF": 0,
+        "BLOCKED": 0.0415,
+        "TRODDEN": 0
+       },
+       "heightMm": {
+        "p50": 0,
+        "p95": 0.1618,
+        "max": 2.0559
+       }
+      }
+     }
+    }
+   ],
+   "pageerrors": []
+  }
+ ]
+}
