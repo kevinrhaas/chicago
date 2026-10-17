@@ -66,6 +66,9 @@ const DEFAULT_SETTINGS = {
   // The wagon's and the horse's own speeds (T-0823) and the run's (T-2651); `speed`
   // above is the walk's.
   wagonSpeed: 3.6, horseSpeed: 6.5, runSpeed: 3.4,
+  // T-2652: whether the visitor has picked a getting-there choice themselves. Until they
+  // have, a Jaunt rides at its own recommended mode (js/getting-there.js § jauntModeFor).
+  arriveChosen: false,
   // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
   snapTurn: false,
 };
@@ -699,6 +702,7 @@ export function createHud({
   });
   root.querySelectorAll('#s-arrive .seg-btn').forEach((b) => {
     b.addEventListener('click', () => {
+      settings.arriveChosen = true;
       setTravelMode(travelModeFor(b.dataset.arrive, groundPace()));
     });
   });
@@ -791,6 +795,8 @@ export function createHud({
     setTravelMode,
     setMoveMode,
     paintMove,
+    /** The getting-there choice, for Go to, the Map and Jaunts (T-2652). */
+    get gettingThere() { return { travelMode: settings.travelMode, pace: groundPace(), chosen: !!settings.arriveChosen }; },
     /** Move's mode: 'fly' while flying, else the ground pace (T-2651). */
     get moveMode() { return flying ? 'fly' : groundPace(); },
     showControlHelp,
