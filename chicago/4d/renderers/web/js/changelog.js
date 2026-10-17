@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 1950, ts: '2026-10-17T12:18:12.219Z', date: 'Oct 17, 2026, 7:18 AM CT', title: 'Guide explains the words we use', kind: 'feature',
+    items: [
+      'Guide in the Navigator now has a glossary of seven words, each with one plain line: Attested, Inferred, Reconstructed, Confidence view, Liberties, Sources and Jaunts.',
+      'It also answers two questions in a few sentences each: Is this real? and What does Reconstructed mean?',
+      'Where one of these words first appears, it is underlined with dots. Tap it to see what it means.',
+    ] },
+  { v: 1949, ts: '2026-10-17T11:53:51.478Z', date: 'Oct 17, 2026, 6:53 AM CT', title: 'Guide shows the controls for your device', kind: 'feature',
+    items: [
+      'Guide in the Navigator now lists the controls. On a phone it shows touch: your left thumb walks and the right side of the screen looks. On a computer it shows the keys and the mouse.',
+      'If you switch between touch and keys, the list switches with you. You can also tap Touch or Keyboard to read the other list.',
+      'The "How to explore" pop-up that opened when you first arrived is gone. Settings\' Show the controls now opens Guide.',
+    ] },
+  { v: 1948, ts: '2026-10-17T11:53:51.478Z', date: 'Oct 17, 2026, 6:53 AM CT', title: 'Home\'s choices stay apart as the Navigator opens', kind: 'fix',
+    items: [
+      'On a computer, Take a Jaunt, Go to and Free roam no longer draw over one another for a moment while the Navigator widens from its rail.',
+    ] },
+  { v: 1947, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to follows the Confidence view', kind: 'improvement',
+    items: [
+      'The Include reconstructed roofs checkbox is gone from Go to. Every place is listed.',
+      'When the Confidence view hides Reconstructed, those places stay in Go to but are dimmed, with one line saying they are hidden in the Confidence view. Show the grade again and they are back to normal.',
+    ] },
+  { v: 1946, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to is tidier', kind: 'improvement',
+    items: [
+      'Go to\'s filters are now All, Places, People, Shops & work and Viewpoints. A filter with nothing in it for this year is not shown, so 1904 no longer offers Corners 0.',
+      'Long names wrap onto a second line instead of being cut off.',
+      'Every place in the list shows how far away it is and which way, with an arrow that points the way you would turn.',
+    ] },
   { v: 1945, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'A first tip when you roam freely', kind: 'feature',
     items: [
       'The first time you choose Free roam on a device, a short tip tells you how to look closer: Tap any building to inspect it. With a mouse it says click, or press E.',

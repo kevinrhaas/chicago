@@ -89,3 +89,22 @@
 .insp-when { display: grid; grid-template-columns: 3.2rem 1fr; gap: 8px; align-items: baseline; }
 .insp-date { font: var(--label-weight, 400) 0.75rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
 .insp-what { font: 400 1rem/1.45 var(--font-body, inherit); }
+/* T-2640: Show me — a small key at the end of each Look for line the record gives a camera,
+   and the outline it pulses on the building for 2 s (still, with reduced motion). */
+.insp-look-item { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.insp-showme {
+  margin-left: auto; min-height: 36px; padding: 0 12px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: transparent; color: var(--accent); cursor: pointer;
+  font: var(--label-weight, 400) 10px/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); letter-spacing: .14em; text-transform: uppercase;
+}
+.insp-showme:hover { border-color: var(--accent); }
+.insp-showme:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.show-me-outline {
+  position: fixed; z-index: 21; pointer-events: none; border-radius: 6px;
+  border: 2px solid var(--amber, #E2A63F);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .35), 0 0 16px color-mix(in srgb, var(--amber, #E2A63F) 55%, transparent);
+}
+.show-me-outline[hidden] { display: none; }
+.show-me-outline.is-pulsing { animation: show-me-pulse .5s ease-in-out 4 alternate both; }
+@keyframes show-me-pulse { from { opacity: 1; } to { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .show-me-outline.is-pulsing { animation: none; } }

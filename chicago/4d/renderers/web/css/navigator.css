@@ -404,7 +404,17 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .nav-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .nav-choice { display: flex; flex-direction: column; gap: 3px; min-height: 52px; padding: 9px 10px; text-align: left;
   border: 1px solid var(--edge); border-radius: 10px; background: transparent; color: var(--ink); cursor: pointer;
-  font: inherit; }
+  font: inherit;
+  /* A choice shrinks with its column and never spills onto its neighbour. While the
+     panel grows — the desktop's from its 58 px rail, the phone's from its dock pill — the
+     columns start near zero, and a grid item's default min-width (its longest word) and
+     a fixed 10 px of inline padding each set a floor wider than the column, so Go to and
+     Free roam drew over one another until it settled. The inline padding is a share of
+     the grid area (12 %, which is 10 px or more in any column at rest: about 90 px on a
+     phone, 98 px on a desktop), so at rest it is the same 10 px and while narrow it
+     shrinks with the column; only the 1 px borders remain, inside the 8 px gap. */
+  padding-inline: min(10px, 12%);
+  min-width: 0; overflow: hidden; overflow-wrap: anywhere; }
 .nav-choice strong { font-size: 14px; font-weight: 600; }
 .nav-choice span { font-size: 11px; color: var(--ink-dim); line-height: 1.25; }
 .nav-choice:hover { border-color: var(--accent); }
@@ -430,3 +440,23 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .nav-screen:focus-visible, .nav-screen > h2:focus-visible, #nav-home-title:focus-visible {
   outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 8px;
 }
+
+/* ---- Guide's controls sheet (T-2661): touch or keyboard, as the visitor is using -- */
+.nav-guide-seg { display: flex; width: 100%; margin: 10px 0 8px; }
+.nav-guide-seg .seg-btn { min-height: 44px; }
+.nav-guide-keys { margin-top: 10px; gap: 9px 14px; }
+.nav-guide-keys dt { white-space: normal; max-width: 10em; color: var(--ink-dim); font-size: 13px; }
+.nav-guide-keys dd { font-size: 14px; line-height: 1.4; }
+.nav-guide-keys kbd { margin: 0 2px 2px 0; }
+
+/* ---- Guide's glossary and questions (T-2662) --------------------------------------- */
+.nav-guide-glossary, .nav-guide-faq { margin-top: 12px; }
+.nav-glossary { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr); gap: 8px 14px; margin: 10px 0 0; }
+.nav-glossary dt { font-weight: 600; color: var(--ink); font-size: 14px; }
+.nav-glossary dd { margin: 0; font-size: 14px; line-height: 1.4; color: var(--ink-dim); }
+@media (max-width: 420px) { .nav-glossary { grid-template-columns: minmax(0, 1fr); gap: 2px 0; } .nav-glossary dd { margin-bottom: 8px; } }
+.nav-faq { margin-top: 8px; display: grid; gap: 6px; }
+.nav-faq-item { border: 1px solid var(--edge); border-radius: 10px; padding: 0 12px; }
+.nav-faq-item > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; font-size: 14px; }
+.nav-faq-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-faq-item > p { margin: 0 0 12px; }
