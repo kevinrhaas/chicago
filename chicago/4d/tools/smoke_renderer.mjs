@@ -14566,7 +14566,7 @@ for (const [label, viewport, touch] of [
       && biz.counts.file === biz.counts.stated && biz.counts.stated > 150
       && biz.counts.rows === biz.counts.stated
       && new RegExp(`^${biz.counts.stated} firms`).test(biz.counts.countText)
-      && biz.counts.title === 'Businesses',
+      && biz.counts.title === 'Shops & work',
       JSON.stringify(biz.counts));
     check(`${label}: searching a good the papers advertised finds the houses that sold it`,
       biz.search.matched > 0 && biz.search.matched < biz.counts.stated
@@ -14838,7 +14838,7 @@ for (const [label, viewport, touch] of [
       return out;
     });
     check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
-      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 11
+      hub.hubShown && hub.title === 'Sources' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
       && hub.tiles[2]?.id === 'sources'
       && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
@@ -14989,7 +14989,7 @@ for (const [label, viewport, touch] of [
       && hub.cleared === hub.topic.total,
       JSON.stringify(hub.topic));
     check(`${label}: Back returns to the hub`,
-      hub.back.hubShown && hub.back.title === 'Evidence' && hub.back.topic === null && hub.back.backHidden,
+      hub.back.hubShown && hub.back.title === 'Sources' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
@@ -15144,6 +15144,45 @@ for (const [label, viewport, touch] of [
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
       && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
+
+    // --- the Jaunts app (T-2630): Home's choices open its segments ----------------
+    // Navigator Home offers the arrival's three choices; each opens the Jaunts app on its
+    // segment (Jaunts · Go to · Free roam, a tablist). Go to is the Welcome card's own
+    // search, lent to the device; the rail opens the app too; Free roam docks it; and the
+    // card gets its list and search back, in place, when it shows again.
+    await page.evaluate(() => { window.__chicago4d.hud.setPanel(false); window.__chicago4d.navigator.open(1); window.__chicago4d.navigator.select('home'); });
+    await page.waitForTimeout(400);
+    await clickChrome('#nav-home [data-segment="goto"]');
+    await page.waitForFunction(() => window.__chicago4d.jauntsApp?.current === 'goto', null, { timeout: 15_000, polling: 100 }).catch(() => {});
+    const segGoto = await page.evaluate(() => {
+      const app = document.getElementById('nav-app-jaunts');
+      const picker = document.getElementById('welcome-picker');
+      return { app: window.__chicago4d.navigator.app, choices: [...document.querySelectorAll('#nav-home [data-segment]')].map((b) => b.dataset.segment),
+        tabs: [...(app?.querySelectorAll('[role="tablist"] [role="tab"]') ?? [])].map((t) => `${t.textContent}:${t.getAttribute('aria-selected')}`),
+        pickerInApp: !!app?.contains(picker), pickerShown: !!picker?.checkVisibility?.(),
+        rows: document.querySelectorAll('#nav-app-jaunts .welcome-destination').length };
+    });
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="jaunts"]')?.click());
+    await page.waitForTimeout(600);
+    const segJaunts = await page.evaluate(() => ({ current: window.__chicago4d.jauntsApp?.current,
+      listInApp: !!document.getElementById('nav-app-jaunts')?.contains(document.getElementById('welcome-jaunts-content')) }));
+    await page.evaluate(() => window.__chicago4d.navigator.select('home'));
+    await clickChrome('#nav-rail [data-app="jaunts"]');
+    await page.waitForTimeout(400);
+    const viaRail = await page.evaluate(() => window.__chicago4d.navigator.app);
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click());
+    await page.evaluate(() => document.querySelector('#nav-app-jaunts .nav-roam')?.click());
+    await page.waitForTimeout(400);
+    const roamed = await page.evaluate(() => window.__chicago4d.navigator.level);
+    await page.evaluate(() => window.__chicago4d.jauntsApp?.restore());
+    const restored = await page.evaluate(() => ({ list: document.getElementById('welcome-jaunts-content')?.parentElement?.id ?? null,
+      picker: document.getElementById('welcome-picker')?.parentElement?.id ?? null, pickerHidden: document.getElementById('welcome-picker')?.hidden }));
+    check(`${label}: Navigator Home's three choices open the Jaunts app on their segment; the rail opens it; Free roam docks it; the Welcome card gets its list and search back (T-2630)`,
+      segGoto.choices.join() === 'jaunts,goto,roam' && segGoto.app === 'jaunts'
+      && segGoto.tabs.join() === 'Jaunts:false,Go to:true,Free roam:false' && segGoto.pickerInApp && segGoto.pickerShown && segGoto.rows > 0
+      && segJaunts.current === 'jaunts' && segJaunts.listInApp && viaRail === 'jaunts' && roamed === 0
+      && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
+      JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
@@ -17174,9 +17213,9 @@ for (const [label, viewport, touch] of [
           && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
           survivalCard.opening.slice(0, 300));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
-          survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
+          survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
-          && survivalCard.facts.some(([k, v]) => k === 'Present status' && /Still standing.*Glessner House museum/.test(v))
+          && survivalCard.facts.some(([k, v]) => k === 'Today' && /Still standing.*Glessner House museum/.test(v))
           && survivalCard.range?.to === '1946-08-31'
           && survivalCard.status?.confidence === 'attested'
           && survivalCard.status?.sources?.includes('glessner_house_current_status')
