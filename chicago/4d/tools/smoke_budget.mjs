@@ -194,6 +194,8 @@ const COVERAGE = [
   // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
   // the tree does not hold is refused as rot.
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
+  ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
   // Which files git tracks. What publish.sh writes into the untracked mirror is held by
   // check_published.mjs in check.sh, not by the renderer.
   ['.gitignore', NONE, 'which files git tracks — the mirror is held by check_published.mjs'],
@@ -574,6 +576,8 @@ const COVERAGE = [
   // tools/test_time_stream.mjs hold the decks and the pick in check.sh.
   ['renderers/web/js/time-stream.js', [15], 'the arrival\u2019s time-stream captions (T-2611)'],
   ['data/timestream/', [15], 'the time-stream decks the arrival fetches (T-2611)'],
+  // T-2612: the lamps, YEARS TO GO and the log part 15 reads on the arrival it boots fresh.
+  ['renderers/web/js/arrival-telemetry.js', [15], 'the arrival\u2019s lamps, YEARS TO GO and log (T-2612)'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than
