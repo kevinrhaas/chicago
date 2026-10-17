@@ -13620,6 +13620,8 @@ for (const [label, viewport, touch] of [
     // retired with the drawer, by the owner's lane decision: Go to is the Jaunts app's own
     // segment (T-2630), the arrival's destination search, which T-2632 refines and whose
     // checks are its own. The checks that read #jump-search and #jump-results went with it.
+    // (T-2633 restated these for the Confidence view on dev; they retire here all the same.
+    // Its own checks on the Jaunts app's Go to, in welcome.js, stand where T-2633 put them.)
 
     // --- the drawer, and what T-0701…T-0710 put in it ------------------------
     //
@@ -15038,6 +15040,41 @@ for (const [label, viewport, touch] of [
       && String(gotoClean.clamp) === '2' && gotoClean.overflow,
       JSON.stringify(gotoClean));
     // ---- end T-2632
+    // ---- T-2633: the Navigator's Go to follows the Confidence view too: with Reconstructed
+    // hidden, a reconstructed place is listed dimmed with its one-line reason, and is
+    // itself again the moment the grade is shown.
+    const gotoConfidence = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const target = api.destinations.targets.find((t) => t.kind === 'structure' && t.presence === 'reconstructed');
+      if (!target) return { target: null };
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      const search = document.getElementById('welcome-search');
+      const read = () => {
+        const row = [...document.querySelectorAll('#welcome-results .welcome-destination')].find((r) => r.dataset.id === target.id);
+        return { listed: !!row, dimmed: !!row?.classList.contains('is-hidden-grade'), why: row?.querySelector('.welcome-why')?.textContent ?? null };
+      };
+      search.value = target.label;
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.hud.setHidden('reconstructed', true, { announce: false });
+      const hidden = read();
+      api.hud.setHidden('reconstructed', false, { announce: false });
+      const shown = read();
+      search.value = '';
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return { target: target.id, hidden, shown };
+    });
+    check(`${label}: with Reconstructed hidden, Go to lists a reconstructed place dimmed with its reason, and plain again once shown (T-2633)`,
+      !!gotoConfidence.target && gotoConfidence.hidden.listed && gotoConfidence.hidden.dimmed
+      && /^Reconstructed is hidden in the Confidence view/.test(gotoConfidence.hidden.why ?? '')
+      && gotoConfidence.shown.listed && !gotoConfidence.shown.dimmed && gotoConfidence.shown.why === null,
+      JSON.stringify(gotoConfidence));
+    // ---- end T-2633 (Navigator Go to)
     // ---- T-2634: Free roam docks the Navigator and, once per device, says how to inspect.
     const roamTip = await page.evaluate(async () => {
       const api = window.__chicago4d;

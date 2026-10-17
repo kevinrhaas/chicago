@@ -12,8 +12,13 @@
  * the search folds diacritics, so "Beaubien" finds "Beaubien" however it was typed.
  *
  * Contract: createGoTo({ root, destinations, visitor,
- *   units, settings, isTouch, onGoTo, onPersist }) -> { paint(query), open(),
- *   refreshDistances(), setKind(id), setIncludeReconstructed(bool), targets }
+ *   units, settings, isTouch, onGoTo, onPersist, hiddenGrades }) -> { paint(query), open(),
+ *   refreshDistances(), setKind(id), targets }
+ *
+ * T-2633: the list follows the Confidence view. Every roof is listed; a row whose grade
+ * the Confidence view is hiding (`hiddenGrades()`, e.g. ['reconstructed']) is dimmed and
+ * says why in one line, and is itself again the moment the grade is shown. The old
+ * "Include reconstructed roofs" checkbox is gone: there is one place to choose what you see.
  * `root` is the <section data-panel="goto">; this module renders its own markup into it.
  *
  * Two grades, one chip. The chip on a structure row is the PRESENCE grade — whether the
@@ -43,6 +48,9 @@ const SEARCH_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" 
   + 'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></svg>';
 
 const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
+const GRADE_WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
+/** The one line a dimmed row carries (T-2633), in the locked terms. */
+export const hiddenReason = (grade) => `${GRADE_WORD[grade] ?? grade} is hidden in the Confidence view, so it is not drawn in the town now.`;
 const normalBearing = (value) => ((Number(value) || 0) % 360 + 360) % 360;
 export const cardinal = (bearing) => CARDINALS[Math.round(normalBearing(bearing) / 22.5) % CARDINALS.length];
 /** How far a place is from where the visitor stands, and its compass bearing (T-2632). */
@@ -56,9 +64,9 @@ export const arrowTurn = (d, v) => Math.round(normalBearing(d.bearing - (v?.bear
 export { ARROW_SVG };
 export function createGoTo({
   root, destinations, visitor = null,
-  units = () => 'imperial', settings = {}, isTouch = false, onGoTo, onPersist,
+  units = () => 'imperial', settings = {}, isTouch = false, onGoTo, onPersist, hiddenGrades = () => [],
 } = {}) {
-  const noop = { paint() {}, open() {}, refreshDistances() {}, setKind() {}, setIncludeReconstructed() {}, targets: [] };
+  const noop = { paint() {}, open() {}, refreshDistances() {}, setKind() {}, targets: [] };
   if (!root) return noop;
 
   const { targets, groups } = destinations;
@@ -80,10 +88,6 @@ export function createGoTo({
       <div class="jump-pills" role="group" aria-label="Kinds of place">
         ${pillHtml('all', 'All')}${groups.map((k) => pillHtml(k.id, k.label)).join('')}
       </div>
-      <label class="jump-toggle">
-        <input type="checkbox" id="jump-reconstructed">
-        <span>Include reconstructed roofs (<b id="jump-hidden-count">0</b>)</span>
-      </label>
     </div>
     <div class="jump-results" id="jump-results" role="listbox" aria-label="Places and people"></div>
     <p class="legend-note" id="jump-note"></p>
@@ -98,19 +102,18 @@ export function createGoTo({
   const input = $('#jump-search');
   const results = $('#jump-results');
   const countEl = $('#jump-count');
-  const hiddenCountEl = $('#jump-hidden-count');
   const noteEl = $('#jump-note');
-  const toggle = $('#jump-reconstructed');
   const pills = [...root.querySelectorAll('.jump-pill')];
 
   // ---- state -----------------------------------------------------------------
   let kind = 'all';
-  let includeReconstructed = !!settings.gotoReconstructed;
+  // Every roof is listed (T-2633); what the Confidence view hides is dimmed, not dropped.
+  const includeReconstructed = true;
+  const hidden = () => { try { return new Set(hiddenGrades() ?? []); } catch { return new Set(); } };
   let query = '';
   let active = -1;
   /** The rows on screen, in order: `{ t, el }`. */
   let painted = [];
-  toggle.checked = includeReconstructed;
 
   function where() {
     try { return visitor?.() ?? null; } catch { return null; }
@@ -128,9 +131,13 @@ export function createGoTo({
     const attrs = [`data-jump-kind="${t.kind}"`, `data-jump-id="${escapeHtml(t.id)}"`, `data-jump-group="${t.group}"`];
     if (t.kind === 'structure') attrs.push(`data-jump-confidence="${t.presence}"`, `data-jump-position="${t.position}"`);
     const chip = t.kind === 'structure' ? `<small class="conf conf-${t.presence}">${t.presence}</small>` : '';
-    return `<button type="button" class="jump-result" role="option" id="jump-opt-${i}" aria-selected="false" ${attrs.join(' ')}>`
+    // T-2633: a grade the Confidence view is hiding: dimmed, with the one-line reason.
+    const off = (t.kind === 'structure' || t.kind === 'business') && t.presence && hiddenNow.has(t.presence);
+    if (off) attrs.push('data-jump-hidden="true"');
+    const why = off ? `<small class="jump-why">${escapeHtml(hiddenReason(t.presence))}</small>` : '';
+    return `<button type="button" class="jump-result${off ? ' is-hidden-grade' : ''}" role="option" id="jump-opt-${i}" aria-selected="false" ${attrs.join(' ')}>`
       + `<span class="jump-main"><span class="jump-name">${escapeHtml(t.label)}</span>`
-      + `<small class="jump-sub">${escapeHtml(t.sub)}</small></span>`
+      + `<small class="jump-sub">${escapeHtml(t.sub)}</small>${why}</span>`
       + `<span class="jump-side"><small class="jump-dist" data-m="${d ? Math.round(d.m) : ''}">${distHtml(d, v)}</small>${chip}</span>`
       + '</button>';
   }
@@ -139,7 +146,6 @@ export function createGoTo({
   function emptyText() {
     const tries = ['a surname', 'a street'];
     if (kind !== 'all') tries.push(`the All pill`);
-    if (!includeReconstructed) tries.push('turning on the reconstructed roofs');
     if (kind === 'people' && !destinations.peopleAvailable) return 'The people directory is not available in this build, so nobody is listed here yet.';
     const last = tries.pop();
     return `Nothing here is called that. Try ${tries.join(', ')}, or ${last}.`;
@@ -175,25 +181,28 @@ export function createGoTo({
     const tally = { attested: 0, inferred: 0, reconstructed: 0 };
     for (const t of structures) if (t.presence in tally) tally[t.presence]++;
     const total = structures.length;
-    const shown = includeReconstructed ? total : total - tally.reconstructed;
+    const off = hidden();
     const viewpoints = targets.filter((t) => t.kind === 'anchor').length;
     const junctions = targets.filter((t) => t.kind === 'intersection').length;
     const withAddress = targets.filter((t) => t.kind === 'person' && t.at).length;
     const unknown = targets.filter(t => t.kind === 'person' && !t.at).length;
     const businesses = targets.filter(t => t.kind === 'business').length;
-    const roofs = `${tally.reconstructed} reconstructed roofs are ${includeReconstructed
-      ? 'showing too' : 'hidden until you ask for them'}`;
+    const dimmed = ['attested', 'inferred', 'reconstructed'].filter((g) => off.has(g));
+    const roofs = dimmed.length
+      ? `the ${dimmed.join(' and ')} ones are dimmed, because the Confidence view is hiding them`
+      : 'every one listed';
     const peopleLine = !destinations.peopleAvailable
       ? 'The people directory is not available in this build, so nobody is listed.'
       : `${withAddress} ${withAddress === 1 ? 'person has' : 'people have'} a known address. ${unknown} without an address can still open a card. ${businesses} businesses are searchable.`;
     noteEl.textContent = `${plural(viewpoints, 'viewpoint')}, ${plural(junctions, 'verified junction')} and `
-      + `${shown} of ${total} structures — ${roofs}. Of all ${total}, ${tally.attested} are attested to have `
+      + `${total} structures — ${roofs}. Of all ${total}, ${tally.attested} are attested to have `
       + `stood here, ${tally.inferred} inferred and ${tally.reconstructed} reconstructed. ${peopleLine}`;
-    hiddenCountEl.textContent = String(tally.reconstructed);
   }
 
+  let hiddenNow = new Set();
   function paint(q = query) {
     query = String(q ?? '');
+    hiddenNow = hidden();
     const v = where();
     const base = destinations.search('', { includeReconstructed });
     const matched = destinations.search(query, { kind, includeReconstructed, visitor: v }).map(t => ({ t, d: distOf(t, v) }));
@@ -287,13 +296,6 @@ export function createGoTo({
     // Single-select; pressing the pressed pill returns to All.
     pill.addEventListener('click', () => setKind(pill.dataset.kind === kind ? 'all' : pill.dataset.kind));
   }
-  function setIncludeReconstructed(on) {
-    includeReconstructed = !!on;
-    toggle.checked = includeReconstructed;
-    onPersist?.('gotoReconstructed', includeReconstructed);
-    paint();
-  }
-  toggle.addEventListener('change', () => setIncludeReconstructed(toggle.checked));
 
   /** Shown: re-sort by where the visitor now stands, then point the arrows. */
   function open() {
@@ -302,5 +304,5 @@ export function createGoTo({
   }
 
   paint('');
-  return { paint, open, refreshDistances, setKind, setIncludeReconstructed, targets };
+  return { paint, open, refreshDistances, setKind, targets };
 }

@@ -1,7 +1,7 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
 import { scenePresentation } from './scene-presentation.js';
 import { iconSvg } from './menu-icons.js';
-import { placeDistance, arrowTurn, cardinal, ARROW_SVG } from './goto.js';
+import { placeDistance, arrowTurn, cardinal, ARROW_SVG, hiddenReason } from './goto.js';
 import { formatDistance } from './units.js';
 
 /** Go to's filters (T-2632, DESIGN §07): All, then Places · People · Shops & work ·
@@ -33,7 +33,9 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   onShow = () => {},
   // T-2632: where the visitor stands ({ e, n, bearingDeg }) and their units, for each row's
   // distance and bearing.
-  visitor = () => null, units = () => 'imperial' }) {
+  visitor = () => null, units = () => 'imperial',
+  // T-2633: the grades the Confidence view is hiding; their rows are dimmed and say why.
+  hiddenGrades = () => [] }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -86,6 +88,13 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       const text = document.createElement('div'); text.className = 'welcome-dest-text';
       text.append(name, ' ', detail);
       button.append(text); button.disabled = !located;
+      // T-2633: a grade the Confidence view is hiding is dimmed, and says why in one line.
+      let off = null; try { off = new Set(hiddenGrades() ?? []); } catch { off = new Set(); }
+      if ((row.kind === 'structure' || row.kind === 'business') && row.presence && off.has(row.presence)) {
+        button.classList.add('is-hidden-grade'); button.dataset.hiddenGrade = row.presence;
+        const why = document.createElement('small'); why.className = 'welcome-why'; why.textContent = hiddenReason(row.presence);
+        text.append(' ', why);
+      }
       // T-2632: how far, and which way, from where you stand.
       let v = null; try { v = visitor(); } catch { v = null; }
       const d = located ? rowDistance(row, v, units()) : null;

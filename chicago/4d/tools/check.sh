@@ -163,6 +163,9 @@ step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's lis
 # T-2632: Go to cleanup.
 step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
   node tools/test_goto_cleanup.mjs
+# T-2633: Go to follows the Confidence view.
+step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
+  node tools/test_goto_confidence.mjs
 # T-2634: Free roam's one-time tip.
 step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
   node tools/test_roam_tip.mjs
