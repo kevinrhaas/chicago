@@ -149,11 +149,24 @@ export function createNavigator({
   // `ctx` is the page's context (main.js) plus what only the device knows: the target
   // within 40 m (Inspect's rule), the shape it is in, and the device itself.
   let near = null;
-  const ctx = () => ({ ...context(), target: near, isPhone: isPhone(), navigator: api });
+  // T-2621: a deep link's { app, id, tab }, handed to the app it opens through ctx.link.
+  // Until the dossier lands (T-2638), an Inspect link's building is offered as the one
+  // selected, so Inspect's stub opens that building's card.
+  let link = null;
+  const ctx = () => {
+    const page = context();
+    const linked = link?.app === 'inspect' && link.id ? { selected: link.id } : null;
+    return { ...page, ...linked, link, target: near, isPhone: isPhone(), navigator: api };
+  };
+  // T-2621: who wants to hear the device change (nav-link.js holds Back for it).
+  const changeFns = new Set();
+  const changed = () => { for (const fn of changeFns) { try { fn({ app: registry?.current ?? null, level }); } catch { /* a listener never stops the device */ } } };
   const registry = createRail({
     rail, screens: root.querySelector('.nav-body'), codeEl: $('nav-code'), doc: root.ownerDocument,
     context: ctx, before: collapse ?? null, storage,
     onOpen: (id, by) => {
+      if (id !== link?.app) link = null;
+      queueMicrotask(changed);
       paintDock(id);
       if (by === 'quiet') return;
       if (level === 0) setLevel(1, { by, focus: false });
@@ -204,6 +217,7 @@ export function createNavigator({
     listenNear();
     if (railShows()) registry.evaluate();
     if (level > 0 && registry.current === 'home') refresh(true);
+    changed();
     if (focus && was === 0 && level > 0) {
       focusTarget(registry.current)?.focus?.({ preventScroll: true });
     }
@@ -371,6 +385,22 @@ export function createNavigator({
     unregister: (id) => registry.unregister(id),
     /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks). */
     select: (id) => registry.select(id, { by: 'code' }),
+    has: (id) => registry.has(id),
+    /** T-2621: open what a deep link names; an app the rail does not have is ignored. */
+    openLink(next) {
+      if (!next?.app || !registry.has(next.app)) return Promise.resolve(false);
+      link = { app: next.app, id: next.id ?? null, tab: next.tab ?? null };
+      return registry.select(next.app, { by: 'link' });
+    },
+    get link() { return link; },
+    /** T-2621: close whatever is open — back to Home, docked (what Back does). */
+    closeApp() {
+      link = null;
+      if (registry.current && registry.current !== 'home' && registry.has('home')) void registry.select('home', { by: 'quiet' });
+      return setLevel(0, { by: 'back' });
+    },
+    /** T-2621: hear the device change: fn({ app, level }); returns its unsubscribe. */
+    onChange(fn) { changeFns.add(fn); return () => changeFns.delete(fn); },
     get app() { return registry.current; },
     get apps() { return registry.shown(); },
     rail: () => registry.snapshot(),
