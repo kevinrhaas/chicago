@@ -384,6 +384,8 @@ const COVERAGE = [
   ['data/businesses.schema.json', [3, 13], 'the shape those records are refused against'],
   ['renderers/web/js/display-name.js', [3], 'the prose may not name a level the record is not'],
   ['renderers/web/js/popup.js', [3], 'the card a visitor opens'],
+  // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
+  ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
   ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],
@@ -421,6 +423,10 @@ const COVERAGE = [
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
+  // T-2695. The zone finder, moved out of flora.js so a worker can run it, and the
+  // job that answers a spread pass's slots with it: the census parts read both.
+  ['renderers/web/js/flora-zones.js', [10, 11, 12], 'which community the flora census asks at a point'],
+  ['renderers/web/js/jobs/zone-kernel.js', [10, 11, 12], 'the zone answers a spread pass brings home from the job pool'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],

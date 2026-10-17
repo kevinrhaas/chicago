@@ -52,6 +52,9 @@
  * `--verify` checks, after every move, that the pass the move left in flight
  * lands EXACTLY the plants a one-frame pass deals from the same camera: the
  * rebuild was spread, not changed.
+ * T-2695: and that the zone answers the job pool's workers give a spread pass
+ * (jobs/zone-kernel.js) are the page's own finder's, at 20,000 points over the
+ * measured grid and its edge (`flora.checkHeldZones`).
  *
  * Defaults to the PUBLISHED mirror, as every renderer measurement here does.
  * `--gate` holds the result: `FLORA_MOVE_CEILING_MS` and `FLORA_MOVE_P95_MS`
@@ -358,6 +361,9 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // slots — the near rings (`rebuildAll`) and the far shrubs with their carries
   // (`rebuildFarShrubs`) each against their own sets.
   let verified = null;
+  // T-2695: and the zone answers a spread pass's walks bring home from the job
+  // pool, held against the page's own finder over the whole measured grid.
+  const heldZones = verify ? a.flora.checkHeldZones?.(20000) ?? null : null;
   const FAR = ['flora-shrub-far', 'flora-near-carry', 'flora-mid-carry'];
   const ofPass = { near: (o) => !FAR.includes(o.name), far: (o) => FAR.includes(o.name) };
   const passDigest = (kind) => {
@@ -436,7 +442,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, verified, longs,
+    frames: rows.length, rebuilds, digests, spread, verified, heldZones, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -673,6 +679,12 @@ for (const vp of VIEWPORTS) {
       for (const l of r.longs ?? []) {
         console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
           + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);
+      }
+      if (r.heldZones?.held) {
+        const z = r.heldZones;
+        console.log(`  verify zones: ${z.asked} points asked of the workers' ground, ${z.unasked} left to the page,`
+          + ` ${z.differ} answered differently${z.differ ? ` ${JSON.stringify(z.first)}` : ''}`);
+        if (z.differ) failed++;
       }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
         console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
