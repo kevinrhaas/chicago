@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1917, ts: '2026-10-17T04:26:25.379Z', date: 'Oct 16, 2026, 11:26 PM CT', title: 'The plank walks\' shared mesh keeps one draw with a lighter footprint', kind: 'improvement',
+    items: [
+      'The town-wide plank-walk mesh now stores each corner in 8 bytes instead of 12, within a millimetre of where it stood, and still draws in a single call.',
+      'Taps, shadows and the distant walk tops read the same timber they did before.',
+    ] },
   { v: 1916, ts: '2026-10-17T04:15:52.507Z', date: 'Oct 16, 2026, 11:15 PM CT', title: 'Each grade can be tinted, dithered or ghosted in the Confidence view', kind: 'feature',
     items: [
       'Behind the scenes, the Confidence view can now give each grade its own look: tinted toward its colour, dithered like today\'s Reconstructed massing, or drawn as a see-through ghost, each at any strength from 0 to 100%.',
