@@ -95,6 +95,7 @@ import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
+import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
@@ -3914,7 +3915,6 @@ async function boot() {
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
-    hud,
     target,
     where: createWhere({ streets, grid: streetGrid?.grid ?? null }),
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
@@ -3923,6 +3923,28 @@ async function boot() {
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
     onInspect: (id) => pick(id),
+    // T-2618: the rail's apps (js/apps/), and what they read the page through. An app
+    // takes what it needs from `ctx` — the api object included — and never imports main.js.
+    apps: NAVIGATOR_APPS,
+    context: () => ({
+      api,
+      scene: loaded.scene,
+      journey: journey.state,
+      selected: popup.openId ?? null,
+      hasPeople: !document.querySelector('.panel-tab[data-tab="people"]')?.hidden && (people?.length ?? Object.keys(people ?? {}).length) > 0,
+      confidenceOn: hud.confidenceOn,
+      jaunt: jauntRuntime?.state ?? null,
+      whatsNewUnread: !document.getElementById('help-dot')?.hidden,
+      actions: {
+        // The drawer's own sections, where they are until they move in (T-2620).
+        openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
+        inspect: (id) => (id ? pick(id) : pick()),
+        jaunts: () => { api.welcome.show(); api.welcome.enter('jaunts'); },
+        map: () => navigation.setFullVisible(true),
+        confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
+        recall: () => journey.recall(),
+      },
+    }),
   });
   api.navigator = navigatorUi;
 
