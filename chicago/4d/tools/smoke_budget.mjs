@@ -415,6 +415,9 @@ const COVERAGE = [
   // --- PARTS 10-12: what grows, what moves, and the streets a visitor reads
   // (T-2337 cut old part 10 into 10 + 11, so a row that named 10 names both)
   ['renderers/web/js/flora.js', [10, 11, 12], 'the flora census, and the boundary it fades at'],
+  // T-2698: the near deal's field tile. flora.js is its only importer (the
+  // `nearField` handle), so it is read where the flora census is.
+  ['renderers/web/js/near-field.js', [10, 11, 12], 'the near field tile, built through flora.js'],
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
@@ -581,6 +584,8 @@ const COVERAGE = [
   // tools/test_time_stream.mjs hold the decks and the pick in check.sh.
   ['renderers/web/js/time-stream.js', [15], 'the arrival\u2019s time-stream captions (T-2611)'],
   ['data/timestream/', [15], 'the time-stream decks the arrival fetches (T-2611)'],
+  // T-2612: the lamps, YEARS TO GO and the log part 15 reads on the arrival it boots fresh.
+  ['renderers/web/js/arrival-telemetry.js', [15], 'the arrival\u2019s lamps, YEARS TO GO and log (T-2612)'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than

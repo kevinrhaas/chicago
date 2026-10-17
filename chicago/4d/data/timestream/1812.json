@@ -103,6 +103,16 @@
       "note": "Andreas: 'When the fort was rebuilt in 1816 ...' (scan leaf 197), and the plate 'Fort Dearborn, as rebuilt in 1816' (scan leaf 213)."
     }
   ],
+  "log": {
+    "scene": "Syncing time mesh",
+    "terrain": "Un-digging the canal",
+    "buildings": "Setting the fort's pickets",
+    "ground": "Shaping the river mouth",
+    "flora": "Planting the prairie",
+    "people": "Reading the directory",
+    "interaction": "Locating Fort Dearborn"
+  },
+  "log_note": "The arrival log's lines (T-2612, design doc section 05 'Telemetry: semi-real, on purpose'): one per boot phase, shown in mono caps while the phase runs and marked OK when it ends. They are machine lore in the Navigator's voice, not findings, and claim nothing a source has to carry; where a line names the place (the 1904 elms, the Sauganash Hotel, the fort's pickets) it names what the scene itself draws.",
   "held_back": [
     {
       "years": [
