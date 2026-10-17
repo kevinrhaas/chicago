@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1902, ts: '2026-10-17T00:10:40.383Z', date: 'Oct 16, 2026, 7:10 PM CT', title: 'Glessner House\'s web models now ship GPU-compressed textures', kind: 'improvement',
+    items: [
+      'The Glessner v4 full and light web models are re-encoded in KTX2, joining the Prairie houses\' texture path.',
+      'The light tier\'s textures are capped at 1024, a quarter of the full tier\'s GPU residency.',
+      'The photographic baseline page and the proportion audit read the new files.',
+      'Rendered from every reference camera, old files against new, the re-encode changes nothing the eye can see.',
+    ] },
   { v: 1901, ts: '2026-10-16T23:57:32.008Z', date: 'Oct 16, 2026, 6:57 PM CT', title: 'Keith\'s porch columns stand taller under a deeper beam', kind: 'fix',
     items: [
       'At 1808 Prairie, the paired columns of the north porch now rise 2.45 m from their pedestals, 0.2 m taller than before.',
