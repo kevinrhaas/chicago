@@ -7173,6 +7173,17 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2645 (prepared ahead of its claim). The Inspect Photos tab: each 1904 building's pictures
+# by date, the 12 best first by the rule in the tool's header (a solved camera, in-period,
+# nearest the scene year, photographs first, viewpoints in turn). It shows only pictures whose
+# rights allow display and that the image store holds (hard rule 6); every caption is
+# templated, at most 12 words, linted and pooled to grade 9.
+step "the Photos tab shows only cleared pictures, captions within 12 words and grade 9, the 12 best by its rule (T-2645)" \
+  python3 tools/compile_photos.py --check
+
+selftest "…and a long caption, an id, an uncleared picture shown and a thirteenth best are refused" \
+  python3 tools/compile_photos.py --self-test
+
 # T-2636. And the buildings nobody has written a summary for, which is most of them: the
 # card's head and lead are templated from the sidecar (renderers/web/js/fallback-summary.js),
 # never printed from a raw field. This runs the card's own composition over every structure

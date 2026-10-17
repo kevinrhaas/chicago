@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "compile_photos.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-10-17",
+      "finding": "Reproduces: --build wrote data/photos/1904.json and git status did not move: its only output is git-ignored (T-2645, prepared).",
+      "placed": "not to be placed: its output is a build product, not a committed derivation. It is derived from the Prairie image library, data/sources/ and data/reference_views/ at the moment it is built, so it cannot go stale on dev; the T-2645 PR wires --build into publish.sh with the tab that reads it."
+    },
     "generate_glessner_finish.py": {
       "placement": "pending",
       "write_mode": "(bare)",

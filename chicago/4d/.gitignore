@@ -16,3 +16,6 @@
 # The Inspect app's building summaries (T-2635): compiled by tools/compile_summaries.py at
 # publish from data/summaries/, data/sources/ and the people directory. Never committed.
 /data/inspect/
+# The Inspect Photos tab (T-2645): compiled by tools/compile_photos.py --build from the
+# pictures data and data/reference_views/. Never committed.
+/data/photos/
