@@ -89,11 +89,17 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
 
+step "A mesh too wide for one box stays one draw: each vertex boxed by its padding lane, read back within the millimetre, faces in order, raycast and bounds in metres (T-2700)" \
+  node tools/check_position_boxes.mjs
+
 selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
 
 selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
   node tools/prebuild_layers.mjs --self-test --layer ground
+
+selftest "The yards' five surfaces laid and cut in Node are byte-identical build to build, batch exactly as createFencedGround's own do, and a prebuild from changed inputs is refused (T-2704)" \
+  node tools/prebuild_layers.mjs --self-test --layer yards
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -117,6 +123,9 @@ step "The grade colours are one set — gold, silver, bronze — legible on ever
   node tools/check_grade_colors.mjs
 selftest "…and a bronze that is a darker gold, a drifted token or an unreadable ink is refused (T-2671)" \
   node tools/check_grade_colors.mjs --self-test
+
+step "Each grade's look — tint, dither or ghost at an opacity — and the ghost pass drawn last with depthWrite off (T-2646)" \
+  node tools/test_confidence_looks.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
