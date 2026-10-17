@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1957, ts: '2026-10-17T15:48:18.789Z', date: 'Oct 17, 2026, 10:48 AM CT', title: 'One choice for how you get to a place', kind: 'feature',
+    items: [
+      'Teleport, Ride there or Fly over, chosen under Move, is now how you get to any place you pick: from Go to, and between the stops of a Jaunt.',
+      'Once you choose, Jaunts use your choice wherever the outing allows it. Ride there uses the mode you move at, and Run counts as walking. Until you choose, each Jaunt keeps the way it recommends.',
+      'You can still change the mode on a Jaunt itself.',
+    ] },
   { v: 1956, ts: '2026-10-17T14:13:04.325Z', date: 'Oct 17, 2026, 9:13 AM CT', title: 'Comfort settings under Move', kind: 'feature',
     items: [
       'Move now has a Comfort section. It holds the horse\'s head bob, your eye height and a new snap-turn option.',
