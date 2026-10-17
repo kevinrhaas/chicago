@@ -148,6 +148,9 @@ step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
   node tools/test_frame_governor.mjs
+# T-2651: Move — one picker and one slider.
+step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider whose range and named speeds follow the mode (T-2651)" \
+  node tools/test_nav_move.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
