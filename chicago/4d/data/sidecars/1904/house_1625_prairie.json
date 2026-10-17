@@ -170,12 +170,12 @@
       "note": "45 degrees, the K01 contract's steepest hip: the hip is behind the gable, whose rakes are read at about 61 degrees (shaped_gable)."
     },
     "eave_overhang_m": {
-      "value": 0.12,
+      "value": 0.05,
       "confidence": "inferred",
       "sources": [
         "inland_architect_1890_01_mcbirney_residence"
       ],
-      "note": "T-2730: the photograph's south wall runs its eave plain with almost no projection, about 3-5 px (0.1 m) at the corner pier; 0.12 m, which also keeps the gable slab, standing proud of the street fascia, within 0.15 m of the front's plane."
+      "note": "T-2730: the photograph's south wall runs its eave plain with almost no projection, a few pixels (under 0.1 m) at the corner pier; 0.05 m, so that the gable slab, which K01 stands proud of the street fascia, keeps the street run of the eave's gutter inside it (the photograph shows no gutter across the front)."
     },
     "stair_tread_m": {
       "value": 0.3,
@@ -383,9 +383,9 @@
             18.85
           ]
         ],
-        "foot_m": 11.2,
+        "foot_m": 11.22,
         "thickness_m": 0.6,
-        "proud_m": 0.03,
+        "proud_m": 0.2,
         "fabric": "front",
         "lights": {
           "variant": "k06.opening.sash_1over1_segmental",
@@ -415,7 +415,7 @@
       "sources": [
         "inland_architect_1890_01_mcbirney_residence"
       ],
-      "note": "T-2730: the photograph carries the whole front up as a steep coped wall gable in the front's rock-faced stone, read through its camera (38.6 px/m at the front's plane, grade y 795 px): the apex at 18.85 m (y 67 px), the rakes at about 60 (south) and 66 (north) degrees, so a straight outline from 3.2 m either side of the centre at the 13.0 m ledge to the apex (61 degrees); the south rake lands on the corner pier's flat top at 13.15 m, which the ledge between the outline and the eave's corner stands for, with no kneeler pinnacle and no finial. Three one-over-one lights under segmental stone heads, 11.53-13.34 m over grade (y 350-280 px), about 0.6 m of glass each in a 0.66 m opening, their centres 0.94 m apart (x 239, 275 and 311 px); an oval light near the apex, its glass about 0.45 by 0.85 m (17 by 32 px) centred at 15.56 m (y 194 px), in a dressed ring about 0.09 m wide, its tracery built as a cross of bars. The coping, 0.3 m, is the photograph's dressed stone along both rakes. Not read: the slab's thickness and its foot (11.2 m, under the lights, where the gable's face steps 0.15 m proud of the wall below it), and the gable's centre, built on the front's (3.8 m from the party wall) where the photograph's apex and middle light stand about 0.3 m (12 px) north of it. L-k01-1625-mcbirney-wall-gable-2730."
+      "note": "T-2730: the photograph carries the whole front up as a steep coped wall gable in the front's rock-faced stone, read through its camera (38.6 px/m at the front's plane, grade y 795 px): the apex at 18.85 m (y 67 px), the rakes at about 60 (south) and 66 (north) degrees, so a straight outline from 3.2 m either side of the centre at the 13.0 m ledge to the apex (61 degrees); the south rake lands on the corner pier's flat top at 13.15 m, which the ledge between the outline and the eave's corner stands for, with no kneeler pinnacle and no finial. Three one-over-one lights under segmental stone heads, 11.53-13.34 m over grade (y 350-280 px), about 0.6 m of glass each in a 0.66 m opening, their centres 0.94 m apart (x 239, 275 and 311 px); an oval light near the apex, its glass about 0.45 by 0.85 m (17 by 32 px) centred at 15.56 m (y 194 px), in a dressed ring about 0.09 m wide, its tracery built as a cross of bars. The coping, 0.3 m, is the photograph's dressed stone along both rakes. Not read: the slab's thickness, and its foot at 11.22 m, where the gable's face steps 0.25 m proud of the wall below it as a band under the lights' sills (the photograph's sill course there; K01 stands the slab proud of the street fascia and its gutter, which the photograph does not show across the front), and the gable's centre, built on the front's (3.8 m from the party wall) where the photograph's apex and middle light stand about 0.3 m (12 px) north of it. L-k01-1625-mcbirney-wall-gable-2730."
     },
     "function": {
       "value": "residence",
@@ -469,7 +469,7 @@
       ]
     }
   ],
-  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md).",
+  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md). T-2730 (piece 3 of T-2435) replaces the dormer with the photograph's coped wall gable — K01's shaped-gable slab with a straight outline in the front's stone, its three segment-headed lights and its oval light — raises the south wall's eave to the knee wall at 13.0 m, and stands the tall stack on the north party wall beside the gable; what that needed and did not read is L-k01-1625-mcbirney-wall-gable-2730.",
   "research_doc": "",
   "review_required": false
 }
