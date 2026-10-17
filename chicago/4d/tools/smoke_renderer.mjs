@@ -16946,7 +16946,9 @@ for (const [label, viewport, touch] of [
         if (year && year !== window.__arrivalYears.at(-1)?.year) {
           window.__arrivalYears.push({ year, ready: window.__chicago4d?.ready === true,
             // T-2610: the small line over the ticker, as it read when this year showed.
-            destination: document.getElementById('arrival-destination')?.textContent ?? null });
+            destination: document.getElementById('arrival-destination')?.textContent ?? null,
+            // T-2613: and where the journey stood, since landing rewrites that line.
+            journey: document.documentElement.dataset.journey ?? null });
         }
       }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year'] });
     });
@@ -17015,11 +17017,24 @@ for (const [label, viewport, touch] of [
       years.length >= 2 && Number(years[0].year) > 1835 && early.length === 0
       && years.every((y, i) => i === 0 || Number(y.year) <= Number(years[i - 1].year)),
       years.map((y) => `${y.year}${y.ready ? '' : '·'}`).join(' '), true);
+    // "On the way" is up to the landing: T-2613 rewrites the line to ARRIVED · <date>
+    // there, by design, so a year that showed once the journey had landed is judged by
+    // the second check, not this one.
+    const LANDED = ['landing', 'landed', 'exploring', 'inspecting', 'on-jaunt', 'touring'];
+    const onTheWay = years.filter((y) => !LANDED.includes(y.journey));
     check(`${label}: the small line reads Destination ${YEAR} from first paint and never changes on the way`,
-      years.length >= 2 && (years[0].destination ?? '').startsWith(`Destination ${YEAR} · `)
-      && years.every((y) => y.destination === years[0].destination)
+      onTheWay.length >= 2 && (onTheWay[0].destination ?? '').startsWith(`Destination ${YEAR} · `)
+      && onTheWay.every((y) => y.destination === onTheWay[0].destination)
       && !/Destination year/i.test(await p14.evaluate(() => document.getElementById('gate').textContent)),
-      [...new Set(years.map((y) => y.destination))].join(' | '));
+      [...new Set(years.map((y) => `${y.destination} (${y.journey})`))].join(' | '));
+    const arrivedLine = await p14.evaluate(() => ({
+      line: document.getElementById('arrival-destination')?.textContent ?? null,
+      date: window.__chicago4d.scene?.target_date ?? null,
+      journey: document.documentElement.dataset.journey ?? null,
+    }));
+    check(`${label}: on landing the small line reads ARRIVED and the scene's date (T-2613)`,
+      !!arrivedLine.date && new RegExp(`^arrived · ${arrivedLine.date.replace(/-/g, '\\.')}$`, 'i').test(arrivedLine.line ?? ''),
+      JSON.stringify(arrivedLine));
 
     const welcome = await p14.evaluate(() => {
       const gate = document.getElementById('gate');
