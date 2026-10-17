@@ -234,7 +234,7 @@ def report(root=ROOT, show=False):
             print(f"  {s['grade']:5.1f}  {s['words']:3d}w {s['longest']:3d}max  {kind:8} {rel} {where}: {text}")
     for f in faults:
         print(f"  FAIL {f}")
-    read = ", ".join(f"{n} {label}" for label, n in counts.items())
+    read = ", ".join(f"{n} strings from {label}" for label, n in counts.items())
     if faults:
         print(f"reading level: {len(faults)} fault(s) in {read}")
         return 1
