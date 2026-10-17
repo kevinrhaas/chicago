@@ -1134,6 +1134,12 @@ export async function fetchPrebuiltYards({ dataBase, year, build }) {
   if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
     return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection lays its own yards` };
   }
+  // Ask only for what publish wrote (prebuilt-index.js), as the ground, base and
+  // streets do. Imported here, not at the top: the node harnesses that load this file
+  // as a data: URL never reach the fetch.
+  const { prebuiltAbsent } = await import('./prebuilt-index.js');
+  const absent = await prebuiltAbsent({ dataBase, year, build, layer: 'yards' });
+  if (absent) return { why: `${absent}, so the page lays its own yards` };
   const base = new URL(`prebuilt/${year}/`, dataBase);
   try {
     const res = await fetch(new URL('yards.json', base));

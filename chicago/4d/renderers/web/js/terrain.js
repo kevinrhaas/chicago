@@ -1300,6 +1300,13 @@ async function fetchPrebuiltPieces({ dataBase, year, build, layer, format, own, 
   if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
     return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection ${instead}` };
   }
+  // Ask only for what publish wrote (prebuilt-index.js): it prebuilds the scenes that
+  // draw a frontage, and a request for any other year's layer was a 404 on every boot.
+  // Imported here, not at the top: the node harnesses that load this file as a data:
+  // URL never reach the fetch, as with jobs/pool.js below.
+  const { prebuiltAbsent } = await import('./prebuilt-index.js');
+  const absent = await prebuiltAbsent({ dataBase, year, build, layer });
+  if (absent) return { why: `${absent}, so the page ${own}` };
   const base = new URL(`prebuilt/${year}/`, dataBase);
   try {
     const res = await fetch(new URL(`${layer}.json`, base));
