@@ -1,0 +1,9 @@
+{
+  "title": "The grass at your feet is now dealt by the graphics card",
+  "kind": "feature",
+  "items": [
+    "The tufts in the ring around you are now chosen and placed by the graphics card from the same rules the page used. Which species, how tall, which way it leans and its colour all come from the shader. It reads the ground map that follows you as you walk.",
+    "The page still walks the ring for the flower heads, and hangs a head only where the card has drawn its plant, so no flower floats over bare ground.",
+    "Side by side with the old drawing at a prairie stand, the frame is the same to the eye: every tuft the page would have placed, the card places, at the same spot."
+  ]
+}

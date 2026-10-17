@@ -68,7 +68,11 @@ import { runJob, jobsOnWorkers, holdOnWorker } from './jobs/pool.js';
 import { FIELD_SPEC, FIELD_FLAGS, FIELD_GLSL, fieldOrigin, buildField, sampleField }
   from './near-field.js';
 // T-2706: the near deal's species and placement as GLSL, and its slot codes.
-import { NEAR_DEAL, dealTable } from './flora-gpu-deal.js';
+import { NEAR_DEAL, DEAL_GLSL, dealTable } from './flora-gpu-deal.js';
+// T-2716: the near ring drawn from the shader — the lattice walk and the deal
+// pass that writes the tufts' instances, and the tuft's fetch of them.
+import { LATTICE_GLSL, latticeUniforms } from './flora-gpu-lattice.js';
+import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL } from './flora-gpu-near.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -1098,6 +1102,7 @@ export async function createFlora({
   dataBase, terrain, footprints = [], growthBlocked = () => false, growthEdges = null,
   growthPatch = null, verge = NO_VERGE, forbSeat = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
+  renderer = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'flora';
@@ -1308,7 +1313,16 @@ export async function createFlora({
 
   // ---- the layers -------------------------------------------------------- //
 
-  const nearSet = instSet('flora-near', tuftGeometry(9, quality === 'light' ? 2 : 4), bladeMat, tune.cap.near);
+  const nearTuft = () => tuftGeometry(9, quality === 'light' ? 2 : 4);
+  // T-2716. The near ring's tufts are drawn from the shader wherever the page
+  // can render the deal pass's float targets (WebGL2 with float colour
+  // buffers); the CPU walk then deals into a sink that only counts, for the
+  // census and the heads. Without a renderer — a tool building flora in a page
+  // of its own — the CPU set draws them as it always has.
+  const gpuNearOn = renderer?.capabilities?.isWebGL2 !== false
+    && !!renderer?.extensions?.has?.('EXT_color_buffer_float');
+  const nearSet = gpuNearOn ? nearSink('flora-near', nearTuft)
+    : instSet('flora-near', nearTuft(), bladeMat, tune.cap.near);
   const midSet = instSet('flora-mid', cardGeometry(7), cardMat, tune.cap.mid);
   const forbSet = instSet('flora-forb', forbGeometry(botanicalSegments), bladeMat, tune.cap.forb);
   // A basal-scape plant is not a stem with leaves up it. Prairie dock and
@@ -1362,7 +1376,11 @@ export async function createFlora({
   const sets = [nearSet, midSet, forbSet, rosetteSet, shrubSet, farSet, farShrubSet,
     nearCarry, midCarry,
     ...Object.values(heads)];
-  for (const s of sets) { group.add(s.mesh); disposables.push(s.mesh.geometry); }
+  for (const s of sets) {
+    if (!s.mesh.isObject3D) continue;
+    group.add(s.mesh);
+    disposables.push(s.mesh.geometry);
+  }
 
   // ---- placement --------------------------------------------------------- //
 
@@ -1387,6 +1405,256 @@ export async function createFlora({
     'flora-near': rings.near, 'flora-mid': rings.mid,
     'flora-forb': rings.forb, 'flora-rosette': rings.forb, 'flora-shrub': rings.forb,
   };
+
+  /**
+   * T-2716 — THE NEAR RING DRAWN FROM THE SHADER (flora-gpu-near.js). At every
+   * near placement the deal pass writes each lattice slot's instance into four
+   * float targets — the lattice walk, the deal and the slot's own ring all in
+   * GLSL, off the kept field tile — and the tuft mesh draws one instance per
+   * slot from them. What the CPU still does for the near ring is the walk the
+   * heads hang off (`rebuildGround`), the uniforms below, and keeping the tile.
+   *
+   * `flora-near` is still in the group for every reader that asks for it by
+   * name: an InstancedMesh that is never drawn, whose instances are READ BACK
+   * from the deal pass's targets the first time anything asks for its `count`
+   * after a pass — so the smoke's root, ring and cover gates read what the GPU
+   * drew, not a CPU deal standing in for it. The drawn mesh is
+   * `flora-near-gpu`, a plain mesh, so nothing that walks the InstancedMeshes
+   * counts it twice.
+   */
+  const gpuNear = gpuNearOn ? makeGpuNear() : null;
+  function makeGpuNear() {
+    const walk = { cell: tune.near.cell, perCell: tune.near.perCell, radius: rings.near.lattice.outer,
+      inner: rings.near.lattice.inner, salt: 0x51ed27, draw: 'strata' };
+    const max = nearSlotsMax(walk);
+    const { width: W, height: H } = nearTarget(max);
+    const rt = new THREE.WebGLRenderTarget(W, H, { count: 4, type: THREE.FloatType,
+      format: THREE.RGBAFormat, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter,
+      depthBuffer: false, generateMipmaps: false });
+    const table = dealTable(zones);
+    const tab = new THREE.DataTexture(table.data, table.width, table.height, THREE.RGBAFormat,
+      THREE.FloatType);
+    tab.internalFormat = 'RGBA32F';
+    const nearest = (t) => {
+      t.minFilter = t.magFilter = THREE.NearestFilter;
+      t.generateMipmaps = false; t.flipY = false; t.needsUpdate = true;
+      return t;
+    };
+    nearest(tab);
+    const pass = {
+      uTarget: { value: new THREE.Vector2(W, H) },
+      uFieldClass: { value: null }, uFieldHeight: { value: null },
+      uFieldOrigin: { value: new THREE.Vector2() }, uFieldTexel: { value: FIELD_SPEC.texel },
+      uFieldSize: { value: FIELD_SPEC.size }, uFieldWrap: { value: [0, 0] },
+      uLatGrid: { value: [0, 0, 0, 0] }, uLatDeal: { value: [0, 0, 0, 0] }, uLatMode: { value: 0 },
+      uLatRing: { value: new THREE.Vector4() }, uLatCell: { value: new THREE.Vector2() },
+      uDealTable: { value: tab }, uDealLayout: { value: [table.width, table.itemBase] },
+      uDealCam: { value: new THREE.Vector2() }, uDealEye: { value: new THREE.Vector3() },
+      uNearFade: { value: new THREE.Vector4(...rings.near.fade) },
+      uNearSpread: { value: new THREE.Vector2(rings.near.spread.outer, rings.near.spread.inner) },
+      uNearSalt: { value: [...HANDOVER_SALT] },
+    };
+    const passMat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: pass,
+      ...nearPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL }) });
+    const passGeo = new THREE.BufferGeometry();
+    passGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(max * 3), 3));
+    const points = new THREE.Points(passGeo, passMat);
+    points.frustumCulled = false;
+    const passScene = new THREE.Scene();
+    passScene.add(points);
+    const passCam = new THREE.Camera();
+
+    // The drawn tufts: the near set's own archetype, one instance per slot.
+    const source = nearTuft();
+    const tuftGeo = new THREE.InstancedBufferGeometry().copy(source);
+    source.dispose();
+    tuftGeo.instanceCount = 0;
+    const fetch = {
+      uNearI0: { value: rt.textures[0] }, uNearI1: { value: rt.textures[1] },
+      uNearI2: { value: rt.textures[2] }, uNearI3: { value: rt.textures[3] },
+      uNearW: { value: W },
+    };
+    const mat = plantMaterial({ uniforms, billboard: false,
+      gpuNear: { glsl: NEAR_FETCH_GLSL, uniforms: fetch } });
+    // The confidence channel arrives as a value the fetch read, not an attribute.
+    confidence?.patch(mat, { packed: { read: 'chiNearConf', declare: (v) => v } });
+    const mesh = new THREE.Mesh(tuftGeo, mat);
+    mesh.name = 'flora-near-gpu';
+    mesh.frustumCulled = false;
+    mesh.castShadow = false;
+    mesh.receiveShadow = false;
+    mesh.renderOrder = -3;
+    mesh.visible = false;
+    group.add(mesh);
+
+    // The record readers ask for by name, filled from the targets on demand.
+    const record = instSet('flora-near', nearTuft(), bladeMat, max);
+    record.mesh.visible = false;
+    record.mesh.raycast = () => {};
+    let gen = 0, readGen = -1, recordCount = 0;
+    Object.defineProperty(record.mesh, 'count', {
+      configurable: true,
+      get() { if (readGen !== gen) readBack(); return recordCount; },
+      set(v) { recordCount = v; },
+    });
+    group.add(record.mesh);
+    disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry);
+
+    let nf = null, keeper = null, uploaded = null, clsTex = null, hgtTex = null;
+    let count = 0, placed = false, lastE = null, lastN = null;
+    const stats = { passes: 0, passMs: 0, builds: 0, buildMs: 0, readBacks: 0, uploads: 0 };
+    const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
+    const _rec = [0, 0, 0, 0];
+    const _at = [0, 0, 0];
+
+    function covers(tile, e, n, reach) {
+      const span = tile.texel * tile.size;
+      return e - reach >= tile.e0 && e + reach <= tile.e0 + span
+        && n - reach >= tile.n0 && n + reach <= tile.n0 + span;
+    }
+    function upload(tile) {
+      if (!clsTex) {
+        clsTex = nearest(new THREE.DataTexture(tile.cls, tile.size, tile.size, THREE.RGIntegerFormat,
+          THREE.UnsignedByteType));
+        clsTex.internalFormat = 'RG8UI';
+        hgtTex = nearest(new THREE.DataTexture(tile.height, tile.size, tile.size, THREE.RedFormat,
+          THREE.FloatType));
+        hgtTex.internalFormat = 'R32F';
+        pass.uFieldClass.value = clsTex;
+        pass.uFieldHeight.value = hgtTex;
+        disposables.push(clsTex, hgtTex);
+      } else {
+        clsTex.image.data = tile.cls;
+        hgtTex.image.data = tile.height;
+        clsTex.needsUpdate = true;
+        hgtTex.needsUpdate = true;
+      }
+      pass.uFieldOrigin.value.set(tile.e0, tile.n0);
+      pass.uFieldTexel.value = tile.texel;
+      pass.uFieldSize.value = tile.size;
+      pass.uFieldWrap.value = [tile.wi ?? 0, tile.wj ?? 0];
+      uploaded = tile;
+      stats.uploads++;
+    }
+    function dealPass() {
+      const t0 = performance.now();
+      const prev = renderer.getRenderTarget();
+      renderer.setRenderTarget(rt);
+      renderer.render(passScene, passCam);
+      renderer.setRenderTarget(prev);
+      // The pass leaves the tile's RG8UI class texture on one of the first
+      // units, and a program that declares a float sampler it never sets reads
+      // unit 0: GL refuses that draw ("Mismatch between texture format and
+      // sampler type"). Put the empty texture back on the units the pass used.
+      const gl = renderer.getContext();
+      for (let k = 0; k < 3; k++) renderer.state.bindTexture(gl.TEXTURE_2D, null, gl.TEXTURE0 + k);
+      gen++;
+      mesh.visible = true;
+      stats.passes++;
+      stats.passMs += performance.now() - t0;
+    }
+    function readBack() {
+      readGen = gen;
+      record.reset();
+      if (placed && uploaded && count > 0) {
+        const rows = Math.ceil(count / W);
+        for (let k = 0; k < 4; k++) {
+          renderer.readRenderTargetPixels(rt, 0, 0, W, rows, bufs[k], undefined, k);
+        }
+        const [b0, b1, b2, b3] = bufs;
+        for (let id = 0; id < count; id++) {
+          const o = 4 * id;
+          if (!(b0[o + 3] > 0.5)) continue;
+          _rec[0] = b3[o]; _rec[1] = b3[o + 1]; _rec[2] = b3[o + 2]; _rec[3] = b3[o + 3];
+          record.ring(_rec);
+          record.push(b0[o], b0[o + 1], -b0[o + 2], b1[o + 3], b1[o], b1[o + 1], b1[o + 2],
+            b2[o], b2[o + 1], b2[o + 2], b2[o + 3]);
+        }
+        stats.readBacks++;
+      }
+      record.commit();
+    }
+    return {
+      mesh,
+      stats,
+      bind(field) { nf = field; keeper = nf.keeper(); },
+      /** The kept tile, home around (e, n) before the first deal. */
+      async prime(e, n) {
+        if (!keeper) return;
+        keeper.update(e, n);
+        await keeper.settled();
+        this.keep(e, n, true);
+      },
+      /**
+       * Every frame: the keeper follows the walker. A tile that has landed is
+       * uploaded and the last placement dealt again on it (the strip it adds
+       * holds slots the lagging tile could not). When the kept tile does not
+       * cover the lattice it is built whole, now, if the walker JUMPED (more
+       * than a re-centre step in one frame: a teleport or a goTo, whose near
+       * pass deals in this frame too, so its heads need the tile) or if the
+       * caller reads the buffers straight after (`force`). Smooth motion that
+       * outruns the pool only empties the slots past the tile's edge until the
+       * strip lands.
+       */
+      keep(e, n, force) {
+        if (!keeper) return;
+        const jump = lastE === null || Math.hypot(e - lastE, n - lastN) > FIELD_SPEC.recentre;
+        lastE = e; lastN = n;
+        let tile = keeper.update(e, n);
+        if ((force || jump) && (!tile || !covers(tile, e, n, walk.radius + step))) {
+          const t0 = performance.now();
+          keeper.adopt(nf.build(e, n));
+          tile = keeper.tile;
+          stats.builds++;
+          stats.buildMs += performance.now() - t0;
+        }
+        if (tile && tile !== uploaded) {
+          upload(tile);
+          if (placed) dealPass();
+        }
+      },
+      /** The near walk's centre and cone, as the CPU walk was given them. */
+      place(camE, camN, cone) {
+        const u = latticeUniforms({ camE, camN, ...walk });
+        pass.uLatGrid.value = u.grid;
+        pass.uLatDeal.value = u.deal;
+        pass.uLatMode.value = u.mode;
+        pass.uLatRing.value.set(...u.ring);
+        pass.uLatCell.value.set(...u.cell);
+        pass.uDealCam.value.set(camE, camN);
+        pass.uDealEye.value.set(waterY, cone?.planes ? 1 : 0, cone?.eyeY ?? 0);
+        count = Math.min(u.count, max);
+        passGeo.setDrawRange(0, count);
+        tuftGeo.instanceCount = count;
+        placed = true;
+        if (uploaded) dealPass();
+      },
+      /**
+       * Does the GPU's deal place the tuft the CPU walk just placed at (e, n)?
+       * The same rule on the tile's answers: the slot inside the tile, the same
+       * community and water, not turf, not blocked, and not cropped on the
+       * trodden verge (flora-gpu-deal.js `station`). Walker and lattice agree
+       * by construction — the pass is placed at the walk's own centre.
+       */
+      drawsAt(e, n, o) {
+        const tile = keeper?.tile;
+        if (!tile || !o.zone || !o.sp) return false;
+        const at = sampleField(tile, e, n, _at);
+        if (!at || at[0] !== zoneIndex.get(o.zone) + 1) return false;
+        const f = at[1];
+        if (Boolean(f & FIELD_FLAGS.WET) !== Boolean(o.wet)) return false;
+        if (f & (FIELD_FLAGS.TURF | FIELD_FLAGS.BLOCKED)) return false;
+        const ceiling = o.zone.turfCeiling || 0;
+        return !(ceiling > 0 && o.sp.height[1] > ceiling && (f & FIELD_FLAGS.TRODDEN));
+      },
+      /** The kept tile's ground at (e, n) — what a drawn tuft roots on — or null. */
+      groundAt(e, n) {
+        const tile = keeper?.tile;
+        const at = tile ? sampleField(tile, e, n, [0, 0, 0]) : null;
+        return at ? at[2] : null;
+      },
+    };
+  }
 
   /**
    * T-2696 — the slot's ground as the worker answered it (flora-ground.js), or
@@ -1591,6 +1859,7 @@ export async function createFlora({
     // the rank-1 lattice the forb layer uses stripes a dense layer, so this
     // one is a block permutation instead. See `stratum` and `dealt`.
     const wet = wetAt(e, n);
+    out.wet = wet;
     const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
       zone.matrixShare, u);
     if (!sp) { out.code = NEAR_DEAL.undealt; return null; }
@@ -1611,7 +1880,7 @@ export async function createFlora({
     out.h = placeGraminoid(set, sp, e, y, n, rng);
     return ring;
   }
-  const _nearDealt = { code: 0, zone: null, sp: null, y: 0, h: 0 };
+  const _nearDealt = { code: 0, zone: null, sp: null, y: 0, h: 0, wet: false };
 
   function* rebuildGround(camE, camN, cone) {
     nearSet.reset();
@@ -1644,6 +1913,13 @@ export async function createFlora({
         // hung on it would go on being drawn out to 7 m over a plant whose own
         // handover had already taken it away at five — a flower in the sky with
         // nothing under it, which is R-BUG7 rebuilt from the other end.
+        //
+        // T-2716: with the tufts drawn by the GPU, this walk is kept for the
+        // heads alone, and a head is hung only where the GPU's own deal places
+        // the same tuft — the tile it deals from answers differently from the
+        // CPU at 0.27 % of slots (T-2715), and a head there would stand on
+        // nothing.
+        if (gpuNear && !gpuNear.drawsAt(e, n, _nearDealt)) return;
         const { sp, y, h } = _nearDealt;
         const headRing = headRingAt(ring, _headRing);
         if (h > 0 && r <= headRing[0] + step) {
@@ -2077,6 +2353,9 @@ export async function createFlora({
     yield* rebuildForbs(camE, camN, cone);
     yield* rebuildFar(camE, camN, cone);
     closeCensus();
+    // T-2716: the near ring's tufts dealt by the GPU at this pass's centre, so
+    // they land in the same frame as the heads the walk above hung on them.
+    gpuNear?.place(camE, camN, cone);
     // The far shrubs commit themselves, on their own step.
     for (const s of sets) if (s !== farShrubSet && s !== nearCarry && s !== midCarry) s.commit();
     tally();
@@ -2271,7 +2550,7 @@ export async function createFlora({
     p.pending = null;
   }
 
-  return {
+  const api = {
     group,
     stats,
     zoneAt(e, n) { return finder(e, n)?.id ?? null; },
@@ -2379,6 +2658,13 @@ export async function createFlora({
      * `slots` is every slot of the near lattice there (no cone), the points
      * `tools/measure_near_field.mjs` holds the tile to.
      */
+    /**
+     * T-2716. The near ring as the GPU draws it, or null where the CPU set
+     * does: `stats` (deal passes, tile builds and uploads, read-backs, and the
+     * main thread's ms on each) and `groundAt`, the kept tile's ground under a
+     * point — what a drawn tuft roots on.
+     */
+    nearDraw: gpuNear ? { stats: gpuNear.stats, groundAt: (e, n) => gpuNear.groundAt(e, n) } : null,
     nearField: {
       spec: FIELD_SPEC,
       flags: FIELD_FLAGS,
@@ -2736,6 +3022,8 @@ export async function createFlora({
       for (const row of rebuildFarShrubs(e, n, cone)) {
         const pause = checkpoint(); if (pause) await pause;
       }
+      // T-2716: the drawn near ring's field tile, home before the first deal.
+      await gpuNear?.prime(e, n);
       for (const row of rebuildAll(e, n, cone)) {
         onProgress(row.done, row.total);
         const pause = checkpoint(); if (pause) await pause;
@@ -2761,6 +3049,9 @@ export async function createFlora({
       camera.getWorldPosition(tmpV);
       const e = tmpV.x;
       const n = -tmpV.z;
+      // T-2716: the drawn near ring's field tile follows the walker on the pool;
+      // a caller that reads the buffers straight after gets it whole, now.
+      gpuNear?.keep(e, n, !Number.isFinite(budgetMs));
 
       // Forward in ENU; -Z is north (terrain.js).
       camera.getWorldDirection(tmpF);
@@ -2838,6 +3129,9 @@ export async function createFlora({
       for (const d of disposables) d?.dispose?.();
     },
   };
+  // T-2716: the drawn near ring keeps its field tile through the API's own keeper.
+  gpuNear?.bind(api.nearField);
+  return api;
 }
 
 /** What it returns when there is nothing it is allowed to draw. */
@@ -4716,6 +5010,29 @@ function crowdsTheWalker(sp, r, eyeAboveRoot = 0) {
   return r < WALKER_RADIUS_M + clump;
 }
 
+/**
+ * T-2716. The near walk's set when the GPU draws the tufts: it counts what the
+ * CPU deal placed (the census and `tally` read it) and draws nothing, so
+ * `placeGraminoid` still returns the height the heads are hung off.
+ */
+function nearSink(name, geometry) {
+  const g = geometry();
+  const tris = (g.index ? g.index.count : g.attributes.position.count) / 3;
+  g.dispose();
+  let n = 0;
+  let want = 0;
+  const mesh = { name, count: 0 };
+  return {
+    mesh, tris, max: Infinity,
+    demand() { return want; },
+    skip(k) { want += k; },
+    reset() { n = 0; want = 0; },
+    ring() {},
+    push() { want++; n++; return true; },
+    commit() { mesh.count = n; },
+  };
+}
+
 function instSet(name, geometry, material, max) {
   const mesh = new THREE.InstancedMesh(geometry, material, max);
   mesh.name = name;
@@ -5953,7 +6270,7 @@ function vnoise(x, z) {
  * draw call, and keeps the wind in world space — a rotation baked into the
  * instance matrix would have silently turned it per plant.
  */
-function plantMaterial({ uniforms, billboard = false, membrane = 1.0 }) {
+function plantMaterial({ uniforms, billboard = false, membrane = 1.0, gpuNear = null }) {
   const mat = new THREE.MeshLambertMaterial({
     color: 0xffffff,
     vertexColors: true,
@@ -5974,6 +6291,7 @@ function plantMaterial({ uniforms, billboard = false, membrane = 1.0 }) {
       uChiSky: uniforms.uChiSky,
       uChiFoliage: uniforms.uChiFoliage,
     });
+    if (gpuNear) Object.assign(shader.uniforms, gpuNear.uniforms);
     shader.vertexShader = `
 attribute vec4 aDir;        // xy blade azimuth, zw local botanical UV
 attribute float aChiFamily; // atlas row selected from the species id
@@ -6325,7 +6643,30 @@ if (vChiBotany.z > 4.5 && vChiBotany.z < 5.5) {
 #include <opaque_fragment>
 `);
   };
-  mat.customProgramCacheKey = () => `flora-botanical-3-${billboard}-${membrane}`;
+  if (gpuNear) {
+    // T-2716. The near ring's tuft, its instances fetched from the deal pass's
+    // targets by `gl_InstanceID` (flora-gpu-near.js NEAR_FETCH_GLSL) where the
+    // program above reads instance attributes: the attributes become globals
+    // the fetch fills before anything reads them, and the colour the CPU set
+    // carried as `instanceColor` multiplies the vertex colour where three's
+    // own instancing would have.
+    const fetched = mat.onBeforeCompile;
+    mat.onBeforeCompile = (shader, renderer) => {
+      fetched(shader, renderer);
+      const v = shader.vertexShader
+        .replace('attribute vec4 aFlora;', '')
+        .replace('attribute vec4 aChiRing;', '')
+        .replace('attribute float aChiFamily;', '')
+        .replace('void main() {', 'void main() {\n  chiNearInstance();')
+        .replace('#include <color_vertex>', '#include <color_vertex>\n#ifdef USE_COLOR\n  vColor.rgb *= chiNearCol;\n#endif');
+      if (/attribute (vec4 aFlora|vec4 aChiRing|float aChiFamily);/.test(v)
+        || !v.includes('chiNearInstance();') || !v.includes('vColor.rgb *= chiNearCol')) {
+        throw new Error('flora: the near tuft program no longer has the anchors its fetch replaces');
+      }
+      shader.vertexShader = gpuNear.glsl + v;
+    };
+  }
+  mat.customProgramCacheKey = () => `flora-botanical-3-${billboard}-${membrane}${gpuNear ? '-gpu-near' : ''}`;
   mat.needsUpdate = true;
   return mat;
 }

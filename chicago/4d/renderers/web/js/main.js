@@ -2626,7 +2626,7 @@ async function boot() {
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
     verge: streets.verge, forbSeat,
-    confidence, problems: layerProblems('flora'), ...detailOpts(),
+    confidence, problems: layerProblems('flora'), ...detailOpts(), renderer,
   });
   scene3d.add(flora.group);
   let trees = await createTrees({
@@ -2734,7 +2734,7 @@ async function boot() {
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
           verge: streets.verge, forbSeat,
-          confidence, problems: layerProblems('flora'), detail: level,
+          confidence, problems: layerProblems('flora'), detail: level, renderer,
         });
         next.trees = await createTrees({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
@@ -2880,7 +2880,7 @@ async function boot() {
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
         verge: streets.verge, forbSeat,
-        confidence, problems: layerProblems('flora'), ...detailOpts(),
+        confidence, problems: layerProblems('flora'), ...detailOpts(), renderer,
       });
       scene3d.add(flora.group);
 
