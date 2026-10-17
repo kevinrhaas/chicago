@@ -265,6 +265,15 @@ for sheet in props/signboard_weathered timber/heavy_timber_weathered; do
         "$dst/"
 done
 
+# The grown trees' leaf and bark atlases (T-2743). `renderers/web/js/tree-instances.js`
+# resolves them against the asset base as the roof relief above does. Missing here, every
+# tree in every year draws untextured, with a recorded problem.
+mkdir -p "$SITE/data/textures/trees"
+cp -f assets/textures/trees/leaf_atlas.webp \
+      assets/textures/trees/bark_basecolor.webp \
+      assets/textures/trees/bark_normal.webp \
+      "$SITE/data/textures/trees/"
+
 # scenes, sidecars, datum (the renderer needs the origin for sun position).
 # Keep the scenes/ subdirectory — the renderer fetches data/scenes/<year>.json,
 # and flattening it here 404s the published build while the source tree works.

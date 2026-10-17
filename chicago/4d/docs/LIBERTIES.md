@@ -28648,3 +28648,26 @@ entry read their pitch.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2724 (piece 1 of T-2714).
 **Recorded:** 2026-10-17 (T-2724).
+
+### L-tree-architecture-2743 — Every tree is grown from its species' habit, with painted bark and leaves
+
+**Decision:** every tree in the 1812 and 1835 timber and plantings, and the 1904 parkway elms,
+is drawn from a tree grown in `renderers/web/js/tree-model.js` from its species' architecture
+(the `ARCH` table: crown envelope, clear bole, fork, scaffold count and angle, limb rise or sag,
+twist, branch orders, twig droop, foliage clumping). Bark and leaves come from
+`tools/generate_tree_atlas.py`'s painted atlases: a ridge-and-furrow, plate, shaggy or smooth tile per
+bark kind, and a spray of leaves of the species' own outline at its true size. A few variants of
+each species are grown and repeated, turned and scaled per stem (`tree-instances.js`) (T-2743).
+**What is read, not invented:** each stem's position, species, height band, crown width where a record
+gives one, and its July colours. These are unchanged from the zone and planting records and the
+planters in `trees.js` and `street-trees.js`.
+**What is invented:** the shape of every tree. No source describes the limbs, crown or bark of any tree
+that stood in 1812, 1835 or 1904. The habits are the species' ordinary botanical ones (for example the
+cottonwood's few massive rising limbs, the bur oak's low crooked horizontals, the American elm's vase
+and the black willow's leaning stems), set by hand and judged by eye against how living trees of the
+species look. The atlases are painted from code; no photograph is sampled. Repeating a few variants
+makes neighbouring trees of a species siblings, not individuals.
+**How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
+Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
+**Ticket:** T-2743.
+**Recorded:** 2026-10-17 (T-2743).

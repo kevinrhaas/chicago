@@ -35,7 +35,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
   if(JSON.stringify(first)!==JSON.stringify(light)||balanced.triangles<=light.triangles)throw Error('Context detail round trip did not restore its exact census');
   return {first,balanced,light,season:a.season?.current};
  }) : null;
- await page.waitForFunction(detail=>{const s=__chicago4d.streetTrees.stats;return s.detail===detail && (s.mode==='hidden'||s.drawCalls===1);},detail);
+ await page.waitForFunction(detail=>{const s=__chicago4d.streetTrees.stats;return s.detail===detail && (s.mode==='hidden'||s.drawCalls>0);},detail);
  await page.waitForFunction(()=>document.getElementById('gate').hidden);
  console.log(label+' selected '+detail+' and entered scene');
  const stands=[];
