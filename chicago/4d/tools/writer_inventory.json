@@ -176,6 +176,12 @@
       "measured": "2026-10-10",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K16 sample in memory from data/components/prairie_1904/k16_timber.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k16_timber.py run bare, which no gate step runs (T-2322)."
     },
+    "check_guide.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-17",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check reads data/guide/glossary.json and faq.json and checks that each rests_on path exists, and only prints; --self-test plants its faults in memory. Both write nothing (git status --porcelain identical before and after). It declares no write mode: the glossary and FAQ are authored (T-2662, prepared)."
+    },
     "check_timestream.py": {
       "placement": "not_a_writer",
       "write_mode": null,

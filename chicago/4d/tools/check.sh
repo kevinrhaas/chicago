@@ -7173,6 +7173,17 @@ step "every building summary record is graded, sourced, within its lengths and f
 selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
   python3 tools/compile_summaries.py --self-test
 
+# T-2662 (prepared ahead of its claim). The Guide's glossary and FAQ, data/guide/: the seven
+# locked terms of design doc section 03 with one-line meanings, and "Is this real?" and "What
+# does Reconstructed mean?". Exactly the locked terms, in order; a meaning at most 15 words, an
+# answer at most 60, a sentence at most 20, reading grade 9 or lower; no lower-case grade word or
+# retired term; the summary records' lint; and every claim names the files that make it true.
+step "the Guide's glossary and FAQ use the locked terms exactly, within their lengths and grade 9" \
+  python3 tools/check_guide.py --check
+
+selftest "…and each planted fault (a missing term, a long answer, a retired word, a claim resting on nothing) is refused" \
+  python3 tools/check_guide.py --self-test
+
 # T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
 # generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
 # --check above holds the file itself). This holds what it must mean: exactly its own
