@@ -3996,6 +3996,18 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // T-2655 (§07): the year chip opens the Jump app — the other destinations and Recall.
+  const yearChip = document.querySelector('#year-badge .badge-year');
+  if (yearChip && navigatorUi?.rail?.().some((a) => a.id === 'jump')) {
+    yearChip.setAttribute('role', 'button');
+    yearChip.tabIndex = 0;
+    yearChip.setAttribute('aria-label', 'Jump to another year');
+    yearChip.title = 'Jump to another year';
+    yearChip.classList.add('is-jump');
+    const openJump = (e) => { e.preventDefault(); void navigatorUi.select('jump'); };
+    yearChip.addEventListener('click', openJump);
+    yearChip.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openJump(e); });
+  }
 
   // ---- resize ----------------------------------------------------------- //
 
