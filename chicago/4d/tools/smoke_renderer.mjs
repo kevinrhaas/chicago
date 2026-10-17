@@ -14543,7 +14543,7 @@ for (const [label, viewport, touch] of [
       && biz.counts.file === biz.counts.stated && biz.counts.stated > 150
       && biz.counts.rows === biz.counts.stated
       && new RegExp(`^${biz.counts.stated} firms`).test(biz.counts.countText)
-      && biz.counts.title === 'Businesses',
+      && biz.counts.title === 'Shops & work',
       JSON.stringify(biz.counts));
     check(`${label}: searching a good the papers advertised finds the houses that sold it`,
       biz.search.matched > 0 && biz.search.matched < biz.counts.stated
@@ -14813,7 +14813,7 @@ for (const [label, viewport, touch] of [
       return out;
     });
     check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
-      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 11
+      hub.hubShown && hub.title === 'Sources' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
       && hub.tiles[2]?.id === 'sources'
       && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
@@ -14964,7 +14964,7 @@ for (const [label, viewport, touch] of [
       && hub.cleared === hub.topic.total,
       JSON.stringify(hub.topic));
     check(`${label}: Back returns to the hub`,
-      hub.back.hubShown && hub.back.title === 'Evidence' && hub.back.topic === null && hub.back.backHidden,
+      hub.back.hubShown && hub.back.title === 'Sources' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
@@ -15136,6 +15136,24 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator rides docked in the town`,
       ['dock', 'rail'].includes(navDocked.detent) && navDocked.box && navDocked.box.h > 0 && navDocked.box.bottom <= navDocked.innerHeight,
       JSON.stringify(navDocked));
+    // T-2619: closed, the device always shows its lamp, its label, the year and the icon of
+    // the app it opens to; on a phone it is a pill at the bottom centre that keeps the
+    // bottom-left corner a resting left thumb walks from clear (JOYSTICK_CLEAR_PX, 124 px).
+    const navDock = await page.evaluate((isTouch) => {
+      const nav = document.getElementById('navigator');
+      const seen = (el) => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+        return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+      const b = nav.getBoundingClientRect();
+      const icon = isTouch ? document.querySelector('#nav-dock-app svg') : nav.querySelector('.nav-rail .nav-app.is-on svg');
+      return { left: Math.round(b.left), right: Math.round(innerWidth - b.right), height: Math.round(b.height),
+        lamp: seen(nav.querySelector('.nav-lamp')), label: seen(nav.querySelector('.nav-label')) ? nav.querySelector('.nav-label').textContent : null,
+        year: seen(document.getElementById('nav-dock-year')) ? document.getElementById('nav-dock-year').textContent : null,
+        icon: seen(icon), app: window.__chicago4d.navigator?.snapshot?.().dock?.app ?? null };
+    }, touch);
+    check(`${label}: the closed Navigator shows its lamp, its label, the year and the app it opens to`,
+      navDock.lamp && /^NAVIGATOR/.test(navDock.label ?? '') && /^\d{4}$/.test(navDock.year ?? '') && navDock.icon && navDock.app === 'home'
+      && (!touch || (navDock.height === 64 && navDock.left >= 124 && navDock.right >= 124)),
+      JSON.stringify(navDock));
     await clickChrome(touch ? '#nav-grip' : '#nav-collapse');
     const navHome = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -15157,12 +15175,73 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator opens by hand on Home, and Home says where you are`,
       ['half', 'open'].includes(navHome.detent) && navHome.where.length > 0 && /(am|pm)$/.test(navHome.whereDetail)
       && /^facing /.test(navHome.whereDetail) && navHome.move.length > 0 && ['On', 'Off'].includes(navHome.confidence)
-      && navHome.focus === 'nav-home-title' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
+      // T-2622: focus moves onto Home's screen (it shows its ring; the heading is hidden).
+      && navHome.focus === 'nav-home' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
       JSON.stringify(navHome));
     check(`${label}: the Navigator's rail holds ten apps at most, Home first and Settings last, and Jump opens and closes (T-2618)`,
       navHome.rail.length <= 10 && navHome.rail[0] === 'home' && navHome.rail[1] === 'jaunts' && navHome.rail.at(-1) === 'settings'
       && navHome.rail.at(-2) === 'guide' && /^SCR 08 · JUMP$/.test(navHome.jumpCode) && navHome.jumpRecall && /^SCR 01 · HOME$/.test(navHome.homeCode),
       JSON.stringify({ rail: navHome.rail, jumpCode: navHome.jumpCode, jumpRecall: navHome.jumpRecall, homeCode: navHome.homeCode }));
+    // T-2619: one tap on the closed device opens the LAST app it showed, at HALF on a phone.
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('jump'); n.dock(); });
+    await clickChrome(touch ? '#nav-grip' : '#nav-head');
+    const navLast = await page.evaluate(async () => {
+      const n = window.__chicago4d.navigator;
+      const out = { detent: n.detent, app: n.app, dockApp: n.snapshot().dock?.app ?? null };
+      await n.select('home'); n.dock();
+      out.after = n.snapshot().dock?.app ?? null;
+      return out;
+    });
+    check(`${label}: one tap on the closed Navigator opens the last app${touch ? ' at HALF' : ''}`,
+      navLast.detent === (touch ? 'half' : 'open') && navLast.app === 'jump' && navLast.dockApp === 'jump' && navLast.after === 'home',
+      JSON.stringify(navLast));
+
+    // --- the Navigator by keyboard (T-2622, QA-19 first half) --------------------
+    // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
+    // device opens and closes by keyboard alone: N opens it with focus inside and visible,
+    // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
+    // one, Escape closes it and leaves focus, visibly, on the grip.
+    await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
+    const visibleFocus = () => page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return { id: null, visible: false };
+      const cs = getComputedStyle(el);
+      return { id: el.id || el.dataset?.app || el.tagName, inNav: !!el.closest('#navigator'),
+        visible: el.matches(':focus-visible') && cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0 };
+    });
+    const aria = await page.evaluate(() => {
+      const list = document.querySelector('#nav-rail [role="tablist"]');
+      const tabs = [...(list?.querySelectorAll('[role="tab"]') ?? [])].filter((b) => !b.hidden);
+      return { list: !!list, label: list?.getAttribute('aria-label') ?? '', tabs: tabs.length,
+        labelled: tabs.every((b) => (b.getAttribute('aria-label') ?? b.textContent).trim().length > 0),
+        selected: tabs.filter((b) => b.getAttribute('aria-selected') === 'true').length,
+        stray: [...(list?.children ?? [])].filter((c) => c.getAttribute('role') !== 'tab').length,
+        panels: [...document.querySelectorAll('#navigator [role="tabpanel"]')].every((p) => !!(p.getAttribute('aria-labelledby') || p.getAttribute('aria-label'))) };
+    });
+    await page.keyboard.press('n');
+    await page.waitForTimeout(350);
+    const keyOpen = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    const order = await page.evaluate(() => window.__chicago4d.navigator.apps);
+    const jumpAt = order.indexOf('jump') + 1;
+    if (jumpAt >= 1 && jumpAt <= 9) await page.keyboard.press(String(jumpAt));
+    await page.waitForTimeout(500);
+    const keyJump = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.evaluate(() => document.querySelector('#nav-rail [role="tab"][aria-selected="true"]')?.focus());
+    await page.keyboard.press('Home');
+    const tabHome = await page.evaluate(() => document.activeElement?.dataset?.app ?? null);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(400);
+    const keyHome = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(350);
+    const keyShut = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    check(`${label}: the Navigator's rail is a tablist of labelled tabs, and the device opens, switches and closes by keyboard with focus always visible (T-2622)`,
+      aria.list && aria.label === 'Navigator apps' && aria.tabs >= 2 && aria.labelled && aria.selected === 1 && aria.stray === 0 && aria.panels
+      && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
+      && keyJump.app === 'jump' && keyJump.focus.id === 'nav-app-jump' && keyJump.focus.visible
+      && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
@@ -17191,9 +17270,9 @@ for (const [label, viewport, touch] of [
           && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
           survivalCard.opening.slice(0, 300));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
-          survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
+          survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
-          && survivalCard.facts.some(([k, v]) => k === 'Present status' && /Still standing.*Glessner House museum/.test(v))
+          && survivalCard.facts.some(([k, v]) => k === 'Today' && /Still standing.*Glessner House museum/.test(v))
           && survivalCard.range?.to === '1946-08-31'
           && survivalCard.status?.confidence === 'attested'
           && survivalCard.status?.sources?.includes('glessner_house_current_status')
@@ -17541,6 +17620,25 @@ for (const [label, viewport, touch] of [
     check(`${label}: Explore on my own clears a paused jaunt`,
       (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
     if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
+
+    // --- a shared screen: ?nav=jump opens after the landing, Back closes it (T-2621) ----
+    // The same fresh context, a new load of the page with a deep link. After the landing
+    // the visitor is set down in the town with Jump open on the Navigator; Back closes
+    // the app and stays on this page; a link to an app the rail does not have would have
+    // been dropped quietly (test_nav_link.mjs, test_navigator.mjs).
+    await p14.goto(`${base}&nav=jump`, { waitUntil: 'domcontentloaded' });
+    await p14.waitForFunction(() => window.__chicago4d?.navLinkOpened?.app === 'jump' && window.__chicago4d.navigator?.app === 'jump',
+      null, { timeout: 240_000, polling: 500 });
+    const linked = await p14.evaluate(() => ({ app: window.__chicago4d.navigator.app, level: window.__chicago4d.navigator.level,
+      gate: document.getElementById('gate').hidden, held: window.__chicago4d.navHistory?.held ?? null, href: location.href }));
+    await p14.evaluate(() => history.back());
+    await p14.waitForFunction(() => window.__chicago4d?.navigator?.level === 0, null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const backed = await p14.evaluate(() => ({ app: window.__chicago4d?.navigator?.app ?? null, level: window.__chicago4d?.navigator?.level ?? null,
+      href: location.href, same: !!window.__chicago4d }));
+    check(`${label}: ?nav=jump opens Jump after the landing, and Back closes it and stays on the page (T-2621)`,
+      linked.app === 'jump' && linked.level > 0 && linked.gate && linked.held === true
+      && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
+      JSON.stringify({ linked, backed }));
     await ctx14.close();
     inStageWork = false;
     } // end PART 15 (T-2044; renumbered from 14 by T-2337)

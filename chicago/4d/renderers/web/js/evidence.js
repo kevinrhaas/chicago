@@ -31,6 +31,8 @@
  * `showHub({ keep: true })` is what the tab re-selection sends: an open topic
  * stays open (the head title is re-pushed, because selecting a tab resets it).
  */
+import { t as str } from './strings/index.js';
+import './strings/hud.js';
 import { escapeHtml } from './citations.js';
 
 const SVG = (paths) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"`
@@ -44,7 +46,7 @@ const SVG = (paths) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="no
 const TOPICS = [
   {
     id: 'grades',
-    gloss: 'attested, inferred, reconstructed — what each word promises',
+    gloss: str('hud.sources.grades'),
     icon: SVG('<circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.3 2.3 4.7-5"/>'),
     entries: (topic) => [...topic.querySelectorAll('.legend-list > li')],
     facet: () => null,

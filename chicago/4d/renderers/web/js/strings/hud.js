@@ -1,0 +1,28 @@
+/** T-2624 — the HUD and its drawer: the rail's section names (section 03's renames:
+ * Travel → Move, Firms → Shops & work, Evidence → Sources, Controls → Guide), the chips
+ * and the messages the HUD says. Element ids and data-tab values do not change. */
+import { register } from './index.js';
+
+export default register('hud', {
+  'tab.goto': 'Go to',
+  'tab.move': 'Move',
+  'tab.people': 'People',
+  'tab.shops': 'Shops & work',
+  'tab.shops.short': 'Shops',
+  'tab.sources': 'Sources',
+  'tab.settings': 'Settings',
+  'tab.guide': 'Guide',
+  'tab.whatsnew': "What's new",
+  'menu.unread': "Guide, settings and what's new — {n} unread (H)",
+  'move.note': 'Walking, wagon and horse speeds live under',
+  'move.mode': 'How you move',
+  'sources.list': 'Source list',
+  'sources.grades': 'Attested, Inferred, Reconstructed: what each word promises',
+  'levels.all': 'Showing every level again',
+  'fly.walk': 'Walk',
+  'fly.fly': 'Fly',
+  'fly.back': 'Back to walking (F)',
+  'fly.up': 'Free-fly — rise above the town (F)',
+  'notes.failed': 'The release notes could not load. Reopen this tab to retry.',
+  'going': 'Going to',
+});
