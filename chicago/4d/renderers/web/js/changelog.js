@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1909, ts: '2026-10-17T02:35:11.154Z', date: 'Oct 16, 2026, 9:35 PM CT', title: '1904 gets its first residents: John and Frances Glessner', kind: 'add',
+    items: [
+      'The 1904 town now has a list of who lived there, starting with John and Frances Glessner at 1800 Prairie Avenue. Both are drawn from their own records, with nothing invented.',
+      'Their grown children are not listed: by 1904 both had married and moved out. No source names the household\'s staff, so none appear yet.',
+      'You will meet them on the Glessner House\'s new Inspect page, under Who lives here, when it arrives. The 1904 menu still has no People section until the new People app is ready.',
+    ] },
   { v: 1908, ts: '2026-10-17T02:13:40.629Z', date: 'Oct 16, 2026, 9:13 PM CT', title: 'A phone in 1835 holds about 19 MB less', kind: 'fix',
     items: [
       'Nothing you can see changed. On a phone, the 1835 town now holds about 19 MB less once it is drawn (590 MB to 570 MB), which is where phones were running out of memory.',
