@@ -3716,8 +3716,9 @@ step "publish.sh produces a mirror that matches its source" \
 # the same of the mirror; this is the tool's own --check, run where the mirror is.
 # T-2693: and the ground's tiles, which the page uploads in the ground GLB's place.
 # T-2709: and the distant base, which createTerrain batches in place of its own cut.
-step "the published prebuilt frontage, ground and distant base are current against every file they were built from (T-2677, T-2693, T-2709)" \
-  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base
+# T-2711: and the yards' five surfaces, which the page uploads in place of laying them.
+step "the published prebuilt frontage, ground, distant base and yards are current against every file they were built from (T-2677, T-2693, T-2709, T-2711)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base,yards
 
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a

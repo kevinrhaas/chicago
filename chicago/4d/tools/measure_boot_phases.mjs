@@ -9,6 +9,10 @@
  * --no-prebuilt-base: refuse data/prebuilt/<year>/base.* alone, so the page lays and
  *   cuts its own distant base (T-2709's before). Every row carries `base`: the
  *   distant-base measure after frontage, its longest task and whether it came prebuilt.
+ * --no-prebuilt-yards: refuse data/prebuilt/<year>/yards.* alone, so the page lays and
+ *   cuts its own yard surfaces while the rest still comes prebuilt (T-2711's before).
+ *   Each row carries `yards`: the layer's wall time, its longest task and whether its
+ *   surfaces came prebuilt.
  * --no-prebuilt: refuse data/prebuilt/, so the page builds frontage itself (T-2677's
  * before). Every row quotes the frontage layer's wall time, the longest task inside
  * it, and whether its timber came prebuilt.
@@ -88,9 +92,11 @@ export async function snapshot(page) {
     const frontage = fr ? { ms: Math.round(fr.duration), startedAt: fr.startTime, prebuilt: a.frontage?.prebuilt ?? null } : null;
     const bm = performance.getEntriesByName('distant-base', 'measure')[0];
     const base = bm ? { ms: Math.round(bm.duration), startedAt: bm.startTime, prebuilt: a.terrainPrebuiltBase ?? null } : null;
+    const yd = performance.getEntriesByName('yards', 'measure')[0];
+    const yards = yd ? { ms: Math.round(yd.duration), startedAt: yd.startTime, prebuilt: a.yards?.prebuilt ?? null } : null;
     const tp = a.boot?.timings()?.find(p => p.id === 'terrain');
     const terrain = tp ? { ms: Math.round((tp.endedAt - tp.startedAt)), startedAt: tp.startedAt, prebuilt: a.terrainPrebuilt ?? null } : null;
-    return { frontage, base, terrain, roll: a.roll, flora: a.flora.stats, trees: a.trees.stats, hashes,
+    return { frontage, base, terrain, yards, roll: a.roll, flora: a.flora.stats, trees: a.trees.stats, hashes,
       probe: window.bootProbe, phases: a.boot?.timings(), readyAt: a.boot?.readyAt, renderedAt: a.boot?.renderedAt };
   });
   // The census reads drawn buffers, and since streams are released after upload
@@ -108,7 +114,7 @@ export async function snapshot(page) {
     d.terrain.longestTaskMs = Math.round(Math.max(0, ...d.probe.tasks
       .filter(t => t.at + t.duration > startedAt && t.at < startedAt + ms).map(t => t.duration)));
   }
-  for (const part of [d.base].filter(Boolean)) {
+  for (const part of [d.base, d.yards].filter(Boolean)) {
     const { startedAt, ms } = part;
     part.longestTaskMs = Math.round(Math.max(0, ...d.probe.tasks
       .filter(t => t.at + t.duration > startedAt && t.at < startedAt + ms).map(t => t.duration)));
@@ -124,7 +130,7 @@ async function main() {
   const args = process.argv.slice(2), arg = name => args.includes(name) ? args[args.indexOf(name) + 1] : undefined;
   const env = await environment(arg('--root'));
   const phone = args.includes('--phone');
-  const result = { measuredAt: new Date().toISOString(), machine: `${os.type()} ${os.release()} ${os.arch()} / ${os.cpus()[0].model}`, browser: env.browser.version(), conditions: `Headless Chromium; 390×780 touch and 1280×800; ${phone ? '4x CPU throttle (the phone profile), network unthrottled' : 'no CPU throttle'}; fresh context cold, repeat navigation warm${args.includes('--no-prebuilt') ? '; data/prebuilt/ refused' : ''}${args.includes('--no-prebuilt-ground') ? '; data/prebuilt/*/ground.* refused' : ''}${args.includes('--no-prebuilt-base') ? '; data/prebuilt/*/base.* refused' : ''}.`, rows: [] };
+  const result = { measuredAt: new Date().toISOString(), machine: `${os.type()} ${os.release()} ${os.arch()} / ${os.cpus()[0].model}`, browser: env.browser.version(), conditions: `Headless Chromium; 390×780 touch and 1280×800; ${phone ? '4x CPU throttle (the phone profile), network unthrottled' : 'no CPU throttle'}; fresh context cold, repeat navigation warm${args.includes('--no-prebuilt') ? '; data/prebuilt/ refused' : ''}${args.includes('--no-prebuilt-ground') ? '; data/prebuilt/*/ground.* refused' : ''}${args.includes('--no-prebuilt-base') ? '; data/prebuilt/*/base.* refused' : ''}${args.includes('--no-prebuilt-yards') ? '; data/prebuilt/*/yards.* refused' : ''}.`, rows: [] };
   const baselineDoc = arg('--compare') && JSON.parse(fs.readFileSync(arg('--compare'), 'utf8'));
   const baseline = baselineDoc?.rows ?? baselineDoc;
   try {
@@ -134,6 +140,7 @@ async function main() {
         await ctx.addInitScript(observeBoot, { detail });
         if (args.includes('--no-prebuilt-ground')) await ctx.route('**/data/prebuilt/*/ground.*', route => route.fulfill({ status: 404, body: '' }));
         if (args.includes('--no-prebuilt-base')) await ctx.route('**/data/prebuilt/*/base.*', route => route.fulfill({ status: 404, body: '' }));
+        if (args.includes('--no-prebuilt-yards')) await ctx.route('**/data/prebuilt/*/yards.*', route => route.fulfill({ status: 404, body: '' }));
         if (args.includes('--no-prebuilt')) await ctx.route('**/data/prebuilt/**', route => route.fulfill({ status: 404, body: '' }));
         const page = await ctx.newPage();
         if (phone) await (await ctx.newCDPSession(page)).send('Emulation.setCPUThrottlingRate', { rate: 4 });
@@ -152,6 +159,7 @@ async function main() {
           if (!args.includes('--json')) console.log(`${device}/${detail}/${cache}: flora paint gap ${row.floraMaxPaintGapMs.toFixed(1)} ms; longest task ${row.longestTaskMs} ms\n`
             + (row.terrain ? `  terrain: ${row.terrain.ms} ms, longest task in it ${row.terrain.longestTaskMs} ms, ground ${row.terrain.prebuilt?.used ? 'prebuilt' : `cut here (${row.terrain.prebuilt?.why})`}\n` : '')
             + (row.base ? `  distant base: ${row.base.ms} ms after frontage, longest task in it ${row.base.longestTaskMs} ms, ${row.base.prebuilt?.used ? 'prebuilt' : `cut here (${row.base.prebuilt?.why})`}\n` : '')
+            + (row.yards ? `  yards: ${row.yards.ms} ms, longest task in it ${row.yards.longestTaskMs} ms, ${row.yards.prebuilt?.used ? 'prebuilt' : `laid here (${row.yards.prebuilt?.why})`}\n` : '')
             + (row.frontage ? `  frontage: ${row.frontage.ms} ms, longest task in it ${row.frontage.longestTaskMs} ms, ${row.frontage.prebuilt?.used ? 'prebuilt' : `built here (${row.frontage.prebuilt?.why})`}\n` : '')
             + row.phases?.map(p => `  ${p.id}: ${p.seconds?.toFixed(3)} s`).join('\n'));
         }

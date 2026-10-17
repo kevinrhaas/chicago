@@ -669,7 +669,9 @@ rm -rf "$SITE/data/prebuilt"
 # uploads in place of the ground GLB (terrain.js § THE GROUND, PREBUILT).
 # T-2709: and the distant base, laid over frontage's crossings and cut into its
 # pieces, which createTerrain batches in place of its own grid and cut.
-node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground,base
+# T-2711: and the yards' five surfaces, which the page uploads in place of laying
+# them (yards.js § THE YARDS, PREBUILT).
+node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground,base,yards
 
 echo "   build $BUILD_VERSION  $BUILD_CT"
 

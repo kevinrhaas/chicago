@@ -53,7 +53,7 @@ import { createStreets } from './streets.js';
 import { createEnclosures } from './enclosures.js';
 import { loadOrdinanceLimits } from './ordinances.js';
 import { loadAgencies } from './agencies.js';
-import { createFencedGround } from './yards.js';
+import { createFencedGround, fetchPrebuiltYards } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
@@ -1790,6 +1790,12 @@ async function boot() {
     ? fetchPrebuiltFrontage({ dataBase: bases.dataBase,
       year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
     : null;
+  // T-2711: and the yards' five surfaces, which the fenced ground uploads in place
+  // of laying them (yards.js § THE YARDS, PREBUILT). Never rejects.
+  const yardsPrebuilt = draws('enclosures')
+    ? fetchPrebuiltYards({ dataBase: bases.dataBase,
+      year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
+    : null;
   /**
    * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
    * below read the 1835 town's records just as the drawn layers do — its residents,
@@ -2103,8 +2109,11 @@ async function boot() {
   // bake. Mounted after the streets so a frontage fence is drawn against the
   // travelled way it stands on, and before the vegetation because the ground
   // inside one now decides what may grow there — see the fenced ground below.
+  // T-2711: hashed as they are read when the yards may come prebuilt from them.
+  const enclosureHashes = yardsPrebuilt && globalThis.crypto?.subtle ? new Map() : null;
   const enclosures = await createEnclosures({
     dataBase: layerBase('enclosures'), terrain, confidence, problems: layerProblems('enclosures'), ...detailOpts(),
+    hashes: enclosureHashes,
   });
   scene3d.add(enclosures.group);
   settleOnGpu(enclosures.group);
@@ -2125,9 +2134,12 @@ async function boot() {
    * not take the ground with it. It takes the enclosure records straight off the
    * layer above rather than re-fetching them.
    */
+  performance.mark('yards:start');
   const yards = await createFencedGround({
     records: enclosures.records, terrain, confidence, problems,
+    prebuilt: yardsPrebuilt, recordHashes: enclosureHashes,
   });
+  performance.measure('yards', 'yards:start');
   scene3d.add(yards.group);
   settleOnGpu(yards.group);
   api.yards = yards;
