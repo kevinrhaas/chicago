@@ -255,7 +255,7 @@ export function storageRects(r, wi, wj, size) {
  * queued, and only the latest one is kept.
  *
  * `stats.mainMs` is the main thread's share — `update`, the asks being sent,
- * and the finishes and the writes — and nothing the pool spent; `changed` is
+ * and the finishes and the writes — and nothing the pool spent; `written` is
  * where the last re-centre wrote, in the arrays' own texels (`storageRects`).
  */
 export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => performance.now() }) {
@@ -268,7 +268,7 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
   let pending = null;
   let waiters = [];
   const stats = { mainMs: 0, finishMs: 0, recentres: 0, texels: 0, whole: 0, lastMs: 0 };
-  const keeper = { stats, spec, changed: [],
+  const keeper = { stats, spec, written: [],
     get tile() { return tile; },
     update(camE, camN) {
       const t0 = now();
@@ -297,7 +297,7 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
   function land(o, rects, gots) {
     const t0 = now();
     const { wi, wj } = fieldWrap(o.e0, o.n0, spec);
-    const changed = [];
+    const written = [];
     let texels = 0;
     for (let r = 0; r < rects.length; r++) {
       const { i0, j0, w, h } = rects[r];
@@ -317,10 +317,10 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
         }
       }
       texels += w * h;
-      changed.push(...storageRects(rects[r], wi, wj, size));
+      written.push(...storageRects(rects[r], wi, wj, size));
     }
     tile = { e0: o.e0, n0: o.n0, wi, wj, texel, size, cls, height };
-    keeper.changed = changed;
+    keeper.written = written;
     stats.recentres++;
     stats.texels += texels;
     if (texels === size * size) stats.whole++;

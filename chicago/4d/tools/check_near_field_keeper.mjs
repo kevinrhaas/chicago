@@ -15,7 +15,7 @@
  *   2. `sampleField` reads the two the same at points across the tile;
  *   3. a straight step re-asks a quarter of the tile, a diagonal 7/16, the
  *      first and the jump the whole of it, and nothing else;
- *   4. `changed` names exactly the texels the landing wrote.
+ *   4. `written` names exactly the texels the landing wrote.
  *
  * The answers are a synthetic field (a hash of the texel's point), because the
  * question here is the keeper's arithmetic, not the town's; the town's own tile,
@@ -127,11 +127,11 @@ async function walk(opts = {}, wrapOff = 0) {
       // `changed` is exactly the texels the landing wrote.
       const marked = new Uint8Array(size * size);
       let area = 0;
-      for (const r of k.changed) {
+      for (const r of k.written) {
         for (let y = r.y; y < r.y + r.h; y++) for (let x = r.x; x < r.x + r.w; x++) marked[y * size + x]++;
         area += r.w * r.h;
       }
-      if (di <= 1 && dj <= 1 && (area !== want || marked.some((m) => m > 1))) bad.push(`step (${di}, ${dj}): changed covers ${area} texels, not ${want} once each`);
+      if (di <= 1 && dj <= 1 && (area !== want || marked.some((m) => m > 1))) bad.push(`step (${di}, ${dj}): written covers ${area} texels, not ${want} once each`);
     }
     prev = t;
   }
