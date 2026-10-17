@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1974, ts: '2026-10-17T20:50:43.174Z', date: 'Oct 17, 2026, 3:50 PM CT', title: 'The compass names your street then and today, in every year', kind: 'fix',
+    items: [
+      'Under the compass, a readout gives the street you stand on in the scene\'s year and today\'s street, corner or house number. It works in 1812, 1835 and 1904. Before, it only ever appeared in 1835.',
+      'Today\'s names and numbers come from the City of Chicago\'s own street centerlines, so at Glessner House it reads S Prairie Ave & E 18th St, and mid-block the number on your side of the street. 1812 has no streets yet, so it says so and still gives today\'s.',
+      'A signpost button beside the heading shows or hides the readout. The Settings toggle does the same and now names the year you are in, for example "1904 / current street names".',
+      'With the readout on, today\'s streets are drawn in blue on the small map, the pop-out map and the Map app, which names them when you zoom in.',
+    ] },
   { v: 1973, ts: '2026-10-17T20:32:04.067Z', date: 'Oct 17, 2026, 3:32 PM CT', title: 'Keith house\'s loggia columns a touch taller, ruled between two photographs', kind: 'change',
     items: [
       '1808 Prairie (1904): the entrance loggia\'s paired columns now stand 2.5 m from pedestal to capital, up from 2.45 m, with the beam and balcony above them riding up the same 5 cm. Measured in the 1888 Inland Architect photograph against the third-storey window right beside them, they read 2.5 m.',
