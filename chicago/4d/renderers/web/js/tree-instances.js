@@ -323,6 +323,9 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
     if (packed) {
       countSheet(packed);
       packed.anisotropy = lowSpec ? 2 : 8;
+      // Once on the GPU the transcoded levels are scratch: let them go, as the
+      // terrain's tiles do (a lost context reloads the page, upload-release.js).
+      packed.onUpdate = () => { for (const m of packed.mipmaps) m.data = null; };
       return packed;
     }
     try {
