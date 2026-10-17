@@ -16,6 +16,9 @@ const server = http.createServer((req, res) => {
   fs.readFile(file, (err, bytes) => { res.writeHead(err ? 404 : 200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' }); res.end(err ? 'Not found' : bytes); });
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+// T-2614: the gesture started audio — or say what the gate saw instead.
+const audioRunning = page => page.waitForFunction(() => __chicago4d.audio?.state === 'running', null, { timeout: 10000, polling: 100 })
+  .catch(async () => { throw new Error(`audio not running after the gesture: ${JSON.stringify(await page.evaluate(() => ({ gate: __chicago4d.gesture?.state, journey: document.documentElement.dataset.journey, welcome: __chicago4d.welcome.state })))}`); });
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE, args: ['--enable-unsafe-swiftshader'] });
 const receipts = [];
 try {
@@ -27,6 +30,8 @@ try {
       localStorage.setItem('chicago4d.settings', JSON.stringify({ pace: 'wagon', travelMode: 'horse' }));
     });
     const page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
+    // T-2614: the autoplay warning a browser prints for audio made without a gesture.
+    const autoplay = []; page.on('console', m => { if (/AudioContext|autoplay/i.test(m.text())) autoplay.push(m.text()); });
     await page.goto(`http://127.0.0.1:${server.address().port}/walk/?year=1835&seed=1278`);
     // T-2613: Home opens halfway through the landing; read it once the landing has finished
     // (its reduced-motion crossfade is the one animation allowed before that).
@@ -43,6 +48,8 @@ try {
     });
     assert.equal(initial.focus, 'gate-title'); assert(initial.actions && initial.help && !initial.locked);
     assert.equal(initial.progress, 'none'); if (touch) assert.equal(initial.animation, 'none');
+    // T-2614: landed, and still no AudioContext — it waits for the first real tap.
+    assert.equal(await page.evaluate(() => __chicago4d.audio), null, 'no AudioContext before a gesture');
     await page.screenshot({ path: path.join(out, `${viewport.width}-welcome.png`) });
     await page.locator('#welcome-jaunts').dispatchEvent('click');
     assert(await page.locator('#welcome-jaunts-region').isVisible());
@@ -93,13 +100,28 @@ try {
     assert.equal(await page.evaluate(() => document.activeElement.id), 'btn-start');
     assert.equal(await page.evaluate(() => JSON.stringify(__chicago4d.hud.settings)), settings);
     await page.locator('#btn-start').dispatchEvent('click');
-    await page.locator('#home-roam').dispatchEvent('click');
-    const spawn = await page.evaluate(() => ({ actual: { e: __chicago4d.walker.state.e, n: __chicago4d.walker.state.n }, spawn: __chicago4d.scene.spawn, locked: !!document.pointerLockElement }));
+    // T-2614 (QA-04): on the phone a real tap on Free roam is the gesture that starts audio.
+    if (touch) await page.locator('#home-roam').tap();
+    else await page.locator('#home-roam').dispatchEvent('click');
+    const spawn = await page.evaluate(() => ({ actual: { e: __chicago4d.walker.state.e, n: __chicago4d.walker.state.n }, spawn: __chicago4d.scene.spawn, locked: !!document.pointerLockElement,
+      audio: __chicago4d.audio?.state ?? null, tag: !document.getElementById('look-tag').hidden }));
     assert(Math.hypot(spawn.actual.e - spawn.spawn.local_e, spawn.actual.n - spawn.spawn.local_n) < .01); assert(!spawn.locked);
+    if (touch) {
+      await audioRunning(page);
+      assert.equal(spawn.tag, false, 'no CLICK TO ENGAGE LOOK on a touch device');
+    }
     if (!touch) {
       assert.equal(await page.evaluate(() => document.documentElement.dataset.theme), 'light');
+      // T-2614 (QA-05): CLICK TO ENGAGE LOOK until the first click on the scene takes the pointer.
+      assert.equal(spawn.tag, true, 'CLICK TO ENGAGE LOOK shows in the town before lock');
+      assert.equal(await page.evaluate(() => getComputedStyle(document.getElementById('look-tag')).textTransform), 'uppercase');
       await page.mouse.click(640, 400);
-      await page.waitForFunction(() => !!document.pointerLockElement);
+      // Polled on a clock, not on animation frames: the entered town can draw a frame in
+      // seconds on a loaded runner, and a locked pointer is not a frame's business.
+      await page.waitForFunction(() => !!document.pointerLockElement, null, { polling: 100 });
+      // The tag goes on the lock event (it can trail the lock by a frame on a slow runner).
+      await page.waitForFunction(() => document.getElementById('look-tag').hidden, null, { timeout: 10000, polling: 100 });
+      await audioRunning(page);
       await page.locator('#btn-start').dispatchEvent('click');
       assert.equal(await page.evaluate(() => !!document.pointerLockElement), false);
       await page.keyboard.press('Escape');
@@ -123,7 +145,7 @@ try {
         await page.screenshot({ path: path.join(out, `${size.width}x${size.height}-picker.png`) }); receipts.push(layout);
       }
     }
-    assert.deepEqual(errors, []); receipts.push({ viewport, initial, spawn, errors });
+    assert.deepEqual(errors, []); assert.deepEqual(autoplay, [], 'no autoplay warnings'); receipts.push({ viewport, initial, spawn, errors });
     console.log(`PASS ${viewport.width}: welcome, picker spawns, pause, focus, settings, default entry; no page errors`);
     await context.close();
   }
