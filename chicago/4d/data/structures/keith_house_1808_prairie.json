@@ -670,7 +670,7 @@
             "diaper": {
               "bottom_m": 13.79,
               "top_m": 14.63,
-              "pitch_m": 0.168,
+              "pitch_m": 0.14,
               "proud_m": 0.09,
               "stagger": 0.5,
               "relief_m": [
@@ -679,7 +679,8 @@
               ],
               "units": "diamond_point",
               "gap_m": 0.28,
-              "unit_width_m": 0.24
+              "unit_width_m": 0.235,
+              "row_m": 0.168
             },
             "colonnettes": {
               "axes_m": [
