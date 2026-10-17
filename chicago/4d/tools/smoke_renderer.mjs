@@ -1472,7 +1472,7 @@ for (const [label, viewport, touch] of [
           if (welcome.state === 'welcome') welcome.enter('spawn');
           if (welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
         }
-      } else document.getElementById('gate-btn')?.click();
+      } else document.getElementById('home-roam')?.click();
       await new Promise((r) => setTimeout(r, 150));
       document.exitPointerLock?.();
     }
@@ -1576,6 +1576,24 @@ for (const [label, viewport, touch] of [
       return null;
     }, sel);
     if (why) throw new Error(`clickChrome: ${why}`);
+  };
+  // T-2613: Home appears halfway through the landing's flip, not at ready (the old
+  // #gate-btn sat on screen at ready), so a click on #home-roam waits for the journey
+  // to land. Bounded, and loud: a landing that never comes fails here by name, with
+  // the journey state and the landing phase it stopped in.
+  const untilLanded = async (timeout = 90_000) => {
+    try {
+      await page.waitForFunction(() => document.documentElement.dataset.journey === 'landed',
+        null, { timeout, polling: 100 });
+    } catch {
+      const at = await page.evaluate(() => ({
+        journey: document.documentElement.dataset.journey ?? '(none)',
+        landing: document.querySelector('.gate-card')?.dataset.landing ?? '(none)',
+        gate: document.getElementById('gate')?.dataset.state ?? '(none)',
+      })).catch(() => ({}));
+      throw new Error(`the landing never reached "landed" within ${timeout / 1000} s after ready — `
+        + `journey ${at.journey}, landing phase ${at.landing}, gate ${at.gate}`);
+    }
   };
 
   const errors = [];
@@ -10264,7 +10282,8 @@ for (const [label, viewport, touch] of [
       await clickChrome(sel);
       console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
     };
-    await timedChrome('#gate-btn');
+    await untilLanded();
+    await timedChrome('#home-roam');
     await page.waitForTimeout(150);
     // Entry leaves the pointer free; release defensively for older builds.
     await page.evaluate(() => document.exitPointerLock?.());
@@ -14835,7 +14854,8 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
-    await clickChrome('#gate-btn');
+    await untilLanded();
+    await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
 
@@ -14882,7 +14902,8 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
-    await clickChrome('#gate-btn');
+    await untilLanded();
+    await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
     await clickChrome('#btn-help');
@@ -16934,7 +16955,9 @@ for (const [label, viewport, touch] of [
         if (year && year !== window.__arrivalYears.at(-1)?.year) {
           window.__arrivalYears.push({ year, ready: window.__chicago4d?.ready === true,
             // T-2610: the small line over the ticker, as it read when this year showed.
-            destination: document.getElementById('arrival-destination')?.textContent ?? null });
+            destination: document.getElementById('arrival-destination')?.textContent ?? null,
+            // T-2613: and where the journey stood, since landing rewrites that line.
+            journey: document.documentElement.dataset.journey ?? null });
         }
         const ts = document.getElementById('arrival-timestream');
         if (ts?.dataset.state === 'on' && ts.dataset.year !== window.__timeStream.at(-1)?.year) {
@@ -17012,11 +17035,24 @@ for (const [label, viewport, touch] of [
       years.length >= 2 && Number(years[0].year) > 1835 && early.length === 0
       && years.every((y, i) => i === 0 || Number(y.year) <= Number(years[i - 1].year)),
       years.map((y) => `${y.year}${y.ready ? '' : '·'}`).join(' '), true);
+    // "On the way" is up to the landing: T-2613 rewrites the line to ARRIVED · <date>
+    // there, by design, so a year that showed once the journey had landed is judged by
+    // the second check, not this one.
+    const LANDED = ['landing', 'landed', 'exploring', 'inspecting', 'on-jaunt', 'touring'];
+    const onTheWay = years.filter((y) => !LANDED.includes(y.journey));
     check(`${label}: the small line reads Destination ${YEAR} from first paint and never changes on the way`,
-      years.length >= 2 && (years[0].destination ?? '').startsWith(`Destination ${YEAR} · `)
-      && years.every((y) => y.destination === years[0].destination)
+      onTheWay.length >= 2 && (onTheWay[0].destination ?? '').startsWith(`Destination ${YEAR} · `)
+      && onTheWay.every((y) => y.destination === onTheWay[0].destination)
       && !/Destination year/i.test(await p14.evaluate(() => document.getElementById('gate').textContent)),
-      [...new Set(years.map((y) => y.destination))].join(' | '));
+      [...new Set(years.map((y) => `${y.destination} (${y.journey})`))].join(' | '));
+    const arrivedLine = await p14.evaluate(() => ({
+      line: document.getElementById('arrival-destination')?.textContent ?? null,
+      date: window.__chicago4d.scene?.target_date ?? null,
+      journey: document.documentElement.dataset.journey ?? null,
+    }));
+    check(`${label}: on landing the small line reads ARRIVED and the scene's date (T-2613)`,
+      !!arrivedLine.date && new RegExp(`^arrived · ${arrivedLine.date.replace(/-/g, '\\.')}$`, 'i').test(arrivedLine.line ?? ''),
+      JSON.stringify(arrivedLine));
 
     // T-2611: the time-stream captions. Each shows only as the ticker passes its year
     // (the ticker at or below it), never twice, never clipped and inside the screen; at
