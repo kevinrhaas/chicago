@@ -87,7 +87,7 @@ export async function mountSources({root, dataBase, scene='1835', onTitle, onBac
     root.dataset.count=String(rows.length);root.removeAttribute('aria-busy');renderList();
   } catch {
     // Keep the tile unknown: failed transport is not a source count of zero.
-    root.innerHTML='<p role="status">The source catalog could not be loaded. Other Evidence topics remain available.</p><button type="button" data-retry>Retry Sources</button>';
+    root.innerHTML='<p role="status">The source catalog could not be loaded. Other Sources topics remain available.</p><button type="button" data-retry>Retry Sources</button>';
     root.querySelector('[data-retry]').onclick=loadIndex;
   }}
   await loadIndex();
@@ -143,7 +143,7 @@ export async function mountSources({root, dataBase, scene='1835', onTitle, onBac
       if(!cache.has(id)){const res=await fetcher(new URL(`sidecars/1835/sources/${encodeURIComponent(id)}.json`,dataBase));if(!res.ok)throw Error();cache.set(id,await res.json());}
       if(token!==sequence || signal?.aborted)return false;
       const data=cache.get(id),s=data.source,row=rows.find(r=>r.source_id===id);
-      const prose=value=>(Array.isArray(value)?value:[value]).filter(Boolean).map(v=>`<li>${esc(v)}</li>`).join('') || '<li>Not recorded.</li>';
+      const prose=value=>(Array.isArray(value)?value:[value]).filter(Boolean).map(v=>`<li>${esc(v)}</li>`).join('') || '<li>Unknown.</li>';
       root.innerHTML=`<div class="src-detail" data-source-id="${esc(id)}"><h4>${esc(s.citation)}</h4>${counts(row)}<h4>What it supplies</h4><ul>${prose(s.what_it_supplies)}</ul><h4>What it does not supply</h4><ul>${prose(s.what_it_does_not_supply)}</ul><p>${urlLink(s.url,'Original') || 'No original link on record'} · ${urlLink(s.archived_url,'Archive copy') || 'no archive copy on record'}</p><div class="src-issues"></div><h4>Used for</h4><p>Claims are grouped by kind of record. Links open existing cards; other records remain decision summaries.</p><div class="src-groups"></div></div>`;
       if(row.type==='newspaper'){
         const box=root.querySelector('.src-issues');const groups=issueGroups(data.edges);
@@ -193,7 +193,7 @@ export function attachSources({api,registry,hud,popup,dataBase,root,scene}) {
         const targetId = edge.entity_type === 'terrain' ? terrainCardId(edge,api.ground?.claims || []) : edge.entity_id;
         const entry = [...mount.querySelectorAll('[data-source-entity]')].find(el => el.dataset.sourceEntity === targetId);
         if (entry) { entry.open=true; entry.scrollIntoView({block:'start'}); }
-        hud.setTitle('Evidence from this source', returnToSource);
+        hud.setTitle('What this source supplied', returnToSource);
         return true;
       },
   });
