@@ -751,6 +751,38 @@ for (const phone of [true, false]) {
   assert.equal(tagEl.hidden, false, 'with a full hold of its own');
 }
 
+// ---- T-2736 (owner, 2026-10-17): Settings › Show turns the tag off; on by default; the Inspect
+// key stays either way ------------------------------------------------------------------------
+{
+  let clock = 0;
+  const timers = [];
+  const wait = (fn, ms) => { const t = { at: clock + ms, fn, live: true }; timers.push(t); return t; };
+  const cancel = (t) => { t.live = false; };
+  const advance = (ms) => { clock += ms; for (const t of timers.filter((x) => x.live && x.at <= clock)) { t.live = false; t.fn(); } };
+  let hear = null, now = null;
+  const target = { on: (fn) => { hear = fn; return () => {}; }, current: () => now };
+  const el = () => ({ hidden: true, textContent: '', setAttribute() {}, addEventListener() {} });
+  const glessner = { id: 'glessner_house', record: { sidecar: { name: 'Glessner House' } }, distance: 11.6 };
+  const keith = { id: 'keith_house', record: { sidecar: { name: 'Keith House' } }, distance: 20 };
+  const tagEl = el(), keyEl = el();
+  const tag = createTargetTag({ target, tagEl, keyEl, wait, cancel });
+  now = glessner; hear(glessner); advance(DWELL_MS);
+  assert.equal(tagEl.hidden, false, 'on by default');
+  tag.setTagShown(false);
+  assert.equal(tagEl.hidden, true, 'turned off, a showing tag goes at once');
+  assert.equal(keyEl.hidden, false, 'the Inspect key stays');
+  now = keith; hear(keith); advance(DWELL_MS);
+  assert.equal(tagEl.hidden, true, 'and no new building shows one');
+  assert.equal(keyEl.hidden, false);
+  tag.setTagShown(true);
+  now = null; hear(null); now = glessner; hear(glessner); advance(DWELL_MS);
+  assert.equal(tagEl.hidden, false, 'turned back on, the next look shows it');
+  const offEl = el();
+  createTargetTag({ target: { on: (fn) => { hear = fn; return () => {}; }, current: () => now }, tagEl: offEl, keyEl: el(), wait, cancel, tagShown: false });
+  now = keith; hear(keith); advance(DWELL_MS);
+  assert.equal(offEl.hidden, true, 'a visitor who turned it off never sees it after a reload');
+}
+
 // ---- T-2619: the dock — closed, it shows the lamp, the label, the year and the icon of the
 // app it opens to; one tap (or a swipe up) opens that last app at HALF -------------------
 {
@@ -1008,6 +1040,7 @@ for (const phone of [true, false]) {
   assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column never holds more than two buttons');
   assert.match(quick, /id="btn-fly"/); assert.match(quick, /id="btn-inspect"[^>]*hidden/);
   assert.match(html, /<button type="button" class="target-tag" id="target-tag" hidden><\/button>/);
+  assert.match(html, /<input type="checkbox" id="s-look-tag">/, 'T-2736: Settings › Show offers the look-at tag');
   // T-2619: the closed device's year and app icon, and the pill on a phone.
   assert.match(section, /id="nav-dock-app" aria-hidden="true"/);
   assert.match(section, /id="nav-dock-year" aria-hidden="true"/);

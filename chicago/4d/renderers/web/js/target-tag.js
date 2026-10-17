@@ -16,6 +16,8 @@
  * tag is a glance, not a sign. It holds HOLD_MS, fades over FADE_MS (`.is-fading`), and
  * stays gone for that building until the reticle leaves it; looking back shows it again.
  * The Inspect key stays while the building is in the reticle, so Inspect is one tap away.
+ * Settings › Show › "Name of what you look at" turns the tag off (`setTagShown`); the
+ * Inspect key stays either way.
  */
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
@@ -44,6 +46,7 @@ export function createTargetTag({
   within = TAG_WITHIN_M,
   hold = HOLD_MS,
   fade = FADE_MS,
+  tagShown = true,
   wait = (fn, ms) => setTimeout(fn, ms),
   cancel = (id) => clearTimeout(id),
 } = {}) {
@@ -52,6 +55,7 @@ export function createTargetTag({
   let fading = null;   // the timer holding, then fading, the tag
   let spent = null;    // the id whose tag has faded: it stays gone until the reticle leaves it
   let enabled = true;
+  let tagOn = !!tagShown;
 
   function stopFade() {
     if (fading !== null) { cancel(fading); fading = null; }
@@ -64,7 +68,7 @@ export function createTargetTag({
     if (!t) spent = null;
     const words = tagWords(t, units());
     if (tagEl) {
-      tagEl.hidden = !t || spent === t.id;
+      tagEl.hidden = !t || !tagOn || spent === t.id;
       if (t) {
         tagEl.textContent = words;
         tagEl.setAttribute?.('aria-label', `Inspect ${words}`);
@@ -112,6 +116,11 @@ export function createTargetTag({
     setEnabled(on) {
       enabled = !!on;
       hear(enabled ? target?.current?.(within) ?? null : null);
+    },
+    /** Settings › Show: the visitor's choice to see the tag at all (the Inspect key stays). */
+    setTagShown(on) {
+      tagOn = !!on;
+      if (!tagOn) { stopFade(); if (tagEl) tagEl.hidden = true; }
     },
     open,
     dispose() { off?.(); hear(null); },
