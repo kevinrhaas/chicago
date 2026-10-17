@@ -285,7 +285,11 @@ export function createConfidenceView({
    * MeshDepthMaterial (so a dithered wall casts a dithered shadow).
    * `packed` — `{ read, declare }`, see PACKED_VERTEX_DECL — reads the channel
    * from the structures batch's packed scalars rather than a float
-   * `_confidence` (T-2574); every other layer reads the float.
+   * `_confidence` (T-2574); every other layer reads the float. A channel may
+   * hand `assign` — whole statements that set `vConfidence` — instead of a
+   * `read` expression, and a `key` naming it in the program cache key: the
+   * colour lane of frontage and the yard goods does (T-2689,
+   * compact-streams.js COLOR_LANE_CONFIDENCE).
    */
   function patch(material, { packed = null } = {}) {
     if (!material || patched.has(material)) return material;
@@ -302,7 +306,8 @@ export function createConfidenceView({
 
       const v = (packed ? PACKED_VERTEX_DECL : VERTEX_DECL) + shader.vertexShader.replace(
         '#include <begin_vertex>',
-        '#include <begin_vertex>' + (packed ? `\n  vConfidence = ${packed.read};\n` : VERTEX_ASSIGN),
+        '#include <begin_vertex>' + (packed
+          ? `\n  ${packed.assign ?? `vConfidence = ${packed.read};`}\n` : VERTEX_ASSIGN),
       );
       shader.vertexShader = packed ? packed.declare(v) : v;
 
@@ -343,7 +348,7 @@ export function createConfidenceView({
     // patching (enclosures.js and its kin) replaces this one, as before.
     material.customProgramCacheKey = function customProgramCacheKey() {
       const outer = this.onBeforeCompile === hook ? '' : `|wrap:${this.onBeforeCompile}`;
-      return `chicago4d-confidence${packed ? `|packed:${packed.read}` : ''}${priorKey ? `|over:${priorKey}` : ''}${outer}`;
+      return `chicago4d-confidence${packed ? `|packed:${packed.key ?? packed.read}` : ''}${priorKey ? `|over:${priorKey}` : ''}${outer}`;
     };
     material.needsUpdate = true;
     return material;

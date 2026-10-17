@@ -1,0 +1,80 @@
+{
+ "ticket": "T-2689",
+ "method": "published 1835 door with ?keep-geometry=1, every geometry under the frontage, yard and enclosures groups summed as count x itemSize x bytes per element; 'copy' = far-merge and far-walk-top meshes built from those; dev 2abfc8e96 and this branch on the same machine in the same hour",
+ "dev": {
+  "frontage": {
+   "copyBytes": 13376640,
+   "copyVertices": 334416,
+   "meshes": 128,
+   "vertices": 1952328,
+   "bytes": 72899592,
+   "confBytes": 7809312,
+   "floatConf": 128,
+   "lane": 0,
+   "constant": 0,
+   "released": 0
+  },
+  "yard": {
+   "copyBytes": 0,
+   "copyVertices": 0,
+   "meshes": 79,
+   "vertices": 717588,
+   "bytes": 26391072,
+   "confBytes": 2870352,
+   "floatConf": 79,
+   "lane": 0,
+   "constant": 0,
+   "released": 0
+  },
+  "enclosures": {
+   "copyBytes": 4150080,
+   "copyVertices": 207504,
+   "meshes": 198,
+   "vertices": 2890272,
+   "bytes": 46244352,
+   "confBytes": 11561088,
+   "floatConf": 198,
+   "lane": 0,
+   "constant": 0,
+   "released": 0
+  }
+ },
+ "branch": {
+  "frontage": {
+   "copyBytes": 12038976,
+   "copyVertices": 334416,
+   "meshes": 128,
+   "vertices": 1952328,
+   "bytes": 65090280,
+   "confBytes": 0,
+   "floatConf": 0,
+   "lane": 128,
+   "constant": 0,
+   "released": 0
+  },
+  "yard": {
+   "copyBytes": 0,
+   "copyVertices": 0,
+   "meshes": 79,
+   "vertices": 717588,
+   "bytes": 23520720,
+   "confBytes": 0,
+   "floatConf": 0,
+   "lane": 79,
+   "constant": 0,
+   "released": 0
+  },
+  "enclosures": {
+   "copyBytes": 3320064,
+   "copyVertices": 207504,
+   "meshes": 198,
+   "vertices": 2890272,
+   "bytes": 34683264,
+   "confBytes": 0,
+   "floatConf": 0,
+   "lane": 0,
+   "constant": 198,
+   "released": 0
+  }
+ }
+}

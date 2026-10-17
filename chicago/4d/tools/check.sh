@@ -80,6 +80,9 @@ step "The structures batch stores normals, uvs and tones compact and aligned, ea
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 
+step "Frontage, yard and enclosure confidence keep 0, 0.5 and 1 exact in the colour lane or as one grade, and nothing else is squeezed in (T-2689)" \
+  node tools/check_confidence_lane.mjs
+
 step "Emitted plank crossings remain above the distant terrain (T-2037)" \
   node tools/check_plank_ground.mjs
 
