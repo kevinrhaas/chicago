@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "73fe5d6c8053fa1454bb5adedde2c55e7411f159fe670e481faa362395f8005d",
+  "glb_sha256": "a2024ae284aa61387bff0891563d722d5ee29ad4c8ec53d000ec7d6c0e74cd47",
   "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -36,7 +36,11 @@
       "status": "fixed"
     },
     {
-      "what": "The bow still runs even courses where the photographs' bow alternates deep and thin ones; the individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
+      "what": "T-2714: the bow alternates deep and thin courses as the photographs' bow does: T-2584 laid it 0.49 m and 0.195 m in turn, and this render shows the rhythm on the bow's piers between the lights. The record had kept T-2566's 'even courses' after T-2584 built them.",
+      "status": "fixed"
+    },
+    {
+      "what": "The individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
       "status": "open"
     },
     {
@@ -77,6 +81,10 @@
     },
     {
       "what": "T-2581: left of x 49, by the stair and its pierced balustrade at the neighbouring house's north end, the photograph shows rock-faced stone to the frame's edge. This camera stands 4.1 m off Keith's south plane, so it sees that face almost edge-on and cannot say whose wall the masonry there is or how far Keith's strip runs; the depth is read from the Reed and mid-1950s views.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: the crown is outside this close view's frame.",
       "status": "not shown"
     }
   ],

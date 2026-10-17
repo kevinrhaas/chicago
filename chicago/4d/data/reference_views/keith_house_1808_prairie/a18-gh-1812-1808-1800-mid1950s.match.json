@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "73fe5d6c8053fa1454bb5adedde2c55e7411f159fe670e481faa362395f8005d",
+  "glb_sha256": "a2024ae284aa61387bff0891563d722d5ee29ad4c8ec53d000ec7d6c0e74cd47",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -20,8 +20,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2566's granite at this view's scale (T-2577): the front's courses and head bands agree; the checker band's units are below this photograph's resolution (nickel-1967 reads them finer than the build's); and the bow's lower storey reads in alternately deep and thin courses where the build runs even ones (T-2580).",
-      "status": "open"
+      "what": "T-2566's granite at this view's scale (T-2577): the front's courses and head bands agree; the bow's lower storey reads in alternately deep and thin courses, which T-2584 built and this render shows (T-2714). The checker band's units are below this photograph's resolution; T-2714 pitched them to the 1888 plate, and Nickel 1967 reads the same pitch.",
+      "status": "fixed"
     },
     {
       "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
