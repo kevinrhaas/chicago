@@ -5,7 +5,8 @@
  *                                               formats, nothing on disk is unnamed, and the weight
  *                                               stays inside its cap (check.sh runs this)
  *   node tools/test_portal_clips.mjs --browser  the page: at 1440x1000 and 390x780 each card fetches
- *                                               exactly one clip and plays it, with no page error;
+ *                                               exactly one clip and plays it in black and white,
+ *                                               with no page error;
  *                                               with reduced motion no clip is fetched at all
  *
  * No smoke part loads the Observatory, so the browser half is how a change to the
@@ -83,6 +84,8 @@ if (process.argv.includes('--browser')) {
     // The phone stacks the cards: walk each into view so each one gets its turn to play.
     for (const i of [1, 2]) { await page.evaluate(n => document.querySelectorAll('.era')[n].scrollIntoView(), i); await page.waitForTimeout(1500); }
     const feeds = await page.evaluate(() => [...document.querySelectorAll('.era-plate')].map(p => p.dataset.feed || 'none'));
+    // Kevin wants the footage in black and white (T-2734): every feed, and its blocky frames, is grayscale.
+    const tones = await page.evaluate(() => [...document.querySelectorAll('.era-feed,.era-feed-blocks')].map(e => getComputedStyle(e).filter));
     if (errors.length) fail(`${name}: page errors: ${errors.join(' | ')}`);
     if (reducedMotion === 'reduce') {
       if (fetched.length) fail(`${name}: reduced motion fetched ${fetched.join(', ')}`);
@@ -91,6 +94,7 @@ if (process.argv.includes('--browser')) {
       if (fetched.length !== 3 || new Set(fetched.map(f => f.slice(0, 4))).size !== 3) fail(`${name}: expected one clip per card, fetched ${fetched.join(', ') || 'none'}`);
       if (fetched.some(f => !f.endsWith('.webm'))) fail(`${name}: this Chromium plays WebM, but it fetched ${fetched.join(', ')}`);
       if (feeds.some(f => f !== 'live')) fail(`${name}: feeds are ${feeds.join(', ')}, not all live`);
+      if (tones.length !== 6 || tones.some(t => !t.includes('grayscale(1)'))) fail(`${name}: the feeds are not black and white (${tones.join(' | ')})`);
     }
     console.log(`PASS portal clips in the page, ${name}: ${reducedMotion === 'reduce' ? 'stills only, nothing fetched' : `${fetched.join(', ')} playing`}`);
     await ctx.close();

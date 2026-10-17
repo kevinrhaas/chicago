@@ -1,0 +1,502 @@
+{
+  "ticket": "T-2720",
+  "tool": "tools/audit_gl_meter.mjs (and tools/measure_hd_spike.mjs for the K5 pair)",
+  "measured": "2026-10-17T17:21:33.128Z",
+  "question": "T-2558 (H0) read CLASSIC textures at 359.1 MiB against 398.6 MiB of three arithmetic: which of the 39.5 MiB is the GL meter's?",
+  "answer": "None of it. The meter equals the sum of the allocating WebGL calls the page made, to the byte, on both builds and both viewports (after an 8-byte overcount on fractional texStorage2D levels was fixed). The arithmetic counted Texture objects; three's WebGLRenderer gives one GL texture per image Source, and 11 Texture objects on the block share 2 Sources (granite_photographic_basecolor x5, granite_stone_occlusion_light x6): 58.66 MiB three counts and WebGL never holds. The arithmetic also left out the 2048x2048 RGBA8 colour attachment WebGL holds beside the shadow depth (16 MiB) and the 390x780 mipped half-float target (3.09 MiB): 354.66 + 28.00 + 16 - 58.66 + 16 + 3.09 = 359.09. memory_ceilings.json does not move.",
+  "builds": {
+    "h0": {
+      "commit": "ee49582f6",
+      "note": "git worktree of the T-2558 merge, tools/publish.sh run in it; the block as H0 read it (46 image maps, 27 BPTC)",
+      "runs": [
+        {
+          "viewport": "phone",
+          "errors": [],
+          "uploaded": 73,
+          "meter": {
+            "texturesMiB": 359.09,
+            "renderbuffersMiB": 15.09,
+            "liveTextures": 72
+          },
+          "calls": {
+            "texturesMiB": 359.09,
+            "renderbuffersMiB": 15.09,
+            "byFormat": {
+              "0x1908": {
+                "count": 4,
+                "MiB": 0,
+                "bytes": 36
+              },
+              "0x8058": {
+                "count": 25,
+                "MiB": 120,
+                "bytes": 125829088
+              },
+              "0x81a6": {
+                "count": 1,
+                "MiB": 16,
+                "bytes": 16777216
+              },
+              "0x8c43": {
+                "count": 13,
+                "MiB": 191.99,
+                "bytes": 201317508
+              },
+              "rb 0x881a": {
+                "count": 1,
+                "MiB": 9.28,
+                "bytes": 9734400
+              },
+              "rb 0x81a6": {
+                "count": 2,
+                "MiB": 5.8,
+                "bytes": 6084000
+              },
+              "0x881a": {
+                "count": 1,
+                "MiB": 3.09,
+                "bytes": 3244800
+              },
+              "0x822f": {
+                "count": 1,
+                "MiB": 0,
+                "bytes": 1024
+              },
+              "0x8e8d": {
+                "count": 17,
+                "MiB": 20.67,
+                "bytes": 21671024
+              },
+              "0x8e8c": {
+                "count": 10,
+                "MiB": 7.33,
+                "bytes": 7689824
+              }
+            },
+            "unpriced": []
+          },
+          "meterMinusCallsBytes": {
+            "textures": 0,
+            "renderbuffers": 0
+          },
+          "three": {
+            "textureObjects": 73,
+            "image": {
+              "objects": 46,
+              "glTextures": 37,
+              "perTextureMiB": 354.66
+            },
+            "compressed": {
+              "objects": 27,
+              "glTextures": 27,
+              "perTextureMiB": 28
+            },
+            "distinctSources": 64,
+            "glTextures": 64,
+            "shared": [
+              {
+                "name": "granite_photographic_basecolor",
+                "size": "1254x1254",
+                "textures": 5,
+                "gl": "tex7",
+                "sources": 1,
+                "uncountedMiB": 31.99
+              },
+              {
+                "name": "granite_stone_occlusion_light",
+                "size": "1024x1024",
+                "textures": 6,
+                "gl": "tex14",
+                "sources": 1,
+                "uncountedMiB": 26.67
+              }
+            ],
+            "sharedUncountedMiB": 58.66
+          }
+        },
+        {
+          "viewport": "desktop",
+          "errors": [],
+          "uploaded": 73,
+          "meter": {
+            "texturesMiB": 366.41,
+            "renderbuffersMiB": 50.78,
+            "liveTextures": 72
+          },
+          "calls": {
+            "texturesMiB": 366.41,
+            "renderbuffersMiB": 50.78,
+            "byFormat": {
+              "0x1908": {
+                "count": 4,
+                "MiB": 0,
+                "bytes": 36
+              },
+              "0x8058": {
+                "count": 25,
+                "MiB": 120,
+                "bytes": 125829088
+              },
+              "0x81a6": {
+                "count": 1,
+                "MiB": 16,
+                "bytes": 16777216
+              },
+              "0x8c43": {
+                "count": 13,
+                "MiB": 191.99,
+                "bytes": 201317508
+              },
+              "rb 0x881a": {
+                "count": 1,
+                "MiB": 31.25,
+                "bytes": 32768000
+              },
+              "rb 0x81a6": {
+                "count": 2,
+                "MiB": 19.53,
+                "bytes": 20480000
+              },
+              "0x881a": {
+                "count": 1,
+                "MiB": 10.42,
+                "bytes": 10922667
+              },
+              "0x822f": {
+                "count": 1,
+                "MiB": 0,
+                "bytes": 1024
+              },
+              "0x8e8d": {
+                "count": 17,
+                "MiB": 20.67,
+                "bytes": 21671024
+              },
+              "0x8e8c": {
+                "count": 10,
+                "MiB": 7.33,
+                "bytes": 7689824
+              }
+            },
+            "unpriced": []
+          },
+          "meterMinusCallsBytes": {
+            "textures": 0,
+            "renderbuffers": 0
+          },
+          "three": {
+            "textureObjects": 73,
+            "image": {
+              "objects": 46,
+              "glTextures": 37,
+              "perTextureMiB": 354.66
+            },
+            "compressed": {
+              "objects": 27,
+              "glTextures": 27,
+              "perTextureMiB": 28
+            },
+            "distinctSources": 64,
+            "glTextures": 64,
+            "shared": [
+              {
+                "name": "granite_photographic_basecolor",
+                "size": "1254x1254",
+                "textures": 5,
+                "gl": "tex7",
+                "sources": 1,
+                "uncountedMiB": 31.99
+              },
+              {
+                "name": "granite_stone_occlusion_light",
+                "size": "1024x1024",
+                "textures": 6,
+                "gl": "tex14",
+                "sources": 1,
+                "uncountedMiB": 26.67
+              }
+            ],
+            "sharedUncountedMiB": 58.66
+          }
+        }
+      ]
+    },
+    "head": {
+      "commit": "e62b79251",
+      "note": "dev at the time of reading; the block is all KTX2 now (73 BPTC Texture objects on 64 GL textures)",
+      "runs": [
+        {
+          "viewport": "phone",
+          "errors": [],
+          "uploaded": 73,
+          "meter": {
+            "texturesMiB": 106.43,
+            "renderbuffersMiB": 15.09,
+            "liveTextures": 72
+          },
+          "calls": {
+            "texturesMiB": 106.43,
+            "renderbuffersMiB": 15.09,
+            "byFormat": {
+              "0x1908": {
+                "count": 4,
+                "MiB": 0,
+                "bytes": 36
+              },
+              "0x8058": {
+                "count": 1,
+                "MiB": 16,
+                "bytes": 16777216
+              },
+              "0x81a6": {
+                "count": 1,
+                "MiB": 16,
+                "bytes": 16777216
+              },
+              "0x8e8d": {
+                "count": 30,
+                "MiB": 38,
+                "bytes": 39846688
+              },
+              "rb 0x881a": {
+                "count": 1,
+                "MiB": 9.28,
+                "bytes": 9734400
+              },
+              "rb 0x81a6": {
+                "count": 2,
+                "MiB": 5.8,
+                "bytes": 6084000
+              },
+              "0x881a": {
+                "count": 1,
+                "MiB": 3.09,
+                "bytes": 3244800
+              },
+              "0x8e8c": {
+                "count": 34,
+                "MiB": 33.33,
+                "bytes": 34953440
+              },
+              "0x822f": {
+                "count": 1,
+                "MiB": 0,
+                "bytes": 1024
+              }
+            },
+            "unpriced": []
+          },
+          "meterMinusCallsBytes": {
+            "textures": 0,
+            "renderbuffers": 0
+          },
+          "three": {
+            "textureObjects": 73,
+            "image": {
+              "objects": 0,
+              "glTextures": 0,
+              "perTextureMiB": 0
+            },
+            "compressed": {
+              "objects": 73,
+              "glTextures": 64,
+              "perTextureMiB": 83.33
+            },
+            "distinctSources": 64,
+            "glTextures": 64,
+            "shared": [
+              {
+                "name": "granite_photographic_basecolor",
+                "size": "1024x1024",
+                "textures": 5,
+                "gl": "tex7",
+                "sources": 1,
+                "uncountedMiB": 5.33
+              },
+              {
+                "name": "granite_stone_occlusion_light",
+                "size": "1024x1024",
+                "textures": 6,
+                "gl": "tex14",
+                "sources": 1,
+                "uncountedMiB": 6.67
+              }
+            ],
+            "sharedUncountedMiB": 12
+          }
+        },
+        {
+          "viewport": "desktop",
+          "errors": [],
+          "uploaded": 73,
+          "meter": {
+            "texturesMiB": 113.75,
+            "renderbuffersMiB": 50.78,
+            "liveTextures": 72
+          },
+          "calls": {
+            "texturesMiB": 113.75,
+            "renderbuffersMiB": 50.78,
+            "byFormat": {
+              "0x1908": {
+                "count": 4,
+                "MiB": 0,
+                "bytes": 36
+              },
+              "0x8058": {
+                "count": 1,
+                "MiB": 16,
+                "bytes": 16777216
+              },
+              "0x81a6": {
+                "count": 1,
+                "MiB": 16,
+                "bytes": 16777216
+              },
+              "0x8e8d": {
+                "count": 30,
+                "MiB": 38,
+                "bytes": 39846688
+              },
+              "rb 0x881a": {
+                "count": 1,
+                "MiB": 31.25,
+                "bytes": 32768000
+              },
+              "rb 0x81a6": {
+                "count": 2,
+                "MiB": 19.53,
+                "bytes": 20480000
+              },
+              "0x881a": {
+                "count": 1,
+                "MiB": 10.42,
+                "bytes": 10922667
+              },
+              "0x8e8c": {
+                "count": 34,
+                "MiB": 33.33,
+                "bytes": 34953440
+              },
+              "0x822f": {
+                "count": 1,
+                "MiB": 0,
+                "bytes": 1024
+              }
+            },
+            "unpriced": []
+          },
+          "meterMinusCallsBytes": {
+            "textures": 0,
+            "renderbuffers": 0
+          },
+          "three": {
+            "textureObjects": 73,
+            "image": {
+              "objects": 0,
+              "glTextures": 0,
+              "perTextureMiB": 0
+            },
+            "compressed": {
+              "objects": 73,
+              "glTextures": 64,
+              "perTextureMiB": 83.33
+            },
+            "distinctSources": 64,
+            "glTextures": 64,
+            "shared": [
+              {
+                "name": "granite_photographic_basecolor",
+                "size": "1024x1024",
+                "textures": 5,
+                "gl": "tex7",
+                "sources": 1,
+                "uncountedMiB": 5.33
+              },
+              {
+                "name": "granite_stone_occlusion_light",
+                "size": "1024x1024",
+                "textures": 6,
+                "gl": "tex14",
+                "sources": 1,
+                "uncountedMiB": 6.67
+              }
+            ],
+            "sharedUncountedMiB": 12
+          }
+        }
+      ]
+    }
+  },
+  "k5Pair": {
+    "commit": "ee49582f6",
+    "note": "measure_hd_spike.mjs --pages gpu,classic --only phone --frames 4, re-read to price the shared sources on the WebGPU side",
+    "gpu": {
+      "totalMiB": 493.64,
+      "jsHeapMiB": 11.73,
+      "arrayBuffersMiB": 40.75,
+      "gpuBuffersMiB": 16.35,
+      "gpuTexturesMiB": 424.81,
+      "gpuRenderbuffersMiB": 0,
+      "texturesByFormat": {
+        "rgba16float": {
+          "bytes": 2433600,
+          "count": 1
+        },
+        "rgba16float x4": {
+          "bytes": 9734400,
+          "count": 1
+        },
+        "depth24plus x4": {
+          "bytes": 4867200,
+          "count": 1
+        },
+        "rgba8unorm-srgb mipped": {
+          "bytes": 234853796,
+          "count": 17
+        },
+        "rgba8unorm mipped": {
+          "bytes": 137013892,
+          "count": 29
+        },
+        "depth24plus": {
+          "bytes": 17994016,
+          "count": 2
+        },
+        "rg16float": {
+          "bytes": 1024,
+          "count": 1
+        },
+        "rgba8unorm": {
+          "bytes": 16777220,
+          "count": 2
+        },
+        "etc2-rgb8unorm-srgb mipped": {
+          "bytes": 10835512,
+          "count": 17
+        },
+        "rgba16float mipped": {
+          "bytes": 3242840,
+          "count": 1
+        },
+        "astc-4x4-unorm mipped": {
+          "bytes": 7689824,
+          "count": 10
+        }
+      }
+    },
+    "classic": {
+      "totalMiB": 447.3,
+      "jsHeapMiB": 8.28,
+      "arrayBuffersMiB": 47.79,
+      "gpuBuffersMiB": 17.05,
+      "gpuTexturesMiB": 359.09,
+      "gpuRenderbuffersMiB": 15.09,
+      "texturesByFormat": null
+    },
+    "errors": {
+      "gpu": 0,
+      "classic": 0
+    }
+  }
+}

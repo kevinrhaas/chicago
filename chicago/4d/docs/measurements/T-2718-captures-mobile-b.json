@@ -1,0 +1,68 @@
+{
+  "ticket": "T-2598",
+  "measured": {
+    "on": "2026-10-17T17:40:37.699Z",
+    "build": "e62b79251",
+    "machine": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz ×4",
+    "seconds": 364,
+    "method": "the prairie walk: /1904/, welcome entered, the eye stood at each station, residency let finish its uploads, 3 frames; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "walk": "prairie",
+      "captures": [
+        {
+          "id": "street-prairie-1800-north",
+          "working": {
+            "resident": 56,
+            "sources": 63
+          },
+          "all": {
+            "resident": 63,
+            "sources": 63
+          },
+          "noise": {
+            "pixels": 1139689,
+            "share": 0.41627912922784716,
+            "psnr": 24.042804311561685
+          },
+          "residency": {
+            "pixels": 847062,
+            "share": 0.30939513477975017,
+            "psnr": 26.1244045320387
+          }
+        },
+        {
+          "id": "street-18th-east",
+          "working": {
+            "resident": 53,
+            "sources": 63
+          },
+          "all": {
+            "resident": 63,
+            "sources": 63
+          },
+          "noise": {
+            "pixels": 943343,
+            "share": 0.3445624223829352,
+            "psnr": 20.33266326483282
+          },
+          "residency": {
+            "pixels": 622707,
+            "share": 0.22744795090948938,
+            "psnr": 21.811269576817214
+          }
+        }
+      ],
+      "errors": [],
+      "steps": [],
+      "over": 0,
+      "seconds": {
+        "captures": 364
+      }
+    }
+  ]
+}
