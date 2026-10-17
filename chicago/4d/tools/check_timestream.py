@@ -25,6 +25,8 @@ visitor, and refuses:
     word, file path, link or ticket number — T-2635's string lint, reused from
     tools/compile_summaries.py so the two gates cannot drift apart — or a retired term
     ("documented", "conjectural") where the locked terms belong;
+  - a deck with no `log`, a boot phase with no log line, or a line over 30 characters
+    or 5 words, or holding anything but plain words (T-2612: machine lore, never ids);
   - a caption that touches Native history or the removal without `review_required` and
     `touches_removal` and a `review_note` saying why (AGENTS.md, the standing constraint
     and the owner's ruling of 2026-09-17), and a caption on a year the deck holds back.
@@ -58,7 +60,12 @@ MIN_CAPTIONS, MAX_CAPTIONS = 8, 12
 MAX_CHARS, MAX_WORDS = 70, 20
 CAPTION_KEYS = {"year", "text", "grade", "importance", "sources", "note",
                 "review_required", "touches_removal", "review_note"}
-DECK_KEYS = {"scene", "about", "captions", "held_back", "held_back_note"}
+DECK_KEYS = {"scene", "about", "captions", "held_back", "held_back_note", "log", "log_note"}
+# T-2612: the arrival log's lines, one per boot phase (js/boot-phases.js; census has no
+# line), machine lore in mono caps. Short enough for one 390 px log row.
+LOG_PHASES = ("scene", "terrain", "buildings", "ground", "flora", "people", "interaction")
+MAX_LOG_CHARS, MAX_LOG_WORDS = 30, 5
+LOG_TEXT = re.compile(r"^[A-Za-z0-9][A-Za-z0-9 '\-]*$")
 RETIRED = re.compile(r"\b(documented|conjectural)\b", re.IGNORECASE)
 # A caption on this subject is held to the standing constraint. The list is the subjects
 # the constraint names and the words a caption about them would use; a match is not a
@@ -110,6 +117,27 @@ def gate(stem, deck, world):
         why = h.get("why") if isinstance(h, dict) else None
         if not isinstance(why, str) or len(words(why)) < 8:
             errs.append(f"{stem}: held_back[{i}] does not say why")
+
+    log = deck.get("log")
+    if not isinstance(log, dict):
+        errs.append(f"{stem}: no log — the arrival log takes one line per boot phase from the deck")
+    else:
+        for k in sorted(set(log) - set(LOG_PHASES)):
+            errs.append(f"{stem} log: `{k}` is not a boot phase")
+        for k in LOG_PHASES:
+            line = log.get(k)
+            if not isinstance(line, str) or not line.strip():
+                errs.append(f"{stem} log: no line for the {k} phase")
+                continue
+            if len(line) > MAX_LOG_CHARS or len(words(line)) > MAX_LOG_WORDS:
+                errs.append(f"{stem} log {k}: `{line}` is over {MAX_LOG_CHARS} characters or {MAX_LOG_WORDS} words")
+            if not LOG_TEXT.match(line):
+                errs.append(f"{stem} log {k}: `{line}` holds more than letters, digits, spaces, hyphens and apostrophes")
+            for found in lint_string(line):
+                errs.append(f"{stem} log {k}: the line carries {found}")
+            m = NATIVE.search(line)
+            if m:
+                errs.append(f"{stem} log {k}: `{m.group(0)}` — no log line speaks of Native history (AGENTS.md)")
 
     caps = deck.get("captions")
     if not isinstance(caps, list):
@@ -229,6 +257,7 @@ def fixture_deck():
                      "grade": "attested", "importance": i + 1, "sources": ["real_source"],
                      "note": "The fixture source says so, in so many words."})
     return {"scene": "1904", "about": "a fixture", "captions": caps,
+            "log": {k: f"Fixture {k} line" for k in LOG_PHASES},
             "held_back": [{"years": [1935], "why": "A fixture year held back to test that a held year stays uncaptioned."}]}
 
 
@@ -278,6 +307,12 @@ def self_test():
           lambda d: cap(d).update(touches_removal=True))
     plant("a held-back year captioned", "holds this year back", lambda d: cap(d).update(year=1935))
     plant("a hold with no reason", "does not say why", lambda d: d["held_back"][0].update(why="because"))
+    plant("a deck with no log", "no log", lambda d: d.pop("log"))
+    plant("a phase with no log line", "no line for the flora", lambda d: d["log"].pop("flora"))
+    plant("a log line for no phase", "is not a boot phase", lambda d: d["log"].update(census="Counting heads"))
+    plant("a long log line", "over 30 characters", lambda d: d["log"].update(scene="Synchronising the entire time mesh"))
+    plant("a log line with a path", "holds more than", lambda d: d["log"].update(scene="Reading data/scenes"))
+    plant("a log line on Native history", "no log line speaks", lambda d: d["log"].update(people="Locating Potawatomi"))
     errs = gate("1866", dict(fixture_deck(), scene="1866"), world)
     expect(any("no data/scenes" in e for e in errs), "a deck for a destination with no scene is refused")
     errs = run(decks=Path("/nonexistent-timestream"), world=world, quiet=True)

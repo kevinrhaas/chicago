@@ -1,0 +1,47 @@
+{
+ "ticket": "T-2692",
+ "parent": "T-2678",
+ "measured": "2026-10-16",
+ "machine": "steward runner, 4 cores, no GPU (SwiftShader), headless Chromium",
+ "base": "dev @ 426079424",
+ "why_the_ground_first": {
+  "tool": "spatial-batch.js and terrain.js timed in place on the source tree (a throwaway probe, not committed), mobile 390x780 touch, detail light",
+  "spatial_batch_calls": {"terrain_ground_tiles": 222, "yards": 5, "streets": 3, "distant_ground_base": 1, "total": 231},
+  "ground_tile_vertices": 587000,
+  "ground_build_ms": {
+   "note": "cumulative from createTerrain's ground load: GLB load, then conform, then tileGround, then every tile partitioned on the job pool",
+   "unthrottled": {"glb": 236, "conform": 269, "tiled": 432, "partitioned": 1028},
+   "phone_profile_4x": {"glb": 704, "conform": 839, "tiled": 1486, "partitioned": 3047}
+  },
+  "reading": "At the phone profile the ground's load, conform, tile and partition come to 3.0 s of the terrain phase's 8.8 s (T-2677's before reading), and the ground is 222 of the page's 231 spatial-batch calls. So T-2678 was split: the ground in Node (this), the page uploading it (T-2693), and the town's other nine calls (T-2694)."
+ },
+ "build": {
+  "tool": "node tools/prebuild_layers.mjs --layer ground",
+  "ms": 625,
+  "tiles": 223,
+  "pieces": 9405,
+  "thin_triangles": 3968,
+  "conform": {"vertices": 586918, "moved": 586909, "correction_max_m": 0.0025000572204589844, "residual_max_m": 0},
+  "inputs": 46
+ },
+ "file": {
+  "raw_bytes": 27646500,
+  "gzip_one_pass_bytes": 10699591,
+  "gzip_two_passes_bytes": 10626610,
+  "index_bytes": 796090,
+  "index_gzip_bytes": 216320,
+  "source_glb_bytes": 30494556,
+  "note": "A second gzip pass gains 0.7 %, against frontage's 35 %: the ground does not repeat itself the way the timber does. The index states each tile's attributes once and each piece only as offsets; with a name, type and sha256 per array it was 9.5 MB."
+ },
+ "parity": {
+  "tool": "node tools/prebuild_layers.mjs --layer ground --parity",
+  "root": "source tree (renderers/web/)",
+  "tiles": 223,
+  "pieces": 9405,
+  "attributes": 669,
+  "matched": 669,
+  "pageerrors": 0,
+  "note": "each of the live page's ground tiles (BatchedMesh geometry: _confidence, position, normal and index), by sha256, against the Node build's pieces batched with spatial-batch.js's own batchPieces"
+ },
+ "reading": "The 1835 ground, cut in Node by the page's own functions, is byte-equal to what the page draws: 669 of 669 attributes over 223 tiles and 9,405 pieces, zero page errors. Built in about 0.65 s on this runner. Shipped, it would cost about 10.6 MB gzipped on top of the 30.5 MB ground GLB the page fetches today, unless T-2693 serves it in the GLB's place."
+}
