@@ -13387,7 +13387,10 @@ for (const [label, viewport, touch] of [
         lines: [...(g?.querySelectorAll('dd') ?? [])].map((d) => d.textContent.trim()).filter(Boolean).length,
         questions: faq.map((d) => d.querySelector('summary')?.textContent.trim()),
         longest: Math.max(0, ...faq.map((d) => (d.querySelector('p')?.textContent.trim().split(/\s+/) ?? []).length)),
-        snake: /[a-z0-9]+_[a-z0-9]+/i.test(document.getElementById('nav-app-guide')?.textContent ?? ''),
+        // T-2620: read over Guide's own sheet (the controls, the glossary, the questions). The
+        // drawer's sections sit in Guide after it, and #panel carries every section, hidden
+        // ones too, whose text a screen-wide textContent would read though no one can see it.
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test((document.querySelector('#nav-app-guide .nav-guide-sheet') ?? document.getElementById('nav-app-guide'))?.textContent ?? ''),
       };
       api.navigator.select('home');
       const term = document.querySelector('#nav-home .locked-term');
