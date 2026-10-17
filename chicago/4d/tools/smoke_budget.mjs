@@ -194,6 +194,8 @@ const COVERAGE = [
   // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
   // the tree does not hold is refused as rot.
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
+  ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
   // Which files git tracks. What publish.sh writes into the untracked mirror is held by
   // check_published.mjs in check.sh, not by the renderer.
   ['.gitignore', NONE, 'which files git tracks — the mirror is held by check_published.mjs'],

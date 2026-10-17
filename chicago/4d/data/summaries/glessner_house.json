@@ -1,0 +1,287 @@
+{
+  "id": "glessner_house",
+  "scene": "1904",
+  "name": "Glessner House",
+  "address": "1800 S. Prairie Ave. at 18th St.",
+  "status": {
+    "text": "Still standing",
+    "today": "A house museum",
+    "grade": "attested",
+    "sources": [
+      "glessner_house_current_status"
+    ]
+  },
+  "built": {
+    "year": 1887,
+    "grade": "attested",
+    "sources": [
+      "habs_glessner_house_il_1015_data_pages",
+      "glessner_story_of_a_house_1923"
+    ],
+    "note": "Built from 1 June 1886 to 1 December 1887, the night the family first slept in it."
+  },
+  "use": "Home",
+  "summary": "A granite fortress on the street, with a sunny courtyard inside. People passing by remarked on its narrow windows along 18th Street, not knowing the big ones face the courtyard. By 1904 John and Frances Glessner had lived here since 1887.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "H. H. Richardson",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ]
+    },
+    {
+      "label": "Owner",
+      "value": "John J. Glessner",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "He bought the lots in March 1885 and owned the house until December 1924, when he deeded it to the Chicago Chapter of the American Institute of Architects."
+    },
+    {
+      "label": "Style",
+      "value": "Richardsonian Romanesque",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_current_status",
+        "glessner_house_richardson_page"
+      ]
+    },
+    {
+      "label": "Walls",
+      "value": "Granite on the streets, brick on the courtyard",
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "Glessner and the 1963 survey call the stone Wellesley granite; the museum calls it Braggville pink granite. Which is right is not settled, so the card does not name it."
+    },
+    {
+      "label": "Today",
+      "value": "A house museum",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_current_status"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [
+    {
+      "text": "Rough granite walls on both streets",
+      "feature": "street_wall_granite",
+      "camera": {
+        "yaw": 265,
+        "pitch": 6
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ]
+    },
+    {
+      "text": "The great arch on 18th Street",
+      "feature": "great_arch_18th_street",
+      "camera": {
+        "yaw": 175,
+        "pitch": 8
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_drawings"
+      ]
+    },
+    {
+      "text": "Narrow windows along 18th Street",
+      "feature": "north_corridor_windows",
+      "camera": {
+        "yaw": 175,
+        "pitch": 12
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ]
+    }
+  ],
+  "notable": [
+    {
+      "text": "Their daughter Frances later built the Nutshell Studies, tiny model crime scenes that police investigators still train with.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ]
+    },
+    {
+      "text": "On the first day of digging, George, then 14, and Frances, 8, threw the first soil from the foundation trenches.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ]
+    },
+    {
+      "text": "Richardson died in April 1886, about five weeks before the digging began. He never saw the house built.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "glessner_house_richardson_page",
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ]
+    },
+    {
+      "text": "The family moved in through the courtyard entrance on the alley, before the neighbors even suspected they were moving.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ]
+    },
+    {
+      "text": "In 1904 Frances Glessner set up a silversmith's workbench in the basement.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ]
+    },
+    {
+      "text": "In December 1966 a group of architects and preservationists bought the house for $35,000 to save it.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_current_status"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1885-03-24",
+      "text": "John J. Glessner buys the corner lots on Prairie Avenue for $50,000.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ]
+    },
+    {
+      "date": "1885-05",
+      "text": "H. H. Richardson begins the design.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ]
+    },
+    {
+      "date": "1886-04-26",
+      "text": "Richardson dies with the house still unbuilt. Three weeks earlier he had marked where its lights would go.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_richardson_page",
+        "glessner_story_of_a_house_1923"
+      ]
+    },
+    {
+      "date": "1886-06-01",
+      "text": "Digging begins. George and Frances throw the first soil.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ]
+    },
+    {
+      "date": "1887-12-01",
+      "text": "The family sleeps in the finished house for the first time, after carrying the fire from the old hearth.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ]
+    },
+    {
+      "date": "1898-02-09",
+      "text": "Their daughter Frances marries Blewett Lee in the parlor.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "glessner_house_family_page"
+      ]
+    },
+    {
+      "date": "1902",
+      "text": "John Glessner's firm joins the merger that makes International Harvester, and he becomes one of its vice presidents.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_family_page"
+      ]
+    },
+    {
+      "date": "1904",
+      "text": "Frances Glessner sets up a silversmith's workbench in the basement.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ]
+    },
+    {
+      "date": "1924-12-01",
+      "text": "The Glessners deed the house to the Chicago Chapter of the American Institute of Architects, to take after their deaths.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_current_status"
+      ]
+    },
+    {
+      "date": "1936-01-20",
+      "text": "John Glessner dies, four years after Frances.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_family_page",
+        "glessner_house_current_status"
+      ]
+    },
+    {
+      "date": "1946",
+      "text": "A printing research foundation moves in and fits the house with laboratories, leaving the rooms' plan as it was.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_current_status"
+      ]
+    },
+    {
+      "date": "1966-12",
+      "text": "A new foundation of architects and preservationists buys the house for $35,000 to save it.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_current_status"
+      ]
+    }
+  ]
+}
