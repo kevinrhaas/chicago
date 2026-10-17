@@ -1,0 +1,67 @@
+{
+  "id": "hh_glessner_john_j",
+  "scene": "1904",
+  "name": "The Glessner household at 1800 Prairie Avenue",
+  "head": "glessner_john_j",
+  "division": "south",
+  "arrival": {
+    "value": "1887-12-01",
+    "confidence": "attested",
+    "precision": "day",
+    "sources": ["glessner_story_of_a_house_1923", "habs_glessner_house_il_1015_data_pages"],
+    "note": "The night the family first slept in the finished house: 'We slept in this house for the first time on the night of December 1, 1887 and never in the old house after that' (The Story of a House, HABS data p. 9). HABS dates the building June 1, 1886 to December 1, 1887. This is the arrival AT THIS HOUSE; John Glessner had come to Chicago from Springfield, Ohio in 1870 (HABS data p. 4)."
+  },
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": ["glessner_house_family_page", "habs_glessner_house_il_1015_data_pages", "glessner_story_of_a_house_1923"],
+    "note": "Frances Glessner set up a silversmith's workbench in the basement of Glessner House in 1904 (the museum's family page), which puts the household in the house in the scene year. John Glessner owned the house until the deed of gift of 1 December 1924 and he and his wife lived in it until their deaths in 1936 and 1932 (HABS data pp. 1-2); he wrote The Story of a House in it in 1923."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "glessner_house",
+      "resolves_to": "structure",
+      "from": "1887-12-01",
+      "to": null,
+      "tier": "attested",
+      "source_id": "glessner_story_of_a_house_1923",
+      "also_sources": ["habs_glessner_house_il_1015_data_pages", "glessner_house_family_page"],
+      "note": "Their own house, built for them by H. H. Richardson, from the first night in it to their deaths."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 (glessner_house_family_page). The household staff are not here either: no source read for this record names a servant, coachman or cook in 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. A person goes on this card when a source names them, and not before.",
+    "sources": ["glessner_house_family_page", "glessner_story_of_a_house_1923"]
+  },
+  "persons": [
+    {
+      "id": "glessner_john_j",
+      "name": "John J. Glessner",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": ["habs_glessner_house_il_1015_data_pages", "glessner_house_family_page"],
+      "born": {"value": "1843", "confidence": "attested", "sources": ["habs_glessner_house_il_1015_data_pages"], "note": "Born 1843 in Zanesville, Ohio (HABS data p. 4); the museum gives 20 January 1936 for his death, a week before his ninety-third birthday."},
+      "occupation": {
+        "value": "farm machinery executive",
+        "confidence": "attested",
+        "sources": ["habs_glessner_house_il_1015_data_pages", "glessner_house_family_page"],
+        "note": "A partner in Warder, Bushnell and Glessner, and in 1902 one of the four vice presidents of the new International Harvester Company (HABS data p. 4), where he also chaired the executive committee (the museum's family page)."
+      }
+    },
+    {
+      "id": "glessner_frances_m",
+      "name": "Frances M. Glessner",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": ["glessner_house_family_page", "habs_glessner_house_il_1015_data_pages"],
+      "born": {"value": "1848-01-01", "confidence": "attested", "sources": ["glessner_house_family_page"], "note": "Sarah Frances Macbeth, born 1 January 1848 in Urbana, Ohio; married John Glessner on 7 December 1870 (the museum's family page)."},
+      "occupation": {
+        "value": "none_recorded",
+        "confidence": "attested",
+        "sources": ["glessner_house_family_page"],
+        "note": "No paid occupation is recorded. The museum's family page records her journal, kept from 1879 for forty years; her silversmith's workbench in the basement from 1904; her beekeeping; and the Monday Morning Reading Class she held in the library from 1893."
+      }
+    }
+  ]
+}
