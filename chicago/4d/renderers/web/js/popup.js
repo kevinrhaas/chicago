@@ -1080,10 +1080,11 @@ function factsHtml(s, firms = [], fromSign = false) {
   }
   // A phase's end can be an alteration, not demolition. Where the record carries
   // a separate survival status, show both rather than presenting a false lifespan.
-  row(attrs.present_status ? 'Modeled phase' : 'Standing', standingWords(s.documented_range),
+  // T-2624 (section 03): Modeled phase → Stood here, Present status → Today.
+  row(attrs.present_status ? 'Stood here' : 'Standing', standingWords(s.documented_range),
     s.documented_range?.confidence, attrs.present_status ? 'modeled phase' : 'standing');
   if (attrs.present_status?.value) {
-    row('Present status', prettyValue(attrs.present_status.value),
+    row('Today', prettyValue(attrs.present_status.value),
       attrs.present_status.confidence, 'present status');
   }
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
@@ -1206,7 +1207,7 @@ function ordinanceSection(limits, p) {
  *  `[hidden]` is still the record, and the smoke reads it after activating its
  *  tab rather than trusting a collapsed read. */
 const TABS = [
-  { id: 'evidence', label: 'Evidence' },
+  { id: 'evidence', label: 'Sources' },
   { id: 'images', label: 'Images' },
   { id: 'liberties', label: 'Liberties' },
   { id: 'record', label: 'Record' },
@@ -1551,7 +1552,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
           <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
         </section>
         <section class="pop-sec">
-          <h3>Citations</h3>
+          <h3>Sources</h3>
           <ol class="cites">${citationItems(s.citations)}</ol>
         </section>`;
 

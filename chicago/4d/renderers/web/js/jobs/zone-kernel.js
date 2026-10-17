@@ -25,7 +25,10 @@
  * One reply, not a third job: the deal needs both answers of a slot together.
  */
 import { groundZones, ZONE_UNASKED } from '../flora-zones.js';
-import { groundAnswers, GROUND_UNASKED } from '../flora-ground.js';
+import { groundAnswers, GROUND_UNASKED, GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP,
+  VERGE_CELL_M, VERGE_KEEP_SHARE } from '../flora-ground.js';
+import { FIELD_FLAGS, FIELD_UNASKED } from '../near-field.js';
+import { hash3 } from './lattice-kernel.js';
 
 const grounds = new Map();
 
@@ -59,6 +62,58 @@ export function slotZones({ ground, e, n }) {
     for (let i = 0; i < e.length; i++) {
       flags[i] = groundAt(e[i], n[i]);
       y[i] = groundAt.y;
+    }
+  }
+  return { zone, flags, y };
+}
+
+/** T-2707: a community's bits in `fieldRect`'s `table` — short turf, and a
+ *  `turfCeiling` its verge crops tall plants to. */
+export const FIELD_TABLE_TURF = 1;
+export const FIELD_TABLE_CEILING = 2;
+
+/**
+ * T-2707 — one rectangle of the near deal's field tile (near-field.js), asked of
+ * the ground this worker holds instead of on the page. The texel centres are the
+ * tile's: `e0 + (i0 + i + 0.5) * texel`, row by row northward. Per texel, the
+ * community (1-based, 0 for none) in `zone`, the FIELD_FLAGS this ground can
+ * answer in `flags` — WET, TURF from `table`, BLOCKED for a floor, TRODDEN as
+ * flora.js `trodden` gives it for a plant no ceiling admits — and the height in
+ * `y`. What it cannot answer is the page's: `growthBlocked` (the streets' cleared
+ * track, the yards, the ground strip and the worked bank live on the main
+ * thread), so a texel's BLOCKED is completed there; and a texel off the measured
+ * grid comes back FIELD_UNASKED in `flags`, for the page to ask whole.
+ */
+export function fieldRect({ ground, e0, n0, texel, i0, j0, w, h, table }) {
+  const held = ground == null ? null : grounds.get(ground);
+  const zone = new Uint8Array(w * h);
+  const flags = new Uint8Array(w * h);
+  const y = new Float32Array(w * h);
+  const groundAt = held?.groundAt;
+  if (!held || !groundAt) { flags.fill(FIELD_UNASKED); return { zone, flags, y }; }
+  for (let j = 0; j < h; j++) {
+    const n = n0 + (j0 + j + 0.5) * texel;
+    for (let i = 0; i < w; i++) {
+      const e = e0 + (i0 + i + 0.5) * texel;
+      const k = j * w + i;
+      const z = held.zoneAt(e, n);
+      const g = z === ZONE_UNASKED ? GROUND_UNASKED : groundAt(e, n);
+      if (g === GROUND_UNASKED) { flags[k] = FIELD_UNASKED; continue; }
+      const t = z ? table[z] : 0;
+      let f = 0;
+      if (g & GROUND_WET) f |= FIELD_FLAGS.WET;
+      if (t & FIELD_TABLE_TURF) f |= FIELD_FLAGS.TURF;
+      if (g & GROUND_FLOOR) f |= FIELD_FLAGS.BLOCKED;
+      if (t & FIELD_TABLE_CEILING) {
+        const band = g & (GROUND_TRODDEN | GROUND_KEEP);
+        if (band === GROUND_TRODDEN || (band && hash3(Math.floor(e / VERGE_CELL_M),
+          Math.floor(n / VERGE_CELL_M), 0x2094) / 4294967296 >= VERGE_KEEP_SHARE)) {
+          f |= FIELD_FLAGS.TRODDEN;
+        }
+      }
+      zone[k] = z;
+      flags[k] = f;
+      y[k] = groundAt.y;
     }
   }
   return { zone, flags, y };

@@ -49,7 +49,7 @@ import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
 import { createHud } from './hud.js';
 import { createNavigation } from './navigation.js';
-import { createStreets } from './streets.js';
+import { createStreets, fetchPrebuiltStreets } from './streets.js';
 import { createEnclosures } from './enclosures.js';
 import { loadOrdinanceLimits } from './ordinances.js';
 import { loadAgencies } from './agencies.js';
@@ -72,6 +72,8 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
+import { t, applyStrings } from './strings/index.js';
+import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -96,6 +98,7 @@ import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
+import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
@@ -1499,6 +1502,8 @@ const bootForecast = createForecast({ ...bootCell, boot: bootController,
 bootController.forecast = bootForecast;
 // T-2613: one journey for the page — time-stream › landing › landed › exploring …
 const journey = createJourney();
+// T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
+const navLink = parseNavLink(location.search);
 api.journey = journey;
 // Back to the Observatory is the journey's recall, from wherever the link sits.
 gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
@@ -1507,6 +1512,8 @@ gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tool
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
 api.gesture = gesture;
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
+// T-2624: the page's static words from the string table, before anything paints over them.
+applyStrings(document);
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -1568,8 +1575,8 @@ boot().catch((err) => {
     && !['1812', '1835', '1904'].includes(YEAR);
   // T-2616: the visitor reads "the jump stalled"; what failed goes under the folded details.
   arrival.fail(err, {
-    message: `Could not load the scene — ${api.error}`,
-    headline: unbuilt ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.` : undefined,
+    message: t('arrival.fail.scene', { error: api.error }),
+    headline: unbuilt ? t('arrival.fail.unbuilt', { year: YEAR }) : undefined,
   });
   console.error('[4D Chicago] boot failed', err);
 });
@@ -1792,6 +1799,12 @@ async function boot() {
     ? fetchPrebuiltFrontage({ dataBase: bases.dataBase,
       year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
     : null;
+  // T-2710: and the road's surfaces at this detail's layout, which createStreets
+  // batches instead of laying when they are this page's. Resolves `{ why }` too.
+  const streetsPrebuilt = draws('streets')
+    ? fetchPrebuiltStreets({ dataBase: bases.dataBase,
+      year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild(), ...detailOpts() })
+    : null;
   /**
    * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
    * below read the 1835 town's records just as the drawn layers do — its residents,
@@ -1975,12 +1988,19 @@ async function boot() {
   // for it.  Mount it before vegetation so the travelled strips can clear only
   // the plants that would otherwise grow through the visible wagon tracks.
   // T-2600: its surfaces are partitioned on the job pool, so the layer resolves.
+  // T-2710: measured as `streets`, the wall time measure_boot_phases.mjs quotes.
+  performance.mark('streets:start');
   const streets = await createStreets({
     terrain,
     records: draws('streets') ? (loaded.index?.streets ?? []) : [],
     confidence,
     ...detailOpts(),
+    prebuilt: streetsPrebuilt,
+    sceneId: loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year,
   });
+  performance.measure('streets', 'streets:start');
+  /** T-2710: whether the streets came prebuilt, and if not, why not. */
+  api.streetsPrebuilt = streets.prebuilt;
   scene3d.add(streets.group);
   settleOnGpu(streets.group);
   if (groundProof) {
@@ -2955,7 +2975,11 @@ async function boot() {
   api.loadLiberties = ensureLiberties;
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
+    // T-2626: the round instrument opens the Map app (its stub opens the whole field).
+    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
   });
+  // T-2626: the year chip opens the Jump app.
+  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
 
   // The people directory, compiled by tools/compile_scene.py compile_people from
   // data/residents/ — one row per person, so the Go to list can offer a person
@@ -3987,6 +4011,10 @@ async function boot() {
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
     onInspect: (id) => pick(id),
+    // T-2622: its keys wait for the arrival to close, and Escape goes to the drawer or a
+    // building card first when one is open.
+    keysActive: () => !gateOpen,
+    escFree: () => (document.getElementById('panel')?.hidden ?? true) && !popup.openId,
     // T-2618: the rail's apps (js/apps/), and what they read the page through. An app
     // takes what it needs from `ctx` — the api object included — and never imports main.js.
     apps: NAVIGATOR_APPS,
@@ -4049,6 +4077,26 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // T-2621: Back closes the Navigator before it leaves the page (nav-link.js), and a deep
+  // link (?nav=app[:id]&tab=) opens its app once the landing is over. A link to an app the
+  // rail does not have, or to a building this scene does not hold, is dropped quietly.
+  api.navHistory = createNavHistory({ nav: navigatorUi });
+  if (navLink && navigatorUi?.has(navLink.app)) {
+    const link = navLink.app === 'inspect' && navLink.id && !loaded.registry.has(navLink.id)
+      ? null : navLink;
+    const open = () => {
+      if (!link) return;
+      // Jaunts opens on the arrival device itself; every other app is in the town, so the
+      // visitor is set down at the spawn (as Free roam does) and the device opens on it.
+      if (link.app !== 'jaunts' && api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+      void navigatorUi.openLink(link);
+      api.navLinkOpened = link;
+    };
+    if (journey.state === 'landed' || journey.state === 'exploring') open();
+    else {
+      const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } });
+    }
+  }
 
   // ---- resize ----------------------------------------------------------- //
 
