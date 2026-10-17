@@ -22,6 +22,67 @@ the template rather than print; their words are still in the sidecar and should 
 the source. The Go to list and other surfaces still print the raw names with their working
 asides — that is NAV-1003's lint, not this card.
 
+## T-2702 — the 1904 people directory, starting with the Glessners (2026-10-17)
+
+Owner ruling 2026-10-17: "File it in band 3." The pilot for this is T-2637, and this PR fills
+its empty `residents`. `data/sidecars/1904/people.json` is compiled by the same generator as
+1835 (`compile_scene.py` `compile_people`), from 1904's own household cards in
+`data/residents_1904/households/`.
+
+- **The change to the generator.** Each scene has its own residents root: 1835 keeps
+  `data/residents/`, and a later scene has `data/residents_<scene>/`. The 1835 overlays
+  are named by scene id (`data/reconstruction/<scene>_*.json`), so they are simply absent
+  for 1904. A later scene's directory is compiled whenever it holds cards of its own,
+  whether or not it lists the `residents` layer.
+  - Before a later scene's card enters the directory, `scene_people_manifest` requires:
+    - every person graded, and every attested person with a source that resolves;
+    - every home a structure that stands in the scene;
+    - no arrival after the scene date.
+  - 1835's `people.json` is byte-identical (3,878 people).
+- **The Glessner household.** John J. and Frances M. Glessner, both attested, at
+  `glessner_house` from 1 December 1887. They are placed in the house in 1904 by Frances's
+  basement silversmith's workbench of that year (the museum's family page), and by HABS for
+  the ownership and their deaths in 1936 and 1932.
+  - Left out, as the card says: the grown children (both married in 1898; the daughter
+    moved to 1700 Prairie) and the staff, whom no source read names.
+- **The T-1740 rule is kept, not changed.** 1904 still lists no `residents` layer, so the
+  drawer offers no People section. That layer drives the drawer's People, City, Population
+  and Order book, which read the 1835 town's files and would show that apparatus with two
+  people in it. The directory is read by the summary records and, later, by the Navigator's
+  People app. So the smoke's assertion stays true, and it is unchanged.
+  - `tools/test_people_scene.py` (in `check.sh`) holds the directory to its cards and the
+    rule to its reason. Its `--self-test` plants eight faults and requires each one refused.
+
+## T-2637 — the Glessner House summary record, the pilot (2026-10-16)
+
+`data/summaries/glessner_house.json`, the first authored front page (design doc §08/§12), for
+the owner to approve as the pattern for every other building. It passes T-2635's gate: 28
+graded facts, every one Attested and sourced. Every line was checked against a source read
+for it: the HABS data pages and Glessner's 1923 *Story of a House* (transcribed in them), and the
+museum's own pages. The three facts §08's editorial note flagged now each have a real record.
+**The Nutshell Studies** come from the new `glessner_house_family_page`. **Richardson's death
+before construction** comes from the new `glessner_house_richardson_page` (26 April 1886), read
+against HABS and Glessner (digging began 1 June 1886). **The 1966 rescue** comes from
+`glessner_house_current_status`, re-read 2026-10-16: the foundation bought the house for
+$35,000 in December 1966. Nothing reads the record yet; the Inspect app (T-2638) will. Visitors
+see only the two new sources in the Sources list.
+
+**Left out, and why:**
+
+- **Residents are empty.** No 1904 people directory exists. The 1835 one is compiled by
+  `compile_scene.py` from the 1835 households in `data/residents/`, and only for a scene whose
+  layers list residents. 1904 lists none, and the smoke holds it to having no People section
+  (T-1740). The Glessners are named in the summary, the key facts and the story instead. The
+  grown children are not placed in the house: the museum's family page puts the daughter at
+  1700 Prairie within a few years of her 1898 marriage.
+- **`style` is null.** No style library module exists yet.
+- **The granite's name** is disputed (Wellesley or Braggville) and is not printed.
+- **Look for points at features the model does not separate.** The three features are drawn
+  (the street granite, the 18th Street arch, the narrow corridor windows), but the house is
+  one merged mesh. The feature ids are names Show me (NAV-505) will have to resolve. The
+  camera is a compass bearing in the scene's `yaw_deg` convention (0 = north, clockwise):
+  265 from the Prairie walk, 175 from 18th Street.
+
 ## T-2558 — H0, the WebGPU bake-off, measured (2026-10-16)
 
 Nothing in the town changed. RENDERING.md's H0 spike ran for the first time: three's

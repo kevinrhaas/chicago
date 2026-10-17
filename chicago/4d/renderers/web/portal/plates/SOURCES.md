@@ -15,3 +15,8 @@ street photograph for 1904. The Dearborn drawbridge replaces Herriott because th
 names the drawbridge and because Herriott's drawing depicts Potawatomi lodges, which the AGENTS.md
 standing constraint keeps off decorative surfaces; the 1904 photograph has no rights record in the
 repository, so the HABS view of Glessner House stands in until one is recorded.
+
+**Since T-2685 (2026-10-16)** each plate is its card's poster and its still fallback (reduced
+motion, Data Saver, a browser that plays neither clip format). Over it plays a short loop filmed
+in the app itself, from `../clips/`: renders of this project's own scene, so they carry no
+outside rights. `tools/portal_clips.mjs` films them from the shot lists in `tools/portal_clips/`.

@@ -7,28 +7,28 @@
   "height": 7323,
   "sha256": "ef40d3f20f166d41d029e8b3a7fd8fc0ee60b0dc489c386d95b1603ad21f7d26"
  },
- "fitted_on": "2026-09-28",
+ "fitted_on": "2026-10-16",
  "control_source": "data/traces/prairie_1904_control.json: OpenStreetMap crossings (node rule of data/traces/street_control.json) in EPSG:26916, carried to the local frame of data/datum.json. OpenStreetMap data (c) OpenStreetMap contributors, ODbL.",
  "pick_method": "each line is the peak of a 5-px-smoothed MEDIAN darkness profile taken across a window of 300 rows (vertical lines) or 350-500 columns (horizontal lines), so lettering inside the window contributes nothing; each line is read at two stations about 4200 px (vertical) or 1475 px (horizontal) apart",
  "fit": {
-  "type": "similarity at the sheet's printed scale: scale from the printed bar, rotation and translation by least squares over the control components named per point, pixel -> local ENU of data/datum.json",
+  "type": "similarity at the sheet's printed scale, JOINED to sanborn_1911_v3_sheet_28 (T-2691): scale from the printed bar, the translation that puts the crossing both sheets draw where that sheet's fit puts it, and the rotation the sheet's own least squares over the control components named per point gives it, unchanged by the join, pixel -> local ENU of data/datum.json",
   "coefficients": {
    "a": 0.0507737109,
    "b": 0.0007218669,
-   "c": 1217.9621,
+   "c": 1219.0945,
    "d": 0.0007218669,
    "e": -0.0507737109,
-   "f": -2892.28
+   "f": -2890.888
   },
   "formula": "local_e = a*px + b*py + c ; local_n = d*px + e*py + f ; utm = local + data/datum.json origin",
   "scale_m_per_px": 0.050779,
   "rotation_deg": 0.815,
   "components": 6,
-  "degrees_of_freedom": 3,
-  "rms_component_m": 1.74,
-  "rms_m": 2.46,
+  "degrees_of_freedom": 5,
+  "rms_component_m": 2.18,
+  "rms_m": 3.08,
   "rms_note": "rms_component_m is the root mean square over every control COMPONENT used (an easting or a northing); rms_m is its two-dimensional equivalent, the figure comparable with the rms_m other GCP files in this directory state.",
-  "max_component_m": 3.27
+  "max_component_m": 4.66
  },
  "scale_evidence": {
   "printed_scale_bar": {
@@ -105,11 +105,11 @@
     "local_e": 1396.51,
     "local_n": -2949.59
    },
-   "residual_e_m": 1.14,
-   "residual_n_m": 3.27,
+   "residual_e_m": 2.27,
+   "residual_n_m": 4.66,
    "leave_one_out_m": {
     "e_m": 2.41,
-    "n_m": 4.31
+    "n_m": 4.66
    }
   },
   {
@@ -135,11 +135,11 @@
     "local_e": 1401.86,
     "local_n": -3206.93
    },
-   "residual_e_m": -1.14,
-   "residual_n_m": -1.06,
+   "residual_e_m": -0.0,
+   "residual_n_m": 0.34,
    "leave_one_out_m": {
-    "e_m": -10.55,
-    "n_m": -4.26
+    "e_m": -0.0,
+    "n_m": 0.34
    }
   },
   {
@@ -167,10 +167,10 @@
     "local_n": -2945.49
    },
    "residual_e_m": null,
-   "residual_n_m": -1.9,
+   "residual_n_m": -0.51,
    "leave_one_out_m": {
     "e_m": null,
-    "n_m": -2.9
+    "n_m": -1.05
    }
   },
   {
@@ -198,12 +198,27 @@
     "local_n": -3208.5
    },
    "residual_e_m": null,
-   "residual_n_m": -0.31,
+   "residual_n_m": 1.08,
    "leave_one_out_m": {
     "e_m": null,
-    "n_m": -0.47
+    "n_m": 1.0
    }
   }
  ],
- "use": "For reading the 1911 Illinois Central right-of-way and lake edge between 16th and 18th Streets (tools/trace_ic_edge_1904.py, T-1250), and for the Prairie Avenue footprints, lots and street edges later tickets read off this sheet (streets T-0474, the district's buildings). Within the four crossings the fit holds 2.46 m RMS; the free affine would have held 1.59 m on the same points and been wrong by its 5.84 % axis-scale difference everywhere else."
+ "join": {
+  "to": "sanborn_1911_v3_sheet_28",
+  "crossing": "prairie & 18th",
+  "pixel": [
+   3510.4,
+   6267.8
+  ],
+  "pixel_on_that_sheet": [
+   1851.6,
+   988.4
+  ],
+  "local_e": 1401.86,
+  "local_n": -3206.59,
+  "why": "Both sheets draw the crossing of Prairie Avenue and 18th Street, all four of its corners, with Prairie running straight through it at its printed 66 ft. Fitted alone, this sheet put the crossing 1.13 m west and 1.39 m south of where sanborn_1911_v3_sheet_28 puts it, and the model stepped Prairie Avenue that far as it crossed 18th going north, on no evidence. The join moves this sheet onto that one there without turning it, so Prairie runs on as straight as both sheets draw it; it is not a claim about the modern street, whose 16th-to-18th centreline runs 0.6 degrees off the line the sheets draw."
+ },
+ "use": "For reading the 1911 Illinois Central right-of-way and lake edge between 16th and 18th Streets (tools/trace_ic_edge_1904.py, T-1250), and for the Prairie Avenue footprints, lots and street edges later tickets read off this sheet (streets T-0474, the district's buildings). Joined to sheet 28 at Prairie & 18th (T-2691: see join). Within the four crossings the fit holds 3.08 m RMS; the free affine would have held 1.59 m on the same points and been wrong by its 5.84 % axis-scale difference everywhere else."
 }

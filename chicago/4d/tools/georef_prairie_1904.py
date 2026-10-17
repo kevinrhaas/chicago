@@ -48,6 +48,21 @@ Indiana and Calumet crossings for their NORTHING only (the street they cross); t
 Cermak crossing for its EASTING only (the street it is on). Scale comes from the
 printed bar, rotation and translation from those components by least squares.
 
+SHEET 20 IS JOINED TO SHEET 28 AT EIGHTEENTH STREET (T-2691). Both sheets draw the
+crossing of Prairie Avenue and 18th Street, all four corners, and each draws Prairie
+running straight through it at its printed 66 ft. Fitted on its own, sheet 20 put that
+crossing 1.13 m west and 1.39 m south of where sheet 28 puts it (its least squares
+split the difference between its two Prairie crossings, 16th and 18th, which the
+modern map has 0.6 degrees off the line the sheets draw), and the model drew the
+seam: Prairie Avenue stepped 1.5 m west and its curbs, walks and lots with it as it
+crossed 18th going north, on no evidence. So sheet 20 is MOVED onto sheet 28 at the
+crossing they share -- the crossing's pixel on sheet 20 goes exactly where sheet 28's
+fit puts the same crossing -- and keeps the rotation its own control gives it, so
+Prairie runs on from one sheet to the next as straight as the two sheets draw it.
+Sheet 28, the better-checked sheet (three standing houses, below), is the one held.
+Prairie & 16th's modern node then stands 2.3 m east and 4.7 m north of the sheet's
+crossing, inside the fit ceiling; the modern map bends Prairie 0.6 degrees at 18th.
+
 Sheet 28 has one crossing whose modern street survives on both axes (Prairie & 18th):
 Twentieth Street is vacated between Indiana and Calumet, and Calumet was re-laid
 north of Twenty-First. Its second control point is Prairie & Twentieth, northing
@@ -117,6 +132,9 @@ SHEETS: dict[str, dict] = {
             ("indiana_16th", "indiana", "16th", "N"),
             ("indiana_18th", "indiana", "18th", "N"),
         ],
+        # T-2691: the crossing this sheet shares with sheet 28 lands where sheet 28 puts it
+        "joined_to": ("sanborn_1911_v3_sheet_28", "prairie", "18th"),
+        "fitted_on": "2026-10-16",
     },
     "sanborn_1911_v3_sheet_35": {
         "source": "sanborn_1911_chicago_v3_sheet_35",
@@ -238,8 +256,10 @@ SHEETS: dict[str, dict] = {
         ],
     },
 }
-ORDER = ["sanborn_1911_v3_sheet_20", "sanborn_1911_v3_sheet_35",
-         "sanborn_1911_v3_sheet_28", "robinson_1886_plate_10"]
+# Sheet 20 after sheet 28, which it is joined to (T-2691); sheet 28 after sheet 35, which
+# carries its second control point.
+ORDER = ["sanborn_1911_v3_sheet_35", "sanborn_1911_v3_sheet_28",
+         "sanborn_1911_v3_sheet_20", "robinson_1886_plate_10"]
 
 WHY_COMPONENT = {
     "EN": "both: Prairie Avenue is the 1886 and 1911 corridor, 66 ft wide, with houses standing on it today at the setbacks the sheets draw",
@@ -328,6 +348,15 @@ def fit_fixed_scale(obs: list[dict], s: float) -> tuple[float, float, float]:
     return th, c, d
 
 
+def fit_joined(obs: list[dict], s: float, px: tuple[float, float], at: tuple[float, float]) -> tuple[float, float, float]:
+    """The sheet's own rotation, least squares over its control components as an unjoined
+    fit would take it, and the translation that holds pixel `px` exactly at local `at`
+    (T-2691): the join moves the sheet, it does not turn it."""
+    th, _, _ = fit_fixed_scale(obs, s)
+    e0, n0 = sim_apply(s, th, 0.0, 0.0, *px)
+    return th, at[0] - e0, at[1] - n0
+
+
 def fit_affine(pairs: list[tuple[tuple[float, float], tuple[float, float]]]) -> list[float] | None:
     """Free six-parameter affine, pixel -> local, by normal equations (no numpy)."""
     if len(pairs) < 3:
@@ -412,7 +441,18 @@ def derive(control: dict) -> dict[str, dict]:
                                 "anchored at Twenty-First Street 120 m away; the EASTING is the modern Prairie "
                                 "Avenue centreline (the line through the 18th and 21st crossing nodes) at that northing."),
                         "transferred": {"from": frm, "pixel_on_that_sheet": src_px}})
-        th, c, d = fit_fixed_scale(obs, s)
+        join = None
+        if sh.get("joined_to"):
+            frm, ns, ew = sh["joined_to"]
+            osh = SHEETS[frm]
+            o_px = crossing_px(street_line(osh, ns, px_per_ft(osh)), street_line(osh, ew, px_per_ft(osh)))
+            at = sim_apply(*fits[frm], *o_px)
+            join = {"px": crossing_px(streets[ns], streets[ew]), "at": at, "from": frm, "src_px": o_px}
+
+        def fit(points: list[dict]) -> tuple[float, float, float]:
+            return fit_joined(points, s, join["px"], join["at"]) if join else fit_fixed_scale(points, s)
+
+        th, c, d = fit(obs)
         fits[key] = (s, th, c, d)
 
         gcps, sq_e, sq_n, n_comp = [], [], [], 0
@@ -429,7 +469,7 @@ def derive(control: dict) -> dict[str, dict]:
             loo = None
             if sum((p["E"] is not None) + (p["N"] is not None) for p in rest) >= 3 and \
                any(p["E"] is not None for p in rest) and any(p["N"] is not None for p in rest):
-                t2, c2, d2 = fit_fixed_scale(rest, s)
+                t2, c2, d2 = fit(rest)
                 e2, n2 = sim_apply(s, t2, c2, d2, *o["px"])
                 loo = {"e_m": None if o["E"] is None else r2(e2 - o["E"]),
                        "n_m": None if o["N"] is None else r2(n2 - o["N"])}
@@ -447,7 +487,7 @@ def derive(control: dict) -> dict[str, dict]:
             gcps.append(g)
         n_comp = len(sq_e) + len(sq_n)
         rms_comp = math.sqrt((sum(sq_e) + sum(sq_n)) / n_comp)
-        dof = n_comp - 3
+        dof = n_comp - (1 if join else 3)
 
         # the free fits, as diagnostics
         full = [o for o in obs if o["modern"]]
@@ -481,7 +521,7 @@ def derive(control: dict) -> dict[str, dict]:
             "source": sh["source"],
             "raster": {"path": RASTERS_REL + "/" + sh["raster"], "width": sh["size"][0], "height": sh["size"][1],
                        "sha256": sh["sha256"]},
-            "fitted_on": FITTED_ON,
+            "fitted_on": sh.get("fitted_on", FITTED_ON),
             "control_source": ("data/traces/prairie_1904_control.json: OpenStreetMap crossings (node rule of "
                                "data/traces/street_control.json) in EPSG:26916, carried to the local frame of "
                                "data/datum.json. OpenStreetMap data (c) OpenStreetMap contributors, ODbL."),
@@ -517,6 +557,30 @@ def derive(control: dict) -> dict[str, dict]:
             "affine_diagnostic": diag,
             "gcps": gcps,
         }
+        if join:
+            doc["fit"]["type"] = ("similarity at the sheet's printed scale, JOINED to " + join["from"] + " (T-2691): "
+                                  "scale from the printed bar, the translation that puts the crossing both sheets "
+                                  "draw where that sheet's fit puts it, and the rotation the sheet's own least squares "
+                                  "over the control components named per point gives it, unchanged by the join, "
+                                  "pixel -> local ENU of data/datum.json")
+            jx, jy = join["px"]
+            ae, an = sim_apply(s, *fit_fixed_scale(obs, s), jx, jy)
+            de, dn = join["at"][0] - ae, join["at"][1] - an
+            doc["join"] = {
+                "to": join["from"],
+                "crossing": f"{sh['joined_to'][1]} & {sh['joined_to'][2]}",
+                "pixel": [round(jx, 1), round(jy, 1)],
+                "pixel_on_that_sheet": [round(join["src_px"][0], 1), round(join["src_px"][1], 1)],
+                "local_e": r2(join["at"][0]), "local_n": r2(join["at"][1]),
+                "why": ("Both sheets draw the crossing of Prairie Avenue and 18th Street, all four of its corners, "
+                        "with Prairie running straight through it at its printed 66 ft. Fitted alone, this sheet put "
+                        f"the crossing {abs(de):.2f} m {'west' if de > 0 else 'east'} and {abs(dn):.2f} m "
+                        f"{'south' if dn > 0 else 'north'} of where " + join["from"] + " puts it, and the model "
+                        "stepped Prairie Avenue that far as it crossed 18th going north, on no evidence. "
+                        "The join moves this sheet onto that one there without turning it, so Prairie runs on "
+                        "as straight as both sheets draw it; it is not a claim about the "
+                        "modern street, whose 16th-to-18th centreline runs 0.6 degrees off the line the sheets draw."),
+            }
         if key == "sanborn_1911_v3_sheet_28":
             chks = []
             for chk in sh["checks"]:
@@ -556,7 +620,8 @@ def extra_notes(docs: dict[str, dict]) -> None:
     d20["use"] = (
         "For reading the 1911 Illinois Central right-of-way and lake edge between 16th and 18th Streets "
         "(tools/trace_ic_edge_1904.py, T-1250), and for the Prairie Avenue footprints, lots and street edges "
-        "later tickets read off this sheet (streets T-0474, the district's buildings). Within the four crossings "
+        "later tickets read off this sheet (streets T-0474, the district's buildings). Joined to sheet 28 at "
+        "Prairie & 18th (T-2691: see join). Within the four crossings "
         f"the fit holds {d20['fit']['rms_m']} m RMS; the free affine would have held {a20['rms_m']} m on the same "
         f"points and been wrong by its {a20['axis_scale_difference_pct']} % axis-scale difference everywhere else.")
     d28 = docs["sanborn_1911_v3_sheet_28"]
@@ -688,6 +753,14 @@ def self_test(control: dict) -> int:
     doc["sanborn_1911_v3_sheet_20"]["gcps"][2]["components_used"] = "EN?"
     cases.append(("a control point that does not say which component it is control for fails", bool(contract(doc))))
 
+    def at18(key: str) -> tuple[float, float]:
+        sh, f = SHEETS[key], base[key]["fit"]["coefficients"]
+        ppf = px_per_ft(sh)
+        x, y = crossing_px(street_line(sh, "prairie", ppf), street_line(sh, "18th", ppf))
+        return f["a"] * x + f["b"] * y + f["c"], f["d"] * x + f["e"] * y + f["f"]
+    a, b = at18("sanborn_1911_v3_sheet_20"), at18("sanborn_1911_v3_sheet_28")
+    cases.append(("sheets 20 and 28 put the Prairie & 18th crossing they both draw in one place (T-2691)",
+                  math.hypot(a[0] - b[0], a[1] - b[1]) < 0.02))
     cases.append(("the committed files are what the tool derives", not check(control)))
     for label, ok in cases:
         print(("   ok   " if ok else "   FAIL ") + label)

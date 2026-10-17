@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "28f0be3e00c10a83999e4b147d33948a2062d95d335f1b6fd2f1f324a71ca113",
+  "glb_sha256": "c69d636400e3973604616eb18d2b520333390c5bfaf01fc363fec69e2fcc2d31",
   "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
@@ -58,6 +58,10 @@
     {
       "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2681: the loggia raised from the 1965 close view: columns 2.25 -> 2.45 m, the beam and cornice 0.65 -> 0.9 m, the balcony's front 0.9 -> 0.75 m. Here (read in inland-1888 at full size) the beam and cornice now read 62 px against the print's 62 and the front 60 against 63, where the model's were plainly too shallow and too deep before. The columns now read 198 px from pedestal to capital top against the print's 180 (182 before), about 0.2 m too long at this camera, while the 1965 view still reads them 0.3 m too short. The two pictures disagree by about 0.5 m on the column; which camera errs at the loggia is not settled.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -82,6 +82,8 @@ export function glbOwners(files, read) {
 
 export function yearFiles(files, year, owners) {
   return files.filter((rel) => {
+    // T-2685: the home page's destination clips are the Observatory's, not a year's app.
+    if (rel.startsWith('walk/portal/clips/')) return false;
     if (rel.startsWith('walk/') || rel === `${year}/index.html` || rel === `${year}/app.webmanifest`
       || NETWORK_FIRST.includes(rel)) return true;
     if (!rel.startsWith('data/')) return false;

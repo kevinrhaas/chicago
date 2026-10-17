@@ -64,11 +64,24 @@ step "The flora lattice walk on a worker hands the deal the slots the in-frame w
 selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
   node tools/check_lattice_kernel.mjs --self-test
 
+# T-2697. The same walk as GLSL (flora-gpu-lattice.js), the first piece of T-2557's
+# GPU near grass. This step needs no browser: it holds the shader's constants to
+# flora.js's. The slot-for-slot readback is `--gpu`, in Chromium, and is filed at
+# docs/measurements/t-2697-flora-gpu-lattice.json.
+step "The flora walk in GLSL carries flora.js's own walk constants (T-2697)" \
+  node tools/check_flora_gpu_lattice.mjs
+
+selftest "the shader walk's constant check refuses a seed, salt or block shift one bit off" \
+  node tools/check_flora_gpu_lattice.mjs --self-test
+
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
+
+step "Frontage, yard and enclosure confidence keep 0, 0.5 and 1 exact in the colour lane or as one grade, and nothing else is squeezed in (T-2689)" \
+  node tools/check_confidence_lane.mjs
 
 step "Emitted plank crossings remain above the distant terrain (T-2037)" \
   node tools/check_plank_ground.mjs
@@ -78,6 +91,9 @@ step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
 
 selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
+
+selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
+  node tools/prebuild_layers.mjs --self-test --layer ground
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -3358,6 +3374,12 @@ step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)"
 
 step "source browser counts and filters" \
   node tools/test_sources_view.mjs
+
+# The home page's destination clips (T-2685): every clip a card names ships in both
+# formats, nothing ships unnamed, and the weight stays capped. `--browser` drives the
+# page itself; no smoke part loads the Observatory.
+step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
+  node tools/test_portal_clips.mjs
 
 step "shared destinations and safe stand-offs (T-1277)" \
   node tools/test_destinations.mjs
@@ -7159,6 +7181,46 @@ selftest "…and each planted fault (no grade, unsourced Attested, too long, a s
 # lead over three sentences or sixty words; it also holds the card's lint to the gate's above.
 step "every building's card opens with its address once and no id, path or snake_case (T-2636)" \
   node tools/test_fallback_summary.mjs
+
+# T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
+# generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
+# --check above holds the file itself). This holds what it must mean: exactly its own
+# cards' people and none of 1835's (the T-1739 fault), each in a 1904 structure, the
+# Glessner summary's residents among them — and T-1740 still true, 1904 listing no
+# `residents` layer, so the drawer's 1835-shaped People section stays off.
+step "the 1904 people directory is its own, and the drawer still offers no People section (T-2702)" \
+  python3 tools/test_people_scene.py
+
+selftest "…and a card with no source, no grade, a home not in the scene or a late arrival is refused" \
+  python3 tools/test_people_scene.py --self-test
+
+# T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
+# years each, captioned as the ticker passes them (design doc section 05). The page shows
+# the strings as written, so this refuses a caption with no grade, no source, a source
+# that does not resolve, no note, more than 70 characters or 20 words, an id, path or
+# ticket number (T-2635's lint, imported), a year the ticker never passes, a tie in
+# importance (the fast-load pick), and Native history without its review flags and reason.
+step "every time-stream caption is graded, sourced, at most 70 characters and free of ids" \
+  python3 tools/check_timestream.py --check
+selftest "…and each planted fault (no grade, no source, an invented source, too long, an id, a removal caption unflagged) is refused" \
+  python3 tools/check_timestream.py --self-test
+step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8 slow, once each (T-2611)" \
+  node tools/test_time_stream.mjs
+# T-2612. The arrival telemetry: YEARS TO GO, the four lamps named for what a visitor sees
+# (STREETS, BUILDINGS, TREES, PEOPLE) on the real boot phases, and the log's lines from the
+# destination's deck — held against the real boot controller for all three destinations.
+step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
+  node tools/test_arrival_telemetry.mjs
+
+# T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
+# tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a
+# sentence (a bubble to 14 words, section 11). A string under 12 words is scored in its
+# file's pool rather than alone, because the formula is a passage measure; the tool's
+# header has the syllable rules and the measurement behind that floor.
+step "every summary, fact, caption and bubble reads at Flesch-Kincaid grade 9 or lower, 20 words a sentence (T-2669)" \
+  python3 tools/check_reading_level.py --check
+selftest "…and a planted grade-12 sentence, a 21-word sentence, a 15-word bubble and a file of short hard lines are refused (T-2669)" \
+  python3 tools/check_reading_level.py --self-test
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
