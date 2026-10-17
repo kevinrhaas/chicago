@@ -7163,6 +7163,11 @@ selftest "…and each planted fault (no grade, no source, an invented source, to
   python3 tools/check_timestream.py --self-test
 step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8 slow, once each (T-2611)" \
   node tools/test_time_stream.mjs
+# T-2612. The arrival telemetry: YEARS TO GO, the four lamps named for what a visitor sees
+# (STREETS, BUILDINGS, TREES, PEOPLE) on the real boot phases, and the log's lines from the
+# destination's deck — held against the real boot controller for all three destinations.
+step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
+  node tools/test_arrival_telemetry.mjs
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
