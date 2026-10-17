@@ -1538,13 +1538,13 @@ for (const [label, viewport, touch] of [
           await new Promise((r) => setTimeout(r, 50));
         }
       }
-      // T-2632 (found on #965's desktop 13 run): the Navigator WIDENS too. On a desktop
-      // its open is a .28 s width transition from the 58 px rail to 400 px, and the
-      // transition's clock only moves when the page gets to draw; on a runner where a
-      // frame of the town takes seconds, a fixed wait can end with the panel still a
-      // sliver, Home's three choices squeezed into 0-wide columns and drawn over one
-      // another — "covered at its own centre by <button class=\"nav-choice\">". Waited
-      // for the same way as the drawer: the hit-test still runs, on the settled box.
+      // The Navigator WIDENS too. On a desktop its open is a .28 s width transition from
+      // the 58 px rail to 400 px, and the transition's clock only moves when the page gets
+      // to draw; on a runner where a frame of the town takes seconds, a fixed wait can end
+      // with the panel still a sliver. T-2622's keyboard check ends on Escape (the panel
+      // collapsed to its rail) and T-2630's opens it and clicks Home's Go to after 400 ms:
+      // "covered at its own centre by <button class=\"nav-choice\">". Waited for the same
+      // way as the drawer: the hit-test still runs, on the settled box.
       const device = el.closest('#navigator');
       if (device?.getAnimations) {
         for (let i = 0; i < 60 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
@@ -15299,6 +15299,28 @@ for (const [label, viewport, touch] of [
     // segment (Jaunts · Go to · Free roam, a tablist). Go to is the Welcome card's own
     // search, lent to the device; the rail opens the app too; Free roam docks it; and the
     // card gets its list and search back, in place, when it shows again.
+    // ---- fix-home-choices-overlap: Home's three choices never draw over one another, not
+    // even while the desktop panel widens from its rail (sampled the moment it opens, every
+    // 40 ms until it settles): each choice ends before the next begins.
+    const choicesWhileOpening = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      await api.navigator.select('home');
+      api.navigator.dock();
+      await new Promise((r) => setTimeout(r, 400));
+      api.navigator.open(1);
+      const seen = [];
+      for (let i = 0; i < 12; i++) {
+        const r = [...document.querySelectorAll('#nav-home .nav-choice')].map((b) => b.getBoundingClientRect());
+        seen.push(r.map((b) => [Math.round(b.left), Math.round(b.right)]));
+        await new Promise((res) => setTimeout(res, 40));
+      }
+      api.navigator.dock();
+      return { seen, overlaps: seen.filter((row) => row.some((b, i) => i > 0 && row[i - 1][1] > b[0] + 1)).length };
+    });
+    check(`${label}: Home's three choices never draw over one another while the Navigator opens`,
+      choicesWhileOpening.overlaps === 0 && choicesWhileOpening.seen.length === 12,
+      JSON.stringify({ overlaps: choicesWhileOpening.overlaps, first: choicesWhileOpening.seen[0], last: choicesWhileOpening.seen.at(-1) }));
+    // ---- end fix-home-choices-overlap
     await page.evaluate(() => { window.__chicago4d.hud.setPanel(false); window.__chicago4d.navigator.open(1); window.__chicago4d.navigator.select('home'); });
     await page.waitForTimeout(400);
     await clickChrome('#nav-home [data-segment="goto"]');
