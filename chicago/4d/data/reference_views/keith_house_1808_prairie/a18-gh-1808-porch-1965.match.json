@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "a2024ae284aa61387bff0891563d722d5ee29ad4c8ec53d000ec7d6c0e74cd47",
+  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
   "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -72,8 +72,8 @@
       "status": "not shown"
     },
     {
-      "what": "T-2579: with the bases, the bow lights and the basement heads in register, the loggia's columns stand taller than the model's: the capital tops read 12-16 px (about 0.4 m) higher on both pairs, with the beam over them correspondingly higher under a shallower balcony front; the south pair also stands about 0.4 m further south. T-2681: re-read with the camera re-fitted without the north capital (it had been paired with a point 0.39 m over the model's capital): the capital tops still read 17 px (south pair) and 13 px (north) high, so the reading does not rest on that control. With the pedestal as the ruler the columns read 2.5 m, the beam and cornice 0.95-1.0 m and the balcony's front 0.7 m. Built at 2.45, 0.9 and 0.75 m: the capital tops now read at y 147 against the print's 136 (154 before) and the coping at about y 89 against 78 (93 before). Still open: about 11 px (0.3 m) at both, which the 1888 plate does not support (it reads the columns about 0.2 m shorter than now; see inland-1888). The south pair's position re-reads within 3 px.",
-      "status": "open"
+      "what": "T-2579: with the bases, the bow lights and the basement heads in register, the loggia's columns stand taller than the model's: the capital tops read 12-16 px (about 0.4 m) higher on both pairs, with the beam over them correspondingly higher under a shallower balcony front; the south pair also stands about 0.4 m further south. T-2681: re-read with the camera re-fitted without the north capital (it had been paired with a point 0.39 m over the model's capital): the capital tops still read 17 px (south pair) and 13 px (north) high, so the reading does not rest on that control. With the pedestal as the ruler the columns read 2.5 m, the beam and cornice 0.95-1.0 m and the balcony's front 0.7 m. Built at 2.45, 0.9 and 0.75 m: the capital tops now read at y 147 against the print's 136 (154 before) and the coping at about y 89 against 78 (93 before). Still open: about 11 px (0.3 m) at both, which the 1888 plate does not support (it reads the columns about 0.2 m shorter than now; see inland-1888). The south pair's position re-reads within 3 px. T-2725: ruled. Both pictures stand the column at about 2.45 times its pedestal (the plate 190.5 px over about 77, the 1965 view 100 px over about 41), so they disagree only on scale. Read in the plate against the front's own ruler at the same image column (the third storey's north light, 10.41-12.70 m, 159.5 px) and corrected for the loggia standing nearer the camera, the column reads 2.51 m (south pair) and 2.50 m (north pair), the pedestal 1.02 m. Built at 2.5 m (from 2.45); what each camera still shows at the loggia is its own scale there, stated as its own item.",
+      "status": "fixed"
     },
     {
       "what": "T-2581: the south-east corner no longer turns onto brick and toothed quoins at x 61: the front's stone turns it as a straight strip, 2.1 m deep, seen here from about x 49 to x 71.",
@@ -86,6 +86,10 @@
     {
       "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: the crown is outside this close view's frame.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2725: this camera (T-2579, one of its seven controls on the loggia) draws the loggia's column and pedestal alike 12-15 % short: the 2.5 m column renders 88 px against the print's 100 (capital top y 134.5 to the plinth's joint y 234.5), the pedestal 35 against about 41, so the column/pedestal ratio is the model's (2.44 in the print) and the shortfall is this camera's scale at the loggia's depth. Its re-fit is T-2726's.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

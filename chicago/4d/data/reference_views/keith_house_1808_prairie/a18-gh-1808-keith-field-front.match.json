@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-keith-field-front",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "a2024ae284aa61387bff0891563d722d5ee29ad4c8ec53d000ec7d6c0e74cd47",
+  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
   "camera_sha256": "eaf2569e17fe417c13251434fa71a5f9a7f9965a21e3967e8462326d6ab5c966",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-keith-field-front-side-by-side.jpg",
   "verdict": "differs",
@@ -64,8 +64,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2681: the loggia raised from the 1965 close view: columns 2.25 -> 2.45 m, the beam and cornice 0.65 -> 0.9 m, the balcony's front 0.9 -> 0.75 m. Here (read in inland-1888 at full size) the beam and cornice now read 62 px against the print's 62 and the front 60 against 63, where the model's were plainly too shallow and too deep before. The columns now read 198 px from pedestal to capital top against the print's 180 (182 before), about 0.2 m too long at this camera, while the 1965 view still reads them 0.3 m too short. The two pictures disagree by about 0.5 m on the column; which camera errs at the loggia is not settled.",
-      "status": "open"
+      "what": "T-2681: the loggia raised from the 1965 close view: columns 2.25 -> 2.45 m, the beam and cornice 0.65 -> 0.9 m, the balcony's front 0.9 -> 0.75 m. Here (read in inland-1888 at full size) the beam and cornice now read 62 px against the print's 62 and the front 60 against 63, where the model's were plainly too shallow and too deep before. The columns now read 198 px from pedestal to capital top against the print's 180 (182 before), about 0.2 m too long at this camera, while the 1965 view still reads them 0.3 m too short. The two pictures disagree by about 0.5 m on the column; which camera errs at the loggia is not settled. T-2725: ruled. Both pictures stand the column at about 2.45 times its pedestal (the plate 190.5 px over about 77, the 1965 view 100 px over about 41), so they disagree only on scale. Read in the plate against the front's own ruler at the same image column (the third storey's north light, 10.41-12.70 m, 159.5 px) and corrected for the loggia standing nearer the camera, the column reads 2.51 m (south pair) and 2.50 m (north pair), the pedestal 1.02 m. Built at 2.5 m (from 2.45); what each camera still shows at the loggia is its own scale there, stated as its own item.",
+      "status": "fixed"
     },
     {
       "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. This is a reproduction of the same 1888 photograph, registered to inland-1888, where the pitch was read at full size (21 px along a row in print and render alike); this smaller copy agrees with it and adds no reading of its own.",
