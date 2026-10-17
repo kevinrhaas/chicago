@@ -223,12 +223,10 @@
         <span class="fly-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></span> <span class="chip-label" id="fly-label">Fly</span>
       </button>
       <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
-      <!-- A hamburger, not a "?". Behind it are the controls, every place you can
-           go, the settings and the release notes; a question mark promises help
-           and hides four fifths of the interface. -->
-      <button id="btn-help" class="chip icon" aria-label="Menu"
-        title="Menu — controls, places, settings and what's new (H)"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span
-        class="chip-dot" id="help-dot" hidden aria-hidden="true"></span></button>
+      <!-- T-2620: the hamburger is gone with the drawer; its sections are the Navigator's
+           apps. What's new's dot stays here until the Navigator moves it onto its
+           Settings icon (apps/drawer-host.js). -->
+      <span class="chip-dot" id="help-dot" hidden aria-hidden="true"></span>
     </div>
   </div>
 
@@ -240,7 +238,7 @@
     <div id="control-help-desktop" class="control-help-grid">
       <kbd>W A S D</kbd><span>walk</span><kbd>mouse</kbd><span>look around</span>
       <kbd>Shift</kbd><span>run</span><kbd>click / E</kbd><span>inspect a building</span>
-      <kbd>F</kbd><span>fly or walk</span><kbd>H</kbd><span>the menu</span>
+      <kbd>F</kbd><span>fly or walk</span><kbd>H</kbd><span>the Navigator</span>
       <kbd>G</kbd><span>go to a place</span><kbd>M</kbd><span>the whole map</span>
     </div>
     <div id="control-help-touch" class="control-help-grid" hidden>
@@ -693,7 +691,7 @@
         <dt><kbd>G</kbd></dt><dd>go to a viewpoint, a building or a street corner</dd>
         <dt><kbd>M</kbd></dt><dd>the whole map — the small one shows the ground around you</dd>
         <dt><kbd>N</kbd></dt><dd>what's new</dd>
-        <dt><kbd>H</kbd></dt><dd>this menu</dd>
+        <dt><kbd>H</kbd></dt><dd>the Navigator</dd>
         <dt><kbd>Esc</kbd></dt><dd>release the cursor</dd>
       </dl>
       <dl class="keys" id="keys-touch" hidden>

@@ -14,6 +14,7 @@ import { createWhere, polygonDistance, facingWords, clockWords, screenDate } fro
 import { createNavigator, snapLevel, tapLevel, detentHeights, moveWords, DOCK_PX } from '../renderers/web/js/navigator.js';
 import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/nav-rail.js';
 import { APPS } from '../renderers/web/js/apps/index.js';
+import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS } from '../renderers/web/js/apps/drawer-host.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -131,6 +132,7 @@ function miniDom() {
     if ((m = /^\.([\w-]+)$/.exec(sel))) return el.classList.contains(m[1]);
     if ((m = /^\[data-app="([\w-]+)"\]$/.exec(sel))) return el.dataset.app === m[1];
     if ((m = /^\.([\w-]+)\[data-tab\]$/.exec(sel))) return el.classList.contains(m[1]) && el.dataset.tab != null;
+    if ((m = /^\.([\w-]+)\[data-tab="([\w-]+)"\]$/.exec(sel))) return el.classList.contains(m[1]) && el.dataset.tab === m[2];
     if (sel === 'svg') return el.tagName === 'SVG';
     return false;
   };
@@ -168,8 +170,14 @@ function miniDom() {
       cloneNode() { return make(tag); },
       focus() { el.focused++; },
       getBoundingClientRect: () => ({ height: Number.parseFloat(el.style.height) || 64 }),
-      querySelector(sel) { return walk(el).find((c) => matches(c, sel)) ?? null; },
-      querySelectorAll(sel) { return walk(el).filter((c) => matches(c, sel)); },
+      querySelector(sel) { return el.querySelectorAll(sel)[0] ?? null; },
+      querySelectorAll(sel) {
+        const [first, ...rest] = sel.split(' ');
+        let scope = walk(el).filter((c) => matches(c, first));
+        for (const part of rest) scope = scope.flatMap((x) => walk(x).filter((c) => matches(c, part)));
+        return scope;
+      },
+      get parentElement() { return el.parent; },
     };
     if (id) el.id = id;
     return el;
@@ -180,7 +188,8 @@ function miniDom() {
     documentElement: docEl, body,
     createElement: (tag) => make(tag),
     getElementById: (id) => byId.get(id) ?? null,
-    querySelectorAll: (sel) => walk(body).filter((c) => matches(c, sel)),
+    querySelectorAll: (sel) => body.querySelectorAll(sel),
+    querySelector: (sel) => body.querySelector(sel),
   };
   const add = (parent, tag, id, cls = []) => { const e = make(tag, id); e.classList.add(...cls); parent.append(e); return e; };
   const root = add(body, 'section', 'navigator');
@@ -194,7 +203,16 @@ function miniDom() {
   const home = add(navBody, 'div', 'nav-home', ['nav-screen']);
   for (const id of ['nav-home-title', 'nav-where', 'nav-where-detail', 'nav-front-name', 'nav-front-detail', 'nav-inspect',
     'nav-jaunt', 'nav-jaunt-step', 'nav-jaunt-title', 'nav-jaunt-bar', 'nav-move', 'nav-confidence']) add(home, 'div', id);
-  return { root, doc, docEl, body, byId, rail };
+  // The drawer's #panel, still in #hud as the page is written (T-2620 moves it into the apps).
+  const hud = add(body, 'div', 'hud');
+  const panel = add(hud, 'div', 'panel', ['hud-panel']);
+  panel.hidden = true;
+  const tabsRow = add(panel, 'nav', null, ['panel-tabs']);
+  for (const t of ['goto', 'travel', 'people', 'businesses', 'evidence', 'settings', 'controls', 'whatsnew']) {
+    const tab = add(tabsRow, 'button', null, ['panel-tab']); tab.dataset.tab = t;
+  }
+  add(hud, 'span', 'help-dot').hidden = true;
+  return { root, doc, docEl, body, byId, rail, panel };
 }
 const railIds = (dom) => dom.rail.children.filter((b) => b.dataset.app && !b.hidden).map((b) => b.dataset.app);
 const button = (dom, id) => dom.rail.children.find((b) => b.dataset.app === id);
@@ -324,6 +342,14 @@ for (const phone of [true, false]) {
   let jauntState = null;
   let t = 0;
   const label = phone ? 'phone' : 'desktop';
+  // The HUD's side of the drawer: a section open or shut, and which one (hud.js).
+  const fakeHud = {
+    open: false, tab: 'goto', host: null,
+    panelOpen() { return this.open; },
+    setPanel(open, { fromHost = false } = {}) { this.open = !!open; dom.panel.hidden = !open; if (!fromHost) this.host?.[open ? 'open' : 'close']?.(this.tab); },
+    selectTab(t, { fromHost = false } = {}) { this.tab = t; if (!fromHost && this.open) this.host?.show?.(t); },
+    setHost(h) { this.host = h; },
+  };
   const nav = createNavigator({
     root: dom.root,
     scene: json('data/scenes/1904.json'),
@@ -339,7 +365,7 @@ for (const phone of [true, false]) {
     now: () => t,
     storage: fakeStorage(),
     apps: APPS,
-    context: () => ({ scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
+    context: () => ({ api: { hud: fakeHud }, scene: { id: '1904' }, hasPeople: false, selected: null, confidenceOn: false, whatsNewUnread: false,
       actions: { openSection: (id) => calls.push(['section', id]), jaunts: () => calls.push(['jaunts']), inspect: (id) => calls.push(['card', id]) } }),
   });
   await Promise.resolve();
@@ -397,16 +423,53 @@ for (const phone of [true, false]) {
   assert.deepEqual(calls.at(-1), ['inspect', 'glessner_house'], `${label}: Inspect opens the building's card`);
   if (phone) assert.equal(nav.detent, 'dock', 'phone: Inspect docks the sheet so the card has the screen');
 
-  // A stub app (Settings, until its lane lands) docks the device and opens the drawer's section.
+  // T-2620: the drawer's sections are apps. Settings moves the one #panel into its screen,
+  // shows its own two tabs (Settings, What's new), opens its section; Home takes it away again.
   nav.open(1);
   button(dom, 'settings').dispatch('click');
   await Promise.resolve();
-  assert.deepEqual(calls.at(-1), ['section', 'settings']);
-  assert.equal(nav.detent, phone ? 'dock' : 'rail');
+  const settingsScreen = dom.byId.get('nav-app-settings');
+  assert.equal(dom.panel.parent, settingsScreen, `${label}: #panel now lives in the Settings app`);
+  assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'settings'], 'and its section is open');
+  const visibleTabs = (d) => d.panel.children[0].children.filter((t) => !t.classList.contains('is-elsewhere')).map((t) => t.dataset.tab);
+  assert.deepEqual(visibleTabs(dom), ['settings', 'whatsnew'], 'only its own tabs show — two, not eight');
+  assert.equal(dom.byId.get('nav-code').textContent, 'SCR 10 · SETTINGS');
+  await nav.select('move');
+  assert.equal(dom.panel.parent, dom.byId.get('nav-app-move'), 'Move takes #panel next');
+  assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'travel']);
+  assert(dom.panel.classList.contains('has-one-section'), 'one section, no tab row');
+  await nav.select('home');
+  assert.equal(fakeHud.open, false, 'Home closes the section');
+  await nav.select('guide');
+  assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'controls'], 'Guide opens Controls first');
+  nav.dock();
+  assert.equal(fakeHud.open, false, 'docking closes it');
   nav.open(1);
-  button(dom, 'jaunts').dispatch('click');
+  assert.equal(fakeHud.open, true, 'and opening again brings it back');
+  await nav.select('jaunts');
+  assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'goto'], 'Jaunts holds Go to');
+  const lead = dom.byId.get('nav-jaunts-open');
+  assert(lead && lead.parent === dom.byId.get('nav-app-jaunts'), 'under a Take a Jaunt key');
+  lead.dispatch('click');
+  assert.deepEqual(calls.at(-1), ['jaunts'], 'which opens the Jaunts list');
+  assert.equal(nav.detent, phone ? 'dock' : 'rail');
+
+  // The HUD's own calls keep their meaning through the adapter (hud.setPanel / selectTab).
+  const adapter = installDrawerHost({ hud: fakeHud, navigator: nav, doc: dom.doc });
+  assert.equal(button(dom, 'settings').children.some((c) => c.id === 'help-dot'), true, 'What\u2019s new\u2019s dot rides the Settings icon');
+  fakeHud.tab = 'evidence';
+  adapter.open('evidence');
   await Promise.resolve();
-  assert.deepEqual(calls.at(-1), ['jaunts'], 'Jaunts opens the Jaunts list');
+  assert.equal(nav.app, 'guide', 'opening Evidence opens the Guide');
+  adapter.show('whatsnew');
+  await Promise.resolve();
+  assert.equal(nav.app, 'settings', 'choosing What\u2019s new switches to Settings');
+  adapter.close();
+  assert.equal(nav.detent, phone ? 'dock' : 'rail', 'closing the section docks the device');
+  await nav.select('home');
+  nav.open(1);
+  adapter.close();
+  assert.equal(nav.detent, phone ? 'half' : 'open', 'but closing a section never docks Home');
 
   // Jump is a real, lazy screen: loaded on first open, with HERE on this scene and the Recall key.
   nav.open(1);
@@ -464,15 +527,36 @@ for (const phone of [true, false]) {
 // drawer's People section, and 1904's Glessner household (T-2702), which has no drawer section
 // (T-1740) and so opens the Navigator's own screen, its directory read on first open.
 {
-  const calls = [];
   const dom = miniDom();
+  const hud = { open: false, tab: 'goto', panelOpen() { return this.open; }, setPanel(o) { this.open = o; dom.panel.hidden = !o; }, selectTab(t) { this.tab = t; } };
   const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1835.json'), isPhone: () => false, storage: fakeStorage(),
-    apps: APPS, context: () => ({ hasPeople: true, peopleSection: true, actions: { openSection: (id) => calls.push(id) } }) });
+    apps: APPS, context: () => ({ api: { hud }, hasPeople: true, peopleSection: true }) });
   assert(nav.apps.includes('people'), '1835: People shows');
   assert.deepEqual(nav.apps.slice(0, 3), ['home', 'jaunts', 'people'], 'under Jaunts');
   await nav.select('people');
-  assert.deepEqual(calls, ['people'], '1835: People opens the drawer\u2019s section');
-  assert.equal(dom.byId.get('nav-app-people') ?? null, null, '…and builds no screen of its own');
+  assert.equal(dom.panel.parent, dom.byId.get('nav-app-people'), '1835: People holds the drawer\u2019s People section');
+  assert.deepEqual([hud.open, hud.tab], [true, 'people']);
+  assert.deepEqual(dom.panel.children[0].children.filter((t) => !t.classList.contains('is-elsewhere')).map((t) => t.dataset.tab),
+    ['people', 'businesses'], '…with Businesses beside it');
+  // A close that lands while People is still mounting for the first time wins: the section
+  // ends shut and the device docked, not reopened by the late mount.
+  {
+    const d2 = miniDom();
+    const h2 = { open: false, tab: 'goto', panelOpen() { return this.open; }, setPanel(o) { this.open = o; d2.panel.hidden = !o; },
+      selectTab(t) { this.tab = t; }, setHost() {} };
+    const n2 = createNavigator({ root: d2.root, scene: json('data/scenes/1835.json'), isPhone: () => true, storage: fakeStorage(),
+      apps: APPS, context: () => ({ api: { hud: h2 }, hasPeople: true, peopleSection: true }) });
+    const a2 = installDrawerHost({ hud: h2, navigator: n2, doc: d2.doc });
+    a2.open('people');
+    a2.close();
+    for (let i = 0; i < 5; i++) await Promise.resolve();
+    await new Promise((r) => setTimeout(r, 0));
+    assert.equal(h2.open, false, 'a close before the first mount finishes keeps the section shut');
+    assert.equal(n2.detent, 'dock', '…and the device docked');
+  }
+  // Every section the drawer had has an app to hold it, and no app holds more than two.
+  assert.deepEqual(Object.keys(SECTION_HOME).sort(), ['businesses', 'controls', 'evidence', 'goto', 'people', 'settings', 'travel', 'whatsnew']);
+  assert(Object.values(APP_SECTIONS).every((t) => t.length <= 2) && Object.keys(APP_SECTIONS).every((a) => APPS.some((x) => x.id === a)));
 
   const none = createNavigator({ root: miniDom().root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
     apps: APPS, context: () => ({ hasPeople: false }) });

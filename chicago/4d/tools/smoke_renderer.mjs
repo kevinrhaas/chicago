@@ -1559,8 +1559,11 @@ for (const [label, viewport, touch] of [
         let owner = top;
         while (owner && !owner.id && owner !== document.body) owner = owner.parentElement;
         const inside = owner && owner.id && owner !== el ? ` inside #${owner.id}` : '';
+        // T-2620: the Navigator covers chrome only when it is open; say which height it was at.
+        const nav = top?.closest?.('#navigator');
+        const at = nav ? ` (Navigator ${nav.dataset.detent}, app ${window.__chicago4d?.navigator?.app ?? '?'})` : '';
         return `${s} is covered at its own centre by `
-          + `<${top ? top.tagName.toLowerCase() : 'nothing'}${cls ? ` class="${cls}"` : ''}>${inside}`;
+          + `<${top ? top.tagName.toLowerCase() : 'nothing'}${cls ? ` class="${cls}"` : ''}>${inside}${at}`;
       }
       // A real mouse press FOCUSES a focusable control, and an untrusted
       // `.click()` does not — which is a difference the suite already depends on
@@ -1576,6 +1579,27 @@ for (const [label, viewport, touch] of [
       return null;
     }, sel);
     if (why) throw new Error(`clickChrome: ${why}`);
+  };
+  // T-2620: the drawer and its hamburger are gone; each of the drawer's sections is held by
+  // a Navigator app (apps/drawer-host.js). A visitor reaches one by the app's rail icon —
+  // on a phone the rail shows once the sheet is open, so the handle comes first — and,
+  // where the app holds two sections, by the section's own tab. Each is a hit-tested click.
+  const SECTION_APP = { goto: 'jaunts', travel: 'move', people: 'people', businesses: 'people',
+    controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings' };
+  const openSection = async (tab) => {
+    const opened = () => page.waitForFunction(() => {
+      const r = document.getElementById('navigator')?.getBoundingClientRect();
+      return r && (innerWidth > 620 ? r.width >= 380 : r.height >= innerHeight * 0.4);
+    }, null, { timeout: 60_000, polling: 100 });
+    if (touch && await page.evaluate(() => window.__chicago4d.navigator?.level === 0)) {
+      await clickChrome('#nav-grip');
+      await opened();
+    }
+    await clickChrome(`#nav-rail [data-app="${SECTION_APP[tab]}"]`);
+    await opened();
+    await page.waitForFunction(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); },
+      null, { timeout: 60_000, polling: 100 });
+    if (await page.evaluate(() => window.__chicago4d.hud.tab) !== tab) await clickChrome(`.panel-tab[data-tab="${tab}"]`);
   };
   // T-2613: Home appears halfway through the landing's flip, not at ready (the old
   // #gate-btn sat on screen at ready), so a click on #home-roam waits for the journey
@@ -13127,8 +13151,7 @@ for (const [label, viewport, touch] of [
     // The menu is built from the two runtime collections, not from a sampled
     // shortlist.  With an empty query every loaded structure and every compiled
     // control junction must have a button; a real search must narrow both kinds.
-    await clickChrome('#btn-help');
-    await clickChrome('.panel-tab[data-tab="settings"]');
+    await openSection('settings');
     await clickChrome('#s-show-control-help');
     const reopenedGuide = await page.evaluate(() => ({
       shown: !document.getElementById('control-help').hasAttribute('hidden'),
@@ -13138,8 +13161,7 @@ for (const [label, viewport, touch] of [
       reopenedGuide.shown && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
     await clickChrome('#control-help-close');
-    await clickChrome('#btn-help');
-    await clickChrome('.panel-tab[data-tab="settings"]');
+    await openSection('settings');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const select = document.getElementById('s-units');
@@ -13227,7 +13249,7 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => {
       window.__chicago4d.popup.close();
       if (document.getElementById('panel').hasAttribute('hidden')) {
-        document.getElementById('btn-help').click();
+        window.__chicago4d.hud.setPanel(true); // T-2620: the drawer's sections are Navigator apps
       }
     });
 
@@ -13242,7 +13264,7 @@ for (const [label, viewport, touch] of [
     // And free-fly must NOT be resettled — up there the eye height is an
     // altitude the visitor is flying, and dropping them to standing height mid
     // flight would be the setting reaching somewhere it has no business.
-    await clickChrome('.panel-tab[data-tab="settings"]');
+    await openSection('settings');
     const eye = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const el = document.getElementById('s-eye');
@@ -13348,49 +13370,43 @@ for (const [label, viewport, touch] of [
     // just as surely as one whose scrollWidth does. Labels are ALLOWED to wrap
     // onto two lines by design ("What's / new"), which is why the button is
     // measured and never the label.
-    const tabStrip = await page.evaluate(() => {
-      const bar = document.querySelector('.panel-tabs');
-      const items = [...bar.querySelectorAll('.panel-tab')];
-      return {
-        order: items.map((el) => el.dataset.tab),
-        // A rail that has silently become two columns (desktop) or two rows
-        // (phone) is the failure mode this panel has already had once, so
-        // measure the geometry rather than trust the flex direction to hold.
-        // The tabs only: the close button lives in the head row, not the rail.
-        rows: new Set(items.map((el) => Math.round(el.offsetTop))).size,
-        cols: new Set(items.map((el) => Math.round(el.offsetLeft))).size,
-        overflow: Math.max(Math.round(bar.scrollWidth - bar.clientWidth),
-          Math.round(bar.scrollHeight - bar.clientHeight)),
-        // The tabs are allowed to shrink, so "one line, no overflow" can also be
-        // reached by squeezing a label out past its own button. Count that too,
-        // in both directions.
-        squeezed: items.filter((el) => el.scrollWidth > el.clientWidth + 1
-          || el.scrollHeight > el.clientHeight + 1).map((el) => el.dataset.tab),
-        // Every item has a real box: a rail item collapsed to nothing would
-        // trivially satisfy "one column, unsqueezed".
-        boxless: items.filter((el) => el.getBoundingClientRect().height < 40
-          || el.getBoundingClientRect().width < 40).map((el) => el.dataset.tab),
-        strayViewpointList: document.querySelectorAll(
-          '[data-panel="settings"] .anchor-btn, #anchors').length,
-      };
+    // T-2620: the eight sideways-scrolling menu tabs are gone with the drawer. Each section
+    // is held by a Navigator app, and an app shows at most its own two tabs, so the claim
+    // becomes: every section has an app on the rail, and every app's tab row (where it has
+    // two) is one row that fits, unsqueezed, every tab a real box.
+    const tabStrip = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const HOME = { goto: 'jaunts', travel: 'move', people: 'people', businesses: 'people',
+        controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings' };
+      const all = [...document.querySelectorAll('.panel-tab')];
+      const out = { order: all.map((el) => el.dataset.tab), homeless: [], rows: {}, overflow: 0, squeezed: [], boxless: [] };
+      for (const el of all) {
+        if (!el.hidden && !api.navigator.apps.includes(HOME[el.dataset.tab])) out.homeless.push(el.dataset.tab);
+      }
+      for (const app of ['people', 'guide', 'settings']) {
+        if (!api.navigator.apps.includes(app)) continue;
+        await api.navigator.select(app);
+        await new Promise((r) => setTimeout(r, 50));
+        const bar = document.querySelector('.panel-tabs');
+        const items = [...bar.querySelectorAll('.panel-tab')].filter((el) => el.getClientRects().length);
+        if (items.length < 2) continue;
+        out.rows[app] = new Set(items.map((el) => Math.round(el.offsetTop))).size;
+        out.overflow = Math.max(out.overflow, Math.round(bar.scrollWidth - bar.clientWidth));
+        out.squeezed.push(...items.filter((el) => el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1).map((el) => el.dataset.tab));
+        out.boxless.push(...items.filter((el) => el.getBoundingClientRect().height < 40 || el.getBoundingClientRect().width < 40).map((el) => el.dataset.tab));
+      }
+      await api.navigator.select('jaunts');
+      out.strayViewpointList = document.querySelectorAll('[data-panel="settings"] .anchor-btn, #anchors').length;
+      return out;
     });
-    // Was "Go to is a tab of its own, immediately after Controls" (five tabs).
-    // The claim is the same — the rail's order is exact and Go to leads it —
-    // over the eight sections the drawer carries since T-1324 put the town's
-    // firms beside its people.
-    check(`${label}: the rail lists the eight sections in order, Go to first`,
-      tabStrip.order.join(',') === 'goto,travel,people,businesses,evidence,settings,controls,whatsnew',
-      tabStrip.order.join(','));
-    // Was "five tabs still fit the panel on one row, unsqueezed". Eight items
-    // now, one column on the desktop drawer and one row on the phone sheet —
-    // and the phone is the binding case: eight of them share 390 px, which is
-    // why the Businesses tab wears the short label "Firms" on the rail and
-    // carries its full name in `data-title` for the drawer's head.
-    check(`${label}: eight rail items fit the panel unsqueezed — one column on desktop, one row on a phone`,
-      (touch ? tabStrip.rows === 1 : tabStrip.cols === 1)
+    check(`${label}: every section the drawer had is held by a Navigator app on the rail`,
+      tabStrip.order.join(',') === 'goto,travel,people,businesses,evidence,settings,controls,whatsnew' && !tabStrip.homeless.length,
+      `${tabStrip.order.join(',')}; without an app: [${tabStrip.homeless.join(', ')}]`);
+    check(`${label}: an app's section tabs fit one row, unsqueezed — no menu row scrolls sideways`,
+      Object.values(tabStrip.rows).every((n) => n === 1) && Object.keys(tabStrip.rows).length >= 1
       && tabStrip.overflow <= 1 && !tabStrip.squeezed.length && !tabStrip.boxless.length,
-      `${tabStrip.rows} row(s) x ${tabStrip.cols} column(s), ${tabStrip.overflow}px of rail `
-      + `overflow, squeezed [${tabStrip.squeezed.join(', ')}], boxless [${tabStrip.boxless.join(', ')}]`);
+      `${JSON.stringify(tabStrip.rows)} row(s) per app, ${tabStrip.overflow}px overflow, `
+      + `squeezed [${tabStrip.squeezed.join(', ')}], boxless [${tabStrip.boxless.join(', ')}]`);
     check(`${label}: Settings no longer carries a second list of viewpoints`,
       tabStrip.strayViewpointList === 0, `${tabStrip.strayViewpointList} stray node(s)`);
 
@@ -13674,12 +13690,12 @@ for (const [label, viewport, touch] of [
     check(`${label}: closing the drawer brings the tucked card back`,
       drawer.back && drawer.backHidden === false, `back ${drawer.back}, hidden ${drawer.backHidden}`);
     check(`${label}: the drawer reaches the bottom of the screen and starts under the year badge`,
-      drawer.panelBottom >= drawer.innerHeight - 1 && (touch || drawer.panelTop >= drawer.badgeBottom),
+      // T-2620: the sections live in the Navigator, which stands a 10 px bezel off the bottom.
+      drawer.panelBottom >= drawer.innerHeight - 24 && (touch || drawer.panelTop >= drawer.badgeBottom),
       `drawer ${drawer.panelTop}–${drawer.panelBottom} of ${drawer.innerHeight}, badge bottom ${drawer.badgeBottom}`);
 
     // T-0702/T-0703: the Go-to pills, groups, distances and keyboard.
-    await clickChrome('#btn-help');
-    await clickChrome('.panel-tab[data-tab="goto"]');
+    await openSection('goto');
     const gotoMore = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const registry = api.registry;
@@ -13820,8 +13836,7 @@ for (const [label, viewport, touch] of [
 
     // T-0704/T-0705: Travel — five modes, persisted; the paces through the
     // walker's own WALK; the horse's gait; nothing under reduced motion.
-    await clickChrome('#btn-help');
-    await clickChrome('.panel-tab[data-tab="travel"]');
+    await openSection('travel');
     const gaitLoop = `(() => {
       const a = window.__chicago4d; const w = a.walker; const T = a.travel; const I = a.intent;
       let peak = 0; let speed = 0;
@@ -14086,8 +14101,7 @@ for (const [label, viewport, touch] of [
     // T-0708/T-0709: the People directory — every person, searched, narrowed,
     // opened, and walked to. `open()` is awaited: under swiftshader the record
     // body settles in seconds, and a fixed wait would measure the machine.
-    await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
-    await clickChrome('.panel-tab[data-tab="people"]');
+    await openSection('people');
     const people = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const dir = api.people;
@@ -14397,8 +14411,7 @@ for (const [label, viewport, touch] of [
     // is that the unplaceable ones are REACHABLE and print their limit: a house
     // the register could place nowhere is evidence, not an absence, and the one
     // thing this project will not do is invent a building to carry it.
-    await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
-    await clickChrome('.panel-tab[data-tab="businesses"]');
+    await openSection('businesses');
     const biz = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const dir = api.businesses;
@@ -14522,8 +14535,7 @@ for (const [label, viewport, touch] of [
     // register puts them in, and the building card's Use row names every firm the
     // register puts in that roof. Both are read off `businesses/index.json`, so
     // the counts asserted here are the FILE's and never typed.
-    await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
-    await clickChrome('.panel-tab[data-tab="people"]');
+    await openSection('people');
     const wanted = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const idx = await (await fetch(new URL('businesses/index.json', api.dataBase))).json();
@@ -14669,8 +14681,7 @@ for (const [label, viewport, touch] of [
     // T-0710/T-1292: the Evidence hub — eleven tiles whose counts are their mounts'
     // entries, a topic that searches, and a way back. City is second and its two
     // ladders are fetched only when this tab opens.
-    await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
-    await clickChrome('.panel-tab[data-tab="evidence"]');
+    await openSection('evidence');
     await libertiesLoaded();
     const hub = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -14910,8 +14921,7 @@ for (const [label, viewport, touch] of [
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
 
-    await clickChrome('#btn-help');
-    await clickChrome('.panel-tab[data-tab="settings"]');
+    await openSection('settings');
     const toggles = await page.evaluate(() => {
       const compass = document.getElementById('s-compass');
       const map = document.getElementById('s-overview-map');
@@ -15004,8 +15014,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: a first-time visitor is told there are unread notes`,
       unread.chip && unread.tab, `chip ${unread.chip}, tab ${unread.tab}`);
 
-    await clickChrome('#btn-help');
-    await clickChrome('.panel-tab[data-tab="whatsnew"]');
+    await openSection('whatsnew');
     // The tab imports the changelog when it opens (T-1973), so wait for the feed
     // to paint and the marker to clear rather than a fixed beat; the checks below
     // still judge what arrived.
@@ -15044,8 +15053,7 @@ for (const [label, viewport, touch] of [
     await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
-    await clickChrome('#btn-help');
-    await clickChrome('.panel-tab[data-tab="whatsnew"]');
+    await openSection('whatsnew');
     // The tab imports the changelog when it opens (T-1973), so wait for the feed
     // to paint and the marker to clear rather than a fixed beat; the checks below
     // still judge what arrived.
@@ -15094,7 +15102,7 @@ for (const [label, viewport, touch] of [
       // The what's-new checks above leave the panel open on their tab, and a
       // toggle here would close it — open only if it is shut.
       if (document.getElementById('panel').hasAttribute('hidden')) {
-        document.getElementById('btn-help').click();
+        window.__chicago4d.hud.setPanel(true); // T-2620: the drawer's sections are Navigator apps
       }
       const tab = [...document.querySelectorAll('.panel-tab')]
         .find((t) => t.dataset.tab === 'evidence');

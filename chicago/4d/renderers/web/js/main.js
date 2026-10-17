@@ -97,6 +97,7 @@ import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { createNavigator } from './navigator.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
+import { install as installDrawerHost } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
 import { createWhere } from './where.js';
 import { resolveSharpness } from './sharpness.js';
@@ -3987,6 +3988,9 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // T-2620: the drawer's sections now live in the Navigator's apps; hud.setPanel and
+  // hud.selectTab open and close them there.
+  installDrawerHost({ hud, navigator: navigatorUi });
 
   // ---- resize ----------------------------------------------------------- //
 

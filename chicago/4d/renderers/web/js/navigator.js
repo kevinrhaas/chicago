@@ -136,8 +136,8 @@ export function createNavigator({
     const detent = list[Math.min(level, list.length - 1)];
     root.dataset.detent = detent;
     if (html?.dataset) {
-      if (isPhone()) delete html.dataset.navigator;
-      else html.dataset.navigator = detent;
+      if (isPhone()) { delete html.dataset.navigator; html.dataset.sheet = detent; }
+      else { html.dataset.navigator = detent; delete html.dataset.sheet; }
     }
     const open = level > 0;
     grip?.setAttribute('aria-expanded', String(open));
@@ -153,6 +153,8 @@ export function createNavigator({
     paintLevel();
     listen(level > 0);
     listenNear();
+    // T-2620: an app holding the drawer's sections closes them while the screen is out of sight.
+    registry.setVisible(level > 0);
     if (railShows()) registry.evaluate();
     if (level > 0 && registry.current === 'home') refresh(true);
     if (focus && was === 0 && level > 0) {
@@ -308,6 +310,7 @@ export function createNavigator({
   for (const app of apps) registry.register(app);
   paintLevel();
   listenNear();
+  registry.setVisible(level > 0);
   if (registry.has('home')) void registry.select('home', { by: 'quiet' });
   registry.evaluate();
   return api;
