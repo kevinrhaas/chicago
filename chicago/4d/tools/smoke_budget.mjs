@@ -297,6 +297,9 @@ const COVERAGE = [
   // --- PART 3: the ground you stand on, and the card that says why
   ['renderers/web/js/ground.js', [3], 'the ground faces the sky (R-BUG3c)'],
   ['renderers/web/js/terrain.js', [3], 'the ground the town stands on'],
+  // What publish prebuilt, read before the ground, the distant base and the frontage ask
+  // for theirs; every part boots through it, and the zero-page-errors check reads its 404s.
+  ['renderers/web/js/prebuilt-index.js', ALL, 'the list of prebuilt layers the boot reads first'],
   // T-2599. The job pool and the spatial partition its workers run. Only terrain's
   // boot ground tiles go through the pool so far, so part 3 is where it is read;
   // T-2600 moves the other spatialBatch callers and widens this with them.
