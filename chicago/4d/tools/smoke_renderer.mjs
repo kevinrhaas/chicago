@@ -1538,6 +1538,19 @@ for (const [label, viewport, touch] of [
           await new Promise((r) => setTimeout(r, 50));
         }
       }
+      // The Navigator WIDENS too. On a desktop its open is a .28 s width transition from
+      // the 58 px rail to 400 px, and the transition's clock only moves when the page gets
+      // to draw; on a runner where a frame of the town takes seconds, a fixed wait can end
+      // with the panel still a sliver. T-2622's keyboard check ends on Escape (the panel
+      // collapsed to its rail) and T-2630's opens it and clicks Home's Go to after 400 ms:
+      // "covered at its own centre by <button class=\"nav-choice\">". Waited for the same
+      // way as the drawer: the hit-test still runs, on the settled box.
+      const device = el.closest('#navigator');
+      if (device?.getAnimations) {
+        for (let i = 0; i < 60 && device.getAnimations().some((a) => a.playState === 'running'); i++) {
+          await new Promise((r) => setTimeout(r, 50));
+        }
+      }
       // The same scroll `page.click` would do, in the same round trip as the
       // reading — a result row far down the Go-to list is off the panel's
       // viewport until this runs, and `elementFromPoint` would then answer for
@@ -10451,9 +10464,8 @@ for (const [label, viewport, touch] of [
     const chrome = await page.evaluate(() => ({
       gateHidden: document.getElementById('gate').hasAttribute('hidden'),
       hudShown: !document.getElementById('hud').hasAttribute('hidden'),
-      controlHelpShown: !document.getElementById('control-help').hasAttribute('hidden'),
-      desktopHelpShown: getComputedStyle(document.getElementById('control-help-desktop')).display !== 'none',
-      touchHelpShown: getComputedStyle(document.getElementById('control-help-touch')).display !== 'none',
+      // T-2661: the control-help popover is gone; Guide in the Navigator has the controls.
+      controlHelpGone: document.getElementById('control-help') === null,
       overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       lookTag: !document.getElementById('look-tag').hidden,
       locked: !!document.pointerLockElement,
@@ -10466,20 +10478,37 @@ for (const [label, viewport, touch] of [
     check(`${label}: tap-to-start reveals the walkthrough`,
       chrome.gateHidden && chrome.hudShown,
       `gate hidden ${chrome.gateHidden}, hud shown ${chrome.hudShown}`);
-    check(`${label}: first entry shows the navigation guide for the active input mode`,
-      chrome.controlHelpShown
-      && (touch ? chrome.touchHelpShown && !chrome.desktopHelpShown
-        : chrome.desktopHelpShown && !chrome.touchHelpShown),
-      JSON.stringify(chrome));
+    // ---- T-2661: Guide's controls sheet replaces the control-help popover ----------
+    // First entry puts no popover over the town; Guide in the Navigator shows the
+    // controls for the input in use — touch on the phone, keyboard on the laptop — read
+    // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
-    await timedChrome('#control-help-gotit');
-    const controlHelpDismissed = await page.evaluate(() => ({
-      hidden: document.getElementById('control-help').hasAttribute('hidden'),
-      stored: localStorage.getItem('chicago4d.controlHelpDismissed'),
-    }));
-    check(`${label}: the navigation guide dismisses and remembers the choice`,
-      controlHelpDismissed.hidden && controlHelpDismissed.stored === '1',
-      JSON.stringify(controlHelpDismissed));
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const guide = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const sheet = document.querySelector('#nav-app-guide #guide-controls');
+      const list = sheet?.querySelector('dl');
+      const box = sheet?.getBoundingClientRect();
+      const out = { gone: document.getElementById('control-help') === null, app: api.navigator.app, detent: api.navigator.detent,
+        backend: api.controlBackend, scheme: sheet?.dataset.scheme ?? null, rows: list?.querySelectorAll('dt').length ?? 0,
+        keys: list?.querySelectorAll('kbd').length ?? 0, text: (sheet?.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 160),
+        inView: !!box && box.width > 0 && box.left >= -1 && box.right <= innerWidth + 1,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(sheet?.textContent ?? '') };
+      // Put the device back as it was found: Home its app, docked. The dock remembers its
+      // last app, and T-2619's checks in part 13 expect it to open on Home.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: first entry puts no control-help popover over the town; Guide's sheet shows the ${touch ? 'touch' : 'keyboard'} controls in use (T-2661)`,
+      chrome.controlHelpGone && guide.gone && guide.app === 'guide' && guide.detent !== 'dock' && guide.detent !== 'rail'
+      && guide.scheme === (touch ? 'touch' : 'keyboard') && guide.rows >= 6
+      && (touch ? guide.keys === 0 && /left thumb/i.test(guide.text) : guide.keys >= 10 && guide.backend === 'pointerlock')
+      && guide.inView && guide.overflow && !guide.snake,
+      JSON.stringify({ chrome, guide }));
+    // ---- end T-2661 (part 6)
 
     // --- the confidence menu takes its own clicks (T-0108) -------------------
     //
@@ -13294,15 +13323,28 @@ for (const [label, viewport, touch] of [
     // control junction must have a button; a real search must narrow both kinds.
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
+    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator.
     await clickChrome('#s-show-control-help');
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'guide'
+      && !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
     const reopenedGuide = await page.evaluate(() => ({
-      shown: !document.getElementById('control-help').hasAttribute('hidden'),
+      app: window.__chicago4d.navigator.app,
+      detent: window.__chicago4d.navigator.detent,
+      scheme: document.querySelector('#nav-app-guide #guide-controls')?.dataset.scheme ?? null,
+      backend: window.__chicago4d.controlBackend,
+      label: document.getElementById('s-show-control-help')?.textContent.trim(),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
     }));
-    check(`${label}: Settings can reopen the dismissed navigation guide`,
-      reopenedGuide.shown && reopenedGuide.panelHidden,
+    check(`${label}: Settings' Show the controls opens Guide's controls sheet in the Navigator (T-2661)`,
+      reopenedGuide.app === 'guide' && reopenedGuide.detent !== 'dock' && reopenedGuide.detent !== 'rail'
+      // By now a key the smoke pressed may have handed even the phone to the keyboard:
+      // the sheet follows the controls that are live, so it is read against those.
+      && reopenedGuide.scheme === (reopenedGuide.backend === 'touch' ? 'touch' : 'keyboard')
+      && reopenedGuide.label === 'Show the controls' && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await clickChrome('#control-help-close');
+    // Back as it was found: Home, docked (T-2619's dock opens on its last app).
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+    // ---- end T-2661 (part 12)
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
@@ -13606,13 +13648,19 @@ for (const [label, viewport, touch] of [
       api.hud.goTo.setKind('all');
       input.value = '';
       input.dispatchEvent(new Event('input', { bubbles: true }));
-      const toggle = document.getElementById('jump-reconstructed');
-      const setToggle = (on) => {
-        if (toggle.checked === on) return;
-        toggle.checked = on;
-        toggle.dispatchEvent(new Event('change', { bubbles: true }));
-      };
+      // ---- T-2633: Go to follows the Confidence view. The checkbox is gone; "off" is now
+      // Reconstructed hidden in the Confidence view, which lists those roofs dimmed with a
+      // reason, and "on" is nothing hidden, the default. The claims below are restated on
+      // the rows a visitor reads as live (not dimmed), never weakened.
+      const noCheckbox = !document.getElementById('jump-reconstructed');
+      const setToggle = (on) => api.hud.setHidden('reconstructed', !on, { announce: false });
+      const liveRows = () => structRows().filter((r) => !r.dataset.jumpHidden);
       setToggle(false);
+      const dimmedRows = structRows().filter((r) => r.dataset.jumpHidden === 'true');
+      const dimmed = { rows: dimmedRows.length, grades: [...new Set(dimmedRows.map((r) => r.dataset.jumpConfidence))],
+        why: dimmedRows.every((r) => /^Reconstructed is hidden in the Confidence view/.test(r.querySelector('.jump-why')?.textContent ?? '')),
+        listed: structRows().length };
+      // ---- end T-2633 (setup)
       // The registry's own tallies, counted here and not read off the app.
       const tally = { attested: 0, inferred: 0, reconstructed: 0 };
       const posTally = { attested: 0, inferred: 0, reconstructed: 0 };
@@ -13634,13 +13682,13 @@ for (const [label, viewport, touch] of [
       };
       const rows = rowsNow();
       const dflt = {
-        structures: structRows().length,
+        structures: liveRows().length,
         anchors: rows.filter((r) => r.dataset.jumpKind === 'anchor').length,
         intersections: rows.filter((r) => r.dataset.jumpKind === 'intersection').length,
         chippedNonStructures: rows.filter((r) => r.dataset.jumpKind !== 'structure'
           && r.querySelector('.conf')).length,
         // Only the two grades that stood here should be chipped before the toggle.
-        chipGrades: [...new Set(structRows().map((r) => r.querySelector('.conf')?.textContent.trim()))],
+        chipGrades: [...new Set(liveRows().map((r) => r.querySelector('.conf')?.textContent.trim()))],
         note: document.getElementById('jump-note')?.textContent ?? '',
         colours: {
           attested: colourOf('attested'),
@@ -13669,10 +13717,12 @@ for (const [label, viewport, touch] of [
       }
       const on = {
         structures: structRows().length,
+        dimmedAfter: structRows().filter((r) => r.dataset.jumpHidden).length,
         note: document.getElementById('jump-note')?.textContent ?? '',
         colours: { reconstructed: colourOf('reconstructed') },
       };
-      setToggle(false);
+      // T-2633: leave the Confidence view as a visitor finds it, nothing hidden.
+      setToggle(true);
       const all = {
         anchors: dflt.anchors,
         structures: dflt.structures,
@@ -13691,22 +13741,27 @@ for (const [label, viewport, touch] of [
         .map((b) => ({ id: b.dataset.jumpId, kind: b.dataset.jumpKind, text: b.textContent }));
       return { all, filtered, graded, mismatched, tally, posTally, nonReconstructed,
         dflt: { structures: dflt.structures, chipGrades: dflt.chipGrades, note: dflt.note },
-        on: { structures: on.structures, note: on.note }, colours, stored:
-          JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').gotoReconstructed };
+        on: { structures: on.structures, note: on.note, dimmedAfter: on.dimmedAfter }, colours, dimmed, noCheckbox };
     });
     // Was "jump menu includes every loaded structure" (=== registry.size). The
     // list now hides presence-reconstructed roofs by default, so the claim is
     // taken in both states: exactly the non-reconstructed records by default,
     // exactly the registry with the toggle on — and the toggle's own state is
     // persisted where the visitor's settings live.
-    check(`${label}: jump menu lists every structure that stood here, and every roof once asked`,
+    // ---- T-2633: restated for the Confidence view. With Reconstructed hidden, exactly the
+    // non-reconstructed records read live and every reconstructed one is listed dimmed with
+    // its reason; with nothing hidden, every roof reads live; and the checkbox is gone.
+    check(`${label}: jump menu lists every structure that stood here, and every roof dimmed while the Confidence view hides Reconstructed (T-2633)`,
       jumps.dflt.structures === jumps.nonReconstructed && jumps.nonReconstructed > 70
-      && jumps.on.structures === jumps.all.loaded && jumps.all.loaded > jumps.nonReconstructed
+      && jumps.dimmed.rows === jumps.tally.reconstructed && jumps.dimmed.listed === jumps.all.loaded
+      && jumps.dimmed.grades.every((g) => g === 'reconstructed') && jumps.dimmed.why
+      && jumps.on.structures === jumps.all.loaded && jumps.on.dimmedAfter === 0 && jumps.all.loaded > jumps.nonReconstructed
       && jumps.dflt.chipGrades.every((g) => g === 'attested' || g === 'inferred')
-      && jumps.stored === false,
-      `${jumps.dflt.structures} listed of ${jumps.nonReconstructed} non-reconstructed by default `
-      + `(chips ${jumps.dflt.chipGrades.join('/')}); ${jumps.on.structures} of ${jumps.all.loaded} `
-      + `loaded with the toggle on; stored gotoReconstructed ${jumps.stored}`);
+      && jumps.noCheckbox,
+      `${jumps.dflt.structures} live of ${jumps.nonReconstructed} non-reconstructed with Reconstructed hidden `
+      + `(chips ${jumps.dflt.chipGrades.join('/')}; dimmed ${JSON.stringify(jumps.dimmed)}); ${jumps.on.structures} of ${jumps.all.loaded} `
+      + `live with nothing hidden (${jumps.on.dimmedAfter} dimmed); checkbox gone ${jumps.noCheckbox}`);
+    // ---- end T-2633 (the list)
     // Against the compiled list, NOT against a literal. This assertion read
     // `=== 4` until T-0245 committed a fifth control point on South Water at
     // Franklin and turned a correct menu into a red gate — the same fault the
@@ -13750,13 +13805,12 @@ for (const [label, viewport, touch] of [
     // 288 reconstructed." — every figure against the registry tally computed
     // above, in both toggle states.
     check(`${label}: the tab counts its own list rather than quoting a written total`,
-      jumps.dflt.note.includes(`${jumps.nonReconstructed} of ${jumps.all.loaded} structures`)
-      && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are hidden`)
+      // T-2633: the note says what the Confidence view is dimming, with the same tallies.
+      jumps.dflt.note.includes(`${jumps.all.loaded} structures — the reconstructed ones are dimmed, because the Confidence view is hiding them`)
       && jumps.dflt.note.includes(`${jumps.tally.attested} are attested`)
       && jumps.dflt.note.includes(`${jumps.tally.inferred} inferred`)
       && jumps.dflt.note.includes(`${jumps.tally.reconstructed} reconstructed`)
-      && jumps.on.note.includes(`${jumps.all.loaded} of ${jumps.all.loaded} structures`)
-      && jumps.on.note.includes(`${jumps.tally.reconstructed} reconstructed roofs are showing`),
+      && jumps.on.note.includes(`${jumps.all.loaded} structures — every one listed`),
       `${jumps.dflt.note} / ${jumps.on.note} / ${JSON.stringify(jumps.tally)}`);
     check(`${label}: jump search finds an intersection by both street names`,
       jumps.filtered.some((r) => r.id === 'randolph_canal' && r.kind === 'intersection'),
@@ -13872,7 +13926,7 @@ for (const [label, viewport, touch] of [
       };
       // Back to All, every roof shown so every structure row is judged.
       api.hud.goTo.setKind('all');
-      api.hud.goTo.setIncludeReconstructed(true);
+      api.hud.setHidden('reconstructed', false, { announce: false }); // T-2633: every roof live
       const all = rows();
       const headingFor = (row) => {
         let el = row.previousElementSibling;
@@ -13898,7 +13952,6 @@ for (const [label, viewport, touch] of [
         dishonest: all.filter(r => !located(r) && (r.querySelector('.jump-dist')?.textContent.trim()
           || r.querySelector('.jump-dist')?.dataset.m || !targetFor(r)?.limit)).length,
       };
-      api.hud.goTo.setIncludeReconstructed(false);
       // Stand 100 m due east of the Sauganash, then 200 m: the row's metres
       // follow the visitor by ≈100 and the compass says west both times.
       const sp = api.structurePosition('sauganash_hotel');
@@ -15275,6 +15328,28 @@ for (const [label, viewport, touch] of [
     // segment (Jaunts · Go to · Free roam, a tablist). Go to is the Welcome card's own
     // search, lent to the device; the rail opens the app too; Free roam docks it; and the
     // card gets its list and search back, in place, when it shows again.
+    // ---- fix-home-choices-overlap: Home's three choices never draw over one another, not
+    // even while the desktop panel widens from its rail (sampled the moment it opens, every
+    // 40 ms until it settles): each choice ends before the next begins.
+    const choicesWhileOpening = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      await api.navigator.select('home');
+      api.navigator.dock();
+      await new Promise((r) => setTimeout(r, 400));
+      api.navigator.open(1);
+      const seen = [];
+      for (let i = 0; i < 12; i++) {
+        const r = [...document.querySelectorAll('#nav-home .nav-choice')].map((b) => b.getBoundingClientRect());
+        seen.push(r.map((b) => [Math.round(b.left), Math.round(b.right)]));
+        await new Promise((res) => setTimeout(res, 40));
+      }
+      api.navigator.dock();
+      return { seen, overlaps: seen.filter((row) => row.some((b, i) => i > 0 && row[i - 1][1] > b[0] + 1)).length };
+    });
+    check(`${label}: Home's three choices never draw over one another while the Navigator opens`,
+      choicesWhileOpening.overlaps === 0 && choicesWhileOpening.seen.length === 12,
+      JSON.stringify({ overlaps: choicesWhileOpening.overlaps, first: choicesWhileOpening.seen[0], last: choicesWhileOpening.seen.at(-1) }));
+    // ---- end fix-home-choices-overlap
     await page.evaluate(() => { window.__chicago4d.hud.setPanel(false); window.__chicago4d.navigator.open(1); window.__chicago4d.navigator.select('home'); });
     await page.waitForTimeout(400);
     await clickChrome('#nav-home [data-segment="goto"]');
@@ -15308,6 +15383,106 @@ for (const [label, viewport, touch] of [
       && segJaunts.current === 'jaunts' && segJaunts.listInApp && viaRail === 'jaunts' && roamed === 0
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
+
+    // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
+    // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
+    // row says how far and which way from where you stand.
+    const gotoClean = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      await new Promise((r) => setTimeout(r, 200));
+      const kinds = [...document.querySelectorAll('#welcome-kinds button')];
+      const shown = kinds.filter((b) => !b.hidden && b.getClientRects().length);
+      const counts = shown.map((b) => { b.click(); return [b.textContent, document.querySelectorAll('#welcome-results .welcome-destination').length]; });
+      kinds[0]?.click();
+      const rows = [...document.querySelectorAll('#welcome-results .welcome-destination:not(:disabled)')].slice(0, 12);
+      const name = rows[0]?.querySelector('strong');
+      const out = { labels: kinds.map((b) => b.textContent), shown: shown.map((b) => b.textContent), counts,
+        withDistance: rows.filter((r) => /^(here|.+ (N|NNE|NE|ENE|E|ESE|SE|SSE|S|SSW|SW|WSW|W|WNW|NW|NNW))$/.test(r.querySelector('.welcome-dist')?.textContent.trim() ?? '')).length,
+        rows: rows.length, clamp: name ? getComputedStyle(name).webkitLineClamp : null,
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1 };
+      api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Go to offers All · Places · People · Shops & work · Viewpoints, no empty chip, two-line names, and each row's distance and bearing (T-2632)`,
+      gotoClean.labels.join() === 'All,Places,People,Shops & work,Viewpoints' && gotoClean.shown[0] === 'All'
+      && gotoClean.counts.every(([, n]) => n > 0) && gotoClean.rows > 0 && gotoClean.withDistance === gotoClean.rows
+      && String(gotoClean.clamp) === '2' && gotoClean.overflow,
+      JSON.stringify(gotoClean));
+    // ---- end T-2632
+    // ---- T-2633: the Navigator's Go to follows the Confidence view too: with Reconstructed
+    // hidden, a reconstructed place is listed dimmed with its one-line reason, and is
+    // itself again the moment the grade is shown.
+    const gotoConfidence = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const target = api.destinations.targets.find((t) => t.kind === 'structure' && t.presence === 'reconstructed');
+      if (!target) return { target: null };
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      const search = document.getElementById('welcome-search');
+      const read = () => {
+        const row = [...document.querySelectorAll('#welcome-results .welcome-destination')].find((r) => r.dataset.id === target.id);
+        return { listed: !!row, dimmed: !!row?.classList.contains('is-hidden-grade'), why: row?.querySelector('.welcome-why')?.textContent ?? null };
+      };
+      search.value = target.label;
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.hud.setHidden('reconstructed', true, { announce: false });
+      const hidden = read();
+      api.hud.setHidden('reconstructed', false, { announce: false });
+      const shown = read();
+      search.value = '';
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+      api.jauntsApp?.restore();
+      // Back as it was found: Home, docked (the dock reopens its last app).
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return { target: target.id, hidden, shown };
+    });
+    check(`${label}: with Reconstructed hidden, Go to lists a reconstructed place dimmed with its reason, and plain again once shown (T-2633)`,
+      !!gotoConfidence.target && gotoConfidence.hidden.listed && gotoConfidence.hidden.dimmed
+      && /^Reconstructed is hidden in the Confidence view/.test(gotoConfidence.hidden.why ?? '')
+      && gotoConfidence.shown.listed && !gotoConfidence.shown.dimmed && gotoConfidence.shown.why === null,
+      JSON.stringify(gotoConfidence));
+    // ---- end T-2633 (Navigator Go to)
+    // ---- T-2634: Free roam docks the Navigator and, once per device, says how to inspect.
+    const roamTip = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      const roam = async () => {
+        api.navigator.open(1);
+        await api.navigator.select('jaunts');
+        document.querySelector('#nav-app-jaunts [data-segment="roam"]')?.click();
+        document.querySelector('#nav-app-jaunts .nav-roam')?.click();
+        await pause(100);
+        const tip = document.getElementById('roam-tip');
+        return { level: api.navigator.level, showing: !!tip && !tip.hidden, text: tip?.textContent ?? '',
+          stored: localStorage.getItem('chicago4d.roamTipSeen'), backend: api.controlBackend };
+      };
+      api.roamTip.forget();
+      const first = await roam();
+      const box = document.getElementById('roam-tip')?.getBoundingClientRect();
+      first.inView = !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.bottom <= innerHeight;
+      api.roamTip.hide();
+      const second = await roam();
+      api.jauntsApp?.restore();
+      // Back as it was found: Home its app (the dock reopens its last app), docked.
+      await api.navigator.select('home');
+      api.navigator.dock();
+      api.roamTip.hide();
+      return { first, second };
+    });
+    const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.';
+    check(`${label}: Free roam docks the Navigator and shows "${tipWords}" once per device (T-2634)`,
+      roamTip.first.level === 0 && roamTip.first.showing && roamTip.first.text === tipWords && roamTip.first.stored === '1' && roamTip.first.inView
+      && roamTip.second.level === 0 && !roamTip.second.showing,
+      JSON.stringify(roamTip));
+    // ---- end T-2634
 
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
@@ -17734,9 +17909,23 @@ for (const [label, viewport, touch] of [
     // --- Menu pauses, Resume returns, End is quick ----------------------------------
     await tap('#jaunt-panel [data-action="menu"]');
     await until(() => window.__chicago4d.welcome.state === 'welcome');
-    await until(() => [...document.querySelectorAll('#welcome-jaunts-content button')]
-      .some((x) => x.textContent.trim() === 'Resume Jaunt'));
-    await tap('#welcome-jaunts-content button', 'Resume Jaunt');
+    // ---- T-2631: the paused outing leads the list as a Continue card — where you are,
+    // and the next stop by name — and its Continue returns to the same stop.
+    await until(() => !!document.querySelector('#welcome-jaunts-content .jaunt-continue [data-action="continue"]'));
+    const continueCard = await p14.evaluate(() => {
+      const card = document.querySelector('#welcome-jaunts-content .jaunt-continue');
+      const list = document.getElementById('welcome-jaunts-content');
+      const first = [...list.querySelectorAll('.jaunt-continue, .jaunt-card, .jaunt-daybook-chip')][0];
+      return { kicker: card?.querySelector('.jaunt-continue-k')?.textContent.trim(), title: card?.querySelector('h3')?.textContent.trim(),
+        next: card?.querySelector('.jaunt-continue-next')?.textContent.trim(), leads: first === card,
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(card?.textContent ?? '') };
+    });
+    check(`${label}: a paused Jaunt leads the list as a Continue card naming its stop and the next one (T-2631)`,
+      /^Continue · Stop 2 of \d+$/.test(continueCard.kicker ?? '') && !!continueCard.title
+      && /^Next: \S/.test(continueCard.next ?? '') && continueCard.leads && !continueCard.snake,
+      JSON.stringify(continueCard));
+    await tap('#welcome-jaunts-content .jaunt-continue [data-action="continue"]');
+    // ---- end T-2631
     await atStop();
     check(`${label}: the Jaunts menu pauses the outing and Resume returns to the same stop`,
       (await jaunt()).stopIndex === 1);

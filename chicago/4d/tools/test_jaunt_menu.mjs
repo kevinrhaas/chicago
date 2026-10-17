@@ -91,7 +91,7 @@ try {
     await page.evaluate(() => __chicago4d.jaunts.menu());
     await page.waitForSelector('.jaunt-session-note');
     await page.locator('#jaunt-menu-search').fill('tavern');
-    await click(page.getByRole('button', { name: 'Resume Jaunt', exact: true }));
+    await click(page.getByRole('button', { name: 'Continue', exact: true })); // T-2631: the Continue card
     await page.waitForFunction(() => __chicago4d.jaunts.state?.phase === 'atStop');
     assert.equal(await page.evaluate(() => __chicago4d.jaunts.state.jaunt.id), 'fixture-menu-25');
     await page.evaluate(() => __chicago4d.jaunts.menu());

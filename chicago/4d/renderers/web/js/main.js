@@ -99,6 +99,8 @@ import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
+import { createRoamTip } from './roam-tip.js';
+import { plateFor as jauntPlate } from './pictures.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
@@ -3113,6 +3115,8 @@ async function boot() {
   });
   api.destinations = destinations;
   const hud = createHud({
+    // T-2661: Settings' "Show the controls" opens Guide's controls sheet in the Navigator.
+    onShowGuide: () => navigatorUi?.select('guide'),
     destinations,
     root: hudRoot,
     scene: loaded.scene,
@@ -3132,7 +3136,7 @@ async function boot() {
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); },
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
@@ -3502,8 +3506,7 @@ async function boot() {
     if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
-      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)
-          && document.getElementById('control-help').hidden) pointerlock.lock();
+      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)) pointerlock.lock();
     }
   }, { capture: true });
 
@@ -3852,6 +3855,13 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
+  // T-2634: Free roam's one-time tip, once per device.
+  const roamTip = createRoamTip({ el: document.getElementById('roam-tip') });
+  api.roamTip = roamTip;
+  // Any first move of the visitor's own puts the tip away: it has said its piece.
+  for (const type of ['pointerdown', 'keydown']) {
+    window.addEventListener(type, (e) => { if (roamTip.showing && e.target?.id !== 'roam-tip') roamTip.hide(); }, { capture: true });
+  }
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3876,13 +3886,17 @@ async function boot() {
     target?.invalidate();
     targetTag?.setEnabled(true);
     backends.activate(coarse ? touch : pointerlock);
-    if (firstEntry) hud.showControlHelp({ auto: true });
+    // T-2661: no control-help popover on the way in; the line below says the two moves
+    // that matter, and Guide in the Navigator holds the rest.
     // T-2614: audio was resumed by the Home choice that brought us here (gesture-gate.js);
     // the look waits for a click on the scene, and the tag says so until it is taken.
     gesture.setLook({ inWorld: true, backend: backends.name, locked: pointerlock.isLocked });
     hud.say(backends.name === 'touch'
       ? 'Left thumb walks · drag the right side to look · tap a building'
       : 'W A S D to walk · E to inspect what you are looking at');
+    // T-2634: Free roam (no destination, not a resume) docks the Navigator, above, and
+    // the first time on this device says how to inspect.
+    if (!resume && !destination) roamTip.show({ touch: backends.name === 'touch' });
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
@@ -3910,6 +3924,9 @@ async function boot() {
       }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
+        plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
+          .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -3933,7 +3950,6 @@ async function boot() {
           jauntEntering = true;
           try {
             const ok = api.welcome.state === 'world' || (resume ? api.welcome.close() : api.welcome.enter(target.kind, target.id));
-            if (ok) hud.dismissControlHelp({ remember: false });
             // T-2630: a Jaunt started from the Navigator's Jaunts app pockets the device.
             if (ok) navigatorUi?.dock();
             return ok;
@@ -3958,11 +3974,13 @@ async function boot() {
   api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
   // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
   // app (T-2630), which shows the same list wherever it is.
+  let jauntPictures = null;
   async function openJauntList() {
     const root = document.getElementById('welcome-jaunts-content');
     try {
       root.setAttribute('aria-busy', 'true');
-      await ensureJaunts();
+      // T-2631: the pictures file, for the cards' plates, fetched alongside — never at boot.
+      [, jauntPictures] = await Promise.all([ensureJaunts(), ensurePictures().catch(() => null)]);
       if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
       await jauntPreview.open(jauntReturnId); jauntReturnId = null;
     } catch {
@@ -3970,6 +3988,11 @@ async function boot() {
     } finally { root.removeAttribute('aria-busy'); }
   }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    // T-2632: each Go to row's distance and bearing, from where the visitor stands.
+    visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
+    units: () => hud.settings.units,
+    // T-2633: Go to dims the grades the Confidence view is hiding.
+    hiddenGrades: () => hud.hiddenLevels,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: () => openJauntList(),
     // T-2630: the Navigator's Jaunts app hands back what it borrowed before the card shows.
@@ -3987,7 +4010,6 @@ async function boot() {
       api.showMe?.cancel(); // T-2640: no camera turn carries on behind the arrival device
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
-      hud.dismissControlHelp({ remember: false });
       hud.setPanel(false);
       hudRoot.inert = true;
     },
@@ -4165,6 +4187,9 @@ async function boot() {
       confidenceOn: hud.confidenceOn,
       jaunt: jauntRuntime?.state ?? null,
       whatsNewUnread: !document.getElementById('help-dot')?.hidden,
+      // T-2661: the controls in use, for Guide's controls sheet (controls/intent.js).
+      controls: backends.name,
+      coarse,
       actions: {
         // The drawer's own sections, where they are until they move in (T-2620).
         openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
@@ -4173,7 +4198,7 @@ async function boot() {
         // T-2630: what the Navigator's Jaunts app asks of the page.
         jauntList: () => openJauntList(),
         gotoList: () => api.welcome.refresh?.(),
-        freeRoam: () => navigatorUi?.dock(),
+        freeRoam: () => { navigatorUi?.dock(); roamTip.show({ touch: backends.name === 'touch' }); },
         map: () => navigation.setFullVisible(true),
         // T-2654: the Map app's Go (the getting-there style decides how), the active
         // Jaunt's stops for its dotted route, and a ride's remaining waypoints.
@@ -4183,6 +4208,7 @@ async function boot() {
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
         peopleDirectory: () => peopleDirectory.load(),
+        onControls: (fn) => backends.onChange(fn),
         // T-2638: what Inspect's front page reads. The compiled summaries (inspect/<scene>.json,
         // tools/compile_summaries.py), the pictures (the card's own file), a building's record,
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).

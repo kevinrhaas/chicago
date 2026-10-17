@@ -1,4 +1,34 @@
 export const CHANGELOG = [ // newest first
+  { v: 1947, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to follows the Confidence view', kind: 'improvement',
+    items: [
+      'The Include reconstructed roofs checkbox is gone from Go to. Every place is listed.',
+      'When the Confidence view hides Reconstructed, those places stay in Go to but are dimmed, with one line saying they are hidden in the Confidence view. Show the grade again and they are back to normal.',
+    ] },
+  { v: 1946, ts: '2026-10-17T11:36:18.949Z', date: 'Oct 17, 2026, 6:36 AM CT', title: 'Go to is tidier', kind: 'improvement',
+    items: [
+      'Go to\'s filters are now All, Places, People, Shops & work and Viewpoints. A filter with nothing in it for this year is not shown, so 1904 no longer offers Corners 0.',
+      'Long names wrap onto a second line instead of being cut off.',
+      'Every place in the list shows how far away it is and which way, with an arrow that points the way you would turn.',
+    ] },
+  { v: 1945, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'A first tip when you roam freely', kind: 'feature',
+    items: [
+      'The first time you choose Free roam on a device, a short tip tells you how to look closer: Tap any building to inspect it. With a mouse it says click, or press E.',
+      'The tip goes away when you tap it, when you start moving, or after a few seconds. It does not come back on that device.',
+    ] },
+  { v: 1944, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'Jaunt cards show a picture, your keepsakes and Continue', kind: 'feature',
+    items: [
+      'Where the project holds a credited picture of a Jaunt\'s stops, its card now shows that picture, with the holder named underneath. Where none is held, the card keeps its icon.',
+      'A Jaunt you have finished shows Keepsake earned on its card.',
+      'A Jaunt you paused sits at the top of the list as a Continue card. It shows which stop you are on, out of how many, and names the next one. It is still there after you reload the page.',
+    ] },
+  { v: 1943, ts: '2026-10-17T11:16:52.410Z', date: 'Oct 17, 2026, 6:16 AM CT', title: 'The Navigator\'s Map: tap a building, then Go', kind: 'feature',
+    items: [
+      'The Navigator has a Map. It opens close up around you, with your arrow live on it. One key shows the whole field.',
+      'Tap a building on the map to see its name, its grade and how far away it is. Then press Go to travel there the way Move says you get places.',
+      'A Jaunt under way is drawn as a dotted line through its stops, with the next stop ringed. A ride under way shows as a dashed line to where it ends.',
+      'Confidence view colours paints every building on the map Attested, Inferred or Reconstructed.',
+      'The round compass-map instrument and the M key open it.',
+    ] },
   { v: 1942, ts: '2026-10-17T10:55:56.511Z', date: 'Oct 17, 2026, 5:55 AM CT', title: 'Inspect opens a building\'s front page in the Navigator', kind: 'feature',
     items: [
       'Aim at a building or tap it, then open Inspect in the Navigator: you get its front page. It has a photo where one is free to show, the address, the name, and chips for still standing, built and use.',
