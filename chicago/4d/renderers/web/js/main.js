@@ -49,7 +49,7 @@ import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
 import { createHud } from './hud.js';
 import { createNavigation } from './navigation.js';
-import { createStreets } from './streets.js';
+import { createStreets, fetchPrebuiltStreets } from './streets.js';
 import { createEnclosures } from './enclosures.js';
 import { loadOrdinanceLimits } from './ordinances.js';
 import { loadAgencies } from './agencies.js';
@@ -1792,6 +1792,12 @@ async function boot() {
     ? fetchPrebuiltFrontage({ dataBase: bases.dataBase,
       year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild() })
     : null;
+  // T-2710: and the road's surfaces at this detail's layout, which createStreets
+  // batches instead of laying when they are this page's. Resolves `{ why }` too.
+  const streetsPrebuilt = draws('streets')
+    ? fetchPrebuiltStreets({ dataBase: bases.dataBase,
+      year: String(loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year), build: pageBuild(), ...detailOpts() })
+    : null;
   /**
    * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
    * below read the 1835 town's records just as the drawn layers do — its residents,
@@ -1975,12 +1981,19 @@ async function boot() {
   // for it.  Mount it before vegetation so the travelled strips can clear only
   // the plants that would otherwise grow through the visible wagon tracks.
   // T-2600: its surfaces are partitioned on the job pool, so the layer resolves.
+  // T-2710: measured as `streets`, the wall time measure_boot_phases.mjs quotes.
+  performance.mark('streets:start');
   const streets = await createStreets({
     terrain,
     records: draws('streets') ? (loaded.index?.streets ?? []) : [],
     confidence,
     ...detailOpts(),
+    prebuilt: streetsPrebuilt,
+    sceneId: loaded.scene.scene_id ?? loaded.scene.id ?? loaded.scene.year,
   });
+  performance.measure('streets', 'streets:start');
+  /** T-2710: whether the streets came prebuilt, and if not, why not. */
+  api.streetsPrebuilt = streets.prebuilt;
   scene3d.add(streets.group);
   settleOnGpu(streets.group);
   if (groundProof) {
@@ -3985,6 +3998,10 @@ async function boot() {
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
     onInspect: (id) => pick(id),
+    // T-2622: its keys wait for the arrival to close, and Escape goes to the drawer or a
+    // building card first when one is open.
+    keysActive: () => !gateOpen,
+    escFree: () => (document.getElementById('panel')?.hidden ?? true) && !popup.openId,
     // T-2618: the rail's apps (js/apps/), and what they read the page through. An app
     // takes what it needs from `ctx` — the api object included — and never imports main.js.
     apps: NAVIGATOR_APPS,
