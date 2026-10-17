@@ -42,6 +42,7 @@
 <link rel="stylesheet" href="./css/businesses.css">
 <link rel="stylesheet" href="./css/evidence.css">
 <link rel="stylesheet" href="./css/card.css">
+<link rel="stylesheet" href="./css/recall.css">
 <link rel="stylesheet" href="./css/skins.css">
 <script src="./js/skin.js"></script>
 
@@ -821,6 +822,9 @@
 
 <noscript><p class="noscript">This walkthrough needs JavaScript and WebGL 2.</p></noscript>
 
+<!-- T-2735: the way home asks first; loaded ahead of main.js so the arrival card's link asks
+     before the town's modules have arrived. -->
+<script type="module" src="./js/recall.js"></script>
 <script type="module" src="./js/main.js"></script>
 </body>
 </html>
