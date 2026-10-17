@@ -20,7 +20,7 @@
 export const TURN_MS = 900;
 export const PULSE_MS = 2000;
 /** How far outside the wall the stand is, and how far it may step back to find a clear spot. */
-export const STAND_CLEAR_M = 14;
+export const STAND_CLEAR_M = 20;
 export const STAND_MAX_EXTRA_M = 40;
 
 const DEG = Math.PI / 180;
@@ -55,11 +55,13 @@ export function inside([e, n], ring) {
   return hit;
 }
 
-/** How far from the centre, looking back along -bearing, the footprint's wall is. */
+/** How far from the centre, looking back along -bearing, the footprint's outermost wall is
+ *  (the last point on that ray still inside it: an L-shaped house or one round a courtyard
+ *  can have its centre outside its own walls). */
 export function wallDistance(c, footprint, se, sn) {
-  let d = 0;
-  while (d < c.r + 1 && inside([c.e - se * d, c.n - sn * d], footprint)) d += 0.5;
-  return d;
+  let wall = 0;
+  for (let d = 0; d <= c.r + 1; d += 0.5) if (inside([c.e - se * d, c.n - sn * d], footprint)) wall = d;
+  return wall;
 }
 
 /**

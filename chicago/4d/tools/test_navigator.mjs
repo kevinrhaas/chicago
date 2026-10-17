@@ -616,6 +616,11 @@ for (const phone of [true, false]) {
   const aside = sm.plan(glessner.lookFor[1], house, { sighted: (e, n, we, wn) => !sm.crosses([e, n], [we, wn], [[[130, 72], [140, 72], [140, 80], [130, 80]]]) });
   assert(aside && aside.n < 80, 'a building off the line changes nothing');
   assert.equal(sm.plan(glessner.lookFor[1], house, { sighted: () => false }), null, 'no spot that sees it: refused, not guessed');
+  // A house round a courtyard has its centre outside its walls: the stand is still outside
+  // the far wall, not in the yard.
+  const ring = [[0, 0], [40, 0], [40, 40], [0, 40], [0, 30], [30, 30], [30, 10], [0, 10]]; // a C open to the west
+  const cp = sm.plan({ feature: 'x', camera: { yaw: 270, pitch: 5 } }, ring);
+  assert(cp.e > 40 && !sm.inside([cp.e, cp.n], ring), `the stand clears the far (east) wall (${cp.e.toFixed(1)}, ${cp.n.toFixed(1)})`);
   assert.equal(sm.turnBy(350, 10), 20); assert.equal(sm.turnBy(10, 350), -20);
   assert.equal(sm.easeInOut(0), 0); assert.equal(sm.easeInOut(1), 1); assert(Math.abs(sm.easeInOut(0.5) - 0.5) < 1e-9);
 
