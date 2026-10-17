@@ -244,6 +244,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
     },
+    "build_modern_streets.py": {
+      "placement": "pending",
+      "write_mode": "--source <Transportation.geojson> --write",
+      "measured": "2026-10-17",
+      "finding": "Reproduces: ran `--source Transportation.geojson --write` on a clean tree with the City of Chicago street centerline file (sha256 212bfb7e…, recorded in the output) and pyproj installed; it rewrote its one output, data/modern/streets.json, byte for byte and changed no committed byte. --check writes nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "Not placed, because it needs the City's 87 MB centerline file, fetched over the network from GitHub (Chicago/osd-street-center-line), and a rederive must run offline. Its offline half, --check, gates the committed clip in check.sh (T-2741)."
+    },
     "build_context_1904.py": {
       "placement": "pending",
       "write_mode": "(bare)",
