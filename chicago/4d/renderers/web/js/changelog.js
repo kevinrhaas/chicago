@@ -1,4 +1,52 @@
 export const CHANGELOG = [ // newest first
+  { v: 1914, ts: '2026-10-17T03:42:57.445Z', date: 'Oct 16, 2026, 10:42 PM CT', title: 'Building cards open with the address once and plain words', kind: 'fix',
+    items: [
+      'Tap a building that has no written summary and its card now gives the address once, near the top. It no longer repeats it three times or shows internal labels like a parcel code or a file name.',
+      'Under it, a short summary is built from what the record knows: what the building was, what it was made of, how long it had stood, and who lived there or what it is today. On Prairie Avenue in 1904 that reads, for the Glessner House, "It was a stone residence. It had stood like this since 1887. Today: still standing — Glessner House museum."',
+      'Names that carried working notes, such as "refined by" and a number, now show just the name.',
+      'Where a building\'s own written account is clean, it still leads the card, word for word. The full recorded location, with its reasoning, is still on the card\'s Evidence tab, under "Where did it stand?".',
+    ] },
+  { v: 1913, ts: '2026-10-17T03:33:12.620Z', date: 'Oct 16, 2026, 10:33 PM CT', title: 'Less work on the main thread as the prairie is redealt', kind: 'improvement',
+    items: [
+      'As you walk or turn, the question of which plant community a patch of ground belongs to is now answered in the background, off the thread that draws the frame.',
+      'On a phone-speed test the redeal costs about a sixth less main-thread time per pass, walking or turning. Every plant lands exactly where it did before.',
+    ] },
+  { v: 1912, ts: '2026-10-17T03:20:12.396Z', date: 'Oct 16, 2026, 10:20 PM CT', title: 'You land straight on the Navigator\'s Home, with no Tap to enter', kind: 'feature',
+    items: [
+      'When the town is ready the last digit drops into place, the digits turn green and the small line reads ARRIVED · 1904.07.01.',
+      'A quick ARRIVED flash, then the device turns over to its Home, and the town behind it comes into focus.',
+      'Home offers three choices: Take a Jaunt, Go to… and Free roam.',
+      'Tap to enter is gone. If the jump stalls, the same spot shows TRY AGAIN.',
+      'With reduced motion the device crossfades instead of turning, and screen readers hear "Arrived: Prairie Avenue, 1 July 1904" (or the 1835 and 1812 lines).',
+    ] },
+  { v: 1911, ts: '2026-10-17T03:17:35.486Z', date: 'Oct 16, 2026, 10:17 PM CT', title: 'Every caption and summary is checked for an 8th-grade reading level', kind: 'chore',
+    items: [
+      'Every building summary, fact, time-stream caption and tour bubble is now scored for reading level before it can ship. Copy must read at grade 9 or easier, with no sentence over 20 words, and tour bubbles stay at 14 words or fewer.',
+      'Six lines of the Glessner House summary were split or reworded to pass, with the same facts and sources. One is the note under its owner, which now reads in three short sentences. The arrival\'s time-stream captions already passed.',
+    ] },
+  { v: 1910, ts: '2026-10-17T03:00:37.058Z', date: 'Oct 16, 2026, 10:00 PM CT', title: 'The prairie\'s planting grid now has a graphics-card version', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The grid that decides where each grass tuft, flower and shrub stands now has a graphics-card version, ready for the near grass to be drawn without the phone\'s processor laying it out at every step.',
+      'Read back from the browser at every scene anchor, it puts all 373,710 test plants exactly where the current code does, within a twentieth of a millimetre.',
+    ] },
+  { v: 1909, ts: '2026-10-17T02:35:11.154Z', date: 'Oct 16, 2026, 9:35 PM CT', title: '1904 gets its first residents: John and Frances Glessner', kind: 'add',
+    items: [
+      'The 1904 town now has a list of who lived there, starting with John and Frances Glessner at 1800 Prairie Avenue. Both are drawn from their own records, with nothing invented.',
+      'Their grown children are not listed: by 1904 both had married and moved out. No source names the household\'s staff, so none appear yet.',
+      'You will meet them on the Glessner House\'s new Inspect page, under Who lives here, when it arrives. The 1904 menu still has no People section until the new People app is ready.',
+    ] },
+  { v: 1908, ts: '2026-10-17T02:13:40.629Z', date: 'Oct 16, 2026, 9:13 PM CT', title: 'A phone in 1835 holds about 19 MB less', kind: 'fix',
+    items: [
+      'Nothing you can see changed. On a phone, the 1835 town now holds about 19 MB less once it is drawn (590 MB to 570 MB), which is where phones were running out of memory.',
+      'The plank walks, fences and yard goods used to spend four bytes on every corner to say how sure the reconstruction is. That grade now rides in space the colour already paid for, or, for a fence, is stated once for the whole stretch.',
+      'The same views draw the same pixels as before, with the confidence view off or on.',
+    ] },
+  { v: 1907, ts: '2026-10-17T02:13:40.629Z', date: 'Oct 16, 2026, 9:13 PM CT', title: 'The ground under the near grass, packed for the graphics card', kind: 'chore',
+    items: [
+      'Nothing you can see changed. This is groundwork for drawing the grass at your feet on the graphics card, so walking stops pausing the phone while the grass is placed again.',
+      'What the grass needs to know about the ground — which plant community, water or not, short turf, a road or plank floor, and the ground\'s height — can now be packed into a 32 m square of 1/8 m cells that the graphics card reads.',
+      'Read back at every grass spot of 22 viewpoints, the card gives the same answer as before at 99 % of them. Heights are off by under a millimetre. Most of the rest are on the worn river bank, where the bare patches are scattered at random point by point.',
+    ] },
   { v: 1906, ts: '2026-10-17T01:35:58.522Z', date: 'Oct 16, 2026, 8:35 PM CT', title: 'Nothing you can see yet: the 1835 ground cut ahead of time', kind: 'chore',
     items: [
       'Nothing in the scene changed. This is the next step toward phones downloading the town instead of building it at every visit.',

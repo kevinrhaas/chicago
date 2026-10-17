@@ -59,7 +59,7 @@
  *  * The timber is ONE draw call for the whole layer, the way the fences and
  *    the signboards are. The lettering is a second, because a painted name is a
  *    texture and timber is not — and it exists only when a board carries text.
- *  * It marks itself. Every vertex carries `_confidence`, so the whole layer
+ *  * It marks itself. Every vertex carries its grade, so the whole layer
  *    disappears when a visitor hides `reconstructed` and the frontage goes back
  *    to bare ground. That is the truthful behaviour: no source record in this
  *    repository states that a walk stood here on 1 July 1835.
@@ -79,9 +79,9 @@ import { gateBoxes } from './gates.js';
 import { packGrain } from './relief-pack.js';
 import { ktx2State, loadSheet } from './ktx2.js';
 import { layerPick } from './gpu-pick.js';
-import { compactStreams } from './compact-streams.js';
+import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
 
-const { compactNormals, compactColors, quantizeMeshPositions } = compactStreams(THREE);
+const { compactNormals, setColorsAndConfidence, quantizeMeshPositions } = compactStreams(THREE);
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -1460,6 +1460,11 @@ function createFarWalkTops(group, sources, material) {
       }
       geometry.setAttribute(name, new THREE.BufferAttribute(packed, size, attribute.normalized));
     }
+    // The tone's fourth lane is the confidence on every source (T-2689), so on
+    // the copy too: `confidenceOf` reads it as it reads them.
+    if (entries.every((entry) => entry.source.geometry.userData.confidenceLane === 'color')) {
+      geometry.userData.confidenceLane = 'color';
+    }
     geometry.computeBoundingSphere();
   }
   const index = new THREE.BufferAttribute(new Uint32Array(vertices), 1);
@@ -1566,8 +1571,9 @@ async function getJSON(url) {
  * moved, so the page's check is the second line, for a visitor whose cache holds
  * one release's prebuild beside another's page.
  */
-/** 3 since T-2687: each mesh's quantized-position transform travels with it. */
-export const PREBUILT_FORMAT = 3;
+/** 3 since T-2687: each mesh's quantized-position transform travels with it.
+ *  4 since T-2689: the colour's fourth lane is the confidence, and says so. */
+export const PREBUILT_FORMAT = 4;
 
 /** The page's own build id, from the stamp publish.sh writes into it. */
 export function pageBuild(doc = globalThis.document) {
@@ -1635,6 +1641,7 @@ function prebuiltGeometry(m, bin) {
   if (s) geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(...s.center), s.radius);
   else geo.computeBoundingSphere();
   if (m.position_quantized) geo.userData.positionQuantized = m.position_quantized;
+  if (m.confidence_lane) geo.userData.confidenceLane = m.confidence_lane;
   return geo;
 }
 
@@ -2106,10 +2113,10 @@ export async function createFrontage({
   const geo = replay ? prebuiltGeometry(replay.index.meshes[0], replay.bin) : new THREE.BufferGeometry();
   if (!replay) {
     geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
-    // Normals and tones in compact normalized formats (T-2569, compact-streams.js).
+    // Normals and tones in compact normalized formats (T-2569, compact-streams.js),
+    // the confidence in the tone's fourth lane (T-2689).
     geo.setAttribute('normal', compactNormals(buf.nrm.view()));
-    geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
-    geo.setAttribute('color', compactColors(buf.col.view()));
+    setColorsAndConfidence(geo, buf.col.view(), buf.conf.float32());
     geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
     geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
     geo.computeBoundingSphere();
@@ -2162,7 +2169,8 @@ export async function createFrontage({
   else grain.apply(mat);
   out.census.relief = grain.problem ? null : grain.id;
   filterPlankGaps(mat);
-  confidence?.patch(mat);
+  // The grade is read from the tone's fourth lane, not a float stream (T-2689).
+  confidence?.patch(mat, { packed: COLOR_LANE_CONFIDENCE });
   /**
    * ITS OWN PROGRAM CACHE KEY. three caches a compiled program under a key
    * ending in `customProgramCacheKey()`, whose default is the SOURCE TEXT of
@@ -2226,8 +2234,7 @@ export async function createFrontage({
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
     cgeo.setAttribute('normal', compactNormals(chunk.buf.nrm.view()));
-    cgeo.setAttribute('_confidence', new THREE.BufferAttribute(chunk.buf.conf.float32(), 1));
-    cgeo.setAttribute('color', compactColors(chunk.buf.col.view()));
+    setColorsAndConfidence(cgeo, chunk.buf.col.view(), chunk.buf.conf.float32());
     cgeo.setAttribute('uv', new THREE.BufferAttribute(chunk.buf.uv.float32(), 2));
     cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();

@@ -1472,7 +1472,7 @@ for (const [label, viewport, touch] of [
           if (welcome.state === 'welcome') welcome.enter('spawn');
           if (welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
         }
-      } else document.getElementById('gate-btn')?.click();
+      } else document.getElementById('home-roam')?.click();
       await new Promise((r) => setTimeout(r, 150));
       document.exitPointerLock?.();
     }
@@ -1576,6 +1576,24 @@ for (const [label, viewport, touch] of [
       return null;
     }, sel);
     if (why) throw new Error(`clickChrome: ${why}`);
+  };
+  // T-2613: Home appears halfway through the landing's flip, not at ready (the old
+  // #gate-btn sat on screen at ready), so a click on #home-roam waits for the journey
+  // to land. Bounded, and loud: a landing that never comes fails here by name, with
+  // the journey state and the landing phase it stopped in.
+  const untilLanded = async (timeout = 90_000) => {
+    try {
+      await page.waitForFunction(() => document.documentElement.dataset.journey === 'landed',
+        null, { timeout, polling: 100 });
+    } catch {
+      const at = await page.evaluate(() => ({
+        journey: document.documentElement.dataset.journey ?? '(none)',
+        landing: document.querySelector('.gate-card')?.dataset.landing ?? '(none)',
+        gate: document.getElementById('gate')?.dataset.state ?? '(none)',
+      })).catch(() => ({}));
+      throw new Error(`the landing never reached "landed" within ${timeout / 1000} s after ready — `
+        + `journey ${at.journey}, landing phase ${at.landing}, gate ${at.gate}`);
+    }
   };
 
   const errors = [];
@@ -2580,7 +2598,8 @@ for (const [label, viewport, touch] of [
           worst = Math.max(worst,
             box.minE - e0, e0 - box.maxE, box.minN - n0, n0 - box.maxN);
         }
-        const conf = g.getAttribute('_confidence');
+        // Wherever the layer keeps it: a chunk of one grade has no stream (T-2689).
+        const conf = window.__chicago4d.confidenceOf(g);
         if (!conf) continue;
         graded += 1;
         for (let i = 0; i < conf.count; i++) {
@@ -2860,7 +2879,7 @@ for (const [label, viewport, touch] of [
         if (!(m.userData.recordIds ?? []).some((id) => /^town_lot_line_/.test(id))) continue;
         lotMeshes += 1;
         const pos = a.positionsInMetres(m.geometry);
-        const conf = m.geometry.getAttribute('_confidence');
+        const conf = a.confidenceOf(m.geometry);
         for (let i = 0; i < pos.count; i += 3) {
           cells.add(`${Math.round(pos.getX(i) / 40)}:${Math.round(-pos.getZ(i) / 40)}`);
           if (conf && conf.getX(i) !== 1) ungraded += 1;
@@ -4060,8 +4079,10 @@ for (const [label, viewport, touch] of [
       let lowest = Infinity;
       let highest = -Infinity;
       let hasConfidence = geos.length > 0;
+      // The colour's fourth lane since T-2689; `confidenceOf` reads it back.
+      const confOf = new Map(geos.map((geo) => [geo, window.__chicago4d.confidenceOf(geo)]));
       for (const geo of geos) {
-        const conf = geo.getAttribute('_confidence');
+        const conf = confOf.get(geo);
         if (!conf) { hasConfidence = false; continue; }
         for (let i = 0; i < conf.count; i++) {
           const v = conf.getX(i);
@@ -4137,7 +4158,7 @@ for (const [label, viewport, touch] of [
               const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
               const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
               pl.vertices++;
-              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
+              if (confOf.get(geo)?.getX(i) !== 1) pl.badConfidence++;
               pl.minAlong = Math.min(pl.minAlong, along);
               pl.maxAlong = Math.max(pl.maxAlong, along);
               pl.minAcross = Math.min(pl.minAcross, across);
@@ -4839,7 +4860,7 @@ for (const [label, viewport, touch] of [
       let notReconstructed = 0;
       let verts = 0;
       for (const t of timber) {
-        const conf = t.geometry?.getAttribute('_confidence');
+        const conf = t.geometry && a.confidenceOf(t.geometry);
         if (!conf) continue;
         for (let i = 0; i < conf.count; i++) {
           const v = conf.getX(i);
@@ -8424,13 +8445,17 @@ for (const [label, viewport, touch] of [
       && presence.hogan?.composed === false && presence.saug?.composed === false,
       `account "${(presence.hogan?.account ?? '').slice(0, 120)}", composed ${presence.hogan?.composed}`);
     // T-0711: a record without a change_note is not left without a first
-    // sentence — the lead is composed from its own function and location, and
-    // says so with `data-composed`, so nothing composed can pass as recorded.
-    check(`${label}: a record without an account gets a lead composed from its function and location, marked as composed`,
+    // sentence — the lead is composed, and says so with `data-composed`, so nothing
+    // composed can pass as recorded. T-2636 RESTATED: it is templated from the
+    // record's function (fallback-summary.js) and no longer restates the recorded
+    // location, which the head's address line gives once; and it carries no id,
+    // path or snake_case (tools/test_fallback_summary.mjs holds every structure).
+    check(`${label}: a record without an account gets a templated lead from its function, marked as composed, the location not repeated`,
       presence.composed.hasChangeNote === false && presence.composed.composed === true
       && presence.composed.fn.length > 3
       && presence.composed.text.toLowerCase().includes(presence.composed.fn.toLowerCase())
-      && presence.composed.text.toLowerCase().includes(presence.composed.where.toLowerCase().slice(0, 40)),
+      && !presence.composed.text.toLowerCase().includes(presence.composed.where.toLowerCase().slice(0, 40))
+      && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\//.test(presence.composed.text),
       `"${presence.composed.text.slice(0, 160)}" — function "${presence.composed.fn}", `
       + `location "${presence.composed.where.slice(0, 60)}"`);
 
@@ -10261,7 +10286,8 @@ for (const [label, viewport, touch] of [
       await clickChrome(sel);
       console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
     };
-    await timedChrome('#gate-btn');
+    await untilLanded();
+    await timedChrome('#home-roam');
     await page.waitForTimeout(150);
     // Entry leaves the pointer free; release defensively for older builds.
     await page.evaluate(() => document.exitPointerLock?.());
@@ -14832,7 +14858,8 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
-    await clickChrome('#gate-btn');
+    await untilLanded();
+    await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
 
@@ -14879,7 +14906,8 @@ for (const [label, viewport, touch] of [
     // Use the same 90 s action budget as initial readiness: a reload must
     // not silently reinstate Playwright's shorter 30 s default (T-1279).
     await page.waitForFunction(() => window.__chicago4d?.ready === true);
-    await clickChrome('#gate-btn');
+    await untilLanded();
+    await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
     await clickChrome('#btn-help');
@@ -16833,9 +16861,21 @@ for (const [label, viewport, touch] of [
           const facts = [...document.querySelectorAll('#popup .pop-facts .fact')]
             .map((f) => [f.querySelector('dt')?.textContent.trim(), f.querySelector('dd')?.textContent.trim()]);
           const sidecar = a.registry.get('glessner_house')?.sidecar;
+          // T-2636 (QA-08): the head and lead of a building with no written summary.
+          const head = document.querySelector('#popup .pop-head');
+          const opening = [head, document.querySelector('#popup .pop-lead')]
+            .map((el) => el?.textContent.replace(/\s+/g, ' ').trim() ?? '').join(' ');
+          const lead = document.querySelector('#popup .pop-lead.pop-account');
           a.popup.close();
-          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status };
+          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status,
+            opening, composed: lead ? lead.hasAttribute('data-composed') : null,
+            where: head?.querySelector('.pop-where-line')?.textContent.trim() ?? '' };
         });
+        check(`${label}: QA-08 — Glessner's card opens with its address once, a templated lead, and no id, path or snake_case (T-2636)`,
+          (survivalCard.opening.match(/1800 (?:S\. )?Prairie Avenue/g) ?? []).length === 1
+          && /^1800 S\. Prairie Avenue/.test(survivalCard.where) && survivalCard.composed === true
+          && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
+          survivalCard.opening.slice(0, 300));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
@@ -16931,7 +16971,9 @@ for (const [label, viewport, touch] of [
         if (year && year !== window.__arrivalYears.at(-1)?.year) {
           window.__arrivalYears.push({ year, ready: window.__chicago4d?.ready === true,
             // T-2610: the small line over the ticker, as it read when this year showed.
-            destination: document.getElementById('arrival-destination')?.textContent ?? null });
+            destination: document.getElementById('arrival-destination')?.textContent ?? null,
+            // T-2613: and where the journey stood, since landing rewrites that line.
+            journey: document.documentElement.dataset.journey ?? null });
         }
         const ts = document.getElementById('arrival-timestream');
         if (ts?.dataset.state === 'on' && ts.dataset.year !== window.__timeStream.at(-1)?.year) {
@@ -17009,11 +17051,24 @@ for (const [label, viewport, touch] of [
       years.length >= 2 && Number(years[0].year) > 1835 && early.length === 0
       && years.every((y, i) => i === 0 || Number(y.year) <= Number(years[i - 1].year)),
       years.map((y) => `${y.year}${y.ready ? '' : '·'}`).join(' '), true);
+    // "On the way" is up to the landing: T-2613 rewrites the line to ARRIVED · <date>
+    // there, by design, so a year that showed once the journey had landed is judged by
+    // the second check, not this one.
+    const LANDED = ['landing', 'landed', 'exploring', 'inspecting', 'on-jaunt', 'touring'];
+    const onTheWay = years.filter((y) => !LANDED.includes(y.journey));
     check(`${label}: the small line reads Destination ${YEAR} from first paint and never changes on the way`,
-      years.length >= 2 && (years[0].destination ?? '').startsWith(`Destination ${YEAR} · `)
-      && years.every((y) => y.destination === years[0].destination)
+      onTheWay.length >= 2 && (onTheWay[0].destination ?? '').startsWith(`Destination ${YEAR} · `)
+      && onTheWay.every((y) => y.destination === onTheWay[0].destination)
       && !/Destination year/i.test(await p14.evaluate(() => document.getElementById('gate').textContent)),
-      [...new Set(years.map((y) => y.destination))].join(' | '));
+      [...new Set(years.map((y) => `${y.destination} (${y.journey})`))].join(' | '));
+    const arrivedLine = await p14.evaluate(() => ({
+      line: document.getElementById('arrival-destination')?.textContent ?? null,
+      date: window.__chicago4d.scene?.target_date ?? null,
+      journey: document.documentElement.dataset.journey ?? null,
+    }));
+    check(`${label}: on landing the small line reads ARRIVED and the scene's date (T-2613)`,
+      !!arrivedLine.date && new RegExp(`^arrived · ${arrivedLine.date.replace(/-/g, '\\.')}$`, 'i').test(arrivedLine.line ?? ''),
+      JSON.stringify(arrivedLine));
 
     // T-2611: the time-stream captions. Each shows only as the ticker passes its year
     // (the ticker at or below it), never twice, never clipped and inside the screen; at

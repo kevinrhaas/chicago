@@ -798,7 +798,8 @@ def self_test() -> int:
         ("display shown while L1 stands", inst(display="shown"), "instance.l1"),
         ("a person the residents layer does not hold", inst(person_id="nobody_at_all"), "instance.unknown_person"),
         (f"review dropped for {flagged}", inst(person_id=flagged, id=f"hi_{flagged}_1835"), "instance.review_dropped"),
-        ("a scene with no people layer", inst(scene="1904"), "instance.no_people_layer"),
+        # 1812, not 1904: 1904 has its own people directory since T-2702 (the Glessners).
+        ("a scene with no people layer", inst(scene="1812"), "instance.no_people_layer"),
         ("a variant on no contract slot", inst(appearance={"asset_id": "x", "variants": {"cloak": "red"}}),
          "instance.unknown_slot"),
         ("a clip with no contract verb", inst(animation={"clip": "dance"}), "instance.unknown_verb"),

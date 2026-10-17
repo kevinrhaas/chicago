@@ -1,3 +1,58 @@
+## T-2636 — a building's card opens with its address once, in plain words (2026-10-16)
+
+Design doc "Field Navigator Mk II" §12, the fallback for a structure with no summary record;
+fixes the owner's IMG_6942, where the 1904 Glessner card opened with the address three times
+and "parcel prairie_1800 (data/street_grid/1904.json)" twice. `renderers/web/js/fallback-summary.js`
+templates the head and lead from the sidecar and lints every phrase before it goes in (the
+JavaScript twin of `compile_summaries.py`'s lint — no id, snake_case, path, link or ticket
+number); a phrase that fails is left out, never shown cleaned. The address line is the first
+short clean phrase of `symbolic_location` (or a source's `lot_address`), given once: other
+names that restate it are dropped, a title that opens with it loses the prefix, and a title
+that already holds it takes the line's place. A title's bracketed aside carrying a ticket
+number ("(district draft; refined by T-1894)") is dropped. The lead is the phase's own
+account verbatim when it is clean, else at most three templated sentences: what it was
+(storeys, material, use), how long it had stood like this, and who lived here or what it is
+today, marked `data-composed`. `tools/test_fallback_summary.mjs` (in `check.sh`) runs the
+card's own `cardOpening` over all 886 structures in 1812, 1835 and 1904 and finds none of
+those problems; the smoke's composed-lead check is restated (it no longer repeats the
+location) and part 14 gains QA-08 on the Glessner card.
+
+**Not changed here:** 35 phase accounts that carry a ticket number, id or path now fall back to
+the template rather than print; their words are still in the sidecar and should be cleaned at
+the source. The Go to list and other surfaces still print the raw names with their working
+asides — that is NAV-1003's lint, not this card.
+
+## T-2702 — the 1904 people directory, starting with the Glessners (2026-10-17)
+
+Owner ruling 2026-10-17: "File it in band 3." The pilot for this is T-2637, and this PR fills
+its empty `residents`. `data/sidecars/1904/people.json` is compiled by the same generator as
+1835 (`compile_scene.py` `compile_people`), from 1904's own household cards in
+`data/residents_1904/households/`.
+
+- **The change to the generator.** Each scene has its own residents root: 1835 keeps
+  `data/residents/`, and a later scene has `data/residents_<scene>/`. The 1835 overlays
+  are named by scene id (`data/reconstruction/<scene>_*.json`), so they are simply absent
+  for 1904. A later scene's directory is compiled whenever it holds cards of its own,
+  whether or not it lists the `residents` layer.
+  - Before a later scene's card enters the directory, `scene_people_manifest` requires:
+    - every person graded, and every attested person with a source that resolves;
+    - every home a structure that stands in the scene;
+    - no arrival after the scene date.
+  - 1835's `people.json` is byte-identical (3,878 people).
+- **The Glessner household.** John J. and Frances M. Glessner, both attested, at
+  `glessner_house` from 1 December 1887. They are placed in the house in 1904 by Frances's
+  basement silversmith's workbench of that year (the museum's family page), and by HABS for
+  the ownership and their deaths in 1936 and 1932.
+  - Left out, as the card says: the grown children (both married in 1898; the daughter
+    moved to 1700 Prairie) and the staff, whom no source read names.
+- **The T-1740 rule is kept, not changed.** 1904 still lists no `residents` layer, so the
+  drawer offers no People section. That layer drives the drawer's People, City, Population
+  and Order book, which read the 1835 town's files and would show that apparatus with two
+  people in it. The directory is read by the summary records and, later, by the Navigator's
+  People app. So the smoke's assertion stays true, and it is unchanged.
+  - `tools/test_people_scene.py` (in `check.sh`) holds the directory to its cards and the
+    rule to its reason. Its `--self-test` plants eight faults and requires each one refused.
+
 ## T-2637 — the Glessner House summary record, the pilot (2026-10-16)
 
 `data/summaries/glessner_house.json`, the first authored front page (design doc §08/§12), for

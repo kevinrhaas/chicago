@@ -12,7 +12,7 @@ try{for(const width of [390,1280]){
  const page=await ctx.newPage(),errors=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
  console.log('START',width);await page.goto(url,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__chicago4d?.ready,null,{timeout:180000});
  assert.equal(requests.filter(u=>u.includes('/sources/index.json')||u.endsWith('/sources.js')).length,0,'no sources fetch at boot');
- await page.locator('#gate-btn').click();
+ await page.locator('#home-roam').click();
  await page.evaluate(()=>{const a=window.__chicago4d;a.renderer.setAnimationLoop(null);a.hud.setPanel(true);a.hud.selectTab('evidence');});
  await page.locator('.ev-tile[data-topic="sources"]').click();await page.waitForSelector('.src-row');
  const stats=await page.evaluate(()=>({rows:window.__chicago4d.sources.rows.length,scene:window.__chicago4d.sources.rows.filter(r=>r.use==='scene').length,status:document.querySelector('.src-status').textContent,rendered:document.querySelectorAll('.src-row').length}));

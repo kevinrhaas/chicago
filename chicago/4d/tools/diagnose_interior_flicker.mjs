@@ -152,8 +152,8 @@ await page.waitForFunction(() => {
   return true;
 }, null, { polling: 'raf', timeout: 240_000 });
 await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 240_000 });
-const gate = await page.$('#gate-btn');
-if (gate) await page.click('#gate-btn');
+const gate = await page.$('#home-roam');
+if (gate) await page.click('#home-roam');
 await page.evaluate(() => {
   for (const b of document.querySelectorAll('button')) {
     if (/got it|dismiss|close/i.test(b.textContent ?? '')) b.click();
