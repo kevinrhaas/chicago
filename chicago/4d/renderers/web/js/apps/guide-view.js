@@ -27,9 +27,9 @@ function render(el) {
   block.id = 'guide-controls';
   block.dataset.scheme = state.scheme;
   const k = node('span', 'nav-k nav-k-row');
-  k.append(node('span', null, 'Controls'), ' ',
+  k.append(node('span', null, 'Guide'), ' ',
     node('span', 'nav-step', state.chosen ? 'Your choice' : 'On this device'));
-  const title = node('strong', 'nav-place', 'How to get about');
+  const title = node('strong', 'nav-place', 'The controls');
   const seg = node('div', 'seg nav-guide-seg');
   seg.id = 'guide-scheme';
   seg.setAttribute('role', 'radiogroup');
