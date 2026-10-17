@@ -1,7 +1,10 @@
 {
  "ticket": "T-2706",
+ "remeasured": [
+  "T-2715"
+ ],
  "year": "1835",
- "measured": "2026-10-17T05:03:57.717Z",
+ "measured": "2026-10-17T08:34:33.587Z",
  "source": "working tree",
  "tolerances": {
   "groundM": 0.001,
@@ -27,130 +30,130 @@
     "stations": 22,
     "slots": 29190,
     "bins": {
-     "field": 160,
+     "field": 77,
      "float32": 0,
      "rule": 0
     },
     "share": {
-     "field": 0.005481,
+     "field": 0.002638,
      "float32": 0,
      "rule": 0
     },
     "float32Why": {},
     "density": {
-     "cpuPerM2": 1.231437,
-     "gpuPerM2": 1.230936,
-     "seCpuPerM2": 0.017563,
-     "sigmas": 0.028525
+     "cpuPerM2": 1.233691,
+     "gpuPerM2": 1.230685,
+     "seCpuPerM2": 0.017579,
+     "sigmas": 0.170993
     },
     "speciesShare": {
-     "maxAbsDiff": 0.001021,
-     "maxSigmas": 0.81711,
-     "totalVariation": 0.002208,
+     "maxAbsDiff": 0.001028,
+     "maxSigmas": 0.646779,
+     "totalVariation": 0.00285,
      "rows": [
       {
        "id": "ammophila_breviligulata",
-       "cpu": 0.056957,
-       "gpu": 0.05698,
-       "diff": 0.000023,
-       "se": 0.003305,
-       "sigmas": 0.007013
+       "cpu": 0.056853,
+       "gpu": 0.056992,
+       "diff": 0.000139,
+       "se": 0.0033,
+       "sigmas": 0.042085
       },
       {
        "id": "andropogon_gerardii",
-       "cpu": 0.085639,
-       "gpu": 0.085674,
-       "diff": 0.000035,
-       "se": 0.003991,
-       "sigmas": 0.008733
+       "cpu": 0.085482,
+       "gpu": 0.085691,
+       "diff": 0.000209,
+       "se": 0.003984,
+       "sigmas": 0.052406
       },
       {
        "id": "bolboschoenus_fluviatilis",
-       "cpu": 0.010985,
-       "gpu": 0.010989,
-       "diff": 0.000004,
-       "se": 0.001487,
-       "sigmas": 0.003007
+       "cpu": 0.010761,
+       "gpu": 0.010177,
+       "diff": -0.000584,
+       "se": 0.00147,
+       "sigmas": 0.397451
       },
       {
        "id": "cakile_edentula",
-       "cpu": 0.000814,
+       "cpu": 0.000812,
        "gpu": 0.000814,
-       "diff": 0,
-       "se": 0.000407,
-       "sigmas": 0.000814
+       "diff": 0.000002,
+       "se": 0.000406,
+       "sigmas": 0.004887
       },
       {
        "id": "calamagrostis_canadensis",
-       "cpu": 0.025224,
-       "gpu": 0.025031,
-       "diff": -0.000193,
-       "se": 0.002236,
-       "sigmas": 0.086404
+       "cpu": 0.025178,
+       "gpu": 0.025036,
+       "diff": -0.000142,
+       "se": 0.002232,
+       "sigmas": 0.06363
       },
       {
        "id": "calamovilfa_longifolia",
-       "cpu": 0.017901,
-       "gpu": 0.017908,
-       "diff": 0.000007,
-       "se": 0.001891,
-       "sigmas": 0.003853
+       "cpu": 0.017868,
+       "gpu": 0.017912,
+       "diff": 0.000044,
+       "se": 0.001888,
+       "sigmas": 0.02312
       },
       {
        "id": "carex_aquatilis",
-       "cpu": 0.007933,
-       "gpu": 0.007733,
-       "diff": -0.0002,
-       "se": 0.001265,
-       "sigmas": 0.158281
+       "cpu": 0.007919,
+       "gpu": 0.007735,
+       "diff": -0.000184,
+       "se": 0.001263,
+       "sigmas": 0.145844
       },
       {
        "id": "carex_lacustris",
-       "cpu": 0.005899,
-       "gpu": 0.005698,
-       "diff": -0.000201,
-       "se": 0.001092,
-       "sigmas": 0.184123
+       "cpu": 0.005888,
+       "gpu": 0.005699,
+       "diff": -0.000189,
+       "se": 0.00109,
+       "sigmas": 0.173507
       },
       {
        "id": "carex_stricta",
-       "cpu": 0.019731,
-       "gpu": 0.020147,
-       "diff": 0.000415,
-       "se": 0.001984,
-       "sigmas": 0.209235
+       "cpu": 0.019695,
+       "gpu": 0.020151,
+       "diff": 0.000455,
+       "se": 0.00198,
+       "sigmas": 0.229896
       },
       {
        "id": "euphorbia_polygonifolia",
-       "cpu": 0.001831,
+       "cpu": 0.001827,
        "gpu": 0.001832,
-       "diff": 0.000001,
-       "se": 0.00061,
-       "sigmas": 0.001222
+       "diff": 0.000004,
+       "se": 0.000609,
+       "sigmas": 0.007334
       },
       {
        "id": "juncus_effusus",
-       "cpu": 0.002848,
+       "cpu": 0.002843,
        "gpu": 0.003053,
-       "diff": 0.000205,
-       "se": 0.00076,
-       "sigmas": 0.269277
+       "diff": 0.00021,
+       "se": 0.000759,
+       "sigmas": 0.277448
       },
       {
        "id": "koeleria_macrantha",
-       "cpu": 0.151139,
-       "gpu": 0.151201,
-       "diff": 0.000062,
-       "se": 0.005109,
-       "sigmas": 0.012041
+       "cpu": 0.150863,
+       "gpu": 0.151231,
+       "diff": 0.000368,
+       "se": 0.0051,
+       "sigmas": 0.07225
       },
       {
        "id": "lathyrus_japonicus",
-       "cpu": 0.000407,
+       "cpu": 0.000406,
        "gpu": 0.000407,
-       "diff": 0,
-       "se": 0.000288,
-       "sigmas": 0.000576
+       "diff": 0.000001,
+       "se": 0.000287,
+       "sigmas": 0.003455
       },
       {
        "id": "nuphar_advena",
@@ -158,113 +161,113 @@
        "gpu": 0.000204,
        "diff": 0,
        "se": 0.000203,
-       "sigmas": 0.000407
+       "sigmas": 0.002442
       },
       {
        "id": "opuntia_humifusa",
-       "cpu": 0.000407,
+       "cpu": 0.000406,
        "gpu": 0.000407,
-       "diff": 0,
-       "se": 0.000288,
-       "sigmas": 0.000576
+       "diff": 0.000001,
+       "se": 0.000287,
+       "sigmas": 0.003455
       },
       {
        "id": "poa_pratensis",
-       "cpu": 0.086656,
-       "gpu": 0.086691,
-       "diff": 0.000035,
-       "se": 0.004012,
-       "sigmas": 0.00879
+       "cpu": 0.086497,
+       "gpu": 0.086709,
+       "diff": 0.000211,
+       "se": 0.004005,
+       "sigmas": 0.052745
       },
       {
        "id": "schizachyrium_scoparium",
-       "cpu": 0.421481,
-       "gpu": 0.421652,
-       "diff": 0.000172,
-       "se": 0.007043,
-       "sigmas": 0.024357
+       "cpu": 0.420711,
+       "gpu": 0.421738,
+       "diff": 0.001028,
+       "se": 0.007035,
+       "sigmas": 0.146077
       },
       {
        "id": "schoenoplectus_acutus",
-       "cpu": 0.008137,
-       "gpu": 0.007326,
-       "diff": -0.000811,
-       "se": 0.001281,
-       "sigmas": 0.632718
+       "cpu": 0.007513,
+       "gpu": 0.006717,
+       "diff": -0.000796,
+       "se": 0.00123,
+       "sigmas": 0.646779
       },
       {
        "id": "schoenoplectus_tabernaemontani",
-       "cpu": 0.00773,
-       "gpu": 0.008751,
-       "diff": 0.001021,
-       "se": 0.001249,
-       "sigmas": 0.81711
+       "cpu": 0.007513,
+       "gpu": 0.007531,
+       "diff": 0.000018,
+       "se": 0.00123,
+       "sigmas": 0.014913
       },
       {
        "id": "sparganium_eurycarpum",
-       "cpu": 0.004068,
-       "gpu": 0.003867,
-       "diff": -0.000202,
-       "se": 0.000908,
-       "sigmas": 0.22233
+       "cpu": 0.004061,
+       "gpu": 0.004071,
+       "diff": 0.00001,
+       "se": 0.000906,
+       "sigmas": 0.010945
       },
       {
        "id": "sporobolus_cryptandrus",
-       "cpu": 0.051465,
-       "gpu": 0.051486,
-       "diff": 0.000021,
-       "se": 0.003151,
-       "sigmas": 0.006647
+       "cpu": 0.051371,
+       "gpu": 0.051496,
+       "diff": 0.000125,
+       "se": 0.003146,
+       "sigmas": 0.039888
       },
       {
        "id": "sporobolus_heterolepis",
-       "cpu": 0.004272,
+       "cpu": 0.004264,
        "gpu": 0.004274,
-       "diff": 0.000002,
-       "se": 0.00093,
-       "sigmas": 0.001869
+       "diff": 0.00001,
+       "se": 0.000928,
+       "sigmas": 0.011217
       },
       {
        "id": "sporobolus_michauxianus",
-       "cpu": 0.003051,
-       "gpu": 0.002849,
-       "diff": -0.000202,
-       "se": 0.000787,
-       "sigmas": 0.25712
+       "cpu": 0.003046,
+       "gpu": 0.00285,
+       "diff": -0.000196,
+       "se": 0.000785,
+       "sigmas": 0.24975
       },
       {
        "id": "trifolium_repens",
-       "cpu": 0.004679,
+       "cpu": 0.00467,
        "gpu": 0.004681,
-       "diff": 0.000002,
-       "se": 0.000973,
-       "sigmas": 0.001956
+       "diff": 0.000011,
+       "se": 0.000971,
+       "sigmas": 0.011741
       },
       {
        "id": "typha_latifolia",
-       "cpu": 0.019935,
-       "gpu": 0.019536,
-       "diff": -0.000399,
-       "se": 0.001994,
-       "sigmas": 0.200088
+       "cpu": 0.022741,
+       "gpu": 0.021982,
+       "diff": -0.000759,
+       "se": 0.002124,
+       "sigmas": 0.357123
       },
       {
        "id": "zizania_aquatica",
-       "cpu": 0.00061,
-       "gpu": 0.000814,
-       "diff": 0.000204,
+       "cpu": 0.000609,
+       "gpu": 0.000611,
+       "diff": 0.000001,
        "se": 0.000352,
-       "sigmas": 0.578467
+       "sigmas": 0.004232
       }
      ]
     },
     "blockedHits": {
      "cpu": 0,
-     "gpu": 46
+     "gpu": 0
     },
     "posMaxMm": 0.001673,
     "groundVsMirrorMaxMm": 0.009072,
-    "groundVsCpuP95MmMax": 0.288934,
+    "groundVsCpuP95MmMax": 0.824604,
     "maxDiff": {
      "h": 0.000031,
      "spread": 0.000001,
@@ -316,9 +319,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 12.4,
-     "gpuMs": 133.3,
-     "tileMs": 406.9,
+     "cpuMs": 170.5,
+     "gpuMs": 130.8,
+     "tileMs": 241.1,
      "glError": 0,
      "rule": []
     },
@@ -332,9 +335,9 @@
      "orderFaults": 0,
      "posMaxMm": 0.001466,
      "cpuPlaced": 80,
-     "gpuPlaced": 81,
+     "gpuPlaced": 76,
      "cpuBlockedHits": 0,
-     "gpuBlockedHits": 1,
+     "gpuBlockedHits": 0,
      "codes": {
       "cpu": {
        "2": 243,
@@ -345,12 +348,12 @@
       "gpu": {
        "2": 243,
        "3": 282,
-       "4": 724,
-       "6": 81
+       "4": 729,
+       "6": 76
       }
      },
      "bins": {
-      "field": 1,
+      "field": 4,
       "float32": 0,
       "rule": 0
      },
@@ -370,9 +373,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 8.3,
-     "gpuMs": 155.7,
-     "tileMs": 304.4,
+     "cpuMs": 5.9,
+     "gpuMs": 151,
+     "tileMs": 168.7,
      "glError": 0,
      "rule": []
     },
@@ -386,9 +389,9 @@
      "orderFaults": 0,
      "posMaxMm": 0.001321,
      "cpuPlaced": 57,
-     "gpuPlaced": 58,
+     "gpuPlaced": 54,
      "cpuBlockedHits": 0,
-     "gpuBlockedHits": 1,
+     "gpuBlockedHits": 0,
      "codes": {
       "cpu": {
        "2": 370,
@@ -399,12 +402,12 @@
       "gpu": {
        "2": 370,
        "3": 245,
-       "4": 652,
-       "6": 58
+       "4": 656,
+       "6": 54
       }
      },
      "bins": {
-      "field": 1,
+      "field": 3,
       "float32": 0,
       "rule": 0
      },
@@ -424,9 +427,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 3.9,
-     "gpuMs": 123.5,
-     "tileMs": 277.5,
+     "cpuMs": 4,
+     "gpuMs": 133.2,
+     "tileMs": 141.7,
      "glError": 0,
      "rule": []
     },
@@ -472,9 +475,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 1.9,
-     "gpuMs": 123.4,
-     "tileMs": 298.3,
+     "cpuMs": 3.4,
+     "gpuMs": 131.7,
+     "tileMs": 161,
      "glError": 0,
      "rule": []
     },
@@ -520,9 +523,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 2,
-     "gpuMs": 125.9,
-     "tileMs": 445,
+     "cpuMs": 2.2,
+     "gpuMs": 132.8,
+     "tileMs": 94.6,
      "glError": 0,
      "rule": []
     },
@@ -571,8 +574,8 @@
       "rgb": 0
      },
      "cpuMs": 3.4,
-     "gpuMs": 123.7,
-     "tileMs": 425.5,
+     "gpuMs": 131.4,
+     "tileMs": 130.4,
      "glError": 0,
      "rule": []
     },
@@ -618,9 +621,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 1.9,
-     "gpuMs": 122.5,
-     "tileMs": 300.1,
+     "cpuMs": 2.2,
+     "gpuMs": 130.3,
+     "tileMs": 151.6,
      "glError": 0,
      "rule": []
     },
@@ -667,8 +670,8 @@
       "rgb": 0
      },
      "cpuMs": 2.1,
-     "gpuMs": 124.9,
-     "tileMs": 399,
+     "gpuMs": 129.9,
+     "tileMs": 213.8,
      "glError": 0,
      "rule": []
     },
@@ -719,8 +722,8 @@
       "rgb": 0
      },
      "cpuMs": 3,
-     "gpuMs": 123.4,
-     "tileMs": 491.7,
+     "gpuMs": 132,
+     "tileMs": 275.6,
      "glError": 0,
      "rule": []
     },
@@ -733,49 +736,48 @@
      "gpuKept": 1326,
      "orderFaults": 0,
      "posMaxMm": 0.001632,
-     "cpuPlaced": 51,
-     "gpuPlaced": 46,
+     "cpuPlaced": 60,
+     "gpuPlaced": 60,
      "cpuBlockedHits": 0,
-     "gpuBlockedHits": 33,
+     "gpuBlockedHits": 0,
      "codes": {
       "cpu": {
        "2": 446,
        "3": 210,
-       "4": 618,
-       "5": 1,
-       "6": 51
+       "4": 610,
+       "6": 60
       },
       "gpu": {
        "2": 444,
        "3": 211,
-       "4": 625,
-       "6": 46
+       "4": 611,
+       "6": 60
       }
      },
      "bins": {
-      "field": 74,
+      "field": 2,
       "float32": 0,
       "rule": 0
      },
      "why": {},
      "groundVsMirrorMm": {
-      "p95": 0.000315,
-      "max": 0.000478
+      "p95": 0.000304,
+      "max": 0.000505
      },
      "groundVsCpuMm": {
-      "p95": 0.000478,
-      "max": 1.011768
+      "p95": 0.824604,
+      "max": 2.699099
      },
      "maxDiff": {
-      "h": 0.000002,
+      "h": 0.000003,
       "spread": 0.000001,
       "arch": 0,
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 13.7,
-     "gpuMs": 125.6,
-     "tileMs": 430.6,
+     "cpuMs": 3.9,
+     "gpuMs": 131.2,
+     "tileMs": 239.8,
      "glError": 0,
      "rule": []
     },
@@ -825,9 +827,9 @@
       "yaw": 0.000001,
       "rgb": 0.000001
      },
-     "cpuMs": 3.6,
-     "gpuMs": 118.3,
-     "tileMs": 503,
+     "cpuMs": 2.7,
+     "gpuMs": 134.9,
+     "tileMs": 120.5,
      "glError": 0,
      "rule": []
     },
@@ -873,9 +875,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 2.1,
-     "gpuMs": 123.8,
-     "tileMs": 432.5,
+     "cpuMs": 2.2,
+     "gpuMs": 128.7,
+     "tileMs": 125.3,
      "glError": 0,
      "rule": []
     },
@@ -921,9 +923,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 2.1,
-     "gpuMs": 123.2,
-     "tileMs": 623.9,
+     "cpuMs": 2.2,
+     "gpuMs": 128.6,
+     "tileMs": 299.1,
      "glError": 0,
      "rule": []
     },
@@ -973,9 +975,9 @@
       "yaw": 0.000001,
       "rgb": 0.00001
      },
-     "cpuMs": 8.2,
-     "gpuMs": 122.9,
-     "tileMs": 503.3,
+     "cpuMs": 3.4,
+     "gpuMs": 130.1,
+     "tileMs": 92.2,
      "glError": 0,
      "rule": []
     },
@@ -1025,9 +1027,9 @@
       "yaw": 0.000001,
       "rgb": 0.000013
      },
-     "cpuMs": 19.2,
-     "gpuMs": 122.5,
-     "tileMs": 526.3,
+     "cpuMs": 4.1,
+     "gpuMs": 131.7,
+     "tileMs": 100.4,
      "glError": 0,
      "rule": []
     },
@@ -1077,9 +1079,9 @@
       "yaw": 0.000001,
       "rgb": 0.000025
      },
-     "cpuMs": 8.9,
-     "gpuMs": 122.8,
-     "tileMs": 512.4,
+     "cpuMs": 3.8,
+     "gpuMs": 130.6,
+     "tileMs": 97.4,
      "glError": 0,
      "rule": []
     },
@@ -1129,9 +1131,9 @@
       "yaw": 0.000001,
       "rgb": 0.000017
      },
-     "cpuMs": 9.5,
-     "gpuMs": 125.3,
-     "tileMs": 513.8,
+     "cpuMs": 3.6,
+     "gpuMs": 130.1,
+     "tileMs": 101.3,
      "glError": 0,
      "rule": []
     },
@@ -1181,9 +1183,9 @@
       "yaw": 0.000001,
       "rgb": 0.000028
      },
-     "cpuMs": 9.2,
-     "gpuMs": 127.9,
-     "tileMs": 515.5,
+     "cpuMs": 4,
+     "gpuMs": 132.6,
+     "tileMs": 92.3,
      "glError": 0,
      "rule": []
     },
@@ -1229,9 +1231,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 2.5,
-     "gpuMs": 124.3,
-     "tileMs": 491.4,
+     "cpuMs": 2,
+     "gpuMs": 131.2,
+     "tileMs": 100.1,
      "glError": 0,
      "rule": []
     },
@@ -1281,9 +1283,9 @@
       "yaw": 0.000001,
       "rgb": 0.000001
      },
-     "cpuMs": 14.3,
-     "gpuMs": 129.6,
-     "tileMs": 482.7,
+     "cpuMs": 2.5,
+     "gpuMs": 130.1,
+     "tileMs": 85.9,
      "glError": 0,
      "rule": []
     },
@@ -1335,9 +1337,9 @@
       "yaw": 0.000001,
       "rgb": 0.000001
      },
-     "cpuMs": 4.4,
-     "gpuMs": 129,
-     "tileMs": 568.8,
+     "cpuMs": 2.4,
+     "gpuMs": 131.5,
+     "tileMs": 144.6,
      "glError": 0,
      "rule": []
     },
@@ -1351,9 +1353,9 @@
      "orderFaults": 0,
      "posMaxMm": 0.001579,
      "cpuPlaced": 51,
-     "gpuPlaced": 53,
+     "gpuPlaced": 47,
      "cpuBlockedHits": 0,
-     "gpuBlockedHits": 11,
+     "gpuBlockedHits": 0,
      "codes": {
       "cpu": {
        "2": 513,
@@ -1364,12 +1366,12 @@
       "gpu": {
        "2": 513,
        "3": 198,
-       "4": 568,
-       "6": 53
+       "4": 574,
+       "6": 47
       }
      },
      "bins": {
-      "field": 20,
+      "field": 4,
       "float32": 0,
       "rule": 0
      },
@@ -1383,15 +1385,15 @@
       "max": 1.301073
      },
      "maxDiff": {
-      "h": 0.000002,
-      "spread": 0,
+      "h": 0.000003,
+      "spread": 0.000001,
       "arch": 0,
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 7.6,
-     "gpuMs": 122.6,
-     "tileMs": 456.3,
+     "cpuMs": 3.1,
+     "gpuMs": 130.4,
+     "tileMs": 200.3,
      "glError": 0,
      "rule": []
     }
@@ -1415,228 +1417,220 @@
     "stations": 22,
     "slots": 10648,
     "bins": {
-     "field": 82,
+     "field": 29,
      "float32": 0,
      "rule": 0
     },
     "share": {
-     "field": 0.007701,
+     "field": 0.002724,
      "float32": 0,
      "rule": 0
     },
     "float32Why": {},
     "density": {
-     "cpuPerM2": 1.223269,
-     "gpuPerM2": 1.225321,
-     "seCpuPerM2": 0.028921,
-     "sigmas": 0.070928
+     "cpuPerM2": 1.226005,
+     "gpuPerM2": 1.221218,
+     "seCpuPerM2": 0.028954,
+     "sigmas": 0.165313
     },
     "speciesShare": {
-     "maxAbsDiff": 0.001685,
-     "maxSigmas": 0.996652,
-     "totalVariation": 0.005488,
+     "maxAbsDiff": 0.001648,
+     "maxSigmas": 0.624284,
+     "totalVariation": 0.004213,
      "rows": [
       {
        "id": "ammophila_breviligulata",
-       "cpu": 0.051425,
-       "gpu": 0.051339,
-       "diff": -0.000086,
-       "se": 0.005222,
-       "sigmas": 0.016487
+       "cpu": 0.051311,
+       "gpu": 0.051512,
+       "diff": 0.000201,
+       "se": 0.00521,
+       "sigmas": 0.038597
       },
       {
        "id": "andropogon_gerardii",
-       "cpu": 0.085523,
-       "gpu": 0.085379,
-       "diff": -0.000143,
-       "se": 0.006612,
-       "sigmas": 0.021654
+       "cpu": 0.085332,
+       "gpu": 0.085666,
+       "diff": 0.000334,
+       "se": 0.006598,
+       "sigmas": 0.050691
       },
       {
        "id": "bolboschoenus_fluviatilis",
-       "cpu": 0.007826,
-       "gpu": 0.009487,
-       "diff": 0.001661,
-       "se": 0.002083,
-       "sigmas": 0.797303
+       "cpu": 0.007808,
+       "gpu": 0.006719,
+       "diff": -0.001089,
+       "se": 0.002079,
+       "sigmas": 0.524002
       },
       {
        "id": "cakile_edentula",
-       "cpu": 0.001118,
-       "gpu": 0.001116,
-       "diff": -0.000002,
-       "se": 0.00079,
-       "sigmas": 0.002369
+       "cpu": 0.001115,
+       "gpu": 0.00112,
+       "diff": 0.000004,
+       "se": 0.000788,
+       "sigmas": 0.005546
       },
       {
        "id": "calamagrostis_canadensis",
-       "cpu": 0.034097,
-       "gpu": 0.032924,
-       "diff": -0.001173,
-       "se": 0.004291,
-       "sigmas": 0.273422
+       "cpu": 0.034021,
+       "gpu": 0.033035,
+       "diff": -0.000986,
+       "se": 0.004281,
+       "sigmas": 0.23042
       },
       {
        "id": "calamovilfa_longifolia",
-       "cpu": 0.016769,
-       "gpu": 0.016741,
-       "diff": -0.000028,
-       "se": 0.003036,
-       "sigmas": 0.009247
+       "cpu": 0.016732,
+       "gpu": 0.016797,
+       "diff": 0.000066,
+       "se": 0.003029,
+       "sigmas": 0.021649
       },
       {
        "id": "carex_aquatilis",
-       "cpu": 0.008944,
-       "gpu": 0.008929,
-       "diff": -0.000015,
-       "se": 0.002226,
-       "sigmas": 0.006727
+       "cpu": 0.008924,
+       "gpu": 0.008959,
+       "diff": 0.000035,
+       "se": 0.002221,
+       "sigmas": 0.015748
       },
       {
        "id": "carex_lacustris",
-       "cpu": 0.00559,
-       "gpu": 0.004464,
-       "diff": -0.001125,
-       "se": 0.001763,
-       "sigmas": 0.638478
+       "cpu": 0.005577,
+       "gpu": 0.004479,
+       "diff": -0.001098,
+       "se": 0.001759,
+       "sigmas": 0.624284
       },
       {
        "id": "carex_stricta",
-       "cpu": 0.023477,
-       "gpu": 0.023996,
-       "diff": 0.000519,
-       "se": 0.00358,
-       "sigmas": 0.144907
+       "cpu": 0.023424,
+       "gpu": 0.024076,
+       "diff": 0.000652,
+       "se": 0.003572,
+       "sigmas": 0.182458
       },
       {
        "id": "euphorbia_polygonifolia",
-       "cpu": 0.001118,
-       "gpu": 0.001116,
-       "diff": -0.000002,
-       "se": 0.00079,
-       "sigmas": 0.002369
+       "cpu": 0.001115,
+       "gpu": 0.00112,
+       "diff": 0.000004,
+       "se": 0.000788,
+       "sigmas": 0.005546
       },
       {
        "id": "juncus_effusus",
-       "cpu": 0.005031,
-       "gpu": 0.005022,
-       "diff": -0.000008,
-       "se": 0.001673,
-       "sigmas": 0.005035
+       "cpu": 0.00502,
+       "gpu": 0.005039,
+       "diff": 0.00002,
+       "se": 0.001669,
+       "sigmas": 0.011788
       },
       {
        "id": "koeleria_macrantha",
-       "cpu": 0.148686,
-       "gpu": 0.148438,
-       "diff": -0.000249,
-       "se": 0.008412,
-       "sigmas": 0.029592
+       "cpu": 0.148355,
+       "gpu": 0.148936,
+       "diff": 0.000581,
+       "se": 0.008394,
+       "sigmas": 0.069267
       },
       {
        "id": "opuntia_humifusa",
-       "cpu": 0.000559,
-       "gpu": 0.000558,
-       "diff": -0.000001,
-       "se": 0.000559,
-       "sigmas": 0.001674
+       "cpu": 0.000558,
+       "gpu": 0.00056,
+       "diff": 0.000002,
+       "se": 0.000558,
+       "sigmas": 0.003919
       },
       {
        "id": "poa_pratensis",
-       "cpu": 0.085523,
-       "gpu": 0.085379,
-       "diff": -0.000143,
-       "se": 0.006612,
-       "sigmas": 0.021654
+       "cpu": 0.085332,
+       "gpu": 0.085666,
+       "diff": 0.000334,
+       "se": 0.006598,
+       "sigmas": 0.050691
       },
       {
        "id": "schizachyrium_scoparium",
-       "cpu": 0.421465,
-       "gpu": 0.420759,
-       "diff": -0.000706,
-       "se": 0.011675,
-       "sigmas": 0.060437
+       "cpu": 0.420524,
+       "gpu": 0.422172,
+       "diff": 0.001648,
+       "se": 0.011658,
+       "sigmas": 0.141379
       },
       {
        "id": "schoenoplectus_acutus",
-       "cpu": 0.006708,
-       "gpu": 0.005022,
-       "diff": -0.001685,
-       "se": 0.00193,
-       "sigmas": 0.873309
+       "cpu": 0.00502,
+       "gpu": 0.005039,
+       "diff": 0.00002,
+       "se": 0.001669,
+       "sigmas": 0.011788
       },
       {
        "id": "schoenoplectus_tabernaemontani",
-       "cpu": 0.006708,
-       "gpu": 0.008371,
-       "diff": 0.001663,
-       "se": 0.00193,
-       "sigmas": 0.861671
+       "cpu": 0.006693,
+       "gpu": 0.006719,
+       "diff": 0.000026,
+       "se": 0.001926,
+       "sigmas": 0.013623
       },
       {
        "id": "sparganium_eurycarpum",
-       "cpu": 0.004472,
-       "gpu": 0.004464,
-       "diff": -0.000007,
-       "se": 0.001577,
-       "sigmas": 0.004746
+       "cpu": 0.00502,
+       "gpu": 0.005039,
+       "diff": 0.00002,
+       "se": 0.001669,
+       "sigmas": 0.011788
       },
       {
        "id": "sporobolus_cryptandrus",
-       "cpu": 0.05422,
-       "gpu": 0.054129,
-       "diff": -0.000091,
-       "se": 0.005354,
-       "sigmas": 0.016954
+       "cpu": 0.054099,
+       "gpu": 0.054311,
+       "diff": 0.000212,
+       "se": 0.005342,
+       "sigmas": 0.03969
       },
       {
        "id": "sporobolus_heterolepis",
-       "cpu": 0.004472,
-       "gpu": 0.004464,
-       "diff": -0.000007,
-       "se": 0.001577,
-       "sigmas": 0.004746
+       "cpu": 0.004462,
+       "gpu": 0.004479,
+       "diff": 0.000017,
+       "se": 0.001574,
+       "sigmas": 0.01111
       },
       {
        "id": "sporobolus_michauxianus",
-       "cpu": 0.002795,
-       "gpu": 0.00279,
-       "diff": -0.000005,
-       "se": 0.001248,
-       "sigmas": 0.003749
+       "cpu": 0.002789,
+       "gpu": 0.0028,
+       "diff": 0.000011,
+       "se": 0.001245,
+       "sigmas": 0.008776
       },
       {
        "id": "trifolium_repens",
-       "cpu": 0.006149,
-       "gpu": 0.006138,
-       "diff": -0.00001,
-       "se": 0.001848,
-       "sigmas": 0.00557
+       "cpu": 0.006135,
+       "gpu": 0.006159,
+       "diff": 0.000024,
+       "se": 0.001844,
+       "sigmas": 0.013039
       },
       {
        "id": "typha_latifolia",
-       "cpu": 0.016769,
-       "gpu": 0.017857,
-       "diff": 0.001088,
-       "se": 0.003036,
-       "sigmas": 0.358385
-      },
-      {
-       "id": "zizania_aquatica",
-       "cpu": 0.000559,
-       "gpu": 0.001116,
-       "diff": 0.000557,
-       "se": 0.000559,
-       "sigmas": 0.996652
+       "cpu": 0.020636,
+       "gpu": 0.019597,
+       "diff": -0.001039,
+       "se": 0.003357,
+       "sigmas": 0.309456
       }
      ]
     },
     "blockedHits": {
      "cpu": 0,
-     "gpu": 31
+     "gpu": 0
     },
     "posMaxMm": 0.001127,
     "groundVsMirrorMaxMm": 0.009072,
-    "groundVsCpuP95MmMax": 0.034573,
+    "groundVsCpuP95MmMax": 0.824604,
     "maxDiff": {
      "h": 0.000025,
      "spread": 0.000001,
@@ -1688,9 +1682,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 6.5,
-     "gpuMs": 153.8,
-     "tileMs": 425.7,
+     "cpuMs": 1.1,
+     "gpuMs": 167.6,
+     "tileMs": 236.3,
      "glError": 0,
      "rule": []
     },
@@ -1740,9 +1734,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 1.3,
-     "gpuMs": 119.3,
-     "tileMs": 305.6,
+     "cpuMs": 2,
+     "gpuMs": 127.9,
+     "tileMs": 159.1,
      "glError": 0,
      "rule": []
     },
@@ -1792,9 +1786,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 1.8,
-     "gpuMs": 145.9,
-     "tileMs": 320.8,
+     "cpuMs": 1.1,
+     "gpuMs": 140.9,
+     "tileMs": 136.6,
      "glError": 0,
      "rule": []
     },
@@ -1840,9 +1834,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 2.4,
-     "gpuMs": 123.2,
-     "tileMs": 367.8,
+     "cpuMs": 1.1,
+     "gpuMs": 126.4,
+     "tileMs": 197.6,
      "glError": 0,
      "rule": []
     },
@@ -1889,8 +1883,8 @@
       "rgb": 0
      },
      "cpuMs": 0.8,
-     "gpuMs": 119.2,
-     "tileMs": 491.9,
+     "gpuMs": 128.5,
+     "tileMs": 90.3,
      "glError": 0,
      "rule": []
     },
@@ -1939,8 +1933,8 @@
       "rgb": 0
      },
      "cpuMs": 0.8,
-     "gpuMs": 121.2,
-     "tileMs": 442.1,
+     "gpuMs": 128.6,
+     "tileMs": 122.7,
      "glError": 0,
      "rule": []
     },
@@ -1986,9 +1980,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 1.4,
-     "gpuMs": 122.9,
-     "tileMs": 325.3,
+     "cpuMs": 1.3,
+     "gpuMs": 130,
+     "tileMs": 153.4,
      "glError": 0,
      "rule": []
     },
@@ -2034,9 +2028,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 0.9,
-     "gpuMs": 118.8,
-     "tileMs": 433.3,
+     "cpuMs": 0.7,
+     "gpuMs": 128.6,
+     "tileMs": 199.9,
      "glError": 0,
      "rule": []
     },
@@ -2087,8 +2081,8 @@
       "rgb": 0
      },
      "cpuMs": 0.9,
-     "gpuMs": 120.1,
-     "tileMs": 521.4,
+     "gpuMs": 127.6,
+     "tileMs": 278.4,
      "glError": 0,
      "rule": []
     },
@@ -2101,38 +2095,37 @@
      "gpuKept": 485,
      "orderFaults": 0,
      "posMaxMm": 0.000978,
-     "cpuPlaced": 29,
-     "gpuPlaced": 33,
+     "cpuPlaced": 34,
+     "gpuPlaced": 34,
      "cpuBlockedHits": 0,
-     "gpuBlockedHits": 23,
+     "gpuBlockedHits": 0,
      "codes": {
       "cpu": {
        "2": 122,
        "3": 89,
-       "4": 244,
-       "5": 1,
-       "6": 29
+       "4": 240,
+       "6": 34
       },
       "gpu": {
        "2": 121,
        "3": 90,
-       "4": 241,
-       "6": 33
+       "4": 240,
+       "6": 34
       }
      },
      "bins": {
-      "field": 44,
+      "field": 1,
       "float32": 0,
       "rule": 0
      },
      "why": {},
      "groundVsMirrorMm": {
-      "p95": 0.000203,
-      "max": 0.000478
+      "p95": 0.000201,
+      "max": 0.000304
      },
      "groundVsCpuMm": {
-      "p95": 0.000208,
-      "max": 0.000478
+      "p95": 0.824604,
+      "max": 2.09196
      },
      "maxDiff": {
       "h": 0.000002,
@@ -2141,9 +2134,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 3.9,
-     "gpuMs": 120.9,
-     "tileMs": 452.7,
+     "cpuMs": 1.9,
+     "gpuMs": 129.3,
+     "tileMs": 240.3,
      "glError": 0,
      "rule": []
     },
@@ -2193,9 +2186,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 2.5,
-     "gpuMs": 122.6,
-     "tileMs": 545.5,
+     "cpuMs": 1.2,
+     "gpuMs": 129.6,
+     "tileMs": 120.9,
      "glError": 0,
      "rule": []
     },
@@ -2241,9 +2234,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 0.9,
-     "gpuMs": 121.3,
-     "tileMs": 484.3,
+     "cpuMs": 0.8,
+     "gpuMs": 127.9,
+     "tileMs": 122.5,
      "glError": 0,
      "rule": []
     },
@@ -2289,9 +2282,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 1.1,
-     "gpuMs": 119.5,
-     "tileMs": 689.9,
+     "cpuMs": 0.9,
+     "gpuMs": 128.1,
+     "tileMs": 298.4,
      "glError": 0,
      "rule": []
     },
@@ -2341,9 +2334,9 @@
       "yaw": 0.000001,
       "rgb": 0.000007
      },
-     "cpuMs": 4.3,
-     "gpuMs": 120.6,
-     "tileMs": 578.1,
+     "cpuMs": 1.6,
+     "gpuMs": 128.8,
+     "tileMs": 95.7,
      "glError": 0,
      "rule": []
     },
@@ -2393,9 +2386,9 @@
       "yaw": 0.000001,
       "rgb": 0.000013
      },
-     "cpuMs": 7.7,
-     "gpuMs": 120.1,
-     "tileMs": 594.9,
+     "cpuMs": 1.7,
+     "gpuMs": 127.7,
+     "tileMs": 105.1,
      "glError": 0,
      "rule": []
     },
@@ -2445,9 +2438,9 @@
       "yaw": 0.000001,
       "rgb": 0.000015
      },
-     "cpuMs": 3.7,
-     "gpuMs": 121.4,
-     "tileMs": 571.8,
+     "cpuMs": 1.2,
+     "gpuMs": 128.6,
+     "tileMs": 100.9,
      "glError": 0,
      "rule": []
     },
@@ -2497,9 +2490,9 @@
       "yaw": 0.000001,
       "rgb": 0.000017
      },
-     "cpuMs": 3.8,
-     "gpuMs": 120.3,
-     "tileMs": 586.1,
+     "cpuMs": 1.3,
+     "gpuMs": 128.9,
+     "tileMs": 105,
      "glError": 0,
      "rule": []
     },
@@ -2549,9 +2542,9 @@
       "yaw": 0.000001,
       "rgb": 0.000019
      },
-     "cpuMs": 4.2,
-     "gpuMs": 119.7,
-     "tileMs": 573.1,
+     "cpuMs": 1.2,
+     "gpuMs": 126.4,
+     "tileMs": 94.1,
      "glError": 0,
      "rule": []
     },
@@ -2597,9 +2590,9 @@
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 0.8,
-     "gpuMs": 121.8,
-     "tileMs": 546.8,
+     "cpuMs": 0.9,
+     "gpuMs": 127.5,
+     "tileMs": 101.5,
      "glError": 0,
      "rule": []
     },
@@ -2647,9 +2640,9 @@
       "yaw": 0.000001,
       "rgb": 0.000001
      },
-     "cpuMs": 3.4,
-     "gpuMs": 120.7,
-     "tileMs": 515.1,
+     "cpuMs": 1.2,
+     "gpuMs": 128.6,
+     "tileMs": 88.5,
      "glError": 0,
      "rule": []
     },
@@ -2701,9 +2694,9 @@
       "yaw": 0.000001,
       "rgb": 0.000001
      },
-     "cpuMs": 2.1,
-     "gpuMs": 119.7,
-     "tileMs": 643.9,
+     "cpuMs": 1.1,
+     "gpuMs": 127.2,
+     "tileMs": 144.4,
      "glError": 0,
      "rule": []
     },
@@ -2716,26 +2709,26 @@
      "gpuKept": 482,
      "orderFaults": 0,
      "posMaxMm": 0.001072,
-     "cpuPlaced": 48,
-     "gpuPlaced": 50,
+     "cpuPlaced": 47,
+     "gpuPlaced": 43,
      "cpuBlockedHits": 0,
-     "gpuBlockedHits": 8,
+     "gpuBlockedHits": 0,
      "codes": {
       "cpu": {
        "2": 109,
        "3": 91,
-       "4": 234,
-       "6": 48
+       "4": 235,
+       "6": 47
       },
       "gpu": {
        "2": 109,
        "3": 91,
-       "4": 232,
-       "6": 50
+       "4": 239,
+       "6": 43
       }
      },
      "bins": {
-      "field": 14,
+      "field": 4,
       "float32": 0,
       "rule": 0
      },
@@ -2750,14 +2743,14 @@
      },
      "maxDiff": {
       "h": 0.000002,
-      "spread": 0,
+      "spread": 0.000001,
       "arch": 0,
       "yaw": 0,
       "rgb": 0
      },
-     "cpuMs": 2.7,
-     "gpuMs": 119.2,
-     "tileMs": 459.1,
+     "cpuMs": 1.3,
+     "gpuMs": 126.1,
+     "tileMs": 200.9,
      "glError": 0,
      "rule": []
     }

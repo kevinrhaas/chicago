@@ -609,6 +609,8 @@ export function createTravel({
     simulate,
     router,
     destinationOf,
+    /** T-2654: the waypoints a ride under way has still to pass, for the Navigator's Map. */
+    routeAhead() { return ride ? ride.points.slice(ride.index).map(([e, n]) => [e, n]) : []; },
     get state() {
       return {
         phase,

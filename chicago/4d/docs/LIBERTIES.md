@@ -28400,8 +28400,10 @@ stops there (sky straight behind it in every view that sees it), so the model's 
 **What is read, not invented:** that the ventilator exists, is a single inclined pipe with an
 upright cowl of bowl and disc, rises near the rear pinnacle and leans forward; its place along the
 return (about 0.5 to 0.6 of it in all four views, built at 3.3 m behind the front); its height over
-the coping against the rear pinnacle's (about 1.85 times it in Taylor 2135, built at 0.95 m); and
-the pipe's and cap's widths against the 0.46 m courses (about 0.28 m and 0.58 m).
+the coping against the rear pinnacle's (about 1.85 times it in Taylor 2135, built at 0.95 m), raised
+to 1.05 m by T-2713 where T-2579's re-fitted camera on the 1888 Glessner plate reads the cap's top
+0.1 m beyond the render's (3.5 px at 37 px/m; now within 1-2 px); and the pipe's and cap's widths
+against the 0.46 m courses (about 0.28 m and 0.58 m).
 **What is invented:** the riser hidden behind the parapet and where it meets the deck; its depth
 behind the north face (0.6 m), which sets its foot inside the hall stack's plan and so reads as
 that flue's termination — plausible, not shown; the elbow's height under the coping; the bowl's
@@ -28409,13 +28411,16 @@ and the disc's sections; and its colour, a plain pale grey standing for galvaniz
 monochrome prints show only as paler than its cap and close to the granite; and that it
 still stands in the 1904 scene this phase serves (it is there in 1887-89 and gone by 1948, and
 when it went is not known).
-**How to resolve:** the re-fitted cameras of T-2579, which decide whether the c. 1888 view's
-higher-seeming cap is a residual or a shallower set-back; and the hall stack's height (left for
-T-2580), which the same pictures show below the coping where the model stands it above.
+**How to resolve:** a re-fit of the c. 1888 view looking south-west, whose T-1883 camera puts the
+rear pinnacle about 60 px off and still reads the cap higher than the plate does (T-2713 left that
+excess to the camera, not the cowl); and the undated Glessner-front view, which shows no cowl at
+any bounded set-back and is read by T-2713 as later than its removal (probably 1890s-1920s,
+T-2216): a date for that picture would confirm or overturn that reading. The hall stack's height
+was settled by T-2712 (it stops under the coping).
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2578 (piece 2 of T-2567).
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
-**Recorded:** 2026-10-16 (T-2578).
+**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713).
 
 ### L-k01-keith-south-strip-2581 — Keith's south corner: a straight strip of the front's stone, 2.1 m deep
 

@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-glessner-front-with-keith",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "f56cd19dfb90e9406e8d0374a34dc9522a6f8f12047a88c4f8d90d3df0d2cc26",
+  "glb_sha256": "73fe5d6c8053fa1454bb5adedde2c55e7411f159fe670e481faa362395f8005d",
   "camera_sha256": "01b2829a0d77a4ace70e97c6f5ffae64fe78622cd1cfcb1d8840fde1ba060153",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-glessner-front-with-keith-side-by-side.jpg",
   "verdict": "differs",
@@ -36,8 +36,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2578, re-read at T-2579's camera (0.9 px): the ventilator's cap and the hall stack's top stand clear over the return's coping in the render, where the print shows clean sky over it; with the camera's residual ruled out, either they stand too tall or too far forward for this picture, or the picture (undated here) postdates the ventilator. T-2712: the hall stack's half of this is fixed (it now stops under the coping and the render shows none over it); the cap's top over the coping stays open.",
-      "status": "open"
+      "what": "T-2578, re-read at T-2579's camera (0.9 px): the ventilator's cap and the hall stack's top stand clear over the return's coping in the render, where the print shows clean sky over it; with the camera's residual ruled out, either they stand too tall or too far forward for this picture, or the picture (undated here) postdates the ventilator. T-2712: the hall stack's half of this is fixed (it now stops under the coping and the render shows none over it); the cap's top over the coping stays open. T-2713: ruled by the picture's date. Through this 0.74 px camera no cowl inside the record's bounds hides behind the return's coping: at the 0.6 m set-back the cap clears the return's skyline by 45-129 px across the whole 0.4-1.6 m height range, and only at the 1.5 m limit with the cap at 0.95 m or lower does it fall behind, and then against the front's crown, not the return. The c. 1888 view looking SW, the 1887 construction view, Taylor 2135 and the 1888 Glessner plate all show the cowl standing clear, and by Florian 1948 only a stub is left at its foot. This picture is undated, read as probably 1890s-1920s (T-2216, from the front door), so it is taken as later than the cowl's removal: the 1886 phase keeps the cowl and this view cannot show it.",
+      "status": "not shown"
     },
     {
       "what": "T-2579: the north-east corner pier is wider than the model's: with the lattice jambs and the pinnacles in register, the photograph's arris (front meets return) stands 23 px, about 0.3 m, further north than the model's, the pinnacle standing on the middle of the pier rather than at its arris. T-2680 re-read: there is no edge at x 156. A column profile of the print finds the arris, where the lit front meets the shaded return, at x 138 on every row from the coping (y 80) down to the band (y 360), and none further north; the model's arris projects at x 135-136, 2-3 px (0.03-0.04 m) away, inside the reading. The pinnacle's apex stands 8.5 px inside the arris here and 8 px in the render. Florian 1948 agrees: the plain pier reads 0.37-0.42 m from the lattice's end to the arris there and 0.37 m here, against the model's 0.33 m. The pier stands as the print shows it, so nothing was widened.",
