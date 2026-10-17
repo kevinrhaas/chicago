@@ -10993,12 +10993,25 @@ for (const [label, viewport, touch] of [
       }
       // A phone opens Map at FULL; the sheet grows over 280 ms of (slow) frames, and the map
       // re-fits as it does. Read it once the sheet has settled: the same box twice running.
+      // "The same box twice" alone is not settled: a transition's clock moves only when the
+      // page draws, and on a runner where a frame of the town takes seconds two reads 250 ms
+      // apart can land between the same two frames — the sheet still widening out of the
+      // 136 px dock pill (T-2619), the map fitted to it (a 120 px canvas, below the screen).
+      // So first wait for the device's own height/left/right transitions to finish, as
+      // clickChrome does, then for the box to hold, its width included.
+      // (On a phone Map's own shown() raises HALF to FULL; wait for that first, so the
+      // transition it starts is one this wait can see. The detent is still asserted below.)
+      for (let i = 0; i < 50 && ['dock', 'half'].includes(n.detent); i++) await new Promise((r) => setTimeout(r, 100));
+      const device = document.getElementById('navigator');
+      for (let i = 0; i < 150 && device?.getAnimations?.().some((a) => a.playState === 'running'); i++) {
+        await new Promise((r) => setTimeout(r, 100));
+      }
       let settled = '';
       for (let i = 0; i < 60; i++) {
         el()?._mapApi?.paint();
         const b = el()?.querySelector('canvas')?.getBoundingClientRect();
-        const nb = document.getElementById('navigator')?.getBoundingClientRect();
-        const now = b && nb ? [b.top, b.width, b.height, nb.top, nb.height].map(Math.round).join(',') : '';
+        const nb = device?.getBoundingClientRect();
+        const now = b && nb ? [b.top, b.width, b.height, nb.top, nb.width, nb.height].map(Math.round).join(',') : '';
         if (now && now === settled) break;
         settled = now;
         await new Promise((r) => setTimeout(r, 250));
