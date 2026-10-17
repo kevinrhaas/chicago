@@ -22,7 +22,8 @@
  *                                    // mount(el, ctx) and unmount(el, ctx), loaded on first open
  *     mount(el, ctx), unmount(el, ctx), // eager, for something tiny
  *     launch(ctx),                   // a stub: runs and docks the device — the drawer's
- *                                    // sections until they move in (T-2620)
+ *                                    // sections until they move in (T-2620). It may go with
+ *                                    // a screen: returning false falls through to it.
  *   }
  *
  * The rail shows at most `max` (10) icons. Apps whose `when` turns true slide in
@@ -126,10 +127,12 @@ export function createRail({
   function register(app) {
     if (!app?.id || !app.label) throw new Error('navigator.register needs at least { id, label }');
     if (apps.has(app.id)) throw new Error(`navigator.register: ${app.id} is already registered`);
-    const ways = ['panel', 'load', 'mount', 'launch'].filter((k) => app[k]);
-    if (ways.length !== 1 && !(ways.length === 2 && ways.includes('mount') && ways.includes('panel'))) {
-      throw new Error(`navigator.register: ${app.id} needs exactly one of panel, load, mount or launch`);
-    }
+    // One way to show it — a panel, a lazy module or an eager mount — and/or a launch; a
+    // launch that returns false falls through to the screen (People: the drawer in 1835,
+    // its own screen in 1904).
+    const screens = ['panel', 'load', 'mount'].filter((k) => app[k]);
+    const bad = app.panel && app.load ? true : screens.length > 2 || (!screens.length && !app.launch) || (app.load && app.mount);
+    if (bad) throw new Error(`navigator.register: ${app.id} needs one of panel, load or mount, or a launch`);
     const s = { app, button: makeButton(app), shown: !app.when, leaveAt: null, panel: null, mounted: false, module: null };
     apps.set(app.id, s);
     place();
@@ -222,9 +225,9 @@ export function createRail({
     if (s.app.when && !seen.has(id)) { seen.add(id); writeSeen(storage, seen); }
     s.button.classList.remove('is-new');
     if (s.app.launch) {
-      onLaunch(id, by);
-      await s.app.launch(ctx);
-      return true;
+      const handled = await s.app.launch(ctx);
+      if (handled !== false) { onLaunch(id, by); return true; }
+      if (!s.app.panel && !s.app.load && !s.app.mount) return false;
     }
     const ticket = ++switching;
     const panel = panelFor(s);

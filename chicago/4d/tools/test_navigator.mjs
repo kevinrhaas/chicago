@@ -239,7 +239,8 @@ const fakeStorage = () => { const m = new Map(); return { getItem: (k) => m.get(
     load: async () => { loads++; return { default: { mount(el) { mounts++; el.textContent = 'jump'; } } }; } });
   rail.register({ id: 'settings', label: 'Settings', code: 'SCR 10', order: 100, pin: 'bottom', icon: '<svg></svg>', badge: (c) => c.badge, launch: () => {} });
   assert.throws(() => rail.register({ id: 'home', label: 'Home', panel: 'x' }), /already registered/);
-  assert.throws(() => rail.register({ id: 'two', label: 'Two', launch() {}, load() {} }), /exactly one/);
+  assert.throws(() => rail.register({ id: 'two', label: 'Two', panel: 'x', load() {} }), /needs one of/);
+  assert.throws(() => rail.register({ id: 'none', label: 'None' }), /needs one of/);
   assert.equal(dom.rail.children.at(-1).id, 'nav-collapse', 'apps go in front of the collapse key');
   assert.equal(button(dom, 'settings').classList.contains('nav-app-foot-first'), true, 'Settings starts the foot');
 
@@ -459,13 +460,46 @@ for (const phone of [true, false]) {
   }
 }
 
-// People: on the rail where the scene has people records (1835), not where it has none (1904).
+// People: on the rail wherever the scene has a people directory — 1835's town, opened in the
+// drawer's People section, and 1904's Glessner household (T-2702), which has no drawer section
+// (T-1740) and so opens the Navigator's own screen, its directory read on first open.
 {
+  const calls = [];
   const dom = miniDom();
   const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1835.json'), isPhone: () => false, storage: fakeStorage(),
-    apps: APPS, context: () => ({ hasPeople: true }) });
+    apps: APPS, context: () => ({ hasPeople: true, peopleSection: true, actions: { openSection: (id) => calls.push(id) } }) });
   assert(nav.apps.includes('people'), '1835: People shows');
   assert.deepEqual(nav.apps.slice(0, 3), ['home', 'jaunts', 'people'], 'under Jaunts');
+  await nav.select('people');
+  assert.deepEqual(calls, ['people'], '1835: People opens the drawer\u2019s section');
+  assert.equal(dom.byId.get('nav-app-people') ?? null, null, '…and builds no screen of its own');
+
+  const none = createNavigator({ root: miniDom().root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
+    apps: APPS, context: () => ({ hasPeople: false }) });
+  assert(!none.apps.includes('people'), 'no directory, no People');
+
+  const dir = json('data/sidecars/1904/people.json');
+  let reads = 0;
+  const dom4 = miniDom();
+  const inspected = [];
+  const nav4 = createNavigator({ root: dom4.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
+    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false,
+      actions: { peopleDirectory: async () => { reads++; return dir; }, inspect: (id) => inspected.push(id) } }) });
+  assert(nav4.apps.includes('people'), '1904: People shows for the Glessner household');
+  assert.equal(reads, 0, 'the directory is not read before People opens');
+  await nav4.select('people');
+  const screen = dom4.byId.get('nav-app-people');
+  assert(screen && !screen.hidden, '1904: People opens its own screen');
+  assert.equal(reads, 1, 'read once, on first open');
+  const block = screen.children[0];
+  assert.equal(block.children[1].textContent, 'The Glessner household at 1800 Prairie Avenue');
+  const people = block.children.filter((c) => c.classList.contains('nav-person'));
+  assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner'], 'the head first');
+  assert.deepEqual(people.map((p) => p.children[1].textContent), ['Head of the household · Attested', 'Wife · Attested'], 'their place and the record\u2019s grade, in the locked terms');
+  people[0].dispatch('click');
+  assert.deepEqual(inspected, ['glessner_house'], 'a tap takes you to the house they live in');
+  await nav4.select('home'); await nav4.select('people');
+  assert.equal(reads, 1, 'and not read again');
 }
 
 // ---- the markup and the stylesheet ----------------------------------------------------

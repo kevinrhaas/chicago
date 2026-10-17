@@ -3894,6 +3894,26 @@ async function boot() {
   });
 
   // ---- the Navigator (T-2617) ------------------------------------------- //
+  // T-2618: whether this scene has a people directory, without paying for it at boot.
+  const peopleDirectory = (() => {
+    const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase);
+    let known = people ? true : false, asked = !!people, loading = null;
+    return {
+      get known() { return known; },
+      /** After ready: a HEAD, so a scene with no `residents` layer can still show People. */
+      ask() {
+        if (asked) return;
+        asked = true;
+        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then((r) => { known = r.ok; }, () => { known = false; });
+      },
+      load() {
+        if (people) return Promise.resolve(people);
+        loading ??= fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+        return loading;
+      },
+    };
+  })();
+
   // RIGHT IN FRONT OF YOU is inspect()'s own aim "down the crosshair" (no point
   // given), over the structure layers whose hits carry a building record, nearest
   // first, within 40 m. target.js decides when to look; T-2627 and T-2638 read it too.
@@ -3931,7 +3951,11 @@ async function boot() {
       scene: loaded.scene,
       journey: journey.state,
       selected: popup.openId ?? null,
-      hasPeople: !document.querySelector('.panel-tab[data-tab="people"]')?.hidden && (people?.length ?? Object.keys(people ?? {}).length) > 0,
+      // A scene has people when it has a people directory: 1835 loads its own at boot for the
+      // drawer (the `residents` layer); a scene without that layer is asked after ready, with a
+      // HEAD, and its directory is fetched only when People first opens (1904, T-2702).
+      hasPeople: peopleDirectory.known,
+      peopleSection: !document.querySelector('.panel-tab[data-tab="people"]')?.hidden && !!people,
       confidenceOn: hud.confidenceOn,
       jaunt: jauntRuntime?.state ?? null,
       whatsNewUnread: !document.getElementById('help-dot')?.hidden,
@@ -3943,6 +3967,7 @@ async function boot() {
         map: () => navigation.setFullVisible(true),
         confidenceMenu: () => document.getElementById('btn-confidence-more')?.click(),
         recall: () => journey.recall(),
+        peopleDirectory: () => peopleDirectory.load(),
       },
     }),
   });
@@ -4492,6 +4517,7 @@ async function boot() {
   // Install the hooks only after the final startup geometry is in the scene.
   refreshGlessnerOcclusion();
   api.ready = true;
+  setTimeout(() => peopleDirectory.ask(), 0);
   if (!bootController.finish()) {
     api.ready = false;
     if (gateBtn) gateBtn.disabled = true;
