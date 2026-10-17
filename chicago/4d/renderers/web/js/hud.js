@@ -354,7 +354,9 @@ export function createHud({
   // The control-help popover is gone: the controls live in the Navigator's Guide, which
   // shows touch or keyboard from controls/intent.js. Settings' "Show the controls" opens it.
   function showControlHelp() {
-    setPanel(false);
+    // T-2620: with the sections in the Navigator, switching to Guide puts Settings' section
+    // away itself; closing it first would dock the device only to open it again.
+    if (!host) setPanel(false);
     if (document.pointerLockElement) document.exitPointerLock?.();
     onShowGuide?.();
     return true;

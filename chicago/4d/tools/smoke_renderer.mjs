@@ -13790,7 +13790,8 @@ for (const [label, viewport, touch] of [
     check(`${label}: in the town, a Go to pick goes there — the walker moves or the ride starts, and no refusal shows (T-2620)`,
       // The card closed before the pick, so the Sauganash's card opening is the arrival too.
       (townPick.moved > 1 || townPick.phase === 'travelling' || townPick.card === 'sauganash_hotel')
-      && !townPick.message && townPick.detent === 'dock' && townPick.welcome === 'world',
+      // Docked: a phone's dock, a laptop's rail.
+      && !townPick.message && townPick.detent === (touch ? 'dock' : 'rail') && townPick.welcome === 'world',
       JSON.stringify(townPick));
     // ---- end T-2620 (part 13)
     await page.evaluate(() => { window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
@@ -14084,9 +14085,10 @@ for (const [label, viewport, touch] of [
       api.goTo('south_water');
       api.setPace('walk');
       api.setTravelMode('walk');
-      // T-2620: the drawer's Go to list retired; the ride starts from the call a chosen
-      // destination makes (Go to in the Jaunts app makes the same one).
-      api.goToTarget({ kind: 'structure', id: 'sauganash_hotel', label: 'Sauganash Hotel' });
+      // T-2620: the drawer's Go to list retired; the ride starts as a pick in the Jaunts
+      // app's Go to starts it in the town (welcome.enter → goToPick → goToTarget), which
+      // pockets the device, and with it the Move section that was open.
+      api.welcome.enter('structure', 'sauganash_hotel');
       const st = api.travelState;
       const banner = document.getElementById('travel-banner');
       out.go = {
@@ -15038,6 +15040,9 @@ for (const [label, viewport, touch] of [
       toggles.hidden.compass && toggles.hidden.map && toggles.hidden.street && toggles.restored,
       JSON.stringify(toggles));
     await clickChrome('#panel-close');
+    // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
+    // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
 
     // The HUD toggle must drive the same view the harness does.
     await clickChrome('#btn-confidence');
@@ -15189,11 +15194,19 @@ for (const [label, viewport, touch] of [
         snake: /[a-z0-9]+_[a-z0-9]+/i.test(el?.textContent ?? '') };
     });
     const other = jumpScreen.years.find((y) => y !== String(YEAR));
-    if (other) await page.evaluate((y) => document.querySelector(`#nav-app-jump .nav-jump[data-year="${y}"]`)?.click(), other);
-    const ring = await page.evaluate(() => ({ ring: !!document.querySelector('.nav-jump-ring'),
-      label: document.querySelector('.nav-jump-ring-label')?.textContent ?? '',
-      stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 }));
-    await page.keyboard.press('Escape');
+    // The pick, the reading and the Escape in ONE task. As three round trips, a starved
+    // runner let the ring's own timer fire between the pick and the Escape (a desktop run
+    // on #957 took 14.6 s to return from the pick alone), and the page went to the other
+    // year mid-part: "Execution context was destroyed". The Escape is a keydown from the
+    // focused element, which reaches the ring's capture listener as a key press does.
+    const ring = await page.evaluate((y) => {
+      if (y) document.querySelector(`#nav-app-jump .nav-jump[data-year="${y}"]`)?.click();
+      const out = { ring: !!document.querySelector('.nav-jump-ring'),
+        label: document.querySelector('.nav-jump-ring-label')?.textContent ?? '',
+        stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 };
+      (document.activeElement ?? document.body).dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', code: 'Escape', bubbles: true, cancelable: true }));
+      return out;
+    }, other ?? null);
     await page.waitForTimeout(150);
     const aborted = await page.evaluate(() => ({ ring: !!document.querySelector('.nav-jump-ring'), href: location.href,
       stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 }));
@@ -17713,14 +17726,17 @@ for (const [label, viewport, touch] of [
           const firms = (a.destinations?.targets ?? []).filter((t) => t.kind === 'business' && !t.derived_from).length;
           a.hud?.selectTab?.('people');
           const tab = a.hud?.tab ?? null;
-          a.hud?.selectTab?.('goto');
+          // T-2620: no selectTab('goto') to put the drawer back: Go to's tab retired with the
+          // drawer, and asking for it opens the Jaunts app's Go to instead.
           return { tabs, tiles, firms, tab, mounted: ['residents', 'people', 'businesses', 'fauna', 'plants', 'exclusions', 'population', 'orderBook']
             .filter((k) => a[k] != null) };
         });
         const gone = ['city', 'fauna', 'plants', 'exclusions', 'uncertain', 'population', 'orderbook'];
         check(`${label}: the 1904 drawer offers none of the 1835 town's sections — no People, no Firms, no 1835 Evidence topic, no 1835 firm in Go to (T-1740)`,
           !drawer.tabs.includes('people') && !drawer.tabs.includes('businesses')
-          && ['goto', 'travel', 'evidence', 'settings', 'controls', 'whatsnew'].every((t) => drawer.tabs.includes(t))
+          // T-2620: Go to is the Jaunts app's own now, not a drawer tab; the drawer's others stay.
+          && !drawer.tabs.includes('goto')
+          && ['travel', 'evidence', 'settings', 'controls', 'whatsnew'].every((t) => drawer.tabs.includes(t))
           && gone.every((t) => !drawer.tiles.includes(t))
           && ['grades', 'liberties', 'ground'].every((t) => drawer.tiles.includes(t))
           && drawer.firms === 0 && drawer.tab !== 'people' && drawer.mounted.length === 0,
