@@ -155,7 +155,8 @@ function miniDom() {
       setAttribute(k, v) { this.attrs[k] = String(v); }, getAttribute(k) { return this.attrs[k] ?? null; },
       addEventListener(type, fn) { (listeners[type] ??= []).push(fn); },
       dispatch(type, ev = {}) { for (const fn of listeners[type] ?? []) fn({ preventDefault() {}, target: el, button: 0, ...ev }); },
-      append(...cs) { for (const c of cs) { c.parent?.children.splice(c.parent.children.indexOf(c), 1); c.parent = el; el.children.push(c); } },
+      // A string is a text node in the DOM (Element.append); this fake keeps elements only.
+      append(...cs) { for (const c of cs) { if (typeof c === 'string') continue; c.parent?.children.splice(c.parent.children.indexOf(c), 1); c.parent = el; el.children.push(c); } },
       insertBefore(c, ref) {
         c.parent?.children.splice(c.parent.children.indexOf(c), 1);
         c.parent = el;
