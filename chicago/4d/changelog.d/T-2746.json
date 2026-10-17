@@ -1,0 +1,8 @@
+{
+  "title": "No dark band at 18th and Prairie; lot lines off by default",
+  "kind": "fix",
+  "items": [
+    "Where 18th Street crosses Prairie Avenue, a dark strip no longer runs across the roadway. 18th's paving now fades softly into Prairie's.",
+    "The thin lot lines drawn over the 1904 roadways and lawns are hidden. Settings > Lot lines shows them again."
+  ]
+}
