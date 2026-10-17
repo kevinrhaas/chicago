@@ -25,6 +25,8 @@
  * instance, the fetch and the forecast.
  */
 
+import { gradeTerm } from './strings/terms.js';
+
 export const FAST_LIMIT = 3;
 export const SLOW_LIMIT = 8;
 export const HOLD_MS = 2000;
@@ -39,11 +41,6 @@ export const MAX_REACH = 4;
  * cut off by the landing before it could be read. */
 export const LAST_CALL_S = 0.6;
 
-const GRADE = {
-  attested: ['Attested', 'A source from the time says so.'],
-  inferred: ['Inferred', 'Worked out from clues about this exact place.'],
-  reconstructed: ['Reconstructed', 'No record exists. We built it so the street makes sense, and say so.'],
-};
 
 /** The years of the `limit` most important captions. Importance is unique per deck
  * (the gate holds it), so the pick never depends on file order. */
@@ -123,7 +120,7 @@ export function createTimeStream({
     shownAt = now();
     log.push({ year: c.year, at: Math.round(elapsed()), ticker: c._ticker });
     if (el) {
-      const [label, meaning] = GRADE[c.grade] || ['', ''];
+      const { label, meaning } = gradeTerm(c.grade);
       const year = part('year'), text = part('text'), grade = part('grade');
       if (year) year.textContent = String(c.year);
       if (text) text.textContent = c.text;

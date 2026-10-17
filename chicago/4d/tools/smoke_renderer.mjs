@@ -10649,8 +10649,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: compass shows the live heading`,
       nav.compassShown && nav.east.direction === 'E' && nav.east.bearing === '090°',
       `${nav.east.direction} ${nav.east.bearing}`);
+    // T-2626: the inset is the round instrument's face, a fixed square — 112 px on a
+    // desktop, 92 px on a phone — at the T-1142 scale (asserted below).
+    const frame = touch ? { w: 92, h: 92 } : { w: 112, h: 112 };
     check(`${label}: the overview map is shown, captioned and read in imperial`,
-      nav.mapShown && nav.mapSize[0] >= 188 && nav.mapSize[1] >= 76
+      nav.mapShown && nav.mapSize[0] >= frame.w && nav.mapSize[1] >= frame.h
       && nav.east.snapshot.bounds.eMax - nav.east.snapshot.bounds.eMin > 1900
       && nav.mapCaption === 'map' && nav.units === 'imperial'
       && /feet|ft/.test(nav.mapAria ?? ''),
@@ -10666,7 +10669,6 @@ for (const [label, viewport, touch] of [
     // an edit that re-derives the height from `bounds` fails HERE rather than
     // shipping — which matters because T-0466 widens the field to four
     // kilometres and would walk the whole fault back in.
-    const frame = touch ? { w: 188, h: 76 } : { w: 248, h: 98 };
     check(`${label}: the overview inset is a fixed ${frame.w}x${frame.h} frame, not the field's shape`,
       Math.abs(nav.mapBox.w - frame.w) <= 1 && Math.abs(nav.mapBox.h - frame.h) <= 1,
       `inset ${nav.mapBox.w}x${nav.mapBox.h} css px (expected ${frame.w}x${frame.h}), `
@@ -10859,6 +10861,44 @@ for (const [label, viewport, touch] of [
       shut.hidden && !shut.apiOpen && shut.focus === 'overview-open',
       `hidden ${shut.hidden}, api ${shut.apiOpen}, focus ${JSON.stringify(shut.focus)} `
       + `(was ${JSON.stringify(pop.focus)} while open)`);
+    // T-2626 (§10): the compass and the map are one round instrument at the top right,
+    // its heading the camera's own; the amber year chip at the top left opens Jump.
+    const instrument = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 274 });
+      api.step();
+      const face = document.getElementById('overview-map').getBoundingClientRect();
+      const chip = document.getElementById('year-badge').getBoundingClientRect();
+      const out = {
+        round: getComputedStyle(document.getElementById('overview-map')).borderTopLeftRadius,
+        face: { w: Math.round(face.width), h: Math.round(face.height), right: Math.round(innerWidth - face.right), top: Math.round(face.top) },
+        bearing: document.getElementById('compass-bearing')?.textContent,
+        needle: document.getElementById('compass-needle')?.style.transform,
+        yaw: Math.round(((api.player.bearingDeg % 360) + 360) % 360),
+        chip: { left: Math.round(chip.left), top: Math.round(chip.top), year: document.querySelector('#year-badge .badge-year')?.textContent,
+          date: document.querySelector('#year-badge .badge-sub')?.textContent, tag: document.getElementById('year-badge').tagName },
+      };
+      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 });
+      api.step();
+      return out;
+    });
+    check(`${label}: the compass and the map are one round instrument at the top right, heading the camera's own (T-2626)`,
+      instrument.round === '50%' && Math.abs(instrument.face.w - instrument.face.h) <= 1 && instrument.face.right <= 24 && instrument.face.top < 200
+      && instrument.yaw === 274 && instrument.bearing === '274°' && instrument.needle === 'rotate(274deg)',
+      JSON.stringify(instrument));
+    await clickChrome('#year-badge');
+    const jumpOpen = await page.evaluate(async () => {
+      const n = window.__chicago4d.navigator;
+      for (let i = 0; i < 40 && n.app !== 'jump'; i++) await new Promise((r) => setTimeout(r, 100));
+      const out = { app: n.app, level: n.level };
+      await n.select('home'); n.dock();
+      return out;
+    });
+    check(`${label}: the amber year chip sits top left, reads 1835 · 07.01 and opens Jump (T-2626)`,
+      instrument.chip.tag === 'BUTTON' && instrument.chip.left <= 24 && instrument.chip.top < 80
+      && /^\d{4}$/.test(instrument.chip.year ?? '') && /^\d\d\.\d\d$/.test(instrument.chip.date ?? '')
+      && jumpOpen.app === 'jump' && jumpOpen.level > 0,
+      JSON.stringify({ chip: instrument.chip, jumpOpen }));
     // And the settings toggle owns BOTH of them: a pop-out standing over a map
     // the visitor has switched off is the setting not being obeyed.
     const offWhileHidden = await page.evaluate(() => {
@@ -14482,7 +14522,7 @@ for (const [label, viewport, touch] of [
       && biz.counts.file === biz.counts.stated && biz.counts.stated > 150
       && biz.counts.rows === biz.counts.stated
       && new RegExp(`^${biz.counts.stated} firms`).test(biz.counts.countText)
-      && biz.counts.title === 'Businesses',
+      && biz.counts.title === 'Shops & work',
       JSON.stringify(biz.counts));
     check(`${label}: searching a good the papers advertised finds the houses that sold it`,
       biz.search.matched > 0 && biz.search.matched < biz.counts.stated
@@ -14754,7 +14794,7 @@ for (const [label, viewport, touch] of [
       return out;
     });
     check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
-      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 11
+      hub.hubShown && hub.title === 'Sources' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
       && hub.tiles[2]?.id === 'sources'
       && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
@@ -14905,7 +14945,7 @@ for (const [label, viewport, touch] of [
       && hub.cleared === hub.topic.total,
       JSON.stringify(hub.topic));
     check(`${label}: Back returns to the hub`,
-      hub.back.hubShown && hub.back.title === 'Evidence' && hub.back.topic === null && hub.back.backHidden,
+      hub.back.hubShown && hub.back.title === 'Sources' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
@@ -17129,9 +17169,9 @@ for (const [label, viewport, touch] of [
           && !/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bparcel\b|\bT-\d{3,}/.test(survivalCard.opening),
           survivalCard.opening.slice(0, 300));
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
-          survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
+          survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
-          && survivalCard.facts.some(([k, v]) => k === 'Present status' && /Still standing.*Glessner House museum/.test(v))
+          && survivalCard.facts.some(([k, v]) => k === 'Today' && /Still standing.*Glessner House museum/.test(v))
           && survivalCard.range?.to === '1946-08-31'
           && survivalCard.status?.confidence === 'attested'
           && survivalCard.status?.sources?.includes('glessner_house_current_status')
@@ -17476,6 +17516,25 @@ for (const [label, viewport, touch] of [
     check(`${label}: Explore on my own clears a paused jaunt`,
       (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
     if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
+
+    // --- a shared screen: ?nav=jump opens after the landing, Back closes it (T-2621) ----
+    // The same fresh context, a new load of the page with a deep link. After the landing
+    // the visitor is set down in the town with Jump open on the Navigator; Back closes
+    // the app and stays on this page; a link to an app the rail does not have would have
+    // been dropped quietly (test_nav_link.mjs, test_navigator.mjs).
+    await p14.goto(`${base}&nav=jump`, { waitUntil: 'domcontentloaded' });
+    await p14.waitForFunction(() => window.__chicago4d?.navLinkOpened?.app === 'jump' && window.__chicago4d.navigator?.app === 'jump',
+      null, { timeout: 240_000, polling: 500 });
+    const linked = await p14.evaluate(() => ({ app: window.__chicago4d.navigator.app, level: window.__chicago4d.navigator.level,
+      gate: document.getElementById('gate').hidden, held: window.__chicago4d.navHistory?.held ?? null, href: location.href }));
+    await p14.evaluate(() => history.back());
+    await p14.waitForFunction(() => window.__chicago4d?.navigator?.level === 0, null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const backed = await p14.evaluate(() => ({ app: window.__chicago4d?.navigator?.app ?? null, level: window.__chicago4d?.navigator?.level ?? null,
+      href: location.href, same: !!window.__chicago4d }));
+    check(`${label}: ?nav=jump opens Jump after the landing, and Back closes it and stays on the page (T-2621)`,
+      linked.app === 'jump' && linked.level > 0 && linked.gate && linked.held === true
+      && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
+      JSON.stringify({ linked, backed }));
     await ctx14.close();
     inStageWork = false;
     } // end PART 15 (T-2044; renumbered from 14 by T-2337)
