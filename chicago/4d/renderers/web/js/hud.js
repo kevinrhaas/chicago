@@ -50,6 +50,9 @@ const DEFAULT_SETTINGS = {
   // § BASE_EXPOSURE and ROADMAP K24.
   brightness: 0,
   compass: true, overviewMap: true, streetNames: true, units: 'imperial',
+  // T-2736 (owner, 2026-10-17): the tag naming the building in the reticle; on by default,
+  // and a visitor who finds it in the way turns it off under Settings › Show.
+  lookTag: true,
   // T-2481: the 1904 Season — 'summer' (1 July, the scene's own date and the
   // default), 'spring', 'fall' or 'winter': ground, trees and sun. A viewing choice.
   season: 'summer',
@@ -585,6 +588,7 @@ export function createHud({
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
+  wireToggle('s-look-tag', 'lookTag');
   // T-2741: the toggle names the scene's own year — "1904 / current street names" — not
   // the 1835 it said in every year.
   const streetNamesLabel = $('s-street-names-label');

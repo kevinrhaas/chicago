@@ -62,7 +62,9 @@ try {
   await page.locator('.gate-card .skin-tools .machine-dial').waitFor();assert.equal(await page.locator('html').getAttribute('data-skin'),'worlds-fair');
   assert.equal(await page.locator('.gate-card .skin-tools a').getAttribute('href'),origin+'/4d/');
   await page.locator('.gate-card .skin-tools .machine-dial').click();
-  await page.locator('.gate-card .skin-tools a').click();await page.waitForURL('**/4d/');assert.equal(await page.locator('html').getAttribute('data-skin'),'deep-space');
+  // T-2735: the way home asks first; Cancel stays, Return goes.
+  await page.locator('.gate-card .skin-tools a').click();await page.locator('.recall-cancel').click();assert(page.url().endsWith('/4d/1835/'),'Cancel stays in the destination');
+  await page.locator('.gate-card .skin-tools a').click();await page.locator('.recall-go').click();await page.waitForURL('**/4d/');assert.equal(await page.locator('html').getAttribute('data-skin'),'deep-space');
   assert.equal(await page.locator('.masthead .machine-dial').getAttribute('title'),'Appearance: Deep Space');
   // A visitor who chose an earlier skin keeps it, under its new machine name.
   await page.evaluate(()=>localStorage.setItem('chicago4d.skin','steampunk'));await page.reload();assert.equal(await page.locator('html').getAttribute('data-skin'),'brass');

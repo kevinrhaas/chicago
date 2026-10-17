@@ -1144,15 +1144,22 @@ body.is-touch .crosshair { display: none; }
    It is a button: a tap opens Inspect. */
 .target-tag {
   position: absolute; left: 50%; top: calc(50% + 46px); transform: translateX(-50%);
-  max-width: min(320px, calc(100vw - 120px)); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  /* T-2736: the whole name and distance, wrapped to a second line when it is long — never
+     cut off. A pill on one line, a rounded box on two. */
+  width: max-content; max-width: min(440px, calc(100vw - 120px)); white-space: normal; overflow-wrap: break-word;
+  text-align: center; text-wrap: balance;
   margin: 0; padding: 6px 12px; pointer-events: auto; cursor: pointer;
-  font: 600 11px/1.2 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  font: 600 11px/1.35 var(--font-label, var(--font-mono, ui-monospace, monospace));
   letter-spacing: .14em; text-transform: uppercase;
   color: var(--ink); background: var(--panel); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--edge));
-  border-radius: var(--r-control, 999px); box-shadow: var(--shadow);
+  border-radius: min(var(--r-control, 999px), 14px); box-shadow: var(--shadow);
   animation: look-tag-in .2s ease-out both;
+  transition: opacity .6s ease;
 }
 .target-tag[hidden] { display: none; }
+/* T-2736: it holds a few seconds, then fades (target-tag.js FADE_MS matches). */
+.target-tag.is-fading { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .target-tag { animation: none; transition: none; } }
 .target-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* T-2627: the quick column — Walk/Fly and, with a target, Inspect. Right edge, centred;
    two buttons at most. */
@@ -2048,6 +2055,19 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; scrollbar-width: none; }
 .welcome-kinds button { min-height: 34px; padding: 0 11px; font-size: 12px; min-width: 44px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
 .welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+/* T-2740: the kinds scroll sideways; the order sits at the row's end, quiet, always in reach. */
+.welcome-filters { display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 0; }
+.welcome-filters .welcome-kinds { flex: 1 1 auto; min-width: 0; }
+.welcome-sort { position: relative; flex: none; display: inline-flex; align-items: center; color: var(--ink-dim); }
+.welcome-sort select {
+  appearance: none; -webkit-appearance: none; min-height: 34px; max-width: 8.5em; padding: 0 24px 0 11px;
+  font: inherit; font-size: 12px; color: inherit; cursor: pointer;
+  background: none; border: 1px solid var(--edge); border-radius: 999px;
+}
+.welcome-sort::after { content: ''; position: absolute; right: 11px; top: 50%; width: 5px; height: 5px; pointer-events: none;
+  border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
+.welcome-sort select:hover, .welcome-sort select:focus-visible { border-color: var(--accent); color: var(--ink); outline: none; }
+.welcome-sort select option { color: var(--ink); background: var(--panel-solid); }
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 96px; flex: 1 1 auto; }
 .welcome-destination { width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px; min-height: 44px; }
 .welcome-destination strong, .welcome-destination span { display: block; }

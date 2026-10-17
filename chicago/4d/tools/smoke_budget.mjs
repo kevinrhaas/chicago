@@ -438,6 +438,9 @@ const COVERAGE = [
   // T-2706: the near deal's species and placement as GLSL, and the slot codes
   // flora.js's `dealNearSlot` answers in. flora.js is its only importer.
   ['renderers/web/js/flora-gpu-deal.js', [10, 11, 12], 'the near deal as GLSL, read through flora.js'],
+  // T-2716: the deal pass and the tuft's fetch that draw the near ring. flora.js
+  // is its only importer.
+  ['renderers/web/js/flora-gpu-near.js', [10, 11, 12], 'the near ring drawn from the shader, through flora.js'],
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],

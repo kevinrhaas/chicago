@@ -42,6 +42,7 @@
 <link rel="stylesheet" href="./css/businesses.css">
 <link rel="stylesheet" href="./css/evidence.css">
 <link rel="stylesheet" href="./css/card.css">
+<link rel="stylesheet" href="./css/recall.css">
 <link rel="stylesheet" href="./css/skins.css">
 <script src="./js/skin.js"></script>
 
@@ -158,7 +159,11 @@
           <label for="welcome-search" class="visually-hidden">Search places</label>
           <input id="welcome-search" type="search" placeholder="Search places, businesses or people" autocomplete="off">
         </div>
-        <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
+        <div class="welcome-filters">
+          <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
+          <!-- T-2740: how the list is ordered: nearest (the default), furthest, address, name, owner. -->
+          <label class="welcome-sort"><span class="visually-hidden">Sort by</span><select id="welcome-sort"></select></label>
+        </div>
         <div id="welcome-results" class="welcome-results" aria-label="Starting places"></div>
         <p id="welcome-message" role="status"></p>
       </section>
@@ -635,6 +640,17 @@
           </select></label>
         <p class="legend-note" id="governor-line"></p>
         <p class="legend-note" id="device-line" hidden></p>
+        <!-- T-2732: dev preview (or ?pacing=read) only — pacing-read.js unhides it. -->
+        <div class="field row" id="pacing-read" hidden><span>Frame pacing reading</span>
+          <span class="pacing-read-actions">
+            <button class="setting-button" id="s-pacing-copy" type="button" hidden>Copy</button>
+            <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
+          </span>
+        </div>
+        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
+          half a minute at Light, Fixed then Adaptive, and puts you back where you were.</p>
+        <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
+          aria-label="Frame pacing reading"></textarea>
       </div>
       <div class="settings-group">
         <h4>Show</h4>
@@ -644,6 +660,8 @@
           <input type="checkbox" id="s-overview-map"></label>
         <label class="field row check-field"><span id="s-street-names-label">Street names, then and today</span>
           <input type="checkbox" id="s-street-names"></label>
+        <label class="field row check-field"><span>Name of what you look at</span>
+          <input type="checkbox" id="s-look-tag"></label>
         <label class="field row" id="row-season" hidden><span>Season</span>
           <select id="s-season" title="A viewing choice: the scene is dated 1 July 1904">
             <option value="summer">Summer — 1 July, full leaf</option>
@@ -811,6 +829,9 @@
 
 <noscript><p class="noscript">This walkthrough needs JavaScript and WebGL 2.</p></noscript>
 
+<!-- T-2735: the way home asks first; loaded ahead of main.js so the arrival card's link asks
+     before the town's modules have arrived. -->
+<script type="module" src="./js/recall.js"></script>
 <script type="module" src="./js/main.js"></script>
 </body>
 </html>
