@@ -2574,8 +2574,16 @@ async function boot() {
    * ticket undoing another one. The sward is the only layer that gives way.
    */
   const stripBlocks = api.groundStrip?.blocksGrowth ?? null;
-  const swardBlocked = (e, n) => streets.blocksGrowth(e, n) || yards.suppressesSward(e, n)
+  // T-2715: the two halves the near field tile asks apart (flora.js
+  // `nearField.atTexel`). The streets' track — the track and 0.65 m either side,
+  // always wider than a texel's diagonal — at the texel's corners; the yards,
+  // the ground strip and the worked bank (which answers a texel at a time
+  // already) at its centre. Fort Dearborn's fences are thinner than a texel, so
+  // corners alone would miss them.
+  const swardEdges = (e, n) => streets.blocksGrowth(e, n);
+  const swardPatch = (e, n) => yards.suppressesSward(e, n)
     || (stripBlocks !== null && stripBlocks(e, n)) || workingBank.blocksGrowth(e, n);
+  const swardBlocked = (e, n) => swardEdges(e, n) || swardPatch(e, n);
   // The trees give way to the travelled track, as before, and since T-1771 to
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
@@ -2600,7 +2608,8 @@ async function boot() {
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-    growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
+    growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
+    verge: streets.verge, forbSeat,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
@@ -2707,7 +2716,8 @@ async function boot() {
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-          growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
+          growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
+          verge: streets.verge, forbSeat,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
@@ -2852,7 +2862,8 @@ async function boot() {
       flora.dispose?.();
       flora = await createFlora({
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-        growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
+        growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
+        verge: streets.verge, forbSeat,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);
@@ -4125,6 +4136,7 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // (T-2655's year chip opens Jump through T-2626's #year-badge binding above.)
   // T-2630 (§04 E, §07): the Navigator Home's three choices open the Jaunts app on their
   // segment — Jaunts, Go to, Free roam — as the Welcome card's three do on the arrival.
   api.openJaunts = async (segment = 'jaunts') => {

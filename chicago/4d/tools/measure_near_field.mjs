@@ -364,7 +364,7 @@ const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
   args: ['--enable-unsafe-swiftshader'],
 });
-const report = { ticket: wantWalk ? 'T-2707' : 'T-2698', year: YEAR, measured: new Date().toISOString(),
+const report = { ticket: wantWalk ? 'T-2707' : 'T-2698', ...(wantWalk ? { remeasured: ['T-2715'] } : {}), year: YEAR, measured: new Date().toISOString(),
   source: wantSource ? 'working tree' : 'published mirror', spanM: SPAN_M, viewports: [] };
 let failed = false;
 for (const vp of VIEWPORTS) {

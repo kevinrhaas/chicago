@@ -58,9 +58,12 @@
  * 0.90 % on the desktop disagree with the CPU on some channel, height p95
  * under 0.6 mm. Halving the texel buys a quarter of a point; doubling it costs
  * half a point and doubles the community misses. About half of the phone's
- * misses are the worked bank at the wharf, whose bare patches are a per-point
- * hash (`working-bank.js`, `blocksGrowth`): no texel holds that, and the raster
- * keeps its share, not its slots.
+ * misses were the worked bank at the wharf, whose bare patches were a per-point
+ * hash; since T-2715 `working-bank.js` answers once per texel of this grid
+ * (BANK_PATCH_M) and the tile holds it exactly, and a street track's edge is
+ * asked at a texel's corners (flora.js `nearField.atTexel`): 0.27 % of phone
+ * slots and 0.26 % of desktop slots now disagree, and no slot the CPU blocks
+ * is unblocked in the tile.
  *
  * THE BUILD IS THE COST: about 0.4 s a tile on the runner, ~50 ms per metre
  * walked against the near re-deal's 2-9 ms. It cannot be built on the main
