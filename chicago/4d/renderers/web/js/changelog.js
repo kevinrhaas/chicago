@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1942, ts: '2026-10-17T10:55:56.511Z', date: 'Oct 17, 2026, 5:55 AM CT', title: 'Inspect opens a building\'s front page in the Navigator', kind: 'feature',
+    items: [
+      'Aim at a building or tap it, then open Inspect in the Navigator: you get its front page. It has a photo where one is free to show, the address, the name, and chips for still standing, built and use.',
+      'Below them come a short summary, key facts, who lives there, things to look for, surprising facts you can swipe, and a bar showing how much is Attested, Inferred or Reconstructed.',
+      'Every fact line carries its grade dot. Glessner House reads from its own checked summary; every other building gets a plain summary built from its record.',
+      'Tap the confidence bar or Full record to open the building\'s card with its sources, pictures and Liberties, which stay there for now.',
+    ] },
   { v: 1941, ts: '2026-10-17T10:51:21.938Z', date: 'Oct 17, 2026, 5:51 AM CT', title: 'The Keith house\'s roof vent cap stands a little taller', kind: 'fix',
     items: [
       'At 1808 Prairie, the cowl vent\'s cap over the north parapet now stands 10 cm higher, as the 1888 Inland Architect photograph shows it.',
