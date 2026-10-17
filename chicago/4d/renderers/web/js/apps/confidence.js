@@ -22,6 +22,9 @@ export default {
     lead.textContent = 'Colour the town by how sure we are of it, or hide a level to see what the rest of the evidence leaves standing.';
     el.append(lead);
     if (group) el.append(group);
+    // In the device the switch says what it switches, in the locked term.
+    const label = doc.getElementById('btn-confidence')?.querySelector?.('.chip-label');
+    if (label) label.textContent = 'Confidence view';
   },
   shown(el) {
     const doc = el.ownerDocument;

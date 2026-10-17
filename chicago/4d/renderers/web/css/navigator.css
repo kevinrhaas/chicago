@@ -372,6 +372,7 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
 .hud-moved, .hud-moved[hidden] { display: none; }
 .nav-screen #confidence-group { flex-wrap: wrap; gap: 0; align-self: flex-start; width: 100%; }
 .nav-screen #confidence-group > .chip { box-shadow: none; }
+.nav-screen #confidence-group > #btn-confidence { width: auto; padding: 8px 14px; }
 .nav-screen #confidence-group > #btn-confidence .chip-label { display: inline; }
 .nav-screen .confidence-menu {
   position: static; flex: 0 0 100%; width: auto; margin-top: 10px; box-shadow: none;
