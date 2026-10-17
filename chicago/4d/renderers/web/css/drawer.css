@@ -327,6 +327,16 @@ body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
 .settings-group .field:last-child { margin-bottom: 0; }
 .settings-group .field.row { min-height: 34px; }
 .field.row .setting-button { min-height: 32px; }
+/* T-2732: the dev-only frame pacing reading (pacing-read.js). */
+.pacing-read-actions { display: inline-flex; gap: 6px; }
+.pacing-read-out {
+  display: block; box-sizing: border-box; width: 100%; margin: 6px 0 0;
+  border: 1px solid var(--edge); border-radius: 8px; padding: 8px;
+  background: rgb(0 0 0 / 18%); color: var(--ink);
+  font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre; overflow: auto; resize: vertical;
+}
+.pacing-read-out[hidden] { display: none; }
 .settings-group .field.row + .field.row { margin-top: -4px; }
 
 details.why { margin: -6px 0 14px; }

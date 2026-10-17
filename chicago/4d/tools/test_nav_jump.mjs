@@ -86,8 +86,13 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   assert.match(keys[0].className, /\bnav-recall\b/);
   assert.equal(keys[0].href, '../', 'RECALL goes to the Observatory');
   assert.match(keys[0].innerHTML, /Recall/);
-  keys[0].click();
-  assert.deepEqual(calls, ['recall'], 'and tells the journey it is recalling');
+  // T-2735: a plain click asks first (the page's recall prompt), so the link does not go.
+  const asked = keys[0].click();
+  assert.equal(asked.defaultPrevented, true, 'RECALL asks before it goes');
+  assert.deepEqual(calls, ['recall'], 'and hands the way home to the page\'s recall');
+  const recallModified = keys[0].click({ metaKey: true });
+  assert.equal(recallModified.defaultPrevented, false, 'a modified click opens the Observatory as a link does');
+  assert.deepEqual(calls, ['recall'], 'without asking');
 
   // Picking 1835 from 1904: the ring, the stamp, then the page.
   const to1835 = cards.find((c) => c.dataset.year === '1835');

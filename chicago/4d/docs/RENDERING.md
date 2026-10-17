@@ -1173,3 +1173,32 @@ correction). Every number quotes its anchor and viewport.
   The whole tile built on the page (`nearField.build`, used by the tools and nothing in the
   frame) asks the corners unshared: 10.0 -> 15.8 ms a metre. 0 kept texels differ from the
   built tile on either viewport (`docs/measurements/t-2707-near-field-keeper.json`).
+- **The near ring drawn from the shader** (T-2716, the second piece of T-2708): the page
+  draws the near tufts from `renderers/web/js/flora-gpu-near.js`. At every near placement
+  (the same 0.6 m step and centre the CPU walk lands on) one MRT point pass runs the
+  lattice walk, the kept field tile and the deal in GLSL for every slot, and writes each
+  placed slot's instance — root, height, spread, arch, yaw, colour, confidence and its OWN
+  ring (`slotRing`'s handover, in GLSL) — into four RGBA32F targets; the tuft mesh
+  (`flora-near-gpu`, one instance per slot) fetches them by `gl_InstanceID` and a slot the
+  deal did not place collapses to a point. Each slot's world point is computed from its
+  absolute cell and jitter (`flSlotWorld`, `scatter`'s `(c + fe) * cell`), not the
+  camera plus an offset, so a tuft is the same float32 point after every pass — the
+  camera-relative sum rounded differently as the walker moved, and the smoke's desktop
+  pop-in walk read the re-rounded tufts as plants arriving at full coverage inside their
+  ring. The CPU walk is kept for the heads alone: it deals
+  into a sink that only counts (the census and `stats.sets` read it), and hangs a head only
+  where the tile gives the GPU's deal the same answer (`drawsAt`), so the 0.27 % of slots
+  where the tile and the CPU differ carry no head over bare ground. A slot the kept tile
+  does not cover is left empty rather than clamped to its edge texel, and the pass re-runs
+  when a strip lands; a jump of more than a re-centre step, or `step()`, builds the tile
+  whole in the frame (234-275 ms on the runner's phone profile). The GPU draws the whole
+  ring, not the view cone. `flora-near` is still in the group for its readers: an
+  InstancedMesh never drawn, whose instances are READ BACK from the targets the first time
+  its `count` is asked for after a pass, so the smoke's root, ring, cover and head-support
+  gates read what the GPU drew. Read at prairie_west on the phone profile: 283 GPU tufts
+  against the CPU deal's 283 placed slots at the same centre, all 283 at the same slot;
+  roots within 1e-7 m of the tile's ground and 6.2e-5 m of the terrain's; the frame against
+  dev's CPU-drawn one differs by more than 8 levels in 0.23 % of pixels. The smoke's root
+  gate holds the GPU tufts to the tile's ground at its 1e-5 m and the tile's ground to the
+  terrain at 5 mm (T-2698's worst at the 22 stations is 4.8 mm). The near re-deal's
+  main-thread ms and the moving p95 are T-2717's reading.

@@ -11867,22 +11867,35 @@ for (const [label, viewport, touch] of [
     const swardAt = await swardStation();
     const rootLayer = await page.evaluate((st) => {
       const a = window.__chicago4d;
-      const out = { rootedPlants: 0, worstPlantRoot: 0 };
+      const out = { rootedPlants: 0, worstPlantRoot: 0, gpuRoots: 0, worstTileGround: 0 };
       if (!st) return out;
       a.walker.teleport({ local_e: st.e, local_n: st.n, yaw_deg: 180 });
       for (let i = 0; i < 3; i++) a.step();
       const waterY = a.terrain.heightfield?.meta?.water_surface_m ?? 0;
+      // T-2716: where the GPU draws the near ring (`flora.nearDraw`), its tufts
+      // root on the kept field tile's ground — the terrain asked at the tile's
+      // 0.125 m texel centres and blended between them — which is what they are
+      // held to here, at the same 1e-5 m. How far that ground stands from the
+      // terrain's own is the second number, with its own bar below.
+      const drawn = a.flora.nearDraw;
       for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
         'flora-shrub', 'flora-shrub-far']) {
         const mesh = a.flora.group.getObjectByName(name);
         const matrix = mesh?.instanceMatrix?.array;
         if (!matrix) continue;
+        const gpu = drawn && name === 'flora-near';
         for (let i = 0; i < mesh.count; i++) {
           const o = i * 16;
           const e = matrix[o + 12];
           const y = matrix[o + 13];
           const n = -matrix[o + 14];
-          const expected = a.terrain.isWater(e, n) ? waterY : a.terrain.surfaceHeight(e, n);
+          const wet = a.terrain.isWater(e, n);
+          let expected = wet ? waterY : a.terrain.surfaceHeight(e, n);
+          if (gpu && !wet) {
+            out.gpuRoots++;
+            out.worstTileGround = Math.max(out.worstTileGround, Math.abs(y - expected));
+            expected = drawn.groundAt(e, n) ?? Infinity;
+          }
           out.worstPlantRoot = Math.max(out.worstPlantRoot, Math.abs(y - expected));
           out.rootedPlants++;
         }
@@ -11895,6 +11908,15 @@ for (const [label, viewport, touch] of [
       !!swardAt && rootLayer.rootedPlants > 50 && rootLayer.worstPlantRoot < 1e-5,
       `${rootLayer.rootedPlants} roots at ${swardAt ? `${swardAt.zone} (${swardAt.e}, ${swardAt.n})`
         : 'no station off the turf'}, worst error ${rootLayer.worstPlantRoot}`);
+    // T-2716. The drawn near ring's ground against the terrain's. The tile's
+    // own height error at every near slot of the 22 critic stations is p95
+    // 0.29 mm and at worst 3.4 mm (phone) and 4.8 mm (desktop), where a crease
+    // falls inside a 0.125 m texel (`docs/measurements/t-2698-near-field.json`,
+    // tile 0.125). The bar is 5 mm: a tile misplaced by a texel reads in
+    // centimetres on any slope, and that is what it is for.
+    check(`${label}: the GPU near ring's ground stays within 5 mm of the terrain`,
+      rootLayer.gpuRoots === 0 || rootLayer.worstTileGround < 5e-3,
+      `${rootLayer.gpuRoots} GPU near roots, worst ${rootLayer.worstTileGround} m from the terrain`);
     check(`${label}: emergent flora stays within eight metres of a riverbank`,
       streetLayer.deepWaterPlants === 0,
       `${streetLayer.waterPlants} water plants, ${streetLayer.deepWaterPlants} in deep water`);
@@ -15164,6 +15186,19 @@ for (const [label, viewport, touch] of [
     check(`${label}: settings toggle all three navigation aids`,
       toggles.hidden.compass && toggles.hidden.map && toggles.hidden.street && toggles.restored,
       JSON.stringify(toggles));
+    // T-2736 (owner, 2026-10-17): Settings › Show turns the look-at tag off and on; on by default.
+    const lookTag = await page.evaluate(() => {
+      const box = document.getElementById('s-look-tag');
+      const api = window.__chicago4d;
+      const out = { present: !!box, onByDefault: box?.checked === true };
+      box?.click();
+      out.off = api.hud?.settings?.lookTag === false && document.getElementById('target-tag').hidden;
+      box?.click();
+      out.backOn = box?.checked === true && api.hud?.settings?.lookTag === true;
+      return out;
+    });
+    check(`${label}: Settings › Show turns the look-at tag off and back on (T-2736)`,
+      lookTag.present && lookTag.onByDefault && lookTag.off && lookTag.backOn, JSON.stringify(lookTag));
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -15598,6 +15633,52 @@ for (const [label, viewport, touch] of [
       && String(gotoClean.clamp) === '2' && gotoClean.overflow,
       JSON.stringify(gotoClean));
     // ---- end T-2632
+    // ---- T-2740: Go to's order. Nearest is the default; the other orders are offered only
+    // where the scene has something to sort on; Address runs by street then number, a row
+    // with nothing to sort on follows the rest, and the choice holds for the session.
+    const gotoSort = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      await new Promise((r) => setTimeout(r, 200));
+      const select = document.getElementById('welcome-sort');
+      const options = [...(select?.options ?? [])].map((o) => o.value);
+      const first = select?.value;
+      const box = select?.getBoundingClientRect();
+      const visible = !!box && box.width > 0 && box.right <= innerWidth + 1;
+      const orders = {};
+      for (const id of options) {
+        select.value = id; select.dispatchEvent(new Event('change'));
+        orders[id] = [...document.querySelectorAll('#welcome-results .welcome-destination')].map((r) => ({ kind: r.dataset.kind, id: r.dataset.id }));
+      }
+      const target = (row) => api.destinations.byId(row.kind, row.id);
+      const addresses = (orders.address ?? []).map((row) => target(row)?.address ?? null);
+      const firstMissing = addresses.findIndex((a) => !a);
+      const numbered = addresses.slice(0, firstMissing < 0 ? addresses.length : firstMissing);
+      const addressOk = !options.includes('address') || (numbered.length > 0
+        && numbered.every((a, i) => !i || a.street > numbered[i - 1].street || (a.street === numbered[i - 1].street && a.number >= numbered[i - 1].number))
+        && addresses.slice(numbered.length).every((a) => !a));
+      const stored = sessionStorage.getItem('chicago4d.goto.sort');
+      select.value = 'near'; select.dispatchEvent(new Event('change'));
+      const out = { options, first, visible, addressOk, stored, last: options.at(-1),
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1,
+        // The furthest row heads Furthest: no row Nearest lists is further away.
+        farthest: (() => {
+          const v = api.walker.state, d = (row) => { const t = target(row); return Number.isFinite(t?.e) ? Math.hypot(t.e - v.e, t.n - v.n) : -1; };
+          return !orders.far?.length || orders.near.every((r) => d(r) <= d(orders.far[0]) + 0.01);
+        })() };
+      api.jauntsApp?.restore();
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Go to sorts by nearest (default), furthest, address, name and owner, address by street then number, and keeps the choice (T-2740)`,
+      gotoSort.first === 'near' && gotoSort.options[0] === 'near' && gotoSort.options.includes('far') && gotoSort.options.includes('name')
+      && gotoSort.visible && gotoSort.overflow && gotoSort.addressOk && gotoSort.stored === gotoSort.last
+      && gotoSort.farthest,
+      JSON.stringify(gotoSort));
+    // ---- end T-2740
     // ---- T-2633: the Navigator's Go to follows the Confidence view too: with Reconstructed
     // hidden, a reconstructed place is listed dimmed with its one-line reason, and is
     // itself again the moment the grade is shown.

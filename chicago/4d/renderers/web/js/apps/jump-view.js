@@ -9,9 +9,9 @@
  * tail on screen as it would be from the Observatory (skin.js, `chicago4d.transfer`).
  * Escape, or Abort, during the ring stays put.
  *
- * RECALL returns to the Observatory and is the screen's one signal-red key. Time of day
- * is not offered: no scene is lit at another hour yet, and a choice that changes nothing
- * would be a fake one.
+ * RECALL returns to the Observatory, asking first (T-2735), and is the screen's one
+ * signal-red key. Time of day is not offered: no scene is lit at another hour yet, and a
+ * choice that changes nothing would be a fake one.
  */
 import { scenePresentation } from '../scene-presentation.js';
 
@@ -124,7 +124,13 @@ export function mount(el, ctx = {}, opts = {}) {
   recall.className = 'nav-key nav-recall';
   recall.href = '../';
   recall.innerHTML = '<b>Recall</b><span>Back to the Observatory</span>';
-  recall.addEventListener('click', () => ctx.actions?.recall?.());
+  // T-2735: a plain click asks before going home (the page's recall prompt and reverse
+  // ring); a modified one opens the Observatory as a link does.
+  recall.addEventListener('click', (e) => {
+    if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || !ctx.actions?.recall) return;
+    e.preventDefault();
+    ctx.actions.recall(recall.href);
+  });
   el.append(list, recall);
 }
 

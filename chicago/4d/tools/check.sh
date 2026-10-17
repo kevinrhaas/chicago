@@ -150,6 +150,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
+  node tools/test_pacing_read.mjs
 
 step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
   node tools/calibrate_boot_weights.mjs --check
@@ -165,6 +167,8 @@ step "The Field Check's seven steps each move on only on their own action, resum
   node tools/test_tour.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
+step "The way home: All destinations and Recall ask first, Cancel/Esc stay put, Return runs the reverse ring and stamps the trip, reduced motion skips the ring (T-2735)" \
+  node tools/test_recall.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
 # T-2632: Go to cleanup.
