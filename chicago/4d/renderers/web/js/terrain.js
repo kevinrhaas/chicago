@@ -1372,6 +1372,17 @@ export function conformGroundToField(geometry, hf) {
  * missing; identical surface, more triangles, and it means a missing asset
  * degrades to "slower" rather than to "no ground".
  */
+/**
+ * T-2703. The distant base as protectGroundUnder lays it over frontage's crossing
+ * footprints (the same call; tools/check_plank_ground.mjs reads that method's own
+ * source, so it calls gridGeometry itself): the geometry batchDistantGround cuts
+ * into spatial-batch pieces at boot, and the one tools/prebuild_layers.mjs
+ * --layer base cuts in Node, whose --parity read holds the two equal.
+ */
+export function distantBaseGeometry(hf, footprints = []) {
+  return gridGeometry(hf, GROUND_BASE_STEP, footprints);
+}
+
 function gridGeometry(hf, step = 1, footprints = []) {
   if (!hf.loaded) {
     const g = new THREE.PlaneGeometry(2400, 2400, 1, 1);
