@@ -185,6 +185,13 @@ the phone profile the WebGPU page held 494.0 MiB against the baseline's 447.7 Mi
 colour attachment on the shadow map (16 MiB), a half-float MSAA output pipeline (17 MiB),
 and a 39.5 MiB shortfall in the GL meter's reading of the baseline that is not explained
 (written onto T-2602, since walk/'s own memory ceilings stand on that meter).
+**T-2720 (2026-10-17) answered the meter question: none of the 39.5 MiB is the meter's.** It
+reads the page's WebGL calls to the byte; the baseline holds less because three's
+WebGLRenderer shares one GL texture per image Source, and 11 of the block's maps share 2
+(58.66 MiB). The shadow colour attachment and a half-float MSAA output are on the baseline
+too, so K5's 46 MiB is mostly WebGPURenderer uploading those 9 shared maps again
+(`docs/RENDERING.md` § 8, `docs/measurements/t-2720-gl-meter.json`). walk/'s memory
+ceilings do not move.
 
 **Unverified, said plainly:** every millisecond here is SwiftShader, a software rasteriser,
 so K6's 0.31× is a ratio on the steward runner and not a phone's frame time. TRAA under
