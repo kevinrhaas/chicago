@@ -341,7 +341,12 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .nav-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .nav-choice { display: flex; flex-direction: column; gap: 3px; min-height: 52px; padding: 9px 10px; text-align: left;
   border: 1px solid var(--edge); border-radius: 10px; background: transparent; color: var(--ink); cursor: pointer;
-  font: inherit; }
+  font: inherit;
+  /* A choice shrinks with its column and never spills onto its neighbour: while the
+     desktop panel widens from its rail (a .28 s transition), the columns start near zero,
+     and a grid item's default min-width (its longest word) drew Go to and Free roam over
+     one another until it settled. */
+  min-width: 0; overflow: hidden; overflow-wrap: anywhere; }
 .nav-choice strong { font-size: 14px; font-weight: 600; }
 .nav-choice span { font-size: 11px; color: var(--ink-dim); line-height: 1.25; }
 .nav-choice:hover { border-color: var(--accent); }
