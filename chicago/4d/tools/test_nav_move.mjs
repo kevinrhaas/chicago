@@ -96,7 +96,7 @@ assert.equal((speedPart.match(/type="range"/g) ?? []).length, 1, 'one slider');
 const words = panel.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, ' ');
 assert(!/[a-z]+_[a-z]+|\.js\b|\//.test(words), `the section's words: ${words.replace(/\s+/g, ' ').trim()}`);
 for (const v of [...Object.values(views), fly]) assert(!/_/.test(v.note + v.slider.label + v.slider.readout));
-assert(/<span class="tab-label">Move<\/span>/.test(html.slice(html.indexOf('data-tab="travel"'), html.indexOf('data-tab="travel"') + 900)),
+assert(/<span class="tab-label"[^>]*>Move<\/span>/.test(html.slice(html.indexOf('data-tab="travel"'), html.indexOf('data-tab="travel"') + 900)),
   'the drawer\'s tab is called Move, as the app is');
 
 // ---- the Navigator's Move app opens the section ---------------------------------------

@@ -2820,6 +2820,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_near_field_keeper.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_only_selection.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2893,6 +2897,10 @@
       "wrote_ignored": []
     },
     "tools/check_street_surfaces.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_strings.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5534,6 +5542,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_nav_jaunts.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_link.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_nav_move.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5590,6 +5606,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_prebuilt_index.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_program_cache_key.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5635,6 +5655,10 @@
       "wrote_ignored": []
     },
     "tools/test_street_travel.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_strings.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

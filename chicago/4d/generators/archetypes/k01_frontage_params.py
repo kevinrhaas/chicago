@@ -2021,12 +2021,23 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # a ridge stack clears its ridge, and the crown's curb where one stands
             if "top_m" in st_:
                 top = float(st_["top_m"])
-                if not mansard:
-                    raise ParamError(f"chimney at ({u}, {v}): a top_m of its own is a mansard stack's")
-                crown = (val("mansard") or {}).get("crown") or {}
-                curb = mansard_roof["curb_m"] + float(crown.get("rise_above_curb_m", 0.0))
-                if top < curb + 0.6 - 1e-9:
-                    raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the curb's {curb} m + 0.6")
+                if flat:
+                    # T-2712: a flat-roof stack read off a picture may stop under the parapet
+                    # that hides it (1808's hall stack, under the north return's coping, its
+                    # flue carried on by the cowl pipe every 1887-89 view shows). It clears
+                    # the deck it stands on by the same 0.6 m, the stone finish's drop taken
+                    deck = flat_roof["deck_high_m"] - float((val("stone_finish") or {}).get("deck_drop_m", 0.0))
+                    if top < deck + 0.6 - 1e-9:
+                        raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the deck's "
+                                         f"{deck:.3f} m + 0.6")
+                elif not mansard:
+                    raise ParamError(f"chimney at ({u}, {v}): a top_m of its own is a mansard or a flat "
+                                     "roof's stack")
+                else:
+                    crown = (val("mansard") or {}).get("crown") or {}
+                    curb = mansard_roof["curb_m"] + float(crown.get("rise_above_curb_m", 0.0))
+                    if top < curb + 0.6 - 1e-9:
+                        raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the curb's {curb} m + 0.6")
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
                              "cap_proud_m": cap_p, "cap_depth_m": cap_d})
     elif ch and (flat or mansard or gable):

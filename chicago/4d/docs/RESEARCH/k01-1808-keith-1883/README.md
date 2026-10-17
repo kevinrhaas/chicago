@@ -334,3 +334,18 @@ south-east pinnacle (T-2581); and Keith's slice not fitting one level camera wit
 Glessner's front as the two models are placed. The 1965 porch view's bow lights,
 which read "shorter" at the old 18 px fit, land within 2.5 px of the model at head
 and sill. No geometry changed; the GLB is the one T-2577 shipped.
+
+## T-2712 — the hall stack stopped under the return's coping (piece 1 of T-2586)
+
+T-2578 left the hall stack standing 0.8 m over the return's coping beside the cowl, where the
+1887 construction view, Taylor 2135, the rotated 1888 Glessner plate and the c. 1888 view
+looking SW all show sky. A flat roof's stack may now carry its own `top_m` (K01 params; it must
+clear the deck it stands on, the stone finish's 1.45 m drop taken, by 0.6 m), and the hall stack
+tops at 16.1 m, 0.14 m under the coping: hidden from every street camera, with the cowl's pipe
+rising 0.05 m clear of its cap before it bends over the coping (L-k01-keith-hall-stack-2586).
+All sixteen views were re-rendered and each new render diffed against the reviewed one: four are
+pixel-identical, four front views change by a sliver seen through the lattice's north openings,
+and the rest change only where the stack stood. The 1887 view, the 1888 Glessner plate and both
+Taylor 2135 records had the stack as their last open difference and now read `matches`; the
+c. 1888 SW view keeps its cap-height reading open, and the Glessner-front view its cap over the
+coping. The 1948 view's low stub at the cowl's foot is later fabric and is not read back.

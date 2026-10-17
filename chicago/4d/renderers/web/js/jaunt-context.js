@@ -35,7 +35,7 @@ export function legContext(jaunt, fromId, toId, points, places, exclude = []) {
 /** Also enforce the content contract when an old/corrupt cached payload bypasses compilation. */
 export function claimPresentation(claim) {
   if (!claim || !['attested', 'inferred', 'reconstructed'].includes(claim.confidence))
-    return { label: '[?]', text: 'Evidence unavailable.', narrative: false };
+    return { label: '[?]', text: 'Sources unavailable.', narrative: false };
   if (claim.confidence === 'reconstructed' && (claim.speaker || claim.quote || claim.attribution))
     return { label: '[?]', text: 'Unverified attribution withheld.', narrative: true };
   return { label: { attested: '[DOC]', inferred: '[INF]', reconstructed: '[CONJ]' }[claim.confidence],

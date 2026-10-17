@@ -73,7 +73,7 @@ assert(/<details class="why"><summary>Why this default<\/summary>\s*<p class="le
   'the eye height keeps its "Why this default", naming the researched figure');
 const settingsPanel = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
 assert(!settingsPanel.includes('id="s-eye"'), 'eye height has left Settings');
-assert(/under <b>Move<\/b>/.test(settingsPanel), 'Settings says where it went');
+assert(/your eye height and the other comfort settings are under<\/span> <b[^>]*>Move<\/b>/.test(settingsPanel), 'Settings says where it went');
 const hud = read('renderers/web/js/hud.js');
 assert(/eyeHeight: 1\.68\b/.test(hud), 'eye height defaults to the researched 1.68 m');
 assert(/headBob: true\b/.test(hud), 'the head bob is on by default');
