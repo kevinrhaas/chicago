@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1938, ts: '2026-10-17T10:06:19.029Z', date: 'Oct 17, 2026, 5:06 AM CT', title: 'A tag names the building you are looking at, with a quick Inspect key', kind: 'feature',
+    items: [
+      'Rest the centre of your view on a building close by for a moment and a small tag appears under it, for example SAUGANASH HOTEL · 85 FT.',
+      'Tap the tag, or press E, to open that building. An Inspect key appears on the right with it.',
+      'The right edge now holds a short quick column: the Walk/Fly toggle, plus Inspect when there is something to inspect. It never holds more than two buttons.',
+      'Look away and the tag goes at once. A building you only glance past never shows a tag.',
+    ] },
   { v: 1937, ts: '2026-10-17T09:41:03.827Z', date: 'Oct 17, 2026, 4:41 AM CT', title: 'Nothing you can see changed: the 1835 yards arrive ready-laid', kind: 'improvement',
     items: [
       'The town looks exactly as before. What changed is how the ground inside its fences reaches your device.',
