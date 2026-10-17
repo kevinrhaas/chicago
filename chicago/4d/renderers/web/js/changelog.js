@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1941, ts: '2026-10-17T10:51:21.938Z', date: 'Oct 17, 2026, 5:51 AM CT', title: 'The Keith house\'s roof vent cap stands a little taller', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the cowl vent\'s cap over the north parapet now stands 10 cm higher, as the 1888 Inland Architect photograph shows it.',
+      'One later photograph of the Glessner front shows no vent at all; it is now read as taken after the vent was removed.',
+    ] },
   { v: 1940, ts: '2026-10-17T10:44:30.535Z', date: 'Oct 17, 2026, 5:44 AM CT', title: 'The grass shader\'s ground map agrees where grass may not grow', kind: 'fix',
     items: [
       'The worn river bank at the wharves now decides its bare patches in 12.5 cm squares, not point by point, so the map the grass shader will read holds exactly what the planters are told. The bank stays just as bare overall.',
