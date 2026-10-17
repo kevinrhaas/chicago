@@ -25,6 +25,7 @@
 import * as THREE from 'three';
 import { spatialBatchAsync } from './spatial-batch.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
+import { vergeAt } from './street-verge.js';
 
 const STEP_M = 2.25;
 const LIFT_M = 0.022;
@@ -2076,16 +2077,11 @@ export async function createStreets({ terrain, records = [], confidence = null, 
    * but unopened streets are not in `prepared` and keep their ground (T-0797).
    */
   function verge(e, n) {
-    let best = null;
-    for (const street of prepared) {
-      const hit = nearestOn(street, e, n);
-      if (!hit) continue;
-      if (hit.distance <= street.drawn_width_m * 0.5) return { band: 'worked', edgeM: null };
-      const edgeM = street.corridor_width_m * 0.5 - hit.distance;
-      if (edgeM >= 0 && (!best || edgeM > best.edgeM)) best = { band: 'verge', edgeM };
-    }
-    return best;
+    return vergeAt(prepared, e, n);
   }
+  // T-2696: the records it answers from, for flora's job-pool worker, which asks
+  // the same question of them by the same code (street-verge.js).
+  verge.records = prepared;
 
   return {
     group,

@@ -55,6 +55,9 @@
  * T-2695: and that the zone answers the job pool's workers give a spread pass
  * (jobs/zone-kernel.js) are the page's own finder's, at 20,000 points over the
  * measured grid and its edge (`flora.checkHeldZones`).
+ * T-2696: and so are the water, floor, verge band and height those workers
+ * answer beside the zones (flora-ground.js), at the same points and as many
+ * again near footprints and street lines, the height to the last bit.
  *
  * Defaults to the PUBLISHED mirror, as every renderer measurement here does.
  * `--gate` holds the result: `FLORA_MOVE_CEILING_MS` and `FLORA_MOVE_P95_MS`
@@ -275,6 +278,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   await new Promise((r) => setTimeout(r, 300));
   const rebuilds0 = a.flora.stats?.rebuilds ?? 0;
   const spread0 = { ...(a.flora.stats?.spread ?? {}) };
+  if (spread0.slots) spread0.slots = { ...spread0.slots }; // T-2696: counted in place
   spread0.passes = { ...(spread0.passes ?? {}) }; // counted in place, so copied
   // T-2096 § acceptance, "no visible change in where plants stand": a digest of
   // every instance buffer the flora layer holds, taken along the move, so two
@@ -364,6 +368,8 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // T-2695: and the zone answers a spread pass's walks bring home from the job
   // pool, held against the page's own finder over the whole measured grid.
   const heldZones = verify ? a.flora.checkHeldZones?.(20000) ?? null : null;
+  // T-2696: and the yards' bucketed sward test against its full walk.
+  const swardGrid = verify ? a.yards?.checkSwardGrid?.(20000) ?? null : null;
   const FAR = ['flora-shrub-far', 'flora-near-carry', 'flora-mid-carry'];
   const ofPass = { near: (o) => !FAR.includes(o.name), far: (o) => FAR.includes(o.name) };
   const passDigest = (kind) => {
@@ -418,6 +424,13 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     msPerPass: ((s1.ms ?? 0) - (spread0.ms ?? 0))
       / Math.max(1, (s1.landings ?? 0) - (spread0.landings ?? 0)),
     waits: (s1.waits ?? 0) - (spread0.waits ?? 0),
+    // T-2696: of the slots the passes dealt off the pool, the share whose
+    // worker answers (zones; water, floor, verge and height) were home in time.
+    slots: s1.slots ? {
+      dealt: s1.slots.dealt - (spread0.slots?.dealt ?? 0),
+      zoned: s1.slots.zoned - (spread0.slots?.zoned ?? 0),
+      grounded: s1.slots.grounded - (spread0.slots?.grounded ?? 0),
+    } : null,
     // T-2683: the passes a snap turn or an arrival started, dealt over frames
     // where they used to be dealt in one.
     jumps: (s1.jumps ?? 0) - (spread0.jumps ?? 0),
@@ -442,7 +455,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, verified, heldZones, longs,
+    frames: rows.length, rebuilds, digests, spread, verified, heldZones, swardGrid, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -675,6 +688,8 @@ for (const vp of VIEWPORTS) {
         + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped`
           + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker`
           + `, ${r.spread.oneFrame} dealt in one frame, ${r.spread.jumps} after a jump`
+          + (r.spread.slots?.dealt ? `, ${(100 * r.spread.slots.grounded / r.spread.slots.dealt).toFixed(0)} % of`
+            + ` ${r.spread.slots.dealt} pool slots dealt off the workers' ground` : '')
           + (r.spread.jumps ? ` (landing in ${r.spread.jumpFrames} frames between them)` : '') : ''));
       for (const l of r.longs ?? []) {
         console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
@@ -685,6 +700,19 @@ for (const vp of VIEWPORTS) {
         console.log(`  verify zones: ${z.asked} points asked of the workers' ground, ${z.unasked} left to the page,`
           + ` ${z.differ} answered differently${z.differ ? ` ${JSON.stringify(z.first)}` : ''}`);
         if (z.differ) failed++;
+        // T-2696: the slots' water, floor, verge and height from the same ground.
+        if (z.ground) {
+          const g = z.ground;
+          console.log(`  verify ground: ${g.asked} points asked (${g.wet} wet, ${g.floor} on a floor, ${g.trodden} trodden,`
+            + ` ${g.keep} kept verge), ${g.differ} answered differently${g.differ ? ` ${JSON.stringify(g.first)}` : ''}`);
+          if (g.differ) failed++;
+        }
+      }
+      if (r.swardGrid) {
+        const y = r.swardGrid;
+        console.log(`  verify yards: ${y.asked} points over the yards' boxes (${y.suppressed} without sward),`
+          + ` ${y.differ} answered differently by the grid than by the full walk${y.differ ? ` ${JSON.stringify(y.first)}` : ''}`);
+        if (y.differ) failed++;
       }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
         console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
