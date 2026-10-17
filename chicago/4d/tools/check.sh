@@ -3406,6 +3406,11 @@ selftest "…and its own assertions still fire when broken" \
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
 
+# T-2747: the 1904 built-so-far walk is written from the building records, so a building
+# that gains detail without the walk being rewritten is red here, and the walk stays current.
+step "1904 built-so-far walk matches the building records (T-2747)" \
+  python3 tools/jaunt_built_so_far.py --check
+
 step "Jaunt schema, destinations and reachable state graph (T-1253)" \
   python3 tools/compile_jaunts.py --check
 

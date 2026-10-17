@@ -4107,6 +4107,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/jaunt_built_so_far.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/k01_contract.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5522,15 +5526,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_guide_glossary.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_goto_cleanup.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_goto_confidence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_guide_glossary.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

@@ -2062,6 +2062,13 @@
       "finding": "Reproduces: ran bare after staging all 294 generated JSON files and the coverage report; git diff --exit-code over those outputs reported no changed byte. Two independent in-memory builds also matched byte-for-byte.",
       "placed": "after compile_scene.py, whose current-scene membership and cited-structure sidecars it reads (T-1248)"
     },
+    "jaunt_built_so_far.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-17",
+      "finding": "Reproduces: wrote data/jaunts/prairie-built-so-far.json, ran the tool bare again, and cmp reported no changed byte; --check passes on the result. It writes only that file.",
+      "placed": "after compile_scene.py (it reads the compiled 1904 sidecars) and before compile_jaunts.py (which compiles the walk it writes) (T-2747)"
+    },
     "compile_jaunts.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
