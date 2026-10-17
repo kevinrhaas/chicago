@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1914, ts: '2026-10-17T03:42:57.445Z', date: 'Oct 16, 2026, 10:42 PM CT', title: 'Building cards open with the address once and plain words', kind: 'fix',
+    items: [
+      'Tap a building that has no written summary and its card now gives the address once, near the top. It no longer repeats it three times or shows internal labels like a parcel code or a file name.',
+      'Under it, a short summary is built from what the record knows: what the building was, what it was made of, how long it had stood, and who lived there or what it is today. On Prairie Avenue in 1904 that reads, for the Glessner House, "It was a stone residence. It had stood like this since 1887. Today: still standing — Glessner House museum."',
+      'Names that carried working notes, such as "refined by" and a number, now show just the name.',
+      'Where a building\'s own written account is clean, it still leads the card, word for word. The full recorded location, with its reasoning, is still on the card\'s Evidence tab, under "Where did it stand?".',
+    ] },
+  { v: 1913, ts: '2026-10-17T03:33:12.620Z', date: 'Oct 16, 2026, 10:33 PM CT', title: 'Less work on the main thread as the prairie is redealt', kind: 'improvement',
+    items: [
+      'As you walk or turn, the question of which plant community a patch of ground belongs to is now answered in the background, off the thread that draws the frame.',
+      'On a phone-speed test the redeal costs about a sixth less main-thread time per pass, walking or turning. Every plant lands exactly where it did before.',
+    ] },
   { v: 1912, ts: '2026-10-17T03:20:12.396Z', date: 'Oct 16, 2026, 10:20 PM CT', title: 'You land straight on the Navigator\'s Home, with no Tap to enter', kind: 'feature',
     items: [
       'When the town is ready the last digit drops into place, the digits turn green and the small line reads ARRIVED · 1904.07.01.',
