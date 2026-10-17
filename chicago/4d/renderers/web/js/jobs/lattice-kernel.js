@@ -33,7 +33,8 @@ const CONE_KEEP_M = 3.5;
 const STRAT_SALT = 0x7f4a7c15;
 const STRAT_BLOCK_SHIFT = 2;
 
-function hash3(a, b, c) {
+/** Exported for zone-kernel.js `fieldRect` (T-2707), which keeps the verge's weeds by it. */
+export function hash3(a, b, c) {
   let h = Math.imul(a, 0x27d4eb2d) ^ Math.imul(b, 0x165667b1) ^ Math.imul(c, 0x9e3779b1);
   h = Math.imul(h ^ (h >>> 15), 0x85ebca6b);
   h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35);

@@ -14954,6 +14954,24 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator rides docked in the town`,
       ['dock', 'rail'].includes(navDocked.detent) && navDocked.box && navDocked.box.h > 0 && navDocked.box.bottom <= navDocked.innerHeight,
       JSON.stringify(navDocked));
+    // T-2619: closed, the device always shows its lamp, its label, the year and the icon of
+    // the app it opens to; on a phone it is a pill at the bottom centre that keeps the
+    // bottom-left corner a resting left thumb walks from clear (JOYSTICK_CLEAR_PX, 124 px).
+    const navDock = await page.evaluate((isTouch) => {
+      const nav = document.getElementById('navigator');
+      const seen = (el) => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+        return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+      const b = nav.getBoundingClientRect();
+      const icon = isTouch ? document.querySelector('#nav-dock-app svg') : nav.querySelector('.nav-rail .nav-app.is-on svg');
+      return { left: Math.round(b.left), right: Math.round(innerWidth - b.right), height: Math.round(b.height),
+        lamp: seen(nav.querySelector('.nav-lamp')), label: seen(nav.querySelector('.nav-label')) ? nav.querySelector('.nav-label').textContent : null,
+        year: seen(document.getElementById('nav-dock-year')) ? document.getElementById('nav-dock-year').textContent : null,
+        icon: seen(icon), app: window.__chicago4d.navigator?.snapshot?.().dock?.app ?? null };
+    }, touch);
+    check(`${label}: the closed Navigator shows its lamp, its label, the year and the app it opens to`,
+      navDock.lamp && /^NAVIGATOR/.test(navDock.label ?? '') && /^\d{4}$/.test(navDock.year ?? '') && navDock.icon && navDock.app === 'home'
+      && (!touch || (navDock.height === 64 && navDock.left >= 124 && navDock.right >= 124)),
+      JSON.stringify(navDock));
     await clickChrome(touch ? '#nav-grip' : '#nav-collapse');
     const navHome = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -14975,12 +14993,73 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator opens by hand on Home, and Home says where you are`,
       ['half', 'open'].includes(navHome.detent) && navHome.where.length > 0 && /(am|pm)$/.test(navHome.whereDetail)
       && /^facing /.test(navHome.whereDetail) && navHome.move.length > 0 && ['On', 'Off'].includes(navHome.confidence)
-      && navHome.focus === 'nav-home-title' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
+      // T-2622: focus moves onto Home's screen (it shows its ring; the heading is hidden).
+      && navHome.focus === 'nav-home' && !navHome.overflow && ['dock', 'rail'].includes(navHome.after),
       JSON.stringify(navHome));
     check(`${label}: the Navigator's rail holds ten apps at most, Home first and Settings last, and Jump opens and closes (T-2618)`,
       navHome.rail.length <= 10 && navHome.rail[0] === 'home' && navHome.rail[1] === 'jaunts' && navHome.rail.at(-1) === 'settings'
       && navHome.rail.at(-2) === 'guide' && /^SCR 08 · JUMP$/.test(navHome.jumpCode) && navHome.jumpRecall && /^SCR 01 · HOME$/.test(navHome.homeCode),
       JSON.stringify({ rail: navHome.rail, jumpCode: navHome.jumpCode, jumpRecall: navHome.jumpRecall, homeCode: navHome.homeCode }));
+    // T-2619: one tap on the closed device opens the LAST app it showed, at HALF on a phone.
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('jump'); n.dock(); });
+    await clickChrome(touch ? '#nav-grip' : '#nav-head');
+    const navLast = await page.evaluate(async () => {
+      const n = window.__chicago4d.navigator;
+      const out = { detent: n.detent, app: n.app, dockApp: n.snapshot().dock?.app ?? null };
+      await n.select('home'); n.dock();
+      out.after = n.snapshot().dock?.app ?? null;
+      return out;
+    });
+    check(`${label}: one tap on the closed Navigator opens the last app${touch ? ' at HALF' : ''}`,
+      navLast.detent === (touch ? 'half' : 'open') && navLast.app === 'jump' && navLast.dockApp === 'jump' && navLast.after === 'home',
+      JSON.stringify(navLast));
+
+    // --- the Navigator by keyboard (T-2622, QA-19 first half) --------------------
+    // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
+    // device opens and closes by keyboard alone: N opens it with focus inside and visible,
+    // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
+    // one, Escape closes it and leaves focus, visibly, on the grip.
+    await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
+    const visibleFocus = () => page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return { id: null, visible: false };
+      const cs = getComputedStyle(el);
+      return { id: el.id || el.dataset?.app || el.tagName, inNav: !!el.closest('#navigator'),
+        visible: el.matches(':focus-visible') && cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0 };
+    });
+    const aria = await page.evaluate(() => {
+      const list = document.querySelector('#nav-rail [role="tablist"]');
+      const tabs = [...(list?.querySelectorAll('[role="tab"]') ?? [])].filter((b) => !b.hidden);
+      return { list: !!list, label: list?.getAttribute('aria-label') ?? '', tabs: tabs.length,
+        labelled: tabs.every((b) => (b.getAttribute('aria-label') ?? b.textContent).trim().length > 0),
+        selected: tabs.filter((b) => b.getAttribute('aria-selected') === 'true').length,
+        stray: [...(list?.children ?? [])].filter((c) => c.getAttribute('role') !== 'tab').length,
+        panels: [...document.querySelectorAll('#navigator [role="tabpanel"]')].every((p) => !!(p.getAttribute('aria-labelledby') || p.getAttribute('aria-label'))) };
+    });
+    await page.keyboard.press('n');
+    await page.waitForTimeout(350);
+    const keyOpen = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    const order = await page.evaluate(() => window.__chicago4d.navigator.apps);
+    const jumpAt = order.indexOf('jump') + 1;
+    if (jumpAt >= 1 && jumpAt <= 9) await page.keyboard.press(String(jumpAt));
+    await page.waitForTimeout(500);
+    const keyJump = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.evaluate(() => document.querySelector('#nav-rail [role="tab"][aria-selected="true"]')?.focus());
+    await page.keyboard.press('Home');
+    const tabHome = await page.evaluate(() => document.activeElement?.dataset?.app ?? null);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(400);
+    const keyHome = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(350);
+    const keyShut = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
+    check(`${label}: the Navigator's rail is a tablist of labelled tabs, and the device opens, switches and closes by keyboard with focus always visible (T-2622)`,
+      aria.list && aria.label === 'Navigator apps' && aria.tabs >= 2 && aria.labelled && aria.selected === 1 && aria.stray === 0 && aria.panels
+      && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
+      && keyJump.app === 'jump' && keyJump.focus.id === 'nav-app-jump' && keyJump.focus.visible
+      && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
     // The chip is hit-tested like any chrome. The screen shows the three destinations with
