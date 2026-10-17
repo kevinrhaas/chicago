@@ -17437,6 +17437,25 @@ for (const [label, viewport, touch] of [
     check(`${label}: Explore on my own clears a paused jaunt`,
       (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
     if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
+
+    // --- a shared screen: ?nav=jump opens after the landing, Back closes it (T-2621) ----
+    // The same fresh context, a new load of the page with a deep link. After the landing
+    // the visitor is set down in the town with Jump open on the Navigator; Back closes
+    // the app and stays on this page; a link to an app the rail does not have would have
+    // been dropped quietly (test_nav_link.mjs, test_navigator.mjs).
+    await p14.goto(`${base}&nav=jump`, { waitUntil: 'domcontentloaded' });
+    await p14.waitForFunction(() => window.__chicago4d?.navLinkOpened?.app === 'jump' && window.__chicago4d.navigator?.app === 'jump',
+      null, { timeout: 240_000, polling: 500 });
+    const linked = await p14.evaluate(() => ({ app: window.__chicago4d.navigator.app, level: window.__chicago4d.navigator.level,
+      gate: document.getElementById('gate').hidden, held: window.__chicago4d.navHistory?.held ?? null, href: location.href }));
+    await p14.evaluate(() => history.back());
+    await p14.waitForFunction(() => window.__chicago4d?.navigator?.level === 0, null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    const backed = await p14.evaluate(() => ({ app: window.__chicago4d?.navigator?.app ?? null, level: window.__chicago4d?.navigator?.level ?? null,
+      href: location.href, same: !!window.__chicago4d }));
+    check(`${label}: ?nav=jump opens Jump after the landing, and Back closes it and stays on the page (T-2621)`,
+      linked.app === 'jump' && linked.level > 0 && linked.gate && linked.held === true
+      && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
+      JSON.stringify({ linked, backed }));
     await ctx14.close();
     inStageWork = false;
     } // end PART 15 (T-2044; renumbered from 14 by T-2337)
