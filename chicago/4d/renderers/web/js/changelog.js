@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2004, ts: '2026-10-18T16:44:08.144Z', date: 'Oct 18, 2026, 11:44 AM CT', title: 'Farwell house\'s oriel at its 1886 drawing\'s size, six lights', kind: 'change',
+    items: [
+      '1623 Prairie (1904): the corbelled oriel over the front\'s two arches is now as wide as the 1886 Building Budget drawing draws it, nearly the whole front, with four tall windows across its face and one in each angled side, where it had three and blank sides.',
+      'The arched window and the entrance arch beneath it stand where the drawing puts them.',
+      'Still different from the drawing: the oriel\'s carved band, upper row of windows and cone-shaped roof are not built yet, and the drawing sets its face a little north of where it is built.',
+    ] },
   { v: 2003, ts: '2026-10-18T16:35:21.898Z', date: 'Oct 18, 2026, 11:35 AM CT', title: '1835: the shore cottonwood grove and a thicker North Side wood', kind: 'feature',
     items: [
       'Sixty large cottonwoods stand on the lake shore from Sixteenth to Eighteenth Street, with a clump of nine near the middle, from Robert G. Clarke\'s 1890 letter.',
