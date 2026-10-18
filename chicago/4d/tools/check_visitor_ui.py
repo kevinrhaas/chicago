@@ -38,8 +38,9 @@ WHAT IT READS — the surfaces, and why each is one:
   honest check is the rendered DOM in the smoke, which wants the runner. The Shops & work
   card's location lines (`basis` and every location's `limit_reason`, js/businesses.js)
   are research prose that T-2825 rewrites (no mode shows internal ids or ticket numbers,
-  owner 2026-10-18), and the Evidence hub's JS-filled topics are the hub's fold into
-  Guide › About this destination (T-2667). What's New (js/changelog.js) is the release history Manager and the launcher parse,
+  owner 2026-10-18). Guide › About this destination (T-2667) folded the old hub into four
+  cards and put its order book behind `data-researcher`; its topics' JS-filled entries are
+  the research records themselves, rendered from the data. What's New (js/changelog.js) is the release history Manager and the launcher parse,
   held by its own length budget, and is not rewritten after the fact.
 
 THE RESEARCHER-MODE EXEMPTION, AND HOW NARROW IT IS. The owner ruled on 2026-10-16 that
@@ -104,10 +105,6 @@ TICKET_HREF = re.compile(r"github\.com/kevinrhaas/chicago-tickets|\bT-\d{3,5}\b"
 # Each entry: surface, a regex the finding's "where: text" must match, why, and the ticket
 # that owns the fix. An entry that matches nothing fails the gate (it is stale).
 ALLOWLIST = [
-    {"surface": "page", "match": r"^index\.html:\d+: The order book: what the models say",
-     "ticket": "T-2667",
-     "why": "The Evidence hub's order-book topic. T-2667 folds the hub into Guide › About this "
-            "destination and moves the order book behind Researcher mode."},
     {"surface": "goto", "match": r"^businesses/index\.json biz_(chicago_post_office|cook_county_offices|"
                                  r"indian_agency_chicago|us_land_office_chicago) ",
      "ticket": "T-2825",

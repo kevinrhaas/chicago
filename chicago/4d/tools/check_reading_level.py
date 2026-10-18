@@ -16,6 +16,8 @@ WHAT IT READS. Every string a visitor reads, from each source of authored copy t
               Look-for lines, notable facts, story entries) -- the strings T-2635's own lint
               walks, from tools/compile_summaries.py `visitor_strings`, so the two gates
               read the same strings and cannot drift apart;
+  - style     data/styles/<id>.json: every visitor-facing string of a style guide module, the
+              Design tab's card (T-2641), walked by the same `visitor_strings`;
   - caption   data/timestream/<scene>.json: each caption's `text` (T-2611);
   - bubble    data/tour/*.json: every string under a key named `bubble` (the Field Check
               tour, T-2663, which has not landed; until it does this source reads nothing,
@@ -168,6 +170,12 @@ def summary_strings(root):
             yield p, ("summary" if where == "summary" else "fact"), where, text
 
 
+def style_strings(root):
+    for p in sorted((Path(root) / "data" / "styles").glob("*.json")):
+        for where, text in cs.visitor_strings(cs.load_json(p), ""):
+            yield p, "style", where, text
+
+
 def caption_strings(root):
     for p in sorted((Path(root) / "data" / "timestream").glob("*.json")):
         deck = cs.load_json(p)
@@ -193,7 +201,7 @@ def bubble_strings(root):
             yield p, "bubble", where, text
 
 
-SOURCES = (("summaries", summary_strings), ("time-stream captions", caption_strings),
+SOURCES = (("summaries", summary_strings), ("style guides", style_strings), ("time-stream captions", caption_strings),
            ("tour bubbles", bubble_strings))
 
 

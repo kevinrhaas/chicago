@@ -61,6 +61,11 @@ let renderer = null;
 /** main.js hands over its renderer once; until then a pick falls back to the raycast. */
 export function setPickRenderer(r) { renderer = r ?? null; }
 
+let pickLog = null;
+/** T-2826: each pick's start and end go to the black box (blackbox.js), so a reset
+ *  mid-pick is told from one after it. */
+export function setPickLog(fn) { pickLog = typeof fn === 'function' ? fn : null; }
+
 /** The ray budget every layer's pick has always used: as far as you can see from this height. */
 export function pickReach(camera) { return Math.max(400, camera.position.y * 4); }
 
@@ -245,6 +250,7 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
   };
   renderer.getClearColor(clear);
   texel.fill(0);
+  pickLog?.('pick', { meshes: stood, batches: batches.length });
   try {
     renderer.autoClear = true;
     renderer.shadowMap.autoUpdate = false;
@@ -275,6 +281,7 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
 
   const slot = texel[0];
   const distance = texelFloat[2];
+  pickLog?.('picked', { hit: slot ? (meshes[slot - 1]?.name || slot) : 0 });
   if (!slot || slot > meshes.length || !(distance <= far)) return null;
   const object = meshes[slot - 1];
   ray.setFromCamera(ndc, camera);

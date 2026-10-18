@@ -28577,22 +28577,28 @@ to 1.05 m by T-2713 where T-2579's re-fitted camera on the 1888 Glessner plate r
 0.1 m beyond the render's (3.5 px at 37 px/m; now within 1-2 px); and the pipe's and cap's widths
 against the 0.46 m courses (about 0.28 m and 0.58 m).
 **What is invented:** the riser hidden behind the parapet and where it meets the deck; its depth
-behind the north face (0.6 m), which sets its foot inside the hall stack's plan and so reads as
-that flue's termination — plausible, not shown; the elbow's height under the coping; the bowl's
+behind the north face (0.45 m since T-2811, 0.6 m before), which sets its foot inside the hall
+stack's plan and so reads as that flue's termination — plausible, not shown. T-2811 took it from the
+two pictures that can see it through cameras holding the return's pinnacles beside it: the c. 1888
+view looking SW reads about 0.3 m and the 1888 Glessner plate 0.6 m, and both see a move along the
+return almost as a change of set-back, so they cannot both be met; 0.45 m is their least-squares
+set-back (0.42 m fitted), leaving the cap within 6 px of each print; the elbow's height under the coping; the bowl's
 and the disc's sections; and its colour, a plain pale grey standing for galvanized iron, which the
 monochrome prints show only as paler than its cap and close to the granite; and that it
 still stands in the 1904 scene this phase serves (it is there in 1887-89 and gone by 1948, and
 when it went is not known).
-**How to resolve:** a re-fit of the c. 1888 view looking south-west, whose T-1883 camera puts the
-rear pinnacle about 60 px off and still reads the cap higher than the plate does (T-2713 left that
-excess to the camera, not the cowl); and the undated Glessner-front view, which shows no cowl at
+**How to resolve:** the c. 1888 view looking south-west was re-fitted (T-2748) and read with the
+plate by T-2811: its height excess was the set-back's (0.3 m nearer the face raises the cap 5 px in
+that view and leaves the plate's height reading unchanged), and the two cameras' remaining 0.3 m
+disagreement on the set-back is theirs, not the cowl's — a third picture with a camera fitted on the
+return from the north or west would settle it; and the undated Glessner-front view, which shows no cowl at
 any bounded set-back and is read by T-2713 as later than its removal (probably 1890s-1920s,
 T-2216): a date for that picture would confirm or overturn that reading. The hall stack's height
 was settled by T-2712 (it stops under the coping).
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2578 (piece 2 of T-2567).
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
-**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713).
+**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713); 2026-10-18 (T-2811).
 
 ### L-k01-keith-south-strip-2581 — Keith's south corner: a straight strip of the front's stone, 2.1 m deep
 
@@ -29079,3 +29085,38 @@ third rights-cleared photograph whose camera can be solved on two faces of the s
 **Applies to:** `data/structures/glessner_house.json` (`ridge_west_wing`, `turret_stable`); see
 `data/comparisons/glessner/stable-roof-heights.json` (`tools/glessner_stable_roof_read.py`).
 **Recorded:** 2026-10-18 (T-2758).
+
+### L-k01-1637-south-bay-2780 — 1637 Prairie's south-flank bay built on the 1911 sheet's plan to the Grosvenor photograph's heights, in plain dressed stone: its cheeks blank, its columns and carving not yet built, its entablature's projection and balusters reconstructed
+
+**Decision:** the canted bay on the south wall of Jesse Spalding's remodel of the Grosvenor house
+(T-2780, piece 1 of T-2756) is built as a K08 canted bay in dressed stone on the 1911 sheet's plan
+(`s20fp-1637-b1`: 3.55 m at the wall, cheeks at 45 degrees, its front 2.22 m and 0.75 m out), to the
+heights the c. 1870 photograph shows through T-2755's camera: a base to 2.95 m with one small
+round-headed light under the front's principal light, a principal storey to 8.0 m with the front's
+round-arched light (1.35 m wide, its sill at 3.15 m, its crown at 5.65 m), a bracketed entablature
+(consoles 0.6 m deep under the soffit, a 0.25 m fascia to 8.25 m), a stone balustrade 0.7 m high on
+its flat top, and a round-headed light 1.4 m wide over it in the south wall, its crown at 9.8 m. To
+build it the K08 kit's canted bay now takes the sheet's size (as a bow and a pavilion already did),
+its consoles their read depth, its balcony rail a canted bay's flat top in stone, and a bay a window
+over it on its host wall (`window_over`).
+**What is read, not invented.** From the photograph (`glessner_blog_1637_grosvenor_asbuilt_photo`),
+at about 57 px a metre on the bay's front: the sill band (y 680 px), the front light's crown
+(y 535) and width (35 px on a front drawing about 26 px a metre), the base light (y 690-730), the
+consoles' feet (y 435), the soffit (y 400), the corona's top (y 385), the coping (y 345), and the
+window over it (its crown at y 305 on the wall's plane, about 1.4 m between its shutters). From the
+sheet: the plan. Through the camera the build's west junction lands at x 338 px against 322-340 and
+its coping at y 345 against 345.
+**What is invented.** The soffit's 0.35 m and the consoles' 0.35 m reach (the photograph's
+near-frontal view of the entablature does not give its projection); the balusters' 0.07 m and their
+0.17 m pitch; the window over the bay's sill, hidden behind the balustrade, set 0.15 m over the
+bay's roof; and the base light's form, which the photograph shows round and K06 builds round-headed,
+its foot 0.16 m under the photograph's so its frame clears the sill band. **What is left out, and
+open for T-2781:** the columns at the corners and between the lights, the frieze's ovals and the
+carving of the capitals, consoles and corona; the shutters; and the cheeks' lights, which the
+photograph shows in the west cheek and which are not cut, because K08 holds every window's recess to
+at least 0.33 m inside its bay and a 1.0 m cheek 0.75 m out has no room for one, so the cheeks stand
+blank stone.
+**How to resolve:** a nearer photograph of the south flank, or the house's drawings; T-2781 builds
+the dress and the cheeks' lights.
+**Ticket:** T-2780 (piece 1 of T-2756).
+**Recorded:** 2026-10-18 (T-2780).

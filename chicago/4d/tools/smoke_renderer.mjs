@@ -9614,6 +9614,42 @@ for (const [label, viewport, touch] of [
         JSON.stringify(story1835).slice(0, 900));
     }
     // <<< T-2643
+    // >>> T-2641: Inspect's Design tab on an 1835 building with no summary record and no style
+    // module. It says in one line that no style guide has been written (no card is composed) and
+    // lists the building's own recorded features as numbered hotspots, each with its grade dot,
+    // where the attribute table was; with no camera named, none is a button. Nothing overflows.
+    const design1835 = await page.evaluate(async (id) => {
+      const a = window.__chicago4d;
+      const wait = (f, n = 150) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+      const root = () => document.getElementById('nav-app-inspect');
+      a.pick(id);
+      await a.navigator.select('inspect');
+      a.navigator.open(2);
+      await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+      root().querySelector('[data-insp-tab="design"]')?.click();
+      const pane = () => root().querySelector('[data-insp-pane="design"]');
+      await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+      const p = pane();
+      const items = [...p.querySelectorAll('.insp-hot')];
+      const out = { filled: p.dataset.filled, shown: p.checkVisibility(),
+        none: p.querySelector('.insp-style-none')?.textContent.trim() ?? null, card: !!p.querySelector('.insp-style'),
+        source: p.querySelector('.insp-hot-sec')?.dataset.source ?? null,
+        heading: p.querySelector('.insp-hot-sec .insp-h')?.textContent.trim() ?? '',
+        items: items.length, numbered: items.every((li, i) => li.querySelector('.insp-hot-n')?.textContent === String(i + 1)),
+        undotted: items.filter((li) => li.querySelectorAll('.fact-dot').length !== 1).length,
+        buttons: p.querySelectorAll('button.insp-hot-row').length, table: !!p.querySelector('table'),
+        plumbing: /[a-z0-9]+_[a-z0-9]+|\.json\b|\btier\b|\bticket\b/i.test(p.textContent),
+        overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+      await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+      return out;
+    }, 'hogan_store');
+    check(`${label}: Inspect's Design tab on an 1835 building says no style guide is written and numbers its own recorded features, each with its grade dot, in place of the attribute table (T-2641)`,
+      design1835.filled === 'yes' && design1835.shown && design1835.none === 'No style guide has been written for this building yet.'
+      && !design1835.card && design1835.source === 'sidecar' && design1835.heading === 'On this house'
+      && design1835.items > 1 && design1835.numbered && design1835.undotted === 0 && design1835.buttons === 0
+      && !design1835.table && !design1835.plumbing && !design1835.overflow,
+      JSON.stringify(design1835).slice(0, 700));
+    // <<< T-2641
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -13719,6 +13755,80 @@ for (const [label, viewport, touch] of [
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
+    // >>> T-2667: Guide › About this destination — the old research hub folded into four
+    // cards, How we grade, Sources, Liberties and What lived and grew here. Guide's own block
+    // lists them and a tap opens that card in the section under the sheet. With Researcher
+    // mode off nothing visible there names a ticket, a tier, the order book or the commit
+    // gate, and the order book is out of sight; with it on (the root's data-researcher-mode,
+    // which T-2657's switch sets) its card, its tile, its topic and Guide's fifth button
+    // show. Generous waits: Guide's sheet is a lazy module, and desktop frames take seconds.
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-about .nav-about-card'),
+      null, { timeout: 60_000, polling: 200 }).catch(() => {});
+    const aboutDest = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const root = document.documentElement;
+      const block = document.querySelector('#nav-app-guide #guide-about');
+      const shown = (el) => !!el && el.checkVisibility();
+      const buttons = [...(block?.querySelectorAll('.nav-about-card') ?? [])];
+      const out = {
+        block: !!block,
+        cards: buttons.filter(shown).map((b) => b.dataset.card),
+        titles: buttons.filter(shown).map((b) => b.querySelector('.nav-about-title')?.textContent.trim()),
+        blockText: block?.innerText ?? '',
+      };
+      buttons.find((b) => b.dataset.card === 'living')?.click();
+      for (let i = 0; i < 150 && !(api.hud.tab === 'evidence' && document.getElementById('evidence-hub')?.checkVisibility()); i++) {
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const hub = document.getElementById('evidence-hub');
+      const section = document.querySelector('[data-panel="evidence"]');
+      const living = hub?.querySelector('.ev-card[data-card="living"]');
+      const box = living?.getBoundingClientRect();
+      out.opened = {
+        tab: api.hud.tab, hubShown: shown(hub), title: document.getElementById('panel-title')?.textContent.trim(),
+        cards: [...(hub?.querySelectorAll('.ev-card') ?? [])].filter(shown).map((c) => c.dataset.card),
+        livingInView: !!box && box.height > 0 && box.top < innerHeight && box.bottom > 0,
+        focused: document.activeElement?.closest?.('.ev-card')?.dataset.card ?? null,
+        tiles: [...(hub?.querySelectorAll('.ev-tile') ?? [])].filter(shown).map((t) => t.dataset.topic),
+        orderBookShown: shown(hub?.querySelector('.ev-tile[data-topic="orderbook"]')),
+        hints: [...(hub?.querySelectorAll('.ev-card-hint') ?? [])].filter(shown).map((h) => h.closest('.ev-card')?.dataset.card),
+        text: section?.innerText ?? '',
+        fits: !!section && section.scrollWidth <= section.clientWidth + 1,
+      };
+      root.setAttribute('data-researcher-mode', '');
+      out.researcher = {
+        tileShown: shown(hub?.querySelector('.ev-tile[data-topic="orderbook"]')),
+        cardShown: shown(hub?.querySelector('.ev-card[data-card="research"]')),
+        guideButton: shown(block?.querySelector('.nav-about-card[data-card="research"]')),
+      };
+      api.evidenceHub.showTopic('orderbook');
+      out.researcher.topic = api.evidenceHub.topic;
+      out.researcher.topicShown = shown(document.getElementById('order-book'));
+      api.evidenceHub.showHub();
+      root.removeAttribute('data-researcher-mode');
+      api.evidenceHub.showTopic('orderbook');
+      out.offRefused = api.evidenceHub.topic !== 'orderbook' && !shown(document.getElementById('order-book'));
+      api.evidenceHub.showHub();
+      api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    const aboutLore = /\b(tiers?|tickets?|order[\s-]+books?|commit[\s-]+gate)\b|\bT-\d{3,4}\b|[a-z0-9]+_[a-z0-9]+/i;
+    check(`${label}: Guide › About this destination shows four cards and opens one in the section below, no internal word in sight and the order book only in Researcher mode (T-2667)`,
+      aboutDest.block && aboutDest.cards.join() === 'grading,sources,liberties,living'
+      && aboutDest.titles.join('|') === 'How we grade|Sources|Liberties|What lived and grew here'
+      && aboutDest.opened.tab === 'evidence' && aboutDest.opened.hubShown && aboutDest.opened.title === 'About this destination'
+      && aboutDest.opened.cards.join() === 'grading,sources,liberties,living' && aboutDest.opened.livingInView
+      && aboutDest.opened.tiles.length === 10 && !aboutDest.opened.orderBookShown
+      && aboutDest.opened.hints.join() === 'sources,liberties'
+      && !aboutLore.test(aboutDest.blockText) && !aboutLore.test(aboutDest.opened.text) && aboutDest.opened.fits
+      && aboutDest.researcher.tileShown && aboutDest.researcher.cardShown && aboutDest.researcher.guideButton
+      && aboutDest.researcher.topic === 'orderbook' && aboutDest.researcher.topicShown && aboutDest.offRefused,
+      JSON.stringify({ ...aboutDest, blockText: (aboutDest.blockText.match(aboutLore) ?? [null])[0],
+        opened: { ...aboutDest.opened, text: (aboutDest.opened.text.match(aboutLore) ?? [null])[0] } }));
+    // <<< T-2667
     await openSection('settings');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -15211,8 +15321,10 @@ for (const [label, viewport, touch] of [
         topic: api.evidenceHub.topic, backHidden: document.getElementById('panel-back').hasAttribute('hidden') };
       return out;
     });
+    // T-2667: the hub is Guide › About this destination, its eleven tiles inside four cards
+    // and the order book's (the eleventh) behind Researcher mode; the head says so.
     check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
-      hub.hubShown && hub.title === 'Sources' && hub.tiles.length === 11
+      hub.hubShown && hub.title === 'About this destination' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
       && hub.tiles[2]?.id === 'sources'
       && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
@@ -15235,8 +15347,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: Sources lazily lists scene and registered counts with a forty-row window`,
       sourcesView.initial.startsWith(String(sourcesView.scene)) && sourcesView.allStatus.startsWith(String(sourcesView.total))
       && sourcesView.initialRows === 40 && sourcesView.fits, JSON.stringify(sourcesView));
-    check(`${label}: Sources finds Andreas with date, type, tier and separate claim/entity figures`,
-      /1884/.test(sourcesView.known) && /book/.test(sourcesView.known) && /tier 3/.test(sourcesView.known)
+    // T-2667: the source says what kind it is (its tier 3, "gathered from witnesses", in the
+    // evidence ladder's words, inspect-sources.js sourceTag), and never the word tier.
+    check(`${label}: Sources finds Andreas with date, type, kind of source and separate claim/entity figures`,
+      /1884/.test(sourcesView.known) && /book/.test(sourcesView.known) && /gathered from witnesses/.test(sourcesView.known)
+      && !/\btier\b/i.test(sourcesView.known)
       && /Claims:/.test(sourcesView.known) && /Entities:/.test(sourcesView.known), sourcesView.known);
     const cityScene = hub.city.data?.people?.scene || null;
     const cityPopulation = cityScene?.population || null;
@@ -15363,7 +15478,7 @@ for (const [label, viewport, touch] of [
       && hub.cleared === hub.topic.total,
       JSON.stringify(hub.topic));
     check(`${label}: Back returns to the hub`,
-      hub.back.hubShown && hub.back.title === 'Sources' && hub.back.topic === null && hub.back.backHidden,
+      hub.back.hubShown && hub.back.title === 'About this destination' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
@@ -15448,6 +15563,107 @@ for (const [label, viewport, touch] of [
       && (devChrome.notDev === null || (devChrome.notDev.dev === devChrome.devServed && devChrome.markAfter === devChrome.devServed)),
       JSON.stringify(devChrome));
     // ---- end T-2629
+    // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
+    // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
+    // marked, and a tap on another switches the machine and its tone; Auto names this device's
+    // levels; Sound has its three levels and says nothing plays yet; About opens What's new;
+    // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
+    // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
+    // a starved runner takes seconds between frames.
+    const settingsApp = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator, html = document.documentElement;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
+      const segOn = () => document.querySelector('#s-theme .seg-btn[aria-checked="true"]')?.dataset.themeChoice ?? null;
+      const out = {
+        chip: !!document.getElementById('btn-theme'), seg: document.querySelectorAll('#s-theme .seg-btn').length,
+        tiles: [...document.querySelectorAll('#s-skins .skin-tile')].map((t) => t.dataset.skinChoice),
+        skin: html.dataset.skin, tileOn: document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice ?? null,
+        auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
+        autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
+        sound: ['master', 'effects', 'ambience'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
+        soundNote: document.getElementById('s-sound-note')?.textContent.trim() ?? '',
+      };
+      // Light or dark: the other tone, then back.
+      const tone = html.dataset.theme === 'light' ? 'light' : 'dark';
+      const other = tone === 'light' ? 'dark' : 'light';
+      out.segBefore = segOn();
+      document.querySelector(`#s-theme [data-theme-choice="${other}"]`)?.click();
+      await wait(50);
+      out.flipped = html.dataset.theme === other && segOn() === other;
+      // A machine from its tile: the next one, its tone shown on the seg, then the first again.
+      const next = out.tiles[(out.tiles.indexOf(out.skin) + 1) % out.tiles.length];
+      document.querySelector(`#s-skins [data-skin-choice="${next}"]`)?.click();
+      await until(() => html.dataset.skin === next, 5000);
+      await wait(50);
+      out.switched = html.dataset.skin === next && document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice === next
+        && segOn() === (html.dataset.theme === 'light' ? 'light' : 'dark');
+      document.querySelector(`#s-skins [data-skin-choice="${out.skin}"]`)?.click();
+      await until(() => html.dataset.skin === out.skin, 5000);
+      document.querySelector(`#s-theme [data-theme-choice="${tone}"]`)?.click();
+      await wait(50);
+      out.restored = html.dataset.skin === out.skin && html.dataset.theme === tone && segOn() === tone;
+      // What's new, from About.
+      document.getElementById('s-open-whatsnew')?.click();
+      out.whatsNew = await until(() => api.hud.tab === 'whatsnew', 10000);
+      api.hud.selectTab('settings');
+      await until(() => api.hud.tab === 'settings', 10000);
+      // Text size 140 %: every app the rail shows, measured once it is on screen.
+      const sel = document.getElementById('s-text-size');
+      const setSize = (v) => { sel.value = String(v); sel.dispatchEvent(new Event('change', { bubbles: true })); };
+      setSize(1.4);
+      out.scale = getComputedStyle(html).getPropertyValue('--text-scale').trim();
+      out.storedScale = stored().textScale;
+      out.clipped = {};
+      const hidden = (el) => el.closest('.visually-hidden, [aria-hidden="true"]');
+      for (const app of n.apps) {
+        await n.select(app);
+        const screen = () => document.querySelector(app === 'home' ? '#nav-home' : `#nav-app-${app}`);
+        const shown = await until(() => { const s = screen(); return s && !s.hidden && s.getBoundingClientRect().width > 0; }, 30000);
+        if (!shown) { out.clipped[app] = ['no screen']; continue; }
+        await wait(600);
+        const s = screen();
+        const box = s.getBoundingClientRect();
+        const all = [...s.querySelectorAll('*')].filter((el) => el.getClientRects().length && !hidden(el));
+        const name = (el) => `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${typeof el.className === 'string' && el.className ? `.${el.className.split(' ')[0]}` : ''}`;
+        const past = all.filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.right > box.right + 1 || r.left < box.left - 1); });
+        const cut = all.filter((el) => {
+          if (!el.textContent.trim()) return false;
+          const cs = getComputedStyle(el);
+          if (['auto', 'scroll'].includes(cs.overflowX) || ['auto', 'scroll'].includes(cs.overflowY)) return false;
+          if (cs.overflowX === 'visible' && cs.overflowY === 'visible' && cs.textOverflow !== 'ellipsis') return false;
+          return el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 2;
+        });
+        // A strip that scrolls sideways (a photo carousel is meant to).
+        const strips = [s, ...all].filter((el) => !el.matches('.insp-swipe') && ['auto', 'scroll'].includes(getComputedStyle(el).overflowX)
+          && el.scrollWidth > el.clientWidth + 1);
+        out.clipped[app] = [...past.map((el) => `past edge: ${name(el)}`), ...cut.map((el) => `cut: ${name(el)}`),
+          ...strips.map((el) => `scrolls sideways: ${name(el)}`)].slice(0, 6);
+      }
+      setSize(1);
+      out.back = getComputedStyle(html).getPropertyValue('--text-scale').trim() === '1' && stored().textScale === 1;
+      await n.select('settings');
+      await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
+      if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      return out;
+    });
+    check(`${label}: light or dark is Settings › Display's two-way choice, and the HUD holds no chip for it (T-2656)`,
+      !settingsApp.chip && settingsApp.seg === 2 && !!settingsApp.segBefore && settingsApp.flipped && settingsApp.restored,
+      JSON.stringify({ chip: settingsApp.chip, seg: settingsApp.seg, before: settingsApp.segBefore, flipped: settingsApp.flipped, restored: settingsApp.restored }));
+    check(`${label}: Settings › Machine shows the four machines as tiles, the one in use marked, and a tap switches it (T-2656)`,
+      settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
+      && settingsApp.switched && settingsApp.restored,
+      JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
+    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says nothing plays yet, About opens What's new (T-2656)`,
+      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
+      && settingsApp.sound === 3 && /^Nothing in the town makes a sound yet\./.test(settingsApp.soundNote) && settingsApp.whatsNew,
+      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
+    check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
+      settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
+      && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
+      JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
+    // <<< T-2656
     // >>> T-2657: Researcher mode, the Settings › About switch. Off by default: no RESEARCHER
     // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
     // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
@@ -15714,7 +15930,7 @@ for (const [label, viewport, touch] of [
         return false;
       };
       const reach = { start: await inside('jaunts', '#nav-seg-jaunts'), confidence: await inside('confidence', '.nav-preset'),
-        pace: await inside('move', '#s-move'), theme: await inside('settings', '#btn-theme') };
+        pace: await inside('move', '#s-move'), theme: await inside('settings', '#s-theme') };  // #s-theme: T-2656
       await n.select('home'); n.dock();
       return { gone, reach };
     });
@@ -16236,6 +16452,94 @@ for (const [label, viewport, touch] of [
       && offerAfter.first.inView && offerAfter.first.pointer === 'none' && !offerAfter.second?.showing,
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
+    // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
+    // which is read first. Then, the license set aside, the Field Check is put back at step 07
+    // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
+    // for, since on the desktop runner its few seconds can pass inside one frame). A second
+    // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
+    // with the Jaunt keepsakes. The tour's record is put back after, as are Home and the dock.
+    const licenseFirst = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const first = localStorage.getItem('chicago4d.navigatorLicense');
+      const tourWas = localStorage.getItem('chicago4d.tour');
+      api.license.forget(); api.hints.hide(); api.roamTip.hide(); api.popup.close();
+      const h = document.getElementById('nav-hint');
+      window.__licenseSeen = [];
+      const look = () => {
+        if (h.hidden || h.dataset.hint !== 'license') return;
+        const b = h.getBoundingClientRect();
+        window.__licenseSeen.push({ text: h.textContent, pointer: getComputedStyle(h).pointerEvents,
+          inView: b.width > 0 && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight });
+      };
+      window.__licenseObs = new MutationObserver(look);
+      window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      const resumed = api.tour.resume() && api.tour.step;
+      return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
+    });
+    const licenseFinish = async () => {
+      await page.waitForFunction(() => !document.getElementById('tour-next').hidden, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+      const miss = await clickChrome('#tour-next').then(() => null, (e) => page.evaluate(() => document.getElementById('tour-next')?.click()).then(() => e.message));
+      await page.waitForFunction(() => !window.__chicago4d.tour.running, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+      return miss;
+    };
+    const licenseClick = await licenseFinish();
+    await page.waitForFunction(() => window.__licenseSeen?.length > 0, null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const licenseAwarded = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const seen = window.__licenseSeen.slice();
+      window.__licenseSeen.length = 0;
+      api.hints.hide();
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      api.tour.resume();
+      return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
+    });
+    const licenseAgainClick = await licenseFinish();
+    await page.waitForTimeout(600);
+    const licenseAgain = await page.evaluate(() => {
+      window.__licenseObs.disconnect();
+      return { seen: window.__licenseSeen.length, stored: localStorage.getItem('chicago4d.navigatorLicense') };
+    });
+    // The Jaunts app's daybook.
+    await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.hud.setPanel(false); api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('jaunts');
+    });
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-jaunts [data-action="daybook"]'), null, { timeout: 90_000, polling: 200 }).catch(() => {});
+    const licenseChip = await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-action="daybook"]')?.textContent.trim() ?? null);
+    const licenseChipClick = await clickChrome('#nav-app-jaunts [data-action="daybook"]')
+      .then(() => null, (e) => page.evaluate(() => document.querySelector('#nav-app-jaunts [data-action="daybook"]')?.click()).then(() => e.message));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-jaunts [data-keepsake="navigator-license"]'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const licenseShelf = await page.evaluate(async (seen) => {
+      const api = window.__chicago4d;
+      const card = document.querySelector('#nav-app-jaunts [data-keepsake="navigator-license"]');
+      card?.scrollIntoView?.({ block: 'nearest' });
+      await new Promise((r) => setTimeout(r, 300));
+      const b = card?.getBoundingClientRect();
+      const out = { card: !!card, onShelf: !!card?.parentElement?.classList.contains('jaunt-keepsakes'),
+        keepsake: !!card?.classList.contains('jaunt-keepsake'), text: card?.textContent ?? '',
+        visible: !!card?.checkVisibility?.(), wide: !!b && b.width > 0 && b.height > 0 && b.left >= 0 && b.right <= innerWidth };
+      // Back as it was found: the list, lent back to the Welcome card; Home, docked; the
+      // Field Check's record as the blocks above left it.
+      document.querySelector('#welcome-jaunts-content .jaunt-back')?.click();
+      api.jauntsApp?.restore();
+      api.hints.hide();
+      if (seen.tourWas === null) localStorage.removeItem('chicago4d.tour'); else localStorage.setItem('chicago4d.tour', seen.tourWas);
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    }, licenseFirst);
+    check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 6 && !licenseClick
+      && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
+      && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
+      && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored
+      && /· \d+ kept$/.test(licenseChip ?? '') && licenseShelf.card && licenseShelf.onShelf && licenseShelf.keepsake
+      && /Navigator License/.test(licenseShelf.text) && /Issued /.test(licenseShelf.text) && licenseShelf.visible && licenseShelf.wide,
+      JSON.stringify({ licenseFirst: { ...licenseFirst, tourWas: undefined }, licenseClick, licenseAwarded, licenseAgainClick, licenseAgain, licenseChip, licenseChipClick, licenseShelf }));
+    // <<< T-2665
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.
@@ -18739,6 +19043,85 @@ for (const [label, viewport, touch] of [
             && t.aimed === 'glessner_house' && t.outline),
           JSON.stringify(showMe));
         // <<< T-2640
+        // >>> T-2641 (M8): Glessner's Design tab — the Richardsonian Romanesque card from its module
+        // (name, cues, Compare styles, each dotted), the record's numbered On this house hotspots
+        // each with one grade dot and no attribute table, Listed in Liberties on the reconstructed
+        // one, the plate only where the pictures file holds a copy that may be shown, and a tap
+        // on a hotspot turning the camera to the record's own view of it (Show me).
+        const design1904 = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 300) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const pane = () => root()?.querySelector('[data-insp-pane="design"]');
+          a.pick(id);
+          await a.navigator.select('inspect');
+          a.navigator.open(2);
+          await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+          root().querySelector('[data-insp-tab="design"]')?.click();
+          await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+          // The plate is the one thing on the tab whose box arrives late: read the layout once it
+          // has loaded or failed (up to 10 s), so a half-laid frame is not taken for the page.
+          await wait(() => { const img = pane()?.querySelector('.insp-style-plate img'); return !img || img.complete; }, 100);
+          await new Promise((r) => setTimeout(r, 300));
+          const doc = await a.inspectSummaries();
+          const rec = doc?.summaries?.[id] ?? {};
+          const mod = doc?.styles?.[rec.style] ?? {};
+          const pics = await a.pictures();
+          const pic = (pics?.by_structure?.[mod.plate?.structure] ?? []).find((x) => x.id === mod.plate?.picture);
+          const p = pane();
+          const items = [...p.querySelectorAll('.insp-hot')];
+          const text = [...p.querySelectorAll('.insp-style-name, .insp-style-desc, .insp-cue, .insp-h, .insp-hot-text, .insp-hot-detail, .insp-compare-item, .insp-style-cap-text, .insp-style-none')]
+            .map((n) => n.textContent).join(' ');
+          const out = { filled: p.dataset.filled, style: p.querySelector('.insp-design')?.dataset.style ?? null,
+            name: p.querySelector('.insp-style-name')?.textContent.trim() ?? '',
+            cues: p.querySelectorAll('.insp-cue').length, wantCues: (mod.cues ?? []).length,
+            cuesDotted: [...p.querySelectorAll('.insp-cue, .insp-compare-item, .insp-style-desc')].every((n) => n.querySelector('.fact-dot')),
+            compare: p.querySelectorAll('.insp-compare-item').length, wantCompare: (mod.compare ?? []).length,
+            heads: [...p.querySelectorAll('.insp-h')].map((n) => n.textContent.trim()),
+            items: items.length, wantItems: (rec.onThisHouse ?? []).length,
+            numbered: items.every((li, i) => li.querySelector('.insp-hot-n')?.textContent === String(i + 1)),
+            undotted: items.filter((li) => li.querySelectorAll('.fact-dot').length !== 1).length,
+            liberty: /Listed in Liberties\./.test(p.textContent), table: !!p.querySelector('table'),
+            buttons: p.querySelectorAll('button.insp-hot-row').length, wantButtons: (rec.onThisHouse ?? []).filter((h) => h.camera).length,
+            plate: !!p.querySelector('.insp-style-plate img'),
+            plateWanted: !!(pic?.held?.f && /^(public domain|no known restrictions)/i.test(String(pic.rights ?? ''))),
+            plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}|\btier\b|\bticket\b/i.test(text),
+            overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth,
+            widths: [p.scrollWidth, p.clientWidth, document.documentElement.scrollWidth, innerWidth],
+            wide: [...p.querySelectorAll('*')].filter((n) => n.getBoundingClientRect().right > p.getBoundingClientRect().right + 1)
+              .map((n) => `${n.tagName}.${n.className}`).slice(0, 4), turn: null };
+          // Tap the first hotspot that names a camera: Show me turns the camera to its bearing.
+          const i = (rec.onThisHouse ?? []).findIndex((h) => h.camera);
+          const btn = i >= 0 ? items[i]?.querySelector('button.insp-hot-row') : null;
+          if (btn) {
+            a.popup.close();
+            const before = a.showMe.last?.at ?? -1;
+            btn.click();
+            await wait(() => (a.showMe.last?.at ?? -1) !== before, 300);
+            for (let k = 0; k < 80 && document.getElementById('show-me-outline').hidden; k++) await new Promise((r) => setTimeout(r, 100));
+            a.target.invalidate();
+            const want = rec.onThisHouse[i].camera;
+            out.turn = { want, yaw: +((((a.player.bearingDeg % 360) + 360) % 360).toFixed(1)), pitch: +a.player.pitchDeg.toFixed(1),
+              aimed: a.target.current(150)?.id ?? null, outline: !document.getElementById('show-me-outline').hidden };
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, 'glessner_house');
+        {
+          const d = design1904;
+          const nearYaw = (x, y) => Math.abs(((x - y + 540) % 360) - 180) <= 2;
+          check(`${label}: Glessner's Design tab shows the Richardsonian Romanesque card, numbered On this house hotspots each with its grade dot and no attribute table, and Compare styles; a tap turns the camera there (T-2641)`,
+            d.filled === 'yes' && d.style === 'richardsonian_romanesque' && d.name === 'Richardsonian Romanesque'
+            && d.cues === d.wantCues && d.cues >= 1 && d.cues <= 4 && d.compare === d.wantCompare && d.compare >= 1 && d.cuesDotted
+            && JSON.stringify(d.heads) === JSON.stringify(['How to spot it', 'On this house · tap to look', 'Compare styles'])
+            && d.items === d.wantItems && d.items >= 3 && d.numbered && d.undotted === 0 && d.liberty && !d.table
+            && d.buttons === d.wantButtons && d.plate === d.plateWanted
+            && d.turn && nearYaw(d.turn.yaw, d.turn.want.yaw) && Math.abs(d.turn.pitch - d.turn.want.pitch) <= 2
+            && d.turn.aimed === 'glessner_house' && d.turn.outline
+            && !d.plumbing && !d.overflow,
+            JSON.stringify(d).slice(0, 900));
+        }
+        // <<< T-2641
         // >>> T-2645 (NAV-510): Inspect's Photos tab on Glessner House — the 12 best by date, each
         // with its year, a caption and its credit; All N shows every picture; From this spot only
         // on a picture a solved camera names, and it stands the visitor where that camera stood.
@@ -18861,6 +19244,19 @@ for (const [label, viewport, touch] of [
           && ['grades', 'liberties', 'ground'].every((t) => drawer.tiles.includes(t))
           && drawer.firms === 0 && drawer.tab !== 'people' && drawer.mounted.length === 0,
           JSON.stringify(drawer));
+        // >>> T-2667: the 1904 hub is Guide › About this destination too — the same four cards,
+        // each holding a topic of its own (the ground is what lived and grew here), and no
+        // order book, whose card the scene's missing residents layer leaves out.
+        const about1904 = await page.evaluate(() => {
+          const cards = [...document.querySelectorAll('#evidence-hub .ev-card')];
+          return { cards: cards.map((c) => c.dataset.card), api: window.__chicago4d.evidenceHub?.cards ?? null,
+            tiles: Object.fromEntries(cards.map((c) => [c.dataset.card, [...c.querySelectorAll('.ev-tile')].map((t) => t.dataset.topic)])) };
+        });
+        check(`${label}: the 1904 Guide › About this destination shows the same four cards, each with a topic, and no order book (T-2667)`,
+          about1904.cards.join() === 'grading,sources,liberties,living' && about1904.api?.join() === about1904.cards.join()
+          && Object.values(about1904.tiles).every((t) => t.length > 0) && about1904.tiles.living?.includes('ground'),
+          JSON.stringify(about1904));
+        // <<< T-2667
         check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
           at.problems.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,

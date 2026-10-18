@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 2025, ts: '2026-10-18T23:10:14.829Z', date: 'Oct 18, 2026, 6:10 PM CT', title: '1637 Prairie\'s carved south bay rises on its side wall', kind: 'feature',
+    items: [
+      'The Spalding house on Prairie Avenue now has the stone bay its oldest photograph shows on its south side: a tall arched window, a bracketed cornice and a balustrade on top, with an arched window over it in the wall above.',
+      'The bay keeps its 1911 fire-insurance-map outline and the photograph\'s heights. Its columns, carving and side windows come next.',
+    ] },
+  { v: 2024, ts: '2026-10-18T22:53:44.520Z', date: 'Oct 18, 2026, 5:53 PM CT', title: 'Finish the field check and earn your Navigator License', kind: 'feature',
+    items: [
+      'Press Finish at the end of the 60-second field check and you earn the Navigator License. A line says it is kept with your keepsakes in Jaunts.',
+      'Open your daybook from Jaunts and the license is on the shelf beside your Jaunt keepsakes, with the day it was issued. It stays on this device and shows in every year.',
+      'Skipping the field check does not award it, and finishing again keeps the one license. Reset daybook clears your Jaunt keepsakes but leaves the license.',
+    ] },
+  { v: 2023, ts: '2026-10-18T22:27:15.247Z', date: 'Oct 18, 2026, 5:27 PM CT', title: 'Keith House\'s roof ventilator moved to match two 1880s pictures', kind: 'fix',
+    items: [
+      'The cowl ventilator on 1808 Prairie\'s roof now stands 0.45 m behind the north wall\'s face instead of 0.6 m, closer to where the c. 1888 photograph looking south-west shows it.',
+      'The 1888 Glessner plate puts it a little further back, so it is built where it fits both pictures best: within a few pixels of each.',
+      'Its height and its place along the wall are unchanged.',
+    ] },
+  { v: 2022, ts: '2026-10-18T22:18:49.197Z', date: 'Oct 18, 2026, 5:18 PM CT', title: 'Settings in the Navigator: text size, machine tiles, Auto and Sound', kind: 'feature',
+    items: [
+      'Settings now reads Display, Show, Machine, Performance, Sound, Units, then About & What\'s new.',
+      'Display has Light or Dark as a two-way choice, and a Text size from 100 % to 140 %. Every Navigator screen grows and reflows to fit.',
+      'The four machines show as small preview tiles in their own colours. Tap one to switch.',
+      'Performance has an Auto key that puts back what suits your device, and says what that is.',
+      'Sound has master, effects and ambience levels. Nothing in the town makes a sound yet, and the group says so.',
+      'Every Navigator screen is easier to read in all four machines, light or dark: faint labels and a few accents are deeper.',
+    ] },
   { v: 2021, ts: '2026-10-18T21:49:33.502Z', date: 'Oct 18, 2026, 4:49 PM CT', title: '1812 and 1835: the woods in clumps, and thickets at their edge', kind: 'feature',
     items: [
       'The North Side and river woods stand in patches with openings between them, and the trees in an opening are younger and smaller.',
