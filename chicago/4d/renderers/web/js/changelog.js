@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2005, ts: '2026-10-18T16:50:35.380Z', date: 'Oct 18, 2026, 11:50 AM CT', title: 'The stable-roof check now gives the same answer on every computer', kind: 'fix',
+    items: [
+      'One way of reading the 1963 survey photograph had no single answer: a slightly stretched picture fits it exactly as well as a true one, so the dovecote\'s place along the roof came out differently from one computer to the next. The check now tries a set of fixed stretches, and gives the same answer every time.',
+      'The finding holds: the roof was right. Across every stretch the gable\'s peak stays at the same height. Only the dovecote\'s position moves, which is why that photograph cannot place it; the c. 1887 view still does, and puts it about a foot and a half north.',
+    ] },
+  { v: 2004, ts: '2026-10-18T16:44:08.144Z', date: 'Oct 18, 2026, 11:44 AM CT', title: 'Farwell house\'s oriel at its 1886 drawing\'s size, six lights', kind: 'change',
+    items: [
+      '1623 Prairie (1904): the corbelled oriel over the front\'s two arches is now as wide as the 1886 Building Budget drawing draws it, nearly the whole front, with four tall windows across its face and one in each angled side, where it had three and blank sides.',
+      'The arched window and the entrance arch beneath it stand where the drawing puts them.',
+      'Still different from the drawing: the oriel\'s carved band, upper row of windows and cone-shaped roof are not built yet, and the drawing sets its face a little north of where it is built.',
+    ] },
+  { v: 2003, ts: '2026-10-18T16:35:21.898Z', date: 'Oct 18, 2026, 11:35 AM CT', title: '1835: the shore cottonwood grove and a thicker North Side wood', kind: 'feature',
+    items: [
+      'Sixty large cottonwoods stand on the lake shore from Sixteenth to Eighteenth Street, with a clump of nine near the middle, from Robert G. Clarke\'s 1890 letter.',
+      'The two great cottonwoods behind the old Kinzie house still stand in 1835, though the house is gone.',
+      'The woods are drawn at a higher share of their recorded density on every detail level, so the North Side reads as woodland.',
+      'Every new tree\'s position is reconstructed and listed under Liberties.',
+    ] },
   { v: 2002, ts: '2026-10-18T16:24:45.985Z', date: 'Oct 18, 2026, 11:24 AM CT', title: 'Plainer words where a visitor reads about shops and sources', kind: 'change',
     items: [
       'A shop placed beside a landmark now names it in words, such as Mansion House, instead of an internal code. You see this in Go to and on the shop\'s card.',
