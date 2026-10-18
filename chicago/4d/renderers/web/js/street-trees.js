@@ -9,12 +9,12 @@
  * position is reconstructed (docs/LIBERTIES.md L-prairie-parkway-elms-2473); the
  * species is inferred from the prints.
  *
- * HOW. With trees.js's own `addTree` and its species-sprayed leaf atlas — the
- * owner asked for the 1835 flora as the base, and a second tree builder would
- * drift from the first. The 1835 American elm record's bark, foliage and crown
- * law, in the tall, high-crowned shape a planted street elm grows into. A dozen
- * crowns are built once and INSTANCED (one BatchedMesh, each tree turned and
- * scaled on its own spot, culled per tree in the view and the sun), because a
+ * HOW. With the grown American elm the 1835 timber draws (tree-model.js, T-2743)
+ * — the owner asked for the 1835 flora as the base, and a second tree builder
+ * would drift from the first — at the height a planted street elm grows to. A
+ * few crowns are grown once and INSTANCED (tree-instances.js: each tree turned
+ * and scaled on its own spot, at three levels by distance, culled per tree in
+ * the view and the sun, shadows only within 100 m), because a
  * street file of planted elms is a few hundred trees of one age and a merged
  * buffer of four hundred unique crowns costs a phone tens of megabytes for no
  * difference anyone can see at a walk.
@@ -24,7 +24,7 @@
  * them spring trees, winter bare trees or make them all disappear"): `summer`, the
  * July canopy the scene date has and the default; `spring`, the same trees just
  * leafing, a few pale tufts on bare limbs, so the fronts read through them;
- * `winter`, the same limbs bare, every spray painted as twigs with no leaf; and
+ * `winter`, the same limbs bare, the grown twigs with no leaf; and
  * `hidden`. A viewing choice, never a second claim about July 1904.
  *
  * A scene that does not list `street_trees` hands this no data base and it draws
@@ -32,31 +32,14 @@
  */
 
 import * as THREE from 'three';
-import { addTree, MeshBuf, SPECIES } from './trees.js';
-import { createTreeAtlasSliced, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
+import { SPECIES } from './trees.js';
+import { TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
+import { TreeInstances, createGrownTreeMaterials } from './tree-instances.js';
+import { resolveBases } from './scene-loader.js';
 
 export const STREET_TREE_MODES = ['summer', 'spring', 'fall', 'winter', 'hidden'];
 const PARKWAY_LIFT_M = 0.05;      // street-grid.js CLASSES.parkway.lift
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
-const YOUNG_VARIANTS = 3;
-/**
- * The desktop's elms past this distance from the eye draw the phone's lighter
- * crown (same limbs and masses, fewer leaf sprays): 221k triangles for every tree
- * at full against 99k at light, and from 60 m a crown is a few dozen pixels wide.
- * Re-sorted when the eye has moved LOD_STEP_M. It is what holds the 1904 spawn
- * inside the full tier's triangle ceiling with the trees in.
- */
-const LOD_NEAR_M = 60;
-const LOD_STEP_M = 4;
-/**
- * …and only the elms within this distance cast shadows. The shadow box reaches
- * 240 m every way (world.js SHADOW_REACH_M), so every elm in the district was
- * drawn a second time into it: 75k of the elms' 92k triangles at the spawn. Past
- * this the dappling on the far walks is a few pixels of shade, and those trees
- * draw from a second batch that casts none.
- */
-const SHADOW_NEAR_M = 100;
-
 /**
  * The parkway elm: the 1835 record's colours and leaf, a street tree's shape.
  * Open-grown on a 14-ft sidewalk space it carries a clear bole to about a third
@@ -88,35 +71,36 @@ function elmSpec(mode) {
   return spec;
 }
 
-function mulberry32(seed) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6D2B79F5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
   return res.json();
 }
 
-/** The crowns, built once per mode and detail at the origin, root at y = 0. */
-function buildCrowns(mode, detail, variants) {
-  const spec = elmSpec(mode);
-  const out = [];
-  for (let v = 0; v < variants + YOUNG_VARIANTS; v++) {
-    const buf = new MeshBuf(detail);
-    if (mode === 'spring') buf.sprayCap = detail === 'full' ? 8 : 5;
-    addTree(buf, spec, 0, 0, 0, mulberry32(0x2473 + v * 7919 + (mode === 'spring' ? 101 : 0)), 1);
-    out.push(buf.build());
-  }
-  return out;
-}
+/**
+ * T-2743: the parkway's level rings, tighter than the timber's (tree-instances.js
+ * LEVELS). A parkway is a file of tall crowns every nine metres down every street
+ * in view, so the timber's 42 m near ring holds a dozen full elms here; the
+ * spawn's elms were 466k triangles on those rings against the 92k the old crowns
+ * drew. Near is the elm a visitor stands under, mid the next few down the walk.
+ */
+const STREET_LEVELS = {
+  full: { near: 10, mid: 44 },
+  balanced: { near: 10, mid: 40 },
+  light: { near: 0, mid: 32 },
+};
+/** Only the elms this close cast shadows (the T-2493 ring was 100 m). */
+const SHADOW_NEAR_M = 32;
+
+/** T-2743: the Season setting's crowns, as the grown elm's leaf cover. Spring is
+ *  just leafing (a few small pale tufts), fall a thinner yellow crown, winter bare
+ *  limbs and twigs with no leaf card at all. */
+const SEASON = {
+  summer: {},
+  spring: { leafCover: 0.55, leafScale: 0.45 },
+  fall: { leafCover: 0.72, leafScale: 0.9 },
+  winter: { leafCover: 0 },
+};
 
 function treeCard(t, doc) {
   const sp = doc.species ?? {};
@@ -187,155 +171,58 @@ export async function createStreetTrees({
   stats.young = trees.filter((t) => t.kind === 'young').length;
   const variants = Math.max(1, doc.placement?.variants ?? 12);
 
-  /* ---- the material: trees.js's own, so the two read as one wood -------- */
+  /* ---- the material: the grown trees' own, so the two read as one wood --- */
+  // T-2743: the elms are the American elm the 1835 timber grows from
+  // tree-model.js, at the parkway tree's height, drawn by tree-instances.js with
+  // its levels and shadow ring. The leaf and bark atlases load once; a Season or
+  // detail change re-grows the crowns, not the textures.
   const uWind = { value: 0 };
-  // A phone keeps an atlas from its second level down: 1024 px a side is what a
-  // crown 20 m off ever samples on a 390 px screen, and it is a quarter of the
-  // memory (T-2158's budget, PR 773).
-  const trimmed = (a) => {
-    if (lowSpec && a.mipmaps?.length > 1) {
-      a.mipmaps = a.mipmaps.slice(1);
-      a.image = a.mipmaps[0];
-    }
-    return a;
-  };
-  const atlas = trimmed(await createTreeAtlasSliced(checkpoint));
-  // The winter twig atlas is painted only when winter is first chosen, and the
-  // leaf atlas stays: going back to summer is a swap, not a repaint.
-  let bareAtlas = null;
-  const atlasFor = async (m) => {
-    if (m !== 'winter') return atlas;
-    bareAtlas ??= trimmed(await createTreeAtlasSliced(checkpoint, { bare: true }));
-    return bareAtlas;
-  };
-  const mat = new THREE.MeshStandardMaterial({
-    vertexColors: true, map: atlas, bumpMap: atlas, bumpScale: 0.015,
-    roughness: 0.92, metalness: 0, side: THREE.DoubleSide, alphaTest: TREE_ALPHA_CUTOFF,
+  const mats = await createGrownTreeMaterials({
+    assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
+    lowSpec: lowSpec || detail === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
   });
-  mat.name = 'street-trees';
-  patchTreeWind(mat, uWind, { surface: true });
-  confidence?.patch(mat);
-  const depthMat = new THREE.MeshDepthMaterial({
-    map: atlas, alphaTest: TREE_ALPHA_CUTOFF, side: THREE.DoubleSide, depthPacking: THREE.RGBADepthPacking,
-  });
-  const distanceMat = new THREE.MeshDistanceMaterial({ map: atlas, alphaTest: TREE_ALPHA_CUTOFF, side: THREE.DoubleSide });
-  patchTreeWind(depthMat, uWind);
-  patchTreeWind(distanceMat, uWind);
-  confidence?.patch(depthMat);
-  confidence?.patch(distanceMat);
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {
     const y = terrain.surfaceHeight(t.e, t.n) + (levelAt?.(t.e, t.n) ?? 0) + PARKWAY_LIFT_M;
-    const m = new THREE.Matrix4().compose(
-      new THREE.Vector3(t.e, y, -t.n),
-      new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), (t.yaw_deg ?? 0) * Math.PI / 180),
-      new THREE.Vector3(t.scale ?? 1, t.scale ?? 1, t.scale ?? 1),
-    );
-    const crown = t.kind === 'young' ? variants + ((t.variant ?? 0) % YOUNG_VARIANTS) : (t.variant ?? 0) % variants;
-    return { t, y, m, crown };
+    return { t, y, variant: t.variant ?? 0, h: 20 };
   });
 
-  let batch = null;
-  let farBatch = null;
-  let heights = [];
-  let lod = null;
-  /** T-2493: near elms full, far elms light (LOD_NEAR_M). */
-  const sortLod = (eye) => {
-    if (!batch || !lod?.far || !eye) return;
-    if (lod.at && lod.at.distanceToSquared(eye) < LOD_STEP_M * LOD_STEP_M) return;
-    lod.at = (lod.at ?? new THREE.Vector3()).copy(eye);
-    let tris = 0;
-    for (let i = 0; i < placed.length; i++) {
-      const p = placed[i];
-      const dx = p.m.elements[12] - eye.x; const dz = p.m.elements[14] - eye.z;
-      const d2 = dx * dx + dz * dz;
-      const isFar = d2 > LOD_NEAR_M * LOD_NEAR_M;
-      const shades = d2 <= SHADOW_NEAR_M * SHADOW_NEAR_M;
-      if (isFar !== lod.isFar[i]) {
-        batch.setGeometryIdAt(p.inst, (isFar ? lod.far : lod.near)[p.crown]);
-        lod.isFar[i] = isFar;
-      }
-      if (shades !== lod.shades[i]) {
-        batch.setVisibleAt(p.inst, shades);
-        farBatch.setVisibleAt(p.farInst, !shades);
-        lod.shades[i] = shades;
-      }
-      tris += (isFar ? lod.farTris : lod.nearTris)[p.crown];
-    }
-    stats.triangles = tris;
-  };
+  let forest = null;
   let current = { mode: null, detail: null };
   const build = async (wantMode, wantDetail) => {
-    if (batch) { group.remove(batch); batch.dispose(); batch = null; }
-    if (farBatch) { group.remove(farBatch); farBatch.dispose(); farBatch = null; }
+    if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
     stats.mode = wantMode; stats.detail = wantDetail; stats.triangles = 0; stats.drawCalls = 0;
     current = { mode: wantMode, detail: wantDetail };
     group.visible = wantMode !== 'hidden';
     if (wantMode === 'hidden' || !placed.length) return;
-    const map = await atlasFor(wantMode);
-    if (mat.map !== map) {
-      mat.map = map; mat.bumpMap = map; depthMat.map = map; distanceMat.map = map;
-    }
-    const geos = buildCrowns(wantMode, wantDetail, variants);
-    // Full detail also carries the light crowns, for the trees past LOD_NEAR_M.
-    const far = wantDetail === 'full' ? buildCrowns(wantMode, 'light', variants) : null;
-    const pause = checkpoint(); if (pause) await pause;
-    heights = geos.map((g) => { g.computeBoundingBox(); return g.boundingBox.max.y; });
-    const all = far ? [...geos, ...far] : geos;
-    const vTotal = all.reduce((s, g) => s + g.attributes.position.count, 0);
-    const iTotal = all.reduce((s, g) => s + g.index.count, 0);
-    batch = new THREE.BatchedMesh(placed.length, vTotal, iTotal, mat);
-    batch.name = 'street-trees';
-    batch.customDepthMaterial = depthMat;
-    batch.customDistanceMaterial = distanceMat;
-    batch.castShadow = true;
-    batch.receiveShadow = true;
-    const ids = geos.map((g) => batch.addGeometry(g));
-    const farIds = far ? far.map((g) => batch.addGeometry(g)) : null;
-    lod = { near: ids, far: farIds, nearTris: geos.map((g) => g.index.count / 3),
-      farTris: far ? far.map((g) => g.index.count / 3) : null, at: null, isFar: [], shades: [] };
-    // The trees past SHADOW_NEAR_M: the light crowns again, in a batch that casts
-    // no shadow. Each tree is in both batches and visible in one.
-    if (far) {
-      const fv = far.reduce((s, g) => s + g.attributes.position.count, 0);
-      const fi = far.reduce((s, g) => s + g.index.count, 0);
-      farBatch = new THREE.BatchedMesh(placed.length, fv, fi, mat);
-      farBatch.name = 'street-trees-far';
-      farBatch.castShadow = false;
-      farBatch.receiveShadow = true;
-    }
-    const farOnly = farBatch ? far.map((g) => farBatch.addGeometry(g)) : null;
+    // Three elms, grown once, stand for all four hundred: a young tree is one of
+    // them at its record's smaller scale. Each variant is a megabyte and more of
+    // geometry, and a parkway of one age is the case where siblings read true.
+    const spec = elmSpec(wantMode);
+    const grown = new TreeInstances({ level: wantDetail, shadowM: SHADOW_NEAR_M, name: 'street-trees',
+      variants: () => Math.min(variants, 3), levels: STREET_LEVELS });
     for (const p of placed) {
-      p.inst = batch.addInstance(ids[p.crown]);
-      batch.setMatrixAt(p.inst, p.m);
-      lod.isFar.push(false);
-      lod.shades.push(true);
-      if (farBatch) {
-        p.farInst = farBatch.addInstance(farOnly[p.crown]);
-        farBatch.setMatrixAt(p.farInst, p.m);
-        farBatch.setVisibleAt(p.farInst, false);
-      }
-      stats.triangles += geos[p.crown].index.count / 3;
+      const sc = p.t.scale ?? 1;
+      p.h = grown.add(spec, p.t.e, p.y, -p.t.n, sc,
+        { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
     }
-    for (const g of all) g.dispose();
-    if (farBatch) {
-      farBatch.computeBoundingBox();
-      farBatch.computeBoundingSphere();
-      group.add(farBatch);
-    }
-    batch.computeBoundingBox();
-    batch.computeBoundingSphere();
-    group.add(batch);
-    stats.drawCalls = farBatch ? 2 : 1;
-    stats.crowns = geos.length;
+    const pause = checkpoint(); if (pause) await pause;
+    forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
+    group.add(forest.group);
+    stats.drawCalls = forest.stats.drawCalls;
+    stats.crowns = forest.stats.variants;
+    stats.grown = forest.stats;
   };
   await build(STREET_TREE_MODES.includes(mode) ? mode : 'summer', detail);
 
   let wind = 0;
   out.update = (dt, camera = null) => {
     wind += dt || 0; uWind.value = wind;
-    if (camera) sortLod(camera.position);
+    if (camera && forest) {
+      forest.update(camera.position);
+      stats.triangles = forest.stats.triangles;
+    }
   };
   out.setMode = async (m) => {
     if (!STREET_TREE_MODES.includes(m) || m === current.mode) return;
@@ -351,7 +238,7 @@ export async function createStreetTrees({
    *  opens the house. */
   const ray = new THREE.Raycaster();
   out.pickAt = (ndc, camera) => {
-    if (!camera || !batch || !group.visible) return null;
+    if (!camera || !forest || !group.visible) return null;
     ray.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
     const o = ray.ray.origin; const d = ray.ray.direction;
     const a = d.x * d.x + d.z * d.z;
@@ -359,7 +246,7 @@ export async function createStreetTrees({
     let best = null;
     for (const p of placed) {
       const s = p.t.scale ?? 1;
-      const h = (heights[p.crown] ?? 20) * s;
+      const h = p.h;
       const dx = o.x - p.t.e; const dz = o.z + p.t.n;
       const tt = -(dx * d.x + dz * d.z) / a;
       if (!(tt > 0 && tt < 200)) continue;
@@ -380,9 +267,8 @@ export async function createStreetTrees({
     return t ? treeCard(t, doc) : null;
   };
   out.dispose = () => {
-    if (batch) { group.remove(batch); batch.dispose(); }
-    if (farBatch) { group.remove(farBatch); farBatch.dispose(); }
-    mat.dispose(); depthMat.dispose(); distanceMat.dispose(); atlas.dispose(); bareAtlas?.dispose();
+    if (forest) { group.remove(forest.group); forest.dispose(); }
+    mats.dispose();
   };
   return out;
 }
