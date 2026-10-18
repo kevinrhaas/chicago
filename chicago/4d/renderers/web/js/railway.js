@@ -217,7 +217,7 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
       slant.set(u, out);
       return out;
     };
-    // T-2787: each corner once, the quads by index. Unshared, every quad carried six
+    // T-2806: each corner once, the quads by index. Unshared, every quad carried six
     // copies of its corners: 85 MB of the 1904 yard's GPU geometry on a phone.
     const base = pos.length / 3;
     const cols = vs.length;
@@ -250,7 +250,7 @@ async function groundMesh(name, out, kind, lib, confidence) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
   geo.setAttribute('uv', new THREE.Float32BufferAttribute(out.uv, 2));
-  // T-2787: a tint and a fade are bytes, not floats (16 bytes a corner down to 4)
+  // T-2806: a tint and a fade are bytes, not floats (16 bytes a corner down to 4)
   const col = new Uint8Array(out.col.length);
   for (let i = 0; i < col.length; i += 1) col[i] = Math.round(Math.max(0, Math.min(1, out.col[i])) * 255);
   geo.setAttribute('color', new THREE.BufferAttribute(col, 4, true));
@@ -336,7 +336,7 @@ function laySection(path, s0, s1, prof, spec, out) {
         const ux = Q[0] - P[0]; const uy = Q[1] - P[1]; const uz = Q[2] - P[2];
         const vx = R[0] - P[0]; const vy = R[1] - P[1]; const vz = R[2] - P[2];
         const gx = uy * vz - uz * vy; const gy = uz * vx - ux * vz; const gz = ux * vy - uy * vx;
-        // T-2787: a face's four corners once, its two triangles by index
+        // T-2806: a face's four corners once, its two triangles by index
         const base = out.pos.length / 3;
         for (const p of [a0, b0, b1, a1]) {
           out.pos.push(wx(p[0]), p[1], wz(p[2]));
@@ -370,7 +370,7 @@ function railMesh(name, out, level, mat, castShadow) {
 /* -------------------------------------------------------------------------- */
 
 /**
- * T-2787: a picture at half its size, for a phone. The yard's maps tile every metre or
+ * T-2806: a picture at half its size, for a phone. The yard's maps tile every metre or
  * two and a phone draws them a few pixels across: a 512 map there cost 1.3 MB of GPU
  * for detail no phone pixel shows, 33 MB over the library.
  */
@@ -927,7 +927,7 @@ export async function createRailway({
   railMat.name = 'railway-rails';
   confidence?.patch(railMat);
   materials.push(railMat);
-  // T-2787: a phone builds at `light` and draws a quarter of the tufts and under a third
+  // T-2806: a phone builds at `light` and draws a quarter of the tufts and under a third
   // of the stones; the rest only ever sat in their instance arrays (15 MB in 1904). A
   // tier raised later on the same page draws what was built.
   const builtShare = detail === 'light' ? {

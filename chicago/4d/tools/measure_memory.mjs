@@ -135,7 +135,7 @@ const WALKS = {
   // looking south, so every block's houses, trees and the lakefront come and go.
   'prairie-street': { year: '1904', stations: Array.from({ length: 26 }, (_, i) => ({
     local_e: 1402, local_n: -2940 - 40 * i, yaw_deg: 180 })) },
-  // T-2787: the owner's third report — down the street from Glessner, then back north
+  // T-2806: the owner's third report — down the street from Glessner, then back north
   // past where he started. Every 40 m, facing the way he walked, so whatever streams in
   // on the way south has to be let go of (or not) on the way north.
   'prairie-there-and-back': { year: '1904', stations: [

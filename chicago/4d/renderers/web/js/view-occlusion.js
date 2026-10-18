@@ -66,18 +66,62 @@ function clipPlane(points, distance) {
 
 /** Clip the actual triangle to the camera's near/far planes before projection.
  * The resulting convex polygon never adds coverage across an aperture. */
+// T-2806: a phone ran this for every backing triangle on every frame the eye moved,
+// and most triangles are turned away (back-facing, too small, off the screen) after
+// allocating their clip vectors, polygons and closures: ~6 MB of garbage a frame
+// while walking. Those rejections are now decided on scratch storage, by the same
+// arithmetic in the same order, before anything is allocated; a triangle that
+// passes them goes through the original path below unchanged.
+const scratchEye = new THREE.Vector3(), scratchTo = new THREE.Vector3();
+const scratchClip = [new THREE.Vector4(), new THREE.Vector4(), new THREE.Vector4()];
+const scratchXY = new Float64Array(6);
+const vpScratch = new THREE.Matrix4();
+
+/** True when the original path below would certainly `continue` for this triangle. */
+function rejectedEarly(points, vp, width, height) {
+  for (let k = 0; k < 3; k++) {
+    const c = scratchClip[k].set(points[k].x, points[k].y, points[k].z, 1).applyMatrix4(vp);
+    // Clipped by the near or far plane: only the full path knows the polygon.
+    if (!(c.z + c.w >= 0 && c.w - c.z >= 0)) return false;
+  }
+  for (let k = 0; k < 3; k++) {
+    const c = scratchClip[k];
+    if (!Number.isFinite(c.w) || c.w <= 0) return true;
+    scratchXY[k * 2] = c.x / c.w * width / 2; scratchXY[k * 2 + 1] = c.y / c.w * height / 2;
+  }
+  let signedArea = 0;
+  for (let k = 0; k < 3; k++) {
+    const j = (k + 1) % 3;
+    signedArea = signedArea + scratchXY[k * 2] * scratchXY[j * 2 + 1] - scratchXY[k * 2 + 1] * scratchXY[j * 2];
+  }
+  if (Math.abs(signedArea) < 16) return true;
+  // Wholly past one edge of the viewport: visibleArea() clips it to nothing.
+  for (const [axis, sign] of VIEW_EDGES) {
+    const limit = axis ? height / 2 : width / 2;
+    let out = true;
+    for (let k = 0; k < 3 && out; k++) if (limit - sign * scratchXY[k * 2 + axis] >= 0) out = false;
+    if (out) return true;
+  }
+  return false;
+}
+const VIEW_EDGES = [[0, 1], [0, -1], [1, 1], [1, -1]];
+
 export function projectOccluders(triangles, camera, width, height) {
   if (!camera.isPerspectiveCamera || camera.reversedDepth
       || camera.coordinateSystem !== THREE.WebGLCoordinateSystem || width <= 0 || height <= 0) return [];
-  const vp = new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
-  const eye = new THREE.Vector3().setFromMatrixPosition(camera.matrixWorld);
+  const vp = vpScratch.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+  const eye = scratchEye.setFromMatrixPosition(camera.matrixWorld);
   const result = [];
   for (const triangle of triangles) {
     // This bound is for Chicago's metre frame, not arbitrary world scales.
-    if (triangle.points.some(p=>Math.max(Math.abs(p.x),Math.abs(p.y),Math.abs(p.z))>8192)) continue;
-    const facing = triangle.normal.dot(new THREE.Vector3().subVectors(eye, triangle.points[0]));
+    const tp = triangle.points;
+    let far = false;
+    for (let k = 0; k < tp.length && !far; k++) far = Math.max(Math.abs(tp[k].x),Math.abs(tp[k].y),Math.abs(tp[k].z))>8192;
+    if (far) continue;
+    const facing = triangle.normal.dot(scratchTo.subVectors(eye, tp[0]));
     if (triangle.side === THREE.FrontSide && facing <= 0) continue;
     if (triangle.side === THREE.BackSide && facing >= 0) continue;
+    if (tp.length === 3 && rejectedEarly(tp, vp, width, height)) continue;
     let clip = triangle.points.map(p => new THREE.Vector4(p.x, p.y, p.z, 1).applyMatrix4(vp));
     clip=clipPlane(clip,p=>p.z+p.w);
     clip=clipPlane(clip,p=>p.w-p.z);
@@ -156,6 +200,8 @@ export function boxOccluded(box, vp, occluders, width, height) {
  */
 export function createViewOcclusion({ camera, renderer, triangles, batches, allow = () => true }) {
   let enabled=true, cachedKey=null, cachedFrame=null, occluders=[];
+  const states=new Map(), active=[], keyBuf=new Float64Array(34);
+  let flags=new Uint8Array(0);
   const vp=new THREE.Matrix4(),size=new THREE.Vector2(),instance=new THREE.Matrix4();
   const box=new THREE.Box3(),undos=[];
   const stats={ tested:0,culled:0,triangles:0 };
@@ -164,18 +210,31 @@ export function createViewOcclusion({ camera, renderer, triangles, batches, allo
     if (frame!==undefined && frame===cachedFrame) return;
     cachedFrame=frame;stats.tested=0;stats.culled=0;stats.triangles=0;
     if (!enabled || !allow() || renderer.clippingPlanes?.length) {occluders=[];cachedKey=null;return;}
-    const states=new Map();
-    const flags=triangles.map(t=>{
-      if(!t.active)return true;
-      if(!states.has(t.active))states.set(t.active,t.active());
-      return states.get(t.active);
-    });
-    const active=triangles.filter((_,i)=>flags[i]);
+    // T-2806: the key is compared number by number in reused storage. As a string it
+    // was 34 numbers and a character per backing triangle, built every frame.
+    states.clear();
+    if (flags.length!==triangles.length) flags=new Uint8Array(triangles.length);
+    let flagsChanged=false;
+    for(let i=0;i<triangles.length;i++) {
+      const t=triangles[i];
+      let on=true;
+      if(t.active){ if(!states.has(t.active))states.set(t.active,!!t.active()); on=states.get(t.active); }
+      const v=on?1:0;
+      if(flags[i]!==v){flags[i]=v;flagsChanged=true;}
+    }
     renderer.getDrawingBufferSize(size);
-    const key=[...camera.projectionMatrix.elements,...camera.matrixWorldInverse.elements,size.x,size.y,flags.map(v=>v?1:0).join('')].join(',');
-    if (key!==cachedKey) {
-      cachedKey=key;
+    const pm=camera.projectionMatrix.elements, vm=camera.matrixWorldInverse.elements;
+    let same=cachedKey!==null && !flagsChanged;
+    for(let i=0;i<16 && same;i++) same=Object.is(keyBuf[i],pm[i]) || keyBuf[i]===pm[i];
+    for(let i=0;i<16 && same;i++) same=Object.is(keyBuf[16+i],vm[i]) || keyBuf[16+i]===vm[i];
+    same=same && keyBuf[32]===size.x && keyBuf[33]===size.y;
+    if (!same) {
+      cachedKey=true;
+      for(let i=0;i<16;i++){keyBuf[i]=pm[i];keyBuf[16+i]=vm[i];}
+      keyBuf[32]=size.x;keyBuf[33]=size.y;
       vp.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);
+      active.length=0;
+      for(let i=0;i<triangles.length;i++) if(flags[i]) active.push(triangles[i]);
       occluders=projectOccluders(active,camera,size.x,size.y);
     }
   }
