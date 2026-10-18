@@ -29,6 +29,10 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT/'tools'))
+from human_grounded_gait import (prepare_legs, pose_at_phase, linearize_action,
+                                 SPEED_M_S, CYCLE_DURATION_S, CYCLE_FRAMES,
+                                 STANCE_FRACTION)
 
 
 def parse_args():
@@ -373,33 +377,49 @@ def build(args):
         bpy.context.view_layer.update()
         obj.matrix_world=Matrix.Translation(origin)@Matrix.Rotation(math.radians(-90 if bone=='head' else 90),4,'X')
     rig.animation_data_create()
-    # Contract-only, in-place clips. Every bone is keyed so cross-fades reset safely.
-    for clip,length in [('idle',60),('walk',30)]:
+    gait_legs = prepare_legs(bones, scale)
+    # Contract-only, in-place clips; this is a mechanical contact study, not mocap.
+    for clip,length in [('idle',60),('walk',CYCLE_FRAMES)]:
         act=bpy.data.actions.new(clip);act.use_fake_user=True;rig.animation_data.action=act
-        if clip=='walk':act['speed_m_s']=1.0
-        act['motion_basis']='original synthetic pose fixture; foot contacts not validated'
-        for frame in range(1,length+2,5):
-            phase=2*math.pi*(frame-1)/length
+        if clip=='walk':
+            act['speed_m_s']=SPEED_M_S
+            act['cycle_duration_s']=CYCLE_DURATION_S
+            act['stance_fraction']=STANCE_FRACTION
+            act['contact_basis']='original source-frame flat-foot IK; actual exported skin contact still unverified'
+        act['motion_basis']='original reconstructed mechanical pose; no biological or photographic gait acceptance'
+        # Walk: 37 inclusive keys at30fps over1.2s. Idle retains its original13 keys.
+        frames=range(1,length+2) if clip=='walk' else range(1,length+2,5)
+        for frame in frames:
+            fraction=(frame-1)/length
+            phase=2*math.pi*fraction
+            gait=pose_at_phase(gait_legs,fraction) if clip=='walk' else None
             for pose in rig.pose.bones:
                 name=pose.name
+                # A cross-fade into idle must clear the walking pelvis translation.
+                pose.location=(0,0,0)
                 world_rotation=Quaternion((1,0,0),0)
                 if name.startswith('upperarm'):
-                    # Conjugate a world-Y rotation into each rest-bone basis. This
-                    # lowers horizontal arms even if imported bone roll changes.
+                    # Preserve original upper-body lowering and rest-basis handling.
                     world_rotation=Quaternion((0,1,0),math.radians(78 if name.endswith('_l') else -78))
-                if clip=='walk' and name.startswith('thigh'):
-                    world_rotation=Quaternion((1,0,0),math.radians(18)*math.sin(phase+(0 if name.endswith('_l') else math.pi)))
-                if clip=='walk' and name.startswith('calf'):
-                    world_rotation=Quaternion((1,0,0),-math.radians(25)*max(0,math.sin(phase+(0 if name.endswith('_l') else math.pi))))
+                if gait and name in gait['x_rotations_rad']:
+                    world_rotation=Quaternion((1,0,0),gait['x_rotations_rad'][name])
                 if name=='spine_02':world_rotation=Quaternion((1,0,0),math.radians(.6)*math.sin(phase))
                 basis=rig.data.bones[name].matrix_local.to_quaternion()
                 pose.rotation_mode='QUATERNION'
                 pose.rotation_quaternion=basis.inverted()@world_rotation@basis
+                if gait and name=='pelvis':
+                    # Helper is already in scaled metres. Do NOT apply xyz()'s scale again.
+                    dx,dy,dz=gait['pelvis_delta_m']
+                    world_delta=Vector((dx,-dz,dy))
+                    pose.location=basis.inverted()@world_delta
                 pose.keyframe_insert('rotation_quaternion',frame=frame)
+                pose.keyframe_insert('location',frame=frame)
+        linearize_action(act)
         act['loop']=True
     rig.animation_data.action=None
-    for p in rig.pose.bones:
-        p.rotation_mode='QUATERNION';p.rotation_quaternion=(1,0,0,0)
+    for pose in rig.pose.bones:
+        pose.location=(0,0,0)
+        pose.rotation_mode='QUATERNION';pose.rotation_quaternion=(1,0,0,0)
     scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has reconstructed identity/presence/age/occupation. Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.','sources':recipe['sources'],'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':'data/humans/recipes/worker_1835.json','person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'
     scene.frame_set(1)

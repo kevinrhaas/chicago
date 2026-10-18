@@ -60,7 +60,7 @@ receipt with a pass from a different tree or viewport.
 ## Remaining production gates
 
 No scene instance is enabled by this work. The existing primitive human remains a test
-fixture. Canonical Blender execution, individual body/face refinement, photographic
+fixture. Canonical validation after authoring changes, individual body/face refinement, photographic
 skin/hair/cloth, period-specific garment cut, palms/weights/correctives, LOD silhouette,
 real grounded walk, collision and seated driving/riding contact remain acceptance work.
 An original procedural shirt weave is a material test, not photographic textile evidence.
@@ -138,3 +138,47 @@ CI retains the original unnormalized exports plus input-bound frame receipts und
 teamster-studies/export-evidence, separately from accepted-name exports. Use these
 for actual skin/clip comparisons; the raw files intentionally retain the rejected
 scale residue and must not be mistaken for accepted source assets.
+
+## Canonical build checkpoint and movement follow-up
+
+Canonical workflow 39173614006 at `0577792dc` passed all three master builds,
+24 source/web GLB contracts and 24 desktop/mobile mechanical inspections.
+Khronos reported zero errors and seven warnings per GLB. Warning classification
+and visual review remain pending: the ordinary artifact download failed at
+`productionresultssa17.blob.core.windows.net`, and the saved network draft is
+not yet applied. This success does not establish photographic quality.
+
+The following authoring changes require a new canonical CI build. The mechanical
+walk uses 37 inclusive keys over 1.2 seconds at 30 fps, declared speed 0.6 m/s,
+62% stance, 65 mm swing lift and pelvis lowering 40 +/- 5 mm. Actual prepared
+hip/knee/ankle lengths determine the joint rotations; unreachable targets fail,
+and no joint stretch is added. All authored curves are explicitly LINEAR and
+idle clears walking pelvis translation. These are reconstructed engineering
+choices, not measured human biomechanics or a resident's documented motion.
+
+Pure source LBS evaluation of the 37-key quaternion interpolation at 1,001 phases
+measures approximately 0.336 mm maximum planted-sole drift and 0.264 mm supported
+height error for the two prepared ages. This is not exported-GLB contact evidence.
+The new opt-in `--sole-contact` inspector independently decodes each source/web
+LOD, identifies fixed sole vertices from named foot/ball skin weights, and samples
+actual CPU skinning at 1,001 phases. Loaded speed, stance and duration metadata
+must agree with its assumptions. It adds declared actor travel without removing
+encoded root motion or aligning feet. Explicit 2 mm drift, height, penetration
+and local loop limits are engineering gates for this flat-foot study; discrete
+samples do not prove continuous contact, biological quality or garment collision.
+CI now runs source and published web inspection separately and retains per-asset
+raw contact receipts and served-byte hashes.
+
+Inspection also requires decoded skin texture bindings and temporal bone/surface
+variation. Actual deformed geometry determines standing/head framing below the
+measured resident header; the 2% margin, zero header overlap and minimum 20%
+viewport-height head detail remain strict. Raw/source LOD0 comparisons sample
+rest, 21 times per clip and every named morph independently at weight 1 at rest
+and a clip midpoint, preserving other loaded defaults. Maximum sampled surface
+delta must remain below 0.1 mm. This does not compare Meshopt topology pointwise,
+prove all morph combinations, qualify facial anatomy or replace visual review.
+
+Focused regressions use the real pinned Three CPU skin/morph implementation,
+prepared source bodies and independent camera projection. No local Blender runs
+are needed or permitted. Actual new exports, loaded gait, wardrobe, hair, seated
+drivers, mounted riders and scene placements remain unfinished acceptance work.

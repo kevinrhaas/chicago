@@ -81,3 +81,11 @@ Final forelimb sweep covers idle plus 101 walk phases: no triangle-pair AABB can
 ## Pre-merge smoke isolation
 
 Integration with newer dev exposed an existing T-2559 smoke-harness issue: the cold profile was timed in a second page while the first page was already drawing the town. A lone scene still produced an 8.74-second probe, while the same published module with no town measured 128 ms. The probe now runs before town navigation, matching actual boot order; the one-second cold and 50 ms warm limits are unchanged. The corrected desktop stage-1 benchmark assertion passes. Application device profiling is unchanged. Full preflight and published desktop/mobile workflow results govern the dev merge; the ticket repository records exact revisions and outcomes.
+
+## Replacement smoke coverage on current dev
+
+The first full mobile run39164260098 failed its stage5 far-merge triangle invariant; desktop39164186323 timed out at90minutes with incomplete coverage and four observed failures. These results remain retained, not waived. The current integration includes dev a99f3623849bb2e7ce6c7d255ff3adecc66d5dcd and preserves its120-second Guide readiness fix.
+
+The far-merge assertion now compares fresh synchronous on/off/on frames at the same camera, retaining exact zero triangle movement and adding exact restoration of triangles and calls. A bounded published mobile probe measured91 saved calls and zero triangle/restoration delta; it did not reproduce or prove the cause of the CI failure. Yard/confidence capture trios now record camera, geometry, flora and texture state fingerprints without adding frames, waits or readiness changes; original pixel thresholds remain. The bounded desktop yard trio passed mean0/worst0 restoration, while the confidence diagnostic remained incomplete. A state fingerprint change alone does not attribute a pixel residual.
+
+After the full preflight and commit, use the existing nine stage groups at both viewports, one frozen head, for18 manual smoke runs. Every individual run remains partial. The tickets repository retains an aggregate validator requiring exact head/attempt, completed published logs, all stage coverage, all always-on guards and assertion-count arithmetic. No new full coverage or green merge is claimed until those actual results pass.

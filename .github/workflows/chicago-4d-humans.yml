@@ -197,6 +197,12 @@ jobs:
                 const result = await validator.validateBytes(new Uint8Array(fs.readFileSync(name)), {uri: name});
                 fs.writeFileSync(`/tmp/teamster-studies/${dir.endsWith('/web') ? 'web-' : ''}${file}.validation.json`, JSON.stringify(result, null, 2));
                 console.log(`${name}: ${result.issues.numErrors} errors, ${result.issues.numWarnings} warnings`);
+                const codes = {};
+                for (const issue of result.issues.messages || []) {
+                  const key = `${issue.severity}:${issue.code}`;
+                  codes[key] = (codes[key] || 0) + 1;
+                }
+                console.log(JSON.stringify({file: name, issue_code_counts: codes, numInfos: result.issues.numInfos, numHints: result.issues.numHints, truncated: result.issues.truncated}));
                 errors += result.issues.numErrors;
               }
             }
@@ -209,7 +215,14 @@ jobs:
           set -euo pipefail
           NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write 2>&1 | tee /tmp/teamster-studies/human-fixture.log
           bash tools/publish.sh
-          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --published --output /tmp/teamster-studies/web 2>&1 | tee /tmp/teamster-studies/inspection.log
+          node tools/test_human_inspection.mjs
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --published --sole-contact --output /tmp/teamster-studies/web \
+            --frame-samples 21 \
+            --frame-pair /tmp/teamster-studies/export-evidence/bardwell_otis_1835.lod0.raw.glb assets/humans/bardwell_otis_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/export-evidence/dufresne_joseph_1835.lod0.raw.glb assets/humans/dufresne_joseph_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/export-evidence/flynn_martin_1835.lod0.raw.glb assets/humans/flynn_martin_1835.lod0.glb 2>&1 | tee /tmp/teamster-studies/inspection.log
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --masters --sole-contact \
+            --output /tmp/teamster-studies/source 2>&1 | tee /tmp/teamster-studies/source-inspection.log
       - name: Preserve masters, exports and inspection evidence
         if: always()
         uses: actions/upload-artifact@v4

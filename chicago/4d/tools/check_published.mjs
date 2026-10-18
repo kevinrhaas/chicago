@@ -174,8 +174,13 @@ const TRANSFORMED = [
         + '(check.sh) proves two builds byte-identical and the page\'s replay of one equal to its own build; '
         + '--parity reads the live page\'s buffers against it.' },
   { re: /^walk\/index\.html$/,
-    what: 'publish.sh stamps the build commit and its Central-time date into the gate overlay',
-    gate: 'tools/test_dev_preview.mjs asserts the stamp on the PUBLISHED form' },
+    what: 'publish.sh stamps the build commit and its Central-time date into the gate overlay and the '
+        + 'release numbers into the c4d-releases meta, then tools/strip_page_comments.mjs takes the '
+        + 'source\'s developer comments out (about 13 KB, shipped once per door; placeholders, conditional '
+        + 'comments and every <script>/<style>/<textarea>/<pre> body pass through untouched)',
+    gate: 'tools/strip_page_comments.mjs --check (check.sh) asserts the PUBLISHED page is the source with '
+        + 'exactly those two transforms and nothing else, byte for byte, and that every year door is it plus '
+        + 'its <base>; tools/test_dev_preview.mjs asserts the stamp the dev preview rewrites' },
   { re: /^data\/residents\/letter_list\/[^/]+\.json$/,
     what: 'tools/pack_letter_list.py packs the letter-list cohort into a roster of the strings it '
         + 'repeats and a shard per initial, and takes those households\' own files out (T-0438)',

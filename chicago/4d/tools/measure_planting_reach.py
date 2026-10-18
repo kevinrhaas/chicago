@@ -460,6 +460,13 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
     of selection: it draws `communitySpecs[key][id]` with `id` from the same
     `pickers[key]` the dealt path uses, so every id it can reach is a community
     mix entry this gate already reads.
+
+    T-2807 adds a fifth, `plantEdgeThicket`, and it selects nothing this gate
+    banks: it draws `edgeSpecs[id]`, built from the zone records' `shrub_low`
+    entries (flora.js's stratum, which is not routed to this file's woody
+    population), with `id` from `EDGE_THICKET`'s own lists. No `tree` or
+    `thicket` record can be reached through it, so it neither selects a routed
+    record nor hides one.
     """
     sites = len(re.findall(r"\baddTree\(", src)) - len(re.findall(r"function addTree\(", src))
     # T-2743: the two dealt paths call `plant()`, which hands a tree-form stem to

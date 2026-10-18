@@ -151,11 +151,14 @@ them, in documented mat or bark forms, never a generic tipi. Every lodge record 
 `review_required` + `touches_removal` and its own reason. The former consultation release block
 is superseded by the 2026-10-16 ruling. No August gathering is backdated into a July scene.
 
-The owner's 2026-10-18 generic-adult transport request includes period-clothed drivers, riders,
-people standing near horses/carriages and walking streets at photographic quality. Generic
-bodies require no invented named likeness. That work does not manufacture cultural evidence or
-stage a ceremony; photographic quality remains a production acceptance gate, not a label for
-an articulated fixture.
+The owner's 2026-10-18 transport request includes period-clothed drivers, riders,
+people standing near horses/carriages and walking streets at photographic quality.
+Later steering prioritizes existing attested, inferred or reconstructed people as
+references/models; anonymous people are a fallback only when no suitable existing
+person can be used. Preserve each existing identity's grade and scene date, and
+declare reconstructed appearance/actions without asserting an archival likeness.
+That work does not manufacture cultural evidence or stage a ceremony; photographic
+quality remains a production acceptance gate, not a label for an articulated fixture.
 
 ## THE VISIBLE-PROGRESS RULE — read this before choosing a parcel
 
