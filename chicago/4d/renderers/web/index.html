@@ -193,17 +193,13 @@
       class="badge-alt" id="badge-alt" hidden></span><span
       class="badge-version" id="badge-version" role="note" hidden></span></button>
     <div class="hud-actions">
-      <button id="btn-start" class="chip" aria-haspopup="dialog">Start / Jaunts</button>
+      <!-- T-2625 (§10 "In-world HUD"): Start / Jaunts, the pace chip and the light / dark
+           switch left this row. Start / Jaunts's three choices are the Navigator's Jaunts app
+           (T-2630); the pace is Move's; light or dark is Settings › View. P still cycles the
+           pace. -->
       <!-- T-2647: the Confidence chip, its caret and its checkbox menu moved into the
            Navigator's Confidence view app (js/apps/confidence-view.js); C still
            toggles BY GRADE. -->
-      <!-- The pace you move at on your own feet — walk, run, wagon or horse. One tap
-           from the walk, because "go as fast as a horse through the city" is a
-           thing you decide while walking, not in a settings page. -->
-      <button id="btn-pace" class="chip" data-pace="walk" title="Your pace — walk, run, wagon or horse (P)">
-        <span class="pace-glyph" aria-hidden="true"></span> <span class="chip-label" id="pace-label">Walk</span>
-      </button>
-      <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
       <!-- T-2620: the hamburger is gone with the drawer; its sections are the Navigator's
            apps. What's new's dot stays here until the Navigator moves it onto its
            Settings icon (apps/drawer-host.js). -->
@@ -244,6 +240,13 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- T-2625: #btn-start, out of the HUD. It waits here, hidden, with its id and the
+       listener welcome.js bound at boot (it shows the Welcome card); a visitor reaches the
+       same three choices in the Navigator's Jaunts app (apps/jaunts-view.js). -->
+  <div class="hud-moved" id="hud-moved" hidden>
+    <button id="btn-start" class="chip" aria-haspopup="dialog">Start / Jaunts</button>
   </div>
 
 
@@ -590,6 +593,10 @@
       </div>
       <div class="settings-group">
         <h4>View</h4>
+        <!-- T-2625: the light / dark switch moved here from the HUD (Settings › View; the design calls it Display). -->
+        <div class="field row theme-row"><span>Light or dark interface</span>
+          <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
+        </div>
         <label class="field"><span>Field of view <b id="v-fov"></b></span>
           <input type="range" id="s-fov" min="55" max="100" step="1"></label>
         <!-- R-A1. An accessibility aid layered on a default that was measured
