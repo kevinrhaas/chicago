@@ -245,9 +245,12 @@ def community_blocks(src: str) -> list[tuple[str, str]]:
 
 
 def mix_entries(block: str, key: str) -> dict[str, list[tuple[str, float]]]:
-    """`{ 'mix': [(species, weight), ...], 'edgeMix': [...] }` for one community."""
+    """`{ 'mix': [(species, weight), ...], 'edgeMix': [...] }` for one community.
+
+    T-2768: `swaleMix`, the sand hills' wet-hollow list, is read the same way —
+    `pick()` draws from it as it does from the other two."""
     lists: dict[str, list[tuple[str, float]]] = {}
-    for name in ("mix", "edgeMix"):
+    for name in ("mix", "edgeMix", "swaleMix"):
         lm = re.search(rf"\b{name}:\s*\[", block)
         if lm:
             inner = bracketed(block, lm.end() - 1)
@@ -311,7 +314,7 @@ def mix_weights(src: str) -> dict[str, dict]:
         out[key] = {
             "dossier_zones": dossier_zones,
             "zones": zones,
-            "departures": sorted(re.findall(r"'((?:mix|edgeMix)\.\w+)':", block)),
+            "departures": sorted(re.findall(r"'((?:mix|edgeMix|swaleMix)\.\w+)':", block)),
             "lists": mix_entries(block, key),
         }
     return out
@@ -452,6 +455,11 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
     `placed_species()` below. The COUNT is banked because a fourth path is
     exactly how this gate would go quietly wrong: an unselectable species drawn
     by a call site nobody told this file about.
+
+    T-2768 adds a fourth `plant(` site, `plantSandHill`, and it is not a new kind
+    of selection: it draws `communitySpecs[key][id]` with `id` from the same
+    `pickers[key]` the dealt path uses, so every id it can reach is a community
+    mix entry this gate already reads.
     """
     sites = len(re.findall(r"\baddTree\(", src)) - len(re.findall(r"function addTree\(", src))
     # T-2743: the two dealt paths call `plant()`, which hands a tree-form stem to
