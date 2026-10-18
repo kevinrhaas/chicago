@@ -25,6 +25,18 @@ predicts them instead of fitting them.
 What it does not do: fit house geometry, lens distortion, or a pitched camera; replace the
 camera in data/reference_views/keith_house_1808_prairie/inland-1888.json (the eye is not
 determined well enough for that, which is one of the things the report shows).
+
+T-2763 re-read the controls on the GLB's own edges and ruled the loggia's height with them.
+T-2762 took the capital top at the beam's lowest band (5.59 m, u 20.76), where the print's
+y 1383.5 is the top of the capital block, its abacus; and the lights' sills at 10.41 m, which
+is no edge of the light, where the bottom of the dark opening seen from below is the
+projecting sill's top arris (u 18.34, 10.36 m) and its top the sash head (12.655 m). On those
+edges no level camera with the loggia as built put its eye anywhere a photographer stood, so
+the report adds one more fit, LOGGIA_SCALE: every control, plus one free factor on the
+loggia's heights over its 2.0 m deck. Before the rebuild it read 0.879 with the eye 2.3 m
+high about 21 m out (RMS 7.1 -> 4.9 px); the loggia was rebuilt to it (pedestal 0.88 m,
+column 2.2 m), so on the rebuilt GLB the factor reads about 1 and the plain fits find the
+same eye.
 """
 from pathlib import Path
 import argparse, hashlib, json, math
@@ -33,7 +45,7 @@ from scipy.optimize import least_squares
 
 ROOT = Path(__file__).resolve().parents[1]
 GLB = ROOT / 'assets/gltf/keith_house_1808_prairie__as_built_1886.glb'
-GLB_SHA256 = 'c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d'
+GLB_SHA256 = 'ebe24878b47828960b9d5172434c773b0f81eaeb32b957f165297c20f4481b11'
 REPORT = ROOT / 'docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json'
 PRINT_PX = [1559, 2400]
 
@@ -43,25 +55,25 @@ FRONT = [
     ('north-east pinnacle axis', [17.86, 10.232, 17.07], (1039.0, None)),
     ('front north arris at 12.0 m', [18.0, 10.4, 12.0], (1060.0, None)),
     ('front north arris at 9.5 m', [18.0, 10.4, 9.5], (1061.0, None)),
-    ('third-storey light 1 head', [17.8, 2.40, 12.70], (471.0, 810.0)),
-    ('third-storey light 1 sill', [17.8, 2.40, 10.41], (None, 975.0)),
-    ('third-storey light 2 head', [17.8, 3.52, 12.70], (566.5, 818.0)),
-    ('third-storey light 2 sill', [17.8, 3.52, 10.41], (None, 982.0)),
-    ('third-storey light 3 head', [17.8, 4.64, 12.70], (638.5, 827.0)),
-    ('third-storey light 3 sill', [17.8, 4.64, 10.41], (None, 990.0)),
-    ('third-storey light 4 head', [17.8, 5.76, 12.70], (720.0, 838.0)),
-    ('third-storey light 4 sill', [17.8, 5.76, 10.41], (None, 995.0)),
-    ('third-storey light 5 head', [17.8, 6.88, 12.70], (797.0, 848.0)),
-    ('third-storey light 6 head', [17.8, 8.00, 12.70], (866.0, 860.0)),
+    ('third-storey light 1 head', [17.8, 2.40, 12.655], (471.0, 810.0)),
+    ('third-storey light 1 sill', [18.34, 2.40, 10.36], (None, 975.0)),
+    ('third-storey light 2 head', [17.8, 3.52, 12.655], (566.5, 818.0)),
+    ('third-storey light 2 sill', [18.34, 3.52, 10.36], (None, 982.0)),
+    ('third-storey light 3 head', [17.8, 4.64, 12.655], (638.5, 827.0)),
+    ('third-storey light 3 sill', [18.34, 4.64, 10.36], (None, 990.0)),
+    ('third-storey light 4 head', [17.8, 5.76, 12.655], (720.0, 838.0)),
+    ('third-storey light 4 sill', [18.34, 5.76, 10.36], (None, 995.0)),
+    ('third-storey light 5 head', [17.8, 6.88, 12.655], (797.0, 848.0)),
+    ('third-storey light 6 head', [17.8, 8.00, 12.655], (866.0, 860.0)),
 ]
-# the loggia as built: front face u 20.7 (out_m 2.7), pedestals 0.9 x 0.6 m at v 7.0-7.9 and
-# 9.5-10.4 on a deck at 2.0 m, their cap arris at u 20.78, y 3.0; the paired capitals' top
-# front edge at u 20.76, y 5.59
+# the loggia as built (T-2763): front face u 20.7 (out_m 2.7), pedestals 0.9 x 0.6 m at v
+# 7.0-7.9 and 9.5-10.4 on a deck at 2.0 m, their top front arris at u 20.7, y 2.88; the paired
+# capitals' abacus, its front edge at u 20.625, y 5.095
 LOGGIA = [
-    ('south pair capital top', [20.76, 7.45, 5.59], (None, 1383.5)),
-    ('south pedestal cap arris', [20.78, 7.45, 3.0], (None, 1575.0)),
-    ('north pair capital top', [20.76, 9.95, 5.59], (None, 1392.0)),
-    ('north pedestal cap arris', [20.78, 9.95, 3.0], (None, 1577.0)),
+    ('south pair capital top', [20.625, 7.45, 5.095], (None, 1383.5)),
+    ('south pedestal cap arris', [20.7, 7.45, 2.88], (None, 1575.0)),
+    ('north pair capital top', [20.625, 9.95, 5.095], (None, 1392.0)),
+    ('north pedestal cap arris', [20.7, 9.95, 2.88], (None, 1577.0)),
     ('north pedestal north-east arris', [20.7, 10.4, 2.5], (1157.5, None)),
     ('south pedestal south-east arris', [20.7, 7.0, 2.5], (893.0, None)),
     ('south pedestal south-west edge', [20.1, 7.0, 2.5], (868.0, None)),
@@ -109,11 +121,37 @@ def fit(controls, aspect):
     return best.x, r, at_bound
 
 
+def fit_loggia_scale(controls):
+    """T-2763: a level camera (square pixels) and one factor k on the loggia's heights over its deck,
+    y -> 2.0 + k (y - 2.0) for the capital tops and pedestal caps; the eye's bounds as fit()'s."""
+    def ctrl(k):
+        return [(l, [P[0], P[1], 2.0 + k * (P[2] - 2.0)] if HEIGHT(l) else P, xy) for l, P, xy in controls]
+    def resid(p):
+        r = []
+        for _, P, (x, y) in ctrl(p[7]):
+            px, py = project(p[:7], P, False)
+            r += ([px - x] if x is not None else []) + ([py - y] if y is not None else [])
+        return np.array(r)
+    lo, hi = [25, -40, 0.0, 240, 300, -6000, 0, 0.6], [90, 15, 5.0, 310, 9000, 9000, 2400, 1.4]
+    best = None
+    for yaw0 in (272, 280, 290):
+        for d0 in (20, 30, 45):
+            p0 = [18 + d0, -2, 1.7, yaw0, 72 * d0, 780, 1640, 1.0]
+            p0 = [min(max(v, l + 1e-3), h - 1e-3) for v, l, h in zip(p0, lo, hi)]
+            s = least_squares(resid, p0, x_scale='jac', max_nfev=20000, bounds=(lo, hi))
+            if best is None or s.cost < best.cost:
+                best = s
+    r = resid(best.x)
+    at_bound = [n for n, v, l, h in zip(['eye u', 'eye v', 'eye y', 'yaw', 'f', 'cx', 'cy', 'k'],
+                                       best.x, lo, hi) if min(v - l, h - v) < 1e-2 * (h - l)]
+    return best.x, r, at_bound
+
+
 def lengths(p, aspect):
     out = {}
     for side, v in (('south', 7.45), ('north', 9.95)):
-        _, top = project(p, [20.76, v, 5.59], aspect)
-        _, cap = project(p, [20.78, v, 3.0], aspect)
+        _, top = project(p, [20.625, v, 5.095], aspect)
+        _, cap = project(p, [20.7, v, 2.88], aspect)
         _, foot = project(p, [20.7, v, 2.0], aspect)
         out[side] = [round(cap - top, 1), round(foot - cap, 1)]
     return out
@@ -148,6 +186,15 @@ def main():
                   f"capital-top->cap px S {L['south'][0]:.0f} N {L['north'][0]:.0f} (print 191.5 / 185: "
                   f"{q['column_long_pct']['south']:+.1f} / {q['column_long_pct']['north']:+.1f} %)"
                   + (f"  at bound: {', '.join(at_bound)}" if at_bound else ''))
+    p, r, at_bound = fit_loggia_scale(FRONT + LOGGIA)
+    scale = {'controls': 'all controls, the loggia\'s heights scaled by k over its deck', 'pixel_aspect': 'square',
+             'n': len(r), 'rms_px': round(float(np.sqrt((r ** 2).mean())), 2), 'max_px': round(float(abs(r).max()), 2),
+             'eye_uvy': [round(float(v), 2) for v in p[:3]], 'yaw_deg': round(float(p[3]), 2),
+             'focal_px': round(float(p[4]), 1), 'principal_px': [round(float(p[5]), 1), round(float(p[6]), 1)],
+             'k': round(float(p[7]), 3), 'at_bound': at_bound}
+    print(f"{'loggia heights scaled by k (T-2763)':38s} square RMS {scale['rms_px']:5.1f} px (n {scale['n']})  eye "
+          f"{scale['eye_uvy']} yaw {scale['yaw_deg']:.0f} f {scale['focal_px']:.0f}  k {scale['k']:.3f}"
+          + (f"  at bound: {', '.join(at_bound)}" if at_bound else ''))
     if args.write:
         REPORT.write_text(json.dumps({
             '_doc': 'Written by tools/keith_plate_level_fit.py (T-2749): level cameras fitted to the 1888 Keith '
@@ -155,7 +202,7 @@ def main():
             'print': 'data/sources/assets/inland_architect_1888_02_keith/plate.jpg', 'print_px': PRINT_PX,
             'glb': str(GLB.relative_to(ROOT)), 'glb_sha256': GLB_SHA256,
             'controls': [{'label': l, 'world_uvy': P, 'print_xy': list(xy)} for l, P, xy in FRONT + LOGGIA],
-            'print_loggia_px': PRINT_LENGTHS, 'fits': rows}, indent=1) + '\n')
+            'print_loggia_px': PRINT_LENGTHS, 'fits': rows, 'loggia_scale_fit': scale}, indent=1) + '\n')
         print(f'wrote {REPORT.relative_to(ROOT)}')
 
 

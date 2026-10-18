@@ -37202,7 +37202,7 @@
         }
       ],
       "recorded": "2026-10-15",
-      "revised": "2026-10-17",
+      "revised": "2026-10-18",
       "fields": [
         {
           "label": "Ticket",
@@ -37235,6 +37235,10 @@
         {
           "label": "Revised",
           "text": "2026-10-17 (T-2725) — **the column ruled at 2.5 m; both cameras err at the loggia.** Both pictures stand the column at about 2.45 times its pedestal (the plate 190.5 px over about 77, the 1965 view 100 px over about 41), so they disagree only on scale. Read in the plate against the front's own ruler at the same image column, the third storey's north light (10.41-12.70 m, 159.5 px), and corrected for the loggia standing nearer the camera (1.08-1.095 for any heading 0-25 degrees north of square), the column reads 2.51 m (south pair) and 2.50 m (north pair) and the pedestal 1.02 m. Through their own cameras the plate's draws the column and pedestal alike about 7-9 % long and the 1965 view's 12-15 % short: each camera's scale at the loggia's depth, not the column. Built at 2.5 m (from 2.45), the entablature and balcony riding up 0.05 m with it. Still reconstructed: the reading rests on the model's front heights and on the light's opening read as its sash, about ±3 %."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-18 (T-2763) — **the loggia lowered to 0.88 of its height over the deck; the plate's camera now determined.** Re-read on the GLB's own edges (the capital's abacus, not the beam's lowest band; the projecting sill's arris, not a height on no edge), every level camera fitted to the 1888 plate with the loggia as built put its eye at grade 40-90 m out and still drew pedestal and column alike 6-8 % long, so the front's ruler T-2725 read the column against was not where its camera stood. One factor on the loggia's heights over its 2.0 m deck, fitted with the camera, read 0.879 and put the eye 2.3 m high about 21 m out; freeing the third-storey sills as well moved them 0.03 m, so the front stands. Built at pedestal 0.88 m and column 2.2 m (their ratio the pictures' 2.44-2.49), the pierced parapet at 0.72 m (its coping at 0.82 of the pedestal, as the plate draws it); the entablature (0.9 m) and balcony front (0.75 m) stand, so the balcony floor is at 5.98 m and its coping 6.73 m. On the rebuilt GLB the plate's level fit puts its eye at [39.19, -0.23, 2.21] with nothing at a bound (RMS 4.94 px) and reads the column 1-2 % short; that is now `inland-1888`'s camera (`tools/keith_plate_level_fit.py`). Still reconstructed: one factor for the whole loggia (only its capital tops and pedestal caps are fitted), and the 1965 close view's camera, which now draws the loggia about a quarter short, is re-fitted at the loggia's depth by T-2764."
         }
       ]
     },
