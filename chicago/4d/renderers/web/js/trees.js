@@ -897,6 +897,71 @@ const COMMUNITIES = {
 /** T-2768 — the sand-hill communities, in the order a point is offered to them. */
 const SAND_HILLS = ['sand_hills_north', 'sand_hills_south', 'sand_hills_scanty'];
 
+/**
+ * T-2807 — THE WOOD IN CLUMPS. Dealt at one density per community, the wood read
+ * from the air as an orchard: an even scatter of the same-sized trees. A wood on
+ * the lake plain is a mosaic of patches: dense where the canopy closed, small
+ * openings where a tree fell or a fire got in, and younger trees coming up in
+ * those openings. So each woods community's density is multiplied by a clump
+ * field with a mean of one: `floor` in an opening, `2 - floor` in a patch, on
+ * value noise of `cellM` metres. The count each community plants is the
+ * record's; only where its stems stand is changed. A stem in an opening is
+ * grown smaller (`young`, the scale at the opening's heart).
+ *
+ * Every number here is invented: the records give a stand density and the
+ * dossier says "mosaic", and nothing gives a patch size. docs/LIBERTIES.md
+ * L-woods-structure-2807.
+ */
+const WOOD_CLUMP = {
+  gallery: { cellM: 34, floor: 0.20, young: 0.62 },
+  wet_woods: { cellM: 30, floor: 0.15, young: 0.58 },
+  mesic_pocket: { cellM: 40, floor: 0.30, young: 0.66 },
+  ridge_oak: { cellM: 48, floor: 0.10, young: 0.60 },
+};
+
+/**
+ * T-2807 — THE THICKET AT THE WOODS' PRAIRIE EDGE. Where a wood meets the
+ * prairie the fires that run before the west wind stop, and the shrubs that
+ * resprout after them crowd the edge: the survey notes for these woodlands give
+ * hazel as the commonest undergrowth and "thorn" as a term (McBride and Bowles
+ * 2007, in `z06_dense_forest`), with wild plum, and gray dogwood on the river
+ * woods' margins (`z05_riverbank_timber`). Two edges face open prairie in the
+ * scene:
+ *
+ *   - the river woods' outer reach in the South and West Divisions, where the
+ *     gallery thins into "a free and boundless prospect of open prairie"
+ *     (`galleryBand`: the outer part of the gallery's width, as a fraction);
+ *   - the North Side wood's east end, against the sand prairie at the State
+ *     Street break of slope (`eastBandM` metres inside the east limit).
+ *
+ * In the oak ridges (the savanna) the same hazel stands scattered through the
+ * grass at `savannaPerHa`.
+ *
+ * The shrubs are the zone records' own (`shrub_low`: height, width, July
+ * colour) drawn as grown, instanced clumps of stems (tree-model.js ARCH), so a
+ * thicket reads at the distance a tree does and costs a tree's few cards past
+ * the near ring. They deal from their own position-seeded generator, like the
+ * sand hills. The weights follow the records' cover fractions, with hawthorn,
+ * plum and dogwood raised against hazel because the edge is where they stand;
+ * the band widths and densities are this file's. docs/LIBERTIES.md
+ * L-woods-structure-2807.
+ */
+const EDGE_THICKET = {
+  label: "Hazel, plum, hawthorn and dogwood thicket at the woods' prairie edge",
+  perHa: [320, 520], clumpM: 14, galleryBand: [0.66, 0.90], eastBandM: [12, 34],
+  mix: [['corylus_americana', 35], ['crataegus_spp', 9], ['prunus_americana', 7], ['cornus_racemosa', 8]],
+  savannaPerHa: [5, 12],
+  savannaMix: [['corylus_americana', 30], ['crataegus_spp', 4], ['prunus_americana', 2]],
+  zones: { corylus_americana: 'z06_dense_forest', crataegus_spp: 'z06_dense_forest',
+    prunus_americana: 'z06_dense_forest', cornus_racemosa: 'z05_riverbank_timber' },
+  // The records carry no bark; this file's, as every bark in SPECIES is. Hazel
+  // and dogwood smooth grey-brown stems, plum dark, hawthorn grey and scaly.
+  bark: { corylus_americana: 0x76675a, crataegus_spp: 0x6f6a60,
+    prunus_americana: 0x4e4038, cornus_racemosa: 0x7c7870 },
+  confidence: 'inferred',
+  sources: ['mcbride_bowles_2007', 'swink_wilhelm_1994'],
+};
+
 /* -------------------------------------------------------------------------- */
 /* the timber beyond the modelled ground                                       */
 /* -------------------------------------------------------------------------- */
@@ -2201,6 +2266,10 @@ export async function createTrees({
     rejectedOutsideDuneReach: 0,
     /** T-2768: the sand-hill scrub's own tally. */
     sandHills: { offered: 0, reachFade: 0, belowBand: 0, planted: 0, swale: 0 },
+    /** T-2807: the woods' edge thicket and the savanna hazel. */
+    edgeThicket: { offered: 0, planted: 0, savanna: 0 },
+    /** T-2807: stems the clump field set in an opening, grown young. */
+    youngInOpenings: 0,
     rejectedBelowWaterline: 0, lowestStationY: null,
     // ROADMAP K45(c). `headSpecies` is which records carry a July
     // inflorescence this file draws; `headStems` is how many stems actually
@@ -2781,9 +2850,9 @@ export async function createTrees({
    * north. The keep fractions do not move.
    */
   const STEMS = {
-    full:     { step: 4.0, keep: 0.700, trees: 4700, thickets: 1550 },
-    balanced: { step: 4.7, keep: 0.500, trees: 3800, thickets: 1000 },
-    light:    { step: 5.6, keep: 0.300, trees: 2100, thickets: 630 },
+    full:     { step: 4.0, keep: 0.700, trees: 4700, thickets: 1550, shrubs: 3000 },
+    balanced: { step: 4.7, keep: 0.500, trees: 3800, thickets: 1000, shrubs: 2200 },
+    light:    { step: 5.6, keep: 0.300, trees: 2100, thickets: 630, shrubs: 1300 },
   };
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
@@ -2791,6 +2860,7 @@ export async function createTrees({
   const keep = stems.keep;
   const maxTrees = stems.trees;
   const maxThickets = stems.thickets;
+  const maxShrubs = stems.shrubs;
   stats.keep = keep;
 
   /**
@@ -3063,6 +3133,64 @@ export async function createTrees({
     return true;
   };
 
+  /** T-2807 — the edge thicket's shrubs: the zone records' own, grown. */
+  const edgeSpecs = {};
+  for (const [id, zone] of Object.entries(EDGE_THICKET.zones)) {
+    const rec = records.shrubByZone?.[zone]?.[id];
+    if (!rec) {
+      problems.push(`trees: the woods' edge thicket plants ${id} from ${zone} and that record `
+        + 'did not load — the thicket is drawn without it');
+      continue;
+    }
+    // `form` 'edge_shrub' is a grown form (tree-instances.js isGrownForm): the
+    // record's shrub drawn as a clump of stems from tree-model.js's ARCH, not
+    // as the dooryard planting's three-puff clump.
+    edgeSpecs[id] = { ...rec, form: 'edge_shrub', bark: EDGE_THICKET.bark[id] ?? rec.bark };
+  }
+  const edgePick = {
+    mix: pickerFor('edge_thicket', 'mix', EDGE_THICKET.mix.filter(([id]) => edgeSpecs[id])),
+    savanna: pickerFor('edge_thicket', 'savannaMix',
+      EDGE_THICKET.savannaMix.filter(([id]) => edgeSpecs[id])),
+  };
+  /**
+   * T-2807. Offer a woods cell to the edge thicket before the tree roll: true
+   * when a shrub took the cell. `key` is the community, `d` the division,
+   * `bank` the distance to water. Deals from its own position-seeded generator,
+   * as the sand hills do.
+   */
+  const plantEdgeThicket = (px, pz, gy, key, d, bank) => {
+    const t = EDGE_THICKET;
+    let band = 0;
+    if (key === 'gallery' && d !== NORTH) {
+      const width = lerp(30, 74, noise2(px, pz, 130, 11));
+      band = smoothstep(t.galleryBand[0], t.galleryBand[1], bank / width);
+    } else if (d === NORTH && key !== 'gallery') {
+      const inside = eastLimit.north - px;
+      band = 1 - smoothstep(t.eastBandM[0], t.eastBandM[1], inside);
+    }
+    const savanna = key === 'ridge_oak' && band <= 0;
+    if (band <= 0 && !savanna) return false;
+    stats.edgeThicket.offered++;
+    const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x2807);
+    const range = savanna ? t.savannaPerHa : t.perHa;
+    // Thickets with gaps between, on the same mean-one clump field as the sand hills.
+    const clump = savanna ? 1 : 2 * smoothstep(0.30, 0.78, noise2(px, pz, t.clumpM, 67));
+    const cleared = clearedFactor(px, pz);
+    const perHa = lerp(range[0], range[1], noise2(px, pz, 58, 9)) * (savanna ? 1 : band)
+      * clump * cleared * cleared;
+    if (hr() > (perHa * cellArea * keep) / 10000) return false;
+    if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz)) return false;
+    const id = (savanna ? edgePick.savanna : edgePick.mix)(hr());
+    const spec = edgeSpecs[id];
+    if (!spec) return false;
+    plant(spec, px, gy, pz, hr, 0.85 + hr() * 0.30);
+    noteStation(px, pz, gy);
+    stats.edgeThicket.planted++;
+    if (savanna) stats.edgeThicket.savanna++;
+    bump(stats.species, id);
+    return true;
+  };
+
   const sweepE0 = originE + step;
   const sweepE1 = originE + (cols - 1) * cellM - step;
   const sweepN0 = originN + step;
@@ -3192,8 +3320,15 @@ export async function createTrees({
       const edgeFade = key === 'gallery'
         ? 1 - smoothstep(0.5, 1.0, bank / lerp(30, 74, noise2(px, pz, 130, 11))) * 0.74
         : 1;
+      // T-2807: the woods' prairie edge is a thicket, offered the cell first.
+      if (comm !== 'gallery_edge' && plantEdgeThicket(px, pz, gy, key, div[i], bank)) continue;
+      // T-2807: patches and openings, mean one (WOOD_CLUMP).
+      const wc = WOOD_CLUMP[key];
+      const ct = wc && comm !== 'gallery_edge'
+        ? smoothstep(0.28, 0.72, noise2(px, pz, wc.cellM, 73)) : 0.5;
+      const clumpK = wc && comm !== 'gallery_edge' ? wc.floor + (2 - 2 * wc.floor) * ct : 1;
       const perHa = lerp(range[0], range[1], noise2(px, pz, 58, 7))
-        * clearedFactor(px, pz) * edgeFade;
+        * clearedFactor(px, pz) * edgeFade * clumpK;
       // `keep` is the detail level's thinning and the ONLY thing here that is a
       // rendering decision: `perHa` is the community's recorded density and
       // `cellArea` is the ground this cell stands for, so the roll without it is
@@ -3211,7 +3346,10 @@ export async function createTrees({
       // cottonwood is not the gallery cottonwood. See `communitySpecs`.
       const spec = communitySpecs[key][id];
       if (!spec) continue;
-      plant(spec, px, gy, pz, rnd);
+      // In an opening the stem is a young one: smaller toward the opening's heart.
+      const young = wc && ct < 0.35 ? lerp(wc.young, 1, ct / 0.35) : 1;
+      if (young < 1) stats.youngInOpenings++;
+      plant(spec, px, gy, pz, rnd, young);
       noteStation(px, pz, gy);
       stats.trees++;
       if (spec.head) {
@@ -3331,6 +3469,10 @@ export async function createTrees({
     problems.push(`trees: the ${level} thicket budget bound at ${maxThickets} stools, so `
       + 'the bank scrub stops partway north rather than thinning — raise the budget; the '
       + 'point-bar screen is deliberately not thinned by detail');
+  }
+  if (stats.edgeThicket.planted >= maxShrubs) {
+    problems.push(`trees: the ${level} edge-thicket budget bound at ${maxShrubs} shrubs, so `
+      + 'the woods\' edge stops partway north rather than thinning — raise the budget');
   }
 
   /* ---- 4. the material --------------------------------------------------- */

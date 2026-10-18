@@ -15527,6 +15527,107 @@ for (const [label, viewport, touch] of [
       && (devChrome.notDev === null || (devChrome.notDev.dev === devChrome.devServed && devChrome.markAfter === devChrome.devServed)),
       JSON.stringify(devChrome));
     // ---- end T-2629
+    // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
+    // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
+    // marked, and a tap on another switches the machine and its tone; Auto names this device's
+    // levels; Sound has its three levels and says nothing plays yet; About opens What's new;
+    // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
+    // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
+    // a starved runner takes seconds between frames.
+    const settingsApp = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator, html = document.documentElement;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
+      const segOn = () => document.querySelector('#s-theme .seg-btn[aria-checked="true"]')?.dataset.themeChoice ?? null;
+      const out = {
+        chip: !!document.getElementById('btn-theme'), seg: document.querySelectorAll('#s-theme .seg-btn').length,
+        tiles: [...document.querySelectorAll('#s-skins .skin-tile')].map((t) => t.dataset.skinChoice),
+        skin: html.dataset.skin, tileOn: document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice ?? null,
+        auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
+        autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
+        sound: ['master', 'effects', 'ambience'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
+        soundNote: document.getElementById('s-sound-note')?.textContent.trim() ?? '',
+      };
+      // Light or dark: the other tone, then back.
+      const tone = html.dataset.theme === 'light' ? 'light' : 'dark';
+      const other = tone === 'light' ? 'dark' : 'light';
+      out.segBefore = segOn();
+      document.querySelector(`#s-theme [data-theme-choice="${other}"]`)?.click();
+      await wait(50);
+      out.flipped = html.dataset.theme === other && segOn() === other;
+      // A machine from its tile: the next one, its tone shown on the seg, then the first again.
+      const next = out.tiles[(out.tiles.indexOf(out.skin) + 1) % out.tiles.length];
+      document.querySelector(`#s-skins [data-skin-choice="${next}"]`)?.click();
+      await until(() => html.dataset.skin === next, 5000);
+      await wait(50);
+      out.switched = html.dataset.skin === next && document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice === next
+        && segOn() === (html.dataset.theme === 'light' ? 'light' : 'dark');
+      document.querySelector(`#s-skins [data-skin-choice="${out.skin}"]`)?.click();
+      await until(() => html.dataset.skin === out.skin, 5000);
+      document.querySelector(`#s-theme [data-theme-choice="${tone}"]`)?.click();
+      await wait(50);
+      out.restored = html.dataset.skin === out.skin && html.dataset.theme === tone && segOn() === tone;
+      // What's new, from About.
+      document.getElementById('s-open-whatsnew')?.click();
+      out.whatsNew = await until(() => api.hud.tab === 'whatsnew', 10000);
+      api.hud.selectTab('settings');
+      await until(() => api.hud.tab === 'settings', 10000);
+      // Text size 140 %: every app the rail shows, measured once it is on screen.
+      const sel = document.getElementById('s-text-size');
+      const setSize = (v) => { sel.value = String(v); sel.dispatchEvent(new Event('change', { bubbles: true })); };
+      setSize(1.4);
+      out.scale = getComputedStyle(html).getPropertyValue('--text-scale').trim();
+      out.storedScale = stored().textScale;
+      out.clipped = {};
+      const hidden = (el) => el.closest('.visually-hidden, [aria-hidden="true"]');
+      for (const app of n.apps) {
+        await n.select(app);
+        const screen = () => document.querySelector(app === 'home' ? '#nav-home' : `#nav-app-${app}`);
+        const shown = await until(() => { const s = screen(); return s && !s.hidden && s.getBoundingClientRect().width > 0; }, 30000);
+        if (!shown) { out.clipped[app] = ['no screen']; continue; }
+        await wait(600);
+        const s = screen();
+        const box = s.getBoundingClientRect();
+        const all = [...s.querySelectorAll('*')].filter((el) => el.getClientRects().length && !hidden(el));
+        const name = (el) => `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${typeof el.className === 'string' && el.className ? `.${el.className.split(' ')[0]}` : ''}`;
+        const past = all.filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.right > box.right + 1 || r.left < box.left - 1); });
+        const cut = all.filter((el) => {
+          if (!el.textContent.trim()) return false;
+          const cs = getComputedStyle(el);
+          if (['auto', 'scroll'].includes(cs.overflowX) || ['auto', 'scroll'].includes(cs.overflowY)) return false;
+          if (cs.overflowX === 'visible' && cs.overflowY === 'visible' && cs.textOverflow !== 'ellipsis') return false;
+          return el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 2;
+        });
+        // A strip that scrolls sideways (a photo carousel is meant to).
+        const strips = [s, ...all].filter((el) => !el.matches('.insp-swipe') && ['auto', 'scroll'].includes(getComputedStyle(el).overflowX)
+          && el.scrollWidth > el.clientWidth + 1);
+        out.clipped[app] = [...past.map((el) => `past edge: ${name(el)}`), ...cut.map((el) => `cut: ${name(el)}`),
+          ...strips.map((el) => `scrolls sideways: ${name(el)}`)].slice(0, 6);
+      }
+      setSize(1);
+      out.back = getComputedStyle(html).getPropertyValue('--text-scale').trim() === '1' && stored().textScale === 1;
+      await n.select('settings');
+      await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
+      if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      return out;
+    });
+    check(`${label}: light or dark is Settings › Display's two-way choice, and the HUD holds no chip for it (T-2656)`,
+      !settingsApp.chip && settingsApp.seg === 2 && !!settingsApp.segBefore && settingsApp.flipped && settingsApp.restored,
+      JSON.stringify({ chip: settingsApp.chip, seg: settingsApp.seg, before: settingsApp.segBefore, flipped: settingsApp.flipped, restored: settingsApp.restored }));
+    check(`${label}: Settings › Machine shows the four machines as tiles, the one in use marked, and a tap switches it (T-2656)`,
+      settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
+      && settingsApp.switched && settingsApp.restored,
+      JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
+    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says nothing plays yet, About opens What's new (T-2656)`,
+      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
+      && settingsApp.sound === 3 && /^Nothing in the town makes a sound yet\./.test(settingsApp.soundNote) && settingsApp.whatsNew,
+      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
+    check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
+      settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
+      && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
+      JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
+    // <<< T-2656
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -15739,7 +15840,7 @@ for (const [label, viewport, touch] of [
         return false;
       };
       const reach = { start: await inside('jaunts', '#nav-seg-jaunts'), confidence: await inside('confidence', '.nav-preset'),
-        pace: await inside('move', '#s-move'), theme: await inside('settings', '#btn-theme') };
+        pace: await inside('move', '#s-move'), theme: await inside('settings', '#s-theme') };  // #s-theme: T-2656
       await n.select('home'); n.dock();
       return { gone, reach };
     });
@@ -16261,6 +16362,94 @@ for (const [label, viewport, touch] of [
       && offerAfter.first.inView && offerAfter.first.pointer === 'none' && !offerAfter.second?.showing,
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
+    // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
+    // which is read first. Then, the license set aside, the Field Check is put back at step 07
+    // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
+    // for, since on the desktop runner its few seconds can pass inside one frame). A second
+    // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
+    // with the Jaunt keepsakes. The tour's record is put back after, as are Home and the dock.
+    const licenseFirst = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const first = localStorage.getItem('chicago4d.navigatorLicense');
+      const tourWas = localStorage.getItem('chicago4d.tour');
+      api.license.forget(); api.hints.hide(); api.roamTip.hide(); api.popup.close();
+      const h = document.getElementById('nav-hint');
+      window.__licenseSeen = [];
+      const look = () => {
+        if (h.hidden || h.dataset.hint !== 'license') return;
+        const b = h.getBoundingClientRect();
+        window.__licenseSeen.push({ text: h.textContent, pointer: getComputedStyle(h).pointerEvents,
+          inView: b.width > 0 && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight });
+      };
+      window.__licenseObs = new MutationObserver(look);
+      window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      const resumed = api.tour.resume() && api.tour.step;
+      return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
+    });
+    const licenseFinish = async () => {
+      await page.waitForFunction(() => !document.getElementById('tour-next').hidden, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+      const miss = await clickChrome('#tour-next').then(() => null, (e) => page.evaluate(() => document.getElementById('tour-next')?.click()).then(() => e.message));
+      await page.waitForFunction(() => !window.__chicago4d.tour.running, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+      return miss;
+    };
+    const licenseClick = await licenseFinish();
+    await page.waitForFunction(() => window.__licenseSeen?.length > 0, null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const licenseAwarded = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const seen = window.__licenseSeen.slice();
+      window.__licenseSeen.length = 0;
+      api.hints.hide();
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      api.tour.resume();
+      return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
+    });
+    const licenseAgainClick = await licenseFinish();
+    await page.waitForTimeout(600);
+    const licenseAgain = await page.evaluate(() => {
+      window.__licenseObs.disconnect();
+      return { seen: window.__licenseSeen.length, stored: localStorage.getItem('chicago4d.navigatorLicense') };
+    });
+    // The Jaunts app's daybook.
+    await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.hud.setPanel(false); api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('jaunts');
+    });
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-jaunts [data-action="daybook"]'), null, { timeout: 90_000, polling: 200 }).catch(() => {});
+    const licenseChip = await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-action="daybook"]')?.textContent.trim() ?? null);
+    const licenseChipClick = await clickChrome('#nav-app-jaunts [data-action="daybook"]')
+      .then(() => null, (e) => page.evaluate(() => document.querySelector('#nav-app-jaunts [data-action="daybook"]')?.click()).then(() => e.message));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-jaunts [data-keepsake="navigator-license"]'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const licenseShelf = await page.evaluate(async (seen) => {
+      const api = window.__chicago4d;
+      const card = document.querySelector('#nav-app-jaunts [data-keepsake="navigator-license"]');
+      card?.scrollIntoView?.({ block: 'nearest' });
+      await new Promise((r) => setTimeout(r, 300));
+      const b = card?.getBoundingClientRect();
+      const out = { card: !!card, onShelf: !!card?.parentElement?.classList.contains('jaunt-keepsakes'),
+        keepsake: !!card?.classList.contains('jaunt-keepsake'), text: card?.textContent ?? '',
+        visible: !!card?.checkVisibility?.(), wide: !!b && b.width > 0 && b.height > 0 && b.left >= 0 && b.right <= innerWidth };
+      // Back as it was found: the list, lent back to the Welcome card; Home, docked; the
+      // Field Check's record as the blocks above left it.
+      document.querySelector('#welcome-jaunts-content .jaunt-back')?.click();
+      api.jauntsApp?.restore();
+      api.hints.hide();
+      if (seen.tourWas === null) localStorage.removeItem('chicago4d.tour'); else localStorage.setItem('chicago4d.tour', seen.tourWas);
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    }, licenseFirst);
+    check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 6 && !licenseClick
+      && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
+      && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
+      && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored
+      && /· \d+ kept$/.test(licenseChip ?? '') && licenseShelf.card && licenseShelf.onShelf && licenseShelf.keepsake
+      && /Navigator License/.test(licenseShelf.text) && /Issued /.test(licenseShelf.text) && licenseShelf.visible && licenseShelf.wide,
+      JSON.stringify({ licenseFirst: { ...licenseFirst, tourWas: undefined }, licenseClick, licenseAwarded, licenseAgainClick, licenseAgain, licenseChip, licenseChipClick, licenseShelf }));
+    // <<< T-2665
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.

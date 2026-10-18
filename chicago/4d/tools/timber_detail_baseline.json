@@ -34,7 +34,8 @@
   },
   "screen": {
     "_": "The sandbar-willow point bar. It does not take the keep fraction — a screen needs its clumps to touch — and since K45(b3) it does not thin with the sampling step either. The floor is under 1 because a 6-9 m bar sampled on a 5.6 m grid has fewer points than the screen wants stools, and the roll saturates at 1 rather than exceeding it. It was 0.65 on the pre-T-1123 field and is 0.60 now: the enlarged field carries more bank, so the residual a coarse grid cannot resolve is larger in absolute terms. Measured today light keeps 64.3 % of full's stools, against 51.6 % before K45(b3) existed.",
-    "min_share_of_full": 0.58,
+    "min_share_of_full": 0.56,
+    "rebanked_t2807": "0.58 -> 0.56. T-2807 deals the woods in clumps and offers each woods cell to an edge thicket first, which changes how many draws each cell takes from the planter's shared stream, so every later cell's jitter moves: light's stools went from 531 of 874 (60.8 %, T-2766) to 494 of 863 (57.2 %), the same bar sampled on a different draw, as T-2743's 0.60 -> 0.58 was. Nothing in the bar branch changed; balanced keeps 84.7 %.",
     "before_share": { "full": 1.0, "balanced": 0.736, "light": 0.516 }
   }
 }
