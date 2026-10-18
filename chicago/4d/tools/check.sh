@@ -176,6 +176,9 @@ step "The Field Check's seven steps each move on only on their own action, resum
 # T-2664: the tour offered once per device, and the one-time hints after it.
 step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
   node tools/test_tour_offer.mjs
+# T-2665: the Navigator License keepsake.
+step "Finishing the Field Check awards the Navigator License once per device, never on Skip, with storage refused safely, and the Jaunts daybook shows it after a reload (T-2665)" \
+  node tools/test_license.mjs
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs

@@ -107,7 +107,8 @@ import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
 import { createRoamTip } from './roam-tip.js';
-import { createTourOffer, createHints, takeJumped } from './tour-offer.js';
+import { createTourOffer, createHints, takeJumped, HINT_MS } from './tour-offer.js';
+import { createLicense } from './license.js';
 import { isReconstructed } from './place-kinds.js';
 import { plateFor as jauntPlate } from './pictures.js';
 import { jauntModeFor, jauntChoice, styleWords } from './getting-there.js';
@@ -3965,6 +3966,10 @@ async function boot() {
   let tourEntering = false;
   api.tourOffer = tourOffer;
   api.hints = hints;
+  // T-2665: the Navigator License, awarded once per device as the Field Check's Finish
+  // closes it (below, at the tour), and kept with the Jaunt keepsakes in Jaunts' daybook.
+  const license = createLicense();
+  api.license = license;
   for (const type of ['pointerdown', 'keydown']) {
     window.addEventListener(type, () => { if (hints.showing) hints.hide(); }, { capture: true });
   }
@@ -4041,6 +4046,7 @@ async function boot() {
         // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         modeNote: (jaunt) => jauntWay(jaunt).note,
+        license,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -4485,8 +4491,22 @@ async function boot() {
       if (v && !tourTimer) tourTimer = setInterval(() => { tour.tick(); tourOverlay.place(); }, 250);
       if (!v && tourTimer) { clearInterval(tourTimer); tourTimer = null; }
     },
+    onFinish: () => awardLicense(),
   });
   api.tour = tour;
+  // T-2665: Finish (never Skip) awards the Navigator License, and the hint line says where it
+  // is kept, once: a replay that finishes again keeps the one license and says nothing.
+  let licenseTimer = null;
+  function awardLicense() {
+    if (!license.award()) return false;
+    const el = document.getElementById('nav-hint');
+    if (!el) return true;
+    hints.hide();
+    el.textContent = license.awardedText(); el.dataset.hint = 'license'; el.hidden = false;
+    clearTimeout(licenseTimer);
+    licenseTimer = setTimeout(() => { if (el.dataset.hint === 'license') el.hidden = true; }, HINT_MS);
+    return true;
+  }
   document.getElementById('tour-start')?.addEventListener('click', () => { hud.setPanel(false); tour.start(); });
 
   // ---- resize ----------------------------------------------------------- //
