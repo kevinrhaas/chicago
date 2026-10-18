@@ -15,11 +15,14 @@ detail, hair, reliable gait, seated driver/rein contact and riding tack remain o
 The primitive portable-human fixture remains a test artifact. T-1789 is not complete
 on a single base or flat-color outfit. See L418 and the authored source manifest.
 
-The first canonical CI run passed the existing fixture and both browser viewports,
-but stopped before Blender authoring: Python 3.11 and 3.12 floating-point sum
-behavior produced different prepared JSON bytes. Explicit accurate reductions and
-regenerated inputs preserve the exact-byte gate; actual resident exports still await
-the corrected CI build.
+Canonical CI now reproduces all three prepared inputs on Python 3.11. It built
+Otis Bardwell's master and all four source/web LODs, then the unchanged contract
+rejected tiny exported joint-scale residue and a skin-palette count change during
+quantization. The authored-only export repair verifies the actual Blender rig is
+unscaled, bounds numerical cleanup, consolidates only exactly equal bindings and
+uses one quantization volume. Existing fixture bytes and contract tolerances stay
+unchanged. Corrected canonical CI and actual visual/deformation review remain open;
+artifact download also requires publishing the saved environment network draft.
 
 ## T-2737 — dev's still-frame ceiling: the trip blur the instrument froze on (2026-10-18)
 

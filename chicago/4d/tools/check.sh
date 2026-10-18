@@ -254,6 +254,12 @@ step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
 step "Anonymous adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
   python3 tools/test_human_base_prepare.py
 
+step "Authored humans preserve exact skin bindings when consolidating equivalent palettes" \
+  python3 tools/test_human_skin_canonicalize.py
+
+step "Rigid authored human frames reject real scaling and preserve binary data" \
+  python3 tools/test_human_frame_residue.py
+
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \

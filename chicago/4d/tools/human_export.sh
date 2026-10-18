@@ -80,16 +80,28 @@ fi
 
 echo "== export: tools/human_export.py"
 mkdir -p "$SCRATCH/lods"
+if [ "$MODE" = "master" ]; then
+  "$BIN" -b -noaudio "$MASTER" --python-exit-code 1 --python tools/human_export.py -- "$SCRATCH/lods" \
+    | grep -E '^(wrote |rigid-frame receipt )' | sed "s#$SCRATCH/lods/##"
+else
 "$BIN" -b -noaudio "$MASTER" --python-exit-code 1 --python tools/human_export.py -- "$SCRATCH/lods" \
   | grep -E '^wrote ' | sed "s#$SCRATCH/lods/##"
+fi
 mkdir -p "$OUT/web"
 written=()
 for f in "$SCRATCH"/lods/*.glb; do
   name="$(basename "$f")"
+  if [ "$MODE" = "master" ]; then
+    # Exact binding equality only. A distinct palette fails instead of being
+    # hidden by the derivative guard; canonical Blender data stays untouched.
+    python3 tools/human_skin_canonicalize.py "$f" "$SCRATCH/canonical-$name" --diagnostics "$SCRATCH/${name%.glb}.skin-diagnostics.json"
+    cp "$SCRATCH/canonical-$name" "$OUT/$name"
+  else
   cp "$f" "$OUT/$name"
+  fi
   if [ "$MODE" = "master" ]; then
     # Native JPEG requires no decoder/extension. Preserve alpha maps and non-color
-    # slots; cap every texture before compression. Canonical GLB remains unchanged.
+    # slots; cap every texture before compression. Source image bytes are preserved.
     case "$name" in
       *.lod0.glb) cap=2048 ;;
       *.lod1.glb) cap=1024 ;;
@@ -100,7 +112,7 @@ for f in "$SCRATCH"/lods/*.glb; do
     python3 tools/human_web_texture_inputs.py "$OUT/$name" "$SCRATCH/labeled.glb"
     "${GT_NPX[@]}" gltf-transform resize "$SCRATCH/labeled.glb" "$SCRATCH/resized.glb" --width "$cap" --height "$cap"
     "${GT_NPX[@]}" gltf-transform jpeg "$SCRATCH/resized.glb" "$SCRATCH/color.glb" --formats '*' --quality 92 --pattern 'c4d_web_opaque_*' --slots '{baseColorTexture,emissiveTexture}'
-    "${GT_NPX[@]}" gltf-transform meshopt "$SCRATCH/color.glb" "$OUT/web/$name"
+    "${GT_NPX[@]}" gltf-transform meshopt "$SCRATCH/color.glb" "$OUT/web/$name" --quantization-volume scene
     echo "authored web $name: texture cap ${cap}px; opaque color JPEG quality 92; $(wc -c < "$OUT/web/$name") bytes"
   else
   "${GT_NPX[@]}" gltf-transform meshopt "$OUT/$name" "$OUT/web/$name" 2>&1 | grep -E '→' | sed 's/^info: //' || true

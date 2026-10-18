@@ -165,6 +165,7 @@ jobs:
         working-directory: chicago/4d
         env:
           BLENDER_CACHE: /opt/blender-dl
+          HUMAN_EXPORT_EVIDENCE_DIR: /tmp/teamster-studies/export-evidence
         run: |
           set -euo pipefail
           source generators/blender.pin

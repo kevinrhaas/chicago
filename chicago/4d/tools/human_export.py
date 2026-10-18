@@ -31,9 +31,48 @@ property `chicago4d_human`, whose `lod` this script rewrites per file.
 from __future__ import annotations
 
 import sys
+import hashlib
+import json
+import os
 from pathlib import Path
 
 import bpy
+
+
+def verified_rigid_frames(rig, meshes):
+    """Verify the actual canonical authoring state, never infer it from a GLB."""
+    def unit(values):
+        return all(abs(float(v) - 1) <= 1e-7 for v in values)
+
+    objects = [rig, *meshes]
+    if rig.parent is not None or any(not unit(o.scale) or not unit(o.delta_scale)
+                                     or not unit(o.matrix_world.to_scale()) for o in objects):
+        raise ValueError('rigid-frame export requires unit object/world/delta scales')
+    if any(not unit(p.scale) for p in rig.pose.bones):
+        raise ValueError('rigid-frame export refuses authored pose-bone scaling')
+    if any(o.constraints for o in objects) or any(p.constraints for p in rig.pose.bones):
+        raise ValueError('rigid-frame export refuses constraints')
+    blocks = [*objects, rig.data]
+    if any(getattr(getattr(o, 'animation_data', None), 'drivers', ()) for o in blocks):
+        raise ValueError('rigid-frame export refuses drivers')
+    for action in bpy.data.actions:
+        curves = list(getattr(action, 'fcurves', ()))
+        for layer in getattr(action, 'layers', ()):
+            for strip in layer.strips:
+                for bag in getattr(strip, 'channelbags', ()):
+                    curves.extend(bag.fcurves)
+        if any(f.data_path.endswith('scale') for f in curves):
+            raise ValueError('rigid-frame export refuses authored scale curves')
+    master = Path(bpy.data.filepath)
+    if not master.is_file():
+        raise ValueError('rigid-frame export requires a saved canonical master')
+    return dict(authored_rigid_rig=True, rig_object_scales_unit=True,
+                pose_bone_scales_unit=True, no_constraints=True, no_drivers=True,
+                no_scale_fcurves=True, verified_by='human_export.py: actual bpy source state',
+                verification_reference=json.dumps({
+                    'master': str(master),
+                    'sha256': hashlib.sha256(master.read_bytes()).hexdigest(),
+                    'blender': bpy.app.version_string}, sort_keys=True))
 
 
 def main(out_dir: Path) -> int:
@@ -68,6 +107,8 @@ def main(out_dir: Path) -> int:
         bpy.context.view_layer.objects.active = rig
         scene["chicago4d_human"] = {**prov, "lod": lod}
         path = out_dir / f"{asset_id}.lod{lod}.glb"
+        rigid_proof = (verified_rigid_frames(rig, meshes)
+                       if prov.get('rigid_bone_frame_export') is True else None)
         bpy.ops.export_scene.gltf(
             filepath=str(path),
             export_format="GLB",
@@ -96,6 +137,25 @@ def main(out_dir: Path) -> int:
             export_cameras=False,
             export_lights=False,
         )
+        if rigid_proof is not None:
+            # The fixture never opts in. Rigid authored rigs can acquire tiny
+            # scale residue when float32 relative bone matrices are decomposed.
+            # Prove the source premise independently before bounded cleanup;
+            # the existing GLB frame tolerance remains unchanged.
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            from human_frame_residue import repair
+            raw = path.read_bytes()
+            proof = rigid_proof
+            proof['input_sha256'] = hashlib.sha256(raw).hexdigest()
+            normalized, receipt = repair(raw, proof)
+            evidence = os.environ.get('HUMAN_EXPORT_EVIDENCE_DIR')
+            if evidence:
+                directory = Path(evidence)
+                directory.mkdir(parents=True, exist_ok=True)
+                (directory / (path.stem + '.raw.glb')).write_bytes(raw)
+                (directory / (path.stem + '.frame.json')).write_text(json.dumps(receipt, indent=2) + '\n')
+            path.write_bytes(normalized)
+            print('rigid-frame receipt ' + json.dumps(receipt, separators=(',', ':')))
         print(f"wrote {path}")
     scene["chicago4d_human"] = {**prov, "lod": 0}
     return 0

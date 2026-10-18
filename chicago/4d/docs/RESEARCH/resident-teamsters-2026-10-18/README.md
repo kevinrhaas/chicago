@@ -101,3 +101,40 @@ reads the real pinned source data with emulated legacy sum behavior and requires
 the full serialized bytes of each recipe to equal its committed input. Source OBJ,
 UVs, weights, graphical targets and legal notices remain unchanged. CI must still
 prove the actual Python 3.11 reproduction and execute the canonical builder.
+
+## Authored export frame and skin repair
+
+Run 39169918123 verified all three source preparations on actual Python 3.11 and
+built Otis's canonical Blender master and all four source/web LODs. The contract
+then rejected thigh scale [1, 0.9999999403953552, 0.9999979734420776] and unequal
+flattened joint lists. Its output is a failed study, not an accepted model.
+
+Only this original builder opts into rigid-frame export. The exporter independently
+checks actual bpy object/world/delta and pose-bone scales, absence of constraints,
+drivers and scale curves, and binds that proof to input/master hashes. Only joint
+scale residue within 32 float32 ulps (3.8147e-6) may then be removed; genuine scaling
+is refused. Nonjoint transforms retain the existing 1e-6 guard unchanged. Mesh,
+weight and inverse-bind bytes stay identical. Removing residue can introduce tiny
+rest skin mismatch; joint-frame bounds are not proof of skinned surface equivalence,
+so actual browser/deformation review remains required.
+
+Source skins consolidate only for exact ordered node identities, decoded inverse
+binds and all metadata. Different palettes fail. Scene-wide Meshopt quantization
+keeps one common palette across body parts; its slightly coarser small-part position
+quantization must pass the same actual master/web frame and browser checks. The
+existing fixture export path and all contract assertions remain unchanged. Focused
+tests reproduce duplicate-skin and multipart quantization failures and the observed
+scale residue; they do not replace execution on the real resident masters.
+The actual verifier function is also exercised with explicit synthetic bpy objects
+and the committed fixture: its proof reaches the repair helper, while authored
+scale curves, constraints, drivers and nonunit scales are refused. These tests
+check Python wiring without importing or running Blender; CI still checks its API.
+
+The existing fixture can be tested locally without Blender. The failed resident
+artifact is retained on GitHub, but downloading from its actual Azure artifact host
+is denied by the current network policy. The exact host is saved in the environment
+draft; Review/Save/Publish applies it.
+CI retains the original unnormalized exports plus input-bound frame receipts under
+teamster-studies/export-evidence, separately from accepted-name exports. Use these
+for actual skin/clip comparisons; the raw files intentionally retain the rejected
+scale residue and must not be mistaken for accepted source assets.
