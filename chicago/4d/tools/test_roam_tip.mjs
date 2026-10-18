@@ -60,7 +60,7 @@ const clock = () => { const q = []; return { wait: (fn, ms) => { q.push({ fn, ms
 // The page: Free roam from Home and from the Navigator both dock and show it.
 const main = read('renderers/web/js/main.js');
 assert(/freeRoam: \(\) => \{ navigatorUi\?\.dock\(\); roamTip\.show\(\{ touch: backends\.name === 'touch' \}\); \}/.test(main), 'the Navigator\'s Free roam docks it and shows the tip');
-assert(/if \(!resume && !destination\) roamTip\.show\(/.test(main), 'Home\'s Free roam (no destination) shows it; a quick start or a Jaunt does not');
+assert(/if \(!resume && !destination(?: && !tourEntering)?\) roamTip\.show\(/.test(main), 'Home\'s Free roam (no destination) shows it; a quick start or a Jaunt does not');
 assert(/navigatorUi\?\.dock\(\);[\s\S]{0,400}backends\.activate/.test(main), 'entering the town docks the Navigator');
 assert(/<button type="button" class="roam-tip" id="roam-tip" hidden><\/button>/.test(read('renderers/web/index.html')));
 assert(/\.roam-tip\[hidden\] \{ display: none; \}/.test(read('renderers/web/css/walk.css')));

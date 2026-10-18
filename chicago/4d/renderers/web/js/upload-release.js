@@ -61,6 +61,9 @@ export const RELEASE_KEEP = {
   // buildings' INSTANCE colours, which are not vertex attributes (T-2568), and
   // no vertex colour reaches a batch (T-2570), so nothing is kept for it either.
   structures: [],
+  // T-2775: the 1904 lakefront railway. Its pick marches the ray to the ground and
+  // tests the strips' stations (railway.js), so no triangle is read back.
+  railway: [],
 };
 
 function dropArray() { this.array = null; }

@@ -281,6 +281,13 @@ const COVERAGE = [
   // the 1835 tabs once in the town (T-2639); part 13 the rail.
   ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
   ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
+  ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Sources tab: facts by grade, Liberties, folded citations (T-2644)'],
+  // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
+  // spot); part 4 opens every tab of an 1835 building, Photos included.
+  ['renderers/web/js/photos-tab.js', [4, 14], 'Inspect\'s Photos tab (T-2645)'],
+  ['renderers/web/css/photos.css', [4, 14], 'Inspect\'s Photos tab, its grid and tiles (T-2645)'],
+  // T-2643: Inspect's Story timeline; part 4 reads it on an 1835 building, part 14 on Glessner.
+  ['renderers/web/js/inspect-story.js', [4, 14], 'Inspect\'s Story tab: BUILT, YOU ARE HERE and TODAY (T-2643)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],
@@ -330,7 +337,7 @@ const COVERAGE = [
   // and holds it to zero pageerrors, which is the claim "not imported" rests on.
   ['renderers/web/js/ground-strip.js', [1], 'the ground-strip proof (T-1797), drawn only under ?proof=ground'],
   ['renderers/web/js/ground-strip-mask.js', [1], 'the ground-strip proof\'s layout and mask pixels (T-1797)'],
-  ['renderers/web/js/citations.js', [3], 'pick -> provenance, and what kind of source'],
+  ['renderers/web/js/citations.js', [3, 4, 14], 'pick -> provenance, and what kind of source; Inspect\'s Sources tab folds them (T-2644)'],
   ['renderers/web/js/liberties.js', [3, 14], 'the liberties on the card, and in the panel'],
   // T-1519. The People directory's person card is `householdHtml` from this module, and
   // that card is opened and read in PART 12 — so 12 joins the building card (3) and the

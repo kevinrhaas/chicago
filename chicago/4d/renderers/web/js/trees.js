@@ -2653,11 +2653,21 @@ export async function createTrees({
    * `keep = 1`. What changed at T-1127 is that `full` is no longer that stand —
    * it is 40 % of it — because the enlarged field's wood does not fit the
    * geometry any level of this renderer is for. Recorded in docs/LIBERTIES.md.
+   *
+   * T-2766 RAISES ALL THREE, because the instrument L238 asked for now exists.
+   * Since T-2743 every tree-form stem is an instance of a grown species tree at
+   * three levels, so a far stem costs a few crossed cards rather than a whole
+   * crown, and 1835's trees at the town_backyard stand fell from 994k triangles
+   * to 418k. That saving is spent on the wood the sources describe ("all wooded"
+   * north of the river): 0.700 / 0.500 / 0.300. `balanced` is held below the
+   * ratio rule because the West prairie stand was 5k under its 2,535,000 on dev
+   * and 0.600 put it 15k over; the caps are raised so the backstop still has
+   * about a fifth of headroom at each level.
    */
   const STEMS = {
-    full:     { step: 4.0, keep: 0.400, trees: 3030, thickets: 1550 },
-    balanced: { step: 4.7, keep: 0.350, trees: 1920, thickets: 1000 },
-    light:    { step: 5.6, keep: 0.191, trees: 1110, thickets: 630 },
+    full:     { step: 4.0, keep: 0.700, trees: 3800, thickets: 1550 },
+    balanced: { step: 4.7, keep: 0.500, trees: 3300, thickets: 1000 },
+    light:    { step: 5.6, keep: 0.300, trees: 1700, thickets: 630 },
   };
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;

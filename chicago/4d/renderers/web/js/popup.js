@@ -1200,6 +1200,16 @@ function ordinanceSection(limits, p) {
   </section>`;
 }
 
+/** T-2643: which side of the 1835 fire limit a building stood on, and the day the by-law
+ *  passed, as data for Inspect's Story tab; null under the same conditions the card's own
+ *  section stays silent. */
+function fireLimitSide(limits, p) {
+  if (!limits) return null;
+  const covered = limits.coversPlacement(p);
+  if (covered === null) return null;
+  return { inside: covered, passed: limits.ordinance?.passed ?? null };
+}
+
 /** The four panes under the facts, and the strip that switches them. The last
  *  tab a visitor chose is remembered for the session — module scope, not
  *  storage — so walking from one building to the next keeps the reader where
@@ -1444,20 +1454,15 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
      *   design  — its shape, and the attribute table with each value's grade and why
      *   story   — whether it was here on the scene date, and its phase
      *   photos  — the Images pane (thumbnails wait in data-src until hydrated)
-     *   sources — the basis, the position's argument, the fire limit, the citations,
-     *             Liberties and open questions, and the record's own foot
+     *   liberties, questions, dossier — what the Sources tab reads beside the sidecar
+     *             (T-2644): its facts by grade, Liberties, open questions and the dossier
      */
     sections(record) {
       if (!record?.sidecar) return null;
       const s = record.sidecar;
+      // The placement, for Story's fire-limit row (T-2643); Sources reads it off the sidecar.
       const p = s.placement ?? {};
-      const place = { confidence: p.position_confidence, sources: p.position_sources, note: p.position_note };
       const residents = householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s;
-      const called = displayName(s, record.id);
-      // Inspect never prints the dossier's file path (§12): the link says what it opens.
-      const doc = s.research_doc
-        ? `<a href="${escapeHtml(docBase + s.research_doc)}" target="_blank" rel="noopener">Read the research dossier ↗</a>`
-        : 'No dossier has been written for this building yet.';
       return {
         people: `${s.review_required === true ? `<div class="pop-flags">${heldFlagHtml(s)}</div>` : ''}
           ${lodgingSection(s)}
@@ -1472,19 +1477,16 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
             <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
           </section>`,
         story: presenceSection(s),
+        // T-2643: the fire limit's side, for Inspect's Story tab, where it is a dated row. Null
+        // where the limits did not load (every scene but 1835) or the record places nothing.
+        fireLimit: fireLimitSide(ordinanceLimits, p),
         photos: picturesPaneHtml(pictures, record.id, { open: true, failed: picturesFailed }),
-        sources: `${basisSection(s, place)}
-          ${whereSection(p, place)}
-          ${ordinanceSection(ordinanceLimits, p)}
-          <section class="pop-sec">
-            <h3>Sources</h3>
-            <ol class="cites">${citationItems(s.citations)}</ol>
-          </section>
-          ${libertySection(liberties, record.id)}
-          ${openQuestionSection(openQuestions, record.id)}
-          ${researchSection(s)}
-          ${called.spec ? `<p class="pop-spec">Reconstruction reference <code>${escapeHtml(called.spec)}</code></p>` : ''}
-          <p class="pop-foot">${doc}</p>`,
+        // T-2644: the Sources tab lays these out itself (inspect-sources.js): this building's
+        // liberties and open questions as loaded (null: not loaded, which claims nothing), and
+        // where its dossier is read. Its facts and their sources come off the sidecar.
+        liberties: Array.isArray(liberties) ? libertiesFor(liberties, record.id) : null,
+        questions: Array.isArray(openQuestions) ? openQuestionsFor(openQuestions, record.id) : null,
+        dossier: s.research_doc ? docBase + s.research_doc : null,
       };
     },
 

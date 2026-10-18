@@ -40,6 +40,8 @@
  * tie as its top face and each rail as a three-face strip, and past the tie reach a
  * zone draws only the ground. Each zone is one draw for its rails and one for its
  * ties whichever level it is at, so the layer adds a dozen or so draws at most.
+ * A zone's full rail section is laid only while the eye is near it (T-2775): laid
+ * for the whole yard at load it was 82 MB a phone kept and never drew.
  *
  * A scene that does not list `railway` hands this no data base and it draws
  * nothing (T-1739). A failed fetch draws nothing and records a problem; maps that
@@ -339,16 +341,13 @@ function laySection(path, s0, s1, prof, spec, out) {
   }
 }
 
-function railMesh(name, out, level, confidence, castShadow) {
+function railMesh(name, out, level, mat, castShadow) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
   geo.setAttribute('normal', new THREE.Float32BufferAttribute(out.nrm, 3));
   geo.setAttribute('color', new THREE.Float32BufferAttribute(out.col, 3));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(out.pos.length / 3).fill(level), 1));
   geo.computeBoundingSphere();
-  const mat = new THREE.MeshStandardMaterial({ vertexColors: true, metalness: 0.2, roughness: 0.62 });
-  mat.name = name;
-  confidence?.patch(mat);
   const mesh = new THREE.Mesh(geo, mat);
   mesh.name = name;
   mesh.castShadow = castShadow;
@@ -577,7 +576,7 @@ export async function createRailway({
   const out = {
     group,
     data: null,
-    census: { tracks: 0, track_m: 0, ties: 0, tufts: 0, zones: 0, textured: false, rocks: 0, piles: 0, edge_m: 0 },
+    census: { tracks: 0, track_m: 0, ties: 0, tufts: 0, zones: 0, nearZones: 0, textured: false, rocks: 0, piles: 0, edge_m: 0 },
     update: () => {},
     setDetail: () => {},
     pickAt: () => null,
@@ -622,7 +621,11 @@ export async function createRailway({
 
   /* ---- the ground: cinders, verges, beds ---- */
   const row = data.right_of_way ?? {};
-  const buffers = () => ({ pos: [], uv: [], col: [], conf: [] });
+  // T-2786: every strip's scratch, emptied once its mesh is laid (below). The
+  // update and pick closures share this function's scope, so a strip's plain
+  // arrays stayed reachable as long as the layer did: 74 MB of JS heap in 1904.
+  const scratch = [];
+  const buffers = () => { const b = { pos: [], uv: [], col: [], conf: [] }; scratch.push(b); return b; };
   const cinders = buffers();
   const ground = maps.get(spec.ballast?.right_of_way_material ?? 'trodden_cinders');
   ribbon(row.cinders ?? [], {
@@ -699,6 +702,8 @@ export async function createRailway({
   }
   // One await over both, so a surface that fails leaves no other one unheard.
   const laid = await Promise.all([...groundJobs, ...edgeJobs]);
+  for (const b of scratch) { b.pos = null; b.uv = null; b.col = null; b.conf = null; }
+  scratch.length = 0;
   const groundMeshes = laid.slice(0, groundJobs.length);
   const edgeMeshes = laid.slice(groundJobs.length);
   for (const m of [...groundMeshes, ...edgeMeshes]) {
@@ -711,7 +716,7 @@ export async function createRailway({
   const zoneCount = Math.max(1, Math.ceil((nTop - nBot) / ZONE_M));
   const zones = Array.from({ length: zoneCount }, (_, z) => ({
     nHi: nTop - z * ZONE_M, nLo: nTop - (z + 1) * ZONE_M,
-    railNear: { pos: [], nrm: [], col: [] }, railFar: { pos: [], nrm: [], col: [] },
+    sections: [], railFar: { pos: [], nrm: [], col: [] },
     ties: [], tufts: [], rocks: [], eSum: 0, eCount: 0, rockE: 0,
   }));
   const zoneOf = (n) => zones[Math.max(0, Math.min(zoneCount - 1, Math.floor((nTop - n) / ZONE_M)))];
@@ -730,7 +735,8 @@ export async function createRailway({
       const sc = Math.min(s, p.length);
       const z = zoneOf(p.at(sc).n);
       if (z !== z0 || sc >= p.length) {
-        laySection(p, s0, sc, profNear, spec, z0.railNear);
+        // T-2775: the full section is laid only when its zone comes near (below)
+        z0.sections.push([i, s0, sc]);
         laySection(p, s0, sc, profFar, spec, z0.railFar);
         z0.level = Math.max(z0.level ?? 0, trackLevel[i]);
         s0 = sc; z0 = z;
@@ -885,17 +891,18 @@ export async function createRailway({
   const m4 = new THREE.Matrix4(); const q = new THREE.Quaternion(); const up = new THREE.Vector3(0, 1, 0);
   const v3 = new THREE.Vector3(); const s3 = new THREE.Vector3(); const c = new THREE.Color();
   const tieDepth = Math.min(ties.depth_m, 0.12);   // only the top of a tie is ever above the cinders
+  const railMat = new THREE.MeshStandardMaterial({ vertexColors: true, metalness: 0.2, roughness: 0.62 });
+  railMat.name = 'railway-rails';
+  confidence?.patch(railMat);
+  materials.push(railMat);
   for (const [zi, z] of zones.entries()) {
     z.centre = new THREE.Vector3(z.eCount ? z.eSum / z.eCount : (f0[0] + f1[0]) / 2, 0, wz((z.nHi + z.nLo) / 2));
-    if (z.railNear.pos.length) {
-      z.railsNear = railMesh(`railway-rails-z${zi}`, z.railNear, z.level ?? 1, confidence, true);
-      z.railsFar = railMesh(`railway-rails-far-z${zi}`, z.railFar, z.level ?? 1, confidence, false);
-      z.railsFar.material.dispose();
-      z.railsFar.material = z.railsNear.material;
-      for (const m of [z.railsNear, z.railsFar]) { group.add(m); meshes.push(m); geometries.push(m.geometry); }
-      materials.push(z.railsNear.material);
+    z.index = zi;
+    if (z.railFar.pos.length) {
+      z.railsFar = railMesh(`railway-rails-far-z${zi}`, z.railFar, z.level ?? 1, railMat, false);
+      group.add(z.railsFar); meshes.push(z.railsFar); geometries.push(z.railsFar.geometry);
     }
-    z.railNear = null; z.railFar = null;
+    z.railFar = null;
     if (z.ties.length) {
       const near = new THREE.InstancedMesh(tieGeoNear, tieMat, z.ties.length);
       const far = new THREE.InstancedMesh(tieGeoFar, tieMat, z.ties.length);
@@ -1008,6 +1015,28 @@ export async function createRailway({
     }
   }
 
+  /* ---- the full rail section, near the eye only ---- */
+  // T-2775: the full section is 40 bytes a vertex and 2 million vertices over the
+  // whole yard (82 MB in the page and as much again on the GPU once drawn), and a
+  // zone draws it only within `near` (60 m on a phone). It was laid for all 57 zones
+  // at load and kept; now a zone lays it as the eye comes near and lets it go once
+  // the eye is well past, so the yard holds a few zones' worth wherever one walks.
+  const nearRails = (z) => {
+    if (z.railsNear || !z.sections.length) return;
+    const buf = { pos: [], nrm: [], col: [] };
+    for (const [i, s0, s1] of z.sections) laySection(paths[i], s0, s1, profNear, spec, buf);
+    z.railsNear = railMesh(`railway-rails-z${z.index}`, buf, z.level ?? 1, railMat, true);
+    group.add(z.railsNear);
+    out.census.nearZones += 1;
+  };
+  const dropNearRails = (z) => {
+    if (!z.railsNear) return;
+    group.remove(z.railsNear);
+    z.railsNear.geometry.dispose();
+    z.railsNear = null;
+    out.census.nearZones -= 1;
+  };
+
   /* ---- level and reach ---- */
   let level = REACH[detail] ? detail : 'full';
   const rockShare = { full: 1, balanced: (stones?.per_m2?.balanced ?? 0.9) / (stones?.per_m2?.full ?? 1.5),
@@ -1047,7 +1076,10 @@ export async function createRailway({
       const de = Math.max(0, Math.abs(cx - z.centre.x) - 30);
       const d = Math.hypot(dn, de, Math.max(0, cy - 30));
       const near = d < r.near;
-      if (z.railsNear) { z.railsNear.visible = near; z.railsFar.visible = !near; }
+      if (near) nearRails(z);
+      else if (z.railsNear && d > r.near + ZONE_M) dropNearRails(z);
+      if (z.railsNear) z.railsNear.visible = near;
+      if (z.railsFar) z.railsFar.visible = !(near && z.railsNear);
       if (z.tiesNear) { z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties; }
       if (z.tuftMesh) z.tuftMesh.visible = d < r.tufts && z.tuftMesh.count > 0;
       if (z.rockMeshes) {
@@ -1082,21 +1114,50 @@ export async function createRailway({
     return { track: best, distance: bd };
   };
   out.cardFor = (e, n) => railwayCard(data, nearestTrack(e, n));
+  // T-2775: a tap marches the ray to the ground and asks which of the laid strips
+  // the point lies in, as the street grid's lots do, rather than raycasting the
+  // strips' triangles: a phone lets go of those once they are on the GPU. Highest
+  // first, as a raycast met them: the stone face and the made ground answer with
+  // the edge's card, the beds, verges and cinders with the nearest track's.
+  const inStrip = (stations, e, n) => {
+    for (let i = 0; i + 1 < stations.length; i += 1) {
+      const [ae0, an0, be0, bn0] = stations[i];
+      const [ae1, an1, be1, bn1] = stations[i + 1];
+      const poly = [[ae0, an0], [ae1, an1], [be1, bn1], [be0, bn0]];
+      let inside = false;
+      for (let a = 0, b = 3; a < 4; b = a, a += 1) {
+        const [xa, ya] = poly[a]; const [xb, yb] = poly[b];
+        if ((ya > n) !== (yb > n) && e < ((xb - xa) * (n - ya)) / (yb - ya) + xa) inside = !inside;
+      }
+      if (inside) return true;
+    }
+    return false;
+  };
+  const edgeStrips = edgeMeshes.length ? [lake.face, row.made_ground ?? []] : [];
+  const trackStrips = [row.cinders ?? [], ...(row.verges ?? []).map((v) => v.stations ?? [])];
   out.pickAt = (ndc, camera) => {
     if (!camera) return null;
     raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
-    raycaster.far = Math.max(400, camera.position.y * 4);
-    const hits = raycaster.intersectObjects([...groundMeshes, ...edgeMeshes], false);
-    if (!hits.length) return null;
-    const hit = hits[0];
-    const record = edgeMeshes.includes(hit.object) ? edgeCard(data) : out.cardFor(hit.point.x, -hit.point.z);
-    return { id: record.id, record, point: hit.point.clone(), distance: hit.distance };
+    const far = Math.max(400, camera.position.y * 4);
+    const o = raycaster.ray.origin; const d = raycaster.ray.direction;
+    for (let t = 0.5; t < far; t += 0.5) {
+      const x = o.x + d.x * t; const y = o.y + d.y * t; const z = o.z + d.z * t;
+      const e = x; const n = -z;
+      if (y > terrain.surfaceHeight(e, n) + GROUND.face.lift) continue;
+      let record = null;
+      if (edgeStrips.some((st) => inStrip(st, e, n))) record = edgeCard(data);
+      else if (trackStrips.some((st) => inStrip(st, e, n)) || nearestTrack(e, n).distance < halfBed) record = out.cardFor(e, n);
+      if (!record) return null;
+      return { id: record.id, record, point: new THREE.Vector3(x, y, z), distance: t };
+    }
+    return null;
   };
 
   out.dispose = () => {
     for (const g of geometries) g.dispose();
     for (const m of materials) m.dispose();
     for (const z of zones) {
+      z.railsNear?.geometry.dispose();
       z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose();
       for (const m of z.rockMeshes ?? []) m.dispose();
     }

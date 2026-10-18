@@ -16,94 +16,153 @@
   "ceilings": {
     "1812": {
       "desktop": {
-        "total_bytes": 734003200,
-        "reading_bytes": 657224329,
+        "total_bytes": 629145600,
+        "reading_bytes": 567392301,
         "tier": "full",
         "reading_mb": {
-          "total": 626.8,
-          "js_heap": 24.4,
-          "arraybuffers": 246.6,
-          "gpu_buffers": 156.7,
-          "gpu_textures": 199.1
+          "total": 541.1,
+          "js_heap": 27.2,
+          "arraybuffers": 215.3,
+          "gpu_buffers": 113.8,
+          "gpu_textures": 184.7
+        },
+        "lowered_by": {
+          "ticket": "T-2786",
+          "on": "2026-10-18T16:43:05.218Z",
+          "build": "a71a7a3e+T-2786",
+          "reading": "docs/measurements/T-2786-memory.json",
+          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 626.8 -> 541.1 MB; x 1.1 rounded up to 25 MiB = 600 MiB.",
+          "before": null
         }
       },
       "mobile": {
-        "total_bytes": 288358400,
-        "reading_bytes": 257589262,
+        "total_bytes": 235929600,
+        "reading_bytes": 201028180,
         "tier": "light",
         "reading_mb": {
-          "total": 245.7,
-          "js_heap": 24.2,
-          "arraybuffers": 95.1,
-          "gpu_buffers": 55.2,
-          "gpu_textures": 71.1
+          "total": 191.7,
+          "js_heap": 26.5,
+          "arraybuffers": 92.4,
+          "gpu_buffers": 37.0,
+          "gpu_textures": 35.8
+        },
+        "lowered_by": {
+          "ticket": "T-2786",
+          "on": "2026-10-18T16:43:05.218Z",
+          "build": "a71a7a3e+T-2786",
+          "reading": "docs/measurements/T-2786-memory.json",
+          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 245.7 -> 191.7 MB; x 1.1 rounded up to 25 MiB = 225 MiB.",
+          "before": null
         }
       }
     },
     "1835": {
       "desktop": {
-        "total_bytes": 1835008000,
-        "reading_bytes": 1654252328,
+        "total_bytes": 1389363200,
+        "reading_bytes": 1253577273,
         "tier": "full",
         "reading_mb": {
-          "total": 1577.6,
-          "js_heap": 110.9,
-          "arraybuffers": 706.7,
-          "gpu_buffers": 417.3,
-          "gpu_textures": 342.8
+          "total": 1195.5,
+          "js_heap": 108.4,
+          "arraybuffers": 458.8,
+          "gpu_buffers": 319.6,
+          "gpu_textures": 308.7
+        },
+        "lowered_by": {
+          "ticket": "T-2786",
+          "on": "2026-10-18T16:43:05.218Z",
+          "build": "a71a7a3e+T-2786",
+          "reading": "docs/measurements/T-2786-memory.json",
+          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 1577.6 -> 1195.5 MB; x 1.1 rounded up to 25 MiB = 1325 MiB.",
+          "before": null
         }
       },
       "mobile": {
-        "total_bytes": 681574400,
-        "reading_bytes": 609765033,
+        "total_bytes": 576716800,
+        "reading_bytes": 513608912,
         "tier": "light",
         "reading_mb": {
-          "total": 581.5,
-          "js_heap": 105.8,
-          "arraybuffers": 198.3,
-          "gpu_buffers": 180.5,
-          "gpu_textures": 96.9
+          "total": 489.8,
+          "js_heap": 121.7,
+          "arraybuffers": 149.3,
+          "gpu_buffers": 150.1,
+          "gpu_textures": 68.8
         },
-        "lowered": "T-2573, 2026-10-16: the buildings' batches picked on the GPU, keeping no position or index once uploaded. Read on this branch merged with dev after T-2588 landed, d6a7c1f60, one invocation: 581.5 MB (js heap 105.8, arraybuffers 198.3, gpu buffers 180.5, gpu textures 96.9; docs/measurements/T-2573-memory-merged.json). The change alone, on a98d32f5c the same hour on the same machine: 586.2 MB against dev's 612.2 (arraybuffers 225.0 -> 198.9; T-2573-memory.json, T-2573-memory-dev.json). 581.5 x 1.1 rounded up to 25 MiB = 650 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2588, 2026-10-16: the wall relief's normal and orl as KTX2 (library sheets 4 KTX2 = 1.3 MB -> 8 KTX2 = 2.7 MB; structures' textures 6.7 -> 2.7 MB). Read on this branch merged with dev after T-2572 landed, ddb9e66d7, one invocation: 607.5 MB (js heap 105.7, arraybuffers 224.3, gpu buffers 180.5, gpu textures 96.9). The change alone, on 6679f7374 the same hour: 624.9 MB against dev's 628.5 (gpu textures 100.9 -> 96.9). 607.5 x 1.1 rounded up to 25 MiB = 675 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+        "lowered_by": {
+          "ticket": "T-2786",
+          "on": "2026-10-18T16:43:05.218Z",
+          "build": "a71a7a3e+T-2786",
+          "reading": "docs/measurements/T-2786-memory.json",
+          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 581.5 -> 489.8 MB; x 1.1 rounded up to 25 MiB = 550 MiB.",
+          "before": "T-2573, 2026-10-16: the buildings' batches picked on the GPU, keeping no position or index once uploaded. Read on this branch merged with dev after T-2588 landed, d6a7c1f60, one invocation: 581.5 MB (js heap 105.8, arraybuffers 198.3, gpu buffers 180.5, gpu textures 96.9; docs/measurements/T-2573-memory-merged.json). The change alone, on a98d32f5c the same hour on the same machine: 586.2 MB against dev's 612.2 (arraybuffers 225.0 -> 198.9; T-2573-memory.json, T-2573-memory-dev.json). 581.5 x 1.1 rounded up to 25 MiB = 650 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2588, 2026-10-16: the wall relief's normal and orl as KTX2 (library sheets 4 KTX2 = 1.3 MB -> 8 KTX2 = 2.7 MB; structures' textures 6.7 -> 2.7 MB). Read on this branch merged with dev after T-2572 landed, ddb9e66d7, one invocation: 607.5 MB (js heap 105.7, arraybuffers 224.3, gpu buffers 180.5, gpu textures 96.9). The change alone, on 6679f7374 the same hour: 624.9 MB against dev's 628.5 (gpu textures 100.9 -> 96.9). 607.5 x 1.1 rounded up to 25 MiB = 675 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+        }
       }
     },
     "1904": {
       "desktop": {
-        "total_bytes": 1625292800,
-        "reading_bytes": 1460974346,
+        "total_bytes": 1310720000,
+        "reading_bytes": 1188929757,
         "tier": "full",
         "reading_mb": {
-          "total": 1393.3,
-          "js_heap": 129.4,
-          "arraybuffers": 757.2,
-          "gpu_buffers": 223.0,
-          "gpu_textures": 283.7
+          "total": 1133.9,
+          "js_heap": 48.9,
+          "arraybuffers": 590.4,
+          "gpu_buffers": 223.5,
+          "gpu_textures": 271.1
         },
         "lowered_by": {
-          "ticket": "T-2718",
-          "on": "2026-10-17T17:15:22.450Z",
-          "build": "e62b79251",
-          "reading": "docs/measurements/T-2718-memory-desktop.json",
-          "note": "texture residency (T-2598) at spawn on desktop: 59 of 61 house pictures resident, 96.7 of a 512 MiB budget, 0 uploads pending when read. GPU textures 283.7 MB against 524.4 at T-2595; arraybuffers rose 710.9 -> 757.2 MB on this build, not read to its owner here (no heap snapshot taken)"
+          "ticket": "T-2786",
+          "on": "2026-10-18T16:43:05.218Z",
+          "build": "a71a7a3e+T-2786",
+          "reading": "docs/measurements/T-2786-memory.json",
+          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 1328.9 -> 1133.9 MB; x 1.1 rounded up to 25 MiB = 1250 MiB.",
+          "before": {
+            "ticket": "T-2775",
+            "on": "2026-10-18T14:21:22.796Z",
+            "build": "7b146804+T-2775",
+            "reading": "docs/measurements/T-2775-memory.json",
+            "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. 1328.9 x 1.1 rounded up to 25 MiB = 1475 MiB.",
+            "before": {
+              "ticket": "T-2718",
+              "on": "2026-10-17T17:15:22.450Z",
+              "build": "e62b79251",
+              "reading": "docs/measurements/T-2718-memory-desktop.json",
+              "note": "texture residency (T-2598) at spawn on desktop: 59 of 61 house pictures resident, 96.7 of a 512 MiB budget, 0 uploads pending when read. GPU textures 283.7 MB against 524.4 at T-2595; arraybuffers rose 710.9 -> 757.2 MB on this build, not read to its owner here (no heap snapshot taken)"
+            }
+          }
         }
       },
       "mobile": {
-        "total_bytes": 996147200,
-        "reading_bytes": 891440113,
+        "total_bytes": 602931200,
+        "reading_bytes": 541360973,
         "tier": "light",
         "reading_mb": {
-          "total": 850.1,
-          "js_heap": 210.4,
-          "arraybuffers": 372.4,
-          "gpu_buffers": 149.9,
-          "gpu_textures": 117.4
+          "total": 516.3,
+          "js_heap": 79.5,
+          "arraybuffers": 149.0,
+          "gpu_buffers": 168.9,
+          "gpu_textures": 118.8
         },
         "lowered_by": {
-          "ticket": "T-2718",
-          "on": "2026-10-17T17:09:52.425Z",
-          "build": "e62b79251",
-          "reading": "docs/measurements/T-2718-memory-mobile.json",
-          "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+          "ticket": "T-2786",
+          "on": "2026-10-18T16:43:05.218Z",
+          "build": "a71a7a3e+T-2786",
+          "reading": "docs/measurements/T-2786-memory.json",
+          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 696.4 -> 516.3 MB; x 1.1 rounded up to 25 MiB = 575 MiB.",
+          "before": {
+            "ticket": "T-2775",
+            "on": "2026-10-18T14:21:22.796Z",
+            "build": "7b146804+T-2775",
+            "reading": "docs/measurements/T-2775-memory.json",
+            "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. Dev 7b146804 before the change read 854.1 MB on the same machine the same hour (arraybuffers 379.3, railway layer 214.9 MB kept; docs/measurements/T-2775-memory-dev.json). 696.4 x 1.1 rounded up to 25 MiB = 775 MiB.",
+            "before": {
+              "ticket": "T-2718",
+              "on": "2026-10-17T17:09:52.425Z",
+              "build": "e62b79251",
+              "reading": "docs/measurements/T-2718-memory-mobile.json",
+              "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+            }
+          }
         }
       }
     }
