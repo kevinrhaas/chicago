@@ -179,6 +179,9 @@ step "Home offers the Field Check once per device, declining or finishing never 
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
+# T-2660: the field log, on the device only.
+step "Settings › About's field log counts landings, first inspects, tabs, Show me, Jaunts, Tour steps and presets in localStorage only, clears, and never sends (T-2660)" \
+  node tools/test_field_log.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 # T-2643: Inspect's Story tab.

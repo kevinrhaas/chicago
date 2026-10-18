@@ -23,6 +23,8 @@
  * make a step wait for an action taken DURING it: a card already open, or a Confidence
  * view already on, when the step begins does not complete it.
  */
+import { count as countField } from './field-log.js'; // T-2660
+
 export const TOUR_KEY = 'chicago4d.tour';
 export const YAW_DEG = 60;
 export const WALK_M = 5;
@@ -68,8 +70,9 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
     return { step, n: step + 1, of: STEPS.length, task: s.task, bubble: s.bubble(p), target: s.target,
       action: s.action ?? null, waiting: !s.action };
   }
-  function enter(i) {
+  function enter(i, { resumed = false } = {}) {
     step = i;
+    if (!resumed) countField('tourStep'); // T-2660: a step reached, not one a reload resumes
     const p = sample();
     base = { e: p.e ?? 0, n: p.n ?? 0, deeper: p.deeper ?? 0, opens: p.opens ?? 0, confChanges: p.confChanges ?? 0, turned: 0 };
     lastYaw = p.yawDeg ?? null;
@@ -91,7 +94,7 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
     resume() {
       const saved = read();
       if (!saved?.active || !Number.isInteger(saved.step) || saved.step < 0 || saved.step >= STEPS.length) return false;
-      enter(saved.step);
+      enter(saved.step, { resumed: true });
       return true;
     },
     /** Next on step 01, Finish on step 07; nothing on a step that waits for an action. */

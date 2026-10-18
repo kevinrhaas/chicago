@@ -19,6 +19,7 @@
  * second besides (for a look set from a test hook), so what it shows is the scene.
  */
 import { PRESETS, LEVELS, applyPreset, presetOf, saveLooks } from '../confidence-presets.js';
+import { count as countField } from '../field-log.js'; // T-2660
 import { LOOKS, SAFE_SET, swatchesOf, swatchOf, setInForce, setSwatch, applySet, setLook, setOpacity, percentOf } from '../confidence-rows.js';
 import { t as str } from '../strings/index.js';
 import { gradeTerm } from '../strings/terms.js';
@@ -57,7 +58,7 @@ export function mount(el, ctx = {}) {
   for (const p of PRESETS) {
     const b = make('button', { type: 'button', className: 'nav-preset', dataset: { preset: p.id }, title: p.note }, p.label);
     b.setAttribute('aria-pressed', 'false');
-    b.addEventListener('click', () => { applyPreset(p.id, d); paint(); });
+    b.addEventListener('click', () => { applyPreset(p.id, d); countField('confidencePreset'); paint(); });
     presets.append(b);
   }
 

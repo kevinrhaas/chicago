@@ -28,6 +28,8 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { fieldLog, count as countField } from './field-log.js'; // T-2660
+import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -1529,6 +1531,11 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 api.journey = journey;
+// T-2660: the field log, kept on this device only and never sent (js/field-log.js). A landing
+// is the journey reaching `landed`; Settings › About shows the counts, with Clear.
+journey.on(({ to }) => { if (to === 'landed') countField('landed'); });
+api.fieldLog = fieldLog;
+api.fieldLogView = wireFieldLogView({ log: fieldLog });
 // Back to the Observatory is the journey's recall, from wherever the link sits. T-2735: the
 // way home asks first and plays the reverse ring (js/recall.js), so the journey moves to
 // `recall` only as the page actually leaves; a cancelled prompt leaves it where it was.
@@ -2947,6 +2954,7 @@ async function boot() {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
       tourCounts.opens++; tourCounts.deeper++;
+      countField('inspect'); // T-2660: the first since landing is the field log's
       // T-2664: the first Reconstructed building's card says, once, what the word means.
       if (isReconstructed(record?.sidecar)) api.hints?.show('reconstructed');
       void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures();
@@ -4302,6 +4310,7 @@ async function boot() {
     if (!target) return Promise.resolve(false);
     travel?.stop?.('show-me');
     showMeId = id;
+    countField('showMe'); // T-2660
     return showMe.show(target);
   }
   api.showMe = { show: showMeFor, get last() { return showMe.last; }, cancel: () => showMe.cancel() };

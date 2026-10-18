@@ -15549,6 +15549,82 @@ for (const [label, viewport, touch] of [
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
       JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
     // <<< T-2656
+    // >>> T-2660: Settings › About › Field log (DESIGN §14). Clear empties it; a Field Check
+    // step (the Tour's own start, then Skip) and two Confidence view presets picked by tap in
+    // their app count through their real hooks, and the rest through the one call every hook
+    // makes; About shows each count and localStorage holds them. Nothing is sent: every
+    // request the page makes while the events fire is watched, and none may post, beacon or
+    // carry the log. Settings is left open as found. Waits are generous for a starved runner.
+    const fieldRequests = [];
+    const onFieldRequest = (req) => fieldRequests.push({ url: req.url(), method: req.method(), body: req.postData() ?? '', type: req.resourceType() });
+    page.on('request', onFieldRequest);
+    const fieldLogRun = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const beacons = [];
+      const realBeacon = navigator.sendBeacon;
+      navigator.sendBeacon = (...a) => { beacons.push(String(a[0])); return false; };
+      const cell = (k) => document.querySelector(`#s-field-log-rows [data-field-log="${k}"]`)?.textContent ?? null;
+      const keys = ['landed', 'firstInspect', 'time', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'];
+      const cells = () => Object.fromEntries(keys.map((k) => [k, cell(k)]));
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.fieldLog') ?? 'null'); } catch { return 'unreadable'; } };
+      const section = document.getElementById('s-field-log');
+      const out = { inAbout: !!section?.closest('#s-about'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
+        labels: [...document.querySelectorAll('#s-field-log-rows dt')].map((d) => d.textContent) };
+      document.getElementById('s-field-log-clear')?.click();
+      await wait(100);
+      out.cleared = cells();
+      out.clearedStore = stored();
+      out.status = document.getElementById('s-field-log-status')?.textContent ?? '';
+      // A Field Check step, through the Tour's own hook.
+      api.tour?.start();
+      await wait(300);
+      api.tour?.skip();
+      // Two presets tapped in the Confidence view app, then Normal is where it was.
+      await n.select('confidence');
+      await until(() => document.querySelector('#navigator .nav-preset[data-preset="bygrade"]'), 30000);
+      document.querySelector('#navigator .nav-preset[data-preset="bygrade"]')?.click();
+      await wait(150);
+      document.querySelector('#navigator .nav-preset[data-preset="normal"]')?.click();
+      await wait(150);
+      // The rest through the call each hook makes: a landing, then its first inspect.
+      for (const e of ['landed', 'inspect', 'inspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished']) api.fieldLog?.count(e);
+      await n.select('settings');
+      await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
+      if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 30000);
+      out.after = cells();
+      out.afterStore = stored();
+      // On a phone and a desktop alike the rows stay inside the section.
+      const box = document.getElementById('s-field-log')?.getBoundingClientRect();
+      out.past = [...document.querySelectorAll('#s-field-log *')].filter((el) => {
+        const r = el.getBoundingClientRect(); return r.width > 0 && box && (r.right > box.right + 1 || r.left < box.left - 1);
+      }).map((el) => el.tagName.toLowerCase() + (el.dataset.fieldLog ? `[${el.dataset.fieldLog}]` : '')).slice(0, 6);
+      navigator.sendBeacon = realBeacon;
+      out.beacons = beacons;
+      return out;
+    });
+    page.off('request', onFieldRequest);
+    const fieldSent = fieldRequests.filter((r) => !['GET', 'HEAD'].includes(r.method) || r.body || ['beacon', 'ping'].includes(r.type)
+      || /fieldLog|field_log|firstInspect|confidencePreset/i.test(decodeURIComponent(r.url)));
+    const zeroes = (c) => ['landed', 'firstInspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'].every((k) => c?.[k] === '0');
+    check(`${label}: Settings › About has the field log in plain words, and Clear empties it (T-2660)`,
+      fieldLogRun.inAbout && fieldLogRun.shown && fieldLogRun.labels.length === 9 && fieldLogRun.labels.every((l) => !/_|[a-z][A-Z]/.test(l))
+      && zeroes(fieldLogRun.cleared) && fieldLogRun.cleared.time === 'Not yet' && fieldLogRun.clearedStore === null
+      && /^Cleared\./.test(fieldLogRun.status),
+      JSON.stringify({ inAbout: fieldLogRun.inAbout, shown: fieldLogRun.shown, labels: fieldLogRun.labels, cleared: fieldLogRun.cleared, store: fieldLogRun.clearedStore, status: fieldLogRun.status }));
+    const fieldAfter = fieldLogRun.after ?? {};
+    check(`${label}: the field log counts a landing, its first inspect, a tab, Show me, a Jaunt started and finished, a Tour step and two presets, kept in localStorage (T-2660)`,
+      fieldAfter.landed === '1' && fieldAfter.firstInspect === '1' && /^\d+ s last time, 1 of 1 within 90 s$/.test(fieldAfter.time ?? '') && fieldAfter.tab === '1' && fieldAfter.showMe === '1'
+      && fieldAfter.jauntStarted === '1' && fieldAfter.jauntFinished === '1' && fieldAfter.tourStep === '1' && fieldAfter.confidencePreset === '2'
+      && fieldLogRun.afterStore?.counts?.confidencePreset === 2 && fieldLogRun.afterStore?.counts?.tourStep === 1
+      && fieldLogRun.past.length === 0,
+      JSON.stringify({ after: fieldAfter, store: fieldLogRun.afterStore, past: fieldLogRun.past }));
+    check(`${label}: no request carries the field log — nothing posted, no beacon, no counts in a URL (T-2660)`,
+      fieldSent.length === 0 && fieldLogRun.beacons.length === 0,
+      JSON.stringify({ sent: fieldSent.slice(0, 5), beacons: fieldLogRun.beacons, watched: fieldRequests.length }));
+    // <<< T-2660
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
