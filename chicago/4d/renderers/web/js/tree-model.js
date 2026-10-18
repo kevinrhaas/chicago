@@ -55,7 +55,8 @@ import * as THREE from 'three';
  *   order2    [count per limb, angle from the limb] for the second order
  *   order3    the same for the third
  *   droop     how far the twig ends hang (elm, willow)
- *   clump     foliage clump radius as a fraction of crown radius
+ *   clump     foliage clump radius as a fraction of crown radius (`clumpMin`
+ *             its floor in metres, 0.7 unless the species says)
  *   density   clumps per metre of terminal branch
  *   leaf      the leaf-atlas family; bark the bark tile
  */
@@ -175,6 +176,29 @@ export const ARCH = {
     limbAngle: 42, rise: 0.10, twist: 0.25, order2: [3, 40], order3: [2, 40], droop: 0.06,
     clump: 0.22, density: 0.85, gaps: 0.38, leaf: 'poplar', bark: 'smooth',
   },
+  // T-2768 — THE SAND HILLS' CONIFERS. "Low cedar trees, ground pine, and sand
+  // cherry bushes" (Clarke 1890, south of the town); "stunted cedars, pines, and
+  // dwarf-willow trees" (Wau-Bun 1856, north of it). The eastern red cedar of
+  // an open dune: a dense cone foliated almost to the sand, the leader often
+  // lost to wind so the top is blunt and the cone lopsided; shredding stringy
+  // bark. Scale-leaf sprays, so `density` is the highest here and `gaps` low:
+  // a cedar is a dark solid, not a lattice.
+  juniperus_virginiana: {
+    crown: 'cone', crownBase: 0.04, fork: 'excurrent', stems: [1, 1], scaffolds: [18, 26],
+    limbAngle: 58, rise: 0.10, twist: 0.35, order2: [4, 42], order3: [2, 40], droop: 0.04,
+    clump: 0.22, clumpMin: 0.26, density: 1.45, gaps: 0.10, leaf: 'scale', bark: 'shaggy_strips',
+    farBins: [3, 2],
+  },
+  // The pine neither witness names. Jack pine is the pine of the established
+  // Lake Michigan dune ridges (Cowles 1899), and "stunted" fits it: an open,
+  // irregular crown of crooked whorled limbs carried low on the stem, needles in
+  // brushes at the shoot ends, dark scaly bark.
+  pinus_banksiana: {
+    crown: 'irregular', crownBase: 0.14, fork: 'excurrent', stems: [1, 1], scaffolds: [11, 15],
+    limbAngle: 70, rise: 0.03, twist: 0.85, order2: [4, 50], order3: [2, 46], droop: 0.03,
+    clump: 0.17, clumpMin: 0.40, density: 0.80, gaps: 0.50, leaf: 'needle', bark: 'blocky',
+    farBins: [4, 2],
+  },
   populus_nigra_italica: {
     crown: 'column', crownBase: 0.06, fork: 'excurrent', stems: [1, 1], scaffolds: [16, 22],
     limbAngle: 16, rise: 0.12, twist: 0.10, order2: [3, 22], order3: [0, 0], droop: 0.0,
@@ -190,7 +214,11 @@ const ARCH_OF_FORM = {
 
 export function archFor(spec) {
   const id = spec.speciesId ?? '';
-  if (/dune form/.test(spec.common ?? '') && ARCH.populus_deltoides_dune) return ARCH.populus_deltoides_dune;
+  // The dune cottonwood is the gallery tree's binomial on another habit. Asked of
+  // the cottonwood only: the sand hills' red cedar is a "dune form" too (T-2768).
+  if (id === 'populus_deltoides' && /dune form/.test(spec.common ?? '') && ARCH.populus_deltoides_dune) {
+    return ARCH.populus_deltoides_dune;
+  }
   return ARCH[id] ?? ARCH[ARCH_OF_FORM[spec.form]] ?? ARCH.fraxinus_pennsylvanica;
 }
 
@@ -198,20 +226,22 @@ export function archFor(spec) {
 /* atlases: which tile a leaf family and a bark draw from                      */
 /* -------------------------------------------------------------------------- */
 
-/** Leaf atlas: 4 x 4 tiles of 512 px. Each family has a `sun` spray (the outer
+/** Leaf atlas: 4 x 5 tiles of 512 px (the fifth row since T-2768). Each family has a `sun` spray (the outer
  *  shell: smaller, denser, more leaves) and a `clump` (a broad mass of sprays the
  *  mid and far cards carry). */
 export const LEAF_TILES = {
   poplar: [0, 1], willow: [2, 3], elm: [4, 5], maple: [6, 7],
   oak_round: [8, 9], oak_pointed: [10, 11], compound: [12, 13], heart: [14, 15],
   aspen: [0, 1],
+  // T-2768: the fifth row (tools/generate_tree_atlas.py CONIFERS).
+  scale: [16, 17], needle: [18, 19],
 };
 /** Bark atlas: 4 x 2 tiles of 512 px. */
 export const BARK_TILES = {
   furrowed: 0, furrowed_dark: 0, interlaced: 1, blocky: 2, plated: 3, ridged: 3,
   shaggy: 4, shaggy_strips: 4, smooth: 5, aspen: 5, sycamore: 6, corky: 7, warty: 7,
 };
-const LEAF_GRID = [4, 4];
+const LEAF_GRID = [4, 5];
 const BARK_GRID = [4, 2];
 
 function atlasUV(grid, tile, u, v, padPx = 6, tilePx = 512) {
@@ -480,7 +510,9 @@ function growSkeleton(spec, arch, rnd) {
 
   /* the foliage: clumps carried along the outer reach of the finest branches */
   const terminal = third.length ? [...third, ...second.filter(() => rnd() < 0.5)] : second.length ? second : scaffolds;
-  const clumpR = Math.max(0.7, R * arch.clump);
+  // A clump is never smaller than a near card can carry a spray on (0.7 m), except
+  // for the small dune conifers, whose whole crown is a few metres (`clumpMin`).
+  const clumpR = Math.max(arch.clumpMin ?? 0.7, R * arch.clump);
   for (const b of terminal) {
     let L = 0;
     for (let i = 1; i < b.pts.length; i++) L += len(sub(b.pts[i], b.pts[i - 1]));
@@ -682,9 +714,12 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     const bins = new Map();
     for (const c of clumps) {
       const rel = sub(c.at, centre);
-      const sector = Math.floor(((Math.atan2(rel[2], rel[0]) + Math.PI) / (2 * Math.PI)) * 6) % 6;
-      const band = Math.min(2, Math.floor(clamp01((c.at[1] - sk.baseY) / sk.crownH) * 3));
-      const key = band === 2 && Math.hypot(rel[0], rel[2]) < sk.R * 0.35 ? 'cap' : `${sector}:${band}`;
+      // A crown a few metres high is held by fewer masses (`farBins`, the dune
+      // conifers): at the far ring it is a handful of pixels either way.
+      const [nSec, nBand] = arch.farBins ?? [6, 3];
+      const sector = Math.floor(((Math.atan2(rel[2], rel[0]) + Math.PI) / (2 * Math.PI)) * nSec) % nSec;
+      const band = Math.min(nBand - 1, Math.floor(clamp01((c.at[1] - sk.baseY) / sk.crownH) * nBand));
+      const key = band === nBand - 1 && Math.hypot(rel[0], rel[2]) < sk.R * 0.35 ? 'cap' : `${sector}:${band}`;
       const g = bins.get(key) ?? { at: [0, 0, 0], area: 0, n: 0, dir: [0, 0, 0] };
       g.at = add(g.at, c.at);
       g.dir = add(g.dir, c.dir);
