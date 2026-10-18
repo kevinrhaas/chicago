@@ -170,6 +170,9 @@ step "Settings › About shows the build stamp, and the DEV mark on a dev build 
   node tools/test_about.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
+# T-2643: Inspect's Story tab.
+step "Inspect's Story runs from design to today with BUILT, YOU ARE HERE and TODAY, another era's content filtered out and later facts marked after your visit (T-2643)" \
+  node tools/test_nav_story.mjs
 step "The way home: All destinations and Recall ask first, Cancel/Esc stay put, Return runs the reverse ring and stamps the trip, reduced motion skips the ring (T-2735)" \
   node tools/test_recall.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
