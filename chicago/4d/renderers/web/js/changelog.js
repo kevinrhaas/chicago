@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2013, ts: '2026-10-18T19:13:08.754Z', date: 'Oct 18, 2026, 2:13 PM CT', title: '1812 and 1835: cedars and pines on the sand hills', kind: 'feature',
+    items: [
+      'Low red cedars cover the lake-shore sand hills south of Twelfth Street, as Robert G. Clarke remembered them in 1890.',
+      'North of the river the sand hills carry stunted cedars and pines, after Wau-Bun, and the dunes south of the mouth a scanty scatter of pines and cottonwoods.',
+      'The trees grow in thickets with sand between them, and the wet hollows between dunes hold cottonwoods and balsam poplars instead.',
+      '1812 has the same sand hills, and north of the river they run on to the lake with no town in the way.',
+      'Red cedar and jack pine are new tree models with their own scale-leaf and needle foliage.',
+      'Every position is reconstructed and listed under Liberties.',
+    ] },
   { v: 2012, ts: '2026-10-18T19:09:06.663Z', date: 'Oct 18, 2026, 2:09 PM CT', title: 'Teachers can print the field check on one page', kind: 'feature',
     items: [
       'Guide has a new For teachers section. Print the handout gives one sheet, Letter or A4, with the field check\'s seven steps as students will see them.',
