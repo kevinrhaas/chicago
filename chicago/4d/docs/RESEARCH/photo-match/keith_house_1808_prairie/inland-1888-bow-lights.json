@@ -1,7 +1,7 @@
 {
  "_doc": "Written by tools/keith_bow_lights_read.py (T-2765): Keith's bow lights on the 1888 plate, judged on T-2762's level fits; read the tool's docstring for what is read and how.",
  "print": "data/sources/assets/inland_architect_1888_02_keith/plate.jpg",
- "glb_sha256": "f5cb5c87b1147a0fce1cae6e0282405c439575c8c9905e1773baee3aa9ee9eb7",
+ "glb_sha256": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
  "bow": {
   "radius_m": 3.204,
   "centre_uv": [
@@ -82,98 +82,98 @@
  "fits": [
   {
    "controls": "all controls",
-   "second_storey_rms_px": 7.9,
+   "second_storey_rms_px": 11.4,
    "principal": {
-    "before_rms_px": 50.0,
+    "before_rms_px": 35.1,
     "before_residual_px": [
+     21,
+     23,
      34,
      42,
-     52,
-     57,
-     60
+     48
     ],
-    "at_second_storey_bearings_rms_px": 7.5,
-    "best_width_m": 0.9
+    "at_second_storey_bearings_rms_px": 11.2,
+    "best_width_m": 0.85
    },
    "basement": {
-    "before_rms_px": 52.4,
+    "before_rms_px": 39.4,
     "before_residual_px": [
-     35,
-     43,
-     56,
-     59,
-     62,
-     55
+     21,
+     24,
+     38,
+     44,
+     51,
+     49
     ],
-    "at_second_storey_bearings_rms_px": 8.3,
-    "best_width_m": 0.73
+    "at_second_storey_bearings_rms_px": 8.9,
+    "best_width_m": 0.72
    }
   },
   {
    "controls": "loggia heights left out (predicted)",
-   "second_storey_rms_px": 15.7,
+   "second_storey_rms_px": 9.4,
    "principal": {
-    "before_rms_px": 31.0,
+    "before_rms_px": 37.2,
     "before_residual_px": [
-     19,
-     19,
-     28,
+     24,
+     27,
      37,
-     44
+     43,
+     49
     ],
-    "at_second_storey_bearings_rms_px": 15.5,
-    "best_width_m": 0.83
+    "at_second_storey_bearings_rms_px": 9.2,
+    "best_width_m": 0.86
    },
    "basement": {
-    "before_rms_px": 35.7,
+    "before_rms_px": 40.9,
     "before_residual_px": [
-     19,
-     20,
-     33,
-     39,
-     47,
-     46
+     24,
+     28,
+     41,
+     45,
+     51,
+     48
     ],
-    "at_second_storey_bearings_rms_px": 13.1,
-    "best_width_m": 0.72
+    "at_second_storey_bearings_rms_px": 7.1,
+    "best_width_m": 0.73
    }
   },
   {
    "controls": "sills left out",
-   "second_storey_rms_px": 8.2,
+   "second_storey_rms_px": 10.4,
    "principal": {
-    "before_rms_px": 49.5,
+    "before_rms_px": 36.1,
     "before_residual_px": [
+     22,
+     25,
      35,
-     42,
-     52,
-     56,
-     59
+     43,
+     49
     ],
-    "at_second_storey_bearings_rms_px": 7.9,
-    "best_width_m": 0.89
+    "at_second_storey_bearings_rms_px": 10.3,
+    "best_width_m": 0.83
    },
    "basement": {
-    "before_rms_px": 51.9,
+    "before_rms_px": 40.2,
     "before_residual_px": [
-     36,
-     43,
-     56,
-     58,
-     61,
-     54
+     22,
+     26,
+     39,
+     45,
+     51,
+     49
     ],
-    "at_second_storey_bearings_rms_px": 8.5,
-    "best_width_m": 0.72
+    "at_second_storey_bearings_rms_px": 7.9,
+    "best_width_m": 0.74
    }
   },
   {
    "controls": "sills and loggia heights left out",
-   "second_storey_rms_px": 12.0,
+   "second_storey_rms_px": 12.1,
    "principal": {
     "before_rms_px": 34.4,
     "before_residual_px": [
-     22,
+     21,
      23,
      33,
      41,
@@ -193,7 +193,7 @@
      47
     ],
     "at_second_storey_bearings_rms_px": 9.6,
-    "best_width_m": 0.73
+    "best_width_m": 0.74
    }
   }
  ],

@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "646104c3c223df1b859f54cdb97169209aa4f4d5a60ae981dd931c9188ae7bd5",
+  "glb_sha256": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
   "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -88,7 +88,7 @@
       "status": "not shown"
     },
     {
-      "what": "T-2725: this camera (T-2579, one of its seven controls on the loggia) draws the loggia's column and pedestal alike 12-15 % short: the 2.5 m column renders 88 px against the print's 100 (capital top y 134.5 to the plinth's joint y 234.5), the pedestal 35 against about 41, so the column/pedestal ratio is the model's (2.44 in the print) and the shortfall is this camera's scale at the loggia's depth. Its re-fit is T-2726's.",
+      "what": "T-2725: this camera (T-2579, one of its seven controls on the loggia) draws the loggia's column and pedestal alike 12-15 % short: the 2.5 m column renders 88 px against the print's 100 (capital top y 134.5 to the plinth's joint y 234.5), the pedestal 35 against about 41, so the column/pedestal ratio is the model's (2.44 in the print) and the shortfall is this camera's scale at the loggia's depth. Its re-fit is T-2726's. T-2763: the loggia is rebuilt 0.88 of its height over the deck (pedestal 0.88 m, column 2.2 m), on the 1888 plate's level fit, which now determines its eye; through this unchanged camera the column and pedestal therefore draw 0.88 of the 88 and 35 px above, about 77 and 31 against the print's 100 and 41. The ratio between them is still the print's, so what remains is this camera's depth at the loggia, which is T-2764's to re-fit.",
       "status": "open"
     },
     {

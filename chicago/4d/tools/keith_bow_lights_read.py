@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""T-2765: where Keith's bow lights stand on the 1888 plate, judged on T-2762's level fits.
+"""T-2765: where Keith's bow lights stand on the 1888 plate, judged on T-2762's level fits
+(and re-read on T-2763's re-fit of them, which moved no bow reading by more than the fit's own floor).
 
 The bow's principal and basement lights were built at -27, 0 and 27 degrees about the bow's
 centre (chord 5.0 m, rise 1.2 m, so a 3.204 m radius centred 3.7 m from the south corner), and
