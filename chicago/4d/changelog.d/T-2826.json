@@ -1,0 +1,8 @@
+{
+  "title": "After a display reset, the crash card says what the page was doing",
+  "kind": "improvement",
+  "items": [
+    "The page keeps a short record of its last steps on the device: taps, cards, the Navigator, detail switches, and what the graphics card was drawing.",
+    "If the display resets or the page stops, the next load shows those last steps on the crash card. Copy details copies the whole record, so it can be pasted into a report."
+  ]
+}
