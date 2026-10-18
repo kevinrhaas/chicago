@@ -377,7 +377,9 @@ const COVERAGE = [
   // T-1160. The Evidence hub is asserted in PART 12 (ten tiles since T-1292, each
   // counting its own mount) and its mounts are stress-measured for overflow in PART 13, so the
   // population profile and the hub itself are read by both and by nothing else.
-  ['renderers/web/js/evidence.js', [13, 14], 'the Evidence hub and its tiles'],
+  // T-2667: the hub is Guide › About this destination; its four cards are opened from
+  // Guide's own block in PART 12, and the 1904 hub's cards are read in PART 14.
+  ['renderers/web/js/evidence.js', [12, 13, 14], 'Guide › About this destination: the four cards and their tiles'],
   ['renderers/web/js/population.js', [13, 14], 'the town\u2019s people, profiled'],
   ['data/reconstruction/1835_population_profile.json', [13, 14], 'the profile the panel renders'],
   // T-1166. The order book's panel is the ninth tile, asserted in the same PART 12

@@ -220,6 +220,9 @@ step "Guide lists the seven locked terms with their lines and answers its two qu
 # T-2666: Guide › For teachers, the teacher handout.
 step "Guide › For teachers prints the Field Check's seven steps from the tour itself and three Jaunts per destination by one stated rule, as one top-level copy the print stylesheet keeps (T-2666)" \
   node tools/test_teacher_handout.mjs
+# T-2667: Guide › About this destination, the old research hub as four cards.
+step "Guide › About this destination folds every research topic into one of four cards, How we grade, Sources, Liberties and What lived and grew here, in every destination, with the order book behind Researcher mode and every id kept (T-2667)" \
+  node tools/test_guide_about.mjs
 # T-2652: getting there — one choice for Go to, the Map and Jaunts.
 step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
   node tools/test_getting_there.mjs

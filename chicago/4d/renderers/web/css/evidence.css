@@ -5,19 +5,36 @@
    through the tokens in walk.css :root / [data-theme="light"]; every tint here
    is mixed from --ink so it steps the surface in either direction. */
 
-/* ---- the hub: one tile per topic ---------------------------------------- */
-/* Two columns where two fit (a 390 px phone does, with the rail beside it), one
-   where they do not; a tile is a button the height of a thumb. */
-.ev-hub {
+/* ---- the hub: four cards, one tile per topic inside each ------------------ */
+/* T-2667: Guide › About this destination. A card is a heading, one plain line and
+   its topics' tiles; the cards stack in one column at every width. */
+.ev-hub { display: grid; gap: 12px; min-width: 0; }
+.ev-hub[hidden] { display: none; }
+.ev-card {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ink) 2%, transparent);
+}
+.ev-card-title { margin: 0; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.3; }
+.ev-card-title:focus { outline: none; }
+.ev-card-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ev-card-line, .ev-card-hint { margin: 0; color: var(--ink-dim); font-size: 13px; line-height: 1.45; }
+.ev-card-hint { font-size: 12px; }
+/* Two columns where two fit (a 390 px phone does), one where they do not; a tile is
+   a button the height of a thumb. */
+.ev-card-tiles {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
   /* Every tile in a row is as tall as the tallest, and every row as tall as the
-     tallest row, so the odd seventh tile does not stand alone at its own height. */
+     tallest row, so an odd last tile does not stand alone at its own height. */
   grid-auto-rows: 1fr;
   align-items: stretch;
   gap: 8px;
 }
-.ev-hub[hidden] { display: none; }
 
 /* ---- City: the town's two completeness ladders ------------------------- */
 .city-census {

@@ -13719,6 +13719,80 @@ for (const [label, viewport, touch] of [
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
+    // >>> T-2667: Guide › About this destination — the old research hub folded into four
+    // cards, How we grade, Sources, Liberties and What lived and grew here. Guide's own block
+    // lists them and a tap opens that card in the section under the sheet. With Researcher
+    // mode off nothing visible there names a ticket, a tier, the order book or the commit
+    // gate, and the order book is out of sight; with it on (the root's data-researcher-mode,
+    // which T-2657's switch sets) its card, its tile, its topic and Guide's fifth button
+    // show. Generous waits: Guide's sheet is a lazy module, and desktop frames take seconds.
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-about .nav-about-card'),
+      null, { timeout: 60_000, polling: 200 }).catch(() => {});
+    const aboutDest = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const root = document.documentElement;
+      const block = document.querySelector('#nav-app-guide #guide-about');
+      const shown = (el) => !!el && el.checkVisibility();
+      const buttons = [...(block?.querySelectorAll('.nav-about-card') ?? [])];
+      const out = {
+        block: !!block,
+        cards: buttons.filter(shown).map((b) => b.dataset.card),
+        titles: buttons.filter(shown).map((b) => b.querySelector('.nav-about-title')?.textContent.trim()),
+        blockText: block?.innerText ?? '',
+      };
+      buttons.find((b) => b.dataset.card === 'living')?.click();
+      for (let i = 0; i < 150 && !(api.hud.tab === 'evidence' && document.getElementById('evidence-hub')?.checkVisibility()); i++) {
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const hub = document.getElementById('evidence-hub');
+      const section = document.querySelector('[data-panel="evidence"]');
+      const living = hub?.querySelector('.ev-card[data-card="living"]');
+      const box = living?.getBoundingClientRect();
+      out.opened = {
+        tab: api.hud.tab, hubShown: shown(hub), title: document.getElementById('panel-title')?.textContent.trim(),
+        cards: [...(hub?.querySelectorAll('.ev-card') ?? [])].filter(shown).map((c) => c.dataset.card),
+        livingInView: !!box && box.height > 0 && box.top < innerHeight && box.bottom > 0,
+        focused: document.activeElement?.closest?.('.ev-card')?.dataset.card ?? null,
+        tiles: [...(hub?.querySelectorAll('.ev-tile') ?? [])].filter(shown).map((t) => t.dataset.topic),
+        orderBookShown: shown(hub?.querySelector('.ev-tile[data-topic="orderbook"]')),
+        hints: [...(hub?.querySelectorAll('.ev-card-hint') ?? [])].filter(shown).map((h) => h.closest('.ev-card')?.dataset.card),
+        text: section?.innerText ?? '',
+        fits: !!section && section.scrollWidth <= section.clientWidth + 1,
+      };
+      root.setAttribute('data-researcher-mode', '');
+      out.researcher = {
+        tileShown: shown(hub?.querySelector('.ev-tile[data-topic="orderbook"]')),
+        cardShown: shown(hub?.querySelector('.ev-card[data-card="research"]')),
+        guideButton: shown(block?.querySelector('.nav-about-card[data-card="research"]')),
+      };
+      api.evidenceHub.showTopic('orderbook');
+      out.researcher.topic = api.evidenceHub.topic;
+      out.researcher.topicShown = shown(document.getElementById('order-book'));
+      api.evidenceHub.showHub();
+      root.removeAttribute('data-researcher-mode');
+      api.evidenceHub.showTopic('orderbook');
+      out.offRefused = api.evidenceHub.topic !== 'orderbook' && !shown(document.getElementById('order-book'));
+      api.evidenceHub.showHub();
+      api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    const aboutLore = /\b(tiers?|tickets?|order[\s-]+books?|commit[\s-]+gate)\b|\bT-\d{3,4}\b|[a-z0-9]+_[a-z0-9]+/i;
+    check(`${label}: Guide › About this destination shows four cards and opens one in the section below, no internal word in sight and the order book only in Researcher mode (T-2667)`,
+      aboutDest.block && aboutDest.cards.join() === 'grading,sources,liberties,living'
+      && aboutDest.titles.join('|') === 'How we grade|Sources|Liberties|What lived and grew here'
+      && aboutDest.opened.tab === 'evidence' && aboutDest.opened.hubShown && aboutDest.opened.title === 'About this destination'
+      && aboutDest.opened.cards.join() === 'grading,sources,liberties,living' && aboutDest.opened.livingInView
+      && aboutDest.opened.tiles.length === 10 && !aboutDest.opened.orderBookShown
+      && aboutDest.opened.hints.join() === 'sources,liberties'
+      && !aboutLore.test(aboutDest.blockText) && !aboutLore.test(aboutDest.opened.text) && aboutDest.opened.fits
+      && aboutDest.researcher.tileShown && aboutDest.researcher.cardShown && aboutDest.researcher.guideButton
+      && aboutDest.researcher.topic === 'orderbook' && aboutDest.researcher.topicShown && aboutDest.offRefused,
+      JSON.stringify({ ...aboutDest, blockText: (aboutDest.blockText.match(aboutLore) ?? [null])[0],
+        opened: { ...aboutDest.opened, text: (aboutDest.opened.text.match(aboutLore) ?? [null])[0] } }));
+    // <<< T-2667
     await openSection('settings');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -15211,8 +15285,10 @@ for (const [label, viewport, touch] of [
         topic: api.evidenceHub.topic, backHidden: document.getElementById('panel-back').hasAttribute('hidden') };
       return out;
     });
+    // T-2667: the hub is Guide › About this destination, its eleven tiles inside four cards
+    // and the order book's (the eleventh) behind Researcher mode; the head says so.
     check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
-      hub.hubShown && hub.title === 'Sources' && hub.tiles.length === 11
+      hub.hubShown && hub.title === 'About this destination' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
       && hub.tiles[2]?.id === 'sources'
       && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
@@ -15235,8 +15311,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: Sources lazily lists scene and registered counts with a forty-row window`,
       sourcesView.initial.startsWith(String(sourcesView.scene)) && sourcesView.allStatus.startsWith(String(sourcesView.total))
       && sourcesView.initialRows === 40 && sourcesView.fits, JSON.stringify(sourcesView));
-    check(`${label}: Sources finds Andreas with date, type, tier and separate claim/entity figures`,
-      /1884/.test(sourcesView.known) && /book/.test(sourcesView.known) && /tier 3/.test(sourcesView.known)
+    // T-2667: the source says what kind it is (its tier 3, "gathered from witnesses", in the
+    // evidence ladder's words, inspect-sources.js sourceTag), and never the word tier.
+    check(`${label}: Sources finds Andreas with date, type, kind of source and separate claim/entity figures`,
+      /1884/.test(sourcesView.known) && /book/.test(sourcesView.known) && /gathered from witnesses/.test(sourcesView.known)
+      && !/\btier\b/i.test(sourcesView.known)
       && /Claims:/.test(sourcesView.known) && /Entities:/.test(sourcesView.known), sourcesView.known);
     const cityScene = hub.city.data?.people?.scene || null;
     const cityPopulation = cityScene?.population || null;
@@ -15363,7 +15442,7 @@ for (const [label, viewport, touch] of [
       && hub.cleared === hub.topic.total,
       JSON.stringify(hub.topic));
     check(`${label}: Back returns to the hub`,
-      hub.back.hubShown && hub.back.title === 'Sources' && hub.back.topic === null && hub.back.backHidden,
+      hub.back.hubShown && hub.back.title === 'About this destination' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
@@ -18807,6 +18886,19 @@ for (const [label, viewport, touch] of [
           && ['grades', 'liberties', 'ground'].every((t) => drawer.tiles.includes(t))
           && drawer.firms === 0 && drawer.tab !== 'people' && drawer.mounted.length === 0,
           JSON.stringify(drawer));
+        // >>> T-2667: the 1904 hub is Guide › About this destination too — the same four cards,
+        // each holding a topic of its own (the ground is what lived and grew here), and no
+        // order book, whose card the scene's missing residents layer leaves out.
+        const about1904 = await page.evaluate(() => {
+          const cards = [...document.querySelectorAll('#evidence-hub .ev-card')];
+          return { cards: cards.map((c) => c.dataset.card), api: window.__chicago4d.evidenceHub?.cards ?? null,
+            tiles: Object.fromEntries(cards.map((c) => [c.dataset.card, [...c.querySelectorAll('.ev-tile')].map((t) => t.dataset.topic)])) };
+        });
+        check(`${label}: the 1904 Guide › About this destination shows the same four cards, each with a topic, and no order book (T-2667)`,
+          about1904.cards.join() === 'grading,sources,liberties,living' && about1904.api?.join() === about1904.cards.join()
+          && Object.values(about1904.tiles).every((t) => t.length > 0) && about1904.tiles.living?.includes('ground'),
+          JSON.stringify(about1904));
+        // <<< T-2667
         check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
           at.problems.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
