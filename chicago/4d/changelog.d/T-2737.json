@@ -1,0 +1,9 @@
+{
+  "title": "The still-frame check times the town under Home, not mid-trip",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changed. The check that holds a still frame's time had been timing every place in the town under the blur that covers the scene during the jump.",
+    "The new landing's blur is 12 px, up from 2 px. That added about 3 seconds to a 19-second software frame at Full detail, and dev's still-frame ceiling went red.",
+    "The check now waits until Home is up and the blur has eased off, the screen a visitor actually rests on. Each reading names the state it was timed in."
+  ]
+}
