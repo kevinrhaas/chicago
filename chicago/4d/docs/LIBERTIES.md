@@ -28264,6 +28264,18 @@ panel, and its dies plain sunk panels in a raised border. What is still invented
 zigzag's 22 mm sink and the strap's width, every leaf's cut, each curl's two and a half
 turns and the scroll's 0.3 m pitch (the 1965 view counts about four loops along the
 front), all below both pictures' grain; the pedestals' panels keep T-1883's low relief.
+**T-2769 (2026-10-18), the pedestals' fields and the 1965 tint:** what is read now, from
+the 1888 plate at its native 1559 px (about 75 px to the metre on the pedestals, x 865-940
+and 1100-1160, y 1585-1650): each loggia pedestal's front carries a PLAIN field inside its
+border, about 32 x 41 px on a 47 px front, as T-2585 read the balcony's dies; the low relief
+leaf scrolls T-1883 laid in those fields are not in the picture and are taken off. The 1965
+close view (about 40 px to the metre there) shows the border only. The tint: none of the
+1965 slide's neutrals calibrates it (the white newel is clipped; balanced on the curtains
+the stone leans violet-blue, on the concrete walk faintly green-yellow), so its chroma is
+bracketed within about 9 CIELAB units of grey and the neutral grey stands, still
+reconstructed (`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json`,
+T2769_1965_neutrals). Still invented: the border's 35 mm bead and the field's depth, below
+the plate's grain; the south pedestal's side shows a like field the model does not yet lay.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
