@@ -28840,3 +28840,26 @@ the iron; the architects' plans would settle the recess and the porch.
 **Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
 **Ticket:** T-2728 (piece 1 of T-2435).
 **Recorded:** 2026-10-17 (T-2728).
+
+### L-glessner-terrace-terminal-2759 — the terrace's terminal post where the plan draws it (2026-10-18)
+
+**Decision:** The rounded terminal post at the foot of the bow terrace's coping is built where HABS
+sheet 2 (`habs_glessner_house_il_1015_drawings`) draws it. A circle fitted to the plan's ink ring gives
+centre W33.81/S46.20 and radius 0.93 ft at the line's centre, built at 0.9 ft. This supersedes
+L-glessner-courtyard-steps-2218's section-fitted S46.05 / 0.75 ft, which put the whole post inside the
+wall's end-on silhouette and hid its shaft in every west view. On the plan the post stands about 0.6 ft proud
+of the wall's outer face. Built that way, its shaft shows from grade to crown and the coping dies into its
+north side, as sheet 4 draws it and photograph 5 (`habs_glessner_photo_05_court_c1923`, rights
+check_required, a qualitative cross-check only) shows it. The crown's 5.1 ft height and 0.75 ft rise remain
+section readings. The three obscured lower tread ends are still reconstructions, re-seated 0.04 ft inside the
+new surface along their own lines. Past the traced section end, the coping's shoulder remains the
+reconstructed shoulder of L-glessner-courtyard-steps-2218.
+**Bounds:** Plan reading about ±0.1 ft for the centre and ±0.06 ft for the radius (the ink's inner and outer
+edges). Sheet 4 draws the junction about 0.9-1.1 ft further north (S45.35, with 1.22 ft of clear shaft
+against about 0.5 ft built). The same two sheets disagree by 0.63 ft the other way at the stair tower, so no
+datum shift is applied.
+**How to resolve:** A measured third source for the terminal (a survey, or a rights-cleared photograph with a
+solved camera) can move the junction along S.
+**Applies to:** `data/structures/glessner_house.json` (`v4_detail.bow_terrace.newel_WS`, `newel_radius_ft`,
+the last three `stair_boundaries_WS`); see `docs/RESEARCH/glessner-terrace-terminal-T-2759/`.
+**Recorded:** 2026-10-18 (T-2759).
