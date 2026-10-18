@@ -902,11 +902,15 @@ class Assembly:
         if op.component == ROUND_HOODED:
             # T-2410: a round-headed street window keeps K06's arch band as its moulded hood,
             # spring to spring, and stands a key block on the hood's crown
-            conf = max(conf, p.conf("street_front_round_heads"))
+            # T-2780: or the window over a bay on its host wall (`window_over`), with no key
+            # block unless the street front's round heads name one
+            street = op.wall == "k01.wall.street_front"
+            conf = max(conf, p.conf("street_front_round_heads" if street else "bays"))
             self.glaze(op, frame, body_mat, stone_trim, seed, conf, head=True)
-            k = p.round_heads["key"]
-            self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
-                           y1, y1 + k["height_m"], k["proud_m"], seed, conf)
+            k = p.round_heads.get("key") if street else None
+            if k:
+                self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
+                               y1, y1 + k["height_m"], k["proud_m"], seed, conf)
             return
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
@@ -2133,6 +2137,11 @@ class Assembly:
                                      (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
                                     zc - sw / 2, zc + sw / 2, P,
                                     lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+        if p.rear_section:   # T-2820: the rear section's attic, its end parapets and dormers
+            from . import k01_rear_section
+            more, cut = k01_rear_section.elements(self, k5, f)
+            solids += more
+            recesses += cut
         if p.shaped_gable:   # T-2543: the front carried up as a shaped gable, joined like a stack
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.element(self, k5, ye))
@@ -2427,7 +2436,7 @@ class Assembly:
     DORMER_FACES = {"street": ("x", 1.0, (0.0, 0.0, -1.0)), "rear": ("x", -1.0, (0.0, 0.0, 1.0)),
                     "north": ("z", -1.0, (-1.0, 0.0, 0.0)), "south": ("z", 1.0, (1.0, 0.0, 0.0))}
 
-    def round_dormer_body(self, d, face, fascia, centre, rise, lower_pitch_deg, bulge, E):
+    def round_dormer_body(self, d, face, fascia, centre, rise, lower_pitch_deg, bulge, E, profile=None):
         """A round-headed dormer as a closed solid for the roof's union (T-2404's crown
         dormer; T-2411 on the main mansard's lower faces) — a stone face on the lower face,
         `face_setback_m` in from the fascia's face (`fascia`, on the face's axis), its head
@@ -2440,7 +2449,8 @@ class Assembly:
         axis, sg, R = self.DORMER_FACES[face]
         ra = R[2] if axis == "x" else R[0]           # R along the face's own coordinate
         run = rise / math.tan(math.radians(lower_pitch_deg))
-        ys = E + mansard_face_height(d["face_setback_m"], rise, lower_pitch_deg, bulge, self.p.mansard["profile"])
+        ys = E + mansard_face_height(d["face_setback_m"], rise, lower_pitch_deg, bulge,
+                                     profile or self.p.mansard["profile"])
         nf = fascia - sg * d["face_setback_m"]       # the face's plane
         # K06's own hole: the sash's outline at the outer face, about its sill socket
         v = dict(next(x for x in k06_windows.load()["variants"] if x["id"] == d["variant"]))
@@ -3062,8 +3072,11 @@ def build(params, structure_id: str):
     def holes(wall_id):
         # T-2343: where a rear wing stands on this wall, the wall is behind it and not drawn
         finish_gap = [(0., p.stone_finish["stone_return_m"], p.floors_m[2]+.1, E)] if p.stone_finish and wall_id == "k01.wall.side.north" else []
+        # T-2820: and where the rear section stands beside it, to the wall head
         return finish_gap + [hole(o) for o in p.openings if o.wall == wall_id] + \
-               [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id]
+               [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id] + \
+               ([(*p.rear_section["host_span_m"], 0.0, E)] if p.rear_section and p.rear_section["host_wall"] == wall_id
+                else [])
 
     # The four walls, each about its base socket: outer face, left end (seen from
     # outside), at grade. +X is east (footprint u), -Z is north (footprint v).
@@ -3076,7 +3089,9 @@ def build(params, structure_id: str):
         "k01.wall.side.south": ("brick", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
     }
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid]
-                 + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid] for cid in walls}
+                 + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid]
+                 + ([p.rear_section["host_span_m"]] if p.rear_section and p.rear_section["host_wall"] == cid else [])
+             for cid in walls}
     if a.k14 is not None:   # T-2358: each wall's frame, for its trails and its damp line
         a.k14_walls = {cid: (O, R, _cross(R, Y), length) for cid, (mat, O, R, length, t, bands) in walls.items()}
 
@@ -3140,6 +3155,9 @@ def build(params, structure_id: str):
     # T-2343: the rear wings, each a brick box on its host wall under its own flat deck
     for w in p.rear_wings:
         a.wing(w, sc_conf)
+    if p.rear_section:   # T-2820: the rear section's step-out walls; its attic is the roof's
+        from . import k01_rear_section
+        k01_rear_section.walls(a)
     a.roof()
     # T-2308: the K08 bays, each on its wall. Its roof leans on that wall, so an opening
     # left above it must clear the roof — the K06 sill (0.10 m) and 0.05 m of flashing.

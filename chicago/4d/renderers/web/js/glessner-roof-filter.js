@@ -17,9 +17,12 @@ export function filterGlessnerRoof(material, record, geometry) {
   if (!hasInspectionLod(record) || !/^roof_plane(?:_[123])?$/.test(material.name)) return;
   for (const texture of new Set([material.map, material.normalMap, material.roughnessMap])) {
     if (!texture) continue;
-    texture.minFilter = THREE.LinearMipmapLinearFilter;
+    // A compressed sheet (ktx2.js) brings its own chain: the GPU cannot build one
+    // for it, and asking is a GL error on every upload (T-2822).
+    const chain = !texture.isCompressedTexture || texture.mipmaps?.length > 1;
+    texture.minFilter = chain ? THREE.LinearMipmapLinearFilter : THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
-    texture.generateMipmaps = true;
+    texture.generateMipmaps = !texture.isCompressedTexture;
     texture.anisotropy = 8; // Three clamps to the device's supported maximum.
     texture.needsUpdate = true;
   }

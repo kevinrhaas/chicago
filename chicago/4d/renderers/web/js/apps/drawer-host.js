@@ -12,7 +12,7 @@
  *
  *   Move      Travel
  *   People    People · Businesses         (1835; 1904 has its own People screen)
- *   Guide     Controls · Evidence
+ *   Guide     Controls · Evidence         (Evidence is About this destination, T-2667)
  *   Settings  Settings · What's new       (What's new's dot rides the Settings icon)
  *
  * Go to is not among them: it is the Jaunts app's own segment (T-2630), the arrival's
@@ -20,7 +20,8 @@
  * the HUD for it (G, or hud.selectTab('goto')) opens that segment instead (`openGoTo`).
  *
  * Each redesign is its own ticket (Jaunts/Go to E4, People, Settings T-2656, Evidence →
- * Guide T-2667); this moves the sections as they are.
+ * Guide › About this destination T-2667, done: four cards, the section keeps its `evidence`
+ * key); this moves the sections as they are.
  */
 
 /** Which app holds each of the drawer's sections. */

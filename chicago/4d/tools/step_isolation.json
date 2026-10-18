@@ -2828,6 +2828,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_navigator_contrast.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_near_field_keeper.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5362,6 +5366,10 @@
         "/home/claude/chicago/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
       ]
     },
+    "tools/strip_page_comments.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/structure_versions.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5395,6 +5403,10 @@
       "wrote_ignored": []
     },
     "tools/test_arrival_telemetry.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_blackbox.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5566,6 +5578,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_guide_about.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_guide_glossary.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5586,6 +5602,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_license.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_loading_content.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5603,6 +5623,10 @@
       "wrote_ignored": []
     },
     "tools/test_move_comfort.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_design.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5727,6 +5751,10 @@
       "wrote_ignored": []
     },
     "tools/test_selected_year.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_settings_app.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

@@ -26,7 +26,7 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                distance in from the eaves on every plane, so the hips stay shared
   balcony      (T-2525) a bow's iron balcony rail on its eaves, round the plan from wall to
                wall: a post at each end against the wall, square bars between a foot rail
-               and a top rail; and a window entry's `grille`, iron bars in its reveal
+               and a top rail (T-2780: or a stone balustrade round a canted bay's flat top); and a window entry's `grille`, iron bars in its reveal
                clipped to its head, with an arch ring over them as 1621's drawing draws
   heads        (T-2531) a window entry's `voussoirs`: a block of splayed stones over the
                light from its head to the string course, their joints fanned, as 1621's
@@ -814,7 +814,7 @@ class Bay:
             if v.get("brackets"):
                 self._modillions(flat, run, y_top, ov)
             if v.get("balcony"):
-                self._balcony(flat, run, y_e, ov)
+                self._balcony(flat, run, y_e, ov, first=i == 0)
             if v.get("floor_balcony"):
                 ((fi, fs),) = locate(self.runs, self.plan, {"at": [v["floor_balcony"]["at"]]})
                 if fi == i:
@@ -1225,29 +1225,34 @@ class Bay:
         self.meta["finial"] = {"top_m": round(ay + H, 4)}
 
     # sockets and the specimen's board --------------------------------------------------------
-    def _balcony(self, flat, run, y_e, ov):
+    def _balcony(self, flat, run, y_e, ov, first=True):
         """T-2525: an iron rail on the eaves, `inset_m` in from their edge and round the run
         from the wall to the wall: a square post against the wall at each end, a foot rail
         and a top rail between them, and square bars at `pitch_m` under the top rail. Only a
-        bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others)."""
+        bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others);
+        T-2780: or a canted bay's flat top, a post at each end of each run, in the bay's dressed
+        stone where the balcony names `fabric: stone` (1637's south bay, its balustrade)."""
         bl = self.v["balcony"]
+        role = "band" if bl.get("fabric") == "stone" else "iron"
         z = ov - bl["inset_m"]
         pm, bm, (rw, rd) = bl["post_m"], bl["bar_m"], bl["rail_m"]
-        y0, y3 = y_e, y_e + bl["height_m"]
+        # a stone balustrade's feet stand on a 2 mm bed over the flat roof, not in its plane
+        y0, y3 = y_e + (0.002 if role == "band" else 0.0), y_e + bl["height_m"]
         d0, d1 = -z - pm / 2, -z + pm / 2
         sa, sb = run.s_start(z), run.s_end(z)
-        for a in (sa, sb - pm):
-            prism(flat, "iron", rect(a, a + pm, y0, y3), d0, d1)
+        # a canted top's runs meet at its corners, where the run before stood its end post
+        for a in ((sa, sb - pm) if first else (sb - pm,)):
+            prism(flat, role, rect(a, a + pm, y0, y3), d0, d1)
         e0, e1 = sa + pm, sb - pm
         # the rails run into the posts' middles, so no end of theirs lies in a post's face
         for ya, yb in ((y3 - rd, y3 - 0.004), (y0 + bl["foot_rail_m"], y0 + bl["foot_rail_m"] + rd / 2)):
-            prism(flat, "iron", rect(sa + pm / 2, sb - pm / 2, ya, yb), -z - rw / 2, -z + rw / 2)
+            prism(flat, role, rect(sa + pm / 2, sb - pm / 2, ya, yb), -z - rw / 2, -z + rw / 2)
         n = max(1, math.floor((e1 - e0) / bl["pitch_m"]))
         step = (e1 - e0) / (n + 1)
         # the light tier keeps the posts and rails, the rail's outline, and drops the bars
         for i in (range(1, n + 1) if self.tier == "full" else ()):
             m = e0 + i * step
-            prism(flat, "iron", rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
+            prism(flat, role, rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
         self.meta["balcony"] = {"bars": n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
 
     def _floor_balcony(self, flat, s_c, cv):

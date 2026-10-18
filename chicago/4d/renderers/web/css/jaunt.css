@@ -124,6 +124,9 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-keepsake-note .jaunt-keepsake-form, .jaunt-keepsake-note .jaunt-keepsake-family { font-style: normal; }
 .jaunt-keepsake-clipping { border: 3px double currentColor; font-family: Georgia, 'Times New Roman', serif; }
 .jaunt-keepsake-card { border: 1px solid currentColor; border-radius: 10px; text-align: center; }
+/* T-2665: the Navigator License — a laminated card with a double rule, in the skin's own ink. */
+.jaunt-keepsake-license { border: 2px solid currentColor; border-radius: 12px; outline: 1px solid color-mix(in srgb, currentColor 40%, transparent); outline-offset: -6px; padding: 12px 16px; }
+.jaunt-keepsake-license h4 { letter-spacing: .08em; text-transform: uppercase; }
 .jaunt-award { margin: 8px 0; }
 [data-action="daybook-reset"] { margin-top: 12px; }
 /* T-2120: sources stay one tap away without crowding the story. */

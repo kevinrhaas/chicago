@@ -13,7 +13,8 @@
  *     the Inspect tabs land (T-2639), so its bubble names the Full record, not "Design";
  *   - step 06 completes on a Confidence view preset other than Normal (T-2647): the
  *     colouring on, or a grade hidden — the state every such preset puts in force;
- *   - step 07's Finish ends the tour; the NAVIGATOR LICENSE keepsake is T-2665's.
+ *   - step 07's Finish ends the tour and calls `onFinish`, which awards the Navigator
+ *     License keepsake (T-2665, js/license.js); Skip ends it without.
  *
  * `probe()` returns { yawDeg, e, n, opens, deeper, confidence, confChanges, scene, front }:
  * the camera's bearing, where the visitor stands, how many times Inspect or a building card

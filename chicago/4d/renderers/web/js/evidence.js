@@ -1,5 +1,13 @@
 /**
- * evidence.js — the Evidence panel as a hub of topics rather than one scroll.
+ * evidence.js — Guide › About this destination (T-2667): the old Evidence panel as four
+ * cards of topics rather than one scroll.
+ *
+ * T-2667 (design doc section 12, NAV-1002) folded the hub's topics into four cards —
+ * How we grade, Sources, Liberties, What lived and grew here (`CARDS` below) — and put
+ * the order book behind Researcher mode. The section keeps its `evidence` key, and every
+ * topic, mount and tile keeps its id and class, because main.js, sources.js and the smoke
+ * address them by those. What follows is the hub as it was built (T-0710); a "tile" is
+ * still a topic's button, now inside its card.
  *
  * The panel used to be seven lists and their explanatory paragraphs stacked into
  * a single column: everything in it was worth reading and none of it could be
@@ -22,7 +30,7 @@
  * whenever a mount mutates.
  *
  * Contract (main.js): createEvidenceHub({ root, onTitle, omit }) ->
- *   { showHub({ keep }), showTopic(id), get topic }
+ *   { showHub({ keep }), showTopic(id), showCard(id), get topic, get cards }
  * `onTitle(text, onBack)` is the drawer head (hud.setTitle): a topic pushes its
  * title and a back action; `onTitle(null)` restores the section's own name.
  * `omit` (T-1740) names topics the scene does not carry — the 1835 town's
@@ -33,6 +41,7 @@
  */
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
+import './strings/guide-about.js';
 import { escapeHtml } from './citations.js';
 
 const SVG = (paths) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"`
@@ -53,47 +62,47 @@ const TOPICS = [
   },
   {
     id: 'city',
-    gloss: 'The town in numbers: what stands, who is named, and what each grade promises',
+    gloss: str('guide-about.topic.city'),
     icon: SVG('<path d="M4 20V8l4-3 4 3v12"/><path d="M12 20V5l4-2 4 2v15"/><path d="M2 20h20"/>'),
     mount: '#city',
     entries: (topic) => [...topic.querySelectorAll('#city .gc-row')],
     facet: () => null,
   },
   {
-    id: 'sources', gloss: 'The sources: what each one supplied, and where it shows',
+    id: 'sources', gloss: str('guide-about.topic.sources'),
     icon: SVG('<path d="M4 3h16v18H4zM8 7h8M8 11h8M8 15h5"/>'),
     mount: '#sources', entries: () => [], facet: () => null,
   },
   {
     id: 'liberties',
-    gloss: 'Every value a record states without evidence, admitted by name',
+    gloss: str('guide-about.topic.liberties'),
     icon: SVG('<path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10z"/><path d="M13.5 8l3 3"/>'),
     facet: scopeFacet,
   },
   {
     id: 'ground',
-    gloss: 'The terrain’s own graded claims: water, levels, banks',
+    gloss: str('guide-about.topic.ground'),
     icon: SVG('<path d="M3 8c3 2 6 2 9 0s6-2 9 0"/><path d="M3 13c3 2 6 2 9 0s6-2 9 0"/>'
       + '<path d="M3 18c3 2 6 2 9 0s6-2 9 0"/>'),
     facet: scopeFacet,
   },
   {
     id: 'fauna',
-    gloss: 'Animals researched into ten habitats, for 1 July. None are drawn.',
+    gloss: str('guide-about.topic.fauna'),
     icon: SVG('<circle cx="7.5" cy="9" r="1.6"/><circle cx="12" cy="6.5" r="1.6"/><circle cx="16.5" cy="9" r="1.6"/>'
       + '<path d="M12 11.5c-3 0-5.5 2.6-5.5 5.2 0 1.6 1.2 2.6 2.6 2.6 1.1 0 1.8-.6 2.9-.6s1.8.6 2.9.6c1.4 0 2.6-1 2.6-2.6 0-2.6-2.5-5.2-5.5-5.2z"/>'),
     facet: () => null,
   },
   {
     id: 'plants',
-    gloss: 'Plant communities and their species, for 1 July',
+    gloss: str('guide-about.topic.plants'),
     icon: SVG('<path d="M12 21v-9"/><path d="M12 12c0-4.5 3.2-7.5 8-7.5 0 5.2-3.2 8.2-8 7.5z"/>'
       + '<path d="M12 16c0-3-2.6-5-6-5 0 3.6 2.6 5.6 6 5z"/>'),
     facet: () => null,
   },
   {
     id: 'exclusions',
-    gloss: 'Buildings researched and left out: dated later, or already gone',
+    gloss: str('guide-about.topic.exclusions'),
     icon: SVG('<circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/>'),
     // The chip is the record's own `earliest_scene`; an entry without one had
     // already come down. Two findings, one list — the pills tell them apart.
@@ -101,14 +110,14 @@ const TOPICS = [
   },
   {
     id: 'uncertain',
-    gloss: 'Doubts on the record, and what settling them would change',
+    gloss: str('guide-about.topic.uncertain'),
     icon: SVG('<circle cx="12" cy="12" r="8.5"/><path d="M9.5 9.6a2.6 2.6 0 1 1 4.1 2.1c-1 .8-1.6 1.4-1.6 2.6"/>'
       + '<path d="M12 17.4h.01"/>'),
     facet: scopeFacet,
   },
   {
     id: 'population',
-    gloss: 'Who the sources actually name, profiled axis by axis',
+    gloss: str('guide-about.topic.population'),
     icon: SVG('<circle cx="9" cy="8.5" r="3"/><path d="M3.5 19.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/>'
       + '<path d="M16 6.2a3 3 0 0 1 0 5.6"/><path d="M17.5 14.9c1.9.6 3 2.4 3 4.6"/>'),
     // The chip is the section's own row count: an axis is as big as the table
@@ -117,7 +126,7 @@ const TOPICS = [
   },
   {
     id: 'orderbook',
-    gloss: 'What the town still owes: the quota, bucket by bucket',
+    gloss: str('guide-about.researcher.topic.orderbook'),
     icon: SVG('<path d="M4 5.5h6.5a2 2 0 0 1 2 2V19a2 2 0 0 0-2-2H4z"/>'
       + '<path d="M20 5.5h-5.5a2 2 0 0 0-2 2V19a2 2 0 0 1 2-2H20z"/>'
       + '<path d="M12.5 7.5V19"/>'),
@@ -126,6 +135,72 @@ const TOPICS = [
     facet: () => null,
   },
 ];
+
+/**
+ * T-2667 (NAV-1002; design doc section 12): the topics fold into four cards, in this
+ * order — How we grade, Sources, Liberties, What lived and grew here — and the order
+ * book, internal language (the quota, the work still owed), goes behind Researcher mode
+ * (owner ruling 2026-10-16). Every topic is in exactly one card. A card a scene leaves
+ * with no topic is not drawn; the four visitor cards each keep one in 1835 and in 1904
+ * (How we grade, Sources, Liberties and the ground are in every scene). `inspect` cards
+ * say that one building's own share of them is on Inspect's Sources tab (T-2644).
+ */
+export const CARDS = [
+  { id: 'grading', topics: ['grades', 'city'] },
+  { id: 'sources', topics: ['sources'], inspect: true },
+  { id: 'liberties', topics: ['liberties', 'exclusions', 'uncertain'], inspect: true },
+  { id: 'living', topics: ['ground', 'fauna', 'plants', 'population'] },
+  { id: 'research', topics: ['orderbook'], researcher: true },
+];
+export const TOPIC_IDS = TOPICS.map((t) => t.id);
+export const VISITOR_CARDS = CARDS.filter((c) => !c.researcher).map((c) => c.id);
+
+/** The card a topic is filed under. */
+export function cardOf(topicId) {
+  return CARDS.find((c) => c.topics.includes(topicId))?.id ?? null;
+}
+
+/** The cards a scene shows, with their words and the topics it carries, in order. */
+export function hubPlan(omit = []) {
+  return CARDS.map((c) => ({
+    id: c.id,
+    researcher: !!c.researcher,
+    topics: c.topics.filter((id) => !omit.includes(id)),
+    title: str(c.researcher ? 'guide-about.researcher.card' : `guide-about.card.${c.id}`),
+    line: str(c.researcher ? 'guide-about.researcher.card.line' : `guide-about.card.${c.id}.line`),
+    hint: c.inspect ? str(`guide-about.card.${c.id}.inspect`) : '',
+  })).filter((c) => c.topics.length);
+}
+
+/** The hub's markup: a section per card (the researcher's marked `data-researcher`), each
+ *  a heading, its line, its topics' tiles and, for Sources and Liberties, the pointer to
+ *  Inspect. `topics` maps a topic id to { id, title, gloss, icon }. */
+export function hubHtml(plan, topics) {
+  const tile = (t) => `<button class="ev-tile" type="button" data-topic="${t.id}"`
+    + ` aria-label="${escapeHtml(t.title)}">`
+    + `<span class="ev-tile-head">${t.icon}<b class="ev-count" aria-label="entries">…</b></span>`
+    + `<span class="ev-tile-title">${escapeHtml(t.title)}</span>`
+    + `<span class="ev-gloss">${escapeHtml(t.gloss)}</span></button>`;
+  return plan.map((c) => `<section class="ev-card" data-card="${c.id}"${c.researcher ? ' data-researcher' : ''}`
+    + ` aria-labelledby="ev-card-${c.id}">`
+    + `<h3 class="ev-card-title" id="ev-card-${c.id}" tabindex="-1">${escapeHtml(c.title)}</h3>`
+    + `<p class="ev-card-line">${escapeHtml(c.line)}</p>`
+    + `<div class="ev-card-tiles">${c.topics.filter((id) => topics.has(id)).map((id) => tile(topics.get(id))).join('')}</div>`
+    + (c.hint ? `<p class="ev-card-hint">${escapeHtml(c.hint)}</p>` : '')
+    + '</section>').join('');
+}
+
+/** A topic's tile words and icon, for hubHtml: its gloss and icon from TOPICS. */
+export function topicSpec(id) {
+  const t = TOPICS.find((x) => x.id === id);
+  return t ? { id: t.id, gloss: t.gloss, icon: t.icon } : null;
+}
+
+/** Researcher mode is on when the root carries `data-researcher-mode` (T-2657's switch
+ *  sets it; css/skins.css hides every `[data-researcher]` element until it does). */
+export function researcherOn(doc = globalThis.document) {
+  return !!doc?.documentElement?.hasAttribute?.('data-researcher-mode');
+}
 
 /** The chip text on an entry's own summary row — not a nested entry's. */
 function scopeFacet(entry) {
@@ -136,7 +211,7 @@ function scopeFacet(entry) {
 const norm = (s) => (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
 
 export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {}, omit = [] } = {}) {
-  if (!root) return { showHub() {}, showTopic() {}, get topic() { return null; } };
+  if (!root) return { showHub() {}, showTopic() {}, showCard() { return false; }, get topic() { return null; }, get cards() { return []; } };
 
   const hub = root.querySelector('#evidence-hub');
   const topics = new Map();
@@ -152,13 +227,15 @@ export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {}
 
   let current = null;
 
-  // ---- tiles --------------------------------------------------------------
+  // ---- cards, and the tiles inside them ------------------------------------
+  // T-2667: the hub is four cards, each a heading, one plain line and its topics'
+  // tiles; the order book's card carries `data-researcher`, so it is off a visitor's
+  // screen until Researcher mode is on. The tiles are the same buttons as before.
+  const plan = hubPlan(omit).map((c) => ({ ...c, topics: c.topics.filter((id) => topics.has(id)) }))
+    .filter((c) => c.topics.length);
+  const researcherTopics = new Set(plan.filter((c) => c.researcher).flatMap((c) => c.topics));
   if (hub) {
-    hub.innerHTML = [...topics.values()].map((t) => `<button class="ev-tile" type="button" data-topic="${t.id}"`
-      + ` aria-label="${escapeHtml(t.title)}">`
-      + `<span class="ev-tile-head">${t.icon}<b class="ev-count" aria-label="entries">…</b></span>`
-      + `<span class="ev-tile-title">${escapeHtml(t.title)}</span>`
-      + `<span class="ev-gloss">${escapeHtml(t.gloss)}</span></button>`).join('');
+    hub.innerHTML = hubHtml(plan, topics);
     hub.addEventListener('click', (e) => {
       const tile = e.target.closest('.ev-tile');
       if (tile) showTopic(tile.dataset.topic, { focus: true });
@@ -299,6 +376,8 @@ export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {}
   function showTopic(id, { focus = false } = {}) {
     const t = topics.get(id);
     if (!t) return;
+    // The order book opens only in Researcher mode: its topic is hidden without it.
+    if (researcherTopics.has(id) && !researcherOn(root.ownerDocument)) return;
     current = id;
     if (hub) hub.hidden = true;
     for (const o of topics.values()) o.el.hidden = o !== t;
@@ -334,11 +413,23 @@ export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {}
     if (focusTile && hub) hub.querySelector(`.ev-tile[data-topic="${left}"]`)?.focus({ preventScroll: true });
   }
 
+  /** Open the hub at one card (Guide's About this destination block asks for it). */
+  function showCard(id, { focus = true } = {}) {
+    const card = hub?.querySelector(`.ev-card[data-card="${id}"]`);
+    if (!card || (card.hasAttribute('data-researcher') && !researcherOn(root.ownerDocument))) return false;
+    showHub();
+    card.scrollIntoView?.({ block: 'start' });
+    if (focus) card.querySelector('.ev-card-title')?.focus({ preventScroll: true });
+    return true;
+  }
+
   showHub();
 
   return {
     showHub,
     showTopic,
+    showCard,
     get topic() { return current; },
+    get cards() { return plan.map((c) => c.id); },
   };
 }
