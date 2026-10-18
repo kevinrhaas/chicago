@@ -9,7 +9,7 @@
   "url": "https://archive.org/details/chicagomassacreo00kirk",
   "archived_url": "https://ia600508.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/12/items/chicagomassacreo00kirk/chicagomassacreo00kirk_djvu.xml&page=212",
   "locator": "Appendix K, printed p. 209 (the running head over the Galloway letter) and p. 210; BookReader leaves 211 (Arnold), 212 (Galloway, and Clarke's letter to 'extending from a little north of Six-') and 213 (Clarke from '-teenth Street. Almost in the center of this grove').",
-  "tier": 3,
+  "tier": 2,
   "rights_status": "public_domain",
   "asset_use": "text_only",
   "verified": true,
@@ -45,5 +45,5 @@
     "how far the grove reached back from the water",
     "a picture: Andreas's engraving of the 18th Street tree (vol. 1, p. 31) is a separate work and is not in this corpus"
   ],
-  "note": "Written for T-2766. Kirkland's own text is tier 3, a compiler's; grade a claim on the letter it rests on, as `transcribes` does."
+  "note": "Written for T-2766. The record's rung is the best letter it prints (Clarke's and Arnold's, tier 2); Kirkland's own connecting text is a compiler's, and Galloway's report of Mrs. Williams is a rung lower, as `transcribes` says. Grade a claim on the letter it rests on."
 }

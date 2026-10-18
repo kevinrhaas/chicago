@@ -92,7 +92,7 @@
           1364
         ],
         "n": [
-          -736,
+          -836,
           1128
         ]
       }
@@ -101,6 +101,7 @@
   "unselectable": {},
   "placed": {
     "populus_deltoides": [
+      "z05_riverbank_timber",
       "z08_lakeshore",
       "z10_settled_town"
     ],
