@@ -2261,7 +2261,11 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   color: #1a1503; background: linear-gradient(135deg, #fbbf24, #d97706); }
 .about-dev[hidden], #s-about-dev-note[hidden] { display: none; }
 #s-about-dev-note a { color: var(--accent); }
+/* T-2785 (owner, 2026-10-18: "the dev marker tag and date time stamp for dev is now gone
+   so that should come back"): on a phone the DEV pill always shows in place of the
+   full-width banner, which is the piece that covered the HUD's top row, and the arrival
+   card prints its build stamp again. Production draws neither. */
 @media (max-width: 620px) {
-  #__dev, #__devpill { display: none !important; }
-  .gate:not(:has(#gate-btn[data-arrival-retry])) #gate-build { display: none; }
+  #__dev { display: none !important; }
+  #__devpill { display: inline-block !important; }
 }

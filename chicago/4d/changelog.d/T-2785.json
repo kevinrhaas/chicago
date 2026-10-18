@@ -1,0 +1,9 @@
+{
+  "title": "Dev preview: the DEV tag and build stamp are back on phones",
+  "kind": "change",
+  "items": [
+    "On a phone, the dev preview shows the small DEV tag in the top corner again.",
+    "The arrival card prints the build and its time again.",
+    "The full-width preview banner stays off phones so it can't cover the top controls. Production shows none of this."
+  ]
+}
