@@ -160,8 +160,11 @@ export const TIMBER_CENSUS = () => {
   a.scene3d.traverse((o) => {
     // `timber` is T-0223's single batch; `timber__q0…q3` were the four merged
     // quadrant meshes before it. Both shapes are read, so unwinding the batch
-    // cannot empty this census the way landing it did.
-    if (!/^timber(__|$)/.test(o.name)) return;
+    // cannot empty this census the way landing it did. T-2743's grown trees are
+    // four more batches, `timber-shade-*` and `timber-far-*`, one instance per
+    // stem under its own matrix: every stem sits in both sets, so each is
+    // walked twice, which is the same question asked of both copies.
+    if (!/^timber(__|-|$)/.test(o.name)) return;
     out.objects++;
     o.updateWorldMatrix(true, false);
     const W = o.matrixWorld.elements;
