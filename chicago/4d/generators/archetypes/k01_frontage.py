@@ -2028,6 +2028,7 @@ class Assembly:
                                             bottom=y0, flashing=False)
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
                 polys = k5.union(polys, k15.join_stack(parts))
+        recesses += self.through_eave_cutters(k5, yf)
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
         pts, tris = _weld_shell(*k5.close(polys))
@@ -2050,6 +2051,46 @@ class Assembly:
         if p.rainwater:
             self.rainwater(ye, yf, seed)
         return yf
+
+    THROUGH_EAVE_INSET_M = 0.05   # T-2778: the eave runs this far into the oriel's walls
+
+    def through_eave_plan(self, b, inset):
+        """T-2778: an oriel's plan on the street front, every run's line moved `inset` in
+        and its back `inset` / 25 off the wall plane, as (s along the front, out) points."""
+        pts = [tuple(map(float, q)) for q in b["variant"]["plan"]["points"]]
+        lines = []
+        for (x0, z0), (x1, z1) in zip(pts, pts[1:]):
+            L = math.hypot(x1 - x0, z1 - z0)
+            e = ((x1 - x0) / L, (z1 - z0) / L)
+            n = (e[1], -e[0])                   # the run's inward side (the plan runs left to right)
+            lines.append(((x0 + n[0] * inset, z0 + n[1] * inset), e))
+        lines = [((-1.0, inset / 25), (1.0, 0.0))] + lines + [((1.0, inset / 25), (-1.0, 0.0))]
+        out = []
+        for (a1, e1), (a2, e2) in zip(lines, lines[1:]):
+            den = e1[0] * e2[1] - e1[1] * e2[0]
+            t = ((a2[0] - a1[0]) * e2[1] - (a2[1] - a1[1]) * e2[0]) / den
+            out.append((b["s_m"] + a1[0] + t * e1[0], a1[1] + t * e1[1]))
+        return out
+
+    def through_eave_cutters(self, k5, yf):
+        """T-2778: where an oriel is carried up through the eave (k01_frontage_params._bays,
+        `through_eave`), the hip's eave, soffit and the covering's lip in front of the wall
+        are cut away inside its plan, its runs moved THROUGH_EAVE_INSET_M in, so the eave
+        dies into its cants and runs on a few centimetres inside their walls. The cut faces
+        are walls (never emitted): the oriel's own walls stand in front of them."""
+        out = []
+        for b in self.p.bays:
+            if not b.get("through_eave"):
+                continue
+            if b["wall"] != "k01.wall.street_front" or self.p.mansard or self.p.gable or self.p.roof_form != "hip":
+                raise ValueError(f"{b['id']}: an oriel is carried through a hip's eave on the street front")
+            D = self.p.depth_m
+            plan = [(D + z, s) for s, z in self.through_eave_plan(b, self.THROUGH_EAVE_INSET_M)]
+            # (a, b) = (u, s): K05's world is (u, y, -s); the prism stands from under the soffit
+            # to over the covering's lip, which is all the hip has in front of the wall
+            out.append(k5.extrude(plan, yf - 0.5, self.p.eave_m + 1.0, lambda a, b_, c: (a, c, -b_),
+                                  "wall", "wall", "wall"))
+        return out
 
     def flat_roof(self):
         """The stone-front rowhouse's flat roof as ONE closed solid (T-2350), from K05's
@@ -2617,10 +2658,25 @@ class Assembly:
             return [(pt[0] - math.cos(a) * rad * out[0], pt[1] - math.sin(a) * rad, pt[2] - math.cos(a) * rad * out[2])
                     for a in secs], pt
 
+        # T-2778: the gutter stops in the cants of an oriel carried through the eave, each
+        # end run into its wall where the gutter's outer lip meets it, and no hanger stands
+        # inside it
+        dead = []
+        for b in p.bays:
+            if b.get("through_eave"):
+                q = self.through_eave_plan(b, self.THROUGH_EAVE_INSET_M)
+                zo = A + ro + 0.01
+                xs = [a[0] + (zo - a[1]) / (b_[1] - a[1]) * (b_[0] - a[0]) for a, b_ in zip(q, q[1:])
+                      if (a[1] - zo) * (b_[1] - zo) < 0]
+                if len(xs) != 2:
+                    raise ValueError(f"{b['id']}: the gutter's lip at {zo:.3f} m out does not cross its cants")
+                dead.append((A + min(xs), A + max(xs)))
         stations = sorted({*(round(x % P, 6) for x in starts), *(round(x, 6) for x in outlets),
-                           *(round(x, 6) for x in highs)})
+                           *(round(x, 6) for x in highs), *(round(x, 6) for d in dead for x in d)})
         pr = self.prim(mat)
         for a_, b_ in zip(stations, stations[1:] + [stations[0] + P]):
+            if any(d0 - 1e-6 <= (a_ + b_) / 2 <= d1 + 1e-6 for d0, d1 in dead):
+                continue
             (Ro, pa), (Rb, pb) = ring(a_, ro), ring(b_, ro)
             Ri, Rj = ring(a_, ri)[0], ring(b_, ri)[0]
             along = _unit(_sub(pb, pa))
@@ -2642,7 +2698,7 @@ class Assembly:
             while t < lens[i] - 0.30:
                 sv = starts[i] + t
                 t += r["bracket_spacing_m"]
-                if min(cyc(sv, x) for x in outlets) < 0.15:
+                if min(cyc(sv, x) for x in outlets) < 0.15 or any(d0 - 0.1 <= sv <= d1 + 0.1 for d0, d1 in dead):
                     continue
                 pt, _, _ = at(sv)
                 d, out = dirs[i], outs[i]
