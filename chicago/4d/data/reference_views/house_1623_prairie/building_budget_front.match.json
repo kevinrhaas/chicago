@@ -2,9 +2,9 @@
  "structure_id": "house_1623_prairie",
  "view": "building_budget_front",
  "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
- "glb_sha256": "98b6442dfb20317d1ca1e94a931176ab46d50cef837b144380a175ec96bf31ce",
+ "glb_sha256": "8af5b470a959d97425a13b3322779a294c60f8b09dd66e06bed85d763ebfb440",
  "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
- "side_by_side": "../../../../../../../../tmp/pm/building_budget_front-side-by-side.jpg",
+ "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
   {
@@ -44,8 +44,8 @@
   },
   {
    "what": "the oriel above its second storey: a carved frieze at about 8.1-9.0 m, an upper stage of five shorter lights to about 10.4 m, and a steep conical slate roof with a finial whose eave stands at about 10.9 m, above the main cornice, and apex at about 13.4 m; the build's oriel stops at 8.55 m under a low copper hood, under a 45-degree hip",
-   "status": "open",
-   "how": "T-2778: K01 keeps an oriel's top a metre under the main eave"
+   "status": "fixed",
+   "how": "T-2778: K01 carries the oriel up through the main eave (`through_eave`), its heights read through this camera at the oriel's front, about 47.5 px/m, where the house's own cornice (9.7 m) lands within about 3 px: the frieze between two string courses from 8.35 to 9.5 m, its panels at 8.48-9.37 m against the drawn band's rows 247-292 (about 8.45-9.4 m), landing at about rows 252-292; the upper stage to 10.9 m, four 0.55 m lights to its front and a 0.3 m light in each cant, 9.69-10.69 m against the drawn lights' rows 186-237 (about 9.6-10.7 m), landing at about rows 186-232, the north cant's light a sliver as in the drawing, so five read; its cornice at 11.15 m (drawn about row 165, built about rows 168-180) and a slate spire whose planes run to one apex at 13.85 m (drawn about row 52, built about 55) under the K08 finial, whose top lands at about row 20 as the drawing's does. The drawing's hips stand at the oriel's corners, so the cone is the polygonal one built. The ticket's figures (frieze 8.1-9.0 m, lights to 10.4 m, eave 10.9 m, apex 13.4 m) read about 0.35 m low through this camera; the build follows the camera, and the second storey's lights moved up with it (6.03-8.03 m, drawn about rows 305-405, 6.05-8.2 m). The house's eave, gutter and bed moulding die into the cants and the oriel's back is closed in its stone over the wall head. Reconstructed (L-k01-1623-farwell-oriel-front-2433): the frieze's carving, which the drawing draws as interlaced strapwork, is a guilloche of interlaced rings on a dressed panel on each face, and reads at this scale as a band of rings where the drawing's is a dense knot; the cant lights are narrower than drawn, so their sills clear the house's eave where it meets the cant"
   },
   {
    "what": "the entrance: a deep round arch matching the window's, a glazed door under a carved light within it; the build has K07's flat-headed panelled door",
@@ -64,8 +64,8 @@
   },
   {
    "what": "the basement light: a broad segmental opening behind an ornamental iron grille, about 1.8 m wide; the build's is a 1.1 m round-headed light without a grille",
-   "status": "open",
-   "how": "T-2728 set an iron grille in it (street_front_dress.grilles: seven uprights between a foot bar and a head bar, 0.05 m behind the face; through the camera it reads as the drawing's barred light under the window). Its breadth, its low segmental head and the grille's band of C-scrolls are not laid: K01's arched basement row lays a round head (k01_frontage_params, street_front_openings), so a 1.8 m segmental opening is a K01 change, T-2779"
+   "status": "fixed",
+   "how": "T-2818: K06's broad segmental basement light (k06.opening.basement_segmental), 1.8 m across from 0.1 m to a crown at 0.97 m, its head rising a sixteenth of its span, under a 0.25 m block of voussoirs radiating from the arc's centre with a skewback at each end and a keystone to 1.25 m (K01's arched rows now lay a segmental head). Through the camera its jambs land at x 68 and 150 against the drawn 63 and 145, its crown at about y 647 as drawn and its sill within about 2 px; the voussoirs' top at about y 635 against the drawn 632. It stands 1.45 m from the north wall, 0.1 m north of the window over it (`offset_m`): the drawing draws it about 0.25 m north, and 1.45 m is as far as its voussoir block stands 0.3 m inside the corner. Its grille is the drawing's: eight close uprights from the sill to a bar at 0.57 m, a bar across them over the sill, and over them a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing's band of C-scrolls is about six across; each scroll's curl is the kit's (reconstructed, L-k01-1623-farwell-entrance-2728)"
   },
   {
    "what": "the stoop: the drawing's climbs straight up from the walk between iron rails and stone newels; the build's is a plain straight stoop with cheeks",
