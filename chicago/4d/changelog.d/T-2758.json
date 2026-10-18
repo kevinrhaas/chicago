@@ -1,8 +1,0 @@
-{
-  "title": "The stable-roof check now gives the same answer on every computer",
-  "kind": "fix",
-  "items": [
-    "One way of reading the 1963 survey photograph had no single answer: a slightly stretched picture fits it exactly as well as a true one, so the dovecote's place along the roof came out differently from one computer to the next. The check now tries a set of fixed stretches, and gives the same answer every time.",
-    "The finding holds: the roof was right. Across every stretch the gable's peak stays at the same height. Only the dovecote's position moves, which is why that photograph cannot place it; the c. 1887 view still does, and puts it about a foot and a half north."
-  ]
-}

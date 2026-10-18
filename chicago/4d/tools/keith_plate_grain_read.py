@@ -59,8 +59,9 @@ THIN_PX = 25          # a course under 25 px is a thin one (the model's render 1
 PROM, SURE = 6, 15    # a bed is a dark line this prominent (grey levels) in BOTH strips within
 PROM_RENDER = 8
 TOL = 3               # TOL px of each other, or SURE-prominent in one: a bed runs across the wall
-# the model's alternating pair (data/structures/keith_house_1808_prairie.json, T-2584)
-MODEL_DEEP_M, MODEL_THIN_M = 0.49, 0.195
+# the model's alternating pair on the front's south strip, where the render is read
+# (data/structures/keith_house_1808_prairie.json stone_front.coursing; T-2773, from 0.49 / 0.195)
+MODEL_DEEP_M, MODEL_THIN_M = 0.418, 0.226
 # the crown: (x0, x1, xref, y0, y1) and each raster's row slope (the one that sharpens it most)
 CROWN = (330, 560, 700, 560, 880)
 SLOPES = np.arange(0.04, 0.16, 0.005)

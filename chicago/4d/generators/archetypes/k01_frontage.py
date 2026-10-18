@@ -1128,30 +1128,19 @@ class Assembly:
             self.stone(frame, poly, [hj] * 4, "limestone_trim", self._stone_seed(cid, inst, j), conf,
                        recess=recess, bevel=t["bevel_m"], F=0.05 if j == n // 2 else 0.03, bed=bed)
 
-    def stone_front(self, cid, O, R, length, E, yf, thickness, openings):
-        """The street front as K02 coursed ashlar, laid round what the kits have already
-        seated on it (`self.footprints`: K06 sills, K07's stoop, K09's heads, aprons and
-        entrance, K08's bay). Course lines are struck on the base, the coping, every K06
-        sill's bed, every head and flat-arch top and the belts, and the walling between
-        them is cut into equal courses inside the profile's range. An opening or a flat
-        arch is a hole in a course; where a kit is seated, the course goes on but its
-        stones are dressed smooth and laid flush (no rock face, no chip, a belt not
-        proud), so every kit piece stands on a plane face, never on a rock face that
-        would bury its foot. Returns the south corner's quoins for the side wall."""
+    def _course_plan(self, frame, openings, yf):
+        """The street front's course lines struck and cut into courses, bottom up: the
+        holes and flat arches the courses are laid round, the seats the kits leave on it,
+        the belts, and every (bed, top, kind). Struck before the front is laid so that a
+        bay coursed on the front's own beds (T-2773) reads the same lines the front is
+        cut on."""
         p, k = self.p, self.p.stone
-        N = _cross(R, Y)
-        frame = (O, R, N)
-        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front")
+        O = frame[0]
         floors = p.floors_m
-        wk, tk = k["wall"], k["trim_edges"]
-        r_wall, r_base = wk["recess_m"], k["channel_depth_m"]
+        wk = k["wall"]
         bc = k["base_course_m"]
         base_top = bc * k["base_courses"]
         cop_top = k["coping_top_m"]
-        self.instance(cid, "wall", {"length_m": length, "height_m": E, "thickness_m": thickness,
-                                    "construction": "masonry", "openings": len(openings),
-                                    "fabric": k["fabric"], "dressing": k["dressing"]},
-                      {"base": O, "top": _add(O, _mul(Y, E))})
         # T-2366: a round-arched group is laid by k01_arched_front, round its own hole and
         # voussoir block; every other opening is a rectangle with its flat arch
         af = p.arched_front
@@ -1185,6 +1174,8 @@ class Assembly:
         lines |= {y for y in sill_beds if y > cop_top + 1e-6}
         lines |= {y for (_, _, _, y) in lined + arches if y > cop_top + 1e-6}
         lines |= {y for band in belts for y in band}
+        if (k.get("coursing") or {}).get("even_below_m"):   # T-2773: the principal sill's bed
+            lines.add(float(k["coursing"]["even_below_m"]))
         merged = []
         for y in sorted(round(y, 4) for y in lines if y <= ytop + 1e-6):
             if not merged or y - merged[-1] >= 0.02:
@@ -1202,6 +1193,44 @@ class Assembly:
                 courses.append((ya, yb, "band"))   # too thin for the walling: a dressed band
             else:
                 courses += [(a_, b_, "walling") for a_, b_ in self._walling(ya, yb)]
+        return holes, arches, seats, belts, courses, square, ytop
+
+    def front_beds(self):
+        """T-2773: the bed lines of the street front's courses, bottom up, for a bay laid
+        on them; the openings must already be seated (their K06 sills strike lines)."""
+        if self.p.arched_front:
+            raise ValueError("a bay coursed on the street front's beds needs a front with no arched group")
+        mat, O, R, length, t, _ = self._walls["k01.wall.street_front"]
+        front = [o for o in self.p.openings if o.wall == "k01.wall.street_front"]
+        courses = self._course_plan((O, R, _cross(R, Y)), front, self._yf)[4]
+        return sorted({y for ya, yb, _ in courses for y in (ya, yb)})
+
+    def stone_front(self, cid, O, R, length, E, yf, thickness, openings):
+        """The street front as K02 coursed ashlar, laid round what the kits have already
+        seated on it (`self.footprints`: K06 sills, K07's stoop, K09's heads, aprons and
+        entrance, K08's bay). Course lines are struck on the base, the coping, every K06
+        sill's bed, every head and flat-arch top and the belts, and the walling between
+        them is cut into equal courses inside the profile's range. An opening or a flat
+        arch is a hole in a course; where a kit is seated, the course goes on but its
+        stones are dressed smooth and laid flush (no rock face, no chip, a belt not
+        proud), so every kit piece stands on a plane face, never on a rock face that
+        would bury its foot. Returns the south corner's quoins for the side wall."""
+        p, k = self.p, self.p.stone
+        N = _cross(R, Y)
+        frame = (O, R, N)
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front")
+        floors = p.floors_m
+        wk, tk = k["wall"], k["trim_edges"]
+        r_wall, r_base = wk["recess_m"], k["channel_depth_m"]
+        bc = k["base_course_m"]
+        base_top = bc * k["base_courses"]
+        cop_top = k["coping_top_m"]
+        self.instance(cid, "wall", {"length_m": length, "height_m": E, "thickness_m": thickness,
+                                    "construction": "masonry", "openings": len(openings),
+                                    "fabric": k["fabric"], "dressing": k["dressing"]},
+                      {"base": O, "top": _add(O, _mul(Y, E))})
+        holes, arches, seats, belts, courses, square, ytop = self._course_plan(frame, openings, yf)
+        af = p.arched_front
         rects = holes + arches
         quoins, prev_joints, parity = [], [], 0
         for ya, yb, kind in courses:
@@ -1364,13 +1393,17 @@ class Assembly:
         profile's tallest allows; or, where the record's `coursing` reads the photograph's
         rhythm (T-2566), a high course and a low one in turn from the bed up, the low one
         `low_ratio` of the high (or the profile's least course, if that is more), both
-        inside the profile's course range. Every span from `even_above_m` up is laid even."""
+        inside the profile's course range. Every span from `even_above_m` up is laid even,
+        and (T-2773) every span under `even_below_m`, where one is named, as the 1888 plate
+        lays Keith's front from the principal sill down; `deep_max_m`, where named, holds the
+        high course under the photograph's reading rather than the profile's tallest."""
         k = self.p.stone
         lo_c, hi_c = k["course_m"]
         h = yb - ya
         c = k.get("coursing")
-        if c and ya < c["even_above_m"] - 1e-6:
+        if c and ya < c["even_above_m"] - 1e-6 and not yb <= c.get("even_below_m", 0.0) + 1e-6:
             r = c["low_ratio"]
+            deep_max = min(hi_c, c.get("deep_max_m", hi_c))   # T-2773: the photograph's deep course
             for n in range(1, 64):
                 high, low = (n + 1) // 2, n // 2
                 th = h / (high + r * low)
@@ -1378,7 +1411,7 @@ class Assembly:
                 if low and tl < lo_c:   # the low course at the profile's least, the high ones take the rest
                     tl = lo_c
                     th = (h - low * tl) / high
-                if th > hi_c + 1e-9:
+                if th > deep_max + 1e-9:
                     continue
                 if th < tl - 1e-9:
                     break
@@ -1553,6 +1586,13 @@ class Assembly:
         p = self.p
         O, R, N = frame
         v = b["variant"]
+        c = (v.get("masonry") or {}).get("coursing")
+        if c and c["rhythm"] == "street_front":
+            # T-2773: the bay's courses on the street front's own beds, as the 1888 plate
+            # lays Keith's bow, its thin courses the front's (`_rock_range`'s line)
+            lo_c, hi_c = p.stone["course_m"]
+            v = {**v, "masonry": {**v["masonry"], "coursing": {**c, "beds_m": self.front_beds(),
+                                                                "thin_below_m": (lo_c + hi_c) / 2}}}
         built = K8.Bay(v, K8.load(), "full").build(board=False)
         conf = p.conf("bays")
         seed = self.instance(f"k08.{v['kind']}", "bay",
@@ -2930,6 +2970,7 @@ def build(params, structure_id: str):
         for op in p.openings:
             (frame, t), mat = frames[op.wall]
             a.opening(op, frame, t, mat, "limestone_trim", coursed=op.wall == "k01.wall.street_front")
+        a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first
         for bay in p.bays:
             laid[bay["id"]] = a.bay(bay, frames[bay["wall"]][0][0])
         mat, O, R, length, t, _ = walls["k01.wall.street_front"]

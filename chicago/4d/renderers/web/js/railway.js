@@ -621,7 +621,11 @@ export async function createRailway({
 
   /* ---- the ground: cinders, verges, beds ---- */
   const row = data.right_of_way ?? {};
-  const buffers = () => ({ pos: [], uv: [], col: [], conf: [] });
+  // T-2786: every strip's scratch, emptied once its mesh is laid (below). The
+  // update and pick closures share this function's scope, so a strip's plain
+  // arrays stayed reachable as long as the layer did: 74 MB of JS heap in 1904.
+  const scratch = [];
+  const buffers = () => { const b = { pos: [], uv: [], col: [], conf: [] }; scratch.push(b); return b; };
   const cinders = buffers();
   const ground = maps.get(spec.ballast?.right_of_way_material ?? 'trodden_cinders');
   ribbon(row.cinders ?? [], {
@@ -698,6 +702,8 @@ export async function createRailway({
   }
   // One await over both, so a surface that fails leaves no other one unheard.
   const laid = await Promise.all([...groundJobs, ...edgeJobs]);
+  for (const b of scratch) { b.pos = null; b.uv = null; b.col = null; b.conf = null; }
+  scratch.length = 0;
   const groundMeshes = laid.slice(0, groundJobs.length);
   const edgeMeshes = laid.slice(groundJobs.length);
   for (const m of [...groundMeshes, ...edgeMeshes]) {

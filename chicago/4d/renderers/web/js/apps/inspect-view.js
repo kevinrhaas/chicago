@@ -27,6 +27,7 @@ import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
 import { hydratePictures } from '../pictures.js';
+import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
 import { storyTimeline, renderStory } from '../inspect-story.js';
 
@@ -370,9 +371,17 @@ async function fillPane(root, pane, key) {
     const record = ctx.actions?.record?.(id) ?? null;
     pane.append(renderStory(doc, storyTimeline({ sum, sidecar: record?.sidecar ?? null, scene: ctx.scene, fireLimit: sec.fireLimit }), dot));
   } else if (key === 'photos') {
-    const d = html(sec.photos);
-    pane.append(d);
-    hydratePictures(d);
+    // T-2645: the Photos tab (photos-tab.js), from the card's own pictures file; the card's
+    // Images pane where that file is not in hand.
+    const onSpot = ctx.actions?.fromSpot ? (p) => {
+      if (['half', 'full'].includes(ctx.navigator?.detent)) ctx.navigator?.dock?.();
+      void ctx.actions.fromSpot(id, p);
+    } : null;
+    if (!renderPhotos(pane, { doc: ctx.picturesDoc, id, sceneYear: ctx.scene?.id ?? ctx.scene?.scene_id, onSpot })) {
+      const d = html(sec.photos);
+      pane.append(d);
+      hydratePictures(d);
+    }
   } else {
     pane.append(html(sec[key]));
   }
