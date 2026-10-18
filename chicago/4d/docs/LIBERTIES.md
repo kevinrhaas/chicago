@@ -28883,12 +28883,14 @@ and the cupola's apex at 46.5-47.8 ft (model 39.6 and 47.0). The roof is not cha
 middle of those readings. That is inside the ridge's stated 1.5 ft tolerance, and the two photographs disagree
 with each other by about as much. The cupola's centre stays on S14.6, the owner's alignment with the ridge
 crossing. Photograph 1 cannot say where along S it stands: every control in that photograph lies in the north face,
-so two fits of equal RMS put the cupola at S14.4 and S11.3. The Cornell re-solve uses two faces and puts it
+so its depth is free: with the pixel aspect let go, which those controls cannot measure,
+fits of one RMS slide the cupola from S14.4 at square pixels to S10.4 at an aspect of 1.06 while the
+gable's height does not move. The Cornell re-solve uses two faces and puts it
 at S13.0-13.2, about 1.5 ft north. That is a quarter of the cupola's 6 ft plan on one camera's reading
 (3.7-4.8 px RMS), not the 4 ft that was to go to the owner.
 **Bounds:** Picks about ±2 px on photograph 1 and ±5 px on the Cornell copy; the doorway's threshold is taken
 as grade. The cameras are bounded re-solves, not surveys. The committed cameras are unchanged: photograph 1's
-doorway re-solve moves the north tower's finial 7-9 px off the print, so no single level camera fits both ends
+doorway re-solve moves the north tower's finial about 9 px off the print, so no single level camera fits both ends
 of that print, and the Cornell west-wall camera still serves the west windows, which the re-solve reads in the
 same places.
 **How to resolve:** A measured stable elevation or section (no HABS sheet prints the stable's ridge), or a
