@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1981, ts: '2026-10-18T10:42:36.513Z', date: 'Oct 18, 2026, 5:42 AM CT', title: '1625 Prairie\'s windows as its 1890 photograph shows them', kind: 'improvement',
+    items: [
+      'McBirney\'s house at 1625 Prairie now has the photograph\'s windows, each where the print puts it: two-light casements on stone mullions, transomed on the first floor, a wide four-light window over the door, and segment-headed sash above.',
+      'The basement lights the old front carried are gone; the photograph shows a plain plinth.',
+      'Still to come for this house: its proud, quoined entrance bay with the carved panel, and the four-storey rear.',
+    ] },
   { v: 1980, ts: '2026-10-18T10:27:48.111Z', date: 'Oct 18, 2026, 5:27 AM CT', title: 'A cleaner view: the last HUD buttons move into the Navigator', kind: 'feature',
     items: [
       'Start / Jaunts, the pace button and the light or dark switch have left the top of the screen, so more of the town shows, above all on a phone.',
