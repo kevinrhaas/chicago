@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1978, ts: '2026-10-18T10:10:22.303Z', date: 'Oct 18, 2026, 5:10 AM CT', title: '1808 Prairie\'s c. 1888 street photograph gets a true camera', kind: 'improvement',
+    items: [
+      'The camera behind the c. 1888 view down the 1800 block is re-solved on the house\'s three pinnacle tips, its north corner, its lattice and a third-storey window: the render now sits on the photograph from the crown to the ground.',
+      'The old fit leaned the camera 4.5 degrees and set the rear pinnacle 60 px off; the new one is level and holds to about 4 px.',
+      'The web copy of this photograph is about 11 % narrower than it should be, and the comparison now allows for that, checked on two points it was not fitted to.',
+      'Seen properly for the first time, the photograph shows the stoop\'s arch lower and further out than built, and the roof ventilator nearer the side wall; both are written up to build next.',
+    ] },
   { v: 1977, ts: '2026-10-18T08:52:33.164Z', date: 'Oct 18, 2026, 3:52 AM CT', title: 'Jaunts can follow how you like to get places', kind: 'feature',
     items: [
       'Move › When you pick a place has a new switch: Jaunts use my choice.',
