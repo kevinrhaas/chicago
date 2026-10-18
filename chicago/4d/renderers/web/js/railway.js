@@ -173,7 +173,7 @@ function trackPath(line, terrain) {
  * grain where they overlap.
  */
 function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, fineNear = 0, drape = false }) {
-  const { pos, uv, col, conf } = out;
+  const { pos, uv, col, conf, idx } = out;
   for (let i = 0; i + 1 < stations.length; i += 1) {
     const [ae0, an0, be0, bn0] = stations[i];
     const [ae1, an1, be1, bn1] = stations[i + 1];
@@ -217,26 +217,29 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
       slant.set(u, out);
       return out;
     };
+    // T-2787: each corner once, the quads by index. Unshared, every quad carried six
+    // copies of its corners: 85 MB of the 1904 yard's GPU geometry on a phone.
+    const base = pos.length / 3;
+    const cols = vs.length;
+    for (let a = 0; a <= nu; a += 1) {
+      const s0 = drape ? acrossAt(a / nu) : null;
+      for (let b = 0; b < cols; b += 1) {
+        const [e, n, alpha] = vertex(a / nu, vs[b]);
+        const y = terrain.surfaceHeight(e, n);
+        pos.push(wx(e), y + lift, wz(n));
+        uv.push((e * axis[0] + n * axis[1]) / span, (s0 ? s0[b] : -e * axis[1] + n * axis[0]) / span);
+        if (tint) { const [r, g, bl] = tint(y); col.push(r, g, bl, alpha); } else col.push(1, 1, 1, alpha);
+        conf.push(level);
+      }
+    }
     for (let a = 0; a < nu; a += 1) {
-      for (let b = 0; b + 1 < vs.length; b += 1) {
-        const q = [vertex(a / nu, vs[b]), vertex((a + 1) / nu, vs[b]), vertex((a + 1) / nu, vs[b + 1]), vertex(a / nu, vs[b + 1])];
-        if (drape) {
-          const s0 = acrossAt(a / nu); const s1 = acrossAt((a + 1) / nu);
-          q[0].push(s0[b]); q[1].push(s1[b]); q[2].push(s1[b + 1]); q[3].push(s0[b + 1]);
-        }
-        // counter-clockwise in plan, so the faces look up
+      for (let b = 0; b + 1 < cols; b += 1) {
+        const k = [base + a * cols + b, base + (a + 1) * cols + b, base + (a + 1) * cols + b + 1, base + a * cols + b + 1];
+        const q = k.map((v) => [pos[v * 3], pos[v * 3 + 2]]);
+        // counter-clockwise in plan, so the faces look up (z is south: the sign flips)
         const cross = (q[1][0] - q[0][0]) * (q[3][1] - q[0][1]) - (q[1][1] - q[0][1]) * (q[3][0] - q[0][0]);
-        const tris = cross >= 0 ? [[0, 1, 2], [0, 2, 3]] : [[0, 2, 1], [0, 3, 2]];
-        for (const t of tris) {
-          for (const k of t) {
-            const [e, n, alpha, slope] = q[k];
-            const y = terrain.surfaceHeight(e, n);
-            pos.push(wx(e), y + lift, wz(n));
-            uv.push((e * axis[0] + n * axis[1]) / span, (slope ?? -e * axis[1] + n * axis[0]) / span);
-            if (tint) { const [r, g, b] = tint(y); col.push(r, g, b, alpha); } else col.push(1, 1, 1, alpha);
-            conf.push(level);
-          }
-        }
+        const tris = cross <= 0 ? [[0, 1, 2], [0, 2, 3]] : [[0, 2, 1], [0, 3, 2]];
+        for (const t of tris) for (const j of t) idx.push(k[j]);
       }
     }
   }
@@ -247,8 +250,12 @@ async function groundMesh(name, out, kind, lib, confidence) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
   geo.setAttribute('uv', new THREE.Float32BufferAttribute(out.uv, 2));
-  geo.setAttribute('color', new THREE.Float32BufferAttribute(out.col, 4));
+  // T-2787: a tint and a fade are bytes, not floats (16 bytes a corner down to 4)
+  const col = new Uint8Array(out.col.length);
+  for (let i = 0; i < col.length; i += 1) col[i] = Math.round(Math.max(0, Math.min(1, out.col[i])) * 255);
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 4, true));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
+  geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
   geo.computeVertexNormals();
   geo.computeBoundingSphere();
   const mat = new THREE.MeshStandardMaterial({
@@ -625,7 +632,7 @@ export async function createRailway({
   // update and pick closures share this function's scope, so a strip's plain
   // arrays stayed reachable as long as the layer did: 74 MB of JS heap in 1904.
   const scratch = [];
-  const buffers = () => { const b = { pos: [], uv: [], col: [], conf: [] }; scratch.push(b); return b; };
+  const buffers = () => { const b = { pos: [], uv: [], col: [], conf: [], idx: [] }; scratch.push(b); return b; };
   const cinders = buffers();
   const ground = maps.get(spec.ballast?.right_of_way_material ?? 'trodden_cinders');
   ribbon(row.cinders ?? [], {
@@ -702,7 +709,7 @@ export async function createRailway({
   }
   // One await over both, so a surface that fails leaves no other one unheard.
   const laid = await Promise.all([...groundJobs, ...edgeJobs]);
-  for (const b of scratch) { b.pos = null; b.uv = null; b.col = null; b.conf = null; }
+  for (const b of scratch) { b.pos = null; b.uv = null; b.col = null; b.conf = null; b.idx = null; }
   scratch.length = 0;
   const groundMeshes = laid.slice(0, groundJobs.length);
   const edgeMeshes = laid.slice(groundJobs.length);
