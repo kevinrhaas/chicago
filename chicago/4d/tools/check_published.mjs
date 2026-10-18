@@ -49,6 +49,8 @@ const COPIES = [
   ['tickets.json', 'tickets/tickets.json'],
   ['data/scenes/', 'data/scenes/'],
   ['data/datum.json', 'data/datum.json'],
+  // T-2741: today's streets, for the compass readout and the maps in every year.
+  ['data/modern/', 'data/modern/'],
   ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
   // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).

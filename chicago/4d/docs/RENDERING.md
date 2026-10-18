@@ -540,8 +540,11 @@ visual phase in the whole program.
   At rest it is neutral, so still frames and captures are unchanged; Settings → Frame
   pacing → Fixed turns it off. `tools/test_frame_governor.mjs` (in check.sh) and
   `measure_walk_frames.mjs --live --stills` are its gates. The measured fall in moving
-  frame-time sd and p95 is T-2592: this runner's SwiftShader frames come seconds apart,
-  far outside the range the governor acts in.*
+  frame-time sd and p95 is T-2722, waiting on where it is read: this runner's frames come
+  about a second apart on SwiftShader AND on Mesa's llvmpipe (`--gl llvmpipe`, weighed as
+  a stand-in by T-2721 and rejected), far outside the range the governor acts in. T-2721
+  also found that most of a live frame here is the gaze target's synchronous one-pixel
+  pick (`readPixels`, 63 of 72 s of moves), now T-2723.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke
@@ -979,6 +982,41 @@ heap, ArrayBuffers and vertex buffers are 3.6 MiB *lighter* there. Of the textur
   says WebGL was asked for. So either WebGL
   holds less than three asked for, or the GL meter misses an upload path. That is a
   question about the instrument walk/'s ceilings stand on as well, and it is filed as one.
+  **Answered by T-2720, below: WebGL holds less, and the meter is right.**
+
+**T-2720 (2026-10-17): the 39.5 MiB is not the meter's, and two lines above are wrong.**
+`node tools/audit_gl_meter.mjs` boots CLASSIC with the meter and a second wrapper that logs
+every allocating WebGL call, and reads three's own `properties` for the GL texture each block
+`Texture` got. Re-read on the H0 build itself (a worktree of `ee49582f6`, published), phone and
+desktop, and on today's `dev`: **the meter equals the calls' own sum to the byte** on all four,
+once an 8-byte overcount was fixed (three passes `log2(1254) + 1 = 11.29` levels to
+`texStorage2D`, WebGL truncates a GLsizei to 11, the meter counted 12). Record:
+`docs/measurements/t-2720-gl-meter.json`. What the arithmetic got wrong:
+
+- **It counted Texture objects; WebGL holds image Sources.** three's WebGLRenderer keys a GL
+  texture on (Source, sampling state). 11 of the block's 46 image maps share 2 Sources —
+  `granite_photographic_basecolor` 1254² ×5 and `granite_stone_occlusion_light` 1024² ×6 — so
+  WebGL uploads 37: **58.66 MiB** three's arithmetic counted and WebGL never holds.
+- **The shadow colour attachment is on BOTH pages.** r185's WebGLShadowMap gives the shadow
+  render target a 2048² RGBA8 colour texture beside its depth texture (16 + 16 MiB, both
+  bound to the shadow framebuffer). The 16.0 MiB bullet above calls it WebGPU's alone; it is
+  not, and it is not part of K5's gap.
+- **WebGL does not draw into the canvas's own buffer here.** CLASSIC renders through a 4× MSAA
+  RGBA16F renderbuffer (9.28 MiB), its MSAA depth and a depth (5.80) and a mipped half-float
+  resolve texture (3.09): 18.18 MiB the meter reads, in the renderbuffer column, which the
+  texture-only comparison above left out.
+
+So CLASSIC's 359.09 MiB of textures is 295.99 (37 image maps) + 28.00 (BPTC) + 16 (shadow
+colour) + 16 (shadow depth) + 3.09 (resolve) + under 0.01 (1×1 and 16×16 defaults). Re-read
+with `measure_hd_spike.mjs` on the same build (HD-GPU 493.64, CLASSIC 447.30), **K5's +46.34
+MiB is +58.65 (the 9 shared maps, which WebGPURenderer uploads once per Texture: 46 RGBA8
+textures against WebGL's 37) − 10.33 (KTX2 to ETC2/ASTC against BPTC) + 2.32 (the output
+pipeline and canvas depth, 20.50 against 18.18) − 4.29 (JS heap, ArrayBuffers, vertex
+buffers)**. By that arithmetic alone, and not measured: if HD-GPU shared Sources as
+WebGLRenderer does, K5 would read about 12.3 MiB in its favour. The verdict above stands as
+measured; re-reading it is the H track's, which waits on the owner.
+`tools/memory_ceilings.json` does not move: walk/'s ceilings stand on a meter that reads
+what WebGL was asked for.
 - **−10.4 MiB in HD-GPU's favour:** the KTX2 maps transcode to ETC2 RGB / ASTC there
   (17.6 MiB measured), against BPTC at a byte a texel on WebGL (28.0 MiB by arithmetic).
   The remaining +3.5 MiB is small targets and the canvas depth.
@@ -1004,10 +1042,11 @@ heap, ArrayBuffers and vertex buffers are 3.6 MiB *lighter* there. Of the textur
 
 **Not answered here, and why.** TRAA under motion (moved to H1's entry, see the criteria
 above). Any frame time on a real GPU: K6's ratio is SwiftShader's, and the moving reading on
-hardware stays with T-2592.
+hardware stays with T-2722 (T-2592's reading, split).
 
 **What would change the verdict.** K5 re-read with the shadow attachment and the half-float
-output target priced or dropped, and the GL meter's 39.5 MiB shortfall explained. The meter
+output target priced or dropped, and the GL meter's 39.5 MiB shortfall explained (T-2720
+explained it, above, and moved the first two onto texture sharing). The meter
 question is written onto T-2602, which re-reads the 1904 ceilings on that same meter; the
 WebGPU half is the H track's next step and waits on the owner, as every H phase does (the
 queue was over its ceiling, so no new line was filed for it). If HD-GPU then reads at or
@@ -1134,3 +1173,32 @@ correction). Every number quotes its anchor and viewport.
   The whole tile built on the page (`nearField.build`, used by the tools and nothing in the
   frame) asks the corners unshared: 10.0 -> 15.8 ms a metre. 0 kept texels differ from the
   built tile on either viewport (`docs/measurements/t-2707-near-field-keeper.json`).
+- **The near ring drawn from the shader** (T-2716, the second piece of T-2708): the page
+  draws the near tufts from `renderers/web/js/flora-gpu-near.js`. At every near placement
+  (the same 0.6 m step and centre the CPU walk lands on) one MRT point pass runs the
+  lattice walk, the kept field tile and the deal in GLSL for every slot, and writes each
+  placed slot's instance — root, height, spread, arch, yaw, colour, confidence and its OWN
+  ring (`slotRing`'s handover, in GLSL) — into four RGBA32F targets; the tuft mesh
+  (`flora-near-gpu`, one instance per slot) fetches them by `gl_InstanceID` and a slot the
+  deal did not place collapses to a point. Each slot's world point is computed from its
+  absolute cell and jitter (`flSlotWorld`, `scatter`'s `(c + fe) * cell`), not the
+  camera plus an offset, so a tuft is the same float32 point after every pass — the
+  camera-relative sum rounded differently as the walker moved, and the smoke's desktop
+  pop-in walk read the re-rounded tufts as plants arriving at full coverage inside their
+  ring. The CPU walk is kept for the heads alone: it deals
+  into a sink that only counts (the census and `stats.sets` read it), and hangs a head only
+  where the tile gives the GPU's deal the same answer (`drawsAt`), so the 0.27 % of slots
+  where the tile and the CPU differ carry no head over bare ground. A slot the kept tile
+  does not cover is left empty rather than clamped to its edge texel, and the pass re-runs
+  when a strip lands; a jump of more than a re-centre step, or `step()`, builds the tile
+  whole in the frame (234-275 ms on the runner's phone profile). The GPU draws the whole
+  ring, not the view cone. `flora-near` is still in the group for its readers: an
+  InstancedMesh never drawn, whose instances are READ BACK from the targets the first time
+  its `count` is asked for after a pass, so the smoke's root, ring, cover and head-support
+  gates read what the GPU drew. Read at prairie_west on the phone profile: 283 GPU tufts
+  against the CPU deal's 283 placed slots at the same centre, all 283 at the same slot;
+  roots within 1e-7 m of the tile's ground and 6.2e-5 m of the terrain's; the frame against
+  dev's CPU-drawn one differs by more than 8 levels in 0.23 % of pixels. The smoke's root
+  gate holds the GPU tufts to the tile's ground at its 1e-5 m and the tile's ground to the
+  terrain at 5 mm (T-2698's worst at the 22 stations is 4.8 mm). The near re-deal's
+  main-thread ms and the moving p95 are T-2717's reading.

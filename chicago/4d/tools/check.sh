@@ -150,6 +150,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
+  node tools/test_pacing_read.mjs
 
 step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
   node tools/calibrate_boot_weights.mjs --check
@@ -165,6 +167,8 @@ step "The Field Check's seven steps each move on only on their own action, resum
   node tools/test_tour.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
+step "The way home: All destinations and Recall ask first, Cancel/Esc stay put, Return runs the reverse ring and stamps the trip, reduced motion skips the ring (T-2735)" \
+  node tools/test_recall.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
   node tools/test_nav_jaunts.mjs
 # T-2632: Go to cleanup.
@@ -693,6 +697,16 @@ step "the 1904 context city and its streets re-derive and keep off Prairie Avenu
 
 selftest "…and a stand-in put on a Prairie Avenue lot or in the lake, or a street across Prairie, still fails it" \
   python3 tools/build_context_1904.py --self-test
+
+# T-2741. Today's streets under every year: the City of Chicago's centrelines clipped to the
+# scenes' ground (data/modern/streets.json), each with its block's address ranges, so the compass
+# says the street and house number you stand at today. The check holds the clip's shape, its
+# source record, and three corners this project already holds OSM control for.
+step "today's streets clip holds its shape and lands on the OSM control corners (T-2741)" \
+  python3 tools/build_modern_streets.py --check
+
+step "today's street and house number read off the City's block ranges, both sides' parity (T-2741)" \
+  node tools/test_modern_streets.mjs
 
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
@@ -3405,6 +3419,11 @@ selftest "…and its own assertions still fire when broken" \
 # a failure here rather than a discovery on the deployed site.
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
+
+# T-2747: the 1904 built-so-far walk is written from the building records, so a building
+# that gains detail without the walk being rewritten is red here, and the walk stays current.
+step "1904 built-so-far walk matches the building records (T-2747)" \
+  python3 tools/jaunt_built_so_far.py --check
 
 step "Jaunt schema, destinations and reachable state graph (T-1253)" \
   python3 tools/compile_jaunts.py --check

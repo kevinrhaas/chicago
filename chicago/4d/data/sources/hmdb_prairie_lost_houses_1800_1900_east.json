@@ -1,0 +1,23 @@
+{
+  "id": "hmdb_prairie_lost_houses_1800_1900_east",
+  "type": "website",
+  "citation": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (East Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308709.",
+  "date": "accessed 2026-10-17",
+  "describes_date": "1870-1904",
+  "url": "https://www.hmdb.org/m.asp?m=308709",
+  "locator": "The transcription page's photograph captions and the 1815 S. Prairie Ave. entry.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A modern interpretive marker's text, cited in words only; nothing is copied into the scene.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-17 (T-2747) through a page fetch that returned only part of the transcription: no name lines for the first entries, one photograph caption, and the 1815 entry. This record is cited for those parts only. The Prairie library's 2026-09-26 reading of the same page (marker_east) records architects and dates for 1815, 1823, 1827, 1901 and 1905 that were NOT re-read here, and nothing in 4D rests on them through this record.",
+  "note": "Read: the photograph caption 'Marshall Field Sr. residence at 1905 S. Prairie'; and of 1815 S. Prairie Ave., 'The home was built by Joseph Sears, the founder of the Chicago suburb of Kenilworth.'",
+  "what_it_supplies": [
+    "Marshall Field Sr.'s house at 1905 S. Prairie",
+    "Joseph Sears as builder of 1815 S. Prairie"
+  ],
+  "what_it_does_not_supply": [
+    "architects or dates for the block's east side, which this reading did not return"
+  ]
+}
