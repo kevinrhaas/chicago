@@ -1199,6 +1199,19 @@ body.is-touch .crosshair { display: none; }
 .roam-tip[hidden] { display: none; }
 @keyframes roam-tip-in { from { opacity: 0; transform: translate(-50%, 6px); } }
 @media (prefers-reduced-motion: reduce) { .roam-tip { animation: none; } }
+/* T-2664: the one-time hints after the tour — a pill under the HUD's top row, above a
+   building card (30) and under the arrival (40); it takes no pointer events, so it never
+   sits between a visitor and a control, and it goes in a few seconds. */
+.nav-hint {
+  position: fixed; left: 50%; top: calc(64px + env(safe-area-inset-top, 0px)); transform: translateX(-50%);
+  z-index: 35; pointer-events: none; width: max-content; max-width: min(420px, calc(100vw - 32px));
+  margin: 0; padding: 10px 16px; box-sizing: border-box;
+  font: 600 13px/1.35 var(--font-ui, inherit); color: var(--ink); text-align: center;
+  background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 14px; box-shadow: var(--shadow);
+  animation: roam-tip-in .24s ease-out both;
+}
+.nav-hint[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .nav-hint { animation: none; } }
 
 /* T-2547: the crash guard's card — detail lowered after a memory crash, or a lost
    display. Above the gate (40) so it reads during the arrival too; hung below the
@@ -2002,6 +2015,12 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-action[aria-expanded="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
 .welcome-back { display: none; }
 .welcome-link { padding: 9px 12px; background: none; }
+/* T-2664: the tour offer — one quiet line under the three choices, gone in a sub-view. */
+.welcome-tour-offer { align-self: center; margin-top: 8px; border-color: transparent; color: var(--accent);
+  font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.welcome-tour-offer:hover { border-color: var(--accent); }
+.welcome-tour-offer[hidden], .gate[data-region] .welcome-tour-offer { display: none; }
+.gate.welcome-compact .welcome-tour-offer { margin-top: 2px; padding: 4px 12px; }
 .welcome-region { margin-top: 10px; min-height: 0; flex: 1 1 auto; }
 /* T-2561: keep the year on this device — one quiet line under the three choices. */
 .welcome-pack { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px;
