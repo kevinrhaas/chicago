@@ -902,7 +902,19 @@ export async function createRailway({
   railMat.name = 'railway-rails';
   confidence?.patch(railMat);
   materials.push(railMat);
+  // T-2787: a phone builds at `light` and draws a quarter of the tufts and under a third
+  // of the stones; the rest only ever sat in their instance arrays (15 MB in 1904). A
+  // tier raised later on the same page draws what was built.
+  const builtShare = detail === 'light' ? {
+    tufts: (dens.light ?? 0) / (dens.full || 1),
+    rocks: (stones?.per_m2?.light ?? 0.45) / (stones?.per_m2?.full ?? 1.5),
+  } : null;
   for (const [zi, z] of zones.entries()) {
+    if (builtShare) {
+      z.tufts = z.tufts.filter((t) => t.keep < builtShare.tufts);
+      z.rocks = z.rocks.filter((r) => r.keep < builtShare.rocks);
+      z.rockE = z.rocks.reduce((sum, r) => sum + r.e, 0);
+    }
     z.centre = new THREE.Vector3(z.eCount ? z.eSum / z.eCount : (f0[0] + f1[0]) / 2, 0, wz((z.nHi + z.nLo) / 2));
     z.index = zi;
     if (z.railFar.pos.length) {
