@@ -1,0 +1,10 @@
+{
+  "title": "Walking 1904 on a phone makes far less garbage; spawn 408 MB",
+  "kind": "fix",
+  "items": [
+    "On a phone, the check for buildings hidden behind walls made about 10 MB of garbage every frame you moved. It now makes almost none, with the same result.",
+    "The 1904 railway's ground and rails share their corners instead of repeating them.",
+    "On a phone the railway builds only the grass tufts and stones it draws, and loads its textures at half size.",
+    "1904 phone memory at spawn: 516 to 408 MB. Desktop: 1134 to 1004 MB."
+  ]
+}
