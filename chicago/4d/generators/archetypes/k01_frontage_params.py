@@ -165,10 +165,22 @@ class K01FrontageParams:
     # T-2410: a brick street front's round-headed windows — {"storeys", "key"}: the storeys
     # whose street windows are ROUND_HOODED, and the key block over each hood's crown
     round_heads: dict = field(default_factory=dict)
+    # T-2753: a front whose windows `street_front_windows` names: its own belts, the dressed
+    # quoined surrounds of its lower windows ({"belts", "surrounds"}), and its proud quoined
+    # frontispiece with the door's surround, the carved panel over it and the hood mould
+    # (`street_front_frontispiece`, resolved by _street_frontispiece) — empty for every other house
+    street_dress: dict = field(default_factory=dict)
+    frontispiece: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
         return CONFIDENCE_VALUE[self.confidence.get(attr, default)]
+
+    def on_frontispiece(self, op) -> bool:
+        """T-2753: does this street opening stand on the proud frontispiece (laid on its face)?"""
+        fp = self.frontispiece
+        return bool(fp) and op.wall == "k01.wall.street_front" and \
+            op.s_m - op.width_m / 2 >= fp["s_m"] - 1e-6 and op.head_m <= fp["hood"]["bed_m"] + 1e-6
 
     def worst_conf(self, *attrs: str) -> float:
         """Least-confident wins — the rule from docs/GLB-CONTRACT.md."""
@@ -218,7 +230,7 @@ CONSUMED = frozenset({
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
-    "street_front_windows",
+    "street_front_windows", "street_front_frontispiece",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -319,9 +331,14 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         raise ParamError("rainwater.downpipe / ends_at are not K04 downpipe kinds")
     pipes = []
     for x in rain.get("downpipes", []):
-        if x["wall"] not in WALLS or x["wall"] == "k01.wall.side.north":
-            raise ParamError(f"a downpipe on {x['wall']!r}: the north wall closes the Glessner "
-                             f"court 0.02 m off its face, so no pipe stands there")
+        if x["wall"] not in WALLS:
+            raise ParamError(f"a downpipe on {x['wall']!r}: not a K01 wall")
+        # the K01 measure's north wall is the open SOUTH side of a house across the avenue (v
+        # runs south there): 1625's photograph hangs its pipe on it, by the front corner
+        # (T-2753). On the east side it is 1808's, closing the Glessner court 0.02 m off its
+        # face, where nothing may stand: a pipe there stands within 0.5 m of the front
+        if x["wall"] == "k01.wall.side.north" and float(x["s_m"]) > 0.5:
+            raise ParamError(f"a downpipe on the north wall at s {x['s_m']}: only by the front corner (s <= 0.5 m)")
         pipes.append({"wall": x["wall"], "s_m": float(x["s_m"])})
     if not pipes:
         raise ParamError("every gutter outlet leads to a pipe: rainwater.downpipes is empty")
@@ -1405,6 +1422,100 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
             "banded": dress.get("banded") or {}}
 
 
+def _street_dress(sfw, openings, floors, width) -> dict:
+    """T-2753: a named-window front's own belts, which replace K01's two (1625's photograph runs
+    one string course, under the first floor's windows), and the dressed quoined surrounds of
+    the windows on `surrounds.storeys`: each jamb a dressed stone `returns_m` short and long in
+    turn up the courses, and a dressed course `lintel_m` deep over the head, the short return
+    past each jamb."""
+    out = {}
+    if "belts" in sfw:
+        belts = [tuple(float(y) for y in b) for b in sfw["belts"]]
+        for b0, b1 in belts:
+            if not floors[0] < b0 < b1 <= b0 + 0.40:
+                raise ParamError(f"street_front_windows.belts {[b0, b1]}: a course at most 0.40 m deep over the ground floor")
+            for o in openings:
+                if o.wall == "k01.wall.street_front" and o.sill_m < b1 - 1e-6 and o.head_m > b0 + 1e-6:
+                    raise ParamError(f"street_front_windows.belts {[b0, b1]} runs through {o.component} at s {o.s_m}")
+        out["belts"] = tuple(belts)
+    su = sfw.get("surrounds")
+    if su:
+        if set(su) != {"storeys", "returns_m", "lintel_m"}:
+            raise ParamError("street_front_windows.surrounds takes storeys, returns_m [short, long] and lintel_m")
+        lo, hi = (float(x) for x in su["returns_m"])
+        if not 0.15 <= lo < hi <= 0.6 or not 0.15 <= float(su["lintel_m"]) <= 0.6:
+            raise ParamError("street_front_windows.surrounds: returns of 0.15-0.6 m, short then long, and a "
+                             "0.15-0.6 m lintel")
+        storeys = tuple(sorted(int(k) for k in su["storeys"]))
+        if not storeys or not all(0 <= k < len(floors) for k in storeys):
+            raise ParamError(f"street_front_windows.surrounds.storeys {list(storeys)} are not this front's storeys")
+        out["surrounds"] = {"storeys": storeys, "returns_m": (lo, hi), "lintel_m": float(su["lintel_m"])}
+    return out
+
+
+def _street_frontispiece(fp, openings, dress, floors, width) -> dict:
+    """T-2753: the frontispiece of a named-window front (1625's, its photograph): the front from
+    `s_m` to its south end and from grade to the hood mould's bed stands `proud_m` out, its
+    coursing and the openings in it laid on that face; both its arrises quoined `quoins_m`
+    short and long in turn; the door in a dressed surround `band_m` wide, its lintel up to
+    `top_m`; over that a carved panel; and capping it all the hood mould over its window,
+    `overhang_m` past its face and north arris. Every street opening stands wholly on it or
+    wholly off it."""
+    keys = {"s_m", "proud_m", "quoins_m", "hood", "door_surround", "panel"}
+    if set(fp) != keys:
+        raise ParamError(f"street_front_frontispiece takes {sorted(keys)}")
+    s0, pr = float(fp["s_m"]), float(fp["proud_m"])
+    if not 0.5 <= s0 <= width - 1.0 or not 0.03 <= pr <= 0.30:
+        raise ParamError("street_front_frontispiece: its north edge 0.5 m inside the front and 1 m short of its "
+                         "south end, and 0.03-0.30 m proud")
+    q = tuple(float(x) for x in fp["quoins_m"])
+    if len(q) != 2 or not 0.15 <= q[0] < q[1] <= 0.6:
+        raise ParamError("street_front_frontispiece.quoins_m: [short, long], 0.15-0.6 m")
+    h = fp["hood"]
+    if set(h) != {"bed_m", "top_m", "overhang_m"}:
+        raise ParamError("street_front_frontispiece.hood takes bed_m, top_m and overhang_m")
+    bed, top, ov = float(h["bed_m"]), float(h["top_m"]), float(h["overhang_m"])
+    if not floors[1] < bed < top <= bed + 0.40 or not 0.03 <= ov <= 0.20:
+        raise ParamError("street_front_frontispiece.hood: a mould at most 0.40 m deep over the first floor, "
+                         "0.03-0.20 m past the frontispiece")
+    front = [o for o in openings if o.wall == "k01.wall.street_front"]
+    on = []
+    for o in front:
+        a, b = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
+        inside, outside = a >= s0 + q[1] - 1e-6 and o.head_m <= bed - 0.15 + 1e-6, b <= s0 - 0.1 + 1e-6 or o.sill_m >= top + 0.3 - 1e-6
+        if not inside and not outside:
+            raise ParamError(f"{o.component} at s {o.s_m} stands neither on the frontispiece (clear of its long quoin "
+                             f"and 0.15 m under its hood) nor off it")
+        if inside:
+            on.append(o)
+    door = next((o for o in on if o.component == "k01.opening.door_leaf"), None)
+    ds = fp["door_surround"]
+    if door is None or set(ds) != {"band_m", "top_m"}:
+        raise ParamError("street_front_frontispiece.door_surround (band_m, top_m) dresses the door, which stands on it")
+    band, stop = float(ds["band_m"]), float(ds["top_m"])
+    if not 0.15 <= band <= 0.6 or not door.head_m + 0.15 <= stop <= door.head_m + 0.6:
+        raise ParamError("street_front_frontispiece.door_surround: a 0.15-0.6 m band, its lintel 0.15-0.6 m deep")
+    if door.s_m - door.width_m / 2 - band < s0 + q[1] - 1e-6 or door.s_m + door.width_m / 2 + band > width - q[1] + 1e-6:
+        raise ParamError("street_front_frontispiece.door_surround runs into a quoin")
+    pa = fp["panel"]
+    if set(pa) != {"s_m", "width_m", "bed_m", "height_m", "proud_m"}:
+        raise ParamError("street_front_frontispiece.panel takes s_m, width_m, bed_m, height_m and proud_m")
+    pa = {k: float(v) for k, v in pa.items()}
+    p0, p1, py0, py1 = pa["s_m"] - pa["width_m"] / 2, pa["s_m"] + pa["width_m"] / 2, pa["bed_m"], pa["bed_m"] + pa["height_m"]
+    if p0 < s0 + q[1] - 1e-6 or p1 > width - q[1] + 1e-6 or py0 < stop - 1e-6 or not 0.02 <= pa["proud_m"] <= 0.1 \
+            or pa["width_m"] < 0.3 or pa["height_m"] < 0.3:
+        raise ParamError("street_front_frontispiece.panel: at least 0.3 m square, 0.02-0.1 m proud, between the "
+                         "quoins and over the door's lintel")
+    for o in on:
+        if o is not door and o.sill_m < py1 - 1e-6 and o.head_m > py0 + 1e-6 and o.s_m - o.width_m / 2 < p1 and o.s_m + o.width_m / 2 > p0:
+            raise ParamError(f"street_front_frontispiece.panel meets {o.component} at s {o.s_m}")
+    for b0, b1 in dress.get("belts", ()):
+        if py0 < b1 - 1e-6 and py1 > b0 + 1e-6:
+            raise ParamError("street_front_frontispiece.panel runs into a belt")
+    return {"s_m": s0, "proud_m": pr, "quoins_m": q, "hood": {"bed_m": bed, "top_m": top, "overhang_m": ov},
+            "door_surround": {"band_m": band, "top_m": stop}, "panel": pa}
+
+
 def door_arch_of(entrance_kit) -> dict:
     """T-2526: the record's voussoir block round a round-headed door, or {}."""
     return dict(((entrance_kit or {}).get("k01.opening.door_leaf") or {}).get("arch") or {})
@@ -1652,9 +1763,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not val("stone_front") or sfo or val("front_bays_by_storey") or val("street_front_round_heads"):
             raise ParamError("street_front_windows names every window of a K02 stone front, and takes "
                              "no street_front_openings, front_bays_by_storey or street_front_round_heads")
-        if not {"windows", "base_top_m"} >= set(sfw) >= {"windows", "base_top_m"} or not sfw["windows"]:
+        if not {"windows", "base_top_m", "belts", "surrounds"} >= set(sfw) >= {"windows", "base_top_m"} \
+                or not sfw["windows"]:
             raise ParamError("street_front_windows takes windows: [{component, storey, s_m, width_m, sill_m, "
-                             "height_m}, ...] and base_top_m, the plain plinth's top where no area light sets it")
+                             "height_m}, ...] and base_top_m, the plain plinth's top where no area light sets it "
+                             "(and, T-2753, belts and surrounds)")
     # T-2410: a brick front's storeys whose street windows are round-headed under hoods
     rh = val("street_front_round_heads") or {}
     if rh:
@@ -1749,6 +1862,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             laid.append((s0, s1, sill, sill + h))
             dh = kit_ids[vid]["operation"].startswith("double_hung")
             openings.append(Opening(comp, "k01.wall.street_front", round(s, 4), round(sill, 4), wd, h, dh))
+    street_dress, frontispiece = {}, {}
+    if sfw:
+        street_dress = _street_dress(sfw, openings, floors, width)
+    if val("street_front_frontispiece"):
+        if not sfw:
+            raise ParamError("street_front_frontispiece dresses a front laid by street_front_windows")
+        frontispiece = _street_frontispiece(val("street_front_frontispiece"), openings, street_dress, floors, width)
     # T-2366: a front that names its own openings names its basement lights among them
     bl = val("basement_lights") or {}
     if sfw and bl:
@@ -2357,7 +2477,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
-        wall_paint=paint,
+        wall_paint=paint, street_dress=street_dress, frontispiece=frontispiece,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

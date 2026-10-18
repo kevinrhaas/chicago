@@ -39,10 +39,22 @@ prints, plates, postcards and drawings of the building, inside and out.
 EVERY PICTURE CARRIES ITS CREDIT. A record without a holder or a creator is not dropped; it
 is shown with what it has and says "holder not recorded". A held copy is shown from the
 image store; anything else is listed as a link to its holder, never hot-linked.
+
+FOR INSPECT'S PHOTOS TAB (T-2645) each entry also carries, where the data records it:
+  - `years`: [earliest, latest] — the library's own `date_earliest`/`date_latest`, or for a
+    data/sources record the four-digit years its `date` names. Absent when neither says a
+    year: the tab then calls the picture undated, never guesses one.
+  - `spot`: where the picture was taken from, ONLY when a solved camera of this building in
+    data/reference_views/ names it (the image gate): `u`, `v` and `h` in the structure's
+    footprint frame (u east, v north, h metres over its grade), `bearing` (degrees clockwise
+    from north, in the same frame) and `pitch`. A drawing's elevation camera, which stands
+    hundreds of metres off with a field of view under SPOT_MIN_FOV_DEG to imitate the
+    drawing's straight-on look, is not a place anyone stood and carries no spot.
 """
 
 import argparse
 import json
+import math
 import re
 import sys
 import tempfile
@@ -74,6 +86,10 @@ ACCESSORY = {
 }
 # Which numbers the Prairie structures that do not carry one stand at.
 NUMBER_OF = {"glessner_house": "1800"}
+
+# A solved camera narrower than this is a drawing's far-off elevation camera, not a spot (T-2645).
+SPOT_MIN_FOV_DEG = 5.0
+YEAR_RE = re.compile(r"\b(1[6-9]\d\d|20\d\d)\b")
 
 # Sort: how a visitor reads a building — its fronts first, then the street, drawings, rooms.
 VIEW_RANK = {
@@ -174,6 +190,10 @@ def library_entry(r, store, primary=True):
         e["reference_copy"] = True
     if held:
         e["held"] = held
+    lo, hi = r.get("date_earliest"), r.get("date_latest")
+    lo, hi = (lo if isinstance(lo, int) else None), (hi if isinstance(hi, int) else None)
+    if lo is not None or hi is not None:
+        e["years"] = [lo, hi]
     # Held first; the building's own fronts before the street it stands in, and a picture
     # OF it (named first) before one it stands in the corner of; photographs before prints
     # before drawings; then the picture nearest the scene year.
@@ -184,9 +204,42 @@ def library_entry(r, store, primary=True):
     return e
 
 
+def source_years(date):
+    """[earliest, latest] of the four-digit years a source record's date names, or None."""
+    ys = [int(y) for y in YEAR_RE.findall(str(date or ""))]
+    return [min(ys), max(ys)] if ys else None
+
+
+def camera_spot(cam):
+    """Where a solved camera stood, in the structure's footprint frame, or None (T-2645).
+
+    The camera looks along `basis_right_up_forward`'s forward vector where it has one (an
+    inclined or rolled photograph), else along `yaw_deg`, level. None for a camera with no
+    eye, or one narrower than SPOT_MIN_FOV_DEG (a drawing's elevation camera)."""
+    eye = cam.get("eye")
+    if not (isinstance(eye, list) and len(eye) == 3 and all(isinstance(x, (int, float)) for x in eye)):
+        return None
+    px, f = cam.get("image_px"), cam.get("focal_px")
+    if isinstance(px, list) and len(px) == 2 and isinstance(f, (int, float)) and f > 0:
+        if math.degrees(2 * math.atan(px[1] / 2 / f)) < SPOT_MIN_FOV_DEG:
+            return None
+    basis = cam.get("basis_right_up_forward")
+    if isinstance(basis, list) and len(basis) == 3 and isinstance(basis[2], list) and len(basis[2]) == 3:
+        fe, fn, fu = basis[2]
+        bearing = math.degrees(math.atan2(fe, fn))
+        pitch = math.degrees(math.asin(max(-1.0, min(1.0, fu))))
+    elif isinstance(cam.get("yaw_deg"), (int, float)):
+        bearing, pitch = float(cam["yaw_deg"]), 0.0
+    else:
+        return None
+    return {"u": round(eye[0], 2), "v": round(eye[1], 2), "h": round(eye[2], 2),
+            "bearing": round(bearing % 360, 1), "pitch": round(pitch, 1)}
+
+
 def source_entry(d):
     rights = d.get("rights_status")
-    return {
+    years = source_years(d.get("date"))
+    e = {
         "id": d["id"],
         "kind": KIND_LABEL.get(d.get("type"), "PICTURE"),
         "view": None,
@@ -203,6 +256,9 @@ def source_entry(d):
         "_sort": (1, 0, 0, 0 if d.get("type") == "photograph" else 1, 1, int(re.search(r"\d{4}", str(d.get("date") or "9999")).group(0))
                   if re.search(r"\d{4}", str(d.get("date") or "")) else 9999, d["id"]),
     }
+    if years:
+        e["years"] = years
+    return e
 
 
 def is_picture(r):
@@ -271,6 +327,12 @@ def derive(images, tsv_text, sources, structure_texts, scenes, views):
                 if s_id in entries or (d.get("url") and d.get("url") in seen_urls):
                     continue
                 entries[s_id] = source_entry(d)
+            # T-2645: "from this spot", only where this building's own solved camera names it.
+            for cam in views.get(sid, []):
+                spot = camera_spot(cam)
+                for key in (cam.get("library_image"), cam.get("source_id")):
+                    if spot and key in entries and "spot" not in entries[key]:
+                        entries[key]["spot"] = spot
             if entries:
                 ordered = sorted(entries.values(), key=lambda e: e["_sort"])
                 for e in ordered:
@@ -356,7 +418,10 @@ def self_test():
     texts = {"inn": '{"sources": ["plate", "book"]}'}
     scenes = {"1904": ["goodman_house_1612_prairie", "goodman_house_1612_prairie_coach_house",
                        "kellogg_house_1709_prairie"], "1835": ["inn"]}
-    out = derive(images, tsv, sources, texts, scenes, {})
+    views = {"goodman_house_1612_prairie": [
+        {"library_image": "front", "eye": [30.0, -5.0, 1.6], "yaw_deg": 290, "image_px": [1200, 800], "focal_px": 1000},
+        {"library_image": "street", "eye": [-400, 5.0, 3.0], "yaw_deg": 90, "image_px": [1600, 1500], "focal_px": 47000}]}
+    out = derive(images, tsv, sources, texts, scenes, views)
     g = [e["id"] for e in out["1904"]["by_structure"].get("goodman_house_1612_prairie", [])]
     def expect(cond, what):
         if not cond:
@@ -377,6 +442,18 @@ def self_test():
     inn = out["1835"]["by_structure"].get("inn", [])
     expect([e["id"] for e in inn] == ["plate"], "a cited illustration source is a picture; a cited book is not")
     expect(inn and "held" not in inn[0] and inn[0].get("url") == "https://holder.test/p", "a source with no held copy is a link")
+    # T-2645: the years the data records, and a spot only where a solved camera stood.
+    by = {e["id"]: e for e in out["1904"]["by_structure"]["goodman_house_1612_prairie"]}
+    expect(by["front"].get("years") == [1900, None], f"a library record carries its own years ({by['front'].get('years')})")
+    expect(by["front"].get("spot") == {"u": 30.0, "v": -5.0, "h": 1.6, "bearing": 290.0, "pitch": 0.0},
+           f"a solved camera gives its picture a spot ({by['front'].get('spot')})")
+    expect("spot" not in by["street"], "a drawing's far-off elevation camera is not a spot")
+    expect("spot" not in by.get("barn", {}) and "spot" not in out["1904"]["by_structure"]
+           ["goodman_house_1612_prairie_coach_house"][0], "a picture no camera names has no spot")
+    expect(source_years("1963 (sheets 1-5); 1965 (sheet 6)") == [1963, 1965] and source_years("n.d.") is None,
+           "a source's years are the ones its date names, and none where it names none")
+    tilt = camera_spot({"eye": [0, 0, 2], "basis_right_up_forward": [[1, 0, 0], [0, 0, 1], [0, -0.9950042, 0.0998334]]})
+    expect(tilt and tilt["bearing"] == 180.0 and tilt["pitch"] == 5.7, f"a basis camera's bearing and pitch ({tilt})")
     for fail in fails:
         print(f"FAIL: {fail}")
     if fails:

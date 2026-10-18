@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2011, ts: '2026-10-18T18:36:06.631Z', date: 'Oct 18, 2026, 1:36 PM CT', title: 'Inspect\'s Sources tab sorts every fact by how sure we are', kind: 'feature',
+    items: [
+      'Sources opens with a count, like Glessner House\'s 99 facts: 50 Attested, 14 Inferred, 35 Reconstructed.',
+      'Each fact sits under its grade. Tap one to see why we think so and which sources it rests on.',
+      'Sources are named by their titles and say what kind they are: from the time, first-hand, or a historian\'s account. The full citation folds away underneath.',
+      'Liberties is its own section, listing by name every choice we made without a source.',
+      'The Overview\'s Confidence meter counts the same facts, so the two always agree.',
+    ] },
+  { v: 2010, ts: '2026-10-18T18:09:21.344Z', date: 'Oct 18, 2026, 1:09 PM CT', title: '1625 Prairie\'s entrance bay stands forward, as its photograph shows', kind: 'improvement',
+    items: [
+      'The south part of McBirney\'s house at 1625 Prairie now stands a little forward of the rest, its corners edged in smooth quoin stones and capped by a hood moulding over the wide window.',
+      'The door has a smooth stone frame with a carved panel above it, and the lower windows sit in smooth stone surrounds.',
+      'A single band of stone now runs under the first-floor windows, as in the photograph, in place of two that were never there.',
+    ] },
+  { v: 2009, ts: '2026-10-18T17:31:26.395Z', date: 'Oct 18, 2026, 12:31 PM CT', title: 'Inspect\'s Photos tab: pictures by date, the 12 best first', kind: 'feature',
+    items: [
+      'Inspect\'s Photos tab shows a building\'s pictures as a grid sorted by date, each with its year, a short caption and its credit.',
+      'The 12 best come first: photographs of its time, from as many sides as there are, before later views and drawings. The rest sit behind All, over a hundred for Glessner House.',
+      'A picture with no date in the records says Undated.',
+      'From this spot appears on a picture only where its camera position has been worked out, and stands you where it was taken, facing the same way.',
+      'Tap a picture to open it full size with its whole credit.',
+    ] },
   { v: 2008, ts: '2026-10-18T17:12:35.089Z', date: 'Oct 18, 2026, 12:12 PM CT', title: 'Every year holds less memory; 1904 on a phone: 516 MB', kind: 'fix',
     items: [
       'Buildings kept a second copy of every piece after drawing it. That copy is now freed, in every year.',
