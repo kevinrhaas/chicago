@@ -97,7 +97,7 @@
       "to": null,
       "tier": "inferred",
       "basis": "Placeable against the committed town. A crossing of two platted streets: franklin and lake.",
-      "limit_reason": "The register places this house against franklin+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "limit_reason": "The register places this house against the corner of Franklin Street and Lake Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "corner",
         "id": null,

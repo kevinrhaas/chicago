@@ -3,7 +3,7 @@
 //
 //   node tools/test_strings.mjs
 import assert from 'node:assert/strict';
-import { register, t, has, entries, applyStrings } from '../renderers/web/js/strings/index.js';
+import { register, t, has, entries, applyStrings, isResearcherKey, RESEARCHER } from '../renderers/web/js/strings/index.js';
 import '../renderers/web/js/strings/arrival.js';
 import '../renderers/web/js/strings/hud.js';
 import '../renderers/web/js/strings/navigator.js';
@@ -49,5 +49,13 @@ assert.equal(b.attrs['aria-label'], 'Open the Navigator');
 assert.equal(c.textContent, 'old', 'an unknown key never blanks the markup');
 assert.equal(n, 3);
 assert.equal(applyStrings(null), 0);
+
+// T-2668: the Researcher-mode exemption is a key segment, the same rule the lint applies.
+assert.equal(RESEARCHER, 'researcher');
+assert.ok(isResearcherKey('researcher.order-book'));
+assert.ok(isResearcherKey('guide.researcher.why-full'));
+assert.ok(!isResearcherKey('researchers.note'), 'a namespace merely starting with the word is not exempt');
+assert.ok(!isResearcherKey('hud.tab.sources'));
+assert.ok(!isResearcherKey(null));
 
 console.log('STRING TABLE PASS — sections register and extend, placeholders fill, no key ever shown, the page fills from the table');

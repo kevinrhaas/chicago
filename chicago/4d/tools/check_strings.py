@@ -20,7 +20,8 @@ reads those strings exactly as written, so this refuses, in every section:
     recorded …), each named with the word that replaced it;
   - an id, snake_case word, file path, link or ticket number (compile_summaries.lint_string,
     imported, so this gate and the summary and Guide gates agree), and a sentence over 20
-    words;
+    words — except in a string only Researcher mode shows, a key with a `researcher`
+    segment (T-2668; tools/check_visitor_ui.py has the contract), which keeps the term rules;
   - in renderers/web/index.html, a [data-str] / [data-str-title] / [data-str-label] naming a
     key the table does not hold, or whose first-paint words differ from the table's (the
     page would change under the visitor as the module arrives);
@@ -78,7 +79,9 @@ def read_table(strings=STRINGS):
     return json.loads(out.stdout)
 
 
-def term_errors(where, text, locked, retired, renamed):
+def term_errors(where, text, locked, retired, renamed, researcher=False):
+    """`researcher`: a string only Researcher mode shows (T-2668) keeps the terms rules and
+    may carry the ids, paths and long sentences an adult researcher reads."""
     errs = []
     bare = re.sub(r"\{\w+\}", "x", text)
     # Machine lore stays in mono caps (section 03): a string set wholly in capitals, a
@@ -100,6 +103,8 @@ def term_errors(where, text, locked, retired, renamed):
     for old, new in renamed:
         if re.search(rf"(?<![\w-]){re.escape(old)}(?![\w-])", bare):
             errs.append(f"{where}: `{old}` was renamed `{new}` (section 03)")
+    if researcher:
+        return errs
     for found in lint_string(bare):
         errs.append(f"{where}: {found} in a string a visitor reads")
     for s in re.split(r"(?<=[.!?])\s+", bare):
@@ -188,7 +193,7 @@ def gate(dump, page, root=ROOT, pages=None):
     if [t for t, _ in locked] != ["Attested", "Inferred", "Reconstructed", "Confidence view", "Liberties", "Sources", "Jaunts"]:
         errs.append("terms: the locked terms are not section 03's seven, in its order")
     for key, value in dump["entries"] + dump.get("apps", []):
-        errs += term_errors(key, value, locked, retired, renamed)
+        errs += term_errors(key, value, locked, retired, renamed, researcher="researcher" in key.split("."))
     errs += markup_errors(page, table)
     errs += guide_errors(locked, retired, root)
     if pages is None:
@@ -236,6 +241,10 @@ def self_test():
     plant("a file path", "file path", "See data/scenes/1835.json")
     plant("a ticket number", "ticket number", "Fixed under T-2624")
     plant("a long sentence", "a sentence of 21 words", " ".join(["word"] * 21) + ".")
+    dump3 = json.loads(json.dumps(base)); dump3["entries"].append(["researcher.planted", "See data/scenes/1835.json, attested."])
+    errs3 = gate(dump3, page)
+    expect(not any("file path" in e for e in errs3) and any("spelled another way" in e for e in errs3),
+           "a Researcher-mode string may carry a path (T-2668) and still keeps the locked terms")
     plant("markup naming no string", "names no string", markup='<b data-str="hud.no-such">x</b>')
     first = next((k for k, v in base["entries"]), None)
     plant("markup whose first paint differs", "paints", markup=f'<b data-str="{first}">Something else</b>')

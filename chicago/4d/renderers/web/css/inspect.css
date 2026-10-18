@@ -89,6 +89,39 @@
 .insp-when { display: grid; grid-template-columns: 3.2rem 1fr; gap: 8px; align-items: baseline; }
 .insp-date { font: var(--label-weight, 400) 0.75rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
 .insp-what { font: 400 1rem/1.45 var(--font-body, inherit); }
+
+/* T-2643: the Story timeline. A rail runs down beside the dates; BUILT, YOU ARE HERE and
+   TODAY are its marks, kicked in mono-caps; what came after the visit hangs off a dashed
+   rail and says so in words, not only in colour. Static: nothing here moves. */
+.insp-story-lead { margin: 0 0 10px; }
+.insp-story-line { gap: 0; }
+.insp-story-line .insp-when { position: relative; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 10px; padding: 0 0 12px; }
+.insp-story-line .insp-when::before { content: ''; position: absolute; left: calc(3.2rem + 11px); top: 0; bottom: 0;
+  border-left: 2px solid var(--edge); }
+.insp-story-line .insp-when.is-after::before { border-left-style: dashed; }
+.insp-story-line .insp-when:last-child::before { bottom: auto; height: .9em; }
+.insp-story-body { position: relative; display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-left: 14px;
+  overflow-wrap: anywhere; }
+.insp-story-body::before { content: ''; position: absolute; left: -2px; top: .45em; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ink-dim); }
+.insp-kicker { font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-story-line [data-mark="built"] .insp-story-body::before,
+.insp-story-line [data-mark="today"] .insp-story-body::before { background: var(--ink); }
+.insp-story-line [data-mark="built"] .insp-kicker,
+.insp-story-line [data-mark="today"] .insp-kicker { color: var(--ink); font-size: 0.75rem; font-weight: 600; }
+.insp-story-line [data-mark="built"] .insp-story-body::before,
+.insp-story-line [data-mark="today"] .insp-story-body::before { left: -3px; width: 10px; height: 10px; border-radius: 2px; }
+.insp-story-line .insp-mark-here .insp-story-body { margin-left: -4px; padding: 6px 10px 6px 18px; border: 1px solid var(--accent, currentColor);
+  border-radius: 6px; background: color-mix(in srgb, var(--accent, currentColor) 12%, transparent); }
+.insp-story-line .insp-mark-here .insp-story-body::before { left: 1px; top: .8em; width: 10px; height: 10px;
+  background: var(--accent, currentColor); }
+.insp-story-line .insp-mark-here .insp-kicker { color: var(--accent, currentColor); }
+.insp-story-line .insp-mark-here .insp-date { color: var(--ink); padding-top: 6px; }
+.insp-story-line .is-missing .insp-what { color: var(--ink-dim); font-style: italic; }
+.insp-after { align-self: flex-start; margin-top: 2px; padding: 1px 6px; border: 1px dashed var(--edge-strong, var(--edge)); border-radius: 4px;
+  font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
 /* T-2640: Show me — a small key at the end of each Look for line the record gives a camera,
    and the outline it pulses on the building for 2 s (still, with reduced motion). */
 .insp-look-item { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
@@ -108,3 +141,52 @@
 .show-me-outline.is-pulsing { animation: show-me-pulse .5s ease-in-out 4 alternate both; }
 @keyframes show-me-pulse { from { opacity: 1; } to { opacity: .35; } }
 @media (prefers-reduced-motion: reduce) { .show-me-outline.is-pulsing { animation: none; } }
+
+/* T-2644: the Sources tab — every fact grouped by grade, Liberties as a section, a human title
+   on each source, and the full citation folded under each fact. Native <details>, so every row
+   opens by touch, mouse or keyboard with no script, and nothing animates (reduced motion is
+   the default here). Every colour is a skin token. */
+.insp-sources { display: flex; flex-direction: column; gap: 14px; color: var(--ink); overflow-wrap: anywhere; }
+.src-page { display: flex; flex-direction: column; gap: 14px; }
+.src-lead { margin: 0; font: 500 1rem/1.5 var(--font-body, inherit); max-width: 65ch; }
+.src-grade, .src-liberties { padding-top: 10px; border-top: 1px solid var(--edge); }
+.src-grade-h { display: flex; align-items: center; gap: 6px; }
+.src-count { margin-left: auto; color: var(--ink); }
+.src-gloss { margin: 0 0 8px; }
+.src-facts { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.src-facts > li + li { border-top: 1px solid var(--edge); }
+.src-fact > summary, .src-lib > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px;
+  min-height: 44px; padding: 10px 24px 10px 0; position: relative; cursor: pointer; list-style: none; }
+.src-fact > summary::-webkit-details-marker, .src-lib > summary::-webkit-details-marker,
+.src-cites > summary::-webkit-details-marker { display: none; }
+.src-fact > summary::after, .src-lib > summary::after { content: '+'; position: absolute; right: 4px; top: 10px;
+  font: 400 1rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
+.src-fact[open] > summary::after, .src-lib[open] > summary::after { content: '−'; }
+.src-fact > summary:focus-visible, .src-lib > summary:focus-visible, .src-cites > summary:focus-visible {
+  outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.src-fact > summary .fact-dot { align-self: center; }
+.src-label { font: 500 1rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.src-value { flex: 1 1 12rem; min-width: 0; font: 400 0.9375rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.src-body { display: flex; flex-direction: column; gap: 6px; padding: 0 0 12px; }
+.src-body p, .src-lib-body { margin: 0; }
+.src-long, .src-why { font: 400 0.9375rem/1.5 var(--font-body, inherit); max-width: 65ch; }
+.src-why-later, .src-absent, .src-none { font: 400 0.875rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.src-k { font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.src-why .src-k { margin-right: 4px; }
+.src-titles { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.src-title { font: 400 0.9375rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.src-when { display: inline-block; margin-left: 4px; padding: 0 6px; border: 1px solid var(--edge); border-radius: 4px;
+  font: var(--label-weight, 400) 0.625rem/1.6 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
+.src-cites > summary { min-height: 36px; display: flex; align-items: center; cursor: pointer; list-style: none;
+  font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--accent, var(--ink)); }
+.src-cites .cites { margin: 4px 0 0; padding-left: 1.2rem; font-size: 0.8125rem; line-height: 1.5; color: var(--ink-dim); }
+.src-cites .cites a { color: var(--accent, var(--ink)); }
+.src-lib-body { display: grid; gap: 2px 0; padding: 0 0 12px; font: 400 0.9375rem/1.5 var(--font-body, inherit); }
+.src-lib-body dt { margin-top: 6px; font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.src-lib-body dd { margin: 0; max-width: 65ch; }
+.src-open .cites { margin: 0 0 12px; padding-left: 1.2rem; font-size: 0.8125rem; color: var(--ink-dim); }
+.src-foot { margin: 0; font-size: 0.875rem; color: var(--ink-dim); }
+.src-foot a { color: var(--accent, var(--ink)); }

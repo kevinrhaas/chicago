@@ -179,3 +179,9 @@ html[data-transfer] .gate::before { content:'';position:absolute;left:50%;top:50
 html[data-recall]::after { content:'';position:fixed;left:50%;top:50%;z-index:200;width:70vmin;height:70vmin;margin:-35vmin 0 0 -35vmin;border:1px dashed var(--accent);border-radius:50%;pointer-events:none;opacity:0;box-shadow:0 0 0 30px var(--skin-glow),0 0 0 100px var(--skin-glow);animation:recall-tail 1s var(--ease-machine) both; }
 @keyframes recall-tail { from{transform:scale(.6);opacity:.45} to{transform:scale(.02);opacity:0} }
 @media (prefers-reduced-motion:reduce) { html[data-recall]::after{content:none} html[data-transfer] .gate-card{animation:none} html[data-transfer] .gate::before{content:none} .machine-dial,.machine-dial *,.gate-btn{transition:none!important} }
+/* T-2668 — Researcher mode's contract, on every page this sheet dresses. An element marked
+   [data-researcher] is research-only (the order book, ids, file paths, the full essays): it
+   stays off the visitor's screen until Researcher mode (T-2657) sets <html
+   data-researcher-mode>, and tools/check_visitor_ui.py exempts it from the visitor-UI lint
+   for exactly that reason. */
+html:not([data-researcher-mode]) [data-researcher] { display: none !important; }

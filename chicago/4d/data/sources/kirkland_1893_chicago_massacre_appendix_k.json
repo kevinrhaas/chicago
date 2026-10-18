@@ -1,0 +1,49 @@
+{
+  "id": "kirkland_1893_chicago_massacre_appendix_k",
+  "type": "book",
+  "citation": "Joseph Kirkland, The Chicago Massacre of 1812, with Illustrations and Historical Documents (Chicago: Dibble Publishing Co., 1893), Appendix K, 'The Bronze Memorial Group', printed pp. 209-210: the letters of A. J. Galloway to Capt. A. T. Andreas (Chicago, 8 February 1884), Isaac N. Arnold to Andreas (Chicago, 25 January 1884) and Robert G. Clarke to the Editor of the Tribune (Aspen, Colorado, 15 March 1890), each printed whole.",
+  "author": "Joseph Kirkland (1830-1894), compiler; the three letters are by their own writers",
+  "date": "1893",
+  "describes_date": "the lake shore at Sixteenth to Eighteenth Street from about 1835 (Mary Clark Williams's childhood, by Galloway) and 1836 (Arnold's arrival) to the 1840s (Clarke's childhood on the Clark farm)",
+  "repository": "Internet Archive item chicagomassacreo00kirk; the same book is Internet Archive chicagomass00kirkrich (chicago/reference/chicago-massacre-1812.yaml) and Project Gutenberg eBook #59624",
+  "url": "https://archive.org/details/chicagomassacreo00kirk",
+  "archived_url": "https://ia600508.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/12/items/chicagomassacreo00kirk/chicagomassacreo00kirk_djvu.xml&page=212",
+  "locator": "Appendix K, printed p. 209 (the running head over the Galloway letter) and p. 210; BookReader leaves 211 (Arnold), 212 (Galloway, and Clarke's letter to 'extending from a little north of Six-') and 213 (Clarke from '-teenth Street. Almost in the center of this grove').",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read from the Internet Archive's OCR text layer, leaves 211-213, on 2026-10-17 for the 1812/1835 tree-cover research (/mnt/project-files/trees-1812-1835/sources.md, A6-A8), and leaves 212 and 213 read again on 2026-10-18 for T-2766, which confirmed the grove sentence, the clump sentence and the sand-hill sentence word for word. NO PAGE IMAGE WAS READ, so the quotes are transcription-mediated. The OCR spells Galloway 'Gai^loway'.",
+  "transcribes": [
+    {
+      "work": "Robert G. Clarke, letter to the Editor of the Tribune, Aspen, Colorado, 15 March 1890",
+      "date": "1890",
+      "tier": 2,
+      "note": "A son of H. B. Clark, who bought the shore land at Sixteenth to Eighteenth Street in 1833, recalling his own childhood there, about the late 1830s to the 1840s: 'This was one of a grove, consisting of perhaps fifty to seventy-five large cottonwoods, extending from a little north of Sixteenth to a little south of Eighteenth Street. Almost in the center of this grove - I think the exact location would be two hundred and fifty to three hundred feet north of Eighteenth Street, on the east end of Wirt Dexter's lot - stood a \"clump\" of eight or nine trees.' And of the shore: 'The sand-hills extended from about where the Illinois Central round-house now is south to about Twenty-Fifth Street. They were covered with low cedar trees, ground pine, and sand cherry bushes'. An eyewitness, fifty years on, giving a count as 'perhaps' and a place by a lot that was laid out after he saw it: tier 2, the rung Wau-Bun stands on."
+    },
+    {
+      "work": "A. J. Galloway, letter to Capt. A. T. Andreas, Chicago, 8 February 1884",
+      "date": "1884",
+      "tier": 3,
+      "note": "Galloway lived at 1808 Prairie Avenue from 1858 and knew the 18th Street tree old: its 'large lower branches ... after mounting upward for a time, curved gracefully downward, so that a man riding under them could have readily touched their extremities, with his whip, at a distance of twenty or twenty-five feet from the body of the tree.' He reports at second hand that Mrs. Mary Clark Williams 'nearly fifty years ago ... played under the old cottonwood, and that it was then a large and thrifty tree.' The 1835 size is hers, through him."
+    },
+    {
+      "work": "Isaac N. Arnold, letter to Capt. A. T. Andreas, Chicago, 25 January 1884",
+      "date": "1884",
+      "tier": 2,
+      "note": "Arnold came to Chicago in 1836: 'There were then growing some cottonwood trees near which I was told the massacre occurred. One of those trees is still standing in the street leading from Michigan Avenue to the lake and not very far from the track of the Illinois Central Railway.'"
+    }
+  ],
+  "what_it_supplies": [
+    "A COUNT AND AN EXTENT for the shore cottonwoods south of the town: 'perhaps fifty to seventy-five large cottonwoods' from a little north of Sixteenth Street to a little south of Eighteenth (Clarke)",
+    "ONE PLACE INSIDE IT: a clump of eight or nine trees 250-300 ft north of Eighteenth Street at the east end of Wirt Dexter's lot, which is 1721 Prairie Avenue (Clarke)",
+    "THE SIZE OF THE 18TH STREET TREE about 1835: 'a large and thrifty tree' (Mary Clark Williams, through Galloway), and its open-grown crown as old, limbs reaching 20-25 ft from the trunk (Galloway)",
+    "THE SAND HILLS' COVER from about Twelfth to Twenty-Fifth Street: low cedar, ground pine and sand cherry (Clarke)"
+  ],
+  "what_it_does_not_supply": [
+    "a position for any one tree except the clump, and that one is given against a lot of the 1850s, not against the 1835 shore",
+    "how far the grove reached back from the water",
+    "a picture: Andreas's engraving of the 18th Street tree (vol. 1, p. 31) is a separate work and is not in this corpus"
+  ],
+  "note": "Written for T-2766. The record's rung is the best letter it prints (Clarke's and Arnold's, tier 2); Kirkland's own connecting text is a compiler's, and Galloway's report of Mrs. Williams is a rung lower, as `transcribes` says. Grade a claim on the letter it rests on."
+}

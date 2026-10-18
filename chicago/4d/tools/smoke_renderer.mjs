@@ -9574,6 +9574,46 @@ for (const [label, viewport, touch] of [
       && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
       && inspectTabs1835.held && !inspectTabs1835.plumbing,
       JSON.stringify(inspectTabs1835).slice(0, 700));
+    // >>> T-2643: Inspect's Story tab on an 1835 building with no summary record. BUILT says the
+    // records give no date (none is composed from where the evidence begins), YOU ARE HERE is the
+    // scene's 1 July 1835, TODAY closes it after your visit, and the 5 August 1835 fire limit,
+    // where the card's limits loaded, hangs after the visit. Nothing overflows the pane.
+    const story1835 = await page.evaluate(async (id) => {
+      const a = window.__chicago4d;
+      const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+      const root = () => document.getElementById('nav-app-inspect');
+      a.pick(id);
+      await a.navigator.select('inspect');
+      a.navigator.open(2);
+      await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+      root().querySelector('[data-insp-tab="story"]')?.click();
+      const pane = () => root().querySelector('[data-insp-pane="story"]');
+      await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+      const p = pane();
+      const rows = [...p.querySelectorAll('.insp-story-line > li')].map((li) => ({ mark: li.dataset.mark, after: li.hasAttribute('data-after'),
+        when: li.querySelector('.insp-date')?.textContent ?? '', text: li.querySelector('.insp-story-body')?.textContent ?? '',
+        tag: li.querySelector('.insp-after')?.textContent ?? null }));
+      const out = { filled: p.dataset.filled, rows, shown: p.checkVisibility(),
+        caps: [...p.querySelectorAll('.insp-kicker')].every((k) => getComputedStyle(k).textTransform === 'uppercase'),
+        plumbing: /[a-z0-9]+_[a-z0-9]+|\.json\b/i.test(p.textContent),
+        overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+      await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+      return out;
+    }, 'hogan_store');
+    {
+      const r = story1835.rows;
+      const at = r.findIndex((x) => x.mark === 'here');
+      const fire = r.findIndex((x) => x.mark === 'fire');
+      check(`${label}: Inspect's Story on an 1835 building marks BUILT, YOU ARE HERE at 1 July 1835 and TODAY, honest where the records give no date, the fire limit after your visit (T-2643)`,
+        story1835.filled === 'yes' && story1835.shown && r[0]?.mark === 'built' && /no date/.test(r[0].text) && r[0].when === ''
+        && at > 0 && r[at].when === '1835' && /1 July 1835/.test(r[at].text)
+        && r.at(-1)?.mark === 'today' && r.at(-1).after && r.at(-1).tag === 'After your visit'
+        && r.slice(0, at).every((x) => !x.after && !x.tag) && r.slice(at + 1).every((x) => x.after && x.tag === 'After your visit')
+        && (fire === -1 || (fire > at && r[fire].when === '1835'))
+        && story1835.caps && !story1835.plumbing && !story1835.overflow,
+        JSON.stringify(story1835).slice(0, 900));
+    }
+    // <<< T-2643
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -15394,8 +15434,10 @@ for (const [label, viewport, touch] of [
       out.markAfter = !document.getElementById('s-about-dev')?.hidden;
       return out;
     });
-    check(`${label}: the DEV pill and build stamp are off a phone's screen and in Settings › About; a desktop keeps them (T-2629)`,
-      (devChrome.phone ? !devChrome.banner && !devChrome.pill && devChrome.stamp === 'none'
+    // T-2785: the owner wants the DEV mark and build stamp back on a phone; only the
+    // full-width banner stays off it.
+    check(`${label}: a phone keeps the DEV pill and build stamp but not the banner; a desktop keeps all three; Settings › About has them (T-2629, T-2785)`,
+      (devChrome.phone ? !devChrome.banner && devChrome.pill && devChrome.stamp !== 'none'
         : devChrome.banner && devChrome.pill && devChrome.stamp !== 'none')
       && devChrome.aboutInSettings && devChrome.dev?.dev === true && devChrome.mark.shown && devChrome.mark.text === 'DEV'
       && devChrome.aboutText.length > 0 && (!devChrome.gateText || devChrome.aboutText === devChrome.gateText)
@@ -15944,6 +15986,77 @@ for (const [label, viewport, touch] of [
       && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
       JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
     // ---- end T-2663
+    // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
+    // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
+    // again; no hint shows while the tour runs; a Reconstructed building's card hints once.
+    // The Field Check just finished above, which spends the offer too, so its record is set
+    // aside for this block and put back after, as are where the visitor stood and the offer.
+    // Clicks are hit-tested but never abort the part: a miss is this check's failure, read below.
+    const offerSeen = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const w = api.walker;
+      const at = { local_e: w.state.e, local_n: w.state.n, yaw_deg: w.bearingDeg };
+      const tourWas = localStorage.getItem('chicago4d.tour');
+      localStorage.removeItem('chicago4d.tour');
+      api.tourOffer.forget(); api.hints.forget(); api.roamTip.hide();
+      api.popup.close();
+      api.welcome.show();
+      const o = document.getElementById('tour-offer');
+      const b = o?.getBoundingClientRect();
+      return { at, tourWas, shown: !!o && !o.hidden && !!b && b.width > 0 && b.height > 0, text: o?.textContent.trim() ?? '',
+        tall: Math.round(b?.height ?? 0), wide: !!b && b.left >= 0 && b.right <= innerWidth };
+    });
+    const offerClick = await clickChrome('#tour-offer').then(() => null, (e) => { return page.evaluate(() => document.getElementById('tour-offer')?.click()).then(() => e.message); });
+    await page.waitForFunction(() => window.__chicago4d.tour.running && document.getElementById('gate').hidden, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+    const offerTaken = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      return { gateHidden: document.getElementById('gate').hidden, state: api.welcome.state, running: api.tour.running, step: api.tour.step,
+        stored: localStorage.getItem('chicago4d.tourOffer'), roamTip: api.roamTip.showing, held: api.hints.show('reconstructed'),
+        owed: !api.hints.seen('reconstructed') };
+    });
+    const skipClick = await clickChrome('#tour-skip').then(() => null, (e) => { return page.evaluate(() => window.__chicago4d.tour.skip()).then(() => e.message); });
+    await page.waitForFunction(() => !window.__chicago4d.tour.running, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+    const offerAfter = await page.evaluate(async (seen) => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      // Home again: not offered a second time.
+      api.welcome.show();
+      const reoffered = !document.getElementById('tour-offer').hidden;
+      api.welcome.close();
+      // A Reconstructed building's card: the hint, once.
+      const row = api.destinations.search('', { kind: 'structure', includeReconstructed: true })
+        .find((r) => r.presence === 'reconstructed' && api.registry.has(r.id));
+      const read = () => {
+        const h = document.getElementById('nav-hint'); const b = h?.getBoundingClientRect();
+        return { showing: !!h && !h.hidden, text: h?.textContent ?? '', id: h?.dataset.hint ?? null,
+          inView: !!b && b.width > 0 && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight,
+          pointer: h ? getComputedStyle(h).pointerEvents : null };
+      };
+      let first = null, second = null;
+      if (row) {
+        api.pick(row.id); await pause(150); first = read();
+        api.popup.close(); api.hints.hide();
+        api.pick(row.id); await pause(150); second = read();
+        api.popup.close();
+      }
+      // Back as it was found: where the visitor stood, the Field Check's record, the offer
+      // answered, no hint, Home the Navigator's app, docked.
+      api.walker.teleport(seen.at);
+      if (seen.tourWas === null) localStorage.removeItem('chicago4d.tour'); else localStorage.setItem('chicago4d.tour', seen.tourWas);
+      api.hints.hide(); api.roamTip.hide();
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return { reoffered, row: row?.id ?? null, first, second, stored: localStorage.getItem('chicago4d.tourOffer') };
+    }, offerSeen);
+    check(`${label}: Home offers the 60-second tour once per device, taking it starts the Field Check, and a Reconstructed building hints once (T-2664)`,
+      offerSeen.shown && offerSeen.text === 'First time? Take the 60-second tour' && offerSeen.wide && offerSeen.tall >= 44 && !offerClick
+      && offerTaken.gateHidden && offerTaken.state === 'world' && offerTaken.running && offerTaken.step === 0 && offerTaken.stored === 'taken'
+      && !offerTaken.roamTip && !offerTaken.held && offerTaken.owed
+      && !offerAfter.reoffered && offerAfter.stored === 'taken' && !!offerAfter.row
+      && offerAfter.first?.showing && offerAfter.first.id === 'reconstructed' && /^Reconstructed\b/.test(offerAfter.first.text)
+      && offerAfter.first.inView && offerAfter.first.pointer === 'none' && !offerAfter.second?.showing,
+      JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
+    // <<< T-2664
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.
@@ -18255,7 +18368,7 @@ for (const [label, viewport, touch] of [
           && JSON.stringify(inspectRecord.sections) === JSON.stringify(['Who lives here · 1904', 'Look for', 'Notable facts'])
           && /^A granite fortress on the street/.test(inspectRecord.summary)
           && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
-          && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
+          && !inspectRecord.plumbing && !inspectRecord.overflow && /^\d+ facts/.test(inspectRecord.meter),   // the count is T-2644's, checked there
           JSON.stringify(inspectRecord).slice(0, 700));
         // T-2639. On 1904: People lists the Glessner household from the directory (T-2702); a
         // newly inspected building opens on Overview; the same building keeps its tab.
@@ -18295,6 +18408,118 @@ for (const [label, viewport, touch] of [
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
           && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
           JSON.stringify(inspectTabs1904));
+        // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
+        // same count the Overview's Confidence meter shows), a Liberties section with every
+        // liberty recorded against the house, each fact folded with its sources named by human
+        // titles and its full citation folded again beneath; no source id or tier label shows.
+        const inspectSources = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          a.pick(id);
+          await a.navigator.select('inspect');
+          a.navigator.open(2);
+          await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-meter'));
+          const meter = root().querySelector('.insp-meter')?.getAttribute('aria-label') ?? '';
+          root().querySelector('[data-insp-tab="sources"]')?.click();
+          await wait(() => root().querySelector('[data-insp-pane="sources"]')?.dataset.filled === 'yes');
+          const pane = root().querySelector('[data-insp-pane="sources"]');
+          const pg = pane?.querySelector('.src-page');
+          const count = (g) => Number(pane?.querySelector(`.src-grade[data-grade="${g}"] .src-count`)?.textContent ?? NaN);
+          const rows = (g) => pane?.querySelectorAll(`.src-grade[data-grade="${g}"] .src-fact`).length ?? 0;
+          const shut = pane?.innerText ?? '';
+          const rec = a.registry.get(id)?.sidecar ?? {};
+          const sums = await a.inspectSummaries();
+          const ids = new Set([...(rec.citations ?? []).map((c) => c.source_id), ...Object.keys(sums?.sources ?? {})]);
+          const libs = ((await a.loadLiberties())?.liberties ?? []).filter((l) => l.subjects?.includes(id)).length;
+          const folded = pane?.querySelectorAll('.src-fact[open]').length ?? -1;   // before any tap
+          // Open the first Attested fact, then its folded citations, as a visitor would.
+          const first = pane?.querySelector('.src-grade[data-grade="attested"] .src-fact');
+          first?.querySelector('summary')?.click();
+          const titles = [...(first?.querySelectorAll('.src-title') ?? [])].map((n) => n.textContent.trim());
+          const whens = [...(first?.querySelectorAll('.src-when') ?? [])].map((n) => n.textContent.trim());
+          const cites = first?.querySelector('.src-cites');
+          const citesShut = !!cites && !cites.open;
+          cites?.querySelector('summary')?.click();
+          const citeRows = cites?.querySelectorAll('.cites li').length ?? 0;
+          const opened = pane?.innerText ?? '';
+          const r = pane?.getBoundingClientRect();
+          const out = { lead: pane?.querySelector('.src-lead')?.textContent.trim() ?? '', facts: Number(pg?.dataset.facts ?? NaN),
+            counts: ['attested', 'inferred', 'reconstructed'].map(count), rows: ['attested', 'inferred', 'reconstructed'].map(rows),
+            allRows: pane?.querySelectorAll('.src-fact').length ?? 0, folded,
+            meter, libs, libRows: pane?.querySelectorAll('.src-liberties:not(.src-questions) .src-lib').length ?? 0,
+            libHead: pane?.querySelector('.src-liberties .insp-h')?.textContent.trim() ?? '',
+            titles, whens, citesShut, citeRows,
+            idShown: [...ids].filter((s) => opened.includes(s)).slice(0, 3),
+            tierShown: /\btier \d|period\/eyewitness|near-primary|later scholarship/i.test(opened),
+            plumbing: (shut.match(/\S*[A-Za-z0-9]_[A-Za-z0-9]\S*|\S*\.json\b|\bdata\/\S*|\bT-\d{3,}/) ?? [null])[0],
+            overflow: document.documentElement.scrollWidth > innerWidth || (r ? r.right > innerWidth + 1 : true) };
+          first?.removeAttribute('open');
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, 'glessner_house');
+        {
+          const s = inspectSources;
+          const total = s.counts.reduce((x, y) => x + y, 0);
+          check(`${label}: Glessner's Sources tab groups every fact by grade with real counts, Liberties by name, and folded citations, with no source id or tier label (T-2644)`,
+            s.facts > 30 && total === s.facts && s.allRows === s.facts && JSON.stringify(s.rows) === JSON.stringify(s.counts)
+            && s.counts.every((n) => n > 0) && s.folded === 0
+            && s.lead === `${s.facts} facts. ${s.counts[0]} Attested, ${s.counts[1]} Inferred, ${s.counts[2]} Reconstructed. Tap any one to see its sources.`
+            && new RegExp(`^${s.facts} facts`).test(s.meter)
+            && s.libs > 0 && s.libRows === s.libs && /^Liberties/.test(s.libHead)
+            && s.titles.length > 0 && s.titles.every((x) => x.length > 3) && s.whens.every((w) => ['from the time', 'first-hand', 'a witness remembering', 'gathered from witnesses', "a historian's account", 'a modern reconstruction', 'a popular map'].includes(w))
+            && s.citesShut && s.citeRows > 0
+            && s.idShown.length === 0 && !s.tierShown && !s.plumbing && !s.overflow,
+            JSON.stringify(s).slice(0, 700));
+        }
+        // <<< T-2644
+        // >>> T-2643 (QA-09): Glessner's Story runs from design (1885) to today, BUILT at 1887 and
+        // YOU ARE HERE at 1 July 1904, every fact dotted, what came after the visit marked so; and
+        // no 1835 civic rule (the fire limit, the hay by-law) renders on a 1904 building.
+        const story1904 = await page.evaluate(async (ids) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const out = {};
+          for (const id of ids) {
+            a.pick(id);
+            await a.navigator.select('inspect');
+            a.navigator.open(2);
+            await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+            root().querySelector('[data-insp-tab="story"]')?.click();
+            const pane = () => root().querySelector('[data-insp-pane="story"]');
+            await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+            const p = pane();
+            out[id] = { filled: p.dataset.filled,
+              rows: [...p.querySelectorAll('.insp-story-line > li')].map((li) => ({ mark: li.dataset.mark, after: li.hasAttribute('data-after'),
+                when: li.querySelector('.insp-date')?.textContent ?? '', text: li.querySelector('.insp-story-body')?.textContent ?? '',
+                dot: !!li.querySelector('.fact-dot'), tag: li.querySelector('.insp-after')?.textContent ?? null })),
+              civic: /fire limit|\bhay\b|by-law|Trustees/i.test(p.textContent),
+              plumbing: /[a-z0-9]+_[a-z0-9]+|\.json\b/i.test(p.textContent),
+              overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, ['glessner_house', 'pullman_house_1729_prairie']);
+        {
+          const g = story1904.glessner_house?.rows ?? [];
+          const at = g.findIndex((x) => x.mark === 'here');
+          const built = g.findIndex((x) => x.mark === 'built');
+          const pull = story1904.pullman_house_1729_prairie ?? {};
+          const pr = pull.rows ?? [];
+          check(`${label}: Glessner's Story runs from design to today with BUILT 1887 and YOU ARE HERE at 1904, later facts after your visit, and no 1835 civic rule on a 1904 building (T-2643)`,
+            story1904.glessner_house?.filled === 'yes' && g[0]?.mark === 'event' && g[0].when === '1885'
+            && built > 0 && built < at && g[built].when === '1887' && g[built].dot
+            && at > 0 && g[at].when === '1904' && /1 July 1904/.test(g[at].text)
+            && g.at(-1)?.mark === 'today' && /Still standing/.test(g.at(-1).text) && g.at(-1).dot
+            && g.slice(0, at).every((x) => !x.after && !x.tag) && g.slice(at + 1).every((x) => x.after && x.tag === 'After your visit')
+            && g.filter((x) => x.mark === 'event').every((x) => x.dot)
+            && pull.filled === 'yes' && pr[0]?.mark === 'built' && pr.some((x) => x.mark === 'here' && x.when === '1904') && pr.at(-1)?.mark === 'today'
+            && !story1904.glessner_house.civic && !pull.civic
+            && !story1904.glessner_house.plumbing && !pull.plumbing && !story1904.glessner_house.overflow && !pull.overflow,
+            JSON.stringify(story1904).slice(0, 900));
+        }
+        // <<< T-2643
         // >>> T-2640 (QA-10): Show me on each Look for item of Glessner House turns the camera to
         // the record's own view of the feature — its bearing and pitch, the house down the
         // crosshair — and the outline shows for 2 s. Never aimed where the record names no camera.
@@ -18335,6 +18560,73 @@ for (const [label, viewport, touch] of [
             && t.aimed === 'glessner_house' && t.outline),
           JSON.stringify(showMe));
         // <<< T-2640
+        // >>> T-2645 (NAV-510): Inspect's Photos tab on Glessner House — the 12 best by date, each
+        // with its year, a caption and its credit; All N shows every picture; From this spot only
+        // on a picture a solved camera names, and it stands the visitor where that camera stood.
+        const photosTab = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 300) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const pane = () => root()?.querySelector('[data-insp-pane="photos"]');
+          a.pick(id);
+          await a.navigator.select('inspect');
+          a.navigator.open(2);
+          await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+          root().querySelector('[data-insp-tab="photos"]')?.click();
+          await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+          const pics = await a.pictures();
+          const byId = new Map((pics?.by_structure?.[id] ?? []).map((p) => [p.id, p]));
+          const tiles = () => [...(pane()?.querySelectorAll('.ph-item') ?? [])].map((li) => ({
+            id: li.dataset.photo, year: li.querySelector('.ph-year')?.textContent.trim() ?? '',
+            caption: li.querySelector('.ph-cap')?.textContent.trim() ?? '', credit: li.querySelector('.ph-credit')?.textContent.trim() ?? '',
+            spot: !!li.querySelector('.ph-spot'), src: li.querySelector('.ph-thumb')?.getAttribute('src') ?? '' }));
+          const first = (y) => (/^\d{4}/.test(y) ? Number(y.slice(0, 4)) : Infinity);
+          const sorted = (list) => list.every((t, i) => i === 0 || first(list[i - 1].year) <= first(t.year));
+          const best = tiles();
+          const more = pane()?.querySelector('.ph-all');
+          const n = Number(/\d+/.exec(more?.textContent ?? '')?.[0] ?? 0);
+          more?.click();
+          const every = tiles();
+          // Everything the tab composes: credits are excluded, being the holder's own words (a
+          // licence such as CC BY-SA asks for the author's name exactly as given, w_lemay included).
+          const text = [...(pane()?.querySelectorAll('.ph-year, .ph-cap, .ph-status, .ph-all, .ph-spot, .insp-h, .ph-links a') ?? [])]
+            .map((n) => n.textContent).join(' ');
+          const out = { filled: pane()?.dataset.filled, best: best.length, n, all: every.length,
+            sortedBest: sorted(best), sortedAll: sorted(every),
+            unlabelled: every.filter((t) => !t.year || !t.caption || !t.credit || !t.src).map((t) => t.id).slice(0, 4),
+            // a From this spot button exactly where the pictures file records a spot
+            spotMismatch: every.filter((t) => t.spot !== !!byId.get(t.id)?.spot).map((t) => t.id).slice(0, 4),
+            spots: every.filter((t) => t.spot).length,
+            plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\.jpg\b|\bdata\/|\bT-\d{3,}/.test(text),
+            overflow: document.documentElement.scrollWidth > innerWidth, move: null };
+          // From this spot: stand where the first picture with a spot was taken.
+          const btn = pane()?.querySelector('.ph-item .ph-spot');
+          if (btn) {
+            const picture = byId.get(btn.closest('.ph-item').dataset.photo);
+            const pl = a.registry.get(id)?.sidecar?.placement;
+            const th = (pl.rotation_deg ?? 0) * Math.PI / 180;
+            const want = { e: pl.local_e + picture.spot.u * Math.cos(th) + picture.spot.v * Math.sin(th),
+              n: pl.local_n - picture.spot.u * Math.sin(th) + picture.spot.v * Math.cos(th),
+              yaw: (((picture.spot.bearing + (pl.rotation_deg ?? 0)) % 360) + 360) % 360 };
+            const before = a.showMe.last?.at ?? -1;
+            btn.click();
+            // Show me's glide is 900 ms of frames, and a frame can take seconds on the desktop runner.
+            await wait(() => (a.showMe.last?.at ?? -1) !== before, 300);
+            await wait(() => Math.hypot(a.player.e - want.e, a.player.n - want.n) < 1.5, 50);
+            const yaw = ((a.player.bearingDeg % 360) + 360) % 360;
+            out.move = { want, at: { e: a.player.e, n: a.player.n, yaw }, dist: Math.hypot(a.player.e - want.e, a.player.n - want.n),
+              turn: Math.abs(((yaw - want.yaw + 540) % 360) - 180) };
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, 'glessner_house');
+        check(`${label}: Inspect's Photos tab shows Glessner's 12 best by date with year, caption and credit, All N the rest, and From this spot stands you where the camera stood (T-2645)`,
+          photosTab.filled === 'yes' && photosTab.best === 12 && photosTab.n > 12 && photosTab.all === photosTab.n
+          && photosTab.sortedBest && photosTab.sortedAll && photosTab.unlabelled.length === 0
+          && photosTab.spotMismatch.length === 0 && photosTab.spots >= 1 && !photosTab.plumbing && !photosTab.overflow
+          && !!photosTab.move && photosTab.move.dist < 1.5 && photosTab.move.turn <= 2,
+          JSON.stringify(photosTab).slice(0, 900));
+        // <<< T-2645
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
