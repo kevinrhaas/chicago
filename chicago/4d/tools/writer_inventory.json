@@ -188,6 +188,12 @@
       "measured": "2026-10-17",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check runs node over renderers/web/js/strings/ and js/apps/ to list the table, reads the static pages and only prints, and --self-test plants its faults in memory and in a temporary directory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the table is authored (T-2624)."
     },
+    "check_visitor_ui.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-18",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check runs node over renderers/web/js/strings/ and js/apps/ (through check_strings.read_table), reads the static pages, data/businesses/index.json and css/skins.css, and only prints; --self-test plants its faults in memory and in a temporary directory. Both write nothing (git status --porcelain identical before and after). It declares no write mode: it is a lint (T-2668)."
+    },
     "check_guide.py": {
       "placement": "not_a_writer",
       "write_mode": null,

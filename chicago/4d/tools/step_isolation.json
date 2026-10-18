@@ -2944,6 +2944,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_visitor_ui.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_wall_relief.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5403,6 +5407,10 @@
       "wrote_ignored": []
     },
     "tools/test_changelog_mirror.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_check_visitor_ui.py": {
       "wrote": [],
       "wrote_ignored": []
     },
