@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1980, ts: '2026-10-18T10:27:48.111Z', date: 'Oct 18, 2026, 5:27 AM CT', title: 'A cleaner view: the last HUD buttons move into the Navigator', kind: 'feature',
+    items: [
+      'Start / Jaunts, the pace button and the light or dark switch have left the top of the screen, so more of the town shows, above all on a phone.',
+      'Jaunts, Go to and Free roam are all in the Navigator\'s Jaunts app.',
+      'Your pace is chosen in Move, and light or dark is in Settings, under View.',
+    ] },
   { v: 1979, ts: '2026-10-18T10:17:35.382Z', date: 'Oct 18, 2026, 5:17 AM CT', title: '1637 Prairie\'s c. 1870 photograph, weighed against the 1904 house', kind: 'add',
     items: [
       'The Grosvenor house\'s photograph from before Jesse Spalding\'s remodel now has a source record, a solved camera and a side-by-side with the 1904 build.',
