@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2001, ts: '2026-10-18T15:34:41.950Z', date: 'Oct 18, 2026, 10:34 AM CT', title: 'Glessner\'s stable roof checked against two old photographs: the roof was right', kind: 'improvement',
+    items: [
+      'The 1963 survey photograph seemed to show the stable roof about 2 feet lower than the model. Measured against the carriage doorway, the one surveyed length on that wall, most of that gap turns out to be the camera.',
+      'Read the same way, the c. 1887 photograph from the northwest agrees: the gable\'s peak and the dovecote\'s point land within about a foot of where the model has them, so the roof stays as built.',
+      'The dovecote was also thought to stand about 4 feet north of where the model puts it. That reading does not hold up: the old photograph puts it about a foot and a half north, and it stays on the ridge where it was placed.',
+    ] },
   { v: 2000, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: '1904 holds 158 MB less on a phone', kind: 'fix',
     items: [
       'The lakefront railway kept 215 MB of track geometry a phone never let go of. It now keeps 34 MB.',
