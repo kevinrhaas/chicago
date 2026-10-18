@@ -902,11 +902,15 @@ class Assembly:
         if op.component == ROUND_HOODED:
             # T-2410: a round-headed street window keeps K06's arch band as its moulded hood,
             # spring to spring, and stands a key block on the hood's crown
-            conf = max(conf, p.conf("street_front_round_heads"))
+            # T-2780: or the window over a bay on its host wall (`window_over`), with no key
+            # block unless the street front's round heads name one
+            street = op.wall == "k01.wall.street_front"
+            conf = max(conf, p.conf("street_front_round_heads" if street else "bays"))
             self.glaze(op, frame, body_mat, stone_trim, seed, conf, head=True)
-            k = p.round_heads["key"]
-            self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
-                           y1, y1 + k["height_m"], k["proud_m"], seed, conf)
+            k = p.round_heads.get("key") if street else None
+            if k:
+                self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
+                               y1, y1 + k["height_m"], k["proud_m"], seed, conf)
             return
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,

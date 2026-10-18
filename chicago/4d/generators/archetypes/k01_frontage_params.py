@@ -1068,6 +1068,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
             v["plan"] = {"kind": "polyline", "points": [[-w / 2, 0.0], [-w / 2, d], [w / 2, d], [w / 2, 0.0]]}
+        elif "plan" in e and not oriel and v["plan"]["kind"] == "polyline" and v["kind"] == "bay":
+            # T-2780: a canted bay drawn on its sheet keeps the sheet's size (1637's south bay on
+            # the 1911 sheet, 3.55 m at the wall and 0.75 m out); the kit's polyline is the shape,
+            # so the record's has as many points, symmetric, its ends on the wall, as an oriel's
+            q = e["plan"]
+            pts = [[float(x), float(z)] for x, z in q.get("points", ())]
+            if q.get("kind") != "polyline" or len(pts) != len(v["plan"]["points"]) \
+                    or any(abs(a[0] + b[0]) > 1e-9 or abs(a[1] - b[1]) > 1e-9 for a, b in zip(pts, pts[::-1])) \
+                    or abs(pts[0][1]) > 1e-9 or not all(0.0 < z <= 1.2 for _, z in pts[1:-1]) \
+                    or any(b[0] <= a[0] for a, b in zip(pts, pts[1:])):
+                raise ParamError(f"bays: {e['id']} sizes its bay's plan as the kit's polyline, symmetric, "
+                                 f"its ends on the wall, running left to right and its front at most 1.2 m out")
+            v["plan"] = {"kind": "polyline", "points": pts}
         elif "plan" in e and not oriel:
             # T-2342: a bow drawn on its sheet keeps the sheet's chord and rise; the kit's
             # bow is the shape, never the size. Only a bow, and never past its semicircle:
@@ -1154,13 +1167,33 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"{BRACKETED_CORNICE}, and nothing else, not {ev}")
                 else:
                     v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
-        # T-2525: an iron balcony rail on a bow's eaves, round its plan from wall to wall
+        # T-2408's consoles and modillions read off a picture (1637's south bay, T-2780): the
+        # record sizes the variant's own brackets, never adds them to a variant without
+        if "brackets" in e:
+            br, kb = e["brackets"], v.get("brackets")
+            if kb is None or set(br) - set(kb) or any(set(br[k]) != set(kb[k]) for k in br):
+                raise ParamError(f"bays: {e['id']}'s brackets size {v['id']}'s own consoles and modillions, "
+                                 f"with their keys, not {br}")
+            for k, part_ in br.items():
+                for kk, x in part_.items():
+                    lo, hi = (2, 16) if kk == "segments" else (0.02, 1.2)
+                    if not lo <= float(x) <= hi:
+                        raise ParamError(f"bays: {e['id']}'s brackets.{k}.{kk} {x} is outside [{lo}, {hi}]")
+                    kb[k][kk] = int(x) if kk == "segments" else float(x)
+        # T-2525: an iron balcony rail on a bow's eaves, round its plan from wall to wall;
+        # T-2780: or a stone balustrade round a flat-topped canted bay's (1637's south bay)
         if "balcony" in e:
-            bl = e["balcony"]
+            bl = dict(e["balcony"])
+            fabric = bl.pop("fabric", "iron")
             need = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
-            if v["plan"]["kind"] != "bow" or set(bl) != need:
-                raise ParamError(f"bays: {e['id']}'s balcony stands on a bow and takes {sorted(need)}")
+            flat_top = v["plan"]["kind"] == "polyline" and v["kind"] == "bay" \
+                and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
+            if not (v["plan"]["kind"] == "bow" or flat_top) or set(bl) != need or fabric not in ("iron", "stone"):
+                raise ParamError(f"bays: {e['id']}'s balcony stands on a bow, or on a canted bay's flat top, "
+                                 f"in iron or stone, and takes {sorted(need)}")
             bal = {k: ([float(x) for x in bl[k]] if k == "rail_m" else float(bl[k])) for k in need}
+            if fabric == "stone":   # an iron rail's resolved entry stays as it was, byte for byte
+                bal["fabric"] = fabric
             if not 0.5 <= bal["height_m"] <= 1.2 or not 0.06 <= bal["pitch_m"] <= 0.3 \
                     or not 0.0 < bal["bar_m"] < bal["pitch_m"] / 2 or not 0.0 <= bal["inset_m"] <= 0.3 \
                     or not 0.0 < bal["foot_rail_m"] < bal["height_m"] / 2:
@@ -1231,6 +1264,26 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s junction at s {a:.3f}..{b:.3f} cuts the opening at "
                                  f"s {o.s_m} on {o.wall}")
             openings.remove(o)
+        # T-2780: the host wall's window over a one-storey bay, centred on it, its sill on or
+        # over the bay's top (1637's south bay: the round-headed light over its balustrade, which
+        # the house's sash_by_storey would have put behind the bay and so never cut)
+        wo = e.get("window_over")
+        if wo is not None:
+            if set(wo) != {"sill_m", "width_m", "height_m", "head"} or wo["head"] not in ("flat", "round") \
+                    or oriel or v["kind"] != "bay":
+                raise ParamError(f"bays: {e['id']}'s window_over takes sill_m, width_m, height_m and head "
+                                 f"(flat or round), over a bay on grade")
+            ws, ww, wh = float(wo["sill_m"]), float(wo["width_m"]), float(wo["height_m"])
+            if not top <= ws or not 0.6 <= ww <= min(1.5, b - a - 0.6) or not 1.0 <= wh <= 3.0 \
+                    or ws + wh + 0.30 > eave - 0.25 or (wo["head"] == "round" and wh < ww / 2 + 0.3):
+                raise ParamError(f"bays: {e['id']}'s window_over {wo} does not stand on the bay's top "
+                                 f"({top:.2f} m), 0.6-1.5 m wide inside its span and under the eave ({eave:.2f} m)")
+            for o in openings:
+                if o.wall == e["wall"] and abs(o.s_m - s) < (o.width_m + ww) / 2 + 0.24 \
+                        and o.sill_m < ws + wh + 0.3 and ws < o.head_m + 0.3:
+                    raise ParamError(f"bays: {e['id']}'s window_over meets the opening at s {o.s_m} on {o.wall}")
+            openings.append(Opening(ROUND_HOODED if wo["head"] == "round" else "k01.opening.sash_flat",
+                                    e["wall"], s, round(ws, 4), ww, wh))
         # T-2451: light strips down a bay's corners — 1620's stone strip at its pavilion's north
         # corner, the painted pilasters at its bay window's front corners. Each stands on one run
         # of the plan (point i to i + 1), at its start, its end or both, from `from_m` to `to_m`
@@ -2181,6 +2234,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
                  float(val("eave_overhang_m")))
+    # T-2780: a round-headed window over a bay is cut after the kit was read, so its variant
+    # is held here to what the street front's round heads are held to: one round-headed sash
+    for o in openings:
+        if o.component == ROUND_HOODED and o.wall != "k01.wall.street_front":
+            v6 = variants.get(kit.get(ROUND_HOODED, {}).get("variant"))
+            if v6 is None or v6["head"] != "round" or v6.get("bays", 1) != 1:
+                raise ParamError(f"window_kit: {ROUND_HOODED} is cut as one round hole over a bay, and names "
+                                 f"no single round-headed K06 sash")
     for g, ops in zip((arched or {}).get("groups", ()), grouped):
         at = [j for o in ops for j, x in enumerate(openings) if x is o]
         if len(at) != len(ops):
