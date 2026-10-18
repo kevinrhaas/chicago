@@ -95,7 +95,7 @@ import { mountGround } from './ground.js';
 import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
 import { createRouter } from './route.js';
-import { createTravel } from './travel.js';
+import { createTravel, PACES } from './travel.js';
 import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
@@ -107,7 +107,7 @@ import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
 import { createRoamTip } from './roam-tip.js';
 import { plateFor as jauntPlate } from './pictures.js';
-import { jauntModeFor } from './getting-there.js';
+import { jauntModeFor, jauntChoice, styleWords } from './getting-there.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { install as installDrawerHost, goToPick } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
@@ -4004,8 +4004,10 @@ async function boot() {
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
         plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
           .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
-        // T-2652: the getting-there choice picks a Jaunt's mode, where the Jaunt allows it.
+        // T-2652/T-2727: with Jaunts use my choice on, the getting-there choice picks a Jaunt's
+        // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
+        modeNote: (jaunt) => jauntWay(jaunt).note,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -4044,7 +4046,17 @@ async function boot() {
       return jauntRuntime;
     }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
   }
+  // T-2727: how a Jaunt travels under Move › Jaunts use my choice: its mode, whether it kept
+  // its own against the visitor's choice, and the line that says so. The Jaunt menu and the
+  // controller read the same rule (preferredMode / modeNote above).
+  function jauntWay(jaunt) {
+    const c = jauntChoice(hud.gettingThere, jaunt);
+    const labels = Object.fromEntries(Object.entries(PACES).map(([id, way]) => [id, way.label]));
+    return { mode: c.mode ?? jaunt?.default_mode ?? 'walk', kept: c.kept,
+      note: c.kept ? t('hud.jaunt.keeps', { way: styleWords(hud.gettingThere, labels) }) : '' };
+  }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
+    modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),

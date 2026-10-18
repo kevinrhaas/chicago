@@ -27,21 +27,41 @@ export function styleWords({ travelMode, pace } = {}, labels = {}) {
   return `${name} · ${labels[mode] ?? mode}`;
 }
 
-/**
- * The mode a Jaunt travels between its stops under the visitor's choice, or null for
- * the Jaunt's own recommendation. Null until the visitor has made the choice themselves
- * (`chosen`): a fresh visitor's Teleport is the default, not a wish, and a guided outing
- * teleported stop to stop by default would lose the ride it was written around. Once
- * chosen, Teleport and Fly over are the Jaunt's 'instantly' and 'fly', and Ride there
- * is the pace — running counts as on foot, since no Jaunt lists running — each only
- * where the Jaunt allows it.
- */
-export function jauntModeFor({ travelMode, pace, chosen = false } = {}, jaunt = {}) {
-  if (!chosen) return null;
-  const allowed = Array.isArray(jaunt?.allowed_modes) ? jaunt.allowed_modes : [];
+/** The mode the visitor's choice asks a Jaunt for: Teleport and Fly over are the Jaunt's
+ * 'instantly' and 'fly', and Ride there is the pace (running counts as on foot, since no
+ * Jaunt lists running). */
+function wantedMode({ travelMode, pace } = {}) {
   const style = styleOf(travelMode);
   let want = style;
   if (style === 'ride') want = travelMode && travelMode !== 'instantly' && travelMode !== 'fly' ? travelMode : groundPace(pace);
-  if (want === 'run') want = 'walk';
-  return allowed.includes(want) ? want : null;
+  return want === 'run' ? 'walk' : want;
+}
+
+/**
+ * How a Jaunt travels between its stops (T-2727, replacing T-2652's hidden "until you
+ * choose" rule with a switch the visitor can see, Move › Jaunts use my choice).
+ * Off (`follow` false, the default): every Jaunt keeps the way it recommends — `mode` is
+ * null, and the Jaunt's own `default_mode` stands. On: the Jaunt takes the visitor's
+ * choice where it allows it; where it does not, `mode` is null and `kept` is true, so the
+ * Jaunt keeps its own and can say so, naming the choice it could not take (`want`).
+ */
+export function jauntChoice({ travelMode, pace, follow = false } = {}, jaunt = {}) {
+  if (follow !== true || !jaunt) return { mode: null, kept: false, want: null };
+  const allowed = Array.isArray(jaunt.allowed_modes) ? jaunt.allowed_modes : [];
+  const want = wantedMode({ travelMode, pace });
+  return allowed.includes(want) ? { mode: want, kept: false, want } : { mode: null, kept: true, want };
+}
+
+/** The mode a Jaunt travels by under the visitor's choice, or null for its own. */
+export function jauntModeFor(choice = {}, jaunt = {}) {
+  return jauntChoice(choice, jaunt).mode;
+}
+
+/**
+ * The stored switch, read from saved settings (T-2727): on only if it was turned on —
+ * a stored `true`. Anything else, missing, corrupt or a string, reads as off, and T-2652's
+ * retired `arriveChosen` key says nothing about it.
+ */
+export function jauntsFollowFrom(saved) {
+  return !!saved && typeof saved === 'object' && saved.jauntsFollowChoice === true;
 }
