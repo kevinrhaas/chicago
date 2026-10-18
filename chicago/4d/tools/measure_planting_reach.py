@@ -1348,9 +1348,12 @@ def self_test() -> int:
     # species unselectable and bank the lot.
     src = dec["source"]
     checks = [
-        ("the community scanner finds the five mixes",
+        ("the community scanner finds the eight mixes",
          set(dec["communities"]) == {"gallery", "wet_woods", "mesic_pocket", "ridge_oak",
-                                     "dune"}),
+                                     "dune", "sand_hills_north", "sand_hills_south",
+                                     "sand_hills_scanty"}),
+        ("…and reads a sand hill's swale mix as well as its mix",
+         "populus_balsamifera" in dec["communities"]["sand_hills_south"]["swaleMix"]),
         ("…and reads the gallery's edge mix as well as its mix",
          "salix_nigra" in dec["communities"]["gallery"]["edgeMix"]),
         ("…and reads a multi-line mix to its END, not to its second entry",
