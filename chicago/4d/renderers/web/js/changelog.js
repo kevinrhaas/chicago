@@ -1,4 +1,38 @@
 export const CHANGELOG = [ // newest first
+  { v: 2000, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: '1904 holds 158 MB less on a phone', kind: 'fix',
+    items: [
+      'The lakefront railway kept 215 MB of track geometry a phone never let go of. It now keeps 34 MB.',
+      'Full rail sections are built only for the stretch of yard near you and dropped once you walk past.',
+      'On a phone, the yard\'s ground and far rails move to the graphics chip and the page copy is freed.',
+      'Phone memory at the Prairie Avenue spawn: 854 MB before, 696 MB after.',
+    ] },
+  { v: 1999, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: 'Nothing you can see changed: the 1965 porch photograph re-measured', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The camera for the 1965 colour slide of 1808 Prairie\'s loggia is fitted again, this time on the loggia\'s own columns and pedestal as well as the round bay\'s windows. Even on that camera the slide draws the loggia, and the bay\'s upper wall, about a third taller than the model, so the gap is between the two old pictures and not the camera. Which picture is wrong is now an open question for the Keith house\'s photo check.',
+    ] },
+  { v: 1998, ts: '2026-10-18T15:07:07.161Z', date: 'Oct 18, 2026, 10:07 AM CT', title: 'First time? The Navigator offers its 60-second tour once', kind: 'feature',
+    items: [
+      'On a device\'s first landing, Home offers "First time? Take the 60-second tour" under its three choices. Taking it starts the Field Check in the town; going in any other way declines it, and it is not offered again.',
+      'After it, three short hints show once each: at your first Jaunt\'s first stop, after your first Jump to another year, and on the first Reconstructed building you open.',
+      'No hint shows while the Field Check is running, and each goes at your next move or after a few seconds.',
+    ] },
+  { v: 1997, ts: '2026-10-18T15:07:07.161Z', date: 'Oct 18, 2026, 10:07 AM CT', title: 'Inspect\'s Story tab: a timeline from design to today', kind: 'feature',
+    items: [
+      'Story now runs as one timeline, with three marks: Built, You are here (the day you are visiting) and Today.',
+      'Glessner House runs from the lots bought in 1885 to the 1966 rescue, with You are here at 1 July 1904.',
+      'Anything after your visit is labelled After your visit, Today included.',
+      'Where our records give no build date, or don\'t say what stands there now, the timeline says so. It never guesses.',
+      'On an 1835 building, the town\'s August 1835 fire limit appears after your visit. No 1835 rule shows on a 1904 building.',
+    ] },
+  { v: 1996, ts: '2026-10-18T14:52:17.214Z', date: 'Oct 18, 2026, 9:52 AM CT', title: 'Keith\'s photo comparisons keep the pedestal findings', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the comparisons against the 1888 Inland Architect plate and the 1965 slide show the loggia pedestals\' findings again: plain panels in their border, a bordered south side still to build, and why the 1965 slide can\'t settle the stone\'s colour. A later change to the bow windows had dropped them from those two records.',
+    ] },
+  { v: 1995, ts: '2026-10-18T14:43:37.703Z', date: 'Oct 18, 2026, 9:43 AM CT', title: 'The grass drawn by the graphics card, timed while you walk', kind: 'change',
+    items: [
+      'Since yesterday the grass right around you is drawn by the graphics card. We timed walking, turning and flying on a stand-in for a mid-range phone, before that change and after it.',
+      'Moving feels the same as it did. Most of the work of laying out the nearby grass still happens before it reaches the graphics card, because the flower heads are hung from it. Moving that work across too is the next step.',
+    ] },
   { v: 1994, ts: '2026-10-18T14:29:53.332Z', date: 'Oct 18, 2026, 9:29 AM CT', title: 'Keith\'s stonework read stone by stone from the 1888 plate', kind: 'change',
     items: [
       'At 1808 Prairie, the 1888 Inland Architect photograph was read at full size, course by course. On the lower storeys you can see the stones, and they run deep and thin in turn, as the house is built. The basement courses run even, and the bow\'s beds line up with the front\'s. Both are queued to be rebuilt.',

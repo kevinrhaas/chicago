@@ -88,6 +88,14 @@
       "status": "fixed"
     },
     {
+      "what": "T-2769: the loggia's pedestals, read at the plate's native 1559 px (about 75 px to the metre there; x 865-940 and 1100-1160, y 1585-1650), each carry a plain field inside a border on the front (about 32 x 41 px on a 47 px front), with no carving in it, as T-2585 read the balcony's dies. The model's fields carried T-1883's low relief leaf scrolls; they are taken off and the fields left plain in their border (the model's 0.66 x 0.57 m field comes to about 34 x 43 px at this grain).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2769: the south pedestal's south side, which this camera sees (x about 872-886, y 1590-1650), shows a plain field in a border like its front's; the model's side face is plain stone with no border. Open for the build.",
+      "status": "open"
+    },
+    {
       "what": "T-2765: the plate draws each of the bow's principal lights in three tiers between stone bars: a main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m (read on one level column at 77.8 px/m). The model's sash_transom_flat lays one 0.45 m transom over a 2.5 m sash, so its transom is the top light and the middle light is not built.",
       "status": "open"
     }
