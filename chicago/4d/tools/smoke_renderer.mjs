@@ -9460,13 +9460,21 @@ for (const [label, viewport, touch] of [
     // tap on the tag opens it. Polled on a clock: the probe answers from the render loop.
     // T-2736: the tag now holds 3 s and fades, and on a runner where a frame takes seconds a
     // poll can miss the whole showing (dev, 2026-10-18: "shown":false with the Sauganash
-    // current), or begin after it. So the tag is re-armed and its own un-hiding is recorded as it happens, by an observer, with
-    // the words it showed; the poll only waits for that record.
+    // current), or begin after it. So the tag is re-armed, and its own un-hiding is recorded
+    // as it happens, by an observer, with the words it showed; the poll only waits for that.
     const tagShown = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const tag = document.getElementById('target-tag');
-      let seen = tag.hidden ? null : tag.textContent;
-      const watch = new MutationObserver(() => { if (!tag.hidden && seen === null) seen = tag.textContent; });
+      // What shows WITH the tag is read in the same moment: the building it names and the
+      // quick column's keys. Read after the wait, the probe may have moved on (local run,
+      // 2026-10-18: the tag seen, then "current":null and the Inspect key gone).
+      const quickNow = () => {
+        const quick = [...document.querySelectorAll('#quick-column > button')];
+        return { current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+      };
+      let seen = null, withIt = null;
+      const look = () => { if (!tag.hidden && seen === null) { seen = tag.textContent; withIt = quickNow(); } };
+      const watch = new MutationObserver(look);
       watch.observe(tag, { attributes: true, attributeFilter: ['hidden'], childList: true, characterData: true, subtree: true });
       // If the tag already showed and faded for the Sauganash before this task began, it stays
       // gone until the reticle leaves it: looking away and back (setEnabled off, on) re-arms it.
@@ -9475,9 +9483,8 @@ for (const [label, viewport, touch] of [
       api.target.invalidate();
       for (let i = 0; i < 150 && seen === null; i++) await new Promise((r) => setTimeout(r, 100));
       watch.disconnect();
-      const quick = [...document.querySelectorAll('#quick-column > button')];
       return { shown: seen !== null, text: seen ?? tag.textContent, upper: getComputedStyle(tag).textTransform,
-        current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+        ...(withIt ?? quickNow()) };
     });
     check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
       tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text) && tagShown.upper === 'uppercase'
