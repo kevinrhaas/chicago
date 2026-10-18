@@ -29,21 +29,34 @@ WHAT IT READS — the surfaces, and why each is one:
           which main.js also says aloud when the row is picked. A firm not trading at the
           scene date shows "Not present at this scene date" instead, so its reason is not read.
 
+  records the research records a person opens from the Sources hub, Inspect and the card,
+          as compiled (T-2825): every liberty in data/liberties.json — its title and every
+          field js/liberties.js prints as a row, and the names its subjects and covers are
+          shown by — and, in every scene, the ground's claims (sidecars/<scene>/terrain.json)
+          and the exclusions and open questions (sidecars/<scene>/exclusions.json), at the
+          fields tools/readable_text.py SIDECAR_PATHS lists, which are the fields compile_scene
+          rewrites. Their ticket numbers live beside the prose as `work_refs`, never in it.
+
   Already linted elsewhere, with the same lint_string: the summary records
   (compile_summaries.py), the time-stream caption decks (check_timestream.py), the Guide's
   glossary and FAQ (check_guide.py) and the templated building card (test_fallback_summary).
 
   NOT YET READ, and why. Strings built in JavaScript (template literals in js/*.js) are not
   read: telling a visible literal from a class name or a key statically is noise, and the
-  honest check is the rendered DOM in the smoke, which wants the runner. The Shops & work
-  card's location lines (`basis` and every location's `limit_reason`, js/businesses.js)
-  and the Evidence hub's JS-filled topics are research prose that Researcher mode (T-2657)
-  and the hub's fold into Guide › About this destination (T-2667) take off the visitor's
-  path. What's New (js/changelog.js) is the release history Manager and the launcher parse,
+  honest check is the rendered DOM in the smoke, which wants the runner. Of the research
+  records (T-2825), `records` reads the liberties, the ground, the exclusions and open
+  questions and the Shops & work card's location lines; the hub's other topics (the town's
+  people, the population profile, the reconstruction plan, the town in numbers, plants and
+  wildlife), the source detail views and the rest of the Shops & work card are not read
+  yet, and T-2825 says which in its own record. What's New (js/changelog.js) is the release history Manager and the launcher parse,
   held by its own length budget, and is not rewritten after the fact.
 
 THE RESEARCHER-MODE EXEMPTION (owner ruling 2026-10-16: strings shown only in Researcher
-mode are exempt). Researcher mode itself is T-2657; this is the contract it builds on:
+mode are exempt), NARROWED by the owner's ruling of 2026-10-18 (T-2825): "rewrite the records
+so you are not referring to internal ticket numbers or internal record ids in researcher or
+educator mode". So a Researcher-mode string may name a file, a link or the words this lint
+otherwise refuses, and it may still never carry a ticket number or a record id
+(`researcher_problems`). Researcher mode itself is T-2657; this is the contract it builds on:
 
   - in the table, a key with a `researcher` segment — the `researcher` namespace
     (js/strings/researcher.js) or a key such as `guide.researcher.why-full` in an app's own
@@ -93,13 +106,12 @@ ALLOWLIST = [
      "ticket": "T-2667",
      "why": "The Evidence hub's order-book topic. T-2667 folds the hub into Guide › About this "
             "destination and moves the order book behind Researcher mode."},
-    {"surface": "goto", "match": r"^businesses/index\.json biz_(chicago_post_office|cook_county_offices|"
-                                 r"indian_agency_chicago|us_land_office_chicago) ",
-     "ticket": "T-2657",
-     "why": "Four authored civic-office records whose limit is a research ruling that cites research "
-            "notes, exclusion ids and a file path. Rewording it here would drop the pointers a "
-            "researcher follows; Researcher mode is where those ids and paths are shown."},
 ]
+
+
+def researcher_problems(text):
+    """What a Researcher-mode string still may not carry: a ticket number or a record id."""
+    return [p for p in lint_string(text) if p.startswith(("a ticket number", "an id or snake_case"))]
 
 
 def is_researcher_key(key):
@@ -127,6 +139,16 @@ def table_strings(dump=None):
             yield f"{key}", value
 
 
+def researcher_table_strings(dump=None):
+    """(where, text) for the Researcher-mode keys, which `researcher_problems` reads."""
+    if dump is None:
+        from check_strings import read_table
+        dump = read_table()
+    for key, value in list(dump["entries"]) + list(dump.get("apps", [])):
+        if is_researcher_key(key):
+            yield f"{key}", value
+
+
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param",
         "source", "track", "wbr"}
 VISIBLE_ATTRS = ("title", "aria-label", "placeholder", "alt")
@@ -144,6 +166,7 @@ class _Visible(HTMLParser):
         self.stack = []      # (tag, exempt)
         self.out = []        # (line, text)
         self.skip = 0        # inside <script>/<style>
+        self.researcher = []  # (line, text) under a marker: still no ticket or record id
 
     def exempt(self):
         return bool(self.stack) and self.stack[-1][1]
@@ -178,19 +201,22 @@ class _Visible(HTMLParser):
                 break
 
     def handle_data(self, data):
-        if self.skip or self.exempt() or not data.strip():
+        if self.skip or not data.strip():
+            return
+        if self.exempt():
+            self.researcher.append((self.getpos()[0], " ".join(data.split())))
             return
         self.out.append((self.getpos()[0], " ".join(data.split())))
 
 
-def page_strings(pages=PAGES):
+def page_strings(pages=PAGES, researcher=False):
     for path in pages:
         if not Path(path).is_file():
             continue
         parser = _Visible()
         parser.feed(Path(path).read_text(encoding="utf-8"))
         parser.close()
-        for line, text in parser.out:
+        for line, text in (parser.researcher if researcher else parser.out):
             yield f"{Path(path).name}:{line}", text
 
 
@@ -209,6 +235,45 @@ def goto_strings(index=None):
                 yield f"businesses/index.json {rid} {field}", value
         if b.get("present_at_scene_date") is not False and where.get("limit_reason"):
             yield f"businesses/index.json {rid} limit_reason", where["limit_reason"]
+
+
+LIBERTIES = ROOT / "data" / "liberties.json"
+SIDECARS = ROOT / "data" / "sidecars"
+NOT_PRINTED = re.compile(r"^(Recorded|Revised|Covers)$", re.IGNORECASE)
+
+
+def record_strings(liberties=None, sidecars=None):
+    """What the research records print (T-2825): the liberties, and each scene's ground,
+    exclusions and open questions, at the fields their renderers show."""
+    from readable_text import SIDECAR_PATHS, strings_at
+    if liberties is None:
+        liberties = json.loads(LIBERTIES.read_text(encoding="utf-8")) if LIBERTIES.is_file() else {}
+    for lib in liberties.get("liberties") or []:
+        lid = lib.get("id", "?")
+        if lib.get("title"):
+            yield f"liberties.json {lid} title", lib["title"]
+        for f in lib.get("fields") or []:
+            if NOT_PRINTED.match(str(f.get("label", ""))):
+                continue
+            yield f"liberties.json {lid} label", str(f.get("label", ""))
+            yield f"liberties.json {lid} {f.get('label', '')[:30]}", str(f.get("text", ""))
+    for nm in liberties.get("names") or []:
+        yield f"liberties.json names {nm.get('id')}", str(nm.get("name", ""))
+    for path in sorted(BUSINESSES.parent.glob("biz_*.json")):
+        # The Shops & work card's location lines (js/businesses.js), from the record it fetches.
+        rec = json.loads(path.read_text(encoding="utf-8"))
+        for i, loc in enumerate(rec.get("locations") or []):
+            for key in ("basis", "limit_reason"):
+                if isinstance(loc.get(key), str) and loc[key].strip():
+                    yield f"businesses/{path.name} locations[{i}].{key}", loc[key]
+    if sidecars is None:
+        sidecars = {}
+        for name in SIDECAR_PATHS:
+            for path in sorted(SIDECARS.glob(f"*/{name}")):
+                sidecars[f"{path.parent.name}/{name}"] = json.loads(path.read_text(encoding="utf-8"))
+    for rel, doc in sidecars.items():
+        for where, text in strings_at(doc, SIDECAR_PATHS[rel.split("/")[-1]]):
+            yield f"sidecars/{rel} {where}", text
 
 
 def lint(surfaces, allowlist=ALLOWLIST):
@@ -243,9 +308,22 @@ def contract_errors(css_text=None):
             "so the marker would exempt text a visitor can read"]
 
 
-def surfaces(dump=None, pages=PAGES, index=None):
+def surfaces(dump=None, pages=PAGES, index=None, records=None):
     return [("table", list(table_strings(dump))), ("page", list(page_strings(pages))),
-            ("goto", list(goto_strings(index)))]
+            ("goto", list(goto_strings(index))),
+            ("records", list(record_strings()) if records is None else records)]
+
+
+def researcher_errors(dump=None, pages=PAGES):
+    """A Researcher-mode string with a ticket number or a record id in it (T-2825)."""
+    out = []
+    for surface, strings in (("table", researcher_table_strings(dump)),
+                             ("page", page_strings(pages, researcher=True))):
+        for where, text in strings:
+            found = researcher_problems(text)
+            if found:
+                out.append(f"researcher {surface} | {where}: {'; '.join(found)} — in {text[:90]!r}")
+    return out
 
 
 # ------------------------------------------------------------------- self-test
@@ -262,14 +340,15 @@ def self_test():
     from check_strings import read_table
     dump = read_table()
     index = json.loads(BUSINESSES.read_text(encoding="utf-8")) if BUSINESSES.is_file() else {"businesses": []}
-    base = surfaces(dump, PAGES, index)
+    records = list(record_strings())
+    base = surfaces(dump, PAGES, index, records)
     f, _, stale = lint(base)
     expect(not f and not stale, f"the committed visitor UI passes ({(f + stale)[:2]})")
 
     def planted_table(value, key="planted.string"):
         d = json.loads(json.dumps(dump))
         d["entries"].append([key, value])
-        return lint(surfaces(d, PAGES, index))[0]
+        return lint(surfaces(d, PAGES, index, records))[0]
 
     for label, value, needle in [
         ("a file path", "See data/scenes/1835.json for more.", "file path"),
@@ -282,8 +361,8 @@ def self_test():
         expect(any(needle in e for e in planted_table(value)), f"{label} in the string table is refused")
     expect(not planted_table("See data/scenes/1835.json, tier 1.", key="researcher.planted"),
            "the same string under the researcher namespace is exempt")
-    expect(not planted_table("ticket T-2624", key="guide.researcher.why"),
-           "a researcher segment inside an app's own section is exempt")
+    expect(not planted_table("ticket and tier", key="guide.researcher.why"),
+           "a researcher segment inside an app's own section is exempt from the visitor's words")
     expect(planted_table("ticket", key="researchers.note"),
            "a namespace merely starting with `researcher` is not exempt")
 
@@ -310,7 +389,7 @@ def self_test():
     def planted_goto(row):
         idx = json.loads(json.dumps(index))
         idx.setdefault("businesses", []).append(row)
-        return lint(surfaces(dump, PAGES, idx))[0]
+        return lint(surfaces(dump, PAGES, idx, records))[0]
 
     expect(any("limit_reason" in e and "snake_case" in e for e in planted_goto(
         {"id": "biz_planted", "name": "A firm", "where": {"kind": "anchored", "limit_reason":
@@ -321,6 +400,58 @@ def self_test():
            "a firm not trading at the scene date is not read (its row says so instead)")
     expect(any(" name:" in e for e in planted_goto({"id": "biz_x", "name": "biz_x", "where": {}})),
            "a business named by its id is refused")
+
+    # ---- T-2825: the research records, and the narrowed Researcher-mode exemption
+    def planted_records(liberties=None, sidecars=None):
+        lib = liberties if liberties is not None else {"liberties": []}
+        return lint([("records", list(record_strings(lib, sidecars or {})))], allowlist=[])[0]
+
+    def liberty(text, label="Decision", title="A liberty"):
+        return {"liberties": [{"id": "L999", "title": title, "fields": [{"label": label, "text": text}]}]}
+
+    expect(any("ticket number" in e for e in planted_records(liberty("Settled under T-1460."))),
+           "a liberty's field naming a ticket is refused (492 of 623 did, T-2825)")
+    expect(any("snake_case" in e for e in planted_records(liberty("Read off recon_1835_west_002."))),
+           "a liberty's field naming a record id is refused")
+    expect(any("title" in e for e in planted_records(liberty("Fine.", title="The T-2310 roofs"))),
+           "a liberty's title is read")
+    expect(not planted_records(liberty("2026-09-29 (T-1460).", label="Recorded")),
+           "a field the list never prints as a row (Recorded, Revised, Covers) is not read")
+    expect(any("names" in e for e in planted_records({"liberties": [], "names": [{"id": "x", "name": "x_y"}]})),
+           "a subject's compiled name that is still an id is refused")
+    expect(any("file path" in e for e in planted_records(sidecars={"1835/terrain.json": {
+        "claims": [{"notes": ["Read from data/terrain/epochs/x/terrain_spec.json."]}]}})),
+           "a ground claim's note naming a file is refused")
+    expect(any("dossier" in e for e in planted_records(sidecars={"1835/exclusions.json": {
+        "uncertain": [{"dossier": {"label": "docs/research/03-structures-north.md"}}]}})),
+           "an open question's research note is read by its label")
+    expect(not planted_records(sidecars={"1835/terrain.json": {"claims": [{"id": "swales.west_prairie_swale_a"}]}}),
+           "a claim's id is the data's, not a sentence, and is not read")
+
+    def planted_researcher(value=None, key="researcher.planted", page_html=None):
+        d = json.loads(json.dumps(dump))
+        if value is not None:
+            d["entries"].append([key, value])
+        pages = []
+        if page_html is not None:
+            tmpd = tempfile.mkdtemp()
+            pg = Path(tmpd) / "index.html"
+            pg.write_text(page_html, encoding="utf-8")
+            pages = [pg]
+        return researcher_errors(d, pages)
+
+    expect(any("ticket number" in e for e in planted_researcher("Fixed under T-2624.")),
+           "a Researcher-mode string naming a ticket is refused (the 2026-10-18 ruling narrows the exemption)")
+    expect(any("snake_case" in e for e in planted_researcher("Inspect glessner_house.", key="guide.researcher.why")),
+           "a Researcher-mode string naming a record id is refused")
+    expect(not planted_researcher("See the research notes, tier 1, at docs/LIBERTIES.md."),
+           "a Researcher-mode string may still name a file and the machinery's words")
+    expect(any("ticket number" in e for e in planted_researcher(page_html=
+           "<main><section data-researcher><p>the work, T-1234</p></section></main>")),
+           "a data-researcher element naming a ticket is refused")
+    expect(not planted_researcher(page_html="<main><section data-researcher><p>data/x.json</p></section></main>"),
+           "a data-researcher element may name a file")
+    expect(not researcher_errors(), "the committed Researcher-mode strings name no ticket and no record id")
 
     f2, _, stale2 = lint(base, allowlist=ALLOWLIST + [{"surface": "page", "match": "^nothing-here$",
                                                        "ticket": "T-0000", "why": "planted"}])
@@ -347,6 +478,7 @@ def main(argv=None):
     found = surfaces()
     failures, allowed, stale = lint(found)
     failures += contract_errors()
+    failures += researcher_errors()
     print("  read " + ", ".join(f"{len(s)} {name} string(s)" for name, s in found))
     for line in allowed:
         print(f"  allowed {line}")

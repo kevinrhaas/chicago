@@ -8338,8 +8338,9 @@ for (const [label, viewport, touch] of [
         const sec = document.querySelector('#popup .pop-liberties');
         return {
           present: !!sec,
-          ids: [...document.querySelectorAll('#popup .pop-liberties .lib-id')]
-            .map((n) => n.textContent.trim()),
+          // T-2825: an entry's id is on the element, not in its text.
+          ids: [...document.querySelectorAll('#popup .pop-liberties details.lib[data-lib-id]')]
+            .map((n) => n.dataset.libId),
           text: sec?.textContent ?? '',
         };
       };
@@ -17232,11 +17233,11 @@ for (const [label, viewport, touch] of [
     // which invents nothing that gets drawn — claims nothing.
     const claims = await page.evaluate(() => {
       const entry = (id) => [...document.querySelectorAll('#liberties details.lib')]
-        .find((d) => d.querySelector('.lib-id')?.textContent.trim() === id);
+        .find((d) => d.dataset.libId === id); // T-2825: the id is on the element, not in its text
       const read = (id) => [...(entry(id)?.querySelectorAll('.lib-covers') ?? [])]
         .map((n) => n.textContent.trim());
       const tokens = (id) => [...(entry(id)?.querySelectorAll('.lib-covers') ?? [])]
-        .map((n) => n.getAttribute('title') ?? '');
+        .map((n) => n.dataset.token ?? ''); // T-2825: the gate's token, not a tooltip
       return {
         l5: read('L5'), l8: read('L8'), l1: read('L1'), l4: read('L4'),
         l18: read('L18'), l19: read('L19'),
