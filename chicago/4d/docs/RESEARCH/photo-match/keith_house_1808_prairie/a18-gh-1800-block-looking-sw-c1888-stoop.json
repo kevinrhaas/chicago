@@ -1,0 +1,873 @@
+{
+ "_doc": "Written by tools/keith_c1888_stoop_read.py (T-2812): the c. 1888 SW print's reading of Keith's stoop weighed on level cameras and against the plate's and the 1965 slide's fits; read the tool's docstring for what is fitted and what is not.",
+ "print": "data/sources/assets/inland_architect_1888_02_keith/a18-gh-1800-block-looking-sw-c1888.jpg",
+ "view": "data/reference_views/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888.json",
+ "built": {
+  "principal_floor_m": 2.0,
+  "deck_out_m": 2.7,
+  "deck_v_m": [
+   7.0,
+   10.4
+  ],
+  "pedestal_width_m": 0.9,
+  "parapet_height_m": 0.72,
+  "arch": {
+   "span_m": 1.5,
+   "spring_m": 0.35,
+   "depth_m": 0.4
+  }
+ },
+ "horizon": {
+  "pane_rows_px": {
+   "left": [
+    [
+     969,
+     989
+    ],
+    [
+     997,
+     1018
+    ],
+    [
+     1027,
+     1051
+    ]
+   ],
+   "right": [
+    [
+     963,
+     991
+    ],
+    [
+     1000,
+     1028
+    ],
+    [
+     1042,
+     1071
+    ]
+   ]
+  },
+  "scale_right_over_left": 1.317,
+  "horizon_y_px": 986.4,
+  "spread_px": 4.1
+ },
+ "print_readings": {
+  "loggia_across": [
+   [
+    "deck front's south arris",
+    [
+     20.7,
+     7.0,
+     1.5
+    ],
+    [
+     890,
+     null
+    ]
+   ],
+   [
+    "parapet's south end at its coping",
+    [
+     20.7,
+     7.9,
+     2.7199999999999998
+    ],
+    [
+     918,
+     null
+    ]
+   ],
+   [
+    "parapet's north end at its coping",
+    [
+     20.7,
+     9.5,
+     2.7199999999999998
+    ],
+    [
+     958,
+     null
+    ]
+   ],
+   [
+    "deck front's north arris",
+    [
+     20.7,
+     10.4,
+     1.5
+    ],
+    [
+     975,
+     null
+    ]
+   ]
+  ],
+  "loggia_down": [
+   [
+    "parapet's south end at its coping",
+    [
+     20.7,
+     7.9,
+     2.7199999999999998
+    ],
+    [
+     918,
+     913
+    ]
+   ],
+   [
+    "parapet's north end at its coping",
+    [
+     20.7,
+     9.5,
+     2.7199999999999998
+    ],
+    [
+     958,
+     913
+    ]
+   ],
+   [
+    "parapet's south end at the deck",
+    [
+     20.7,
+     7.9,
+     2.0
+    ],
+    [
+     918,
+     965
+    ]
+   ],
+   [
+    "parapet's north end at the deck",
+    [
+     20.7,
+     9.5,
+     2.0
+    ],
+    [
+     958,
+     965
+    ]
+   ],
+   [
+    "deck front's south arris",
+    [
+     20.7,
+     7.0,
+     1.5
+    ],
+    [
+     890,
+     null
+    ]
+   ],
+   [
+    "deck front's north arris",
+    [
+     20.7,
+     10.4,
+     1.5
+    ],
+    [
+     975,
+     null
+    ]
+   ]
+  ],
+  "predicted_only": [
+   [
+    "parapet's coping",
+    [
+     20.7,
+     8.7,
+     2.7199999999999998
+    ],
+    [
+     938,
+     913
+    ]
+   ],
+   [
+    "parapet's foot (the deck)",
+    [
+     20.7,
+     8.7,
+     2.0
+    ],
+    [
+     938,
+     965
+    ]
+   ],
+   [
+    "arch's crown",
+    [
+     20.7,
+     8.7,
+     1.1
+    ],
+    [
+     922,
+     1012
+    ]
+   ]
+  ]
+ },
+ "fits": [
+  {
+   "fit": "committed camera (T-2748)",
+   "eye_uvy": [
+    40.03,
+    40.23,
+    1.7
+   ],
+   "yaw_deg": 212.33,
+   "focal_px": 2042,
+   "horizon_y_px": 940.0,
+   "pixel_aspect": 0.885,
+   "rms_px": 4.1,
+   "max_px": 8.8,
+   "crown_px": {
+    "north-east pinnacle apex": [
+     -7.5,
+     -8.8
+    ],
+    "rear pinnacle apex": [
+     1.4,
+     6.2
+    ],
+    "south-east pinnacle apex": [
+     -2.8,
+     -2.8
+    ],
+    "north arris at 15.5 m": [
+     0.3
+    ],
+    "north arris at 12.0 m": [
+     0.3
+    ],
+    "southmost third-storey light head": [
+     1.6,
+     -5.5
+    ],
+    "southmost third-storey light sill": [
+     1.6,
+     1.9
+    ]
+   },
+   "loggia_across_px": {
+    "deck front's south arris": 38.6,
+    "parapet's south end at its coping": 32.3,
+    "parapet's north end at its coping": 33.2,
+    "deck front's north arris": 40.6
+   },
+   "checks_px": {
+    "northmost third-storey light head": [
+     6.7,
+     1.2
+    ],
+    "T-1883's grade at the south corner": [
+     16.7,
+     0.8
+    ]
+   },
+   "predicted": {
+    "parapet's coping": {
+     "render_xy": [
+      970,
+      884
+     ],
+     "print_xy": [
+      938,
+      913
+     ]
+    },
+    "parapet's foot (the deck)": {
+     "render_xy": [
+      970,
+      923
+     ],
+     "print_xy": [
+      938,
+      965
+     ]
+    },
+    "arch's crown": {
+     "render_xy": [
+      970,
+      973
+     ],
+     "print_xy": [
+      922,
+      1012
+     ]
+    }
+   }
+  },
+  {
+   "fit": "crown, eye 1.7 m",
+   "eye_uvy": [
+    40.0,
+    40.2,
+    1.7
+   ],
+   "yaw_deg": 212.32,
+   "focal_px": 2040,
+   "horizon_y_px": 939.9,
+   "pixel_aspect": 0.885,
+   "rms_px": 4.1,
+   "max_px": 8.9,
+   "crown_px": {
+    "north-east pinnacle apex": [
+     -7.5,
+     -8.9
+    ],
+    "rear pinnacle apex": [
+     1.5,
+     6.2
+    ],
+    "south-east pinnacle apex": [
+     -2.8,
+     -2.7
+    ],
+    "north arris at 15.5 m": [
+     0.3
+    ],
+    "north arris at 12.0 m": [
+     0.3
+    ],
+    "southmost third-storey light head": [
+     1.6,
+     -5.4
+    ],
+    "southmost third-storey light sill": [
+     1.6,
+     1.9
+    ]
+   },
+   "loggia_across_px": {
+    "deck front's south arris": 38.6,
+    "parapet's south end at its coping": 32.3,
+    "parapet's north end at its coping": 33.2,
+    "deck front's north arris": 40.6
+   },
+   "checks_px": {
+    "northmost third-storey light head": [
+     6.7,
+     1.1
+    ],
+    "T-1883's grade at the south corner": [
+     16.8,
+     0.7
+    ]
+   },
+   "predicted": {
+    "parapet's coping": {
+     "render_xy": [
+      970,
+      884
+     ],
+     "print_xy": [
+      938,
+      913
+     ]
+    },
+    "parapet's foot (the deck)": {
+     "render_xy": [
+      970,
+      923
+     ],
+     "print_xy": [
+      938,
+      965
+     ]
+    },
+    "arch's crown": {
+     "render_xy": [
+      970,
+      973
+     ],
+     "print_xy": [
+      922,
+      1012
+     ]
+    }
+   }
+  },
+  {
+   "fit": "crown + loggia across, eye 1.7 m",
+   "eye_uvy": [
+    37.78,
+    42.31,
+    1.7
+   ],
+   "yaw_deg": 208.44,
+   "focal_px": 2036,
+   "horizon_y_px": 930.7,
+   "pixel_aspect": 0.982,
+   "rms_px": 9.1,
+   "max_px": 19.8,
+   "crown_px": {
+    "north-east pinnacle apex": [
+     -19.8,
+     -5.0
+    ],
+    "rear pinnacle apex": [
+     19.5,
+     2.8
+    ],
+    "south-east pinnacle apex": [
+     -6.4,
+     2.0
+    ],
+    "north arris at 15.5 m": [
+     -13.0
+    ],
+    "north arris at 12.0 m": [
+     -13.0
+    ],
+    "southmost third-storey light head": [
+     -3.6,
+     -4.8
+    ],
+    "southmost third-storey light sill": [
+     -3.6,
+     0.6
+    ]
+   },
+   "loggia_across_px": {
+    "deck front's south arris": 14.2,
+    "parapet's south end at its coping": 6.6,
+    "parapet's north end at its coping": 5.1,
+    "deck front's north arris": 11.0
+   },
+   "checks_px": {
+    "northmost third-storey light head": [
+     -3.2,
+     1.4
+    ],
+    "T-1883's grade at the south corner": [
+     12.7,
+     -10.1
+    ]
+   },
+   "predicted": {
+    "parapet's coping": {
+     "render_xy": [
+      943,
+      876
+     ],
+     "print_xy": [
+      938,
+      913
+     ]
+    },
+    "parapet's foot (the deck)": {
+     "render_xy": [
+      943,
+      914
+     ],
+     "print_xy": [
+      938,
+      965
+     ]
+    },
+    "arch's crown": {
+     "render_xy": [
+      943,
+      963
+     ],
+     "print_xy": [
+      922,
+      1012
+     ]
+    }
+   }
+  },
+  {
+   "fit": "crown + loggia across and down, eye free",
+   "eye_uvy": [
+    32.32,
+    31.94,
+    5.94
+   ],
+   "yaw_deg": 208.82,
+   "focal_px": 1487,
+   "horizon_y_px": 733.8,
+   "pixel_aspect": 0.953,
+   "rms_px": 7.7,
+   "max_px": 18.2,
+   "crown_px": {
+    "north-east pinnacle apex": [
+     -18.2,
+     -8.4
+    ],
+    "rear pinnacle apex": [
+     16.7,
+     4.0
+    ],
+    "south-east pinnacle apex": [
+     -4.3,
+     2.1
+    ],
+    "north arris at 15.5 m": [
+     -11.1
+    ],
+    "north arris at 12.0 m": [
+     -11.1
+    ],
+    "southmost third-storey light head": [
+     -4.4,
+     -5.3
+    ],
+    "southmost third-storey light sill": [
+     -4.4,
+     -0.7
+    ]
+   },
+   "loggia_across_px": {
+    "deck front's south arris": 11.0,
+    "parapet's south end at its coping": 3.2,
+    "parapet's north end at its coping": 2.3,
+    "deck front's north arris": 9.3
+   },
+   "checks_px": {
+    "northmost third-storey light head": [
+     -5.1,
+     9.9
+    ],
+    "T-1883's grade at the south corner": [
+     15.3,
+     -27.8
+    ]
+   },
+   "predicted": {
+    "parapet's coping": {
+     "render_xy": [
+      940,
+      918
+     ],
+     "print_xy": [
+      938,
+      913
+     ]
+    },
+    "parapet's foot (the deck)": {
+     "render_xy": [
+      940,
+      960
+     ],
+     "print_xy": [
+      938,
+      965
+     ]
+    },
+    "arch's crown": {
+     "render_xy": [
+      940,
+      1011
+     ],
+     "print_xy": [
+      922,
+      1012
+     ]
+    }
+   }
+  },
+  {
+   "fit": "crown, horizon held at the grids' reading, eye free",
+   "eye_uvy": [
+    41.43,
+    42.31,
+    0.7
+   ],
+   "yaw_deg": 212.4,
+   "focal_px": 2159,
+   "horizon_y_px": 986.4,
+   "pixel_aspect": 0.888,
+   "rms_px": 4.1,
+   "max_px": 8.5,
+   "crown_px": {
+    "north-east pinnacle apex": [
+     -7.5,
+     -8.5
+    ],
+    "rear pinnacle apex": [
+     1.5,
+     6.2
+    ],
+    "south-east pinnacle apex": [
+     -3.1,
+     -2.6
+    ],
+    "north arris at 15.5 m": [
+     0.3
+    ],
+    "north arris at 12.0 m": [
+     0.3
+    ],
+    "southmost third-storey light head": [
+     1.8,
+     -5.5
+    ],
+    "southmost third-storey light sill": [
+     1.8,
+     1.9
+    ]
+   },
+   "loggia_across_px": {
+    "deck front's south arris": 39.7,
+    "parapet's south end at its coping": 33.4,
+    "parapet's north end at its coping": 34.2,
+    "deck front's north arris": 41.4
+   },
+   "checks_px": {
+    "northmost third-storey light head": [
+     7.2,
+     -0.4
+    ],
+    "T-1883's grade at the south corner": [
+     16.4,
+     2.9
+    ]
+   },
+   "predicted": {
+    "parapet's coping": {
+     "render_xy": [
+      971,
+      876
+     ],
+     "print_xy": [
+      938,
+      913
+     ]
+    },
+    "parapet's foot (the deck)": {
+     "render_xy": [
+      971,
+      916
+     ],
+     "print_xy": [
+      938,
+      965
+     ]
+    },
+    "arch's crown": {
+     "render_xy": [
+      971,
+      965
+     ],
+     "print_xy": [
+      922,
+      1012
+     ]
+    }
+   }
+  },
+  {
+   "fit": "crown + loggia across and down, horizon held, eye free",
+   "eye_uvy": [
+    40.07,
+    47.23,
+    1.5
+   ],
+   "yaw_deg": 208.04,
+   "focal_px": 2456,
+   "horizon_y_px": 986.4,
+   "pixel_aspect": 0.928,
+   "rms_px": 9.3,
+   "max_px": 21.5,
+   "crown_px": {
+    "north-east pinnacle apex": [
+     -21.5,
+     -6.2
+    ],
+    "rear pinnacle apex": [
+     20.8,
+     -2.7
+    ],
+    "south-east pinnacle apex": [
+     -7.0,
+     -5.5
+    ],
+    "north arris at 15.5 m": [
+     -14.8
+    ],
+    "north arris at 12.0 m": [
+     -14.8
+    ],
+    "southmost third-storey light head": [
+     -3.4,
+     3.6
+    ],
+    "southmost third-storey light sill": [
+     -3.4,
+     16.1
+    ]
+   },
+   "loggia_across_px": {
+    "deck front's south arris": 13.4,
+    "parapet's south end at its coping": 5.7,
+    "parapet's north end at its coping": 3.7,
+    "deck front's north arris": 9.2
+   },
+   "checks_px": {
+    "northmost third-storey light head": [
+     -3.5,
+     11.8
+    ],
+    "T-1883's grade at the south corner": [
+     12.0,
+     42.0
+    ]
+   },
+   "predicted": {
+    "parapet's coping": {
+     "render_xy": [
+      942,
+      917
+     ],
+     "print_xy": [
+      938,
+      913
+     ]
+    },
+    "parapet's foot (the deck)": {
+     "render_xy": [
+      942,
+      958
+     ],
+     "print_xy": [
+      938,
+      965
+     ]
+    },
+    "arch's crown": {
+     "render_xy": [
+      942,
+      1009
+     ],
+     "print_xy": [
+      922,
+      1012
+     ]
+    }
+   }
+  }
+ ],
+ "other_pictures": {
+  "inland-1888 (T-2762/T-2763)": {
+   "loggia_controls": [
+    "south pair capital top",
+    "south pedestal cap arris",
+    "north pair capital top",
+    "north pedestal cap arris",
+    "north pedestal north-east arris",
+    "south pedestal south-east arris",
+    "south pedestal south-west edge"
+   ],
+   "fits": [
+    {
+     "controls": "all controls",
+     "rms_px": 4.94,
+     "max_px": 16.74
+    },
+    {
+     "controls": "all controls",
+     "rms_px": 4.62,
+     "max_px": 15.85
+    },
+    {
+     "controls": "loggia heights left out (predicted)",
+     "rms_px": 5.05,
+     "max_px": 15.94
+    },
+    {
+     "controls": "loggia heights left out (predicted)",
+     "rms_px": 4.92,
+     "max_px": 15.72
+    },
+    {
+     "controls": "sills left out",
+     "rms_px": 5.31,
+     "max_px": 16.63
+    },
+    {
+     "controls": "sills left out",
+     "rms_px": 4.95,
+     "max_px": 15.87
+    },
+    {
+     "controls": "sills and loggia heights left out",
+     "rms_px": 5.41,
+     "max_px": 15.94
+    },
+    {
+     "controls": "sills and loggia heights left out",
+     "rms_px": 5.15,
+     "max_px": 14.73
+    }
+   ]
+  },
+  "a18-gh-1808-porch-1965 (T-2764)": {
+   "fits": [
+    {
+     "controls": "bow and loggia plan, heights predicted",
+     "rms_px": 3.47,
+     "loggia_px": {
+      "south pair south shaft, left silhouette": 5.7,
+      "south pair north shaft, right silhouette": -2.5,
+      "north pair south shaft, left silhouette": 1.6,
+      "north pair north shaft, right silhouette": -5.6,
+      "south pedestal, left silhouette": 1.5,
+      "south pedestal, right silhouette": 1.9
+     }
+    },
+    {
+     "controls": "bow and loggia plan, heights predicted",
+     "rms_px": 3.42,
+     "loggia_px": {
+      "south pair south shaft, left silhouette": 5.7,
+      "south pair north shaft, right silhouette": -2.5,
+      "north pair south shaft, left silhouette": 1.8,
+      "north pair north shaft, right silhouette": -5.2,
+      "south pedestal, left silhouette": 1.7,
+      "south pedestal, right silhouette": 2.2
+     }
+    },
+    {
+     "controls": "all controls",
+     "rms_px": 5.71,
+     "loggia_px": {
+      "south pair south shaft, left silhouette": 5.0,
+      "south pair north shaft, right silhouette": -2.1,
+      "north pair south shaft, left silhouette": 4.7,
+      "north pair north shaft, right silhouette": -0.8,
+      "south pedestal, left silhouette": 1.8,
+      "south pedestal, right silhouette": 4.1,
+      "south pedestal cap arris": -5.7,
+      "north pedestal cap arris": -9.2
+     }
+    },
+    {
+     "controls": "all controls",
+     "rms_px": 5.68,
+     "loggia_px": {
+      "south pair south shaft, left silhouette": 5.4,
+      "south pair north shaft, right silhouette": -1.8,
+      "north pair south shaft, left silhouette": 4.3,
+      "north pair north shaft, right silhouette": -1.4,
+      "south pedestal, left silhouette": 1.7,
+      "south pedestal, right silhouette": 3.7,
+      "south pedestal cap arris": -5.9,
+      "north pedestal cap arris": -10.5
+     }
+    }
+   ]
+  }
+ },
+ "ruling": "not moved: no level camera holds the crown and the loggia together in this print, whose horizon refuses the one raised eye that would; the 1888 plate and the 1965 slide, each through a fit with loggia controls, and the plan's 2.7 m deck place the stoop and its arch as built. The print's 'low arch' is the built arch's head over a light band in front of it."
+}
