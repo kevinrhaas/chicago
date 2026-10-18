@@ -1253,9 +1253,9 @@
     "house_1623_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 3453344,
+      "bytes": 3508228,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "2e736a98e0422924df83569cf1c394e5613713ee839df73e12f012e17f95020d",
+      "inputs_sha256": "f563d3584f7451657232f743e3d3e90d88ca334f2798da52f902daf179e8cb25",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1623_prairie"

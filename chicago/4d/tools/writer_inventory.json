@@ -195,6 +195,12 @@
       "measured": "2026-10-17",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check runs node over renderers/web/js/strings/ and js/apps/ to list the table, reads the static pages and only prints, and --self-test plants its faults in memory and in a temporary directory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the table is authored (T-2624)."
     },
+    "check_visitor_ui.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-18",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check runs node over renderers/web/js/strings/ and js/apps/ (through check_strings.read_table), reads the static pages, data/businesses/index.json and css/skins.css, and only prints; --self-test plants its faults in memory and in a temporary directory. Both write nothing (git status --porcelain identical before and after). It declares no write mode: it is a lint (T-2668)."
+    },
     "check_guide.py": {
       "placement": "not_a_writer",
       "write_mode": null,
@@ -917,6 +923,13 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "generate_shore_grove_1835.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-18",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-18 — reasoned, not derived; see the manifest step (beside generate_planted_rows.py, the same planting layer)"
     },
     "generate_planted_rows.py": {
       "placement": "manifest",

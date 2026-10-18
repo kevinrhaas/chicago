@@ -159,7 +159,7 @@
       "to": null,
       "tier": "inferred",
       "basis": "Placeable against the committed town. The landmark is the committed structure tremont_house_1.",
-      "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "structure",
         "id": "tremont_house_1",
