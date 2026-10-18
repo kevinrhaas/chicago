@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2021, ts: '2026-10-18T21:49:33.502Z', date: 'Oct 18, 2026, 4:49 PM CT', title: '1812 and 1835: the woods in clumps, and thickets at their edge', kind: 'feature',
+    items: [
+      'The North Side and river woods stand in patches with openings between them, and the trees in an opening are younger and smaller.',
+      'Where a wood meets the prairie, a thicket of hazel, hawthorn, wild plum and gray dogwood stands at its edge.',
+      'Hazel grows scattered through the oak ridges.',
+      'The four shrubs are new grown models, drawn like the trees, so they stay visible as you walk away.',
+      'Every position is reconstructed and listed under Liberties.',
+    ] },
   { v: 2020, ts: '2026-10-18T21:45:45.140Z', date: 'Oct 18, 2026, 4:45 PM CT', title: '1625 Prairie\'s tall rear section steps out beside the house', kind: 'improvement',
     items: [
       'Behind McBirney\'s house at 1625 Prairie, the four-storey rear part the 1911 fire-insurance map draws now stands, stepping out past the south wall with a door at its foot and a window on each floor above.',
