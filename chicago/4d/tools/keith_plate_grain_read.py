@@ -7,11 +7,14 @@ carving and the head bands' exact sections are drawn to the photograph's shadows
 read". This reads them, at the plate's native 1559 x 2400 px, against the committed render of
 that camera (the right half of inland-1888's side-by-side), and states the grain at each one:
 
-  * JOINTS: the bed joints along four vertical strips the street tree leaves clear below the
-    principal storey's transoms (the front's south strip, the bow's south flank, the bow's
-    first two piers). Each strip is the median across its width, smoothed, and a bed is a dark
-    minimum. Print and render are read on their own strips (the camera's 14 px RMS moves the
-    render's), and compared course by course: how many courses, how tall, deep and thin in turn.
+  * JOINTS: the bed joints below the principal storey's transoms, where the street tree's
+    branches thin, on two vertical strips side by side on the same courses: the front's south
+    strip and the bow's south flank. Each strip is the median across its width, smoothed, and a
+    candidate bed is a dark minimum; in the print a bed is one both strips agree on (or one is
+    sure of), so a rock face's own shadow is not read as a joint. The render (clean, and its bow
+    coursed apart from its front) is read on the front's strip. Print and render are compared
+    course by course from the principal sill: how many courses, how tall, deep and thin in turn,
+    and whether the bow's beds lie level with the front's.
   * CAPITALS: the five third-storey colonnettes' capitals, where the camera puts them.
   * HEAD BANDS: the crown read along its own courses (the print's and the render's rows slope
     differently, so each is sheared by the slope that sharpens its profile most), the head band's
@@ -43,14 +46,14 @@ FRONT_VIEWS = ['inland-1888', 'cgn-1808-inland-1888-keith-copy', 'a18-rba-ia-188
 # transoms), for the print and for the render: (label, x0..x1) at native px, over Y
 STRIPS = {
     'print': [("front's south strip", (272, 322)), ("bow's south flank", (335, 395))],
-    'render': [("front's south strip", (285, 350)), ("bow's south flank", (370, 420))],
+    'render': [("front's south strip", (285, 360)), ("bow's south flank", (385, 435))],
 }
-Y = {'print': (1425, 1790), 'render': (1385, 1790)}
+Y = {'print': (1425, 1790), 'render': (1385, 1815)}
 # the bow's first pier, read in the print only, as a check on the courses above the sill
 PIER = ("bow's first pier", (482, 500), (1470, 1625))
 # the principal storey's sill bed, read off the bow's lights in each raster: the beds below it
 # are the basement's
-SILL = {'print': 1617, 'render': 1584}
+SILL = {'print': 1617, 'render': 1617}
 UP = 7                # courses read up from the sill: as high as both strips stay clear
 THIN_PX = 25          # a course under 25 px is a thin one (the model's render 14-16, its deep 35-40)
 PROM, SURE = 6, 15    # a bed is a dark line this prominent (grey levels) in BOTH strips within
@@ -70,8 +73,12 @@ GRAIN_AT = [('lower joints', [17.9, 0.5, 3.0]), ('bow piers', [19.06, 3.2, 3.0])
 
 def camera(view):
     c = json.loads((VIEWS / f'{view}.json').read_text())
-    R = np.array(c['basis_right_up_forward']); e = np.array(c['eye'])
-    f = c['focal_px']; cx, cy = c['principal_px']; a = c.get('pixel_aspect', 1)
+    e = np.array(c['eye']); f = c['focal_px']; cx, cy = c['principal_px']; a = c.get('pixel_aspect', 1)
+    if 'basis_right_up_forward' in c:
+        R = np.array(c['basis_right_up_forward'])
+    else:  # a level camera: yaw clockwise from north, as photo_match.mjs reads it
+        t = np.radians(c['yaw_deg'])
+        R = np.array([[np.cos(t), -np.sin(t), 0], [0, 0, 1], [np.sin(t), np.cos(t), 0]])
 
     def proj(P):
         d = np.asarray(P, float) - e
