@@ -135,6 +135,13 @@ const WALKS = {
   // looking south, so every block's houses, trees and the lakefront come and go.
   'prairie-street': { year: '1904', stations: Array.from({ length: 26 }, (_, i) => ({
     local_e: 1402, local_n: -2940 - 40 * i, yaw_deg: 180 })) },
+  // T-2806: the owner's third report — down the street from Glessner, then back north
+  // past where he started. Every 40 m, facing the way he walked, so whatever streams in
+  // on the way south has to be let go of (or not) on the way north.
+  'prairie-there-and-back': { year: '1904', stations: [
+    ...Array.from({ length: 9 }, (_, i) => ({ local_e: 1402, local_n: -3230 - 40 * i, yaw_deg: 180 })),
+    ...Array.from({ length: 21 }, (_, i) => ({ local_e: 1402, local_n: -3510 + 40 * i, yaw_deg: 0 })),
+  ] },
 };
 if (WALK && !WALKS[WALK]) { console.error(`no walk named ${WALK}: ${Object.keys(WALKS).join(', ')}`); process.exit(2); }
 const YEARS = SELF_TEST ? ['1835'] : WALK ? [WALKS[WALK].year]
@@ -205,7 +212,8 @@ async function loadPlaywright() {
 }
 const { chromium } = await loadPlaywright();
 
-const root = path.resolve(ROOT4D, '../../site/4d');
+// `--root <dir>`: a published site other than this checkout's (an A/B copy, say).
+const root = argAt('--root') ? path.resolve(argAt('--root')) : path.resolve(ROOT4D, '../../site/4d');
 if (!fs.existsSync(path.join(root, '1835', 'index.html'))) {
   console.error(`no published mirror at ${root} — run tools/publish.sh first`);
   process.exit(2);

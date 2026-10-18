@@ -130,19 +130,24 @@ export function levelOf(value) {
  * shader gives it weight (attested below 0.25, inferred between 0.25 and 0.75,
  * reconstructed above 0.75 — the bands' open edges, as the shader weighs them).
  * A view with no `modes` is read with the default looks: reconstructed dithered. */
+// T-2806: a phone asks this of every backing range on every frame, so it builds no
+// arrays or closures; `view.hidden` (a copy) is read once instead of once per grade.
+const LEVEL_ORDER=['attested','inferred','reconstructed'];
+const modeOf=(view,level)=>view.modes?.[level] ?? GRADE_LOOK[level].mode;
 export function opaqueConfidenceRange(range, view) {
-  if (!range || range.length!==2 || !range.every(Number.isFinite)) return false;
-  const [min,max]=range;
+  if (!range || range.length!==2 || !Number.isFinite(range[0]) || !Number.isFinite(range[1])) return false;
+  const min=range[0],max=range[1];
   if(min<0 || max>1 || min>max)return false;
   if(view.enabled){
-    const mode=(level)=>view.modes?.[level] ?? GRADE_LOOK[level].mode;
-    if(mode('attested')!=='tint' && min<0.25)return false;
-    if(mode('inferred')!=='tint' && max>0.25 && min<0.75)return false;
-    if(mode('reconstructed')!=='tint' && max>0.75)return false;
+    if(modeOf(view,'attested')!=='tint' && min<0.25)return false;
+    if(modeOf(view,'inferred')!=='tint' && max>0.25 && min<0.75)return false;
+    if(modeOf(view,'reconstructed')!=='tint' && max>0.75)return false;
   }
-  const levels=['attested','inferred','reconstructed'];
-  const first=levels.indexOf(levelOf(min)),last=levels.indexOf(levelOf(max));
-  return !levels.slice(first,last+1).some(level=>view.hidden?.[level]);
+  const first=LEVEL_ORDER.indexOf(levelOf(min)),last=LEVEL_ORDER.indexOf(levelOf(max));
+  if(first>last)return true;
+  const hidden=view.hidden;
+  for(let i=first;i<=last;i++) if(hidden?.[LEVEL_ORDER[i]])return false;
+  return true;
 }
 
 const VERTEX_DECL = /* glsl */`
