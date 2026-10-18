@@ -149,5 +149,142 @@
     },
     "source_patch": "1965_shaded_bow, r/g 1.00673, b/g 1.13162 (above)",
     "reading": "Before, the granite read green-grey under neutral light (r/g 0.898). Both stones are now neutral grey at the same green-channel lightness. This is a reconstruction consistent with the one colour print, not a measured quarry colour; the tier stays reconstructed under L-k01-keith-finish-1883."
+  },
+  "T2769_1965_neutrals": {
+    "tier": "reconstructed",
+    "method": "Arithmetic sRGB means of rectangular patches in the 1965 slide (no image alteration), converted to linear light and CIELAB (D65). Each candidate neutral is used in turn as a white-balance reference (per-channel linear gains to its own mean), and the lit stone patches are read through it. A patch is [x0, y0, x1, y1] in the 675 x 456 source.",
+    "image": "data/sources/assets/inland_architect_1888_02_keith/a18-gh-1808-porch-1965.jpg",
+    "sha256": "557b51b98235a55124b5848dbe8abab35ddb80d0a2155013c1f945cc20423fbc",
+    "neutrals": {
+      "newel_post_lit": {
+        "box_px": [
+          90,
+          300,
+          112,
+          355
+        ],
+        "mean_srgb": [
+          241.7,
+          241.4,
+          243.1
+        ],
+        "note": "painted white, but clipped at the film's shoulder: it carries no cast and cannot balance anything"
+      },
+      "window_curtains": {
+        "box_px": [
+          158,
+          145,
+          182,
+          230
+        ],
+        "mean_srgb": [
+          172.5,
+          175.8,
+          181.8
+        ],
+        "note": "white cloth seen through glass, in interior light"
+      },
+      "concrete_walk": {
+        "box_px": [
+          160,
+          385,
+          320,
+          440
+        ],
+        "mean_srgb": [
+          132.2,
+          124.8,
+          146.9
+        ],
+        "note": "concrete is near-neutral but not a calibrated grey"
+      }
+    },
+    "stone": {
+      "bow_upper_lit": {
+        "box_px": [
+          100,
+          85,
+          145,
+          125
+        ],
+        "mean_srgb": [
+          161.7,
+          160.3,
+          181.4
+        ],
+        "lab_as_shot": [
+          66.7,
+          4.8,
+          -10.7
+        ],
+        "lab_on_curtains": [
+          67.1,
+          4.6,
+          -7.3
+        ],
+        "lab_on_walk": [
+          70.0,
+          -4.0,
+          2.2
+        ]
+      },
+      "bow_lower_lit": {
+        "box_px": [
+          100,
+          190,
+          145,
+          240
+        ],
+        "mean_srgb": [
+          157.1,
+          156.5,
+          176.5
+        ],
+        "lab_as_shot": [
+          65.2,
+          4.2,
+          -10.3
+        ],
+        "lab_on_curtains": [
+          65.6,
+          4.1,
+          -6.9
+        ],
+        "lab_on_walk": [
+          68.4,
+          -4.4,
+          2.4
+        ]
+      },
+      "front_south_of_bow": {
+        "box_px": [
+          5,
+          120,
+          45,
+          230
+        ],
+        "mean_srgb": [
+          143.6,
+          142.9,
+          159.3
+        ],
+        "lab_as_shot": [
+          59.9,
+          3.6,
+          -8.5
+        ],
+        "lab_on_curtains": [
+          60.3,
+          3.5,
+          -5.4
+        ],
+        "lab_on_walk": [
+          62.9,
+          -4.3,
+          3.2
+        ]
+      }
+    },
+    "reading": "No neutral in the slide calibrates the stone: the white newel is clipped, and the two usable references disagree in sign. Balanced on the curtains the stone leans violet-blue (a* +3.5 to +4.6, b* -5.4 to -7.3); balanced on the concrete walk it leans faintly green-yellow (a* -4.0 to -4.4, b* +2.2 to +3.2). Its chroma is therefore bracketed to within about 9 CIELAB units of grey (8.6 at most on the curtains, 5.4 on the walk), on opposite sides, and the model's neutral grey (after T-2566: linear albedo 0.446, r/g 1.00, b/g 1.00) lies inside the bracket. The tint is ruled not shown by this slide; the neutral grey stands, still reconstructed."
   }
 }

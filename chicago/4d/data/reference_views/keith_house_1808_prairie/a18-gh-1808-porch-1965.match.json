@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
+  "glb_sha256": "06b4a7eae4a8fb1ddeb79682aa1b735b5b8d3ebec750d0e59d895d5b8bd41305",
   "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "The pedestals' sunk panels are schematic rather than the photographed carving.",
-      "status": "open"
+      "what": "The pedestals' sunk panels are schematic rather than the photographed carving. T-2769: this view cannot read the panels' fields: the pedestal stands about 41 px for its 1.02 m here (about 40 px to the metre, the front about 30 px across), so a 36 mm carved stem would be about 1.4 px in a 675 px JPEG, and the panel's border is all it shows. The 1888 plate at its native 1559 px reads them (about 75 px to the metre on the pedestals, x 865-940 and 1100-1160, y 1585-1650): each pedestal's front carries a plain field inside its border, about 32 x 41 px on a 47 px front, where the model's 0.66 x 0.57 m field on its 0.9 m front comes to about 34 x 43 px, and no carving in it. The leaf scrolls T-1883 laid in the fields are taken off, so the pedestals carry plain fields in their border, as both pictures show them.",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the south pier's granite alternates a deep rock-faced course and a thin one, as this close view shows.",
@@ -60,8 +60,8 @@
       "status": "not shown"
     },
     {
-      "what": "T-2566 re-read the tint under neutral light: the stone is now a neutral grey at the old lightness, not the green-grey it was. The source is shaded and blue-cast, so exact colour agreement is not established.",
-      "status": "open"
+      "what": "T-2566 re-read the tint under neutral light: the stone is now a neutral grey at the old lightness, not the green-grey it was. The source is shaded and blue-cast, so exact colour agreement is not established. T-2769 read the tint against this slide's own neutrals (docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json, T2769_1965_neutrals): none of them can calibrate it. The one painted white, the stair's newel (x 90-112, y 300-355), is clipped at sRGB 241-243 and carries no cast; balanced on the window curtains (behind glass) the lit stone reads CIELAB a* +3.5 to +4.6, b* -5.4 to -7.3, and balanced on the concrete walk a* -4.0 to -4.4, b* +2.2 to +3.2. The slide's neutrals put the stone's chroma within about 9 units of grey, one way or the other, and the model's neutral grey (linear albedo 0.446, r/g and b/g 1.00) lies inside that bracket, so a tint is not shown here and the neutral grey stands.",
+      "status": "not shown"
     },
     {
       "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",

@@ -28264,6 +28264,18 @@ panel, and its dies plain sunk panels in a raised border. What is still invented
 zigzag's 22 mm sink and the strap's width, every leaf's cut, each curl's two and a half
 turns and the scroll's 0.3 m pitch (the 1965 view counts about four loops along the
 front), all below both pictures' grain; the pedestals' panels keep T-1883's low relief.
+**T-2769 (2026-10-18), the pedestals' fields and the 1965 tint:** what is read now, from
+the 1888 plate at its native 1559 px (about 75 px to the metre on the pedestals, x 865-940
+and 1100-1160, y 1585-1650): each loggia pedestal's front carries a PLAIN field inside its
+border, about 32 x 41 px on a 47 px front, as T-2585 read the balcony's dies; the low relief
+leaf scrolls T-1883 laid in those fields are not in the picture and are taken off. The 1965
+close view (about 40 px to the metre there) shows the border only. The tint: none of the
+1965 slide's neutrals calibrates it (the white newel is clipped; balanced on the curtains
+the stone leans violet-blue, on the concrete walk faintly green-yellow), so its chroma is
+bracketed within about 9 CIELAB units of grey and the neutral grey stands, still
+reconstructed (`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json`,
+T2769_1965_neutrals). Still invented: the border's 35 mm bead and the field's depth, below
+the plate's grain; the south pedestal's side shows a like field the model does not yet lay.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
@@ -28790,3 +28802,64 @@ docstring together.
 **Covers:** `glessner_house.as_built_1887.form.turret_stable`.
 **Ticket:** T-2228.
 **Recorded:** 2026-10-18.
+
+### L-k01-1623-farwell-entrance-2728 — 1623 Prairie's entrance and base from the drawing: a deep round-arched door, the stoop's iron rails, a grille in the basement light and a rock-faced front, their places read and their joinery reconstructed
+
+**Decision:** Granger Farwell's house at 1623 Prairie (T-2728, piece 1 of T-2435) takes the
+entrance Treat & Foltz's Building Budget drawing draws beside the window's arch, in place of the
+flat-headed panelled door T-2433 built. The door is K07's deep-arch entrance
+(`k07.entrance.double_door_deep_arch`): the K01 door's round-headed hole, 1.2 m by 2.7 m to the
+crown over the 1.85 m principal floor, a pair of panelled leaves under a radial fanlight at the back
+of a recess 0.95 m deep, under a ring of long voussoirs 0.45 m deep turned to a curved extrados
+0.04 m before the wall, with the window's keystone (`entrance_kit.arch`, as 1621's, T-2531). The
+stoop loses its stone cheeks and climbs between the K11 kit's iron stair rails, newels at its head
+and foot and a scroll at the foot (`street_front_dress.stoop_rails`, as 1612's, T-2369); the basement
+light under the window takes the kit's grille, seven uprights between a foot bar and a head bar
+(`street_front_dress.grilles`); and the Lemont front is laid rock-faced (`stone_front.dressing`, the
+profile's 0-0.025 m face) over its two rusticated base courses.
+**What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`),
+through T-2433's camera: that the doorway is a round arch beside the window's and matching it, ringed
+with long voussoirs, its crown at about 485 px (built within about 5 px) and the ring's top at about
+462 px (built within about 5 px); that the door stands at the back of a recess whose south jamb is lit
+inside the arch; that the stoop climbs straight from the walk between iron rails on iron newels, with
+no stone cheeks; that the basement light under the window is barred with iron; and that the front's
+blocks are rock-faced from grade to the arches' springing.
+**What is invented.** The door's 1.2 m width (K01's door, about 30 px narrower than the drawn arch's
+1.85 m); its leaves, panels and fanlight (the drawing half-hides a glazed door under a carved light in
+the recess's shadow); the recess's 0.95 m depth and the ring's 0.04 m projection and 0.45 m depth;
+the rails' square newels and balusters (the drawing's newels are slim posts under flared caps); the
+grille's seven plain bars (the drawing's is a band of C-scrolls over close-set uprights); and the
+rock face's depth, the profile's.
+**What is not built.** The drawing's arch is as broad as the window's, its door and stoop stand about
+1.3 m north of its axis at the back of a porch, a railing with an ornamental panel guards the landing
+to the south, the basement opening is broad and low under a segmental head, the strips beside the
+oriel above the springing read as smoother stone and a carved band runs across both arches at the
+springing. Each is open in the match record and is T-2729's, which changes the K01 assembly they need.
+**How to resolve:** a photograph of the house after 1886 settles the doorway, the door's leaves and
+the iron; the architects' plans would settle the recess and the porch.
+**Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
+**Ticket:** T-2728 (piece 1 of T-2435).
+**Recorded:** 2026-10-17 (T-2728).
+
+### L-glessner-terrace-terminal-2759 — the terrace's terminal post where the plan draws it (2026-10-18)
+
+**Decision:** The rounded terminal post at the foot of the bow terrace's coping is built where HABS
+sheet 2 (`habs_glessner_house_il_1015_drawings`) draws it. A circle fitted to the plan's ink ring gives
+centre W33.81/S46.20 and radius 0.93 ft at the line's centre, built at 0.9 ft. This supersedes
+L-glessner-courtyard-steps-2218's section-fitted S46.05 / 0.75 ft, which put the whole post inside the
+wall's end-on silhouette and hid its shaft in every west view. On the plan the post stands about 0.6 ft proud
+of the wall's outer face. Built that way, its shaft shows from grade to crown and the coping dies into its
+north side, as sheet 4 draws it and photograph 5 (`habs_glessner_photo_05_court_c1923`, rights
+check_required, a qualitative cross-check only) shows it. The crown's 5.1 ft height and 0.75 ft rise remain
+section readings. The three obscured lower tread ends are still reconstructions, re-seated 0.04 ft inside the
+new surface along their own lines. Past the traced section end, the coping's shoulder remains the
+reconstructed shoulder of L-glessner-courtyard-steps-2218.
+**Bounds:** Plan reading about ±0.1 ft for the centre and ±0.06 ft for the radius (the ink's inner and outer
+edges). Sheet 4 draws the junction about 0.9-1.1 ft further north (S45.35, with 1.22 ft of clear shaft
+against about 0.5 ft built). The same two sheets disagree by 0.63 ft the other way at the stair tower, so no
+datum shift is applied.
+**How to resolve:** A measured third source for the terminal (a survey, or a rights-cleared photograph with a
+solved camera) can move the junction along S.
+**Applies to:** `data/structures/glessner_house.json` (`v4_detail.bow_terrace.newel_WS`, `newel_radius_ft`,
+the last three `stair_boundaries_WS`); see `docs/RESEARCH/glessner-terrace-terminal-T-2759/`.
+**Recorded:** 2026-10-18 (T-2759).

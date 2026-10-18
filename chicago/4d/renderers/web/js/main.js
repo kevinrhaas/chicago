@@ -102,6 +102,7 @@ import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
+import { paintAbout } from './about.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -3295,7 +3296,13 @@ async function boot() {
     }
     return cityCensusPromise;
   };
+  // T-2629: Settings › About — the build stamp, and the DEV mark on a dev build. The
+  // preview's chrome is in the page's HTML before boot, so a paint now is the page's; the
+  // section repaints whenever it is shown, and api.about.paint lets a test repaint it.
+  api.about = { paint: () => paintAbout({ version: VERSION }) };
+  api.about.paint();
   hud.onTabChange((tab) => {
+    if (tab === 'settings') paintAbout({ version: VERSION });
     if (tab === 'evidence') {
       void ensureCityCensus();
       void ensureLiberties();

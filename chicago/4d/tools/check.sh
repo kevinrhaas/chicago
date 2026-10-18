@@ -168,6 +168,9 @@ step "The Field Check's seven steps each move on only on their own action, resum
 # T-2664: the tour offered once per device, and the one-time hints after it.
 step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
   node tools/test_tour_offer.mjs
+# T-2629: Settings › About.
+step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
+  node tools/test_about.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 step "The way home: All destinations and Recall ask first, Cancel/Esc stay put, Return runs the reverse ring and stamps the trip, reduced motion skips the ring (T-2735)" \

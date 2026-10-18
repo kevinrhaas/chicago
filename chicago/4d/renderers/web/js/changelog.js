@@ -1,4 +1,38 @@
 export const CHANGELOG = [ // newest first
+  { v: 1991, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'On a phone, the build details move into Settings, About', kind: 'change',
+    items: [
+      'On a phone, the preview banner and the DEV pill no longer sit over the top of the screen, and the arrival card no longer prints the build line under the town.',
+      'Settings now ends with an About section that shows which build you are using. On a preview build it also shows the DEV mark, says it is not production, and links to production.',
+      'On a computer nothing moves: the banner, the pill and the arrival card\'s build line stay where they were.',
+      'If an arrival stalls, the arrival card still shows the build line on a phone, because that is when it helps.',
+    ] },
+  { v: 1990, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'Glessner\'s terrace ends on its round stone post, as drawn', kind: 'fix',
+    items: [
+      'The rounded stone post at the foot of the courtyard terrace\'s coping now stands where the 1963 survey plan draws it: a little larger, and proud of the wall instead of buried inside it.',
+      'Seen from the courtyard, the post\'s shaft now shows whole from the ground to its domed top, and the coping curves down into its side, as the survey section and the c. 1923 court photograph show.',
+      'The three lowest winding steps meet the post\'s new face.',
+      'Still open: the plan and the section put that junction about a foot apart, and the build follows the plan.',
+    ] },
+  { v: 1989, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'Keith house\'s parapet band measured too deep against two photographs', kind: 'change',
+    items: [
+      '1808 Prairie (1904): measured against the view from Glessner\'s front door and Florian\'s 1948 photograph, the stone band between the parapet\'s pierced lattice and the carved band below it is drawn about 0.1-0.17 m too deep.',
+      'The difference was put down to how one camera was fitted. It is not the camera: it reads the same no matter how that camera is fitted, so it is the building, and correcting it is the next step for this house.',
+    ] },
+  { v: 1988, ts: '2026-10-18T13:06:49.746Z', date: 'Oct 18, 2026, 8:06 AM CT', title: 'Keith\'s loggia pedestals plain, as the 1888 plate shows them', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the two pedestals under the loggia\'s columns now carry plain panels in their stone border. Read at full size, the 1888 Inland Architect plate shows no carving in them, so the leaf scrolls drawn there before are gone.',
+      'The stone\'s colour was checked against the 1965 colour slide\'s own whites and greys. They can\'t pin a tint, so the house keeps its neutral grey.',
+    ] },
+  { v: 1987, ts: '2026-10-18T12:40:24.054Z', date: 'Oct 18, 2026, 7:40 AM CT', title: 'Nothing you can see changed: the HUD stays under a tenth', kind: 'chore',
+    items: [
+      'Nothing you can see changed. A new check measures how much of a phone screen the HUD covers and holds it to 10 % or less, so the town stays in view as the Navigator grows. The street names under the compass and their on-off switch are measured but not counted.',
+    ] },
+  { v: 1986, ts: '2026-10-18T12:22:10.364Z', date: 'Oct 18, 2026, 7:22 AM CT', title: 'Farwell house\'s arched entrance and iron stoop rails, from its 1886 drawing', kind: 'change',
+    items: [
+      '1623 Prairie (1904): the front door now stands at the back of a deep round arch beside the window\'s, as the 1886 Building Budget drawing shows it, in place of a flat-headed door.',
+      'Its stoop climbs between iron rails instead of stone sides, the basement window under the arch is barred with iron, and the stone front is rough-faced like the drawing\'s.',
+      'Still different from the drawing: the arch is narrower, and the oriel above is smaller and stops under the roof.',
+    ] },
   { v: 1985, ts: '2026-10-18T11:49:10.238Z', date: 'Oct 18, 2026, 6:49 AM CT', title: 'Glessner\'s stable cupola stands clear of its roof', kind: 'fix',
     items: [
       'The dovecote on the stable roof of Glessner House now rises above the ridge, as the 1963 HABS photograph and the c. 1887 Cornell view show it.',
