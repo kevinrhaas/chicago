@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2008, ts: '2026-10-18T17:12:35.089Z', date: 'Oct 18, 2026, 12:12 PM CT', title: 'Every year holds less memory; 1904 on a phone: 516 MB', kind: 'fix',
+    items: [
+      'Buildings kept a second copy of every piece after drawing it. That copy is now freed, in every year.',
+      'The 1904 railway freed its leftover build lists too.',
+      'Phone memory at spawn: 1904 696 to 516 MB, 1835 582 to 490 MB, 1812 246 to 192 MB.',
+      'Desktop: 1904 1329 to 1134 MB, 1835 1578 to 1196 MB.',
+    ] },
+  { v: 2007, ts: '2026-10-18T17:12:35.089Z', date: 'Oct 18, 2026, 12:12 PM CT', title: 'Dev preview: the DEV tag and build stamp are back on phones', kind: 'change',
+    items: [
+      'On a phone, the dev preview shows the small DEV tag in the top corner again.',
+      'The arrival card prints the build and its time again.',
+      'The full-width preview banner stays off phones so it can\'t cover the top controls. Production shows none of this.',
+    ] },
   { v: 2006, ts: '2026-10-18T17:10:04.063Z', date: 'Oct 18, 2026, 12:10 PM CT', title: 'Keith house\'s stone courses laid as the 1888 photograph shows them', kind: 'improvement',
     items: [
       'Above the main-floor windowsills, the deep and thin granite courses now split the way the 1888 photograph shows them.',
