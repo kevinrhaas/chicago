@@ -46,7 +46,7 @@
       "to": null,
       "tier": "inferred",
       "basis": "Placeable against the committed town. The landmark is the committed structure exchange_coffee_house.",
-      "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "limit_reason": "The register places this house against Exchange Coffee House and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "structure",
         "id": "exchange_coffee_house",
