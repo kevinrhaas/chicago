@@ -1,4 +1,40 @@
 export const CHANGELOG = [ // newest first
+  { v: 2021, ts: '2026-10-18T21:49:33.502Z', date: 'Oct 18, 2026, 4:49 PM CT', title: '1812 and 1835: the woods in clumps, and thickets at their edge', kind: 'feature',
+    items: [
+      'The North Side and river woods stand in patches with openings between them, and the trees in an opening are younger and smaller.',
+      'Where a wood meets the prairie, a thicket of hazel, hawthorn, wild plum and gray dogwood stands at its edge.',
+      'Hazel grows scattered through the oak ridges.',
+      'The four shrubs are new grown models, drawn like the trees, so they stay visible as you walk away.',
+      'Every position is reconstructed and listed under Liberties.',
+    ] },
+  { v: 2020, ts: '2026-10-18T21:45:45.140Z', date: 'Oct 18, 2026, 4:45 PM CT', title: '1625 Prairie\'s tall rear section steps out beside the house', kind: 'improvement',
+    items: [
+      'Behind McBirney\'s house at 1625 Prairie, the four-storey rear part the 1911 fire-insurance map draws now stands, stepping out past the south wall with a door at its foot and a window on each floor above.',
+      'It has a tall slate attic of its own with a dormer facing the street, its south end wall carried up to a chimney, as the 1890 photograph shows from the avenue.',
+    ] },
+  { v: 2019, ts: '2026-10-18T21:45:45.140Z', date: 'Oct 18, 2026, 4:45 PM CT', title: 'Keith house\'s front stair checked against three photographs and kept', kind: 'change',
+    items: [
+      '1808 Prairie (1904): an 1888-era street photograph seemed to put the front stair and its porch about a metre further out, with a much lower arch under it.',
+      'Measured properly, that photograph shifts the whole porch at its true size, which no camera position can square with the rest of the house. The 1888 magazine plate, a 1965 photograph and the printed floor plan all place the stair where it is built, so it stays.',
+      'The low arch in that photograph is only the top of the built arch; the rest is hidden behind the foreground.',
+    ] },
+  { v: 2018, ts: '2026-10-18T21:45:45.140Z', date: 'Oct 18, 2026, 4:45 PM CT', title: 'iPhone: tapping a building no longer resets the display', kind: 'fix',
+    items: [
+      'On an iPhone, tapping the Glessner House, or opening the Navigator beside it, could reset the display. Taps now read back their answer in the plain pixel format every phone supports.',
+      'The Glessner House roof no longer asks the GPU to rebuild detail levels its compressed textures already carry, a graphics error on every load.',
+    ] },
+  { v: 2017, ts: '2026-10-18T20:43:45.162Z', date: 'Oct 18, 2026, 3:43 PM CT', title: '1623 Prairie\'s broad basement window and its scrolled iron grille', kind: 'feature',
+    items: [
+      'The basement light under Granger Farwell\'s arched window is now the broad, low opening of its 1886 drawing: 1.8 m across under a flat segmental arch of radiating stones.',
+      'Its iron grille follows the drawing too: close uprights with a band of curled scrolls across the top.',
+      'Sizes were read through the drawing\'s camera; the scrolls\' exact curl is a reconstruction, recorded as a liberty.',
+    ] },
+  { v: 2016, ts: '2026-10-18T20:43:45.162Z', date: 'Oct 18, 2026, 3:43 PM CT', title: 'The Confidence view lets you colour, ghost and fade each grade', kind: 'feature',
+    items: [
+      'In the Navigator\'s Confidence view, tap a grade\'s look to open its row: four colour swatches, Tint, Ghost or Dither, and an opacity slider from 0 to 100 %. Each change shows in the town at once.',
+      'A Colour-blind-safe colours button puts blue, yellow and vermilion on Attested, Inferred and Reconstructed in one tap, and the presets keep them.',
+      'Each row still has its Show switch and the number of structures standing at that grade.',
+    ] },
   { v: 2015, ts: '2026-10-18T19:41:06.706Z', date: 'Oct 18, 2026, 2:41 PM CT', title: '1623 Prairie\'s oriel rises through the roof to its spire', kind: 'feature',
     items: [
       'Granger Farwell\'s oriel now climbs past the main cornice as its 1886 drawing shows: a carved frieze, an upper stage of shorter windows and a steep slate spire with a finial.',

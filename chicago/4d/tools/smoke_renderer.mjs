@@ -10685,7 +10685,11 @@ for (const [label, viewport, touch] of [
     // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
-    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    // Guide's sheet mounts once the Navigator has opened, and on a runner where a frame takes
+    // seconds that opening takes most of a minute (dev, 2026-10-18: a local desktop probe found
+    // the sheet at 50-55 s; the 10 s wait here gave up with "rows":0). Part 13's own wait for
+    // this sheet is 60 s; this one waits up to 120 s and ends as soon as the sheet is there.
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 120_000, polling: 100 }).catch(() => {});
     const guide = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const sheet = document.querySelector('#nav-app-guide #guide-controls');
@@ -15551,6 +15555,127 @@ for (const [label, viewport, touch] of [
     check(`${label}: C toggles BY GRADE on and off (T-2647)`,
       cOn.on === true && cOn.hidden.length === 0 && cOn.modes.reconstructed === 'dither' && cOff.on === false,
       JSON.stringify({ cOn: { on: cOn.on, modes: cOn.modes }, cOff: { on: cOff.on } }));
+    // >>> T-2648: the Confidence view's per-grade rows. A row opens from its look and holds
+    // four swatches (one set colour-blind safe), Tint / Ghost / Dither and an opacity slider;
+    // each control is tapped as a visitor taps it (hit-tested) and the frame read after it.
+    // The pixel bar is the suite's own: "turning it off restores the render" reads mean <= 0.1
+    // with worst <= 3 as readback noise, so a control that moved the town reads above both.
+    // The rows write uniforms only, so a sweep of them adds no program and no geometry.
+    const rowState = () => page.evaluate(() => {
+      const a = window.__chicago4d;
+      const out = { on: a.confidenceView, hidden: a.hud.hiddenLevels, ghosting: a.confidence.ghosting,
+        pressed: [...document.querySelectorAll('#navigator .nav-preset[aria-pressed="true"]')].map((b) => b.dataset.preset),
+        safe: document.getElementById('cm-safe')?.getAttribute('aria-pressed') ?? null,
+        tally: a.hud.levelCounts(), structures: a.registry.size, looks: {}, counts: {} };
+      for (const l of ['attested', 'inferred', 'reconstructed']) {
+        out.looks[l] = { ...a.confidence.grade(l),
+          worn: document.querySelector(`#cm-controls-${l} .nav-swatch[aria-checked="true"]`)?.dataset.set ?? null,
+          summary: document.getElementById(`cm-look-${l}`)?.textContent ?? '' };
+        out.counts[l] = Number(document.getElementById(`cm-count-${l}`)?.textContent ?? -1);
+      }
+      return out;
+    });
+    const setRowOpacity = (level, value) => page.evaluate(([l, v]) => {
+      const s = document.getElementById(`cm-opacity-${l}`);
+      s.value = String(v);
+      s.dispatchEvent(new Event('input', { bubbles: true }));
+      s.dispatchEvent(new Event('change', { bubbles: true }));
+    }, [level, value]);
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+    await page.waitForTimeout(600);
+    await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
+    await page.waitForTimeout(300);
+    if (await page.evaluate(() => document.getElementById('cm-controls-reconstructed')?.hidden !== false)) {
+      await clickChrome('#cm-look-reconstructed');
+      await page.waitForTimeout(300);
+    }
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    await clickChrome('#cm-controls-reconstructed .nav-look[data-look="tint"]');
+    await setRowOpacity('reconstructed', 100);
+    await page.waitForTimeout(300);
+    const rowBase = await page.evaluate(() => window.__chicago4d.capture());
+    // Colour: the colour-blind-safe swatch (vermilion) on Reconstructed.
+    await clickChrome('#cm-controls-reconstructed .nav-swatch[data-set="safe"]');
+    await page.waitForTimeout(300);
+    const rowSwatch = await rowState();
+    const rowSwatchFrame = await page.evaluate(() => window.__chicago4d.capture());
+    // Opacity: the slider to 0 %, which takes the tint off.
+    await setRowOpacity('reconstructed', 0);
+    await page.waitForTimeout(300);
+    const rowOpacity = await rowState();
+    const rowOpacityFrame = await page.evaluate(() => window.__chicago4d.capture());
+    // Look: Ghost at 40 %, drawn see-through in its own pass.
+    await clickChrome('#cm-controls-reconstructed .nav-look[data-look="ghost"]');
+    await setRowOpacity('reconstructed', 40);
+    await page.waitForTimeout(300);
+    const rowLook = await rowState();
+    const rowLookFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const rowLookStats = await page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { calls: st.drawCalls, budget: st.budget.drawCalls }; });
+    const dRowSwatch = signatureDistance(rowBase, rowSwatchFrame);
+    const dRowOpacity = signatureDistance(rowSwatchFrame, rowOpacityFrame);
+    const dRowLook = signatureDistance(rowOpacityFrame, rowLookFrame);
+    const rowMoved = (dd) => dd.mean > 0.1 && dd.worst >= 6;
+    const rowFmt = (dd) => `mean ${dd.mean?.toFixed(2)}, worst ${dd.worst}`;
+    check(`${label}: a grade row's swatch recolours the scene live, and the row marks it (T-2648)`,
+      rowSwatch.looks.reconstructed.color === '#d55e00' && rowSwatch.looks.reconstructed.worn === 'safe' && rowSwatch.on === true
+        && rowMoved(dRowSwatch),
+      `${JSON.stringify(rowSwatch.looks.reconstructed)} frame ${rowFmt(dRowSwatch)}`);
+    check(`${label}: a grade row's opacity slider changes the scene live, and the row reads its percent (T-2648)`,
+      Math.round(rowOpacity.looks.reconstructed.opacity * 100) === 0 && /^Tint · 0%$/.test(rowOpacity.looks.reconstructed.summary)
+        && rowMoved(dRowOpacity),
+      `${JSON.stringify(rowOpacity.looks.reconstructed)} frame ${rowFmt(dRowOpacity)}`);
+    check(`${label}: a grade row's Look ghosts the grade live, inside the draw budget (T-2648)`,
+      rowLook.looks.reconstructed.mode === 'ghost' && Math.round(rowLook.looks.reconstructed.opacity * 100) === 40 && rowLook.ghosting === true
+        && /^Ghost · 40%$/.test(rowLook.looks.reconstructed.summary) && rowMoved(dRowLook) && rowLookStats.calls <= rowLookStats.budget,
+      `${JSON.stringify(rowLook.looks.reconstructed)} frame ${rowFmt(dRowLook)} ${JSON.stringify(rowLookStats)}`);
+    // The sweep: five opacities, three swatches and two looks already drawn, then one frame.
+    const rowSweep = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const before = a.stats();
+      const t0 = performance.now();
+      const slider = document.getElementById('cm-opacity-reconstructed');
+      for (const v of [80, 60, 40, 20, 0]) {
+        slider.value = String(v);
+        slider.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+      slider.dispatchEvent(new Event('change', { bubbles: true }));
+      for (const set of ['garden', 'ember', 'medal']) document.querySelector(`#cm-controls-reconstructed .nav-swatch[data-set="${set}"]`).click();
+      for (const look of ['tint', 'ghost']) document.querySelector(`#cm-controls-reconstructed .nav-look[data-look="${look}"]`).click();
+      const ms = performance.now() - t0;
+      a.step();
+      const after = a.stats();
+      return { ms: Math.round(ms), programs: [before.programs, after.programs], geometries: [before.geometries, after.geometries] };
+    });
+    check(`${label}: ten row changes add no shader program and no geometry (T-2648)`,
+      rowSweep.programs[0] === rowSweep.programs[1] && rowSweep.geometries[0] === rowSweep.geometries[1],
+      JSON.stringify(rowSweep));
+    // The colour-blind-safe set: all three grades in one tap, and a preset keeps it.
+    await clickChrome('#cm-safe');
+    await page.waitForTimeout(300);
+    const rowSafe = await rowState();
+    await clickChrome('#navigator .nav-preset[data-preset="xray"]');
+    await page.waitForTimeout(300);
+    const rowSafeXray = await rowState();
+    const allSafe = (st) => ['attested', 'inferred', 'reconstructed'].every((l) => st.looks[l].worn === 'safe');
+    check(`${label}: the colour-blind-safe set is one tap for all three grades, and X-RAY keeps it (T-2648)`,
+      allSafe(rowSafe) && rowSafe.safe === 'true' && allSafe(rowSafeXray) && JSON.stringify(rowSafeXray.pressed) === '["xray"]'
+        && rowSafeXray.looks.inferred.mode === 'ghost',
+      JSON.stringify({ rowSafe: { safe: rowSafe.safe, worn: Object.values(rowSafe.looks).map((g) => g.worn) },
+        rowSafeXray: { pressed: rowSafeXray.pressed, worn: Object.values(rowSafeXray.looks).map((g) => g.worn) } }));
+    check(`${label}: each grade row's count is the town's own tally (T-2648)`,
+      ['attested', 'inferred', 'reconstructed'].every((l) => rowSafeXray.counts[l] === rowSafeXray.tally[l])
+        && rowSafeXray.counts.attested + rowSafeXray.counts.inferred + rowSafeXray.counts.reconstructed === rowSafeXray.structures,
+      JSON.stringify({ counts: rowSafeXray.counts, tally: rowSafeXray.tally, structures: rowSafeXray.structures }));
+    // Give the town back as found: the grade colours and looks (kept as such), NORMAL, Home, docked.
+    await page.evaluate(() => window.__chicago4d.confidence.resetGrades());
+    await clickChrome('#navigator .nav-preset[data-preset="normal"]');
+    await page.waitForTimeout(150);
+    await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      a.setAnimationHold(false);
+      await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
+    });
+    // <<< T-2648
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
     // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
