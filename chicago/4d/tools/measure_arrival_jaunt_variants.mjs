@@ -462,7 +462,9 @@ const VARIANTS = {
       catalogs > 0 && await page.locator('#welcome-jaunts-content button', { hasText: 'Try again' }).isVisible(), `${catalogs} refused`);
     await still(page, 'catalog-failed');
     await exploreOnMyOwn(v, page);
-    await tap(page, '#btn-start');
+    // T-2625: Start / Jaunts left the HUD (its choices are the Navigator's Jaunts app), so
+    // the Welcome card is shown again the way that button did.
+    await page.evaluate(() => window.__chicago4d.welcome.show());
     await until(page, () => window.__chicago4d.welcome.state === 'welcome');
     refuseCatalog = false;
     await tap(page, '#welcome-jaunts');

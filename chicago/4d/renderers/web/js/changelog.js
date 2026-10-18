@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 1983, ts: '2026-10-18T10:49:21.623Z', date: 'Oct 18, 2026, 5:49 AM CT', title: 'Trees are grown by species, with their own bark and leaves', kind: 'improvement',
+    items: [
+      'Each tree species grows its own shape: the cottonwood\'s massive rising limbs, the bur oak\'s crooked horizontals, the elm\'s vase, the willow\'s leaning stems.',
+      'Bark is drawn per species: furrowed, interlaced, blocky, plated, shaggy or smooth.',
+      'Leaves are true size and shaped by species.',
+      'Each species is built once and reused, near trees in full detail and far trees as their crown masses.',
+      'The 1835 and 1812 woods and the 1904 Prairie Avenue elms all use the new trees.',
+    ] },
+  { v: 1982, ts: '2026-10-18T10:49:21.623Z', date: 'Oct 18, 2026, 5:49 AM CT', title: 'The still-frame check times the town under Home, not mid-trip', kind: 'fix',
+    items: [
+      'Nothing you can see changed. The check that holds a still frame\'s time had been timing every place in the town under the blur that covers the scene during the jump.',
+      'The new landing\'s blur is 12 px, up from 2 px. That added about 3 seconds to a 19-second software frame at Full detail, and dev\'s still-frame ceiling went red.',
+      'The check now waits until Home is up and the blur has eased off, the screen a visitor actually rests on. Each reading names the state it was timed in.',
+    ] },
+  { v: 1981, ts: '2026-10-18T10:42:36.513Z', date: 'Oct 18, 2026, 5:42 AM CT', title: '1625 Prairie\'s windows as its 1890 photograph shows them', kind: 'improvement',
+    items: [
+      'McBirney\'s house at 1625 Prairie now has the photograph\'s windows, each where the print puts it: two-light casements on stone mullions, transomed on the first floor, a wide four-light window over the door, and segment-headed sash above.',
+      'The basement lights the old front carried are gone; the photograph shows a plain plinth.',
+      'Still to come for this house: its proud, quoined entrance bay with the carved panel, and the four-storey rear.',
+    ] },
+  { v: 1980, ts: '2026-10-18T10:27:48.111Z', date: 'Oct 18, 2026, 5:27 AM CT', title: 'A cleaner view: the last HUD buttons move into the Navigator', kind: 'feature',
+    items: [
+      'Start / Jaunts, the pace button and the light or dark switch have left the top of the screen, so more of the town shows, above all on a phone.',
+      'Jaunts, Go to and Free roam are all in the Navigator\'s Jaunts app.',
+      'Your pace is chosen in Move, and light or dark is in Settings, under View.',
+    ] },
   { v: 1979, ts: '2026-10-18T10:17:35.382Z', date: 'Oct 18, 2026, 5:17 AM CT', title: '1637 Prairie\'s c. 1870 photograph, weighed against the 1904 house', kind: 'add',
     items: [
       'The Grosvenor house\'s photograph from before Jesse Spalding\'s remodel now has a source record, a solved camera and a side-by-side with the 1904 build.',
