@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2000, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: '1904 holds 158 MB less on a phone', kind: 'fix',
+    items: [
+      'The lakefront railway kept 215 MB of track geometry a phone never let go of. It now keeps 34 MB.',
+      'Full rail sections are built only for the stretch of yard near you and dropped once you walk past.',
+      'On a phone, the yard\'s ground and far rails move to the graphics chip and the page copy is freed.',
+      'Phone memory at the Prairie Avenue spawn: 854 MB before, 696 MB after.',
+    ] },
+  { v: 1999, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: 'Nothing you can see changed: the 1965 porch photograph re-measured', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The camera for the 1965 colour slide of 1808 Prairie\'s loggia is fitted again, this time on the loggia\'s own columns and pedestal as well as the round bay\'s windows. Even on that camera the slide draws the loggia, and the bay\'s upper wall, about a third taller than the model, so the gap is between the two old pictures and not the camera. Which picture is wrong is now an open question for the Keith house\'s photo check.',
+    ] },
   { v: 1998, ts: '2026-10-18T15:07:07.161Z', date: 'Oct 18, 2026, 10:07 AM CT', title: 'First time? The Navigator offers its 60-second tour once', kind: 'feature',
     items: [
       'On a device\'s first landing, Home offers "First time? Take the 60-second tour" under its three choices. Taking it starts the Field Check in the town; going in any other way declines it, and it is not offered again.',
