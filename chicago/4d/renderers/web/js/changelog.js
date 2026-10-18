@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2023, ts: '2026-10-18T22:27:15.247Z', date: 'Oct 18, 2026, 5:27 PM CT', title: 'Keith House\'s roof ventilator moved to match two 1880s pictures', kind: 'fix',
+    items: [
+      'The cowl ventilator on 1808 Prairie\'s roof now stands 0.45 m behind the north wall\'s face instead of 0.6 m, closer to where the c. 1888 photograph looking south-west shows it.',
+      'The 1888 Glessner plate puts it a little further back, so it is built where it fits both pictures best: within a few pixels of each.',
+      'Its height and its place along the wall are unchanged.',
+    ] },
   { v: 2022, ts: '2026-10-18T22:18:49.197Z', date: 'Oct 18, 2026, 5:18 PM CT', title: 'Settings in the Navigator: text size, machine tiles, Auto and Sound', kind: 'feature',
     items: [
       'Settings now reads Display, Show, Machine, Performance, Sound, Units, then About & What\'s new.',
