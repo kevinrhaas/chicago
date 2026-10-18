@@ -28722,3 +28722,15 @@ verdicts; `check.sh` fails when the committed walk no longer matches them.
 docstring together.
 **Applies to:** `data/jaunts/prairie-built-so-far.json`.
 **Recorded:** 2026-10-17 (T-2747).
+
+### L-glessner-cupola-body-2228 — Glessner's stable cupola raised so its dovecote body stands clear of the ridge
+
+**Decision:** HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) and the Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`, c. 1887) both show the stable cupola's body in open air above the ridge, its two tiers of pigeon holes visible, under a pyramid whose apex stands well above the north gable's. The model carried a cap-only silhouette (body top 38.9, apex 43.3 ft above north grade) that hid the whole band below the 38.6 ft ridge and set the apex level with the gable. The body top is now 41.0 ft (eave 40.9 ft), the pigeon-hole band 39.1–40.8 ft and the apex 47.0 ft.
+
+**What is invented.** Every one of those numbers. They are read through photograph 1's hand-solved camera, measured against the north gable apex and the W141 ridge crest rather than absolutely, because that camera reads the whole stable roof about 28 px (roughly 2 ft) low at this depth: an eave about 2.3 ft clear of the ridge and a pyramid about 6.0 ft from eave to apex. The Cornell view gives a 5.9 ft pyramid and at least as much exposed body, but its camera was solved on the west windows and is about 50 px off at the roof; it reads the apex up to about 3 ft higher still, and that disagreement is left open in its match record rather than split. About ±1 ft. They agree with the first reading of photograph 1 (body about 2.5 ft clear, pyramid about 5.6 ft) that T-1999 lowered.
+
+**What is kept.** The plan (6 ft), the owner-directed centre at S14.6 on the W141 ridge, the 1.25 ft eave and its flare, the finial and the dovecote counts and sizes of L-glessner-cupola-2207. Photograph 1's parallax puts the cupola about 4 ft further north than S14.6. That is recorded here and in the match record and not acted on, because the centre is the owner's alignment.
+
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`.
+**Ticket:** T-2228.
+**Recorded:** 2026-10-18.

@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "glb_sha256": "7718950f84e7f42e89b4c580a2ab2539c89f53eae0e12d3bd31c05872e367024",
   "camera_sha256": "0594fb5e78cce8ce5dddef6754b10f2d8b1fffd0868e596be904ffb32bf04fb1",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
   "verdict": "differs",
@@ -10,6 +10,10 @@
     {
       "what": "Southern upper west slit moves from S21.8 to S19.8, retaining width/heights. Actual candidate compared with ca.1887 Cornell photograph at the frozen west-plane camera; other seven aperture positions remain.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2228 cupola body: raised so its body shows above the ridge; the cupola apex now stands about 23 px over the west gable apex (was 10 px under). The photograph shows about 80 px, which would put the apex up to about 3 ft higher still; this camera was solved on the west windows and is about 50 px off at the roof, so HABS photograph 1 sets the height and this disagreement stays open.",
+      "status": "open"
     },
     {
       "what": "West/north gable, cupola, portal, framing and surface/lighting residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry.",
