@@ -28841,6 +28841,38 @@ Illinois Central's fill.
 **Ticket:** T-2766.
 **Recorded:** 2026-10-18 (T-2766).
 
+### L-sand-hills-2768 — The sand hills' red cedar, jack pine and swale poplars: where each reach runs, how dense, and every stem's place
+
+**Decision:** the scene plants a woody scrub on the lakeshore sand beyond the dune poplars' reach,
+in three reaches, each its own community in `renderers/web/js/trees.js` (T-2768):
+north of the river from the Kinzie house's northing to the field's edge, red cedar with jack pine
+and a few dune cottonwoods; south of about Twelfth Street to the field's south edge, red cedar alone;
+between the mouth and Twelfth Street, a scanty scatter of jack pine and dune cottonwood. In a hollow
+of the modelled sand hills the mix is cottonwood and balsam poplar instead of cedar.
+The same communities plant the 1812 scene, which has the same dune field and no town on it, so the north
+reach there is not cut short by the 1835 town ground.
+**What is read, not invented:** cedars and pines on the sand hills north of the river (Wau-Bun 1856,
+"a vast range of sand-hills, covered with stunted cedars, pines, and dwarf-willow trees", between
+the Kinzie house and the lake); low cedar, ground pine and sand cherry from about where the Illinois
+Central round-house stood to about Twenty-Fifth Street (Robert G. Clarke 1890, in Kirkland 1893
+Appendix K); "a scanty growth of cottonwoods and pines" among the dunes south of the mouth (Currey
+1912); jack pine as a dominant tree of the established dunes at the south end of the lake, and
+cottonwood seedlings in the wet hollows between dunes (Cowles 1901, pp. 153, 173-174).
+**What is invented:** the species of the cedar (*Juniperus virginiana*, the tree-form cedar of these
+dunes) and of the pine (*Pinus banksiana*); the densities, 20-80 cedars a hectare as the reading of
+"covered", read as 40-64 stems a hectare north, 40-64 south and 3-9 in the scanty reach; Twelfth
+Street as the line between Clarke's reach and Currey's, set by the 16th and 22nd Street anchors; the
+belt behind the shore, the lakeshore zone's band plus up to 140 m (south) and 200 m east of the
+Kinzie house (north); a hollow as ground 0.12 m below a 9 m ring; the clump field that groups the
+stems into thickets with sand between; every stem's place, dealt from a generator seeded by its own
+position. The cedar's cone, the pine's open crooked crown and both foliage tiles are botanical habit
+under L-tree-architecture-2743.
+**How to resolve:** the original township plat's notes on the sand ridges, an early drawing or
+photograph of the lake shore south of Twelfth Street or north of the harbour before the fills, or a
+botanical record of the Chicago dunes before 1860 naming the cedar and the pine.
+**Ticket:** T-2768.
+**Recorded:** 2026-10-18 (T-2768).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
