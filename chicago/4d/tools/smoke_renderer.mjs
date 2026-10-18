@@ -18467,6 +18467,10 @@ for (const [label, viewport, touch] of [
           await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
           root().querySelector('[data-insp-tab="design"]')?.click();
           await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+          // The plate is the one thing on the tab whose box arrives late: read the layout once it
+          // has loaded or failed (up to 10 s), so a half-laid frame is not taken for the page.
+          await wait(() => { const img = pane()?.querySelector('.insp-style-plate img'); return !img || img.complete; }, 100);
+          await new Promise((r) => setTimeout(r, 300));
           const doc = await a.inspectSummaries();
           const rec = doc?.summaries?.[id] ?? {};
           const mod = doc?.styles?.[rec.style] ?? {};
@@ -18490,7 +18494,10 @@ for (const [label, viewport, touch] of [
             plate: !!p.querySelector('.insp-style-plate img'),
             plateWanted: !!(pic?.held?.f && /^(public domain|no known restrictions)/i.test(String(pic.rights ?? ''))),
             plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}|\btier\b|\bticket\b/i.test(text),
-            overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth, turn: null };
+            overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth,
+            widths: [p.scrollWidth, p.clientWidth, document.documentElement.scrollWidth, innerWidth],
+            wide: [...p.querySelectorAll('*')].filter((n) => n.getBoundingClientRect().right > p.getBoundingClientRect().right + 1)
+              .map((n) => `${n.tagName}.${n.className}`).slice(0, 4), turn: null };
           // Tap the first hotspot that names a camera: Show me turns the camera to its bearing.
           const i = (rec.onThisHouse ?? []).findIndex((h) => h.camera);
           const btn = i >= 0 ? items[i]?.querySelector('button.insp-hot-row') : null;
