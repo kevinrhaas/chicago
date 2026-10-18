@@ -1992,6 +1992,14 @@ step "the settled town's ground re-derives from the plat and every standing roof
 step "the planted poplar rows re-derive from the rule that chose their greens" \
   python3 tools/generate_planted_rows.py --check
 
+# Robert G. Clarke's 1835 shore grove, "perhaps fifty to seventy-five large cottonwoods"
+# from a little north of Sixteenth to a little south of Eighteenth Street, with its
+# clump of eight or nine on Wirt Dexter's lot end. The count, the strip's depth and every
+# stem's place but the clump's are a rule's, re-derived here (T-2766,
+# L-shore-grove-1835-2766).
+step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
+  python3 tools/generate_shore_grove_1835.py --check
+
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a
 # reconstruction chosen by a rule about trades rather than a list of shops somebody liked.
