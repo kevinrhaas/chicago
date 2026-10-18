@@ -79,11 +79,20 @@ const vpScratch = new THREE.Matrix4();
 
 /** True when the original path below would certainly `continue` for this triangle. */
 function rejectedEarly(points, vp, width, height) {
+  let behindNear = 0, beyondFar = 0, inside = 0;
   for (let k = 0; k < 3; k++) {
     const c = scratchClip[k].set(points[k].x, points[k].y, points[k].z, 1).applyMatrix4(vp);
-    // Clipped by the near or far plane: only the full path knows the polygon.
-    if (!(c.z + c.w >= 0 && c.w - c.z >= 0)) return false;
+    const dn = c.z + c.w, df = c.w - c.z;
+    if (dn < 0) behindNear++;
+    if (df < 0) beyondFar++;
+    if (dn >= 0 && df >= 0) inside++;
   }
+  // Wholly behind the near plane (most of what is behind the eye), or wholly past the
+  // far one: clipPlane() leaves nothing, and a cut by one plane stays on its side of
+  // the other.
+  if (behindNear === 3 || beyondFar === 3) return true;
+  // Cut by a plane: only the full path knows the polygon.
+  if (inside < 3) return false;
   for (let k = 0; k < 3; k++) {
     const c = scratchClip[k];
     if (!Number.isFinite(c.w) || c.w <= 0) return true;
@@ -198,10 +207,12 @@ export function boxOccluded(box, vp, occluders, width, height) {
  * untouched. Ground decals retain insertion order; buildings retain Three's
  * depth order. Other cameras (the app's sun shadow) get the complete list.
  */
+const farFirst=(a,b)=>b.z-a.z, nearFirst=(a,b)=>a.z-b.z;
+
 export function createViewOcclusion({ camera, renderer, triangles, batches, allow = () => true }) {
   let enabled=true, cachedKey=null, cachedFrame=null, occluders=[];
-  const states=new Map(), active=[], keyBuf=new Float64Array(34);
-  let flags=new Uint8Array(0);
+  const tests=[], active=[], keyBuf=new Float64Array(34);
+  let flags=new Uint8Array(0), testOf=new Int32Array(0), answers=new Uint8Array(0);
   const vp=new THREE.Matrix4(),size=new THREE.Vector2(),instance=new THREE.Matrix4();
   const box=new THREE.Box3(),undos=[];
   const stats={ tested:0,culled:0,triangles:0 };
@@ -212,14 +223,23 @@ export function createViewOcclusion({ camera, renderer, triangles, batches, allo
     if (!enabled || !allow() || renderer.clippingPlanes?.length) {occluders=[];cachedKey=null;return;}
     // T-2806: the key is compared number by number in reused storage. As a string it
     // was 34 numbers and a character per backing triangle, built every frame.
-    states.clear();
-    if (flags.length!==triangles.length) flags=new Uint8Array(triangles.length);
+    // Each distinct `active` test is asked once a frame, as before; which triangle
+    // shares which test is worked out once, not rebuilt as a Map every frame.
+    if (flags.length!==triangles.length || testOf.length!==triangles.length) {
+      flags=new Uint8Array(triangles.length);
+      testOf=new Int32Array(triangles.length);
+      const index=new Map(); tests.length=0;
+      triangles.forEach((t,i)=>{
+        if(!t.active){testOf[i]=-1;return;}
+        if(!index.has(t.active)){index.set(t.active,tests.length);tests.push(t.active);}
+        testOf[i]=index.get(t.active);
+      });
+      answers=new Uint8Array(tests.length);
+    }
+    for(let k=0;k<tests.length;k++) answers[k]=tests[k]()?1:0;
     let flagsChanged=false;
     for(let i=0;i<triangles.length;i++) {
-      const t=triangles[i];
-      let on=true;
-      if(t.active){ if(!states.has(t.active))states.set(t.active,!!t.active()); on=states.get(t.active); }
-      const v=on?1:0;
+      const v=testOf[i]<0?1:answers[testOf[i]];
       if(flags[i]!==v){flags[i]=v;flagsChanged=true;}
     }
     renderer.getDrawingBufferSize(size);
@@ -243,8 +263,7 @@ export function createViewOcclusion({ camera, renderer, triangles, batches, allo
     const previous=batch.customSort,sorted=batch.sortObjects;
     const hook=function(list,passCamera) {
       if (previous) previous.call(this,list,passCamera);
-      else if (sorted) list.sort(passCamera===camera && this.material.transparent
-        ? (a,b)=>b.z-a.z : (a,b)=>a.z-b.z);
+      else if (sorted) list.sort(passCamera===camera && this.material.transparent ? farFirst : nearFirst);
       if (passCamera!==camera) return;
       const m=this.material;
       // Geometry bounds do not bound a displaced or depth-biased raster, and
