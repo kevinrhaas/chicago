@@ -9574,6 +9574,46 @@ for (const [label, viewport, touch] of [
       && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
       && inspectTabs1835.held && !inspectTabs1835.plumbing,
       JSON.stringify(inspectTabs1835).slice(0, 700));
+    // >>> T-2643: Inspect's Story tab on an 1835 building with no summary record. BUILT says the
+    // records give no date (none is composed from where the evidence begins), YOU ARE HERE is the
+    // scene's 1 July 1835, TODAY closes it after your visit, and the 5 August 1835 fire limit,
+    // where the card's limits loaded, hangs after the visit. Nothing overflows the pane.
+    const story1835 = await page.evaluate(async (id) => {
+      const a = window.__chicago4d;
+      const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+      const root = () => document.getElementById('nav-app-inspect');
+      a.pick(id);
+      await a.navigator.select('inspect');
+      a.navigator.open(2);
+      await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+      root().querySelector('[data-insp-tab="story"]')?.click();
+      const pane = () => root().querySelector('[data-insp-pane="story"]');
+      await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+      const p = pane();
+      const rows = [...p.querySelectorAll('.insp-story-line > li')].map((li) => ({ mark: li.dataset.mark, after: li.hasAttribute('data-after'),
+        when: li.querySelector('.insp-date')?.textContent ?? '', text: li.querySelector('.insp-story-body')?.textContent ?? '',
+        tag: li.querySelector('.insp-after')?.textContent ?? null }));
+      const out = { filled: p.dataset.filled, rows, shown: p.checkVisibility(),
+        caps: [...p.querySelectorAll('.insp-kicker')].every((k) => getComputedStyle(k).textTransform === 'uppercase'),
+        plumbing: /[a-z0-9]+_[a-z0-9]+|\.json\b/i.test(p.textContent),
+        overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+      await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+      return out;
+    }, 'hogan_store');
+    {
+      const r = story1835.rows;
+      const at = r.findIndex((x) => x.mark === 'here');
+      const fire = r.findIndex((x) => x.mark === 'fire');
+      check(`${label}: Inspect's Story on an 1835 building marks BUILT, YOU ARE HERE at 1 July 1835 and TODAY, honest where the records give no date, the fire limit after your visit (T-2643)`,
+        story1835.filled === 'yes' && story1835.shown && r[0]?.mark === 'built' && /no date/.test(r[0].text) && r[0].when === ''
+        && at > 0 && r[at].when === '1835' && /1 July 1835/.test(r[at].text)
+        && r.at(-1)?.mark === 'today' && r.at(-1).after && r.at(-1).tag === 'After your visit'
+        && r.slice(0, at).every((x) => !x.after && !x.tag) && r.slice(at + 1).every((x) => x.after && x.tag === 'After your visit')
+        && (fire === -1 || (fire > at && r[fire].when === '1835'))
+        && story1835.caps && !story1835.plumbing && !story1835.overflow,
+        JSON.stringify(story1835).slice(0, 900));
+    }
+    // <<< T-2643
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -15965,6 +16005,77 @@ for (const [label, viewport, touch] of [
       && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
       JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
     // ---- end T-2663
+    // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
+    // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
+    // again; no hint shows while the tour runs; a Reconstructed building's card hints once.
+    // The Field Check just finished above, which spends the offer too, so its record is set
+    // aside for this block and put back after, as are where the visitor stood and the offer.
+    // Clicks are hit-tested but never abort the part: a miss is this check's failure, read below.
+    const offerSeen = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const w = api.walker;
+      const at = { local_e: w.state.e, local_n: w.state.n, yaw_deg: w.bearingDeg };
+      const tourWas = localStorage.getItem('chicago4d.tour');
+      localStorage.removeItem('chicago4d.tour');
+      api.tourOffer.forget(); api.hints.forget(); api.roamTip.hide();
+      api.popup.close();
+      api.welcome.show();
+      const o = document.getElementById('tour-offer');
+      const b = o?.getBoundingClientRect();
+      return { at, tourWas, shown: !!o && !o.hidden && !!b && b.width > 0 && b.height > 0, text: o?.textContent.trim() ?? '',
+        tall: Math.round(b?.height ?? 0), wide: !!b && b.left >= 0 && b.right <= innerWidth };
+    });
+    const offerClick = await clickChrome('#tour-offer').then(() => null, (e) => { return page.evaluate(() => document.getElementById('tour-offer')?.click()).then(() => e.message); });
+    await page.waitForFunction(() => window.__chicago4d.tour.running && document.getElementById('gate').hidden, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+    const offerTaken = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      return { gateHidden: document.getElementById('gate').hidden, state: api.welcome.state, running: api.tour.running, step: api.tour.step,
+        stored: localStorage.getItem('chicago4d.tourOffer'), roamTip: api.roamTip.showing, held: api.hints.show('reconstructed'),
+        owed: !api.hints.seen('reconstructed') };
+    });
+    const skipClick = await clickChrome('#tour-skip').then(() => null, (e) => { return page.evaluate(() => window.__chicago4d.tour.skip()).then(() => e.message); });
+    await page.waitForFunction(() => !window.__chicago4d.tour.running, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+    const offerAfter = await page.evaluate(async (seen) => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      // Home again: not offered a second time.
+      api.welcome.show();
+      const reoffered = !document.getElementById('tour-offer').hidden;
+      api.welcome.close();
+      // A Reconstructed building's card: the hint, once.
+      const row = api.destinations.search('', { kind: 'structure', includeReconstructed: true })
+        .find((r) => r.presence === 'reconstructed' && api.registry.has(r.id));
+      const read = () => {
+        const h = document.getElementById('nav-hint'); const b = h?.getBoundingClientRect();
+        return { showing: !!h && !h.hidden, text: h?.textContent ?? '', id: h?.dataset.hint ?? null,
+          inView: !!b && b.width > 0 && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight,
+          pointer: h ? getComputedStyle(h).pointerEvents : null };
+      };
+      let first = null, second = null;
+      if (row) {
+        api.pick(row.id); await pause(150); first = read();
+        api.popup.close(); api.hints.hide();
+        api.pick(row.id); await pause(150); second = read();
+        api.popup.close();
+      }
+      // Back as it was found: where the visitor stood, the Field Check's record, the offer
+      // answered, no hint, Home the Navigator's app, docked.
+      api.walker.teleport(seen.at);
+      if (seen.tourWas === null) localStorage.removeItem('chicago4d.tour'); else localStorage.setItem('chicago4d.tour', seen.tourWas);
+      api.hints.hide(); api.roamTip.hide();
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return { reoffered, row: row?.id ?? null, first, second, stored: localStorage.getItem('chicago4d.tourOffer') };
+    }, offerSeen);
+    check(`${label}: Home offers the 60-second tour once per device, taking it starts the Field Check, and a Reconstructed building hints once (T-2664)`,
+      offerSeen.shown && offerSeen.text === 'First time? Take the 60-second tour' && offerSeen.wide && offerSeen.tall >= 44 && !offerClick
+      && offerTaken.gateHidden && offerTaken.state === 'world' && offerTaken.running && offerTaken.step === 0 && offerTaken.stored === 'taken'
+      && !offerTaken.roamTip && !offerTaken.held && offerTaken.owed
+      && !offerAfter.reoffered && offerAfter.stored === 'taken' && !!offerAfter.row
+      && offerAfter.first?.showing && offerAfter.first.id === 'reconstructed' && /^Reconstructed\b/.test(offerAfter.first.text)
+      && offerAfter.first.inView && offerAfter.first.pointer === 'none' && !offerAfter.second?.showing,
+      JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
+    // <<< T-2664
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.
@@ -18316,6 +18427,53 @@ for (const [label, viewport, touch] of [
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
           && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
           JSON.stringify(inspectTabs1904));
+        // >>> T-2643 (QA-09): Glessner's Story runs from design (1885) to today, BUILT at 1887 and
+        // YOU ARE HERE at 1 July 1904, every fact dotted, what came after the visit marked so; and
+        // no 1835 civic rule (the fire limit, the hay by-law) renders on a 1904 building.
+        const story1904 = await page.evaluate(async (ids) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const out = {};
+          for (const id of ids) {
+            a.pick(id);
+            await a.navigator.select('inspect');
+            a.navigator.open(2);
+            await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+            root().querySelector('[data-insp-tab="story"]')?.click();
+            const pane = () => root().querySelector('[data-insp-pane="story"]');
+            await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+            const p = pane();
+            out[id] = { filled: p.dataset.filled,
+              rows: [...p.querySelectorAll('.insp-story-line > li')].map((li) => ({ mark: li.dataset.mark, after: li.hasAttribute('data-after'),
+                when: li.querySelector('.insp-date')?.textContent ?? '', text: li.querySelector('.insp-story-body')?.textContent ?? '',
+                dot: !!li.querySelector('.fact-dot'), tag: li.querySelector('.insp-after')?.textContent ?? null })),
+              civic: /fire limit|\bhay\b|by-law|Trustees/i.test(p.textContent),
+              plumbing: /[a-z0-9]+_[a-z0-9]+|\.json\b/i.test(p.textContent),
+              overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, ['glessner_house', 'pullman_house_1729_prairie']);
+        {
+          const g = story1904.glessner_house?.rows ?? [];
+          const at = g.findIndex((x) => x.mark === 'here');
+          const built = g.findIndex((x) => x.mark === 'built');
+          const pull = story1904.pullman_house_1729_prairie ?? {};
+          const pr = pull.rows ?? [];
+          check(`${label}: Glessner's Story runs from design to today with BUILT 1887 and YOU ARE HERE at 1904, later facts after your visit, and no 1835 civic rule on a 1904 building (T-2643)`,
+            story1904.glessner_house?.filled === 'yes' && g[0]?.mark === 'event' && g[0].when === '1885'
+            && built > 0 && built < at && g[built].when === '1887' && g[built].dot
+            && at > 0 && g[at].when === '1904' && /1 July 1904/.test(g[at].text)
+            && g.at(-1)?.mark === 'today' && /Still standing/.test(g.at(-1).text) && g.at(-1).dot
+            && g.slice(0, at).every((x) => !x.after && !x.tag) && g.slice(at + 1).every((x) => x.after && x.tag === 'After your visit')
+            && g.filter((x) => x.mark === 'event').every((x) => x.dot)
+            && pull.filled === 'yes' && pr[0]?.mark === 'built' && pr.some((x) => x.mark === 'here' && x.when === '1904') && pr.at(-1)?.mark === 'today'
+            && !story1904.glessner_house.civic && !pull.civic
+            && !story1904.glessner_house.plumbing && !pull.plumbing && !story1904.glessner_house.overflow && !pull.overflow,
+            JSON.stringify(story1904).slice(0, 900));
+        }
+        // <<< T-2643
         // >>> T-2640 (QA-10): Show me on each Look for item of Glessner House turns the camera to
         // the record's own view of the feature — its bearing and pitch, the house down the
         // crosshair — and the outline shows for 2 s. Never aimed where the record names no camera.

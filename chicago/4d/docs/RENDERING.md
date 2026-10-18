@@ -1201,4 +1201,32 @@ correction). Every number quotes its anchor and viewport.
   dev's CPU-drawn one differs by more than 8 levels in 0.23 % of pixels. The smoke's root
   gate holds the GPU tufts to the tile's ground at its 1e-5 m and the tile's ground to the
   terrain at 5 mm (T-2698's worst at the 22 stations is 4.8 mm). The near re-deal's
-  main-thread ms and the moving p95 are T-2717's reading.
+  main-thread ms and the moving p95 are T-2717's reading, below.
+- **The GPU near ring's cost while moving** (T-2717, the third piece of T-2708):
+  `node tools/measure_walk_frames.mjs --source --only mobile --tiers light` now prints a
+  `near re-deal` line under each move: the near passes, each one's main-thread ms (a spread
+  pass's from its landing record, a one-frame pass's as its frame's flora ms), and where the
+  GPU draws the ring, its deal passes, tile builds and uploads with their ms. Read on the
+  phone profile (390x780, 4x CPU throttle) with SwiftShader, the commit before T-2716 against
+  T-2716 itself, two interleaved runs each, and dev's tip once
+  (`docs/measurements/t-2717-near-redeal-mobile.json`):
+
+  | move | near pass, median ms (before / after) | moving p95, scripted ms (before / after) | flora's worst frame, ms (before / after) |
+  |---|---|---|---|
+  | walk | 2.9, 2.6 / 2.7, 3.4 | 2.5, 2.3 / 1.9, 2.4 | 6.2, 5.5 / 5.4, 6.3 |
+  | turn | 4.0, 4.0 / 4.1, 3.4 | 6.5, 5.8 / 5.5, 6.0 | 6.4, 6.9 / 6.0, 6.4 |
+  | flight | no near pass | 5.7, 5.4 / 5.1, 6.2 | 5.6, 5.6 / 5.7, 6.1 |
+
+  **The near re-deal is NOT at zero, and the moving p95 did not move outside the runs'
+  noise.** The CPU walk still deals every near slot (`dealNearSlot`, then `placeGraminoid`
+  into `nearSink`) because the heads hang off the height it returns: in a CPU profile over
+  the three moves those two read 61 + 79 ms before and 84 + 103 ms after. On top of them the
+  GPU's deal pass costs the main thread 0.4-0.6 ms a pass (42-65 ms over a walk's ~100
+  passes; 77 ms on dev's tip), and the kept tile's strip landings (`near-field.js`, which the
+  CPU-drawn ring never ran) about 200 ms over the moves. The flight deals the ring 9 times
+  and uploads the tile 8 times with no near pass. What the GPU ring took off the main thread
+  is the near tufts' instance writes and their buffer upload, and that is about what it added
+  back. Zero needs the CPU near walk retired, with the heads hung from the GPU's deal:
+  T-2774, the follow-up that also carries the mid, forb and far-shrub sets. SwiftShader
+  draws the pass on the CPU, so on a phone's GPU the deal pass's main-thread share is its
+  command encoding and should be smaller; the CPU walk's share is the same code anywhere.

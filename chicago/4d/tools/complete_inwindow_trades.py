@@ -410,10 +410,11 @@ def _location(seated: dict | None, house: dict) -> dict:
             "tier": "inferred",
             "basis": "NO READING PLACES THIS HOUSE. The evidence is a trade on a card, not a "
                      "printed address, so the record carries its limit rather than a guess.",
-            "limit_reason": "The source names the trade and not the premises. T-1198 seats every "
-                            "attested and inferred house on the ground its evidence allows — a "
+            "limit_reason": "The source names the trade and not the premises. Each attested and "
+                            "inferred house is seated on the ground its evidence allows — a "
                             "structure where one is named, a lot where an address narrows it, a "
-                            "division band where only that is known — and this house waits there.",
+                            "division band where only that is known — and this house waits for "
+                            "that seating.",
         }
     return {
         "kind": "premises",

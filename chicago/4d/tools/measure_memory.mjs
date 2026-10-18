@@ -130,6 +130,11 @@ const STANDS = [
 const WALKS = {
   prairie: { year: '1904', stations: Array.from({ length: 8 }, (_, i) => ({
     local_e: 1402, local_n: -3270 + 40 * i, yaw_deg: 0 })) },
+  // T-2775: the owner's crash, 2026-10-18 — free roam, "navigate down the street" on
+  // an iPhone. The same centreline from north of 16th to south of 22nd, every 40 m,
+  // looking south, so every block's houses, trees and the lakefront come and go.
+  'prairie-street': { year: '1904', stations: Array.from({ length: 26 }, (_, i) => ({
+    local_e: 1402, local_n: -2940 - 40 * i, yaw_deg: 180 })) },
 };
 if (WALK && !WALKS[WALK]) { console.error(`no walk named ${WALK}: ${Object.keys(WALKS).join(', ')}`); process.exit(2); }
 const YEARS = SELF_TEST ? ['1835'] : WALK ? [WALKS[WALK].year]
@@ -690,6 +695,9 @@ for (const year of YEARS) {
     }
     if (WALK) {
       const steps = [];
+      // T-2775: what the whole tab holds at each station, garbage and all (no forced
+      // GC: iOS kills on what is resident, collected or not).
+      const walkCdp = await ctx.newCDPSession(page);
       for (const station of WALKS[WALK].stations) {
         const step = await page.evaluate(async (at) => {
           const api = window.__chicago4d;
@@ -701,13 +709,17 @@ for (const year of YEARS) {
           await frame();
           const gl = window.__memoryMeter();
           const r = api.residency;
-          return { ...at, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers,
+          return { ...at, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers, gpuBuffers: gl.gpuBuffers,
             residency: r && { resident: r.resident, sources: r.sources, residentBytes: r.residentBytes,
               budgetBytes: r.budgetBytes, wantedBytes: r.wantedBytes, pending: r.pending, uploads: r.uploads,
               evictions: r.evictions, redecodes: r.redecodes, overBudget: r.overBudget } };
         }, station);
+        const heap = await walkCdp.send('Runtime.getHeapUsage');
+        step.jsHeap = heap.usedSize; step.arrayBuffers = heap.backingStorageSize ?? 0;
+        step.total = step.jsHeap + step.arrayBuffers + step.gpuBuffers + step.gpuTextures;
         steps.push(step);
-        console.log(`  N ${step.local_n}: gpu textures ${MB(step.gpuTextures)} MB`
+        console.log(`  N ${step.local_n}: total ${MB(step.total)} MB (heap ${MB(step.jsHeap)}`
+          + ` + arraybuffers ${MB(step.arrayBuffers)} + gpu buffers ${MB(step.gpuBuffers)}) · gpu textures ${MB(step.gpuTextures)} MB`
           + (step.residency ? ` · resident ${step.residency.resident}/${step.residency.sources}`
             + ` = ${MB(step.residency.residentBytes)} of ${MB(step.residency.budgetBytes)} MB`
             + ` (reach asks ${MB(step.residency.wantedBytes)}, ${step.residency.overBudget} turned away)`
@@ -721,9 +733,10 @@ for (const year of YEARS) {
       rows.push({ year, viewport: vp.id, label: vp.label, walk: WALK, residencyOff: RESIDENCY_OFF,
         steps, residency, errors, over: over.length,
         maxGpuTextures: Math.max(...steps.map((st) => st.gpuTextures)),
+        maxTotal: Math.max(...steps.map((st) => st.total)),
         maxResidentBytes: Math.max(...steps.map((st) => st.residency?.residentBytes ?? 0)),
         seconds: { walk: Math.round((Date.now() - t0) / 1000) } });
-      console.log(`walk ${WALK} ${vp.id}: max gpu textures ${MB(rows.at(-1).maxGpuTextures)} MB, `
+      console.log(`walk ${WALK} ${vp.id}: max total ${MB(rows.at(-1).maxTotal)} MB, max gpu textures ${MB(rows.at(-1).maxGpuTextures)} MB, `
         + `${over.length} station(s) over budget, ${errors.length} page error(s)`);
       await ctx.close();
       continue;
