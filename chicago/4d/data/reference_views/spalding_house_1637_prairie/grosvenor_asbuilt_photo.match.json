@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "grosvenor_asbuilt_photo",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e5d5b9caf0a7dbbd89dbab7a530ac188812483e133821cc765790a6bc8aa75f3",
+  "glb_sha256": "5da7b1ed4a8cc4bfb699a0a91b7a2666933cfe375d0ed6fed856ea635feaa619",
   "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
   "verdict": "differs",
@@ -34,13 +34,38 @@
     },
     {
       "what": "an ornate stone-dressed projection on the south wall from x 322 px (about u 3.9-5.2 m) to past the frame's edge: its front through the principal storey in tall round-arched lights between columns under a bracketed entablature, small round lights in its base (y 690-730 px), and on its top a balcony behind a balustrade (y 355-420 px)",
+      "status": "fixed",
+      "how": "T-2780: the 1911 sheet's canted bay (s20fp-1637-b1, its junctions at x 1427.06 and 1430.61 m in the trace frame, so u 4.34 to 0.79, 0.75 m out on 45-degree cheeks) built on the south wall as a K08 canted bay in dressed stone: a base to 2.95 m with a small round-headed light under the front's principal light, a principal storey to 8.0 m with the front's round-arched light (1.35 m wide, 3.15-5.65 m), a bracketed entablature (consoles 0.6 m under a soffit 0.35 m out and a 0.25 m fascia to 8.25 m) and on its flat top a stone balustrade 0.7 m high round all three faces. Through this camera the bay's west junction lands at x 338 px against the photograph's 322-340, its balustrade's coping at about y 345 against 345, and its entablature at y 385-410 against 385-435. What of it is not yet built is listed below for T-2781"
+    },
+    {
+      "what": "the projection's columns: a column at each corner of the bay and between its lights, from the sill band to the capitals under the entablature (x 350-362 and 395-405 px, y 505-690)",
       "status": "open",
-      "how": "kept by the remodel: the 1911 sheet draws a canted bay on the south wall exactly there (s20fp-1637-b1's main part, x 1427.3-1430.4 m in the trace frame: from u 4.1 to 1.0, 0.75 m out, its ends canted), whose west end falls at x 316-352 px through every variant of this camera. Nothing in 1637's build carries it: the footprint note read the sheet's canted shape on the wing and not this one. T-2756 builds it on the sheet's plan to the photograph's height and dress"
+      "how": "not built: K08 lays a bay's walls, windows, bands and brackets, and has no column; T-2781 builds them with the bay's carved dress"
+    },
+    {
+      "what": "the projection's carved dress: the oval lights or medallions in the frieze over the arches (y 470-500), the capitals' band (y 505-515), the consoles' scrolls and the corona's mouldings",
+      "status": "open",
+      "how": "the entablature's consoles and fascia stand where the photograph's do (T-2780), plain; T-2781 carves them"
+    },
+    {
+      "what": "the cheeks' lights: a round-arched light in the west cheek between its columns (x 362-398 px, y 515-680) over a small light in its base (y 690-730), and the east cheek's, out of the frame, by symmetry",
+      "status": "open",
+      "how": "not cut: K08 holds every window's recess to at least 0.33 m inside the bay (check_bay_kit.py), and a 1.0 m cheek 0.75 m out has no room for it, so the cheeks stand blank (L-k01-1637-south-bay-2780). T-2781 opens them, which needs a shallower light the kit can close"
+    },
+    {
+      "what": "the front's round-arched light stands about 15-20 px left of the photograph's (x 406-436 px against 420-458) and its base light with it",
+      "status": "open",
+      "how": "the light is centred on the sheet's front, which through this camera spans x 395-452 px; the photograph's light runs to the frame's edge, so its front may stand wider, or its bay further east, than the sheet's 2.2 m and its place. T-2781 weighs the two with the columns"
+    },
+    {
+      "what": "the window over the bay's open shutters (x 352-375 and 425-445 px)",
+      "status": "open",
+      "how": "not built: K06 carries no shutter; T-2781's dress"
     },
     {
       "what": "a second-storey window over the projection's balcony (x 350-445 px, y 305-355), round-headed between open shutters, the balcony's door or window",
-      "status": "open",
-      "how": "kept with the projection (above): T-2756 opens it in the south wall over the bay"
+      "status": "fixed",
+      "how": "T-2780: a round-headed light cut in the south wall over the bay's balustrade (K08 window_over), 1.4 m wide and 1.4 m tall on a sill at 8.4 m, so its crown stands at 9.8 m: through this camera its arch tops out at about y 300 px against the photograph's 305, between x 845 and 885 of the render (x 361-401) against the photograph's opening at about x 375-425. Its shutters are dress, open below"
     },
     {
       "what": "a tall panelled stack with a corbelled cap rising behind the eave (x 245-345 px, its cap's top at y 30): on the south wall's line it stands at about u 6.0, its top about 14.2 m over grade",
@@ -78,6 +103,5 @@
       "how": "the brick and trim colours stay reconstructed"
     }
   ],
-  "evidence_of_its_own_date": "The photograph is the Grosvenor house as built, c. 1870, before Jesse Spalding's remodel; the 1904 scene is the remodelled house, which the engraving draws from the north-west and the 1911 Sanborn sheet plans. So each thing this photograph shows is weighed (AGENTS.md rule 11, T-2449): where the engraving or the sheet shows the remodel KEPT it, it is built and reads fixed, or is open until it is (T-2756); where they show the remodel REPLACED it, it is argued not shown for 1904 with the later evidence named. Where neither later witness can see it (the south flank, which the engraving faces away from), the masonry is read as kept: a remodel that recast the front and the roof is not evidence that it took down a side wall's bay, and the 1911 sheet still draws one there.",
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
