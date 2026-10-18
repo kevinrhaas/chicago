@@ -160,6 +160,12 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
+  node tools/test_settings_app.mjs
+step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
+  node tools/check_navigator_contrast.mjs
+selftest "…and a token drifted toward its panel, or the device's overrides removed, is refused (T-2656)" \
+  node tools/check_navigator_contrast.mjs --self-test
 step "The Navigator's telemetry strip ticks every 800 ms only while the device is open and seen, never with the tab hidden or under reduced motion, on the portal's own numbers (T-2623)" \
   node tools/test_nav_telemetry.mjs
 # T-2663: Tour mode, the Field Check.

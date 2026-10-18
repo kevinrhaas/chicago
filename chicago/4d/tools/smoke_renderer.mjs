@@ -15322,6 +15322,107 @@ for (const [label, viewport, touch] of [
       && (devChrome.notDev === null || (devChrome.notDev.dev === devChrome.devServed && devChrome.markAfter === devChrome.devServed)),
       JSON.stringify(devChrome));
     // ---- end T-2629
+    // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
+    // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
+    // marked, and a tap on another switches the machine and its tone; Auto names this device's
+    // levels; Sound has its three levels and says nothing plays yet; About opens What's new;
+    // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
+    // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
+    // a starved runner takes seconds between frames.
+    const settingsApp = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator, html = document.documentElement;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
+      const segOn = () => document.querySelector('#s-theme .seg-btn[aria-checked="true"]')?.dataset.themeChoice ?? null;
+      const out = {
+        chip: !!document.getElementById('btn-theme'), seg: document.querySelectorAll('#s-theme .seg-btn').length,
+        tiles: [...document.querySelectorAll('#s-skins .skin-tile')].map((t) => t.dataset.skinChoice),
+        skin: html.dataset.skin, tileOn: document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice ?? null,
+        auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
+        autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
+        sound: ['master', 'effects', 'ambience'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
+        soundNote: document.getElementById('s-sound-note')?.textContent.trim() ?? '',
+      };
+      // Light or dark: the other tone, then back.
+      const tone = html.dataset.theme === 'light' ? 'light' : 'dark';
+      const other = tone === 'light' ? 'dark' : 'light';
+      out.segBefore = segOn();
+      document.querySelector(`#s-theme [data-theme-choice="${other}"]`)?.click();
+      await wait(50);
+      out.flipped = html.dataset.theme === other && segOn() === other;
+      // A machine from its tile: the next one, its tone shown on the seg, then the first again.
+      const next = out.tiles[(out.tiles.indexOf(out.skin) + 1) % out.tiles.length];
+      document.querySelector(`#s-skins [data-skin-choice="${next}"]`)?.click();
+      await until(() => html.dataset.skin === next, 5000);
+      await wait(50);
+      out.switched = html.dataset.skin === next && document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice === next
+        && segOn() === (html.dataset.theme === 'light' ? 'light' : 'dark');
+      document.querySelector(`#s-skins [data-skin-choice="${out.skin}"]`)?.click();
+      await until(() => html.dataset.skin === out.skin, 5000);
+      document.querySelector(`#s-theme [data-theme-choice="${tone}"]`)?.click();
+      await wait(50);
+      out.restored = html.dataset.skin === out.skin && html.dataset.theme === tone && segOn() === tone;
+      // What's new, from About.
+      document.getElementById('s-open-whatsnew')?.click();
+      out.whatsNew = await until(() => api.hud.tab === 'whatsnew', 10000);
+      api.hud.selectTab('settings');
+      await until(() => api.hud.tab === 'settings', 10000);
+      // Text size 140 %: every app the rail shows, measured once it is on screen.
+      const sel = document.getElementById('s-text-size');
+      const setSize = (v) => { sel.value = String(v); sel.dispatchEvent(new Event('change', { bubbles: true })); };
+      setSize(1.4);
+      out.scale = getComputedStyle(html).getPropertyValue('--text-scale').trim();
+      out.storedScale = stored().textScale;
+      out.clipped = {};
+      const hidden = (el) => el.closest('.visually-hidden, [aria-hidden="true"]');
+      for (const app of n.apps) {
+        await n.select(app);
+        const screen = () => document.querySelector(app === 'home' ? '#nav-home' : `#nav-app-${app}`);
+        const shown = await until(() => { const s = screen(); return s && !s.hidden && s.getBoundingClientRect().width > 0; }, 30000);
+        if (!shown) { out.clipped[app] = ['no screen']; continue; }
+        await wait(600);
+        const s = screen();
+        const box = s.getBoundingClientRect();
+        const all = [...s.querySelectorAll('*')].filter((el) => el.getClientRects().length && !hidden(el));
+        const name = (el) => `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${typeof el.className === 'string' && el.className ? `.${el.className.split(' ')[0]}` : ''}`;
+        const past = all.filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.right > box.right + 1 || r.left < box.left - 1); });
+        const cut = all.filter((el) => {
+          if (!el.textContent.trim()) return false;
+          const cs = getComputedStyle(el);
+          if (['auto', 'scroll'].includes(cs.overflowX) || ['auto', 'scroll'].includes(cs.overflowY)) return false;
+          if (cs.overflowX === 'visible' && cs.overflowY === 'visible' && cs.textOverflow !== 'ellipsis') return false;
+          return el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 2;
+        });
+        // A strip that scrolls sideways (a photo carousel is meant to).
+        const strips = [s, ...all].filter((el) => !el.matches('.insp-swipe') && ['auto', 'scroll'].includes(getComputedStyle(el).overflowX)
+          && el.scrollWidth > el.clientWidth + 1);
+        out.clipped[app] = [...past.map((el) => `past edge: ${name(el)}`), ...cut.map((el) => `cut: ${name(el)}`),
+          ...strips.map((el) => `scrolls sideways: ${name(el)}`)].slice(0, 6);
+      }
+      setSize(1);
+      out.back = getComputedStyle(html).getPropertyValue('--text-scale').trim() === '1' && stored().textScale === 1;
+      await n.select('settings');
+      await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
+      if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      return out;
+    });
+    check(`${label}: light or dark is Settings › Display's two-way choice, and the HUD holds no chip for it (T-2656)`,
+      !settingsApp.chip && settingsApp.seg === 2 && !!settingsApp.segBefore && settingsApp.flipped && settingsApp.restored,
+      JSON.stringify({ chip: settingsApp.chip, seg: settingsApp.seg, before: settingsApp.segBefore, flipped: settingsApp.flipped, restored: settingsApp.restored }));
+    check(`${label}: Settings › Machine shows the four machines as tiles, the one in use marked, and a tap switches it (T-2656)`,
+      settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
+      && settingsApp.switched && settingsApp.restored,
+      JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
+    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says nothing plays yet, About opens What's new (T-2656)`,
+      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
+      && settingsApp.sound === 3 && /^Nothing in the town makes a sound yet\./.test(settingsApp.soundNote) && settingsApp.whatsNew,
+      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
+    check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
+      settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
+      && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
+      JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
+    // <<< T-2656
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -15413,7 +15514,7 @@ for (const [label, viewport, touch] of [
         return false;
       };
       const reach = { start: await inside('jaunts', '#nav-seg-jaunts'), confidence: await inside('confidence', '.nav-preset'),
-        pace: await inside('move', '#s-move'), theme: await inside('settings', '#btn-theme') };
+        pace: await inside('move', '#s-move'), theme: await inside('settings', '#s-theme') };  // #s-theme: T-2656
       await n.select('home'); n.dock();
       return { gone, reach };
     });

@@ -2828,6 +2828,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_navigator_contrast.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_near_field_keeper.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5691,6 +5695,10 @@
       "wrote_ignored": []
     },
     "tools/test_selected_year.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_settings_app.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
