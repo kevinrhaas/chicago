@@ -28561,8 +28561,20 @@ tree; and which half of the rock-face relief each course takes (deep on the uppe
 lower), the front's T-2566 rule carried round the bow.
 **How to resolve:** a sharper print of the front, or a reading of the bow and the front side by side
 in the re-fitted cameras of T-2579, that lets the bow's beds be struck on the front's.
+**T-2773 (2026-10-18), the bow's beds struck on the front's:** T-2772 read the 1888 plate at its
+native 1559 px on the front's south strip and the bow's south flank side by side, and 7 of the 8
+front beds over the principal sill have a bow bed within 3 px (the model laid 1 of 7). So the bow
+is now laid on the street front's own beds (`masonry.coursing.rhythm` `street_front`), a front bed
+within 0.2 m of one of the bow's band lines not carried, and the rhythm is the plate's: from the
+principal sill (2.35 m) up, deep and thin in turn at about 0.42 / 0.23 m (the print's 33 / 18 px;
+`low_ratio` 0.54, the deep course held at 0.46 m so the pair's pitch stays about 0.64 m), and from
+the sill down to the coping three even courses of about 0.43 m (the print's 35-37 px). What stays
+invented: the rising joints along each course, which half of the rock-face relief each course
+takes, and the basement's height, which T-2765 owns (the print's sill stands about 157 px over the
+pavement, the render's about 198, so the model's foot under the even courses is the rusticated
+base and coping's 1.05 m where the print reads one course of about 49 px).
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
-**Ticket:** T-2584 (piece 1 of T-2580).
+**Ticket:** T-2584 (piece 1 of T-2580); T-2773.
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
 **Recorded:** 2026-10-16 (T-2584).
 
@@ -28917,12 +28929,14 @@ and the cupola's apex at 46.5-47.8 ft (model 39.6 and 47.0). The roof is not cha
 middle of those readings. That is inside the ridge's stated 1.5 ft tolerance, and the two photographs disagree
 with each other by about as much. The cupola's centre stays on S14.6, the owner's alignment with the ridge
 crossing. Photograph 1 cannot say where along S it stands: every control in that photograph lies in the north face,
-so two fits of equal RMS put the cupola at S14.4 and S11.3. The Cornell re-solve uses two faces and puts it
+so its depth is free: with the pixel aspect let go, which those controls cannot measure,
+fits of one RMS slide the cupola from S14.4 at square pixels to S10.4 at an aspect of 1.06 while the
+gable's height does not move. The Cornell re-solve uses two faces and puts it
 at S13.0-13.2, about 1.5 ft north. That is a quarter of the cupola's 6 ft plan on one camera's reading
 (3.7-4.8 px RMS), not the 4 ft that was to go to the owner.
 **Bounds:** Picks about ±2 px on photograph 1 and ±5 px on the Cornell copy; the doorway's threshold is taken
 as grade. The cameras are bounded re-solves, not surveys. The committed cameras are unchanged: photograph 1's
-doorway re-solve moves the north tower's finial 7-9 px off the print, so no single level camera fits both ends
+doorway re-solve moves the north tower's finial about 9 px off the print, so no single level camera fits both ends
 of that print, and the Cornell west-wall camera still serves the west windows, which the re-solve reads in the
 same places.
 **How to resolve:** A measured stable elevation or section (no HABS sheet prints the stable's ridge), or a

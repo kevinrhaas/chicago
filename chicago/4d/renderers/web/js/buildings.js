@@ -875,6 +875,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.computeBoundingSphere();
     group.add(batch);
     batches.push(batch);
+    // T-2786: every entry's geometry is in the batch now. `dispose()` above frees
+    // nothing in the page, and `groups` lives as long as the layer (its closures
+    // keep this scope), so the 37k source geometries stayed reachable: about
+    // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
+    bucket.entries = [];
   }
 
   /**

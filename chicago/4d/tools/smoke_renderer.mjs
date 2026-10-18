@@ -15354,8 +15354,10 @@ for (const [label, viewport, touch] of [
       out.markAfter = !document.getElementById('s-about-dev')?.hidden;
       return out;
     });
-    check(`${label}: the DEV pill and build stamp are off a phone's screen and in Settings › About; a desktop keeps them (T-2629)`,
-      (devChrome.phone ? !devChrome.banner && !devChrome.pill && devChrome.stamp === 'none'
+    // T-2785: the owner wants the DEV mark and build stamp back on a phone; only the
+    // full-width banner stays off it.
+    check(`${label}: a phone keeps the DEV pill and build stamp but not the banner; a desktop keeps all three; Settings › About has them (T-2629, T-2785)`,
+      (devChrome.phone ? !devChrome.banner && devChrome.pill && devChrome.stamp !== 'none'
         : devChrome.banner && devChrome.pill && devChrome.stamp !== 'none')
       && devChrome.aboutInSettings && devChrome.dev?.dev === true && devChrome.mark.shown && devChrome.mark.text === 'DEV'
       && devChrome.aboutText.length > 0 && (!devChrome.gateText || devChrome.aboutText === devChrome.gateText)

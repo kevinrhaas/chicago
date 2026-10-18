@@ -466,6 +466,9 @@ def wall_cells(o: K6.Opening, role, holes, s_lo, s_hi, y_lo, y_hi, d=0.0, hint=(
             o.plane(role, [(q[0], q[1]), (p[0], p[1]), (p[0], y_hi), (q[0], y_hi)], d, hint)
 
 
+BED_CLEAR_M = 0.2   # T-2773: the least a host front's bed is carried clear of a bay's band line
+
+
 def alternating_courses(low, high, deep_max, low_ratio):
     """T-2584: the course lines from `low` to `high` laid deep and thin in turn from the bed
     up, as the street front's T-2566 rhythm lays them: the fewest courses whose deep one is
@@ -498,8 +501,16 @@ def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
     wall_cells(o, "wall", holes, 0., length, low, high)
     holes = [*holes, *trim_holes]  # raised dressings own their sockets, not overlapping stone
     c = spec.get("coursing")
-    lines = (alternating_courses(low, high, ch, c["low_ratio"]) if c
-             else [low, *[low+i*ch for i in range(1, math.ceil((high-low)/ch))], high])
+    if c and c["rhythm"] == "street_front" and "beds_m" not in c:
+        c = None   # T-2773: a bay laid on its host front's beds, built away from the front: even courses
+    if c and "beds_m" in c:
+        # T-2773: laid on the host front's beds; one closer than BED_CLEAR_M to this storey's
+        # band line is not carried, so no course too thin to lay is left under the band
+        lines = [low, *[y for y in c["beds_m"] if low + BED_CLEAR_M < y < high - BED_CLEAR_M], high]
+    elif c:
+        lines = alternating_courses(low, high, ch, c["low_ratio"])
+    else:
+        lines = [low, *[low+i*ch for i in range(1, math.ceil((high-low)/ch))], high]
     rows = sorted({*lines, *[y for h in holes for y in (h[2], h[3]) if low < y < high]})
     for row, (ya, yb) in enumerate(zip(rows, rows[1:])):
         cy = (ya+yb)/2
@@ -517,7 +528,11 @@ def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
             inner = K6.box(xa+joint/2+inset, xb-joint/2-inset,
                            ya+joint/2+inset, yb-joint/2-inset)
             if c:   # T-2584: a deep course on the upper half of the rock face, a thin one on the lower
-                thin = bisect.bisect_right(lines, cy) % 2 == 0
+                if "beds_m" in c:   # T-2773: by its height, as the front's own are
+                    i = bisect.bisect_right(lines, cy)
+                    thin = lines[i] - lines[i - 1] < c["thin_below_m"]
+                else:
+                    thin = bisect.bisect_right(lines, cy) % 2 == 0
                 depth = -relief*((.6 if thin else .8)+.2*rng.random())
             else:
                 depth = -relief*(.6+.4*rng.random())

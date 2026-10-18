@@ -939,10 +939,17 @@ def _k02(front: dict) -> dict:
     coursing = front.get("coursing")
     if coursing is not None:
         lo_c, hi_c = (float(x) for x in f["course_height_m"])
-        if set(coursing) != {"rhythm", "low_ratio", "even_above_m", "even_rock_share"} \
-                or coursing["rhythm"] != "alternating":
+        req = {"rhythm", "low_ratio", "even_above_m", "even_rock_share"}
+        if not req <= set(coursing) <= req | {"even_below_m", "deep_max_m"} or coursing["rhythm"] != "alternating":
             raise ParamError("stone_front.coursing takes rhythm 'alternating', low_ratio, even_above_m "
-                             "and even_rock_share")
+                             "and even_rock_share, and may take even_below_m and deep_max_m")
+        if "deep_max_m" in coursing and not lo_c < float(coursing["deep_max_m"]) <= hi_c:
+            raise ParamError(f"stone_front.coursing.deep_max_m must stand inside {fab}'s "
+                             f"course_height_m ({lo_c}, {hi_c}]")
+        # T-2773: under even_below_m (a front's principal sill) the walling is laid even too
+        if "even_below_m" in coursing and not (
+                0.0 < float(coursing["even_below_m"]) < float(coursing["even_above_m"])):
+            raise ParamError("stone_front.coursing.even_below_m stands above grade and under even_above_m")
         if not (lo_c / hi_c <= float(coursing["low_ratio"]) < 1.0):
             raise ParamError(f"stone_front.coursing.low_ratio must let a low course stand inside "
                              f"{fab}'s course_height_m [{lo_c}, {hi_c}]")
@@ -1002,7 +1009,7 @@ def bracketed_section(k10: dict, overhang: float) -> list:
 
 
 def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False,
-          floors: tuple = (), eave: float = 0.0, overhang: float = 0.0):
+          floors: tuple = (), eave: float = 0.0, overhang: float = 0.0, front_coursed: bool = False):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
@@ -1052,7 +1059,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # as the street front's T-2566 coursing does; course_m is then the deep course's
             # most, and the thin one stays at least the K02 profiles' least course (0.19 m)
             c = m.get("coursing")
-            if c is not None and (set(c) != {"rhythm", "low_ratio"} or c["rhythm"] != "alternating"
+            # T-2773: or on the street front's own beds, as the 1888 plate lays Keith's bow
+            if c == {"rhythm": "street_front"}:
+                if e["wall"] != "k01.wall.street_front" or not front_coursed:
+                    raise ParamError("bays.masonry.coursing 'street_front' lays a bay on a coursed stone "
+                                     "street front's beds: the bay stands on k01.wall.street_front, whose "
+                                     "stone_front names a coursing")
+            elif c is not None and (set(c) != {"rhythm", "low_ratio"} or c["rhythm"] != "alternating"
                                   or not (.25 <= float(c["low_ratio"]) < 1.0)
                                   or float(c["low_ratio"]) * m["course_m"] < .15):
                 raise ParamError("bays.masonry.coursing takes rhythm 'alternating' and a low_ratio in "
@@ -2233,7 +2246,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
-                 float(val("eave_overhang_m")))
+                 float(val("eave_overhang_m")), bool((val("stone_front") or {}).get("coursing")))
     # T-2780: a round-headed window over a bay is cut after the kit was read, so its variant
     # is held here to what the street front's round heads are held to: one round-headed sash
     for o in openings:
