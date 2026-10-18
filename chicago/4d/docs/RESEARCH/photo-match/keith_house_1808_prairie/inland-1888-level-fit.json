@@ -6,7 +6,7 @@
   2400
  ],
  "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
- "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
+ "glb_sha256": "f5cb5c87b1147a0fce1cae6e0282405c439575c8c9905e1773baee3aa9ee9eb7",
  "controls": [
   {
    "label": "south-east pinnacle axis",
@@ -537,7 +537,7 @@
     0.45
    ],
    "yaw_deg": 278.38,
-   "focal_px": 3028.9,
+   "focal_px": 3028.8,
    "principal_px": [
     464.8,
     2342.5

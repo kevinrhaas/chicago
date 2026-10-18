@@ -33,7 +33,7 @@ from scipy.optimize import least_squares
 
 ROOT = Path(__file__).resolve().parents[1]
 GLB = ROOT / 'assets/gltf/keith_house_1808_prairie__as_built_1886.glb'
-GLB_SHA256 = 'c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d'
+GLB_SHA256 = 'f5cb5c87b1147a0fce1cae6e0282405c439575c8c9905e1773baee3aa9ee9eb7'  # T-2765: rebuilt with the bow's lights moved; every vertex outside the bow is unchanged, so no control here moved
 REPORT = ROOT / 'docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json'
 PRINT_PX = [1559, 2400]
 

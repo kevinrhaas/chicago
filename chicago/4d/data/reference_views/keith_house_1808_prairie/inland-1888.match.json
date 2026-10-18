@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
+  "glb_sha256": "f5cb5c87b1147a0fce1cae6e0282405c439575c8c9905e1773baee3aa9ee9eb7",
   "camera_sha256": "aa73292751ab8c79534ce99cd81e0979f29aba52b020ab6481b8be3c4e3eac14",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
-      "status": "open"
+      "what": "T-2765: the bow's principal storey has four lights, not three, standing plumb under the second storey's four at the same bearings (-33, -11, 11 and 33 degrees), and the basement's three under the first three. Read at the plate's native 1559 px, the three lights the street tree leaves visible in each lower storey stand under the second storey's first three, and the plan printed under the plate draws four openings in the bow's principal-floor wall about a pier on its axis; the fourth is behind the trunk here. On every level fit of T-2762 the lights' edges now sit 7.5-15.5 px RMS off the print, the second storey's own residual on that fit, where at -27, 0 and 27 degrees they sat 31-52 px off; widths read through the fits, principal 0.9 m (the second storey's) and basement 0.73 m. Their heights were already right: down the south light's column, read with no camera, every head and sill falls within 0.06 m of its built height (tools/keith_bow_lights_read.py).",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
@@ -77,6 +77,10 @@
     },
     {
       "what": "T-2725: this camera (T-1883: pitched 12.5 degrees up from an eye 0.5 m over grade, its six controls all on the front's plane) draws the loggia about 0.7 m high and its column and pedestal alike 7-9 % long: the 2.5 m column renders 204 px against the print's 190.5 (capital top y 1383 to the pedestal cap's arris y 1573.5), the pedestal 84 against about 77. The print is a level view (its verticals are vertical; the front's courses meet at a horizon near y 1640, about 1.7 m over grade), so the error is this camera's scale at the loggia's depth, not the column. T-2762: a level re-fit does not take it away. Fitted level (verticals vertical; heading, eye, focal length and principal point free, pixel aspect square or free) on the front's pinnacle axes, north arris and six third-storey lights and on the loggia's capital tops, pedestal caps, the north pedestal's north-east arris and the south pedestal's south face, all read at native 1559 px (tools/keith_plate_level_fit.py, its table in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json), every camera still draws the as-built capital top to pedestal cap 198-205 px against the print's 191.5 (south) and 185 (north), 6-8 % long, at 5-9 px RMS. Left out of the fit and predicted, the loggia's heights come out 7-19 % long. No fit determines the eye: it lands anywhere from 35 to 88 m out, and the eye height runs to its 0 m bound. Those are the marks of a model that disagrees with the print, not of a camera: the residuals that stay put across every fit are the lights' sills (10-15 px low), the capital tops (about 13 px high) and the loggia's width (about 26 px narrower than the print). So the 6-8 % sits in the loggia's heights (column and seat, 2.59 m from pedestal cap to capital top on a 2.0 m deck) or in the front's, and T-2763 re-rules it. The camera is not replaced until a fit determines its eye.",
+      "status": "open"
+    },
+    {
+      "what": "T-2765: the plate draws each of the bow's principal lights in three tiers between stone bars: a main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m (read on one level column at 77.8 px/m). The model's sash_transom_flat lays one 0.45 m transom over a 2.5 m sash, so its transom is the top light and the middle light is not built.",
       "status": "open"
     }
   ],

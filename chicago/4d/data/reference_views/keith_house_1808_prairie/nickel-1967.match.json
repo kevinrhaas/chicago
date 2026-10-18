@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "nickel-1967",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
+  "glb_sha256": "f5cb5c87b1147a0fce1cae6e0282405c439575c8c9905e1773baee3aa9ee9eb7",
   "camera_sha256": "4cde10e103c3052890d4f2945bb1b9bd504261479d28aa56d46004171c482fff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/nickel-1967-side-by-side.jpg",
   "verdict": "matches",
@@ -45,6 +45,10 @@
     },
     {
       "what": "Found in T-2577's re-review: the checker band under the cornice reads here as a narrower band of finer, diagonal (lozenge) units than the build's staggered rock blocks, about two-thirds of the build's band height; T-2580 reads it against the 1888 plate. T-2679 laid the band as diamond points in a checker; T-2714 pitched them 0.28 m along their rows, read off the 1888 plate. Here the photograph's band repeats every 6 px along a row and so does this render's (about 8 px at the old 0.336 m), and its depth reads 15 px against the render's 18, where it was about two-thirds of the T-2566 build's. The remaining 3 px (about 0.13 m at this view's 23 px/m) is at this picture's grain, against two sharper cameras (Florian 1948, the 1888 Glessner plate) that read the band 0.8-0.9 m deep, so it is not moved.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2765: the bow's principal storey has four lights standing plumb under the second storey's four, the fourth beside the loggia's south column, as this view shows them square to the front with no tree in the way; the model had three at different bearings.",
       "status": "fixed"
     }
   ],
