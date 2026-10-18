@@ -40,8 +40,16 @@
       "status": "fixed"
     },
     {
-      "what": "The individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
+      "what": "T-2772: the joints, read on inland-1888, the plate itself at its native 1559 px (about 81 px/m on the lower storeys); this reproduction of the same photograph draws them at about 39 px/m and adds no reading (tools/keith_plate_grain_read.py, its table in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-grain-read.json). The print resolves the beds below the principal storey's transoms, where the street tree's branches thin: on the front's south strip and the bow's south flank they lie level with each other (7 of 8 front beds have a bow bed within 3 px), where the model courses the bow from its own bed (2 of 7 in the render). Up from the principal sill the print lays seven courses deep and thin in turn, as the model does, and at the model's pitch (a deep and a thin course together 50.7 px in print, 51.2 in render), but split 33 / 18 px (about 0.44 / 0.24 m) where the model's 0.49 / 0.195 m render 36.5 / 14.7. From the sill to the pavement the print lays four courses of 35-37 px (about 0.47-0.50 m) over a 49 px foot, no thin one among them, where the render lays seven, thin and deep in turn over two base courses. Above the principal storey the courses are washed out and crossed by branches, and are not read. T-2773 builds what the print reads.",
       "status": "open"
+    },
+    {
+      "what": "T-2772: the upper capitals' carving is not shown. In the plate at its native 1559 px (about 68 px/m at the third storey's heads; this reproduction draws them at about 33 px/m) each of the five colonnettes' capitals is about 20 px tall and 16 px across, and all five stand in the shadow band under the third storey's head, crossed by the street tree's branches: the print holds the shafts below them and no tone in the capitals to read a bell, a neck ring or carving from. They stay the model's neck ring under a flaring bell (T-2566), reconstructed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2772: the head bands' sections are not shown. Read along the crown's own courses at the plate's native 1559 px (about 67 px/m there; this reproduction draws it at about 33 px/m), the head band under the checker band stands where the print's does: its shadow line 143.5 px under the lattice's lower openings in print and 135.0 in render (147.5 at the print's scale, the lattice's row pitch 29.5 px against 27.0), and the band reads as one light fillet a few px tall over its shadow, 16.5 px deep in print against 12.6 at scale in render. A moulding's steps of a few centimetres are 2-4 px here, below what the print resolves through the branches, so the band keeps its built section; T-2773 weighs that 4 px of shadow.",
+      "status": "not shown"
     },
     {
       "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",

@@ -1,0 +1,321 @@
+{
+ "_what": "T-2772: Keith's front joints, upper capitals and head bands read at the 1888 plate's native 1559 px against the committed render of inland-1888 (tools/keith_plate_grain_read.py)",
+ "glb_sha256": "06b4a7eae4a8fb1ddeb79682aa1b735b5b8d3ebec750d0e59d895d5b8bd41305",
+ "beds": {
+  "print": {
+   "strips": [
+    "front's south strip",
+    "bow's south flank"
+   ],
+   "beds": [
+    1432,
+    1466,
+    1484,
+    1516,
+    1534,
+    1568,
+    1585,
+    1617,
+    1652,
+    1689,
+    1725,
+    1774
+   ],
+   "sill_bed": 1617,
+   "up_from_sill": [
+    [
+     32,
+     "deep"
+    ],
+    [
+     17,
+     "thin"
+    ],
+    [
+     34,
+     "deep"
+    ],
+    [
+     18,
+     "thin"
+    ],
+    [
+     32,
+     "deep"
+    ],
+    [
+     18,
+     "thin"
+    ],
+    [
+     34,
+     "deep"
+    ]
+   ],
+   "below_sill": [
+    35,
+    37,
+    36,
+    49
+   ],
+   "strip_beds": {
+    "front's south strip": [
+     1432,
+     1467,
+     1484,
+     1502,
+     1517,
+     1532,
+     1567,
+     1585,
+     1618,
+     1652,
+     1688,
+     1725,
+     1773
+    ],
+    "bow's south flank": [
+     1432,
+     1465,
+     1485,
+     1515,
+     1535,
+     1569,
+     1585,
+     1602,
+     1616,
+     1652,
+     1690,
+     1725,
+     1775
+    ]
+   },
+   "first_pier_beds": [
+    1478,
+    1511,
+    1533,
+    1566,
+    1584,
+    1619
+   ]
+  },
+  "render": {
+   "strips": [
+    "front's south strip"
+   ],
+   "beds": [
+    1394,
+    1429,
+    1444,
+    1481,
+    1495,
+    1532,
+    1547,
+    1584,
+    1600,
+    1636,
+    1652,
+    1689,
+    1717,
+    1744,
+    1782
+   ],
+   "sill_bed": 1584,
+   "up_from_sill": [
+    [
+     37,
+     "deep"
+    ],
+    [
+     15,
+     "thin"
+    ],
+    [
+     37,
+     "deep"
+    ],
+    [
+     14,
+     "thin"
+    ],
+    [
+     37,
+     "deep"
+    ],
+    [
+     15,
+     "thin"
+    ],
+    [
+     35,
+     "deep"
+    ]
+   ],
+   "below_sill": [
+    16,
+    36,
+    16,
+    37,
+    28,
+    27,
+    38
+   ],
+   "strip_beds": {
+    "front's south strip": [
+     1394,
+     1429,
+     1444,
+     1481,
+     1495,
+     1532,
+     1547,
+     1584,
+     1600,
+     1636,
+     1652,
+     1689,
+     1717,
+     1744,
+     1782
+    ],
+    "bow's south flank": [
+     1389,
+     1404,
+     1443,
+     1459,
+     1498,
+     1514,
+     1554,
+     1580,
+     1650,
+     1667,
+     1707,
+     1723,
+     1781
+    ]
+   }
+  }
+ },
+ "courses": {
+  "print": {
+   "sequence_up_from_sill": "DTDTDTD",
+   "deep_px": 33.0,
+   "thin_px": 17.7,
+   "pair_px": 50.7,
+   "courses_below_sill": 4,
+   "front_beds_with_a_bow_bed_within_3px": "7 of 8"
+  },
+  "render": {
+   "sequence_up_from_sill": "DTDTDTD",
+   "deep_px": 36.5,
+   "thin_px": 14.7,
+   "pair_px": 51.2,
+   "courses_below_sill": 7,
+   "front_beds_with_a_bow_bed_within_3px": "2 of 7"
+  },
+  "print_m": {
+   "deep_m": 0.44,
+   "thin_m": 0.24,
+   "below_sill_m": [
+    0.47,
+    0.5,
+    0.48,
+    0.66
+   ],
+   "render_px_per_m": 74.7
+  }
+ },
+ "crown": {
+  "print": {
+   "row_slope": 0.145,
+   "lattice_lower_openings_y": 646.5,
+   "lattice_row_pitch_px": 29.5,
+   "head_band_shadow_y": 790.0,
+   "shadow_below_openings_px": 143.5,
+   "shadow_depth_px": 16.5
+  },
+  "render": {
+   "row_slope": 0.095,
+   "lattice_lower_openings_y": 652.0,
+   "lattice_row_pitch_px": 27.0,
+   "head_band_shadow_y": 787.0,
+   "shadow_below_openings_px": 135.0,
+   "shadow_depth_px": 11.5
+  },
+  "print_over_render_scale": 1.093,
+  "render_shadow_below_openings_scaled_px": 147.5
+ },
+ "upper_capitals_at": [
+  {
+   "v": 2.96,
+   "top_px": [
+    514,
+    811
+   ],
+   "capital_0.3m_px": 20.7,
+   "shaft_px": 16.1
+  },
+  {
+   "v": 4.08,
+   "top_px": [
+    596,
+    817
+   ],
+   "capital_0.3m_px": 20.5,
+   "shaft_px": 15.8
+  },
+  {
+   "v": 5.2,
+   "top_px": [
+    676,
+    824
+   ],
+   "capital_0.3m_px": 20.4,
+   "shaft_px": 15.6
+  },
+  {
+   "v": 6.32,
+   "top_px": [
+    755,
+    830
+   ],
+   "capital_0.3m_px": 20.2,
+   "shaft_px": 15.3
+  },
+  {
+   "v": 7.44,
+   "top_px": [
+    832,
+    836
+   ],
+   "capital_0.3m_px": 20.1,
+   "shaft_px": 15.1
+  }
+ ],
+ "grain_px_per_m": {
+  "inland-1888": {
+   "lower joints": 80.7,
+   "bow piers": 82.0,
+   "upper capitals": 67.9,
+   "head band": 67.3
+  },
+  "cgn-1808-inland-1888-keith-copy": {
+   "lower joints": 39.4,
+   "bow piers": 40.0,
+   "upper capitals": 33.2,
+   "head band": 33.0
+  },
+  "a18-rba-ia-1888-keith-1808": {
+   "lower joints": 39.3,
+   "bow piers": 39.9,
+   "upper capitals": 33.2,
+   "head band": 33.0
+  },
+  "a18-gh-1808-keith-field-front": {
+   "lower joints": 48.6,
+   "bow piers": 49.4,
+   "upper capitals": 41.1,
+   "head band": 40.8
+  }
+ }
+}
