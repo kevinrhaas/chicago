@@ -640,16 +640,17 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
    four machines and both tones; tools/check_navigator_contrast.mjs measures it. Three
    machine tokens fall short there and are deepened for the device alone: the faint ink
    (a label colour, 3.0-3.7:1) becomes the dim ink, the light-tone accents of Retro Future
-   (3.8:1) and Deep Space (4.0:1 on its wash) a deeper teal and blue, and the signal keys
-   of Control Room (4.3:1) and Retro Future (3.2:1) a deeper red and orange. The wash under
+   (3.8:1) and Deep Space (4.0:1 on its wash) a deeper teal and blue, and the words on the signal keys
+   of Control Room (4.3:1) and Retro Future (3.2:1) a white and a near-black ink. The key
+   itself stays the machine's own signal colour: RECALL is that red (T-2655). The wash under
    a chosen segment is mixed again here, at 10 %, from the device's own accent: skins.css
    mixes it on the page, from the accent before these. */
 /* contrast:begin */
 .navigator { --ink-faint: var(--ink-dim); --wash: color-mix(in srgb, var(--accent) 10%, transparent); }
 html[data-skin="worlds-fair"]:not([data-theme="dark"]) .navigator { --accent: #0F7178; }
 html[data-skin="deep-space"][data-theme="light"] .navigator { --accent: #0B6386; }
-html[data-skin="control-room"] .navigator { --signal: #C42D24; }
-html[data-skin="worlds-fair"] .navigator { --signal: #C2530F; }
+html[data-skin="control-room"] .navigator { --signal-ink: #FFFFFF; }
+html[data-skin="worlds-fair"] .navigator { --signal-ink: #1A1006; }
 /* contrast:end */
 
 /* ---- T-2656: text size 100-140 % (QA-18) ---------------------------------------------
@@ -661,14 +662,17 @@ html[data-skin="worlds-fair"] .navigator { --signal: #C2530F; }
 .navigator .field.row > span { flex: 1 1 8em; min-width: 0; }
 .navigator .field select { max-width: 100%; min-width: 0; }
 .navigator .jump-pills { flex-wrap: wrap; overflow: visible; margin: 0 0 10px; padding: 0; }
-.navigator .nav-screen :is(h2, h3, h4, p, dd, dt, li, label, summary, .legend-note) { overflow-wrap: break-word; }
 /* Above 100 % nothing in the device is cut short or pushed off its edge: a line that ends in
    an ellipsis at 100 % wraps, a strip of chips or tabs that scrolls sideways wraps onto a
-   second row, and a Jaunt's start keys move under its words. The map is a picture sized
+   second row, a Go to name is no longer held to two lines, and a Jaunt's start keys move
+   under its words. Breaking is `anywhere`, as css/evidence.css sets it: `break-word`
+   leaves an unbroken run's min-content width whole and lets it push its column wider. The map is a picture sized
    from its own box, so its scope is zoomed back to 100 % (--text-unscale). */
 html[data-text-scale] .navigator :is(.jaunt-card h3, .jaunt-premise, .jaunt-credit, .panel-title, .person-name, .person-sub,
   .jump-result small.jump-sub, .pop-pic-tile-kind, .pop-pic-tile-credit, .welcome-action strong) {
-  white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: break-word; }
+  white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
+/* Go to's names wrap to two lines at 100 % (T-2632); above it a long name is shown whole. */
+html[data-text-scale] .navigator .welcome-destination strong { display: block; -webkit-line-clamp: unset; line-clamp: none; overflow: visible; }
 html[data-text-scale] .navigator :is(.insp-tabs, .jaunt-categories, .welcome-kinds, .people-fgroup) {
   flex-wrap: wrap; overflow-x: visible; }
 html[data-text-scale] .navigator .jaunt-card { grid-template-columns: 38px minmax(0, 1fr); }

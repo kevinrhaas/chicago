@@ -13,7 +13,8 @@
  *
  *   ink, ink-dim, ink-faint and accent on the solid panel — reading text, labels, the
  *     screen code and date, links and the open app's icon;
- *   the signal key's ink on the signal (Inspect, Recall, Take a Jaunt, Use Auto);
+ *   the signal key's ink on the signal (Inspect, Recall, Take a Jaunt), the signal itself never
+ *     re-coloured by the device (T-2655 holds RECALL to the page's own --signal);
  *   the accent's own ink on the accent (a chosen segment, a chosen tile's ring is not text);
  *   the accent and the ink on the wash (a chosen Navigator segment, the open section's tab).
  */
@@ -120,9 +121,18 @@ export function measure(skinsCss, navCss) {
   return rows;
 }
 
+/** The device never re-colours the signal itself: RECALL is the machine's own signal red
+ * (T-2655 reads the key's background against the page's --signal). Only its ink moves. */
+export function signalMoved(navCss) {
+  const block = /\/\* contrast:begin \*\/([\s\S]*?)\/\* contrast:end \*\//.exec(navCss)?.[1] ?? '';
+  return /--signal\s*:/.test(block);
+}
+
 function run(skinsCss, navCss, { print = false } = {}) {
   const rows = measure(skinsCss, navCss);
   const bad = rows.filter((r) => !(r.ratio >= MIN));
+  if (signalMoved(navCss)) bad.push({ skin: 'all', theme: '-', what: 'the Navigator re-colours --signal', ratio: 0, fg: '-', bg: '-',
+    error: 'RECALL must stay the machine\'s own signal red; deepen --signal-ink instead' });
   if (print) for (const r of rows) console.log(`${r.ratio >= MIN ? 'ok  ' : 'FAIL'} ${r.skin}/${r.theme} ${r.what}: ${r.ratio.toFixed(2)} (${r.fg} on ${r.bg})`);
   return { rows, bad };
 }
@@ -144,6 +154,9 @@ if (args.includes('--self-test')) {
     && without.some((r) => r.skin === 'worlds-fair' && r.what === 'signal ink on signal'));
   const pale = skinsCss.replace('--ink-dim:#A7B4C8', '--ink-dim:#3A4A66');
   expect('a dim ink drifted toward the panel is refused', run(pale, navCss).bad.some((r) => r.skin === 'control-room' && r.what === 'ink-dim on panel'));
+  expect('re-colouring the signal itself is refused (RECALL stays the machine\'s red)',
+    run(skinsCss, navCss.replace('/* contrast:end */', 'html[data-skin="brass"] .navigator { --signal: #9A6A20; }\n/* contrast:end */')).bad
+      .some((r) => r.what === 'the Navigator re-colours --signal'));
   expect('contrast() is WCAG’s: black on white is 21:1', Math.abs(contrast('#000000', '#ffffff') - 21) < 1e-9);
   console.log(`   self-test | ${failures} failure(s)`);
   process.exit(failures ? 1 : 0);

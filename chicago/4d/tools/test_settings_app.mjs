@@ -76,6 +76,19 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.match(skinJs, /closest\('\.skin-tile'\)/, 'a tap on a tile applies its machine');
 }
 
+// ---- the text-size rules: raised text wraps, and never weakens a column's own breaking ----
+{
+  const css = fs.readFileSync(path.join(WEB, 'css/navigator.css'), 'utf8');
+  const block = css.slice(css.indexOf('T-2656: text size 100-140 %'), css.indexOf('T-2656: Settings › Machine'));
+  assert(block.length > 200, 'the text-size block is found');
+  // break-word keeps an unbroken run's min-content width, so it pushed the drawer's eight
+  // mounts past their 292 px column (smoke part 14); the device breaks `anywhere`, as
+  // css/evidence.css does, or leaves the inherited rule alone.
+  assert(!/overflow-wrap:\s*break-word/.test(block), 'no break-word in the device');
+  // Go to's two-line clamp lifts above 100 % (the runner found six names cut at 140 %).
+  assert.match(block, /html\[data-text-scale\] \.navigator \.welcome-destination strong \{[^}]*line-clamp: none/);
+}
+
 // ---- the pure parts ------------------------------------------------------------------
 {
   assert.equal(normalTextScale('1.4'), 1.4);
