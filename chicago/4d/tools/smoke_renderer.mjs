@@ -9614,6 +9614,42 @@ for (const [label, viewport, touch] of [
         JSON.stringify(story1835).slice(0, 900));
     }
     // <<< T-2643
+    // >>> T-2641: Inspect's Design tab on an 1835 building with no summary record and no style
+    // module. It says in one line that no style guide has been written (no card is composed) and
+    // lists the building's own recorded features as numbered hotspots, each with its grade dot,
+    // where the attribute table was; with no camera named, none is a button. Nothing overflows.
+    const design1835 = await page.evaluate(async (id) => {
+      const a = window.__chicago4d;
+      const wait = (f, n = 150) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+      const root = () => document.getElementById('nav-app-inspect');
+      a.pick(id);
+      await a.navigator.select('inspect');
+      a.navigator.open(2);
+      await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+      root().querySelector('[data-insp-tab="design"]')?.click();
+      const pane = () => root().querySelector('[data-insp-pane="design"]');
+      await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+      const p = pane();
+      const items = [...p.querySelectorAll('.insp-hot')];
+      const out = { filled: p.dataset.filled, shown: p.checkVisibility(),
+        none: p.querySelector('.insp-style-none')?.textContent.trim() ?? null, card: !!p.querySelector('.insp-style'),
+        source: p.querySelector('.insp-hot-sec')?.dataset.source ?? null,
+        heading: p.querySelector('.insp-hot-sec .insp-h')?.textContent.trim() ?? '',
+        items: items.length, numbered: items.every((li, i) => li.querySelector('.insp-hot-n')?.textContent === String(i + 1)),
+        undotted: items.filter((li) => li.querySelectorAll('.fact-dot').length !== 1).length,
+        buttons: p.querySelectorAll('button.insp-hot-row').length, table: !!p.querySelector('table'),
+        plumbing: /[a-z0-9]+_[a-z0-9]+|\.json\b|\btier\b|\bticket\b/i.test(p.textContent),
+        overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+      await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+      return out;
+    }, 'hogan_store');
+    check(`${label}: Inspect's Design tab on an 1835 building says no style guide is written and numbers its own recorded features, each with its grade dot, in place of the attribute table (T-2641)`,
+      design1835.filled === 'yes' && design1835.shown && design1835.none === 'No style guide has been written for this building yet.'
+      && !design1835.card && design1835.source === 'sidecar' && design1835.heading === 'On this house'
+      && design1835.items > 1 && design1835.numbered && design1835.undotted === 0 && design1835.buttons === 0
+      && !design1835.table && !design1835.plumbing && !design1835.overflow,
+      JSON.stringify(design1835).slice(0, 700));
+    // <<< T-2641
 
     // --- walking ----------------------------------------------------------
     const before = await page.evaluate(() => ({ ...window.__chicago4d.player }));
@@ -18874,6 +18910,85 @@ for (const [label, viewport, touch] of [
             && t.aimed === 'glessner_house' && t.outline),
           JSON.stringify(showMe));
         // <<< T-2640
+        // >>> T-2641 (M8): Glessner's Design tab — the Richardsonian Romanesque card from its module
+        // (name, cues, Compare styles, each dotted), the record's numbered On this house hotspots
+        // each with one grade dot and no attribute table, Listed in Liberties on the reconstructed
+        // one, the plate only where the pictures file holds a copy that may be shown, and a tap
+        // on a hotspot turning the camera to the record's own view of it (Show me).
+        const design1904 = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 300) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const pane = () => root()?.querySelector('[data-insp-pane="design"]');
+          a.pick(id);
+          await a.navigator.select('inspect');
+          a.navigator.open(2);
+          await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+          root().querySelector('[data-insp-tab="design"]')?.click();
+          await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+          // The plate is the one thing on the tab whose box arrives late: read the layout once it
+          // has loaded or failed (up to 10 s), so a half-laid frame is not taken for the page.
+          await wait(() => { const img = pane()?.querySelector('.insp-style-plate img'); return !img || img.complete; }, 100);
+          await new Promise((r) => setTimeout(r, 300));
+          const doc = await a.inspectSummaries();
+          const rec = doc?.summaries?.[id] ?? {};
+          const mod = doc?.styles?.[rec.style] ?? {};
+          const pics = await a.pictures();
+          const pic = (pics?.by_structure?.[mod.plate?.structure] ?? []).find((x) => x.id === mod.plate?.picture);
+          const p = pane();
+          const items = [...p.querySelectorAll('.insp-hot')];
+          const text = [...p.querySelectorAll('.insp-style-name, .insp-style-desc, .insp-cue, .insp-h, .insp-hot-text, .insp-hot-detail, .insp-compare-item, .insp-style-cap-text, .insp-style-none')]
+            .map((n) => n.textContent).join(' ');
+          const out = { filled: p.dataset.filled, style: p.querySelector('.insp-design')?.dataset.style ?? null,
+            name: p.querySelector('.insp-style-name')?.textContent.trim() ?? '',
+            cues: p.querySelectorAll('.insp-cue').length, wantCues: (mod.cues ?? []).length,
+            cuesDotted: [...p.querySelectorAll('.insp-cue, .insp-compare-item, .insp-style-desc')].every((n) => n.querySelector('.fact-dot')),
+            compare: p.querySelectorAll('.insp-compare-item').length, wantCompare: (mod.compare ?? []).length,
+            heads: [...p.querySelectorAll('.insp-h')].map((n) => n.textContent.trim()),
+            items: items.length, wantItems: (rec.onThisHouse ?? []).length,
+            numbered: items.every((li, i) => li.querySelector('.insp-hot-n')?.textContent === String(i + 1)),
+            undotted: items.filter((li) => li.querySelectorAll('.fact-dot').length !== 1).length,
+            liberty: /Listed in Liberties\./.test(p.textContent), table: !!p.querySelector('table'),
+            buttons: p.querySelectorAll('button.insp-hot-row').length, wantButtons: (rec.onThisHouse ?? []).filter((h) => h.camera).length,
+            plate: !!p.querySelector('.insp-style-plate img'),
+            plateWanted: !!(pic?.held?.f && /^(public domain|no known restrictions)/i.test(String(pic.rights ?? ''))),
+            plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}|\btier\b|\bticket\b/i.test(text),
+            overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth,
+            widths: [p.scrollWidth, p.clientWidth, document.documentElement.scrollWidth, innerWidth],
+            wide: [...p.querySelectorAll('*')].filter((n) => n.getBoundingClientRect().right > p.getBoundingClientRect().right + 1)
+              .map((n) => `${n.tagName}.${n.className}`).slice(0, 4), turn: null };
+          // Tap the first hotspot that names a camera: Show me turns the camera to its bearing.
+          const i = (rec.onThisHouse ?? []).findIndex((h) => h.camera);
+          const btn = i >= 0 ? items[i]?.querySelector('button.insp-hot-row') : null;
+          if (btn) {
+            a.popup.close();
+            const before = a.showMe.last?.at ?? -1;
+            btn.click();
+            await wait(() => (a.showMe.last?.at ?? -1) !== before, 300);
+            for (let k = 0; k < 80 && document.getElementById('show-me-outline').hidden; k++) await new Promise((r) => setTimeout(r, 100));
+            a.target.invalidate();
+            const want = rec.onThisHouse[i].camera;
+            out.turn = { want, yaw: +((((a.player.bearingDeg % 360) + 360) % 360).toFixed(1)), pitch: +a.player.pitchDeg.toFixed(1),
+              aimed: a.target.current(150)?.id ?? null, outline: !document.getElementById('show-me-outline').hidden };
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, 'glessner_house');
+        {
+          const d = design1904;
+          const nearYaw = (x, y) => Math.abs(((x - y + 540) % 360) - 180) <= 2;
+          check(`${label}: Glessner's Design tab shows the Richardsonian Romanesque card, numbered On this house hotspots each with its grade dot and no attribute table, and Compare styles; a tap turns the camera there (T-2641)`,
+            d.filled === 'yes' && d.style === 'richardsonian_romanesque' && d.name === 'Richardsonian Romanesque'
+            && d.cues === d.wantCues && d.cues >= 1 && d.cues <= 4 && d.compare === d.wantCompare && d.compare >= 1 && d.cuesDotted
+            && JSON.stringify(d.heads) === JSON.stringify(['How to spot it', 'On this house · tap to look', 'Compare styles'])
+            && d.items === d.wantItems && d.items >= 3 && d.numbered && d.undotted === 0 && d.liberty && !d.table
+            && d.buttons === d.wantButtons && d.plate === d.plateWanted
+            && d.turn && nearYaw(d.turn.yaw, d.turn.want.yaw) && Math.abs(d.turn.pitch - d.turn.want.pitch) <= 2
+            && d.turn.aimed === 'glessner_house' && d.turn.outline
+            && !d.plumbing && !d.overflow,
+            JSON.stringify(d).slice(0, 900));
+        }
+        // <<< T-2641
         // >>> T-2645 (NAV-510): Inspect's Photos tab on Glessner House — the 12 best by date, each
         // with its year, a caption and its credit; All N shows every picture; From this spot only
         // on a picture a solved camera names, and it stands the visitor where that camera stood.

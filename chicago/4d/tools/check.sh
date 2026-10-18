@@ -228,6 +228,9 @@ step "Inspect's Photos tab shows each picture's year, caption and credit by date
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
+# T-2641: Inspect's Design tab.
+step "Inspect's Design tab shows the building's style card from its sourced module, numbered On this house hotspots each with its grade in place of the attribute table, and Compare styles; a building with neither falls back to its own graded sidecar (T-2641)" \
+  node tools/test_nav_design.mjs
 # T-2666: Guide › For teachers, the teacher handout.
 step "Guide › For teachers prints the Field Check's seven steps from the tour itself and three Jaunts per destination by one stated rule, as one top-level copy the print stylesheet keeps (T-2666)" \
   node tools/test_teacher_handout.mjs
