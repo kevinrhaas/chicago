@@ -1106,3 +1106,18 @@ a claim that the plate approval covers later photographs.
 
 
 Glessner T-2228 entrance-section update (2026-10-16): generated geometry additionally cites public-domain Richardson office doorway23A, `artic_glessner_sheet_23a_entrance_detail`, corroborated by U.S. Government HABS IL-1015 sheet5. No photographic or drawing pixels are embedded in the asset; exact relief dimensions remain reconstructed.
+
+## textures/trees/ — the grown trees' leaf and bark atlases (T-2743)
+
+textures/trees/leaf_atlas.webp
+textures/trees/bark_basecolor.webp
+textures/trees/bark_normal.webp
+textures/trees/leaf_atlas.ktx2
+textures/trees/bark_basecolor.ktx2
+textures/trees/bark_normal.ktx2
+
+These are painted entirely from code (the .ktx2 files are GPU-compressed copies of the same maps) by `tools/generate_tree_atlas.py` (seeded noise, cell patterns and drawn leaf
+outlines). No photograph or third-party image is sampled. They are project-authored under the
+repository licence, and the generator reproduces them. They show what a species' leaf and bark
+generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
+L-tree-architecture-2743).

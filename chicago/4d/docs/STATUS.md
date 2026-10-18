@@ -1,3 +1,27 @@
+## T-2737 — dev's still-frame ceiling: the trip blur the instrument froze on (2026-10-18)
+
+Nothing you can see changed. This gate blocks a visible parcel: PR #992 (T-2728, 1623's
+entrance) waits on T-2737 and was refused only on this ceiling.
+
+- **The landing found by bisection** (steward runner, EPYC 7763, full, town_backyard):
+  15368 ms at c9df69f71, 18658 ms at be5fdccc1, which is **T-2613**, the Navigator
+  landing. The triangles did not change, but every layer and the empty frame got
+  slower. `docs/measurements/T-2737-gate-backdrop.md` has the CI record, the bisection
+  and the A/B tests.
+- **Cause:** T-2613's gate blurs the town at 12 px during the trip, up from 2 px.
+  `measure_still_frame.mjs` stopped the page at `ready`, the first instant of the
+  trip, so every stand was timed under that blur. It cost 3.1 to 3.6 s of a 19 s
+  frame at full.
+- **Fix, in the instrument:** the tool waits for Home (or the gate down) and for the
+  gate's transitions to finish before timing. Each reading records the state it was
+  timed under. Dev's full went 19280 → 15730 ms on this runner. Home's `blur(0)` was
+  tested against `none` and costs nothing (15737 vs 15730), so walk.css is unchanged.
+- **Unverified here:** the CI host's new numbers (this runner reads 16 % slower than CI's
+  7763 at the same commit, so its milliseconds cannot set that entry). Balanced and
+  light grew from content, not the blur: +91k and +23k triangles since 48fa0caf8. The
+  PR's own frame-time run is the reading for them. The trip blur's cost on a phone GPU
+  is unmeasured.
+
 ## T-2718 — texture residency's last capture stands and the 1904 memory ceilings (2026-10-17)
 
 Nothing you can see changed. Piece 1 of T-2602, which was split three ways because one

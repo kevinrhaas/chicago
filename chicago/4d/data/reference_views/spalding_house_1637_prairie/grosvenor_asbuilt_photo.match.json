@@ -1,0 +1,83 @@
+{
+  "structure_id": "spalding_house_1637_prairie",
+  "view": "grosvenor_asbuilt_photo",
+  "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
+  "glb_sha256": "e5d5b9caf0a7dbbd89dbab7a530ac188812483e133821cc765790a6bc8aa75f3",
+  "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
+  "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing at the south-west corner: a brick block two tall storeys over a raised basement, the front to the left and the south flank running back to the right; the corner's arris behind the tree's trunk, the lit south wall beginning at x 121 px",
+      "status": "fixed",
+      "how": "T-2441's K01 body on the 1911 sheet's plan, the wing's front at u 12.0: through this camera the corner lands at x 121 px, and the front's band under the second-storey window at y 457 px against the photograph's 460, which no line of the solve was fitted to"
+    },
+    {
+      "what": "the front's second-storey window nearest the corner (x 0-40 px, y 280-420), in the column and at the height of the build's wing window (x 0-45, y 290-415)",
+      "status": "fixed",
+      "how": "T-2537's paired sash on the wing, its place from the engraving. The crop and the shade show too little of the c. 1870 sash to say whether the remodel changed it; the engraving's form stands"
+    },
+    {
+      "what": "the front's principal-storey window nearest the corner: a round-headed light (x 0-25 px, its head at about y 520) under the band",
+      "status": "not shown",
+      "how": "replaced by the remodel: the engraving (glessner_blog_1637_spalding_remodel_engraving), drawn after the remodel, draws the wing's principal storey as a French window under a four-light transom over a bowed balcony, and the build carries that (T-2534). The round head is the c. 1870 front's and not 1904's"
+    },
+    {
+      "what": "the south wall blank brick from the corner to the projection (x 121-322 px, about u 12.0 to 3.9-5.2 m), no opening in either storey",
+      "status": "fixed",
+      "how": "the build's south wall carries no opening over that run (form.side_bays are the north flank's), so the render's wall is blank as the photograph's"
+    },
+    {
+      "what": "a pale stone band along the foot of the south wall (y 712-726 px), the wall's water table or a low coping before it; the build's front band (y about 731 px through this camera) returns about 0.5 m round the corner and stops",
+      "status": "open",
+      "how": "kept: masonry the remodel had no call to touch, and the engraving cannot see this flank. T-2756 reads whether it is the wall's band (then K01 carries the front's band along the south wall) or a coping, and builds it"
+    },
+    {
+      "what": "an ornate stone-dressed projection on the south wall from x 322 px (about u 3.9-5.2 m) to past the frame's edge: its front through the principal storey in tall round-arched lights between columns under a bracketed entablature, small round lights in its base (y 690-730 px), and on its top a balcony behind a balustrade (y 355-420 px)",
+      "status": "open",
+      "how": "kept by the remodel: the 1911 sheet draws a canted bay on the south wall exactly there (s20fp-1637-b1's main part, x 1427.3-1430.4 m in the trace frame: from u 4.1 to 1.0, 0.75 m out, its ends canted), whose west end falls at x 316-352 px through every variant of this camera. Nothing in 1637's build carries it: the footprint note read the sheet's canted shape on the wing and not this one. T-2756 builds it on the sheet's plan to the photograph's height and dress"
+    },
+    {
+      "what": "a second-storey window over the projection's balcony (x 350-445 px, y 305-355), round-headed between open shutters, the balcony's door or window",
+      "status": "open",
+      "how": "kept with the projection (above): T-2756 opens it in the south wall over the bay"
+    },
+    {
+      "what": "a tall panelled stack with a corbelled cap rising behind the eave (x 245-345 px, its cap's top at y 30): on the south wall's line it stands at about u 6.0, its top about 14.2 m over grade",
+      "status": "open",
+      "how": "the build has no stack there. Through the engraving's camera this stack, carried up past the remodel's mansard to about 15.9 m, stands at x 672 px with its top at y 113, which is where the engraving draws the stack the build reads as the wing's (x 663-717, top y 113; T-2465 put it at u 10.2, v 11.2, top 15.11 m). Through this camera the build's wing stack falls at x about 75 px, where the photograph shows sky between the branches, but this photograph predates the wing. So the engraving's stack is either this one carried up or a new one on the wing: T-2756 weighs the two and builds the one the evidence holds"
+    },
+    {
+      "what": "the cornice: a deep dark band round the eave on the front and the south flank, its top against the sky on the build's slope through this camera (0.19 on the flank, 0.21 on the front)",
+      "status": "fixed",
+      "how": "K10's bracketed cornice on both faces (T-2441, T-2467). Its brackets are too dark here to count, and this photograph cannot measure the eave's height (the camera's solve: the band's height sets it, and the fence hides the ground), so the engraving's storey-line item, open in its own record, stays the place the eave's height is argued"
+    },
+    {
+      "what": "the roof: low and hipped behind the cornice, only a pale sliver of it above the eave",
+      "status": "not shown",
+      "how": "replaced by the remodel: the engraving (glessner_blog_1637_spalding_remodel_engraving), drawn after the remodel, draws a steep slated mansard with dormers on its street and north faces and a level top line at 14.1 m, which the build carries (T-2441, T-2452)"
+    },
+    {
+      "what": "a cast-iron fence of scrolled pickets on a stone curb across the frame's foot (y 750-860 px), before the south flank",
+      "status": "not shown",
+      "how": "replaced for 1904: the engraving (glessner_blog_1637_spalding_remodel_engraving), drawn after the remodel, draws a brick garden wall before the north flank and an iron spear fence before the wing, which the build carries on K11 (T-2447); what stood along the south yard in 1904 neither later picture shows, and the build's fence stops at the lot line"
+    },
+    {
+      "what": "a street tree before the corner, its trunk across x 70-130 px",
+      "status": "not shown",
+      "how": "not the house's: the 1904 street's trees are their own records"
+    },
+    {
+      "what": "the rear range behind the main body and the roof behind the eave",
+      "status": "not shown",
+      "how": "the frame ends at about u 0 (x 460 px), where the 1911 sheet's rear range begins; built on the sheet at the reconstructed tier (L-k01-1637-spalding-remodel-2441)"
+    },
+    {
+      "what": "colour: the photograph is monochrome",
+      "status": "not shown",
+      "how": "the brick and trim colours stay reconstructed"
+    }
+  ],
+  "evidence_of_its_own_date": "The photograph is the Grosvenor house as built, c. 1870, before Jesse Spalding's remodel; the 1904 scene is the remodelled house, which the engraving draws from the north-west and the 1911 Sanborn sheet plans. So each thing this photograph shows is weighed (AGENTS.md rule 11, T-2449): where the engraving or the sheet shows the remodel KEPT it, it is built and reads fixed, or is open until it is (T-2756); where they show the remodel REPLACED it, it is argued not shown for 1904 with the later evidence named. Where neither later witness can see it (the south flank, which the engraving faces away from), the masonry is read as kept: a remodel that recast the front and the roof is not evidence that it took down a side wall's bay, and the 1911 sheet still draws one there.",
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

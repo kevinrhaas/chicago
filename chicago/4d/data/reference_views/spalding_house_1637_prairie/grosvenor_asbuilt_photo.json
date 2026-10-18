@@ -1,0 +1,27 @@
+{
+  "structure_id": "spalding_house_1637_prairie",
+  "source_id": "glessner_blog_1637_grosvenor_asbuilt_photo",
+  "library_image": "a16-ghm-blog-1637-grosvenor-asbuilt",
+  "photo": "../../sources/assets/grosvenor_1637_asbuilt_t2755/grosvenor_1637_asbuilt_photo.jpg",
+  "image_px": [
+    460,
+    900
+  ],
+  "principal_px": [
+    230,
+    779.2
+  ],
+  "focal_px": 5930,
+  "eye": [
+    96.06,
+    61.57,
+    1.37
+  ],
+  "yaw_deg": -118.91,
+  "sun_uvy": [
+    -0.35,
+    1.0,
+    0.9
+  ],
+  "solve": "Fitted by T-2755 to the photograph alone, which is a 460 x 900 px crop of a wider plate (the Glessner House Museum's blog copy), so its principal point is not known: x is taken at the crop's centre and the fit repeated at x 100 and 360 px. The footprint frame's u runs toward the street and v runs SOUTH on this side of the avenue, so the eye stands south-west of the house, across Prairie Avenue, looking north-east at the south flank. Its verticals are vertical (the south-west corner and the projection's columns), so the camera is level. Lines read, least squares: the south-west corner of the front (u 12.0, v 13.1, the 1911 sheet's wing corner; the tree's trunk hides the arris, the lit south wall begins at x 121 px); the eave's top against the sky on the south face (x 160-450 px, y 136-191) and on the front (x 40-64 px, y 137-132), each 0.5 m out from its wall; the foot of the pale stone band along the base of the south wall (x 135-315 px, y 723-726), taken at the principal floor's 2.3 m; and the front's band under the second-storey window (x 10-30 px, y 461-460), taken at the build's own band on the wing front (6.64 m). That gives f = 5930 px, a heading of -118.9 degrees, the eye 96 m off the corner and 1.37 m over 1637's grade, the eave's top at 11.9 m; residuals 0.74 px rms, 2.3 px at worst. What the solve does not settle: the band's height is a reading of the plan, not of the picture (the fence hides the ground), and moving it to 1.5 m moves the eave's top to 12.9 m, the eye to 105 m and leaves the residuals the same, so this photograph cannot measure the eave and nothing here rests on its height. What it does settle, over every variant (principal x 100-360 px, band 1.5-2.3 m): the south wall stands blank from the corner to x 322 px, about u 3.9-5.2 m, where the ornate projection begins; the 1911 sheet's canted bay on the south wall (s20fp-1637-b1, from u 4.1 to 1.0, 0.75 m out) puts its west end at x 316-352 px. And the photograph's stack (x 245-345 px, its cap's top at y 30) falls, if it stands on the south wall's line, at u 6.0 with its top about 14.2 m over grade, 1.7 m across the diagonal."
+}
