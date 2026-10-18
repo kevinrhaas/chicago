@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "9e39ecfca62f40ea18fbfec229d8120559a4059f1a266991b24f3b1f0e78a6a7",
+  "glb_sha256": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
   "camera_sha256": "6819cfca050bb147eac1c0036afc191e7d8dc1992bbb6529aa36841c0e0443e0",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
-      "status": "open"
+      "what": "T-2765: the bow's principal storey has four lights, not three, standing plumb under the second storey's four at the same bearings (-33, -11, 11 and 33 degrees), and the basement's three under the first three. Read at the plate's native 1559 px, the three lights the street tree leaves visible in each lower storey stand under the second storey's first three, and the plan printed under the plate draws four openings in the bow's principal-floor wall about a pier on its axis; the fourth is behind the trunk here. On every level fit of T-2762 the lights' edges now sit 7.5-15.5 px RMS off the print, the second storey's own residual on that fit, where at -27, 0 and 27 degrees they sat 31-52 px off (on T-2763's re-fit 7.1-11.9 px against the second storey's 9.4-12.1, and 34-41 px before); widths read through the fits, principal 0.9 m (the second storey's) and basement 0.73 m. Their heights were already right: down the south light's column, read with no camera, every head and sill falls within 0.06 m of its built height (tools/keith_bow_lights_read.py).",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
@@ -80,11 +80,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2769: the loggia's pedestals, read at the plate's native 1559 px (about 75 px to the metre there; x 865-940 and 1100-1160, y 1585-1650), each carry a plain field inside a border on the front (about 32 x 41 px on a 47 px front), with no carving in it, as T-2585 read the balcony's dies. The model's fields carried T-1883's low relief leaf scrolls; they are taken off and the fields left plain in their border (the model's 0.66 x 0.57 m field comes to about 34 x 43 px at this grain).",
-      "status": "fixed"
-    },
-    {
-      "what": "T-2769: the south pedestal's south side, which this camera sees (x about 872-886, y 1590-1650), shows a plain field in a border like its front's; the model's side face is plain stone with no border. Open for the build.",
+      "what": "T-2765: the plate draws each of the bow's principal lights in three tiers between stone bars: a main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m (read on one level column at 77.8 px/m). The model's sash_transom_flat lays one 0.45 m transom over a 2.5 m sash, so its transom is the top light and the middle light is not built.",
       "status": "open"
     }
   ],
