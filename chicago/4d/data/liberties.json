@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 615,
+  "count": 617,
   "liberties": [
     {
       "id": "L1",
@@ -40570,6 +40570,41 @@
         {
           "label": "Recorded",
           "text": "2026-10-17 (T-2743)."
+        }
+      ]
+    },
+    {
+      "id": "L-shore-grove-1835-2766",
+      "title": "The 1835 shore cottonwood grove at Sixteenth to Eighteenth Street: its count, its depth and every stem's place",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1835 scene draws Robert G. Clarke's grove of \"perhaps fifty to seventy-five large cottonwoods, extending from a little north of Sixteenth to a little south of Eighteenth Street\" as **60** eastern cottonwoods, 22-26 m tall, dealt by `tools/generate_shore_grove_1835.py` into `data/flora/plantings/shore_cottonwood_grove_1835.json` (T-2766)."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "the grove, its species, its size class (\"large\") and its north and south ends (Clarke 1890, in Kirkland 1893 Appendix K, `kirkland_1893_chicago_massacre_appendix_k`); the clump \"of eight or nine trees\" and its place, 250-300 ft north of Eighteenth Street at the east end of Wirt Dexter's lot, which is 1721 Prairie Avenue's traced lot end at E 1490.1; and the 18th Street tree's size about 1835 (\"a large and thrifty tree\", Mary Clark Williams through Galloway)."
+        },
+        {
+          "label": "What is invented",
+          "text": "the count inside Clarke's range (60); \"a little\" beyond each street as 20 m; the clump as nine stems, one central and eight on a 4.5 m ring; the grove's depth, a strip 48 m back from the edge of the shore terrace (where the committed e1834_harbor_cut ground stands 2 m above the water), which no source states; and every other stem's place, a seeded dart throw at 11 m apart. The 18th Street tree and its fellow stand where the 1812 record already puts them, so their places carry that record's reconstruction. The zone is `z05_riverbank_timber`, because the shore's own record describes the cottonwood only in its 5-15 m dune form and z05's is the only record of the full-grown tree; heights are held to the lower half of its 22-30 m band."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Andreas's engraving of the 18th Street tree (vol. 1, p. 31), an early plat of the Clark farm or of Eighteenth Street that draws trees, or a photograph of the shore before the Illinois Central's fill."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2766."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-18 (T-2766)."
         }
       ]
     },
