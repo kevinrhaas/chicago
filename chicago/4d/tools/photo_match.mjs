@@ -12,7 +12,11 @@
 //   image_px       [width, height] of that photograph
 //   principal_px   [x, y] of its principal point (a view camera's rising front puts it far
 //                  off centre; verticals stay vertical, so the camera is not pitched)
-//   focal_px       the focal length in the photograph's own pixels
+//   focal_px       the focal length in the photograph's own pixels (vertical, when
+//                  pixel_aspect is given)
+//   pixel_aspect   optional (default 1): horizontal over vertical focal length, for a copy
+//                  whose width was resampled apart from its height; the solve says what
+//                  measured it
 //   eye            [u, v, y] in the structure's footprint frame (u east toward the street,
 //                  v north, y metres above its grade)
 //   yaw_deg        the heading, degrees clockwise from north (90 looks due east)
@@ -50,6 +54,7 @@ const opt = k => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null
 const camFile = args.find(a => a.endsWith('.json'));
 if (!camFile) { console.error('usage: node tools/photo_match.mjs <camera.json> [--glb <path>] [--out <dir>]'); process.exit(2); }
 const cam = JSON.parse(fs.readFileSync(camFile, 'utf8'));
+if (cam.pixel_aspect !== undefined && (!Number.isFinite(cam.pixel_aspect) || cam.pixel_aspect<=0.5 || cam.pixel_aspect>=2)) throw Error('pixel_aspect must be finite and between 0.5 and 2');
 if (cam.near_m !== undefined && (!Number.isFinite(cam.near_m) || cam.near_m<=0 || cam.near_m>=500)) throw Error('near_m must be finite and between 0 and the 500 m far plane');
 if (cam.clip_planes !== undefined && (!Array.isArray(cam.clip_planes) || cam.clip_planes.some(p => !p || !Array.isArray(p.normal) || p.normal.length !== 3 || !p.normal.every(Number.isFinite) || Math.abs(Math.hypot(...p.normal)-1)>1e-6 || !Number.isFinite(p.constant)))) throw Error('clip_planes requires finite unit [east,north,up] normals and constants in metres');
 const glb = opt('--glb') || (() => {
@@ -71,7 +76,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 import {tintKeithStone} from '/renderers/web/js/keith-stone.js';
-const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, clips: cam.clip_planes || [], glb: '/' + glb.replace(/\\/g, '/')})};
+const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, clips: cam.clip_planes || [], glb: '/' + glb.replace(/\\/g, '/')})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 r.clippingPlanes=c.clips.map(p=>new THREE.Plane(new THREE.Vector3(p.normal[0],p.normal[2],-p.normal[1]),p.constant));
@@ -89,6 +94,8 @@ g.rotation.x=-Math.PI/2;g.position.y=-0.01;g.receiveShadow=true;s.add(g);
 const FW=2*Math.max(c.cx,c.W-c.cx),FH=2*Math.max(c.cy,c.H-c.cy);
 const cam=new THREE.PerspectiveCamera(2*Math.atan(FH/2/c.f)*180/Math.PI,FW/FH,c.near,500);
 cam.setViewOffset(FW,FH,FW/2-c.cx,FH/2-c.cy,c.W,c.H);
+// setViewOffset sets aspect to FW/FH; a resampled copy's pixels are not square
+if(c.aspect!==1){cam.aspect=FW/FH/c.aspect;cam.updateProjectionMatrix();}
 // footprint frame (u, v, y) -> glTF (x = u, y, z = -v); yaw clockwise from north
 const [u,v,y]=c.eye,t=c.yaw*Math.PI/180;
 cam.position.set(u,y,-v);cam.lookAt(u+Math.sin(t),y,-v-Math.cos(t));

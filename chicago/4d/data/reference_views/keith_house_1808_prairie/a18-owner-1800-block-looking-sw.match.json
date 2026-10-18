@@ -3,7 +3,7 @@
   "view": "a18-owner-1800-block-looking-sw",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
   "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
-  "camera_sha256": "ec76219695e974bfab898ea1f04c31f6114296274b9ea9d4e3eb63358c8ed2fa",
+  "camera_sha256": "a1049cc934f2dfe0602308f2a426dd2d38fb4927abf213619fd51b29ff1916e4",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-owner-1800-block-looking-sw-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -50,6 +50,10 @@
     {
       "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: Keith's front is foreshortened beyond reading the band's units.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2748 (the reviewer's reason for this verdict): this file is the owner's reproduction of the c. 1888 SW photograph, cropped (the crown above the third-storey lights is out of frame, so the pinnacles, the return's coping and the cowl are not shown here) and about a third of the blog copy's size, now on that view's re-fitted camera. In register, the third-storey lights, the bow and the north arris lie on the print's; the stoop does not, and reads here as it does in the c. 1888 view: its landing's pierced balustrade and the low round arch under its flight stand left of the render's (the arch at about x 296-305 against 310-321 at this file's scale) and the arch far lower than built. The record differs on that alone. Open for the build (carried on T-2751).",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

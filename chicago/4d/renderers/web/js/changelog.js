@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 1979, ts: '2026-10-18T10:17:35.382Z', date: 'Oct 18, 2026, 5:17 AM CT', title: '1637 Prairie\'s c. 1870 photograph, weighed against the 1904 house', kind: 'add',
+    items: [
+      'The Grosvenor house\'s photograph from before Jesse Spalding\'s remodel now has a source record, a solved camera and a side-by-side with the 1904 build.',
+      'It predates the remodel, so each thing it shows is ruled: the round-headed front window, the low roof and the scrolled iron fence were replaced, as the later engraving shows.',
+      'Its blank south wall, front corner and second-floor band agree with the build.',
+      'Kept but not yet built: the south flank\'s ornate bay, which the 1911 Sanborn sheet still draws in the same place, its balcony window, a south stack and the wall\'s base band. These are queued as the next piece of work.',
+    ] },
+  { v: 1978, ts: '2026-10-18T10:10:22.303Z', date: 'Oct 18, 2026, 5:10 AM CT', title: '1808 Prairie\'s c. 1888 street photograph gets a true camera', kind: 'improvement',
+    items: [
+      'The camera behind the c. 1888 view down the 1800 block is re-solved on the house\'s three pinnacle tips, its north corner, its lattice and a third-storey window: the render now sits on the photograph from the crown to the ground.',
+      'The old fit leaned the camera 4.5 degrees and set the rear pinnacle 60 px off; the new one is level and holds to about 4 px.',
+      'The web copy of this photograph is about 11 % narrower than it should be, and the comparison now allows for that, checked on two points it was not fitted to.',
+      'Seen properly for the first time, the photograph shows the stoop\'s arch lower and further out than built, and the roof ventilator nearer the side wall; both are written up to build next.',
+    ] },
+  { v: 1977, ts: '2026-10-18T08:52:33.164Z', date: 'Oct 18, 2026, 3:52 AM CT', title: 'Jaunts can follow how you like to get places', kind: 'feature',
+    items: [
+      'Move › When you pick a place has a new switch: Jaunts use my choice.',
+      'It starts off, so every Jaunt travels the way it recommends, as it was written to be ridden.',
+      'Turn it on and each Jaunt goes the way you chose: Teleport, Ride there or Fly over.',
+      'A Jaunt that cannot be travelled your way keeps its own, and its card says so.',
+      'The switch is remembered on this device, like the other Move settings.',
+    ] },
   { v: 1976, ts: '2026-10-17T23:19:44.641Z', date: 'Oct 17, 2026, 6:19 PM CT', title: '1904 walking tours: famous names, architects, three styles, built so far', kind: 'feature',
     items: [
       'Jaunts in 1904 now offer six walks on Prairie Avenue: the famous names (Pullman, Glessner, Kimball, the two Marshall Fields, Armour), the architects (Jenney, Richardson, Cobb & Frost, Burnham & Root, Beman, Hunt), and Romanesque, Second Empire and Italianate style walks.',
