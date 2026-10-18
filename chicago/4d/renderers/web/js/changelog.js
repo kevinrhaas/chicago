@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2010, ts: '2026-10-18T18:09:21.344Z', date: 'Oct 18, 2026, 1:09 PM CT', title: '1625 Prairie\'s entrance bay stands forward, as its photograph shows', kind: 'improvement',
+    items: [
+      'The south part of McBirney\'s house at 1625 Prairie now stands a little forward of the rest, its corners edged in smooth quoin stones and capped by a hood moulding over the wide window.',
+      'The door has a smooth stone frame with a carved panel above it, and the lower windows sit in smooth stone surrounds.',
+      'A single band of stone now runs under the first-floor windows, as in the photograph, in place of two that were never there.',
+    ] },
   { v: 2009, ts: '2026-10-18T17:31:26.395Z', date: 'Oct 18, 2026, 12:31 PM CT', title: 'Inspect\'s Photos tab: pictures by date, the 12 best first', kind: 'feature',
     items: [
       'Inspect\'s Photos tab shows a building\'s pictures as a grid sorted by date, each with its year, a short caption and its credit.',
