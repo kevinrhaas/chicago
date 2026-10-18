@@ -110,6 +110,8 @@ export class TreeInstances {
     const stats = { stems: this.stems.length, archetypes: this.kinds.size, variants: 0,
       triangles: 0, templateTriangles: 0, near: 0, mid: 0, far: 0, shade: 0, drawCalls: 0 };
     if (!this.stems.length) return { group, stats, update() {}, dispose() {} };
+    const t0 = performance.now();
+    let paused = 0;
 
     // 1. Grow each archetype's variants at its own median height, and mesh each
     //    at the three levels.
@@ -120,7 +122,7 @@ export class TreeInstances {
       const spec = { ...kind.spec, h: [midH, midH] };
       kind.variants = [];
       for (let v = 0; v < n; v++) {
-        const pause = checkpoint(); if (pause) await pause;
+        const pause = checkpoint(); if (pause) { const p0 = performance.now(); await pause; paused += performance.now() - p0; }
         const seed = (hashString(kind.key) + v * 7919) >>> 0;
         const o = { conf: spec.conf ?? 0.5, ...season };
         const light = this.level === 'light';
@@ -134,6 +136,7 @@ export class TreeInstances {
       }
     }
 
+    stats.growMs = Math.round(performance.now() - t0 - paused);
     // 2. The geometry each set holds: the shade set near and mid, the far set mid
     //    and far; on the phone's tier the shade set mid and the far set far.
     const sets = this.level === 'light' ? { shade: ['mid'], far: ['far'] } : { shade: ['near', 'mid'], far: ['mid', 'far'] };
@@ -196,6 +199,7 @@ export class TreeInstances {
       }
     }
 
+    stats.batchMs = Math.round(performance.now() - t0 - paused - stats.growMs);
     // 3. Every stem in both sets, starting far and unshaded until the first update.
     const m = new THREE.Matrix4();
     const q = new THREE.Quaternion();
