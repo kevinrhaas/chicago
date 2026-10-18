@@ -13,6 +13,7 @@ import { createResearcherMode, readMode, ticketUrl, ticketLinkHtml, STORAGE_KEY,
   from '../renderers/web/js/researcher.js';
 import { t } from '../renderers/web/js/strings/index.js';
 import { visitorTextProblems } from '../renderers/web/js/fallback-summary.js';
+import { hubHtml, hubPlan, TOPIC_IDS } from '../renderers/web/js/evidence.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WEB = path.join(ROOT, 'renderers', 'web');
@@ -108,8 +109,23 @@ function fakeStorage() {
   const css = fs.readFileSync(path.join(WEB, 'css', 'skins.css'), 'utf8');
   assert.match(css, /html:not\(\[data-researcher-mode\]\) \[data-researcher\] \{ display: none !important; \}/, 'off, research is hidden');
   assert.match(css, /html\[data-researcher-mode\] \[data-visitor-only\] \{ display: none !important; \}/, 'on, its stand-ins are');
-  const evidence = fs.readFileSync(path.join(WEB, 'js', 'evidence.js'), 'utf8');
-  assert.match(evidence, /t\.el\.hasAttribute\('data-researcher'\) \? ' data-researcher'/, 'a Researcher-mode hub topic\'s tile is marked too');
+  // The hub (T-2667's hubHtml): the order book's card is Researcher mode's, and a topic marked
+  // `data-researcher` marks its own tile, whichever card it is filed under.
+  const topic = (id, researcher) => [id, { id, title: id, gloss: 'g', icon: '',
+    el: { hasAttribute: (a) => researcher && a === 'data-researcher' } }];
+  const topics = new Map([topic('grades', false), topic('city', true), topic('orderbook', true)]);
+  const hub = hubHtml([{ id: 'grading', researcher: false, topics: ['grades', 'city'], title: 'A', line: 'a' },
+    { id: 'research', researcher: true, topics: ['orderbook'], title: 'B', line: 'b' }], topics);
+  assert.match(hub, /<section class="ev-card" data-card="research" data-researcher/, 'the order book\'s card is Researcher mode\'s');
+  assert.match(hub, /data-topic="orderbook" data-researcher /, 'and so is its tile');
+  assert.match(hub, /data-topic="city" data-researcher /, 'a Researcher-mode topic\'s tile is marked too, in a visitor\'s card');
+  assert.match(hub, /data-topic="grades" aria-label/, 'a visitor\'s topic\'s tile is not');
+  assert.doesNotMatch(hub, /data-card="grading" data-researcher/, 'nor its card');
+  const real = hubHtml(hubPlan(), new Map(TOPIC_IDS.map((id) => [id, { id, title: id, gloss: '', icon: '' }])));
+  assert.match(real, /<section class="ev-card" data-card="research" data-researcher[\s\S]*?data-topic="orderbook"/,
+    'in the committed plan, the order book\'s tile sits in the Researcher-mode card');
+  const page2 = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8');
+  assert.match(page2, /<div class="ev-topic" data-topic="orderbook" data-researcher>/, 'and its topic is marked in the page');
 }
 
 console.log('RESEARCHER MODE PASS — off by default, remembered per device, the full essays in place while on, and a ticket only as a link behind plain words');
