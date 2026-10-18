@@ -10,8 +10,8 @@
  *                   through hud.setToggle('streetNames'). 1812 draws no streets, so it says
  *                   only today's names show there.
  *   Building labels the name the building card and the target tag already give a building
- *                   (display-name.js, cleaned by the card's own cardTitle), floated over the
- *                   nearest few in sight. Only buildings with a name of their own: "A vacant
+ *                   (display-name.js, cleaned by the card's own cardTitle; its lead phrase),
+ *                   floated over the nearest few in sight, each name once. Only buildings with a name of their own: "A vacant
  *                   dwelling" is a description, not a name, and is not labelled. A building
  *                   at a grade the Confidence view hides is not labelled either.
  *   People pins     plain markers (L1: no figure is drawn) on the addresses the people
@@ -46,10 +46,20 @@ const s = (key, vars) => str(`confidence-overlays.${key}`, vars);
 
 // ---- pure helpers (tools/test_confidence_overlays.mjs drives each) -------------------- //
 
-/** A building's own name for a label — the card's title — or null when it has none. */
+/**
+ * A label is a name, not the card's whole title: the title's lead phrase, before its first
+ * aside — "The Burns house, on the north bank…" is labelled "The Burns house", "1730 Prairie
+ * Avenue — Brick masonry" is labelled by its address. The card keeps the full title.
+ */
+export function labelText(title) {
+  const lead = String(title ?? '').split(/\s\(|[,:]\s|\s[—–]\s/)[0].trim();
+  return lead.length >= 4 ? lead : String(title ?? '').trim();
+}
+
+/** A building's own name for a label — the card's title, its lead phrase — or null when it has none. */
 export function ownName(record, id) {
   const raw = displayName(record?.sidecar ?? {}, id ?? '').title;
-  const title = cardTitle(raw).title;
+  const title = labelText(cardTitle(raw).title);
   if (!title || /^(A|An)\s/.test(title) || /[a-z0-9]_[a-z0-9]/i.test(title)) return null;
   return title;
 }
@@ -151,15 +161,19 @@ export function pickLabels(set, { player, project, w, h, ground = () => 0, hidde
     if (d <= withinM) near.push([d, b]);
   }
   near.sort((a, b) => a[0] - b[0]);
-  const out = [], boxes = [];
+  const out = [], boxes = [], said = new Set();
   for (const [d, b] of near) {
     if (out.length >= max) break;
+    // One label per name: a house and its alley building, or a fort's parts, are named once.
+    const key = b.name.toLowerCase().replace(/\b[nsew]\.\s/g, '');
+    if (said.has(key)) continue;
     const at = toScreen(project, b.e, b.n, ground(b.e, b.n) + b.h + 2, w, h, 0);
     if (!at) continue;
     const bw = Math.min(220, 18 + b.name.length * 6.4), bh = 24;
     const box = [at.x - bw / 2, at.y - bh, at.x + bw / 2, at.y];
     if (boxes.some((o) => box[0] < o[2] && box[2] > o[0] && box[1] < o[3] && box[3] > o[1])) continue;
     boxes.push(box);
+    said.add(key);
     out.push({ ...b, x: at.x, y: at.y, d });
   }
   return out;

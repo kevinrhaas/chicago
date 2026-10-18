@@ -55,7 +55,9 @@ await check('building labels: a name of its own only — "A vacant dwelling" is 
   assert.equal(O.ownName({ sidecar: { name: 'A vacant dwelling' } }, 'x'), null);
   assert.equal(O.ownName({ sidecar: { name: 'Rufus Brown\'s Boarding House' } }, 'brown_boarding_house'), 'Rufus Brown\'s Boarding House');
   const t = O.ownName({ sidecar: { name: '2115 Prairie Avenue — Kelley/Armour Second Empire (district draft; refined by T-1925)' } }, 'armour_house_2115_prairie');
-  assert.ok(t && !/T-\d|\(/.test(t), t);
+  assert.equal(t, '2115 Prairie Avenue', 'a label is the title\'s lead phrase: here the address');
+  assert.equal(O.labelText('The Burns house, on the north bank at the later foot of State Street'), 'The Burns house');
+  assert.equal(O.labelText('Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly'), 'Osborn R. Keith house');
   assert.equal(O.ownName({}, 'some_structure_id'), null, 'an id is never a label');
 });
 
@@ -142,11 +144,13 @@ await check('labels: the nearest in sight, at most the phone\'s six, none at a h
   set.push({ id: 'behind', e: 0, n: -30, h: 6, name: 'Behind', grade: 'attested' });
   set.push({ id: 'far', e: 0, n: 400, h: 6, name: 'Far', grade: 'attested' });
   set.push({ id: 'twinA', e: 50, n: 20, h: 6, name: 'Twin A', grade: 'attested' }, { id: 'twinB', e: 50.2, n: 20.1, h: 6, name: 'Twin B', grade: 'attested' });
+  set.push({ id: 'house', e: -3, n: 25, h: 6, name: 'Same Name', grade: 'attested' }, { id: 'alley', e: 3, n: 40, h: 6, name: 'Same Name', grade: 'attested' });
   const out = O.pickLabels(set, { player: { e: 0, n: 0 }, project, w: 390, h: 780, hidden: ['reconstructed'], max: O.LABELS.phone, withinM: O.LABELS.withinM });
   const ids = out.map((b) => b.id);
   assert.ok(out.length <= 6 && out.length >= 3, ids.join());
   assert.ok(!ids.includes('behind') && !ids.includes('far') && !ids.includes('b3'), ids.join());
   assert.ok(!(ids.includes('twinA') && ids.includes('twinB')), 'two labels drawn on top of each other');
+  assert.ok(ids.includes('house') && !ids.includes('alley'), 'one name labelled twice');
   for (let i = 1; i < out.length; i++) assert.ok(out[i].d >= out[i - 1].d, 'nearest first');
 });
 
