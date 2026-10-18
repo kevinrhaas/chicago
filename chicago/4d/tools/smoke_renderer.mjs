@@ -9458,13 +9458,25 @@ for (const [label, viewport, touch] of [
     // T-2627 (§10): the reticle resting on the Sauganash (26 m) shows the target tag — its
     // name and distance — after the 400 ms dwell, with the quick column's Inspect key; a
     // tap on the tag opens it. Polled on a clock: the probe answers from the render loop.
+    // T-2736: the tag now holds 3 s and fades, and on a runner where a frame takes seconds a
+    // poll can miss the whole showing (dev, 2026-10-18: "shown":false with the Sauganash
+    // current), or begin after it. So the tag is re-armed and its own un-hiding is recorded as it happens, by an observer, with
+    // the words it showed; the poll only waits for that record.
     const tagShown = await page.evaluate(async () => {
       const api = window.__chicago4d;
-      api.target.invalidate();
       const tag = document.getElementById('target-tag');
-      for (let i = 0; i < 150 && tag.hidden; i++) await new Promise((r) => setTimeout(r, 100));
+      let seen = tag.hidden ? null : tag.textContent;
+      const watch = new MutationObserver(() => { if (!tag.hidden && seen === null) seen = tag.textContent; });
+      watch.observe(tag, { attributes: true, attributeFilter: ['hidden'], childList: true, characterData: true, subtree: true });
+      // If the tag already showed and faded for the Sauganash before this task began, it stays
+      // gone until the reticle leaves it: looking away and back (setEnabled off, on) re-arms it.
+      api.targetTag.setEnabled(false);
+      api.targetTag.setEnabled(true);
+      api.target.invalidate();
+      for (let i = 0; i < 150 && seen === null; i++) await new Promise((r) => setTimeout(r, 100));
+      watch.disconnect();
       const quick = [...document.querySelectorAll('#quick-column > button')];
-      return { shown: !tag.hidden, text: tag.textContent, upper: getComputedStyle(tag).textTransform,
+      return { shown: seen !== null, text: seen ?? tag.textContent, upper: getComputedStyle(tag).textTransform,
         current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
     });
     check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
