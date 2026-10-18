@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2002, ts: '2026-10-18T16:24:45.985Z', date: 'Oct 18, 2026, 11:24 AM CT', title: 'Plainer words where a visitor reads about shops and sources', kind: 'change',
+    items: [
+      'A shop placed beside a landmark now names it in words, such as Mansion House, instead of an internal code. You see this in Go to and on the shop\'s card.',
+      'Shop notes no longer mention internal job numbers, and a street is named the way the town wrote it.',
+      'In Sources, three notes now say "grade", "the Liberties document" and "the terrain record" instead of file names and internal terms.',
+      'A new check stops file paths, internal ids and words like "ticket" from reaching what a visitor reads.',
+    ] },
+  { v: 2001, ts: '2026-10-18T15:34:41.950Z', date: 'Oct 18, 2026, 10:34 AM CT', title: 'Glessner\'s stable roof checked against two old photographs: the roof was right', kind: 'improvement',
+    items: [
+      'The 1963 survey photograph seemed to show the stable roof about 2 feet lower than the model. Measured against the carriage doorway, the one surveyed length on that wall, most of that gap turns out to be the camera.',
+      'Read the same way, the c. 1887 photograph from the northwest agrees: the gable\'s peak and the dovecote\'s point land within about a foot of where the model has them, so the roof stays as built.',
+      'The dovecote was also thought to stand about 4 feet north of where the model puts it. That reading does not hold up: the old photograph puts it about a foot and a half north, and it stays on the ridge where it was placed.',
+    ] },
   { v: 2000, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: '1904 holds 158 MB less on a phone', kind: 'fix',
     items: [
       'The lakefront railway kept 215 MB of track geometry a phone never let go of. It now keeps 34 MB.',
