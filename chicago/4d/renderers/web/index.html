@@ -149,6 +149,8 @@
         <button id="home-roam" class="welcome-action" type="button"><strong>Free roam</strong><span>Wander on your own</span></button>
         <button id="welcome-back" class="welcome-back" type="button" aria-label="Back to the arrival choices" title="Back"></button>
       </div>
+      <!-- T-2664: the Field Check offered once per device after the first landing (§11, M2). -->
+      <button id="tour-offer" class="welcome-link welcome-tour-offer" type="button" hidden data-str="tour.offer">First time? Take the 60-second tour</button>
       <div id="welcome-pack" class="welcome-pack" role="group" aria-label="Keep this year on this device" hidden></div>
       <section id="welcome-jaunts-region" class="welcome-region" aria-label="Jaunts" hidden>
         <div id="welcome-jaunts-content"><p>Choose Jaunts to see the first route preview.</p></div>
@@ -694,6 +696,16 @@
           <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
+      <!-- T-2629: About — the build stamp, and on a dev build the DEV mark (js/about.js).
+           On a phone this is where they are: the arrival card's stamp and the dev
+           preview's banner and pill are not drawn there. -->
+      <div class="settings-group about" id="s-about">
+        <h4 data-str="hud.about.title">About</h4>
+        <p class="about-build"><span class="about-dev" id="s-about-dev" hidden data-str="hud.about.dev">DEV</span>
+          <span id="s-about-build"></span></p>
+        <p class="legend-note" id="s-about-dev-note" hidden><span data-str="hud.about.devNote">A preview build: not production, and not indexed.</span>
+          <a href="/4d/" data-str="hud.about.production">Open production</a></p>
+      </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
       <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
@@ -777,6 +789,9 @@
 <!-- T-2663 (NAV-801): Tour mode, the Field Check. js/tour.js runs its seven steps and
      js/tour-overlay.js paints this: the step, the task, the bubble, WAITING FOR INPUT and
      Skip, with a spotlight on the step's target. Only its card takes pointer events. -->
+<!-- T-2664: one-time hints after the tour (first Jaunt, first Jump, first Reconstructed
+     building). Outside #hud so it reads above a building card; it takes no pointer events. -->
+<p class="nav-hint" id="nav-hint" role="status" aria-live="polite" hidden></p>
 <div id="tour" class="tour" hidden>
   <div class="tour-hole" aria-hidden="true" hidden></div>
   <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">

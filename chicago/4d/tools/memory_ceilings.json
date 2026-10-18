@@ -69,41 +69,55 @@
     },
     "1904": {
       "desktop": {
-        "total_bytes": 1625292800,
-        "reading_bytes": 1460974346,
+        "total_bytes": 1546649600,
+        "reading_bytes": 1393459631,
         "tier": "full",
         "reading_mb": {
-          "total": 1393.3,
-          "js_heap": 129.4,
-          "arraybuffers": 757.2,
-          "gpu_buffers": 223.0,
-          "gpu_textures": 283.7
+          "total": 1328.9,
+          "js_heap": 129.7,
+          "arraybuffers": 704.6,
+          "gpu_buffers": 223.5,
+          "gpu_textures": 271.1
         },
         "lowered_by": {
-          "ticket": "T-2718",
-          "on": "2026-10-17T17:15:22.450Z",
-          "build": "e62b79251",
-          "reading": "docs/measurements/T-2718-memory-desktop.json",
-          "note": "texture residency (T-2598) at spawn on desktop: 59 of 61 house pictures resident, 96.7 of a 512 MiB budget, 0 uploads pending when read. GPU textures 283.7 MB against 524.4 at T-2595; arraybuffers rose 710.9 -> 757.2 MB on this build, not read to its owner here (no heap snapshot taken)"
+          "ticket": "T-2775",
+          "on": "2026-10-18T14:21:22.796Z",
+          "build": "7b146804+T-2775",
+          "reading": "docs/measurements/T-2775-memory.json",
+          "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. 1328.9 x 1.1 rounded up to 25 MiB = 1475 MiB.",
+          "before": {
+            "ticket": "T-2718",
+            "on": "2026-10-17T17:15:22.450Z",
+            "build": "e62b79251",
+            "reading": "docs/measurements/T-2718-memory-desktop.json",
+            "note": "texture residency (T-2598) at spawn on desktop: 59 of 61 house pictures resident, 96.7 of a 512 MiB budget, 0 uploads pending when read. GPU textures 283.7 MB against 524.4 at T-2595; arraybuffers rose 710.9 -> 757.2 MB on this build, not read to its owner here (no heap snapshot taken)"
+          }
         }
       },
       "mobile": {
-        "total_bytes": 996147200,
-        "reading_bytes": 891440113,
+        "total_bytes": 812646400,
+        "reading_bytes": 730202128,
         "tier": "light",
         "reading_mb": {
-          "total": 850.1,
-          "js_heap": 210.4,
-          "arraybuffers": 372.4,
-          "gpu_buffers": 149.9,
-          "gpu_textures": 117.4
+          "total": 696.4,
+          "js_heap": 210.7,
+          "arraybuffers": 197.9,
+          "gpu_buffers": 168.9,
+          "gpu_textures": 118.8
         },
         "lowered_by": {
-          "ticket": "T-2718",
-          "on": "2026-10-17T17:09:52.425Z",
-          "build": "e62b79251",
-          "reading": "docs/measurements/T-2718-memory-mobile.json",
-          "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+          "ticket": "T-2775",
+          "on": "2026-10-18T14:21:22.796Z",
+          "build": "7b146804+T-2775",
+          "reading": "docs/measurements/T-2775-memory.json",
+          "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. Dev 7b146804 before the change read 854.1 MB on the same machine the same hour (arraybuffers 379.3, railway layer 214.9 MB kept; docs/measurements/T-2775-memory-dev.json). 696.4 x 1.1 rounded up to 25 MiB = 775 MiB.",
+          "before": {
+            "ticket": "T-2718",
+            "on": "2026-10-17T17:09:52.425Z",
+            "build": "e62b79251",
+            "reading": "docs/measurements/T-2718-memory-mobile.json",
+            "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+          }
         }
       }
     }

@@ -1200,6 +1200,16 @@ function ordinanceSection(limits, p) {
   </section>`;
 }
 
+/** T-2643: which side of the 1835 fire limit a building stood on, and the day the by-law
+ *  passed, as data for Inspect's Story tab; null under the same conditions the card's own
+ *  section stays silent. */
+function fireLimitSide(limits, p) {
+  if (!limits) return null;
+  const covered = limits.coversPlacement(p);
+  if (covered === null) return null;
+  return { inside: covered, passed: limits.ordinance?.passed ?? null };
+}
+
 /** The four panes under the facts, and the strip that switches them. The last
  *  tab a visitor chose is remembered for the session — module scope, not
  *  storage — so walking from one building to the next keeps the reader where
@@ -1472,6 +1482,9 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
             <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
           </section>`,
         story: presenceSection(s),
+        // T-2643: the fire limit's side, for Inspect's Story tab, where it is a dated row. Null
+        // where the limits did not load (every scene but 1835) or the record places nothing.
+        fireLimit: fireLimitSide(ordinanceLimits, p),
         photos: picturesPaneHtml(pictures, record.id, { open: true, failed: picturesFailed }),
         sources: `${basisSection(s, place)}
           ${whereSection(p, place)}

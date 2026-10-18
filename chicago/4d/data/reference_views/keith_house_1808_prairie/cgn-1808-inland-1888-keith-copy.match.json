@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "06b4a7eae4a8fb1ddeb79682aa1b735b5b8d3ebec750d0e59d895d5b8bd41305",
+  "glb_sha256": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
   "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
-      "status": "open"
+      "what": "T-2765: the bow's principal storey has four lights under the second storey's four, at its bearings, and the basement's three under the first three, read at the plate's native resolution (inland-1888's record says how); this copy shows the same.",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
@@ -40,8 +40,16 @@
       "status": "fixed"
     },
     {
-      "what": "The individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
+      "what": "T-2772: the joints, read on inland-1888, the plate itself at its native 1559 px (about 80 px/m on the lower storeys); this reproduction of the same photograph draws them at about 39 px/m and adds no reading (tools/keith_plate_grain_read.py, its table in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-grain-read.json). The print resolves the beds below the principal storey's transoms, where the street tree's branches thin. On the front's south strip and the bow's south flank the beds lie level with each other (7 of 8 front beds have a bow bed within 3 px), where the model courses the bow from its own bed (1 of 7 in the render). Up from the principal sill the print lays seven courses deep and thin in turn, as the model does, and at the model's pitch (a deep and a thin course together 50.7 px in print, 51.4 in render). But it splits them 33 / 18 px (about 0.44 / 0.24 m) where the model's 0.49 / 0.195 m render 36.8 / 14.7. From the sill down the print lays 3 even courses of 35, 37, 36 px (about 0.47-0.49 m) over a 49 px foot, with no thin one, where the render lays thin and deep in turn (16, 36, 15, 36 px) over two base courses (27, 26). Above the principal storey the courses are washed out and crossed by branches, so they are not read. T-2773 builds what the print reads.",
       "status": "open"
+    },
+    {
+      "what": "T-2772: the upper capitals' carving is not shown. In the plate at its native 1559 px (about 76 px/m at the third storey's heads; this reproduction draws them at about 33 px/m) each of the five colonnettes' capitals is about 20 px tall and 16 px across. All five stand in the shadow band under the third storey's head, crossed by the street tree's branches: the print holds the shafts below them, and no tone in the capitals to read a bell, a neck ring or carving from. They stay the model's neck ring under a flaring bell (T-2566), reconstructed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2772: the head bands' sections are not shown. Read along the crown's own courses at the plate's native 1559 px (about 76 px/m there; this reproduction draws it at about 33 px/m), the head band under the checker band stands where the print's does. Its shadow line lies 143.5 px under the lattice's lower openings in print, and 155.0 in render (145.2 at the print's scale, from the lattice's row pitch, 29.5 px against 31.5). The band reads as one light fillet a few px tall over its shadow, which is 16.5 px deep in print against 13.1 at scale in render. A moulding's steps of a few centimetres are 2-4 px here, finer than the print resolves through the branches, so the band keeps its built section. T-2773 weighs the few px of extra shadow.",
+      "status": "not shown"
     },
     {
       "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",

@@ -47,6 +47,11 @@
  * phone. An iPhone's core is faster than that preset assumes, so 4× is a
  * pessimistic stand-in and is chosen as one; `--throttle 1` reads it bare.
  *
+ * T-2717: each move also prints its `near re-deal` line — the near passes and
+ * each one's main-thread ms, and where the GPU draws the near ring (T-2716), its
+ * deal passes, tile builds and uploads (`flora.nearDraw.stats`) — so the near
+ * ring's share of a moving frame is read on its own (docs/RENDERING.md App. B).
+ *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
  * the animation loop runs it (`setFloraSpread`); `--sync` reads the one-frame
  * pass every rebuild was before, and is the "before" of T-2106's reading.
@@ -334,6 +339,13 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
   const spread0 = { ...(a.flora.stats?.spread ?? {}) };
   if (spread0.slots) spread0.slots = { ...spread0.slots }; // T-2696: counted in place
   spread0.passes = { ...(spread0.passes ?? {}) }; // counted in place, so copied
+  // T-2717: the near ring's own re-deal. Each near pass's main-thread ms (a
+  // spread pass's from its landing record, a one-frame pass's as the frame's
+  // flora ms, which is all it can be told apart by), and where the GPU draws the
+  // near tufts (T-2716) what its deal pass, tile builds and uploads spent.
+  const nearStats = a.flora.nearDraw?.stats;
+  const nearDraw0 = nearStats ? { ...nearStats } : null;
+  const nearMs = [];
   // T-2096 § acceptance, "no visible change in where plants stand": a digest of
   // every instance buffer the flora layer holds, taken along the move, so two
   // builds can be compared plant for plant (`--json` keeps them).
@@ -382,6 +394,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
     for (const k in t) t[k] = 0;
     const sp0 = a.flora.stats?.spread;
     const before = sp0 && [sp0.passes.near + sp0.passes.far, sp0.landings, sp0.drained];
+    const sp0Near = sp0?.passes.near ?? 0;
     const t0 = now();
     a.step();
     const sp1 = a.flora.stats?.spread;
@@ -393,6 +406,11 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
         : sp1.landings > before[1] ? 'landed'
           : sp1.passes.near + sp1.passes.far > before[0] ? 'one-frame' : null;
     rows.push({ frame: now() - t0, ...t });
+    if (before && sp1.passes.near > sp0Near) {
+      const last = sp1.last?.near;
+      nearMs.push(sp1.landings > before[1] && last?.pass === sp1.passes.near ? last.ms
+        : (t['flora.update'] ?? 0));
+    }
     // T-2605: a frame over 50 ms is named — its index along the move, its flora
     // milliseconds and what the spread passes had done by then — because a count
     // of them cannot say WHICH pass it was. That is how the walk's grade-change
@@ -496,6 +514,15 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
       - ((s1.landings ?? 0) - (spread0.landings ?? 0)),
   } : null;
   const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
+  const nearSorted = nearMs.slice().sort((x, y) => x - y);
+  const near = {
+    passes: nearMs.length,
+    median: nearSorted[Math.floor(nearSorted.length / 2)] ?? 0,
+    max: nearSorted[nearSorted.length - 1] ?? 0,
+    ms: nearMs.reduce((x, y) => x + y, 0),
+    gpu: nearDraw0 ? Object.fromEntries(Object.keys(nearDraw0)
+      .map((k) => [k, nearStats[k] - nearDraw0[k]])) : null,
+  };
   a.setAnimationHold(false);
   for (const u of undo) u();
   const col = (k) => rows.map((r) => r[k] ?? 0).sort((x, y) => x - y);
@@ -509,7 +536,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, verified, heldZones, swardGrid, longs,
+    frames: rows.length, rebuilds, digests, spread, near, verified, heldZones, swardGrid, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -812,6 +839,14 @@ for (const vp of VIEWPORTS) {
           + (r.spread.slots?.dealt ? `, ${(100 * r.spread.slots.grounded / r.spread.slots.dealt).toFixed(0)} % of`
             + ` ${r.spread.slots.dealt} pool slots dealt off the workers' ground` : '')
           + (r.spread.jumps ? ` (landing in ${r.spread.jumpFrames} frames between them)` : '') : ''));
+      if (r.near?.passes) {
+        const g = r.near.gpu;
+        console.log(`  near re-deal: ${r.near.passes} passes, ${r.near.median.toFixed(1)} ms median and`
+          + ` ${r.near.max.toFixed(1)} max on the main thread (${r.near.ms.toFixed(0)} ms in all)`
+          + (g ? ` | GPU near ring: ${g.passes} deal passes ${g.passMs.toFixed(0)} ms, ${g.builds} tile builds`
+            + ` ${g.buildMs.toFixed(0)} ms, ${g.uploads} uploads, ${g.readBacks} read-backs`
+            : ' | near tufts drawn by the CPU'));
+      }
       for (const l of r.longs ?? []) {
         console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
           + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);

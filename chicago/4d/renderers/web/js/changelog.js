@@ -1,4 +1,79 @@
 export const CHANGELOG = [ // newest first
+  { v: 2001, ts: '2026-10-18T15:34:41.950Z', date: 'Oct 18, 2026, 10:34 AM CT', title: 'Glessner\'s stable roof checked against two old photographs: the roof was right', kind: 'improvement',
+    items: [
+      'The 1963 survey photograph seemed to show the stable roof about 2 feet lower than the model. Measured against the carriage doorway, the one surveyed length on that wall, most of that gap turns out to be the camera.',
+      'Read the same way, the c. 1887 photograph from the northwest agrees: the gable\'s peak and the dovecote\'s point land within about a foot of where the model has them, so the roof stays as built.',
+      'The dovecote was also thought to stand about 4 feet north of where the model puts it. That reading does not hold up: the old photograph puts it about a foot and a half north, and it stays on the ridge where it was placed.',
+    ] },
+  { v: 2000, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: '1904 holds 158 MB less on a phone', kind: 'fix',
+    items: [
+      'The lakefront railway kept 215 MB of track geometry a phone never let go of. It now keeps 34 MB.',
+      'Full rail sections are built only for the stretch of yard near you and dropped once you walk past.',
+      'On a phone, the yard\'s ground and far rails move to the graphics chip and the page copy is freed.',
+      'Phone memory at the Prairie Avenue spawn: 854 MB before, 696 MB after.',
+    ] },
+  { v: 1999, ts: '2026-10-18T15:18:45.153Z', date: 'Oct 18, 2026, 10:18 AM CT', title: 'Nothing you can see changed: the 1965 porch photograph re-measured', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The camera for the 1965 colour slide of 1808 Prairie\'s loggia is fitted again, this time on the loggia\'s own columns and pedestal as well as the round bay\'s windows. Even on that camera the slide draws the loggia, and the bay\'s upper wall, about a third taller than the model, so the gap is between the two old pictures and not the camera. Which picture is wrong is now an open question for the Keith house\'s photo check.',
+    ] },
+  { v: 1998, ts: '2026-10-18T15:07:07.161Z', date: 'Oct 18, 2026, 10:07 AM CT', title: 'First time? The Navigator offers its 60-second tour once', kind: 'feature',
+    items: [
+      'On a device\'s first landing, Home offers "First time? Take the 60-second tour" under its three choices. Taking it starts the Field Check in the town; going in any other way declines it, and it is not offered again.',
+      'After it, three short hints show once each: at your first Jaunt\'s first stop, after your first Jump to another year, and on the first Reconstructed building you open.',
+      'No hint shows while the Field Check is running, and each goes at your next move or after a few seconds.',
+    ] },
+  { v: 1997, ts: '2026-10-18T15:07:07.161Z', date: 'Oct 18, 2026, 10:07 AM CT', title: 'Inspect\'s Story tab: a timeline from design to today', kind: 'feature',
+    items: [
+      'Story now runs as one timeline, with three marks: Built, You are here (the day you are visiting) and Today.',
+      'Glessner House runs from the lots bought in 1885 to the 1966 rescue, with You are here at 1 July 1904.',
+      'Anything after your visit is labelled After your visit, Today included.',
+      'Where our records give no build date, or don\'t say what stands there now, the timeline says so. It never guesses.',
+      'On an 1835 building, the town\'s August 1835 fire limit appears after your visit. No 1835 rule shows on a 1904 building.',
+    ] },
+  { v: 1996, ts: '2026-10-18T14:52:17.214Z', date: 'Oct 18, 2026, 9:52 AM CT', title: 'Keith\'s photo comparisons keep the pedestal findings', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the comparisons against the 1888 Inland Architect plate and the 1965 slide show the loggia pedestals\' findings again: plain panels in their border, a bordered south side still to build, and why the 1965 slide can\'t settle the stone\'s colour. A later change to the bow windows had dropped them from those two records.',
+    ] },
+  { v: 1995, ts: '2026-10-18T14:43:37.703Z', date: 'Oct 18, 2026, 9:43 AM CT', title: 'The grass drawn by the graphics card, timed while you walk', kind: 'change',
+    items: [
+      'Since yesterday the grass right around you is drawn by the graphics card. We timed walking, turning and flying on a stand-in for a mid-range phone, before that change and after it.',
+      'Moving feels the same as it did. Most of the work of laying out the nearby grass still happens before it reaches the graphics card, because the flower heads are hung from it. Moving that work across too is the next step.',
+    ] },
+  { v: 1994, ts: '2026-10-18T14:29:53.332Z', date: 'Oct 18, 2026, 9:29 AM CT', title: 'Keith\'s stonework read stone by stone from the 1888 plate', kind: 'change',
+    items: [
+      'At 1808 Prairie, the 1888 Inland Architect photograph was read at full size, course by course. On the lower storeys you can see the stones, and they run deep and thin in turn, as the house is built. The basement courses run even, and the bow\'s beds line up with the front\'s. Both are queued to be rebuilt.',
+      'The carved capitals of the top-floor colonnettes, and the exact profile of the band under the checkerwork, sit in shadow behind the street tree in that picture. They stay as drawn, marked as reconstructed.',
+    ] },
+  { v: 1993, ts: '2026-10-18T14:06:06.314Z', date: 'Oct 18, 2026, 9:06 AM CT', title: '1808 Prairie\'s library bow gets its fourth tall window', kind: 'change',
+    items: [
+      'The round library bay on 1808 Prairie\'s front now has four tall principal-floor windows, each standing directly under one of the four upper windows, as the 1888 floor plan and the 1967 photograph show them. It had three, set between the upper ones.',
+      'Its basement windows move with them, three under the first three; the front stair fills the place of a fourth.',
+      'The principal-floor windows are a little narrower (0.9 m, like the ones above) and the basement windows narrower still (0.73 m), read through the 1888 plate\'s level cameras. Their heights were already right and are unchanged.',
+    ] },
+  { v: 1992, ts: '2026-10-18T13:37:37.544Z', date: 'Oct 18, 2026, 8:37 AM CT', title: 'Keith house\'s entrance loggia lowered to the 1888 photograph\'s height', kind: 'change',
+    items: [
+      '1808 Prairie (1904): the entrance loggia\'s pedestals now stand 0.88 m and its paired columns 2.2 m, down from 1.0 m and 2.5 m, with the pierced parapet between the pedestals lowered to match. The balcony above drops about 40 cm with them.',
+      'The 1888 Inland Architect photograph can now be matched with a camera where a photographer could actually have stood: about 21 m out, across Prairie Avenue, 2.2 m up. With the loggia at its old height, every fitted camera ended up at ground level inside the houses across the street.',
+    ] },
+  { v: 1991, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'On a phone, the build details move into Settings, About', kind: 'change',
+    items: [
+      'On a phone, the preview banner and the DEV pill no longer sit over the top of the screen, and the arrival card no longer prints the build line under the town.',
+      'Settings now ends with an About section that shows which build you are using. On a preview build it also shows the DEV mark, says it is not production, and links to production.',
+      'On a computer nothing moves: the banner, the pill and the arrival card\'s build line stay where they were.',
+      'If an arrival stalls, the arrival card still shows the build line on a phone, because that is when it helps.',
+    ] },
+  { v: 1990, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'Glessner\'s terrace ends on its round stone post, as drawn', kind: 'fix',
+    items: [
+      'The rounded stone post at the foot of the courtyard terrace\'s coping now stands where the 1963 survey plan draws it: a little larger, and proud of the wall instead of buried inside it.',
+      'Seen from the courtyard, the post\'s shaft now shows whole from the ground to its domed top, and the coping curves down into its side, as the survey section and the c. 1923 court photograph show.',
+      'The three lowest winding steps meet the post\'s new face.',
+      'Still open: the plan and the section put that junction about a foot apart, and the build follows the plan.',
+    ] },
+  { v: 1989, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'Keith house\'s parapet band measured too deep against two photographs', kind: 'change',
+    items: [
+      '1808 Prairie (1904): measured against the view from Glessner\'s front door and Florian\'s 1948 photograph, the stone band between the parapet\'s pierced lattice and the carved band below it is drawn about 0.1-0.17 m too deep.',
+      'The difference was put down to how one camera was fitted. It is not the camera: it reads the same no matter how that camera is fitted, so it is the building, and correcting it is the next step for this house.',
+    ] },
   { v: 1988, ts: '2026-10-18T13:06:49.746Z', date: 'Oct 18, 2026, 8:06 AM CT', title: 'Keith\'s loggia pedestals plain, as the 1888 plate shows them', kind: 'fix',
     items: [
       'At 1808 Prairie, the two pedestals under the loggia\'s columns now carry plain panels in their stone border. Read at full size, the 1888 Inland Architect plate shows no carving in them, so the leaf scrolls drawn there before are gone.',

@@ -1,0 +1,156 @@
+{
+  "ticket": "T-2546",
+  "measured": {
+    "on": "2026-10-18T13:59:38.375Z",
+    "build": "7b146804",
+    "machine": "Intel(R) Xeon(R) Processor ×4",
+    "seconds": 110,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 221076824,
+        "arrayBuffers": 397776206,
+        "gpuBuffers": 156981918,
+        "gpuTextures": 119716349,
+        "gpuRenderbuffers": 3145732,
+        "total": 895551297
+      },
+      "gl": {
+        "gpuBuffers": 156981918,
+        "gpuTextures": 116570617,
+        "gpuRenderbuffers": 3145732,
+        "liveBuffers": 1149,
+        "liveTextures": 737,
+        "liveRenderbuffers": 2
+      },
+      "heapTotal": 225488896,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 328,
+        "images": 136
+      },
+      "layers": [
+        {
+          "name": "railway",
+          "cpuKept": 225360732,
+          "gpuGeometry": 225360732,
+          "textureBytes": 35651576,
+          "textures": 26,
+          "geometries": 126,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "structures",
+          "cpuKept": 0,
+          "gpuGeometry": 46977128,
+          "textureBytes": 295176096,
+          "textures": 278,
+          "geometries": 183,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-grid",
+          "cpuKept": 5204376,
+          "gpuGeometry": 5204376,
+          "textureBytes": 1835568,
+          "textures": 21,
+          "geometries": 17,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "terrain",
+          "cpuKept": 8892948,
+          "gpuGeometry": 1775716,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 111,
+          "cpuNeverUploaded": 8892948
+        },
+        {
+          "name": "context",
+          "cpuKept": 3310748,
+          "gpuGeometry": 3310748,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 8,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-trees",
+          "cpuKept": 363092,
+          "gpuGeometry": 363092,
+          "textureBytes": 0,
+          "textures": 2,
+          "geometries": 4,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 243132736,
+        "gpuGeometry": 282992632,
+        "textureBytes": 332750621,
+        "cpuNeverUploaded": 8892948
+      },
+      "uploadRelease": {
+        "geometries": 294,
+        "attributes": 1368,
+        "bytes": 68585958,
+        "keptForHarness": false,
+        "sources": 151,
+        "sourceBytes": 51064290,
+        "images": 0,
+        "imageBytes": 0
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 43,
+        "resident": 56,
+        "sources": 63,
+        "residentBytes": 65712256,
+        "budgetBytes": 268435456,
+        "wantedBytes": 65712256,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 7,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": true,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 31,
+          "fallback": 0,
+          "gpuBytes": 6729200,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 109
+      }
+    }
+  ]
+}
