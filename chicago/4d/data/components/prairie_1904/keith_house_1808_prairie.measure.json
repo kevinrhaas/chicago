@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 7947528,
-      "sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
+      "bytes": 7811208,
+      "sha256": "06b4a7eae4a8fb1ddeb79682aa1b735b5b8d3ebec750d0e59d895d5b8bd41305",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 67718,
-        "vertices": 144797
+        "triangles": 66118,
+        "vertices": 141629
       },
       "texture": {
         "images": 12,
@@ -261,8 +261,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 3666880,
-      "sha256": "fdcb3a3b8a27fc6469edaa67452c5cc1f9913e8a1b35e6faf752eb459e7cbff5",
+      "bytes": 3632756,
+      "sha256": "03c79a661ead21a2a42f1d2625d6c624e03f04f4d845ffea22f556885707d4c5",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -281,8 +281,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 67718,
-        "vertices": 117192
+        "triangles": 66118,
+        "vertices": 114024
       },
       "texture": {
         "images": 12,
@@ -440,7 +440,7 @@
           "uv_per_m_times_tile_m": 1
         },
         "stoop_stone": {
-          "median_uv_per_m": 1.1114,
+          "median_uv_per_m": 1.1113,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,

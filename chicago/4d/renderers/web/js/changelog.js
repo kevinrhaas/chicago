@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1988, ts: '2026-10-18T13:06:49.746Z', date: 'Oct 18, 2026, 8:06 AM CT', title: 'Keith\'s loggia pedestals plain, as the 1888 plate shows them', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the two pedestals under the loggia\'s columns now carry plain panels in their stone border. Read at full size, the 1888 Inland Architect plate shows no carving in them, so the leaf scrolls drawn there before are gone.',
+      'The stone\'s colour was checked against the 1965 colour slide\'s own whites and greys. They can\'t pin a tint, so the house keeps its neutral grey.',
+    ] },
+  { v: 1987, ts: '2026-10-18T12:40:24.054Z', date: 'Oct 18, 2026, 7:40 AM CT', title: 'Nothing you can see changed: the HUD stays under a tenth', kind: 'chore',
+    items: [
+      'Nothing you can see changed. A new check measures how much of a phone screen the HUD covers and holds it to 10 % or less, so the town stays in view as the Navigator grows. The street names under the compass and their on-off switch are measured but not counted.',
+    ] },
   { v: 1986, ts: '2026-10-18T12:22:10.364Z', date: 'Oct 18, 2026, 7:22 AM CT', title: 'Farwell house\'s arched entrance and iron stoop rails, from its 1886 drawing', kind: 'change',
     items: [
       '1623 Prairie (1904): the front door now stands at the back of a deep round arch beside the window\'s, as the 1886 Building Budget drawing shows it, in place of a flat-headed door.',
