@@ -4,7 +4,7 @@
 // colouring switch and the hidden set the way js/hud.js does.
 //
 // No browser: confidence.js is loaded with `three` pointed at the vendored copy, and
-// confidence-presets.js with its import pointed at that loaded module.
+// confidence-presets.js (and confidence-rows.js, T-2648) beside it, importing it.
 import assert from 'node:assert/strict';
 import { readFile, readdir, mkdtemp, writeFile } from 'node:fs/promises';
 import os from 'node:os';
@@ -19,6 +19,8 @@ const tmp = await mkdtemp(path.join(os.tmpdir(), 'presets-'));
 const conf = (await readFile(path.join(web, 'js/confidence.js'), 'utf8')).replace("from 'three'", `from '${threeURL}'`);
 await writeFile(path.join(tmp, 'confidence.js'), conf);
 await writeFile(path.join(tmp, 'confidence-presets.js'), await readFile(path.join(web, 'js/confidence-presets.js'), 'utf8'));
+// T-2648: the presets keep the curated swatch set in force (confidence-rows.js).
+await writeFile(path.join(tmp, 'confidence-rows.js'), await readFile(path.join(web, 'js/confidence-rows.js'), 'utf8'));
 const C = await import(pathToFileURL(path.join(tmp, 'confidence.js')).href);
 const P = await import(pathToFileURL(path.join(tmp, 'confidence-presets.js')).href);
 

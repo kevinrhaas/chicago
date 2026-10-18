@@ -458,7 +458,8 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
 
 /* ---- the Confidence view app (T-2647, apps/confidence-view.js) ------------------
    Four presets, one tap each, as a row of machine keys (the pressed one lit in the
-   accent); a row per grade with its show switch, swatch, look and count; and the
+   accent); a row per grade with its show switch, swatch, look and count (T-2648 opens
+   its colour, look and opacity); and the
    GRADE MASK / MESHES / FRAME CLK readout in the screen's phosphor. */
 .nav-presets { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0 0 12px; }
 .nav-preset {
@@ -471,17 +472,57 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
 .nav-preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .nav-preset[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, var(--panel-solid)); }
 .nav-grades { display: grid; gap: 6px; }
-.nav-grade {
-  display: grid; grid-template-columns: 20px 14px minmax(0, 1fr) auto auto; align-items: center; gap: 10px;
-  min-height: 44px; padding: 6px 12px; border: 1px solid var(--edge); border-radius: 10px; cursor: pointer; font-size: 14px;
+/* T-2648: a grade is a card — its head (Show, swatch, name · the look, which opens the
+   row · the count) and, one row at a time, its colour, look and opacity. */
+.nav-grade { border: 1px solid var(--edge); border-radius: 10px; font-size: 14px; }
+.nav-grade.is-open { border-color: var(--edge-strong, var(--edge)); }
+.nav-grade-head { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px 0 0; }
+.nav-grade-show { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 0 0 12px; cursor: pointer; min-width: 0; }
+.nav-grade input[type="checkbox"] { width: 18px; height: 18px; margin: 0; flex: none; accent-color: var(--accent); }
+.nav-grade-sw { --c: var(--ink-dim); width: 14px; height: 14px; border-radius: 3px; flex: none; background: var(--c); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
+.nav-grade-sw[data-look="dither"] { background: repeating-linear-gradient(45deg, var(--c) 0 2px, transparent 2px 4px); box-shadow: inset 0 0 0 1px var(--c); }
+.nav-grade-sw[data-look="ghost"] { opacity: .55; }
+.nav-grade-sw[data-look="none"] { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
+.nav-grade-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-grade-look {
+  min-height: 32px; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--edge); background: transparent; color: var(--ink-dim);
+  font: 400 10.5px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; white-space: nowrap;
 }
-.nav-grade input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
-.nav-grade-sw { width: 14px; height: 14px; border-radius: 3px; }
-.nav-grade-name { font-weight: 600; }
-.nav-grade-look { color: var(--ink-dim); font: 400 10.5px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; }
+.nav-grade-look::after { content: ""; display: inline-block; width: 5px; height: 5px; margin-left: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .15s; }
+.nav-grade-look[aria-expanded="true"] { color: var(--ink); border-color: var(--accent); }
+.nav-grade-look[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+.nav-grade-look:hover { border-color: var(--accent); }
+.nav-grade-look:focus-visible, .nav-swatch:focus-visible, .nav-look:focus-visible, .nav-safe:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .nav-grade-count { color: var(--ink-dim); font-size: 12px; font-variant-numeric: tabular-nums; min-width: 3ch; text-align: right; }
 .nav-grade.is-off .nav-grade-name, .nav-grade.is-off .nav-grade-count, .nav-grade.is-off .nav-grade-look { opacity: .55; }
 .nav-grade.is-off .nav-grade-sw { opacity: .3; }
+.nav-grade-controls { display: grid; gap: 10px; padding: 4px 12px 12px; }
+.nav-grade-controls[hidden] { display: none; }
+.nav-swatches { display: flex; gap: 10px; }
+.nav-swatch {
+  --c: transparent; position: relative; width: 36px; height: 36px; flex: none; padding: 0; border-radius: 50%; cursor: pointer;
+  border: 2px solid var(--panel-solid, transparent); background: var(--c); box-shadow: 0 0 0 1px var(--edge-strong, var(--edge));
+}
+.nav-swatch[aria-checked="true"] { box-shadow: 0 0 0 2px var(--accent); }
+/* The colour-blind-safe swatch carries a small ring at its foot, so it is found by shape, not hue. */
+.nav-swatch[data-safe]::after { content: ""; position: absolute; right: -3px; bottom: -3px; width: 12px; height: 12px; border-radius: 50%; background: var(--panel-solid, var(--ink)); box-shadow: inset 0 0 0 3px var(--ink-dim); }
+.nav-looks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.nav-look {
+  min-height: 40px; padding: 4px; border-radius: var(--r-control, 8px); border: 1px solid var(--edge-strong, var(--edge)); background: transparent; color: var(--ink);
+  font: 500 10.5px/1.15 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+}
+.nav-look:hover { border-color: var(--accent); }
+.nav-look[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, var(--panel-solid)); }
+.nav-opacity { display: grid; grid-template-columns: auto minmax(0, 1fr) 4.5ch; align-items: center; gap: 10px; min-height: 44px; }
+.nav-opacity-k, .nav-opacity-value { color: var(--ink-dim); font: 400 10.5px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; }
+.nav-opacity-value { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.nav-opacity-range { width: 100%; min-width: 0; height: 32px; margin: 0; accent-color: var(--accent); }
+.nav-safe {
+  margin-top: 10px; width: 100%; min-height: 44px; border-radius: 10px; border: 1px dashed var(--edge-strong, var(--edge)); background: transparent; color: var(--ink);
+  font: inherit; font-size: 13px; cursor: pointer;
+}
+.nav-safe:hover { border-color: var(--accent); }
+.nav-safe[aria-pressed="true"] { border-style: solid; border-color: var(--accent); }
 .nav-showall { margin-top: 10px; width: 100%; min-height: 44px; border-radius: 10px; border: 1px solid var(--edge); background: transparent; color: var(--ink); font: inherit; cursor: pointer; }
 .nav-showall:hover { border-color: var(--accent); }
 .nav-cm-note { margin: 8px 0 0; font-size: 12px; line-height: 1.45; }
