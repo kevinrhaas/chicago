@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2020, ts: '2026-10-18T21:45:45.140Z', date: 'Oct 18, 2026, 4:45 PM CT', title: '1625 Prairie\'s tall rear section steps out beside the house', kind: 'improvement',
+    items: [
+      'Behind McBirney\'s house at 1625 Prairie, the four-storey rear part the 1911 fire-insurance map draws now stands, stepping out past the south wall with a door at its foot and a window on each floor above.',
+      'It has a tall slate attic of its own with a dormer facing the street, its south end wall carried up to a chimney, as the 1890 photograph shows from the avenue.',
+    ] },
+  { v: 2019, ts: '2026-10-18T21:45:45.140Z', date: 'Oct 18, 2026, 4:45 PM CT', title: 'Keith house\'s front stair checked against three photographs and kept', kind: 'change',
+    items: [
+      '1808 Prairie (1904): an 1888-era street photograph seemed to put the front stair and its porch about a metre further out, with a much lower arch under it.',
+      'Measured properly, that photograph shifts the whole porch at its true size, which no camera position can square with the rest of the house. The 1888 magazine plate, a 1965 photograph and the printed floor plan all place the stair where it is built, so it stays.',
+      'The low arch in that photograph is only the top of the built arch; the rest is hidden behind the foreground.',
+    ] },
+  { v: 2018, ts: '2026-10-18T21:45:45.140Z', date: 'Oct 18, 2026, 4:45 PM CT', title: 'iPhone: tapping a building no longer resets the display', kind: 'fix',
+    items: [
+      'On an iPhone, tapping the Glessner House, or opening the Navigator beside it, could reset the display. Taps now read back their answer in the plain pixel format every phone supports.',
+      'The Glessner House roof no longer asks the GPU to rebuild detail levels its compressed textures already carry, a graphics error on every load.',
+    ] },
   { v: 2017, ts: '2026-10-18T20:43:45.162Z', date: 'Oct 18, 2026, 3:43 PM CT', title: '1623 Prairie\'s broad basement window and its scrolled iron grille', kind: 'feature',
     items: [
       'The basement light under Granger Farwell\'s arched window is now the broad, low opening of its 1886 drawing: 1.8 m across under a flat segmental arch of radiating stones.',
