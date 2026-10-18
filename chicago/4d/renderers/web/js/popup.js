@@ -1460,6 +1460,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     sections(record) {
       if (!record?.sidecar) return null;
       const s = record.sidecar;
+      // The placement, for Story's fire-limit row (T-2643); Sources reads it off the sidecar.
+      const p = s.placement ?? {};
       const residents = householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s;
       return {
         people: `${s.review_required === true ? `<div class="pop-flags">${heldFlagHtml(s)}</div>` : ''}
