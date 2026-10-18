@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1994, ts: '2026-10-18T14:29:53.332Z', date: 'Oct 18, 2026, 9:29 AM CT', title: 'Keith\'s stonework read stone by stone from the 1888 plate', kind: 'change',
+    items: [
+      'At 1808 Prairie, the 1888 Inland Architect photograph was read at full size, course by course. On the lower storeys you can see the stones, and they run deep and thin in turn, as the house is built. The basement courses run even, and the bow\'s beds line up with the front\'s. Both are queued to be rebuilt.',
+      'The carved capitals of the top-floor colonnettes, and the exact profile of the band under the checkerwork, sit in shadow behind the street tree in that picture. They stay as drawn, marked as reconstructed.',
+    ] },
   { v: 1993, ts: '2026-10-18T14:06:06.314Z', date: 'Oct 18, 2026, 9:06 AM CT', title: '1808 Prairie\'s library bow gets its fourth tall window', kind: 'change',
     items: [
       'The round library bay on 1808 Prairie\'s front now has four tall principal-floor windows, each standing directly under one of the four upper windows, as the 1888 floor plan and the 1967 photograph show them. It had three, set between the upper ones.',
