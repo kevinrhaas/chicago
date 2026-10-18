@@ -281,6 +281,8 @@ const COVERAGE = [
   // the 1835 tabs once in the town (T-2639); part 13 the rail.
   ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
   ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
+  // T-2643: Inspect's Story timeline; part 4 reads it on an 1835 building, part 14 on Glessner.
+  ['renderers/web/js/inspect-story.js', [4, 14], 'Inspect\'s Story tab: BUILT, YOU ARE HERE and TODAY (T-2643)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],

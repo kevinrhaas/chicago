@@ -24,6 +24,7 @@ export const DESTINATIONS = [
 ];
 export const RING_MS = 1200;
 const TRANSFER_KEY = 'chicago4d.transfer';
+const JUMPED_KEY = 'chicago4d.jumped'; // T-2664, js/tour-offer.js
 
 const dateWords = (date) => new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
   .format(new Date(`${date}T12:00:00Z`));
@@ -72,6 +73,9 @@ export function jumpTo(d, {
   const timer = wait(() => {
     pending = null;
     try { storage?.setItem(TRANSFER_KEY, String(Date.now())); } catch { /* the ring's tail is decoration */ }
+    // T-2664: and that this arrival is a Jump, for the far year's one-time Jump hint
+    // (js/tour-offer.js reads and clears it); the Observatory writes none.
+    try { storage?.setItem(JUMPED_KEY, String(d.year)); } catch { /* the hint is a nicety */ }
     go(d.href);
   }, reduced ? 0 : RING_MS);
   pending = { timer, overlay, onKey };

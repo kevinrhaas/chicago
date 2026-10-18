@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 1998, ts: '2026-10-18T15:07:07.161Z', date: 'Oct 18, 2026, 10:07 AM CT', title: 'First time? The Navigator offers its 60-second tour once', kind: 'feature',
+    items: [
+      'On a device\'s first landing, Home offers "First time? Take the 60-second tour" under its three choices. Taking it starts the Field Check in the town; going in any other way declines it, and it is not offered again.',
+      'After it, three short hints show once each: at your first Jaunt\'s first stop, after your first Jump to another year, and on the first Reconstructed building you open.',
+      'No hint shows while the Field Check is running, and each goes at your next move or after a few seconds.',
+    ] },
+  { v: 1997, ts: '2026-10-18T15:07:07.161Z', date: 'Oct 18, 2026, 10:07 AM CT', title: 'Inspect\'s Story tab: a timeline from design to today', kind: 'feature',
+    items: [
+      'Story now runs as one timeline, with three marks: Built, You are here (the day you are visiting) and Today.',
+      'Glessner House runs from the lots bought in 1885 to the 1966 rescue, with You are here at 1 July 1904.',
+      'Anything after your visit is labelled After your visit, Today included.',
+      'Where our records give no build date, or don\'t say what stands there now, the timeline says so. It never guesses.',
+      'On an 1835 building, the town\'s August 1835 fire limit appears after your visit. No 1835 rule shows on a 1904 building.',
+    ] },
   { v: 1996, ts: '2026-10-18T14:52:17.214Z', date: 'Oct 18, 2026, 9:52 AM CT', title: 'Keith\'s photo comparisons keep the pedestal findings', kind: 'fix',
     items: [
       'At 1808 Prairie, the comparisons against the 1888 Inland Architect plate and the 1965 slide show the loggia pedestals\' findings again: plain panels in their border, a bordered south side still to build, and why the 1965 slide can\'t settle the stone\'s colour. A later change to the bow windows had dropped them from those two records.',
