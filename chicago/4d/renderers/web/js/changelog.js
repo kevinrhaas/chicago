@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1985, ts: '2026-10-18T11:49:10.238Z', date: 'Oct 18, 2026, 6:49 AM CT', title: 'Glessner\'s stable cupola stands clear of its roof', kind: 'fix',
+    items: [
+      'The dovecote on the stable roof of Glessner House now rises above the ridge, as the 1963 HABS photograph and the c. 1887 Cornell view show it.',
+      'Both tiers of pigeon holes are in the open air, and its pointed roof stands well above the north gable instead of level with it.',
+      'The new heights are read from the photographs against the gable and ridge, about a foot either way, and the Liberties page says so.',
+    ] },
+  { v: 1984, ts: '2026-10-18T11:26:26.785Z', date: 'Oct 18, 2026, 6:26 AM CT', title: '1808 Prairie\'s loggia: the 1888 plate tried with a level camera', kind: 'change',
+    items: [
+      'The 1888 Inland Architect plate of 1808 Prairie is fitted with a level camera on its front and on its loggia\'s columns and pedestals, every point read at the scan\'s full size.',
+      'Whatever points it is fitted on, a level camera still draws the built column 6-8 % taller than the plate shows it, so the column, its pedestal or the front\'s own heights are off, not just the old camera.',
+      'Nothing in the walk changes yet. The column\'s height is re-ruled next, then the plate\'s camera, the 1965 view\'s camera and the bow\'s windows.',
+    ] },
   { v: 1983, ts: '2026-10-18T10:49:21.623Z', date: 'Oct 18, 2026, 5:49 AM CT', title: 'Trees are grown by species, with their own bark and leaves', kind: 'improvement',
     items: [
       'Each tree species grows its own shape: the cottonwood\'s massive rising limbs, the bur oak\'s crooked horizontals, the elm\'s vase, the willow\'s leaning stems.',
