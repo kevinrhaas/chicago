@@ -45,7 +45,7 @@ from scipy.optimize import least_squares
 
 ROOT = Path(__file__).resolve().parents[1]
 GLB = ROOT / 'assets/gltf/keith_house_1808_prairie__as_built_1886.glb'
-GLB_SHA256 = '9e39ecfca62f40ea18fbfec229d8120559a4059f1a266991b24f3b1f0e78a6a7'
+GLB_SHA256 = '8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e'  # T-2765 on T-2763: the bow's lights moved; no control here is on the bow, so none moved
 REPORT = ROOT / 'docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json'
 PRINT_PX = [1559, 2400]
 
