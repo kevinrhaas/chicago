@@ -15904,6 +15904,77 @@ for (const [label, viewport, touch] of [
       && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
       JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
     // ---- end T-2663
+    // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
+    // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
+    // again; no hint shows while the tour runs; a Reconstructed building's card hints once.
+    // The Field Check just finished above, which spends the offer too, so its record is set
+    // aside for this block and put back after, as are where the visitor stood and the offer.
+    // Clicks are hit-tested but never abort the part: a miss is this check's failure, read below.
+    const offerSeen = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const w = api.walker;
+      const at = { local_e: w.state.e, local_n: w.state.n, yaw_deg: w.bearingDeg };
+      const tourWas = localStorage.getItem('chicago4d.tour');
+      localStorage.removeItem('chicago4d.tour');
+      api.tourOffer.forget(); api.hints.forget(); api.roamTip.hide();
+      api.popup.close();
+      api.welcome.show();
+      const o = document.getElementById('tour-offer');
+      const b = o?.getBoundingClientRect();
+      return { at, tourWas, shown: !!o && !o.hidden && !!b && b.width > 0 && b.height > 0, text: o?.textContent.trim() ?? '',
+        tall: Math.round(b?.height ?? 0), wide: !!b && b.left >= 0 && b.right <= innerWidth };
+    });
+    const offerClick = await clickChrome('#tour-offer').then(() => null, (e) => { return page.evaluate(() => document.getElementById('tour-offer')?.click()).then(() => e.message); });
+    await page.waitForFunction(() => window.__chicago4d.tour.running && document.getElementById('gate').hidden, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+    const offerTaken = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      return { gateHidden: document.getElementById('gate').hidden, state: api.welcome.state, running: api.tour.running, step: api.tour.step,
+        stored: localStorage.getItem('chicago4d.tourOffer'), roamTip: api.roamTip.showing, held: api.hints.show('reconstructed'),
+        owed: !api.hints.seen('reconstructed') };
+    });
+    const skipClick = await clickChrome('#tour-skip').then(() => null, (e) => { return page.evaluate(() => window.__chicago4d.tour.skip()).then(() => e.message); });
+    await page.waitForFunction(() => !window.__chicago4d.tour.running, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+    const offerAfter = await page.evaluate(async (seen) => {
+      const api = window.__chicago4d;
+      const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+      // Home again: not offered a second time.
+      api.welcome.show();
+      const reoffered = !document.getElementById('tour-offer').hidden;
+      api.welcome.close();
+      // A Reconstructed building's card: the hint, once.
+      const row = api.destinations.search('', { kind: 'structure', includeReconstructed: true })
+        .find((r) => r.presence === 'reconstructed' && api.registry.has(r.id));
+      const read = () => {
+        const h = document.getElementById('nav-hint'); const b = h?.getBoundingClientRect();
+        return { showing: !!h && !h.hidden, text: h?.textContent ?? '', id: h?.dataset.hint ?? null,
+          inView: !!b && b.width > 0 && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight,
+          pointer: h ? getComputedStyle(h).pointerEvents : null };
+      };
+      let first = null, second = null;
+      if (row) {
+        api.pick(row.id); await pause(150); first = read();
+        api.popup.close(); api.hints.hide();
+        api.pick(row.id); await pause(150); second = read();
+        api.popup.close();
+      }
+      // Back as it was found: where the visitor stood, the Field Check's record, the offer
+      // answered, no hint, Home the Navigator's app, docked.
+      api.walker.teleport(seen.at);
+      if (seen.tourWas === null) localStorage.removeItem('chicago4d.tour'); else localStorage.setItem('chicago4d.tour', seen.tourWas);
+      api.hints.hide(); api.roamTip.hide();
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return { reoffered, row: row?.id ?? null, first, second, stored: localStorage.getItem('chicago4d.tourOffer') };
+    }, offerSeen);
+    check(`${label}: Home offers the 60-second tour once per device, taking it starts the Field Check, and a Reconstructed building hints once (T-2664)`,
+      offerSeen.shown && offerSeen.text === 'First time? Take the 60-second tour' && offerSeen.wide && offerSeen.tall >= 44 && !offerClick
+      && offerTaken.gateHidden && offerTaken.state === 'world' && offerTaken.running && offerTaken.step === 0 && offerTaken.stored === 'taken'
+      && !offerTaken.roamTip && !offerTaken.held && offerTaken.owed
+      && !offerAfter.reoffered && offerAfter.stored === 'taken' && !!offerAfter.row
+      && offerAfter.first?.showing && offerAfter.first.id === 'reconstructed' && /^Reconstructed\b/.test(offerAfter.first.text)
+      && offerAfter.first.inView && offerAfter.first.pointer === 'none' && !offerAfter.second?.showing,
+      JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
+    // <<< T-2664
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.

@@ -165,6 +165,9 @@ step "The Navigator's telemetry strip ticks every 800 ms only while the device i
 # T-2663: Tour mode, the Field Check.
 step "The Field Check's seven steps each move on only on their own action, resume after a reload, skip and replay, in bubbles of 14 words or fewer (T-2663)" \
   node tools/test_tour.mjs
+# T-2664: the tour offered once per device, and the one-time hints after it.
+step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
+  node tools/test_tour_offer.mjs
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
