@@ -320,8 +320,10 @@ export function createViewOcclusion({ camera, renderer, triangles, batches, allo
       for(let i=0;i<16;i++){keyBuf[i]=pm[i];keyBuf[16+i]=vm[i];}
       keyBuf[32]=size.x;keyBuf[33]=size.y;
       vp.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);
-      active.length=0;
-      for(let i=0;i<triangles.length;i++) if(flags[i]) active.push(triangles[i]);
+      // Filled in place: emptying it first gave back its storage, regrown every frame.
+      let n=0;
+      for(let i=0;i<triangles.length;i++) if(flags[i]) active[n++]=triangles[i];
+      active.length=n;
       occluders=projectOccluders(active,camera,size.x,size.y);
     }
   }
