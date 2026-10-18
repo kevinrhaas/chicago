@@ -154,8 +154,10 @@ export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {}
 
   // ---- tiles --------------------------------------------------------------
   if (hub) {
+    // T-2657: a topic marked `data-researcher` (the order book, once T-2667 marks it) is
+    // Researcher mode's, and so is its tile: the stylesheet shows both only while it is on.
     hub.innerHTML = [...topics.values()].map((t) => `<button class="ev-tile" type="button" data-topic="${t.id}"`
-      + ` aria-label="${escapeHtml(t.title)}">`
+      + `${t.el.hasAttribute('data-researcher') ? ' data-researcher' : ''} aria-label="${escapeHtml(t.title)}">`
       + `<span class="ev-tile-head">${t.icon}<b class="ev-count" aria-label="entries">…</b></span>`
       + `<span class="ev-tile-title">${escapeHtml(t.title)}</span>`
       + `<span class="ev-gloss">${escapeHtml(t.gloss)}</span></button>`).join('');

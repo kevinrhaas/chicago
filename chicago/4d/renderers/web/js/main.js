@@ -103,6 +103,7 @@ import { createEvidenceHub } from './evidence.js';
 import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
+import { createResearcherMode } from './researcher.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -1486,6 +1487,9 @@ const api = {
   textureResidency: null,
 };
 window.__chicago4d = api;
+// T-2657: Researcher mode, Settings › About. Read from this device before anything paints,
+// so a researcher's page opens with the research already in place.
+api.researcher = createResearcherMode({ storage: safeStorage() });
 // The gate is up exactly when no control backend is live, so its hint row cannot wait
 // for one: it follows the device's best guess (T-2045). A phone was shown W A S D and
 // Esc through the whole arrival, on a failed boot, and back on the welcome.

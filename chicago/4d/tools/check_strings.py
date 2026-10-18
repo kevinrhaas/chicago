@@ -20,8 +20,11 @@ reads those strings exactly as written, so this refuses, in every section:
     recorded …), each named with the word that replaced it;
   - an id, snake_case word, file path, link or ticket number (compile_summaries.lint_string,
     imported, so this gate and the summary and Guide gates agree), and a sentence over 20
-    words — except in a string only Researcher mode shows, a key with a `researcher`
-    segment (T-2668; tools/check_visitor_ui.py has the contract), which keeps the term rules;
+    words — except that a string only Researcher mode shows, a key with a `researcher`
+    segment (T-2668; tools/check_visitor_ui.py has the contract), may run a sentence past
+    20 words. It keeps every other rule: the owner, 2026-10-18 (T-2657), "rewrite the records
+    so you are not referring to internal ticket numbers or internal record ids in researcher
+    or educator mode", so it still refuses an id, a file path and a ticket number;
   - in renderers/web/index.html, a [data-str] / [data-str-title] / [data-str-label] naming a
     key the table does not hold, or whose first-paint words differ from the table's (the
     page would change under the visitor as the module arrives);
@@ -80,8 +83,9 @@ def read_table(strings=STRINGS):
 
 
 def term_errors(where, text, locked, retired, renamed, researcher=False):
-    """`researcher`: a string only Researcher mode shows (T-2668) keeps the terms rules and
-    may carry the ids, paths and long sentences an adult researcher reads."""
+    """`researcher`: a string only Researcher mode shows (T-2668) may run a sentence past the
+    visitor's 20 words (a full essay), and keeps every other rule: no id, path or ticket
+    number reaches a researcher either (owner, 2026-10-18, T-2657)."""
     errs = []
     bare = re.sub(r"\{\w+\}", "x", text)
     # Machine lore stays in mono caps (section 03): a string set wholly in capitals, a
@@ -103,10 +107,10 @@ def term_errors(where, text, locked, retired, renamed, researcher=False):
     for old, new in renamed:
         if re.search(rf"(?<![\w-]){re.escape(old)}(?![\w-])", bare):
             errs.append(f"{where}: `{old}` was renamed `{new}` (section 03)")
+    for found in lint_string(bare):
+        errs.append(f"{where}: {found} in a string a {'researcher' if researcher else 'visitor'} reads")
     if researcher:
         return errs
-    for found in lint_string(bare):
-        errs.append(f"{where}: {found} in a string a visitor reads")
     for s in re.split(r"(?<=[.!?])\s+", bare):
         if len(words(s)) > MAX_SENTENCE_WORDS:
             errs.append(f"{where}: a sentence of {len(words(s))} words, over {MAX_SENTENCE_WORDS}")
@@ -243,8 +247,14 @@ def self_test():
     plant("a long sentence", "a sentence of 21 words", " ".join(["word"] * 21) + ".")
     dump3 = json.loads(json.dumps(base)); dump3["entries"].append(["researcher.planted", "See data/scenes/1835.json, attested."])
     errs3 = gate(dump3, page)
-    expect(not any("file path" in e for e in errs3) and any("spelled another way" in e for e in errs3),
-           "a Researcher-mode string may carry a path (T-2668) and still keeps the locked terms")
+    expect(any("file path" in e for e in errs3) and any("spelled another way" in e for e in errs3),
+           "a Researcher-mode string refuses a path (T-2657) and keeps the locked terms")
+    for label, value, needle in [("a ticket number", "Fixed under T-2624.", "ticket number"),
+                                 ("a snake_case id", "Inspect glessner_house.", "snake_case")]:
+        d = json.loads(json.dumps(base)); d["entries"].append(["guide.researcher.planted", value])
+        expect(any(needle in e for e in gate(d, page)), f"{label} in a Researcher-mode string is refused (owner, 2026-10-18)")
+    d = json.loads(json.dumps(base)); d["entries"].append(["researcher.planted", " ".join(["word"] * 30) + "."])
+    expect(not any("a sentence of" in e for e in gate(d, page)), "a Researcher-mode string may run past 20 words (a full essay)")
     plant("markup naming no string", "names no string", markup='<b data-str="hud.no-such">x</b>')
     first = next((k for k, v in base["entries"]), None)
     plant("markup whose first paint differs", "paints", markup=f'<b data-str="{first}">Something else</b>')
