@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1996, ts: '2026-10-18T14:52:17.214Z', date: 'Oct 18, 2026, 9:52 AM CT', title: 'Keith\'s photo comparisons keep the pedestal findings', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the comparisons against the 1888 Inland Architect plate and the 1965 slide show the loggia pedestals\' findings again: plain panels in their border, a bordered south side still to build, and why the 1965 slide can\'t settle the stone\'s colour. A later change to the bow windows had dropped them from those two records.',
+    ] },
   { v: 1995, ts: '2026-10-18T14:43:37.703Z', date: 'Oct 18, 2026, 9:43 AM CT', title: 'The grass drawn by the graphics card, timed while you walk', kind: 'change',
     items: [
       'Since yesterday the grass right around you is drawn by the graphics card. We timed walking, turning and flying on a stand-in for a mid-range phone, before that change and after it.',
