@@ -28538,22 +28538,28 @@ to 1.05 m by T-2713 where T-2579's re-fitted camera on the 1888 Glessner plate r
 0.1 m beyond the render's (3.5 px at 37 px/m; now within 1-2 px); and the pipe's and cap's widths
 against the 0.46 m courses (about 0.28 m and 0.58 m).
 **What is invented:** the riser hidden behind the parapet and where it meets the deck; its depth
-behind the north face (0.6 m), which sets its foot inside the hall stack's plan and so reads as
-that flue's termination — plausible, not shown; the elbow's height under the coping; the bowl's
+behind the north face (0.45 m since T-2811, 0.6 m before), which sets its foot inside the hall
+stack's plan and so reads as that flue's termination — plausible, not shown. T-2811 took it from the
+two pictures that can see it through cameras holding the return's pinnacles beside it: the c. 1888
+view looking SW reads about 0.3 m and the 1888 Glessner plate 0.6 m, and both see a move along the
+return almost as a change of set-back, so they cannot both be met; 0.45 m is their least-squares
+set-back (0.42 m fitted), leaving the cap within 6 px of each print; the elbow's height under the coping; the bowl's
 and the disc's sections; and its colour, a plain pale grey standing for galvanized iron, which the
 monochrome prints show only as paler than its cap and close to the granite; and that it
 still stands in the 1904 scene this phase serves (it is there in 1887-89 and gone by 1948, and
 when it went is not known).
-**How to resolve:** a re-fit of the c. 1888 view looking south-west, whose T-1883 camera puts the
-rear pinnacle about 60 px off and still reads the cap higher than the plate does (T-2713 left that
-excess to the camera, not the cowl); and the undated Glessner-front view, which shows no cowl at
+**How to resolve:** the c. 1888 view looking south-west was re-fitted (T-2748) and read with the
+plate by T-2811: its height excess was the set-back's (0.3 m nearer the face raises the cap 5 px in
+that view and leaves the plate's height reading unchanged), and the two cameras' remaining 0.3 m
+disagreement on the set-back is theirs, not the cowl's — a third picture with a camera fitted on the
+return from the north or west would settle it; and the undated Glessner-front view, which shows no cowl at
 any bounded set-back and is read by T-2713 as later than its removal (probably 1890s-1920s,
 T-2216): a date for that picture would confirm or overturn that reading. The hall stack's height
 was settled by T-2712 (it stops under the coping).
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2578 (piece 2 of T-2567).
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
-**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713).
+**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713); 2026-10-18 (T-2811).
 
 ### L-k01-keith-south-strip-2581 — Keith's south corner: a straight strip of the front's stone, 2.1 m deep
 
