@@ -16283,6 +16283,94 @@ for (const [label, viewport, touch] of [
       && offerAfter.first.inView && offerAfter.first.pointer === 'none' && !offerAfter.second?.showing,
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
+    // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
+    // which is read first. Then, the license set aside, the Field Check is put back at step 07
+    // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
+    // for, since on the desktop runner its few seconds can pass inside one frame). A second
+    // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
+    // with the Jaunt keepsakes. The tour's record is put back after, as are Home and the dock.
+    const licenseFirst = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const first = localStorage.getItem('chicago4d.navigatorLicense');
+      const tourWas = localStorage.getItem('chicago4d.tour');
+      api.license.forget(); api.hints.hide(); api.roamTip.hide(); api.popup.close();
+      const h = document.getElementById('nav-hint');
+      window.__licenseSeen = [];
+      const look = () => {
+        if (h.hidden || h.dataset.hint !== 'license') return;
+        const b = h.getBoundingClientRect();
+        window.__licenseSeen.push({ text: h.textContent, pointer: getComputedStyle(h).pointerEvents,
+          inView: b.width > 0 && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight });
+      };
+      window.__licenseObs = new MutationObserver(look);
+      window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      const resumed = api.tour.resume() && api.tour.step;
+      return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
+    });
+    const licenseFinish = async () => {
+      await page.waitForFunction(() => !document.getElementById('tour-next').hidden, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+      const miss = await clickChrome('#tour-next').then(() => null, (e) => page.evaluate(() => document.getElementById('tour-next')?.click()).then(() => e.message));
+      await page.waitForFunction(() => !window.__chicago4d.tour.running, null, { timeout: 60_000, polling: 100 }).catch(() => {});
+      return miss;
+    };
+    const licenseClick = await licenseFinish();
+    await page.waitForFunction(() => window.__licenseSeen?.length > 0, null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const licenseAwarded = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const seen = window.__licenseSeen.slice();
+      window.__licenseSeen.length = 0;
+      api.hints.hide();
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      api.tour.resume();
+      return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
+    });
+    const licenseAgainClick = await licenseFinish();
+    await page.waitForTimeout(600);
+    const licenseAgain = await page.evaluate(() => {
+      window.__licenseObs.disconnect();
+      return { seen: window.__licenseSeen.length, stored: localStorage.getItem('chicago4d.navigatorLicense') };
+    });
+    // The Jaunts app's daybook.
+    await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.hud.setPanel(false); api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('jaunts');
+    });
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-jaunts [data-action="daybook"]'), null, { timeout: 90_000, polling: 200 }).catch(() => {});
+    const licenseChip = await page.evaluate(() => document.querySelector('#nav-app-jaunts [data-action="daybook"]')?.textContent.trim() ?? null);
+    const licenseChipClick = await clickChrome('#nav-app-jaunts [data-action="daybook"]')
+      .then(() => null, (e) => page.evaluate(() => document.querySelector('#nav-app-jaunts [data-action="daybook"]')?.click()).then(() => e.message));
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-jaunts [data-keepsake="navigator-license"]'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const licenseShelf = await page.evaluate(async (seen) => {
+      const api = window.__chicago4d;
+      const card = document.querySelector('#nav-app-jaunts [data-keepsake="navigator-license"]');
+      card?.scrollIntoView?.({ block: 'nearest' });
+      await new Promise((r) => setTimeout(r, 300));
+      const b = card?.getBoundingClientRect();
+      const out = { card: !!card, onShelf: !!card?.parentElement?.classList.contains('jaunt-keepsakes'),
+        keepsake: !!card?.classList.contains('jaunt-keepsake'), text: card?.textContent ?? '',
+        visible: !!card?.checkVisibility?.(), wide: !!b && b.width > 0 && b.height > 0 && b.left >= 0 && b.right <= innerWidth };
+      // Back as it was found: the list, lent back to the Welcome card; Home, docked; the
+      // Field Check's record as the blocks above left it.
+      document.querySelector('#welcome-jaunts-content .jaunt-back')?.click();
+      api.jauntsApp?.restore();
+      api.hints.hide();
+      if (seen.tourWas === null) localStorage.removeItem('chicago4d.tour'); else localStorage.setItem('chicago4d.tour', seen.tourWas);
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    }, licenseFirst);
+    check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 6 && !licenseClick
+      && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
+      && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
+      && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored
+      && /· \d+ kept$/.test(licenseChip ?? '') && licenseShelf.card && licenseShelf.onShelf && licenseShelf.keepsake
+      && /Navigator License/.test(licenseShelf.text) && /Issued /.test(licenseShelf.text) && licenseShelf.visible && licenseShelf.wide,
+      JSON.stringify({ licenseFirst: { ...licenseFirst, tourWas: undefined }, licenseClick, licenseAwarded, licenseAgainClick, licenseAgain, licenseChip, licenseChipClick, licenseShelf }));
+    // <<< T-2665
     // ---- T-2632: Go to's filters are All · Places · People · Shops & work · Viewpoints, a
     // kind with nothing in it gets no chip, long names wrap to two lines, and every placed
     // row says how far and which way from where you stand.
