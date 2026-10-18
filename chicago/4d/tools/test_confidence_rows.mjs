@@ -21,7 +21,8 @@ const js = path.join(tmp, 'js');
 await mkdir(path.join(js, 'apps'), { recursive: true });
 await writeFile(path.join(js, 'confidence.js'),
   (await readFile(path.join(web, 'js/confidence.js'), 'utf8')).replace("from 'three'", `from '${threeURL}'`));
-for (const f of ['confidence-presets.js', 'confidence-rows.js', 'apps/confidence-view.js']) {
+// T-2650: the app mounts its overlays (confidence-overlays.js) at its foot, with the naming it reuses.
+for (const f of ['confidence-presets.js', 'confidence-rows.js', 'apps/confidence-view.js', 'confidence-overlays.js', 'display-name.js', 'fallback-summary.js']) {
   await writeFile(path.join(js, f), await readFile(path.join(web, 'js', f), 'utf8'));
 }
 await cp(path.join(web, 'js/strings'), path.join(js, 'strings'), { recursive: true });
