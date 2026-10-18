@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the middle unit of the group'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2433 (piece 2 of T-1869) refines the district draft (T-2335) in place under the same id. Which number Farwell's house stood at is argued in docs/RESEARCH/k01-1623-farwell-2433/README.md: 1623, the north neighbour of Hugh J. McBirney's 1625 (the 1890 Inland Architect photograph of 1625 shows Farwell's oriel and arched entrance against its north wall), the 1885 permits' '1625' being the numbering of before McBirney built. The front is built from the house's one drawing, Treat & Foltz's plate in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses, the right-hand house), read against the 1911 Sanborn sheet 20, which controls the plan: a K02 stone street front with a rusticated base on K03 brick sides and rear, the drawing's canted oriel on K08's corbelled oriel across the second storey with its mullioned and transomed lights, the door in the south bay at the head of a K07 stoop and the window in the north bay over a basement light, a K10 cornice and a slated K04/K05 hip with a tall stack against the north wall. What the drawing shows and K01 does not yet build — the two round arches at grade, the oriel's carved frieze, its upper stage of lights and its steep conical roof rising through the eave, the iron-grilled basement arch and the stoop's rails — is listed open in its match record (data/reference_views/house_1623_prairie/building_budget_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1623-farwell-oriel-front-2433.",
+  "research_note": "T-2433 (piece 2 of T-1869) refines the district draft (T-2335) in place under the same id. Which number Farwell's house stood at is argued in docs/RESEARCH/k01-1623-farwell-2433/README.md: 1623, the north neighbour of Hugh J. McBirney's 1625 (the 1890 Inland Architect photograph of 1625 shows Farwell's oriel and arched entrance against its north wall), the 1885 permits' '1625' being the numbering of before McBirney built. The front is built from the house's one drawing, Treat & Foltz's plate in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses, the right-hand house), read against the 1911 Sanborn sheet 20, which controls the plan: a K02 stone street front with a rusticated base on K03 brick sides and rear, the drawing's canted oriel on K08's corbelled oriel across the second storey with its mullioned and transomed lights, the door in the south bay at the head of a K07 stoop and the window in the north bay over a basement light, a K10 cornice and a slated K04/K05 hip with a tall stack against the north wall. What the drawing shows and K01 does not yet build — the two round arches at grade, the oriel's carved frieze, its upper stage of lights and its steep conical roof rising through the eave, the iron-grilled basement arch and the stoop's rails — is listed open in its match record (data/reference_views/house_1623_prairie/building_budget_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1623-farwell-oriel-front-2433. T-2728 (piece 1 of T-2435) builds the entrance's deep round arch, the stoop's iron rails, the basement light's grille and the rock-faced front from the drawing (L-k01-1623-farwell-entrance-2728); what still differs is open in the match record for T-2729.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -120,14 +120,14 @@
         "stone_front": {
           "value": {
             "fabric": "limestone_lemont",
-            "dressing": "smooth",
+            "dressing": "rock_faced",
             "trim_fabric": "dressed_trim",
             "rusticated_base_courses": 2,
             "coping_height_m": 0.23,
             "corner_bond": []
           },
           "confidence": "reconstructed",
-          "note": "The drawing draws the front's base in big rock-faced blocks, coursed and rusticated up to the arches' springing, and the oriel in dressed stone; it is monochrome, so the stone is chosen: K02's buff Lemont limestone, the common Chicago building stone of the 1880s, smooth over two rusticated base courses (the most its K02 profile lays). The rock-faced blocks about the arches are not laid (the match record's 'stone'). Replaceable by any description naming the stone."
+          "note": "The drawing draws the front's base in big rock-faced blocks, coursed and rusticated up to the arches' springing, and the oriel in dressed stone; it is monochrome, so the stone is chosen: K02's buff Lemont limestone, the common Chicago building stone of the 1880s, over two rusticated base courses (the most its K02 profile lays). T-2728 lays it rock-faced (`dressing`, the profile's 0-0.025 m face), as the drawing draws every block from grade to the arches' springing. K01 lays one dressing a front and the Lemont profile no alternating coursing, so the narrow strips beside the oriel above the springing, which the drawing draws as smoother coursed stone, are rock-faced with the rest (the match record's 'stone'; T-2729). Replaceable by any description naming the stone."
         },
         "wall_head": {
           "value": {
@@ -372,12 +372,27 @@
         "entrance_kit": {
           "value": {
             "k01.opening.door_leaf": {
-              "variant": "k07.entrance.panel_door_stoop",
-              "front_yard_m": 3.8
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 3.8,
+              "cheeks": false,
+              "reveal_depth_m": 0.95,
+              "arch": {
+                "ring_m": 0.45,
+                "keystone_top_m": 5.05,
+                "keystone_m": [
+                  0.3,
+                  0.45
+                ],
+                "extrados": "curved",
+                "ring_proud_m": 0.04
+              }
             }
           },
           "confidence": "reconstructed",
-          "note": "K07's panelled door at the head of its stoop, 3.8 m of front yard to the 1904 parcel's street line. The drawing's door stands deep in the entrance arch, a glazed door under a carved light; the arch is T-2435's."
+          "note": "T-2728: the drawing's entrance is a deep round arch beside the window's and matching it, its door standing at the back of a recess whose lit south jamb shows inside the arch, a glazed door under a carved light. Built as K07's deep-arch entrance: the K01 door's round-headed hole, 1.2 m by 2.7 m to the crown over the principal floor (1.85 m), so its crown stands at 4.55 m against the window arch's 4.4 m; round it the front's stone cut into a ring of long voussoirs 0.45 m deep under the window's keystone, with a curved extrados standing 0.04 m before the wall (`arch`, as 1621's, T-2531); and the door 0.95 m back, K07's own reveal for the variant, whose vestibule carries the recess past the 0.45 m front (`reveal_depth_m`). The stoop climbs between iron rails and newels, not stone cheeks (`cheeks` false; the rails are street_front_dress.stoop_rails), 3.8 m of front yard to the 1904 parcel's street line. Read from the drawing: the arch, its place and the recess; reconstructed (the value's grade, since most of the entrance's joinery is the kit's): the leaves (K07's panelled pair under a radial fanlight, where the drawing half-hides a glazed door under a carved light in the recess's shadow), the ring's projection and the recess's depth (L-k01-1623-farwell-entrance-2728).",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ]
         },
         "street_front_openings": {
           "value": {
@@ -423,13 +438,22 @@
         },
         "street_front_dress": {
           "value": {
-            "base_top_m": 1.0
+            "base_top_m": 1.0,
+            "grilles": {
+              "component": "k01.opening.arched_basement",
+              "bars": 7,
+              "set_back_m": 0.05
+            },
+            "stoop_rails": {
+              "kit": "k11.rail.stoop_rail",
+              "scroll_m": 0.22
+            }
           },
           "confidence": "reconstructed",
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone: the drawing rusticates the whole front in big blocks from grade to the arches' springing, which K02's two base courses cannot reach; the rest is laid smooth."
+          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille, seven upright bars between a foot bar and a head bar let into the light's reveal 0.05 m behind the face; the drawing's grille is a band of C-scrolls over close-set uprights in a broad, low, segment-headed opening about 1.8 m across, which K01's arched basement row cannot lay (a round head, 1.1 m), so the opening's breadth and the scrolls are T-2729's. Read from the drawing: the rails and the grille's place; reconstructed (the value's grade): every bar's count and section (L-k01-1623-farwell-entrance-2728)."
         }
       }
     }
