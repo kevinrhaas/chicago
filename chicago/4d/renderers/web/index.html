@@ -694,6 +694,16 @@
           <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
+      <!-- T-2629: About — the build stamp, and on a dev build the DEV mark (js/about.js).
+           On a phone this is where they are: the arrival card's stamp and the dev
+           preview's banner and pill are not drawn there. -->
+      <div class="settings-group about" id="s-about">
+        <h4 data-str="hud.about.title">About</h4>
+        <p class="about-build"><span class="about-dev" id="s-about-dev" hidden data-str="hud.about.dev">DEV</span>
+          <span id="s-about-build"></span></p>
+        <p class="legend-note" id="s-about-dev-note" hidden><span data-str="hud.about.devNote">A preview build: not production, and not indexed.</span>
+          <a href="/4d/" data-str="hud.about.production">Open production</a></p>
+      </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
       <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
