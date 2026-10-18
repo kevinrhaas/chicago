@@ -2102,6 +2102,10 @@ async function boot() {
   });
   scene3d.add(railway.group);
   api.railway = railway;
+  // T-2775: on a phone the yard goes to the GPU now and lets go of its page arrays,
+  // with the zones near the spawn already deciding which rails they draw.
+  railway.update(camera);
+  settleOnGpu(railway.group);
 
   let glessnerOcclusion=null;
   function refreshGlessnerOcclusion() {
