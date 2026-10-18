@@ -15341,8 +15341,9 @@ for (const [label, viewport, touch] of [
 
     // >>> T-2628 (§10 "AFTER · ≤ 10 % OF SCREEN", QA-17): the HUD's footprint. The union of
     // every painted, visible box under #hud and the Navigator (docked), rasterised on a 2 px
-    // grid, as a share of the viewport — measured in the steady state, once the hint has faded
-    // (T-2741's street readout under the compass is steady, and counts), at this viewport and
+    // grid, as a share of the viewport — measured in the steady state, once the hint has faded,
+    // with readouts the visitor can switch off left out (owner, 2026-10-18: T-2741's street
+    // readout stays on by default and does not count; it is measured and reported), at this viewport and
     // (on the phone leg) at 390×844 too. And the
     // gate is shown to fire: a planted row of the pre-declutter chips puts it over budget.
     const HUD_BUDGET_PCT = 10;
@@ -15378,6 +15379,9 @@ for (const [label, viewport, touch] of [
           // checks both). On the phone leg it can show here only because this run's earlier
           // trusted mouse clicks made pointer lock the live controls (main.js, pointerType).
           if (el.id === 'look-tag') continue;
+          // T-2741's street readout has its own off switch (#street-toggle, Settings › Show):
+          // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
+          if (el.closest('#street-readout')) continue;
           const r = el.getBoundingClientRect();
           if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
           if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
@@ -15394,7 +15398,10 @@ for (const [label, viewport, touch] of [
       const pct = (on * cell * cell) / (W * H) * 100;
       const biggest = boxes.map((b) => ({ id: String(b.id).slice(0, 40), a: Math.round((b.x1 - b.x0) * (b.y1 - b.y0)) }))
         .sort((a, b) => b.a - a.a).slice(0, 6);
-      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest,
+      const sr = document.getElementById('street-readout');
+      const srBox = sr && shown(sr) ? sr.getBoundingClientRect() : null;
+      const streetReadout = srBox ? +((srBox.width * srBox.height) / (W * H) * 100).toFixed(2) : 0;
+      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });

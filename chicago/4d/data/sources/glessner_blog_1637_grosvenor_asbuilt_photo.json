@@ -1,0 +1,30 @@
+{
+ "id": "glessner_blog_1637_grosvenor_asbuilt_photo",
+ "type": "photograph",
+ "citation": "[South side of the Grosvenor house, 1637 S. Prairie Avenue, as built.] Photograph from the south-west across Prairie Avenue; photographer and original holder not named, c. 1870 (before Jesse Spalding's remodelling). Reproduced by the Glessner House Museum, 'The Early History of Prairie Avenue - Part IV', The Story of a House (blog), 7 July 2020.",
+ "author": "unknown photographer",
+ "date": "c. 1870 (the Prairie library's dating, 'as built'; before the Spalding remodelling)",
+ "describes_date": "c. 1870 (the Grosvenor house before the remodel the 1904 scene shows)",
+ "repository": "Glessner House Museum blog 'The Story of a House' (secondary reproduction; the original holder is not named). Prairie library image a16-ghm-blog-1637-grosvenor-asbuilt, 'South side of the Grosvenor house as built, c. 1870', recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-1637-grosvenor-asbuilt.jpg), committed since T-2755 at data/sources/assets/grosvenor_1637_asbuilt_t2755/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+ "locator": "The whole photograph: the south-west corner of the house (behind a street tree), the south flank to an ornate projection at the frame's right edge, the eave and a stack over it, and an iron fence across the foot.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction with no rights statement (the Prairie library's ruling: 'unknown - link only'; the c. 1870 photograph is likely public domain by age, but its holder and the reproduction's terms are not established). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-2755) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-18 (T-2755) from the image store's reference copy, 460 x 900 px greyscale, sha256 75198e2332b04505f6bfbbc7b5567130138baee19cd79c332f728123a64b3a2d; the store's fetch is of the blog's s1600 image '1637 Prairie as built.JPG'. The blog's copy is a crop of a wider plate.",
+ "note": "The only picture of 1637's south flank this project reads, and of the house before its remodel. It shows the south-west corner of a brick block two tall storeys over a raised basement under a deep dark cornice and a low hipped roof; on the front, a round-headed principal-storey light and a second-storey window over a band; the south wall blank brick back to an ornate stone-dressed projection, its front in tall round-arched lights between columns under a bracketed entablature, a balcony on its top before a shuttered round-headed window; a pale stone band along the wall's foot; a tall panelled stack over the eave; and a cast-iron fence of scrolled pickets across the foot. It is evidence of c. 1870, not of 1904: data/reference_views/spalding_house_1637_prairie/grosvenor_asbuilt_photo.match.json weighs each thing against the engraving and the 1911 sheet, and its camera's solve says how far its places can be read.",
+ "what_it_supplies": [
+  "the south wall blank from the front corner to the projection, about u 12.0 to 3.9-5.2 m through its camera",
+  "the south projection's place, which the 1911 sheet's canted bay on the south wall (u 4.1 to 1.0) agrees with, and its c. 1870 dress: round-arched lights between columns, a bracketed entablature, a balcony on top before a shuttered window",
+  "a stack over the south flank at about u 6.0 (if it stands on the wall's line), its top about 14.2 m over grade",
+  "a pale stone band along the foot of the south wall"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state: it predates the remodel, so the front, the roof and the fence it shows are weighed against the engraving and the 1911 sheet, not built from it",
+  "the eave's height: the fence hides the ground, so its camera reads heights only against an assumed band (the solve)",
+  "colour: the photograph is monochrome",
+  "the north flank, the rear range and the roof behind the eave"
+ ]
+}
