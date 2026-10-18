@@ -1,9 +1,8 @@
 {
-  "title": "Glessner's stable roof checked against two old photographs: the roof was right",
-  "kind": "improvement",
+  "title": "The stable-roof check now gives the same answer on every computer",
+  "kind": "fix",
   "items": [
-    "The 1963 survey photograph seemed to show the stable roof about 2 feet lower than the model. Measured against the carriage doorway, the one surveyed length on that wall, most of that gap turns out to be the camera.",
-    "Read the same way, the c. 1887 photograph from the northwest agrees: the gable's peak and the dovecote's point land within about a foot of where the model has them, so the roof stays as built.",
-    "The dovecote was also thought to stand about 4 feet north of where the model puts it. That reading does not hold up: the old photograph puts it about a foot and a half north, and it stays on the ridge where it was placed."
+    "One way of reading the 1963 survey photograph had no single answer: a slightly stretched picture fits it exactly as well as a true one, so the dovecote's place along the roof came out differently from one computer to the next. The check now tries a set of fixed stretches, and gives the same answer every time.",
+    "The finding holds: the roof was right. Across every stretch the gable's peak stays at the same height. Only the dovecote's position moves, which is why that photograph cannot place it; the c. 1887 view still does, and puts it about a foot and a half north."
   ]
 }
