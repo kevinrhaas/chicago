@@ -114,6 +114,22 @@ function rgbaGlbLoader() {
   return glbLoader;
 }
 
+/**
+ * T-2743: three's WorkerPool keeps the resolver of each worker's LAST task until
+ * that worker takes another, and the resolver holds the worker's reply: every
+ * transcoded level of that sheet, the top one `dropTop` let go included. So the
+ * last sheet through each worker stayed in memory twice over (7.5 MB on the 1904
+ * phone when the leaf atlas came last). An idle worker's resolver has already
+ * run; dropping it changes nothing but what the page keeps.
+ */
+function forgetSettledTranscodes(l) {
+  const pool = l?.workerPool;
+  if (!pool?.workersResolve) return;
+  for (let i = 0; i < pool.workersResolve.length; i++) {
+    if (!(pool.workerStatus & (1 << i))) pool.workersResolve[i] = null;
+  }
+}
+
 /** The light tier's residency: upload from mip 1, a quarter of the bytes. */
 function dropTop(tex) {
   if (!dropTopMip || !(tex.mipmaps?.length > 1)) return tex;
@@ -154,6 +170,7 @@ export async function loadCompressed(ktx2Url, { srgb = false } = {}) {
     tex.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
     tex.userData.ktx2 = true;
     dropTop(tex);
+    forgetSettledTranscodes(loader);
     return tex;
   } catch (err) {
     ktx2State.sheets.failed.push(`${ktx2Url.split('/').pop()}: ${err.message}`);

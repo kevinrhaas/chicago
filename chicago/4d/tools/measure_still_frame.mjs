@@ -254,6 +254,28 @@ for (const vp of VIEWPORTS) {
     }
     r.setAnimationLoop(null);
     a.setAnimationHold(true);
+    // THE GATE AS A VISITOR FIRST RESTS UNDER IT (T-2737). `ready` is the first
+    // instant of the trip, and since T-2613 the trip blurs the town behind the
+    // device at 12 px (walk.css .gate), easing off as Home turns over. Frozen at
+    // `ready`, every stand was timed under that trip blur — a moment a visitor
+    // sees for a second, never at a stand they walked to — and the compositor's
+    // backdrop pass cost 3.1 to 3.6 s of a 19 s still frame at `full`
+    // (docs/measurements/T-2737-gate-backdrop.md). So wait for the arrival to
+    // settle (Home up, or the gate down) and for the gate's own transitions to
+    // finish; the state timed is printed beside every reading.
+    const gateEl = document.getElementById('gate');
+    const settledAt = performance.now();
+    while (performance.now() - settledAt < 60_000
+      && !(gateEl?.hidden || a.welcome?.state === 'welcome')) {
+      await new Promise((res) => setTimeout(res, 100));
+    }
+    await Promise.race([
+      Promise.all((gateEl?.getAnimations({ subtree: true }) ?? []).map((x) => x.finished.catch(() => null))),
+      new Promise((res) => setTimeout(res, 5_000)),
+    ]);
+    const gateRead = { welcome: a.welcome?.state ?? null, up: !!gateEl && !gateEl.hidden,
+      backdrop: gateEl ? getComputedStyle(gateEl).backdropFilter : null,
+      settleMs: Math.round(performance.now() - settledAt) };
     const gl = r.getContext();
     const dbg = gl.getExtension('WEBGL_debug_renderer_info');
     const device = String(dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)
@@ -564,7 +586,7 @@ for (const vp of VIEWPORTS) {
       }
     }
     return { device, timerQuery, dpr, lowSpecShadows: shadowTypeWas !== 2, arrival: arrivalRead,
-             jaunt, rows };
+             gate: gateRead, jaunt, rows };
   }, { stands: STANDS, tiers: TIERS, frames: FRAMES, warmup: WARMUP, sharpness: SHARPNESS,
        attribute, attributeAt, probe, capture: !!captureDir, label: vp.label, arrival: ARRIVAL, gate: GATE });
   if (captureDir) {
@@ -588,6 +610,10 @@ for (const pass of passes) {
   console.log(`\n================  ${pass.viewport}  ·  ${YEAR}  ================`);
   console.log(`device: ${pass.device} · timer query: ${pass.timerQuery ? 'yes' : 'no'} · `
     + `dpr ${pass.dpr} · shadows ${pass.lowSpecShadows ? 'PCF (low-spec)' : 'PCFSoft'}`);
+  if (pass.gate) {
+    console.log(`timed under: gate ${pass.gate.up ? 'up' : 'down'}, welcome ${pass.gate.welcome}, `
+      + `backdrop ${pass.gate.backdrop} (settled ${pass.gate.settleMs} ms after the loop stopped)`);
+  }
   for (const e of pass.errors) { bad++; console.log(`  PAGEERROR  ${e}`); }
   if (pass.arrival) {
     const ar = pass.arrival;

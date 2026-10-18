@@ -443,7 +443,8 @@ def record_density_rule(src: str) -> None:
 def direct_call_sites(src: str) -> tuple[int, set[str]]:
     """How many `addTree` call sites the module has, and the ids named at them.
 
-    THREE paths select a spec today. Two are in the source and this function can
+    THREE paths select a spec today (through `addTree` or, since T-2743, through
+    `plant`, which passes the stem on). Two are in the source and this function can
     read them: `specs.salix_interior` at the point-bar thicket, and `specs[id]`
     where `id` came from `pick()`. The third is T-0091's planting pass, which
     selects `table[stem.species]` out of a RECORD — so the ids it can draw are
@@ -453,6 +454,12 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
     by a call site nobody told this file about.
     """
     sites = len(re.findall(r"\baddTree\(", src)) - len(re.findall(r"function addTree\(", src))
+    # T-2743: the two dealt paths call `plant()`, which hands a tree-form stem to
+    # the grown trees and anything else to `addTree` — one `addTree` inside it
+    # that selects nothing of its own. So a `plant(` call is a call site and the
+    # delegation inside it is not.
+    if re.search(r"\bconst plant = \(", src):
+        sites += len(re.findall(r"(?<![.\w])plant\(", src)) - 1
     named = set(re.findall(r"\bspecs\.(\w+)\b", src))
     return sites, named
 

@@ -115,6 +115,9 @@ UASTC = ['--encode', 'uastc', '--uastc-quality', '2', '--uastc-rdo', '--uastc-rd
 ETC1S_DATA = ['--encode', 'basis-lz', '--clevel', '4', '--qlevel', '255']
 
 
+# Sheets another generator writes with this file's `ktx` and codecs (see check()).
+OTHER_WRITERS = tuple(ASSETS / 'trees' / f'{m}.ktx2' for m in ('leaf_atlas', 'bark_basecolor', 'bark_normal'))
+
 # wall-relief.js SUBSTRATES (T-2588): the normal as it stands, and the packed `orl`.
 WALL_SUBSTRATES = ('walls/clapboard_board_face', 'walls/hewn_log_face')
 
@@ -388,9 +391,17 @@ def check(todo):
         got, want_v = json.loads(side.read_text()).get('mean_linear_luma'), luma_record(d, sid)['mean_linear_luma']
         if got != want_v:
             bad.append(f'{side.relative_to(ROOT)}: mean_linear_luma {got}, but its master reads {want_v}')
+    # The grown trees' atlases (T-2743) are written by tools/generate_tree_atlas.py
+    # with this file's tool and codecs, from masters it paints in memory, so this
+    # file holds them only to being there and being a KTX2.
+    for f in OTHER_WRITERS:
+        if not f.exists():
+            bad.append(f'{f.relative_to(ROOT)}: missing — run python3 tools/generate_tree_atlas.py')
+        elif f.read_bytes()[:12] != KTX2_MAGIC:
+            bad.append(f'{f.relative_to(ROOT)}: not a KTX2')
     # An orphan ships a file nothing loads.
     for f in sorted(ASSETS.rglob('*.ktx2')):
-        if f not in want:
+        if f not in want and f not in OTHER_WRITERS:
             bad.append(f'{f.relative_to(ROOT)}: no sheet in tools/ktx2_sheets.py names it')
     for b in bad:
         print(f'BAD: {b}')

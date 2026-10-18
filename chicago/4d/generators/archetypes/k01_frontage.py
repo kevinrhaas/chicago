@@ -106,7 +106,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
-from .k01_frontage_params import EAVE_FASCIA_M, ROUND_HOODED, STRIP_FABRICS
+from .k01_frontage_params import EAVE_FASCIA_M, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -1158,16 +1158,24 @@ class Assembly:
         grouped = {id(p.openings[i]) for i in k01_arched_front.grouped_ops(p)}
         square = [o for o in openings if id(o) not in grouped]
         holes = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in square]
+        # T-2752: a window named off a photograph (`street_front_windows`) stands in the coursing
+        # where the picture puts it, under no flat arch, and strikes no course line of its own:
+        # its heads and sills differ window to window, and lines at each would band the front
+        named = [o for o in square if o.component.startswith(STREET_WINDOW)]
+        lined = [h for o, h in zip(square, holes) if o not in named]
         # a flat arch where K09 leaves a flat head: the area lights and the third floor
         arches = [(s0, s1, y1, round(y1 + 0.30, 4)) for o, (s0, s1, _, y1) in zip(square, holes)
-                  if k09_frontage.head(p, o) == k09_frontage.FLAT]
+                  if k09_frontage.head(p, o) == k09_frontage.FLAT and o not in named]
         if af:
-            holes += k01_arched_front.plan(self, frame)
+            rects = k01_arched_front.plan(self, frame)
+            holes += rects
+            lined += rects
         # what the kits seat on this face, widened by a joint and an arris so a piece's
         # edge never stands over a bevel; K06's sill beds are course lines
         m = wk["joint_m"] / 2 + wk["bevel_m"] + 0.01
         seats = [(a0 - m, a1 + m, b0 - m, b1 + m, kind) for a0, a1, b0, b1, kind in self.footprints.get(tuple(O), [])]
-        sill_beds = {round(b0 + m, 4) for _, _, b0, _, kind in seats if kind == "K06.sill"}
+        sill_beds = {round(b0 + m, 4) for a0, a1, b0, b1, kind in seats if kind == "K06.sill"
+                     and not any(a0 < o.s_m < a1 and o.sill_m - 0.3 < b1 - m < o.sill_m + 0.3 for o in named)}
         belts = [(floors[1] - 0.20, floors[1])] + ([(floors[2] - 0.15, floors[2])] if len(floors) > 2 else [])
         if af and af["belts"] is not None:   # T-2526: a door's arch alone keeps these
             belts = list(af["belts"])
@@ -1175,7 +1183,7 @@ class Assembly:
         ytop = af["stone_top_m"] if af else yf
         lines = {0.0, cop_top, ytop, *[bc * i for i in range(1, k["base_courses"] + 1)]}
         lines |= {y for y in sill_beds if y > cop_top + 1e-6}
-        lines |= {y for (_, _, _, y) in holes + arches if y > cop_top + 1e-6}
+        lines |= {y for (_, _, _, y) in lined + arches if y > cop_top + 1e-6}
         lines |= {y for band in belts for y in band}
         merged = []
         for y in sorted(round(y, 4) for y in lines if y <= ytop + 1e-6):
@@ -1295,6 +1303,7 @@ class Assembly:
             quoins.append((k["south_return_m"], ytop, E, "walling", wk["joint_m"] / 2, wk["joint_m"] / 2, r_wall))
         for s0, s1, y1, y2 in arches:
             self.flat_arch(frame, s0, s1, y1, y2 - y1, conf, r_wall)
+        self.street_window_dress(frame, square, conf, r_wall)
         if af:
             k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
@@ -1303,6 +1312,52 @@ class Assembly:
             self.prim("rough_stone_trim").face([P(0.0, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(0.0, E, 0.0)],
                                                N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
         return frame, quoins
+
+    def street_window_dress(self, frame, openings, conf, recess):
+        """T-2752: what the coursing leaves in a named street window's hole (`street_front_windows`):
+        a mullion between its lights, one dressed stone from sill to head, and over a segmental
+        head the spandrels from K06's curve up to the hole's top, flush strips of the walling
+        (the photograph draws the head as a plain line in the ashlar, under no band or block).
+        K06 builds each light's reveal, so the mullion's sides and the head's soffit are its."""
+        from . import k06_windows
+        O, R, N = frame
+        P = lambda s, y: _add(_add(O, _mul(R, s)), _mul(Y, y))
+        hj = self.p.stone["wall"]["joint_m"] / 2
+        cid = "k01.opening.street_dress"
+        for op in openings:
+            if not op.component.startswith(STREET_WINDOW):
+                continue
+            v = self.kit_variant(op)
+            bays, mull = v.get("bays", 1), v.get("mullion_m", 0.0)
+            if bays == 1 and v["head"] == "flat":
+                continue
+            s0, s1, y0, y1 = op.s_m - op.width_m / 2, op.s_m + op.width_m / 2, op.sill_m, op.head_m
+            self.instance(cid, "opening", {"of": op.component, "bays": bays, "mullion_m": mull, "head": v["head"]},
+                          {"sill": P(op.s_m, y0), "head": P(op.s_m, y1)})
+            inst, j = len(self.components[cid]["instances"]) - 1, 0
+            bw = (op.width_m - mull * (bays - 1)) / bays
+            for b in range(1, bays):
+                m0 = s0 + b * bw + (b - 1) * mull
+                self.stone(frame, [(m0, y0), (m0 + mull, y0), (m0 + mull, y1), (m0, y1)], [hj, 0.0, hj, 0.0],
+                           "dress_stone", self._stone_seed(cid, inst, j), conf, recess=recess, bevel=0.0)
+                j += 1
+            if v["head"] == "segmental":
+                ros = self._kit["arch"]["segmental"]["working_rise_over_span"]
+                rr = v.get("head_radius_ratio", 1.0)
+                rise = k06_windows.Head("segmental", s0, s1, 0.0, ros, rr).rise
+                curve = k06_windows.Head("segmental", s0, s1, y1 - rise, ros, rr).curve(0.0, s1, s0)
+                for q0, q1 in zip(curve, curve[1:]):    # q0 right of q1
+                    pts = []
+                    for q in ((q1[0], q1[1]), (q0[0], q0[1]), (q0[0], y1), (q1[0], y1)):
+                        if not pts or math.dist(pts[-1], q) > 1e-4:
+                            pts.append(q)
+                    if math.dist(pts[0], pts[-1]) < 1e-4:
+                        pts.pop()
+                    if len(pts) < 3 or max(y1 - q0[1], y1 - q1[1]) < 0.003:
+                        continue
+                    self.stone(frame, pts, [0.0] * len(pts), "rough_stone_trim", self._stone_seed(cid, inst, j), conf,
+                               recess=recess, bevel=0.0)
+                    j += 1
 
     def _walling(self, ya, yb):
         """The walling courses between two struck lines. Equal courses, as few as the

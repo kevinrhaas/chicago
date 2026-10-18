@@ -14058,7 +14058,8 @@ for (const [label, viewport, touch] of [
       for (const pace of ['horse', 'wagon', 'run', 'walk']) {
         api.setPace(pace);
         paces[pace] = { speed: WALK.speed, sprint: WALK.sprintSpeed, eye: eye(),
-          chip: document.getElementById('btn-pace')?.dataset.pace };
+          // T-2625: the pace chip left the HUD; the pace is Move's picker (T-2651).
+          chip: document.querySelector('#s-move .seg-btn[aria-checked="true"]')?.dataset.mode };
       }
       const slider = api.hud.settings.speed;
       // T-0823: each pace has its own slider, and the walker's WALK follows the
@@ -15309,6 +15310,34 @@ for (const [label, viewport, touch] of [
     check(`${label}: C toggles BY GRADE on and off (T-2647)`,
       cOn.on === true && cOn.hidden.length === 0 && cOn.modes.reconstructed === 'dither' && cOff.on === false,
       JSON.stringify({ cOn: { on: cOn.on, modes: cOn.modes }, cOff: { on: cOff.on } }));
+    // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
+    // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
+    // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
+    // T-2741's, under the compass, with its own show/hide switch, so it is no 2 s toast.)
+    const declutter = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator;
+      const top = document.querySelector('.hud-top');
+      const gone = ['btn-start', 'btn-confidence', 'btn-confidence-more', 'btn-pace', 'btn-theme', 'btn-help']
+        .filter((id) => top.querySelector(`#${id}`));
+      const device = document.getElementById('navigator');
+      const inside = async (app, sel) => {
+        await n.select(app);
+        for (let i = 0; i < 40; i++) {
+          const el = device.querySelector(sel);
+          if (el && el.getBoundingClientRect().width > 0) return true;
+          await new Promise((r) => setTimeout(r, 100));
+        }
+        return false;
+      };
+      const reach = { start: await inside('jaunts', '#nav-seg-jaunts'), confidence: await inside('confidence', '.nav-preset'),
+        pace: await inside('move', '#s-move'), theme: await inside('settings', '#btn-theme') };
+      await n.select('home'); n.dock();
+      return { gone, reach };
+    });
+    check(`${label}: the HUD's top row holds none of what moved, and each is in the Navigator (T-2625)`,
+      declutter.gone.length === 0 && Object.values(declutter.reach).every(Boolean),
+      JSON.stringify(declutter));
+    // <<< T-2625
 
     // --- the Navigator (T-2617) ----------------------------------------------
     // In the town the device is docked (a 64 px sheet on a phone, the rail on a
@@ -15557,7 +15586,16 @@ for (const [label, viewport, touch] of [
       count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
       waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
       step: window.__chicago4d.tour.step }));
-    const tourWait = (n, timeout = 8_000) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout, polling: 100 }).catch(() => {});
+    // Each wait must END IN the step it names before the next action is taken. A step
+    // reads its starting point when it is entered (where the visitor stands, the counters),
+    // and it is entered on the tour's tick, a 250 ms timer that on the desktop runner runs
+    // only between frames of 8-10 s (T-2412). An 8 s wait could give up first, the next
+    // action (the walk, the pick, the tab, the preset) then landed before its step began,
+    // was read into that step's starting point, and the step waited for ever: the tour
+    // stood on a waiting step with Next hidden, and the last Next below aborted the part
+    // with "clickChrome: #tour-next has no box (0x0)" (#971, #984). Bounded, and the
+    // readings below still decide every step.
+    const tourWait = (n, timeout = 60_000) => page.waitForFunction((k) => window.__chicago4d.tour.step === k, n, { timeout, polling: 100 }).catch(() => {});
     const t1 = await tourView();
     await clickChrome('#tour-next');
     await tourWait(1);
@@ -15614,11 +15652,7 @@ for (const [label, viewport, touch] of [
     // the step's action.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
     await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
-    // T-2647: step 06 moves on at the tour's next tick, a 250 ms timer that on the desktop
-    // runner runs only between frames of 8-10 s (T-2412); 8 s could end before one ran, and
-    // the step-07 Next below was still hidden: "clickChrome: #tour-next has no box (0x0)"
-    // on #974's desktop part 13. Waited for, bounded; `last.step === 6` still decides.
-    await tourWait(6, 60_000);
+    await tourWait(6);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
@@ -18282,9 +18316,10 @@ for (const [label, viewport, touch] of [
       await p14.evaluate(() => !document.pointerLockElement && document.getElementById('gate').hidden));
 
     // --- a jaunt from the menu, at its first stop ----------------------------------
-    await tap('#btn-start');
-    await until(() => window.__chicago4d.welcome.state === 'welcome');
-    await tap('#welcome-jaunts');
+    // T-2625: Start / Jaunts left the HUD; its Jaunts are the Navigator's Jaunts app (T-2630),
+    // which lends the Welcome card's own list, and a Jaunt started there pockets the device.
+    await p14.evaluate(() => window.__chicago4d.navigator.select('jaunts'));
+    await until(() => !!document.getElementById('nav-app-jaunts')?.contains(document.getElementById('welcome-jaunts-content')));
     await until(() => !!document.querySelector('[data-jaunt="new-in-chicago"] [data-action="start"]'));
     await tap('[data-jaunt="new-in-chicago"] [data-action="start"]');
     await atStop();
