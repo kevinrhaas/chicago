@@ -636,7 +636,11 @@ class Entrance(Opening):
                 q0,q1=lo(a,b)
                 for yy,hh,pd_ in ((0,.1,.05),(ph-.12,.12,.08)):
                     self._box("pedestal",q0-.03,q1+.03,yy,yy+hh,D,D+pd_,skip=("back",))
-                self._panel_relief(q0+.12,q1-.12,.23,ph-.2,D+.02,"pedestal")
+                # T-2769: the 1888 plate at its native 1559 px (about 75 px to the metre on
+                # the pedestals, x 865-940 and 1100-1160, y 1585-1650) draws each pedestal's
+                # field plain inside its border, as T-2585 read the balcony's dies; the leaf
+                # scrolls T-1883 laid in it are not in the picture
+                self._panel_relief(q0+.12,q1-.12,.23,ph-.2,D+.02,"pedestal",leaves=False)
         # the balcony: its floor and its parapet on the three open sides
         bt, bh = B["thickness_m"], B["height_m"]
         s0, s1 = lo(s_deck + bt, S - bt)

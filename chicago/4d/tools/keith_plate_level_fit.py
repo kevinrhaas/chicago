@@ -45,7 +45,7 @@ from scipy.optimize import least_squares
 
 ROOT = Path(__file__).resolve().parents[1]
 GLB = ROOT / 'assets/gltf/keith_house_1808_prairie__as_built_1886.glb'
-GLB_SHA256 = 'ebe24878b47828960b9d5172434c773b0f81eaeb32b957f165297c20f4481b11'
+GLB_SHA256 = '9e39ecfca62f40ea18fbfec229d8120559a4059f1a266991b24f3b1f0e78a6a7'
 REPORT = ROOT / 'docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json'
 PRINT_PX = [1559, 2400]
 

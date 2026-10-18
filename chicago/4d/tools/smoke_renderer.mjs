@@ -15339,6 +15339,112 @@ for (const [label, viewport, touch] of [
       JSON.stringify(declutter));
     // <<< T-2625
 
+    // >>> T-2628 (§10 "AFTER · ≤ 10 % OF SCREEN", QA-17): the HUD's footprint. The union of
+    // every painted, visible box under #hud and the Navigator (docked), rasterised on a 2 px
+    // grid, as a share of the viewport — measured in the steady state, once the hint has faded,
+    // with readouts the visitor can switch off left out (owner, 2026-10-18: T-2741's street
+    // readout and its switch stay on by default and do not count; they are measured and reported), at this viewport and
+    // (on the phone leg) at 390×844 too. And the
+    // gate is shown to fire: a planted row of the pre-declutter chips puts it over budget.
+    const HUD_BUDGET_PCT = 10;
+    const hudFootprint = () => page.evaluate(async () => {
+      // The hint fades on a timer that only runs between frames, which on a starved runner take
+      // seconds: wait for it up to 30 s. A hint still up after that is a passing prompt, not the
+      // HUD's steady state, so it is left out like the look tag and reported.
+      for (let i = 0; i < 200; i++) {
+        if (!document.getElementById('hint')?.classList.contains('on')) break;
+        await new Promise((r) => setTimeout(r, 150));
+      }
+      const hintUp = !!document.getElementById('hint')?.classList.contains('on');
+      const W = innerWidth, H = innerHeight, cell = 2;
+      const cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
+      const grid = new Uint8Array(cols * rows);
+      const clear = (c) => !c || c === 'transparent' || /rgba\([^)]*,\s*0(\.0+)?\)$/.test(c);
+      const painted = (el, cs) => {
+        if (/^(canvas|svg|img)$/i.test(el.tagName)) return true;
+        if (!clear(cs.backgroundColor) || cs.backgroundImage !== 'none') return true;
+        if (parseFloat(cs.borderTopWidth) > 0 && cs.borderTopStyle !== 'none' && !clear(cs.borderTopColor)) return true;
+        return [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
+      };
+      const shown = (el) => {
+        for (let e = el; e && e !== document.documentElement; e = e.parentElement) {
+          if (e.hidden) return false;
+          const cs = getComputedStyle(e);
+          if (cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) < 0.05) return false;
+        }
+        return true;
+      };
+      const boxes = [];
+      for (const root of [document.getElementById('hud'), document.getElementById('navigator')]) {
+        if (!root) continue;
+        for (const el of [root, ...root.querySelectorAll('*')]) {
+          // CLICK TO ENGAGE LOOK (T-2614) is a one-time prompt, not the HUD's steady state: it
+          // goes at the first click on the scene and never shows with touch controls (part 6
+          // checks both). On the phone leg it can show here only because this run's earlier
+          // trusted mouse clicks made pointer lock the live controls (main.js, pointerType).
+          if (el.id === 'look-tag') continue;
+          if (el.closest('#hint')) continue;
+          // T-2741's street readout has its own off switch (#street-toggle, Settings › Show):
+          // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
+          // The switch beside the compass is part of that instrument and goes with it.
+          if (el.closest('#street-readout') || el.closest('#street-toggle')) continue;
+          const r = el.getBoundingClientRect();
+          if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
+          if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
+          boxes.push({ id: el.id || el.className?.baseVal || el.className || el.tagName, x0: r.left, y0: r.top, x1: r.right, y1: r.bottom });
+        }
+      }
+      for (const b of boxes) {
+        const c0 = Math.max(0, Math.floor(b.x0 / cell)), c1 = Math.min(cols, Math.ceil(b.x1 / cell));
+        const r0 = Math.max(0, Math.floor(b.y0 / cell)), r1 = Math.min(rows, Math.ceil(b.y1 / cell));
+        for (let y = r0; y < r1; y++) grid.fill(1, y * cols + c0, y * cols + c1);
+      }
+      let on = 0;
+      for (const v of grid) on += v;
+      const pct = (on * cell * cell) / (W * H) * 100;
+      const biggest = boxes.map((b) => ({ id: String(b.id).slice(0, 40), a: Math.round((b.x1 - b.x0) * (b.y1 - b.y0)) }))
+        .sort((a, b) => b.a - a.a).slice(0, 6);
+      const share = (id) => {
+        const e = document.getElementById(id);
+        const b = e && shown(e) ? e.getBoundingClientRect() : null;
+        return b ? (b.width * b.height) / (W * H) * 100 : 0;
+      };
+      const streetReadout = +(share('street-readout') + share('street-toggle')).toFixed(2);
+      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
+        controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
+    });
+    await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
+    const footprints = [await hudFootprint()];
+    if (touch) {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.waitForTimeout(600);
+      footprints.push(await hudFootprint());
+    }
+    // The gate fires: one planted button is counted, and the pre-declutter row is over budget.
+    const plant = (labels) => page.evaluate((ls) => {
+      const row = document.querySelector('.hud-actions');
+      const box = document.createElement('span');
+      box.id = 'smoke-t2628-planted';
+      box.style.display = 'contents';
+      for (const l of ls) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = l; box.append(b); }
+      row.prepend(box);
+    }, labels);
+    const unplant = () => page.evaluate(() => document.getElementById('smoke-t2628-planted')?.remove());
+    await plant(['Extra']);
+    const oneMore = await hudFootprint();
+    await unplant();
+    await plant(['Start / Jaunts', 'Confidence', '▾', 'Walk', '◐', '≡', 'Extra']);
+    const oldRow = await hudFootprint();
+    await unplant();
+    if (touch) { await page.setViewportSize(viewport); await page.waitForTimeout(400); }
+    const base = footprints.at(-1);
+    check(`${label}: the HUD covers ${HUD_BUDGET_PCT} % of the screen or less, and the measure catches a planted button (T-2628)`,
+      footprints.every((f) => f.pct <= HUD_BUDGET_PCT && f.boxes > 0)
+      // On the phone the pre-declutter row alone breaks the budget, as it did (IMG_6942).
+      && oneMore.pct > base.pct + 0.05 && (!touch || oldRow.pct > HUD_BUDGET_PCT),
+      JSON.stringify({ footprints, plantedOne: oneMore.pct, plantedOldRow: oldRow.pct }), true);
+    // <<< T-2628
+
     // --- the Navigator (T-2617) ----------------------------------------------
     // In the town the device is docked (a 64 px sheet on a phone, the rail on a
     // desktop); its handle opens it by hand, Home reads the street, the scene's
