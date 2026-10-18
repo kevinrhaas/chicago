@@ -206,6 +206,9 @@ step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider who
 # T-2661: Guide's controls sheet.
 step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
   node tools/test_nav_guide.mjs
+# T-2644: Inspect's Sources tab.
+step "Inspect's Sources tab groups every fact by grade with real counts, names each source by its own citation with no id or tier label, folds the full citation, and lists Liberties by name (T-2644)" \
+  node tools/test_nav_sources.mjs
 # T-2645: Inspect's Photos tab.
 step "Inspect's Photos tab shows each picture's year, caption and credit by date, the 12 best first and All N, and From this spot only where a solved camera stood (T-2645)" \
   node tools/test_nav_photos.mjs

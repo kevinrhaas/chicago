@@ -141,3 +141,52 @@
 .show-me-outline.is-pulsing { animation: show-me-pulse .5s ease-in-out 4 alternate both; }
 @keyframes show-me-pulse { from { opacity: 1; } to { opacity: .35; } }
 @media (prefers-reduced-motion: reduce) { .show-me-outline.is-pulsing { animation: none; } }
+
+/* T-2644: the Sources tab — every fact grouped by grade, Liberties as a section, a human title
+   on each source, and the full citation folded under each fact. Native <details>, so every row
+   opens by touch, mouse or keyboard with no script, and nothing animates (reduced motion is
+   the default here). Every colour is a skin token. */
+.insp-sources { display: flex; flex-direction: column; gap: 14px; color: var(--ink); overflow-wrap: anywhere; }
+.src-page { display: flex; flex-direction: column; gap: 14px; }
+.src-lead { margin: 0; font: 500 1rem/1.5 var(--font-body, inherit); max-width: 65ch; }
+.src-grade, .src-liberties { padding-top: 10px; border-top: 1px solid var(--edge); }
+.src-grade-h { display: flex; align-items: center; gap: 6px; }
+.src-count { margin-left: auto; color: var(--ink); }
+.src-gloss { margin: 0 0 8px; }
+.src-facts { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.src-facts > li + li { border-top: 1px solid var(--edge); }
+.src-fact > summary, .src-lib > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px;
+  min-height: 44px; padding: 10px 24px 10px 0; position: relative; cursor: pointer; list-style: none; }
+.src-fact > summary::-webkit-details-marker, .src-lib > summary::-webkit-details-marker,
+.src-cites > summary::-webkit-details-marker { display: none; }
+.src-fact > summary::after, .src-lib > summary::after { content: '+'; position: absolute; right: 4px; top: 10px;
+  font: 400 1rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
+.src-fact[open] > summary::after, .src-lib[open] > summary::after { content: '−'; }
+.src-fact > summary:focus-visible, .src-lib > summary:focus-visible, .src-cites > summary:focus-visible {
+  outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.src-fact > summary .fact-dot { align-self: center; }
+.src-label { font: 500 1rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.src-value { flex: 1 1 12rem; min-width: 0; font: 400 0.9375rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.src-body { display: flex; flex-direction: column; gap: 6px; padding: 0 0 12px; }
+.src-body p, .src-lib-body { margin: 0; }
+.src-long, .src-why { font: 400 0.9375rem/1.5 var(--font-body, inherit); max-width: 65ch; }
+.src-why-later, .src-absent, .src-none { font: 400 0.875rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.src-k { font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.src-why .src-k { margin-right: 4px; }
+.src-titles { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.src-title { font: 400 0.9375rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.src-when { display: inline-block; margin-left: 4px; padding: 0 6px; border: 1px solid var(--edge); border-radius: 4px;
+  font: var(--label-weight, 400) 0.625rem/1.6 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
+.src-cites > summary { min-height: 36px; display: flex; align-items: center; cursor: pointer; list-style: none;
+  font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--accent, var(--ink)); }
+.src-cites .cites { margin: 4px 0 0; padding-left: 1.2rem; font-size: 0.8125rem; line-height: 1.5; color: var(--ink-dim); }
+.src-cites .cites a { color: var(--accent, var(--ink)); }
+.src-lib-body { display: grid; gap: 2px 0; padding: 0 0 12px; font: 400 0.9375rem/1.5 var(--font-body, inherit); }
+.src-lib-body dt { margin-top: 6px; font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.src-lib-body dd { margin: 0; max-width: 65ch; }
+.src-open .cites { margin: 0 0 12px; padding-left: 1.2rem; font-size: 0.8125rem; color: var(--ink-dim); }
+.src-foot { margin: 0; font-size: 0.875rem; color: var(--ink-dim); }
+.src-foot a { color: var(--accent, var(--ink)); }
