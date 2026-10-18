@@ -1029,9 +1029,11 @@ for (const phone of [true, false]) {
   }
   const parked = html.slice(html.indexOf('<div class="hud-moved"'), html.indexOf('</div>', html.indexOf('<div class="hud-moved"')));
   assert(/id="btn-start"/.test(parked), 'Start / Jaunts waits, hidden, with its id; the Jaunts app holds its choices');
-  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 1);
+  // T-2656: the switch is Settings › Display's two-way choice, #s-theme, and the old chip is gone.
+  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 0);
+  assert.equal((html.match(/id="s-theme"/g) ?? []).length, 1);
   const settings = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
-  assert(/id="btn-theme"/.test(settings), 'light / dark lives in Settings');
+  assert(/id="s-theme"/.test(settings), 'light / dark lives in Settings');
   assert(!/id="btn-pace"/.test(html), 'the pace chip is gone; Move holds the pace');
   assert(/id="s-move"/.test(html), 'Move\'s picker holds the pace');
 }

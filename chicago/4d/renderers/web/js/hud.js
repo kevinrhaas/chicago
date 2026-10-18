@@ -18,6 +18,7 @@ import { PACES } from './travel.js';
 import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
 import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
+import { wireSettingsApp, SOUND_DEFAULTS } from './settings-app.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
 // T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
@@ -79,6 +80,10 @@ const DEFAULT_SETTINGS = {
   jauntsFollowChoice: false,
   // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
   snapTurn: false,
+  // T-2656: Settings › Display › Text size, the Navigator's text at 100-140 %.
+  textScale: 1,
+  // T-2656: Settings › Sound, master, effects and ambience (0..1), for T-2659's sounds.
+  ...SOUND_DEFAULTS,
 };
 
 function readSettings() {
@@ -120,7 +125,6 @@ export function createHud({
   const btnConf = $('btn-confidence');
   const btnFly = $('btn-fly');
   const flyLabel = $('fly-label');
-  const btnTheme = $('btn-theme');
   const btnHelp = $('btn-help');
   const panel = $('panel');
   const hint = $('hint');
@@ -297,11 +301,7 @@ export function createHud({
     if (show) badgeAlt.textContent = `${formatHeight(m, settings.units)} up`;
   }
 
-  btnTheme?.addEventListener('click', () => {
-    const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', next);
-    store(THEME_KEY, next);
-  });
+  // Light or dark is chosen in Settings › Display (T-2656, js/settings-app.js).
 
   // ---- the controls / settings panel -------------------------------------
   //
@@ -600,6 +600,17 @@ export function createHud({
   const streetNamesLabel = $('s-street-names-label');
   if (streetNamesLabel && scene?.id) streetNamesLabel.textContent = `${scene.id} / current street names`;
 
+  // T-2656: the Settings app's own rows — light or dark, text size, Auto, Sound, and What's
+  // new from About. Wired after Performance's selects, so a choice made by hand is stored
+  // before Auto's row repaints.
+  const settingsApp = wireSettingsApp({
+    doc, settings, device,
+    save: () => store(SET_KEY, JSON.stringify(settings)),
+    saveTheme: (tone) => store(THEME_KEY, tone),
+    onSetting,
+    openWhatsNew: () => selectTab('whatsnew'),
+  });
+
   // ---- Move: how you move, its speed, and how Go to takes you there (T-2651) ----
   //
   // DESIGN §07 M6. One picker — Walk, Run, Wagon, Horse, Fly — replaces the two the
@@ -785,6 +796,8 @@ export function createHud({
     say,
     announceStructureVersion,
     settings,
+    /** T-2656: the Settings app's rows (light or dark, Auto) for a test to read. */
+    settingsApp,
     setPanel,
     selectTab,
     setTitle,

@@ -591,39 +591,23 @@
          the reasoning behind a researched default folds under "Why this default".
          Every id here is read by the smoke gate — keep them. -->
     <section class="panel-body" data-panel="settings" hidden>
-      <div class="settings-group">
-        <h4>Units</h4>
-        <label class="field row"><span>Measurement units</span>
-          <select id="s-units">
-            <option value="imperial">Imperial — ft, mi, mph</option>
-            <option value="metric">Metric — m, km, km/h</option>
+      <div class="settings-group" id="s-display">
+        <h4 data-str="settings.display">Display</h4>
+        <!-- T-2625 moved light / dark here from the HUD; T-2656 makes it a two-way choice. -->
+        <div class="field row theme-row"><span data-str="settings.theme">Light or dark</span>
+          <div class="seg" role="radiogroup" id="s-theme" aria-label="Light or dark" data-str-label="settings.theme">
+            <button type="button" class="seg-btn" data-theme-choice="dark" role="radio" aria-checked="false" data-str="settings.theme.dark">Dark</button>
+            <button type="button" class="seg-btn" data-theme-choice="light" role="radio" aria-checked="false" data-str="settings.theme.light">Light</button>
+          </div></div>
+        <!-- T-2656 (QA-18): every Navigator app's text, 100-140 %; the screens reflow. -->
+        <label class="field row"><span data-str="settings.textSize">Text size</span>
+          <select id="s-text-size">
+            <option value="1">100 %</option>
+            <option value="1.1">110 %</option>
+            <option value="1.2">120 %</option>
+            <option value="1.3">130 %</option>
+            <option value="1.4">140 %</option>
           </select></label>
-      </div>
-      <div class="settings-group">
-        <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
-      </div>
-      <div class="settings-group">
-        <h4>View</h4>
-        <!-- T-2625: the light / dark switch moved here from the HUD (Settings › View; the design calls it Display). -->
-        <div class="field row theme-row"><span>Light or dark interface</span>
-          <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
-        </div>
-        <label class="field"><span>Field of view <b id="v-fov"></b></span>
-          <input type="range" id="s-fov" min="55" max="100" step="1"></label>
-        <!-- R-A1. An accessibility aid layered on a default that was measured
-             correct, never a substitute for one. It must not read as a claim
-             about how visible an 1835 street was — see streets.js § R-A1. -->
-        <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
-          <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
-        <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="road-aid-note">These are worn earth tracks through prairie
-            grass, and how much bare earth shows is a modelled figure with its own evidence behind
-            it — so the default paints them exactly as the record describes. Raise this if they are
-            hard to follow: on a phone in daylight, or if faint contrast is difficult to see. It
-            changes nothing but how strongly the roads are painted on your screen, and it is not a
-            claim that 1835 Chicago's streets looked bolder than this.</p>
-        </details>
         <!-- K24, owner-requested. The same standing as the road aid: an
              accommodation for your screen, layered on a grade that was measured
              against a photograph. The ceiling is one stop — see world.js
@@ -640,39 +624,21 @@
             end is not a second reconstruction of how 1835 looked. All of this project's own
             measurements are taken at the calibrated position whatever you choose here.</p>
         </details>
-      </div>
-      <div class="settings-group">
-        <h4>Performance</h4>
-        <label class="field row"><span>Scene detail</span>
-          <select id="s-detail">
-            <option value="full">Full — every plant and tree</option>
-            <option value="balanced">Balanced — fewer plants</option>
-            <option value="light">Light — fewest, for slow machines</option>
-          </select></label>
-        <label class="field row"><span>Image sharpness</span>
-          <select id="s-quality">
-            <option value="1">Low — smoother</option>
-            <option value="1.5">Medium</option>
-            <option value="2">High — sharper</option>
-          </select></label>
-        <label class="field row"><span>Frame pacing</span>
-          <select id="s-governor">
-            <option value="adaptive">Adaptive — steadier while moving</option>
-            <option value="fixed">Fixed — always the sharpness above</option>
-          </select></label>
-        <p class="legend-note" id="governor-line"></p>
-        <p class="legend-note" id="device-line" hidden></p>
-        <!-- T-2732: dev preview (or ?pacing=read) only — pacing-read.js unhides it. -->
-        <div class="field row" id="pacing-read" hidden><span>Frame pacing reading</span>
-          <span class="pacing-read-actions">
-            <button class="setting-button" id="s-pacing-copy" type="button" hidden>Copy</button>
-            <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
-          </span>
-        </div>
-        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
-          half a minute at Light, Fixed then Adaptive, and puts you back where you were.</p>
-        <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
-          aria-label="Frame pacing reading"></textarea>
+        <label class="field"><span>Field of view <b id="v-fov"></b></span>
+          <input type="range" id="s-fov" min="55" max="100" step="1"></label>
+        <!-- R-A1. An accessibility aid layered on a default that was measured
+             correct, never a substitute for one. It must not read as a claim
+             about how visible an 1835 street was — see streets.js § R-A1. -->
+        <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
+          <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
+        <details class="why"><summary>Why this default</summary>
+          <p class="legend-note" id="road-aid-note">These are worn earth tracks through prairie
+            grass, and how much bare earth shows is a modelled figure with its own evidence behind
+            it — so the default paints them exactly as the record describes. Raise this if they are
+            hard to follow: on a phone in daylight, or if faint contrast is difficult to see. It
+            changes nothing but how strongly the roads are painted on your screen, and it is not a
+            claim that 1835 Chicago's streets looked bolder than this.</p>
+        </details>
       </div>
       <div class="settings-group">
         <h4>Show</h4>
@@ -706,15 +672,83 @@
           <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
+      <div class="settings-group">
+        <h4>Movement</h4>
+        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
+      </div>
+      <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
+      <div class="settings-group" id="s-machine">
+        <h4 data-str="settings.machine">Machine</h4>
+        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Machine" data-str-label="settings.machine"></div>
+      </div>
+      <div class="settings-group">
+        <h4>Performance</h4>
+        <label class="field row"><span>Scene detail</span>
+          <select id="s-detail">
+            <option value="full">Full — every plant and tree</option>
+            <option value="balanced">Balanced — fewer plants</option>
+            <option value="light">Light — fewest, for slow machines</option>
+          </select></label>
+        <label class="field row"><span>Image sharpness</span>
+          <select id="s-quality">
+            <option value="1">Low — smoother</option>
+            <option value="1.5">Medium</option>
+            <option value="2">High — sharper</option>
+          </select></label>
+        <label class="field row"><span>Frame pacing</span>
+          <select id="s-governor">
+            <option value="adaptive">Adaptive — steadier while moving</option>
+            <option value="fixed">Fixed — always the sharpness above</option>
+          </select></label>
+        <!-- T-2656: Auto puts back what this device's profile recommends (js/settings-app.js). -->
+        <div class="field row perf-auto"><span id="s-perf-auto-line">Auto</span>
+          <button class="setting-button" id="s-perf-auto" type="button">Use Auto</button></div>
+        <p class="legend-note" id="governor-line"></p>
+        <p class="legend-note" id="device-line" hidden></p>
+        <!-- T-2732: dev preview (or ?pacing=read) only — pacing-read.js unhides it. -->
+        <div class="field row" id="pacing-read" hidden><span>Frame pacing reading</span>
+          <span class="pacing-read-actions">
+            <button class="setting-button" id="s-pacing-copy" type="button" hidden>Copy</button>
+            <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
+          </span>
+        </div>
+        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
+          half a minute at Light, Fixed then Adaptive, and puts you back where you were.</p>
+        <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
+          aria-label="Frame pacing reading"></textarea>
+      </div>
+      <!-- T-2656: Settings › Sound. The controls are kept now; the sounds are T-2659's. Until
+           they land the note says so, and nothing pretends to play. -->
+      <div class="settings-group" id="s-sound">
+        <h4 data-str="settings.sound">Sound</h4>
+        <label class="field"><span><span data-str="settings.sound.master">Master</span> <b id="v-sound-master"></b></span>
+          <input type="range" id="s-sound-master" min="0" max="1" step="0.05"></label>
+        <label class="field"><span><span data-str="settings.sound.effects">Effects</span> <b id="v-sound-effects"></b></span>
+          <input type="range" id="s-sound-effects" min="0" max="1" step="0.05"></label>
+        <label class="field"><span><span data-str="settings.sound.ambience">Ambience</span> <b id="v-sound-ambience"></b></span>
+          <input type="range" id="s-sound-ambience" min="0" max="1" step="0.05"></label>
+        <p class="legend-note" id="s-sound-note" data-str="settings.sound.none">Nothing in the town makes a sound yet. These are kept for when it does.</p>
+      </div>
+      <div class="settings-group">
+        <h4>Units</h4>
+        <label class="field row"><span>Measurement units</span>
+          <select id="s-units">
+            <option value="imperial">Imperial — ft, mi, mph</option>
+            <option value="metric">Metric — m, km, km/h</option>
+          </select></label>
+      </div>
       <!-- T-2629: About — the build stamp, and on a dev build the DEV mark (js/about.js).
            On a phone this is where they are: the arrival card's stamp and the dev
            preview's banner and pill are not drawn there. -->
       <div class="settings-group about" id="s-about">
-        <h4 data-str="hud.about.title">About</h4>
+        <h4 data-str="settings.about">About &amp; What's new</h4>
         <p class="about-build"><span class="about-dev" id="s-about-dev" hidden data-str="hud.about.dev">DEV</span>
           <span id="s-about-build"></span></p>
         <p class="legend-note" id="s-about-dev-note" hidden><span data-str="hud.about.devNote">A preview build: not production, and not indexed.</span>
           <a href="/4d/" data-str="hud.about.production">Open production</a></p>
+        <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
+        <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
+          <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>

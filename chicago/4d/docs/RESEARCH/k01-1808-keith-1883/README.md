@@ -373,3 +373,35 @@ print's faint apexes make a job of its own. All sixteen views were re-rendered; 
 stand where they were (the 1887 view, the plate and both Taylor 2135 records still read
 `matches`: on the plate the cap now agrees to 1-2 px, and in the two older registrations it moves
 toward the photograph's, which still reads it a little higher).
+
+## T-2811 — the cowl's set-back read on two cameras (piece 1 of T-2751)
+
+T-2748's re-fit of the c. 1888 view looking SW (4.1 px RMS, the rear pinnacle held to 1.5 px
+across) read the cowl's cap 11 px left of and 7 px under the print's, and put both on the cowl's
+reconstructed depth behind the return's face. Rendered at a 0.3 m set-back the cap's centre
+stands at x 1241 against the print's 1242.5 and its top at y 108 against 106: in this low view a
+cowl nearer the face also stands higher, so the height excess was the set-back's, not the cap's.
+
+The 1888 Glessner plate disagrees. Its T-2579 camera holds both return pinnacles to 1-4 px, and
+it read the cap where it was built (centre y 630.5 against the plate's 629.5 at 0.6 m); at 0.3 m
+it reads 10.5 px off. Measured sensitivities, per 0.3 m (cap centre, then cap top):
+
+| move | c. 1888 SW (x, y) | 1888 plate (y, x) |
+|---|---|---|
+| 0.3 m nearer the face | +9, -5 | +9.5, +1 |
+| 0.3 m further back along the return | +10.5, +4 | +6, -3 |
+
+Both cameras see a move along the return almost as a change of set-back, so a place that meets
+both prints needs the cowl 0.75 m further back and 0.5 m deeper, with its cap raised 0.25 m by the
+plate's reading and 0.54 m by the photograph's — fitting the cameras' residuals, not the cowl.
+Least squares over the four readings gives a set-back of 0.42 m alone, or 0.41 m with the place
+along the return free (which then moves 0.01 m, to 3.29 m). The cowl is built at **0.45 m**; its
+place (3.3 m) and its cap's height (1.05 m) stand. The c. 1888 view's cap now reads 6 px across
+and 5 px high from the print's, the plate's 5.5 px along the return and 0 px in height: the two
+cameras' disagreement, which no placement of the cowl removes. The c. 1888 view's cowl item is
+closed on that; the view still differs on its stoop (T-2812).
+
+All seventeen views were re-rendered. Every changed pixel sits in one cluster at the cowl, and
+four views (the 1965 porch, the mid-1950s, the owner's crop and Reed 1941) are unchanged to the
+pixel. The verdicts stand where they were, and the plate, Taylor 2135 and the 1887 view still
+read `matches`.
