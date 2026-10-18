@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2024, ts: '2026-10-18T22:53:44.520Z', date: 'Oct 18, 2026, 5:53 PM CT', title: 'Finish the field check and earn your Navigator License', kind: 'feature',
+    items: [
+      'Press Finish at the end of the 60-second field check and you earn the Navigator License. A line says it is kept with your keepsakes in Jaunts.',
+      'Open your daybook from Jaunts and the license is on the shelf beside your Jaunt keepsakes, with the day it was issued. It stays on this device and shows in every year.',
+      'Skipping the field check does not award it, and finishing again keeps the one license. Reset daybook clears your Jaunt keepsakes but leaves the license.',
+    ] },
   { v: 2023, ts: '2026-10-18T22:27:15.247Z', date: 'Oct 18, 2026, 5:27 PM CT', title: 'Keith House\'s roof ventilator moved to match two 1880s pictures', kind: 'fix',
     items: [
       'The cowl ventilator on 1808 Prairie\'s roof now stands 0.45 m behind the north wall\'s face instead of 0.6 m, closer to where the c. 1888 photograph looking south-west shows it.',
