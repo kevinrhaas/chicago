@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2003, ts: '2026-10-18T16:35:21.898Z', date: 'Oct 18, 2026, 11:35 AM CT', title: '1835: the shore cottonwood grove and a thicker North Side wood', kind: 'feature',
+    items: [
+      'Sixty large cottonwoods stand on the lake shore from Sixteenth to Eighteenth Street, with a clump of nine near the middle, from Robert G. Clarke\'s 1890 letter.',
+      'The two great cottonwoods behind the old Kinzie house still stand in 1835, though the house is gone.',
+      'The woods are drawn at a higher share of their recorded density on every detail level, so the North Side reads as woodland.',
+      'Every new tree\'s position is reconstructed and listed under Liberties.',
+    ] },
   { v: 2002, ts: '2026-10-18T16:24:45.985Z', date: 'Oct 18, 2026, 11:24 AM CT', title: 'Plainer words where a visitor reads about shops and sources', kind: 'change',
     items: [
       'A shop placed beside a landmark now names it in words, such as Mansion House, instead of an internal code. You see this in Go to and on the shop\'s card.',
