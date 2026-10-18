@@ -2,7 +2,7 @@
  "structure_id": "house_1623_prairie",
  "view": "building_budget_front",
  "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
- "glb_sha256": "8f069b4614eba89ce8e06cbea5f6f13e1b1e51a23ab06fadfd71dc27385bc509",
+ "glb_sha256": "8af5b470a959d97425a13b3322779a294c60f8b09dd66e06bed85d763ebfb440",
  "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
  "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
  "verdict": "differs",
@@ -64,8 +64,8 @@
   },
   {
    "what": "the basement light: a broad segmental opening behind an ornamental iron grille, about 1.8 m wide; the build's is a 1.1 m round-headed light without a grille",
-   "status": "open",
-   "how": "T-2728 set an iron grille in it (street_front_dress.grilles: seven uprights between a foot bar and a head bar, 0.05 m behind the face; through the camera it reads as the drawing's barred light under the window). Its breadth, its low segmental head and the grille's band of C-scrolls are not laid: K01's arched basement row lays a round head (k01_frontage_params, street_front_openings), so a 1.8 m segmental opening is a K01 change, T-2779"
+   "status": "fixed",
+   "how": "T-2818: K06's broad segmental basement light (k06.opening.basement_segmental), 1.8 m across from 0.1 m to a crown at 0.97 m, its head rising a sixteenth of its span, under a 0.25 m block of voussoirs radiating from the arc's centre with a skewback at each end and a keystone to 1.25 m (K01's arched rows now lay a segmental head). Through the camera its jambs land at x 68 and 150 against the drawn 63 and 145, its crown at about y 647 as drawn and its sill within about 2 px; the voussoirs' top at about y 635 against the drawn 632. It stands 1.45 m from the north wall, 0.1 m north of the window over it (`offset_m`): the drawing draws it about 0.25 m north, and 1.45 m is as far as its voussoir block stands 0.3 m inside the corner. Its grille is the drawing's: eight close uprights from the sill to a bar at 0.57 m, a bar across them over the sill, and over them a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing's band of C-scrolls is about six across; each scroll's curl is the kit's (reconstructed, L-k01-1623-farwell-entrance-2728)"
   },
   {
    "what": "the stoop: the drawing's climbs straight up from the walk between iron rails and stone newels; the build's is a plain straight stoop with cheeks",

@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2017, ts: '2026-10-18T20:43:45.162Z', date: 'Oct 18, 2026, 3:43 PM CT', title: '1623 Prairie\'s broad basement window and its scrolled iron grille', kind: 'feature',
+    items: [
+      'The basement light under Granger Farwell\'s arched window is now the broad, low opening of its 1886 drawing: 1.8 m across under a flat segmental arch of radiating stones.',
+      'Its iron grille follows the drawing too: close uprights with a band of curled scrolls across the top.',
+      'Sizes were read through the drawing\'s camera; the scrolls\' exact curl is a reconstruction, recorded as a liberty.',
+    ] },
+  { v: 2016, ts: '2026-10-18T20:43:45.162Z', date: 'Oct 18, 2026, 3:43 PM CT', title: 'The Confidence view lets you colour, ghost and fade each grade', kind: 'feature',
+    items: [
+      'In the Navigator\'s Confidence view, tap a grade\'s look to open its row: four colour swatches, Tint, Ghost or Dither, and an opacity slider from 0 to 100 %. Each change shows in the town at once.',
+      'A Colour-blind-safe colours button puts blue, yellow and vermilion on Attested, Inferred and Reconstructed in one tap, and the presets keep them.',
+      'Each row still has its Show switch and the number of structures standing at that grade.',
+    ] },
   { v: 2015, ts: '2026-10-18T19:41:06.706Z', date: 'Oct 18, 2026, 2:41 PM CT', title: '1623 Prairie\'s oriel rises through the roof to its spire', kind: 'feature',
     items: [
       'Granger Farwell\'s oriel now climbs past the main cornice as its 1886 drawing shows: a carved frieze, an upper stage of shorter windows and a steep slate spire with a finial.',
