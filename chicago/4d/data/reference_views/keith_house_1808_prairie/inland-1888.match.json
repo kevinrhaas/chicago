@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
-  "camera_sha256": "aa73292751ab8c79534ce99cd81e0979f29aba52b020ab6481b8be3c4e3eac14",
+  "glb_sha256": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
+  "camera_sha256": "6819cfca050bb147eac1c0036afc191e7d8dc1992bbb6529aa36841c0e0443e0",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
-      "status": "open"
+      "what": "T-2765: the bow's principal storey has four lights, not three, standing plumb under the second storey's four at the same bearings (-33, -11, 11 and 33 degrees), and the basement's three under the first three. Read at the plate's native 1559 px, the three lights the street tree leaves visible in each lower storey stand under the second storey's first three, and the plan printed under the plate draws four openings in the bow's principal-floor wall about a pier on its axis; the fourth is behind the trunk here. On every level fit of T-2762 the lights' edges now sit 7.5-15.5 px RMS off the print, the second storey's own residual on that fit, where at -27, 0 and 27 degrees they sat 31-52 px off (on T-2763's re-fit 7.1-11.9 px against the second storey's 9.4-12.1, and 34-41 px before); widths read through the fits, principal 0.9 m (the second storey's) and basement 0.73 m. Their heights were already right: down the south light's column, read with no camera, every head and sill falls within 0.06 m of its built height (tools/keith_bow_lights_read.py).",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
@@ -40,8 +40,16 @@
       "status": "fixed"
     },
     {
-      "what": "The individual joints (the bow's beds are the rhythm's, not struck on the front's), the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
+      "what": "T-2772: the joints, read here at the plate's native 1559 px, about 80 px/m on the lower storeys (tools/keith_plate_grain_read.py, its table in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-grain-read.json). The print resolves the beds below the principal storey's transoms, where the street tree's branches thin. On the front's south strip and the bow's south flank the beds lie level with each other (7 of 8 front beds have a bow bed within 3 px), where the model courses the bow from its own bed (1 of 7 in the render). Up from the principal sill the print lays seven courses deep and thin in turn, as the model does, and at the model's pitch (a deep and a thin course together 50.7 px in print, 51.4 in render). But it splits them 33 / 18 px (about 0.44 / 0.24 m) where the model's 0.49 / 0.195 m render 36.8 / 14.7. From the sill down the print lays 3 even courses of 35, 37, 36 px (about 0.47-0.49 m) over a 49 px foot, with no thin one, where the render lays thin and deep in turn (16, 36, 15, 36 px) over two base courses (27, 26). Above the principal storey the courses are washed out and crossed by branches, so they are not read. T-2773 builds what the print reads.",
       "status": "open"
+    },
+    {
+      "what": "T-2772: the upper capitals' carving is not shown. In the plate at its native 1559 px (about 76 px/m at the third storey's heads) each of the five colonnettes' capitals is about 20 px tall and 16 px across. All five stand in the shadow band under the third storey's head, crossed by the street tree's branches: the print holds the shafts below them, and no tone in the capitals to read a bell, a neck ring or carving from. They stay the model's neck ring under a flaring bell (T-2566), reconstructed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2772: the head bands' sections are not shown. Read along the crown's own courses at the plate's native 1559 px (about 76 px/m there), the head band under the checker band stands where the print's does. Its shadow line lies 143.5 px under the lattice's lower openings in print, and 155.0 in render (145.2 at the print's scale, from the lattice's row pitch, 29.5 px against 31.5). The band reads as one light fillet a few px tall over its shadow, which is 16.5 px deep in print against 13.1 at scale in render. A moulding's steps of a few centimetres are 2-4 px here, finer than the print resolves through the branches, so the band keeps its built section. T-2773 weighs the few px of extra shadow.",
+      "status": "not shown"
     },
     {
       "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
@@ -76,7 +84,19 @@
       "status": "fixed"
     },
     {
-      "what": "T-2725: this camera (T-1883: pitched 12.5 degrees up from an eye 0.5 m over grade, its six controls all on the front's plane) draws the loggia about 0.7 m high and its column and pedestal alike 7-9 % long: the 2.5 m column renders 204 px against the print's 190.5 (capital top y 1383 to the pedestal cap's arris y 1573.5), the pedestal 84 against about 77. The print is a level view (its verticals are vertical; the front's courses meet at a horizon near y 1640, about 1.7 m over grade), so the error is this camera's scale at the loggia's depth, not the column. T-2762: a level re-fit does not take it away. Fitted level (verticals vertical; heading, eye, focal length and principal point free, pixel aspect square or free) on the front's pinnacle axes, north arris and six third-storey lights and on the loggia's capital tops, pedestal caps, the north pedestal's north-east arris and the south pedestal's south face, all read at native 1559 px (tools/keith_plate_level_fit.py, its table in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json), every camera still draws the as-built capital top to pedestal cap 198-205 px against the print's 191.5 (south) and 185 (north), 6-8 % long, at 5-9 px RMS. Left out of the fit and predicted, the loggia's heights come out 7-19 % long. No fit determines the eye: it lands anywhere from 35 to 88 m out, and the eye height runs to its 0 m bound. Those are the marks of a model that disagrees with the print, not of a camera: the residuals that stay put across every fit are the lights' sills (10-15 px low), the capital tops (about 13 px high) and the loggia's width (about 26 px narrower than the print). So the 6-8 % sits in the loggia's heights (column and seat, 2.59 m from pedestal cap to capital top on a 2.0 m deck) or in the front's, and T-2763 re-rules it. The camera is not replaced until a fit determines its eye.",
+      "what": "T-2725: this camera (T-1883: pitched 12.5 degrees up from an eye 0.5 m over grade, its six controls all on the front's plane) draws the loggia about 0.7 m high and its column and pedestal alike 7-9 % long: the 2.5 m column renders 204 px against the print's 190.5 (capital top y 1383 to the pedestal cap's arris y 1573.5), the pedestal 84 against about 77. The print is a level view (its verticals are vertical; the front's courses meet at a horizon near y 1640, about 1.7 m over grade), so the error is this camera's scale at the loggia's depth, not the column. T-2762: a level re-fit does not take it away. Fitted level (verticals vertical; heading, eye, focal length and principal point free, pixel aspect square or free) on the front's pinnacle axes, north arris and six third-storey lights and on the loggia's capital tops, pedestal caps, the north pedestal's north-east arris and the south pedestal's south face, all read at native 1559 px (tools/keith_plate_level_fit.py, its table in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json), every camera still draws the as-built capital top to pedestal cap 198-205 px against the print's 191.5 (south) and 185 (north), 6-8 % long, at 5-9 px RMS. Left out of the fit and predicted, the loggia's heights come out 7-19 % long. No fit determines the eye: it lands anywhere from 35 to 88 m out, and the eye height runs to its 0 m bound. Those are the marks of a model that disagrees with the print, not of a camera: the residuals that stay put across every fit are the lights' sills (10-15 px low), the capital tops (about 13 px high) and the loggia's width (about 26 px narrower than the print). So the 6-8 % sits in the loggia's heights (column and seat, 2.59 m from pedestal cap to capital top on a 2.0 m deck) or in the front's, and T-2763 re-rules it. The camera is not replaced until a fit determines its eye. T-2763: ruled — the loggia carries it, not the front. Two of T-2762's controls were not the edges the print shows: its capital top was the beam's lowest band (5.59 m, u 20.76) where the print's y 1383.5 is the capital's abacus (5.515 m, u 20.625), and its sills a height on no edge of the light (10.41 m) where the bottom of the dark opening seen from below is the projecting sill's top arris (u 18.34, 10.36 m). On the GLB's own edges every level fit with the loggia as built put its eye at grade 40-90 m out (inside the houses across Prairie Avenue) and still drew pedestal and column alike 6-8 % long; freeing one factor on the loggia's heights over its deck read 0.879 with the eye 2.3 m high and about 21 m out (RMS 7.1 -> 4.9 px), and freeing the sills as well moved them 0.03 m. Rebuilt at that factor (pedestal 0.88 m, column 2.2 m, the pierced parapet 0.72 m at the 0.82 of the pedestal the plate draws), the level fit on all 27 coordinates puts its eye at [39.19, -0.23, 2.21] with no parameter at a bound, RMS 4.94 px, and reads the column 1-2 % short and the pedestal 75 px against 77; the factor re-fitted on the rebuilt GLB reads 0.997. That fit is now this view's camera (the solve says so), and in this side-by-side the capital tops and pedestal caps lie on the print's. The south pair still stands about 30 px right of the print's: the pedestals' width (0.9 m built, about 0.6 m in the plan and the print), which no ticket has ruled yet (T-2769 made their fields plain and left their width).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2769: the loggia's pedestals, read at the plate's native 1559 px (about 75 px to the metre there; x 865-940 and 1100-1160, y 1585-1650), each carry a plain field inside a border on the front (about 32 x 41 px on a 47 px front), with no carving in it, as T-2585 read the balcony's dies. The model's fields carried T-1883's low relief leaf scrolls; they are taken off and the fields left plain in their border (the model's 0.66 x 0.57 m field comes to about 34 x 43 px at this grain).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2769: the south pedestal's south side, which this camera sees (x about 872-886, y 1590-1650), shows a plain field in a border like its front's; the model's side face is plain stone with no border. Open for the build.",
+      "status": "open"
+    },
+    {
+      "what": "T-2765: the plate draws each of the bow's principal lights in three tiers between stone bars: a main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m (read on one level column at 77.8 px/m). The model's sash_transom_flat lays one 0.45 m transom over a 2.5 m sash, so its transom is the top light and the middle light is not built.",
       "status": "open"
     }
   ],

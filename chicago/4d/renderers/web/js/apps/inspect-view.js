@@ -13,17 +13,18 @@
  * words for a screen reader. The address is printed once.
  *
  * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources. A new
- * building always opens on Overview; the same building keeps its tab. People, Design, Story and
+ * building always opens on Overview; the same building keeps its tab. People, Design and
  * Photos are the card's own content for now, rendered by popup.js `sections()` from the same
  * renderers and loaded state as the card, so the two cannot disagree while the card still
- * exists (Design, Story and Photos fill in under T-2642, T-2643 and T-2645). Sources has its
- * own layout (T-2644, inspect-sources.js): every fact grouped by grade, Liberties as a
- * section, human source titles, the full citation folded under each fact; the Confidence
- * meter counts the same facts, so the meter and the tab it opens agree. Each pane is built
- * the first time its tab opens. People lists the card's "who was here" exactly as the card
- * does (review notes included), each household with a way into the People app; a scene
- * whose sidecar lists nobody here (1904) lists the people directory's residents of this
- * building instead (T-2702).
+ * exists (Design and Photos fill in under T-2642 and T-2645). Story is its own timeline
+ * (T-2643, js/inspect-story.js): BUILT, YOU ARE HERE and TODAY from the record's dated facts,
+ * filtered to the scene's era. Sources has its own layout (T-2644, inspect-sources.js):
+ * every fact grouped by grade, Liberties as a section, human source titles, the full citation
+ * folded under each fact; the Confidence meter counts the same facts, so the meter and the
+ * tab it opens agree. Each pane is built the first time its tab opens. People lists the
+ * card's "who was here" exactly as the card does (review notes included), each household
+ * with a way into the People app; a scene whose sidecar lists nobody here (1904) lists the
+ * people directory's residents of this building instead (T-2702).
  */
 import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
@@ -31,6 +32,7 @@ import { fallbackSummary } from '../fallback-summary.js';
 import { hydratePictures } from '../pictures.js';
 import { cameraOf } from '../show-me.js';
 import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.js';
+import { storyTimeline, renderStory } from '../inspect-story.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -358,19 +360,10 @@ async function fillPane(root, pane, key) {
   const html = (s) => { const d = el(doc, 'div', 'insp-card'); d.innerHTML = s; return d; };
   if (key === 'people') await fillPeople(pane, sec, ctx, id);
   else if (key === 'story') {
-    if (sum?.story?.length) {
-      const block = el(doc, 'section', 'insp-sec insp-story');
-      block.append(heading(doc, 'Story'));
-      const ol = el(doc, 'ol', 'insp-timeline');
-      for (const entry of sum.story) {
-        const li = el(doc, 'li', 'insp-when');
-        li.append(el(doc, 'span', 'insp-date', String(entry.date).slice(0, 4)), line(doc, 'span', 'insp-what', entry.text, entry.grade));
-        ol.append(li);
-      }
-      block.append(ol);
-      pane.append(block);
-    }
-    pane.append(html(sec.story));
+    // T-2643: BUILT, YOU ARE HERE and TODAY on one timeline, from the record's own dated facts,
+    // the modelled phase and (1835 only) the fire limit; another scene's era never renders.
+    const record = ctx.actions?.record?.(id) ?? null;
+    pane.append(renderStory(doc, storyTimeline({ sum, sidecar: record?.sidecar ?? null, scene: ctx.scene, fireLimit: sec.fireLimit }), dot));
   } else if (key === 'sources') {
     const d = el(doc, 'div', 'insp-sources');
     d.innerHTML = sourcesPaneHtml({

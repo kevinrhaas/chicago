@@ -89,6 +89,39 @@
 .insp-when { display: grid; grid-template-columns: 3.2rem 1fr; gap: 8px; align-items: baseline; }
 .insp-date { font: var(--label-weight, 400) 0.75rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
 .insp-what { font: 400 1rem/1.45 var(--font-body, inherit); }
+
+/* T-2643: the Story timeline. A rail runs down beside the dates; BUILT, YOU ARE HERE and
+   TODAY are its marks, kicked in mono-caps; what came after the visit hangs off a dashed
+   rail and says so in words, not only in colour. Static: nothing here moves. */
+.insp-story-lead { margin: 0 0 10px; }
+.insp-story-line { gap: 0; }
+.insp-story-line .insp-when { position: relative; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 10px; padding: 0 0 12px; }
+.insp-story-line .insp-when::before { content: ''; position: absolute; left: calc(3.2rem + 11px); top: 0; bottom: 0;
+  border-left: 2px solid var(--edge); }
+.insp-story-line .insp-when.is-after::before { border-left-style: dashed; }
+.insp-story-line .insp-when:last-child::before { bottom: auto; height: .9em; }
+.insp-story-body { position: relative; display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-left: 14px;
+  overflow-wrap: anywhere; }
+.insp-story-body::before { content: ''; position: absolute; left: -2px; top: .45em; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ink-dim); }
+.insp-kicker { font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-story-line [data-mark="built"] .insp-story-body::before,
+.insp-story-line [data-mark="today"] .insp-story-body::before { background: var(--ink); }
+.insp-story-line [data-mark="built"] .insp-kicker,
+.insp-story-line [data-mark="today"] .insp-kicker { color: var(--ink); font-size: 0.75rem; font-weight: 600; }
+.insp-story-line [data-mark="built"] .insp-story-body::before,
+.insp-story-line [data-mark="today"] .insp-story-body::before { left: -3px; width: 10px; height: 10px; border-radius: 2px; }
+.insp-story-line .insp-mark-here .insp-story-body { margin-left: -4px; padding: 6px 10px 6px 18px; border: 1px solid var(--accent, currentColor);
+  border-radius: 6px; background: color-mix(in srgb, var(--accent, currentColor) 12%, transparent); }
+.insp-story-line .insp-mark-here .insp-story-body::before { left: 1px; top: .8em; width: 10px; height: 10px;
+  background: var(--accent, currentColor); }
+.insp-story-line .insp-mark-here .insp-kicker { color: var(--accent, currentColor); }
+.insp-story-line .insp-mark-here .insp-date { color: var(--ink); padding-top: 6px; }
+.insp-story-line .is-missing .insp-what { color: var(--ink-dim); font-style: italic; }
+.insp-after { align-self: flex-start; margin-top: 2px; padding: 1px 6px; border: 1px dashed var(--edge-strong, var(--edge)); border-radius: 4px;
+  font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
 /* T-2640: Show me — a small key at the end of each Look for line the record gives a camera,
    and the outline it pulses on the building for 2 s (still, with reduced motion). */
 .insp-look-item { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
