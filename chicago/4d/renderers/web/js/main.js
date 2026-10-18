@@ -3937,6 +3937,7 @@ async function boot() {
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
   let guideFaq = null; // T-2662
+  const jauntCatalogs = {}; // T-2666: each destination's Jaunt catalog, for Guide › For teachers
   // T-2634: Free roam's one-time tip, once per device.
   const roamTip = createRoamTip({ el: document.getElementById('roam-tip') });
   api.roamTip = roamTip;
@@ -4325,6 +4326,11 @@ async function boot() {
         guideFaq: () => (guideFaq ??= fetch(new URL('guide/faq.json', resolveBases().dataBase), { cache: 'no-cache' })
           .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
           .catch((err) => { guideFaq = null; throw err; })),
+        // T-2666: a destination's Jaunt catalog, for the teacher handout's suggested Jaunts;
+        // read the first time Guide opens, never at boot. No catalog is no Jaunts.
+        jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
+          .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
+          .catch((err) => { delete jauntCatalogs[year]; throw err; })),
         // T-2638: what Inspect's front page reads. The compiled summaries (inspect/<scene>.json,
         // tools/compile_summaries.py), the pictures (the card's own file), a building's record,
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
