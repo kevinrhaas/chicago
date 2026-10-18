@@ -1,0 +1,107 @@
+{
+ "_doc": "Written by tools/keith_crown_stack.py (T-2771): the crown stack (the lattice's lower sill to the head band's top) over the lattice's row pitch, read on one column of each print and of the model through the view's own camera; a ratio no level camera can change. Read the tool's docstring.",
+ "model": {
+  "wall_head_m": 15.0,
+  "upper_sill_m": 15.65,
+  "lower_sill_m": 15.25,
+  "head_band_top_m": 13.51
+ },
+ "views": {
+  "a18-gh-glessner-front-with-keith": {
+   "column_x": 55.0,
+   "front_v_m": 9.3,
+   "print_px": [
+    115.0,
+    145.0,
+    263.0
+   ],
+   "model_px": [
+    115.2,
+    145.6,
+    277.9
+   ],
+   "camera_px_per_m": 76.0,
+   "print_pitch_px_per_m": 75.0,
+   "ratio_stack_over_pitch": {
+    "print": 3.933,
+    "model": 4.35
+   },
+   "stack_m": {
+    "model": 1.74,
+    "print_by_pitch": 1.573,
+    "print_by_camera": 1.552
+   },
+   "stack_deeper_in_model_px": 14.3,
+   "how": "the openings show sky: the sills are where the rows' light ends (column sd falls 114-116 and 144-146); the head band's top is the foot of the lit plain ground (mean 119 at y 262, 71 at y 264), with the checker's rows over it and the band's shadowed moulding under it",
+   "camera_pitch_that_would_explain_it": {
+    "pitch_deg": -44.8,
+    "ratio_reached": 3.932,
+    "reached": true,
+    "arris_lean_px": -173.4
+   }
+  },
+  "a18-gh-florian-1948-northeast-overall": {
+   "column_x": 209.0,
+   "front_v_m": 9.58,
+   "print_px": [
+    226.5,
+    244.5,
+    318.5
+   ],
+   "model_px": [
+    221.7,
+    239.7,
+    317.8
+   ],
+   "camera_px_per_m": 44.9,
+   "print_pitch_px_per_m": 45.0,
+   "ratio_stack_over_pitch": {
+    "print": 4.111,
+    "model": 4.35
+   },
+   "stack_m": {
+    "model": 1.74,
+    "print_by_pitch": 1.644,
+    "print_by_camera": 1.648
+   },
+   "stack_deeper_in_model_px": 4.1,
+   "how": "the openings read dark on the lit lattice (upper rows y 216-226, lower y 233-244); the head band's top is the foot of the lit plain ground (y 298-317), the first dip of its moulding at y 318-319 over its shadow at y 321-326",
+   "camera_pitch_that_would_explain_it": {
+    "pitch_deg": -50.8,
+    "ratio_reached": 4.111,
+    "reached": true,
+    "arris_lean_px": -133.0
+   }
+  }
+ },
+ "plate_not_ruling": {
+  "view": "inland-1888",
+  "columns": [
+   520,
+   540
+  ],
+  "print": [
+   [
+    597,
+    601
+   ],
+   [
+    627,
+    631
+   ],
+   [
+    744,
+    752
+   ]
+  ],
+  "front_v_m": 3.11,
+  "ratio_range": [
+   3.32,
+   4.81
+  ],
+  "stack_m_range": [
+   1.33,
+   1.92
+  ]
+ }
+}
