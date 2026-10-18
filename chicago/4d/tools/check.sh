@@ -165,11 +165,17 @@ step "The Navigator's telemetry strip ticks every 800 ms only while the device i
 # T-2663: Tour mode, the Field Check.
 step "The Field Check's seven steps each move on only on their own action, resume after a reload, skip and replay, in bubbles of 14 words or fewer (T-2663)" \
   node tools/test_tour.mjs
+# T-2664: the tour offered once per device, and the one-time hints after it.
+step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
+  node tools/test_tour_offer.mjs
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
+# T-2643: Inspect's Story tab.
+step "Inspect's Story runs from design to today with BUILT, YOU ARE HERE and TODAY, another era's content filtered out and later facts marked after your visit (T-2643)" \
+  node tools/test_nav_story.mjs
 step "The way home: All destinations and Recall ask first, Cancel/Esc stay put, Return runs the reverse ring and stamps the trip, reduced motion skips the ring (T-2735)" \
   node tools/test_recall.mjs
 step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
