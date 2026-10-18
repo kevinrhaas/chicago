@@ -35,8 +35,9 @@ residents carry their directory name; notable facts are ranked for the front pag
 impact (surprising x3, about a person x2, visible from the street x2, Attested x1.5,
 multiplied, ties kept in authored order) and carry the score; story entries are in date
 order; `grades` counts the record's facts by grade for the confidence meter; and the
-file's `sources` resolves every cited id to its citation, type and date, so the Sources
-tab can show a human title without a fetch per source.
+file's `sources` resolves every cited id to its citation, type, date, tier and links, so the
+Sources tab can show a human title, "from the time" or "written later", and the full
+citation without a fetch per source (T-2644).
 
 GENERATED, NOT COMMITTED. data/inspect/ is ignored by git and written by publish.sh just
 before the mirror, the way data/pictures/ is: the compiled form reads source records and
@@ -190,7 +191,10 @@ def load_world(root=ROOT):
             s = load_json(p)
         except (OSError, ValueError):
             continue
-        sources[p.stem] = {k: s[k] for k in ("citation", "type", "date") if k in s}
+        # The tier is carried so the Sources tab can say "from the time" or "written later"
+        # (T-2644); it never prints the rung. The links let the folded citation open its source.
+        sources[p.stem] = {k: s[k] for k in ("citation", "type", "date", "tier", "url", "archived_url")
+                           if k in s}
     scenes = sorted(p.stem for p in (data / "scenes").glob("*.json"))
     standing = {}
     people = {}

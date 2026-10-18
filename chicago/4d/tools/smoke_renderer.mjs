@@ -17986,7 +17986,7 @@ for (const [label, viewport, touch] of [
           && JSON.stringify(inspectRecord.sections) === JSON.stringify(['Who lives here · 1904', 'Look for', 'Notable facts'])
           && /^A granite fortress on the street/.test(inspectRecord.summary)
           && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
-          && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
+          && !inspectRecord.plumbing && !inspectRecord.overflow && /^\d+ facts/.test(inspectRecord.meter),   // the count is T-2644's, checked there
           JSON.stringify(inspectRecord).slice(0, 700));
         // T-2639. On 1904: People lists the Glessner household from the directory (T-2702); a
         // newly inspected building opens on Overview; the same building keeps its tab.
@@ -18026,6 +18026,70 @@ for (const [label, viewport, touch] of [
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
           && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
           JSON.stringify(inspectTabs1904));
+        // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
+        // same count the Overview's Confidence meter shows), a Liberties section with every
+        // liberty recorded against the house, each fact folded with its sources named by human
+        // titles and its full citation folded again beneath; no source id or tier label shows.
+        const inspectSources = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          a.pick(id);
+          await a.navigator.select('inspect');
+          a.navigator.open(2);
+          await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-meter'));
+          const meter = root().querySelector('.insp-meter')?.getAttribute('aria-label') ?? '';
+          root().querySelector('[data-insp-tab="sources"]')?.click();
+          await wait(() => root().querySelector('[data-insp-pane="sources"]')?.dataset.filled === 'yes');
+          const pane = root().querySelector('[data-insp-pane="sources"]');
+          const pg = pane?.querySelector('.src-page');
+          const count = (g) => Number(pane?.querySelector(`.src-grade[data-grade="${g}"] .src-count`)?.textContent ?? NaN);
+          const rows = (g) => pane?.querySelectorAll(`.src-grade[data-grade="${g}"] .src-fact`).length ?? 0;
+          const shut = pane?.innerText ?? '';
+          const rec = a.registry.get(id)?.sidecar ?? {};
+          const sums = await a.inspectSummaries();
+          const ids = new Set([...(rec.citations ?? []).map((c) => c.source_id), ...Object.keys(sums?.sources ?? {})]);
+          const libs = ((await a.loadLiberties())?.liberties ?? []).filter((l) => l.subjects?.includes(id)).length;
+          // Open the first Attested fact, then its folded citations, as a visitor would.
+          const first = pane?.querySelector('.src-grade[data-grade="attested"] .src-fact');
+          first?.querySelector('summary')?.click();
+          const titles = [...(first?.querySelectorAll('.src-title') ?? [])].map((n) => n.textContent.trim());
+          const whens = [...(first?.querySelectorAll('.src-when') ?? [])].map((n) => n.textContent.trim());
+          const cites = first?.querySelector('.src-cites');
+          const citesShut = !!cites && !cites.open;
+          cites?.querySelector('summary')?.click();
+          const citeRows = cites?.querySelectorAll('.cites li').length ?? 0;
+          const opened = pane?.innerText ?? '';
+          const r = pane?.getBoundingClientRect();
+          const out = { lead: pane?.querySelector('.src-lead')?.textContent.trim() ?? '', facts: Number(pg?.dataset.facts ?? NaN),
+            counts: ['attested', 'inferred', 'reconstructed'].map(count), rows: ['attested', 'inferred', 'reconstructed'].map(rows),
+            allRows: pane?.querySelectorAll('.src-fact').length ?? 0, folded: pane?.querySelectorAll('.src-fact[open]').length ?? -1,
+            meter, libs, libRows: pane?.querySelectorAll('.src-liberties:not(.src-questions) .src-lib').length ?? 0,
+            libHead: pane?.querySelector('.src-liberties .insp-h')?.textContent.trim() ?? '',
+            titles, whens, citesShut, citeRows,
+            idShown: [...ids].filter((s) => opened.includes(s)).slice(0, 3),
+            tierShown: /\btier \d|period\/eyewitness|near-primary|later scholarship/i.test(opened),
+            plumbing: (shut.match(/\S*[A-Za-z0-9]_[A-Za-z0-9]\S*|\S*\.json\b|\bdata\/\S*|\bT-\d{3,}/) ?? [null])[0],
+            overflow: document.documentElement.scrollWidth > innerWidth || (r ? r.right > innerWidth + 1 : true) };
+          first?.removeAttribute('open');
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, 'glessner_house');
+        {
+          const s = inspectSources;
+          const total = s.counts.reduce((x, y) => x + y, 0);
+          check(`${label}: Glessner's Sources tab groups every fact by grade with real counts, Liberties by name, and folded citations, with no source id or tier label (T-2644)`,
+            s.facts > 30 && total === s.facts && s.allRows === s.facts && JSON.stringify(s.rows) === JSON.stringify(s.counts)
+            && s.counts.every((n) => n > 0) && s.folded === 0
+            && s.lead === `${s.facts} facts. ${s.counts[0]} Attested, ${s.counts[1]} Inferred, ${s.counts[2]} Reconstructed. Tap any one to see its sources.`
+            && new RegExp(`^${s.facts} facts`).test(s.meter)
+            && s.libs > 0 && s.libRows === s.libs && /^Liberties/.test(s.libHead)
+            && s.titles.length > 0 && s.titles.every((x) => x.length > 3) && s.whens.every((w) => w === 'from the time' || w === 'written later')
+            && s.citesShut && s.citeRows > 0
+            && s.idShown.length === 0 && !s.tierShown && !s.plumbing && !s.overflow,
+            JSON.stringify(s).slice(0, 700));
+        }
+        // <<< T-2644
         // >>> T-2640 (QA-10): Show me on each Look for item of Glessner House turns the camera to
         // the record's own view of the feature — its bearing and pitch, the house down the
         // crosshair — and the outline shows for 2 s. Never aimed where the record names no camera.

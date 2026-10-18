@@ -13,20 +13,24 @@
  * words for a screen reader. The address is printed once.
  *
  * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources. A new
- * building always opens on Overview; the same building keeps its tab. People, Design, Story,
- * Photos and Sources are the card's own content for now, rendered by popup.js `sections()`
- * from the same renderers and loaded state as the card, so the two cannot disagree while the
- * card still exists (Design, Story, Photos and Sources fill in under T-2642, T-2643, T-2645 and
- * T-2644). Each pane is built the first time its tab opens. People lists the card's "who was
- * here" exactly as the card does (review notes included), each household with a way into the
- * People app; a scene whose sidecar lists nobody here (1904) lists the people directory's
- * residents of this building instead (T-2702).
+ * building always opens on Overview; the same building keeps its tab. People, Design, Story and
+ * Photos are the card's own content for now, rendered by popup.js `sections()` from the same
+ * renderers and loaded state as the card, so the two cannot disagree while the card still
+ * exists (Design, Story and Photos fill in under T-2642, T-2643 and T-2645). Sources has its
+ * own layout (T-2644, inspect-sources.js): every fact grouped by grade, Liberties as a
+ * section, human source titles, the full citation folded under each fact; the Confidence
+ * meter counts the same facts, so the meter and the tab it opens agree. Each pane is built
+ * the first time its tab opens. People lists the card's "who was here" exactly as the card
+ * does (review notes included), each household with a way into the People app; a scene
+ * whose sidecar lists nobody here (1904) lists the people directory's residents of this
+ * building instead (T-2702).
  */
 import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
 import { hydratePictures } from '../pictures.js';
 import { cameraOf } from '../show-me.js';
+import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -93,15 +97,6 @@ function fallbackChips(s) {
     out.push({ text: /^still standing/i.test(v) ? 'Still standing' : v.split(/[—–-]/)[0].trim(), grade: today.confidence });
   }
   return out;
-}
-
-/** The fallback's Confidence meter: the sidecar's own attribute grades. */
-function fallbackGrades(s) {
-  const n = { attested: 0, inferred: 0, reconstructed: 0 };
-  for (const a of Object.values(s?.attributes ?? {})) {
-    if (a && GRADES.includes(a.confidence)) n[a.confidence] += 1;
-  }
-  return n;
 }
 
 /** Who lives here, from the sidecar's households where there is no record: each person, with
@@ -274,9 +269,9 @@ function render(root, ctx) {
     page.append(sec);
   }
 
-  // 8. The Confidence meter: tap opens the full record on its Evidence tab.
-  const g = sum?.grades ?? fallbackGrades(s);
-  const total = GRADES.reduce((n, k) => n + (g[k] ?? 0), 0);
+  // 8. The Confidence meter: every fact the Sources tab lists, by grade (T-2644). Tap opens it.
+  const g = factCounts(buildingFacts(s, sum));
+  const total = g.total;
   if (total) {
     const meter = el(doc, 'button', 'insp-meter');
     meter.type = 'button';
@@ -376,6 +371,17 @@ async function fillPane(root, pane, key) {
       pane.append(block);
     }
     pane.append(html(sec.story));
+  } else if (key === 'sources') {
+    const d = el(doc, 'div', 'insp-sources');
+    d.innerHTML = sourcesPaneHtml({
+      sidecar: ctx.actions?.record?.(id)?.sidecar ?? null,
+      summary: sum ?? null,
+      docSources: ctx.inspectDoc?.sources ?? null,
+      liberties: sec.liberties ?? null,
+      questions: sec.questions ?? null,
+      dossier: sec.dossier ?? null,
+    });
+    pane.append(d);
   } else if (key === 'photos') {
     const d = html(sec.photos);
     pane.append(d);
@@ -436,6 +442,7 @@ function onClick(e) {
   const st = root._insp ?? {};
   const tab = e.target.closest('[data-insp-tab]');
   if (tab) { selectTab(root, tab.dataset.inspTab); return; }
+  if (e.target.closest('[data-insp-full]') && st.id) { st.ctx?.actions?.openCard?.(st.id); return; }
   const toggle = e.target.closest('[data-toggle-note]');
   if (toggle) {
     const note = toggle.parentElement.querySelector('[data-note]');
@@ -493,4 +500,4 @@ export function unmount(el) {
 }
 
 /** For the tests: the plate and grade helpers, pure. */
-export const _test = { plateFor, fallbackChips, fallbackGrades, fallbackResidents };
+export const _test = { plateFor, fallbackChips, fallbackResidents };
