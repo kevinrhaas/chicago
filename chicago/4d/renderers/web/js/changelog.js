@@ -1,4 +1,46 @@
 export const CHANGELOG = [ // newest first
+  { v: 2015, ts: '2026-10-18T19:41:06.706Z', date: 'Oct 18, 2026, 2:41 PM CT', title: '1623 Prairie\'s oriel rises through the roof to its spire', kind: 'feature',
+    items: [
+      'Granger Farwell\'s oriel now climbs past the main cornice as its 1886 drawing shows: a carved frieze, an upper stage of shorter windows and a steep slate spire with a finial.',
+      'The house\'s eave, gutter and cornice moulding stop against the oriel\'s sides instead of running through it.',
+      'Heights were read through the drawing\'s camera; the frieze\'s carving is a reconstruction, recorded as a liberty.',
+    ] },
+  { v: 2014, ts: '2026-10-18T19:41:06.706Z', date: 'Oct 18, 2026, 2:41 PM CT', title: 'Walking 1904 on a phone makes far less garbage; spawn 408 MB', kind: 'fix',
+    items: [
+      'On a phone, the check for buildings hidden behind walls made about 10 MB of garbage every frame you moved. It now makes almost none, with the same result.',
+      'The 1904 railway\'s ground and rails share their corners instead of repeating them.',
+      'On a phone the railway builds only the grass tufts and stones it draws, and loads its textures at half size.',
+      '1904 phone memory at spawn: 516 to 408 MB. Desktop: 1134 to 1004 MB.',
+    ] },
+  { v: 2013, ts: '2026-10-18T19:13:08.754Z', date: 'Oct 18, 2026, 2:13 PM CT', title: '1812 and 1835: cedars and pines on the sand hills', kind: 'feature',
+    items: [
+      'Low red cedars cover the lake-shore sand hills south of Twelfth Street, as Robert G. Clarke remembered them in 1890.',
+      'North of the river the sand hills carry stunted cedars and pines, after Wau-Bun, and the dunes south of the mouth a scanty scatter of pines and cottonwoods.',
+      'The trees grow in thickets with sand between them, and the wet hollows between dunes hold cottonwoods and balsam poplars instead.',
+      '1812 has the same sand hills, and north of the river they run on to the lake with no town in the way.',
+      'Red cedar and jack pine are new tree models with their own scale-leaf and needle foliage.',
+      'Every position is reconstructed and listed under Liberties.',
+    ] },
+  { v: 2012, ts: '2026-10-18T19:09:06.663Z', date: 'Oct 18, 2026, 2:09 PM CT', title: 'Teachers can print the field check on one page', kind: 'feature',
+    items: [
+      'Guide has a new For teachers section. Print the handout gives one sheet, Letter or A4, with the field check\'s seven steps as students will see them.',
+      'Under the steps are three suggested Jaunts for each destination: the featured ones first, then the shortest. 1812 says it has no Jaunts yet.',
+      'You can also read the handout in Guide before you print it.',
+    ] },
+  { v: 2011, ts: '2026-10-18T18:36:06.631Z', date: 'Oct 18, 2026, 1:36 PM CT', title: 'Inspect\'s Sources tab sorts every fact by how sure we are', kind: 'feature',
+    items: [
+      'Sources opens with a count, like Glessner House\'s 99 facts: 50 Attested, 14 Inferred, 35 Reconstructed.',
+      'Each fact sits under its grade. Tap one to see why we think so and which sources it rests on.',
+      'Sources are named by their titles and say what kind they are: from the time, first-hand, or a historian\'s account. The full citation folds away underneath.',
+      'Liberties is its own section, listing by name every choice we made without a source.',
+      'The Overview\'s Confidence meter counts the same facts, so the two always agree.',
+    ] },
+  { v: 2010, ts: '2026-10-18T18:09:21.344Z', date: 'Oct 18, 2026, 1:09 PM CT', title: '1625 Prairie\'s entrance bay stands forward, as its photograph shows', kind: 'improvement',
+    items: [
+      'The south part of McBirney\'s house at 1625 Prairie now stands a little forward of the rest, its corners edged in smooth quoin stones and capped by a hood moulding over the wide window.',
+      'The door has a smooth stone frame with a carved panel above it, and the lower windows sit in smooth stone surrounds.',
+      'A single band of stone now runs under the first-floor windows, as in the photograph, in place of two that were never there.',
+    ] },
   { v: 2009, ts: '2026-10-18T17:31:26.395Z', date: 'Oct 18, 2026, 12:31 PM CT', title: 'Inspect\'s Photos tab: pictures by date, the 12 best first', kind: 'feature',
     items: [
       'Inspect\'s Photos tab shows a building\'s pictures as a grid sorted by date, each with its year, a short caption and its credit.',

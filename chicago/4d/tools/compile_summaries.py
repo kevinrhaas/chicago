@@ -35,8 +35,11 @@ residents carry their directory name; notable facts are ranked for the front pag
 impact (surprising x3, about a person x2, visible from the street x2, Attested x1.5,
 multiplied, ties kept in authored order) and carry the score; story entries are in date
 order; `grades` counts the record's facts by grade for the confidence meter; and the
-file's `sources` resolves every cited id to its citation, type and date, so the Sources
-tab can show a human title without a fetch per source.
+file's `sources` resolves every cited id to its citation, type, date, tier and links, so the
+Sources tab can show a human title, what kind of source it is, and the full citation without
+a fetch per source; `source_dates` carries the recorded date of every source the scene's
+structures cite, so the tab says "from the time" only of a source dated by the scene's year
+(T-2644).
 
 THE DESIGN TAB (T-2641; design doc section 08 "Design", section 12 "Style library" and
 "Attribute table -> Design hotspots"). A record may carry `onThisHouse`, the numbered
@@ -220,10 +223,14 @@ def load_world(root=ROOT):
             s = load_json(p)
         except (OSError, ValueError):
             continue
-        sources[p.stem] = {k: s[k] for k in ("citation", "type", "date") if k in s}
+        # The tier is carried so the Sources tab can say "from the time" or "written later"
+        # (T-2644); it never prints the rung. The links let the folded citation open its source.
+        sources[p.stem] = {k: s[k] for k in ("citation", "type", "date", "tier", "url", "archived_url")
+                           if k in s}
     scenes = sorted(p.stem for p in (data / "scenes").glob("*.json"))
     standing = {}
     people = {}
+    cited_in = {}
     for scene in scenes:
         sdir = data / "sidecars" / scene
         standing[scene] = {p.stem for p in sdir.glob("*.json")} if sdir.is_dir() else set()
@@ -233,12 +240,23 @@ def load_world(root=ROOT):
             for row in load_json(directory).get("people", []):
                 people[scene][row["id"]] = {"name": row.get("name"), "grade": row.get("grade")}
         standing[scene].discard("people")
+        # Every source a structure of this scene cites (T-2644): the Sources tab needs each
+        # one's date to say "from the time" only where the source is dated by the scene year.
+        cited_in[scene] = set()
+        for stem in standing[scene]:
+            try:
+                side = load_json(sdir / f"{stem}.json")
+            except (OSError, ValueError):
+                continue
+            for c in side.get("citations", []) if isinstance(side, dict) else []:
+                if isinstance(c, dict) and c.get("source_id"):
+                    cited_in[scene].add(c["source_id"])
     liberties = set()
     lib = data / "liberties.json"
     if lib.is_file():
         liberties = {e["id"] for e in load_json(lib).get("liberties", []) if "id" in e}
     return {"sources": sources, "scenes": scenes, "standing": standing,
-            "people": people, "liberties": liberties}
+            "people": people, "liberties": liberties, "cited_in": cited_in}
 
 
 def load_schema():
@@ -529,6 +547,11 @@ def compile_all(records, world):
             "count": len(mine),
             "summaries": {stem: compile_record(r, world) for stem, r in mine.items()},
             "sources": {s: world["sources"][s] for s in ids},
+            # The recorded date of every source this scene's structures or summaries cite, as
+            # the source record writes it (T-2644). Undated sources are absent, never guessed.
+            "source_dates": {s: world["sources"][s]["date"]
+                             for s in sorted(set(ids) | world.get("cited_in", {}).get(scene, set()))
+                             if "date" in world["sources"].get(s, {})},
         }
     return docs
 

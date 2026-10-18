@@ -206,6 +206,9 @@ step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider who
 # T-2661: Guide's controls sheet.
 step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
   node tools/test_nav_guide.mjs
+# T-2644: Inspect's Sources tab.
+step "Inspect's Sources tab groups every fact by grade with real counts, names each source by its own citation with no id or tier label, folds the full citation, and lists Liberties by name (T-2644)" \
+  node tools/test_nav_sources.mjs
 # T-2645: Inspect's Photos tab.
 step "Inspect's Photos tab shows each picture's year, caption and credit by date, the 12 best first and All N, and From this spot only where a solved camera stood (T-2645)" \
   node tools/test_nav_photos.mjs
@@ -215,6 +218,9 @@ step "Guide lists the seven locked terms with their lines and answers its two qu
 # T-2641: Inspect's Design tab.
 step "Inspect's Design tab shows the building's style card from its sourced module, numbered On this house hotspots each with its grade in place of the attribute table, and Compare styles; a building with neither falls back to its own graded sidecar (T-2641)" \
   node tools/test_nav_design.mjs
+# T-2666: Guide › For teachers, the teacher handout.
+step "Guide › For teachers prints the Field Check's seven steps from the tour itself and three Jaunts per destination by one stated rule, as one top-level copy the print stylesheet keeps (T-2666)" \
+  node tools/test_teacher_handout.mjs
 # T-2652: getting there — one choice for Go to, the Map and Jaunts.
 step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
   node tools/test_getting_there.mjs
