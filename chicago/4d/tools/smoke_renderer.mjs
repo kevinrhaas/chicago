@@ -15238,6 +15238,49 @@ for (const [label, viewport, touch] of [
     });
     check(`${label}: Settings › Show turns the look-at tag off and back on (T-2736)`,
       lookTag.present && lookTag.onByDefault && lookTag.off && lookTag.backOn, JSON.stringify(lookTag));
+    // ---- T-2629: dev chrome off a phone's screen. The dev preview's banner and DEV pill
+    // (#__dev, #__devpill: .github/chicago-4d-dev-preview.mjs injects them into the dev tree
+    // only, so they are planted here the way it writes them, inline display and all) are
+    // not drawn at a phone's width and still are on a desktop; the arrival card's build
+    // stamp likewise (kept on a stalled arrival). Settings › About carries the stamp, and
+    // the DEV mark exactly while the page is a dev build.
+    const devChrome = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const planted = [];
+      const plant = (tag, id, css, text) => {
+        if (document.getElementById(id)) return;
+        const n = document.createElement(tag);
+        n.id = id; n.style.cssText = css; n.textContent = text;
+        document.body.append(n); planted.push(n);
+      };
+      plant('div', '__dev', 'position:fixed;left:0;right:0;top:0;z-index:2147483000;display:flex', 'DEV PREVIEW');
+      plant('button', '__devpill', 'position:fixed;right:8px;top:8px;z-index:2147483000;display:inline-block', 'DEV');
+      const drawn = (id) => { const e = document.getElementById(id); const b = e.getBoundingClientRect(); return getComputedStyle(e).display !== 'none' && b.width > 0 && b.height > 0; };
+      const about = document.getElementById('s-about');
+      const out = {
+        phone: matchMedia('(max-width: 620px)').matches,
+        banner: drawn('__dev'), pill: drawn('__devpill'),
+        stamp: getComputedStyle(document.getElementById('gate-build')).display,
+        dev: api.about?.paint?.() ?? null,
+        aboutInSettings: !!about?.closest('.panel-body[data-panel="settings"]') && about.getBoundingClientRect().height > 0,
+        mark: { shown: drawn('s-about-dev'), text: document.getElementById('s-about-dev')?.textContent.trim() },
+        gateText: document.getElementById('gate-build')?.textContent.trim() ?? '',
+        aboutText: document.getElementById('s-about-build')?.textContent.trim() ?? '',
+      };
+      for (const n of planted) n.remove();
+      out.devServed = /\/4d\/dev\//.test(location.pathname);
+      out.notDev = planted.length === 2 ? api.about?.paint?.() ?? null : null;
+      out.markAfter = !document.getElementById('s-about-dev')?.hidden;
+      return out;
+    });
+    check(`${label}: the DEV pill and build stamp are off a phone's screen and in Settings › About; a desktop keeps them (T-2629)`,
+      (devChrome.phone ? !devChrome.banner && !devChrome.pill && devChrome.stamp === 'none'
+        : devChrome.banner && devChrome.pill && devChrome.stamp !== 'none')
+      && devChrome.aboutInSettings && devChrome.dev?.dev === true && devChrome.mark.shown && devChrome.mark.text === 'DEV'
+      && devChrome.aboutText.length > 0 && (!devChrome.gateText || devChrome.aboutText === devChrome.gateText)
+      && (devChrome.notDev === null || (devChrome.notDev.dev === devChrome.devServed && devChrome.markAfter === devChrome.devServed)),
+      JSON.stringify(devChrome));
+    // ---- end T-2629
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
