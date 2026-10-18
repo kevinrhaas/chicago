@@ -1,0 +1,838 @@
+{
+ "ticket": "T-2758",
+ "not_a_reading": "A bounded re-reading of two catalogued photographs through re-solved cameras; no roof point is fitted and no geometry changes.",
+ "sources": {
+  "habs01": "habs_glessner_photo_01_nw_1963",
+  "cornell": "cornell_adw_glessner_stable_1887",
+  "doorway": "habs_glessner_house_il_1015_drawings (sheet 2 jambs W 134.9-147.0; sheet 5 soffit 12.6 ft)"
+ },
+ "camera_sha256": {
+  "habs-01-northwest": "914f653e5bce5182ea25206d155249d462225db4901e887ca44492971275591a",
+  "cornell-northwest-west-windows": "0594fb5e78cce8ce5dddef6754b10f2d8b1fffd0868e596be904ffb32bf04fb1"
+ },
+ "model": {
+  "ridge_W": 141.0,
+  "ridge_ft": 38.6,
+  "gable_coping_apex_ft": 39.6,
+  "cupola_centre_WS": [
+   141.0,
+   14.6
+  ],
+  "cupola_apex_ft": 47.0
+ },
+ "picks": {
+  "habs01_doorway": [
+   [
+    [
+     134.9,
+     0,
+     12.6
+    ],
+    [
+     1165,
+     720.7
+    ]
+   ],
+   [
+    [
+     147.0,
+     0,
+     12.6
+    ],
+    [
+     1323,
+     718.3
+    ]
+   ],
+   [
+    [
+     134.9,
+     0,
+     0.0
+    ],
+    [
+     1165,
+     895.0
+    ]
+   ],
+   [
+    [
+     147.0,
+     0,
+     0.0
+    ],
+    [
+     1323,
+     893.0
+    ]
+   ]
+  ],
+  "habs01_reads": {
+   "gable_coping_apex": [
+    1240,
+    357
+   ],
+   "gable_apex_stone_top": [
+    1240,
+    350.5
+   ],
+   "cupola_apex": [
+    1313.75,
+    305
+   ]
+  },
+  "cornell_controls": [
+   [
+    "uv",
+    [
+     161.25,
+     0,
+     0
+    ],
+    [
+     1091,
+     1132
+    ]
+   ],
+   [
+    "uv",
+    [
+     161.25,
+     59.75,
+     0
+    ],
+    [
+     1705,
+     1090
+    ]
+   ],
+   [
+    "edge",
+    [
+     161.25,
+     0,
+     null
+    ],
+    [
+     1093,
+     488
+    ]
+   ],
+   [
+    "edge",
+    [
+     161.25,
+     59.75,
+     null
+    ],
+    [
+     1691,
+     809
+    ]
+   ],
+   [
+    "uv",
+    [
+     134.9,
+     0,
+     12.6
+    ],
+    [
+     612,
+     816
+    ]
+   ],
+   [
+    "uv",
+    [
+     134.9,
+     0,
+     0.0
+    ],
+    [
+     608,
+     1090
+    ]
+   ],
+   [
+    "soffit",
+    [
+     null,
+     0,
+     12.6
+    ],
+    [
+     790,
+     810
+    ]
+   ],
+   [
+    "edge",
+    [
+     137.5,
+     0,
+     null
+    ],
+    [
+     657.5,
+     640
+    ]
+   ],
+   [
+    "edge",
+    [
+     144.7,
+     0,
+     null
+    ],
+    [
+     769,
+     630
+    ]
+   ]
+  ],
+  "cornell_reads": {
+   "gable_coping_apex": [
+    711,
+    217
+   ],
+   "gable_apex_stone_top": [
+    710,
+    209
+   ],
+   "cupola_apex": [
+    915,
+    135
+   ],
+   "west_gable_apex": [
+    1308,
+    196
+   ]
+  },
+  "cornell_west_windows": {
+   "upper north": [
+    1246,
+    554
+   ],
+   "upper south": [
+    1347,
+    601
+   ],
+   "lower north": [
+    1237,
+    855
+   ],
+   "lower south": [
+    1397,
+    879
+   ]
+  }
+ },
+ "habs01": {
+  "committed": {
+   "what": "the committed whole-house camera, unchanged",
+   "fitted_obs": 9,
+   "rms_px": 2.6,
+   "max_px": 5.4,
+   "doorway_rms_px": 8.97,
+   "north_tower_finial_error_px": 1.5,
+   "px_per_ft_at_doorway": 14.64,
+   "reads": {
+    "gable_coping_apex": [
+     140.6,
+     0.0,
+     37.82
+    ],
+    "gable_apex_stone_top": [
+     140.6,
+     0.0,
+     38.26
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     11.0,
+     43.92
+    ],
+    "cupola_apex_at_model_centre_S": [
+     139.37,
+     14.6,
+     45.07
+    ]
+   },
+   "camera": {
+    "eye": [
+     -10.17,
+     55.2387,
+     1.8
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.790527,
+      -0.612427,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.612427,
+      -0.790527,
+      0.0
+     ]
+    ],
+    "focal_px": 1721.61,
+    "principal_px": [
+     904.5,
+     823.15
+    ],
+    "pixel_aspect": 1.0
+   }
+  },
+  "doorway": {
+   "what": "level, eye 1.8 m (as committed); committed controls + the doorway",
+   "fitted_obs": 17,
+   "rms_px": 3.92,
+   "max_px": 10.2,
+   "doorway_rms_px": 3.23,
+   "north_tower_finial_error_px": 8.8,
+   "px_per_ft_at_doorway": 14.02,
+   "reads": {
+    "gable_coping_apex": [
+     140.73,
+     0.0,
+     38.62
+    ],
+    "gable_apex_stone_top": [
+     140.73,
+     0.0,
+     39.08
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     14.39,
+     46.22
+    ],
+    "cupola_apex_at_model_centre_S": [
+     140.93,
+     14.6,
+     46.29
+    ]
+   },
+   "camera": {
+    "eye": [
+     -6.6875,
+     54.2012,
+     1.8
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.823373,
+      -0.567501,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.567501,
+      -0.823373,
+      0.0
+     ]
+    ],
+    "focal_px": 1534.24,
+    "principal_px": [
+     904.5,
+     814.99
+    ],
+    "pixel_aspect": 1.0
+   }
+  },
+  "doorway_eye_height": {
+   "what": "as doorway, eye height free",
+   "fitted_obs": 17,
+   "rms_px": 3.09,
+   "max_px": 6.1,
+   "doorway_rms_px": 2.8,
+   "north_tower_finial_error_px": 8.7,
+   "px_per_ft_at_doorway": 14.17,
+   "reads": {
+    "gable_coping_apex": [
+     140.72,
+     0.0,
+     38.09
+    ],
+    "gable_apex_stone_top": [
+     140.72,
+     0.0,
+     38.55
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     13.28,
+     45.29
+    ],
+    "cupola_apex_at_model_centre_S": [
+     140.49,
+     14.6,
+     45.75
+    ]
+   },
+   "camera": {
+    "eye": [
+     -7.8439,
+     54.729,
+     1.3443
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.813715,
+      -0.581264,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.581264,
+      -0.813715,
+      0.0
+     ]
+    ],
+    "focal_px": 1595.62,
+    "principal_px": [
+     904.5,
+     833.52
+    ],
+    "pixel_aspect": 1.0
+   }
+  },
+  "doorway_lean": {
+   "what": "as doorway, image lean (roll) free",
+   "fitted_obs": 17,
+   "rms_px": 3.13,
+   "max_px": 6.2,
+   "doorway_rms_px": 2.89,
+   "north_tower_finial_error_px": 9.3,
+   "px_per_ft_at_doorway": 14.16,
+   "reads": {
+    "gable_coping_apex": [
+     140.98,
+     0.0,
+     38.07
+    ],
+    "gable_apex_stone_top": [
+     140.98,
+     0.0,
+     38.52
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     14.12,
+     45.35
+    ],
+    "cupola_apex_at_model_centre_S": [
+     140.82,
+     14.6,
+     45.51
+    ]
+   },
+   "camera": {
+    "eye": [
+     -7.7732,
+     54.6753,
+     1.8
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.814033,
+      -0.580765,
+      -0.007852
+     ],
+     [
+      -0.006392,
+      -0.00456,
+      0.999969
+     ],
+     [
+      0.580783,
+      -0.814059,
+      0.0
+     ]
+    ],
+    "focal_px": 1591.47,
+    "principal_px": [
+     904.5,
+     815.12
+    ],
+    "pixel_aspect": 1.0
+   }
+  },
+  "doorway_aspect": {
+   "what": "as doorway, pixel aspect free",
+   "fitted_obs": 17,
+   "rms_px": 3.92,
+   "max_px": 10.2,
+   "doorway_rms_px": 3.23,
+   "north_tower_finial_error_px": 6.5,
+   "px_per_ft_at_doorway": 14.02,
+   "reads": {
+    "gable_coping_apex": [
+     140.73,
+     0.0,
+     38.62
+    ],
+    "gable_apex_stone_top": [
+     140.73,
+     0.0,
+     39.08
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     11.3,
+     45.03
+    ],
+    "cupola_apex_at_model_centre_S": [
+     139.5,
+     14.6,
+     46.12
+    ]
+   },
+   "camera": {
+    "eye": [
+     -10.2985,
+     55.3495,
+     1.8
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.790332,
+      -0.612679,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.612679,
+      -0.790332,
+      0.0
+     ]
+    ],
+    "focal_px": 1656.37,
+    "principal_px": [
+     904.5,
+     814.99
+    ],
+    "pixel_aspect": 1.0418
+   }
+  }
+ },
+ "habs01_doorway_ruler": {
+  "threshold_v": 894.0,
+  "soffit_v": 719.5,
+  "px_per_ft": 13.85,
+  "reads_ft": {
+   "gable_coping_apex": 38.77,
+   "gable_apex_stone_top": 39.24
+  }
+ },
+ "cornell": {
+  "committed": {
+   "what": "the committed west-wall homography on reconstructed eaves, unchanged",
+   "fitted_obs": 13,
+   "rms_px": 18.31,
+   "max_px": 36.3,
+   "px_per_ft_at_doorway": 22.17,
+   "reads": {
+    "gable_coping_apex": [
+     137.68,
+     0.0,
+     42.28
+    ],
+    "gable_apex_stone_top": [
+     137.58,
+     0.0,
+     42.72
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     11.2,
+     49.31
+    ],
+    "cupola_apex_at_model_centre_S": [
+     137.91,
+     14.6,
+     51.24
+    ],
+    "west_gable_apex": [
+     161.25,
+     16.91,
+     42.68
+    ]
+   },
+   "west_windows_on_W161_25": {
+    "upper north": [
+     11.18,
+     24.3
+    ],
+    "upper south": [
+     19.79,
+     23.44
+    ],
+    "lower north": [
+     10.24,
+     11.05
+    ],
+    "lower south": [
+     23.9,
+     10.66
+    ]
+   },
+   "camera": {
+    "eye": [
+     -15.147,
+     42.6243,
+     1.7679
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.740765,
+      -0.671462,
+      0.020128
+     ],
+     [
+      -0.10967,
+      0.150442,
+      0.982517
+     ],
+     [
+      0.662751,
+      -0.725607,
+      0.185081
+     ]
+    ],
+    "focal_px": 2088.71,
+    "principal_px": [
+     900,
+     579.79
+    ],
+    "pixel_aspect": 1.0
+   },
+   "note": "rms is against the doorway and north-face controls this camera was never fitted to"
+  },
+  "roof_pitched": {
+   "what": "pose, focal, pitch and roll free; principal point at the image centre",
+   "fitted_obs": 13,
+   "rms_px": 3.65,
+   "max_px": 8.2,
+   "px_per_ft_at_doorway": 23.2,
+   "reads": {
+    "gable_coping_apex": [
+     140.07,
+     0.0,
+     39.54
+    ],
+    "gable_apex_stone_top": [
+     139.99,
+     0.0,
+     39.93
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     13.18,
+     47.14
+    ],
+    "cupola_apex_at_model_centre_S": [
+     139.8,
+     14.6,
+     47.84
+    ],
+    "west_gable_apex": [
+     161.25,
+     16.65,
+     40.63
+    ]
+   },
+   "west_windows_on_W161_25": {
+    "upper north": [
+     11.22,
+     23.44
+    ],
+    "upper south": [
+     19.77,
+     22.58
+    ],
+    "lower north": [
+     10.4,
+     10.73
+    ],
+    "lower south": [
+     24.07,
+     10.32
+    ]
+   },
+   "camera": {
+    "eye": [
+     -15.4086,
+     44.1773,
+     1.7087
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.764396,
+      -0.644556,
+      0.015711
+     ],
+     [
+      -0.077816,
+      0.11642,
+      0.990147
+     ],
+     [
+      0.640034,
+      -0.755642,
+      0.139148
+     ]
+    ],
+    "focal_px": 2297.68,
+    "principal_px": [
+     900.0,
+     652.5
+    ],
+    "pixel_aspect": 1.0
+   }
+  },
+  "roof_level": {
+   "what": "pose, focal and roll free, level (a view camera's rising front: principal height free)",
+   "fitted_obs": 13,
+   "rms_px": 4.76,
+   "max_px": 9.1,
+   "px_per_ft_at_doorway": 23.24,
+   "reads": {
+    "gable_coping_apex": [
+     140.65,
+     0.0,
+     38.25
+    ],
+    "gable_apex_stone_top": [
+     140.58,
+     0.0,
+     38.61
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     13.02,
+     45.64
+    ],
+    "cupola_apex_at_model_centre_S": [
+     139.64,
+     14.6,
+     46.45
+    ],
+    "west_gable_apex": [
+     161.25,
+     14.93,
+     38.75
+    ]
+   },
+   "west_windows_on_W161_25": {
+    "upper north": [
+     10.45,
+     22.96
+    ],
+    "upper south": [
+     18.71,
+     22.21
+    ],
+    "lower north": [
+     10.1,
+     10.71
+    ],
+    "lower south": [
+     23.59,
+     10.35
+    ]
+   },
+   "camera": {
+    "eye": [
+     -14.4999,
+     42.6375,
+     1.6354
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.757455,
+      -0.652727,
+      0.014483
+     ],
+     [
+      0.010971,
+      0.009454,
+      0.999895
+     ],
+     [
+      0.652796,
+      -0.757534,
+      0.0
+     ]
+    ],
+    "focal_px": 2188.96,
+    "principal_px": [
+     900.0,
+     982.23
+    ],
+    "pixel_aspect": 1.0
+   }
+  }
+ },
+ "summary": {
+  "gable_coping_apex_ft": {
+   "model": 39.6,
+   "habs01_committed": 37.82,
+   "habs01_doorway_fits": [
+    38.07,
+    38.62
+   ],
+   "habs01_doorway_ruler": 38.77,
+   "cornell_committed": 42.28,
+   "cornell_roof_fits": [
+    38.25,
+    39.54
+   ]
+  },
+  "cupola_apex_ft_at_model_centre": {
+   "model": 47.0,
+   "habs01_committed": 45.07,
+   "habs01_doorway_fits": [
+    45.51,
+    46.29
+   ],
+   "cornell_committed": 51.24,
+   "cornell_roof_fits": [
+    46.45,
+    47.84
+   ]
+  },
+  "cupola_centre_S_on_ridge_plane": {
+   "model": 14.6,
+   "habs01_committed": 11.0,
+   "habs01_doorway_fits": [
+    11.3,
+    14.39
+   ],
+   "cornell_committed": 11.2,
+   "cornell_roof_fits": [
+    13.02,
+    13.18
+   ]
+  }
+ }
+}
