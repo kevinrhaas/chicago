@@ -2,7 +2,7 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c08df6fede844b4f1d69273f37628c0016e0dd6a966c4820e0986ad304e99da2",
+  "glb_sha256": "e96c1db1e84f71d112b4f213c996208d91933840f409eb4eac7f840450c42729",
   "camera_sha256": "95ef55fe597125fa212e06ba6af0af5ef13437d278a7399a967719ce5592eef2",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
@@ -34,18 +34,33 @@
     },
     {
       "what": "the windows' kind: the photograph's ground- and first-floor windows are leaded casements, two lights under a transom, mullioned, in dressed quoined surrounds; its second-floor windows single one-over-one sash under segmental heads, the middle one standing a little south of the windows under it; the build has K06 two-over-two sash under flat stone lintels, all on one bay line",
-      "status": "open",
-      "how": "T-2435"
+      "status": "fixed",
+      "how": "T-2752: each street window named off the photograph with its own centre, width, sill and head (street_front_windows) and glazed from new K06 kinds: the ground floor's two lights on a stone mullion, 1.19-2.59 m; the first floor's two lights under a transom about a third down, 4.14-6.40 m; the second floor's one-over-one segmental sash at 1.15 and 3.45 m, off the columns below as the print sets them; their edges within about 1-2 px of the print's. The glazing bars are the kit's: the print shows small panes and cannot say lead or wood"
     },
     {
-      "what": "the frontispiece: the front's south part stands slightly proud, its edges quoined; the photograph has a carved panel over the door, a four-light mullioned and transomed window over it under a hood mould and two narrow segment-headed lights above that; the build has one sash a storey in that bay",
+      "what": "the frontispiece: the front's south part stands slightly proud, its edges quoined, and the lower windows sit in dressed, quoined surrounds; the photograph has a carved panel over the door and a hood mould over the four-light window; the build lays the four-light mullioned and transomed window over the door and the two narrow segment-headed lights over it (T-2752) in the front's own plane, with no projection, quoins, panel or hood",
       "status": "open",
-      "how": "T-2435"
+      "how": "T-2753"
     },
     {
       "what": "the base: the photograph shows a plain plinth with no basement lights; the build has low area lights under the ground-floor windows, which a K01 front without its own openings row must carry",
+      "status": "fixed",
+      "how": "T-2752: no basement light in the front; the plinth is the K02 base, its stone plain under the coping"
+    },
+    {
+      "what": "the plinth's height: the photograph's plain plinth band stands about 0.26 m over the walk (y 785 px); the build's K02 base and coping rise to 0.48 m, the least the K02 base lays (one 0.25 m course under the 0.23 m coping)",
       "status": "open",
-      "how": "T-2435"
+      "how": "T-2753"
+    },
+    {
+      "what": "the belts: the photograph runs a string course under the first-floor windows at about 4.0 m and caps the frontispiece at about 7.2 m; the build carries K01's own belts at 3.40-3.60 and 7.05-7.20 m across the whole front",
+      "status": "open",
+      "how": "T-2753"
+    },
+    {
+      "what": "the second floor's segmental heads: the photograph's rise about 0.19 m on a 0.94 m span (about a fifth); K06's working segmental rise is an eighth of the span, 0.12 m, about 3 px lower at the crown",
+      "status": "open",
+      "how": "T-2754"
     },
     {
       "what": "the stacks: the photograph's tall stack stands on the north party wall near the front, beside the gable; the build's stands 9.4 m behind the front (a K01 stack may not stand in the dormer's body)",
@@ -55,7 +70,7 @@
     {
       "what": "the four-storey rear section: the photograph shows it stepping out to the south behind the main body under a mansard with a dormer and a stack, as the 1911 sheet traces it (s20-1625-a1); not built, a K01 rear wing standing only behind the main body inside its width",
       "status": "open",
-      "how": "T-2435"
+      "how": "T-2754"
     },
     {
       "what": "the picket fence along the open ground to the south, and the builders' stone and barrels on the walk",
