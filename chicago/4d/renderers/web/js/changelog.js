@@ -1,4 +1,36 @@
 export const CHANGELOG = [ // newest first
+  { v: 1985, ts: '2026-10-18T11:49:10.238Z', date: 'Oct 18, 2026, 6:49 AM CT', title: 'Glessner\'s stable cupola stands clear of its roof', kind: 'fix',
+    items: [
+      'The dovecote on the stable roof of Glessner House now rises above the ridge, as the 1963 HABS photograph and the c. 1887 Cornell view show it.',
+      'Both tiers of pigeon holes are in the open air, and its pointed roof stands well above the north gable instead of level with it.',
+      'The new heights are read from the photographs against the gable and ridge, about a foot either way, and the Liberties page says so.',
+    ] },
+  { v: 1984, ts: '2026-10-18T11:26:26.785Z', date: 'Oct 18, 2026, 6:26 AM CT', title: '1808 Prairie\'s loggia: the 1888 plate tried with a level camera', kind: 'change',
+    items: [
+      'The 1888 Inland Architect plate of 1808 Prairie is fitted with a level camera on its front and on its loggia\'s columns and pedestals, every point read at the scan\'s full size.',
+      'Whatever points it is fitted on, a level camera still draws the built column 6-8 % taller than the plate shows it, so the column, its pedestal or the front\'s own heights are off, not just the old camera.',
+      'Nothing in the walk changes yet. The column\'s height is re-ruled next, then the plate\'s camera, the 1965 view\'s camera and the bow\'s windows.',
+    ] },
+  { v: 1983, ts: '2026-10-18T10:49:21.623Z', date: 'Oct 18, 2026, 5:49 AM CT', title: 'Trees are grown by species, with their own bark and leaves', kind: 'improvement',
+    items: [
+      'Each tree species grows its own shape: the cottonwood\'s massive rising limbs, the bur oak\'s crooked horizontals, the elm\'s vase, the willow\'s leaning stems.',
+      'Bark is drawn per species: furrowed, interlaced, blocky, plated, shaggy or smooth.',
+      'Leaves are true size and shaped by species.',
+      'Each species is built once and reused, near trees in full detail and far trees as their crown masses.',
+      'The 1835 and 1812 woods and the 1904 Prairie Avenue elms all use the new trees.',
+    ] },
+  { v: 1982, ts: '2026-10-18T10:49:21.623Z', date: 'Oct 18, 2026, 5:49 AM CT', title: 'The still-frame check times the town under Home, not mid-trip', kind: 'fix',
+    items: [
+      'Nothing you can see changed. The check that holds a still frame\'s time had been timing every place in the town under the blur that covers the scene during the jump.',
+      'The new landing\'s blur is 12 px, up from 2 px. That added about 3 seconds to a 19-second software frame at Full detail, and dev\'s still-frame ceiling went red.',
+      'The check now waits until Home is up and the blur has eased off, the screen a visitor actually rests on. Each reading names the state it was timed in.',
+    ] },
+  { v: 1981, ts: '2026-10-18T10:42:36.513Z', date: 'Oct 18, 2026, 5:42 AM CT', title: '1625 Prairie\'s windows as its 1890 photograph shows them', kind: 'improvement',
+    items: [
+      'McBirney\'s house at 1625 Prairie now has the photograph\'s windows, each where the print puts it: two-light casements on stone mullions, transomed on the first floor, a wide four-light window over the door, and segment-headed sash above.',
+      'The basement lights the old front carried are gone; the photograph shows a plain plinth.',
+      'Still to come for this house: its proud, quoined entrance bay with the carved panel, and the four-storey rear.',
+    ] },
   { v: 1980, ts: '2026-10-18T10:27:48.111Z', date: 'Oct 18, 2026, 5:27 AM CT', title: 'A cleaner view: the last HUD buttons move into the Navigator', kind: 'feature',
     items: [
       'Start / Jaunts, the pace button and the light or dark switch have left the top of the screen, so more of the town shows, above all on a phone.',

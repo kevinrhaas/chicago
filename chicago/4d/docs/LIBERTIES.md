@@ -26107,13 +26107,17 @@ rear section stepping out to the south under its mansard, which a K01 rear wing 
 are open in the match record for T-2435.
 **How to resolve:** T-2435 builds the gable (with T-2428's K01 wall gable) and brings the match
 record to `matches`; a later photograph of the house, ingested as a source, says what changed by 1904.
-**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.basement_lights`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
+**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
 **Ticket:** T-2432 (piece 1 of T-1869).
 **Review:** `docs/RESEARCH/k01-1625-mcbirney-2432/README.md`.
 **Recorded:** 2026-10-13 (T-2432). **The gable, the knee wall and the north stack taken out of
 this liberty by T-2730 (2026-10-17):** the dormer is gone and the front now rises as the photograph's
 coped wall gable, under `L-k01-1625-mcbirney-wall-gable-2730`; `dormer` and `eave_overhang_m`
 (now read off the photograph) leave this entry's cover.
+**The street windows and the plinth taken out of this liberty by T-2752 (2026-10-18):** the
+front's windows are now read off the photograph one by one (`street_front_windows`, under
+`L-k01-1625-mcbirney-street-windows-2752`), and the area lights the K01 front carried are gone with
+`basement_lights`, which leaves this entry's cover.
 
 ### L-k01-1625-mcbirney-wall-gable-2730 — 1625 Prairie's front carried up as its photograph's coped wall gable, on the knee wall K01 lends the top storey
 
@@ -26145,6 +26149,35 @@ of it, would take the step at 11.22 m away.
 **Ticket:** T-2730 (piece 3 of T-2435).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-17 (T-2730).
+
+### L-k01-1625-mcbirney-street-windows-2752 — 1625 Prairie's street windows read off its photograph one by one, glazed from new K06 kinds, on a plinth the K02 base sets
+
+**Decision:** 1625's street front no longer repeats one two-over-two sash in three columns (T-2752,
+piece 1 of T-2731). Each window the 1890 Inland Architect photograph
+(`inland_architect_1890_01_mcbirney_residence`) shows on the front is named with its own centre,
+width, sill and head (K01's new `street_front_windows`) and glazed from a K06 kind of its own: the
+ground floor's two lights on a stone mullion, the first floor's two lights under a transom, the
+four-light mullioned and transomed window over the door, the second floor's one-over-one sash under
+segmental heads off the columns below, and the frontispiece's two narrow segment-headed lights. The
+front has no basement light, as the photograph has none.
+**What is read, not invented.** Through the photograph's solved camera (38.6 px/m at the front's
+plane, grade y 795 px, the party wall x 140 px), on 4x crops of the print: every window's two stone
+edges, its sill and its head or crown, to about a pixel (0.03 m); the lights' number, the mullions,
+the transoms' place about a third down, the segmental heads, and the narrow lights' two-over-two.
+**What is invented.** The glazing bars: the print shows the lower windows' lights in small panes
+and cannot say whether on lead or on wood, so they are K06's moulded bars, three by four to a light,
+and K06's restriction on leaded street sash stands. The mullions' 0.10 m and the transom lights'
+heights (0.80 and 0.85 m) are read to the print's grain. The segmental heads rise K06's working
+eighth of their span, about 0.07 m under the print's at the crown. The four-light window and the
+narrow lights are laid in the front's plane: the frontispiece they stand in is slightly proud in the
+photograph, which T-2753 builds. The plinth's top is 0.48 m, the least the K02 base lays (one
+0.25 m course under the 0.23 m coping), where the print's plain band stands about 0.26 m.
+**How to resolve:** T-2753 stands the frontispiece proud with its quoins, panel and hood and the
+windows in their dressed surrounds, and weighs the plinth and the belts; T-2754 builds the rear
+section and brings the match record to `matches`.
+**Ticket:** T-2752 (piece 1 of T-2731).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-18 (T-2752).
 
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
@@ -28692,6 +28725,29 @@ entry read their pitch.
 **Ticket:** T-2724 (piece 1 of T-2714).
 **Recorded:** 2026-10-17 (T-2724).
 
+### L-tree-architecture-2743 — Every tree is grown from its species' habit, with painted bark and leaves
+
+**Decision:** every tree in the 1812 and 1835 timber and plantings, and the 1904 parkway elms,
+is drawn from a tree grown in `renderers/web/js/tree-model.js` from its species' architecture
+(the `ARCH` table: crown envelope, clear bole, fork, scaffold count and angle, limb rise or sag,
+twist, branch orders, twig droop, foliage clumping). Bark and leaves come from
+`tools/generate_tree_atlas.py`'s painted atlases: a ridge-and-furrow, plate, shaggy or smooth tile per
+bark kind, and a spray of leaves of the species' own outline at its true size. A few variants of
+each species are grown and repeated, turned and scaled per stem (`tree-instances.js`) (T-2743).
+**What is read, not invented:** each stem's position, species, height band, crown width where a record
+gives one, and its July colours. These are unchanged from the zone and planting records and the
+planters in `trees.js` and `street-trees.js`.
+**What is invented:** the shape of every tree. No source describes the limbs, crown or bark of any tree
+that stood in 1812, 1835 or 1904. The habits are the species' ordinary botanical ones (for example the
+cottonwood's few massive rising limbs, the bur oak's low crooked horizontals, the American elm's vase
+and the black willow's leaning stems), set by hand and judged by eye against how living trees of the
+species look. The atlases are painted from code; no photograph is sampled. Repeating a few variants
+makes neighbouring trees of a species siblings, not individuals.
+**How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
+Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
+**Ticket:** T-2743.
+**Recorded:** 2026-10-17 (T-2743).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -28722,6 +28778,56 @@ verdicts; `check.sh` fails when the committed walk no longer matches them.
 docstring together.
 **Applies to:** `data/jaunts/prairie-built-so-far.json`.
 **Recorded:** 2026-10-17 (T-2747).
+
+### L-glessner-cupola-body-2228 — Glessner's stable cupola raised so its dovecote body stands clear of the ridge
+
+**Decision:** HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) and the Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`, c. 1887) both show the stable cupola's body in open air above the ridge, its two tiers of pigeon holes visible, under a pyramid whose apex stands well above the north gable's. The model carried a cap-only silhouette (body top 38.9, apex 43.3 ft above north grade) that hid the whole band below the 38.6 ft ridge and set the apex level with the gable. The body top is now 41.0 ft (eave 40.9 ft), the pigeon-hole band 39.1–40.8 ft and the apex 47.0 ft.
+
+**What is invented.** Every one of those numbers. They are read through photograph 1's hand-solved camera, measured against the north gable apex and the W141 ridge crest rather than absolutely, because that camera reads the whole stable roof about 28 px (roughly 2 ft) low at this depth: an eave about 2.3 ft clear of the ridge and a pyramid about 6.0 ft from eave to apex. The Cornell view gives a 5.9 ft pyramid and at least as much exposed body, but its camera was solved on the west windows and is about 50 px off at the roof; it reads the apex up to about 3 ft higher still, and that disagreement is left open in its match record rather than split. About ±1 ft. They agree with the first reading of photograph 1 (body about 2.5 ft clear, pyramid about 5.6 ft) that T-1999 lowered.
+
+**What is kept.** The plan (6 ft), the owner-directed centre at S14.6 on the W141 ridge, the 1.25 ft eave and its flare, the finial and the dovecote counts and sizes of L-glessner-cupola-2207. Photograph 1's parallax puts the cupola about 4 ft further north than S14.6. That is recorded here and in the match record and not acted on, because the centre is the owner's alignment.
+
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`.
+**Ticket:** T-2228.
+**Recorded:** 2026-10-18.
+
+### L-k01-1623-farwell-entrance-2728 — 1623 Prairie's entrance and base from the drawing: a deep round-arched door, the stoop's iron rails, a grille in the basement light and a rock-faced front, their places read and their joinery reconstructed
+
+**Decision:** Granger Farwell's house at 1623 Prairie (T-2728, piece 1 of T-2435) takes the
+entrance Treat & Foltz's Building Budget drawing draws beside the window's arch, in place of the
+flat-headed panelled door T-2433 built. The door is K07's deep-arch entrance
+(`k07.entrance.double_door_deep_arch`): the K01 door's round-headed hole, 1.2 m by 2.7 m to the
+crown over the 1.85 m principal floor, a pair of panelled leaves under a radial fanlight at the back
+of a recess 0.95 m deep, under a ring of long voussoirs 0.45 m deep turned to a curved extrados
+0.04 m before the wall, with the window's keystone (`entrance_kit.arch`, as 1621's, T-2531). The
+stoop loses its stone cheeks and climbs between the K11 kit's iron stair rails, newels at its head
+and foot and a scroll at the foot (`street_front_dress.stoop_rails`, as 1612's, T-2369); the basement
+light under the window takes the kit's grille, seven uprights between a foot bar and a head bar
+(`street_front_dress.grilles`); and the Lemont front is laid rock-faced (`stone_front.dressing`, the
+profile's 0-0.025 m face) over its two rusticated base courses.
+**What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`),
+through T-2433's camera: that the doorway is a round arch beside the window's and matching it, ringed
+with long voussoirs, its crown at about 485 px (built within about 5 px) and the ring's top at about
+462 px (built within about 5 px); that the door stands at the back of a recess whose south jamb is lit
+inside the arch; that the stoop climbs straight from the walk between iron rails on iron newels, with
+no stone cheeks; that the basement light under the window is barred with iron; and that the front's
+blocks are rock-faced from grade to the arches' springing.
+**What is invented.** The door's 1.2 m width (K01's door, about 30 px narrower than the drawn arch's
+1.85 m); its leaves, panels and fanlight (the drawing half-hides a glazed door under a carved light in
+the recess's shadow); the recess's 0.95 m depth and the ring's 0.04 m projection and 0.45 m depth;
+the rails' square newels and balusters (the drawing's newels are slim posts under flared caps); the
+grille's seven plain bars (the drawing's is a band of C-scrolls over close-set uprights); and the
+rock face's depth, the profile's.
+**What is not built.** The drawing's arch is as broad as the window's, its door and stoop stand about
+1.3 m north of its axis at the back of a porch, a railing with an ornamental panel guards the landing
+to the south, the basement opening is broad and low under a segmental head, the strips beside the
+oriel above the springing read as smoother stone and a carved band runs across both arches at the
+springing. Each is open in the match record and is T-2729's, which changes the K01 assembly they need.
+**How to resolve:** a photograph of the house after 1886 settles the doorway, the door's leaves and
+the iron; the architects' plans would settle the recess and the porch.
+**Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
+**Ticket:** T-2728 (piece 1 of T-2435).
+**Recorded:** 2026-10-17 (T-2728).
 
 ### L-glessner-terrace-terminal-2759 — the terrace's terminal post where the plan draws it (2026-10-18)
 
