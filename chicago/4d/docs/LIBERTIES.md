@@ -29085,3 +29085,22 @@ third rights-cleared photograph whose camera can be solved on two faces of the s
 **Applies to:** `data/structures/glessner_house.json` (`ridge_west_wing`, `turret_stable`); see
 `data/comparisons/glessner/stable-roof-heights.json` (`tools/glessner_stable_roof_read.py`).
 **Recorded:** 2026-10-18 (T-2758).
+
+### L-ambience-2659 — Each destination's ambience is a made-up bed tone, not a recording of the past
+
+**Decision:** once a visitor's first tap lets the page play sound, each destination plays a quiet
+ambience under the Navigator's own sounds (T-2659, DESIGN §13). It is a band of filtered noise
+swaying slowly under two soft drone notes. All of it is synthesized in the page (`js/sound.js`):
+no recording is played, so no file needs a source or a licence.
+**What is invented:** all of it. Each destination's band, sway and drone pitch (1812 darkest, 1835
+in the middle, 1904 brightest) was chosen for mood, and nothing bounds it but taste. It is not a
+reconstruction of how Chicago sounded in that year, and it imitates no animal, wagon, bell or voice.
+The design suggested "wagons and birds in 1835, streetcar bells in 1904", and that was not built:
+imitating a heard place would be a claim this ambience cannot make. Settings › Sound says the
+ambience is "made up for mood: it is not a recording of the past".
+**What it does not discharge:** L2 (fauna heard rather than seen). No species in `data/fauna/` is
+voiced, and this ambience is not that layer.
+**How to resolve:** a sound layer built from the records, such as the fauna voices L2 describes or
+documented street noise for 1904, each sound graded and cited like any other fact. It would replace
+the bed tone rather than sit on it.
+**Recorded:** 2026-10-18 (T-2659).

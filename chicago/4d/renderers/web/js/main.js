@@ -1537,8 +1537,19 @@ recallHome?.onReturn(() => journey.recall());
 api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
-const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
+// T-2659: the Navigator's sounds (js/sound.js), on by default. The module is fetched with the
+// first gesture, or on the way in when the jump that opened the page lets audio play
+// (sound.js § mayStartEarly), so it is never part of the boot payload.
+const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
+  .then(({ createSound }) => (api.sound = createSound({
+    audio: () => gesture.audio, unlock: () => gesture.unlockAudio(), early, journey,
+    settings: () => api.hud?.settings ?? null, scene: () => YEAR, navigator: () => api.navigator ?? null,
+  })))
+  .catch(() => { api.soundReady = null; return null; }));
+const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag'),
+  onGesture: () => { void loadSound().then((sound) => sound?.sync()); } });
 api.gesture = gesture;
+if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 // T-2624: the page's static words from the string table, before anything paints over them.
 applyStrings(document);
@@ -1570,7 +1581,7 @@ const arrival = createArrival({
   observatoryEl: document.getElementById('gate-observatory'),
   detailsEl: document.getElementById('gate-details'),
   detailEl: document.getElementById('gate-detail'),
-  onYear: year => { api.timeStream?.passYear(year); api.telemetry?.year(year); },
+  onYear: year => { api.timeStream?.passYear(year); api.telemetry?.year(year); api.sound?.ticker(year); },
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
@@ -3204,6 +3215,7 @@ async function boot() {
     // Hiding a level removes it from the view outright — see confidence.setHidden.
     onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); tourCounts.confChanges++; api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
+      api.sound?.setting(key); // T-2659: Settings › Sound's levels, live
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
       gateFrame.invalidate();

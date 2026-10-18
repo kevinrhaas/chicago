@@ -15540,15 +15540,93 @@ for (const [label, viewport, touch] of [
       settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
-    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says nothing plays yet, About opens What's new (T-2656)`,
+    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says what each covers, About opens What's new (T-2656)`,
       settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
-      && settingsApp.sound === 3 && /^Nothing in the town makes a sound yet\./.test(settingsApp.soundNote) && settingsApp.whatsNew,
+      && settingsApp.sound === 3 && /not a recording of the past\./.test(settingsApp.soundNote) && settingsApp.whatsNew,  // the note: T-2659
       JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
     check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
       settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
       JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
     // <<< T-2656
+    // >>> T-2659: the Navigator's sounds (js/sound.js). A real tap on a Navigator control (the
+    // tone already chosen, so nothing changes) is the gesture; then the graph is built on a
+    // running context, the device open hums and the destination's bed tone plays, a relay
+    // click and a ticker tick play, Settings › Sound's sliders move the real gains (Master at
+    // Off is silence, Ambience at Off stops the bed), a hidden tab stops the hum and the bed
+    // and they come back, and every level is put back as found. Waits are generous.
+    if (!(await page.evaluate(() => !!window.__chicago4d.sound))) await clickChrome('#s-theme .seg-btn[aria-checked="true"]');
+    const soundRead = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const out = { loaded: await until(() => !!api.sound, 30000) };
+      if (!out.loaded) return out;
+      const sound = api.sound;
+      const near = (a, b) => Math.abs(a - b) < 0.03;
+      const gain = (k) => sound.nodes?.[k]?.gain?.value ?? null;
+      const slider = (k) => document.getElementById(`s-sound-${k}`);
+      const slide = (k, v) => { const el = slider(k); el.value = String(v); el.dispatchEvent(new Event('input', { bubbles: true })); };
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
+      out.running = await until(() => sound.state.context === 'running', 15000);
+      out.graph = !!sound.nodes?.master && !!sound.nodes?.effects && !!sound.nodes?.ambience;
+      out.year = String(api.scene?.target_date ?? '').slice(0, 4);
+      out.hum = await until(() => sound.state.hum, 10000);
+      out.bed = await until(() => sound.state.ambience === out.year, 10000);
+      out.clunked = sound.state.clunked;
+      const was = { master: slider('master').value, effects: slider('effects').value, ambience: slider('ambience').value };
+      out.was = was;
+      for (const k of ['master', 'effects', 'ambience']) slide(k, 1);
+      out.full = await until(() => near(gain('master'), 1) && near(gain('effects'), 1) && near(gain('ambience'), 1), 10000);
+      await wait(60);
+      const clicks = sound.state.clicks;
+      out.relay = sound.relay() && sound.state.clicks === clicks + 1;
+      sound.ticker(2001);
+      out.tick = sound.ticker(2000) > 0;
+      slide('master', 0.5);
+      out.half = await until(() => near(gain('master'), 0.25), 10000);
+      out.storedHalf = stored().soundMaster === 0.5;
+      slide('effects', 0);
+      out.effectsOff = await until(() => near(gain('effects'), 0) && !sound.state.hum, 10000);
+      await wait(60);
+      out.noRelay = sound.relay() === false;
+      slide('ambience', 0);
+      out.bedOff = await until(() => sound.state.ambience === null, 10000);
+      slide('effects', 1); slide('ambience', 1); slide('master', 0);
+      out.silent = await until(() => near(gain('master'), 0) && sound.state.silent && !sound.state.hum && sound.state.ambience === null, 10000);
+      slide('master', 1);
+      out.back = await until(() => near(gain('master'), 1) && sound.state.hum && sound.state.ambience === out.year, 10000);
+      // A hidden tab: the page is told so, as the browser would tell it, then shown again.
+      const hide = (on) => {
+        for (const [k, v] of [['visibilityState', 'hidden'], ['hidden', true]]) {
+          if (on) Object.defineProperty(document, k, { configurable: true, get: () => v });
+          else delete document[k];
+        }
+        document.dispatchEvent(new Event('visibilitychange'));
+      };
+      hide(true);
+      out.hidden = await until(() => !sound.state.hum && sound.state.ambience === null, 10000);
+      hide(false);
+      out.shown = await until(() => sound.state.hum && sound.state.ambience === out.year, 10000);
+      for (const k of ['master', 'effects', 'ambience']) slide(k, was[k]);
+      out.restored = ['Master', 'Effects', 'Ambience'].every((k) => String(stored()[`sound${k}`]) === String(Number(was[k.toLowerCase()])));
+      out.note = document.getElementById('s-sound-note')?.textContent.trim() ?? '';
+      out.state = sound.state;
+      return out;
+    });
+    check(`${label}: after a tap the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
+      soundRead.loaded && soundRead.running && soundRead.graph && soundRead.hum && soundRead.bed && soundRead.clunked
+      && soundRead.relay && soundRead.tick,
+      JSON.stringify({ loaded: soundRead.loaded, running: soundRead.running, graph: soundRead.graph, hum: soundRead.hum, bed: soundRead.bed,
+        year: soundRead.year, clunked: soundRead.clunked, relay: soundRead.relay, tick: soundRead.tick, state: soundRead.state }));
+    check(`${label}: Settings › Sound's sliders move the real gains and are stored, Effects or Ambience at Off stops theirs, Master at Off is silence, a hidden tab stops the hum and the bed, all put back (T-2659)`,
+      soundRead.loaded && soundRead.full && soundRead.half && soundRead.storedHalf && soundRead.effectsOff && soundRead.noRelay
+      && soundRead.bedOff && soundRead.silent && soundRead.back && soundRead.hidden && soundRead.shown && soundRead.restored
+      && /made up for mood: it is not a recording of the past\./.test(soundRead.note ?? ''),
+      JSON.stringify({ full: soundRead.full, half: soundRead.half, storedHalf: soundRead.storedHalf, effectsOff: soundRead.effectsOff,
+        noRelay: soundRead.noRelay, bedOff: soundRead.bedOff, silent: soundRead.silent, back: soundRead.back, hidden: soundRead.hidden,
+        shown: soundRead.shown, restored: soundRead.restored, was: soundRead.was, note: soundRead.note }));
+    // <<< T-2659
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.

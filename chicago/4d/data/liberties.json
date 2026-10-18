@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 625,
+  "count": 626,
   "liberties": [
     {
       "id": "L1",
@@ -40981,6 +40981,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2758)."
+        }
+      ]
+    },
+    {
+      "id": "L-ambience-2659",
+      "title": "Each destination's ambience is a made-up bed tone, not a recording of the past",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "once a visitor's first tap lets the page play sound, each destination plays a quiet ambience under the Navigator's own sounds (T-2659, DESIGN §13). It is a band of filtered noise swaying slowly under two soft drone notes. All of it is synthesized in the page (`js/sound.js`): no recording is played, so no file needs a source or a licence."
+        },
+        {
+          "label": "What is invented",
+          "text": "all of it. Each destination's band, sway and drone pitch (1812 darkest, 1835 in the middle, 1904 brightest) was chosen for mood, and nothing bounds it but taste. It is not a reconstruction of how Chicago sounded in that year, and it imitates no animal, wagon, bell or voice. The design suggested \"wagons and birds in 1835, streetcar bells in 1904\", and that was not built: imitating a heard place would be a claim this ambience cannot make. Settings › Sound says the ambience is \"made up for mood: it is not a recording of the past\"."
+        },
+        {
+          "label": "What it does not discharge",
+          "text": "L2 (fauna heard rather than seen). No species in `data/fauna/` is voiced, and this ambience is not that layer."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sound layer built from the records, such as the fauna voices L2 describes or documented street noise for 1904, each sound graded and cited like any other fact. It would replace the bed tone rather than sit on it."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-18 (T-2659)."
         }
       ]
     },
