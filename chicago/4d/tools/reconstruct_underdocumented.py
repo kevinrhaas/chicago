@@ -76,7 +76,7 @@ that counts the Native and Metis people at Chicago on 1 July 1835 at all. The br
 `the_counted_but_unnamed` states that in figures and refuses to draw a remainder out of a
 count that does not exist — the same refusal T-1353 made for the crews of the vessels, for
 the same reason. The August 1835 gathering is not a source for a July scene and is not
-staged; AGENTS.md's standing constraint governs, and no figure is drawn for anybody (L1).
+staged; evidence-bounded figures use the portable-human path (T-2672).
 
 NOTHING HERE OVERTURNS A REFUSAL. The ledger refused every one of these rows as a person
 unit and its reasoning is carried onto each card verbatim. A card written here is a
@@ -367,9 +367,8 @@ def card_for(row: dict, record: dict, hid: str, pid: str, sources: list,
                 f"on its face. The reading, the source and the refusal stand at "
                 f"`{row['row_id']}` in data/reconstruction/1835_borderline_roster.json. "
                 f"REVIEW REQUIRED: this card is a record of a Native person at Chicago in "
-                f"the three years of the removal, and AGENTS.md's standing constraint holds "
-                f"it for review by Native scholars or community organisations before any "
-                f"scene carrying it may be marked released. No figure is drawn (L1)."),
+                f"the three years of the removal. The flag retains that reason for care; "
+                f"the owner lifted its release block on 2026-10-16 (T-2672)."),
             "resident_subtype": "underdocumented_resident",
         }],
         "touches_removal": True,
@@ -385,8 +384,8 @@ def card_for(row: dict, record: dict, hid: str, pid: str, sources: list,
             f"tools/compile_scene.py. REVIEW REQUIRED AND TOUCHES REMOVAL, both true, for "
             f"the subject this record is about: a Native man at Chicago in 1832, three "
             f"years before the removal of the Potawatomi from this place, inside the "
-            f"project's first target year. The review AGENTS.md commits to has not been "
-            f"held; until it is, no scene carrying this card may be marked released. "
+            f"project's first target year. Review context remains recorded; the flag "
+            f"does not block release under the 2026-10-16 ruling (T-2672). "
             f"docs/RESEARCH/native_and_metis_1835.md lists every source read and what is "
             f"still owed. docs/LIBERTIES.md carries the invention."),
     }
@@ -536,16 +535,15 @@ def derive() -> tuple[dict, dict]:
             "recorded_in": "AGENTS.md § Standing constraint — 1835 and Indigenous history",
             "quote": ("i think it is fair, in fact required to Reconstruct Native or Métis "
                       "people as part of this."),
-            "what_it_does_not_change": ("L1 — no human figure is drawn, for anybody; no "
-                                        "staging of the August 1835 gathering; no invented "
-                                        "dialogue, ceremony or depiction. A card, and "
-                                        "nothing that is looked at."),
+            "what_it_does_not_change": ("Scene-date and source constraints remain; the August "
+                                        "1835 gathering is not staged in the July scene. "
+                                        "The 2026-10-16 rulings now permit evidence-bounded "
+                                        "depiction through the portable-human pipeline."),
         },
         "the_review_still_owed": (
-            "Review by Native scholars or community organisations, which AGENTS.md commits "
-            "to and which has not been held. Every record this stage writes carries "
-            "`review_required: true`, which blocks a scene from being marked `released`. "
-            "The flag is the project's own promise held open, not a formality."),
+            "Review remains useful context, not a release prerequisite after T-2672. "
+            "Every record this stage writes retains review_required and its own reason; "
+            "no flag is silently cleared and no invented dialogue or ceremony is attested."),
         "the_count_that_made_this_stage_necessary": {
             "roll": MUSTER_FILE,
             "source": MUSTER_SOURCE,

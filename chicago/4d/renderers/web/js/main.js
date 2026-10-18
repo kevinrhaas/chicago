@@ -46,6 +46,7 @@ import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { createPopup } from './popup.js';
+import { showHumanRoleCard } from './human-role-card.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
@@ -3099,6 +3100,7 @@ async function boot() {
     if (!api.people) return;
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
+  api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
   scene3d.add(api.humans.group);
 
   /** A structure's ground position in local ENU metres — footprint centroid where

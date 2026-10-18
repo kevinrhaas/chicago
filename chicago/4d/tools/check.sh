@@ -250,6 +250,10 @@ step "loading evidence refuses promoted or unrelated facts (T-1275)" \
   python3 tools/test_loading_content.py
 step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
+# Real source geometry/UV/rig checks; stdlib, no Blender or browser here.
+step "Anonymous adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
+  python3 tools/test_human_base_prepare.py
+
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \

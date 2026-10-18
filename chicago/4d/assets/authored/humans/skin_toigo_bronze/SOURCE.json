@@ -1,0 +1,102 @@
+{
+  "status": "selected ZIP entry fully downloaded and verified; whole ZIP retrieval separate and currently pending",
+  "url": "https://files2.makehumancommunity.org/asset_packs/skins02/skins02_cc0.zip",
+  "archive_bytes": 76112708,
+  "etag": "\"4896344-6160e7915e6c0\"",
+  "archive_sha256": null,
+  "entry": {
+    "path": "skins/toigo_light_skin_male_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "compressed": 4333810,
+    "size": 4339066,
+    "method": 8,
+    "crc": 4104924544,
+    "offset": 48835158
+  },
+  "entry_sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+  "entry_crc32_actual": 4104924544,
+  "entry_crc32_verified": true,
+  "image": {
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGBA",
+    "metadata": {
+      "dpi": [
+        72.009,
+        72.009
+      ]
+    },
+    "visually_inspected": true
+  },
+  "metadata_sha256": "35c4e7d05d882537b6312cbbc95830347eb547941248dbdb5f5595e6d9e1e705",
+  "material_sha256": "4dbc8cd5a4c37b415556e76b6b7c5802e4d1432fffa3b0669646c5a92fb584b7",
+  "license_evidence": {
+    "source": "skins02.original.json",
+    "record": {
+      "author": "MargaretToigo",
+      "category": "",
+      "changed": "2019-02-12",
+      "created": "2017-11-13",
+      "description": "This is a bronze variation on the young light skinned male.",
+      "license": "CC0",
+      "original_author": "",
+      "original_source": "",
+      "source": "http://www.makehumancommunity.org/node/1136",
+      "thumbnail": "toigo_light_skin_male_bronze.png",
+      "type": "skin"
+    },
+    "material_note": "Material definition itself carries no separate license statement; license comes from official pack per-asset metadata and official pinned pack page, not an invented header"
+  },
+  "download_method": "Selected compressed entry reassembled from standard64KiB HTTPS ranges on sameofficialURL with stableETag and exactContentRange checks; local ZIP header parsed, DEFLATE decompressed, exactuncompressedsize and originalcentraldirectoryCRC32 verified",
+  "safe_paths": true,
+  "uv_check": {
+    "source": "actual preparedhm08body with preserved face-cornerUVs",
+    "vertices": 14517,
+    "uv_vertices": 14517,
+    "triangles": 26756,
+    "webgl_error": 0,
+    "screenshots": [
+      "UV check performed outside deliverable; actual canonical model review remains pending"
+    ],
+    "observed": "face lips ears hands torso atlas placement matches; noUVremapneeded. Eyesneedseparateeyeballgeometry. Baseanatomy/restpose remainengineeringcandidate."
+  },
+  "recommendation": {
+    "master": "verbatim2048\u00d72048originalPNG",
+    "web": "2048\u00d72048decodedinput; optionalsupportedlosslesscompressionwithoutupscaling",
+    "four_k": "No4096sourceexistsforthisselectedentry; upscalingwouldnotaddphotographicdetail and shouldnotbeclaimed4Ksource",
+    "role": "Reusable skinmaterialcomponent only; no claim to identifiedresidentappearance,ethnicity,complexion,age orlikeness",
+    "quality_gates_open": [
+      "namedresidentlikeness/sourcecomparison",
+      "adultphenotypeandbodycorrectives",
+      "eyeballs/hair/clothing",
+      "photographiclightresponse andseamreviewonactualclothedanimatedmodel",
+      "roughness/normalmapsnotprovidedbythisentry"
+    ]
+  },
+  "files": {
+    "young_lightskinned_male_diffuse_Bronze.png": {
+      "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+      "bytes": 4339066
+    },
+    "skins02.original.json": {
+      "sha256": "35c4e7d05d882537b6312cbbc95830347eb547941248dbdb5f5595e6d9e1e705",
+      "bytes": 7907
+    },
+    "toigo_light_skin_male_bronze.mhmat": {
+      "sha256": "4dbc8cd5a4c37b415556e76b6b7c5802e4d1432fffa3b0669646c5a92fb584b7",
+      "bytes": 580
+    },
+    "skins02.official-page.md": {
+      "sha256": "dbf5b99c6b80c2f3ed2639a67994ac0e9b4bcf3c993eede920bef88f78f960fd",
+      "bytes": 3171
+    }
+  },
+  "official_page": {
+    "repository": "makehumancommunity/makehuman-static-website",
+    "commit": "883f19ca188e1cb458f2907d6f0c81187b9cf7da",
+    "path": "content/Assets/AssetPacks/skins02.md",
+    "local_copy": "skins02.official-page.md",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman-static-website/883f19ca188e1cb458f2907d6f0c81187b9cf7da/content/Assets/AssetPacks/skins02.md"
+  },
+  "license": "CC0-1.0",
+  "liberty": "L418"
+}

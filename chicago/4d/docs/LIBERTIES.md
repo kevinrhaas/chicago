@@ -29023,3 +29023,55 @@ The coupled study raises C01 shafts by a reconstructed runtime pitch to the hors
 Shaft tugs are original reconstructed round-section leather loops with support webbing, fitted to the authored C01 shafts, not dimensions copied from a period plate. They approximate a construction whose folded/overlapped leather still requires source-figure review. Breastcollar route and width orientation were fitted to the reconstructed horse torso, not measured historical anatomy; pressure, shoulder sweep and holdback forces remain unverified. Revised head/mane/hoof shapes and smooth stance/swing timing are original modeling choices. Better numeric contact and local clearance do not establish period accuracy or animal fit.
 
 The breastcollar band uses an explicit reconstructed 50 mm width and 8 mm thickness. Its earlier arbitrary 65 mm width intersected the moving upper forelimbs in triangle-level checks even after torso proximity passed. Width, raised route and local tangent directions were revised against this original model; historical or animal-health suitability is not attested.
+
+
+## T-2672 — superseding L1 and the review release block (2026-10-18)
+
+The owner's 2026-10-16 rulings, quoted in AGENTS.md, supersede earlier L1 prose: human figures may render through the portable-human path, and informed evidence-bounded Native and Métis depiction is authorized. The owner explicitly answered “Yes lift that” for the review_required release block. Historical liberties entries remain unchanged; their former prohibitions are superseded, not erased. Flags, their reasons, source/rights provenance, reconstruction declarations and scene-date gates remain. The August 1835 gathering/last war dance is not staged on 1 July. Generic adult transport prototypes requested 2026-10-18 invent no named likeness or cultural ceremony, and do not claim photographic production quality without comparison.
+
+
+## Per-subject liberties
+
+### L418 — Resident workwear studies on a licensed human base
+
+**Decision:** The 2026-10-18 generic transport-human studies depict no identified resident. Their
+body begins with the CC0 MakeHuman hm08 graphical base pinned in
+`assets/authored/humans/makehuman_hm08/SOURCE.json`, not its AGPL application code.
+A chosen 1.75 m height, sole registration, source A-to-T limb rotation, helper-joint
+interpretation, 163-to-56 joint mapping and four-influence pruning are reconstructed
+engineering choices. The preparation report quantifies discarded weights and pose
+displacement; anatomy, palm roll and joint correctives remain review items.
+
+The 1835 recipe fits originally authored shirt, separate waistcoat, high-waisted
+pantaloons, collar and closed shoes to that base. Nearby newspaper clothing terms
+are text evidence only; an advertisement dated 4 July does not establish stock on
+1 July. Exact cut, seam placement, fit ease, colors, body shape, skin appearance and
+synthetic motion are reconstructed. Color variants are pipeline proofs, not three
+attested people. No named likeness, occupation, ethnicity, livery or exact historical
+wardrobe is attested by the mesh. These studies require actual canonical exports,
+close rendering, skinning/garment contact and period review before scene placement.
+Flat PBR colors do not meet the requested photographic skin/clothing quality.
+
+The owner's subsequent October 18 direction prioritizes existing attested, inferred
+or reconstructed people. The first studies now reference already reconstructed
+1835 residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` instead
+of introducing anonymous scene residents. Their modeled identities, occupations and
+age bands retain the underlying reconstruction basis; no portrait or attested
+likeness is supplied by assigning the existing record to a reusable body. Appearance
+and staged transport actions require their own declared reconstruction and review.
+
+**Applies to:** `assets/authored/humans/makehuman_hm08/`, the original workwear
+recipe and canonical builder, and `bardwell_otis_1835`, `dufresne_joseph_1835`,
+`flynn_martin_1835` study exports. No structure claim is discharged.
+**Recorded:** 2026-10-18 (T-1789).
+
+**Adult-body and skin update (2026-10-18):** The neutral source body is not accepted as
+the finished male anatomy. Hash-verified CC0 hm08 male young/old shape deltas now
+change visible and helper vertices together before joint reconstruction and posing.
+Engineering ages 25 and 35 are chosen within the modeled bands, not read birth years.
+An equal blend of source software-category shapes is an authoring choice, not
+scientifically neutral ethnicity or inferred ancestry. MargaretToigo's CC0 original
+2K bronze male skin atlas is a reusable component, not these residents' complexion
+or likeness; its actual source metadata, CRC and hashes are retained. Roughness,
+body proportions, garment patterns and all animation remain reconstructed and
+need canonical export/render review. No skin upscaling is called 4K detail.

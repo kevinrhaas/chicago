@@ -33,26 +33,35 @@ on:
     paths:
       - 'chicago/4d/tools/human_*'
       - 'chicago/4d/assets/humans/**'
+      - 'chicago/4d/assets/authored/humans/**'
       - 'chicago/4d/data/humans/**'
       - 'chicago/4d/generators/blender.pin'
       - 'chicago/4d/tools/web_derivatives.sh'
       - 'chicago/4d/renderers/web/vendor/**'
       - 'chicago/4d/renderers/web/js/scene-loader.js'
       - 'chicago/4d/renderers/web/js/humans.js'
+      - 'chicago/4d/renderers/web/js/human-identity.js'
       - '.github/workflows/chicago-4d-humans.yml'
   push:
     branches: [dev]
     paths:
       - 'chicago/4d/tools/human_*'
       - 'chicago/4d/assets/humans/**'
+      - 'chicago/4d/assets/authored/humans/**'
       - 'chicago/4d/data/humans/**'
       - 'chicago/4d/generators/blender.pin'
       - 'chicago/4d/tools/web_derivatives.sh'
       - 'chicago/4d/renderers/web/vendor/**'
       - 'chicago/4d/renderers/web/js/scene-loader.js'
       - 'chicago/4d/renderers/web/js/humans.js'
+      - 'chicago/4d/renderers/web/js/human-identity.js'
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
+    inputs:
+      build_teamsters:
+        description: 'Build and inspect existing residents’ reconstructed 1835 workwear masters (prototype artifacts)'
+        type: boolean
+        default: false
 
 concurrency:
   group: chicago-4d-humans-${{ github.ref }}
@@ -113,3 +122,104 @@ jobs:
       - name: Drive the browser actor with the fixture, at both viewports
         working-directory: chicago/4d
         run: NODE_PATH="$(npm root -g)" node tools/human_actor.mjs
+
+  # Explicit dispatch on the owner-visible authoring PR. No branch writes, scene
+  # placements or production promotion: canonical masters and measurements are
+  # reviewable artifacts. Existing fixture verification must pass first.
+  teamster-studies:
+    if: github.event_name == 'workflow_dispatch' && inputs.build_teamsters
+    needs: humans
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+      - name: Read the Blender pin
+        id: pin
+        run: |
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - name: Restore the verified fixture worker's Blender
+        uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Verify the original body preparation
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python tools/test_human_base_prepare.py
+          python tools/human_base_prepare.py --output /tmp/prepared.json > /tmp/body-preparation.log
+          cmp assets/authored/humans/makehuman_hm08/prepared.json /tmp/prepared.json
+          for age in 25 35; do
+            python tools/human_base_prepare.py --target-recipe "assets/authored/humans/makehuman_hm08/adult_$age.recipe.json" --output "/tmp/prepared_adult_$age.json" > "/tmp/teamster-body-$age.log"
+            cmp "assets/authored/humans/makehuman_hm08/prepared_adult_$age.json" "/tmp/prepared_adult_$age.json"
+          done
+      - name: Build three canonical masters and export through the portable path
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          mkdir -p /tmp/teamster-studies
+          for variant in bardwell_otis_1835 dufresne_joseph_1835 flynn_martin_1835; do
+            master="assets/authored/humans/teamsters/$variant/canonical.blend"
+            "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
+              --python tools/human_teamster_blend.py -- \
+              --recipe data/humans/recipes/worker_1835.json --variant "$variant" \
+              --liberty L418 --output "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-build.log"
+            bash tools/human_export.sh --master "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-export.log"
+          done
+      - name: Install Playwright
+        run: |
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+      - name: Validate the actual new GLB containers
+        working-directory: chicago/4d
+        run: |
+          npm install -g gltf-validator@2.0.0-dev.3.10
+          NODE_PATH="$(npm root -g)" node <<'JS'
+          const fs = require('node:fs');
+          const validator = require('gltf-validator');
+          (async () => {
+            let errors = 0;
+            for (const dir of ['assets/humans', 'assets/humans/web']) {
+              for (const file of fs.readdirSync(dir).filter(n => /^(bardwell_otis|dufresne_joseph|flynn_martin)_1835\.lod[0-3]\.glb$/.test(n))) {
+                const name = `${dir}/${file}`;
+                const result = await validator.validateBytes(new Uint8Array(fs.readFileSync(name)), {uri: name});
+                fs.writeFileSync(`/tmp/teamster-studies/${dir.endsWith('/web') ? 'web-' : ''}${file}.validation.json`, JSON.stringify(result, null, 2));
+                console.log(`${name}: ${result.issues.numErrors} errors, ${result.issues.numWarnings} warnings`);
+                errors += result.issues.numErrors;
+              }
+            }
+            if (errors) process.exitCode = 1;
+          })().catch(error => { console.error(error); process.exitCode = 1; });
+          JS
+      - name: Measure all human exports and inspect the workwear studies
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write 2>&1 | tee /tmp/teamster-studies/human-fixture.log
+          bash tools/publish.sh
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --published --output /tmp/teamster-studies/web 2>&1 | tee /tmp/teamster-studies/inspection.log
+      - name: Preserve masters, exports and inspection evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resident-teamster-studies-${{ github.sha }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            chicago/4d/assets/authored/humans/teamsters/
+            chicago/4d/assets/humans/*_1835.lod*.glb
+            chicago/4d/assets/humans/web/*_1835.lod*.glb
+            chicago/4d/data/humans/fixture.measure.json
+            /tmp/teamster-studies/
+            /tmp/body-preparation.log

@@ -87,6 +87,8 @@ const COPIES = [
   ['data/railway/', 'data/railway/'],
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
+  ['data/humans/web/', 'assets/humans/web/'],
+  ['data/humans/', 'data/humans/'],
   ['data/fauna/', 'data/fauna/'],
   ['data/businesses/', 'data/businesses/'],
   // The two roof coverings' relief maps (T-1488). The mirror's asset base is

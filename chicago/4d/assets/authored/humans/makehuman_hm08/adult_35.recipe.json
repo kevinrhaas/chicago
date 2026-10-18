@@ -1,0 +1,47 @@
+{
+  "format": "chicago4d_human_graphical_target_recipe_v1",
+  "targets": [
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-young.target",
+      "sha256": "70e228ba7164737dae664454394536fc5935fa48d333c1a97d77e2dc6eacc5f5",
+      "coefficient": 0.28205128205128205
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-young.target",
+      "sha256": "ed2e8c191cb6b87b4a2d97c80486acb2604fa549316c7aa2a738a5d5a14334dc",
+      "coefficient": 0.28205128205128205
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-young.target",
+      "sha256": "894abc1fbb3d28543a51fef16f89d5d4bdf9aa2e1534413339811a3d47818b7d",
+      "coefficient": 0.28205128205128205
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-old.target",
+      "sha256": "b0d2b1d58cba0358af59833740e70229265f7da1c20a11240f4123b7192cfd6d",
+      "coefficient": 0.05128205128205128
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-old.target",
+      "sha256": "36dc5a3a135ded33885e814806b0e3668ca5bf44bddcebdee48ae75ae68bc3d3",
+      "coefficient": 0.05128205128205128
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-old.target",
+      "sha256": "59ec94956b3525dbb30238d1239b2bce52adc3bfae091f12cd85d2570aa1933c",
+      "coefficient": 0.05128205128205128
+    }
+  ],
+  "phenotype": {
+    "sex": "male engineering variant",
+    "chosen_age_years": 35,
+    "age_band_years": [
+      30,
+      39
+    ],
+    "ancestry_status": "unattested; equal technical shape-category blend is an authoring liberty, not resident ethnicity",
+    "age_status": "chosen within existing reconstructed age band; no birth year or precise age asserted",
+    "likeness_status": "component study; not attested likeness"
+  },
+  "basis": "Sparse CC0 graphical target deltas applied to base and all helper vertices before skeleton derivation; no upstream program logic copied"
+}

@@ -595,6 +595,16 @@ if [ -d data/flora ]; then
   cp -a data/flora "$SITE/data/flora"
 fi
 
+# Portable humans use the same data/ asset base as other renderer layers.
+# Only compressed deliveries travel here; authored Blender/input files and GLB
+# masters stay in the repository. No human layer or placement is enabled by this.
+rm -rf "$SITE/data/humans"
+mkdir -p "$SITE/data/humans/web"
+cp -a data/humans/. "$SITE/data/humans/"
+if [ -d assets/humans/web ]; then
+  cp -a assets/humans/web/. "$SITE/data/humans/web/"
+fi
+
 # The animal layer (ROADMAP K51). Same argument as the residents above, and it
 # was open longer: 139 records across ten habitat zones, every one graded to
 # 1 July 1835 and cited, and until this line no browser had ever been offered

@@ -19,7 +19,9 @@
 #      setting the contract depends on is written there with its reason.
 #   2. gltf-transform, THE SAME PIN as tools/web_derivatives.sh (read from that file,
 #      so there is one pin and not two), writes `meshopt` derivatives. Meshopt is the
-#      only compression the renderer decodes; KTX2 and Draco are refused by the
+#      authored MODE=master first caps textures by LOD and converts audited opaque
+#      color maps to native JPEG quality 92; fixture/verify bytes keep their old path.
+#      Meshopt is the only geometry compression the renderer decodes; KTX2 and Draco are refused by the
 #      contract, so nothing here asks for either.
 #   3. tools/human_contract.py --glb gates the masters and the derivatives. A
 #      derivative's quantised frame is read beside its master (check_glb's `master`).
@@ -85,7 +87,24 @@ written=()
 for f in "$SCRATCH"/lods/*.glb; do
   name="$(basename "$f")"
   cp "$f" "$OUT/$name"
+  if [ "$MODE" = "master" ]; then
+    # Native JPEG requires no decoder/extension. Preserve alpha maps and non-color
+    # slots; cap every texture before compression. Canonical GLB remains unchanged.
+    case "$name" in
+      *.lod0.glb) cap=2048 ;;
+      *.lod1.glb) cap=1024 ;;
+      *.lod2.glb) cap=512 ;;
+      *.lod3.glb) cap=256 ;;
+      *) echo "unrecognized authored LOD: $name" >&2; exit 1 ;;
+    esac
+    python3 tools/human_web_texture_inputs.py "$OUT/$name" "$SCRATCH/labeled.glb"
+    "${GT_NPX[@]}" gltf-transform resize "$SCRATCH/labeled.glb" "$SCRATCH/resized.glb" --width "$cap" --height "$cap"
+    "${GT_NPX[@]}" gltf-transform jpeg "$SCRATCH/resized.glb" "$SCRATCH/color.glb" --formats '*' --quality 92 --pattern 'c4d_web_opaque_*' --slots '{baseColorTexture,emissiveTexture}'
+    "${GT_NPX[@]}" gltf-transform meshopt "$SCRATCH/color.glb" "$OUT/web/$name"
+    echo "authored web $name: texture cap ${cap}px; opaque color JPEG quality 92; $(wc -c < "$OUT/web/$name") bytes"
+  else
   "${GT_NPX[@]}" gltf-transform meshopt "$OUT/$name" "$OUT/web/$name" 2>&1 | grep -E '→' | sed 's/^info: //' || true
+  fi
   written+=("$OUT/$name" "$OUT/web/$name")
 done
 

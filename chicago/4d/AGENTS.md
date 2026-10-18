@@ -116,45 +116,46 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
 The final removal of the Potawatomi from Chicago occurred in **August 1835** — inside the
 project's first target year. It is the most historically significant event of that year.
 
-- **Do not improvise Native presence, representation, dialogue, or depiction.** This is not a
-  research gap to be filled by inference; it is a subject requiring consultation.
-- The Newberry's Indigenous Chicago curriculum is the starting point, and the project should
-  seek review from Native scholars or community organizations before shipping any depiction.
-- **Until then, v1 ships no human figures at all** — uniformly, not selectively. Build the
-  built environment accurately and leave human depiction out of scope. An empty, accurate town
-  is honest. A populated, invented one is not.
-- `review_required: true` on any record blocks a scene from being marked `released`.
-- **A flagged record says why, in its own words.** `tools/measure_review_constraint.py`
-  asserts that every record carrying the flag refers to it somewhere in its own prose AND
-  names the subject it is held for, and prints the sentence it matched under each id. A
-  bare boolean tells the next reader that a decision was made and nothing about what it
-  rests on (T-0025).
+**Owner ruling, 2026-10-16, verbatim:** *"I think human figures are ok once we are able to render them and go through those tickets"*
 
-Note also that the great Potawatomi gathering and the last war dance are **August 1835**,
-weeks after the 1835 scene date. Staging them in the 1835 scene would be wrong twice over.
+**Owner ruling, 2026-10-16, verbatim:** *"And I think ok to for native and Métis depictions based on your fair and reasonable judgement, you have been careful and I trust you to make informed and reasonable depictions"*
+
+- **L1 is lifted for the portable-humans path.** Figures may be drawn once the portable-human
+  pipeline renders them, uniformly for everyone. Use the portable-human asset, provenance,
+  scene-date and rendering contracts; a placeholder bypassing that path is not a shipped figure.
+- Native and Métis depictions use informed, fair and reasonable judgement. The Newberry's
+  Indigenous Chicago curriculum and committed research remain the starting point. Depictions
+  are evidence-bounded; thin evidence is declared `reconstructed` and entered in
+  `docs/LIBERTIES.md`. No invented dialogue or ceremony is presented as attested.
+- `review_required` and `touches_removal` remain on records with their own explanatory prose.
+  **They do not block a scene from being marked `released`** — owner, 2026-10-16, when asked
+  whether the trust ruling lifts that block too: *"Yes lift that"*.
+- **A flagged record says why, in its own words.** `tools/measure_review_constraint.py` still
+  holds flag presence, propagation and explanatory prose. A bare boolean does not explain the
+  care taken; no flag is silently cleared to implement this ruling.
+- The great Potawatomi gathering and last war dance are **August 1835**, after the **1 July
+  1835** scene date, and are not staged in it. All other scene-date and source rules stand.
+- Black residents, families and Black-owned businesses remain identified on `community`.
 
 **Owner ruling, 2026-09-17, verbatim:** *"i think it is fair, in fact required to Reconstruct
 Native or Métis people as part of this. There are some that are certainly in the area
 potentially doing business i believe there were indian businesses and it is also very important
 that we keep and capture and identify the black owned businesses and residents and family
-households."* So, for the 1835 DATA layer (cards, households, businesses, camps): Native and
-Métis people are reconstructed, evidence-bounded, through one ticket (T-1177) and its stage of
-the resident writer only; every such record carries `review_required` + `touches_removal` with
-its sentence, and the review by Native scholars or community organisations is still sought
-before a scene is marked `released`. Unchanged: L1 (no human figure is drawn, for anyone), no
-invented dialogue, ceremony or depiction, and the August gathering is not staged. Black
-residents, families and Black-owned businesses are identified on a `community` field so the
-town can list them.
+households."* The 1835 data-layer reconstruction through T-1177 retains its evidence and review
+flags. Its former figure prohibition and consultation prerequisite for release are superseded
+by the explicit 2026-10-16 rulings above; the historical research and flag reasons remain.
 
 **Owner ruling, 2026-10-13, verbatim** (project thread "1812 structures", T-2490): *"You can
-include native lodges as documented"*. This extends the 2026-09-17 ruling to the 1812 BUILT
-environment: Potawatomi lodges stand in the 1812 scene where and when a source puts them, in the
-form the sources describe (mat or bark on a bent-pole frame, never a generic tipi), and nowhere
-the sources do not. Unchanged: no human figure is drawn (L1); no invented ceremony, dialogue or
-depiction; every lodge record carries `review_required` + `touches_removal` with its own
-sentence; and the 1812 scene stays unreleased until the review by Native scholars or community
-organisations (T-0472). The first build under it is the camp of the August 1812 gathering on the
-State Street creek (T-2515, L-1812-potawatomi-camp-2515).
+include native lodges as documented"*. Potawatomi lodges stand where and when a source puts
+them, in documented mat or bark forms, never a generic tipi. Every lodge record retains
+`review_required` + `touches_removal` and its own reason. The former consultation release block
+is superseded by the 2026-10-16 ruling. No August gathering is backdated into a July scene.
+
+The owner's 2026-10-18 generic-adult transport request includes period-clothed drivers, riders,
+people standing near horses/carriages and walking streets at photographic quality. Generic
+bodies require no invented named likeness. That work does not manufacture cultural evidence or
+stage a ceremony; photographic quality remains a production acceptance gate, not a label for
+an articulated fixture.
 
 ## THE VISIBLE-PROGRESS RULE — read this before choosing a parcel
 
@@ -247,8 +248,8 @@ that tier and say so. Refusing to build leaves the scene wrong AND undocumented,
 worse than a declared reconstruction: an invented colour recorded as invented is honest, and a grey
 tree nobody chose is not.
 
-**"Blocked on the owner" is for four things only** — rights and licensing, the L1 constraint on
-depicting people, spending real money, and a decision that changes what the project IS. **A missing
+**"Blocked on the owner" is for four things only** — rights and licensing, a depiction outside the owner-authorized
+evidence-bounded scope, spending real money, and a decision that changes what the project IS. **A missing
 number is not one of them.** Derive a defensible figure, label it reconstructed, name what bounds
 it, and write down what would replace it. There were **seven** parcels sitting on "blocked on the
 owner" when this was written; most were missing numbers.

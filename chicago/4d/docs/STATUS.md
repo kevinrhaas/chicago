@@ -1,3 +1,20 @@
+## T-2672 / T-1789 — generic transport adults (2026-10-18)
+
+The owner requested adults for driving, riding, standing near transport and walking,
+with period-specific clothing and photographic quality, then directed us to use existing
+attested, inferred or reconstructed people; anonymous figures are a last resort. The standing human
+policy now reflects the explicit October 16 rulings; record flags, reasons, rights and
+scene dates remain. No figure is added by clearing a flag or inventing a resident.
+
+A pinned CC0 human graphical base, hash-verified adult male shape targets, a
+verified original 2K CC0 skin atlas, engine-neutral preparation and an original
+1835 workwear canonical-master builder are under integration. The first studies reference existing reconstructed residents Otis Bardwell, Joseph
+Dufresne and Martin Flynn. Their appearances remain reconstructed assembly proofs. Blender runs on CI, not this runner. Canonical exports and
+close desktop/mobile review must precede any scene use; canonical skin/cloth rendering, clothing
+detail, hair, reliable gait, seated driver/rein contact and riding tack remain open.
+The primitive portable-human fixture remains a test artifact. T-1789 is not complete
+on a single base or flat-color outfit. See L418 and the authored source manifest.
+
 ## T-2737 — dev's still-frame ceiling: the trip blur the instrument froze on (2026-10-18)
 
 Nothing you can see changed. This gate blocks a visible parcel: PR #992 (T-2728, 1623's
