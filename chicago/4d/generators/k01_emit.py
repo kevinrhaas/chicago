@@ -18,6 +18,7 @@ asset that differs from a rebuild is a hand edit or an unrecorded change.
 from __future__ import annotations
 
 import argparse
+import builtins
 import datetime as dt
 import json
 import sys
@@ -63,10 +64,34 @@ def records(only=None):
                 yield st, phase, scenes
 
 
+def _left_to_right_sum(iterable, start=0):
+    """sum() as Python 3.11 and earlier compute it: one plain addition per item, in order."""
+    total = start
+    for value in iterable:
+        total = total + value
+    return total
+
+
 def glb_for(st: dict, phase: dict, scenes) -> bytes:
-    params = k01_frontage_params.from_phase(phase, st)
-    asm = k01_frontage.build(params, st["id"])
-    return k01_frontage.to_glb(asm, st["id"], phase["id"], scenes, {})
+    """The record's GLB, summed by Python 3.11's rule on every interpreter (T-2773).
+
+    Python 3.12 made sum() over floats compensated, so one record built through the
+    same functions gave different bytes on each interpreter: CI's gate (3.11) and a
+    3.12 steward runner disagreed about the last bits of a few vertices, and
+    `--check` refused whichever machine had not baked the committed asset (#1023's
+    Keith, baked on 3.12, red on CI; dev's 1625, baked on 3.11, red on 3.12). The
+    same pin `tools/_glessner_lod.py` applies to the light tier (T-2311): builtins
+    is swapped for the build, so a module the construction imports lazily is
+    covered too, and the original is always restored.
+    """
+    previous = builtins.sum
+    builtins.sum = _left_to_right_sum
+    try:
+        params = k01_frontage_params.from_phase(phase, st)
+        asm = k01_frontage.build(params, st["id"])
+        return k01_frontage.to_glb(asm, st["id"], phase["id"], scenes, {})
+    finally:
+        builtins.sum = previous
 
 
 def main(argv=None) -> int:
