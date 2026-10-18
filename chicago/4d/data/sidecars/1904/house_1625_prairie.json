@@ -66,7 +66,7 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body read off the 1911 sheet's trace (s20fp-1625-b1) in the lot frame: the stone front's face at 19.45 m from the rear of the trace (3.79 m from the street line), the north wall on the party line with 1623 at v -0.12 and the south wall at 7.48, so 19.45 m deep and 7.6 m along the front — the trace's own width, where the draft's 0.25 m cell fit stopped at 6.75 m. The four-storey rear section the sheet draws stepping 1.3 m further south over the rear 7.6 m (s20-1625-a1) is not built: a K01 rear wing stands behind the main body inside its width, and this one stands beside it (T-2435)."
+    "note": "The main body read off the 1911 sheet's trace (s20fp-1625-b1) in the lot frame: the stone front's face at 19.45 m from the rear of the trace (3.79 m from the street line), the north wall on the party line with 1623 at v -0.12 and the south wall at 7.48, so 19.45 m deep and 7.6 m along the front — the trace's own width, where the draft's 0.25 m cell fit stopped at 6.75 m. The four-storey rear section the sheet draws stepping 1.3 m further south over the rear 7.6 m (s20-1625-a1) is not part of this rectangle: a K01 footprint is one rectangle, and that section is built beside it as `rear_section` (T-2820)."
   },
   "attributes": {
     "stories": {
@@ -228,15 +228,13 @@
     "north_bays": {
       "value": [
         3.8,
-        10.6,
-        14.3,
-        17.6
+        10.6
       ],
       "confidence": "inferred",
       "sources": [
         "inland_architect_1890_01_mcbirney_residence"
       ],
-      "note": "Windows in the house's SOUTH side wall (K01's 'north', high v; s from the rear), toward the open ground the sheet leaves south of 1625: the photograph shows single windows a storey along the main part's south wall, the nearest about 2 m behind the front. Their places further back are reconstructed."
+      "note": "Windows in the house's SOUTH side wall (K01's 'north', high v; s from the front corner), toward the open ground the sheet leaves south of 1625: the photograph shows single windows a storey along the main part's south wall, the nearest about 4 m behind the front. Their places further back are reconstructed. T-2820: the two that stood in the rear 7.6 m (s 14.3 and 17.6) are gone, the rear section standing over that part of the wall."
     },
     "rear_bays": {
       "value": [
@@ -253,7 +251,72 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "inland_architect_1890_01_mcbirney_residence"
       ],
-      "note": "None built: the sheet's four-storey rear section (s20-1625-a1) stands beside the main body's rear part, stepping out to the south, which a K01 rear wing (behind the main body, inside its width) cannot; the photograph shows it under a mansard with a dormer and a stack. Open for T-2435."
+      "note": "None: the sheet's four-storey rear section (s20-1625-a1) stands beside the main body's rear part, stepping out to the south, which a K01 rear wing (behind the main body, inside its width) cannot; since T-2820 it is built as `rear_section`."
+    },
+    "rear_section": {
+      "value": {
+        "side": "north",
+        "u_m": [
+          0.0,
+          7.6
+        ],
+        "step_m": 1.3,
+        "openings": [
+          {
+            "face": "street",
+            "kind": "door",
+            "s_m": 0.65,
+            "sill_m": 0.0,
+            "width_m": 0.85,
+            "height_m": 2.1
+          },
+          {
+            "face": "street",
+            "kind": "sash",
+            "s_m": 0.65,
+            "sill_m": 3.66,
+            "width_m": 0.75,
+            "height_m": 2.99
+          },
+          {
+            "face": "street",
+            "kind": "sash",
+            "s_m": 0.65,
+            "sill_m": 9.02,
+            "width_m": 0.75,
+            "height_m": 2.46
+          }
+        ],
+        "attic": {
+          "variant": "k05.roof.mansard_convex",
+          "lower_pitch_deg": 75,
+          "pitch_deg": 15,
+          "lower_rise_m": 4.3,
+          "overhang_m": 0.3,
+          "dormers": [
+            {
+              "face": "street",
+              "along_m": 8.085,
+              "sash": {
+                "variant": "k06.opening.sash_2over2_flat",
+                "width_m": 0.6,
+                "height_m": 2.4,
+                "sill_m": 0.6
+              },
+              "surround_m": 0.12,
+              "face_setback_m": 0.05,
+              "head": "gable",
+              "gable_pitch_deg": 30
+            }
+          ]
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "inland_architect_1890_01_mcbirney_residence"
+      ],
+      "note": "T-2820: the 1911 sheet's four-storey rear section (s20-1625-a1), the rear 7.6 m of the trace stepping 1.3 m further south than the main body (the trace's south line at -3028.0 to -3028.4 where the main part's runs at -3027.0 to -3027.2), built beside the main body's rear part on its south side (K01's north wall, high v): the step-out's three walls in the K03 brick to the main wall head, and over the whole rear part an attic of its own. The photograph (inland_architect_front.json) shows it behind the main body's south wall: a narrow face toward the street in darker brick with a door at its foot and one window a storey over it, its cornice meeting the main south eave at the same height (both at y 482-488 px where they meet), and over it a slated attic with a dormer on its street face and the south end wall carried up as a lit brick face to a stack. The camera's depth is soft that far back (its own solve: +-3 m), so heights are read against the cornice, set at the main wall head's 13.0 m where the photograph's cornice meets the main eave, and the horizon (y 733 px at 1.6 m): about 0.046 m a pixel. On that scale the windows stand 3.66-6.65 m and 9.02-11.48 m, the door's head about 1.7 m (it is built 2.1 m tall from grade, the fence hiding its foot), the dormer's sill 13.85 m and its sash's head 16.3 m, and the attic's top line, its curb, 17.3 m: a 4.3 m lower face. Widths are the sheet's: the face is 1.3 m, so its windows are the contract's narrowest sash (0.75 m) and its dormer 0.84 m, centred, where the photograph's face reads about 50 px across (about 2.2 m on that scale) and its lights about half of it; that disagreement is recorded open in the match record. Reconstructed: the lower faces' 75-degree pitch, the attic's 15-degree top over the curb (the photograph cannot see it), the 0.3 m cornice, the end walls carried up as coped parapets at the party wall and the step-out's outer face (the photograph shows the south one; the north one is the party wall's), and the step-out's outer and rear walls left blank (the photograph shows the outer one lit and windowless; no picture shows the rear) (L-k01-1625-rear-section-2820)."
     },
     "sash_by_storey": {
       "value": [
@@ -435,8 +498,14 @@
             "v_m": 0.8
           },
           {
-            "u_m": 3.0,
-            "v_m": 6.75
+            "u_m": 4.4,
+            "v_m": 8.6,
+            "plan_m": [
+              1.0,
+              0.6
+            ],
+            "in_rear_section": true,
+            "top_m": 19.6
           }
         ]
       },
@@ -444,7 +513,7 @@
       "sources": [
         "inland_architect_1890_01_mcbirney_residence"
       ],
-      "note": "Two brick stacks: one against the north party wall beside the gable, where the photograph's tall stack rises left of its north rake — solved through the photograph's camera (eye 17.45 m before the face, f 674 px) from its edges at x 180 and 217 px, it stands about 1.6 m behind the gable's face and 1.0 m along the front from the party wall, its top at about 17.7 m, the ridge's 16.8 m and 0.9 (T-2730; built 0.3 m in from the party wall, the K01 rule for a stack standing in a hip); and one over the rear part's south side, where the photograph's rear stack stands."
+      "note": "Two brick stacks: one against the north party wall beside the gable, where the photograph's tall stack rises left of its north rake — solved through the photograph's camera (eye 17.45 m before the face, f 674 px) from its edges at x 180 and 217 px, it stands about 1.6 m behind the gable's face and 1.0 m along the front from the party wall, its top at about 17.7 m, the ridge's 16.8 m and 0.9 (T-2730; built 0.3 m in from the party wall, the K01 rule for a stack standing in a hip); and the photograph's rear stack, which T-2820 stands in the rear section's south end wall where it rises past the attic: about 4.4 m from the rear wall by its place along that wall's head line (about x 580-602 px of the wall's 577-610), 1.0 m along it and 0.6 m through it, its outer face the step-out's; its top at 19.6 m, about 1.5 m over the attic's ridge, the height it stands over the wall's head line where it leaves it (about 30 px at the section's scale). Its depth through the wall and its plan are reconstructed (L-k01-1625-rear-section-2820)."
     },
     "rainwater": {
       "value": {
@@ -593,7 +662,7 @@
       ]
     }
   ],
-  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md). T-2730 (piece 3 of T-2435) replaces the dormer with the photograph's coped wall gable — K01's shaped-gable slab with a straight outline in the front's stone, its three segment-headed lights and its oval light — raises the south wall's eave to the knee wall at 13.0 m, and stands the tall stack on the north party wall beside the gable; what that needed and did not read is L-k01-1625-mcbirney-wall-gable-2730. T-2752 (piece 1 of T-2731) reads the street windows off the photograph one by one (street_front_windows): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's segment-headed sash off the columns below and the frontispiece's two narrow lights, on a plain plinth with no basement light (L-k01-1625-mcbirney-street-windows-2752). T-2753 (piece 2 of T-2731) builds the frontispiece (street_front_frontispiece): the front from 3.81 m to its south corner stands 0.10 m proud from grade to the hood mould over its four-light window at 7.05-7.30 m, quoined at both arrises, the door in a dressed surround under a carved panel; the lower windows' quoined surrounds and the photograph's one string course (L-k01-1625-mcbirney-frontispiece-2753).",
+  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md). T-2730 (piece 3 of T-2435) replaces the dormer with the photograph's coped wall gable — K01's shaped-gable slab with a straight outline in the front's stone, its three segment-headed lights and its oval light — raises the south wall's eave to the knee wall at 13.0 m, and stands the tall stack on the north party wall beside the gable; what that needed and did not read is L-k01-1625-mcbirney-wall-gable-2730. T-2752 (piece 1 of T-2731) reads the street windows off the photograph one by one (street_front_windows): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's segment-headed sash off the columns below and the frontispiece's two narrow lights, on a plain plinth with no basement light (L-k01-1625-mcbirney-street-windows-2752). T-2753 (piece 2 of T-2731) builds the frontispiece (street_front_frontispiece): the front from 3.81 m to its south corner stands 0.10 m proud from grade to the hood mould over its four-light window at 7.05-7.30 m, quoined at both arrises, the door in a dressed surround under a carved panel; the lower windows' quoined surrounds and the photograph's one string course (L-k01-1625-mcbirney-frontispiece-2753). T-2820 (piece 1 of T-2754) builds the sheet's four-storey rear section as K01's rear_section: the step-out 1.3 m south of the main body over its rear 7.6 m in the K03 brick, its street face with the photograph's door and two windows, and over the rear part an attic of its own — steep slated faces to a curb at 17.3 m with the photograph's dormer on its street face, its south end wall carried up as a coped parapet to the rear stack — joined into the main roof, whose ridge dies into the attic's street face.",
   "research_doc": "",
   "review_required": false
 }

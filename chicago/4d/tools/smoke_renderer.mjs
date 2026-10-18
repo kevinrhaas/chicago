@@ -1240,6 +1240,55 @@ function signatureDistance(a, b) {
   return { mean: sum / a.cells.length, worst };
 }
 
+/** Diagnostic bracket around the SAME capture, not another rendered frame.
+ * Read before the baseline and after restoration; counters can identify a changed
+ * scene, but a changed bracket alone does not attribute a pixel residual. */
+async function captureWithRestoreState(page, grid, when) {
+  return page.evaluate(async ({ grid, when }) => {
+    const a = window.__chicago4d;
+    const fingerprint = () => {
+      const camera = a.camera;
+      const spread = a.flora?.stats?.spread;
+      const textures = a.textureResidency?.state;
+      let hash = 2166136261; let meshes = 0; let visible = 0;
+      const layers = {};
+      const feed = (value) => {
+        const text = String(value);
+        for (let i = 0; i < text.length; i++) {
+          hash = Math.imul(hash ^ text.charCodeAt(i), 16777619) >>> 0;
+        }
+      };
+      a.scene3d.traverse((o) => {
+        // Include ancestor group visibility/layers as well as mesh buffers.
+        feed(`${o.id}:${o.visible}:${o.layers.mask}:`);
+        if (!o.isMesh) return;
+        meshes++; if (o.visible) visible++;
+        layers[o.layers.mask] = (layers[o.layers.mask] || 0) + 1;
+        feed(`${o.id}:${o.visible}:${o.layers.mask}:${o.geometry.id}:`);
+        feed(`${o.geometry.drawRange.start}:${o.geometry.drawRange.count}:`);
+        feed(o.geometry.index?.version ?? '-');
+        for (const [name, attribute] of Object.entries(o.geometry.attributes)) {
+          feed(`${name}:${attribute.count}:${attribute.version ?? attribute.data?.version ?? '-'};`);
+        }
+      });
+      return {
+        camera: { position: camera.position.toArray(), quaternion: camera.quaternion.toArray(),
+          projection: camera.projectionMatrix.toArray() },
+        geometry: { meshes, visible, layers, fingerprint: hash.toString(16).padStart(8, '0') },
+        flora: { inFlight: a.flora?.inFlight?.() ?? null,
+          landings: spread?.landings ?? null, drained: spread?.drained ?? null,
+          abandoned: spread?.abandoned ?? null, passes: spread ? { ...spread.passes } : null },
+        textureResidency: textures ? { pending: textures.pending, resident: textures.resident,
+          residentBytes: textures.residentBytes, uploads: textures.uploads,
+          evictions: textures.evictions, redecodes: textures.redecodes } : null,
+      };
+    };
+    const before = when === 'before' ? fingerprint() : null;
+    const image = await a.capture(grid);
+    return { image, state: when === 'before' ? before : fingerprint() };
+  }, { grid, when });
+}
+
 // The gate is both viewports and nothing less. SMOKE_VIEWPORT exists because a
 // full pass takes upwards of ten minutes on a software renderer and an agent
 // iterating on one half should not have to spend the other half to see it — it
@@ -2712,11 +2761,11 @@ for (const [label, viewport, touch] of [
     // 96 x 96 measures 0.319 from the SAME view. Finer cells reduce that
     // cancellation; camera, scene, mean>=0.3 and worst>=6 remain unchanged.
     // The restored frame is also checked, so unrelated movement cannot pass.
-    const yardWith = await page.evaluate(() => window.__chicago4d.capture(96));
+    const { image: yardWith, state: yardStateBefore } = await captureWithRestoreState(page, 96, 'before');
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = false; });
     const yardWithout = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = true; });
-    const yardRestored = await page.evaluate(() => window.__chicago4d.capture(96));
+    const { image: yardRestored, state: yardStateAfter } = await captureWithRestoreState(page, 96, 'after');
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     const dYard = signatureDistance(yardWith, yardWithout);
     const dYardRestored = signatureDistance(yardWith, yardRestored);
@@ -2725,7 +2774,7 @@ for (const [label, viewport, touch] of [
         && dYardRestored.worst <= 1 && dYardRestored.mean <= 0.02,
       `96x96 cell delta mean ${dYard.mean?.toFixed(3)}, worst ${dYard.worst} `
       + `(need mean>=0.3, worst>=6); restored mean ${dYardRestored.mean?.toFixed(3)}, `
-      + `worst ${dYardRestored.worst}`);
+      + `worst ${dYardRestored.worst}; restore states ${JSON.stringify({ before: yardStateBefore, after: yardStateAfter })}`);
 
     // --- the town pound is a fence, not a box (T-0051) -----------------------
     //
@@ -7426,7 +7475,7 @@ for (const [label, viewport, touch] of [
     // render" assertion strictly harder, since sway can no longer supply any of
     // the difference it needs to find.
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const off = await page.evaluate(() => window.__chicago4d.capture());
+    const { image: off, state: confidenceStateBefore } = await captureWithRestoreState(page, 12, 'before');
     check(`${label}: canvas renders non-black`,
       off.mean > 12 && off.litFraction > 0.5,
       `mean luminance ${off.mean?.toFixed(1)}, lit ${(off.litFraction * 100).toFixed(0)}%`);
@@ -7447,7 +7496,7 @@ for (const [label, viewport, touch] of [
       `cell delta mean ${d.mean?.toFixed(2)}, worst ${d.worst} (need worst>=6)`);
 
     await page.evaluate(() => window.__chicago4d.setConfidenceView(false));
-    const back = await page.evaluate(() => window.__chicago4d.capture());
+    const { image: back, state: confidenceStateAfter } = await captureWithRestoreState(page, 12, 'after');
     const dBack = signatureDistance(off, back);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     // With the clock held these are two captures of one unchanged scene, so the
@@ -7456,7 +7505,7 @@ for (const [label, viewport, touch] of [
     // broadly (the assertion immediately above pins that at >= 0.6).
     check(`${label}: turning it off restores the render`,
       dBack.mean <= 0.1 && dBack.worst <= 3,
-      `residual mean ${dBack.mean?.toFixed(2)}, worst-cell delta ${dBack.worst}`);
+      `residual mean ${dBack.mean?.toFixed(2)}, worst-cell delta ${dBack.worst}; restore states ${JSON.stringify({ before: confidenceStateBefore, after: confidenceStateAfter })}`);
 
     // T-2646: every grade's look is its own — tint, dither or ghost, at any
     // opacity, from the view's test hook. This runs AFTER the restore check above,
@@ -10274,19 +10323,22 @@ for (const [label, viewport, touch] of [
           // drawing what the frustum used to skip would be a ceiling breach
           // wearing a saving's clothes.
           if (st.id === 'lake_at_canal' && level === 'full') {
+            // Fresh frames in one evaluation; step drains synchronous flora work.
+            // The reverse comparison proves the instrument restored its baseline.
+            a.step();
+            const on = a.stats();
             row.mergeClusters = a.farMerge.clusters;
             row.mergeMerged = a.farMerge.merged;
             a.setFarMerge(false);
-            await settle();
+            a.step();
             const off = a.stats();
-            // Restored without a settle of its own, deliberately: this stand is
-            // never the last of the order, `setFarMerge` puts the visibility
-            // back synchronously, and the next stand settles before it reads.
-            // Part 4 is the thinnest margin in the desktop suite (T-0173) and a
-            // frame here costs about three seconds on the software renderer.
             a.setFarMerge(true);
-            row.mergeTris = off.triangles - r.triangles;
-            row.mergeCalls = off.drawCalls - r.drawCalls;
+            a.step();
+            const again = a.stats();
+            row.mergeTris = off.triangles - on.triangles;
+            row.mergeCalls = off.drawCalls - on.drawCalls;
+            row.mergeResidualTris = again.triangles - on.triangles;
+            row.mergeResidualCalls = again.drawCalls - on.drawCalls;
           }
           atStands.push(row);
         }
@@ -10520,11 +10572,13 @@ for (const [label, viewport, touch] of [
      */
     const merged = full.atStands.find((x) => x.id === 'lake_at_canal');
     check(`${label}: the far merge gives back draw calls down the axial street and moves no triangle doing it`,
-      !!merged && merged.mergeTris === 0 && merged.mergeCalls >= 25
+      !!merged && merged.mergeTris === 0 && merged.mergeResidualTris === 0
+      && merged.mergeResidualCalls === 0 && merged.mergeCalls >= 25
       && merged.mergeMerged > 0,
       merged
         ? `${merged.mergeCalls} call(s) saved over ${merged.mergeMerged} of `
-          + `${merged.mergeClusters} cluster(s), ${merged.mergeTris} triangle(s) moved`
+          + `${merged.mergeClusters} cluster(s), ${merged.mergeTris} triangle(s) moved; `
+          + `restore residual ${merged.mergeResidualTris} triangle(s), ${merged.mergeResidualCalls} call(s)`
         : 'the axial stand was not walked at full');
     const axial = light.atStands.find((x) => x.id === 'lake_at_canal');
     check(`${label}: the light tier holds furniture back down the axial street`,
@@ -10657,7 +10711,11 @@ for (const [label, viewport, touch] of [
     // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
-    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    // Guide's sheet mounts once the Navigator has opened, and on a runner where a frame takes
+    // seconds that opening takes most of a minute (dev, 2026-10-18: a local desktop probe found
+    // the sheet at 50-55 s; the 10 s wait here gave up with "rows":0). Part 13's own wait for
+    // this sheet is 60 s; this one waits up to 120 s and ends as soon as the sheet is there.
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 120_000, polling: 100 }).catch(() => {});
     const guide = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const sheet = document.querySelector('#nav-app-guide #guide-controls');
@@ -15452,6 +15510,107 @@ for (const [label, viewport, touch] of [
       && (devChrome.notDev === null || (devChrome.notDev.dev === devChrome.devServed && devChrome.markAfter === devChrome.devServed)),
       JSON.stringify(devChrome));
     // ---- end T-2629
+    // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
+    // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
+    // marked, and a tap on another switches the machine and its tone; Auto names this device's
+    // levels; Sound has its three levels and says nothing plays yet; About opens What's new;
+    // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
+    // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
+    // a starved runner takes seconds between frames.
+    const settingsApp = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator, html = document.documentElement;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
+      const segOn = () => document.querySelector('#s-theme .seg-btn[aria-checked="true"]')?.dataset.themeChoice ?? null;
+      const out = {
+        chip: !!document.getElementById('btn-theme'), seg: document.querySelectorAll('#s-theme .seg-btn').length,
+        tiles: [...document.querySelectorAll('#s-skins .skin-tile')].map((t) => t.dataset.skinChoice),
+        skin: html.dataset.skin, tileOn: document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice ?? null,
+        auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
+        autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
+        sound: ['master', 'effects', 'ambience'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
+        soundNote: document.getElementById('s-sound-note')?.textContent.trim() ?? '',
+      };
+      // Light or dark: the other tone, then back.
+      const tone = html.dataset.theme === 'light' ? 'light' : 'dark';
+      const other = tone === 'light' ? 'dark' : 'light';
+      out.segBefore = segOn();
+      document.querySelector(`#s-theme [data-theme-choice="${other}"]`)?.click();
+      await wait(50);
+      out.flipped = html.dataset.theme === other && segOn() === other;
+      // A machine from its tile: the next one, its tone shown on the seg, then the first again.
+      const next = out.tiles[(out.tiles.indexOf(out.skin) + 1) % out.tiles.length];
+      document.querySelector(`#s-skins [data-skin-choice="${next}"]`)?.click();
+      await until(() => html.dataset.skin === next, 5000);
+      await wait(50);
+      out.switched = html.dataset.skin === next && document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice === next
+        && segOn() === (html.dataset.theme === 'light' ? 'light' : 'dark');
+      document.querySelector(`#s-skins [data-skin-choice="${out.skin}"]`)?.click();
+      await until(() => html.dataset.skin === out.skin, 5000);
+      document.querySelector(`#s-theme [data-theme-choice="${tone}"]`)?.click();
+      await wait(50);
+      out.restored = html.dataset.skin === out.skin && html.dataset.theme === tone && segOn() === tone;
+      // What's new, from About.
+      document.getElementById('s-open-whatsnew')?.click();
+      out.whatsNew = await until(() => api.hud.tab === 'whatsnew', 10000);
+      api.hud.selectTab('settings');
+      await until(() => api.hud.tab === 'settings', 10000);
+      // Text size 140 %: every app the rail shows, measured once it is on screen.
+      const sel = document.getElementById('s-text-size');
+      const setSize = (v) => { sel.value = String(v); sel.dispatchEvent(new Event('change', { bubbles: true })); };
+      setSize(1.4);
+      out.scale = getComputedStyle(html).getPropertyValue('--text-scale').trim();
+      out.storedScale = stored().textScale;
+      out.clipped = {};
+      const hidden = (el) => el.closest('.visually-hidden, [aria-hidden="true"]');
+      for (const app of n.apps) {
+        await n.select(app);
+        const screen = () => document.querySelector(app === 'home' ? '#nav-home' : `#nav-app-${app}`);
+        const shown = await until(() => { const s = screen(); return s && !s.hidden && s.getBoundingClientRect().width > 0; }, 30000);
+        if (!shown) { out.clipped[app] = ['no screen']; continue; }
+        await wait(600);
+        const s = screen();
+        const box = s.getBoundingClientRect();
+        const all = [...s.querySelectorAll('*')].filter((el) => el.getClientRects().length && !hidden(el));
+        const name = (el) => `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${typeof el.className === 'string' && el.className ? `.${el.className.split(' ')[0]}` : ''}`;
+        const past = all.filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.right > box.right + 1 || r.left < box.left - 1); });
+        const cut = all.filter((el) => {
+          if (!el.textContent.trim()) return false;
+          const cs = getComputedStyle(el);
+          if (['auto', 'scroll'].includes(cs.overflowX) || ['auto', 'scroll'].includes(cs.overflowY)) return false;
+          if (cs.overflowX === 'visible' && cs.overflowY === 'visible' && cs.textOverflow !== 'ellipsis') return false;
+          return el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 2;
+        });
+        // A strip that scrolls sideways (a photo carousel is meant to).
+        const strips = [s, ...all].filter((el) => !el.matches('.insp-swipe') && ['auto', 'scroll'].includes(getComputedStyle(el).overflowX)
+          && el.scrollWidth > el.clientWidth + 1);
+        out.clipped[app] = [...past.map((el) => `past edge: ${name(el)}`), ...cut.map((el) => `cut: ${name(el)}`),
+          ...strips.map((el) => `scrolls sideways: ${name(el)}`)].slice(0, 6);
+      }
+      setSize(1);
+      out.back = getComputedStyle(html).getPropertyValue('--text-scale').trim() === '1' && stored().textScale === 1;
+      await n.select('settings');
+      await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
+      if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      return out;
+    });
+    check(`${label}: light or dark is Settings › Display's two-way choice, and the HUD holds no chip for it (T-2656)`,
+      !settingsApp.chip && settingsApp.seg === 2 && !!settingsApp.segBefore && settingsApp.flipped && settingsApp.restored,
+      JSON.stringify({ chip: settingsApp.chip, seg: settingsApp.seg, before: settingsApp.segBefore, flipped: settingsApp.flipped, restored: settingsApp.restored }));
+    check(`${label}: Settings › Machine shows the four machines as tiles, the one in use marked, and a tap switches it (T-2656)`,
+      settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
+      && settingsApp.switched && settingsApp.restored,
+      JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
+    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says nothing plays yet, About opens What's new (T-2656)`,
+      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
+      && settingsApp.sound === 3 && /^Nothing in the town makes a sound yet\./.test(settingsApp.soundNote) && settingsApp.whatsNew,
+      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
+    check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
+      settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
+      && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
+      JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
+    // <<< T-2656
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -15523,6 +15682,127 @@ for (const [label, viewport, touch] of [
     check(`${label}: C toggles BY GRADE on and off (T-2647)`,
       cOn.on === true && cOn.hidden.length === 0 && cOn.modes.reconstructed === 'dither' && cOff.on === false,
       JSON.stringify({ cOn: { on: cOn.on, modes: cOn.modes }, cOff: { on: cOff.on } }));
+    // >>> T-2648: the Confidence view's per-grade rows. A row opens from its look and holds
+    // four swatches (one set colour-blind safe), Tint / Ghost / Dither and an opacity slider;
+    // each control is tapped as a visitor taps it (hit-tested) and the frame read after it.
+    // The pixel bar is the suite's own: "turning it off restores the render" reads mean <= 0.1
+    // with worst <= 3 as readback noise, so a control that moved the town reads above both.
+    // The rows write uniforms only, so a sweep of them adds no program and no geometry.
+    const rowState = () => page.evaluate(() => {
+      const a = window.__chicago4d;
+      const out = { on: a.confidenceView, hidden: a.hud.hiddenLevels, ghosting: a.confidence.ghosting,
+        pressed: [...document.querySelectorAll('#navigator .nav-preset[aria-pressed="true"]')].map((b) => b.dataset.preset),
+        safe: document.getElementById('cm-safe')?.getAttribute('aria-pressed') ?? null,
+        tally: a.hud.levelCounts(), structures: a.registry.size, looks: {}, counts: {} };
+      for (const l of ['attested', 'inferred', 'reconstructed']) {
+        out.looks[l] = { ...a.confidence.grade(l),
+          worn: document.querySelector(`#cm-controls-${l} .nav-swatch[aria-checked="true"]`)?.dataset.set ?? null,
+          summary: document.getElementById(`cm-look-${l}`)?.textContent ?? '' };
+        out.counts[l] = Number(document.getElementById(`cm-count-${l}`)?.textContent ?? -1);
+      }
+      return out;
+    });
+    const setRowOpacity = (level, value) => page.evaluate(([l, v]) => {
+      const s = document.getElementById(`cm-opacity-${l}`);
+      s.value = String(v);
+      s.dispatchEvent(new Event('input', { bubbles: true }));
+      s.dispatchEvent(new Event('change', { bubbles: true }));
+    }, [level, value]);
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+    await page.waitForTimeout(600);
+    await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
+    await page.waitForTimeout(300);
+    if (await page.evaluate(() => document.getElementById('cm-controls-reconstructed')?.hidden !== false)) {
+      await clickChrome('#cm-look-reconstructed');
+      await page.waitForTimeout(300);
+    }
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    await clickChrome('#cm-controls-reconstructed .nav-look[data-look="tint"]');
+    await setRowOpacity('reconstructed', 100);
+    await page.waitForTimeout(300);
+    const rowBase = await page.evaluate(() => window.__chicago4d.capture());
+    // Colour: the colour-blind-safe swatch (vermilion) on Reconstructed.
+    await clickChrome('#cm-controls-reconstructed .nav-swatch[data-set="safe"]');
+    await page.waitForTimeout(300);
+    const rowSwatch = await rowState();
+    const rowSwatchFrame = await page.evaluate(() => window.__chicago4d.capture());
+    // Opacity: the slider to 0 %, which takes the tint off.
+    await setRowOpacity('reconstructed', 0);
+    await page.waitForTimeout(300);
+    const rowOpacity = await rowState();
+    const rowOpacityFrame = await page.evaluate(() => window.__chicago4d.capture());
+    // Look: Ghost at 40 %, drawn see-through in its own pass.
+    await clickChrome('#cm-controls-reconstructed .nav-look[data-look="ghost"]');
+    await setRowOpacity('reconstructed', 40);
+    await page.waitForTimeout(300);
+    const rowLook = await rowState();
+    const rowLookFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const rowLookStats = await page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { calls: st.drawCalls, budget: st.budget.drawCalls }; });
+    const dRowSwatch = signatureDistance(rowBase, rowSwatchFrame);
+    const dRowOpacity = signatureDistance(rowSwatchFrame, rowOpacityFrame);
+    const dRowLook = signatureDistance(rowOpacityFrame, rowLookFrame);
+    const rowMoved = (dd) => dd.mean > 0.1 && dd.worst >= 6;
+    const rowFmt = (dd) => `mean ${dd.mean?.toFixed(2)}, worst ${dd.worst}`;
+    check(`${label}: a grade row's swatch recolours the scene live, and the row marks it (T-2648)`,
+      rowSwatch.looks.reconstructed.color === '#d55e00' && rowSwatch.looks.reconstructed.worn === 'safe' && rowSwatch.on === true
+        && rowMoved(dRowSwatch),
+      `${JSON.stringify(rowSwatch.looks.reconstructed)} frame ${rowFmt(dRowSwatch)}`);
+    check(`${label}: a grade row's opacity slider changes the scene live, and the row reads its percent (T-2648)`,
+      Math.round(rowOpacity.looks.reconstructed.opacity * 100) === 0 && /^Tint · 0%$/.test(rowOpacity.looks.reconstructed.summary)
+        && rowMoved(dRowOpacity),
+      `${JSON.stringify(rowOpacity.looks.reconstructed)} frame ${rowFmt(dRowOpacity)}`);
+    check(`${label}: a grade row's Look ghosts the grade live, inside the draw budget (T-2648)`,
+      rowLook.looks.reconstructed.mode === 'ghost' && Math.round(rowLook.looks.reconstructed.opacity * 100) === 40 && rowLook.ghosting === true
+        && /^Ghost · 40%$/.test(rowLook.looks.reconstructed.summary) && rowMoved(dRowLook) && rowLookStats.calls <= rowLookStats.budget,
+      `${JSON.stringify(rowLook.looks.reconstructed)} frame ${rowFmt(dRowLook)} ${JSON.stringify(rowLookStats)}`);
+    // The sweep: five opacities, three swatches and two looks already drawn, then one frame.
+    const rowSweep = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const before = a.stats();
+      const t0 = performance.now();
+      const slider = document.getElementById('cm-opacity-reconstructed');
+      for (const v of [80, 60, 40, 20, 0]) {
+        slider.value = String(v);
+        slider.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+      slider.dispatchEvent(new Event('change', { bubbles: true }));
+      for (const set of ['garden', 'ember', 'medal']) document.querySelector(`#cm-controls-reconstructed .nav-swatch[data-set="${set}"]`).click();
+      for (const look of ['tint', 'ghost']) document.querySelector(`#cm-controls-reconstructed .nav-look[data-look="${look}"]`).click();
+      const ms = performance.now() - t0;
+      a.step();
+      const after = a.stats();
+      return { ms: Math.round(ms), programs: [before.programs, after.programs], geometries: [before.geometries, after.geometries] };
+    });
+    check(`${label}: ten row changes add no shader program and no geometry (T-2648)`,
+      rowSweep.programs[0] === rowSweep.programs[1] && rowSweep.geometries[0] === rowSweep.geometries[1],
+      JSON.stringify(rowSweep));
+    // The colour-blind-safe set: all three grades in one tap, and a preset keeps it.
+    await clickChrome('#cm-safe');
+    await page.waitForTimeout(300);
+    const rowSafe = await rowState();
+    await clickChrome('#navigator .nav-preset[data-preset="xray"]');
+    await page.waitForTimeout(300);
+    const rowSafeXray = await rowState();
+    const allSafe = (st) => ['attested', 'inferred', 'reconstructed'].every((l) => st.looks[l].worn === 'safe');
+    check(`${label}: the colour-blind-safe set is one tap for all three grades, and X-RAY keeps it (T-2648)`,
+      allSafe(rowSafe) && rowSafe.safe === 'true' && allSafe(rowSafeXray) && JSON.stringify(rowSafeXray.pressed) === '["xray"]'
+        && rowSafeXray.looks.inferred.mode === 'ghost',
+      JSON.stringify({ rowSafe: { safe: rowSafe.safe, worn: Object.values(rowSafe.looks).map((g) => g.worn) },
+        rowSafeXray: { pressed: rowSafeXray.pressed, worn: Object.values(rowSafeXray.looks).map((g) => g.worn) } }));
+    check(`${label}: each grade row's count is the town's own tally (T-2648)`,
+      ['attested', 'inferred', 'reconstructed'].every((l) => rowSafeXray.counts[l] === rowSafeXray.tally[l])
+        && rowSafeXray.counts.attested + rowSafeXray.counts.inferred + rowSafeXray.counts.reconstructed === rowSafeXray.structures,
+      JSON.stringify({ counts: rowSafeXray.counts, tally: rowSafeXray.tally, structures: rowSafeXray.structures }));
+    // Give the town back as found: the grade colours and looks (kept as such), NORMAL, Home, docked.
+    await page.evaluate(() => window.__chicago4d.confidence.resetGrades());
+    await clickChrome('#navigator .nav-preset[data-preset="normal"]');
+    await page.waitForTimeout(150);
+    await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      a.setAnimationHold(false);
+      await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
+    });
+    // <<< T-2648
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
     // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
@@ -15543,7 +15823,7 @@ for (const [label, viewport, touch] of [
         return false;
       };
       const reach = { start: await inside('jaunts', '#nav-seg-jaunts'), confidence: await inside('confidence', '.nav-preset'),
-        pace: await inside('move', '#s-move'), theme: await inside('settings', '#btn-theme') };
+        pace: await inside('move', '#s-move'), theme: await inside('settings', '#s-theme') };  // #s-theme: T-2656
       await n.select('home'); n.dock();
       return { gone, reach };
     });

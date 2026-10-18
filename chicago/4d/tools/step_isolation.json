@@ -2828,6 +2828,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_navigator_contrast.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_near_field_keeper.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5362,6 +5366,10 @@
         "/home/claude/chicago/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
       ]
     },
+    "tools/strip_page_comments.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/structure_versions.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5439,6 +5447,10 @@
       "wrote_ignored": []
     },
     "tools/test_confidence_presets.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_confidence_rows.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5719,6 +5731,10 @@
       "wrote_ignored": []
     },
     "tools/test_selected_year.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_settings_app.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

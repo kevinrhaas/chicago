@@ -26222,6 +26222,45 @@ which stands about 0.5 m taller than the print's door; that difference is open i
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2753).
 
+### L-k01-1625-rear-section-2820 — 1625 Prairie's four-storey rear section built beside its main body, under an attic of its own
+
+**Decision:** 1625's rear 7.6 m now stands as the 1911 sheet traces it (T-2820, piece 1 of
+T-2754): a step-out 1.3 m south of the main body's south wall (K01's new `rear_section`), its
+three walls in the K03 brick to the main wall head, the main side wall not drawn behind it, and
+over the whole rear part an attic of its own: steep slated lower faces front and rear to a curb,
+a low pitch over them to a ridge running across the house, and at each end the wall carried up
+the attic's outline as a coped parapet. The main roof's ridge dies into the attic's street face.
+The photograph's door and two windows are cut in the step-out's street face, its gabled dormer
+stands on the attic's street face over them, and the rear stack (until now over the rear part's
+south side, unread) is carried up in the south end parapet.
+**What is read, not invented.** The plan is the sheet's: the trace's south line at -3028.0 to
+-3028.4 over its rear 7.6 m, where the main part's runs at -3027.0 to -3027.2 (s20-1625-a1, '4'
+storeys). Off the photograph, on 3x crops: that the section has a narrow brick face toward the
+street with a door at its foot and one window a storey, that its cornice meets the main south
+eave at the same height (y 482-488 px where they meet), that its attic is slated with one dormer
+on the street face, and that its south end is a lit brick face carried up above the cornice to a
+stack. Heights are read against that cornice, set at the main wall head's 13.0 m, and the
+horizon: the windows at 3.66-6.65 and 9.02-11.48 m, the dormer's sill 13.85 m and its sash's head
+16.3 m, the attic's curb (its top line) 17.3 m, the stack about 1.5 m over the wall's head line.
+**What is invented.** The camera's depth that far back is soft (its own solve says +-3 m), so the
+heights rest on the cornice being the main eave's; the widths are the sheet's, not the print's —
+the print's face reads about 50 px across, about 2.2 m on the scale its heights take, where the
+sheet steps 1.3 m — so the windows are the contract's narrowest sash (0.75 m) and the dormer's
+sash 0.6 m in a 0.84 m face, centred, where the print's lights are about half the face. The door
+stands 2.1 m from grade where the print's head reads about 1.7 m (the fence hides its foot); it is
+a plain boarded door in a brick reveal under a soldier head, no K07 entrance. The lower faces'
+75-degree pitch, the 15-degree top over the curb (the print cannot see it), the 0.3 m cornice, the
+north end parapet (the party wall's: the print shows only the south one), the stack's plan (1.0 by
+0.6 m) and its place along the wall (about 4.4 m from the rear wall, by where it rises in the
+print), and the step-out's outer and rear walls left blank (the print shows the outer one lit and
+windowless; no picture shows the rear) are ours.
+**How to resolve:** T-2821 weighs the face's width against the sheet's step and the camera's
+depth at the rear, and brings the match record to `matches`; a view from the south or the rear,
+or a plan, would settle the section's width, its floors and its rear wall.
+**Ticket:** T-2820 (piece 1 of T-2754).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-18 (T-2820).
+
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
 **Decision:** `house_1619_prairie` keeps the K01 stone front T-2420 built from Treat & Foltz's drawing
@@ -28538,22 +28577,28 @@ to 1.05 m by T-2713 where T-2579's re-fitted camera on the 1888 Glessner plate r
 0.1 m beyond the render's (3.5 px at 37 px/m; now within 1-2 px); and the pipe's and cap's widths
 against the 0.46 m courses (about 0.28 m and 0.58 m).
 **What is invented:** the riser hidden behind the parapet and where it meets the deck; its depth
-behind the north face (0.6 m), which sets its foot inside the hall stack's plan and so reads as
-that flue's termination — plausible, not shown; the elbow's height under the coping; the bowl's
+behind the north face (0.45 m since T-2811, 0.6 m before), which sets its foot inside the hall
+stack's plan and so reads as that flue's termination — plausible, not shown. T-2811 took it from the
+two pictures that can see it through cameras holding the return's pinnacles beside it: the c. 1888
+view looking SW reads about 0.3 m and the 1888 Glessner plate 0.6 m, and both see a move along the
+return almost as a change of set-back, so they cannot both be met; 0.45 m is their least-squares
+set-back (0.42 m fitted), leaving the cap within 6 px of each print; the elbow's height under the coping; the bowl's
 and the disc's sections; and its colour, a plain pale grey standing for galvanized iron, which the
 monochrome prints show only as paler than its cap and close to the granite; and that it
 still stands in the 1904 scene this phase serves (it is there in 1887-89 and gone by 1948, and
 when it went is not known).
-**How to resolve:** a re-fit of the c. 1888 view looking south-west, whose T-1883 camera puts the
-rear pinnacle about 60 px off and still reads the cap higher than the plate does (T-2713 left that
-excess to the camera, not the cowl); and the undated Glessner-front view, which shows no cowl at
+**How to resolve:** the c. 1888 view looking south-west was re-fitted (T-2748) and read with the
+plate by T-2811: its height excess was the set-back's (0.3 m nearer the face raises the cap 5 px in
+that view and leaves the plate's height reading unchanged), and the two cameras' remaining 0.3 m
+disagreement on the set-back is theirs, not the cowl's — a third picture with a camera fitted on the
+return from the north or west would settle it; and the undated Glessner-front view, which shows no cowl at
 any bounded set-back and is read by T-2713 as later than its removal (probably 1890s-1920s,
 T-2216): a date for that picture would confirm or overturn that reading. The hall stack's height
 was settled by T-2712 (it stops under the coping).
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2578 (piece 2 of T-2567).
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
-**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713).
+**Recorded:** 2026-10-16 (T-2578). **Revised:** 2026-10-17 (T-2713); 2026-10-18 (T-2811).
 
 ### L-k01-keith-south-strip-2581 — Keith's south corner: a straight strip of the front's stone, 2.1 m deep
 
@@ -28874,6 +28919,35 @@ botanical record of the Chicago dunes before 1860 naming the cedar and the pine.
 **Ticket:** T-2768.
 **Recorded:** 2026-10-18 (T-2768).
 
+### L-woods-structure-2807 — The woods in clumps and openings, young trees in the gaps, and the thicket at the woods' prairie edge
+
+**Decision:** the 1835 and 1812 woods are no longer dealt at one even density per community. In
+`renderers/web/js/trees.js` (T-2807) each woods community's recorded density is multiplied by a
+clump field with a mean of one (`WOOD_CLUMP`): dense patches, openings at 10-30 % of the density,
+on value noise of 30-48 m, and a stem in an opening is grown smaller (to 58-66 % of its size at
+the opening's heart). Where a wood faces open prairie a shrub thicket stands at its edge
+(`EDGE_THICKET`): the outer part of the river woods' width in the South Division, and the last
+12-34 m inside the North Side wood's east end at State Street. Hazel stands scattered through the
+oak ridges. The shrubs are hazel, hawthorn, wild plum and gray dogwood, drawn as grown clumps of
+stems (tree-model.js ARCH).
+**What is read, not invented:** hazel as the commonest undergrowth of these woodlands, "thorn" and
+plum as survey undergrowth terms (McBride and Bowles 2007, in `z06_dense_forest`); gray dogwood as
+a floodplain shrub (Swink and Wilhelm 1994, in `z05_riverbank_timber`); each shrub's height,
+width and July colour from those records; the woods as "a mosaic, not a monoculture" (the
+`z06_dense_forest` record).
+**What is invented:** the clump field's cell sizes, floors and the young trees' scale; that the
+thicket stands at those two edges and how deep; its density, 320-520 clumps a hectare in the band
+and 5-12 a hectare of hazel in the oak ridges; its weights, which follow the records' cover
+fractions with hawthorn, plum and dogwood raised against hazel at the edge; every shrub's place
+and bark colour; the shrubs' habit (stems, splay, crown), as for the trees under
+L-tree-architecture-2743. In 1812 the North Side wood's east end is still the fallback line T-2745
+is to move, so the thicket stands where that line is.
+**How to resolve:** the original land survey's line notes for the township's section lines (the
+undergrowth and the "thick" or "scattering" timber at each mile), a witness to the woods' edge
+along the lake before 1840, or the witness-tree layer for the township.
+**Ticket:** T-2807.
+**Recorded:** 2026-10-18 (T-2807).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -28952,6 +29026,7 @@ springing. Each is open in the match record and is T-2729's, which changes the K
 **How to resolve:** a photograph of the house after 1886 settles the doorway, the door's leaves and
 the iron; the architects' plans would settle the recess and the porch.
 **Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
+**Revised 2026-10-18 (T-2818):** the basement light under the window is the drawing's broad, low opening: K06's segmental basement light (`k06.opening.basement_segmental`), 1.8 m across from 0.1 m to a crown at 0.97 m, under a block of voussoirs 0.25 m deep with a skewback at each end and a keystone, 0.1 m north of the window over it. Its grille is the drawing's in kind: eight close uprights to a bar at 0.57 m and over it a band of six scrolls to the springing (`street_front_dress.grilles.scrolls`). Read from the drawing: the opening's breadth, height and flat arc (its head rising about a sixteenth of its span), the radiating stones over it and the band of about six scrolls over close uprights. Reconstructed: each scroll's curl (a flat bar wound one and a half turns into its centre, turned alternately), the bars' count and section, the voussoirs' count and depth, and the light's place 0.15 m south of where the drawing draws it, so its voussoirs stand 0.3 m inside the corner. Still open: the entrance porch and the landing's guard (T-2817), and the stone above the springing and the oriel front's place (T-2819).
 **Ticket:** T-2728 (piece 1 of T-2435).
 **Recorded:** 2026-10-17 (T-2728).
 

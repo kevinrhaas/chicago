@@ -122,6 +122,12 @@ def box(s0, s1, y0, y1):
     return [(s0, y0), (s1, y0), (s1, y1), (s0, y1)]
 
 
+def rise_over_span(v: dict, data: dict) -> float:
+    """A segmental head's rise over its span: the kit's working figure, or (T-2818) the
+    variant's own, where a drawing reads a flatter head (1623's broad basement light)."""
+    return float(v.get("rise_over_span", data["arch"]["segmental"]["working_rise_over_span"]))
+
+
 class Head:
     """The top of a clear opening s0..s1 whose jambs rise to `spring`."""
 
@@ -289,7 +295,7 @@ class Opening:
             if kind == "flat":
                 head = Head("flat", s0, s1, H)
             else:
-                ros = self.data["arch"]["segmental"]["working_rise_over_span"]
+                ros = rise_over_span(v, self.data)
                 rr = v.get("head_radius_ratio", 1.0)    # T-2457: a drop head, its radius under the span
                 h0 = Head(kind, s0, s1, 0.0, ros, rr)
                 head = Head(kind, s0, s1, H - h0.rise, ros, rr)

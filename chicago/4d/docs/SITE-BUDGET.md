@@ -134,6 +134,19 @@ app imports, which is the entire reason the changelog lives inside the app.
 Measured: **31.999 MB → 30.69 MB**, and the growth rate of the changelog on the payload is
 halved.
 
+**The front doors are the one deliberate copy, and they stay under the floor by shipping
+less, not by differing (2026-10-18).** `/4d/<year>/index.html` (1812, 1835, 1880, 1904) is
+the stamped `walk/index.html` plus one `<base href>`, so the four doors are byte-identical
+on purpose and `validate.py`'s duplicate check refuses them once they reach 64 KB. On `dev`
+the door was 64,208 bytes, and PR #1030's markup put it over. About 13 KB of that page was
+HTML comments: developer notes, shipped to every visitor once per door. `publish.sh` now
+strips them from the published page only (`tools/strip_page_comments.mjs`; the source keeps
+every one, and placeholders and `<script>`/`<style>`/`<textarea>`/`<pre>` bodies pass
+through byte for byte, which `--check` asserts against the source). Measured on the
+publish that landed it: the door went from **64,208 to 50,407 bytes**, and walk/ plus the
+four doors ship about 69 KB less. The floor was not moved and the doors were not made to
+differ by a byte; either would have kept the check green by defeating it.
+
 ## 4. The boot payload, measured — and what the whole-tree cap is now for
 
 The recommendation at the foot of the old §4 was: measure what a visitor

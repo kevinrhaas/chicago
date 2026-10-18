@@ -145,6 +145,8 @@ step "Each grade's look — tint, dither or ghost at an opacity — and the ghos
   node tools/test_confidence_looks.mjs
 step "The Confidence view's presets — NORMAL, BY GRADE, ATTESTED ONLY (exactly the two grades hidden by hand), X-RAY — and C toggling BY GRADE (T-2647)" \
   node tools/test_confidence_presets.mjs
+step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
+  node tools/test_confidence_rows.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
@@ -160,6 +162,12 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
+  node tools/test_settings_app.mjs
+step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
+  node tools/check_navigator_contrast.mjs
+selftest "…and a token drifted toward its panel, or the device's overrides removed, is refused (T-2656)" \
+  node tools/check_navigator_contrast.mjs --self-test
 step "The Navigator's telemetry strip ticks every 800 ms only while the device is open and seen, never with the tab hidden or under reduced motion, on the portal's own numbers (T-2623)" \
   node tools/test_nav_telemetry.mjs
 # T-2663: Tour mode, the Field Check.
@@ -3842,6 +3850,17 @@ step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
 # no door.
 selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
+
+# …and the page those doors copy ships without the source's developer notes, which is
+# what keeps five identical copies of it under validate.py's 64 KB duplicate floor
+# (T-0722) without moving the floor. The self-test holds the rules (placeholders,
+# conditional comments, raw elements and attribute values untouched); --check holds
+# the shipped page to the source byte for byte, less exactly its comments and stamp.
+selftest "the shipped walk page: developer comments out, placeholders and raw text untouched" \
+  node tools/strip_page_comments.mjs --self-test
+
+step "the published walk page and its doors are the source less its comments (T-0722)" \
+  node tools/strip_page_comments.mjs --check ../../site/4d
 
 # The reference browsers' asset directories leave the mirror only when the site root
 # already ships every byte of them (T-1828) — never a directory with new work in it.

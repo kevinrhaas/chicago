@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the middle unit of the group'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2433 (piece 2 of T-1869) refines the district draft (T-2335) in place under the same id. Which number Farwell's house stood at is argued in docs/RESEARCH/k01-1623-farwell-2433/README.md: 1623, the north neighbour of Hugh J. McBirney's 1625 (the 1890 Inland Architect photograph of 1625 shows Farwell's oriel and arched entrance against its north wall), the 1885 permits' '1625' being the numbering of before McBirney built. The front is built from the house's one drawing, Treat & Foltz's plate in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses, the right-hand house), read against the 1911 Sanborn sheet 20, which controls the plan: a K02 stone street front with a rusticated base on K03 brick sides and rear, the drawing's canted oriel on K08's corbelled oriel across the second storey with its mullioned and transomed lights, the door in the south bay at the head of a K07 stoop and the window in the north bay over a basement light, a K10 cornice and a slated K04/K05 hip with a tall stack against the north wall. What the drawing shows and K01 does not yet build — the two round arches at grade, the oriel's carved frieze, its upper stage of lights and its steep conical roof rising through the eave, the iron-grilled basement arch and the stoop's rails — is listed open in its match record (data/reference_views/house_1623_prairie/building_budget_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1623-farwell-oriel-front-2433. T-2728 (piece 1 of T-2435) builds the entrance's deep round arch, the stoop's iron rails, the basement light's grille and the rock-faced front from the drawing (L-k01-1623-farwell-entrance-2728); what still differs is open in the match record for T-2729.",
+  "research_note": "T-2433 (piece 2 of T-1869) refines the district draft (T-2335) in place under the same id. Which number Farwell's house stood at is argued in docs/RESEARCH/k01-1623-farwell-2433/README.md: 1623, the north neighbour of Hugh J. McBirney's 1625 (the 1890 Inland Architect photograph of 1625 shows Farwell's oriel and arched entrance against its north wall), the 1885 permits' '1625' being the numbering of before McBirney built. The front is built from the house's one drawing, Treat & Foltz's plate in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses, the right-hand house), read against the 1911 Sanborn sheet 20, which controls the plan: a K02 stone street front with a rusticated base on K03 brick sides and rear, the drawing's canted oriel on K08's corbelled oriel across the second storey with its mullioned and transomed lights, the door in the south bay at the head of a K07 stoop and the window in the north bay over a basement light, a K10 cornice and a slated K04/K05 hip with a tall stack against the north wall. What the drawing shows and K01 does not yet build — the two round arches at grade, the oriel's carved frieze, its upper stage of lights and its steep conical roof rising through the eave, the iron-grilled basement arch and the stoop's rails — is listed open in its match record (data/reference_views/house_1623_prairie/building_budget_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1623-farwell-oriel-front-2433. T-2728 (piece 1 of T-2435) builds the entrance's deep round arch, the stoop's iron rails, the basement light's grille and the rock-faced front from the drawing (L-k01-1623-farwell-entrance-2728); what still differs is open in the match record for T-2729. T-2818 (piece 2 of T-2779) lays the drawing's broad segmental basement light behind its scrolled grille.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -421,12 +421,12 @@
             },
             "k01.opening.arched_principal": "k06.opening.sash_round_fanlight_wide",
             "k01.opening.arched_basement": {
-              "variant": "k06.opening.basement_round",
+              "variant": "k06.opening.basement_segmental",
               "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "K06's two-over-two sash in the side and rear walls; its wide fanlight sash under the principal storey's arch and its round-headed basement light under that, as 1612's."
+          "note": "K06's two-over-two sash in the side and rear walls; its wide fanlight sash under the principal storey's arch, as 1612's, and under that (T-2818) its broad segmental basement light, the drawing's low arched opening."
         },
         "entrance_kit": {
           "value": {
@@ -461,14 +461,15 @@
                 "bays": [
                   0
                 ],
+                "offset_m": -0.1,
                 "sill_m": 0.1,
-                "width_m": 1.1,
-                "height_m": 0.85,
+                "width_m": 1.8,
+                "height_m": 0.87,
                 "arch_ring_m": 0.25,
-                "keystone_top_m": 1.2,
+                "keystone_top_m": 1.25,
                 "keystone_m": [
                   0.2,
-                  0.3
+                  0.28
                 ]
               },
               {
@@ -493,15 +494,19 @@
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "Read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json), at the front's 46 px/m: the principal storey's window is one broad round-arched light, its sill at about 2.1 m, its springing at about 3.4 m and its crown at about 4.4 m, about 1.8 m across inside a ring of long voussoirs about 0.5 m deep; under it a broad segmental basement light behind an iron grille, from grade to about 0.9 m. Built as K01's arched principal light on K06's wide fanlight sash, 1.6 m across (narrowed, at the drawing's 1.55 m centre since T-2777, so its voussoir block stands 0.4 m inside the corner), its sill at 2.1 m and its crown at 4.4 m under a 0.35 m ring; and K06's round-headed basement light, 1.1 m across, standing for the segmental one. The basement light's grille, the window's lattice transom and the entrance's own arch are not built (T-2435)."
+          "note": "Read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json), at the front's 46 px/m: the principal storey's window is one broad round-arched light, its sill at about 2.1 m, its springing at about 3.4 m and its crown at about 4.4 m, about 1.8 m across inside a ring of long voussoirs about 0.5 m deep; under it a broad segmental basement light behind an iron grille, from grade to about 0.9 m. Built as K01's arched principal light on K06's wide fanlight sash, 1.6 m across (narrowed, at the drawing's 1.55 m centre since T-2777, so its voussoir block stands 0.4 m inside the corner), its sill at 2.1 m and its crown at 4.4 m under a 0.35 m ring. T-2818: under it the drawing's basement light, built as K06's broad segmental basement light, 1.8 m across from 0.1 m to its crown at 0.97 m, its head rising 0.11 m (a sixteenth of its span, the drawing's flat arc), centred 1.45 m from the north wall, 0.1 m north of the window over it (`offset_m`; the drawing draws it about 0.25 m north, between x 63 and 145, and 1.45 m is as far as its voussoirs stand 0.3 m inside the corner): through the camera its jambs land at x 68 and 150 and its crown at about y 647, against the drawn 63, 145 and 647, its sill within about 2 px. Over it a block of voussoirs 0.25 m deep radiating from the arc's centre, with a skewback at each end and a keystone to 1.25 m, where the drawing's radiating stones stop at about 1.3 m. The window's lattice transom is not built."
         },
         "street_front_dress": {
           "value": {
             "base_top_m": 1.0,
             "grilles": {
               "component": "k01.opening.arched_basement",
-              "bars": 7,
-              "set_back_m": 0.05
+              "bars": 8,
+              "set_back_m": 0.05,
+              "scrolls": {
+                "count": 6,
+                "foot_m": 0.57
+              }
             },
             "stoop_rails": {
               "kit": "k11.rail.stoop_rail",
@@ -512,7 +517,7 @@
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille, seven upright bars between a foot bar and a head bar let into the light's reveal 0.05 m behind the face; the drawing's grille is a band of C-scrolls over close-set uprights in a broad, low, segment-headed opening about 1.8 m across, which K01's arched basement row cannot lay (a round head, 1.1 m), so the opening's breadth and the scrolls are T-2779's. Read from the drawing: the rails and the grille's place; reconstructed (the value's grade): every bar's count and section (L-k01-1623-farwell-entrance-2728)."
+          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille let into its reveal 0.05 m behind the face, as the drawing draws it (T-2818): eight close uprights from the sill to a bar at 0.57 m, a bar across them 0.25 m over the sill, and over the bar a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing draws a row of about six C-scrolls over its uprights at about 0.58-0.9 m and a bar across them at about 0.25 m. Read from the drawing: the rails, the grille's place, its band of scrolls and the number of them; reconstructed (the value's grade): every bar's count and section, and each scroll's curl (L-k01-1623-farwell-entrance-2728)."
         }
       }
     }
