@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2002, ts: '2026-10-18T16:24:45.985Z', date: 'Oct 18, 2026, 11:24 AM CT', title: 'Plainer words where a visitor reads about shops and sources', kind: 'change',
+    items: [
+      'A shop placed beside a landmark now names it in words, such as Mansion House, instead of an internal code. You see this in Go to and on the shop\'s card.',
+      'Shop notes no longer mention internal job numbers, and a street is named the way the town wrote it.',
+      'In Sources, three notes now say "grade", "the Liberties document" and "the terrain record" instead of file names and internal terms.',
+      'A new check stops file paths, internal ids and words like "ticket" from reaching what a visitor reads.',
+    ] },
   { v: 2001, ts: '2026-10-18T15:34:41.950Z', date: 'Oct 18, 2026, 10:34 AM CT', title: 'Glessner\'s stable roof checked against two old photographs: the roof was right', kind: 'improvement',
     items: [
       'The 1963 survey photograph seemed to show the stable roof about 2 feet lower than the model. Measured against the carriage doorway, the one surveyed length on that wall, most of that gap turns out to be the camera.',
