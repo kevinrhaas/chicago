@@ -3,7 +3,7 @@
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
   "glb_sha256": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
-  "camera_sha256": "ad751fd748e221136c6c4e8abde699edbaf175fc727c4c8c4c894ec329824589",
+  "camera_sha256": "b63e192d14d9458275cd12286c59ef0ada4767222c1805257a23a1601a6f9117",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "The pedestals' sunk panels are schematic rather than the photographed carving.",
-      "status": "open"
+      "what": "The pedestals' sunk panels are schematic rather than the photographed carving. T-2769: this view cannot read the panels' fields: the pedestal stands about 41 px for its 1.02 m here (about 40 px to the metre, the front about 30 px across), so a 36 mm carved stem would be about 1.4 px in a 675 px JPEG, and the panel's border is all it shows. The 1888 plate at its native 1559 px reads them (about 75 px to the metre on the pedestals, x 865-940 and 1100-1160, y 1585-1650): each pedestal's front carries a plain field inside its border, about 32 x 41 px on a 47 px front, where the model's 0.66 x 0.57 m field on its 0.9 m front comes to about 34 x 43 px, and no carving in it. The leaf scrolls T-1883 laid in the fields are taken off, so the pedestals carry plain fields in their border, as both pictures show them.",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the south pier's granite alternates a deep rock-faced course and a thin one, as this close view shows.",
@@ -60,8 +60,8 @@
       "status": "not shown"
     },
     {
-      "what": "T-2566 re-read the tint under neutral light: the stone is now a neutral grey at the old lightness, not the green-grey it was. The source is shaded and blue-cast, so exact colour agreement is not established.",
-      "status": "open"
+      "what": "T-2566 re-read the tint under neutral light: the stone is now a neutral grey at the old lightness, not the green-grey it was. The source is shaded and blue-cast, so exact colour agreement is not established. T-2769 read the tint against this slide's own neutrals (docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json, T2769_1965_neutrals): none of them can calibrate it. The one painted white, the stair's newel (x 90-112, y 300-355), is clipped at sRGB 241-243 and carries no cast; balanced on the window curtains (behind glass) the lit stone reads CIELAB a* +3.5 to +4.6, b* -5.4 to -7.3, and balanced on the concrete walk a* -4.0 to -4.4, b* +2.2 to +3.2. The slide's neutrals put the stone's chroma within about 9 units of grey, one way or the other, and the model's neutral grey (linear albedo 0.446, r/g and b/g 1.00) lies inside that bracket, so a tint is not shown here and the neutral grey stands.",
+      "status": "not shown"
     },
     {
       "what": "T-2564: the corner pinnacle caps are ogival with a moulded collar and ball finial, and the front coping sweeps up into each.",
@@ -88,11 +88,15 @@
       "status": "not shown"
     },
     {
-      "what": "T-2725: this camera (T-2579, one of its seven controls on the loggia) draws the loggia's column and pedestal alike 12-15 % short: the 2.5 m column renders 88 px against the print's 100 (capital top y 134.5 to the plinth's joint y 234.5), the pedestal 35 against about 41, so the column/pedestal ratio is the model's (2.44 in the print) and the shortfall is this camera's scale at the loggia's depth. Its re-fit is T-2726's. T-2763: the loggia is rebuilt 0.88 of its height over the deck (pedestal 0.88 m, column 2.2 m), on the 1888 plate's level fit, which now determines its eye; through this unchanged camera the column and pedestal therefore draw 0.88 of the 88 and 35 px above, about 77 and 31 against the print's 100 and 41. The ratio between them is still the print's, so what remains is this camera's depth at the loggia, which is T-2764's to re-fit.",
-      "status": "open"
+      "what": "T-2725: this camera (T-2579, one of its seven controls on the loggia) draws the loggia's column and pedestal alike 12-15 % short: the 2.5 m column renders 88 px against the print's 100 (capital top y 134.5 to the plinth's joint y 234.5), the pedestal 35 against about 41, so the column/pedestal ratio is the model's (2.44 in the print) and the shortfall is this camera's scale at the loggia's depth. Its re-fit is T-2726's. T-2763: the loggia is rebuilt 0.88 of its height over the deck (pedestal 0.88 m, column 2.2 m), on the 1888 plate's level fit, which now determines its eye; through this unchanged camera the column and pedestal therefore draw 0.88 of the 88 and 35 px above, about 77 and 31 against the print's 100 and 41. The ratio between them is still the print's, so what remains is this camera's depth at the loggia, which is T-2764's to re-fit. T-2764: re-fitted with depth at the loggia (tools/keith_1965_level_fit.py): the loggia's PLAN, both pairs' shafts by their silhouettes and the south pedestal's, beside the bow re-picked on T-2765's lights, 25 coordinates at 3.47 px RMS (max 5.7), with the loggia's heights left out so the fit predicts them. On that camera the as-built loggia still draws short: the south pair's column 73.9 px against the print's 101, the north pair's 66.4 against 88.5, the pedestal 29.5 against 38.5 (cap arris y 235.5 to the joint at its foot, y 274). So the camera is not the cause, and no level camera that puts the bow and the loggia's plan where the print does will draw the pedestal at its ~41 px: fitting the heights too leaves 17 px on the south capital, a free factor on the loggia's heights over its deck reads 1.293-1.323, and a free pixel aspect does not take it away (k 1.32 beside it). Ruled for this item; the disagreement it leaves is the next item's.",
+      "status": "fixed"
     },
     {
-      "what": "T-2765: this camera's three bow controls (the south bow light's head and sill, the next light's head, the basement light's head) were picked on the south edges of the -27 and 0 degree lights, which T-2765 moved to the second storey's bearings. Re-picked on the -33 and -11 degree lights the same seven controls fit at about 2.9 px RMS (max 6.8) where they fit 1.3-1.7 px, with the eye about 5 m further south; the unfitted edges of the three visible lights read about as well either way (4-9 px). The fourth light at 33 degrees is not seen: from this camera it faces about 65 degrees away and its reveal covers it. The camera's bow controls are re-picked from the rebuilt GLB when T-2764 re-fits this camera.",
+      "what": "T-2765: this camera's three bow controls (the south bow light's head and sill, the next light's head, the basement light's head) were picked on the south edges of the -27 and 0 degree lights, which T-2765 moved to the second storey's bearings. Re-picked on the -33 and -11 degree lights the same seven controls fit at about 2.9 px RMS (max 6.8) where they fit 1.3-1.7 px, with the eye about 5 m further south; the unfitted edges of the three visible lights read about as well either way (4-9 px). The fourth light at 33 degrees is not seen: from this camera it faces about 65 degrees away and its reveal covers it. The camera's bow controls are re-picked from the rebuilt GLB when T-2764 re-fits this camera. T-2764: re-picked on the rebuilt GLB and re-fitted: the -33, -11 and 11 degree principal lights by both jambs (each the inner of the sash's edge and the face's arris, as the eye sees them) and their heads, the -33 light's sill, the three basement lights by both jambs and the first two by their heads. The lights' jambs sit within 6 px of the print (left jambs about 5 px out in turn, the right ones within 2), the heads within 3.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2764: on the camera the bow's lights and the loggia's plan place, everything this view shows ABOVE the principal lights' heads reads about 1.25-1.35 times taller than the model draws, while the principal and basement lights register: the loggia's column 73.9 px against 101 and its pedestal 29.5 against 38.5, and the bow's string course, whose foot the print draws about 56 px over the south light's head (y 134 to 78) where the render draws 45. Read inside the loggia with no camera but its heading, its column's height, its pedestal's and the south pair's width all read about 45 px to the metre, where the south pedestal's width reads 33 and the pairs' 2.5 m spacing about 32: the print draws the loggia about 1.35 times taller for its plan than it is built, against the 1888 plate, on whose level fits T-2763 lowered it to 0.88. Which picture errs here (this slide's optics, the bow's upper storey, or the loggia's plan) is T-2751's to rule.",
       "status": "open"
     }
   ],

@@ -2944,6 +2944,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_visitor_ui.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_wall_relief.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4076,6 +4080,10 @@
       "wrote_ignored": []
     },
     "tools/glessner_opening_schedule.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/glessner_stable_roof_read.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5406,6 +5414,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_check_visitor_ui.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_claim_value.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5610,6 +5622,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_nav_story.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_nav_telemetry.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5795,6 +5811,10 @@
       "wrote_ignored": []
     },
     "tools/test_tour.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_tour_offer.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

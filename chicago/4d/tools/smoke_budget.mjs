@@ -285,6 +285,8 @@ const COVERAGE = [
   // spot); part 4 opens every tab of an 1835 building, Photos included.
   ['renderers/web/js/photos-tab.js', [4, 14], 'Inspect\'s Photos tab (T-2645)'],
   ['renderers/web/css/photos.css', [4, 14], 'Inspect\'s Photos tab, its grid and tiles (T-2645)'],
+  // T-2643: Inspect's Story timeline; part 4 reads it on an 1835 building, part 14 on Glessner.
+  ['renderers/web/js/inspect-story.js', [4, 14], 'Inspect\'s Story tab: BUILT, YOU ARE HERE and TODAY (T-2643)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],

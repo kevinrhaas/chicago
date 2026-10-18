@@ -128,3 +128,28 @@ does not claim final photographic acceptance. T-2228 stays active for the open i
 
 
 The subsequent [entrance correction and current-asset review](../glessner-entry-2228/README.md) adds a twelfth canonical view and supersedes this report’s 6b2cff4d asset acceptance. The earlier roof/window measurements remain valid as historical receipts; they do not validate a later asset.
+
+
+## Stable roof heights: camera, not roof (T-2758)
+
+HABS photograph 1 read the whole stable roof about 28 px (roughly 2 ft) low and the cupola about 4 ft
+north of S14.6. [`tools/glessner_stable_roof_read.py`](../../../tools/glessner_stable_roof_read.py)
+re-solves both stable cameras with the carriage doorway (sheet 2 jambs W 134.9-147.0, sheet 5 soffit
+12.6 ft), the one measured length in the stable's face. It then reads the roof back through every fit
+and writes [stable-roof-heights.json](../../../data/comparisons/glessner/stable-roof-heights.json).
+
+| reading | model | photo 1, committed | photo 1, doorway re-solves | Cornell, committed | Cornell, re-solved at the roof |
+|---|---|---|---|---|---|
+| north gable coping apex | 39.6 ft | 37.8 | 38.1-38.6 (ruler 38.8) | 42.3 | 38.3-39.5 |
+| cupola apex, on S14.6 | 47.0 ft | 45.1 | 45.5-46.3 | 51.2 | 46.5-47.8 |
+| cupola centre on the ridge | S14.6 | S11.0 | S11.3-14.4 | S11.2 | S13.0-13.2 |
+
+The committed photograph-1 camera draws 14.6 px a foot at the stable where the doorway measures 13.85,
+because its vertical scale comes from the eave at the Prairie corner. That camera error is most of the
+2 ft. The roughly 1 ft left is inside the ridge's 1.5 ft tolerance, and the two photographs disagree by
+about as much, so the roof is kept. Photograph 1 cannot place the cupola along S: all its controls lie in
+one plane, and fits of equal RMS put the cupola at S14.4 and S11.3. The Cornell re-solve, on two faces,
+puts it about 1.5 ft north of S14.6, not 4 ft, so there is no question for the owner. Neither committed
+camera is replaced. Photograph 1's doorway re-solve moves the north tower's finial 7-9 px off the print,
+and the Cornell west-wall camera still serves the west windows, which the re-solve reads in the same places.
+Recorded in `docs/LIBERTIES.md` as L-glessner-stable-roof-camera-2758.

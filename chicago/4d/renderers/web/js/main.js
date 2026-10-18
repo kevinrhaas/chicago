@@ -107,6 +107,8 @@ import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
 import { createRoamTip } from './roam-tip.js';
+import { createTourOffer, createHints, takeJumped } from './tour-offer.js';
+import { isReconstructed } from './place-kinds.js';
 import { plateFor as jauntPlate } from './pictures.js';
 import { jauntModeFor, jauntChoice, styleWords } from './getting-there.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
@@ -2103,6 +2105,10 @@ async function boot() {
   });
   scene3d.add(railway.group);
   api.railway = railway;
+  // T-2775: on a phone the yard goes to the GPU now and lets go of its page arrays,
+  // with the zones near the spawn already deciding which rails they draw.
+  railway.update(camera);
+  settleOnGpu(railway.group);
 
   let glessnerOcclusion=null;
   function refreshGlessnerOcclusion() {
@@ -2941,6 +2947,8 @@ async function boot() {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
       tourCounts.opens++; tourCounts.deeper++;
+      // T-2664: the first Reconstructed building's card says, once, what the word means.
+      if (isReconstructed(record?.sidecar)) api.hints?.show('reconstructed');
       void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures();
     },
   });
@@ -3946,6 +3954,19 @@ async function boot() {
   for (const type of ['pointerdown', 'keydown']) {
     window.addEventListener(type, (e) => { if (roamTip.showing && e.target?.id !== 'roam-tip') roamTip.hide(); }, { capture: true });
   }
+  // ---- T-2664: the Field Check offered once per device on Home (welcome.js paints it),
+  // and the one-time hints after it: the first Jaunt, the first Jump, the first
+  // Reconstructed building. A hint waits while the Field Check runs, and goes at the
+  // visitor's next move or after a few seconds.
+  const tourOffer = createTourOffer();
+  const hints = createHints({ el: document.getElementById('nav-hint'), blocked: () => !!api.tour?.running });
+  const jumpedIn = takeJumped();
+  let tourEntering = false;
+  api.tourOffer = tourOffer;
+  api.hints = hints;
+  for (const type of ['pointerdown', 'keydown']) {
+    window.addEventListener(type, () => { if (hints.showing) hints.hide(); }, { capture: true });
+  }
   function enterWorld({ spawn: destination = null, resume = false } = {}) {
     if (!gateOpen || !api.ready) return false;
     if (!resume) {
@@ -3980,12 +4001,14 @@ async function boot() {
       : 'W A S D to walk · E to inspect what you are looking at');
     // T-2634: Free roam (no destination, not a resume) docks the Navigator, above, and
     // the first time on this device says how to inspect.
-    if (!resume && !destination) roamTip.show({ touch: backends.name === 'touch' });
+    if (!resume && !destination && !tourEntering) roamTip.show({ touch: backends.name === 'touch' });
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
     // T-2663: a Field Check left running before a reload picks up at the same step.
     if (firstEntry && !api.tour?.running) api.tour?.resume();
+    // T-2664: the far year of a first Jump says, once, how to go back.
+    if (firstEntry && jumpedIn) hints.show('jump');
     return true;
   }
   let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;
@@ -4046,7 +4069,11 @@ async function boot() {
             return ok;
           } finally { jauntEntering = false; }
         },
-        render: state => jauntPanel.render(state),
+        render: state => {
+          jauntPanel.render(state);
+          // T-2664: at the first Jaunt's first stop, once per device, how a Jaunt goes on.
+          if (state?.jaunt && state.phase === 'atStop') hints.show('jaunt');
+        },
         onComplete: state => jauntPreview.award(state),
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
@@ -4122,6 +4149,16 @@ async function boot() {
       hudRoot.inert = true;
     },
     hasEntered: () => enteredWorld,
+    // T-2664: Home's "First time? Take the 60-second tour": into the town as Free roam
+    // goes (without Free roam's tip, which the tour's own steps cover), then step 01.
+    offer: { due: () => tourOffer.due() && !api.tour?.running, spend: (how) => tourOffer.spend(how) },
+    onTour: () => {
+      tourEntering = true;
+      let ok = false;
+      try { ok = api.welcome.enter('spawn'); } finally { tourEntering = false; }
+      if (ok) api.tour?.start();
+      return ok;
+    },
   });
 
   // ---- the Navigator (T-2617) ------------------------------------------- //
@@ -4200,6 +4237,7 @@ async function boot() {
       if (popup.openId && popup.openId !== t.id) popup.close();
       // …and Inspect drops the building it was holding for the tag's (T-2639).
       inspectHold = t.id ?? null;
+      if (isReconstructed(loaded.registry.get(t.id)?.sidecar)) hints.show('reconstructed'); // T-2664
       if (navigatorUi?.select) void navigatorUi.select('inspect');
       else pick(t.id);
     },
