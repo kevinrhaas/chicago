@@ -26107,13 +26107,17 @@ rear section stepping out to the south under its mansard, which a K01 rear wing 
 are open in the match record for T-2435.
 **How to resolve:** T-2435 builds the gable (with T-2428's K01 wall gable) and brings the match
 record to `matches`; a later photograph of the house, ingested as a source, says what changed by 1904.
-**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.basement_lights`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
+**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
 **Ticket:** T-2432 (piece 1 of T-1869).
 **Review:** `docs/RESEARCH/k01-1625-mcbirney-2432/README.md`.
 **Recorded:** 2026-10-13 (T-2432). **The gable, the knee wall and the north stack taken out of
 this liberty by T-2730 (2026-10-17):** the dormer is gone and the front now rises as the photograph's
 coped wall gable, under `L-k01-1625-mcbirney-wall-gable-2730`; `dormer` and `eave_overhang_m`
 (now read off the photograph) leave this entry's cover.
+**The street windows and the plinth taken out of this liberty by T-2752 (2026-10-18):** the
+front's windows are now read off the photograph one by one (`street_front_windows`, under
+`L-k01-1625-mcbirney-street-windows-2752`), and the area lights the K01 front carried are gone with
+`basement_lights`, which leaves this entry's cover.
 
 ### L-k01-1625-mcbirney-wall-gable-2730 — 1625 Prairie's front carried up as its photograph's coped wall gable, on the knee wall K01 lends the top storey
 
@@ -26145,6 +26149,35 @@ of it, would take the step at 11.22 m away.
 **Ticket:** T-2730 (piece 3 of T-2435).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-17 (T-2730).
+
+### L-k01-1625-mcbirney-street-windows-2752 — 1625 Prairie's street windows read off its photograph one by one, glazed from new K06 kinds, on a plinth the K02 base sets
+
+**Decision:** 1625's street front no longer repeats one two-over-two sash in three columns (T-2752,
+piece 1 of T-2731). Each window the 1890 Inland Architect photograph
+(`inland_architect_1890_01_mcbirney_residence`) shows on the front is named with its own centre,
+width, sill and head (K01's new `street_front_windows`) and glazed from a K06 kind of its own: the
+ground floor's two lights on a stone mullion, the first floor's two lights under a transom, the
+four-light mullioned and transomed window over the door, the second floor's one-over-one sash under
+segmental heads off the columns below, and the frontispiece's two narrow segment-headed lights. The
+front has no basement light, as the photograph has none.
+**What is read, not invented.** Through the photograph's solved camera (38.6 px/m at the front's
+plane, grade y 795 px, the party wall x 140 px), on 4x crops of the print: every window's two stone
+edges, its sill and its head or crown, to about a pixel (0.03 m); the lights' number, the mullions,
+the transoms' place about a third down, the segmental heads, and the narrow lights' two-over-two.
+**What is invented.** The glazing bars: the print shows the lower windows' lights in small panes
+and cannot say whether on lead or on wood, so they are K06's moulded bars, three by four to a light,
+and K06's restriction on leaded street sash stands. The mullions' 0.10 m and the transom lights'
+heights (0.80 and 0.85 m) are read to the print's grain. The segmental heads rise K06's working
+eighth of their span, about 0.07 m under the print's at the crown. The four-light window and the
+narrow lights are laid in the front's plane: the frontispiece they stand in is slightly proud in the
+photograph, which T-2753 builds. The plinth's top is 0.48 m, the least the K02 base lays (one
+0.25 m course under the 0.23 m coping), where the print's plain band stands about 0.26 m.
+**How to resolve:** T-2753 stands the frontispiece proud with its quoins, panel and hood and the
+windows in their dressed surrounds, and weighs the plinth and the belts; T-2754 builds the rear
+section and brings the match record to `matches`.
+**Ticket:** T-2752 (piece 1 of T-2731).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-18 (T-2752).
 
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
@@ -28691,6 +28724,60 @@ entry read their pitch.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`.
 **Ticket:** T-2724 (piece 1 of T-2714).
 **Recorded:** 2026-10-17 (T-2724).
+
+### L-tree-architecture-2743 — Every tree is grown from its species' habit, with painted bark and leaves
+
+**Decision:** every tree in the 1812 and 1835 timber and plantings, and the 1904 parkway elms,
+is drawn from a tree grown in `renderers/web/js/tree-model.js` from its species' architecture
+(the `ARCH` table: crown envelope, clear bole, fork, scaffold count and angle, limb rise or sag,
+twist, branch orders, twig droop, foliage clumping). Bark and leaves come from
+`tools/generate_tree_atlas.py`'s painted atlases: a ridge-and-furrow, plate, shaggy or smooth tile per
+bark kind, and a spray of leaves of the species' own outline at its true size. A few variants of
+each species are grown and repeated, turned and scaled per stem (`tree-instances.js`) (T-2743).
+**What is read, not invented:** each stem's position, species, height band, crown width where a record
+gives one, and its July colours. These are unchanged from the zone and planting records and the
+planters in `trees.js` and `street-trees.js`.
+**What is invented:** the shape of every tree. No source describes the limbs, crown or bark of any tree
+that stood in 1812, 1835 or 1904. The habits are the species' ordinary botanical ones (for example the
+cottonwood's few massive rising limbs, the bur oak's low crooked horizontals, the American elm's vase
+and the black willow's leaning stems), set by hand and judged by eye against how living trees of the
+species look. The atlases are painted from code; no photograph is sampled. Repeating a few variants
+makes neighbouring trees of a species siblings, not individuals.
+**How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
+Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
+**Ticket:** T-2743.
+**Recorded:** 2026-10-17 (T-2743).
+
+### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
+
+**Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
+(Romanesque, Second Empire, Italianate) — choose their houses, their order (north to south on foot), their
+reading times, their keepsakes and their framing as modern interpretation. No historical visit,
+conversation or occupant on 1 July 1904 is asserted. What each stop says about a house cites the district's
+markers, the house museum's history of the street, HABS or a period picture; where a house is still a
+district draft, its style is the T-1837 register's reading and cites that draft's own liberty.
+**Bounds:** The approved 1904 scene and its structure records; text only, exteriors only.
+**How to resolve:** Revise as interpretation; a stop's claim moves up a tier only when a source for that house
+says it.
+**Applies to:** `data/jaunts/prairie-famous-names.json`, `data/jaunts/prairie-architects.json`,
+`data/jaunts/prairie-style-romanesque.json`, `data/jaunts/prairie-style-second-empire.json`,
+`data/jaunts/prairie-style-italianate.json`.
+**Recorded:** 2026-10-17 (T-2747).
+
+### L-jaunt-prairie-built-so-far — The built-so-far walk: detail levels, areas and order
+
+**Decision:** The "built so far" walk includes every 1904 building modelled past the district draft and
+orders it by a detail ladder this project defines for its own models (5 its own model; 4 a kit build matched
+to a picture; 3 a kit build checked against a picture; 2 a kit build with no solved picture; 1 a draft
+reshaped from a picture), grouped into areas of buildings within 60 m of each other and walked down one side
+of the street and back up the other. The ladder, the grouping, the order, the reading times and the keepsake
+are this project's description of its own work, not history.
+**Bounds:** Written only by `tools/jaunt_built_so_far.py` from the compiled 1904 records and their image-gate
+verdicts; `check.sh` fails when the committed walk no longer matches them.
+**How to resolve:** Not a historical claim and never promoted to one; the ladder changes in the tool and its
+docstring together.
+**Applies to:** `data/jaunts/prairie-built-so-far.json`.
+**Recorded:** 2026-10-17 (T-2747).
 
 ### L-k01-1623-farwell-entrance-2728 — 1623 Prairie's entrance and base from the drawing: a deep round-arched door, the stoop's iron rails, a grille in the basement light and a rock-faced front, their places read and their joinery reconstructed
 

@@ -1,0 +1,22 @@
+{
+  "id": "hmdb_prairie_lost_houses_1800_1900_west",
+  "type": "website",
+  "citation": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (West Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308706.",
+  "date": "accessed 2026-10-17",
+  "describes_date": "1857-1904",
+  "url": "https://www.hmdb.org/m.asp?m=308706",
+  "locator": "One entry per house, each headed by its address and a name line giving the residence, the year built and the architect, then two or three sentences.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A modern interpretive marker's text, cited in words only; nothing is copied into the scene.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-17 (T-2747) from the HMdb page through a fetch that returned the inscription in short quoted segments; the marker itself was not visited. The Prairie library read the same page on 2026-09-26 (chicago/prairie_1904_v1/research/building-research.json) and its readings of the name lines agree with this one.",
+  "note": "Entries read: 1808 'Osborn R. Keith Residence. Built 1886; Cobb & Frost, architects'; 1812 'George H. Wheeler Residence. Built 1884; Burnham & Root, architects' and 'A picturesque brick row house in the Dutch vernacular style built for George Wheeler, a grain elevator owner'; 1824 'Samuel B. Pomeroy Residence. Built 1857'; 1834 'Fernando Jones Residence. Built 1866', John M. Van Osdel, architect, and 'In 1886, the Italianate residence received a mansard addition to bring it into fashion with many of its neighbors'; 1912 'Byran P. Moulton Residence. Built 1882' and 'This expansive Chateauesque style home became the residence of future Illinois governor Frank O. Lowden in 1898'; 1936 'Daniel M. Thompson-Samuel W. Allerton Residence. Built 1870; Lavall B. Dixon, architect'.",
+  "what_it_supplies": [
+    "year built, architect and style as the marker states them for 1808, 1812, 1824, 1834, 1912 and 1936 Prairie"
+  ],
+  "what_it_does_not_supply": [
+    "measurements or appearance beyond the style named"
+  ]
+}

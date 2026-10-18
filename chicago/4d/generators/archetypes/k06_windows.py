@@ -420,6 +420,13 @@ class Opening:
             for a, b, key in ((day.s0, mid, "leaf_left"), (mid, day.s1, "leaf_right")):
                 inner_glass = self._sash("sash_outer", Region(a, b, day.y0, top_y=sash_top), d_out, sa, mu,
                                          panes, (st, st, br, tr), key)
+        elif op == "casement_transom":
+            # T-2752: a casement under a transom bar and its fixed light, in each light of a
+            # mullioned group (1625 Prairie's photograph: two or four lights, the transom about
+            # a third down)
+            sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
+            inner_glass = self._sash("sash_outer", Region(day.s0, day.s1, day.y0, top_y=sash_top), d_out, sa, mu,
+                                     panes, (st, st, br, tr), "casement")
         else:  # fixed, casement, fixed_leaded: one sash in the outer track
             inner_glass = self._sash("sash_outer", day, d_out, sa, mu, panes, (st, st, br, tr), "fixed")
             if op == "fixed_leaded":

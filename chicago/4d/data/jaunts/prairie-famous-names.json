@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Residents",
+  "featured": true,
+  "review_required": false,
+  "id": "prairie-famous-names",
+  "scene": "1904",
+  "title": "Prairie Avenue: the famous names",
+  "premise": "Walk south past the houses of the names that made Prairie Avenue: Pullman, Glessner, Kimball, the two Marshall Fields and Armour.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "WALK: FAMOUS NAMES. Six houses, 1729 to 2115 Prairie, north to south on foot. Each stop gives the family the district markers name for the house. Exteriors only; who was home on 1 July 1904 is not claimed.",
+    "read_s": 16
+  },
+  "stops": [
+    {
+      "id": "pullman",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie"
+      },
+      "text": "1729 Prairie. George M. Pullman's house, built 1870 to 1876. The district marker lists a theatre of about two hundred seats, a pipe organ and a bowling alley inside, and Solon S. Beman's later palm room and large conservatory.",
+      "read_s": 16,
+      "evidence": [
+        "pullman-marker",
+        "tour"
+      ],
+      "next": "glessner"
+    },
+    {
+      "id": "glessner",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "1800 Prairie, south of Eighteenth Street. John J. Glessner's house, built in 1887 to the design of Henry Hobson Richardson and wrapped around a light-filled courtyard. The family moved in during December 1887.",
+      "read_s": 14,
+      "evidence": [
+        "glessner-marker",
+        "glessner-move",
+        "tour"
+      ],
+      "next": "kimball"
+    },
+    {
+      "id": "kimball",
+      "destination": {
+        "kind": "structure",
+        "id": "kimball_house_1801_prairie"
+      },
+      "text": "1801 Prairie, across the avenue. William W. Kimball's house, built in 1890 by Solon S. Beman for the Chicago piano and organ manufacturer, in the French Chateauesque style: a very steep slate roof and a round tower on the Eighteenth Street side.",
+      "read_s": 18,
+      "evidence": [
+        "kimball-marker",
+        "kimball-photo",
+        "tour"
+      ],
+      "next": "field"
+    },
+    {
+      "id": "field",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_house_1905_prairie"
+      },
+      "text": "1905 Prairie. Marshall Field's house. The Glessner House Museum names Richard Morris Hunt of New York as the architect engaged for it, and notes that Field and George Pullman both bought property on the street.",
+      "read_s": 15,
+      "evidence": [
+        "field-caption",
+        "field-museum",
+        "tour"
+      ],
+      "next": "field-jr"
+    },
+    {
+      "id": "field-jr",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_jr_house_1919_prairie"
+      },
+      "text": "1919 Prairie. Marshall Field Jr. acquired this house in 1890. It was enlarged several times, the last in 1902, when D. H. Burnham and Company built a huge addition for him, so in 1904 that addition is two years old.",
+      "read_s": 17,
+      "evidence": [
+        "fieldjr-marker",
+        "tour"
+      ],
+      "next": "armour"
+    },
+    {
+      "id": "armour",
+      "destination": {
+        "kind": "structure",
+        "id": "armour_house_2115_prairie"
+      },
+      "text": "2115 Prairie. Built in 1871 for the lumberman David Kelley, this Second Empire house was for nearly fifty years the home of the family of the meatpacker Philip D. Armour, who came to the street in 1877.",
+      "read_s": 16,
+      "evidence": [
+        "armour-marker",
+        "armour-museum",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the walk at 2115 Prairie. The houses between these stops were the neighbours of these families; explore them at your own pace.",
+      "read_s": 10,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "prairie-famous-names-list",
+    "title": "Prairie Avenue calling list",
+    "text": "An interpretive list of the six houses on the walk, not a historical calling card."
+  },
+  "evidence": [
+    {
+      "id": "armour-marker",
+      "text": "David Kelley-Philip D. Armour Residence. Built 1871. Originally built for lumberman David Kelley, this stately Second Empire residence was for nearly 50 years the home of the family of meatpacker Philip D. Armour.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
+    },
+    {
+      "id": "armour-museum",
+      "text": "Philip Armour joined Field and Pullman on the street in 1877.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraph on its first great houses."
+    },
+    {
+      "id": "field-caption",
+      "text": "Marshall Field Sr. residence at 1905 S. Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The transcription page's photograph caption."
+    },
+    {
+      "id": "field-museum",
+      "text": "Richard Morris Hunt of New York and Henry Hobson Richardson of Boston were engaged to design the Marshall Field house and another; George Pullman and Marshall Field both acquired property on the street.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraphs on its first great houses and its architects."
+    },
+    {
+      "id": "fieldjr-marker",
+      "text": "Marshall Field Jr. Residence: enlarged and improved several times, the last in 1902, when D. H. Burnham & Company built a huge addition for Marshall Field Jr., who had acquired the property in 1890.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1919 S. Prairie Avenue entry."
+    },
+    {
+      "id": "glessner-marker",
+      "text": "John Glessner Residence. Built 1887; Henry Hobson Richardson, architect. Designed in the Richardsonian Romanesque style, the house is wrapped around a spacious light-filled courtyard.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1800 S. Prairie Avenue entry."
+    },
+    {
+      "id": "glessner-move",
+      "text": "The family moved into the house in December 1887.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 1."
+    },
+    {
+      "id": "kimball-marker",
+      "text": "William W. Kimball Residence. Built 1890; Solon S. Beman, architect. Built for the prominent Chicago piano and organ manufacturer in the French Chateauesque style.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1801 S. Prairie Avenue entry."
+    },
+    {
+      "id": "kimball-photo",
+      "text": "J. W. Taylor's photograph of about 1895 shows a very steep slate roof over the main block and a round tower on the 18th Street flank under a slate cone.",
+      "confidence": "attested",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ],
+      "locator": "The whole print, from the north-west across 18th Street and Prairie Avenue."
+    },
+    {
+      "id": "pullman-marker",
+      "text": "The district marker names George M. Pullman Residence, built 1870-1876, Henry S. Jaffay architect, and (read in paraphrase) a theatre of about 200 seats, a pipe organ and a bowling alley, with later additions by Solon S. Beman including a palm room and a large conservatory.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-prairie-walks"
+  ]
+}

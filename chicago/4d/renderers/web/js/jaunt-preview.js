@@ -2,12 +2,12 @@
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null }) {
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '' }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0;
   const contents = new Map();
   const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
-    kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode });
+    kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
   const node = (tag, text, className) => {
     const el = document.createElement(tag); el.textContent = text;
     if (className) el.className = className;

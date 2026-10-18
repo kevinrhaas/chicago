@@ -76,6 +76,8 @@
 import * as THREE from 'three';
 import { floraInScene } from './flora.js';
 import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
+import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
+import { resolveBases } from './scene-loader.js';
 
 /**
  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
@@ -2539,12 +2541,25 @@ export async function createTrees({
     if (!b) { b = new MeshBuf(level); buffers.set(k, b); }
     return b;
   };
+  /**
+   * T-2743 — A TREE IS GROWN ONCE PER SPECIES AND STOOD AS AN INSTANCE. Every
+   * tree-form stem goes to `grown` (tree-instances.js), which draws it from its
+   * species' grown model; thickets, dooryard shrubs and the stems carrying a
+   * July head stay on the chunked path above. `grown` takes no draw from `rnd`:
+   * a grown stem's height, turn and variant come from its own position, so what
+   * stands after it does not move when a tree's shape changes.
+   */
+  const plant = (spec, e, gy, n, r, scale = 1) => {
+    if (isGrownForm(spec)) grown.add(spec, e, gy, worldZ(n), scale);
+    else addTree(chunkOf(e, n), spec, e, gy, worldZ(n), r, scale);
+  };
 
   // Scene detail sets how many stems are drawn and how coarsely the ground is
   // sampled for them. It does NOT touch the species mix, the zone rules or the
   // waterline margin: fewer of the same trees in the same places, never a
   // different wood. `lowSpec` is the device guess; an explicit choice outranks it.
   const level = lowSpec && detail === 'full' ? 'light' : detail;
+  const grown = new TreeInstances({ level });
   /**
    * The stem budget, scaled to the ground the loop now sweeps (ROADMAP K45(b2)).
    *
@@ -2981,7 +2996,7 @@ export async function createTrees({
       // cottonwood is not the gallery cottonwood. See `communitySpecs`.
       const spec = communitySpecs[key][id];
       if (!spec) continue;
-      addTree(chunkOf(px, pz), spec, px, gy, worldZ(pz), rnd);
+      plant(spec, px, gy, pz, rnd);
       noteStation(px, pz, gy);
       stats.trees++;
       if (spec.head) {
@@ -3075,7 +3090,7 @@ export async function createTrees({
           + 'the travelled track — not drawn');
         continue;
       }
-      addTree(chunkOf(pe, pn), { ...spec, h: [h, h] }, pe, gy, worldZ(pn), rnd);
+      plant({ ...spec, h: [h, h] }, pe, gy, pn, rnd);
       noteStation(pe, pn, gy);
       stats.planted++;
       stats.plantedStems.push({ id: stem.id, record: rec.id, e: pe, n: pn,
@@ -3107,6 +3122,14 @@ export async function createTrees({
 
   const uWind = { value: 0 };
   const surfaceAtlas = await createTreeAtlasSliced(checkpoint);
+  // T-2743: since the grown trees took the tree-form stems, this atlas draws only
+  // the bank thickets and the dooryard shrubs, so a phone keeps it from its
+  // second level down, as the parkway elms did (T-2158, PR 773): a quarter of
+  // its memory.
+  if ((lowSpec || level === 'light') && surfaceAtlas.mipmaps?.length > 1) {
+    surfaceAtlas.mipmaps = surfaceAtlas.mipmaps.slice(1);
+    surfaceAtlas.image = surfaceAtlas.mipmaps[0];
+  }
   const nearMat = new THREE.MeshStandardMaterial({
     vertexColors: true, map: surfaceAtlas, bumpMap: surfaceAtlas, bumpScale: 0.015,
     roughness: 0.92, metalness: 0,
@@ -3195,6 +3218,25 @@ export async function createTrees({
   stats.foliageRepresentation = 'species-alpha-sprays';
   stats.surfaceAtlasSize = 2048;
   for (const b of chunks) stats.heads += b.heads;
+
+  /* ---- 4b. the grown trees (T-2743) ------------------------------------- */
+
+  // Every tree-form stem, drawn from its species' grown model: see
+  // tree-instances.js for the levels and the shadow ring. `stats.grown` is live:
+  // its level counts and triangles are re-read as the visitor walks.
+  let forest = null;
+  if (grown.count) {
+    const mats = await createGrownTreeMaterials({
+      assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
+      lowSpec: lowSpec || level === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
+    });
+    disposables.push(mats);
+    forest = await grown.build({ ...mats, checkpoint });
+    group.add(forest.group);
+    disposables.push(forest);
+    stats.drawCalls += forest.stats.drawCalls;
+  }
+  stats.grown = forest?.stats ?? { stems: 0 };
 
   /* ---- 5. the horizon ---------------------------------------------------- */
 
@@ -3768,6 +3810,7 @@ uniform float uBandUp;
       wind += (dt || 0);
       uWind.value = wind;
       if (!camera) return;
+      forest?.update(camera.position);
       // T-1631. A turn in place moves the haze and moves nothing else, so the
       // band's own re-solve trigger — which is distance walked — would never
       // fire and the band would sit at the colour of a bearing the visitor has
