@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1979, ts: '2026-10-18T10:17:35.382Z', date: 'Oct 18, 2026, 5:17 AM CT', title: '1637 Prairie\'s c. 1870 photograph, weighed against the 1904 house', kind: 'add',
+    items: [
+      'The Grosvenor house\'s photograph from before Jesse Spalding\'s remodel now has a source record, a solved camera and a side-by-side with the 1904 build.',
+      'It predates the remodel, so each thing it shows is ruled: the round-headed front window, the low roof and the scrolled iron fence were replaced, as the later engraving shows.',
+      'Its blank south wall, front corner and second-floor band agree with the build.',
+      'Kept but not yet built: the south flank\'s ornate bay, which the 1911 Sanborn sheet still draws in the same place, its balcony window, a south stack and the wall\'s base band. These are queued as the next piece of work.',
+    ] },
   { v: 1978, ts: '2026-10-18T10:10:22.303Z', date: 'Oct 18, 2026, 5:10 AM CT', title: '1808 Prairie\'s c. 1888 street photograph gets a true camera', kind: 'improvement',
     items: [
       'The camera behind the c. 1888 view down the 1800 block is re-solved on the house\'s three pinnacle tips, its north corner, its lattice and a third-storey window: the render now sits on the photograph from the crown to the ground.',
