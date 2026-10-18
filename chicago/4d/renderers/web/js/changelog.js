@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1977, ts: '2026-10-18T08:52:33.164Z', date: 'Oct 18, 2026, 3:52 AM CT', title: 'Jaunts can follow how you like to get places', kind: 'feature',
+    items: [
+      'Move › When you pick a place has a new switch: Jaunts use my choice.',
+      'It starts off, so every Jaunt travels the way it recommends, as it was written to be ridden.',
+      'Turn it on and each Jaunt goes the way you chose: Teleport, Ride there or Fly over.',
+      'A Jaunt that cannot be travelled your way keeps its own, and its card says so.',
+      'The switch is remembered on this device, like the other Move settings.',
+    ] },
   { v: 1976, ts: '2026-10-17T23:19:44.641Z', date: 'Oct 17, 2026, 6:19 PM CT', title: '1904 walking tours: famous names, architects, three styles, built so far', kind: 'feature',
     items: [
       'Jaunts in 1904 now offer six walks on Prairie Avenue: the famous names (Pullman, Glessner, Kimball, the two Marshall Fields, Armour), the architects (Jenney, Richardson, Cobb & Frost, Burnham & Root, Beman, Hunt), and Romanesque, Second Empire and Italianate style walks.',
