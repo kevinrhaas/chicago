@@ -28877,3 +28877,34 @@ solved camera) can move the junction along S.
 **Applies to:** `data/structures/glessner_house.json` (`v4_detail.bow_terrace.newel_WS`, `newel_radius_ft`,
 the last three `stair_boundaries_WS`); see `docs/RESEARCH/glessner-terrace-terminal-T-2759/`.
 **Recorded:** 2026-10-18 (T-2759).
+
+### L-glessner-stable-roof-camera-2758 — Glessner's stable roof kept at its heights: the 2 ft was the camera (2026-10-18)
+
+**Decision:** HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) read Glessner's whole stable roof about
+28 px (roughly 2 ft) below the model, and put the cupola about 4 ft north of its owner-directed centre on
+S14.6 (L-glessner-cupola-body-2228). Both came from the camera, not the roof. That view's camera is fitted for
+the whole house: its only vertical controls are the grade and eave at the Prairie corner, 141 ft east of the
+stable, and it draws 14.6 px a foot at the stable where the carriage doorway measures 13.85. The doorway is
+the one measured length in the stable's face: jambs at W 134.9-147.0 on sheet 2, 12.6 ft from grade to the
+lintel's soffit on sheet 5 (`habs_glessner_house_il_1015_drawings`). Re-solved with the doorway's corners, that
+photograph reads the north gable's coping apex at 38.1-38.8 ft and the cupola's apex at 45.5-46.3 ft. The
+Cornell A. D. White view (`cornell_adw_glessner_stable_1887`) is re-solved at the roof on measured controls
+only, in place of its west-wall homography on two reconstructed eaves. It reads the coping apex at 38.3-39.5 ft
+and the cupola's apex at 46.5-47.8 ft (model 39.6 and 47.0). The roof is not changed.
+**What is kept, and against what.** The ridge's 38.6 ft (coping apex 39.6) stands about 1 ft above the
+middle of those readings. That is inside the ridge's stated 1.5 ft tolerance, and the two photographs disagree
+with each other by about as much. The cupola's centre stays on S14.6, the owner's alignment with the ridge
+crossing. Photograph 1 cannot say where along S it stands: every control in that photograph lies in the north face,
+so two fits of equal RMS put the cupola at S14.4 and S11.3. The Cornell re-solve uses two faces and puts it
+at S13.0-13.2, about 1.5 ft north. That is a quarter of the cupola's 6 ft plan on one camera's reading
+(3.7-4.8 px RMS), not the 4 ft that was to go to the owner.
+**Bounds:** Picks about ±2 px on photograph 1 and ±5 px on the Cornell copy; the doorway's threshold is taken
+as grade. The cameras are bounded re-solves, not surveys. The committed cameras are unchanged: photograph 1's
+doorway re-solve moves the north tower's finial 7-9 px off the print, so no single level camera fits both ends
+of that print, and the Cornell west-wall camera still serves the west windows, which the re-solve reads in the
+same places.
+**How to resolve:** A measured stable elevation or section (no HABS sheet prints the stable's ridge), or a
+third rights-cleared photograph whose camera can be solved on two faces of the stable.
+**Applies to:** `data/structures/glessner_house.json` (`ridge_west_wing`, `turret_stable`); see
+`data/comparisons/glessner/stable-roof-heights.json` (`tools/glessner_stable_roof_read.py`).
+**Recorded:** 2026-10-18 (T-2758).
