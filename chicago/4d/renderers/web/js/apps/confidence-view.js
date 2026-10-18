@@ -75,7 +75,9 @@ export function mount(el, ctx = {}) {
     const look = make('button', { type: 'button', className: 'nav-grade-look', id: `cm-look-${level}`,
       'aria-expanded': 'false', 'aria-controls': `cm-controls-${level}`, 'aria-label': str('confidence.row.more', { grade: name }) });
     const count = make('span', { className: 'nav-grade-count cm-count', id: `cm-count-${level}` });
-    const head = make('div', { className: 'nav-grade-head' }, label, look, count);
+    // The look and the count travel together: on a phone too narrow for the whole row they
+    // wrap under the name as one, so "Reconstructed" is never cut short.
+    const head = make('div', { className: 'nav-grade-head' }, label, make('span', { className: 'nav-grade-meta' }, look, count));
 
     // Colour: the four swatches, one radio group.
     const swatches = make('div', { className: 'nav-swatches', role: 'radiogroup', 'aria-label': str('confidence.row.colour', { grade: name }) });

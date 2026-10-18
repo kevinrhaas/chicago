@@ -476,14 +476,16 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
    row · the count) and, one row at a time, its colour, look and opacity. */
 .nav-grade { border: 1px solid var(--edge); border-radius: 10px; font-size: 14px; }
 .nav-grade.is-open { border-color: var(--edge-strong, var(--edge)); }
-.nav-grade-head { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px 0 0; }
-.nav-grade-show { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 0 0 12px; cursor: pointer; min-width: 0; }
+.nav-grade-head { display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; min-height: 44px; padding: 0 12px 0 0; }
+.nav-grade-show { display: flex; flex: 1 0 auto; align-items: center; gap: 10px; min-height: 44px; padding: 0 0 0 12px; cursor: pointer; }
+/* The look and the count: right-aligned, and wrapped below the name together when the row is too narrow. */
+.nav-grade-meta { display: flex; align-items: center; gap: 8px; margin-left: auto; padding: 4px 0; }
 .nav-grade input[type="checkbox"] { width: 18px; height: 18px; margin: 0; flex: none; accent-color: var(--accent); }
 .nav-grade-sw { --c: var(--ink-dim); width: 14px; height: 14px; border-radius: 3px; flex: none; background: var(--c); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
 .nav-grade-sw[data-look="dither"] { background: repeating-linear-gradient(45deg, var(--c) 0 2px, transparent 2px 4px); box-shadow: inset 0 0 0 1px var(--c); }
 .nav-grade-sw[data-look="ghost"] { opacity: .55; }
 .nav-grade-sw[data-look="none"] { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
-.nav-grade-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-grade-name { font-weight: 600; white-space: nowrap; }
 .nav-grade-look {
   min-height: 32px; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--edge); background: transparent; color: var(--ink-dim);
   font: 400 10.5px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; white-space: nowrap;
