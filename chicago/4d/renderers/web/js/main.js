@@ -4421,6 +4421,13 @@ async function boot() {
         jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
           .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
           .catch((err) => { delete jauntCatalogs[year]; throw err; })),
+        // T-2667: Guide › About this destination opens one of its cards in the section
+        // under the Guide's sheet (the old research hub, js/evidence.js).
+        aboutCard: (id) => {
+          if (!hud.panelOpen()) hud.setPanel(true);
+          hud.selectTab('evidence');
+          return api.evidenceHub?.showCard?.(id) ?? false;
+        },
         // T-2638: what Inspect's front page reads. The compiled summaries (inspect/<scene>.json,
         // tools/compile_summaries.py), the pictures (the card's own file), a building's record,
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
