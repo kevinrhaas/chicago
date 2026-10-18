@@ -25,9 +25,16 @@
  * long enough to say what it is, cut before anything that is not for a visitor (a file
  * name, a handle, an id), and shortened at a word with an ellipsis. It is always a prefix
  * of the citation, so it cannot claim more than the citation does, and the full citation is
- * folded under the fact. A source's tier is not shown; it becomes "from the time" (tier 1,
- * period or eyewitness) or "written later" (2-6), as §12 asks. No source id, tier number or
- * tier label reaches the page.
+ * folded under the fact. No source id, tier number or tier label reaches the page.
+ *
+ * WHAT KIND OF SOURCE (`sourceTag`), true by definition. §12 asks for "from the time" in place
+ * of the tier, and a label must not claim what the data does not: Glessner's 1963-65 HABS
+ * photographs are tier 1, first-hand, and are not from the time of a 1904 visit. So "from the
+ * time" is said only where the source record carries a date (`source_dates` in the compiled
+ * summaries) whose latest year in its leading clause is on or before the scene's year.
+ * Every other source says what its rung IS, in the ladder's own terms (docs/PROVENANCE.md
+ * § Evidence tiers): first-hand, a witness remembering, gathered from witnesses, a
+ * historian's account, a modern reconstruction, a popular map.
  *
  * LIBERTIES, by name (§03: "Every choice we made without a source, listed by name"): each
  * liberty recorded against this building, by its title, with the parts of its entry that
@@ -139,12 +146,32 @@ export function factCounts(facts) {
   return n;
 }
 
-/** "from the time" for a period or eyewitness source (tier 1), "written later" for any
- *  later rung, and nothing where the tier is not known. */
-export function whenWritten(tier) {
+/**
+ * The latest year a source's recorded date names, read from its leading clause only (before
+ * any ';' or '('), so "1881; accessed 2026-09-02" is 1881 and "1885-1887" is 1887. Null for
+ * an undated source or a date with no year. Taking the latest year is the cautious reading:
+ * a source that may be later than the scene is never called "from the time".
+ * @param {string|null|undefined} date
+ */
+export function sourceYear(date) {
+  const lead = String(date ?? '').split(/[;(]/)[0];
+  const years = lead.match(/(?<!\d)(1[0-9]{3}|20[0-9]{2})(?!\d)/g);
+  return years ? Math.max(...years.map(Number)) : null;
+}
+
+/**
+ * The tag on a source: "from the time" where its recorded date is on or before the scene's
+ * year, else what kind of source its rung says it is; '' where neither is known.
+ * @param {number|string|null} tier
+ * @param {string|null} date       the source record's own `date`
+ * @param {number|string|null} sceneYear
+ */
+export function sourceTag(tier, date, sceneYear) {
+  const y = sourceYear(date);
+  const scene = Number.parseInt(String(sceneYear ?? ''), 10);
+  if (y !== null && Number.isFinite(scene) && y <= scene) return s('when.period');
   const n = Number(tier);
-  if (!Number.isInteger(n) || n < 1) return '';
-  return n === 1 ? s('when.period') : s('when.later');
+  return Number.isInteger(n) && n >= 1 && n <= 6 ? s(`kind.${n}`) : '';
 }
 
 /** Split a citation into sentences and clauses, never at an initial or an abbreviation. */
@@ -209,7 +236,10 @@ function dot(grade) {
 }
 
 function factRow(f, ctx) {
-  const srcs = f.sources.map((id) => resolveSource(id, ctx.citationsById, ctx.docSources));
+  const srcs = f.sources.map((id) => {
+    const c = resolveSource(id, ctx.citationsById, ctx.docSources);
+    return c ? { ...c, id } : null;
+  });
   const long = f.value.length > SHORT_VALUE;
   const value = f.value && !long ? `<span class="src-value">${escapeHtml(f.value)}</span>` : '';
   const why = f.note
@@ -219,7 +249,7 @@ function factRow(f, ctx) {
     : '';
   const titles = srcs.map((c) => {
     const title = c ? sourceTitle(c.citation) : '';
-    const when = c ? whenWritten(c.tier) : '';
+    const when = c ? sourceTag(c.tier, ctx.dateOf(c.id), ctx.sceneYear) : '';
     return `<li><span class="src-title">${escapeHtml(title || s('source.untitled'))}</span>${when
       ? ` <span class="src-when">${escapeHtml(when)}</span>` : ''}</li>`;
   }).join('');
@@ -273,12 +303,17 @@ function questionRow(u) {
  * @param {object[]|null} o.liberties this building's liberties; null when the list did not load
  * @param {object[]|null} o.questions this building's open questions; null when not loaded
  * @param {string|null} o.dossier     the research dossier's address, or null when none is written
+ * @param {object|null} o.sourceDates inspect/<scene>.json's `source_dates`: each source's own date
+ * @param {number|string|null} o.sceneYear the scene's year, which "from the time" is held to
  */
-export function sourcesPaneHtml({ sidecar = null, summary = null, docSources = null, liberties = null, questions = null, dossier = null } = {}) {
+export function sourcesPaneHtml({ sidecar = null, summary = null, docSources = null, liberties = null, questions = null,
+  dossier = null, sourceDates = null, sceneYear = null } = {}) {
   const facts = buildingFacts(sidecar, summary);
   const n = factCounts(facts);
   const citationsById = new Map(list(sidecar?.citations).filter((c) => c.source_id).map((c) => [c.source_id, c]));
-  const ctx = { citationsById, docSources };
+  const dates = sourceDates && typeof sourceDates === 'object' ? sourceDates : {};
+  const dateOf = (id) => docSources?.[id]?.date ?? dates[id] ?? null;
+  const ctx = { citationsById, docSources, dateOf, sceneYear };
   const split = GRADES.map((g) => `${n[g]} ${gradeTerm(g).label}`).join(', ');
   const lead = `<p class="src-lead">${escapeHtml(s(n.total === 1 ? 'lead.one' : 'lead', { count: n.total, split }))}</p>`;
 

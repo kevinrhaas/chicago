@@ -10,7 +10,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildingFacts, factCounts, sourceTitle, whenWritten, resolveSource, sourcesPaneHtml, GRADES, _test }
+import { buildingFacts, factCounts, sourceTitle, sourceTag, sourceYear, resolveSource, sourcesPaneHtml, GRADES, _test }
   from '../renderers/web/js/inspect-sources.js';
 import { clean } from '../renderers/web/js/fallback-summary.js';
 
@@ -62,10 +62,31 @@ const closed = (html) => {
   assert(n > 300 && titled / n > 0.97, `nearly every source has a title from its citation (${titled} of ${n})`);
 }
 
-// ---- the tier, in words -------------------------------------------------------------------
-assert.equal(whenWritten(1), 'from the time');
-for (const k of [2, 3, 4, 5, 6]) assert.equal(whenWritten(k), 'written later');
-assert.equal(whenWritten(undefined), '', 'an unknown tier says nothing');
+// ---- what kind of source, true by definition ---------------------------------------------
+// "from the time" only where the source's own recorded date is on or before the scene's year;
+// otherwise the rung's own meaning (docs/PROVENANCE.md § Evidence tiers).
+assert.equal(sourceYear('1963-07-23'), 1963);
+assert.equal(sourceYear('1881; accessed 2026-09-02'), 1881, 'the leading clause only');
+assert.equal(sourceYear('1885-1887'), 1887, 'a span is as late as its end');
+assert.equal(sourceYear('August 1963 (addendum 1985-1986)'), 1963);
+assert.equal(sourceYear('undated (probably c. 1900-1930)'), null, 'undated is undated');
+assert.equal(sourceYear(undefined), null);
+{
+  const photo = json('data/sources/habs_glessner_photo_01_nw_1963.json');
+  assert.equal(photo.tier, 1, 'the 1963 HABS photograph is first-hand on the ladder');
+  assert.equal(sourceTag(photo.tier, photo.date, 1904), 'first-hand', 'and is not "from the time" of a 1904 visit');
+  const plate = json('data/sources/inland_architect_1888_02_glessner_exterior.json');
+  assert(sourceYear(plate.date) <= 1904, `the 1888 plate is dated by 1904 (${plate.date})`);
+  assert.equal(sourceTag(plate.tier, plate.date, 1904), 'from the time', 'the 1888 plate is from the time of a 1904 visit');
+  const story = json('data/sources/glessner_story_of_a_house_1923.json');
+  assert.equal(sourceTag(story.tier, story.date, 1904), 'a witness remembering', "Glessner's 1923 booklet remembers");
+  assert.equal(sourceTag(story.tier, story.date, 1923), 'from the time', 'and is from the time of a 1923 scene');
+}
+assert.deepEqual([1, 2, 3, 4, 5, 6].map((k) => sourceTag(k, null, 1904)),
+  ['first-hand', 'a witness remembering', 'gathered from witnesses', "a historian's account", 'a modern reconstruction', 'a popular map'],
+  'an undated source says what its rung is');
+assert.equal(sourceTag(1, '1834', null), 'first-hand', 'no scene year, no claim about time');
+assert.equal(sourceTag(undefined, null, 1904), '', 'an unknown tier and no date say nothing');
 
 // ---- facts, counts and the pane over a fixture --------------------------------------------
 {
@@ -92,6 +113,7 @@ assert.equal(whenWritten(undefined), '', 'an unknown tier says nothing');
     lookFor: [], notable: [{ text: 'A fact.', grade: 'inferred', sources: [], note: 'Worked out from the plan.' }], story: [],
   };
   const docSources = { src_c: { citation: 'Glessner House, Glessner Family (biographies). Read 16 October 2026.', tier: 4, type: 'website' } };
+  const sourceDates = { src_a: '1963', src_b: '1888' };
 
   const facts = buildingFacts(sidecar, summary);
   assert.deepEqual(facts.slice(0, 5).map((f) => f.label), ['Today', 'Built', 'Architect', 'John J. Glessner', 'Notable fact'],
@@ -104,7 +126,7 @@ assert.equal(whenWritten(undefined), '', 'an unknown tier says nothing');
   const html = sourcesPaneHtml({ sidecar, summary, docSources, liberties: [
     { id: 'L-1', title: 'courtyard roof junction', fields: [{ label: 'Decision', text: 'The **apex** is ours.' }, { label: 'Ticket', text: 'T-2016' }] },
     { id: 'L-2', title: 'The west gable', fields: [{ label: 'Decision', text: 'See `data/x.json`.' }] },
-  ], questions: null, dossier: 'https://example.org/dossier.md' });
+  ], questions: null, dossier: 'https://example.org/dossier.md', sourceDates, sceneYear: '1904' });
   const text = visible(html);
   assert.match(text, /^\s*12 facts\. 8 Attested, 2 Inferred, 1 Reconstructed\. Tap any one to see its sources\./, 'the header counts every fact, by grade');
   const groups = [...html.matchAll(/<section class="src-grade" data-grade="(\w+)">/g)].map((m) => m[1]);
@@ -113,9 +135,9 @@ assert.equal(whenWritten(undefined), '', 'an unknown tier says nothing');
   const count = (g) => Number(html.match(new RegExp(`data-grade="${g}">\\s*<h3[^>]*>[\\s\\S]*?<span class="src-count">(\\d+)<`))?.[1]);
   assert.deepEqual(GRADES.map(count), [8, 2, 1], 'each group heads its own count');
   assert.equal((html.match(/<details class="src-fact"/g) ?? []).length, 12, 'every fact is a row');
-  assert.match(text, /Historic American Buildings Survey\. John J\. Glessner House, 1800 S\. Prairie… written later/, 'a human title and when it was written');
-  assert.match(text, /Sanborn Map Company\. Insurance Maps of Chicago, Illinois, Vol\. 3 \(1911\), sheet… from the time/);
-  assert.match(text, /Glessner House, Glessner Family \(biographies\) written later/, 'a summary-only source resolves through the compiled summaries');
+  assert.match(text, /Historic American Buildings Survey\. John J\. Glessner House, 1800 S\. Prairie… a historian's account/, 'a human title and what kind of source it is (dated 1963, after 1904)');
+  assert.match(text, /Sanborn Map Company\. Insurance Maps of Chicago, Illinois, Vol\. 3 \(1911\), sheet… from the time/, 'dated 1888, by the scene year');
+  assert.match(text, /Glessner House, Glessner Family \(biographies\) a historian's account/, 'a summary-only source resolves through the compiled summaries');
   assert(!/\btier\b|later scholarship|period\/eyewitness/.test(text), 'no tier number or tier label');
   assert(!/src_[abc]/.test(text), 'no source id');
   assert.match(html, /<details class="src-cites"><summary>The full citations<\/summary>/, 'the full citation is folded under the fact');
@@ -146,7 +168,10 @@ assert.equal(whenWritten(undefined), '', 'an unknown tier says nothing');
   const sidecar = json('data/sidecars/1904/glessner_house.json');
   const summary = json('data/summaries/glessner_house.json');
   const libs = json('data/liberties.json').liberties.filter((l) => l.subjects?.includes('glessner_house'));
-  const html = sourcesPaneHtml({ sidecar, summary, docSources: null, liberties: libs, questions: [], dossier: null });
+  const dateOf = (id) => { try { return json(`data/sources/${id}.json`).date ?? null; } catch { return null; } };
+  const ids0 = new Set([...sidecar.citations.map((c) => c.source_id), ...buildingFacts(sidecar, summary).flatMap((f) => f.sources)]);
+  const sourceDates = Object.fromEntries([...ids0].map((id) => [id, dateOf(id)]).filter(([, d]) => d));
+  const html = sourcesPaneHtml({ sidecar, summary, docSources: null, liberties: libs, questions: [], dossier: null, sourceDates, sceneYear: 1904 });
   const facts = buildingFacts(sidecar, summary);
   const n = factCounts(facts);
   const claims = 3 + Object.keys(sidecar.attributes).length;
@@ -161,6 +186,13 @@ assert.equal(whenWritten(undefined), '', 'an unknown tier says nothing');
   assert(!/\btier \d|period\/eyewitness|near-primary|later scholarship|compiled secondary/.test(text), 'no tier label');
   const shut = visible(closed(html));
   assert(!/[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}/.test(shut), `nothing id-shaped before a tap: ${shut.match(/\S*_\S*|\S*\.json|\bT-\d+/)?.[0]}`);
+  // Each source tag is true by definition: "from the time" exactly where the date allows it.
+  const tierOf = new Map(sidecar.citations.map((c) => [c.source_id, c.tier]));
+  const expected = facts.flatMap((f) => f.sources.filter((id) => tierOf.has(id)).map((id) => sourceTag(tierOf.get(id), sourceDates[id], 1904)));
+  const fromTime = expected.filter((w) => w === 'from the time').length;
+  assert(fromTime > 0 && fromTime < expected.length, `some of Glessner's sources are from the time and some are not (${fromTime} of ${expected.length})`);
+  assert.equal((html.match(/<span class="src-when">from the time<\/span>/g) ?? []).length, fromTime, 'and the pane says it of exactly those');
+  assert(!/written later/.test(text));
   for (const term of ['Attested', 'Inferred', 'Reconstructed', 'Liberties']) assert(text.includes(term), `the locked term ${term}`);
 }
 

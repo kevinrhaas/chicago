@@ -380,6 +380,9 @@ async function fillPane(root, pane, key) {
       liberties: sec.liberties ?? null,
       questions: sec.questions ?? null,
       dossier: sec.dossier ?? null,
+      // T-2644: "from the time" only of a source dated by the scene's year.
+      sourceDates: ctx.inspectDoc?.source_dates ?? null,
+      sceneYear: ctx.inspectDoc?.scene ?? ctx.scene?.id ?? null,
     });
     pane.append(d);
   } else if (key === 'photos') {

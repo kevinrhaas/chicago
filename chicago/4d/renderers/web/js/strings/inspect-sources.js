@@ -15,8 +15,16 @@ export default register('inspect-sources', {
   'sources.none': 'No source is named for this one.',
   'sources.none.attested': 'No source is named, though this grade needs one. That is a fault in our record.',
   'source.untitled': 'A source with no title in our records',
+  // What kind of source it is, from the evidence ladder's own definition of each rung
+  // (docs/PROVENANCE.md § Evidence tiers). "from the time" is said only of a source whose
+  // recorded date falls on or before the scene's year; every other source says its kind.
   'when.period': 'from the time',
-  'when.later': 'written later',
+  'kind.1': 'first-hand',
+  'kind.2': 'a witness remembering',
+  'kind.3': 'gathered from witnesses',
+  'kind.4': "a historian's account",
+  'kind.5': 'a modern reconstruction',
+  'kind.6': 'a popular map',
   'cites.one': 'The full citation',
   'cites.many': 'The full citations',
   'liberties.none': 'No liberties are written down for this building. That does not mean none were taken.',

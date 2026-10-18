@@ -18191,7 +18191,7 @@ for (const [label, viewport, touch] of [
             && s.lead === `${s.facts} facts. ${s.counts[0]} Attested, ${s.counts[1]} Inferred, ${s.counts[2]} Reconstructed. Tap any one to see its sources.`
             && new RegExp(`^${s.facts} facts`).test(s.meter)
             && s.libs > 0 && s.libRows === s.libs && /^Liberties/.test(s.libHead)
-            && s.titles.length > 0 && s.titles.every((x) => x.length > 3) && s.whens.every((w) => w === 'from the time' || w === 'written later')
+            && s.titles.length > 0 && s.titles.every((x) => x.length > 3) && s.whens.every((w) => ['from the time', 'first-hand', 'a witness remembering', 'gathered from witnesses', "a historian's account", 'a modern reconstruction', 'a popular map'].includes(w))
             && s.citesShut && s.citeRows > 0
             && s.idShown.length === 0 && !s.tierShown && !s.plumbing && !s.overflow,
             JSON.stringify(s).slice(0, 700));
