@@ -8,36 +8,20 @@
   ],
   "principal_px": [
     996.159289290618,
-    955.1583839342821
+    940.007
   ],
-  "focal_px": 2030.1370352222407,
+  "focal_px": 2041.726,
+  "pixel_aspect": 0.8851,
   "eye": [
-    34.82354424470775,
-    42.638504117926416,
+    40.033,
+    40.228,
     1.7
   ],
-  "yaw_deg": 205.64003149206349,
-  "basis_right_up_forward": [
-    [
-      -0.8988117248272266,
-      0.4314108219380024,
-      0.07760274497647052
-    ],
-    [
-      0.06996123496618926,
-      -0.033579928973849496,
-      0.9969843599435835
-    ],
-    [
-      -0.43271573684708026,
-      -0.9015304160619809,
-      0.0
-    ]
-  ],
+  "yaw_deg": 212.333,
   "sun_uvy": [
     1,
     -0.7,
     1.4
   ],
-  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 9.11px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 0.0, 0.0], [18.0, 10.4, 0.0], [18.0, 0.0, 15.2], [18.0, 10.4, 15.2], [18.0, 0.17, 16.44], [18.0, 10.23, 16.44]]; pixels [[865.0, 1015.0], [1042.0, 1060.0], [890.0, 342.0], [1129.0, 208.0], [892.0, 291.0], [1131.0, 145.0]]; projected [[844.94, 1019.1], [1056.56, 1055.11], [897.32, 346.2], [1122.45, 208.61], [904.54, 289.32], [1123.19, 142.66]]. Early low stone boundary is visible; stone carriage blocks at the curb belong to the street context. Monochrome colour not shown."
+  "solve": "T-2748 re-fit (replaces T-1883's, which was fitted with a 4.5 degree roll to six front controls at 9.11 px RMS and put the rear pinnacle about 60 px right of and 40 px below the print's). A level camera, roll 0 (the front's north arris stands at x 1126 from y 150 to y 300 and the lamp post's shaft is plumb, so the print's verticals are vertical), eye height 1.7 m reconstructed, cx held at the previous solve's 996.16. Free: u, v, yaw, f (vertical), cy, and pixel_aspect, the horizontal focal length over the vertical. Controls, each read at full resolution against the committed GLB's own point (world [u, v, y] -> pixels; free = coordinate not used): north-east pinnacle apex [17.86, 10.251, 17.07] -> [1135, 105]; rear pinnacle apex [12.73, 10.18, 17.268] -> [1311, 139]; south-east pinnacle apex [17.86, 0.187, 17.07] -> [893, 256] (all three faint finials on sky, about +/-4 px); north arris [18.0, 10.4, 15.5] and [18.0, 10.4, 12.0] -> [1126, free]; southmost third-storey light, centre of head [17.8, 2.40, 12.60] -> [935, 438] and of sill [17.8, 2.40, 10.53] -> [935, 527]; and two lines, the lattice's upper-row opening tops (u 17.72, y 15.92) through [1110, 172] and [920, 287], its lower-row opening bottoms (y 15.25) through [1110, 205] and [920, 321] (perpendicular distance). Residual px [-7.5, -8.9, 1.5, 6.2, -2.8, -2.8, 0.3, 0.3, 1.6, -5.5, 1.6, 1.9, -2.4, -2.9, -5.1, -0.0]; RMS 4.1 px, max 8.9 (the north-east apex). Scale at the front's north corner about 55 px/m vertically, so the RMS is about 0.08 m. WHY pixel_aspect 0.885: with square pixels the crown controls alone fit at 4.2 px, but then the southmost third-storey light falls 29-33 px low (head 438 read, 409 projected), T-1883's own grade reading at the south corner [18, 0, 0] -> [865, 1015] falls 95 px low, and forcing the light into the fit throws the crown out by up to 17 px: the print's front is about 11 % narrower for its height than any square-pixel camera draws it. One horizontal scale fixes all of it, and two points NOT fitted then land: the northmost third-storey light's head [17.8, 8.0, 12.6] reads [1061, 370] and projects [1067.7, 371.2]; T-1883's grade point reads [865, 1015] and projects [881.8, 1015.8]. The file is Glessner House Museum's blog copy (Blogger s1733); the owner's reproduction matches it on 1141 SIFT inliers with x and y scales within 1.4 %, so both copies carry the same aspect and neither is an independent reading of the original print's. Not judged from this camera: anything the residuals cover (about 0.1 m). Glessner, the trees and the street are context; the render is Keith alone. Early low stone boundary is visible; stone carriage blocks at the curb belong to the street context. Monochrome colour not shown."
 }

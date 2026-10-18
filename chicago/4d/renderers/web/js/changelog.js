@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 1978, ts: '2026-10-18T10:10:22.303Z', date: 'Oct 18, 2026, 5:10 AM CT', title: '1808 Prairie\'s c. 1888 street photograph gets a true camera', kind: 'improvement',
+    items: [
+      'The camera behind the c. 1888 view down the 1800 block is re-solved on the house\'s three pinnacle tips, its north corner, its lattice and a third-storey window: the render now sits on the photograph from the crown to the ground.',
+      'The old fit leaned the camera 4.5 degrees and set the rear pinnacle 60 px off; the new one is level and holds to about 4 px.',
+      'The web copy of this photograph is about 11 % narrower than it should be, and the comparison now allows for that, checked on two points it was not fitted to.',
+      'Seen properly for the first time, the photograph shows the stoop\'s arch lower and further out than built, and the roof ventilator nearer the side wall; both are written up to build next.',
+    ] },
+  { v: 1977, ts: '2026-10-18T08:52:33.164Z', date: 'Oct 18, 2026, 3:52 AM CT', title: 'Jaunts can follow how you like to get places', kind: 'feature',
+    items: [
+      'Move › When you pick a place has a new switch: Jaunts use my choice.',
+      'It starts off, so every Jaunt travels the way it recommends, as it was written to be ridden.',
+      'Turn it on and each Jaunt goes the way you chose: Teleport, Ride there or Fly over.',
+      'A Jaunt that cannot be travelled your way keeps its own, and its card says so.',
+      'The switch is remembered on this device, like the other Move settings.',
+    ] },
+  { v: 1976, ts: '2026-10-17T23:19:44.641Z', date: 'Oct 17, 2026, 6:19 PM CT', title: '1904 walking tours: famous names, architects, three styles, built so far', kind: 'feature',
+    items: [
+      'Jaunts in 1904 now offer six walks on Prairie Avenue: the famous names (Pullman, Glessner, Kimball, the two Marshall Fields, Armour), the architects (Jenney, Richardson, Cobb & Frost, Burnham & Root, Beman, Hunt), and Romanesque, Second Empire and Italianate style walks.',
+      'Built so far: a walk through every building modelled past the district draft, 29 today, most detailed first and kept area by area. It is rewritten from the building records, so it grows as buildings are built out.',
+      'Each stop\'s facts come from the district\'s markers, the Glessner House history of the street, HABS or a period picture; style readings of unworked houses are marked as the district register\'s.',
+    ] },
   { v: 1975, ts: '2026-10-17T21:19:10.688Z', date: 'Oct 17, 2026, 4:19 PM CT', title: 'No dark band at 18th and Prairie; lot lines off by default', kind: 'fix',
     items: [
       'Where 18th Street crosses Prairie Avenue, a dark strip no longer runs across the roadway. 18th\'s paving now fades softly into Prairie\'s.',

@@ -14166,34 +14166,68 @@ for (const [label, viewport, touch] of [
       && near(travelUi.afterDrag.others[0], sp.walk) && near(travelUi.afterDrag.others[1], sp.wagon),
       JSON.stringify({ ranges: rg, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
     // ---- end T-2651 (the slider)
-    // ---- T-2652: getting there — one choice that Go to, the Map and Jaunts all use. Picking
-    // Ride there with the horse marks the choice as the visitor's own, which is what lets
-    // a Jaunt take it; a Jaunt reads it through js/getting-there.js (tools/test_getting_there.mjs
-    // drives the controller), and Go to rides it, as the T-2651 block above shows.
+    // ---- T-2652: getting there — one choice that Go to and the Map use (T-2727: and Jaunts,
+    // with Move › Jaunts use my choice on; the block after this one). Go to rides it, as the
+    // T-2651 block above shows; tools/test_getting_there.mjs drives the Jaunt controller.
     const gettingThere = await page.evaluate(() => {
       const api = window.__chicago4d;
       const before = { ...api.hud.gettingThere };
       document.querySelector('#s-move .seg-btn[data-mode="horse"]').click();
       document.querySelector('#s-arrive .seg-btn[data-arrive="ride"]').click();
       const ride = { ...api.hud.gettingThere, travel: api.travel.mode,
-        stored: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').arriveChosen };
+        stored: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').travelMode };
       document.querySelector('#s-arrive .seg-btn[data-arrive="fly"]').click();
       const fly = { ...api.hud.gettingThere, travel: api.travel.mode };
       document.querySelector('#s-arrive .seg-btn[data-arrive="instantly"]').click();
       document.querySelector('#s-move .seg-btn[data-mode="walk"]').click();
-      // Leave the page as a fresh visitor would have it: no choice of their own yet.
-      api.hud.settings.arriveChosen = false;
       api.setTravelMode('instantly');
       const note = document.getElementById('arrive-note')?.textContent.replace(/\s+/g, ' ').trim() ?? '';
       return { before, ride, fly, after: { ...api.hud.gettingThere, travel: api.travel.mode }, note };
     });
-    check(`${label}: the getting-there choice is one, used by Go to and Jaunts, and the visitor's own once picked (T-2652)`,
-      gettingThere.ride.travelMode === 'horse' && gettingThere.ride.travel === 'horse' && gettingThere.ride.chosen === true
-      && gettingThere.ride.stored === true && gettingThere.fly.travel === 'fly' && gettingThere.fly.chosen === true
-      && gettingThere.after.travel === 'instantly' && gettingThere.after.chosen === false
-      && /^Go to and Jaunts both use this choice/.test(gettingThere.note),
+    // T-2727: restated without T-2652's hidden "chosen" rule, which the switch replaces.
+    check(`${label}: the getting-there choice is one, stored, and used by Go to and the map (T-2652)`,
+      gettingThere.ride.travelMode === 'horse' && gettingThere.ride.travel === 'horse' && gettingThere.ride.stored === 'horse'
+      && gettingThere.fly.travel === 'fly' && gettingThere.after.travel === 'instantly'
+      && /^Go to and the map use this choice\. Jaunts keep the way each recommends, unless Jaunts use my choice is on\./.test(gettingThere.note),
       JSON.stringify(gettingThere));
     // ---- end T-2652
+    // ---- T-2727: Jaunts use my choice (part 13) ------------------------------------------
+    // Off by default: a Jaunt keeps the way it recommends whatever the choice. On: it takes
+    // the choice; one that cannot be travelled that way keeps its own and says so. Read
+    // through the page's own rule (api.jaunts.modeFor, which the Jaunt menu and the Jaunt
+    // controller share) on a real catalog Jaunt, and on the same Jaunt held to foot.
+    const jauntsChoice = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const catalog = await (await fetch(new URL('sidecars/1835/jaunts/catalog.json', api.dataBase))).json();
+      const row = catalog.jaunts.find((j) => j.availability === 'available' && j.default_mode === 'walk' && j.allowed_modes?.includes('horse'));
+      const footOnly = row && { ...row, allowed_modes: ['walk', 'instantly'] };
+      const box = document.getElementById('s-jaunts-choice');
+      const stored = () => JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').jauntsFollowChoice;
+      const out = { row: row?.id ?? null, label: box?.closest('label')?.textContent.replace(/\s+/g, ' ').trim() ?? null,
+        offByDefault: !!box && !box.checked && api.hud.gettingThere.follow === false };
+      document.querySelector('#s-move .seg-btn[data-mode="horse"]').click();
+      document.querySelector('#s-arrive .seg-btn[data-arrive="ride"]').click();
+      out.off = { ...api.jaunts.modeFor(row), follow: api.hud.gettingThere.follow };
+      box.click();
+      out.on = { ...api.jaunts.modeFor(row), follow: api.hud.gettingThere.follow, stored: stored() };
+      out.kept = api.jaunts.modeFor(footOnly);
+      box.click();
+      out.offAgain = { ...api.jaunts.modeFor(row), stored: stored() };
+      // Back as found: the switch off, Teleport, on foot.
+      document.querySelector('#s-arrive .seg-btn[data-arrive="instantly"]').click();
+      document.querySelector('#s-move .seg-btn[data-mode="walk"]').click();
+      api.setTravelMode('instantly');
+      return out;
+    });
+    check(`${label}: Jaunts use my choice — off, a Jaunt keeps the way it recommends; on, it takes the choice, and one that cannot keeps its own and says so (T-2727)`,
+      !!jauntsChoice.row && jauntsChoice.label === 'Jaunts use my choice' && jauntsChoice.offByDefault
+      && jauntsChoice.off.mode === 'walk' && !jauntsChoice.off.kept && jauntsChoice.off.follow === false
+      && jauntsChoice.on.mode === 'horse' && jauntsChoice.on.follow === true && jauntsChoice.on.stored === true
+      && jauntsChoice.kept.mode === 'walk' && jauntsChoice.kept.kept === true
+      && /^Your choice \(Ride there · Horse\) is not a way this Jaunt can be travelled, so it keeps the way it recommends\.$/.test(jauntsChoice.kept.note)
+      && jauntsChoice.offAgain.mode === 'walk' && jauntsChoice.offAgain.stored === false && !/_/.test(jauntsChoice.kept.note),
+      JSON.stringify(jauntsChoice));
+    // ---- end T-2727
     check(`${label}: the horse's gait moves the rider's eye a few centimetres, and stops when they do`,
       travelUi.on.peak >= 0.03 && travelUi.on.peak <= 0.10 && travelUi.on.after === 0
       && travelUi.on.speed > 1,
@@ -17570,16 +17604,22 @@ for (const [label, viewport, touch] of [
         const streetNames1904 = await page.evaluate(async () => {
           const a = window.__chicago4d;
           for (let i = 0; i < 200 && !a.navigation.modernLoaded; i++) await new Promise((r) => setTimeout(r, 50));
+          // The door checks below read the spawn pose, so this one puts it back.
+          const home = { local_e: a.walker.state.e, local_n: a.walker.state.n,
+            yaw_deg: a.walker.bearingDeg, pitch_deg: a.walker.state.pitch * 180 / Math.PI };
           a.walker.teleport({ local_e: 1401.9, local_n: -3207.0, yaw_deg: 0 });
           a.step();
           const at1800 = { era: document.getElementById('street-historic')?.textContent,
             today: document.getElementById('street-modern')?.textContent };
           a.walker.teleport({ local_e: 1415, local_n: -3150, yaw_deg: 0 });
           a.step();
+          const midBlock = { era: document.getElementById('street-historic')?.textContent,
+            today: document.getElementById('street-modern')?.textContent };
+          a.walker.teleport(home);
+          a.step();
           return {
             at1800,
-            midBlock: { era: document.getElementById('street-historic')?.textContent,
-              today: document.getElementById('street-modern')?.textContent },
+            midBlock,
             year: document.getElementById('street-era-year')?.textContent,
             label: document.getElementById('s-street-names-label')?.textContent,
             shown: !document.getElementById('street-readout')?.hasAttribute('hidden'),
