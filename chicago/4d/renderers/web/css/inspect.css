@@ -122,6 +122,44 @@
 .insp-after { align-self: flex-start; margin-top: 2px; padding: 1px 6px; border: 1px dashed var(--edge-strong, var(--edge)); border-radius: 4px;
   font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
   letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+/* T-2641: the Design tab. The style card (kicker, name, two lines, a plate through the same
+   CRT treatment as the front page's, and the cues as chips), the numbered "On this house"
+   hotspots — each a 44 px row, a button where Show me can aim, its number in a ring — and
+   Compare styles. Static: nothing here moves, so reduced motion needs nothing of its own.
+   Every colour is a skin token. */
+.insp-design { display: flex; flex-direction: column; gap: 14px; color: var(--ink); overflow-wrap: anywhere; }
+.insp-style { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--edge); border-radius: 6px;
+  background: var(--panel-raised, transparent); }
+.insp-style .insp-kicker { margin: 0; }
+.insp-style-name { margin: 0; font: 500 1.375rem/1.15 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0); color: var(--ink); }
+.insp-style-desc { margin: 0; font: 400 1rem/1.55 var(--font-body, inherit); max-width: 65ch; }
+.insp-style-plate img { max-height: 32vh; }
+.insp-style-cap { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 2px; padding: 6px 8px 0;
+  background: var(--panel); font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.insp-style-cap .insp-credit { padding: 0 0 4px; background: transparent; }
+.insp-cues { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.insp-cue { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 10px;
+  border: 1px solid var(--edge-strong, var(--edge)); border-radius: 16px; font: 400 0.9375rem/1.3 var(--font-body, inherit); }
+.insp-hotspots { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.insp-hotspots > li + li { border-top: 1px solid var(--edge); }
+.insp-hot-row { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); gap: 10px; align-items: start; width: 100%;
+  min-height: 44px; padding: 10px 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; }
+button.insp-hot-row { cursor: pointer; padding-right: 22px; position: relative; }
+button.insp-hot-row::after { content: '\2192'; position: absolute; right: 4px; top: 10px; color: var(--accent, currentColor);
+  font: 400 1rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); }
+button.insp-hot-row:hover .insp-hot-n { border-color: var(--accent, currentColor); }
+button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.insp-hot-n { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem;
+  border: 1px solid var(--edge-strong, var(--edge)); border-radius: 50%; color: var(--accent, var(--ink));
+  font: 500 0.8125rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); }
+.insp-hot-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.insp-hot-text { font: 500 1rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.insp-hot-text .fact-dot { margin-left: 6px; }
+.insp-hot-detail { font: 400 0.9375rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.insp-hot-lib { font-style: italic; }
+.insp-compare-item { display: flex; flex-direction: column; gap: 1px; }
+.insp-compare-name { font: 500 1rem/1.35 var(--font-body, inherit); color: var(--ink); }
+.insp-style-none { margin: 0; }
 /* T-2640: Show me — a small key at the end of each Look for line the record gives a camera,
    and the outline it pulses on the building for 2 s (still, with reduced motion). */
 .insp-look-item { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }

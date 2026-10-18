@@ -30,6 +30,7 @@ import { hydratePictures } from '../pictures.js';
 import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
 import { storyTimeline, renderStory } from '../inspect-story.js';
+import { designModel, renderDesign } from '../inspect-design.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -370,6 +371,16 @@ async function fillPane(root, pane, key) {
     // the modelled phase and (1835 only) the fire limit; another scene's era never renders.
     const record = ctx.actions?.record?.(id) ?? null;
     pane.append(renderStory(doc, storyTimeline({ sum, sidecar: record?.sidecar ?? null, scene: ctx.scene, fireLimit: sec.fireLimit }), dot));
+  } else if (key === 'design') {
+    // T-2641: the style card, the numbered "On this house" hotspots with grades (replacing the
+    // card's attribute table) and Compare styles (inspect-design.js); Show me where a hotspot's
+    // record names a camera.
+    const onLook = ctx.actions?.showMe ? (h) => {
+      if (['half', 'full'].includes(ctx.navigator?.detent)) ctx.navigator?.dock?.();
+      void ctx.actions.showMe(id, h);
+    } : null;
+    pane.append(renderDesign(doc, designModel({ sum, sidecar: ctx.actions?.record?.(id)?.sidecar ?? null,
+      styles: ctx.inspectDoc?.styles ?? null, pictures: ctx.picturesDoc, scene: ctx.scene }), { dot, onLook }));
   } else if (key === 'photos') {
     // T-2645: the Photos tab (photos-tab.js), from the card's own pictures file; the card's
     // Images pane where that file is not in hand.

@@ -38,6 +38,23 @@ order; `grades` counts the record's facts by grade for the confidence meter; and
 file's `sources` resolves every cited id to its citation, type and date, so the Sources
 tab can show a human title without a fetch per source.
 
+THE DESIGN TAB (T-2641; design doc section 08 "Design", section 12 "Style library" and
+"Attribute table -> Design hotspots"). A record may carry `onThisHouse`, the numbered
+hotspots: each is a graded fact like any other (grade, sources on Attested, a note on the
+other two, a liberty that resolves), its feature at most 8 words and its line at most 16,
+and where it names one of the structure's sidecar `attribute`s its grade must be that
+attribute's own confidence, so the Design tab and the sidecar cannot grade one feature two
+ways. They are gated with the record's facts and NOT counted in `grades`: they restate what
+the record and the sidecar already grade, and the front page's meter is the record's own.
+A record's `style` must name a module in data/styles/<id>.json (data/style.schema.json):
+the style card's name, a two-line description, up to four "how to spot it" cues of at most
+8 words, an optional credited plate and up to three Compare styles lines of at most 12
+words, every one of them graded and sourced the same way, and the plate's own picture
+record public domain or free of known restrictions (AGENTS.md hard rule 6). A cue the
+sources do not support is left out, never written from general knowledge. Every module is
+carried into every scene's file under `styles`, with its cited sources added to `sources`,
+so a building of any year can link to one (T-2642).
+
 GENERATED, NOT COMMITTED. data/inspect/ is ignored by git and written by publish.sh just
 before the mirror, the way data/pictures/ is: the compiled form reads source records and
 the people directory, which other tickets change, and a committed copy would go stale on
@@ -57,6 +74,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 SCHEMA = DATA / "summary.schema.json"
 SUMMARIES = DATA / "summaries"
+STYLES = DATA / "styles"
+STYLE_SCHEMA = DATA / "style.schema.json"
 OUT = DATA / "inspect"
 
 GRADES = ("attested", "inferred", "reconstructed")
@@ -68,19 +87,30 @@ LIMITS = {
     "residents.role": {"words": 12},
     "lookFor.text": {"words": 8},
     "notable.text": {"words": 25},
+    # T-2641: the Design tab.
+    "onThisHouse.text": {"words": 8},
+    "onThisHouse.detail": {"words": 16},
+    "style.description": {"words": 30, "sentences": 2},
+    "style.cue": {"words": 8},
+    "style.compare": {"words": 12},
 }
 
 # Impact for the front page, design doc section 12 "Impact score".
 IMPACT = {"surprising": 3.0, "person": 2.0, "visible_from_street": 2.0, "attested": 1.5}
 
 # The lists whose every item is a fact, and the single facts.
-FACT_LISTS = ("key", "residents", "lookFor", "notable", "story")
+FACT_LISTS = ("key", "residents", "lookFor", "notable", "story", "onThisHouse")
+# Gated as facts, never counted in the front page's Confidence meter (T-2641): the Design
+# tab's hotspots restate facts the record and the sidecar already grade.
+UNCOUNTED = ("onThisHouse",)
 FACT_SINGLES = ("status", "built")
 
 # Keys whose string values are data, never shown to a visitor. Every other string in a
 # record is visitor-facing and is linted.
 DATA_KEYS = {"id", "scene", "grade", "sources", "person", "feature", "style", "about",
-             "era", "date", "liberty"}
+             "era", "date", "liberty",
+             # T-2641: a hotspot's sidecar attribute; a style plate's picture, structure and record.
+             "attribute", "picture", "structure", "record"}
 
 SNAKE = re.compile(r"[A-Za-z0-9]+(?:_[A-Za-z0-9]+)+")
 PATH = re.compile(
@@ -232,7 +262,143 @@ def schema_errors(rec, schema):
     return out, False
 
 
+def attributes_of(world, scene, rid):
+    """{attribute: confidence} for one structure's sidecar (T-2641), read on first need."""
+    cache = world.setdefault("attributes", {}).setdefault(scene, {})
+    if rid not in cache:
+        root = Path(world.get("root", ROOT))
+        try:
+            side = load_json(root / "data" / "sidecars" / scene / f"{rid}.json")
+        except (OSError, ValueError):
+            side = {}
+        cache[rid] = {k: (v or {}).get("confidence") for k, v in (side.get("attributes") or {}).items()
+                      if isinstance(v, dict)}
+    return cache[rid]
+
+
+def read_styles(styles=STYLES):
+    """{stem: module} for every style-library module, and the files that would not parse."""
+    out, bad = {}, []
+    if Path(styles).is_dir():
+        for p in sorted(Path(styles).glob("*.json")):
+            try:
+                out[p.stem] = load_json(p)
+            except ValueError as e:
+                bad.append(f"styles/{p.name}: not valid JSON ({e})")
+    return out, bad
+
+
+def rights_of(world, record):
+    """A source record's rights_status, read on first need (T-2641's plate check)."""
+    cache = world.setdefault("rights", {})
+    if record not in cache:
+        try:
+            cache[record] = load_json(Path(world.get("root", ROOT)) / "data" / "sources" / f"{record}.json").get("rights_status")
+        except (OSError, ValueError):
+            cache[record] = None
+    return cache[record]
+
+
 # ------------------------------------------------------------------- the gate
+
+def fact_errors(where, f, world):
+    """Every refusal for one graded fact, in plain words."""
+    errs = []
+    grade = f.get("grade")
+    if grade is None:
+        return [f"{where}: a fact with no grade"]
+    if grade not in GRADES:
+        return [f"{where}: grade `{grade}` is not one of {', '.join(GRADES)}"]
+    srcs = f.get("sources") or []
+    if grade == "attested" and not srcs:
+        errs.append(f"{where}: an Attested fact with no source")
+    if grade in ("inferred", "reconstructed") and not (f.get("note") or "").strip():
+        errs.append(f"{where}: an {grade.capitalize()} fact with no note saying what it rests on")
+    for s in srcs:
+        if s not in world["sources"]:
+            errs.append(f"{where}: source `{s}` does not resolve in data/sources/")
+    lib = f.get("liberty")
+    if lib is not None and lib not in world["liberties"]:
+        errs.append(f"{where}: liberty `{lib}` does not resolve in data/liberties.json")
+    return errs
+
+
+SHOWN_RIGHTS = ("public_domain", "no_known_restrictions")
+
+
+def style_facts(mod):
+    """(location, fact) for every graded fact in a style module."""
+    if isinstance(mod.get("description"), dict):
+        yield "description", mod["description"]
+    for i, c in enumerate(mod.get("cues") or []):
+        if isinstance(c, dict):
+            yield f"cues[{i}]", c
+    if isinstance(mod.get("plate"), dict):
+        yield "plate", mod["plate"]
+    for i, c in enumerate(mod.get("compare") or []):
+        if isinstance(c, dict):
+            yield f"compare[{i}]", c
+
+
+def gate_style(stem, mod, world, schema):
+    """Every refusal for one style-library module (T-2641). Empty means it may ship."""
+    errs = []
+    shape, _ = schema_errors(mod, schema)
+    errs += [s for s in shape if not s.startswith("note:")]
+    if not isinstance(mod, dict):
+        return errs or ["the module is not a JSON object"]
+    if mod.get("id") != stem:
+        errs.append(f"id `{mod.get('id')}` is not the file's name `{stem}`")
+    for where, f in style_facts(mod):
+        errs += fact_errors(where, f, world)
+
+    def limit(where, text, rule):
+        if not isinstance(text, str):
+            return
+        nw = len(words(text))
+        if "words" in rule and nw > rule["words"]:
+            errs.append(f"{where}: {nw} words, over the limit of {rule['words']}")
+        if "sentences" in rule and sentences(text) > rule["sentences"]:
+            errs.append(f"{where}: {sentences(text)} sentences, over the limit of {rule['sentences']}")
+
+    limit("description.text", (mod.get("description") or {}).get("text"), LIMITS["style.description"])
+    for i, c in enumerate(mod.get("cues") or []):
+        if isinstance(c, dict):
+            limit(f"cues[{i}].text", c.get("text"), LIMITS["style.cue"])
+    for i, c in enumerate(mod.get("compare") or []):
+        if isinstance(c, dict):
+            limit(f"compare[{i}].text", c.get("text"), LIMITS["style.compare"])
+    plate = mod.get("plate")
+    if isinstance(plate, dict):
+        scene, sid, record = plate.get("scene"), plate.get("structure"), plate.get("record")
+        if scene not in world["scenes"]:
+            errs.append(f"plate: scene `{scene}` is not a scene in data/scenes/")
+        elif sid not in world["standing"].get(scene, set()):
+            errs.append(f"plate: structure `{sid}` does not stand in the {scene} scene")
+        if record not in world["sources"]:
+            errs.append(f"plate: record `{record}` does not resolve in data/sources/")
+        elif rights_of(world, record) not in SHOWN_RIGHTS:
+            errs.append(f"plate: record `{record}` has rights_status `{rights_of(world, record)}`; "
+                        f"a plate is shown only from a record that is {' or '.join(SHOWN_RIGHTS)}")
+    for where, text in visitor_strings(mod, ""):
+        for what in lint_string(text):
+            errs.append(f"{where}: {what} in a string a visitor reads")
+    return errs
+
+
+def style_cited(mod):
+    return {s for _, f in style_facts(mod) for s in (f.get("sources") or [])}
+
+
+def attach_styles(docs, styles, world):
+    """Carry every module into every scene's file, with its cited sources resolved."""
+    ids = sorted(set().union(*[style_cited(m) for m in styles.values()])) if styles else []
+    for doc in docs.values():
+        doc["styles"] = {stem: copy.deepcopy(m) for stem, m in sorted(styles.items())}
+        for s in ids:
+            doc["sources"].setdefault(s, world["sources"][s])
+    return docs
+
 
 def gate(stem, rec, world, schema):
     """Every refusal for one record, in plain words. Empty means it may ship."""
@@ -252,24 +418,24 @@ def gate(stem, rec, world, schema):
                     f"(no data/sidecars/{scene}/{rid}.json)")
 
     for where, f in facts(rec):
-        grade = f.get("grade")
-        if grade is None:
-            errs.append(f"{where}: a fact with no grade")
-            continue
-        if grade not in GRADES:
-            errs.append(f"{where}: grade `{grade}` is not one of {', '.join(GRADES)}")
-            continue
-        srcs = f.get("sources") or []
-        if grade == "attested" and not srcs:
-            errs.append(f"{where}: an Attested fact with no source")
-        if grade in ("inferred", "reconstructed") and not (f.get("note") or "").strip():
-            errs.append(f"{where}: an {grade.capitalize()} fact with no note saying what it rests on")
-        for s in srcs:
-            if s not in world["sources"]:
-                errs.append(f"{where}: source `{s}` does not resolve in data/sources/")
-        lib = f.get("liberty")
-        if lib is not None and lib not in world["liberties"]:
-            errs.append(f"{where}: liberty `{lib}` does not resolve in data/liberties.json")
+        errs += fact_errors(where, f, world)
+
+    # T-2641: a hotspot that names a sidecar attribute takes that attribute's own grade.
+    if scene in world["scenes"] and rid in world["standing"].get(scene, set()):
+        attrs = attributes_of(world, scene, rid)
+        for i, h in enumerate(rec.get("onThisHouse") or []):
+            name = h.get("attribute") if isinstance(h, dict) else None
+            if name is None:
+                continue
+            if name not in attrs:
+                errs.append(f"onThisHouse[{i}]: attribute `{name}` is not one of the structure's "
+                            f"sidecar attributes (data/sidecars/{scene}/{rid}.json)")
+            elif h.get("grade") in GRADES and attrs[name] != h.get("grade"):
+                errs.append(f"onThisHouse[{i}]: graded {h.get('grade')}, but the sidecar grades "
+                            f"attribute `{name}` {attrs[name]}")
+    style = rec.get("style")
+    if isinstance(style, str) and style not in world.get("styles", {}):
+        errs.append(f"style `{style}` has no module in data/styles/")
 
     directory = world["people"].get(scene, {})
     for i, r in enumerate(rec.get("residents") or []):
@@ -295,7 +461,8 @@ def gate(stem, rec, world, schema):
                 errs.append(f"{where}: {ns} sentences, over the limit of {rule['sentences']}")
 
     limit("summary", rec.get("summary"), LIMITS["summary"])
-    for key, field in (("residents", "role"), ("lookFor", "text"), ("notable", "text")):
+    for key, field in (("residents", "role"), ("lookFor", "text"), ("notable", "text"),
+                       ("onThisHouse", "text"), ("onThisHouse", "detail")):
         for i, item in enumerate(rec.get(key) or []):
             if isinstance(item, dict):
                 limit(f"{key}[{i}].{field}", item.get(field), LIMITS[f"{key}.{field}"])
@@ -335,7 +502,9 @@ def compile_record(rec, world):
     out["notable"] = [n for _, _, n in sorted(ranked, key=lambda t: (t[0], t[1]))]
     out["story"] = [s for _, s in sorted(enumerate(out["story"]), key=lambda t: (t[1]["date"], t[0]))]
     counts = {g: 0 for g in GRADES}
-    for _, f in facts(out):
+    for where, f in facts(out):
+        if where.split("[")[0] in UNCOUNTED:
+            continue
         counts[f["grade"]] += 1
     counts["facts"] = sum(counts[g] for g in GRADES)
     out["grades"] = counts
@@ -376,10 +545,18 @@ def read_records(summaries=SUMMARIES):
     return out, bad
 
 
-def run(write, summaries=SUMMARIES, out_dir=OUT, root=ROOT, quiet=False, world=None):
+def run(write, summaries=SUMMARIES, out_dir=OUT, root=ROOT, quiet=False, world=None, styles_dir=None):
     world = world or load_world(root)
+    world.setdefault("root", Path(root))
     schema = load_schema()
-    records, refusals = read_records(summaries)
+    styles, refusals = read_styles(styles_dir if styles_dir is not None else Path(root) / "data" / "styles")
+    world.setdefault("styles", styles)
+    style_schema = load_json(STYLE_SCHEMA)
+    for stem, mod in world["styles"].items():
+        for e in gate_style(stem, mod, world, style_schema):
+            refusals.append(f"styles/{stem}.json: {e}")
+    records, more = read_records(summaries)
+    refusals += more
     _, no_validator = schema_errors({}, schema)
     for stem, rec in records.items():
         for e in gate(stem, rec, world, schema):
@@ -390,7 +567,7 @@ def run(write, summaries=SUMMARIES, out_dir=OUT, root=ROOT, quiet=False, world=N
         print(f"FAIL: {len(refusals)} refusal(s) in {len(records)} summary record(s); "
               "nothing was compiled")
         return 1
-    docs = compile_all(records, world)
+    docs = attach_styles(compile_all(records, world), world["styles"], world)
     if write:
         Path(out_dir).mkdir(parents=True, exist_ok=True)
         for old in Path(out_dir).glob("*.json"):
@@ -403,6 +580,7 @@ def run(write, summaries=SUMMARIES, out_dir=OUT, root=ROOT, quiet=False, world=N
         if no_validator:
             print("note: jsonschema is not installed; record shapes were not validated")
         print(f"OK: {len(records)} summary record(s), {nfacts} graded fact(s), "
+              f"{len(world['styles'])} style module(s), "
               f"{len(docs)} scene file(s) {'written' if write else 'compiled in memory'}")
     return 0
 
@@ -419,6 +597,27 @@ def fixture_world():
         "standing": {"1835": set(), "1904": {"fixture_house"}},
         "people": {"1835": {}, "1904": {"fixture_person": {"name": "A. Fixture", "grade": "attested"}}},
         "liberties": {"L1"},
+        # T-2641: the fixture house's sidecar attributes, its style module, and the fixture
+        # source's rights, so the gate reads none of them from the real tree.
+        "attributes": {"1904": {"fixture_house": {"walls": "attested", "window_heights": "reconstructed"}}},
+        "styles": {"fixture_style": fixture_style()},
+        "rights": {"fixture_source": "public_domain"},
+    }
+
+
+def fixture_style():
+    """The smallest style module that passes. A fixture: its words are about the gate."""
+    src = ["fixture_source"]
+    return {
+        "id": "fixture_style", "name": "Fixture Revival",
+        "description": {"text": "A style that exists only in this test. It has two lines.",
+                        "grade": "inferred", "sources": src, "note": "Worked out from the fixture."},
+        "cues": [{"text": "Fixture stone on the street", "grade": "attested", "sources": src}],
+        "plate": {"picture": "fixture-picture", "structure": "fixture_house", "scene": "1904",
+                  "record": "fixture_source", "caption": "The fixture house", "grade": "attested",
+                  "sources": src},
+        "compare": [{"name": "Other Fixture", "style": "other_fixture", "text": "A line about another style.",
+                     "grade": "attested", "sources": src}],
     }
 
 
@@ -451,6 +650,12 @@ def minimal_record():
              "surprising": True, "grade": "inferred", "note": "A fixture."},
         ],
         "style": "fixture_style",
+        "onThisHouse": [
+            {"text": "Stone walls", "detail": "Stone on the street.", "attribute": "walls",
+             "camera": {"yaw": 90, "pitch": 4}, "grade": "attested", "sources": src},
+            {"text": "Window heights", "detail": "Ours.", "attribute": "window_heights",
+             "grade": "reconstructed", "note": "Bounded by the fixture.", "liberty": "L1"},
+        ],
         "story": [{"date": "1887-05", "text": "Finished.", "era": "1904", "grade": "attested", "sources": src},
                   {"date": "1885", "text": "Designed.", "era": "1904", "grade": "attested", "sources": src}],
     }
@@ -500,7 +705,11 @@ def self_test():
                "the top fact scores surprising x3, person x2, street x2, Attested x1.5 = 18")
         expect([s["date"] for s in rec.get("story", [])] == ["1885", "1887-05"], "the story is in date order")
         expect(rec.get("grades") == {"attested": 6, "inferred": 2, "reconstructed": 2, "facts": 10},
-               f"the facts are counted by grade (got {rec.get('grades')})")
+               f"the facts are counted by grade, the Design tab's hotspots not among them (got {rec.get('grades')})")
+        expect(len(rec.get("onThisHouse", [])) == 2, "the hotspots are carried into the compiled record")
+        expect(pub.get("styles", {}).get("fixture_style", {}).get("name") == "Fixture Revival"
+               and empty.get("styles", {}).get("fixture_style") is not None,
+               "every style module is carried into every scene's file, an empty scene's too")
         expect(set(pub["sources"]) == {"fixture_source"} and "citation" in pub["sources"]["fixture_source"],
                "every cited source resolves to its citation in the file")
 
@@ -571,6 +780,62 @@ def self_test():
     plant("a file whose name is not its id", "is not the file's name", lambda r: None, stem="other_house")
     if "jsonschema" in sys.modules or _have_jsonschema():
         plant("a field the schema does not know", "Additional properties are not allowed", stray_field)
+
+    # T-2641: the Design tab's hotspots, and a record's link to its style module.
+    def hot_regraded(r): r["onThisHouse"][0]["grade"] = "inferred"; r["onThisHouse"][0]["note"] = "x"
+    def hot_attr(r): r["onThisHouse"][0]["attribute"] = "no_such_attribute"
+    def hot_long(r): r["onThisHouse"][0]["text"] = " ".join(["word"] * 9)
+    def hot_detail(r): r["onThisHouse"][0]["detail"] = " ".join(["word"] * 17)
+    def hot_ungraded(r): del r["onThisHouse"][1]["grade"]
+    def hot_unsourced(r): r["onThisHouse"][0]["sources"] = []
+    def hot_snake(r): r["onThisHouse"][0]["detail"] = "Read from window_heights."
+    def no_style(r): r["style"] = "no_such_style"
+    plant("a hotspot graded apart from its sidecar attribute", "but the sidecar grades attribute `walls` attested", hot_regraded)
+    plant("a hotspot naming an attribute the sidecar lacks", "attribute `no_such_attribute` is not one of", hot_attr)
+    plant("an over-length hotspot", "onThisHouse[0].text: 9 words, over the limit of 8", hot_long)
+    plant("an over-length hotspot line", "onThisHouse[0].detail: 17 words, over the limit of 16", hot_detail)
+    plant("an ungraded hotspot", "onThisHouse[1]: a fact with no grade", hot_ungraded)
+    plant("an unsourced Attested hotspot", "onThisHouse[0]: an Attested fact with no source", hot_unsourced)
+    plant("a snake_case word in a hotspot", "an id or snake_case word `window_heights`", hot_snake)
+    plant("a style with no module", "style `no_such_style` has no module", no_style)
+
+    style_schema = load_json(STYLE_SCHEMA)
+    good = gate_style("fixture_style", fixture_style(), world, style_schema)
+    expect(good == [], f"the minimal style module passes the gate (it was refused: {good})")
+
+    def plant_style(label, needle, mutate, stem="fixture_style"):
+        mod = fixture_style()
+        mutate(mod)
+        got = gate_style(stem, mod, world, style_schema)
+        print(f"-- planted in a style module: {label}")
+        for e in got:
+            print(f"   FAIL: {e}")
+        if not any(needle in e for e in got):
+            fails.append(f"the style gate did not refuse {label} (wanted `{needle}`, got {got})")
+
+    def cue_long(m): m["cues"][0]["text"] = " ".join(["word"] * 9)
+    def cue_unsourced(m): m["cues"][0]["sources"] = []
+    def cue_no_note(m): m["cues"][0] = {"text": "A guess", "grade": "inferred"}
+    def cue_bad_source(m): m["cues"][0]["sources"] = ["no_such_source_planted"]
+    def desc_long(m): m["description"]["text"] = "One. Two. Three."
+    def compare_long(m): m["compare"][0]["text"] = " ".join(["word"] * 13)
+    def plate_rights(m): world["rights"]["fixture_source"] = "check_required"
+    def plate_scene(m): m["plate"]["structure"] = "no_such_house"
+    def style_snake(m): m["name"] = "fixture_style"
+    def five_cues(m): m["cues"] = m["cues"] * 5
+    plant_style("an over-length cue", "cues[0].text: 9 words, over the limit of 8", cue_long)
+    plant_style("an unsourced Attested cue", "cues[0]: an Attested fact with no source", cue_unsourced)
+    plant_style("an Inferred cue with no note", "cues[0]: an Inferred fact with no note", cue_no_note)
+    plant_style("a cue citing a source that does not exist", "source `no_such_source_planted` does not resolve", cue_bad_source)
+    plant_style("a three-sentence description", "3 sentences, over the limit of 2", desc_long)
+    plant_style("an over-length Compare line", "compare[0].text: 13 words, over the limit of 12", compare_long)
+    plant_style("a plate whose structure does not stand", "structure `no_such_house` does not stand", plate_scene)
+    plant_style("a snake_case id in a module's name", "an id or snake_case word `fixture_style`", style_snake)
+    plant_style("a file whose name is not its id", "is not the file's name", lambda m: None, stem="other_style")
+    if _have_jsonschema():
+        plant_style("five cues", "is too long", five_cues)
+    plant_style("a plate from a record whose rights are not cleared", "has rights_status `check_required`", plate_rights)
+    world["rights"]["fixture_source"] = "public_domain"
 
     for f in fails:
         print(f"FAIL: {f}")
