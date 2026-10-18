@@ -12496,6 +12496,14 @@ can be the record's own while the distance costs a fraction of a stem each. That
 not exist here. Until it does, the fraction is the honest stand-in and this entry is where it is
 counted.
 
+**Narrowed by T-2766 (2026-10-18).** The instrument this entry asked for now exists: since T-2743
+every tree-form stem is an instance of a grown species tree at near, mid and far levels, so a far
+stem costs a few crossed cards. The fractions are raised to **0.700 / 0.500 / 0.300** (light was
+0.191 after T-1976) and the caps to 3,800 / 3,300 / 1,700. Measured on the published mirror: 3,165 /
+2,144 / 1,347 trees, every level reaching N +1,113 m, and every desktop stand inside its triangle
+ceiling. `full` now draws seven tenths of the recorded stand, not two fifths. `balanced` is held
+below the ratio rule because the West prairie stand had only 5k triangles of headroom on dev.
+
 Related: **L121**, which this entry supersedes on the value and keeps on the method, and **L120**
 and **L114**, the other entries about this wood. Ticket **T-1127**; ROADMAP **K45(b3)**.
 **Recorded:** 2026-09-15.
