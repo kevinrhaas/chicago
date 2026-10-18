@@ -15343,7 +15343,7 @@ for (const [label, viewport, touch] of [
     // every painted, visible box under #hud and the Navigator (docked), rasterised on a 2 px
     // grid, as a share of the viewport — measured in the steady state, once the hint has faded,
     // with readouts the visitor can switch off left out (owner, 2026-10-18: T-2741's street
-    // readout stays on by default and does not count; it is measured and reported), at this viewport and
+    // readout and its switch stay on by default and do not count; they are measured and reported), at this viewport and
     // (on the phone leg) at 390×844 too. And the
     // gate is shown to fire: a planted row of the pre-declutter chips puts it over budget.
     const HUD_BUDGET_PCT = 10;
@@ -15386,7 +15386,8 @@ for (const [label, viewport, touch] of [
           if (el.closest('#hint')) continue;
           // T-2741's street readout has its own off switch (#street-toggle, Settings › Show):
           // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
-          if (el.closest('#street-readout')) continue;
+          // The switch beside the compass is part of that instrument and goes with it.
+          if (el.closest('#street-readout') || el.closest('#street-toggle')) continue;
           const r = el.getBoundingClientRect();
           if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
           if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
@@ -15403,9 +15404,12 @@ for (const [label, viewport, touch] of [
       const pct = (on * cell * cell) / (W * H) * 100;
       const biggest = boxes.map((b) => ({ id: String(b.id).slice(0, 40), a: Math.round((b.x1 - b.x0) * (b.y1 - b.y0)) }))
         .sort((a, b) => b.a - a.a).slice(0, 6);
-      const sr = document.getElementById('street-readout');
-      const srBox = sr && shown(sr) ? sr.getBoundingClientRect() : null;
-      const streetReadout = srBox ? +((srBox.width * srBox.height) / (W * H) * 100).toFixed(2) : 0;
+      const share = (id) => {
+        const e = document.getElementById(id);
+        const b = e && shown(e) ? e.getBoundingClientRect() : null;
+        return b ? (b.width * b.height) / (W * H) * 100 : 0;
+      };
+      const streetReadout = +(share('street-readout') + share('street-toggle')).toFixed(2);
       return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
