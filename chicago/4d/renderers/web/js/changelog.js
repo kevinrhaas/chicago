@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2025, ts: '2026-10-18T23:10:14.829Z', date: 'Oct 18, 2026, 6:10 PM CT', title: '1637 Prairie\'s carved south bay rises on its side wall', kind: 'feature',
+    items: [
+      'The Spalding house on Prairie Avenue now has the stone bay its oldest photograph shows on its south side: a tall arched window, a bracketed cornice and a balustrade on top, with an arched window over it in the wall above.',
+      'The bay keeps its 1911 fire-insurance-map outline and the photograph\'s heights. Its columns, carving and side windows come next.',
+    ] },
   { v: 2024, ts: '2026-10-18T22:53:44.520Z', date: 'Oct 18, 2026, 5:53 PM CT', title: 'Finish the field check and earn your Navigator License', kind: 'feature',
     items: [
       'Press Finish at the end of the 60-second field check and you earn the Navigator License. A line says it is kept with your keepsakes in Jaunts.',
