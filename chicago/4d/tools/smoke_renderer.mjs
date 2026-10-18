@@ -18050,6 +18050,7 @@ for (const [label, viewport, touch] of [
           const sums = await a.inspectSummaries();
           const ids = new Set([...(rec.citations ?? []).map((c) => c.source_id), ...Object.keys(sums?.sources ?? {})]);
           const libs = ((await a.loadLiberties())?.liberties ?? []).filter((l) => l.subjects?.includes(id)).length;
+          const folded = pane?.querySelectorAll('.src-fact[open]').length ?? -1;   // before any tap
           // Open the first Attested fact, then its folded citations, as a visitor would.
           const first = pane?.querySelector('.src-grade[data-grade="attested"] .src-fact');
           first?.querySelector('summary')?.click();
@@ -18063,7 +18064,7 @@ for (const [label, viewport, touch] of [
           const r = pane?.getBoundingClientRect();
           const out = { lead: pane?.querySelector('.src-lead')?.textContent.trim() ?? '', facts: Number(pg?.dataset.facts ?? NaN),
             counts: ['attested', 'inferred', 'reconstructed'].map(count), rows: ['attested', 'inferred', 'reconstructed'].map(rows),
-            allRows: pane?.querySelectorAll('.src-fact').length ?? 0, folded: pane?.querySelectorAll('.src-fact[open]').length ?? -1,
+            allRows: pane?.querySelectorAll('.src-fact').length ?? 0, folded,
             meter, libs, libRows: pane?.querySelectorAll('.src-liberties:not(.src-questions) .src-lib').length ?? 0,
             libHead: pane?.querySelector('.src-liberties .insp-h')?.textContent.trim() ?? '',
             titles, whens, citesShut, citeRows,
