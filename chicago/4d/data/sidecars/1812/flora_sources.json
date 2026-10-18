@@ -89,6 +89,29 @@
       "tier": 4,
       "tier_label": "later scholarship"
     },
+    "currey_1912_story_of_old_fort_dearborn": {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+        "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+        "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+        "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+        "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+        "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by T-2768 for the pines on the south sand hills)"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension of the house, the piazza or the green",
+        "the number of the house's rooms, windows or chimneys",
+        "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+        "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
+    },
     "dollard_2018_beach_pea": {
       "source_id": "dollard_2018_beach_pea",
       "citation": "Dollard, John J., Jr. Experimental reintroduction of state-endangered beach pea (Lathyrus japonicus) to Indiana Dunes National Lakeshore. Park Science 34, no. 1 (2018): 47-53. National Park Service.",
@@ -142,6 +165,45 @@
       "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
       "tier": 2,
       "tier_label": "near-primary recollection"
+    },
+    "kirkland_1893_chicago_massacre_appendix_k": {
+      "source_id": "kirkland_1893_chicago_massacre_appendix_k",
+      "citation": "Joseph Kirkland, The Chicago Massacre of 1812, with Illustrations and Historical Documents (Chicago: Dibble Publishing Co., 1893), Appendix K, 'The Bronze Memorial Group', printed pp. 209-210: the letters of A. J. Galloway to Capt. A. T. Andreas (Chicago, 8 February 1884), Isaac N. Arnold to Andreas (Chicago, 25 January 1884) and Robert G. Clarke to the Editor of the Tribune (Aspen, Colorado, 15 March 1890), each printed whole.",
+      "url": "https://archive.org/details/chicagomassacreo00kirk",
+      "archived_url": "https://ia600508.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/12/items/chicagomassacreo00kirk/chicagomassacreo00kirk_djvu.xml&page=212",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Robert G. Clarke, letter to the Editor of the Tribune, Aspen, Colorado, 15 March 1890",
+          "date": "1890",
+          "tier": 2,
+          "note": "A son of H. B. Clark, who bought the shore land at Sixteenth to Eighteenth Street in 1833, recalling his own childhood there, about the late 1830s to the 1840s: 'This was one of a grove, consisting of perhaps fifty to seventy-five large cottonwoods, extending from a little north of Sixteenth to a little south of Eighteenth Street. Almost in the center of this grove - I think the exact location would be two hundred and fifty to three hundred feet north of Eighteenth Street, on the east end of Wirt Dexter's lot - stood a \"clump\" of eight or nine trees.' And of the shore: 'The sand-hills extended from about where the Illinois Central round-house now is south to about Twenty-Fifth Street. They were covered with low cedar trees, ground pine, and sand cherry bushes'. An eyewitness, fifty years on, giving a count as 'perhaps' and a place by a lot that was laid out after he saw it: tier 2, the rung Wau-Bun stands on."
+        },
+        {
+          "work": "A. J. Galloway, letter to Capt. A. T. Andreas, Chicago, 8 February 1884",
+          "date": "1884",
+          "tier": 3,
+          "note": "Galloway lived at 1808 Prairie Avenue from 1858 and knew the 18th Street tree old: its 'large lower branches ... after mounting upward for a time, curved gracefully downward, so that a man riding under them could have readily touched their extremities, with his whip, at a distance of twenty or twenty-five feet from the body of the tree.' He reports at second hand that Mrs. Mary Clark Williams 'nearly fifty years ago ... played under the old cottonwood, and that it was then a large and thrifty tree.' The 1835 size is hers, through him."
+        },
+        {
+          "work": "Isaac N. Arnold, letter to Capt. A. T. Andreas, Chicago, 25 January 1884",
+          "date": "1884",
+          "tier": 2,
+          "note": "Arnold came to Chicago in 1836: 'There were then growing some cottonwood trees near which I was told the massacre occurred. One of those trees is still standing in the street leading from Michigan Avenue to the lake and not very far from the track of the Illinois Central Railway.'"
+        }
+      ],
+      "what_it_supplies": [
+        "A COUNT AND AN EXTENT for the shore cottonwoods south of the town: 'perhaps fifty to seventy-five large cottonwoods' from a little north of Sixteenth Street to a little south of Eighteenth (Clarke)",
+        "ONE PLACE INSIDE IT: a clump of eight or nine trees 250-300 ft north of Eighteenth Street at the east end of Wirt Dexter's lot, which is 1721 Prairie Avenue (Clarke)",
+        "THE SIZE OF THE 18TH STREET TREE about 1835: 'a large and thrifty tree' (Mary Clark Williams, through Galloway), and its open-grown crown as old, limbs reaching 20-25 ft from the trunk (Galloway)",
+        "THE SAND HILLS' COVER from about Twelfth to Twenty-Fifth Street: low cedar, ground pine and sand cherry (Clarke)"
+      ],
+      "what_it_does_not_supply": [
+        "a position for any one tree except the clump, and that one is given against a lot of the 1850s, not against the 1835 shore",
+        "how far the grove reached back from the water",
+        "a picture: Andreas's engraving of the 18th Street tree (vol. 1, p. 31) is a separate work and is not in this corpus"
+      ]
     },
     "mcbride_bowles_2007": {
       "source_id": "mcbride_bowles_2007",

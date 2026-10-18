@@ -10649,7 +10649,11 @@ for (const [label, viewport, touch] of [
     // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
-    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    // Guide's sheet mounts once the Navigator has opened, and on a runner where a frame takes
+    // seconds that opening takes most of a minute (dev, 2026-10-18: a local desktop probe found
+    // the sheet at 50-55 s; the 10 s wait here gave up with "rows":0). Part 13's own wait for
+    // this sheet is 60 s; this one waits up to 120 s and ends as soon as the sheet is there.
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 120_000, polling: 100 }).catch(() => {});
     const guide = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const sheet = document.querySelector('#nav-app-guide #guide-controls');
@@ -13635,6 +13639,86 @@ for (const [label, viewport, touch] of [
       && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
       JSON.stringify(guideWords));
     // ---- end T-2662
+    // >>> T-2666: Guide › For teachers — the Field Check's seven steps, read from the tour
+    // itself, and three suggested Jaunts per destination, printed as one page at Letter and
+    // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
+    // print stylesheet's layout is then printed by the browser itself to PDF and its pages
+    // counted. Chromium fires afterprint around page.pdf, which takes the copy away, so the
+    // handout is printed afresh for each sheet size. Generous waits: the catalogs are read
+    // the first time Guide opens, behind a lazy module.
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => {
+      const h = document.querySelector('#nav-app-guide #guide-handout');
+      return !!h && !/Reading the Jaunts/.test(h.textContent);
+    }, null, { timeout: 60_000, polling: 200 }).catch(() => {});
+    const handoutRead = await page.evaluate(async () => {
+      const h = document.querySelector('#nav-app-guide #guide-handout');
+      const src = document.querySelector('script[src*="main.js"]')?.src;
+      let steps = null;
+      try { steps = (await import(src.replace(/main\.js(\?.*)?$/, 'tour.js'))).STEPS; } catch { /* reported below */ }
+      const scene = String(document.querySelector('#nav-app-guide .handout-dest[data-here="true"]')?.dataset.year ?? '');
+      const rows = [...(h?.querySelectorAll('.handout-step') ?? [])];
+      return {
+        teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
+        print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
+        stepsFromTour: !!steps && steps.length === 7 && rows.length === 7 && rows.every((r, i) =>
+          r.querySelector('.handout-task')?.textContent === steps[i].task
+          && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
+        scene,
+        dests: [...(h?.querySelectorAll('.handout-dest') ?? [])].map((d) => ({ year: d.dataset.year,
+          name: d.querySelector('.handout-dest-name')?.textContent ?? '',
+          jaunts: d.querySelectorAll('.handout-jaunt-title').length,
+          empty: d.querySelector('.handout-empty')?.textContent ?? null })),
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(document.querySelector('#nav-app-guide #guide-teachers')?.textContent ?? ''),
+        lore: /\b(tier|ticket)\b|\.json\b/i.test(document.querySelector('#nav-app-guide #guide-teachers')?.textContent ?? ''),
+      };
+    });
+    const printOnce = () => page.evaluate(async () => {
+      window.__handoutPrinted = 0;
+      window.__handoutPrint ??= window.print;
+      window.print = () => { window.__handoutPrinted++; };
+      document.getElementById('guide-handout-print')?.click();
+      for (let i = 0; i < 100 && !window.__handoutPrinted; i++) await new Promise((r) => setTimeout(r, 100));
+      const copy = document.getElementById('handout-print');
+      return { printed: window.__handoutPrinted, copy: !!copy && copy.parentElement === document.body,
+        steps: copy?.querySelectorAll('.handout-step').length ?? 0, jaunts: copy?.querySelectorAll('.handout-jaunt-title').length ?? 0 };
+    });
+    const sheets = {};
+    const first = await printOnce();
+    await page.emulateMedia({ media: 'print' });
+    const printedLayout = await page.evaluate(() => ({
+      shown: [...document.body.children].filter((e) => getComputedStyle(e).display !== 'none').map((e) => e.id || e.tagName),
+    }));
+    await page.emulateMedia({ media: null });
+    for (const format of ['Letter', 'A4']) {
+      const before = format === 'Letter' ? first : await printOnce();
+      try {
+        const pdf = await page.pdf({ format });
+        sheets[format] = { ...before, pages: (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) ?? []).length };
+      } catch (err) {
+        sheets[format] = { ...before, pages: null, error: String(err?.message ?? err).slice(0, 160) };
+      }
+      sheets[format].after = await page.evaluate(() => !document.getElementById('handout-print'));
+    }
+    await page.evaluate(() => {
+      window.dispatchEvent(new Event('afterprint'));
+      if (window.__handoutPrint) window.print = window.__handoutPrint;
+      window.__chicago4d.navigator.select('home');
+      window.__chicago4d.navigator.dock();
+    });
+    // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
+    const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
+    check(`${label}: Guide › For teachers prints the seven tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+      handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
+      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
+      && handoutRead.dests.filter((d) => d.year !== '1812').every((d) => d.jaunts === 3)
+      && handoutRead.dests.find((d) => d.year === '1812')?.empty === 'No Jaunts here yet.'
+      && !handoutRead.snake && !handoutRead.lore
+      && printedLayout.shown.join() === 'handout-print'
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 7 && s.jaunts === 6)
+      && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
+      JSON.stringify({ handoutRead, printedLayout, sheets }));
+    // <<< T-2666
     await openSection('settings');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -15536,6 +15620,127 @@ for (const [label, viewport, touch] of [
     check(`${label}: C toggles BY GRADE on and off (T-2647)`,
       cOn.on === true && cOn.hidden.length === 0 && cOn.modes.reconstructed === 'dither' && cOff.on === false,
       JSON.stringify({ cOn: { on: cOn.on, modes: cOn.modes }, cOff: { on: cOff.on } }));
+    // >>> T-2648: the Confidence view's per-grade rows. A row opens from its look and holds
+    // four swatches (one set colour-blind safe), Tint / Ghost / Dither and an opacity slider;
+    // each control is tapped as a visitor taps it (hit-tested) and the frame read after it.
+    // The pixel bar is the suite's own: "turning it off restores the render" reads mean <= 0.1
+    // with worst <= 3 as readback noise, so a control that moved the town reads above both.
+    // The rows write uniforms only, so a sweep of them adds no program and no geometry.
+    const rowState = () => page.evaluate(() => {
+      const a = window.__chicago4d;
+      const out = { on: a.confidenceView, hidden: a.hud.hiddenLevels, ghosting: a.confidence.ghosting,
+        pressed: [...document.querySelectorAll('#navigator .nav-preset[aria-pressed="true"]')].map((b) => b.dataset.preset),
+        safe: document.getElementById('cm-safe')?.getAttribute('aria-pressed') ?? null,
+        tally: a.hud.levelCounts(), structures: a.registry.size, looks: {}, counts: {} };
+      for (const l of ['attested', 'inferred', 'reconstructed']) {
+        out.looks[l] = { ...a.confidence.grade(l),
+          worn: document.querySelector(`#cm-controls-${l} .nav-swatch[aria-checked="true"]`)?.dataset.set ?? null,
+          summary: document.getElementById(`cm-look-${l}`)?.textContent ?? '' };
+        out.counts[l] = Number(document.getElementById(`cm-count-${l}`)?.textContent ?? -1);
+      }
+      return out;
+    });
+    const setRowOpacity = (level, value) => page.evaluate(([l, v]) => {
+      const s = document.getElementById(`cm-opacity-${l}`);
+      s.value = String(v);
+      s.dispatchEvent(new Event('input', { bubbles: true }));
+      s.dispatchEvent(new Event('change', { bubbles: true }));
+    }, [level, value]);
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+    await page.waitForTimeout(600);
+    await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
+    await page.waitForTimeout(300);
+    if (await page.evaluate(() => document.getElementById('cm-controls-reconstructed')?.hidden !== false)) {
+      await clickChrome('#cm-look-reconstructed');
+      await page.waitForTimeout(300);
+    }
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    await clickChrome('#cm-controls-reconstructed .nav-look[data-look="tint"]');
+    await setRowOpacity('reconstructed', 100);
+    await page.waitForTimeout(300);
+    const rowBase = await page.evaluate(() => window.__chicago4d.capture());
+    // Colour: the colour-blind-safe swatch (vermilion) on Reconstructed.
+    await clickChrome('#cm-controls-reconstructed .nav-swatch[data-set="safe"]');
+    await page.waitForTimeout(300);
+    const rowSwatch = await rowState();
+    const rowSwatchFrame = await page.evaluate(() => window.__chicago4d.capture());
+    // Opacity: the slider to 0 %, which takes the tint off.
+    await setRowOpacity('reconstructed', 0);
+    await page.waitForTimeout(300);
+    const rowOpacity = await rowState();
+    const rowOpacityFrame = await page.evaluate(() => window.__chicago4d.capture());
+    // Look: Ghost at 40 %, drawn see-through in its own pass.
+    await clickChrome('#cm-controls-reconstructed .nav-look[data-look="ghost"]');
+    await setRowOpacity('reconstructed', 40);
+    await page.waitForTimeout(300);
+    const rowLook = await rowState();
+    const rowLookFrame = await page.evaluate(() => window.__chicago4d.capture());
+    const rowLookStats = await page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { calls: st.drawCalls, budget: st.budget.drawCalls }; });
+    const dRowSwatch = signatureDistance(rowBase, rowSwatchFrame);
+    const dRowOpacity = signatureDistance(rowSwatchFrame, rowOpacityFrame);
+    const dRowLook = signatureDistance(rowOpacityFrame, rowLookFrame);
+    const rowMoved = (dd) => dd.mean > 0.1 && dd.worst >= 6;
+    const rowFmt = (dd) => `mean ${dd.mean?.toFixed(2)}, worst ${dd.worst}`;
+    check(`${label}: a grade row's swatch recolours the scene live, and the row marks it (T-2648)`,
+      rowSwatch.looks.reconstructed.color === '#d55e00' && rowSwatch.looks.reconstructed.worn === 'safe' && rowSwatch.on === true
+        && rowMoved(dRowSwatch),
+      `${JSON.stringify(rowSwatch.looks.reconstructed)} frame ${rowFmt(dRowSwatch)}`);
+    check(`${label}: a grade row's opacity slider changes the scene live, and the row reads its percent (T-2648)`,
+      Math.round(rowOpacity.looks.reconstructed.opacity * 100) === 0 && /^Tint · 0%$/.test(rowOpacity.looks.reconstructed.summary)
+        && rowMoved(dRowOpacity),
+      `${JSON.stringify(rowOpacity.looks.reconstructed)} frame ${rowFmt(dRowOpacity)}`);
+    check(`${label}: a grade row's Look ghosts the grade live, inside the draw budget (T-2648)`,
+      rowLook.looks.reconstructed.mode === 'ghost' && Math.round(rowLook.looks.reconstructed.opacity * 100) === 40 && rowLook.ghosting === true
+        && /^Ghost · 40%$/.test(rowLook.looks.reconstructed.summary) && rowMoved(dRowLook) && rowLookStats.calls <= rowLookStats.budget,
+      `${JSON.stringify(rowLook.looks.reconstructed)} frame ${rowFmt(dRowLook)} ${JSON.stringify(rowLookStats)}`);
+    // The sweep: five opacities, three swatches and two looks already drawn, then one frame.
+    const rowSweep = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const before = a.stats();
+      const t0 = performance.now();
+      const slider = document.getElementById('cm-opacity-reconstructed');
+      for (const v of [80, 60, 40, 20, 0]) {
+        slider.value = String(v);
+        slider.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+      slider.dispatchEvent(new Event('change', { bubbles: true }));
+      for (const set of ['garden', 'ember', 'medal']) document.querySelector(`#cm-controls-reconstructed .nav-swatch[data-set="${set}"]`).click();
+      for (const look of ['tint', 'ghost']) document.querySelector(`#cm-controls-reconstructed .nav-look[data-look="${look}"]`).click();
+      const ms = performance.now() - t0;
+      a.step();
+      const after = a.stats();
+      return { ms: Math.round(ms), programs: [before.programs, after.programs], geometries: [before.geometries, after.geometries] };
+    });
+    check(`${label}: ten row changes add no shader program and no geometry (T-2648)`,
+      rowSweep.programs[0] === rowSweep.programs[1] && rowSweep.geometries[0] === rowSweep.geometries[1],
+      JSON.stringify(rowSweep));
+    // The colour-blind-safe set: all three grades in one tap, and a preset keeps it.
+    await clickChrome('#cm-safe');
+    await page.waitForTimeout(300);
+    const rowSafe = await rowState();
+    await clickChrome('#navigator .nav-preset[data-preset="xray"]');
+    await page.waitForTimeout(300);
+    const rowSafeXray = await rowState();
+    const allSafe = (st) => ['attested', 'inferred', 'reconstructed'].every((l) => st.looks[l].worn === 'safe');
+    check(`${label}: the colour-blind-safe set is one tap for all three grades, and X-RAY keeps it (T-2648)`,
+      allSafe(rowSafe) && rowSafe.safe === 'true' && allSafe(rowSafeXray) && JSON.stringify(rowSafeXray.pressed) === '["xray"]'
+        && rowSafeXray.looks.inferred.mode === 'ghost',
+      JSON.stringify({ rowSafe: { safe: rowSafe.safe, worn: Object.values(rowSafe.looks).map((g) => g.worn) },
+        rowSafeXray: { pressed: rowSafeXray.pressed, worn: Object.values(rowSafeXray.looks).map((g) => g.worn) } }));
+    check(`${label}: each grade row's count is the town's own tally (T-2648)`,
+      ['attested', 'inferred', 'reconstructed'].every((l) => rowSafeXray.counts[l] === rowSafeXray.tally[l])
+        && rowSafeXray.counts.attested + rowSafeXray.counts.inferred + rowSafeXray.counts.reconstructed === rowSafeXray.structures,
+      JSON.stringify({ counts: rowSafeXray.counts, tally: rowSafeXray.tally, structures: rowSafeXray.structures }));
+    // Give the town back as found: the grade colours and looks (kept as such), NORMAL, Home, docked.
+    await page.evaluate(() => window.__chicago4d.confidence.resetGrades());
+    await clickChrome('#navigator .nav-preset[data-preset="normal"]');
+    await page.waitForTimeout(150);
+    await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      a.setAnimationHold(false);
+      await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
+    });
+    // <<< T-2648
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
     // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
@@ -18389,7 +18594,7 @@ for (const [label, viewport, touch] of [
           && JSON.stringify(inspectRecord.sections) === JSON.stringify(['Who lives here · 1904', 'Look for', 'Notable facts'])
           && /^A granite fortress on the street/.test(inspectRecord.summary)
           && inspectRecord.undotted.length === 0 && inspectRecord.addressTimes === 1
-          && !inspectRecord.plumbing && !inspectRecord.overflow && /^30 facts|\b30 facts/.test(inspectRecord.meter),
+          && !inspectRecord.plumbing && !inspectRecord.overflow && /^\d+ facts/.test(inspectRecord.meter),   // the count is T-2644's, checked there
           JSON.stringify(inspectRecord).slice(0, 700));
         // T-2639. On 1904: People lists the Glessner household from the directory (T-2702); a
         // newly inspected building opens on Overview; the same building keeps its tab.
@@ -18429,6 +18634,71 @@ for (const [label, viewport, touch] of [
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
           && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
           JSON.stringify(inspectTabs1904));
+        // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
+        // same count the Overview's Confidence meter shows), a Liberties section with every
+        // liberty recorded against the house, each fact folded with its sources named by human
+        // titles and its full citation folded again beneath; no source id or tier label shows.
+        const inspectSources = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          a.pick(id);
+          await a.navigator.select('inspect');
+          a.navigator.open(2);
+          await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-meter'));
+          const meter = root().querySelector('.insp-meter')?.getAttribute('aria-label') ?? '';
+          root().querySelector('[data-insp-tab="sources"]')?.click();
+          await wait(() => root().querySelector('[data-insp-pane="sources"]')?.dataset.filled === 'yes');
+          const pane = root().querySelector('[data-insp-pane="sources"]');
+          const pg = pane?.querySelector('.src-page');
+          const count = (g) => Number(pane?.querySelector(`.src-grade[data-grade="${g}"] .src-count`)?.textContent ?? NaN);
+          const rows = (g) => pane?.querySelectorAll(`.src-grade[data-grade="${g}"] .src-fact`).length ?? 0;
+          const shut = pane?.innerText ?? '';
+          const rec = a.registry.get(id)?.sidecar ?? {};
+          const sums = await a.inspectSummaries();
+          const ids = new Set([...(rec.citations ?? []).map((c) => c.source_id), ...Object.keys(sums?.sources ?? {})]);
+          const libs = ((await a.loadLiberties())?.liberties ?? []).filter((l) => l.subjects?.includes(id)).length;
+          const folded = pane?.querySelectorAll('.src-fact[open]').length ?? -1;   // before any tap
+          // Open the first Attested fact, then its folded citations, as a visitor would.
+          const first = pane?.querySelector('.src-grade[data-grade="attested"] .src-fact');
+          first?.querySelector('summary')?.click();
+          const titles = [...(first?.querySelectorAll('.src-title') ?? [])].map((n) => n.textContent.trim());
+          const whens = [...(first?.querySelectorAll('.src-when') ?? [])].map((n) => n.textContent.trim());
+          const cites = first?.querySelector('.src-cites');
+          const citesShut = !!cites && !cites.open;
+          cites?.querySelector('summary')?.click();
+          const citeRows = cites?.querySelectorAll('.cites li').length ?? 0;
+          const opened = pane?.innerText ?? '';
+          const r = pane?.getBoundingClientRect();
+          const out = { lead: pane?.querySelector('.src-lead')?.textContent.trim() ?? '', facts: Number(pg?.dataset.facts ?? NaN),
+            counts: ['attested', 'inferred', 'reconstructed'].map(count), rows: ['attested', 'inferred', 'reconstructed'].map(rows),
+            allRows: pane?.querySelectorAll('.src-fact').length ?? 0, folded,
+            meter, libs, libRows: pane?.querySelectorAll('.src-liberties:not(.src-questions) .src-lib').length ?? 0,
+            libHead: pane?.querySelector('.src-liberties .insp-h')?.textContent.trim() ?? '',
+            titles, whens, citesShut, citeRows,
+            idShown: [...ids].filter((s) => opened.includes(s)).slice(0, 3),
+            tierShown: /\btier \d|period\/eyewitness|near-primary|later scholarship/i.test(opened),
+            plumbing: (shut.match(/\S*[A-Za-z0-9]_[A-Za-z0-9]\S*|\S*\.json\b|\bdata\/\S*|\bT-\d{3,}/) ?? [null])[0],
+            overflow: document.documentElement.scrollWidth > innerWidth || (r ? r.right > innerWidth + 1 : true) };
+          first?.removeAttribute('open');
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, 'glessner_house');
+        {
+          const s = inspectSources;
+          const total = s.counts.reduce((x, y) => x + y, 0);
+          check(`${label}: Glessner's Sources tab groups every fact by grade with real counts, Liberties by name, and folded citations, with no source id or tier label (T-2644)`,
+            s.facts > 30 && total === s.facts && s.allRows === s.facts && JSON.stringify(s.rows) === JSON.stringify(s.counts)
+            && s.counts.every((n) => n > 0) && s.folded === 0
+            && s.lead === `${s.facts} facts. ${s.counts[0]} Attested, ${s.counts[1]} Inferred, ${s.counts[2]} Reconstructed. Tap any one to see its sources.`
+            && new RegExp(`^${s.facts} facts`).test(s.meter)
+            && s.libs > 0 && s.libRows === s.libs && /^Liberties/.test(s.libHead)
+            && s.titles.length > 0 && s.titles.every((x) => x.length > 3) && s.whens.every((w) => ['from the time', 'first-hand', 'a witness remembering', 'gathered from witnesses', "a historian's account", 'a modern reconstruction', 'a popular map'].includes(w))
+            && s.citesShut && s.citeRows > 0
+            && s.idShown.length === 0 && !s.tierShown && !s.plumbing && !s.overflow,
+            JSON.stringify(s).slice(0, 700));
+        }
+        // <<< T-2644
         // >>> T-2643 (QA-09): Glessner's Story runs from design (1885) to today, BUILT at 1887 and
         // YOU ARE HERE at 1 July 1904, every fact dotted, what came after the visit marked so; and
         // no 1835 civic rule (the fire limit, the hay by-law) renders on a 1904 building.

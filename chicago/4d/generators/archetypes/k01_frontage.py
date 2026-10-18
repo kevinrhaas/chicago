@@ -1144,6 +1144,10 @@ class Assembly:
         # T-2366: a round-arched group is laid by k01_arched_front, round its own hole and
         # voussoir block; every other opening is a rectangle with its flat arch
         af = p.arched_front
+        # T-2753: a proud frontispiece: the coursing and the openings on it laid on its face
+        fp = p.frontispiece
+        frame_fp = self.frontispiece_frame(frame) if fp else None
+        fs0, fbed = (fp["s_m"], fp["hood"]["bed_m"]) if fp else (None, None)
         grouped = {id(p.openings[i]) for i in k01_arched_front.grouped_ops(p)}
         square = [o for o in openings if id(o) not in grouped]
         holes = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in square]
@@ -1154,7 +1158,8 @@ class Assembly:
         lined = [h for o, h in zip(square, holes) if o not in named]
         # a flat arch where K09 leaves a flat head: the area lights and the third floor
         arches = [(s0, s1, y1, round(y1 + 0.30, 4)) for o, (s0, s1, _, y1) in zip(square, holes)
-                  if k09_frontage.head(p, o) == k09_frontage.FLAT and o not in named]
+                  if k09_frontage.head(p, o) == k09_frontage.FLAT and o not in named
+                  and not (fp and o.component == "k01.opening.door_leaf")]   # T-2753: its surround's lintel
         if af:
             rects = k01_arched_front.plan(self, frame)
             holes += rects
@@ -1162,18 +1167,24 @@ class Assembly:
         # what the kits seat on this face, widened by a joint and an arris so a piece's
         # edge never stands over a bevel; K06's sill beds are course lines
         m = wk["joint_m"] / 2 + wk["bevel_m"] + 0.01
-        seats = [(a0 - m, a1 + m, b0 - m, b1 + m, kind) for a0, a1, b0, b1, kind in self.footprints.get(tuple(O), [])]
+        seats = [(a0 - m, a1 + m, b0 - m, b1 + m, kind) for a0, a1, b0, b1, kind in self.footprints.get(tuple(O), [])
+                 + (self.footprints.get(tuple(frame_fp[0]), []) if fp else [])]
         sill_beds = {round(b0 + m, 4) for a0, a1, b0, b1, kind in seats if kind == "K06.sill"
                      and not any(a0 < o.s_m < a1 and o.sill_m - 0.3 < b1 - m < o.sill_m + 0.3 for o in named)}
         belts = [(floors[1] - 0.20, floors[1])] + ([(floors[2] - 0.15, floors[2])] if len(floors) > 2 else [])
         if af and af["belts"] is not None:   # T-2526: a door's arch alone keeps these
             belts = list(af["belts"])
+        if "belts" in p.street_dress:   # T-2753: the photograph's own string course
+            belts = list(p.street_dress["belts"])
         # T-2366: a frieze stands between the stone's top and the soffit
         ytop = af["stone_top_m"] if af else yf
         lines = {0.0, cop_top, ytop, *[bc * i for i in range(1, k["base_courses"] + 1)]}
         lines |= {y for y in sill_beds if y > cop_top + 1e-6}
         lines |= {y for (_, _, _, y) in lined + arches if y > cop_top + 1e-6}
         lines |= {y for band in belts for y in band}
+        if fp:   # T-2753: the hood's bed, the door surround's lintel and the carved panel
+            pa = fp["panel"]
+            lines |= {fbed, fp["door_surround"]["top_m"], pa["bed_m"], pa["bed_m"] + pa["height_m"]}
         if (k.get("coursing") or {}).get("even_below_m"):   # T-2773: the principal sill's bed
             lines.add(float(k["coursing"]["even_below_m"]))
         merged = []
@@ -1231,9 +1242,13 @@ class Assembly:
                       {"base": O, "top": _add(O, _mul(Y, E))})
         holes, arches, seats, belts, courses, square, ytop = self._course_plan(frame, openings, yf)
         af = p.arched_front
+        # T-2753: a proud frontispiece: the courses and flat arches on it laid on its face
+        fp = p.frontispiece
+        frame_fp = self.frontispiece_frame(frame) if fp else None
+        fs0, fbed = (fp["s_m"], fp["hood"]["bed_m"]) if fp else (None, None)
         rects = holes + arches
         quoins, prev_joints, parity = [], [], 0
-        for ya, yb, kind in courses:
+        for ci, (ya, yb, kind) in enumerate(courses):
             trim = kind in ("coping", "belt", "band")
             spec = tk if trim else wk
             lo, hi = k["trim_block_m"] if trim else k["block_m"]
@@ -1256,9 +1271,13 @@ class Assembly:
             rng = random.Random(cseed)
             obs = [o for o in rects if o[2] < yb - 1e-6 and o[3] > ya + 1e-6]
             here = [q for q in seats if q[2] < yb - 1e-6 and q[3] > ya + 1e-6]
+            # T-2753: the dressed stones of the surrounds and the frontispiece's quoins, this course's
+            here += [q for q in self.dress_cells(square, ya, yb, ci, kind, length) if q[2] < yb - 1e-6 and q[3] > ya + 1e-6]
+            on_fp = bool(fp) and yb <= fbed + 1e-6
             # a seat's edge cuts the course too, unless it falls within 0.08 m of a harder
             # edge (a wall end, an opening, an arch) or of another seat's: no sliver stones
-            S = sorted({0.0, length, *[min(max(x, 0.0), length) for o in obs for x in (o[0], o[1])]})
+            S = sorted({0.0, length, *[min(max(x, 0.0), length) for o in obs for x in (o[0], o[1])],
+                        *((fs0,) if on_fp else ())})
             for x in sorted(min(max(x, 0.0), length) for q in here for x in (q[0], q[1])):
                 if all(abs(x - e) >= 0.08 for e in S):
                     S = sorted([*S, x])
@@ -1275,7 +1294,7 @@ class Assembly:
                 if y < yb - 1e-6:
                     free.append((y, yb))
                 if spans and spans[-1][2] == free and abs(spans[-1][1] - sa) < 1e-9 \
-                        and spans[-1][3] == self._seated(here, sa, sb):
+                        and spans[-1][3] == self._seated(here, sa, sb) and not (on_fp and abs(sa - fs0) < 1e-9):
                     spans[-1][1] = sb
                 else:
                     spans.append([sa, sb, free, self._seated(here, sa, sb)])
@@ -1298,19 +1317,22 @@ class Assembly:
                     pieces = _lay(rng, sa, sb, lo, hi, first, prev_joints if full else ())
                     skip = frozenset()
                     for s0, s1 in pieces:
+                        proud = on_fp and s0 >= fs0 - 1e-9
+                        fr = frame_fp if proud else frame
                         joints = [0.0 if fy0 <= 1e-9 else jh, 0.0 if s1 >= length - 1e-9 else jv,
-                                  0.0 if fy1 >= ytop - 1e-9 else jh, 0.0 if s0 <= 1e-9 else jv]
+                                  0.0 if fy1 >= ytop - 1e-9 else jh,
+                                  0.0 if s0 <= 1e-9 or (proud and abs(s0 - fs0) < 1e-9) else jv]
                         bseed = self._stone_seed(ccid, inst, j)
                         j += 1
                         # a kit seated on this stone: dressed smooth and flush, of the trim
                         flush = self._seated(here, s0, s1, fy0, fy1)
                         if kind == "coping" and not flush:
-                            self.coping_piece(frame, s0, s1, fy0, fy1, joints, bseed, conf, r)
+                            self.coping_piece(fr, s0, s1, fy0, fy1, joints, bseed, conf, r)
                         else:
                             dressed = trim or flush
                             brng = random.Random(bseed ^ 0x5EED)
                             rock = brng.uniform(*self._rock_range(ya, yb)) if not dressed else 0.0
-                            skip = self.stone(frame, [(s0, fy0), (s1, fy0), (s1, fy1), (s0, fy1)], joints,
+                            skip = self.stone(fr, [(s0, fy0), (s1, fy0), (s1, fy1), (s0, fy1)], joints,
                                               "limestone_trim" if dressed else "rough_stone_trim",
                                               bseed, conf, recess=r, bevel=(tk if dressed else wk)["bevel_m"],
                                               F=0.05 if kind == "belt" and not flush else 0.0, rock=rock,
@@ -1318,7 +1340,7 @@ class Assembly:
                         if kind == "base" and abs(fy1 - base_top) < 1e-6:
                             # the rusticated base's channels are deeper than the joints over
                             # it: a ledge closes the step between the two mortar floors
-                            self.prim("mortar").face([_add(_add(O, _mul(R, s)), _add(_mul(Y, base_top), _mul(N, d)))
+                            self.prim("mortar").face([_add(_add(fr[0], _mul(R, s)), _add(_mul(Y, base_top), _mul(N, d)))
                                                       for s, d in ((s0, -r_base), (s1, -r_base), (s1, -r_wall), (s0, -r_wall))],
                                                      _mul(Y, -1), self.basis("mortar", O, R, N, bseed), conf)
                         if 1e-9 < s1 < length - 1e-9:
@@ -1331,8 +1353,10 @@ class Assembly:
         if "south_return_m" in k and E - ytop > 0.02:
             quoins.append((k["south_return_m"], ytop, E, "walling", wk["joint_m"] / 2, wk["joint_m"] / 2, r_wall))
         for s0, s1, y1, y2 in arches:
-            self.flat_arch(frame, s0, s1, y1, y2 - y1, conf, r_wall)
+            self.flat_arch(frame_fp if fp and s0 >= fs0 and y2 <= fbed else frame, s0, s1, y1, y2 - y1, conf, r_wall)
         self.street_window_dress(frame, square, conf, r_wall)
+        if fp:
+            self.frontispiece(frame, length, conf)
         if af:
             k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
@@ -1349,13 +1373,16 @@ class Assembly:
         (the photograph draws the head as a plain line in the ashlar, under no band or block).
         K06 builds each light's reveal, so the mullion's sides and the head's soffit are its."""
         from . import k06_windows
-        O, R, N = frame
-        P = lambda s, y: _add(_add(O, _mul(R, s)), _mul(Y, y))
+        wall_frame = frame
         hj = self.p.stone["wall"]["joint_m"] / 2
         cid = "k01.opening.street_dress"
         for op in openings:
             if not op.component.startswith(STREET_WINDOW):
                 continue
+            # T-2753: a window on the frontispiece is dressed on its face
+            frame = self.frontispiece_frame(wall_frame) if self.p.on_frontispiece(op) else wall_frame
+            O, R, N = frame
+            P = lambda s, y: _add(_add(O, _mul(R, s)), _mul(Y, y))
             v = self.kit_variant(op)
             bays, mull = v.get("bays", 1), v.get("mullion_m", 0.0)
             if bays == 1 and v["head"] == "flat":
@@ -1387,6 +1414,101 @@ class Assembly:
                     self.stone(frame, pts, [0.0] * len(pts), "rough_stone_trim", self._stone_seed(cid, inst, j), conf,
                                recess=recess, bevel=0.0)
                     j += 1
+
+    # -- T-2753: the dressed surrounds and the proud frontispiece --------------------------
+    def frontispiece_frame(self, frame):
+        """The street front's frame moved out to the frontispiece's face."""
+        O, R, N = frame
+        return (_add(O, _mul(N, self.p.frontispiece["proud_m"])), R, N)
+
+    def dress_cells(self, openings, ya, yb, ci, kind, length):
+        """The cells of course `ci` [ya, yb] whose stones are dressed smooth and laid flush, as
+        a kit's seat is: each surrounded window's jambs, a stone `returns_m` long and short in
+        turn up the courses, and its lintel course over the head, the short return past each
+        jamb (`street_dress.surrounds`);
+        the frontispiece's two arrises quoined the same way from the coping up; the door's
+        surround, a band round it and its lintel; and the carved panel's bed. Empty for a
+        front with none of them, so every other house's coursing is untouched."""
+        p, out = self.p, []
+        su, fp = p.street_dress.get("surrounds"), p.frontispiece
+        if su:
+            ret = su["returns_m"][ci % 2]
+            for o in openings:
+                if not o.component.startswith(STREET_WINDOW) or not any(
+                        p.floors_m[k] <= o.sill_m < (p.floors_m[k + 1] if k + 1 < len(p.floors_m) else 1e9)
+                        for k in su["storeys"]):
+                    continue
+                s0, s1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
+                if min(yb, o.head_m) - max(ya, o.sill_m) >= 0.05:
+                    out += [(max(s0 - ret, 0.0), s0, o.sill_m, o.head_m, "K01.surround"),
+                            (s1, min(s1 + ret, length), o.sill_m, o.head_m, "K01.surround")]
+                lo = su["returns_m"][0]   # the lintel runs the short return past each jamb
+                out.append((max(s0 - lo, 0.0), min(s1 + lo, length), o.head_m, o.head_m + su["lintel_m"], "K01.surround"))
+        if fp:
+            bed, q = fp["hood"]["bed_m"], fp["quoins_m"][ci % 2]
+            if kind != "base" and kind != "coping" and yb <= bed + 1e-6:
+                out += [(fp["s_m"], fp["s_m"] + q, ya, yb, "K01.quoin"), (length - q, length, ya, yb, "K01.quoin")]
+            door = next(o for o in openings if o.component == "k01.opening.door_leaf")
+            ds = fp["door_surround"]
+            d0, d1 = door.s_m - door.width_m / 2, door.s_m + door.width_m / 2
+            out += [(d0 - ds["band_m"], d0, door.sill_m, door.head_m, "K01.surround"),
+                    (d1, d1 + ds["band_m"], door.sill_m, door.head_m, "K01.surround"),
+                    (d0 - ds["band_m"], d1 + ds["band_m"], door.head_m, ds["top_m"], "K01.surround")]
+            pa = fp["panel"]
+            out.append((pa["s_m"] - pa["width_m"] / 2, pa["s_m"] + pa["width_m"] / 2, pa["bed_m"],
+                        pa["bed_m"] + pa["height_m"], "K01.panel"))
+        return out
+
+    def frontispiece(self, frame, length, conf):
+        """k01.wall.street_frontispiece: what closes the step the frontispiece's face makes —
+        its returns at both arrises, grade to the hood's bed — and the hood mould capping
+        it over its window, out past its face and its north arris; and the carved panel over
+        the door: a raised moulded border and, inside it, a raised oval cartouche standing
+        for the carving (the print's figures are not modelled)."""
+        p, fp = self.p, self.p.frontispiece
+        O, R, N = frame
+        Of = self.frontispiece_frame(frame)
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        s0, pr, h = fp["s_m"], fp["proud_m"], fp["hood"]
+        conf = max(conf, p.conf("street_front_frontispiece"))
+        seed = self.instance("k01.wall.street_frontispiece", "wall",
+                             {"s_m": s0, "proud_m": pr, "quoins_m": list(fp["quoins_m"]),
+                              "hood_m": [h["bed_m"], h["top_m"]], "hood_overhang_m": h["overhang_m"],
+                              "door_surround_band_m": fp["door_surround"]["band_m"]},
+                             {"north_arris": P(s0, 0.0, pr), "hood": P((s0 + length) / 2, h["bed_m"], pr)})
+        cop = p.stone["coping_top_m"]
+        for s, hint in ((s0, _mul(R, -1)), (length, R)):
+            for y0, y1, mat in ((0.0, cop, "rough_stone_trim"), (cop, h["bed_m"], "limestone_trim")):
+                self.prim(mat).face([P(s, y0, 0.0), P(s, y0, pr), P(s, y1, pr), P(s, y1, 0.0)], hint,
+                                    self.basis(mat, O, N, Y, seed), conf)
+        # the hood mould: a weathered slab, its drip a fillet under its front edge
+        ov = h["overhang_m"]
+        self.proud_box("limestone_trim", frame, s0 - ov, length, h["bed_m"] + 0.05, h["top_m"], pr + ov, seed, conf)
+        self.proud_box("limestone_trim", frame, s0 - ov + 0.03, length, h["bed_m"], h["bed_m"] + 0.05, pr + ov - 0.03,
+                       seed, conf)
+        # the carved panel, on the frontispiece's face
+        pa = fp["panel"]
+        cs = self.instance("k01.wall.carved_panel", "wall",
+                           {"width_m": pa["width_m"], "height_m": pa["height_m"], "proud_m": pa["proud_m"],
+                            "carving": "an oval cartouche standing for the print's figures"},
+                           {"centre": P(pa["s_m"], pa["bed_m"] + pa["height_m"] / 2, pr)})
+        a0, a1 = pa["s_m"] - pa["width_m"] / 2, pa["s_m"] + pa["width_m"] / 2
+        b0, b1 = pa["bed_m"], pa["bed_m"] + pa["height_m"]
+        e, dp = 0.06, pa["proud_m"]
+        for c0, c1, r0, r1 in ((a0, a1, b0, b0 + e), (a0, a1, b1 - e, b1), (a0, a0 + e, b0 + e, b1 - e),
+                               (a1 - e, a1, b0 + e, b1 - e)):
+            self.proud_box("limestone_trim", Of, c0, c1, r0, r1, dp, cs, conf)
+        cx, cy = pa["s_m"], (b0 + b1) / 2
+        rx, ry = (a1 - a0) / 2 - e - 0.06, (b1 - b0) / 2 - e - 0.04
+        ring = [(cx + rx * math.cos(2 * math.pi * i / 16), cy + ry * math.sin(2 * math.pi * i / 16)) for i in range(16)]
+        Pf = lambda q, d: _add(_add(_add(Of[0], _mul(R, q[0])), _mul(Y, q[1])), _mul(N, d))
+        pm = self.prim("limestone_trim")
+        pm.face([Pf(q, dp) for q in ring], N, self.basis("limestone_trim", Of[0], R, Y, cs), conf)
+        for i in range(16):
+            qa, qb = ring[i], ring[(i + 1) % 16]
+            out = _unit(_add(_mul(R, qb[1] - qa[1]), _mul(Y, qa[0] - qb[0])))
+            pm.face([Pf(qa, 0.0), Pf(qb, 0.0), Pf(qb, dp), Pf(qa, dp)], out,
+                    self.basis("limestone_trim", Of[0], R, N, cs), conf)
 
     def _walling(self, ya, yb):
         """The walling courses between two struck lines. Equal courses, as few as the
@@ -2068,6 +2190,7 @@ class Assembly:
                                             bottom=y0, flashing=False)
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
                 polys = k5.union(polys, k15.join_stack(parts))
+        recesses += self.through_eave_cutters(k5, yf)
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
         pts, tris = _weld_shell(*k5.close(polys))
@@ -2090,6 +2213,46 @@ class Assembly:
         if p.rainwater:
             self.rainwater(ye, yf, seed)
         return yf
+
+    THROUGH_EAVE_INSET_M = 0.05   # T-2778: the eave runs this far into the oriel's walls
+
+    def through_eave_plan(self, b, inset):
+        """T-2778: an oriel's plan on the street front, every run's line moved `inset` in
+        and its back `inset` / 25 off the wall plane, as (s along the front, out) points."""
+        pts = [tuple(map(float, q)) for q in b["variant"]["plan"]["points"]]
+        lines = []
+        for (x0, z0), (x1, z1) in zip(pts, pts[1:]):
+            L = math.hypot(x1 - x0, z1 - z0)
+            e = ((x1 - x0) / L, (z1 - z0) / L)
+            n = (e[1], -e[0])                   # the run's inward side (the plan runs left to right)
+            lines.append(((x0 + n[0] * inset, z0 + n[1] * inset), e))
+        lines = [((-1.0, inset / 25), (1.0, 0.0))] + lines + [((1.0, inset / 25), (-1.0, 0.0))]
+        out = []
+        for (a1, e1), (a2, e2) in zip(lines, lines[1:]):
+            den = e1[0] * e2[1] - e1[1] * e2[0]
+            t = ((a2[0] - a1[0]) * e2[1] - (a2[1] - a1[1]) * e2[0]) / den
+            out.append((b["s_m"] + a1[0] + t * e1[0], a1[1] + t * e1[1]))
+        return out
+
+    def through_eave_cutters(self, k5, yf):
+        """T-2778: where an oriel is carried up through the eave (k01_frontage_params._bays,
+        `through_eave`), the hip's eave, soffit and the covering's lip in front of the wall
+        are cut away inside its plan, its runs moved THROUGH_EAVE_INSET_M in, so the eave
+        dies into its cants and runs on a few centimetres inside their walls. The cut faces
+        are walls (never emitted): the oriel's own walls stand in front of them."""
+        out = []
+        for b in self.p.bays:
+            if not b.get("through_eave"):
+                continue
+            if b["wall"] != "k01.wall.street_front" or self.p.mansard or self.p.gable or self.p.roof_form != "hip":
+                raise ValueError(f"{b['id']}: an oriel is carried through a hip's eave on the street front")
+            D = self.p.depth_m
+            plan = [(D + z, s) for s, z in self.through_eave_plan(b, self.THROUGH_EAVE_INSET_M)]
+            # (a, b) = (u, s): K05's world is (u, y, -s); the prism stands from under the soffit
+            # to over the covering's lip, which is all the hip has in front of the wall
+            out.append(k5.extrude(plan, yf - 0.5, self.p.eave_m + 1.0, lambda a, b_, c: (a, c, -b_),
+                                  "wall", "wall", "wall"))
+        return out
 
     def flat_roof(self):
         """The stone-front rowhouse's flat roof as ONE closed solid (T-2350), from K05's
@@ -2622,7 +2785,8 @@ class Assembly:
         lens = [W + 2 * A, D + 2 * A, W + 2 * A, D + 2 * A]
         starts = [sum(lens[:i]) for i in range(4)]
         P = sum(lens)
-        side_of = {"k01.wall.street_front": 0, "k01.wall.rear_service": 2, "k01.wall.side.south": 3}
+        side_of = {"k01.wall.street_front": 0, "k01.wall.side.north": 1, "k01.wall.rear_service": 2,
+                   "k01.wall.side.south": 3}
         outlets = sorted(starts[side_of[x["wall"]]] + A + x["s_m"] for x in r["downpipes"])
         gaps = [((outlets[(i + 1) % len(outlets)] - outlets[i]) % P) or P for i in range(len(outlets))]
         highs = [(outlets[i] + gaps[i] / 2) % P for i in range(len(outlets))]
@@ -2657,10 +2821,25 @@ class Assembly:
             return [(pt[0] - math.cos(a) * rad * out[0], pt[1] - math.sin(a) * rad, pt[2] - math.cos(a) * rad * out[2])
                     for a in secs], pt
 
+        # T-2778: the gutter stops in the cants of an oriel carried through the eave, each
+        # end run into its wall where the gutter's outer lip meets it, and no hanger stands
+        # inside it
+        dead = []
+        for b in p.bays:
+            if b.get("through_eave"):
+                q = self.through_eave_plan(b, self.THROUGH_EAVE_INSET_M)
+                zo = A + ro + 0.01
+                xs = [a[0] + (zo - a[1]) / (b_[1] - a[1]) * (b_[0] - a[0]) for a, b_ in zip(q, q[1:])
+                      if (a[1] - zo) * (b_[1] - zo) < 0]
+                if len(xs) != 2:
+                    raise ValueError(f"{b['id']}: the gutter's lip at {zo:.3f} m out does not cross its cants")
+                dead.append((A + min(xs), A + max(xs)))
         stations = sorted({*(round(x % P, 6) for x in starts), *(round(x, 6) for x in outlets),
-                           *(round(x, 6) for x in highs)})
+                           *(round(x, 6) for x in highs), *(round(x, 6) for d in dead for x in d)})
         pr = self.prim(mat)
         for a_, b_ in zip(stations, stations[1:] + [stations[0] + P]):
+            if any(d0 - 1e-6 <= (a_ + b_) / 2 <= d1 + 1e-6 for d0, d1 in dead):
+                continue
             (Ro, pa), (Rb, pb) = ring(a_, ro), ring(b_, ro)
             Ri, Rj = ring(a_, ri)[0], ring(b_, ri)[0]
             along = _unit(_sub(pb, pa))
@@ -2682,7 +2861,7 @@ class Assembly:
             while t < lens[i] - 0.30:
                 sv = starts[i] + t
                 t += r["bracket_spacing_m"]
-                if min(cyc(sv, x) for x in outlets) < 0.15:
+                if min(cyc(sv, x) for x in outlets) < 0.15 or any(d0 - 0.1 <= sv <= d1 + 0.1 for d0, d1 in dead):
                     continue
                 pt, _, _ = at(sv)
                 d, out = dirs[i], outs[i]
@@ -2701,7 +2880,8 @@ class Assembly:
         # kicked out over a splash stone: every pipe ends at ground
         walls = {"k01.wall.street_front": ((D, 0.0, 0.0), (0.0, 0.0, -1.0)),
                  "k01.wall.rear_service": ((0.0, 0.0, -W), (0.0, 0.0, 1.0)),
-                 "k01.wall.side.south": ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0))}
+                 "k01.wall.side.south": ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0)),
+                 "k01.wall.side.north": ((D, 0.0, -W), (-1.0, 0.0, 0.0))}   # T-2753
         rp = r["pipe_diameter_m"] / 2
         kick = math.radians(r["shoe_kick_deg"])
         for x in r["downpipes"]:
@@ -2913,6 +3093,8 @@ def build(params, structure_id: str):
         frames = {cid: (((O, R, _cross(R, Y)), t), mat) for cid, (mat, O, R, length, t, bands) in walls.items()}
         for op in p.openings:
             (frame, t), mat = frames[op.wall]
+            if p.on_frontispiece(op):   # T-2753: laid on the proud frontispiece's face
+                frame = a.frontispiece_frame(frame)
             a.opening(op, frame, t, mat, "limestone_trim", coursed=op.wall == "k01.wall.street_front")
         a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first
         for bay in p.bays:

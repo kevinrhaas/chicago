@@ -145,6 +145,8 @@ step "Each grade's look — tint, dither or ghost at an opacity — and the ghos
   node tools/test_confidence_looks.mjs
 step "The Confidence view's presets — NORMAL, BY GRADE, ATTESTED ONLY (exactly the two grades hidden by hand), X-RAY — and C toggling BY GRADE (T-2647)" \
   node tools/test_confidence_presets.mjs
+step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
+  node tools/test_confidence_rows.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
@@ -212,12 +214,18 @@ step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider who
 # T-2661: Guide's controls sheet.
 step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
   node tools/test_nav_guide.mjs
+# T-2644: Inspect's Sources tab.
+step "Inspect's Sources tab groups every fact by grade with real counts, names each source by its own citation with no id or tier label, folds the full citation, and lists Liberties by name (T-2644)" \
+  node tools/test_nav_sources.mjs
 # T-2645: Inspect's Photos tab.
 step "Inspect's Photos tab shows each picture's year, caption and credit by date, the 12 best first and All N, and From this spot only where a solved camera stood (T-2645)" \
   node tools/test_nav_photos.mjs
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
+# T-2666: Guide › For teachers, the teacher handout.
+step "Guide › For teachers prints the Field Check's seven steps from the tour itself and three Jaunts per destination by one stated rule, as one top-level copy the print stylesheet keeps (T-2666)" \
+  node tools/test_teacher_handout.mjs
 # T-2652: getting there — one choice for Go to, the Map and Jaunts.
 step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
   node tools/test_getting_there.mjs
