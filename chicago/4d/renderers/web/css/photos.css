@@ -1,0 +1,35 @@
+/* photos.css — Inspect's Photos tab (T-2645; DESIGN §08 "Photos"). A grid by date, each tile
+   its picture, its year, a caption, its credit and, where a solved camera says where it was
+   taken, From this spot. Two columns on a phone, more as the sheet widens. Every colour is a
+   skin token, so all four skins draw it; nothing moves, so reduced motion needs nothing here. */
+
+.ph-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: 12px 10px;
+  margin: 8px 0 12px; padding: 0; list-style: none; }
+.ph-item { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ph-tile { position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--edge); border-radius: 6px;
+  overflow: hidden; background: var(--panel-solid, #000); cursor: zoom-in; }
+.ph-tile:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.ph-thumb { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  filter: contrast(1.06) saturate(.88) sepia(.1); }
+.ph-year { position: absolute; left: 6px; bottom: 6px; padding: 2px 6px; border-radius: 3px;
+  font: var(--label-weight, 400) 0.75rem/1.3 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .04em; color: var(--ink); background: var(--panel, rgba(0, 0, 0, .7)); }
+.ph-year[data-undated] { color: var(--ink-dim); }
+.ph-cap { margin: 0; font: 400 0.9375rem/1.35 var(--font-body, inherit); color: var(--ink); }
+.ph-credit { margin: 0; font: 400 0.6875rem/1.35 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  color: var(--ink-dim); overflow-wrap: anywhere; }
+.ph-spot { align-self: flex-start; min-height: 36px; margin-top: 2px; padding: 0 10px; border: 1px solid var(--edge);
+  border-radius: var(--r-control, 4px); background: transparent; color: var(--accent); cursor: pointer;
+  font: var(--label-weight, 400) 10px/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .14em; text-transform: uppercase; }
+.ph-spot:hover { border-color: var(--accent); }
+.ph-spot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ph-all { min-height: 44px; background: transparent; color: var(--ink); cursor: pointer;
+  font: 500 0.9375rem/1.2 var(--font-body, inherit); }
+.ph-links { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--edge); }
+.ph-links summary { cursor: pointer; min-height: 32px; }
+.ph-link-list { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 0; padding-left: 1.2em;
+  font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.ph-link-list li { overflow-wrap: anywhere; }
+.ph-link-list a { color: var(--accent); }
+.ph-link-list .nav-sub { display: block; }

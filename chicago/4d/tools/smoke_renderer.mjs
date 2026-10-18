@@ -18415,6 +18415,73 @@ for (const [label, viewport, touch] of [
             && t.aimed === 'glessner_house' && t.outline),
           JSON.stringify(showMe));
         // <<< T-2640
+        // >>> T-2645 (NAV-510): Inspect's Photos tab on Glessner House — the 12 best by date, each
+        // with its year, a caption and its credit; All N shows every picture; From this spot only
+        // on a picture a solved camera names, and it stands the visitor where that camera stood.
+        const photosTab = await page.evaluate(async (id) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 300) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const pane = () => root()?.querySelector('[data-insp-pane="photos"]');
+          a.pick(id);
+          await a.navigator.select('inspect');
+          a.navigator.open(2);
+          await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+          root().querySelector('[data-insp-tab="photos"]')?.click();
+          await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+          const pics = await a.pictures();
+          const byId = new Map((pics?.by_structure?.[id] ?? []).map((p) => [p.id, p]));
+          const tiles = () => [...(pane()?.querySelectorAll('.ph-item') ?? [])].map((li) => ({
+            id: li.dataset.photo, year: li.querySelector('.ph-year')?.textContent.trim() ?? '',
+            caption: li.querySelector('.ph-cap')?.textContent.trim() ?? '', credit: li.querySelector('.ph-credit')?.textContent.trim() ?? '',
+            spot: !!li.querySelector('.ph-spot'), src: li.querySelector('.ph-thumb')?.getAttribute('src') ?? '' }));
+          const first = (y) => (/^\d{4}/.test(y) ? Number(y.slice(0, 4)) : Infinity);
+          const sorted = (list) => list.every((t, i) => i === 0 || first(list[i - 1].year) <= first(t.year));
+          const best = tiles();
+          const more = pane()?.querySelector('.ph-all');
+          const n = Number(/\d+/.exec(more?.textContent ?? '')?.[0] ?? 0);
+          more?.click();
+          const every = tiles();
+          // Everything the tab composes: credits are excluded, being the holder's own words (a
+          // licence such as CC BY-SA asks for the author's name exactly as given, w_lemay included).
+          const text = [...(pane()?.querySelectorAll('.ph-year, .ph-cap, .ph-status, .ph-all, .ph-spot, .insp-h, .ph-links a') ?? [])]
+            .map((n) => n.textContent).join(' ');
+          const out = { filled: pane()?.dataset.filled, best: best.length, n, all: every.length,
+            sortedBest: sorted(best), sortedAll: sorted(every),
+            unlabelled: every.filter((t) => !t.year || !t.caption || !t.credit || !t.src).map((t) => t.id).slice(0, 4),
+            // a From this spot button exactly where the pictures file records a spot
+            spotMismatch: every.filter((t) => t.spot !== !!byId.get(t.id)?.spot).map((t) => t.id).slice(0, 4),
+            spots: every.filter((t) => t.spot).length,
+            plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\.jpg\b|\bdata\/|\bT-\d{3,}/.test(text),
+            overflow: document.documentElement.scrollWidth > innerWidth, move: null };
+          // From this spot: stand where the first picture with a spot was taken.
+          const btn = pane()?.querySelector('.ph-item .ph-spot');
+          if (btn) {
+            const picture = byId.get(btn.closest('.ph-item').dataset.photo);
+            const pl = a.registry.get(id)?.sidecar?.placement;
+            const th = (pl.rotation_deg ?? 0) * Math.PI / 180;
+            const want = { e: pl.local_e + picture.spot.u * Math.cos(th) + picture.spot.v * Math.sin(th),
+              n: pl.local_n - picture.spot.u * Math.sin(th) + picture.spot.v * Math.cos(th),
+              yaw: (((picture.spot.bearing + (pl.rotation_deg ?? 0)) % 360) + 360) % 360 };
+            const before = a.showMe.last?.at ?? -1;
+            btn.click();
+            // Show me's glide is 900 ms of frames, and a frame can take seconds on the desktop runner.
+            await wait(() => (a.showMe.last?.at ?? -1) !== before, 300);
+            await wait(() => Math.hypot(a.player.e - want.e, a.player.n - want.n) < 1.5, 50);
+            const yaw = ((a.player.bearingDeg % 360) + 360) % 360;
+            out.move = { want, at: { e: a.player.e, n: a.player.n, yaw }, dist: Math.hypot(a.player.e - want.e, a.player.n - want.n),
+              turn: Math.abs(((yaw - want.yaw + 540) % 360) - 180) };
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, 'glessner_house');
+        check(`${label}: Inspect's Photos tab shows Glessner's 12 best by date with year, caption and credit, All N the rest, and From this spot stands you where the camera stood (T-2645)`,
+          photosTab.filled === 'yes' && photosTab.best === 12 && photosTab.n > 12 && photosTab.all === photosTab.n
+          && photosTab.sortedBest && photosTab.sortedAll && photosTab.unlabelled.length === 0
+          && photosTab.spotMismatch.length === 0 && photosTab.spots >= 1 && !photosTab.plumbing && !photosTab.overflow
+          && !!photosTab.move && photosTab.move.dist < 1.5 && photosTab.move.turn <= 2,
+          JSON.stringify(photosTab).slice(0, 900));
+        // <<< T-2645
         check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
           survivalCard.facts.some(([k, v]) => k === 'Stood here' && v === '1887 – 1946')
           && !survivalCard.facts.some(([k]) => k === 'Standing')
