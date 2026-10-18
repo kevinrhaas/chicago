@@ -15348,10 +15348,14 @@ for (const [label, viewport, touch] of [
     // gate is shown to fire: a planted row of the pre-declutter chips puts it over budget.
     const HUD_BUDGET_PCT = 10;
     const hudFootprint = () => page.evaluate(async () => {
-      for (let i = 0; i < 40; i++) {
+      // The hint fades on a timer that only runs between frames, which on a starved runner take
+      // seconds: wait for it up to 30 s. A hint still up after that is a passing prompt, not the
+      // HUD's steady state, so it is left out like the look tag and reported.
+      for (let i = 0; i < 200; i++) {
         if (!document.getElementById('hint')?.classList.contains('on')) break;
         await new Promise((r) => setTimeout(r, 150));
       }
+      const hintUp = !!document.getElementById('hint')?.classList.contains('on');
       const W = innerWidth, H = innerHeight, cell = 2;
       const cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
       const grid = new Uint8Array(cols * rows);
@@ -15379,6 +15383,7 @@ for (const [label, viewport, touch] of [
           // checks both). On the phone leg it can show here only because this run's earlier
           // trusted mouse clicks made pointer lock the live controls (main.js, pointerType).
           if (el.id === 'look-tag') continue;
+          if (el.closest('#hint')) continue;
           // T-2741's street readout has its own off switch (#street-toggle, Settings › Show):
           // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
           if (el.closest('#street-readout')) continue;
@@ -15402,7 +15407,7 @@ for (const [label, viewport, touch] of [
       const srBox = sr && shown(sr) ? sr.getBoundingClientRect() : null;
       const streetReadout = srBox ? +((srBox.width * srBox.height) / (W * H) * 100).toFixed(2) : 0;
       return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
-        controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden };
+        controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
     const footprints = [await hudFootprint()];
