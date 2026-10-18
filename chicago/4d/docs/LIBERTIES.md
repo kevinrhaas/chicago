@@ -26189,6 +26189,39 @@ section and brings the match record to `matches`.
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2752).
 
+### L-k01-1625-mcbirney-frontispiece-2753 — 1625 Prairie's frontispiece stood proud with its quoins, the door's surround, a carved panel and the hood mould, and the lower windows in dressed surrounds
+
+**Decision:** 1625's front no longer lays its south part in the plane of the rest (T-2753, piece 2
+of T-2731). From its north arris at 3.81 m to the south corner, and from grade to the hood mould
+over the four-light window, the front stands proud (K01's new `street_front_frontispiece`): its
+coursing, the four-light window and the door are laid on that face; both its arrises are quoined
+long and short in turn; the door stands in a dressed surround under a carved panel; and a
+weathered hood mould caps it at 7.05-7.30 m. The ground and first floors' windows stand in dressed
+surrounds, and one string course under the first floor's sills replaces K01's two belts
+(`street_front_windows.surrounds`, `.belts`). The south downpipe moves to the open side wall by the
+corner, where the print draws it, clear of the frontispiece.
+**What is read, not invented.** Through the photograph's solved camera (38.6 px/m at the front's
+plane, grade y 795 px, the party wall x 140 px), on 3x crops of the print: the frontispiece's north
+arris (x 287 px) and the quoins' column there and at the south corner; the hood mould's place and
+depth (y 513-523 px); the string course's (y 637-643 px in the north part); the door surround's
+band and lintel; the carved panel's width and centre (x 343-375 px); the dressed jambs and lintels
+of the lower windows and how far they run past the openings.
+**What is invented.** How far the frontispiece stands proud: the print is taken square to the front
+and shows the projection only as a line, so 0.10 m is ours ("slightly proud", as T-2752 read it).
+The hood mould's overhang past the face (0.08 m) and its drip are ours; the print shows its shadow,
+not its depth. The quoins' and jamb stones' lengths are rounded to K02's dressed courses (0.25 and
+0.42 m at the arrises, 0.18 and 0.30 m at the windows), and the stones are the coursing's own,
+dressed and laid flush, so they rise course by course with the walling, not to the print's own
+joints. The panel's carving (figures about a cartouche) is not modelled: a raised moulded border
+with a raised oval cartouche stands for it. The panel is 0.51 m tall where the print's is 0.86 m,
+and the surround's lintel 0.30 m where the print's is 0.47 m, because the door they frame is K07's,
+which stands about 0.5 m taller than the print's door; that difference is open in the match record.
+**How to resolve:** T-2754 weighs the door's height and the plinth's and brings the match record to
+`matches`; a view of 1625 from the north or south would measure the projection.
+**Ticket:** T-2753 (piece 2 of T-2731).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-18 (T-2753).
+
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
 **Decision:** `house_1619_prairie` keeps the K01 stone front T-2420 built from Treat & Foltz's drawing
