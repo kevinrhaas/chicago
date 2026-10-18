@@ -62,3 +62,11 @@ for animation in d['animations']:
  animation['extras']['status']='synthetic_skinned_fixture_not_measured_motion'
 d['asset']['generator']='original procedural equine skinned fixture';d['nodes'][0]['extras']['chicago4d_equine'].update(status='original_conjectural_skinned_prototype',version='fixture_0.2');d['buffers']=[{'byteLength':len(blob)}];jb=json.dumps(d,separators=(',',':')).encode();jb+=b' '*((-len(jb))%4);blob+=b'\0'*((-len(blob))%4);encoded=struct.pack('<III',0x46546c67,2,28+len(jb)+len(blob))+struct.pack('<II',len(jb),0x4e4f534a)+jb+struct.pack('<II',len(blob),0x004e4942)+blob
 file=out/'equine_light_harness_skinned_prototype_01.glb';file.write_bytes(encoded);f.unlink();(out/'manifest.json').write_text(json.dumps({'asset_id':'equine_light_harness_skinned_prototype_01','license':'CC0-1.0','bytes':len(encoded),'triangles':sum(len(g['i'])//3 for g in groups.values()),'mesh_draws':len(newmeshes),'skin_joints':len(joints),'joint_table':[{'index':ji[j],'node':j,'name':nodes[j]['name'],'parent_joint':nodes[owner(parent[j])]['name'] if j in parent else None,'world_rest_m':jpos[j].tolist()} for j in joints],'vertex_ranges':ranges,'status':'prototype smooth-weighted skin; anatomical topology/rig/photographic acceptance outstanding'},indent=2)+'\n');print(file)
+
+# Consumers use these authored values instead of coupling to generator literals.
+manifest=json.loads((out/'manifest.json').read_text())
+manifest['frame']={'units':'metres','up':'+Y','forward':'+Z','anatomical_left':'+X','root_origin':'ground below support midpoint'}
+manifest['locomotion']={a['name']:{k:v for k,v in a['extras'].items() if k in ('cycle_duration_s','speed_m_s','stride_m','stance_fraction','phase_offsets','foot_contacts','in_place','status','motion_basis')} for a in d['animations']}
+manifest['sockets']=[{'name':n['name'],'parent':nodes[parent[i]]['name'] if i in parent else None,'translation_m':n.get('translation',[0,0,0]),'rotation_xyzw':n.get('rotation',[0,0,0,1]),'world_rest_matrix_column_major':W(i).flatten(order='F').tolist(),'status':n.get('extras',{}).get('status','provisional_unfitted')} for i,n in enumerate(nodes) if n['name'].startswith('socket_equine_')]
+manifest['rig_status']='15-joint prototype; multi-bone anatomical chains remain unresolved'
+(out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

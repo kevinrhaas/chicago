@@ -17,7 +17,7 @@ def acc(data,typ,comp=5126):
  D['accessors'].append(a);return len(D['accessors'])-1
 def mat(name,c,rough=.8):
  D['materials'].append({'name':name,'pbrMetallicRoughness':{'baseColorFactor':[*c,1],'metallicFactor':0,'roughnessFactor':rough}});return len(D['materials'])-1
-coat=mat('equine_coat',params['coat_linear_rgb']);dark=mat('equine_mane_tail',[.028,.018,.012]);hoofmat=mat('equine_hooves',[.10,.09,.075]);eye=mat('equine_eyes',[.018,.012,.008],.16);muzzle=mat('equine_muzzle',[.105,.065,.048]);inner=mat('equine_ear_inner',[.16,.085,.060])
+coat=mat('equine_coat',params['coat_linear_rgb']);dark=mat('equine_mane_tail',[.028,.018,.012]);hoofmat=mat('equine_hooves',[.10,.09,.075]);eye=mat('equine_eyes',[.018,.012,.008],.16);muzzle=mat('equine_muzzle',[.16,.09,.055]);inner=mat('equine_ear_inner',[.16,.085,.060])
 def node(name,parent=None,pos=(0,0,0),mesh=None,extras=None):
  n={'name':name,'translation':list(pos)}
  if mesh is not None:n['mesh']=mesh
@@ -61,14 +61,16 @@ def ell(name,p,r,ma,parent=root):
 loft('continuous_body_neck',[(0,1.19,-.90,.035,.04,0),(0,1.22,-.78,.21,.25,0),(0,1.20,-.55,.27,.32,0),(0,1.16,-.22,.28,.35,0),(0,1.17,.10,.25,.34,-.015),(0,1.25,.34,.25,.31,-.11),(0,1.43,.47,.17,.21,-.14),(0,1.63,.65,.13,.18,-.12),(0,1.80,.70,.10,.15,-.10),(0,1.89,.78,.08,.10,-.07)],coat)
 head=node('head',root,(0,1.88,.80));ell('cranium',(0,0,.065),(.115,.16,.19),coat,head)
 loft('face',[(0,.03,.12,.10,.13,0),(0,-.04,.24,.085,.105,0),(0,-.14,.36,.075,.085,0),(0,-.18,.43,.08,.065,0)],coat,head)
-ell('muzzle',(0,-.185,.435),(.095,.075,.095),muzzle,head)
+# Tapered muzzle with a flatter nasal end and a separate thin mouth crease.
+loft('muzzle',[(0,-.17,.375,.073,.059,0),(0,-.182,.425,.086,.065,0),(0,-.188,.475,.083,.056,0),(0,-.19,.505,.067,.043,0),(0,-.19,.514,.045,.028,0)],muzzle,head)
+ell('mouth_crease',(0,-.232,.465),(.070,.004,.036),dark,head)
 for s in [-1,1]:
  ell('eye_'+('l' if s==1 else 'r'),(s*.108,.025,.13),(.010,.016,.025),eye,head)
- ell('nostril_'+str(s),(s*.079,-.185,.465),(.004,.013,.017),dark,head)
- loft('ear_'+str(s),[(s*.075,.12,0,.043,.018,0),(s*.09,.25,-.018,.033,.018,0),(s*.09,.27,-.025,.002,.002,0)],coat,head)
+ ell('nostril_'+str(s),(s*.081,-.172,.462),(.004,.017,.026),dark,head)
+ loft('ear_'+str(s),[(s*.075,.12,0,.043,.018,0),(s*.09,.22,-.018,.026,.014,0),(s*.09,.32,-.025,.0008,.0008,0)],coat,head)
  ell('cheek_'+str(s),(s*.052,-.06,.10),(.055,.085,.10),coat,head)
 # Narrow crest mane and tapered hanging tail, without alpha cards.
-loft('mane',[(0,1.41,.28,.026,.025,-.03),(0,1.65,.36,.035,.04,-.03),(0,1.77,.55,.03,.04,-.03),(0,1.96,.70,.018,.025,-.02)],dark)
+loft('mane',[(0,1.39,.30,.009,.015,-.025),(0,1.48,.33,.035,.045,-.055),(0,1.65,.48,.034,.045,-.05),(0,1.80,.59,.028,.04,-.045),(0,1.93,.71,.016,.025,-.035)],dark)
 tail=node('tail_base',root,(0,1.38,-.88));loft('tail',[(0,0,0,.065,.02,-.02),(0,-.20,-.10,.075,.02,-.03),(0,-.48,-.15,.065,.02,-.03),(0,-.82,-.13,.025,.01,-.01),(0,-.94,-.10,.002,.002,-.002)],dark,tail)
 def segment(name,L,ra,rb,ma,parent):
  return loft(name,[(0,0,0,ra,.001,ra),(0,-L*.18,0,ra,0,ra),(0,-L*.82,0,rb,0,rb),(0,-L,0,rb*.85,0,rb*.85)],ma,parent)
@@ -78,13 +80,14 @@ for fore in [True,False]:
   label=('fore' if fore else 'hind')+('_l' if s==1 else '_r');x=s*params['limb_lateral_offset_m'];z=.43 if fore else -.63;y=1.24
   a=node(label+'_upper',root,(x,y,z));segment(label+'_upper_mesh',.65,.11 if fore else .125,.047,coat,a)
   b=node(label+('_carpus' if fore else '_hock'),a,(0,-.65,0));segment(label+'_cannon',.55,.045,.032,coat,b)
-  c=node(label+'_fetlock',b,(0,-.55,0));ell(label+'_fetlock_mesh',(0,0,0),(.038,.041,.044),coat,c)
+  c=node(label+'_fetlock',b,(0,-.55,0));ell(label+'_fetlock_mesh',(0,-.006,-.012),(.036,.046,.044),coat,c)
   segment(label+'_pastern',.06,.032,.039,coat,c)
-  loft(label+'_hoof',[(0,-.055,.01,.043,0,.062),(0,-.10,.025,.058,0,.085)],hoofmat,c)
+  # Sloping hoof wall: narrow coronet, fuller toe and flat authored sole.
+  loft(label+'_hoof',[(0,-.048,.004,.038,0,.050),(0,-.062,.008,.044,0,.060),(0,-.092,.022,.057,0,.082),(0,-.10,.025,.060,0,.090)],hoofmat,c)
   contact=node(label+'_contact',c,(0,-.10,.025),extras={'role':'hoof_ground_contact'})
   limbs.append((label,a,b,c,x,y,z,fore))
 # Prototype sockets only: position deliberately explicit; no fitted harness or saddle is claimed.
-for name,p in [('saddle',(0,1.48,-.12)),('rider_seat',(0,1.60,-.12)),('trace_l',(.28,1.17,.20)),('trace_r',(-.28,1.17,.20)),('breeching_l',(.28,1.1,-.7)),('breeching_r',(-.28,1.1,-.7)),('shaft_l',(.36,1.0,.05)),('shaft_r',(-.36,1.0,.05))]:node('socket_equine_'+name,root,p,extras={'status':'provisional_unfitted','role':name})
+for name,p in [('saddle',(0,1.48,-.12)),('rider_seat',(0,1.60,-.12)),('trace_l',(.28,1.17,.20)),('trace_r',(-.28,1.17,.20)),('breeching_l',(.28,1.1,-.7)),('breeching_r',(-.28,1.1,-.7)),('shaft_l',(params.get('shaft_lateral_offset_m',.405),1.0,.05)),('shaft_r',(-params.get('shaft_lateral_offset_m',.405),1.0,.05))]:node('socket_equine_'+name,root,p,extras={'status':'provisional_unfitted','role':name})
 for s in [1,-1]:node('socket_equine_bit_'+('l' if s==1 else 'r'),head,(s*.095,-.20,.39),extras={'status':'provisional_unfitted'})
 def rz(a):return [0,0,math.sin(a/2),math.cos(a/2)]
 # Rotations are around local X: forward axis +Z; v=(0,-L*cos(a),-L*sin(a)).
@@ -92,24 +95,31 @@ def rx(a):return [math.sin(a/2),0,0,math.cos(a/2)]
 def ik(y,z,fore):
  L1=.65;L2=.55;r=math.hypot(y,z);co=max(-1,min(1,(r*r-L1*L1-L2*L2)/(2*L1*L2)));bend=math.acos(co)*(1 if fore else -1)
  theta=math.atan2(-z,-y)-math.atan2(L2*math.sin(bend),L1+L2*math.cos(bend));return theta,bend
-contacts={};K=97;T=params['walk_cycle_duration_s'];stride=params['stance_sweep_m']
+contacts={};K=193;T=params['walk_cycle_duration_s'];stride=params['stance_sweep_m'];S=params.get('stance_fraction',.62)
+assert 0<S<1 and T>0 and stride>0
+phase_offsets={'hind_l':0,'fore_l':.25,'hind_r':.5,'fore_r':.75}
 for clip in ['idle','walk']:
- sam=[];chan=[];times=[i*T/(K-1) for i in range(K)];ti=acc(times,'SCALAR')
+ sam=[];chan=[];times=sorted({i*T/(K-1) for i in range(K)}|{((S-off)%1)*T for off in phase_offsets.values()});ti=acc(times,'SCALAR')
  def track(n,path,vals,typ='VEC4'):
   sam.append({'input':ti,'output':acc(vals,typ),'interpolation':'LINEAR'});chan.append({'sampler':len(sam)-1,'target':{'node':n,'path':path}})
  for j,(label,a,b,c,x,y,z,fore) in enumerate(limbs):
-  A=[];B=[];C=[];off={'hind_l':0,'fore_l':.25,'hind_r':.5,'fore_r':.75}[label]
+  A=[];B=[];C=[];off=phase_offsets[label]
   for t in times:
    phase=(t/T+off)%1
    if clip=='idle':dz=0;lift=0
-   elif phase<.62:dz=stride*(.5-phase/.62);lift=0
-   else:q=(phase-.62)/.38;dz=stride*(-.5+q);lift=params['hoof_lift_m']*math.sin(math.pi*q)
+   elif phase<S:dz=stride*(.5-phase/S);lift=0
+   else:
+    # Hermite swing matches planted-foot travel velocity at lift-off/touchdown.
+    # Quartic lift has zero endpoint velocity: a synthetic engineering choice.
+    q=(phase-S)/(1-S);m=-stride*(1-S)/S
+    dz=(2*q**3-3*q*q+1)*(-stride/2)+(q**3-2*q*q+q)*m+(-2*q**3+3*q*q)*(stride/2)+(q**3-q*q)*m
+    lift=params['hoof_lift_m']*16*q*q*(1-q)*(1-q)
    aa,bb=ik(.10+lift-y,dz,fore);A.append(rx(aa));B.append(rx(bb));C.append(rx(-aa-bb))
   track(a,'rotation',A);track(b,'rotation',B);track(c,'rotation',C)
-  contacts[label]={'phase_offset':off,'stance':[0,.62]}
+  contacts[label]={'phase_offset':off,'stance':[0,S]}
  track(tail,'rotation',[rx(.045*math.sin(2*math.pi*t/T)) for t in times])
  track(head,'rotation',[rx((.015 if clip=='idle' else .025)*math.sin(2*math.pi*t/T)) for t in times])
- D['animations'].append({'name':clip,'samplers':sam,'channels':chan,'extras':{'in_place':True,'cycle_duration_s':T,'speed_m_s':stride/(.62*T) if clip=='walk' else 0,'stride_m':stride/.62 if clip=='walk' else 0,'foot_contacts':contacts if clip=='walk' else 'all','status':'synthetic_kinematic_fixture_not_measured_motion'}})
+ D['animations'].append({'name':clip,'samplers':sam,'channels':chan,'extras':{'in_place':True,'cycle_duration_s':T,'speed_m_s':stride/(S*T) if clip=='walk' else 0,'stride_m':stride/S if clip=='walk' else 0,'stance_fraction':S if clip=='walk' else 1,'foot_contacts':contacts if clip=='walk' else 'all','phase_offsets':phase_offsets if clip=='walk' else {},'motion_basis':'synthetic contact-continuous Hermite swing; not measured motion','status':'synthetic_kinematic_fixture_not_measured_motion'}})
 # Rest pose is the exact neutral IK stance.
 for label,a,b,c,x,y,z,fore in limbs:
  aa,bb=ik(.10-y,0,fore);D['nodes'][a]['rotation']=rx(aa);D['nodes'][b]['rotation']=rx(bb);D['nodes'][c]['rotation']=rx(-aa-bb)

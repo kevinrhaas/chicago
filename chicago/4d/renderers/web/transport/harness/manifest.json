@@ -36,9 +36,9 @@
   "anchors": {
     "socket_harness_trace_l": {
       "translation_m": [
-        0.31,
-        1.17,
-        0.2
+        0.238396,
+        1.337854,
+        0.199043
       ],
       "rotation_xyzw": [
         0,
@@ -78,7 +78,7 @@
     },
     "socket_harness_shaft_l": {
       "translation_m": [
-        0.36,
+        0.405,
         1.0,
         0.05
       ],
@@ -121,9 +121,9 @@
     },
     "socket_harness_trace_r": {
       "translation_m": [
-        -0.31,
-        1.17,
-        0.2
+        -0.238396,
+        1.337854,
+        0.199043
       ],
       "rotation_xyzw": [
         0,
@@ -163,7 +163,7 @@
     },
     "socket_harness_shaft_r": {
       "translation_m": [
-        -0.36,
+        -0.405,
         1.0,
         0.05
       ],
@@ -236,7 +236,24 @@
     "Blender authored master",
     "sourced buckle and mouthpiece shapes"
   ],
-  "triangles": 5188,
-  "mesh_count": 32,
-  "glb_bytes": 396960
+  "triangles": 7532,
+  "mesh_count": 36,
+  "glb_bytes": 568416,
+  "shaft_tugs": {
+    "center_m": [
+      0.405,
+      1.0,
+      0.05
+    ],
+    "bore_radius_m": 0.037,
+    "section_radius_m": 0.006,
+    "grade": "reconstructed",
+    "geometry": "open round-section loop in local XY plane; support webbing to girth/saddle; no source-plate or force qualification",
+    "mesh_names": [
+      "shaft_tug_l",
+      "shaft_tug_r",
+      "shaft_tug_support_l",
+      "shaft_tug_support_r"
+    ]
+  }
 }

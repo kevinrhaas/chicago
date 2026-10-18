@@ -1,8 +1,8 @@
 {
   "asset_id": "equine_light_harness_skinned_prototype_01",
   "license": "CC0-1.0",
-  "bytes": 580876,
-  "triangles": 13872,
+  "bytes": 661624,
+  "triangles": 14544,
   "mesh_draws": 5,
   "skin_joints": 15,
   "joint_table": [
@@ -30,7 +30,7 @@
     },
     {
       "index": 2,
-      "node": 15,
+      "node": 16,
       "name": "tail_base",
       "parent_joint": "root",
       "world_rest_m": [
@@ -41,7 +41,7 @@
     },
     {
       "index": 3,
-      "node": 17,
+      "node": 18,
       "name": "fore_l_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -52,7 +52,7 @@
     },
     {
       "index": 4,
-      "node": 19,
+      "node": 20,
       "name": "fore_l_carpus",
       "parent_joint": "fore_l_upper",
       "world_rest_m": [
@@ -63,7 +63,7 @@
     },
     {
       "index": 5,
-      "node": 21,
+      "node": 22,
       "name": "fore_l_fetlock",
       "parent_joint": "fore_l_carpus",
       "world_rest_m": [
@@ -74,7 +74,7 @@
     },
     {
       "index": 6,
-      "node": 26,
+      "node": 27,
       "name": "fore_r_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -85,7 +85,7 @@
     },
     {
       "index": 7,
-      "node": 28,
+      "node": 29,
       "name": "fore_r_carpus",
       "parent_joint": "fore_r_upper",
       "world_rest_m": [
@@ -96,7 +96,7 @@
     },
     {
       "index": 8,
-      "node": 30,
+      "node": 31,
       "name": "fore_r_fetlock",
       "parent_joint": "fore_r_carpus",
       "world_rest_m": [
@@ -107,7 +107,7 @@
     },
     {
       "index": 9,
-      "node": 35,
+      "node": 36,
       "name": "hind_l_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -118,7 +118,7 @@
     },
     {
       "index": 10,
-      "node": 37,
+      "node": 38,
       "name": "hind_l_hock",
       "parent_joint": "hind_l_upper",
       "world_rest_m": [
@@ -129,7 +129,7 @@
     },
     {
       "index": 11,
-      "node": 39,
+      "node": 40,
       "name": "hind_l_fetlock",
       "parent_joint": "hind_l_hock",
       "world_rest_m": [
@@ -140,7 +140,7 @@
     },
     {
       "index": 12,
-      "node": 44,
+      "node": 45,
       "name": "hind_r_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -151,7 +151,7 @@
     },
     {
       "index": 13,
-      "node": 46,
+      "node": 47,
       "name": "hind_r_hock",
       "parent_joint": "hind_r_upper",
       "world_rest_m": [
@@ -162,7 +162,7 @@
     },
     {
       "index": 14,
-      "node": 48,
+      "node": 49,
       "name": "hind_r_fetlock",
       "parent_joint": "hind_r_hock",
       "world_rest_m": [
@@ -184,20 +184,20 @@
       "original_node": "muzzle",
       "material": 4,
       "vertex_start": 0,
-      "vertex_count": 410,
+      "vertex_count": 122,
       "joint": "head"
     },
     {
       "original_node": "mane",
       "material": 1,
       "vertex_start": 0,
-      "vertex_count": 98,
+      "vertex_count": 122,
       "joint": "root"
     },
     {
       "original_node": "tail",
       "material": 1,
-      "vertex_start": 98,
+      "vertex_start": 122,
       "vertex_count": 122,
       "joint": "tail_base"
     },
@@ -219,7 +219,7 @@
       "original_node": "fore_l_hoof",
       "material": 2,
       "vertex_start": 0,
-      "vertex_count": 50,
+      "vertex_count": 98,
       "joint": "fore_l_fetlock"
     },
     {
@@ -239,8 +239,8 @@
     {
       "original_node": "fore_r_hoof",
       "material": 2,
-      "vertex_start": 50,
-      "vertex_count": 50,
+      "vertex_start": 98,
+      "vertex_count": 98,
       "joint": "fore_r_fetlock"
     },
     {
@@ -260,8 +260,8 @@
     {
       "original_node": "hind_l_hoof",
       "material": 2,
-      "vertex_start": 100,
-      "vertex_count": 50,
+      "vertex_start": 196,
+      "vertex_count": 98,
       "joint": "hind_l_fetlock"
     },
     {
@@ -281,8 +281,8 @@
     {
       "original_node": "hind_r_hoof",
       "material": 2,
-      "vertex_start": 150,
-      "vertex_count": 50,
+      "vertex_start": 294,
+      "vertex_count": 98,
       "joint": "hind_r_fetlock"
     },
     {
@@ -293,16 +293,16 @@
       "joint": "head"
     },
     {
-      "original_node": "head_material_equine_eyes",
-      "material": 3,
-      "vertex_start": 0,
-      "vertex_count": 820,
+      "original_node": "head_material_equine_mane_tail",
+      "material": 1,
+      "vertex_start": 244,
+      "vertex_count": 1230,
       "joint": "head"
     },
     {
-      "original_node": "head_material_equine_mane_tail",
-      "material": 1,
-      "vertex_start": 220,
+      "original_node": "head_material_equine_eyes",
+      "material": 3,
+      "vertex_start": 0,
       "vertex_count": 820,
       "joint": "head"
     },
@@ -335,5 +335,413 @@
       "joint": "hind_r_fetlock"
     }
   ],
-  "status": "prototype smooth-weighted skin; anatomical topology/rig/photographic acceptance outstanding"
+  "status": "prototype smooth-weighted skin; anatomical topology/rig/photographic acceptance outstanding",
+  "frame": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "anatomical_left": "+X",
+    "root_origin": "ground below support midpoint"
+  },
+  "locomotion": {
+    "idle": {
+      "in_place": true,
+      "cycle_duration_s": 1.25,
+      "speed_m_s": 0,
+      "stride_m": 0,
+      "stance_fraction": 1,
+      "foot_contacts": "all",
+      "phase_offsets": {},
+      "motion_basis": "synthetic contact-continuous Hermite swing; not measured motion",
+      "status": "synthetic_skinned_fixture_not_measured_motion"
+    },
+    "walk": {
+      "in_place": true,
+      "cycle_duration_s": 1.25,
+      "speed_m_s": 0.9290322580645161,
+      "stride_m": 1.161290322580645,
+      "stance_fraction": 0.62,
+      "foot_contacts": {
+        "fore_l": {
+          "phase_offset": 0.25,
+          "stance": [
+            0,
+            0.62
+          ]
+        },
+        "fore_r": {
+          "phase_offset": 0.75,
+          "stance": [
+            0,
+            0.62
+          ]
+        },
+        "hind_l": {
+          "phase_offset": 0,
+          "stance": [
+            0,
+            0.62
+          ]
+        },
+        "hind_r": {
+          "phase_offset": 0.5,
+          "stance": [
+            0,
+            0.62
+          ]
+        }
+      },
+      "phase_offsets": {
+        "hind_l": 0,
+        "fore_l": 0.25,
+        "hind_r": 0.5,
+        "fore_r": 0.75
+      },
+      "motion_basis": "synthetic contact-continuous Hermite swing; not measured motion",
+      "status": "synthetic_skinned_fixture_not_measured_motion"
+    }
+  },
+  "sockets": [
+    {
+      "name": "socket_equine_saddle",
+      "parent": "root",
+      "translation_m": [
+        0,
+        1.48,
+        -0.12
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.48,
+        -0.12,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_rider_seat",
+      "parent": "root",
+      "translation_m": [
+        0,
+        1.6,
+        -0.12
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.6,
+        -0.12,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_trace_l",
+      "parent": "root",
+      "translation_m": [
+        0.28,
+        1.17,
+        0.2
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.28,
+        1.17,
+        0.2,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_trace_r",
+      "parent": "root",
+      "translation_m": [
+        -0.28,
+        1.17,
+        0.2
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.28,
+        1.17,
+        0.2,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_breeching_l",
+      "parent": "root",
+      "translation_m": [
+        0.28,
+        1.1,
+        -0.7
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.28,
+        1.1,
+        -0.7,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_breeching_r",
+      "parent": "root",
+      "translation_m": [
+        -0.28,
+        1.1,
+        -0.7
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.28,
+        1.1,
+        -0.7,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_shaft_l",
+      "parent": "root",
+      "translation_m": [
+        0.405,
+        1.0,
+        0.05
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.405,
+        1.0,
+        0.05,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_shaft_r",
+      "parent": "root",
+      "translation_m": [
+        -0.405,
+        1.0,
+        0.05
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.405,
+        1.0,
+        0.05,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_bit_l",
+      "parent": "head",
+      "translation_m": [
+        0.095,
+        -0.2,
+        0.39
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.095,
+        1.68,
+        1.19,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    },
+    {
+      "name": "socket_equine_bit_r",
+      "parent": "head",
+      "translation_m": [
+        -0.095,
+        -0.2,
+        0.39
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_rest_matrix_column_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.095,
+        1.68,
+        1.19,
+        1.0
+      ],
+      "status": "provisional_unfitted"
+    }
+  ],
+  "rig_status": "15-joint prototype; multi-bone anatomical chains remain unresolved"
 }

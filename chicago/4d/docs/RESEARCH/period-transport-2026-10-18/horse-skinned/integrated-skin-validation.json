@@ -10,17 +10,17 @@
     },
     {
       "name": "skinned_equine_mane_tail",
-      "vertices": 1040,
+      "vertices": 1474,
       "joints": 15,
       "mixed_weight_vertices": 50,
-      "max_displacement_m": 5.4039008776099167e-8
+      "max_displacement_m": 6.111518313118978e-8
     },
     {
       "name": "skinned_equine_hooves",
-      "vertices": 200,
+      "vertices": 392,
       "joints": 15,
       "mixed_weight_vertices": 0,
-      "max_displacement_m": 2.5624505339561106e-8
+      "max_displacement_m": 2.5599515052781404e-8
     },
     {
       "name": "skinned_equine_eyes",
@@ -31,7 +31,7 @@
     },
     {
       "name": "skinned_equine_muzzle",
-      "vertices": 410,
+      "vertices": 122,
       "joints": 15,
       "mixed_weight_vertices": 0,
       "max_displacement_m": 1.2839233334631493e-8
@@ -43,43 +43,43 @@
       "vertices": 4534,
       "joints": 15,
       "mixed_weight_vertices": 3604,
-      "max_displacement_m": 0.3033790765160229
+      "max_displacement_m": 0.3033782677228607
     },
     {
       "name": "skinned_equine_mane_tail",
-      "vertices": 1040,
+      "vertices": 1474,
       "joints": 15,
       "mixed_weight_vertices": 50,
-      "max_displacement_m": 0.03854324418041909
+      "max_displacement_m": 0.03855487912691722
     },
     {
       "name": "skinned_equine_hooves",
-      "vertices": 200,
+      "vertices": 392,
       "joints": 15,
       "mixed_weight_vertices": 0,
-      "max_displacement_m": 0.30193888690230114
+      "max_displacement_m": 0.3019366151179804
     },
     {
       "name": "skinned_equine_eyes",
       "vertices": 820,
       "joints": 15,
       "mixed_weight_vertices": 392,
-      "max_displacement_m": 0.0035511289230694717
+      "max_displacement_m": 0.0035522010048982607
     },
     {
       "name": "skinned_equine_muzzle",
-      "vertices": 410,
+      "vertices": 122,
       "joints": 15,
       "mixed_weight_vertices": 0,
-      "max_displacement_m": 0.012769467787544213
+      "max_displacement_m": 0.012627616202008479
     }
   ],
   "actual_rest_sole_vertex_count": 100,
-  "rest_sole_max_height_m": 9.357992021762226e-9,
+  "rest_sole_max_height_m": 9.394667716791268e-9,
   "walk_samples": 1001,
-  "actual_sole_stance_drift_m": 0.006427450332015638,
-  "actual_sole_stance_max_height_error_m": 0.0021939298911993195,
-  "actual_sole_min_y_m": -0.0001404540403490981,
+  "actual_sole_stance_drift_m": 0.00002009128421409656,
+  "actual_sole_stance_max_height_error_m": 0.000039603712960696544,
+  "actual_sole_min_y_m": -0.000039603712960696544,
   "contact_definition": "all existing authored hoof vertices on the rest sole plane; no added/repositioned markers",
   "no_foot_skate_target_20mm": true,
   "page_errors": []

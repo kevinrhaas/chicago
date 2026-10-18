@@ -57,14 +57,32 @@
       }
     ],
     "walk_samples": 1001,
-    "walk_compensated_stance_drift_m": 0.006427450311145888,
-    "max_stance_height_error_m": 0.0021939111386194143,
+    "walk_compensated_stance_drift_m": 0.00002009128421384676,
+    "max_stance_height_error_m": 0.00003959993901611614,
     "page_errors": [],
     "failed_requests": []
   },
   "harness-desktop": {
-    "loaded_meshes": 32,
-    "render_calls": 38,
+    "loaded_meshes": 36,
+    "shaft_tug_geometry": [
+      {
+        "name": "shaft_tug_l",
+        "vertices": 3456
+      },
+      {
+        "name": "shaft_tug_r",
+        "vertices": 3456
+      },
+      {
+        "name": "shaft_tug_support_l",
+        "vertices": 60
+      },
+      {
+        "name": "shaft_tug_support_r",
+        "vertices": 60
+      }
+    ],
+    "render_calls": 42,
     "page_errors": [],
     "failed_requests": []
   },
@@ -126,14 +144,32 @@
       }
     ],
     "walk_samples": 1001,
-    "walk_compensated_stance_drift_m": 0.006427450311145888,
-    "max_stance_height_error_m": 0.0021939111386194143,
+    "walk_compensated_stance_drift_m": 0.00002009128421384676,
+    "max_stance_height_error_m": 0.00003959993901611614,
     "page_errors": [],
     "failed_requests": []
   },
   "harness-mobile": {
-    "loaded_meshes": 32,
-    "render_calls": 38,
+    "loaded_meshes": 36,
+    "shaft_tug_geometry": [
+      {
+        "name": "shaft_tug_l",
+        "vertices": 3456
+      },
+      {
+        "name": "shaft_tug_r",
+        "vertices": 3456
+      },
+      {
+        "name": "shaft_tug_support_l",
+        "vertices": 60
+      },
+      {
+        "name": "shaft_tug_support_r",
+        "vertices": 60
+      }
+    ],
+    "render_calls": 42,
     "page_errors": [],
     "failed_requests": []
   }

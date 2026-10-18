@@ -36,10 +36,14 @@ def mesh(name,vs,faces,ma,parent=0,extra=None):
   n=unit(cross(vector(vs[f[1]],vs[f[0]]),vector(vs[f[2]],vs[f[0]])))
   for k in f:vv.append(vs[k]);nn.append(n)
  mi=len(d['meshes']);d['meshes'].append({'name':name,'primitives':[{'attributes':{'POSITION':accessor(vv,'VEC3'),'NORMAL':accessor(nn,'VEC3')},'material':ma}]});stats[name]={'triangles':len(faces),'material':d['materials'][ma]['name']};return node(name,parent,mesh=mi,extras=extra or {'dimension_grade':'reconstructed'})
-def strap(name,points,width=None,thick=None,parent=0,ma=leather,width_axis=(1,0,0),extra=None):
+def strap(name,points,width=None,thick=None,parent=0,ma=leather,width_axis=(1,0,0),extra=None,surface_normals=None):
  w=width or p['strap_width_m'];t=thick or p['strap_thickness_m'];vs=[]
  for j,c in enumerate(points):
   tangent=unit(vector(points[min(len(points)-1,j+1)],points[max(0,j-1)]));side=unit(vector(width_axis,[tangent[k]*sum(width_axis[i]*tangent[i] for i in range(3)) for k in range(3)]));normal=unit(cross(tangent,side))
+  if surface_normals:
+   side=unit(cross(surface_normals[j],tangent))
+   if side[1]<0:side=[-v for v in side]
+   normal=unit(cross(tangent,side))
   for sw,st in [(-1,-1),(1,-1),(1,1),(-1,1)]:vs.append([c[k]+side[k]*sw*w/2+normal[k]*st*t/2 for k in range(3)])
  fs=[]
  for j in range(len(points)-1):
@@ -57,17 +61,22 @@ def tube(name,points,r=.004,parent=0,ma=leather,N=8):
 def arc_xy(cx,cy,z,rx,ry,start=0,end=2*math.pi,N=36):return [[cx+rx*math.cos(start+(end-start)*i/N),cy+ry*math.sin(start+(end-start)*i/N),z] for i in range(N+1)]
 def ring(name,c,rx=.028,ry=.028,parent=0):tube(name,arc_xy(c[0],c[1],c[2],rx,ry),.003,parent,nickel)
 # Rounded front breast collar with load paths leading aft along both shoulders.
-strap('breastcollar',[[.31,1.19,.20],[.30,1.17,.43],[.24,1.13,.64],[.12,1.105,.705],[0,1.10,.72],[-.12,1.105,.705],[-.24,1.13,.64],[-.30,1.17,.43],[-.31,1.19,.20]],.065,.008,width_axis=(0,1,0))
+strap('breastcollar',p['breastcollar_route_m'],p['breastcollar_width_m'],p['breastcollar_thickness_m'],width_axis=p['breastcollar_width_axis'],surface_normals=p['breastcollar_surface_normals'])
 # Girth is circumferential; harness pad is short and distinct from a riding seat.
 strap('girth',arc_xy(0,1.16,-.08,.31,.395),.046,.006,width_axis=(0,0,1))
 strap('harness_saddle_pad',arc_xy(0,1.16,-.08,.325,.415,.10,math.pi-.10,22),.15,.016,width_axis=(0,0,1))
 # Breeching passes behind hindquarters, with separate hip support straps.
 strap('breeching',[[.30,1.10,-.34],[.31,1.09,-.61],[.27,1.075,-.84],[.15,1.06,-.98],[0,1.06,-1.00],[-.15,1.06,-.98],[-.27,1.075,-.84],[-.31,1.09,-.61],[-.30,1.10,-.34]],.052,.007,width_axis=(0,1,0))
 for side,s in [('l',1),('r',-1)]:
+ # Reconstructed shaft tugs: actual open loops, not empty attachment markers.
+ # The bore admits C01's square tip without changing the horse scale.
+ tc=p['shaft_tug_center_m'];cx=s*tc[0];cy=tc[1];cz=tc[2]
+ tube('shaft_tug_'+side,arc_xy(cx,cy,cz,p['shaft_tug_bore_radius_m']+p['shaft_tug_section_radius_m'],p['shaft_tug_bore_radius_m']+p['shaft_tug_section_radius_m'],N=48),p['shaft_tug_section_radius_m'],N=12)
+ strap('shaft_tug_support_'+side,[[s*.32,1.36,-.08],[s*.35,1.24,-.015],[cx,cy+p['shaft_tug_bore_radius_m']+p['shaft_tug_section_radius_m'],cz]],.028,.006,width_axis=(0,0,1))
  strap('hip_support_'+side,[[s*.29,1.09,-.66],[s*.27,1.36,-.64],[s*.13,1.50,-.54],[0,1.525,-.48]],.023,.004,width_axis=(0,0,1))
  strap('longitudinal_support_'+side,[[s*.13,1.51,-.52],[s*.14,1.55,-.20],[s*.15,1.54,.03]],.020,.004)
- strap('breastcollar_support_'+side,[[s*.28,1.18,.38],[s*.20,1.44,.38],[s*.09,1.57,.32],[0,1.585,.27]],.023,.004)
- strap('trace_'+side,[[s*.31,1.17,.20],[s*.355,1.10,-.18],[s*.37,1.045,-.90],[s*.39,1.04,p['trace_tail_z_m']]],p['trace_width_m'],.005,width_axis=(0,1,0),extra={'width_m':p['trace_width_m'],'width_grade':'text_attested','route_and_length_grade':'reconstructed','source_locator':'Moore 1891 printed p1 Buggy Harness No1'})
+ strap('breastcollar_support_'+side,[[s*p['breastcollar_route_m'][1][0],*p['breastcollar_route_m'][1][1:]],[s*.20,1.44,.38],[s*.09,1.57,.32],[0,1.585,.27]],.023,.004)
+ strap('trace_'+side,[[s*p['breastcollar_route_m'][0][0],*p['breastcollar_route_m'][0][1:]],[s*.355,1.10,-.18],[s*.37,1.045,-.90],[s*.39,1.04,p['trace_tail_z_m']]],p['trace_width_m'],.005,width_axis=(0,1,0),extra={'width_m':p['trace_width_m'],'width_grade':'text_attested','route_and_length_grade':'reconstructed','source_locator':'Moore 1891 printed p1 Buggy Harness No1'})
  ring('trace_end_'+side,[s*.39,1.04,p['trace_tail_z_m']],.02,.024)
  ring('rein_terret_'+side,[s*.14,1.59,-.08],.020,.022)
  # Original dimensional bridle route local to horse head, not plate tracing.
@@ -86,11 +95,12 @@ strap('noseband',arc_xy(0,-.15,.36,.095,.075),p['bridle_width_m'],.003,parent=he
 tube('bit_bar',[[-.105,-.20,.39],[0,-.205,.40],[.105,-.20,.39]],.006,head,nickel)
 anchors={}
 for side,s in [('l',1),('r',-1)]:
- for role,v in [('trace',[s*.31,1.17,.20]),('trace_end',[s*.39,1.04,p['trace_tail_z_m']]),('breeching',[s*.28,1.10,-.70]),('shaft',[s*.36,1.0,.05]),('rein_hand',p['driver_hands_m'][0 if s==1 else 1])]:
+ for role,v in [('trace',[s*p['breastcollar_route_m'][0][0],*p['breastcollar_route_m'][0][1:]]),('trace_end',[s*.39,1.04,p['trace_tail_z_m']]),('breeching',[s*.28,1.10,-.70]),('shaft',[s*p['shaft_tug_center_m'][0],*p['shaft_tug_center_m'][1:]]),('rein_hand',p['driver_hands_m'][0 if s==1 else 1])]:
   nm='socket_harness_'+role+'_'+side;node(nm,translation=v,extras={'role':role,'fit':'unpassed'});anchors[nm]={'translation_m':v,'rotation_xyzw':[0,0,0,1],'horse_socket':('socket_equine_'+role+'_'+side) if role in ['trace','breeching','shaft'] else None}
  nm='socket_harness_bit_'+side;v=[s*.095,-.20,.39];node(nm,parent=head,translation=v,extras={'horse_socket':'socket_equine_bit_'+side,'fit':'unpassed'});anchors[nm]={'translation_m':v,'parent':'harness_head','horse_socket':'socket_equine_bit_'+side,'rotation_xyzw':[0,0,0,1]}
 while len(bin)%4:bin.append(0)
 d['buffers']=[{'byteLength':len(bin)}];j=json.dumps(d,separators=(',',':')).encode();j+=b' '*((-len(j))%4);raw=struct.pack('<III',0x46546c67,2,12+8+len(j)+8+len(bin))+struct.pack('<II',len(j),0x4e4f534a)+j+struct.pack('<II',len(bin),0x004e4942)+bin
 (P/(p['asset_id']+'.glb')).write_bytes(raw)
 side={'asset_id':p['asset_id'],'version':'fixture_0.1','frame':{'units':'metres','up':'+Y','forward':'+Z','left':'+X','origin':'horse fixture ground root'},'license':'CC0-1.0','grade':'reconstructed','source':{'source_id':'john_moore_harness_catalog_1891','verification':'OCR-read; original page and plate verification outstanding','title':'John Moore Fine harness saddlery & horse clothing','year':1891,'url':'https://archive.org/stream/fineharnesssaddl1891john/fineharnesssaddl1891john_djvu.txt','locator':'printed p1 Buggy Harness No1','rights_basis':'Reasoned US public domain: published New York 1891; IA metadata contains no explicit rights statement. Construction text read; plates not read or traced.'},'bindings':[{'harness_node':'root','horse_node':'root','operation':'copy actor root world transform','status':'proposed_not_runtime_bound'},{'harness_node':'harness_head','horse_node':'head','operation':'copy current head world transform after actor animation; harness geometry is authored head-local','status':'proposed_not_runtime_bound'}],'anchors':anchors,'head_relative_components':['cheekpiece_l','cheekpiece_r','bit_ring_l','bit_ring_r','crownpiece','browband','noseband','bit_bar'],'dynamic_components_unbound':['rein_l','rein_r','round_check_rein_l','round_check_rein_r','trace_l','trace_r'],'missing':['source plate verification','photographic comparison','correct fitted clearances','rein and trace tension','breeching force behavior','bits/bridle pressure suitability','riding tack','collar and hames variants','LOD derivatives','Blender authored master','sourced buckle and mouthpiece shapes'],'triangles':sum(v['triangles'] for v in stats.values()),'mesh_count':len(stats),'glb_bytes':len(raw)}
+side['shaft_tugs']={'center_m':p['shaft_tug_center_m'],'bore_radius_m':p['shaft_tug_bore_radius_m'],'section_radius_m':p['shaft_tug_section_radius_m'],'grade':'reconstructed','geometry':'open round-section loop in local XY plane; support webbing to girth/saddle; no source-plate or force qualification','mesh_names':['shaft_tug_l','shaft_tug_r','shaft_tug_support_l','shaft_tug_support_r']}
 (P/'manifest.json').write_text(json.dumps(side,indent=2)+'\n');(P/'geometry-stats.json').write_text(json.dumps(stats,indent=2)+'\n');print(json.dumps({'glb_bytes':len(raw),'triangles':side['triangles'],'meshes':len(stats),'anchors':len(anchors)}))

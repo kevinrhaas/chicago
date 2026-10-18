@@ -3,7 +3,7 @@
     "uri": "wagon-w01.glb",
     "mimeType": "model/gltf-binary",
     "validatorVersion": "2.0.0-dev.3.10",
-    "validatedAt": "2026-10-18T19:02:30.070Z",
+    "validatedAt": "2026-10-18T19:55:43.014Z",
     "issues": {
       "numErrors": 0,
       "numWarnings": 0,
@@ -144,7 +144,7 @@
     "uri": "carriage-c01.glb",
     "mimeType": "model/gltf-binary",
     "validatorVersion": "2.0.0-dev.3.10",
-    "validatedAt": "2026-10-18T19:02:30.106Z",
+    "validatedAt": "2026-10-18T19:55:43.037Z",
     "issues": {
       "numErrors": 0,
       "numWarnings": 0,
@@ -261,11 +261,11 @@
     "uri": "equine_light_harness_skinned_prototype_01.glb",
     "mimeType": "model/gltf-binary",
     "validatorVersion": "2.0.0-dev.3.10",
-    "validatedAt": "2026-10-18T19:02:30.188Z",
+    "validatedAt": "2026-10-18T19:55:43.071Z",
     "issues": {
       "numErrors": 0,
       "numWarnings": 0,
-      "numInfos": 42,
+      "numInfos": 43,
       "numHints": 0,
       "messages": [
         {
@@ -350,25 +350,25 @@
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/16"
+          "pointer": "/nodes/15"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/18"
+          "pointer": "/nodes/17"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/20"
+          "pointer": "/nodes/19"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/22"
+          "pointer": "/nodes/21"
         },
         {
           "code": "NODE_EMPTY",
@@ -386,19 +386,19 @@
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/27"
+          "pointer": "/nodes/25"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/29"
+          "pointer": "/nodes/28"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/31"
+          "pointer": "/nodes/30"
         },
         {
           "code": "NODE_EMPTY",
@@ -416,19 +416,19 @@
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/36"
+          "pointer": "/nodes/34"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/38"
+          "pointer": "/nodes/37"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/40"
+          "pointer": "/nodes/39"
         },
         {
           "code": "NODE_EMPTY",
@@ -446,19 +446,19 @@
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/45"
+          "pointer": "/nodes/43"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/47"
+          "pointer": "/nodes/46"
         },
         {
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/49"
+          "pointer": "/nodes/48"
         },
         {
           "code": "NODE_EMPTY",
@@ -476,7 +476,7 @@
           "code": "NODE_EMPTY",
           "message": "Empty node encountered.",
           "severity": 2,
-          "pointer": "/nodes/63"
+          "pointer": "/nodes/52"
         },
         {
           "code": "NODE_EMPTY",
@@ -515,6 +515,12 @@
           "pointer": "/nodes/69"
         },
         {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/70"
+        },
+        {
           "code": "UNUSED_OBJECT",
           "message": "This object may be unused.",
           "severity": 2,
@@ -531,7 +537,7 @@
           "pointer": "/buffers/0",
           "mimeType": "application/gltf-buffer",
           "storage": "glb",
-          "byteLength": 557936
+          "byteLength": 638224
         }
       ],
       "animationCount": 2,
@@ -541,8 +547,8 @@
       "hasTextures": false,
       "hasDefaultScene": true,
       "drawCallCount": 5,
-      "totalVertexCount": 7004,
-      "totalTriangleCount": 13872,
+      "totalVertexCount": 7342,
+      "totalTriangleCount": 14544,
       "maxUVs": 0,
       "maxInfluences": 4,
       "maxAttributes": 4
@@ -552,12 +558,12 @@
     "uri": "light_breastcollar_harness_reconstructed_01.glb",
     "mimeType": "model/gltf-binary",
     "validatorVersion": "2.0.0-dev.3.10",
-    "validatedAt": "2026-10-18T19:02:30.251Z",
+    "validatedAt": "2026-10-18T19:55:43.095Z",
     "issues": {
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 1,
-      "numHints": 64,
+      "numHints": 72,
       "messages": [
         {
           "code": "BUFFER_VIEW_TARGET_MISSING",
@@ -944,6 +950,54 @@
           "pointer": "/meshes/31/primitives/0/attributes/NORMAL"
         },
         {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/32/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/32/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/33/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/33/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/34/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/34/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/35/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/35/primitives/0/attributes/NORMAL"
+        },
+        {
           "code": "UNUSED_OBJECT",
           "message": "This object may be unused.",
           "severity": 2,
@@ -960,7 +1014,7 @@
           "pointer": "/buffers/0",
           "mimeType": "application/gltf-buffer",
           "storage": "glb",
-          "byteLength": 373536
+          "byteLength": 542304
         }
       ],
       "animationCount": 0,
@@ -969,9 +1023,9 @@
       "hasSkins": false,
       "hasTextures": false,
       "hasDefaultScene": true,
-      "drawCallCount": 32,
-      "totalVertexCount": 15564,
-      "totalTriangleCount": 5188,
+      "drawCallCount": 36,
+      "totalVertexCount": 22596,
+      "totalTriangleCount": 7532,
       "maxUVs": 0,
       "maxInfluences": 0,
       "maxAttributes": 2

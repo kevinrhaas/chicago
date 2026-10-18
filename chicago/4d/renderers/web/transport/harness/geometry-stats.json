@@ -15,6 +15,14 @@
     "triangles": 68,
     "material": "tack_leather"
   },
+  "shaft_tug_l": {
+    "triangles": 1152,
+    "material": "tack_leather"
+  },
+  "shaft_tug_support_l": {
+    "triangles": 20,
+    "material": "tack_leather"
+  },
   "hip_support_l": {
     "triangles": 28,
     "material": "tack_leather"
@@ -62,6 +70,14 @@
   "girth_buckle_l": {
     "triangles": 64,
     "material": "tack_metal_nickel_reconstructed"
+  },
+  "shaft_tug_r": {
+    "triangles": 1152,
+    "material": "tack_leather"
+  },
+  "shaft_tug_support_r": {
+    "triangles": 20,
+    "material": "tack_leather"
   },
   "hip_support_r": {
     "triangles": 28,

@@ -20,13 +20,13 @@ for(const [size,width,height] of [['desktop',1280,800],['mobile',390,780]]) for(
  }else if(name==='horse'){
   await p.waitForFunction(()=>window.fixture?.ready);await p.evaluate(()=>{fixture.pause();fixture.setClip('idle');fixture.setPhase(0);});const neutral=await p.evaluate(()=>fixture.measure());assert(Math.max(...neutral.map(x=>Math.abs(x.position[1])))<1e-5);
   const samples=await p.evaluate(()=>{fixture.setClip('walk');const out=[];for(let i=0;i<=1000;i++){fixture.setPhase(i/1000);out.push(fixture.measure());}return out;});
-  const offsets={fore_l_contact:.25,fore_r_contact:.75,hind_l_contact:0,hind_r_contact:.5},groups={};let drift=0,stanceHeight=0;
-  for(let i=0;i<samples.length;i++)for(const contact of samples[i]){const absolute=i/1000+offsets[contact.name];if(absolute%1<.62){const key=contact.name+':'+Math.floor(absolute);(groups[key]??=[]).push(contact.position[2]+i/1000*.72/.62);stanceHeight=Math.max(stanceHeight,Math.abs(contact.position[1]));}}
+  const gait=await p.evaluate(()=>fixture.locomotion.walk),offsets=Object.fromEntries(Object.entries(gait.phase_offsets).map(([n,v])=>[n+'_contact',v])),groups={};let drift=0,stanceHeight=0;
+  for(let i=0;i<samples.length;i++)for(const contact of samples[i]){const absolute=i/1000+offsets[contact.name];if(absolute%1<gait.stance_fraction){const key=contact.name+':'+Math.floor(absolute);(groups[key]??=[]).push(contact.position[2]+i/1000*gait.stride_m);stanceHeight=Math.max(stanceHeight,Math.abs(contact.position[1]));}}
   for(const values of Object.values(groups))drift=Math.max(drift,Math.max(...values)-Math.min(...values));assert(drift<.020);assert(stanceHeight<.005);await p.evaluate(()=>{fixture.setClip('walk');fixture.setPhase(.32);});
   result={neutral_contacts:neutral,walk_samples:1001,walk_compensated_stance_drift_m:drift,max_stance_height_error_m:stanceHeight};
  }else{
   await p.waitForFunction(()=>window.harnessFixture?.ready);await p.locator('#motion').check();await p.waitForTimeout(200);
-  result=await p.evaluate(()=>{let meshes=0;harnessFixture.harness.traverse(n=>{if(n.isMesh)meshes++;});return {loaded_meshes:meshes,render_calls:harnessFixture.renderer.info.render.calls};});assert.equal(result.loaded_meshes,32);await p.locator('#motion').uncheck();await p.locator('#horse').uncheck();await p.locator('#horse').check();
+  result=await p.evaluate(()=>{let meshes=0;harnessFixture.harness.traverse(n=>{if(n.isMesh)meshes++;});const tugs=['shaft_tug_l','shaft_tug_r','shaft_tug_support_l','shaft_tug_support_r'].map(n=>({name:n,vertices:harnessFixture.harness.getObjectByName(n)?.geometry?.attributes.position.count||0}));return {loaded_meshes:meshes,shaft_tug_geometry:tugs,render_calls:harnessFixture.renderer.info.render.calls};});assert.equal(result.loaded_meshes,36);assert(result.shaft_tug_geometry.every(t=>t.vertices>0));await p.locator('#motion').uncheck();await p.locator('#horse').uncheck();await p.locator('#horse').check();
  }
  await p.waitForTimeout(100);await p.screenshot({path:out+'/'+name+'/integrated-'+size+'.png'});assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);receipt[name+'-'+size]={...result,page_errors:errors,failed_requests:failed};await p.close();
 }
