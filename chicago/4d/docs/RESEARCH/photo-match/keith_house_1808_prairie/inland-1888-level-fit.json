@@ -6,7 +6,7 @@
   2400
  ],
  "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
- "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
+ "glb_sha256": "9e39ecfca62f40ea18fbfec229d8120559a4059f1a266991b24f3b1f0e78a6a7",
  "controls": [
   {
    "label": "south-east pinnacle axis",
@@ -61,7 +61,7 @@
    "world_uvy": [
     17.8,
     2.4,
-    12.7
+    12.655
    ],
    "print_xy": [
     471.0,
@@ -71,9 +71,9 @@
   {
    "label": "third-storey light 1 sill",
    "world_uvy": [
-    17.8,
+    18.34,
     2.4,
-    10.41
+    10.36
    ],
    "print_xy": [
     null,
@@ -85,7 +85,7 @@
    "world_uvy": [
     17.8,
     3.52,
-    12.7
+    12.655
    ],
    "print_xy": [
     566.5,
@@ -95,9 +95,9 @@
   {
    "label": "third-storey light 2 sill",
    "world_uvy": [
-    17.8,
+    18.34,
     3.52,
-    10.41
+    10.36
    ],
    "print_xy": [
     null,
@@ -109,7 +109,7 @@
    "world_uvy": [
     17.8,
     4.64,
-    12.7
+    12.655
    ],
    "print_xy": [
     638.5,
@@ -119,9 +119,9 @@
   {
    "label": "third-storey light 3 sill",
    "world_uvy": [
-    17.8,
+    18.34,
     4.64,
-    10.41
+    10.36
    ],
    "print_xy": [
     null,
@@ -133,7 +133,7 @@
    "world_uvy": [
     17.8,
     5.76,
-    12.7
+    12.655
    ],
    "print_xy": [
     720.0,
@@ -143,9 +143,9 @@
   {
    "label": "third-storey light 4 sill",
    "world_uvy": [
-    17.8,
+    18.34,
     5.76,
-    10.41
+    10.36
    ],
    "print_xy": [
     null,
@@ -157,7 +157,7 @@
    "world_uvy": [
     17.8,
     6.88,
-    12.7
+    12.655
    ],
    "print_xy": [
     797.0,
@@ -169,7 +169,7 @@
    "world_uvy": [
     17.8,
     8.0,
-    12.7
+    12.655
    ],
    "print_xy": [
     866.0,
@@ -179,9 +179,9 @@
   {
    "label": "south pair capital top",
    "world_uvy": [
-    20.76,
+    20.625,
     7.45,
-    5.59
+    5.095
    ],
    "print_xy": [
     null,
@@ -191,9 +191,9 @@
   {
    "label": "south pedestal cap arris",
    "world_uvy": [
-    20.78,
+    20.7,
     7.45,
-    3.0
+    2.88
    ],
    "print_xy": [
     null,
@@ -203,9 +203,9 @@
   {
    "label": "north pair capital top",
    "world_uvy": [
-    20.76,
+    20.625,
     9.95,
-    5.59
+    5.095
    ],
    "print_xy": [
     null,
@@ -215,9 +215,9 @@
   {
    "label": "north pedestal cap arris",
    "world_uvy": [
-    20.78,
+    20.7,
     9.95,
-    3.0
+    2.88
    ],
    "print_xy": [
     null,
@@ -276,217 +276,212 @@
    "controls": "all controls",
    "pixel_aspect": "square",
    "n": 27,
-   "rms_px": 8.75,
-   "max_px": 16.39,
+   "rms_px": 4.94,
+   "max_px": 16.74,
    "eye_uvy": [
-    80.22,
-    -19.03,
-    0.0
+    39.19,
+    -0.23,
+    2.21
    ],
-   "yaw_deg": 305.14,
-   "focal_px": 5024.6,
+   "yaw_deg": 282.38,
+   "focal_px": 1681.5,
    "principal_px": [
-    1925.5,
-    1810.8
+    626.8,
+    1629.9
    ],
    "aspect": 1.0,
-   "at_bound": [
-    "eye y"
-   ],
+   "at_bound": [],
    "loggia_px": {
     "south": [
-     203.7,
-     78.9
+     188.1,
+     75.1
     ],
     "north": [
-     199.2,
-     77.1
+     183.1,
+     73.1
     ]
    },
    "column_long_pct": {
-    "south": 6.4,
-    "north": 7.7
+    "south": -1.8,
+    "north": -1.0
    }
   },
   {
    "controls": "all controls",
    "pixel_aspect": "free",
    "n": 27,
-   "rms_px": 8.58,
-   "max_px": 17.11,
+   "rms_px": 4.62,
+   "max_px": 15.85,
    "eye_uvy": [
-    87.96,
-    -21.57,
+    40.17,
+    -0.58,
     0.0
    ],
-   "yaw_deg": 310.0,
-   "focal_px": 5482.0,
+   "yaw_deg": 280.89,
+   "focal_px": 1809.7,
    "principal_px": [
-    2526.1,
-    1809.9
+    570.5,
+    1826.5
    ],
-   "aspect": 0.971,
+   "aspect": 0.967,
    "at_bound": [
-    "eye y",
-    "yaw"
+    "eye y"
    ],
    "loggia_px": {
     "south": [
-     202.4,
-     78.3
+     192.6,
+     77.2
     ],
     "north": [
-     197.9,
+     188.4,
+     75.4
+    ]
+   },
+   "column_long_pct": {
+    "south": 0.6,
+    "north": 1.8
+   }
+  },
+  {
+   "controls": "loggia heights left out (predicted)",
+   "pixel_aspect": "square",
+   "n": 23,
+   "rms_px": 5.05,
+   "max_px": 15.94,
+   "eye_uvy": [
+    41.97,
+    -1.37,
+    0.0
+   ],
+   "yaw_deg": 281.67,
+   "focal_px": 1906.0,
+   "principal_px": [
+    562.1,
+    1799.2
+   ],
+   "aspect": 1.0,
+   "at_bound": [
+    "eye y"
+   ],
+   "loggia_px": {
+    "south": [
+     185.3,
+     74.2
+    ],
+    "north": [
+     181.3,
+     72.6
+    ]
+   },
+   "column_long_pct": {
+    "south": -3.2,
+    "north": -2.0
+   }
+  },
+  {
+   "controls": "loggia heights left out (predicted)",
+   "pixel_aspect": "free",
+   "n": 23,
+   "rms_px": 4.92,
+   "max_px": 15.72,
+   "eye_uvy": [
+    38.62,
+    0.1,
+    0.0
+   ],
+   "yaw_deg": 280.04,
+   "focal_px": 1685.8,
+   "principal_px": [
+    575.1,
+    1830.8
+   ],
+   "aspect": 0.959,
+   "at_bound": [
+    "eye y"
+   ],
+   "loggia_px": {
+    "south": [
+     195.5,
+     78.4
+    ],
+    "north": [
+     191.1,
      76.6
     ]
    },
    "column_long_pct": {
-    "south": 5.7,
-    "north": 7.0
-   }
-  },
-  {
-   "controls": "loggia heights left out (predicted)",
-   "pixel_aspect": "square",
-   "n": 23,
-   "rms_px": 6.29,
-   "max_px": 15.52,
-   "eye_uvy": [
-    34.83,
-    1.73,
-    0.0
-   ],
-   "yaw_deg": 279.25,
-   "focal_px": 1293.2,
-   "principal_px": [
-    631.1,
-    1775.3
-   ],
-   "aspect": 1.0,
-   "at_bound": [
-    "eye y"
-   ],
-   "loggia_px": {
-    "south": [
-     225.9,
-     88.4
-    ],
-    "north": [
-     219.9,
-     86.0
-    ]
-   },
-   "column_long_pct": {
-    "south": 18.0,
-    "north": 18.9
-   }
-  },
-  {
-   "controls": "loggia heights left out (predicted)",
-   "pixel_aspect": "free",
-   "n": 23,
-   "rms_px": 5.04,
-   "max_px": 16.09,
-   "eye_uvy": [
-    38.01,
-    0.35,
-    0.0
-   ],
-   "yaw_deg": 280.7,
-   "focal_px": 1446.6,
-   "principal_px": [
-    604.3,
-    1718.7
-   ],
-   "aspect": 1.085,
-   "at_bound": [
-    "eye y"
-   ],
-   "loggia_px": {
-    "south": [
-     204.9,
-     80.0
-    ],
-    "north": [
-     199.8,
-     78.0
-    ]
-   },
-   "column_long_pct": {
-    "south": 7.0,
-    "north": 8.0
+    "south": 2.1,
+    "north": 3.3
    }
   },
   {
    "controls": "sills left out",
    "pixel_aspect": "square",
    "n": 23,
-   "rms_px": 7.05,
-   "max_px": 16.45,
+   "rms_px": 5.31,
+   "max_px": 16.63,
    "eye_uvy": [
-    85.4,
-    -20.39,
-    0.0
+    40.35,
+    -0.73,
+    1.87
    ],
-   "yaw_deg": 303.63,
-   "focal_px": 5441.2,
+   "yaw_deg": 282.63,
+   "focal_px": 1780.1,
    "principal_px": [
-    1925.3,
-    1815.1
+    615.6,
+    1658.6
    ],
    "aspect": 1.0,
-   "at_bound": [
-    "eye y"
-   ],
+   "at_bound": [],
    "loggia_px": {
     "south": [
-     203.5,
-     78.7
+     187.2,
+     74.7
     ],
     "north": [
-     199.5,
-     77.2
+     182.4,
+     72.8
     ]
    },
    "column_long_pct": {
-    "south": 6.3,
-    "north": 7.8
+    "south": -2.2,
+    "north": -1.4
    }
   },
   {
    "controls": "sills left out",
    "pixel_aspect": "free",
    "n": 23,
-   "rms_px": 7.05,
-   "max_px": 16.5,
+   "rms_px": 4.95,
+   "max_px": 15.87,
    "eye_uvy": [
-    87.93,
-    -21.46,
+    40.39,
+    -0.67,
     0.0
    ],
-   "yaw_deg": 304.96,
-   "focal_px": 5614.2,
+   "yaw_deg": 281.02,
+   "focal_px": 1826.2,
    "principal_px": [
-    2089.1,
-    1814.4
+    570.5,
+    1825.9
    ],
-   "aspect": 0.996,
+   "aspect": 0.968,
    "at_bound": [
     "eye y"
    ],
    "loggia_px": {
     "south": [
-     203.0,
-     78.6
-    ],
-    "north": [
-     199.0,
+     192.2,
      77.0
+    ],
+    "north": [
+     187.9,
+     75.3
     ]
    },
    "column_long_pct": {
-    "south": 6.0,
-    "north": 7.6
+    "south": 0.4,
+    "north": 1.6
    }
   },
   {
@@ -494,17 +489,17 @@
    "pixel_aspect": "square",
    "n": 19,
    "rms_px": 5.41,
-   "max_px": 15.93,
+   "max_px": 15.94,
    "eye_uvy": [
-    38.59,
-    0.1,
+    38.57,
+    0.11,
     0.0
    ],
-   "yaw_deg": 280.51,
-   "focal_px": 1616.2,
+   "yaw_deg": 280.52,
+   "focal_px": 1614.5,
    "principal_px": [
-    588.5,
-    1794.3
+    589.3,
+    1790.9
    ],
    "aspect": 1.0,
    "at_bound": [
@@ -512,17 +507,17 @@
    ],
    "loggia_px": {
     "south": [
-     221.6,
-     86.5
+     187.5,
+     75.2
     ],
     "north": [
-     216.4,
-     84.4
+     183.1,
+     73.4
     ]
    },
    "column_long_pct": {
-    "south": 15.7,
-    "north": 17.0
+    "south": -2.1,
+    "north": -1.0
    }
   },
   {
@@ -534,30 +529,50 @@
    "eye_uvy": [
     41.71,
     -1.18,
-    0.45
+    0.06
    ],
    "yaw_deg": 278.38,
-   "focal_px": 3028.9,
+   "focal_px": 2945.1,
    "principal_px": [
     464.8,
     2342.5
    ],
-   "aspect": 0.613,
+   "aspect": 0.63,
    "at_bound": [],
    "loggia_px": {
     "south": [
-     356.5,
-     138.7
+     293.7,
+     117.6
     ],
     "north": [
-     350.7,
-     136.4
+     288.9,
+     115.7
     ]
    },
    "column_long_pct": {
-    "south": 86.2,
-    "north": 89.6
+    "south": 53.4,
+    "north": 56.2
    }
   }
- ]
+ ],
+ "loggia_scale_fit": {
+  "controls": "all controls, the loggia's heights scaled by k over its deck",
+  "pixel_aspect": "square",
+  "n": 27,
+  "rms_px": 4.93,
+  "max_px": 16.72,
+  "eye_uvy": [
+   39.07,
+   -0.17,
+   2.2
+  ],
+  "yaw_deg": 282.28,
+  "focal_px": 1671.0,
+  "principal_px": [
+   625.9,
+   1630.6
+  ],
+  "k": 0.997,
+  "at_bound": []
+ }
 }
