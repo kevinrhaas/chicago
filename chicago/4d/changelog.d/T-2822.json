@@ -1,0 +1,8 @@
+{
+  "title": "iPhone: tapping a building no longer resets the display",
+  "kind": "fix",
+  "items": [
+    "On an iPhone, tapping the Glessner House, or opening the Navigator beside it, could reset the display. Taps now read back their answer in the plain pixel format every phone supports.",
+    "On boot, the step that hands each layer to the GPU early was sometimes refused before the first sun shadow existed. It now runs, so less memory piles up under the first frame."
+  ]
+}

@@ -204,7 +204,8 @@ const _scissor = new THREE.Vector4();
  * The layer is drawn once, alone (its siblings hidden, the lights kept, so the
  * programs are the ones the real frame uses), into one scissored pixel of the
  * canvas the loader still covers, with frustum culling off so every chunk that
- * is shown is uploaded, and with the sun's pass held so nothing else is drawn.
+ * is shown is uploaded, and with the sun's pass held so nothing else is drawn
+ * (once its map exists; see below).
  * `hide(o)` keeps back what this tier never shows (the cross-street walks and
  * the woodpiles at `light`), so the GPU is not handed what it will never draw.
  * Everything touched is put back exactly as it was.
@@ -229,8 +230,14 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
   const needs = shadow.needsUpdate;
   const scissorTest = renderer.getScissorTest();
   renderer.getScissor(_scissor);
+  // Before the sun's first pass there is no shadow map, and three leaves the
+  // shadow sampler on texture unit 0, where some colour texture is bound: the
+  // driver rejects the draw ("mismatch between texture format and sampler
+  // type") and nothing is uploaded (T-2822, seen on 1904 boots). So until the
+  // map exists the pass runs, over this layer alone, and the next frame redraws it.
+  const unmapped = scene.children.some((c) => c.isLight && c.castShadow && c.shadow && !c.shadow.map);
   shadow.autoUpdate = false;
-  shadow.needsUpdate = false;
+  shadow.needsUpdate = unmapped;
   renderer.setScissorTest(true);
   renderer.setScissor(0, 0, 1, 1);
   try {
@@ -239,7 +246,7 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
     renderer.setScissor(_scissor);
     renderer.setScissorTest(scissorTest);
     shadow.autoUpdate = auto;
-    shadow.needsUpdate = needs;
+    shadow.needsUpdate = needs || unmapped;
     for (const [o, key, value] of restore) o[key] = value;
   }
 }
