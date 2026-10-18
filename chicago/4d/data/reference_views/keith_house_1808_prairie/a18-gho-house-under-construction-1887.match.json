@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gho-house-under-construction-1887",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "73fe5d6c8053fa1454bb5adedde2c55e7411f159fe670e481faa362395f8005d",
+  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
   "camera_sha256": "58459d896bcda17e77a1d65e99b5f75388ece26d2bfab249167f85a0beaabbe2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gho-house-under-construction-1887-side-by-side.jpg",
   "verdict": "matches",
@@ -42,6 +42,10 @@
     {
       "what": "T-2578: the ventilator's pipe reads pale beside the granite, as the print shows it (the colour itself is reconstructed: the print is monochrome).",
       "status": "fixed"
+    },
+    {
+      "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: only the north return's crown shows here, edge-on.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

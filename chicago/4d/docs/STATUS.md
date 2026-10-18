@@ -1,3 +1,23 @@
+## T-2718 — texture residency's last capture stands and the 1904 memory ceilings (2026-10-17)
+
+Nothing you can see changed. Piece 1 of T-2602, which was split three ways because one
+of its readings needs a GPU (T-2719) and one is a question about the meter (T-2720).
+
+- **Captures at the four stands T-2598 left** (phone, `docs/measurements/T-2718-captures-mobile-a.json`, `-b.json`):
+  aloft over Glessner and three street eyes. At each, forcing every picture resident
+  changes fewer pixels than the scene's own motion does (10.96 / 34.13 / 30.94 / 22.75 %
+  against 16.09 / 43.28 / 41.63 / 34.46 %). SITE-BUDGET § 10 has the table.
+- **The aloft stand was never aloft.** `measure_memory.mjs --captures` teleported the
+  walker to 60 m without flying the HUD, so the next frame dropped the eye onto the road.
+  Its first reading was 0 px against 0 px, a frame with no house in it. The tool now flies
+  through the HUD as `goTo` does, and fails a stand whose eye is not aloft when it is read.
+- **1904 memory ceilings lowered** to readings taken with residency, which the spawn
+  reading now lets finish its uploads (both were already settled): phone 1105.6 → 850.1 MB
+  (ceiling 1225 → 950 MiB), desktop 1587.5 → 1393.3 MB (1750 → 1550 MiB).
+- **Unverified:** the moving p95 frame time (needs a GPU, T-2719); whether the GL meter
+  under these ceilings reads WebGL textures low (T-2720); who owns the arraybuffer rise
+  (phone +13.9 MB, desktop +46.3 MB since T-2595) — no heap snapshot was taken.
+
 ## T-2639 — Inspect's tabs over the card's content (2026-10-17)
 
 Design doc §08 "Tabs". Inspect now carries Overview · People · Design · Story · Photos · Sources.
@@ -165,6 +185,13 @@ the phone profile the WebGPU page held 494.0 MiB against the baseline's 447.7 Mi
 colour attachment on the shadow map (16 MiB), a half-float MSAA output pipeline (17 MiB),
 and a 39.5 MiB shortfall in the GL meter's reading of the baseline that is not explained
 (written onto T-2602, since walk/'s own memory ceilings stand on that meter).
+**T-2720 (2026-10-17) answered the meter question: none of the 39.5 MiB is the meter's.** It
+reads the page's WebGL calls to the byte; the baseline holds less because three's
+WebGLRenderer shares one GL texture per image Source, and 11 of the block's maps share 2
+(58.66 MiB). The shadow colour attachment and a half-float MSAA output are on the baseline
+too, so K5's 46 MiB is mostly WebGPURenderer uploading those 9 shared maps again
+(`docs/RENDERING.md` § 8, `docs/measurements/t-2720-gl-meter.json`). walk/'s memory
+ceilings do not move.
 
 **Unverified, said plainly:** every millisecond here is SwiftShader, a software rasteriser,
 so K6's 0.31× is a ratio on the steward runner and not a phone's frame time. TRAA under

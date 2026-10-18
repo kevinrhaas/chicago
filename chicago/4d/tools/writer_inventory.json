@@ -244,6 +244,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
     },
+    "build_modern_streets.py": {
+      "placement": "pending",
+      "write_mode": "--source <Transportation.geojson> --write",
+      "measured": "2026-10-17",
+      "finding": "Reproduces: ran `--source Transportation.geojson --write` on a clean tree with the City of Chicago street centerline file (sha256 212bfb7e…, recorded in the output) and pyproj installed; it rewrote its one output, data/modern/streets.json, byte for byte and changed no committed byte. --check writes nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "Not placed, because it needs the City's 87 MB centerline file, fetched over the network from GitHub (Chicago/osd-street-center-line), and a rederive must run offline. Its offline half, --check, gates the committed clip in check.sh (T-2741)."
+    },
     "build_context_1904.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -2061,6 +2068,13 @@
       "measured": "2026-09-26",
       "finding": "Reproduces: ran bare after staging all 294 generated JSON files and the coverage report; git diff --exit-code over those outputs reported no changed byte. Two independent in-memory builds also matched byte-for-byte.",
       "placed": "after compile_scene.py, whose current-scene membership and cited-structure sidecars it reads (T-1248)"
+    },
+    "jaunt_built_so_far.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-17",
+      "finding": "Reproduces: wrote data/jaunts/prairie-built-so-far.json, ran the tool bare again, and cmp reported no changed byte; --check passes on the result. It writes only that file.",
+      "placed": "after compile_scene.py (it reads the compiled 1904 sidecars) and before compile_jaunts.py (which compiles the walk it writes) (T-2747)"
     },
     "compile_jaunts.py": {
       "placement": "manifest",

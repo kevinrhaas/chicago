@@ -28,6 +28,7 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
@@ -94,7 +95,7 @@ import { mountGround } from './ground.js';
 import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
 import { createRouter } from './route.js';
-import { createTravel } from './travel.js';
+import { createTravel, PACES } from './travel.js';
 import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
@@ -106,15 +107,17 @@ import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
 import { createRoamTip } from './roam-tip.js';
 import { plateFor as jauntPlate } from './pictures.js';
-import { jauntModeFor } from './getting-there.js';
+import { jauntModeFor, jauntChoice, styleWords } from './getting-there.js';
 import { APPS as NAVIGATOR_APPS } from './apps/index.js';
 import { install as installDrawerHost, goToPick } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
 import { createWhere } from './where.js';
+import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 
 const VERSION = '0.1.0';
@@ -1381,6 +1384,10 @@ function readSeasonPreference() {
   const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
   return { season, treesShown: saved.streetTrees !== 'hidden' };
 }
+/** T-2692: whether Settings shows the 1904 lot lines; hidden unless chosen. */
+function readLotLinesPreference() {
+  try { return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.lotLines === 'shown'; } catch { return false; }
+}
 /** The street elms' mode for a season, or hidden. */
 function streetTreeMode(season, treesShown) {
   return treesShown ? (SEASON_TREE_MODE[season] ?? 'summer') : 'hidden';
@@ -1518,8 +1525,11 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 api.journey = journey;
-// Back to the Observatory is the journey's recall, from wherever the link sits.
-gate.addEventListener('click', event => { if (event.target.closest?.('.skin-tools a, #gate-observatory')) journey.recall(); });
+// Back to the Observatory is the journey's recall, from wherever the link sits. T-2735: the
+// way home asks first and plays the reverse ring (js/recall.js), so the journey moves to
+// `recall` only as the page actually leaves; a cancelled prompt leaves it where it was.
+recallHome?.onReturn(() => journey.recall());
+api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
@@ -1695,6 +1705,13 @@ async function boot() {
     powerPreference: 'high-performance',
     stencil: false,
   });
+  /**
+   * T-2716. The renderer's own `render`, taken before anything can swap it: the
+   * flora's near deal pass is PLACEMENT, not a frame, and harnesses that hold or
+   * time the frames by replacing `renderer.render` (the smoke's `holdDraws`,
+   * `measure_walk_frames.mjs`) must neither skip it nor count it as a draw.
+   */
+  const placementRender = renderer.render.bind(renderer);
   /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
    * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
@@ -2047,6 +2064,7 @@ async function boot() {
   });
   scene3d.add(streetGrid.group);
   api.streetGrid = streetGrid;
+  streetGrid.setLotLines(readLotLinesPreference());
 
   // T-2473 — the parkway elms of the 1904 district (data/street_trees/<scene>.json),
   // built with trees.js's own tree and drawn as one instanced batch. Only a scene
@@ -2627,7 +2645,7 @@ async function boot() {
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
     verge: streets.verge, forbSeat,
-    confidence, problems: layerProblems('flora'), ...detailOpts(),
+    confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
   });
   scene3d.add(flora.group);
   let trees = await createTrees({
@@ -2735,7 +2753,7 @@ async function boot() {
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
           verge: streets.verge, forbSeat,
-          confidence, problems: layerProblems('flora'), detail: level,
+          confidence, problems: layerProblems('flora'), detail: level, renderer, placementRender,
         });
         next.trees = await createTrees({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
@@ -2881,7 +2899,7 @@ async function boot() {
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
         verge: streets.verge, forbSeat,
-        confidence, problems: layerProblems('flora'), ...detailOpts(),
+        confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
       });
       scene3d.add(flora.group);
 
@@ -3021,8 +3039,20 @@ async function boot() {
     return libertiesPromise;
   };
   api.loadLiberties = ensureLiberties;
+  // T-2741: where you stand in the scene's own year — the 1835 streets, the 1904 grid and,
+  // past it, the context city's named centrelines; 1812 has none — shared by the compass
+  // readout and Navigator Home. Today's streets load after the scene (navigation.setModern).
+  const contextStreetLines = (() => {
+    const doc = contextCity?.doc;
+    const S = Object.fromEntries((doc?.fields?.streets ?? []).map((k, i) => [k, i]));
+    const names = doc?.enums?.street_name ?? [];
+    return (doc?.streets ?? []).map((r) => ({
+      name: names[r[S.name]] ?? null, e0: r[S.e0], n0: r[S.n0], e1: r[S.e1], n1: r[S.n1],
+    })).filter((l) => l.name);
+  })();
+  const eraWhere = createWhere({ streets, grid: streetGrid?.grid ?? null, lines: contextStreetLines });
   const navigation = createNavigation({
-    root: hudRoot, terrain, registry: loaded.registry, streets,
+    root: hudRoot, terrain, registry: loaded.registry, streets, year: loaded.scene.id ?? YEAR, where: eraWhere,
     // T-2626: the round instrument opens the Map app (its stub opens the whole field).
     onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
   });
@@ -3202,12 +3232,17 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'lookTag') {
+        api.targetTag?.setTagShown(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
         seasonState.treesShown = value !== 'hidden';
         void streetTrees.setMode(streetTreeMode(seasonState.season, seasonState.treesShown))
           .then(() => gateFrame.invalidate());
+      } else if (key === 'lotLines') {
+        streetGrid.setLotLines(value === 'shown');
+        gateFrame.invalidate();
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -3231,6 +3266,7 @@ async function boot() {
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
+  document.getElementById('row-lot-lines')?.toggleAttribute('hidden', !streetGrid.lotLines);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     omit: api.drawerOmitted.topics,
@@ -3455,6 +3491,18 @@ async function boot() {
   navigation.setMapVisible(hud.settings.overviewMap);
   navigation.setStreetVisible(hud.settings.streetNames);
   navigation.setUnits(hud.settings.units);
+  // T-2741: the compass's own street button is the Settings toggle, from the HUD.
+  document.getElementById('street-toggle')?.addEventListener('click', () => {
+    hud.setToggle('streetNames', !hud.settings.streetNames);
+  });
+  // Today's streets (data/modern/streets.json, the City's centrelines), in every year.
+  // Off the boot path: until they land the readout says no street, and a failed fetch
+  // leaves it saying so rather than holding the scene.
+  void loadModernStreets(bases.dataBase).then((m) => {
+    if (!m) { problems.push('modern streets: data/modern/streets.json did not load — today\'s names are not shown'); return; }
+    navigation.setModern(m);
+    api.modernStreets = m;
+  });
 
   // ---- input ------------------------------------------------------------ //
 
@@ -3956,8 +4004,10 @@ async function boot() {
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
         plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
           .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
-        // T-2652: the getting-there choice picks a Jaunt's mode, where the Jaunt allows it.
+        // T-2652/T-2727: with Jaunts use my choice on, the getting-there choice picks a Jaunt's
+        // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
+        modeNote: (jaunt) => jauntWay(jaunt).note,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -3996,7 +4046,17 @@ async function boot() {
       return jauntRuntime;
     }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
   }
+  // T-2727: how a Jaunt travels under Move › Jaunts use my choice: its mode, whether it kept
+  // its own against the visitor's choice, and the line that says so. The Jaunt menu and the
+  // controller read the same rule (preferredMode / modeNote above).
+  function jauntWay(jaunt) {
+    const c = jauntChoice(hud.gettingThere, jaunt);
+    const labels = Object.fromEntries(Object.entries(PACES).map(([id, way]) => [id, way.label]));
+    return { mode: c.mode ?? jaunt?.default_mode ?? 'walk', kept: c.kept,
+      note: c.kept ? t('hud.jaunt.keeps', { way: styleWords(hud.gettingThere, labels) }) : '' };
+  }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
+    modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
@@ -4124,6 +4184,7 @@ async function boot() {
     tagEl: document.getElementById('target-tag'),
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
+    tagShown: hud.settings.lookTag !== false,
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
@@ -4200,7 +4261,7 @@ async function boot() {
     root: document.getElementById('navigator'),
     scene: loaded.scene,
     target,
-    where: createWhere({ streets, grid: streetGrid?.grid ?? null }),
+    where: eraWhere,
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
     jaunt: () => jauntRuntime?.state ?? null,
     move: () => ({ flying: hud.flying, pace: hud.settings.pace, riding: (travel?.state?.phase ?? 'idle') !== 'idle' }),
@@ -4249,7 +4310,8 @@ async function boot() {
         goTo: (id) => goToTarget({ kind: 'structure', id }),
         jauntRoute: () => mapJauntRoute(),
         travelRoute: () => travel.routeAhead(),
-        recall: () => journey.recall(),
+        // T-2735: Recall asks first; the journey moves only as the page leaves.
+        recall: (href) => recallHome?.ask(href),
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
@@ -4902,6 +4964,9 @@ async function boot() {
     /** T-2597: the boot pool, and the most GLB bytes it held unparsed at once. */
     bootPool: { get: () => loaded.bootPool, enumerable: true },
   });
+  // T-2732: Settings' dev-only Read frame pacing, for the reading T-2733 takes on
+  // a phone. Mounted after the live readings above, which it drives and restores.
+  mountPacingRead({ api, hud });
 
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;

@@ -7,6 +7,7 @@
  *                                      [--sync] [--verify] [--gate] [--xray]
  *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
  *                                      [--seconds 12] [--stills] [--json f]
+ *                                      [--gl swiftshader|llvmpipe] [--no-gaze] [--profile N]
  *
  * Every other frame budget in this project is read at a STAND: T-0135's five
  * cameras, T-1975's triangle ceilings, T-1976's light trim. A stand is a still
@@ -86,6 +87,40 @@
  * T-2592 — the loop's own still frames put the ratio back at the ceiling with a
  * shadow every frame, and the held frame captured under Adaptive is the same
  * signature as the one captured under Fixed.
+ *
+ * ## `--gl llvmpipe`: a software stand-in weighed, and rejected (T-2721)
+ *
+ * T-2592 asked for the governor's moving reading and found this runner's
+ * SwiftShader frames seconds apart. Mesa's llvmpipe is the other software
+ * rasteriser here (`--gl llvmpipe` = ANGLE on EGL; every reading now prints and
+ * records the rasteriser that drew it), multithreaded and usually the faster,
+ * so it was read as a stand-in before anything was read with it
+ * (docs/measurements/t-2721-live-llvmpipe-mobile*.json, phone profile, light):
+ *
+ *   - A live frame comes about every 1.0 to 1.5 s, and still every 0.9 to
+ *     1.3 s with the gaze target's pick held off (`--no-gaze`). The governor
+ *     acts between 18 and 38 ms and reads any interval over 250 ms as a gap, so
+ *     every frame here is a gap: it made no decision in any of the twelve
+ *     readings (ratio held at 1.00), and whatever Adaptive against Fixed shows
+ *     is noise at 8 to 14 frames a move (sd and p95 "fell" on one move of three
+ *     with the pick on, two with it off). Rejected: the reading needs hardware
+ *     whose frame costs tens of milliseconds, which is T-2722.
+ *   - `--profile` over the live moves put 63 s of 72 in `readPixels`, called
+ *     from gpu-pick.js through target.js's look: the gaze target's one-pixel
+ *     pick waits for the GPU to finish the frame before it, on the main thread,
+ *     every 500 ms of movement. That is the runner's multi-second frame, and on
+ *     any device a stall the governor cannot remove (T-2723).
+ *   - The pick's own `renderer.render` calls into its 1x1 target were counted
+ *     as frames until this: only a draw to the canvas is one now, and the rest
+ *     are reported as `offscreen`.
+ *
+ * ## The same reading on a phone (T-2732)
+ *
+ * The owner chose to take T-2722's reading on his own phone (T-2733). The page
+ * carries it as Settings → Performance → Read frame pacing on the dev preview
+ * (or with `?pacing=read`): `renderers/web/js/pacing-read.js` drives the moves
+ * `driveLive` below drives, with its poses, tier and arithmetic (`summarise`),
+ * and prints a block to copy back. Change one and change the other.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -132,6 +167,16 @@ const SECONDS = Number(argAt('--seconds') || 12);
  *  Inferred ghosted at 50 %, Reconstructed at 25 % — so its two-pass draw is
  *  in the frame the moves time. */
 const XRAY = process.argv.includes('--xray');
+/** T-2721 `--no-gaze` (with `--live`): the gaze target's GPU pick held off. */
+const NO_GAZE = process.argv.includes('--no-gaze');
+/** T-2592 `--gl llvmpipe`: draw with Mesa's llvmpipe (ANGLE on EGL) instead of
+ *  SwiftShader. See § `--gl llvmpipe` above for why it is the stand-in. */
+const GL = argAt('--gl') || 'swiftshader';
+const GL_ARGS = {
+  swiftshader: ['--enable-unsafe-swiftshader'],
+  llvmpipe: ['--use-angle=gl-egl', '--ignore-gpu-blocklist'],
+};
+if (!GL_ARGS[GL]) throw new Error(`--gl ${GL}: one of ${Object.keys(GL_ARGS).join(', ')}`);
 
 /**
  * THE CEILINGS, T-2096 § 3, per tier, on the desktop viewport unthrottled —
@@ -473,7 +518,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
 
 /** Runs in the page (T-2555): one move through the animation loop itself, for
  *  `seconds` of wall clock, with Frame pacing at `mode`, timing every draw. */
-async function driveLive({ move, tier, mode, seconds, xray }) {
+async function driveLive({ move, tier, mode, seconds, xray, profile, noGaze }) {
   const a = window.__chicago4d;
   await a.setDetail(tier);
   a.setGovernor(mode === 'adaptive');
@@ -510,13 +555,24 @@ async function driveLive({ move, tier, mode, seconds, xray }) {
   // At rest first, so both modes start from the same neutral state.
   await new Promise((r) => setTimeout(r, 800));
   const draws = [];
+  // T-2721: only a draw to the canvas is a frame. The gaze target's pick
+  // (gpu-pick.js) calls renderer.render too, once per layer into its 1x1
+  // target, and counted as frames those put intervals of a millisecond or two
+  // into every reading taken while it looked.
+  let offscreen = 0;
   const render = a.renderer.render;
   a.renderer.render = function timed(...args) {
+    if (a.renderer.getRenderTarget() !== null) { offscreen += 1; return render.apply(this, args); }
     const t = performance.now();
     try { return render.apply(this, args); } finally {
       draws.push([t, a.renderer.getPixelRatio(), performance.now() - t]);
     }
   };
+  // T-2721 `--no-gaze`: the gaze target's look (target.js) held off for the
+  // move, so a reading can say what its one-pixel GPU pick costs the loop.
+  const gazeTick = a.target?.tick;
+  if (noGaze && gazeTick) a.target.tick = () => null;
+  if (profile) console.profile(`${tier}/${move}/${mode}`);
   const t0 = performance.now();
   let paced = 0;
   await new Promise((resolve) => {
@@ -529,6 +585,8 @@ async function driveLive({ move, tier, mode, seconds, xray }) {
     };
     requestAnimationFrame(frame);
   });
+  if (profile) console.profileEnd(`${tier}/${move}/${mode}`);
+  if (noGaze && gazeTick) a.target.tick = gazeTick;
   a.renderer.render = render;
   const g = a.governor;
   a.setGovernor(true);
@@ -544,7 +602,7 @@ async function driveLive({ move, tier, mode, seconds, xray }) {
   return { draws: draws.length, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
     over33: iv.filter((x) => x > 33.4).length, over50: iv.filter((x) => x > 50).length,
     ratioMin: ratios[0], ratioMedian: ratios[Math.floor(ratios.length / 2)], ceiling: g.ceiling,
-    pacedRafs: paced, decisions: g.decisions, renderMs };
+    pacedRafs: paced, decisions: g.decisions, renderMs, offscreen };
 }
 
 /** Runs in the page (T-2555): at one anchor, put the governor where a slow
@@ -588,12 +646,52 @@ async function stillAt({ id }) {
     pace: rested.pace, moving: rested.moving, shadowAuto }, same: sig(adaptive) === sig(fixed) };
 }
 
+/** Prints what `--profile N` collected over a viewport's moves. */
+async function printProfile(prof, vpId) {
+  await new Promise((r) => setTimeout(r, 500));
+  const self = new Map();
+  const incl = new Map();
+  for (const profile of prof.profiles) {
+    const dt = profile.timeDeltas;
+    const byId = new Map(profile.nodes.map((nd) => [nd.id, nd]));
+    const parent = new Map();
+    for (const nd of profile.nodes) for (const c of nd.children ?? []) parent.set(c, nd.id);
+    const keyOf = (id) => {
+      const cf = byId.get(id).callFrame;
+      return `${cf.functionName || '(anon)'} ${path.basename(cf.url)}:${cf.lineNumber + 1}`;
+    };
+    profile.samples.forEach((id, i) => {
+      const ms = (dt[i] ?? 0) / 1000;
+      self.set(keyOf(id), (self.get(keyOf(id)) ?? 0) + ms);
+      const seen = new Set();
+      for (let at = id; at !== undefined; at = parent.get(at)) {
+        const key = keyOf(at);
+        if (seen.has(key) || key.startsWith('(root)')) continue;
+        seen.add(key);
+        incl.set(key, (incl.get(key) ?? 0) + ms);
+      }
+    });
+  }
+  console.log(`\nself time, top ${PROFILE} (ms, over every move above):`);
+  for (const [k, ms] of [...self].sort((x, y) => y[1] - x[1]).slice(0, PROFILE)) {
+    console.log(`  ${ms.toFixed(0).padStart(7)}  ${k}`);
+  }
+  // T-2721: and with its callers, so a native call (readPixels) says who made it.
+  const top = (m) => [...m].sort((x, y) => y[1] - x[1]).slice(0, PROFILE).map(([k, ms]) => [k, Math.round(ms)]);
+  (out.profiles ??= {})[vpId] = { selfMs: top(self), totalMs: top(incl) };
+  if (jsonOut) writeJson();
+  console.log(`\ntotal time with callees, top ${PROFILE} (ms):`);
+  for (const [k, ms] of [...incl].sort((x, y) => y[1] - x[1]).slice(0, PROFILE)) {
+    console.log(`  ${ms.toFixed(0).padStart(7)}  ${k}`);
+  }
+}
+
 const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
-  args: ['--enable-unsafe-swiftshader'],
+  args: GL_ARGS[GL],
 });
 const out = { year: YEAR, source: wantSource ? 'source' : 'published', throttle: THROTTLE,
-  rebuild: SYNC ? 'sync' : 'spread',
+  rebuild: SYNC ? 'sync' : 'spread', gl: GL, ...(LIVE ? { noGaze: NO_GAZE } : {}),
   ceilingMs: FLORA_MOVE_CEILING_MS, p95CeilingMs: FLORA_MOVE_P95_MS, readings: [] };
 let failed = 0;
 function writeJson() {
@@ -613,8 +711,15 @@ for (const vp of VIEWPORTS) {
   await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 480_000 });
   const gateBtn = await page.$('#gate button, .gate button');
   if (gateBtn) { await gateBtn.click(); await page.waitForTimeout(800); }
+  // T-2721: every reading names the rasteriser that drew it.
+  const rasteriser = await page.evaluate(() => {
+    const gl = window.__chicago4d.renderer?.getContext?.();
+    const ext = gl?.getExtension('WEBGL_debug_renderer_info');
+    return gl ? String(gl.getParameter(ext ? ext.UNMASKED_RENDERER_WEBGL : gl.RENDERER)) : null;
+  });
+  (out.rasterisers ??= {})[vp.id] = rasteriser;
   console.log(`\n${vp.id} ${vp.width}x${vp.height} — ready in ${((Date.now() - t0) / 1000).toFixed(0)} s` +
-    (vp.throttle > 1 ? `, CPU throttled ${vp.throttle}×` : ''));
+    (vp.throttle > 1 ? `, CPU throttled ${vp.throttle}×` : '') + `\n  drawn by ${rasteriser}`);
   if (vp.throttle > 1) {
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('Emulation.setCPUThrottlingRate', { rate: vp.throttle });
@@ -646,13 +751,14 @@ for (const vp of VIEWPORTS) {
       for (const move of MOVES.filter((m) => !['travel', 'none'].includes(m))) {
         const pair = {};
         for (const mode of ['fixed', 'adaptive']) {
-          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS, xray: XRAY });
+          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS, xray: XRAY,
+            profile: PROFILE > 0, noGaze: NO_GAZE });
           pair[mode] = r;
           const f = (x) => x.toFixed(1).padStart(5);
           console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
             + ` ${f(r.mean)}${f(r.sd)}${f(r.median)}${f(r.p95)}${f(r.max)} ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)} |`
             + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`
-            + ` | draw median ${r.renderMs?.toFixed(0)} ms`);
+            + ` | draw median ${r.renderMs?.toFixed(0)} ms | ${r.offscreen} offscreen`);
           out.readings.push({ viewport: vp.id, throttle: vp.throttle, live: true, tier, move, mode, ...r });
           if (jsonOut) writeJson();
         }
@@ -678,6 +784,7 @@ for (const vp of VIEWPORTS) {
         if (!rested || !r.same) failed++;
       }
     }
+    if (prof) await printProfile(prof, vp.id);
     if (errors.length) {
       console.log(`pageerrors: ${JSON.stringify(errors.slice(0, 5))}`);
       failed++;
@@ -750,23 +857,7 @@ for (const vp of VIEWPORTS) {
       }
     }
   }
-  if (prof) {
-    await new Promise((r) => setTimeout(r, 500));
-    const self = new Map();
-    for (const profile of prof.profiles) {
-      const dt = profile.timeDeltas;
-      const byId = new Map(profile.nodes.map((nd) => [nd.id, nd]));
-      profile.samples.forEach((id, i) => {
-        const cf = byId.get(id).callFrame;
-        const key = `${cf.functionName || '(anon)'} ${path.basename(cf.url)}:${cf.lineNumber + 1}`;
-        self.set(key, (self.get(key) ?? 0) + (dt[i] ?? 0) / 1000);
-      });
-    }
-    console.log(`\nself time, top ${PROFILE} (ms, over every move above):`);
-    for (const [k, ms] of [...self].sort((x, y) => y[1] - x[1]).slice(0, PROFILE)) {
-      console.log(`  ${ms.toFixed(0).padStart(7)}  ${k}`);
-    }
-  }
+  if (prof) await printProfile(prof, vp.id);
   if (errors.length) {
     console.log(`pageerrors: ${JSON.stringify(errors.slice(0, 5))}`);
     failed++;

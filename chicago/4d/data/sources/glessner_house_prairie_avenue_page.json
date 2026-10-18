@@ -1,0 +1,25 @@
+{
+  "id": "glessner_house_prairie_avenue_page",
+  "type": "website",
+  "citation": "Glessner House, 'Prairie Avenue' (history of the street), glessnerhouse.org. Read 17 October 2026.",
+  "date": "accessed 2026-10-17",
+  "describes_date": "1836-1904",
+  "url": "https://www.glessnerhouse.org/prairie-avenue",
+  "locator": "The page's history of the street, the paragraphs on its first great houses and on its architects.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "The house museum's own text, cited in words only.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-17 (T-2747) through a fetch that returned short quoted fragments of the page's sentences, never a whole paragraph; this record is cited only for what those fragments say.",
+  "note": "Fragments read: 'George Pullman and Marshall Field both acquired property on the street'; 'Richard Morris Hunt of New York and Henry Hobson Richardson of Boston were engaged to design the Marshall Field' (the sentence continues past the fragment); 'When Philip Armour joined Field and Pullman on the street in 1877'; 'Burnham & Root received nearly a dozen commissions on the street, beginning with the John Sherman house at 2100 S. Prairie'; and of the street's styles, 'the most popular being the Second Empire with its steeply-pitched mansard roof'. Later scholarship by the house museum (the Prairie library's G24).",
+  "what_it_supplies": [
+    "Richard Morris Hunt as architect of the Marshall Field house",
+    "the dates Field, Pullman and Armour came to the street, as far as the fragments go",
+    "Second Empire as the street's most popular style"
+  ],
+  "what_it_does_not_supply": [
+    "the 1904 occupants",
+    "any measurement"
+  ]
+}

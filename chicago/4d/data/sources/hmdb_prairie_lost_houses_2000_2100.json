@@ -1,0 +1,22 @@
+{
+  "id": "hmdb_prairie_lost_houses_2000_2100",
+  "type": "website",
+  "citation": "'Lost Houses of Prairie Avenue: 2000-2100 Blocks', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308703.",
+  "date": "accessed 2026-10-17",
+  "describes_date": "1857-1904",
+  "url": "https://www.hmdb.org/m.asp?m=308703",
+  "locator": "One entry per house, each headed by its address and a name line giving the residence, the year built and the architect, then two to four sentences.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A modern interpretive marker's text, cited in words only; nothing is copied into the scene.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-17 (T-2747) from the HMdb page through a fetch that returned the inscription in short quoted segments; the marker itself was not visited. The Prairie library read the same page on 2026-09-26 (chicago/prairie_1904_v1/research/building-research.json) and its readings of the name lines agree with this one.",
+  "note": "Entries read: 2009 'Max A Meyer Residence. Built 1888; Burnham & Root, architects', 'executed in the French Gothic style'; 2100 'John B. Sherman Residence. Built 1874; Burnham & Root, architects', 'Sherman was manager of the Union Stock Yards, and his daughter Margaret married the architect Daniel Burnham' 'during construction', and 'Sherman often recommended the firm to his neighbors, making them the most prolific architects represented on the street'; 2115 'David Kelley-Philip D. Armour Residence. Built 1871; architect unknown', 'Originally built for lumberman David Kelley, this stately Second Empire residence was for nearly 50 years the home' 'of the family of meatpacker Philip D. Armour, one of Chicago's wealthiest businessmen', 'Armour's widow was among the last residents of the street, dying here in 1927'; 2126 'Edward F. Robbins Residence. Built 1904; Mann, MacNeill & Lindeberg, architects'; 2140 'William F. Tucker-Byron L. Smith Residence. Built 1876; John M. Van Osdel, architect'.",
+  "what_it_supplies": [
+    "year built, architect, style and owners as the marker states them for 2009, 2100, 2115, 2126 and 2140 Prairie"
+  ],
+  "what_it_does_not_supply": [
+    "measurements or appearance beyond the style named"
+  ]
+}

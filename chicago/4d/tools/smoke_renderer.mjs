@@ -1838,6 +1838,9 @@ for (const [label, viewport, touch] of [
     // gate can least afford.
     let streetLayer = null;
     if (anyStage(7, 10, 12)) {
+      // T-2741: today's streets load off the boot path; the readout below reads them.
+      await page.waitForFunction(() => window.__chicago4d?.navigation?.modernLoaded === true,
+        null, { timeout: 20_000 }).catch(() => {});
       streetLayer = await page.evaluate(() => {
         const a = window.__chicago4d;
         // Sample the dynamic flora from a known dry South Division viewpoint.
@@ -11867,22 +11870,35 @@ for (const [label, viewport, touch] of [
     const swardAt = await swardStation();
     const rootLayer = await page.evaluate((st) => {
       const a = window.__chicago4d;
-      const out = { rootedPlants: 0, worstPlantRoot: 0 };
+      const out = { rootedPlants: 0, worstPlantRoot: 0, gpuRoots: 0, worstTileGround: 0 };
       if (!st) return out;
       a.walker.teleport({ local_e: st.e, local_n: st.n, yaw_deg: 180 });
       for (let i = 0; i < 3; i++) a.step();
       const waterY = a.terrain.heightfield?.meta?.water_surface_m ?? 0;
+      // T-2716: where the GPU draws the near ring (`flora.nearDraw`), its tufts
+      // root on the kept field tile's ground — the terrain asked at the tile's
+      // 0.125 m texel centres and blended between them — which is what they are
+      // held to here, at the same 1e-5 m. How far that ground stands from the
+      // terrain's own is the second number, with its own bar below.
+      const drawn = a.flora.nearDraw;
       for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
         'flora-shrub', 'flora-shrub-far']) {
         const mesh = a.flora.group.getObjectByName(name);
         const matrix = mesh?.instanceMatrix?.array;
         if (!matrix) continue;
+        const gpu = drawn && name === 'flora-near';
         for (let i = 0; i < mesh.count; i++) {
           const o = i * 16;
           const e = matrix[o + 12];
           const y = matrix[o + 13];
           const n = -matrix[o + 14];
-          const expected = a.terrain.isWater(e, n) ? waterY : a.terrain.surfaceHeight(e, n);
+          const wet = a.terrain.isWater(e, n);
+          let expected = wet ? waterY : a.terrain.surfaceHeight(e, n);
+          if (gpu && !wet) {
+            out.gpuRoots++;
+            out.worstTileGround = Math.max(out.worstTileGround, Math.abs(y - expected));
+            expected = drawn.groundAt(e, n) ?? Infinity;
+          }
           out.worstPlantRoot = Math.max(out.worstPlantRoot, Math.abs(y - expected));
           out.rootedPlants++;
         }
@@ -11895,6 +11911,15 @@ for (const [label, viewport, touch] of [
       !!swardAt && rootLayer.rootedPlants > 50 && rootLayer.worstPlantRoot < 1e-5,
       `${rootLayer.rootedPlants} roots at ${swardAt ? `${swardAt.zone} (${swardAt.e}, ${swardAt.n})`
         : 'no station off the turf'}, worst error ${rootLayer.worstPlantRoot}`);
+    // T-2716. The drawn near ring's ground against the terrain's. The tile's
+    // own height error at every near slot of the 22 critic stations is p95
+    // 0.29 mm and at worst 3.4 mm (phone) and 4.8 mm (desktop), where a crease
+    // falls inside a 0.125 m texel (`docs/measurements/t-2698-near-field.json`,
+    // tile 0.125). The bar is 5 mm: a tile misplaced by a texel reads in
+    // centimetres on any slope, and that is what it is for.
+    check(`${label}: the GPU near ring's ground stays within 5 mm of the terrain`,
+      rootLayer.gpuRoots === 0 || rootLayer.worstTileGround < 5e-3,
+      `${rootLayer.gpuRoots} GPU near roots, worst ${rootLayer.worstTileGround} m from the terrain`);
     check(`${label}: emergent flora stays within eight metres of a riverbank`,
       streetLayer.deepWaterPlants === 0,
       `${streetLayer.waterPlants} water plants, ${streetLayer.deepWaterPlants} in deep water`);
@@ -13432,18 +13457,20 @@ for (const [label, viewport, touch] of [
       + `dry alias ${streetLayer.worstDrySurfaceAlias}`);
     check(`${label}: street clearing removes travel-track plants but preserves the block`,
       streetLayer.clearsLake && streetLayer.keepsBlockGreen, JSON.stringify(streetLayer));
+    // T-2741: today's half is read off the City's centrelines (data/modern/streets.json),
+    // in the City's own abbreviations, and says the corner you stand at.
     check(`${label}: the readout shows both 1835 and current names at an intersection`,
       streetLayer.crossing.shown
       && streetLayer.crossing.state?.mode === 'intersection'
       && /Lake Street/.test(streetLayer.crossing.historic)
       && /La Salle Street/.test(streetLayer.crossing.historic)
-      && /W Lake Street/.test(streetLayer.crossing.modern)
-      && /LaSalle/.test(streetLayer.crossing.modern),
+      && /W Lake St\b/.test(streetLayer.crossing.modern)
+      && /N LaSalle St\b/.test(streetLayer.crossing.modern),
       JSON.stringify(streetLayer.crossing));
     check(`${label}: the street readout announces the next cross street ahead`,
       streetLayer.approaching.state?.mode === 'on'
       && streetLayer.approaching.historic === 'Market Street'
-      && /N Wacker Drive/.test(streetLayer.approaching.modern)
+      && /N Wacker Dr\b/.test(streetLayer.approaching.modern)
       && /Lake Street/.test(streetLayer.approaching.ahead)
       && /\d+ ft/.test(streetLayer.approaching.ahead)
       && !/\d+ m(?:\s|$)/.test(streetLayer.approaching.ahead),
@@ -14140,34 +14167,68 @@ for (const [label, viewport, touch] of [
       && near(travelUi.afterDrag.others[0], sp.walk) && near(travelUi.afterDrag.others[1], sp.wagon),
       JSON.stringify({ ranges: rg, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
     // ---- end T-2651 (the slider)
-    // ---- T-2652: getting there — one choice that Go to, the Map and Jaunts all use. Picking
-    // Ride there with the horse marks the choice as the visitor's own, which is what lets
-    // a Jaunt take it; a Jaunt reads it through js/getting-there.js (tools/test_getting_there.mjs
-    // drives the controller), and Go to rides it, as the T-2651 block above shows.
+    // ---- T-2652: getting there — one choice that Go to and the Map use (T-2727: and Jaunts,
+    // with Move › Jaunts use my choice on; the block after this one). Go to rides it, as the
+    // T-2651 block above shows; tools/test_getting_there.mjs drives the Jaunt controller.
     const gettingThere = await page.evaluate(() => {
       const api = window.__chicago4d;
       const before = { ...api.hud.gettingThere };
       document.querySelector('#s-move .seg-btn[data-mode="horse"]').click();
       document.querySelector('#s-arrive .seg-btn[data-arrive="ride"]').click();
       const ride = { ...api.hud.gettingThere, travel: api.travel.mode,
-        stored: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').arriveChosen };
+        stored: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').travelMode };
       document.querySelector('#s-arrive .seg-btn[data-arrive="fly"]').click();
       const fly = { ...api.hud.gettingThere, travel: api.travel.mode };
       document.querySelector('#s-arrive .seg-btn[data-arrive="instantly"]').click();
       document.querySelector('#s-move .seg-btn[data-mode="walk"]').click();
-      // Leave the page as a fresh visitor would have it: no choice of their own yet.
-      api.hud.settings.arriveChosen = false;
       api.setTravelMode('instantly');
       const note = document.getElementById('arrive-note')?.textContent.replace(/\s+/g, ' ').trim() ?? '';
       return { before, ride, fly, after: { ...api.hud.gettingThere, travel: api.travel.mode }, note };
     });
-    check(`${label}: the getting-there choice is one, used by Go to and Jaunts, and the visitor's own once picked (T-2652)`,
-      gettingThere.ride.travelMode === 'horse' && gettingThere.ride.travel === 'horse' && gettingThere.ride.chosen === true
-      && gettingThere.ride.stored === true && gettingThere.fly.travel === 'fly' && gettingThere.fly.chosen === true
-      && gettingThere.after.travel === 'instantly' && gettingThere.after.chosen === false
-      && /^Go to and Jaunts both use this choice/.test(gettingThere.note),
+    // T-2727: restated without T-2652's hidden "chosen" rule, which the switch replaces.
+    check(`${label}: the getting-there choice is one, stored, and used by Go to and the map (T-2652)`,
+      gettingThere.ride.travelMode === 'horse' && gettingThere.ride.travel === 'horse' && gettingThere.ride.stored === 'horse'
+      && gettingThere.fly.travel === 'fly' && gettingThere.after.travel === 'instantly'
+      && /^Go to and the map use this choice\. Jaunts keep the way each recommends, unless Jaunts use my choice is on\./.test(gettingThere.note),
       JSON.stringify(gettingThere));
     // ---- end T-2652
+    // ---- T-2727: Jaunts use my choice (part 13) ------------------------------------------
+    // Off by default: a Jaunt keeps the way it recommends whatever the choice. On: it takes
+    // the choice; one that cannot be travelled that way keeps its own and says so. Read
+    // through the page's own rule (api.jaunts.modeFor, which the Jaunt menu and the Jaunt
+    // controller share) on a real catalog Jaunt, and on the same Jaunt held to foot.
+    const jauntsChoice = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const catalog = await (await fetch(new URL('sidecars/1835/jaunts/catalog.json', api.dataBase))).json();
+      const row = catalog.jaunts.find((j) => j.availability === 'available' && j.default_mode === 'walk' && j.allowed_modes?.includes('horse'));
+      const footOnly = row && { ...row, allowed_modes: ['walk', 'instantly'] };
+      const box = document.getElementById('s-jaunts-choice');
+      const stored = () => JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').jauntsFollowChoice;
+      const out = { row: row?.id ?? null, label: box?.closest('label')?.textContent.replace(/\s+/g, ' ').trim() ?? null,
+        offByDefault: !!box && !box.checked && api.hud.gettingThere.follow === false };
+      document.querySelector('#s-move .seg-btn[data-mode="horse"]').click();
+      document.querySelector('#s-arrive .seg-btn[data-arrive="ride"]').click();
+      out.off = { ...api.jaunts.modeFor(row), follow: api.hud.gettingThere.follow };
+      box.click();
+      out.on = { ...api.jaunts.modeFor(row), follow: api.hud.gettingThere.follow, stored: stored() };
+      out.kept = api.jaunts.modeFor(footOnly);
+      box.click();
+      out.offAgain = { ...api.jaunts.modeFor(row), stored: stored() };
+      // Back as found: the switch off, Teleport, on foot.
+      document.querySelector('#s-arrive .seg-btn[data-arrive="instantly"]').click();
+      document.querySelector('#s-move .seg-btn[data-mode="walk"]').click();
+      api.setTravelMode('instantly');
+      return out;
+    });
+    check(`${label}: Jaunts use my choice — off, a Jaunt keeps the way it recommends; on, it takes the choice, and one that cannot keeps its own and says so (T-2727)`,
+      !!jauntsChoice.row && jauntsChoice.label === 'Jaunts use my choice' && jauntsChoice.offByDefault
+      && jauntsChoice.off.mode === 'walk' && !jauntsChoice.off.kept && jauntsChoice.off.follow === false
+      && jauntsChoice.on.mode === 'horse' && jauntsChoice.on.follow === true && jauntsChoice.on.stored === true
+      && jauntsChoice.kept.mode === 'walk' && jauntsChoice.kept.kept === true
+      && /^Your choice \(Ride there · Horse\) is not a way this Jaunt can be travelled, so it keeps the way it recommends\.$/.test(jauntsChoice.kept.note)
+      && jauntsChoice.offAgain.mode === 'walk' && jauntsChoice.offAgain.stored === false && !/_/.test(jauntsChoice.kept.note),
+      JSON.stringify(jauntsChoice));
+    // ---- end T-2727
     check(`${label}: the horse's gait moves the rider's eye a few centimetres, and stops when they do`,
       travelUi.on.peak >= 0.03 && travelUi.on.peak <= 0.10 && travelUi.on.after === 0
       && travelUi.on.speed > 1,
@@ -15165,6 +15226,19 @@ for (const [label, viewport, touch] of [
     check(`${label}: settings toggle all three navigation aids`,
       toggles.hidden.compass && toggles.hidden.map && toggles.hidden.street && toggles.restored,
       JSON.stringify(toggles));
+    // T-2736 (owner, 2026-10-17): Settings › Show turns the look-at tag off and on; on by default.
+    const lookTag = await page.evaluate(() => {
+      const box = document.getElementById('s-look-tag');
+      const api = window.__chicago4d;
+      const out = { present: !!box, onByDefault: box?.checked === true };
+      box?.click();
+      out.off = api.hud?.settings?.lookTag === false && document.getElementById('target-tag').hidden;
+      box?.click();
+      out.backOn = box?.checked === true && api.hud?.settings?.lookTag === true;
+      return out;
+    });
+    check(`${label}: Settings › Show turns the look-at tag off and back on (T-2736)`,
+      lookTag.present && lookTag.onByDefault && lookTag.off && lookTag.backOn, JSON.stringify(lookTag));
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -15238,8 +15312,8 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ cOn: { on: cOn.on, modes: cOn.modes }, cOff: { on: cOff.on } }));
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
-    // presets (T-2647), the pace in Move, light or dark in Settings. Crossing onto a new
-    // street shows its name as a toast for about 2 s, then it fades.
+    // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
+    // T-2741's, under the compass, with its own show/hide switch, so it is no 2 s toast.)
     const declutter = await page.evaluate(async () => {
       const api = window.__chicago4d, n = api.navigator;
       const top = document.querySelector('.hud-top');
@@ -15258,26 +15332,11 @@ for (const [label, viewport, touch] of [
       const reach = { start: await inside('jaunts', '#nav-seg-jaunts'), confidence: await inside('confidence', '.nav-preset'),
         pace: await inside('move', '#s-move'), theme: await inside('settings', '#btn-theme') };
       await n.select('home'); n.dock();
-      // The toast: stands on different streets.
-      const stands = [[20, -40], [180, 90], [-127.7, -292], [-155.24, -251.19], [107, -103]];
-      let first = null, crossed = null;
-      for (const [e, nn] of stands) {
-        api.walker.teleport({ local_e: e, local_n: nn, yaw_deg: 0 }); api.step();
-        const t = api.navigation.streetToast;
-        if (!t.street) continue;
-        if (first === null) { first = t.street; continue; }
-        if (t.street !== first) { crossed = { ...t }; break; }
-      }
-      await new Promise((r) => setTimeout(r, 2600));
-      const after = api.navigation.streetToast;
-      api.walker.teleport({ local_e: 180, local_n: 90, yaw_deg: 225 }); api.step();
-      return { gone, reach, first, crossed, faded: !after.on };
+      return { gone, reach };
     });
     check(`${label}: the HUD's top row holds none of what moved, and each is in the Navigator (T-2625)`,
       declutter.gone.length === 0 && Object.values(declutter.reach).every(Boolean),
       JSON.stringify(declutter));
-    check(`${label}: crossing onto a new street shows its name, which fades after about 2 s (T-2625)`,
-      !!declutter.crossed?.on && declutter.faded, JSON.stringify({ first: declutter.first, crossed: declutter.crossed, faded: declutter.faded }));
     // <<< T-2625
 
     // >>> T-2628 (§10 "AFTER · ≤ 10 % OF SCREEN", QA-17): the HUD's footprint. The union of
@@ -15733,6 +15792,52 @@ for (const [label, viewport, touch] of [
       && String(gotoClean.clamp) === '2' && gotoClean.overflow,
       JSON.stringify(gotoClean));
     // ---- end T-2632
+    // ---- T-2740: Go to's order. Nearest is the default; the other orders are offered only
+    // where the scene has something to sort on; Address runs by street then number, a row
+    // with nothing to sort on follows the rest, and the choice holds for the session.
+    const gotoSort = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.navigator.open(1);
+      await api.navigator.select('jaunts');
+      api.jauntsApp?.segment('goto');
+      await new Promise((r) => setTimeout(r, 200));
+      const select = document.getElementById('welcome-sort');
+      const options = [...(select?.options ?? [])].map((o) => o.value);
+      const first = select?.value;
+      const box = select?.getBoundingClientRect();
+      const visible = !!box && box.width > 0 && box.right <= innerWidth + 1;
+      const orders = {};
+      for (const id of options) {
+        select.value = id; select.dispatchEvent(new Event('change'));
+        orders[id] = [...document.querySelectorAll('#welcome-results .welcome-destination')].map((r) => ({ kind: r.dataset.kind, id: r.dataset.id }));
+      }
+      const target = (row) => api.destinations.byId(row.kind, row.id);
+      const addresses = (orders.address ?? []).map((row) => target(row)?.address ?? null);
+      const firstMissing = addresses.findIndex((a) => !a);
+      const numbered = addresses.slice(0, firstMissing < 0 ? addresses.length : firstMissing);
+      const addressOk = !options.includes('address') || (numbered.length > 0
+        && numbered.every((a, i) => !i || a.street > numbered[i - 1].street || (a.street === numbered[i - 1].street && a.number >= numbered[i - 1].number))
+        && addresses.slice(numbered.length).every((a) => !a));
+      const stored = sessionStorage.getItem('chicago4d.goto.sort');
+      select.value = 'near'; select.dispatchEvent(new Event('change'));
+      const out = { options, first, visible, addressOk, stored, last: options.at(-1),
+        overflow: document.documentElement.scrollWidth <= innerWidth + 1,
+        // The furthest row heads Furthest: no row Nearest lists is further away.
+        farthest: (() => {
+          const v = api.walker.state, d = (row) => { const t = target(row); return Number.isFinite(t?.e) ? Math.hypot(t.e - v.e, t.n - v.n) : -1; };
+          return !orders.far?.length || orders.near.every((r) => d(r) <= d(orders.far[0]) + 0.01);
+        })() };
+      api.jauntsApp?.restore();
+      await api.navigator.select('home');
+      api.navigator.dock();
+      return out;
+    });
+    check(`${label}: Go to sorts by nearest (default), furthest, address, name and owner, address by street then number, and keeps the choice (T-2740)`,
+      gotoSort.first === 'near' && gotoSort.options[0] === 'near' && gotoSort.options.includes('far') && gotoSort.options.includes('name')
+      && gotoSort.visible && gotoSort.overflow && gotoSort.addressOk && gotoSort.stored === gotoSort.last
+      && gotoSort.farthest,
+      JSON.stringify(gotoSort));
+    // ---- end T-2740
     // ---- T-2633: the Navigator's Go to follows the Confidence view too: with Reconstructed
     // hidden, a reconstructed place is listed dimmed with its one-line reason, and is
     // itself again the moment the grade is shown.
@@ -17614,6 +17719,40 @@ for (const [label, viewport, touch] of [
       if (doorReady) {
         await enterTown();
         await page.evaluate(() => new Promise((r) => { requestAnimationFrame(() => requestAnimationFrame(r)); }));
+        // T-2741: in 1904 too, the compass says the street in the scene's year and today's,
+        // and the Settings toggle names 1904, not the 1835 it said in every year.
+        const streetNames1904 = await page.evaluate(async () => {
+          const a = window.__chicago4d;
+          for (let i = 0; i < 200 && !a.navigation.modernLoaded; i++) await new Promise((r) => setTimeout(r, 50));
+          // The door checks below read the spawn pose, so this one puts it back.
+          const home = { local_e: a.walker.state.e, local_n: a.walker.state.n,
+            yaw_deg: a.walker.bearingDeg, pitch_deg: a.walker.state.pitch * 180 / Math.PI };
+          a.walker.teleport({ local_e: 1401.9, local_n: -3207.0, yaw_deg: 0 });
+          a.step();
+          const at1800 = { era: document.getElementById('street-historic')?.textContent,
+            today: document.getElementById('street-modern')?.textContent };
+          a.walker.teleport({ local_e: 1415, local_n: -3150, yaw_deg: 0 });
+          a.step();
+          const midBlock = { era: document.getElementById('street-historic')?.textContent,
+            today: document.getElementById('street-modern')?.textContent };
+          a.walker.teleport(home);
+          a.step();
+          return {
+            at1800,
+            midBlock,
+            year: document.getElementById('street-era-year')?.textContent,
+            label: document.getElementById('s-street-names-label')?.textContent,
+            shown: !document.getElementById('street-readout')?.hasAttribute('hidden'),
+          };
+        });
+        check(`${label}: 1904 names Prairie Avenue then and the City's address now (T-2741)`,
+          streetNames1904.shown && streetNames1904.year === '1904'
+          && streetNames1904.label === '1904 / current street names'
+          && /Prairie Avenue/.test(streetNames1904.at1800.era) && /Eighteenth/.test(streetNames1904.at1800.era)
+          && /S Prairie Ave/.test(streetNames1904.at1800.today) && /E 18th St/.test(streetNames1904.at1800.today)
+          && streetNames1904.midBlock.era === 'Prairie Avenue'
+          && /^17\d\d S Prairie Ave$/.test(streetNames1904.midBlock.today),
+          JSON.stringify(streetNames1904));
         const at = await page.evaluate(({ neLot, lotMid, ghFront }) => {
           const a = window.__chicago4d;
           const lift = (e, n) => a.terrain.surfaceHeight(e, n) + 1.0;

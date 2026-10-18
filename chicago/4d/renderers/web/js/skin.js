@@ -24,6 +24,10 @@
   // of that jump, so the arrival opens with the portal's ring still expanding (skins.css).
   // A direct visit, or one after 10 s, has no stamp young enough and opens plain.
   try { const age = Date.now() - Number(sessionStorage.getItem('chicago4d.transfer')); if (age >= 0 && age < 10000) root.dataset.transfer = 'true'; } catch {}
+  // T-2735: the way home mirrors it. A page opened within 10 s of a recall stamp is the
+  // Observatory end of the trip back, and opens on the reverse ring's last contraction. The
+  // stamp is spent here, so a reload does not replay it.
+  try { const age = Date.now() - Number(sessionStorage.getItem('chicago4d.recall')); if (age >= 0 && age < 10000) { root.dataset.recall = 'true'; sessionStorage.removeItem('chicago4d.recall'); } } catch {}
 
   // The appearance dial: one small button that steps to the next machine, its hand
   // turning a quarter each step and a row of dots marking which of the four is on.
