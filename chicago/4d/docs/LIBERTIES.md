@@ -26222,6 +26222,45 @@ which stands about 0.5 m taller than the print's door; that difference is open i
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2753).
 
+### L-k01-1625-rear-section-2820 — 1625 Prairie's four-storey rear section built beside its main body, under an attic of its own
+
+**Decision:** 1625's rear 7.6 m now stands as the 1911 sheet traces it (T-2820, piece 1 of
+T-2754): a step-out 1.3 m south of the main body's south wall (K01's new `rear_section`), its
+three walls in the K03 brick to the main wall head, the main side wall not drawn behind it, and
+over the whole rear part an attic of its own: steep slated lower faces front and rear to a curb,
+a low pitch over them to a ridge running across the house, and at each end the wall carried up
+the attic's outline as a coped parapet. The main roof's ridge dies into the attic's street face.
+The photograph's door and two windows are cut in the step-out's street face, its gabled dormer
+stands on the attic's street face over them, and the rear stack (until now over the rear part's
+south side, unread) is carried up in the south end parapet.
+**What is read, not invented.** The plan is the sheet's: the trace's south line at -3028.0 to
+-3028.4 over its rear 7.6 m, where the main part's runs at -3027.0 to -3027.2 (s20-1625-a1, '4'
+storeys). Off the photograph, on 3x crops: that the section has a narrow brick face toward the
+street with a door at its foot and one window a storey, that its cornice meets the main south
+eave at the same height (y 482-488 px where they meet), that its attic is slated with one dormer
+on the street face, and that its south end is a lit brick face carried up above the cornice to a
+stack. Heights are read against that cornice, set at the main wall head's 13.0 m, and the
+horizon: the windows at 3.66-6.65 and 9.02-11.48 m, the dormer's sill 13.85 m and its sash's head
+16.3 m, the attic's curb (its top line) 17.3 m, the stack about 1.5 m over the wall's head line.
+**What is invented.** The camera's depth that far back is soft (its own solve says +-3 m), so the
+heights rest on the cornice being the main eave's; the widths are the sheet's, not the print's —
+the print's face reads about 50 px across, about 2.2 m on the scale its heights take, where the
+sheet steps 1.3 m — so the windows are the contract's narrowest sash (0.75 m) and the dormer's
+sash 0.6 m in a 0.84 m face, centred, where the print's lights are about half the face. The door
+stands 2.1 m from grade where the print's head reads about 1.7 m (the fence hides its foot); it is
+a plain boarded door in a brick reveal under a soldier head, no K07 entrance. The lower faces'
+75-degree pitch, the 15-degree top over the curb (the print cannot see it), the 0.3 m cornice, the
+north end parapet (the party wall's: the print shows only the south one), the stack's plan (1.0 by
+0.6 m) and its place along the wall (about 4.4 m from the rear wall, by where it rises in the
+print), and the step-out's outer and rear walls left blank (the print shows the outer one lit and
+windowless; no picture shows the rear) are ours.
+**How to resolve:** T-2821 weighs the face's width against the sheet's step and the camera's
+depth at the rear, and brings the match record to `matches`; a view from the south or the rear,
+or a plan, would settle the section's width, its floors and its rear wall.
+**Ticket:** T-2820 (piece 1 of T-2754).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-18 (T-2820).
+
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
 **Decision:** `house_1619_prairie` keeps the K01 stone front T-2420 built from Treat & Foltz's drawing

@@ -171,6 +171,10 @@ class K01FrontageParams:
     # (`street_front_frontispiece`, resolved by _street_frontispiece) — empty for every other house
     street_dress: dict = field(default_factory=dict)
     frontispiece: dict = field(default_factory=dict)
+    # T-2820: a rear section stepping out past a side wall beside the main body's rear part,
+    # under its own slated attic (1625's, its sheet and photograph; k01_rear_section) — empty
+    # for every other house
+    rear_section: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -227,7 +231,7 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
-    "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
+    "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "rear_section", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece",
@@ -1880,6 +1884,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
                                  float(val("eave_overhang_m"))) if mansard else {}
     gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st) if gable else {}
+    # T-2820: the rear section, resolved before the stacks, one of which may stand on its attic
+    from .k01_rear_section import resolve as resolve_rear_section
+    rear_section = resolve_rear_section(val("rear_section") or {}, depth=depth, width=width, eave=eave,
+                                        side_wall=float(val("wall_thickness_side_m")),
+                                        overhang=float(val("eave_overhang_m")), cw=cw,
+                                        openings=openings)
+    if rear_section and (flat or mansard or gable):
+        raise ParamError("rear_section stands beside a hipped K01 roof (the one built)")
     if val("gable_roof") and not gable:
         raise ParamError(f"a {roof_form} roof names no gable_roof")
     if gable and val("rainwater"):
@@ -2233,18 +2245,35 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 if sz < st:
                     raise ParamError(f"chimney at ({u}, {v}) is thinner than the parapet it stands in")
                 base = round(pf + sum(heights), 4)
+            elif st_.get("in_rear_section"):
+                # T-2820: a stack carried up in the rear section's end parapet (1625's rear stack,
+                # its photograph): its outer face is the step-out's outer wall, and it rises from
+                # the wall head as the parapet does, clearing the attic's ridge
+                if not rear_section:
+                    raise ParamError(f"chimney at ({u}, {v}): this house has no rear section")
+                u0r, u1r, _v0r, v1r = rear_section["rect"]
+                if not (u0r + sx / 2 + 0.3 <= u <= u1r - sx / 2 - 0.3):
+                    raise ParamError(f"chimney at ({u}, {v}) does not stand along the rear section's end wall")
+                if abs(v + sz / 2 - v1r) > 1e-6 or sz < rear_section["attic"]["parapet_m"]:
+                    raise ParamError(f"chimney at ({u}, {v}): an end-parapet stack's outer face is the "
+                                     f"step-out's, and it is no thinner than the parapet")
+                base = round(pf + sum(heights), 4)
             elif not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
                 raise ParamError(f"chimney at ({u}, {v}) does not stand inside the footprint")
             if above < 0.6:
                 raise ParamError("a chimney stops less than 0.6 m above the ridge")
-            top = round(ridge + above, 4)
+            top = round((rear_section["attic"]["ridge_m"] if st_.get("in_rear_section") else ridge) + above, 4)
             # T-2406: a stack read off a picture stands at its own top. On a mansard it may
             # stop under the ridge, beside the upper hip it cannot see over (1620's front
             # stack, at the north wall's front corner): it clears the curb by the same 0.6 m
             # a ridge stack clears its ridge, and the crown's curb where one stands
             if "top_m" in st_:
                 top = float(st_["top_m"])
-                if flat:
+                if st_.get("in_rear_section"):
+                    if top < rear_section["attic"]["ridge_m"] + 0.6 - 1e-9:
+                        raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the rear section's "
+                                         f"ridge + 0.6")
+                elif flat:
                     # T-2712: a flat-roof stack read off a picture may stop under the parapet
                     # that hides it (1808's hall stack, under the north return's coping, its
                     # flue carried on by the cowl pipe every 1887-89 view shows). It clears
@@ -2432,7 +2461,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
-        wall_paint=paint, street_dress=street_dress, frontispiece=frontispiece,
+        wall_paint=paint, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
