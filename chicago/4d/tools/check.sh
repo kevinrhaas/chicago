@@ -3851,6 +3851,17 @@ step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
 selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
 
+# …and the page those doors copy ships without the source's developer notes, which is
+# what keeps five identical copies of it under validate.py's 64 KB duplicate floor
+# (T-0722) without moving the floor. The self-test holds the rules (placeholders,
+# conditional comments, raw elements and attribute values untouched); --check holds
+# the shipped page to the source byte for byte, less exactly its comments and stamp.
+selftest "the shipped walk page: developer comments out, placeholders and raw text untouched" \
+  node tools/strip_page_comments.mjs --self-test
+
+step "the published walk page and its doors are the source less its comments (T-0722)" \
+  node tools/strip_page_comments.mjs --check ../../site/4d
+
 # The reference browsers' asset directories leave the mirror only when the site root
 # already ships every byte of them (T-1828) — never a directory with new work in it.
 selftest "reference browsers: only what the root already ships is served from it" \
