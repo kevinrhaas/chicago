@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1985, ts: '2026-10-18T11:49:10.238Z', date: 'Oct 18, 2026, 6:49 AM CT', title: 'Glessner\'s stable cupola stands clear of its roof', kind: 'fix',
+    items: [
+      'The dovecote on the stable roof of Glessner House now rises above the ridge, as the 1963 HABS photograph and the c. 1887 Cornell view show it.',
+      'Both tiers of pigeon holes are in the open air, and its pointed roof stands well above the north gable instead of level with it.',
+      'The new heights are read from the photographs against the gable and ridge, about a foot either way, and the Liberties page says so.',
+    ] },
   { v: 1984, ts: '2026-10-18T11:26:26.785Z', date: 'Oct 18, 2026, 6:26 AM CT', title: '1808 Prairie\'s loggia: the 1888 plate tried with a level camera', kind: 'change',
     items: [
       'The 1888 Inland Architect plate of 1808 Prairie is fitted with a level camera on its front and on its loggia\'s columns and pedestals, every point read at the scan\'s full size.',
