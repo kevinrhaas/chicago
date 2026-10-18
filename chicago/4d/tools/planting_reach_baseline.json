@@ -16,7 +16,7 @@
       4.7,
       5.6
     ],
-    "call_sites": 3
+    "call_sites": 4
   },
   "east_limits": {
     "north": {
@@ -92,7 +92,7 @@
           1364
         ],
         "n": [
-          -736,
+          -836,
           1128
         ]
       }
@@ -101,6 +101,7 @@
   "unselectable": {},
   "placed": {
     "populus_deltoides": [
+      "z05_riverbank_timber",
       "z08_lakeshore",
       "z10_settled_town"
     ],
@@ -441,6 +442,162 @@
       "dossier_zones": [
         "6",
         "7"
+      ]
+    },
+    "sand_hills_north.mix.juniperus_virginiana": {
+      "weight": 44.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          20,
+          80
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_north.mix.pinus_banksiana": {
+      "weight": 10.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          2,
+          12
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_north.mix.populus_deltoides": {
+      "weight": 6.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          3,
+          15
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_north.swaleMix.populus_deltoides": {
+      "weight": 9.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          3,
+          15
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_north.swaleMix.populus_balsamifera": {
+      "weight": 5.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          2,
+          8
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_scanty.mix.pinus_banksiana": {
+      "weight": 3.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          2,
+          12
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_scanty.mix.populus_deltoides": {
+      "weight": 3.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          3,
+          15
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_scanty.swaleMix.populus_deltoides": {
+      "weight": 9.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          3,
+          15
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_scanty.swaleMix.populus_balsamifera": {
+      "weight": 5.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          2,
+          8
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_south.mix.juniperus_virginiana": {
+      "weight": 52.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          20,
+          80
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_south.swaleMix.populus_deltoides": {
+      "weight": 9.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          3,
+          15
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "sand_hills_south.swaleMix.populus_balsamifera": {
+      "weight": 5.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          2,
+          8
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
       ]
     },
     "wet_woods.mix.ulmus_americana": {

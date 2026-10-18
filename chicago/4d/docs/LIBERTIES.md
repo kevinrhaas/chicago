@@ -12496,6 +12496,14 @@ can be the record's own while the distance costs a fraction of a stem each. That
 not exist here. Until it does, the fraction is the honest stand-in and this entry is where it is
 counted.
 
+**Narrowed by T-2766 (2026-10-18).** The instrument this entry asked for now exists: since T-2743
+every tree-form stem is an instance of a grown species tree at near, mid and far levels, so a far
+stem costs a few crossed cards. The fractions are raised to **0.700 / 0.500 / 0.300** (light was
+0.191 after T-1976) and the caps to 3,800 / 3,300 / 1,700. Measured on the published mirror: 3,165 /
+2,144 / 1,347 trees, every level reaching N +1,113 m, and every desktop stand inside its triangle
+ceiling. `full` now draws seven tenths of the recorded stand, not two fifths. `balanced` is held
+below the ratio rule because the West prairie stand had only 5k triangles of headroom on dev.
+
 Related: **L121**, which this entry supersedes on the value and keeps on the method, and **L120**
 and **L114**, the other entries about this wood. Ticket **T-1127**; ROADMAP **K45(b3)**.
 **Recorded:** 2026-09-15.
@@ -26070,6 +26078,8 @@ record. The strip north of the main body behind its front part and the light wel
 **How to resolve:** T-2435 builds what the drawing shows and brings its match record to `matches`; a
 photograph of the house after 1886 settles the stone, the oriel's depth and whether the 1886 design was
 built as drawn.
+**Revised 2026-10-18 (T-2777):** the oriel now stands at the drawing's size, 4.8 m at the wall and 3.4 m of front, over the window and the entrance arch, which stand at the drawing's 1.55 and 4.6 m: their heads clear its lowest corbel course, so it no longer needs the width between them. Its six lights are built, four to its front and one in each cant, the cant lights 0.35 m, narrower than drawn, so their recesses stay in front of the house wall. Its depth is 0.65 m, not the 0.9 m first read: the drawing's level, square-on camera cannot read the depth (the front moves under 3 px between the two), and four 0.2 m corbel courses carry no more under the K08 oversail rule (inferred, stated on the record). Its hood's overhang is 0.1 m, so its eaves stand clear of the front's reconstructed corner pipes. Still not built: the frieze, upper stage and cone (T-2778), and the front's place along the wall, the entrance porch, the basement light and the stone above the springing (T-2779), each open in the match record.
+**Revised 2026-10-18 (T-2778):** the oriel is carried up through the main eave as drawn (`through_eave`): its second storey, a carved frieze between string courses from 8.35 to 9.5 m, an upper stage of shorter lights to 10.9 m, four to the front and one in each cant, and a slate spire whose planes meet at one apex at about 13.85 m under a finial, its heights read through the drawing's camera (they stand about 0.35 m over the ticket's first reading). Reconstructed: the frieze's carving, drawn as interlaced strapwork, is a dressed panel on each face carrying a guilloche of interlaced rings; the spire's eaves (0.15 m out, a 0.25 m fascia) and its turned finial are the K08 kit's; the oriel's back over the wall head is closed in its own stone; the cant lights are 0.3 m, narrower than drawn, so their sills clear the house's eave and gutter where those die into the cants. Still open: the front's place along the wall, the entrance porch, the basement light and the stone above the springing (T-2779).
 **Covers:** `house_1623_prairie.as_mapped_1904.form.storey_heights_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1623_prairie.as_mapped_1904.form.service_wall_brick`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.wall_head`, `house_1623_prairie.as_mapped_1904.form.roof_form`, `house_1623_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1623_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1623_prairie.as_mapped_1904.form.stair_tread_m`, `house_1623_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1623_prairie.as_mapped_1904.form.rear_bays`, `house_1623_prairie.as_mapped_1904.form.sash_by_storey`, `house_1623_prairie.as_mapped_1904.form.chimneys`, `house_1623_prairie.as_mapped_1904.form.rainwater`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`
 **Ticket:** T-2433 (piece 2 of T-1869).
 **Review:** `docs/RESEARCH/k01-1623-farwell-2433/README.md`.
@@ -26178,6 +26188,39 @@ section and brings the match record to `matches`.
 **Ticket:** T-2752 (piece 1 of T-2731).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2752).
+
+### L-k01-1625-mcbirney-frontispiece-2753 — 1625 Prairie's frontispiece stood proud with its quoins, the door's surround, a carved panel and the hood mould, and the lower windows in dressed surrounds
+
+**Decision:** 1625's front no longer lays its south part in the plane of the rest (T-2753, piece 2
+of T-2731). From its north arris at 3.81 m to the south corner, and from grade to the hood mould
+over the four-light window, the front stands proud (K01's new `street_front_frontispiece`): its
+coursing, the four-light window and the door are laid on that face; both its arrises are quoined
+long and short in turn; the door stands in a dressed surround under a carved panel; and a
+weathered hood mould caps it at 7.05-7.30 m. The ground and first floors' windows stand in dressed
+surrounds, and one string course under the first floor's sills replaces K01's two belts
+(`street_front_windows.surrounds`, `.belts`). The south downpipe moves to the open side wall by the
+corner, where the print draws it, clear of the frontispiece.
+**What is read, not invented.** Through the photograph's solved camera (38.6 px/m at the front's
+plane, grade y 795 px, the party wall x 140 px), on 3x crops of the print: the frontispiece's north
+arris (x 287 px) and the quoins' column there and at the south corner; the hood mould's place and
+depth (y 513-523 px); the string course's (y 637-643 px in the north part); the door surround's
+band and lintel; the carved panel's width and centre (x 343-375 px); the dressed jambs and lintels
+of the lower windows and how far they run past the openings.
+**What is invented.** How far the frontispiece stands proud: the print is taken square to the front
+and shows the projection only as a line, so 0.10 m is ours ("slightly proud", as T-2752 read it).
+The hood mould's overhang past the face (0.08 m) and its drip are ours; the print shows its shadow,
+not its depth. The quoins' and jamb stones' lengths are rounded to K02's dressed courses (0.25 and
+0.42 m at the arrises, 0.18 and 0.30 m at the windows), and the stones are the coursing's own,
+dressed and laid flush, so they rise course by course with the walling, not to the print's own
+joints. The panel's carving (figures about a cartouche) is not modelled: a raised moulded border
+with a raised oval cartouche stands for it. The panel is 0.51 m tall where the print's is 0.86 m,
+and the surround's lintel 0.30 m where the print's is 0.47 m, because the door they frame is K07's,
+which stands about 0.5 m taller than the print's door; that difference is open in the match record.
+**How to resolve:** T-2754 weighs the door's height and the plinth's and brings the match record to
+`matches`; a view of 1625 from the north or south would measure the projection.
+**Ticket:** T-2753 (piece 2 of T-2731).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-18 (T-2753).
 
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
@@ -28552,8 +28595,20 @@ tree; and which half of the rock-face relief each course takes (deep on the uppe
 lower), the front's T-2566 rule carried round the bow.
 **How to resolve:** a sharper print of the front, or a reading of the bow and the front side by side
 in the re-fitted cameras of T-2579, that lets the bow's beds be struck on the front's.
+**T-2773 (2026-10-18), the bow's beds struck on the front's:** T-2772 read the 1888 plate at its
+native 1559 px on the front's south strip and the bow's south flank side by side, and 7 of the 8
+front beds over the principal sill have a bow bed within 3 px (the model laid 1 of 7). So the bow
+is now laid on the street front's own beds (`masonry.coursing.rhythm` `street_front`), a front bed
+within 0.2 m of one of the bow's band lines not carried, and the rhythm is the plate's: from the
+principal sill (2.35 m) up, deep and thin in turn at about 0.42 / 0.23 m (the print's 33 / 18 px;
+`low_ratio` 0.54, the deep course held at 0.46 m so the pair's pitch stays about 0.64 m), and from
+the sill down to the coping three even courses of about 0.43 m (the print's 35-37 px). What stays
+invented: the rising joints along each course, which half of the rock-face relief each course
+takes, and the basement's height, which T-2765 owns (the print's sill stands about 157 px over the
+pavement, the render's about 198, so the model's foot under the even courses is the rusticated
+base and coping's 1.05 m where the print reads one course of about 49 px).
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
-**Ticket:** T-2584 (piece 1 of T-2580).
+**Ticket:** T-2584 (piece 1 of T-2580); T-2773.
 **Review:** `docs/RESEARCH/k01-1808-keith-1883/README.md`.
 **Recorded:** 2026-10-16 (T-2584).
 
@@ -28762,6 +28817,63 @@ Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood
 **Ticket:** T-2743.
 **Recorded:** 2026-10-17 (T-2743).
 
+### L-shore-grove-1835-2766 — The 1835 shore cottonwood grove at Sixteenth to Eighteenth Street: its count, its depth and every stem's place
+
+**Decision:** the 1835 scene draws Robert G. Clarke's grove of "perhaps fifty to seventy-five large
+cottonwoods, extending from a little north of Sixteenth to a little south of Eighteenth Street" as
+**60** eastern cottonwoods, 22-26 m tall, dealt by `tools/generate_shore_grove_1835.py` into
+`data/flora/plantings/shore_cottonwood_grove_1835.json` (T-2766).
+**What is read, not invented:** the grove, its species, its size class ("large") and its north and
+south ends (Clarke 1890, in Kirkland 1893 Appendix K, `kirkland_1893_chicago_massacre_appendix_k`);
+the clump "of eight or nine trees" and its place, 250-300 ft north of Eighteenth Street at the east
+end of Wirt Dexter's lot, which is 1721 Prairie Avenue's traced lot end at E 1490.1; and the 18th
+Street tree's size about 1835 ("a large and thrifty tree", Mary Clark Williams through Galloway).
+**What is invented:** the count inside Clarke's range (60); "a little" beyond each street as 20 m;
+the clump as nine stems, one central and eight on a 4.5 m ring; the grove's depth, a strip 48 m
+back from the edge of the shore terrace (where the committed e1834_harbor_cut ground stands 2 m above
+the water), which no source states; and every other stem's place, a seeded dart throw at 11 m apart.
+The 18th Street tree and its fellow stand where the 1812 record already puts them, so their places
+carry that record's reconstruction. The zone is `z05_riverbank_timber`, because the shore's own
+record describes the cottonwood only in its 5-15 m dune form and z05's is the only record of the
+full-grown tree; heights are held to the lower half of its 22-30 m band.
+**How to resolve:** Andreas's engraving of the 18th Street tree (vol. 1, p. 31), an early plat of
+the Clark farm or of Eighteenth Street that draws trees, or a photograph of the shore before the
+Illinois Central's fill.
+**Ticket:** T-2766.
+**Recorded:** 2026-10-18 (T-2766).
+
+### L-sand-hills-2768 — The sand hills' red cedar, jack pine and swale poplars: where each reach runs, how dense, and every stem's place
+
+**Decision:** the scene plants a woody scrub on the lakeshore sand beyond the dune poplars' reach,
+in three reaches, each its own community in `renderers/web/js/trees.js` (T-2768):
+north of the river from the Kinzie house's northing to the field's edge, red cedar with jack pine
+and a few dune cottonwoods; south of about Twelfth Street to the field's south edge, red cedar alone;
+between the mouth and Twelfth Street, a scanty scatter of jack pine and dune cottonwood. In a hollow
+of the modelled sand hills the mix is cottonwood and balsam poplar instead of cedar.
+The same communities plant the 1812 scene, which has the same dune field and no town on it, so the north
+reach there is not cut short by the 1835 town ground.
+**What is read, not invented:** cedars and pines on the sand hills north of the river (Wau-Bun 1856,
+"a vast range of sand-hills, covered with stunted cedars, pines, and dwarf-willow trees", between
+the Kinzie house and the lake); low cedar, ground pine and sand cherry from about where the Illinois
+Central round-house stood to about Twenty-Fifth Street (Robert G. Clarke 1890, in Kirkland 1893
+Appendix K); "a scanty growth of cottonwoods and pines" among the dunes south of the mouth (Currey
+1912); jack pine as a dominant tree of the established dunes at the south end of the lake, and
+cottonwood seedlings in the wet hollows between dunes (Cowles 1901, pp. 153, 173-174).
+**What is invented:** the species of the cedar (*Juniperus virginiana*, the tree-form cedar of these
+dunes) and of the pine (*Pinus banksiana*); the densities, 20-80 cedars a hectare as the reading of
+"covered", read as 40-64 stems a hectare north, 40-64 south and 3-9 in the scanty reach; Twelfth
+Street as the line between Clarke's reach and Currey's, set by the 16th and 22nd Street anchors; the
+belt behind the shore, the lakeshore zone's band plus up to 140 m (south) and 200 m east of the
+Kinzie house (north); a hollow as ground 0.12 m below a 9 m ring; the clump field that groups the
+stems into thickets with sand between; every stem's place, dealt from a generator seeded by its own
+position. The cedar's cone, the pine's open crooked crown and both foliage tiles are botanical habit
+under L-tree-architecture-2743.
+**How to resolve:** the original township plat's notes on the sand ridges, an early drawing or
+photograph of the lake shore south of Twelfth Street or north of the harbour before the fills, or a
+botanical record of the Chicago dunes before 1860 naming the cedar and the pine.
+**Ticket:** T-2768.
+**Recorded:** 2026-10-18 (T-2768).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -28865,3 +28977,36 @@ solved camera) can move the junction along S.
 **Applies to:** `data/structures/glessner_house.json` (`v4_detail.bow_terrace.newel_WS`, `newel_radius_ft`,
 the last three `stair_boundaries_WS`); see `docs/RESEARCH/glessner-terrace-terminal-T-2759/`.
 **Recorded:** 2026-10-18 (T-2759).
+
+### L-glessner-stable-roof-camera-2758 — Glessner's stable roof kept at its heights: the 2 ft was the camera (2026-10-18)
+
+**Decision:** HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) read Glessner's whole stable roof about
+28 px (roughly 2 ft) below the model, and put the cupola about 4 ft north of its owner-directed centre on
+S14.6 (L-glessner-cupola-body-2228). Both came from the camera, not the roof. That view's camera is fitted for
+the whole house: its only vertical controls are the grade and eave at the Prairie corner, 141 ft east of the
+stable, and it draws 14.6 px a foot at the stable where the carriage doorway measures 13.85. The doorway is
+the one measured length in the stable's face: jambs at W 134.9-147.0 on sheet 2, 12.6 ft from grade to the
+lintel's soffit on sheet 5 (`habs_glessner_house_il_1015_drawings`). Re-solved with the doorway's corners, that
+photograph reads the north gable's coping apex at 38.1-38.8 ft and the cupola's apex at 45.5-46.3 ft. The
+Cornell A. D. White view (`cornell_adw_glessner_stable_1887`) is re-solved at the roof on measured controls
+only, in place of its west-wall homography on two reconstructed eaves. It reads the coping apex at 38.3-39.5 ft
+and the cupola's apex at 46.5-47.8 ft (model 39.6 and 47.0). The roof is not changed.
+**What is kept, and against what.** The ridge's 38.6 ft (coping apex 39.6) stands about 1 ft above the
+middle of those readings. That is inside the ridge's stated 1.5 ft tolerance, and the two photographs disagree
+with each other by about as much. The cupola's centre stays on S14.6, the owner's alignment with the ridge
+crossing. Photograph 1 cannot say where along S it stands: every control in that photograph lies in the north face,
+so its depth is free: with the pixel aspect let go, which those controls cannot measure,
+fits of one RMS slide the cupola from S14.4 at square pixels to S10.4 at an aspect of 1.06 while the
+gable's height does not move. The Cornell re-solve uses two faces and puts it
+at S13.0-13.2, about 1.5 ft north. That is a quarter of the cupola's 6 ft plan on one camera's reading
+(3.7-4.8 px RMS), not the 4 ft that was to go to the owner.
+**Bounds:** Picks about ±2 px on photograph 1 and ±5 px on the Cornell copy; the doorway's threshold is taken
+as grade. The cameras are bounded re-solves, not surveys. The committed cameras are unchanged: photograph 1's
+doorway re-solve moves the north tower's finial about 9 px off the print, so no single level camera fits both ends
+of that print, and the Cornell west-wall camera still serves the west windows, which the re-solve reads in the
+same places.
+**How to resolve:** A measured stable elevation or section (no HABS sheet prints the stable's ridge), or a
+third rights-cleared photograph whose camera can be solved on two faces of the stable.
+**Applies to:** `data/structures/glessner_house.json` (`ridge_west_wing`, `turret_stable`); see
+`data/comparisons/glessner/stable-roof-heights.json` (`tools/glessner_stable_roof_read.py`).
+**Recorded:** 2026-10-18 (T-2758).

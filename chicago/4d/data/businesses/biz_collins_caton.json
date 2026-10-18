@@ -81,7 +81,7 @@
       "to": null,
       "tier": "inferred",
       "basis": "Placeable against the committed town. The landmark is another documented business (business_brewster_hogan_co), which places this one exactly as well as that one is placed.",
-      "limit_reason": "The register places this house against business_brewster_hogan_co and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "limit_reason": "The register places this house against Brewster, Hogan & Co. and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "business",
         "id": "biz_brewster_hogan_co",

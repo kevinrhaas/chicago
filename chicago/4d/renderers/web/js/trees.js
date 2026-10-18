@@ -107,6 +107,9 @@ const DUNE_ZONE = 'z08_lakeshore';
  *  block that binds only `shrub_low` (flora.js's stratum) does not silently
  *  thin the timber this loop plants. T-1056. */
 const DUNE_WOODY_ROLES = ['tree', 'thicket'];
+/** T-2768: the sand prairie the North Division's sand hills stand on, east of
+ *  the timber's limit. */
+const SAND_PRAIRIE_ZONE = 'z09_sand_prairie';
 
 /* -------------------------------------------------------------------------- */
 /* the physical constants this file reasons with                               */
@@ -601,6 +604,19 @@ const ARCHETYPE_BY_ZONE = {
       form: 'columnar', h: [6, 12], dbh: [0.12, 0.28], spreadK: 0.42, boleK: 0.54, puffs: 5,
       dark: 0x58743e, light: 0x8a9c66, bark: 0x5d5748,
     },
+    // T-2768 — THE SAND HILLS' CEDAR AND PINE. Shape is tree-model.js's ARCH;
+    // these carry what the old archetype path still reads. The cedar's bark is
+    // the reddish brown of its shredding strips, the pine's a dark grey-brown;
+    // no record states either. `dbh` is stout for the height, as a wind-cut
+    // tree on sand is. docs/LIBERTIES.md L-sand-hills-2768.
+    juniperus_virginiana: { common: 'eastern red cedar (dune form)', dossier: 'ZONE 8c',
+      form: 'columnar', h: [1.5, 6], dbh: [0.08, 0.26], spreadK: 0.55, boleK: 0.04, puffs: 6,
+      dark: 0x3a5238, light: 0x5c7254, bark: 0x7a5c48,
+    },
+    pinus_banksiana: { common: 'jack pine', dossier: 'ZONE 8c',
+      form: 'open', h: [3, 9], dbh: [0.12, 0.30], spreadK: 0.62, boleK: 0.28, puffs: 6,
+      dark: 0x4a6236, light: 0x7a8e56, bark: 0x4c4238,
+    },
   },
   z10_settled_town: {
     // THE LOMBARDY POPLAR (T-0117), and it is here rather than in `SPECIES` for
@@ -796,7 +812,90 @@ const COMMUNITIES = {
     confidence: 'inferred',
     sources: ['mnfi_open_dunes', 'cowles_1901'],
   },
+  /**
+   * T-2768 — THE SAND HILLS, where the witnesses put a woody scrub on the same
+   * ZONE 8 ground the dune poplars stand on, beyond the poplars' reach.
+   *
+   * Three reaches, each its own community because each witness describes a
+   * different cover, and each held to its `reachN` (local N metres, faded over
+   * `reachFadeM`):
+   *
+   *   north  Wau-Bun (1856): between the Kinzie house and the lake, "a vast
+   *          range of sand-hills, covered with stunted cedars, pines, and
+   *          dwarf-willow trees". From the house's northing to the field's edge.
+   *   south  Clarke (1890): from about Twelfth to Twenty-Fifth Street, "covered
+   *          with low cedar trees, ground pine, and sand cherry bushes". No pine
+   *          tree: his "ground pine" is a mat, and the sand cherry and the dune
+   *          willows are flora.js's shrub stratum on this zone already.
+   *   scanty Currey (1912): south of the mouth to about Twelfth Street, "a
+   *          scanty growth of cottonwoods and pines ... maintaining a precarious
+   *          existence among the sand-dunes".
+   *
+   * WHERE NO WITNESS GOES: the positions, the density each word is read as, and
+   * where one reach gives way to the next (Twelfth Street, by the 16th-22nd
+   * Street anchors). docs/LIBERTIES.md L-sand-hills-2768.
+   *
+   * PLANTED IN CLUMPS. A dune scrub is thickets with sand between them, not an
+   * even scatter, so the roll is weighted by a clump field (`clumpM`) with a
+   * mean of one: the count is the record's, the pattern is clumped.
+   *
+   * THE SWALES. Where the modelled sand hills have a hollow (the dune fields'
+   * `hollow` in terrain_spec.json), the ground stands lower than its
+   * surroundings, and Cowles (1901, p. 153): "Seedlings of the Cottonwood, as
+   * well as the long-leaved and glaucous willows, germinate in these wet
+   * depressions." A hollow takes `swaleMix` instead: no cedar, which wants the
+   * dry crest.
+   *
+   * These communities deal from their own position-seeded generator, not the
+   * shared stream, so the rest of the wood stands exactly where it stood.
+   */
+  sand_hills_north: {
+    label: 'Sand-hill cedar, pine and willow scrub north of the river (Wau-Bun)',
+    dossier: 'ZONE 8c — stabilised back-dune; Wau-Bun 1856',
+    zones: ['z08_lakeshore'],
+    perHa: [40, 64],
+    mix: [['juniperus_virginiana', 44], ['pinus_banksiana', 10], ['populus_deltoides', 6]],
+    swaleMix: [['populus_deltoides', 9], ['populus_balsamifera', 5]],
+    reachN: [330, 1200], reachFadeM: 60, clumpM: 24,
+    // "Between the house and the lake": the sand hills run inland of the
+    // lakeshore zone's band to the Kinzie house, so here the reach also takes
+    // the sand prairie east of it (`inlandFromE`, just east of the house's two
+    // cottonwoods at E 1146-1162).
+    inlandFromE: 1175, inlandBeltM: 200,
+    specsFrom: 'z08_lakeshore',
+    confidence: 'inferred',
+    sources: ['kinzie_waubun_1856', 'cowles_1901'],
+  },
+  sand_hills_south: {
+    label: 'Sand-hill red cedar south of Twelfth Street (Clarke)',
+    dossier: 'ZONE 8c — stabilised back-dune; Clarke 1890',
+    zones: ['z08_lakeshore'],
+    perHa: [40, 64],
+    mix: [['juniperus_virginiana', 52]],
+    swaleMix: [['populus_deltoides', 9], ['populus_balsamifera', 5]],
+    reachN: [-4000, -2410], reachFadeM: 120, clumpM: 26,
+    // Clarke gives the sand hills' length and not their depth; a belt of
+    // 140 m behind the shore is the lakeshore band and as much again.
+    inlandBeltM: 140,
+    specsFrom: 'z08_lakeshore',
+    confidence: 'inferred',
+    sources: ['kirkland_1893_chicago_massacre_appendix_k', 'cowles_1901'],
+  },
+  sand_hills_scanty: {
+    label: 'Scanty cottonwoods and pines on the dunes south of the mouth (Currey)',
+    dossier: 'ZONE 8c — stabilised back-dune; Currey 1912',
+    zones: ['z08_lakeshore'],
+    perHa: [3, 9],
+    mix: [['pinus_banksiana', 3], ['populus_deltoides', 3]],
+    swaleMix: [['populus_deltoides', 9], ['populus_balsamifera', 5]],
+    reachN: [-2410, -400], reachFadeM: 0, clumpM: 30,
+    specsFrom: 'z08_lakeshore',
+    confidence: 'inferred',
+    sources: ['currey_1912_story_of_old_fort_dearborn', 'cowles_1901'],
+  },
 };
+/** T-2768 — the sand-hill communities, in the order a point is offered to them. */
+const SAND_HILLS = ['sand_hills_north', 'sand_hills_south', 'sand_hills_scanty'];
 
 /* -------------------------------------------------------------------------- */
 /* the timber beyond the modelled ground                                       */
@@ -2100,6 +2199,8 @@ export async function createTrees({
      *  reportable rather than a difference somebody has to notice. */
     rejectedBelowWoodyBand: 0,
     rejectedOutsideDuneReach: 0,
+    /** T-2768: the sand-hill scrub's own tally. */
+    sandHills: { offered: 0, reachFade: 0, belowBand: 0, planted: 0, swale: 0 },
     rejectedBelowWaterline: 0, lowestStationY: null,
     // ROADMAP K45(c). `headSpecies` is which records carry a July
     // inflorescence this file draws; `headStems` is how many stems actually
@@ -2218,7 +2319,11 @@ export async function createTrees({
       }
       return [id, weight];
     });
-    mixes[key] = { mix: w(c.mix, 'mix'), edgeMix: c.edgeMix ? w(c.edgeMix, 'edgeMix') : null };
+    mixes[key] = {
+      mix: w(c.mix, 'mix'),
+      edgeMix: c.edgeMix ? w(c.edgeMix, 'edgeMix') : null,
+      swaleMix: c.swaleMix ? w(c.swaleMix, 'swaleMix') : null,
+    };
   }
 
   /* ---- 1. read the ground ------------------------------------------------ */
@@ -2472,6 +2577,12 @@ export async function createTrees({
     // TIMBER_EAST_LIMIT_STREETS. Ground east of the limit carries no woody
     // community in this build: the open-dune poplars that belong on the sand are
     // recorded, archetyped and not yet placed (ROADMAP K45(b) change one).
+    // T-2768: the "sandy hills near the lake" are not an absence of woody
+    // growth either. Wau-Bun's cedars, pines and dwarf willows stand on them
+    // north of the river and Clarke's low cedars south of Twelfth Street;
+    // `plantSandHill` holds each reach to its own belt behind the shore.
+    const pastTimber = e > (d === NORTH ? eastLimit.north : eastLimit.south);
+    if (pastTimber && zoneAt?.(e, n) === SAND_PRAIRIE_ZONE) return 'sand_hill_inland';
     if (e > (d === NORTH ? eastLimit.north : eastLimit.south)) return null;
 
     const bank = dw[i];
@@ -2653,11 +2764,26 @@ export async function createTrees({
    * `keep = 1`. What changed at T-1127 is that `full` is no longer that stand —
    * it is 40 % of it — because the enlarged field's wood does not fit the
    * geometry any level of this renderer is for. Recorded in docs/LIBERTIES.md.
+   *
+   * T-2766 RAISES ALL THREE, because the instrument L238 asked for now exists.
+   * Since T-2743 every tree-form stem is an instance of a grown species tree at
+   * three levels, so a far stem costs a few crossed cards rather than a whole
+   * crown, and 1835's trees at the town_backyard stand fell from 994k triangles
+   * to 418k. That saving is spent on the wood the sources describe ("all wooded"
+   * north of the river): 0.700 / 0.500 / 0.300. `balanced` is held below the
+   * ratio rule because the West prairie stand was 5k under its 2,535,000 on dev
+   * and 0.600 put it 15k over; the caps are raised so the backstop still has
+   * about a fifth of headroom at each level.
+   *
+   * T-2768 raises the caps again, and only the caps: the sand hills' cedars
+   * and pines are dealt by the same roll and the same `keep`, about 700 more
+   * stems at `full`, which the T-2766 cap of 3800 would have cut off partway
+   * north. The keep fractions do not move.
    */
   const STEMS = {
-    full:     { step: 4.0, keep: 0.400, trees: 3030, thickets: 1550 },
-    balanced: { step: 4.7, keep: 0.350, trees: 1920, thickets: 1000 },
-    light:    { step: 5.6, keep: 0.191, trees: 1110, thickets: 630 },
+    full:     { step: 4.0, keep: 0.700, trees: 4700, thickets: 1550 },
+    balanced: { step: 4.7, keep: 0.500, trees: 3800, thickets: 1000 },
+    light:    { step: 5.6, keep: 0.300, trees: 2100, thickets: 630 },
   };
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
@@ -2802,6 +2928,7 @@ export async function createTrees({
     pickers[key] = {
       mix: pickerFor(key, 'mix', m.mix),
       edgeMix: m.edgeMix ? pickerFor(key, 'edgeMix', m.edgeMix) : null,
+      swaleMix: m.swaleMix ? pickerFor(key, 'swaleMix', m.swaleMix) : null,
     };
   }
   const bump = (obj, key) => { obj[key] = (obj[key] ?? 0) + 1; };
@@ -2858,6 +2985,84 @@ export async function createTrees({
    * ROADMAP box and in `stats`. What may GROW on the ground newly reached is
    * `communityAt`'s answer, not this loop's: see TIMBER_EAST_LIMIT_STREETS.
    */
+  /**
+   * T-2768 — one offered point on the sand hills: which reach it is in, whether
+   * the woody band and the clump field let a stem stand, and which species.
+   * Every draw is from a generator seeded by the point itself, so planting the
+   * sand hills moves no other stem in the scene. Returns true when the point
+   * belonged to a sand-hill reach (planted or not).
+   */
+  /** T-2768 — the shore's easting per heightfield row: the easternmost cell of
+   *  the row standing a metre above the water, read once. */
+  const shoreRow = new Float32Array(rows).fill(NaN);
+  for (let j = 0; j < rows; j++) {
+    for (let i = cols - 1; i >= 0; i--) {
+      if (data[j * cols + i] > waterY + 1.0) { shoreRow[j] = originE + i * cellM; break; }
+    }
+  }
+  const shoreE = (n) => {
+    const j = Math.round((n - originN) / cellM);
+    const v = j >= 0 && j < rows ? shoreRow[j] : NaN;
+    return Number.isNaN(v) ? null : v;
+  };
+  const sandHillReach = (n) => {
+    for (const key of SAND_HILLS) {
+      const c = COMMUNITIES[key];
+      const [n0, n1] = c.reachN;
+      const f = c.reachFadeM ?? 0;
+      const r = smoothstep(n0 - f, n0, n) * (1 - smoothstep(n1, n1 + f, n));
+      if (r > 0) return { key, c, r };
+    }
+    return null;
+  };
+  const plantSandHill = (px, pz, gy, w, inland = false) => {
+    const hit = sandHillReach(pz);
+    if (!hit) return false;
+    const { key, c, r } = hit;
+    if (inland) {
+      // Inland of the lakeshore band only within the reach's belt behind the
+      // shore, and (north) east of the Kinzie house.
+      if (!c.inlandBeltM) return true;
+      const shore = shoreE(pz);
+      if (shore == null || px < shore - c.inlandBeltM) return true;
+      if (c.inlandFromE != null && px < c.inlandFromE) return true;
+    }
+    stats.sandHills.offered++;
+    const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x2768);
+    if (r < 1 && hr() >= r) { stats.sandHills.reachFade++; return true; }
+    // The woody band, exactly as the dune's: nothing woody on ground the lake reworks.
+    const band = w?.establishes_m;
+    if (band) {
+      const t = smoothstep(band[0], band[1], gy);
+      if (t <= 0 || (t < 1 && noise2(px, pz, 8, 41) >= t)) { stats.sandHills.belowBand++; return true; }
+    }
+    // A hollow: the point stands 0.12 m or more below the mean of a ring 9 m out.
+    let ring = 0;
+    for (let k = 0; k < 6; k++) {
+      const a = (k / 6) * Math.PI * 2;
+      ring += terrain.surfaceHeight(px + Math.cos(a) * 9, pz + Math.sin(a) * 9);
+    }
+    const swale = c.swaleMix && gy < ring / 6 - 0.12;
+    // The clump field: mean one, so the record's density is kept and its pattern
+    // is thickets and openings.
+    const clump = 2 * smoothstep(0.30, 0.78, noise2(px, pz, c.clumpM ?? 24, 61));
+    const perHa = lerp(c.perHa[0], c.perHa[1], noise2(px, pz, 58, 7)) * clump * clearedFactor(px, pz);
+    if (hr() > (perHa * cellArea * keep) / 10000) return true;
+    if (stats.trees >= maxTrees || blocked(px, pz)) return true;
+    const p = pickers[key];
+    const id = (swale ? p.swaleMix : p.mix)(hr());
+    const spec = communitySpecs[key][id];
+    if (!spec) return true;
+    plant(spec, px, gy, pz, hr);
+    noteStation(px, pz, gy);
+    stats.trees++;
+    stats.sandHills.planted++;
+    if (swale) stats.sandHills.swale++;
+    bump(stats.communities, key);
+    bump(stats.species, id);
+    return true;
+  };
+
   const sweepE0 = originE + step;
   const sweepE1 = originE + (cols - 1) * cellM - step;
   const sweepN0 = originN + step;
@@ -2881,6 +3086,12 @@ export async function createTrees({
       if (gy < dryFloorY) { stats.rejectedBelowWaterline++; continue; }
       const comm = communityAt(px, pz);
       if (!comm) continue;
+      // T-2768: the sand hills inland of the lakeshore band. Nothing above drew
+      // from `rnd` for this point, and `plantSandHill` does not either.
+      if (comm === 'sand_hill_inland') {
+        plantSandHill(px, pz, gy, records.woody?.[DUNE_ZONE], true);
+        continue;
+      }
       // T-1056 — THE DUNE'S POPLARS STAND ON THE SANDY HILLS, NOT ON THE BAR.
       //
       // `communityAt` answers 'dune' for the whole of z08_lakeshore's box, and
@@ -2913,6 +3124,10 @@ export async function createTrees({
           const r = smoothstep(reach[0] - fade, reach[0], pz)
             * (1 - smoothstep(reach[1], reach[1] + fade, pz));
           if (r <= 0 || (r < 1 && noise2(px, pz, 8, 43) >= r)) {
+            // T-2768: beyond the poplars' reach the same sand carries the
+            // witnesses' sand-hill scrub. Nothing above this line drew from
+            // `rnd` for this point, and `plantSandHill` does not either.
+            if (plantSandHill(px, pz, gy, w)) continue;
             stats.rejectedOutsideDuneReach++;
             continue;
           }

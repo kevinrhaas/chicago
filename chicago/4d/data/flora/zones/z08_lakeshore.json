@@ -875,6 +875,91 @@
       "sources": [
         "mnfi_open_dunes"
       ]
+    },
+    {
+      "id": "juniperus_virginiana",
+      "binomial": "Juniperus virginiana",
+      "common": "eastern red cedar (dune form)",
+      "role": "tree",
+      "form": "tree_columnar",
+      "abundance": {
+        "density_per_ha": [
+          20,
+          80
+        ]
+      },
+      "height_m": [
+        1.5,
+        6
+      ],
+      "width_m": [
+        1.2,
+        3.5
+      ],
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          58,
+          82,
+          60
+        ],
+        "foliage_rgb_alt": [
+          92,
+          114,
+          84
+        ],
+        "inflorescence": null,
+        "appearance": "Low, dense, dark blue-green cones foliated to the sand, often lopsided or blunt-topped where the wind has taken the leader; shredding reddish bark."
+      },
+      "confidence": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre_appendix_k",
+        "kinzie_waubun_1856"
+      ],
+      "note": "T-2768. The cedar is named by two witnesses, one on each side of the river: Robert G. Clarke (letter of 1890, Kirkland 1893 Appendix K) of the sand hills from about Twelfth to Twenty-Fifth Street, 'covered with low cedar trees, ground pine, and sand cherry bushes'; and Wau-Bun (1856) of the sand hills between the Kinzie house and the lake, 'covered with stunted cedars, pines, and dwarf-willow trees'. Neither names the species; Juniperus virginiana is the tree-form cedar of the southern Lake Michigan dunes. The density band, 20-80 stems a hectare, is this record's reading of 'covered' for an open juniper-cedar dune scrub, not a count anyone made; the heights are 'low' and 'stunted'."
+    },
+    {
+      "id": "pinus_banksiana",
+      "binomial": "Pinus banksiana",
+      "common": "jack pine",
+      "role": "tree",
+      "form": "tree_open_crown",
+      "abundance": {
+        "density_per_ha": [
+          2,
+          12
+        ]
+      },
+      "height_m": [
+        3,
+        9
+      ],
+      "width_m": [
+        2.5,
+        6
+      ],
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          84,
+          104,
+          60
+        ],
+        "foliage_rgb_alt": [
+          122,
+          140,
+          88
+        ],
+        "inflorescence": null,
+        "appearance": "Stunted, crooked and open, needles in yellow-green brushes at the shoot ends, the crown lopsided away from the lake."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "currey_1912_story_of_old_fort_dearborn",
+        "cowles_1901"
+      ],
+      "note": "T-2768. PINES are attested on these sand hills: Wau-Bun's 'stunted cedars, pines, and dwarf-willow trees' north of the river, and Currey (1912), south of the mouth, 'a scanty growth of cottonwoods and pines ... maintaining a precarious existence among the sand-dunes'. The SPECIES is inferred: Cowles (1901, pp. 173-174) names Pinus banksiana as a dominant tree of the established dunes at the south end of the lake, with P. strobus, and the witnesses' 'stunted' is the jack pine's habit on sand."
     }
   ],
   "confidence": "attested",

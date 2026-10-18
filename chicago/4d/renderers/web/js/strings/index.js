@@ -25,6 +25,20 @@
 
 const sections = new Map();
 
+/**
+ * T-2668 — Researcher mode's strings. A string only Researcher mode (T-2657) shows — the
+ * order book, a source id, a file path, a full "Why this default" essay — lives under a key
+ * with a `researcher` segment: the `researcher` namespace, or `researcher` inside an app's
+ * own section (`guide.researcher.why-full`). The visitor-UI lint (tools/check_visitor_ui.py)
+ * exempts exactly those keys, so a caller shows one only while Researcher mode is on; on a
+ * static page the marker is a `data-researcher` attribute, hidden by css/skins.css until
+ * <html data-researcher-mode> is set.
+ */
+export const RESEARCHER = 'researcher';
+export function isResearcherKey(key) {
+  return String(key ?? '').split('.').includes(RESEARCHER);
+}
+
 /** Register (or extend) a namespace. Keys are dotted within it; values are strings,
  * with {name} placeholders filled by t(). Returns the frozen section. */
 export function register(namespace, table) {

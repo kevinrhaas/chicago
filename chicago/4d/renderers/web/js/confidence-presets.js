@@ -16,10 +16,15 @@
  * that state, never stored beside it, so the app cannot show a preset the scene is not
  * in — a state no preset matches shows none pressed (T-2648's per-grade rows make those).
  *
+ * T-2648: the colours a preset puts on are the curated swatch set all three grades are
+ * wearing (confidence-rows.js) — the grade colours unless a visitor chose another whole
+ * set, such as the colour-blind-safe one, which no preset takes away.
+ *
  * The choice persists in localStorage['chicago4d.confidence'] (DESIGN §09) as the looks
  * the colouring and hiding do not already carry; the HUD's own keys carry the rest.
  */
-import { GRADE_COLORS, GRADE_LOOK } from './confidence.js';
+import { GRADE_LOOK } from './confidence.js';
+import { presetColours, setInForce, DEFAULT_SET } from './confidence-rows.js';
 
 export const LEVELS = Object.freeze(['attested', 'inferred', 'reconstructed']);
 export const STORE_KEY = 'chicago4d.confidence';
@@ -46,8 +51,8 @@ export const presetById = (id) => PRESETS.find((p) => p.id === id) ?? null;
 
 const close = (a, b) => Math.abs(a - b) < 0.005;
 const sameLook = (a, b) => a.mode === b.mode && close(a.opacity, b.opacity);
-const sameColour = (view, level) => (view.grade(level)?.color ?? '').toLowerCase()
-  === `#${GRADE_COLORS[level].scene.toString(16).padStart(6, '0')}`;
+// The colours are a preset's when all three grades wear one curated set (T-2648).
+const sameColours = (view) => setInForce(view) !== null;
 
 /**
  * Which preset the scene is in, read from the state itself: the colouring, the hidden
@@ -59,7 +64,7 @@ export function presetOf({ on, hidden, view }) {
   for (const p of PRESETS) {
     if (p.on !== !!on) continue;
     if (p.hidden.length !== gone.size || !p.hidden.every((l) => gone.has(l))) continue;
-    if (on && !LEVELS.every((l) => sameLook(view.grade(l), p.looks[l]) && sameColour(view, l))) continue;
+    if (on && !(sameColours(view) && LEVELS.every((l) => sameLook(view.grade(l), p.looks[l])))) continue;
     return p.id;
   }
   return null;
@@ -73,8 +78,10 @@ export function presetOf({ on, hidden, view }) {
 export function applyPreset(id, { hud, view, storage = null, announce = true } = {}) {
   const p = presetById(id);
   if (!p || !hud || !view) return null;
+  const colours = presetColours(view);
+  const ownSet = setInForce(view) ?? DEFAULT_SET;
   for (const level of LEVELS) {
-    view.setGrade(level, { color: GRADE_COLORS[level].scene, mode: p.looks[level].mode, opacity: p.looks[level].opacity });
+    view.setGrade(level, { color: colours[level], mode: p.looks[level].mode, opacity: p.looks[level].opacity });
   }
   const hiddenNow = new Set(hud.hiddenLevels);
   for (const level of LEVELS) {
@@ -83,7 +90,8 @@ export function applyPreset(id, { hud, view, storage = null, announce = true } =
   }
   if (hud.confidenceOn !== p.on) hud.setConfidence(p.on, { announce: false });
   saveLooks(view, storage);
-  if (announce) hud.say?.(`${p.label}: ${p.note}`);
+  // BY GRADE's note names gold, silver and bronze; under another set it says only its name.
+  if (announce) hud.say?.(p.id === 'bygrade' && ownSet !== DEFAULT_SET ? p.label : `${p.label}: ${p.note}`);
   return p.id;
 }
 

@@ -117,6 +117,7 @@ import { install as installDrawerHost, goToPick } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
+import { spotTarget } from './photos-tab.js';
 import { createWhere } from './where.js';
 import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
@@ -2993,6 +2994,7 @@ async function boot() {
     return inspectPromise;
   };
   api.inspectSummaries = ensureInspect;
+  api.pictures = ensurePictures;
   // The households' reasoning, per record, on first need (T-2151). publish.sh ships a
   // seated record's households slim — names, roles, grades and basis, which the title,
   // the search and the card draw at once — and the paragraphs behind each `why` toggle
@@ -3946,6 +3948,7 @@ async function boot() {
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
   let guideFaq = null; // T-2662
+  const jauntCatalogs = {}; // T-2666: each destination's Jaunt catalog, for Guide › For teachers
   // T-2634: Free roam's one-time tip, once per device.
   const roamTip = createRoamTip({ el: document.getElementById('roam-tip') });
   api.roamTip = roamTip;
@@ -4308,6 +4311,16 @@ async function boot() {
     return showMe.show(target);
   }
   api.showMe = { show: showMeFor, get last() { return showMe.last; }, cancel: () => showMe.cancel() };
+  // T-2645: the Photos tab's From this spot — where a solved camera of the building says the
+  // picture was taken, facing its way, with Show me's glide and outline. Never anywhere else.
+  function fromSpotFor(id, picture) {
+    const target = spotTarget(picture, loaded.registry.get(id)?.sidecar?.placement);
+    if (!target) return Promise.resolve(false);
+    travel?.stop?.('show-me');
+    showMeId = id;
+    return showMe.show(target);
+  }
+  api.fromSpot = fromSpotFor;
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -4369,6 +4382,11 @@ async function boot() {
         guideFaq: () => (guideFaq ??= fetch(new URL('guide/faq.json', resolveBases().dataBase), { cache: 'no-cache' })
           .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
           .catch((err) => { guideFaq = null; throw err; })),
+        // T-2666: a destination's Jaunt catalog, for the teacher handout's suggested Jaunts;
+        // read the first time Guide opens, never at boot. No catalog is no Jaunts.
+        jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
+          .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
+          .catch((err) => { delete jauntCatalogs[year]; throw err; })),
         // T-2638: what Inspect's front page reads. The compiled summaries (inspect/<scene>.json,
         // tools/compile_summaries.py), the pictures (the card's own file), a building's record,
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
@@ -4402,6 +4420,7 @@ async function boot() {
         },
         // T-2640: Show me — only along a camera the building's own summary record names.
         showMe: (id, item) => showMeFor(id, item),
+        fromSpot: (id, picture) => fromSpotFor(id, picture),
       },
     }),
   });

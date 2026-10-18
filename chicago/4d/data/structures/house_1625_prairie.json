@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3½B brick dwelling (D), the south unit of the group'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md). T-2730 (piece 3 of T-2435) replaces the dormer with the photograph's coped wall gable — K01's shaped-gable slab with a straight outline in the front's stone, its three segment-headed lights and its oval light — raises the south wall's eave to the knee wall at 13.0 m, and stands the tall stack on the north party wall beside the gable; what that needed and did not read is L-k01-1625-mcbirney-wall-gable-2730. T-2752 (piece 1 of T-2731) reads the street windows off the photograph one by one (street_front_windows): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's segment-headed sash off the columns below and the frontispiece's two narrow lights, on a plain plinth with no basement light (L-k01-1625-mcbirney-street-windows-2752).",
+  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md). T-2730 (piece 3 of T-2435) replaces the dormer with the photograph's coped wall gable — K01's shaped-gable slab with a straight outline in the front's stone, its three segment-headed lights and its oval light — raises the south wall's eave to the knee wall at 13.0 m, and stands the tall stack on the north party wall beside the gable; what that needed and did not read is L-k01-1625-mcbirney-wall-gable-2730. T-2752 (piece 1 of T-2731) reads the street windows off the photograph one by one (street_front_windows): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's segment-headed sash off the columns below and the frontispiece's two narrow lights, on a plain plinth with no basement light (L-k01-1625-mcbirney-street-windows-2752). T-2753 (piece 2 of T-2731) builds the frontispiece (street_front_frontispiece): the front from 3.81 m to its south corner stands 0.10 m proud from grade to the hood mould over its four-light window at 7.05-7.30 m, quoined at both arrises, the door in a dressed surround under a carved panel; the lower windows' quoined surrounds and the photograph's one string course (L-k01-1625-mcbirney-frontispiece-2753).",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -134,7 +134,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "The photograph draws the front in rock-faced coursed stone of irregular course heights, with dressed quoined surrounds at the windows and a plain plinth; K02's brownstone, rock-faced, over one base course: the Tribune's 'red stone' (quoted by chicagology; 'Prentice' brownstone in its gloss) is a brown or red sandstone. The quoined window surrounds are not built (T-2435); the south corner's quoins are not built either, the K01 measure returning them only at its low-v end, which here is the party wall."
+          "note": "The photograph draws the front in rock-faced coursed stone of irregular course heights, with dressed quoined surrounds at the windows and a plain plinth; K02's brownstone, rock-faced, over one base course: the Tribune's 'red stone' (quoted by chicagology; 'Prentice' brownstone in its gloss) is a brown or red sandstone. The quoined window surrounds are built since T-2753 (street_front_windows.surrounds); the south corner's quoins are not built either, the K01 measure returning them only at its low-v end, which here is the party wall."
         },
         "street_front_trim": {
           "value": {
@@ -354,13 +354,61 @@
                 "height_m": 1.58
               }
             ],
-            "base_top_m": 0.48
+            "base_top_m": 0.48,
+            "belts": [
+              [
+                3.96,
+                4.14
+              ]
+            ],
+            "surrounds": {
+              "storeys": [
+                0,
+                1
+              ],
+              "returns_m": [
+                0.18,
+                0.3
+              ],
+              "lintel_m": 0.35
+            }
           },
           "confidence": "inferred",
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2752: every street window read off the photograph through its camera (data/reference_views/house_1625_prairie/inland_architect_front.json: level and square to the front, 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px), each opening's stone edges and its sill and head on 4x crops of the print: s = (x - 140) / 38.6 m from the north party wall, height = (795 - y) / 38.6 m. Ground floor: two windows in the north part, each two tall casement lights on a stone mullion, 1.19-2.59 m, centred at 0.94 and 2.88 m, 1.04 and 1.17 m across (the print gives the south one of each pair a little wider, at both storeys). First floor: the same two, each two lights on a mullion under a stone transom about a third down, 4.14-6.40 m; over the door the four-light window, mullioned and transomed alike, 2.18 m across at 5.78 m, 4.25-6.58 m (read at the front's plane: its frontispiece stands slightly proud, which T-2753 weighs). Second floor: two one-over-one sash under segmental heads, off the columns below, at 1.15 and 3.45 m, 0.94 and 1.02 m across, from 7.74 and 7.87 m to crowns at 9.97 and 10.18 m; and the frontispiece's two narrow segment-headed two-over-two lights at 5.38 and 6.39 m, 0.62 m across, 8.84-10.42 m. The glazing bars are the K06 kit's: the print shows the lower windows' lights in small panes but cannot say whether on lead or wood. Each edge is good to about a pixel, 0.03 m. The plinth: plain, with no basement light in it (the 1911 sheet's basement is lit elsewhere, or not at the front); its top is the K02 base's least, one 0.25 m course under the 0.23 m coping, 0.48 m, where the print's smooth plinth band stands about 0.26 m over the walk (y 785 px)."
+          "note": "T-2752: every street window read off the photograph through its camera (data/reference_views/house_1625_prairie/inland_architect_front.json: level and square to the front, 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px), each opening's stone edges and its sill and head on 4x crops of the print: s = (x - 140) / 38.6 m from the north party wall, height = (795 - y) / 38.6 m. Ground floor: two windows in the north part, each two tall casement lights on a stone mullion, 1.19-2.59 m, centred at 0.94 and 2.88 m, 1.04 and 1.17 m across (the print gives the south one of each pair a little wider, at both storeys). First floor: the same two, each two lights on a mullion under a stone transom about a third down, 4.14-6.40 m; over the door the four-light window, mullioned and transomed alike, 2.18 m across at 5.78 m, 4.25-6.58 m (read at the front's plane: its frontispiece stands slightly proud, which T-2753 weighs). Second floor: two one-over-one sash under segmental heads, off the columns below, at 1.15 and 3.45 m, 0.94 and 1.02 m across, from 7.74 and 7.87 m to crowns at 9.97 and 10.18 m; and the frontispiece's two narrow segment-headed two-over-two lights at 5.38 and 6.39 m, 0.62 m across, 8.84-10.42 m. The glazing bars are the K06 kit's: the print shows the lower windows' lights in small panes but cannot say whether on lead or wood. Each edge is good to about a pixel, 0.03 m. The plinth: plain, with no basement light in it (the 1911 sheet's basement is lit elsewhere, or not at the front); its top is the K02 base's least, one 0.25 m course under the 0.23 m coping, 0.48 m, where the print's smooth plinth band stands about 0.26 m over the walk (y 785 px). T-2753: the belts and the surrounds, read the same way. The photograph runs one string course across the whole front, its top under the first floor's sills: 3.94-4.09 m in the north part (y 637-643 px) and about 4.04-4.22 m on the frontispiece, where its face is nearer the camera; built 3.96-4.14 m, in place of K01's own two belts (3.40-3.60 and 7.05-7.20 m), of which the print shows neither. The ground and first floors' windows stand in dressed surrounds: smooth jamb stones, wider and narrower in turn up the courses (about 0.2-0.3 m on 3x crops), and a dressed lintel over the head running about 0.1-0.25 m past the jambs (the ground floor's 2.64-3.03 m, y 678-693 px, x 147-200 px over a window at x 156-196 px); built as the coursing's own stones dressed and laid flush, 0.18 and 0.30 m in turn, and a 0.35 m lintel course 0.18 m past each jamb. The second floor's segmental sash show no such surround."
+        },
+        "street_front_frontispiece": {
+          "value": {
+            "s_m": 3.81,
+            "proud_m": 0.1,
+            "quoins_m": [
+              0.25,
+              0.42
+            ],
+            "hood": {
+              "bed_m": 7.05,
+              "top_m": 7.3,
+              "overhang_m": 0.08
+            },
+            "door_surround": {
+              "band_m": 0.35,
+              "top_m": 3.45
+            },
+            "panel": {
+              "s_m": 5.67,
+              "width_m": 0.83,
+              "bed_m": 3.45,
+              "height_m": 0.51,
+              "proud_m": 0.04
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1890_01_mcbirney_residence"
+          ],
+          "note": "T-2753: the frontispiece read off the photograph through its camera (inland_architect_front.json: 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px; s = (x - 140) / 38.6 m) on 3x crops of the print. Its north arris is a column of dressed quoins, long and short in turn, at x 287-298 px from the plinth to the hood (s 3.81 m; the quoins about 0.28 and 0.45 m, built 0.25 and 0.42 m); its south arris is the front's south corner, quoined the same way (x 417-437 px). It stands proud of the north part, but the print is taken square to the front and cannot measure by how much: 0.10 m is reconstructed, 'slightly proud' as T-2752 read it. Its top is the hood mould over the four-light window, a projecting weathered course across the frontispiece's whole width, y 513-523 px, 7.05-7.30 m, built 0.08 m past the frontispiece's face and its north arris (reconstructed: the print shows its shadow, not its depth). The door stands in a dressed surround, jambs about 0.35-0.45 m wide (x 320-337 and 385-398 px) and a lintel 0.47 m deep (y 675-693 px); built a 0.35 m band round the as-built door with a 0.30 m lintel to 3.45 m, because the door is K07's and stands about 0.5 m taller than the print's (its head at 3.15 m against y 693 px, 2.64 m: open in the match record). Over it, the carved panel: a square of carved figures about a cartouche, x 343-375 px, 0.83 m across, centred s 5.67 m, 3.16-4.02 m in the print; built 0.83 m across between the surround's lintel and the string course, 3.45-3.96 m, so 0.51 m tall where the print's is 0.86 m (the door again), a raised moulded border 0.04 m proud with a raised oval cartouche inside it standing for the carving, whose figures are not modelled. L-k01-1625-mcbirney-frontispiece-2753."
         },
         "roof_covering": {
           "value": {
@@ -409,8 +457,8 @@
                 "s_m": 0.25
               },
               {
-                "wall": "k01.wall.street_front",
-                "s_m": 7.35
+                "wall": "k01.wall.side.north",
+                "s_m": 0.15
               }
             ]
           },
@@ -418,7 +466,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "Half-round gutters and round downpipes at the front's two corners: the photograph shows a downpipe down the front's north edge, against the neighbour, and one at the south corner."
+          "note": "Half-round gutters and round downpipes at the front's two corners: the photograph shows a downpipe down the front's north edge, against the neighbour, and one at the south corner. T-2753: the south one stands on the open south side wall (the K01 measure's north wall: v runs south on this side of the avenue) 0.15 m behind the front corner, where the print draws it (x 435-438 px, just past the corner at x 433), clear of the frontispiece and its hood."
         },
         "window_kit": {
           "value": {

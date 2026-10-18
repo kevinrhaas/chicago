@@ -815,12 +815,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && batch.geometry.attributes.position.version===backingPositionVersion
             && batch.geometry.index.version===backingIndexVersion
             && batch.geometry.attributes[SCALARS].version===backingConfidenceVersion
-            && ([m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey].every((fn,i)=>fn===hooks[i])
+            // T-2806: compared without building an array: this runs every frame on a phone
+            && ((m.onBeforeCompile===hooks[0] && m.onBeforeRender===hooks[1] && m.customProgramCacheKey===hooks[2])
               || seasonPreservesSurface(m,hooks))
             && m.visible && m.opacity===1 && !m.transparent && !m.transmission && m.depthWrite && m.depthTest
             && m.colorWrite && !m.wireframe && !m.alphaTest && !m.alphaHash && !m.alphaMap
             && !m.displacementMap && !m.polygonOffset && !m.stencilWrite
-            && [THREE.LessDepth,THREE.LessEqualDepth].includes(m.depthFunc)
+            && (m.depthFunc===THREE.LessDepth || m.depthFunc===THREE.LessEqualDepth)
             && !m.clippingPlanes?.length;
         };
         const ranges=new Map();
@@ -875,6 +876,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.computeBoundingSphere();
     group.add(batch);
     batches.push(batch);
+    // T-2786: every entry's geometry is in the batch now. `dispose()` above frees
+    // nothing in the page, and `groups` lives as long as the layer (its closures
+    // keep this scope), so the 37k source geometries stayed reachable: about
+    // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
+    bucket.entries = [];
   }
 
   /**

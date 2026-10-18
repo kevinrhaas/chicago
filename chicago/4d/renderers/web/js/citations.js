@@ -112,10 +112,15 @@ function limitsBlock(c) {
  *                              the source says it cannot supply. On by default
  *                              and off in one place; see the note above the
  *                              `<li>` for why the not-here list is that place
+ * @param {boolean} [o.tier]    whether to print the rung ("tier 4 · later scholarship").
+ *                              On by default; Inspect's Sources tab turns it off, because a
+ *                              visitor there reads "from the time" or "written later" on the
+ *                              source's title instead (T-2644, design doc §12)
  */
 export function citationItems(citations, {
   empty = 'No citations in this record — that is itself a finding.',
   evidence = true,
+  tier: showTier = true,
 } = {}) {
   if (!Array.isArray(citations) || !citations.length) return `<li>${escapeHtml(empty)}</li>`;
   return citations.map((c) => {
@@ -129,7 +134,7 @@ export function citationItems(citations, {
     // the label is the point; the bare number is the fallback for a rung the
     // compiled ladder has no words for, which is a finding for the validator
     // rather than something to print a guess about
-    const tier = c.tier
+    const tier = c.tier && showTier
       ? `<span class="tier">tier ${escapeHtml(c.tier)}${c.tier_label ? ` · ${escapeHtml(c.tier_label)}` : ''}</span>`
       : '';
     // The one context that turns this off is "What is not here", and the smoke

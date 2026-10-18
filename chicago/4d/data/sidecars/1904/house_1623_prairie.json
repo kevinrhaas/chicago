@@ -178,15 +178,15 @@
     },
     "front_bays": {
       "value": [
-        1.45,
-        4.85,
+        1.55,
+        4.6,
         5.7
       ],
       "confidence": "inferred",
       "sources": [
         "building_budget_1886_06_hamline_farwell_houses"
       ],
-      "note": "Read through the drawing's camera and scaled to the sheet's 6.2 m front (the drawing's front is about 6.5 m): the arched window's centre at about 1.55 m from the north wall and the entrance arch's at about 4.6 m. Built at 1.45 and 4.85 m, because K01 lays no opening whose centre falls under an oriel's span and the oriel needs the width between them (the match record's 'arches'). The third, at 5.7 m, is the blank bay K01's named-opening front needs (entrance_bay)."
+      "note": "Read through the drawing's camera and scaled to the sheet's 6.2 m front (the drawing's front is about 6.5 m): the arched window's centre at about 1.55 m from the north wall and the entrance arch's at about 4.6 m, both built there (T-2777): the oriel over them stands on its corbelling clear of both arches' heads, so it no longer needs the width between their centres. The third, at 5.7 m, is the blank bay K01's named-opening front needs (entrance_bay)."
     },
     "bays": {
       "value": [
@@ -194,9 +194,10 @@
           "id": "front_oriel",
           "variant": "k08.oriel.canted_corbelled",
           "wall": "k01.wall.street_front",
-          "s_m": 3.15,
+          "s_m": 3.1,
           "fabric": "front_stone",
           "base_m": 5.75,
+          "through_eave": true,
           "corbel": {
             "courses": 4
           },
@@ -204,50 +205,108 @@
             "kind": "polyline",
             "points": [
               [
-                -1.69,
+                -2.4,
                 0
               ],
               [
-                -1.2,
-                0.5
+                -1.7,
+                0.65
               ],
               [
-                1.2,
-                0.5
+                1.7,
+                0.65
               ],
               [
-                1.69,
+                2.4,
                 0
               ]
             ]
           },
           "storeys": [
             {
-              "height_m": 2.8,
+              "height_m": 2.6,
               "windows": [
                 {
                   "opening": "k06.opening.sash_transom_flat",
-                  "clear_width_m": 0.4,
                   "clear_height_m": 2.0,
-                  "sill_m": 0.15,
+                  "sill_m": 0.28,
+                  "clear_width_m": 0.55,
                   "at": [
-                    0.3105,
-                    0.5,
-                    0.6895
+                    0.2684,
+                    0.4228,
+                    0.5772,
+                    0.7316
                   ],
-                  "why_not_ordinary": "a mullioned oriel's light, three to its 2.4 m front between stone mullions, as narrow as the drawing's"
+                  "why_not_ordinary": "a mullioned oriel's light, four to its 3.4 m front between stone mullions, as narrow as the drawing's (about 0.6 m, at its 0.82 m pitch)"
+                },
+                {
+                  "opening": "k06.opening.sash_transom_flat",
+                  "clear_height_m": 2.0,
+                  "sill_m": 0.28,
+                  "clear_width_m": 0.35,
+                  "at": [
+                    0.113,
+                    0.887
+                  ],
+                  "why_not_ordinary": "a light in each of the oriel's cants, as the drawing's, narrowed and set toward the cant's front end so its recess stays in front of the house wall"
+                }
+              ]
+            },
+            {
+              "height_m": 1.15,
+              "windows": [],
+              "frieze": {
+                "border_m": 0.1,
+                "proud_m": 0.03,
+                "guilloche": {
+                  "radius_m": 0.3,
+                  "ring_width_m": 0.05,
+                  "ring_proud_m": 0.025,
+                  "margin_m": 0.03,
+                  "pitch": 1.5,
+                  "segments": 16
+                }
+              }
+            },
+            {
+              "height_m": 1.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_transom_flat",
+                  "clear_height_m": 1.0,
+                  "sill_m": 0.19,
+                  "clear_width_m": 0.55,
+                  "at": [
+                    0.2684,
+                    0.4228,
+                    0.5772,
+                    0.7316
+                  ],
+                  "why_not_ordinary": "the upper stage's shorter lights, four to the oriel's 3.4 m front over the four below, as narrow as the drawing's"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_height_m": 1.0,
+                  "sill_m": 0.19,
+                  "clear_width_m": 0.3,
+                  "at": [
+                    0.1196,
+                    0.8804
+                  ],
+                  "why_not_ordinary": "a light in each of the upper stage's cants, as the drawing's, narrowed and set at the cant's front end, so its sill stands clear over where the house's eave and gutter die into the cant"
                 }
               ]
             }
           ],
           "roof": {
-            "kind": "hip",
-            "pitch": 0.2,
-            "covering": "copper_sheet"
+            "kind": "spire",
+            "rise_m": 2.7,
+            "covering": "slate_pennsylvania",
+            "finial": true
           },
           "eaves": {
-            "overhang_m": 0.2,
-            "fascia_m": 0.3
+            "overhang_m": 0.15,
+            "fascia_m": 0.25
           }
         }
       ],
@@ -255,7 +314,7 @@
       "sources": [
         "building_budget_1886_06_hamline_farwell_houses"
       ],
-      "note": "The drawing's canted oriel, read through its camera: centred on the front, about 4.8 m across where its cants meet the wall and 3.4 m of front, standing on corbelling over the two arches from about 4.9 m, its sill at the second floor (about 5.8 m), four tall transomed lights across its front and one in each cant, then a carved frieze at about 8.1-9.0 m and an upper stage of short lights under a steep conical roof whose eave stands at about 10.9 m. The K08 kit's canted corbelled oriel is sized to it as far as the kit lets it go: 3.38 m at the wall and 2.4 m of front (the drawing's 4.8 and 3.4 m: K01 lays no opening whose centre falls under an oriel's span, and the window and door under it stand at 1.45 and 4.85 m), and 0.5 m out (the drawing's reads deeper, about 0.9 m), because four 0.2 m corbel courses are all that fit between the second floor and the entrance's head and the kit's oversail rule lets four carry no more; one storey, 2.8 m, under a low copper hood that stops under the main cornice's bed moulding. Three K06 transomed lights, sized to the drawing's, stand across its front, the most the kit lays on 2.4 m, and its 0.7 m cheeks are blind (their leaded transoms are drawn as a lattice). The carved frieze, the upper stage and the cone are not built (match record, T-2435)."
+      "note": "The drawing's canted oriel, read through its camera: centred on the front, about 4.8 m across where its cants meet the wall and 3.4 m of front, standing on corbelling over the two arches from about 4.9 m, its sill at the second floor (about 5.8 m), four tall transomed lights across its front and one in each cant, then a carved frieze at about 8.1-9.0 m and an upper stage of short lights under a steep conical roof whose eave stands at about 10.9 m. T-2777 builds the K08 kit's canted corbelled oriel at the drawing's size, centred at 3.1 m: 4.8 m at the wall and 3.4 m of front, over the window and the entrance arch, whose heads (4.4 and 4.55 m) stand more than 0.3 m under its lowest corbel course (4.95 m), so neither is behind it (T-2541's rule). Its depth is 0.65 m, cants at about 43 degrees: the drawing's level, square-on camera cannot read the depth (between 0.65 and 0.9 m out the oriel's front moves under 3 px in it, inside the camera's residuals), and four 0.2 m corbel courses, which fit between the second floor and the entrance's head, carry at most 0.65 m under the kit's oversail rule (0.65 of a course's height a course), so the depth is the most the drawn corbelling carries (inferred). K06 transomed lights: four 0.55 m across to its front at 0.82 m centres (the drawing's about 0.6 m at about 0.83 m), and a 0.35 m light in each cant set toward its front end, the most a 0.96 m cant holds with its recess kept in front of the house wall (the drawing's cant lights read wider); the build before had three to the front and blind cheeks. T-2778 carries it up through the main eave as the drawing does, its heights read through the drawing's camera at the oriel's front (about 47.5 px/m): the second storey to a string course at 8.35 m (the drawing's lower lights about 6.05-8.2 m, built 6.03-8.03 m), the carved frieze between two string courses from 8.35 to 9.5 m (drawn about 8.45-9.4 m, rows 247-292), the upper stage to 10.9 m with four shorter lights to its front and one in each cant (drawn about 9.6-10.7 m, rows 186-237, built 9.69-10.69 m; five read in the drawing, the north cant's foreshortened to a sliver, as it is through the camera), its cornice at about 11.15 m (row about 165) and a steep slate spire over it, every plane rising from its eaves to one apex at about 13.85 m (row about 52) under a finial; the drawing's hips stand at the oriel's corners, so the cone is a polygonal one (`through_eave`, k01_frontage_params._bays). The ticket's figures (frieze 8.1-9.0 m, upper stage to 10.4 m, eave 10.9 m, apex 13.4 m) read about 0.35 m low through this camera, which puts the house's own cornice at 9.7 m within about 3 px; the build follows the camera. The house's eave, its gutter and its bed moulding die into the oriel's cants, and its back is closed in its stone over the wall head (9.75 m) to the apex, where no wall stands behind it. The cant lights are 0.3 m and stand at each cant's front end, so their sills clear the house's eave and gutter where those meet the cant (the drawing's read a little wider). Reconstructed: the frieze's carving, which the drawing draws as interlaced strapwork in a sunk panel on each face, is a dressed panel on each face carrying a guilloche of interlaced rings (L-k01-1623-farwell-oriel-front-2433); the eaves' 0.15 m overhang and 0.25 m fascia; the spire's slate and the kit's turned finial."
     },
     "side_bays": {
       "value": [],
@@ -433,7 +492,7 @@
       "sources": [
         "building_budget_1886_06_hamline_farwell_houses"
       ],
-      "note": "Read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json), at the front's 46 px/m: the principal storey's window is one broad round-arched light, its sill at about 2.1 m, its springing at about 3.4 m and its crown at about 4.4 m, about 1.8 m across inside a ring of long voussoirs about 0.5 m deep; under it a broad segmental basement light behind an iron grille, from grade to about 0.9 m. Built as K01's arched principal light on K06's wide fanlight sash, 1.6 m across (narrowed, and moved 0.1 m north, so its voussoir block stands 0.3 m inside the corner), its sill at 2.1 m and its crown at 4.4 m under a 0.35 m ring; and K06's round-headed basement light, 1.1 m across, standing for the segmental one. The basement light's grille, the window's lattice transom and the entrance's own arch are not built (T-2435)."
+      "note": "Read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json), at the front's 46 px/m: the principal storey's window is one broad round-arched light, its sill at about 2.1 m, its springing at about 3.4 m and its crown at about 4.4 m, about 1.8 m across inside a ring of long voussoirs about 0.5 m deep; under it a broad segmental basement light behind an iron grille, from grade to about 0.9 m. Built as K01's arched principal light on K06's wide fanlight sash, 1.6 m across (narrowed, at the drawing's 1.55 m centre since T-2777, so its voussoir block stands 0.4 m inside the corner), its sill at 2.1 m and its crown at 4.4 m under a 0.35 m ring; and K06's round-headed basement light, 1.1 m across, standing for the segmental one. The basement light's grille, the window's lattice transom and the entrance's own arch are not built (T-2435)."
     },
     "street_front_dress": {
       "value": {
@@ -452,7 +511,7 @@
       "sources": [
         "building_budget_1886_06_hamline_farwell_houses"
       ],
-      "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille, seven upright bars between a foot bar and a head bar let into the light's reveal 0.05 m behind the face; the drawing's grille is a band of C-scrolls over close-set uprights in a broad, low, segment-headed opening about 1.8 m across, which K01's arched basement row cannot lay (a round head, 1.1 m), so the opening's breadth and the scrolls are T-2729's. Read from the drawing: the rails and the grille's place; reconstructed (the value's grade): every bar's count and section (L-k01-1623-farwell-entrance-2728)."
+      "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille, seven upright bars between a foot bar and a head bar let into the light's reveal 0.05 m behind the face; the drawing's grille is a band of C-scrolls over close-set uprights in a broad, low, segment-headed opening about 1.8 m across, which K01's arched basement row cannot lay (a round head, 1.1 m), so the opening's breadth and the scrolls are T-2779's. Read from the drawing: the rails and the grille's place; reconstructed (the value's grade): every bar's count and section (L-k01-1623-farwell-entrance-2728)."
     },
     "function": {
       "value": "residence",
