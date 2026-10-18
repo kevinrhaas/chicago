@@ -1,0 +1,767 @@
+#!/usr/bin/env python3
+"""The species leaf and bark atlases the grown trees draw from (T-2743).
+
+    python3 tools/generate_tree_atlas.py                 write assets/textures/trees/*.webp
+    python3 tools/generate_tree_atlas.py --masters       also the lossless PNG masters
+    python3 tools/generate_tree_atlas.py --sheet PATH    also a contact sheet, at PATH
+
+WHAT IT MAKES. Two atlases, painted from code, no photograph sampled:
+
+  leaf_atlas.png       2048 x 2048 RGBA, 4 x 4 tiles of 512. Per leaf family two
+                       tiles: a SPRAY (one twig and its leaves, for the near
+                       cards) and a CLUMP (several sprays massed, for the mid and
+                       far cards). Families and their tiles are
+                       renderers/web/js/tree-model.js LEAF_TILES.
+  bark_basecolor.png   2048 x 1024 RGB, 4 x 2 tiles of 512, each tileable in both
+  bark_normal.png      axes, with its tangent-space normal map (OpenGL, +Y up).
+                       Tiles are tree-model.js BARK_TILES.
+
+WHAT THEY ARE JUDGED AGAINST. The botanical habit of each species' leaf and
+bark (the species' ordinary habit; docs/LIBERTIES.md L-tree-architecture-2743);
+they are reconstructions of what a species looks like, not
+evidence about any tree that stood in 1812 or 1835. The leaf tiles are painted
+in a near-neutral green so the zone records' July colours, carried as vertex
+colour, stay in charge of the hue (the rule tree-surface.js kept since T-2015).
+
+DETERMINISM. Every random draw comes from a seeded numpy Generator, so the same
+code writes the same pixels; the output is committed and the renderer loads the
+committed files.
+"""
+from __future__ import annotations
+
+import argparse
+import math
+import os
+import sys
+
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
+from scipy.ndimage import gaussian_filter
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(ROOT, 'assets', 'textures', 'trees')
+TILE = 512
+SS = 3  # supersampling for the leaf painting
+
+# --------------------------------------------------------------------------- #
+# tileable noise                                                              #
+# --------------------------------------------------------------------------- #
+
+
+def lattice_noise(rng, size_x, size_y, cells_x, cells_y):
+    """Value noise that wraps at both edges: a random lattice interpolated
+    with a smooth step, the lattice indices taken modulo its size."""
+    grid = rng.random((cells_y, cells_x))
+    xs = np.arange(size_x) * cells_x / size_x
+    ys = np.arange(size_y) * cells_y / size_y
+    x0 = np.floor(xs).astype(int)
+    y0 = np.floor(ys).astype(int)
+    fx = xs - x0
+    fy = ys - y0
+    fx = fx * fx * (3 - 2 * fx)
+    fy = fy * fy * (3 - 2 * fy)
+    x1 = (x0 + 1) % cells_x
+    y1 = (y0 + 1) % cells_y
+    x0 %= cells_x
+    y0 %= cells_y
+    a = grid[np.ix_(y0, x0)]
+    b = grid[np.ix_(y0, x1)]
+    c = grid[np.ix_(y1, x0)]
+    d = grid[np.ix_(y1, x1)]
+    top = a + (b - a) * fx[None, :]
+    bot = c + (d - c) * fx[None, :]
+    return top + (bot - top) * fy[:, None]
+
+
+def fbm(rng, size, cells, octaves=5, aspect=(1, 1), gain=0.5):
+    """Fractal sum of wrapping value noise. `aspect` stretches the lattice
+    (more cells across than down gives vertical grain)."""
+    out = np.zeros((size, size))
+    amp = 1.0
+    total = 0.0
+    cx, cy = cells * aspect[0], cells * aspect[1]
+    for _ in range(octaves):
+        out += amp * lattice_noise(rng, size, size, max(1, int(cx)), max(1, int(cy)))
+        total += amp
+        amp *= gain
+        cx *= 2
+        cy *= 2
+    return out / total
+
+
+def warp_sample(field, dx, dy):
+    """Sample `field` at (x + dx, y + dy) with wrap, bilinear."""
+    h, w = field.shape
+    yy, xx = np.mgrid[0:h, 0:w].astype(float)
+    sx = (xx + dx) % w
+    sy = (yy + dy) % h
+    x0 = np.floor(sx).astype(int)
+    y0 = np.floor(sy).astype(int)
+    fx = sx - x0
+    fy = sy - y0
+    x1 = (x0 + 1) % w
+    y1 = (y0 + 1) % h
+    a = field[y0, x0]
+    b = field[y0, x1]
+    c = field[y1, x0]
+    d = field[y1, x1]
+    return (a * (1 - fx) + b * fx) * (1 - fy) + (c * (1 - fx) + d * fx) * fy
+
+
+def worley(rng, size, n, stretch=(1.0, 1.0)):
+    """Wrapping cellular noise: F1, F2 and the cell id, with cells stretched by
+    `stretch` (x, y) so plates run long up the trunk."""
+    pts = rng.random((n, 2)) * size
+    yy, xx = np.mgrid[0:size, 0:size].astype(float)
+    f1 = np.full((size, size), 1e9)
+    f2 = np.full((size, size), 1e9)
+    ids = np.zeros((size, size), dtype=int)
+    for i, (px, py) in enumerate(pts):
+        dx = np.abs(xx - px)
+        dx = np.minimum(dx, size - dx) / stretch[0]
+        dy = np.abs(yy - py)
+        dy = np.minimum(dy, size - dy) / stretch[1]
+        d = np.sqrt(dx * dx + dy * dy)
+        closer = d < f1
+        f2 = np.where(closer, f1, np.minimum(f2, d))
+        ids = np.where(closer, i, ids)
+        f1 = np.where(closer, d, f1)
+    return f1, f2, ids
+
+
+def normalise(a):
+    lo, hi = np.percentile(a, 0.5), np.percentile(a, 99.5)
+    return np.clip((a - lo) / max(1e-9, hi - lo), 0, 1)
+
+
+def normal_map(height, strength):
+    """Tangent-space normal from a wrapping height field (OpenGL: +Y up)."""
+    gx = (np.roll(height, -1, axis=1) - np.roll(height, 1, axis=1)) * 0.5
+    gy = (np.roll(height, -1, axis=0) - np.roll(height, 1, axis=0)) * 0.5
+    nx = -gx * strength
+    ny = gy * strength  # image rows run down; GL normal maps point +Y up
+    nz = np.ones_like(height)
+    l = np.sqrt(nx * nx + ny * ny + nz * nz)
+    n = np.stack([nx / l, ny / l, nz / l], axis=-1)
+    return ((n * 0.5 + 0.5) * 255).round().astype(np.uint8)
+
+
+# --------------------------------------------------------------------------- #
+# bark                                                                        #
+# --------------------------------------------------------------------------- #
+
+
+def smooth(e0, e1, x):
+    t = np.clip((x - e0) / (e1 - e0), 0, 1)
+    return t * t * (3 - 2 * t)
+
+
+def blur(a, r):
+    return gaussian_filter(a, r, mode='wrap')
+
+
+def worley_warped(rng, n, stretch, wx, wy):
+    """Wrapping cellular noise sampled through a warped domain: F1, F2, the
+    cell id and each texel's offset from its cell's site."""
+    pts = rng.random((n, 2)) * TILE
+    yy, xx = np.mgrid[0:TILE, 0:TILE].astype(float)
+    xx = (xx + wx) % TILE
+    yy = (yy + wy) % TILE
+    f1 = np.full((TILE, TILE), 1e9)
+    f2 = f1.copy()
+    ids = np.zeros((TILE, TILE), int)
+    rel = np.zeros((TILE, TILE, 2))
+    for i, (px, py) in enumerate(pts):
+        dx = (xx - px + TILE / 2) % TILE - TILE / 2
+        dy = (yy - py + TILE / 2) % TILE - TILE / 2
+        d = np.hypot(dx / stretch[0], dy / stretch[1])
+        c = d < f1
+        f2 = np.where(c, f1, np.minimum(f2, d))
+        ids = np.where(c, i, ids)
+        rel[..., 0] = np.where(c, dx, rel[..., 0])
+        rel[..., 1] = np.where(c, dy, rel[..., 1])
+        f1 = np.where(c, d, f1)
+    return f1, f2, ids, rel
+
+
+def cracks(rng, count, maxlen):
+    """Short wandering cross-cracks that break ridges into segments."""
+    im = Image.new('L', (TILE * 3, TILE * 3), 0)
+    d = ImageDraw.Draw(im)
+    for _ in range(count):
+        cx, cy = rng.random() * TILE, rng.random() * TILE
+        L = maxlen * (0.4 + rng.random() * 0.6)
+        a = (rng.random() - 0.5) * 0.7
+        w = 1 + int(rng.random() * 3)
+        for ox in (0, TILE, 2 * TILE):
+            for oy in (0, TILE, 2 * TILE):
+                pts = []
+                x, y = cx + ox - math.cos(a) * L / 2, cy + oy - math.sin(a) * L / 2
+                for _k in range(7):
+                    pts.append((x, y))
+                    aa = a + (rng.random() - 0.5) * 0.8
+                    x += math.cos(aa) * L / 6
+                    y += math.sin(aa) * L / 6
+                d.line(pts, fill=255, width=w)
+    return np.asarray(im).astype(float)[TILE:2 * TILE, TILE:2 * TILE] / 255
+
+
+def bark_net(rng, n, stretch, warp, ridge_w, depth_w, mode, pal, lichen=0.2, rough=0.3,
+             ncrack=0, cracklen=0, jitter=0.4):
+    """Ridge-and-furrow bark from a warped, stretched cellular field.
+
+    mode 'net':    the RIDGES are the cell borders and the furrows the cells'
+                   hearts, so ridges interlace round lens-shaped furrows the way
+                   a cottonwood's, an elm's or a bur oak's do.
+    mode 'plates': the plates are the cells and the seams their borders, each
+                   plate tilted so one edge lifts (shaggy strips).
+    Colour runs furrow floor -> furrow wall -> ridge face, with a weathering
+    mottle, grey-green lichen on the ridges, ambient occlusion from the relief
+    and a little of the relief's own light baked in so a trunk still reads at
+    forty metres, where the normal map has mipped away."""
+    wx = (fbm(rng, TILE, 4, 4) - 0.5) * warp[0]
+    wy = (fbm(rng, TILE, 3, 4) - 0.5) * warp[1]
+    f1, f2, ids, rel = worley_warped(rng, n, stretch, wx, wy)
+    edge = f2 - f1
+    wob = fbm(rng, TILE, 12, 3, aspect=(1, 3))
+    rag = fbm(rng, TILE, 48, 3, aspect=(1, 2))
+    edge = edge * (1 - jitter / 2 + jitter * wob) + (rag - 0.5) * ridge_w * 1.2
+    fine = fbm(rng, TILE, 40, 3, aspect=(1, 4))
+    fib = fbm(rng, TILE, 32, 2, aspect=(8, 0.6))
+    if mode == 'net':
+        top = 1 - smooth(ridge_w * 0.6, ridge_w * 1.4, edge)
+        floor = 1 - smooth(ridge_w, ridge_w + depth_w, edge)
+        fis = fbm(rng, TILE, 20, 3, aspect=(2, 9))
+        top = top * (1 - 0.55 * smooth(0.62, 0.74, fis))
+        hgt = 0.6 * top + 0.4 * floor
+    else:
+        plate = smooth(ridge_w * 0.5, ridge_w * 1.5, edge)
+        tdir = rng.random((n, 2)) - 0.5
+        tilt = (rel[..., 0] * tdir[ids, 0] + rel[..., 1] * tdir[ids, 1] / stretch[1]) / (TILE / math.sqrt(n))
+        hgt = plate * (0.8 + 0.2 * rng.random(n)[ids]) + 0.25 * np.clip(tilt, -1, 1) * plate
+    hgt = hgt + (fine - 0.5) * rough * hgt + (fib - 0.5) * 0.10
+    if ncrack:
+        c = blur(cracks(rng, ncrack, cracklen), 0.8)
+        hgt = hgt * (1 - 0.7 * np.clip(c / max(1e-6, c.max()) * 2, 0, 1))
+    hgt = normalise(blur(hgt, 0.7))
+    ao = 0.3 + 0.7 * normalise(blur(hgt, 5))
+    fb, fw, rf, rf2 = [np.array(q, float) for q in pal]
+    t = hgt[..., None]
+    col = np.where(t < 0.45, fb + (fw - fb) * (t / 0.45), fw + (rf - fw) * np.clip((t - 0.45) / 0.35, 0, 1))
+    m = fbm(rng, TILE, 5, 5)[..., None]
+    col = col + (rf2 - rf) * np.clip((m - 0.45) * 2.2, 0, 1) * t
+    col = col * (0.55 + 0.45 * ao[..., None])
+    gx = np.roll(hgt, -1, 1) - np.roll(hgt, 1, 1)
+    gy = np.roll(hgt, -1, 0) - np.roll(hgt, 1, 0)
+    lam = np.clip(0.8 - (gx * 0.8 + gy * 0.4) * 6, 0.4, 1.25)
+    col = col * (0.72 + 0.28 * lam)[..., None]
+    if lichen:
+        lm = smooth(0.56, 0.72, fbm(rng, TILE, 7, 5))[..., None] * smooth(0.55, 0.85, hgt)[..., None]
+        col = col * (1 - lichen * lm) + np.array([158, 166, 142.]) * lichen * lm
+    col = col + (fbm(rng, TILE, 96, 2) - 0.5)[..., None] * 18
+    return hgt, np.clip(col, 0, 255)
+
+
+# Per kind: the cell count and stretch set the ridges' length and spacing on a
+# tile that covers a circumference and a half of wood; the palettes are
+# furrow floor, furrow wall, ridge face and its weathered variant.
+NET_KINDS = {
+    # cottonwood, black willow, Lombardy poplar: thick grey ridges interlacing
+    # round deep dark furrows
+    'furrowed': dict(n=60, stretch=(1, 4.5), warp=(20, 40), ridge_w=6.0, depth_w=12, mode='net',
+                     pal=[(30, 24, 19), (88, 72, 58), (150, 144, 134), (126, 120, 110)],
+                     lichen=0.25, ncrack=30, cracklen=12),
+    # elm, ash: a finer diamond net, buff-orange in the furrows
+    'interlaced': dict(n=150, stretch=(1, 3.2), warp=(14, 24), ridge_w=4.2, depth_w=7, mode='net',
+                       pal=[(92, 70, 50), (132, 106, 78), (146, 138, 126), (120, 112, 102)],
+                       lichen=0.18, ncrack=60, cracklen=8),
+    # bur oak, black oak, black walnut: dark ridges cut across into blocks
+    'blocky': dict(n=100, stretch=(1, 2.3), warp=(12, 18), ridge_w=6.5, depth_w=9, mode='net',
+                   pal=[(20, 17, 14), (58, 50, 42), (112, 106, 98), (88, 82, 74)],
+                   lichen=0.22, rough=0.45, ncrack=160, cracklen=20),
+    # white oak, swamp white oak, basswood, red oak: pale scaly ridges, shallow furrows
+    'plated': dict(n=210, stretch=(1, 2.2), warp=(10, 16), ridge_w=4.2, depth_w=4, mode='net',
+                   pal=[(104, 99, 92), (138, 132, 124), (186, 182, 174), (160, 156, 146)],
+                   lichen=0.32, rough=0.35, ncrack=120, cracklen=12),
+    # silver maple, sugar maple, shagbark hickory, ironwood: long strips lifting
+    'shaggy': dict(n=50, stretch=(1, 9), warp=(8, 40), ridge_w=2.0, depth_w=0, mode='plates',
+                   pal=[(44, 38, 34), (102, 94, 86), (164, 160, 152), (140, 134, 126)],
+                   lichen=0.15, rough=0.2),
+    # hackberry, black ash: corky warts on a low net
+    'corky': dict(n=300, stretch=(1, 1.6), warp=(20, 20), ridge_w=4.0, depth_w=4, mode='net',
+                  pal=[(98, 93, 86), (124, 118, 110), (166, 162, 152), (142, 138, 128)],
+                  lichen=0.12, rough=0.55),
+}
+
+
+def colourise(h, dark, light, rng, mottle=0.08):
+    """Map a height field to colour, with a weathering mottle (smooth bark)."""
+    m = fbm(rng, TILE, 6, 4)
+    t = np.clip(h + (m - 0.5) * mottle * 2, 0, 1)[..., None]
+    dark = np.array(dark, float)[None, None, :]
+    light = np.array(light, float)[None, None, :]
+    return dark + (light - dark) * t
+
+
+def bark_smooth(rng):
+    """Aspen, balsam poplar, young limbs: smooth bark with horizontal lenticels
+    and dark branch scars."""
+    h = 0.6 + 0.08 * fbm(rng, TILE, 8, 4)
+    col = colourise(h, (120, 122, 112), (196, 198, 186), rng, 0.20)
+    img = Image.fromarray(np.clip(col, 0, 255).astype(np.uint8))
+    hgt = Image.fromarray((h * 255).astype(np.uint8))
+    d = ImageDraw.Draw(img)
+    dh = ImageDraw.Draw(hgt)
+    for _ in range(240):
+        cx = rng.random() * TILE
+        cy = rng.random() * TILE
+        w = 3 + rng.random() * 12
+        for ox in (-TILE, 0, TILE):
+            for oy in (-TILE, 0, TILE):
+                box = [cx + ox - w, cy + oy - 0.8, cx + ox + w, cy + oy + 1.2]
+                d.ellipse(box, fill=(70, 66, 58))
+                dh.ellipse(box, fill=90)
+    for _ in range(8):
+        cx = rng.random() * TILE
+        cy = rng.random() * TILE
+        w = 10 + rng.random() * 16
+        for ox in (-TILE, 0, TILE):
+            for oy in (-TILE, 0, TILE):
+                d.polygon([(cx + ox - w, cy + oy), (cx + ox, cy + oy - w * 0.6),
+                           (cx + ox + w, cy + oy), (cx + ox, cy + oy + w * 0.9)], fill=(40, 37, 34))
+                dh.polygon([(cx + ox - w, cy + oy), (cx + ox, cy + oy - w * 0.6),
+                            (cx + ox + w, cy + oy), (cx + ox, cy + oy + w * 0.9)], fill=40)
+    col = np.asarray(img).astype(float)
+    h = np.asarray(hgt).astype(float) / 255
+    return h, col
+
+
+def bark_sycamore(rng):
+    """Sycamore: thin bark flaking in jigsaw patches — brown, grey-green and the
+    cream under-bark — the one tile whose colour is its own."""
+    f1, f2, ids = worley(rng, TILE, 60, stretch=(1.3, 1.0))
+    which = rng.random(60)[ids]
+    palette = np.array([(128, 112, 92), (150, 156, 132), (226, 222, 204), (196, 192, 172)], float)
+    k = np.clip((which * 4).astype(int), 0, 3)
+    col = palette[k]
+    edge = np.clip((f2 - f1) / 4.0, 0, 1)
+    h = 0.5 + 0.15 * (k >= 2) + 0.25 * edge
+    col = col * (0.88 + 0.12 * fbm(rng, TILE, 18, 3))[..., None]
+    col = col * (0.75 + 0.25 * edge)[..., None]
+    return normalise(h), col
+
+
+BARK_ORDER = ['furrowed', 'interlaced', 'blocky', 'plated', 'shaggy', 'smooth', 'sycamore', 'corky']
+BARK_STRENGTH = {'furrowed': 6.0, 'interlaced': 5.0, 'blocky': 7.0, 'plated': 4.5, 'shaggy': 5.0,
+                 'smooth': 2.0, 'sycamore': 2.5, 'corky': 5.0}
+
+
+def make_bark(seed):
+    rng = np.random.default_rng(seed)
+    colour = np.zeros((TILE * 2, TILE * 4, 3), np.uint8)
+    normal = np.zeros((TILE * 2, TILE * 4, 3), np.uint8)
+    for i, kind in enumerate(BARK_ORDER):
+        if kind in NET_KINDS:
+            h, col = bark_net(rng, **NET_KINDS[kind])
+        else:
+            h, col = (bark_smooth if kind == 'smooth' else bark_sycamore)(rng)
+        x0 = (i % 4) * TILE
+        y0 = (i // 4) * TILE
+        colour[y0:y0 + TILE, x0:x0 + TILE] = np.clip(col, 0, 255).astype(np.uint8)
+        normal[y0:y0 + TILE, x0:x0 + TILE] = normal_map(h * 255 / 40, BARK_STRENGTH[kind])
+    return colour, normal
+
+
+# --------------------------------------------------------------------------- #
+# leaves                                                                      #
+# --------------------------------------------------------------------------- #
+
+
+def toothed(points, teeth, depth):
+    """Add teeth along an outline: every other vertex pushed out along its normal."""
+    out = []
+    n = len(points)
+    for i in range(n):
+        x0, y0 = points[i]
+        x1, y1 = points[(i + 1) % n]
+        for k in range(teeth):
+            t = k / teeth
+            x = x0 + (x1 - x0) * t
+            y = y0 + (y1 - y0) * t
+            if k % 2 == 1:
+                nx, ny = (y1 - y0), -(x1 - x0)
+                l = math.hypot(nx, ny) or 1
+                x += nx / l * depth
+                y += ny / l * depth
+            out.append((x, y))
+    return out
+
+
+def outline(family, rng):
+    """A leaf blade in leaf space: base at (0, 0), tip at (0, 1), as a polygon."""
+    pts = []
+    if family == 'poplar':  # cottonwood: deltoid, truncate base, coarse teeth
+        for i in range(31):
+            t = i / 30
+            w = 0.48 * (1 - t) ** 0.9 * (0.35 + 0.65 * min(1, t * 5))
+            pts.append((-w, t * 1.0 if t > 0.05 else t * 0.4))
+        side = [(-x, y) for x, y in reversed(pts)]
+        pts = toothed(pts + side, 2, 0.022)
+    elif family == 'aspen':
+        for i in range(40):
+            a = math.pi * 2 * i / 40
+            pts.append((0.45 * math.sin(a), 0.48 - 0.46 * math.cos(a)))
+        pts = toothed(pts, 2, 0.012)
+    elif family == 'willow':
+        for i in range(31):
+            t = i / 30
+            w = 0.085 * math.sin(math.pi * t) ** 0.8 * (1.1 - t * 0.4)
+            pts.append((-w, t))
+        side = [(-x, y) for x, y in reversed(pts)]
+        pts = toothed(pts + side, 2, 0.006)
+    elif family == 'elm':
+        for i in range(31):
+            t = i / 30
+            w = 0.27 * math.sin(math.pi * min(1, t * 1.05)) ** 0.75
+            pts.append((-w * 1.1, t))
+        side = [(w * 0.95, y) for (w, y) in reversed([(abs(x), y) for x, y in pts])]
+        pts = toothed(pts + side, 2, 0.02)
+    elif family == 'maple':  # silver maple: five deep narrow lobes
+        lobes = [(-0.95, 0.55), (-0.55, 0.92), (0.0, 1.0), (0.55, 0.92), (0.95, 0.55)]
+        for i, (lx, ly) in enumerate(lobes):
+            ang = math.atan2(lx, ly)
+            r = 0.52 if i in (0, 4) else 0.62
+            tip = (math.sin(ang) * r, 0.30 + math.cos(ang) * r)
+            sinus = 0.17
+            a0 = ang - 0.30
+            a1 = ang + 0.30
+            pts += [(math.sin(a0) * sinus, 0.30 + math.cos(a0) * sinus),
+                    (math.sin(ang - 0.10) * r * 0.75, 0.30 + math.cos(ang - 0.10) * r * 0.75),
+                    tip,
+                    (math.sin(ang + 0.10) * r * 0.75, 0.30 + math.cos(ang + 0.10) * r * 0.75),
+                    (math.sin(a1) * sinus, 0.30 + math.cos(a1) * sinus)]
+        pts = [(0, 0.0)] + pts
+        pts = toothed(pts, 2, 0.018)
+    elif family in ('oak_round', 'oak_pointed'):
+        # Bur and white oak: rounded lobes, the bur oak's upper half broad and
+        # its lower lobes cut nearly to the midrib. Red and black oak: fewer,
+        # deeper lobes ending in bristle points.
+        lobes = 3.5 if family == 'oak_round' else 3.0
+        left = []
+        for i in range(61):
+            t = i / 60
+            env = 0.40 * math.sin(math.pi * min(1, 0.06 + t * 0.97)) ** 0.6
+            if family == 'oak_round':
+                env *= 0.65 + 0.55 * t
+                ph = abs(math.sin(math.pi * lobes * t)) ** 0.5
+                w = env * (0.30 + 0.70 * ph)
+            else:
+                ph = 1 - abs(((lobes * t) % 1) * 2 - 1)
+                w = env * (0.28 + 0.85 * ph ** 2.2)
+            left.append((-w, t))
+        side = [(-x, y) for x, y in reversed(left)]
+        pts = left + side
+    elif family == 'heart':  # basswood
+        for i in range(36):
+            t = i / 35
+            w = 0.50 * math.sin(math.pi * (0.12 + t * 0.88)) ** 0.6
+            pts.append((-w * 1.05, t))
+        side = [(abs(x) * 0.9, y) for x, y in reversed(pts)]
+        pts = toothed(pts + side, 2, 0.016)
+    else:  # one leaflet of a compound leaf
+        for i in range(25):
+            t = i / 24
+            w = 0.20 * math.sin(math.pi * t) ** 0.8
+            pts.append((-w, t))
+        side = [(-x, y) for x, y in reversed(pts)]
+        pts = toothed(pts + side, 2, 0.008)
+    return pts
+
+
+def draw_leaf(img, draw, cx, cy, length, angle, family, rng, shade, under=False, foreshort=1.0):
+    """One blade, turned, foreshortened across its width (a leaf seen edge-on is
+    a sliver), shaded light-to-dark across the midrib, with veins."""
+    ca, sa = math.cos(angle), math.sin(angle)
+
+    def tr(x, y):
+        x *= foreshort
+        return (cx + (x * ca - y * sa) * length, cy - (x * sa + y * ca) * length)
+
+    if family == 'compound':
+        # A rachis with paired leaflets and a terminal one.
+        rach = [tr(0, 0), tr(0, 1.0)]
+        draw.line(rach, fill=(96, 104, 70, 255), width=max(1, int(length * 0.012)))
+        for k in range(4):
+            y = 0.25 + k * 0.2
+            for side in (-1, 1):
+                a = angle + side * (1.0 + rng.random() * 0.2)
+                x0, y0 = tr(0, y)
+                sub = outline('compound', rng)
+                lc = shade * (0.9 + rng.random() * 0.2)
+                poly = [(x0 + (px * math.cos(a) - py * math.sin(a)) * length * 0.36,
+                         y0 - (px * math.sin(a) + py * math.cos(a)) * length * 0.36) for px, py in sub]
+                draw.polygon(poly, fill=leaf_rgb(lc, rng, under))
+        sub = outline('compound', rng)
+        x0, y0 = tr(0, 0.95)
+        poly = [(x0 + (px * ca - py * sa) * length * 0.38, y0 - (px * sa + py * ca) * length * 0.38) for px, py in sub]
+        draw.polygon(poly, fill=leaf_rgb(shade, rng, under))
+        return
+    pts = outline(family, rng)
+    poly = [tr(x, y) for x, y in pts]
+    base = leaf_rgb(shade, rng, under)
+    draw.polygon(poly, fill=base)
+    # The half of the blade turned from the light is darker: a fold along the midrib.
+    half = [tr(min(0, x), y) for x, y in pts if x <= 0] + [tr(0, 1), tr(0, 0)]
+    if len(half) > 3:
+        dk = tuple(int(c * 0.86) for c in base[:3]) + (255,)
+        draw.polygon(half, fill=dk)
+    # Midrib and a few veins, a touch lighter than the blade.
+    vein = tuple(min(255, int(c * 1.18 + 10)) for c in base[:3]) + (255,)
+    if length > 30:
+        draw.line([tr(0, -0.12), tr(0, 0.96)], fill=vein, width=max(1, int(length * 0.014)))
+    if family not in ('willow',) and length > 54:
+        for k in range(1, 6):
+            y = k / 6.5
+            for s in (-1, 1):
+                draw.line([tr(0, y), tr(s * 0.30, y + 0.16)], fill=vein, width=max(1, int(length * 0.006)))
+
+
+def leaf_rgb(shade, rng, under=False):
+    """Near-neutral green; the vertex colour carries the species' July hue. A
+    few blades show their pale underside (silver maple, cottonwood flutter)."""
+    v = shade * (0.88 + rng.random() * 0.24)
+    if under:
+        return (int(min(255, v * 1.05 + 40)), int(min(255, v * 1.08 + 44)), int(min(255, v * 0.98 + 38)), 255)
+    hue = rng.random()
+    r = v * (0.80 + 0.10 * hue)
+    g = v * 1.0
+    b = v * (0.70 + 0.06 * (1 - hue))
+    return (int(min(255, r)), int(min(255, g)), int(min(255, b)), 255)
+
+
+# Blade length as a fraction of a SPRAY tile. tree-model.js draws a near card
+# about 1.3 m across, so these are the species' real leaf lengths over 1.3 m:
+# cottonwood 8-12 cm, elm 8-13, silver maple 10-14, bur oak 15-25, basswood
+# 10-15, black willow 8-13 (narrow), walnut/ash a whole compound leaf 30-50 cm.
+# The first painting had blades twice this size, which is what made the crowns
+# read as cartoon foliage.
+LEAF_SIZE = {
+    'poplar': 0.075, 'aspen': 0.05, 'willow': 0.085, 'elm': 0.07, 'maple': 0.085,
+    'oak_round': 0.13, 'oak_pointed': 0.11, 'compound': 0.24, 'heart': 0.09,
+}
+UNDERSIDE = {'maple': 0.30, 'poplar': 0.12, 'aspen': 0.15, 'willow': 0.18, 'oak_round': 0.10}
+# How far apart leaves sit along a twig, in blade lengths.
+SPACING = {'compound': 0.55, 'willow': 0.32}
+
+
+def twig_path(rng, x0, y0, length, angle, steps=12, bend=0.10):
+    pts = []
+    a = angle
+    x, y = x0, y0
+    for _ in range(steps + 1):
+        pts.append((x, y, a))
+        a += (rng.random() - 0.5) * bend
+        x += math.sin(a) * length / steps
+        y -= math.cos(a) * length / steps
+    return pts
+
+
+def spray_leaves(rng, family, x0, y0, length, angle, scale, depth):
+    """A branch end and the leaves it carries, as draw records (not yet
+    drawn): a leader, side shoots alternating off it, short spurs off those,
+    and leaves along every shoot, each turned, foreshortened and given a depth
+    that shades it. A real 1.3 m branch end carries a few hundred leaves; a
+    spray card should be most of the way to opaque in its middle."""
+    S = TILE * SS
+    size = LEAF_SIZE[family] * S * scale
+    gap = size * SPACING.get(family, 0.42)
+    wood = []
+    leaves = []
+    lead = twig_path(rng, x0, y0, length, angle)
+    shoots = [(lead, 0)]
+    nside = 6 + int(rng.random() * 4) if family != 'compound' else 3
+    for k in range(nside):
+        t = 0.15 + 0.78 * (k + rng.random() * 0.6) / nside
+        base = lead[int(t * 12)]
+        side = -1 if k % 2 else 1
+        sl = length * (0.30 + rng.random() * 0.22) * (1.1 - 0.5 * t)
+        sh = twig_path(rng, base[0], base[1], sl, base[2] + side * (0.55 + rng.random() * 0.45))
+        shoots.append((sh, 1))
+        for j in range(2 if family != 'compound' else 0):
+            b2 = sh[int((0.35 + 0.4 * j + rng.random() * 0.15) * 12)]
+            shoots.append((twig_path(rng, b2[0], b2[1], sl * (0.35 + rng.random() * 0.2),
+                                     b2[2] - side * (0.5 + rng.random() * 0.4) * (1 if j else -1)), 2))
+    for sh, order in shoots:
+        # A compound leaf's rachis is its own twig: side shoots carry leaves
+        # straight off the leader and are not drawn as wood.
+        if family != 'compound' or order == 0:
+            wood.append(([(x, y) for x, y, _ in sh], max(1, int(S * (0.005, 0.0032, 0.002)[order] * scale))))
+        L = sum(math.hypot(sh[i + 1][0] - sh[i][0], sh[i + 1][1] - sh[i][1]) for i in range(len(sh) - 1))
+        n = max(2, int(L / max(1.0, gap)))
+        for k in range(n):
+            t = 0.12 + 0.88 * (k + rng.random() * 0.4) / n
+            px, py, pa = sh[min(12, int(t * 12))]
+            side = -1 if k % 2 else 1
+            spread = (0.25, 0.55) if family == 'willow' else (0.5, 1.1)
+            la = pa + side * (spread[0] + rng.random() * (spread[1] - spread[0]))
+            # Leaves droop a little under their own weight.
+            la += 0.25 * math.sin(la) * rng.random()
+            Ls = size * (0.75 + rng.random() * 0.45) * (0.8 + 0.2 * t)
+            leaves.append(dict(px=px, py=py, a=la, L=Ls, z=depth + (rng.random() - 0.5) * 0.35,
+                               fs=0.35 + rng.random() * 0.65, under=rng.random() < UNDERSIDE.get(family, 0.05)))
+        px, py, pa = sh[-1]
+        leaves.append(dict(px=px, py=py, a=pa, L=size * 0.8, z=depth + 0.1, fs=0.8, under=False))
+    return wood, leaves
+
+
+def paint_leaves(img, draw, family, rng, wood, leaves):
+    S = TILE * SS
+    for pts, w in wood:
+        draw.line(pts, fill=(88, 80, 64, 255), width=w)
+    for lf in sorted(leaves, key=lambda d: d['z']):
+        pet = lf['L'] * (0.20 if family in ('poplar', 'aspen', 'maple', 'heart') else 0.06)
+        ex = lf['px'] + math.sin(lf['a']) * pet
+        ey = lf['py'] - math.cos(lf['a']) * pet
+        if pet > 2:
+            draw.line([(lf['px'], lf['py']), (ex, ey)], fill=(104, 98, 70, 255), width=max(1, int(S * 0.0025)))
+        # Deeper leaves sit in the shade of the ones in front of them.
+        z = min(1.0, max(0.0, lf['z']))
+        shade = 64 + 160 * z ** 1.15 + rng.random() * 16
+        draw_leaf(img, draw, ex, ey, lf['L'], lf['a'], family, rng, shade, lf['under'], lf['fs'])
+
+
+def leaf_tile(family, rng, clump=False):
+    """A SPRAY tile is one shoot with its side shoots, filling the card; a CLUMP
+    tile is a dozen or more sprays massed into a rounded tuft, the way a crown's
+    outer shell reads from thirty metres: front sprays lit, back ones in shade."""
+    S = TILE * SS
+    img = Image.new('RGBA', (S, S), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+    wood, leaves = [], []
+    if not clump:
+        w, l = spray_leaves(rng, family, S * 0.5, S * 0.97, S * 0.82, (rng.random() - 0.5) * 0.25, 1.0, 0.62)
+        wood += w
+        leaves += l
+    else:
+        n = 22 if family != 'compound' else 12
+        for _k in range(n):
+            ang = rng.random() * math.pi * 2
+            r = math.sqrt(rng.random())
+            cx = S * 0.5 + math.cos(ang) * r * S * 0.27
+            cy = S * 0.55 + math.sin(ang) * r * S * 0.24
+            # Front of the tuft (z near 1) toward the middle; back toward the rim.
+            z = 0.25 + 0.65 * (1 - r) + rng.random() * 0.1
+            w, l = spray_leaves(rng, family, cx, cy + S * 0.12, S * 0.30,
+                                math.atan2(cx - S * 0.5, S * 0.4) + (rng.random() - 0.5) * 1.2, 0.42, z)
+            wood += w
+            leaves += l
+    paint_leaves(img, draw, family, rng, wood, leaves)
+    img = img.resize((TILE, TILE), Image.LANCZOS)
+    a = np.asarray(img).astype(np.float32)
+    # Keep the blades' edges crisp under alpha test: harden the antialiased rim.
+    a[..., 3] = np.clip((a[..., 3] - 60) * 1.6, 0, 255)
+    return a.clip(0, 255).astype(np.uint8)
+
+
+FAMILIES = ['poplar', 'willow', 'elm', 'maple', 'oak_round', 'oak_pointed', 'compound', 'heart']
+
+
+def make_leaves(seed):
+    rng = np.random.default_rng(seed)
+    atlas = np.zeros((TILE * 4, TILE * 4, 4), np.uint8)
+    for f, fam in enumerate(FAMILIES):
+        for k, clump in enumerate((False, True)):
+            tile = f * 2 + k
+            x0 = (tile % 4) * TILE
+            y0 = (tile // 4) * TILE
+            t = leaf_tile(fam, rng, clump)
+            # A transparent gutter so a neighbour never bleeds in through the mips.
+            t[:6, :, 3] = 0
+            t[-6:, :, 3] = 0
+            t[:, :6, 3] = 0
+            t[:, -6:, 3] = 0
+            atlas[y0:y0 + TILE, x0:x0 + TILE] = t
+    # Fill the colour of transparent texels from their neighbours, so a mip that
+    # averages a blade with the gap beside it does not pull in black.
+    rgb = atlas[..., :3].astype(np.float32)
+    alpha = atlas[..., 3:4].astype(np.float32) / 255
+    img = Image.fromarray((rgb * alpha).astype(np.uint8))
+    wsum = Image.fromarray((alpha[..., 0] * 255).astype(np.uint8))
+    blur = np.asarray(img.filter(ImageFilter.GaussianBlur(6))).astype(np.float32)
+    wb = np.asarray(wsum.filter(ImageFilter.GaussianBlur(6))).astype(np.float32)[..., None] / 255
+    fill = blur / np.maximum(wb, 1e-3)
+    rgb = np.where(alpha > 0.5, rgb, np.clip(fill, 0, 255))
+    atlas[..., :3] = rgb.astype(np.uint8)
+    return atlas
+
+
+def write_ktx2(leaves, colour, normal):
+    """THE .ktx2 BESIDE EACH WEBP (the T-2582 rule, for these three). A WebP is
+    decoded to RGBA8 on the GPU, four bytes a texel and a third more for mips:
+    the three atlases came to 35 MB of a 1904 desktop's GPU, more than every elm's
+    geometry. Basis Universal is transcoded to the GPU's own block format and kept
+    compressed. The normal is UASTC (a vector is data; ETC1S's shared endpoints
+    would smear it); the bark colour is ETC1S; the leaf atlas is ETC1S at its top
+    quality, since it is a near-neutral colour and a cut-out edge, and UASTC
+    shipped it at 2.2 MB of boot bytes against 0.78. Each is encoded from the lossless master, bottom row first, as
+    tools/ktx2_sheets.py writes its sheets (KTX2Loader does not flip). The `ktx`
+    tool is ktx2_sheets.py's own pinned, hash-checked KTX-Software."""
+    import subprocess
+    import tempfile
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from ktx2_sheets import ktx_binary, ETC1S, ETC1S_DATA, UASTC
+    exe, env = ktx_binary()
+    jobs = [
+        ('leaf_atlas', leaves, 'R8G8B8A8_SRGB', 'srgb', ETC1S_DATA, 'clamp'),
+        ('bark_basecolor', colour, 'R8G8B8_SRGB', 'srgb', ETC1S, 'clamp'),
+        ('bark_normal', normal, 'R8G8B8_UNORM', 'linear', UASTC, 'clamp'),
+    ]
+    with tempfile.TemporaryDirectory() as tmp:
+        for name, im, fmt, oetf, codec, wrap in jobs:
+            src = os.path.join(tmp, f'{name}.png')
+            im.transpose(Image.FLIP_TOP_BOTTOM).save(src)
+            out = os.path.join(OUT, f'{name}.ktx2')
+            subprocess.run([exe, 'create', '--format', fmt, '--assign-oetf', oetf,
+                            '--generate-mipmap', '--mipmap-wrap', wrap, *codec, src, out],
+                           check=True, env=env)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
+    ap.add_argument('--masters', action='store_true', help='also write the lossless PNGs')
+    ap.add_argument('--sheet', metavar='PATH', help='also write a contact sheet (JPEG) there')
+    ap.add_argument('--no-ktx2', action='store_true', help='skip the GPU-compressed copies')
+    args = ap.parse_args()
+    os.makedirs(OUT, exist_ok=True)
+    leaves = make_leaves(2743)
+    colour, normal = make_bark(27431)
+    li = Image.fromarray(leaves, 'RGBA')
+    ci = Image.fromarray(colour, 'RGB')
+    ni = Image.fromarray(normal, 'RGB')
+    if args.masters:
+        li.save(os.path.join(OUT, 'leaf_atlas.png'), optimize=True)
+        ci.save(os.path.join(OUT, 'bark_basecolor.png'), optimize=True)
+        ni.save(os.path.join(OUT, 'bark_normal.png'), optimize=True)
+    # THE WEB COPIES, AND WHY THEY ARE LOSSY. These are boot bytes. Lossless they
+    # were 2.0 + 0.3 + 3.4 MB, because painted noise does not compress; at q85 they
+    # are under a fifth of that. The leaf alpha is kept at full quality, since the
+    # cut-out edge is the leaf's outline. The normal map is written at half size:
+    # a 256-texel bark tile already holds the furrows at the size a visitor sees
+    # them, and the half size is a quarter of the GPU memory.
+    li.save(os.path.join(OUT, 'leaf_atlas.webp'), quality=85, alpha_quality=100, method=6)
+    ci.save(os.path.join(OUT, 'bark_basecolor.webp'), quality=85, method=6)
+    ni.resize((ni.width // 2, ni.height // 2), Image.LANCZOS).save(
+        os.path.join(OUT, 'bark_normal.webp'), quality=85, method=6)
+    if not args.no_ktx2:
+        write_ktx2(li, ci, ni.resize((ni.width // 2, ni.height // 2), Image.LANCZOS))
+    if args.sheet:
+        sheet = Image.new('RGB', (2048, 3072), (200, 214, 230))
+        sheet.paste(li, (0, 0), li)
+        sheet.paste(ci, (0, 2048))
+        sheet.save(args.sheet, quality=85)
+    for f in sorted(os.listdir(OUT)):
+        print(f'{f:28s} {os.path.getsize(os.path.join(OUT, f)) // 1024:6d} KB')
+
+
+if __name__ == '__main__':
+    sys.exit(main())
