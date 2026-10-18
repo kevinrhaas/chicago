@@ -1,0 +1,8 @@
+{
+  "title": "The grass drawn by the graphics card, timed while you walk",
+  "kind": "change",
+  "items": [
+    "Since yesterday the grass right around you is drawn by the graphics card. We timed walking, turning and flying on a stand-in for a mid-range phone, before that change and after it.",
+    "Moving feels the same as it did. Most of the work of laying out the nearby grass still happens before it reaches the graphics card, because the flower heads are hung from it. Moving that work across too is the next step."
+  ]
+}
