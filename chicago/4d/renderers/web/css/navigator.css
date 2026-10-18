@@ -673,8 +673,17 @@ html[data-text-scale] .navigator :is(.jaunt-card h3, .jaunt-premise, .jaunt-cred
   white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
 /* Go to's names wrap to two lines at 100 % (T-2632); above it a long name is shown whole. */
 html[data-text-scale] .navigator .welcome-destination strong { display: block; -webkit-line-clamp: unset; line-clamp: none; overflow: visible; }
-html[data-text-scale] .navigator :is(.insp-tabs, .jaunt-categories, .welcome-kinds, .people-fgroup) {
+html[data-text-scale] .navigator :is(.insp-tabs, .jaunt-categories, .welcome-kinds, .people-fgroup, .pills) {
   flex-wrap: wrap; overflow-x: visible; }
+/* People's filter pills (css/people.css): a row of them is a sideways strip with a fade, and
+   a short question's row does not shrink (flex: none), so on the desktop panel a raised
+   size pushed its pills past the edge: the filters' grid track grew to the row's min-content
+   (its label beside its widest pill). Above 100 % the track holds the panel's width, the row
+   takes the line, and its label and pills wrap. */
+html[data-text-scale] .navigator .pills { padding-right: 1px; mask-image: none; -webkit-mask-image: none; }
+html[data-text-scale] .navigator .people-fgroup .people-frow { flex: 1 1 100%; min-width: 0; }
+html[data-text-scale] .navigator .people-filters { grid-template-columns: minmax(0, 1fr); }
+html[data-text-scale] .navigator .people-frow { flex-wrap: wrap; }
 html[data-text-scale] .navigator .jaunt-card { grid-template-columns: 38px minmax(0, 1fr); }
 html[data-text-scale] .navigator .jaunt-card .jaunt-actions { grid-column: 1 / -1; justify-content: flex-end; }
 /* A two-column list of keys or terms stacks into one at 130 % and above, so its words keep a line's width. */
