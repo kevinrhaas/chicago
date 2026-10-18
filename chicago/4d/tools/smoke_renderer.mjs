@@ -10649,7 +10649,11 @@ for (const [label, viewport, touch] of [
     // from controls/intent.js, inside the device and inside the viewport.
     check(`${label}: no horizontal overflow`, chrome.overflow);
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
-    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 10_000, polling: 100 }).catch(() => {});
+    // Guide's sheet mounts once the Navigator has opened, and on a runner where a frame takes
+    // seconds that opening takes most of a minute (dev, 2026-10-18: a local desktop probe found
+    // the sheet at 50-55 s; the 10 s wait here gave up with "rows":0). Part 13's own wait for
+    // this sheet is 60 s; this one waits up to 120 s and ends as soon as the sheet is there.
+    await page.waitForFunction(() => !!document.querySelector('#nav-app-guide #guide-controls'), null, { timeout: 120_000, polling: 100 }).catch(() => {});
     const guide = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const sheet = document.querySelector('#nav-app-guide #guide-controls');
