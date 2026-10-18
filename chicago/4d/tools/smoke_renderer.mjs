@@ -9458,21 +9458,61 @@ for (const [label, viewport, touch] of [
     // T-2627 (§10): the reticle resting on the Sauganash (26 m) shows the target tag — its
     // name and distance — after the 400 ms dwell, with the quick column's Inspect key; a
     // tap on the tag opens it. Polled on a clock: the probe answers from the render loop.
+    // T-2736: the tag now holds 3 s and fades, and on a runner where a frame takes seconds a
+    // poll can miss the whole showing (dev, 2026-10-18: "shown":false with the Sauganash
+    // current), or begin after it. So the tag is re-armed, and its own un-hiding is recorded
+    // as it happens, by an observer, with the words it showed; the poll only waits for that.
     const tagShown = await page.evaluate(async () => {
       const api = window.__chicago4d;
-      api.target.invalidate();
       const tag = document.getElementById('target-tag');
-      for (let i = 0; i < 150 && tag.hidden; i++) await new Promise((r) => setTimeout(r, 100));
-      const quick = [...document.querySelectorAll('#quick-column > button')];
-      return { shown: !tag.hidden, text: tag.textContent, upper: getComputedStyle(tag).textTransform,
-        current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+      // What shows WITH the tag is read in the same moment: the building it names and the
+      // quick column's keys. Read after the wait, the probe may have moved on (local run,
+      // 2026-10-18: the tag seen, then "current":null and the Inspect key gone).
+      const quickNow = () => {
+        const quick = [...document.querySelectorAll('#quick-column > button')];
+        return { current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+      };
+      let seen = null, withIt = null;
+      const look = () => { if (!tag.hidden && seen === null) { seen = tag.textContent; withIt = quickNow(); } };
+      const watch = new MutationObserver(look);
+      watch.observe(tag, { attributes: true, attributeFilter: ['hidden'], childList: true, characterData: true, subtree: true });
+      // If the tag already showed and faded for the Sauganash before this task began, it stays
+      // gone until the reticle leaves it: looking away and back (setEnabled off, on) re-arms it.
+      api.targetTag.setEnabled(false);
+      api.targetTag.setEnabled(true);
+      api.target.invalidate();
+      for (let i = 0; i < 150 && seen === null; i++) await new Promise((r) => setTimeout(r, 100));
+      watch.disconnect();
+      return { shown: seen !== null, text: seen ?? tag.textContent, upper: getComputedStyle(tag).textTransform,
+        ...(withIt ?? quickNow()) };
     });
     check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
       tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text) && tagShown.upper === 'uppercase'
       && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
       JSON.stringify(tagShown));
     if (tagShown.shown) {
-      await clickChrome('#target-tag');
+      // T-2736: the tag holds 3 s, then fades and stays gone for that building. On a runner
+      // where a frame takes seconds, the round trips between the check above and a separate
+      // clickChrome outlast the hold, and the tap finds a hidden tag ("#target-tag has no box
+      // (0x0)"). So the tag is shown afresh (looking away and back, as setEnabled does) and
+      // tapped in the same task it is seen in: the hit-test at its centre is clickChrome's —
+      // a covered tag still fails — and no timer can run between seeing it and tapping it.
+      const tapped = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        const tag = document.getElementById('target-tag');
+        api.targetTag.setEnabled(false);
+        api.targetTag.setEnabled(true);
+        for (let i = 0; i < 150 && (tag.hidden || tag.classList.contains('is-fading')); i++) await new Promise((r) => setTimeout(r, 50));
+        if (tag.hidden) return 'the tag did not show again';
+        const b = tag.getBoundingClientRect();
+        if (b.width < 1 || b.height < 1) return `#target-tag has no box (${b.width}x${b.height})`;
+        const at = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+        if (!at || !(at === tag || tag.contains(at))) return `#target-tag covered at its own centre by ${at?.outerHTML?.slice(0, 80) ?? 'nothing'}`;
+        tag.focus?.({ preventScroll: true });
+        tag.click();
+        return null;
+      });
+      check(`${label}: the target tag shows again and takes a tap at its own centre (T-2627, T-2736)`, tapped === null, tapped ?? '');
       // Since T-2638/T-2639 Inspect is its own screen, not the card: the tap opens the
       // Navigator on Inspect, holding the tagged building.
       const tagOpened = await page.evaluate(async () => {
@@ -15239,6 +15279,49 @@ for (const [label, viewport, touch] of [
     });
     check(`${label}: Settings › Show turns the look-at tag off and back on (T-2736)`,
       lookTag.present && lookTag.onByDefault && lookTag.off && lookTag.backOn, JSON.stringify(lookTag));
+    // ---- T-2629: dev chrome off a phone's screen. The dev preview's banner and DEV pill
+    // (#__dev, #__devpill: .github/chicago-4d-dev-preview.mjs injects them into the dev tree
+    // only, so they are planted here the way it writes them, inline display and all) are
+    // not drawn at a phone's width and still are on a desktop; the arrival card's build
+    // stamp likewise (kept on a stalled arrival). Settings › About carries the stamp, and
+    // the DEV mark exactly while the page is a dev build.
+    const devChrome = await page.evaluate(() => {
+      const api = window.__chicago4d;
+      const planted = [];
+      const plant = (tag, id, css, text) => {
+        if (document.getElementById(id)) return;
+        const n = document.createElement(tag);
+        n.id = id; n.style.cssText = css; n.textContent = text;
+        document.body.append(n); planted.push(n);
+      };
+      plant('div', '__dev', 'position:fixed;left:0;right:0;top:0;z-index:2147483000;display:flex', 'DEV PREVIEW');
+      plant('button', '__devpill', 'position:fixed;right:8px;top:8px;z-index:2147483000;display:inline-block', 'DEV');
+      const drawn = (id) => { const e = document.getElementById(id); const b = e.getBoundingClientRect(); return getComputedStyle(e).display !== 'none' && b.width > 0 && b.height > 0; };
+      const about = document.getElementById('s-about');
+      const out = {
+        phone: matchMedia('(max-width: 620px)').matches,
+        banner: drawn('__dev'), pill: drawn('__devpill'),
+        stamp: getComputedStyle(document.getElementById('gate-build')).display,
+        dev: api.about?.paint?.() ?? null,
+        aboutInSettings: !!about?.closest('.panel-body[data-panel="settings"]') && about.getBoundingClientRect().height > 0,
+        mark: { shown: drawn('s-about-dev'), text: document.getElementById('s-about-dev')?.textContent.trim() },
+        gateText: document.getElementById('gate-build')?.textContent.trim() ?? '',
+        aboutText: document.getElementById('s-about-build')?.textContent.trim() ?? '',
+      };
+      for (const n of planted) n.remove();
+      out.devServed = /\/4d\/dev\//.test(location.pathname);
+      out.notDev = planted.length === 2 ? api.about?.paint?.() ?? null : null;
+      out.markAfter = !document.getElementById('s-about-dev')?.hidden;
+      return out;
+    });
+    check(`${label}: the DEV pill and build stamp are off a phone's screen and in Settings › About; a desktop keeps them (T-2629)`,
+      (devChrome.phone ? !devChrome.banner && !devChrome.pill && devChrome.stamp === 'none'
+        : devChrome.banner && devChrome.pill && devChrome.stamp !== 'none')
+      && devChrome.aboutInSettings && devChrome.dev?.dev === true && devChrome.mark.shown && devChrome.mark.text === 'DEV'
+      && devChrome.aboutText.length > 0 && (!devChrome.gateText || devChrome.aboutText === devChrome.gateText)
+      && (devChrome.notDev === null || (devChrome.notDev.dev === devChrome.devServed && devChrome.markAfter === devChrome.devServed)),
+      JSON.stringify(devChrome));
+    // ---- end T-2629
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.

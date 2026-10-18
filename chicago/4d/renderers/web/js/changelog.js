@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 1991, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'On a phone, the build details move into Settings, About', kind: 'change',
+    items: [
+      'On a phone, the preview banner and the DEV pill no longer sit over the top of the screen, and the arrival card no longer prints the build line under the town.',
+      'Settings now ends with an About section that shows which build you are using. On a preview build it also shows the DEV mark, says it is not production, and links to production.',
+      'On a computer nothing moves: the banner, the pill and the arrival card\'s build line stay where they were.',
+      'If an arrival stalls, the arrival card still shows the build line on a phone, because that is when it helps.',
+    ] },
+  { v: 1990, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'Glessner\'s terrace ends on its round stone post, as drawn', kind: 'fix',
+    items: [
+      'The rounded stone post at the foot of the courtyard terrace\'s coping now stands where the 1963 survey plan draws it: a little larger, and proud of the wall instead of buried inside it.',
+      'Seen from the courtyard, the post\'s shaft now shows whole from the ground to its domed top, and the coping curves down into its side, as the survey section and the c. 1923 court photograph show.',
+      'The three lowest winding steps meet the post\'s new face.',
+      'Still open: the plan and the section put that junction about a foot apart, and the build follows the plan.',
+    ] },
+  { v: 1989, ts: '2026-10-18T13:22:19.590Z', date: 'Oct 18, 2026, 8:22 AM CT', title: 'Keith house\'s parapet band measured too deep against two photographs', kind: 'change',
+    items: [
+      '1808 Prairie (1904): measured against the view from Glessner\'s front door and Florian\'s 1948 photograph, the stone band between the parapet\'s pierced lattice and the carved band below it is drawn about 0.1-0.17 m too deep.',
+      'The difference was put down to how one camera was fitted. It is not the camera: it reads the same no matter how that camera is fitted, so it is the building, and correcting it is the next step for this house.',
+    ] },
   { v: 1988, ts: '2026-10-18T13:06:49.746Z', date: 'Oct 18, 2026, 8:06 AM CT', title: 'Keith\'s loggia pedestals plain, as the 1888 plate shows them', kind: 'fix',
     items: [
       'At 1808 Prairie, the two pedestals under the loggia\'s columns now carry plain panels in their stone border. Read at full size, the 1888 Inland Architect plate shows no carving in them, so the leaf scrolls drawn there before are gone.',
