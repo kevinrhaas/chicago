@@ -349,6 +349,7 @@ export function createOverlays(doc) {
     if (!project || !layer) return drawn;
     // Building labels.
     const keepL = new Set();
+    const labelled = new Map(); // id -> the label's top, so a pin on the same roof stands above it
     if (on.labels) {
       const phone = ctx.isPhone ?? (win.matchMedia?.('(max-width: 620px)')?.matches ?? false);
       const picked = pickLabels(labelList(), { player, project, w, h, ground, hidden: a.hud?.hiddenLevels ?? [],
@@ -365,6 +366,7 @@ export function createOverlays(doc) {
         }
         place(el, b.x, b.y);
         keepL.add(b.id);
+        labelled.set(b.id, b.y);
       }
       drawn.labels = picked.length;
     }
@@ -377,8 +379,9 @@ export function createOverlays(doc) {
         const at = toScreen(project, pl.e, pl.n, ground(pl.e, pl.n) + (pl.h ?? heightOf(pl.id, a.registry?.get?.(pl.id))) + 4, w, h, 0);
         if (!at) continue;
         const el = pinEl(pl);
-        el._x = at.x; el._y = at.y;
-        place(el, at.x, at.y);
+        const y = labelled.has(pl.id) ? Math.min(at.y, labelled.get(pl.id) - 28) : at.y;
+        el._x = at.x; el._y = y;
+        place(el, at.x, y);
         keepP.add(pl.id);
       }
       drawn.pins = keepP.size;
@@ -461,7 +464,7 @@ export function createOverlays(doc) {
         jaunts,
       });
     },
-    prepare() { void loadPeople(); loadJaunts(); },
+    prepare() { loadJaunts(); return loadPeople(); },
     frame,
     closePop,
     get running() { return frameId != null; },
@@ -521,7 +524,7 @@ export function mountOverlays(el, ctx = {}) {
       if (r.note.textContent !== n[id].text) r.note.textContent = n[id].text;
     }
   }
-  ov.prepare();
+  void ov.prepare().then(paint, () => {});
   paint();
   // The lines follow the town: a Jaunt starting, the directory arriving, a grade hidden.
   const timer = win.setInterval?.(() => {
