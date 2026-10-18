@@ -107,7 +107,8 @@ class Cam:
         d = self.ray(px)
         i, target = (1, (74 - value) * FT) if axis == 'S' else (0, (161.25 - value) * FT)
         p = self.eye + (target - self.eye[i]) / d[i] * d
-        return [round(161.25 - p[0] / FT, 2), round(74 - p[1] / FT, 2), round(p[2] / FT, 2)]
+        # `+ 0.` writes a point on the face as 0.0, never -0.0, whichever side rounding lands
+        return [round(161.25 - p[0] / FT, 2) + 0., round(74 - p[1] / FT, 2) + 0., round(p[2] / FT, 2) + 0.]
 
     def z_on_edge(self, W, S, v):
         lo, hi = -60., 200.
@@ -173,6 +174,9 @@ def reads(cam, picks, model):
     return out
 
 
+ASPECT_VALLEY = (1.02, 1.04, 1.06)   # 1.00 is the `doorway` fit
+
+
 def habs01(model):
     d = json.loads((VIEWS / 'habs-01-northwest.json').read_text())
     committed = Cam.committed(d)
@@ -189,9 +193,21 @@ def habs01(model):
                                lambda x: Cam([x[0], x[1], x[5]], axes(x[2], 0, 0), x[3], (cx, x[4])), [eye[0], eye[1], yaw0, f0, cy0, h], base + door),
         'doorway_lean': ('as doorway, image lean (roll) free',
                          lambda x: Cam([x[0], x[1], h], axes(x[2], 0, x[5]), x[3], (cx, x[4])), [eye[0], eye[1], yaw0, f0, cy0, 0.], base + door),
-        'doorway_aspect': ('as doorway, pixel aspect free',
-                           lambda x: Cam([x[0], x[1], h], axes(x[2], 0, 0), x[3], (cx, x[4]), x[5]), [eye[0], eye[1], yaw0, f0, cy0, 1.], base + door),
     }
+    # Pixel aspect is NOT a variant: these controls cannot measure it. A level camera
+    # whose controls nearly all lie in the one north-face plane trades a wider aspect
+    # exactly against a longer focal length and a farther eye, so a fit with the aspect
+    # free has no minimum, only a valley of equal RMS, and it stopped wherever the
+    # solver's rounding left it: S11.3 for the cupola on one machine, S11.8 on another,
+    # which is how `--check` went red on a tree nothing had changed. So the valley is
+    # walked at pinned aspects instead (each fit is then well posed and lands on the
+    # same camera from any start), and read as what it is: at square pixels (1.00) it
+    # is the `doorway` fit itself; past that the gable's height does not move, and the
+    # cupola's place on S does.
+    for a in ASPECT_VALLEY:
+        variants[f'doorway_aspect_{a:.2f}'] = (
+            f'as doorway, pixel aspect pinned at {a:.2f} (the valley a free aspect cannot leave)',
+            lambda x, a=a: Cam([x[0], x[1], h], axes(x[2], 0, 0), x[3], (cx, x[4]), a), [eye[0], eye[1], yaw0, f0, cy0], base + door)
     form = json.loads((ROOT / 'data/structures/glessner_house.json').read_text())['phases'][0]['form']
     t, plan = form['tower_north']['value'], form['tower_north_plan']['value']
     tip = world(plan['centre_W'], plan['centre_S'], t['apex'][0] + t['finial_ft'])
@@ -248,23 +264,27 @@ def derive():
     c = cornell(model)
     def span(values):
         return [round(min(values), 2), round(max(values), 2)]
-    fitted_h = [v for k, v in h.items() if k != 'committed']
+    fitted_h = [v for k, v in h.items() if k != 'committed' and not k.startswith('doorway_aspect_')]
+    valley_h = [h['doorway']] + [v for k, v in h.items() if k.startswith('doorway_aspect_')]
     fitted_c = [v for k, v in c.items() if k != 'committed']
     summary = {
         'gable_coping_apex_ft': {'model': model['gable_coping_apex_ft'],
                                  'habs01_committed': h['committed']['reads']['gable_coping_apex'][2],
                                  'habs01_doorway_fits': span([v['reads']['gable_coping_apex'][2] for v in fitted_h]),
+                                 'habs01_aspect_valley_1.00_1.06': span([v['reads']['gable_coping_apex'][2] for v in valley_h]),
                                  'habs01_doorway_ruler': ruler['reads_ft']['gable_coping_apex'],
                                  'cornell_committed': c['committed']['reads']['gable_coping_apex'][2],
                                  'cornell_roof_fits': span([v['reads']['gable_coping_apex'][2] for v in fitted_c])},
         'cupola_apex_ft_at_model_centre': {'model': model['cupola_apex_ft'],
                                            'habs01_committed': h['committed']['reads']['cupola_apex_at_model_centre_S'][2],
                                            'habs01_doorway_fits': span([v['reads']['cupola_apex_at_model_centre_S'][2] for v in fitted_h]),
+                                           'habs01_aspect_valley_1.00_1.06': span([v['reads']['cupola_apex_at_model_centre_S'][2] for v in valley_h]),
                                            'cornell_committed': c['committed']['reads']['cupola_apex_at_model_centre_S'][2],
                                            'cornell_roof_fits': span([v['reads']['cupola_apex_at_model_centre_S'][2] for v in fitted_c])},
         'cupola_centre_S_on_ridge_plane': {'model': model['cupola_centre_WS'][1],
                                            'habs01_committed': h['committed']['reads']['cupola_apex_on_ridge_plane'][1],
                                            'habs01_doorway_fits': span([v['reads']['cupola_apex_on_ridge_plane'][1] for v in fitted_h]),
+                                           'habs01_aspect_valley_1.00_1.06': span([v['reads']['cupola_apex_on_ridge_plane'][1] for v in valley_h]),
                                            'cornell_committed': c['committed']['reads']['cupola_apex_on_ridge_plane'][1],
                                            'cornell_roof_fits': span([v['reads']['cupola_apex_on_ridge_plane'][1] for v in fitted_c])},
     }
