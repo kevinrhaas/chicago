@@ -836,6 +836,15 @@ step "the K08 bay kit builds every bay, oriel and tower closed against its wall,
 selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
   python3 tools/check_bay_kit.py --self-test
 
+# T-2787. ...and a K01 frontage carries a K08 tower past its eave (the kit piece 1801
+# Prairie's move needs). Built on two committed records with a tower added, a hip and a
+# mansard: the cap over the main roof, the ring closed above the wall head in the wall's
+# plane, the wall head's brackets and bed moulding stopped at its junctions, the lights
+# behind it dropped; a tower under the eave, out of its size range or in front of a door
+# refused.
+step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
+  python3 tools/test_k01_tower.py
+
 # T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
 # data/components/prairie_1904/k07_entrances.json and built by
 # generators/archetypes/k07_entrances.py. This rebuilds every variant and measures the

@@ -1652,6 +1652,21 @@ class Assembly:
                 for s0, s1 in spans:
                     self.proud_box(STRIP_FABRICS[q["fabric"]], (W((x0, 0.0, z0)), Rw, Nw), s0, s1,
                                    q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
+        # T-2787: a tower rises past the main eave, and the wall that closes its ring below
+        # stops at the wall head. Above that its ring is closed where the wall's plane cuts
+        # it, facing the roof behind: from the wall head to the tower's wall top across the
+        # ring's junctions, and on to its eave across its eaves' (K08 closes its cap from
+        # there). A millimetre behind the plane, so no face lies on the kit's cut ends
+        if v["kind"] == "tower":
+            back = _mul(N, -1)
+            wall_top, eave = built.meta["wall_top_m"], built.meta["eave_m"]
+            on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
+            pr = self.prim(body)
+            bb = self.basis(body, O, R, Y, seed)
+            for (x0, x1), (y0, y1) in (((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]), (p.eave_m, wall_top)),
+                                       ((min(on), max(on)), (wall_top, eave))):
+                pr.face([tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
+                         for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))], back, bb, conf)
         # T-2289: everything the bay stands against its wall with, junctions to roof
         self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0)
                           for pr in built.prims.values() for q in pr.pos], "k08")

@@ -365,7 +365,16 @@ def _cornice(a, K, data, bays, conf):
     # the house's soffit and fascia; the wall's bed moulding stops at its junctions
     sec = [tuple(q) for q in bracketed_section(data, p.eave_overhang_m)]
     cut = []
+    # T-2787: a tower rises past the eave, so the bed moulding stops at its junctions and
+    # dies into its ring, on whichever wall it stands (a cut is perimeter s: the street
+    # front's run starts the perimeter, then north, rear and south, as `runs` lays them)
+    at_run, acc = {}, 0.0
+    for r in runs(p):
+        at_run[r.name], acc = acc, acc + r.L
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
+        if b["variant"]["kind"] == "tower":
+            cut.append(tuple(at_run[wall] + s for s in b["span_m"]))
+            continue
         if cr.get("form") == "hip" and wall == "k01.wall.street_front" \
                 and -cr["z1"] - cr["overhang_m"] <= s0 and s1 <= -cr["z0"] + cr["overhang_m"]:
             continue
@@ -574,6 +583,9 @@ def _stone_cornice(a, K, data, bays, conf):
     cut = []
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
         if wall != front.name or top <= y_c - 0.005:
+            continue
+        if b["variant"]["kind"] == "tower":   # T-2787: the course dies into a tower's ring
+            cut.append(tuple(b["span_m"]))
             continue
         ev = b["variant"].get("overrides", {}).get("eaves", {})
         wall_top = b["variant"].get("base", 0.0) if b["variant"].get("base") != "grade" else 0.0
