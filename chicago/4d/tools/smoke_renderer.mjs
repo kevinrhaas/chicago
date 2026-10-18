@@ -15341,15 +15341,14 @@ for (const [label, viewport, touch] of [
 
     // >>> T-2628 (§10 "AFTER · ≤ 10 % OF SCREEN", QA-17): the HUD's footprint. The union of
     // every painted, visible box under #hud and the Navigator (docked), rasterised on a 2 px
-    // grid, as a share of the viewport — measured in the steady state, once the street toast
-    // and the hint have faded, at this viewport and (on the phone leg) at 390×844 too. And the
+    // grid, as a share of the viewport — measured in the steady state, once the hint has faded
+    // (T-2741's street readout under the compass is steady, and counts), at this viewport and
+    // (on the phone leg) at 390×844 too. And the
     // gate is shown to fire: a planted row of the pre-declutter chips puts it over budget.
     const HUD_BUDGET_PCT = 10;
     const hudFootprint = () => page.evaluate(async () => {
       for (let i = 0; i < 40; i++) {
-        const t = document.getElementById('street-readout')?.classList.contains('is-toast');
-        const h = document.getElementById('hint')?.classList.contains('on');
-        if (!t && !h) break;
+        if (!document.getElementById('hint')?.classList.contains('on')) break;
         await new Promise((r) => setTimeout(r, 150));
       }
       const W = innerWidth, H = innerHeight, cell = 2;
@@ -15427,7 +15426,7 @@ for (const [label, viewport, touch] of [
       footprints.every((f) => f.pct <= HUD_BUDGET_PCT && f.boxes > 0)
       // On the phone the pre-declutter row alone breaks the budget, as it did (IMG_6942).
       && oneMore.pct > base.pct + 0.05 && (!touch || oldRow.pct > HUD_BUDGET_PCT),
-      JSON.stringify({ footprints, plantedOne: oneMore.pct, plantedOldRow: oldRow.pct }));
+      JSON.stringify({ footprints, plantedOne: oneMore.pct, plantedOldRow: oldRow.pct }), true);
     // <<< T-2628
 
     // --- the Navigator (T-2617) ----------------------------------------------
