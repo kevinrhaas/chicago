@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2009, ts: '2026-10-18T17:31:26.395Z', date: 'Oct 18, 2026, 12:31 PM CT', title: 'Inspect\'s Photos tab: pictures by date, the 12 best first', kind: 'feature',
+    items: [
+      'Inspect\'s Photos tab shows a building\'s pictures as a grid sorted by date, each with its year, a short caption and its credit.',
+      'The 12 best come first: photographs of its time, from as many sides as there are, before later views and drawings. The rest sit behind All, over a hundred for Glessner House.',
+      'A picture with no date in the records says Undated.',
+      'From this spot appears on a picture only where its camera position has been worked out, and stands you where it was taken, facing the same way.',
+      'Tap a picture to open it full size with its whole credit.',
+    ] },
   { v: 2008, ts: '2026-10-18T17:12:35.089Z', date: 'Oct 18, 2026, 12:12 PM CT', title: 'Every year holds less memory; 1904 on a phone: 516 MB', kind: 'fix',
     items: [
       'Buildings kept a second copy of every piece after drawing it. That copy is now freed, in every year.',
