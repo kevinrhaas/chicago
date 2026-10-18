@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2012, ts: '2026-10-18T19:09:06.663Z', date: 'Oct 18, 2026, 2:09 PM CT', title: 'Teachers can print the field check on one page', kind: 'feature',
+    items: [
+      'Guide has a new For teachers section. Print the handout gives one sheet, Letter or A4, with the field check\'s seven steps as students will see them.',
+      'Under the steps are three suggested Jaunts for each destination: the featured ones first, then the shortest. 1812 says it has no Jaunts yet.',
+      'You can also read the handout in Guide before you print it.',
+    ] },
   { v: 2011, ts: '2026-10-18T18:36:06.631Z', date: 'Oct 18, 2026, 1:36 PM CT', title: 'Inspect\'s Sources tab sorts every fact by how sure we are', kind: 'feature',
     items: [
       'Sources opens with a count, like Glessner House\'s 99 facts: 50 Attested, 14 Inferred, 35 Reconstructed.',
