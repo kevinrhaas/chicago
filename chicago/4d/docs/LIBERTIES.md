@@ -12496,6 +12496,14 @@ can be the record's own while the distance costs a fraction of a stem each. That
 not exist here. Until it does, the fraction is the honest stand-in and this entry is where it is
 counted.
 
+**Narrowed by T-2766 (2026-10-18).** The instrument this entry asked for now exists: since T-2743
+every tree-form stem is an instance of a grown species tree at near, mid and far levels, so a far
+stem costs a few crossed cards. The fractions are raised to **0.700 / 0.500 / 0.300** (light was
+0.191 after T-1976) and the caps to 3,800 / 3,300 / 1,700. Measured on the published mirror: 3,165 /
+2,144 / 1,347 trees, every level reaching N +1,113 m, and every desktop stand inside its triangle
+ceiling. `full` now draws seven tenths of the recorded stand, not two fifths. `balanced` is held
+below the ratio rule because the West prairie stand had only 5k triangles of headroom on dev.
+
 Related: **L121**, which this entry supersedes on the value and keeps on the method, and **L120**
 and **L114**, the other entries about this wood. Ticket **T-1127**; ROADMAP **K45(b3)**.
 **Recorded:** 2026-09-15.
@@ -26070,6 +26078,7 @@ record. The strip north of the main body behind its front part and the light wel
 **How to resolve:** T-2435 builds what the drawing shows and brings its match record to `matches`; a
 photograph of the house after 1886 settles the stone, the oriel's depth and whether the 1886 design was
 built as drawn.
+**Revised 2026-10-18 (T-2777):** the oriel now stands at the drawing's size, 4.8 m at the wall and 3.4 m of front, over the window and the entrance arch, which stand at the drawing's 1.55 and 4.6 m: their heads clear its lowest corbel course, so it no longer needs the width between them. Its six lights are built, four to its front and one in each cant, the cant lights 0.35 m, narrower than drawn, so their recesses stay in front of the house wall. Its depth is 0.65 m, not the 0.9 m first read: the drawing's level, square-on camera cannot read the depth (the front moves under 3 px between the two), and four 0.2 m corbel courses carry no more under the K08 oversail rule (inferred, stated on the record). Its hood's overhang is 0.1 m, so its eaves stand clear of the front's reconstructed corner pipes. Still not built: the frieze, upper stage and cone (T-2778), and the front's place along the wall, the entrance porch, the basement light and the stone above the springing (T-2779), each open in the match record.
 **Covers:** `house_1623_prairie.as_mapped_1904.form.storey_heights_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1623_prairie.as_mapped_1904.form.service_wall_brick`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.wall_head`, `house_1623_prairie.as_mapped_1904.form.roof_form`, `house_1623_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1623_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1623_prairie.as_mapped_1904.form.stair_tread_m`, `house_1623_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1623_prairie.as_mapped_1904.form.rear_bays`, `house_1623_prairie.as_mapped_1904.form.sash_by_storey`, `house_1623_prairie.as_mapped_1904.form.chimneys`, `house_1623_prairie.as_mapped_1904.form.rainwater`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`
 **Ticket:** T-2433 (piece 2 of T-1869).
 **Review:** `docs/RESEARCH/k01-1623-farwell-2433/README.md`.
@@ -28774,6 +28783,31 @@ Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood
 **Ticket:** T-2743.
 **Recorded:** 2026-10-17 (T-2743).
 
+### L-shore-grove-1835-2766 — The 1835 shore cottonwood grove at Sixteenth to Eighteenth Street: its count, its depth and every stem's place
+
+**Decision:** the 1835 scene draws Robert G. Clarke's grove of "perhaps fifty to seventy-five large
+cottonwoods, extending from a little north of Sixteenth to a little south of Eighteenth Street" as
+**60** eastern cottonwoods, 22-26 m tall, dealt by `tools/generate_shore_grove_1835.py` into
+`data/flora/plantings/shore_cottonwood_grove_1835.json` (T-2766).
+**What is read, not invented:** the grove, its species, its size class ("large") and its north and
+south ends (Clarke 1890, in Kirkland 1893 Appendix K, `kirkland_1893_chicago_massacre_appendix_k`);
+the clump "of eight or nine trees" and its place, 250-300 ft north of Eighteenth Street at the east
+end of Wirt Dexter's lot, which is 1721 Prairie Avenue's traced lot end at E 1490.1; and the 18th
+Street tree's size about 1835 ("a large and thrifty tree", Mary Clark Williams through Galloway).
+**What is invented:** the count inside Clarke's range (60); "a little" beyond each street as 20 m;
+the clump as nine stems, one central and eight on a 4.5 m ring; the grove's depth, a strip 48 m
+back from the edge of the shore terrace (where the committed e1834_harbor_cut ground stands 2 m above
+the water), which no source states; and every other stem's place, a seeded dart throw at 11 m apart.
+The 18th Street tree and its fellow stand where the 1812 record already puts them, so their places
+carry that record's reconstruction. The zone is `z05_riverbank_timber`, because the shore's own
+record describes the cottonwood only in its 5-15 m dune form and z05's is the only record of the
+full-grown tree; heights are held to the lower half of its 22-30 m band.
+**How to resolve:** Andreas's engraving of the 18th Street tree (vol. 1, p. 31), an early plat of
+the Clark farm or of Eighteenth Street that draws trees, or a photograph of the shore before the
+Illinois Central's fill.
+**Ticket:** T-2766.
+**Recorded:** 2026-10-18 (T-2766).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -28895,12 +28929,14 @@ and the cupola's apex at 46.5-47.8 ft (model 39.6 and 47.0). The roof is not cha
 middle of those readings. That is inside the ridge's stated 1.5 ft tolerance, and the two photographs disagree
 with each other by about as much. The cupola's centre stays on S14.6, the owner's alignment with the ridge
 crossing. Photograph 1 cannot say where along S it stands: every control in that photograph lies in the north face,
-so two fits of equal RMS put the cupola at S14.4 and S11.3. The Cornell re-solve uses two faces and puts it
+so its depth is free: with the pixel aspect let go, which those controls cannot measure,
+fits of one RMS slide the cupola from S14.4 at square pixels to S10.4 at an aspect of 1.06 while the
+gable's height does not move. The Cornell re-solve uses two faces and puts it
 at S13.0-13.2, about 1.5 ft north. That is a quarter of the cupola's 6 ft plan on one camera's reading
 (3.7-4.8 px RMS), not the 4 ft that was to go to the owner.
 **Bounds:** Picks about ±2 px on photograph 1 and ±5 px on the Cornell copy; the doorway's threshold is taken
 as grade. The cameras are bounded re-solves, not surveys. The committed cameras are unchanged: photograph 1's
-doorway re-solve moves the north tower's finial 7-9 px off the print, so no single level camera fits both ends
+doorway re-solve moves the north tower's finial about 9 px off the print, so no single level camera fits both ends
 of that print, and the Cornell west-wall camera still serves the west windows, which the re-solve reads in the
 same places.
 **How to resolve:** A measured stable elevation or section (no HABS sheet prints the stable's ridge), or a

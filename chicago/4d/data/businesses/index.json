@@ -835,7 +835,7 @@
         "tier": "inferred",
         "from": "1834-10-29",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-10-29",
@@ -883,7 +883,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -1050,7 +1050,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -1410,7 +1410,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -2218,7 +2218,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of randolph and names nothing narrower.",
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of Randolph Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
           "by": "street_face_adoption",
@@ -2272,7 +2272,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -2338,7 +2338,7 @@
         "tier": "inferred",
         "from": "1834-01-28",
         "to": null,
-        "limit_reason": "The register places this house against business_brewster_hogan_co and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Brewster, Hogan & Co. and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-01-28",
@@ -2844,7 +2844,7 @@
         "tier": "inferred",
         "from": "1834-03-25",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-03-25",
@@ -3321,7 +3321,7 @@
         "tier": "inferred",
         "from": "1835-06-04",
         "to": null,
-        "limit_reason": "The register places this house against new_york_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against New York House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-04",
@@ -4118,7 +4118,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -4560,7 +4560,7 @@
         "tier": "inferred",
         "from": "1834-10-08",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor is a reach of lake and names nothing narrower.",
+        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor is a reach of Lake Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_lake_clark_c2_02",
           "by": "street_face_adoption",
@@ -4622,7 +4622,7 @@
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 2,
       "opened": "1833-12-17",
@@ -4725,7 +4725,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -4985,7 +4985,7 @@
         "tier": "inferred",
         "from": "1834-12-10",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-12-10",
@@ -5051,7 +5051,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of South Water Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
           "by": "street_face_adoption",
@@ -5105,7 +5105,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5151,7 +5151,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5364,7 +5364,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The register places this house against jh_kinzie_forwarding_store and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against J. H. Kinzie's Store and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-08-05",
@@ -5729,7 +5729,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5775,7 +5775,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5821,7 +5821,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5947,7 +5947,7 @@
         "tier": "inferred",
         "from": "1834-11-19",
         "to": null,
-        "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Exchange Coffee House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-11-19",
@@ -6018,7 +6018,7 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -6194,7 +6194,7 @@
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The register places this house against business_jones_king_co and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Jones, King & Co. and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-05-20",
@@ -6532,7 +6532,7 @@
         "tier": "inferred",
         "from": "1834-02-18",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-02-18",
@@ -6595,7 +6595,7 @@
         "tier": "inferred",
         "from": "1834-08-13",
         "to": null,
-        "limit_reason": "The register places this house against dearborn+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Dearborn Street and Lake Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-08-13",
@@ -7828,7 +7828,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -7940,7 +7940,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -7996,7 +7996,7 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The register places this house against chicago_democrat_office and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against The Chicago Democrat Office and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -8048,7 +8048,7 @@
         "tier": "inferred",
         "from": "1834-06-25",
         "to": null,
-        "limit_reason": "The register places this house against canal+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Canal Street and Lake Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-06-25",
@@ -8096,7 +8096,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -8147,7 +8147,7 @@
         "tier": "inferred",
         "from": "1835-07-22",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-07-22",
@@ -8209,7 +8209,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-08-05",
@@ -8680,7 +8680,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -8828,7 +8828,7 @@
         "tier": "inferred",
         "from": "1834-07-23",
         "to": null,
-        "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of dearborn and names nothing narrower.",
+        "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of Dearborn Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_lake_market_d2_04",
           "by": "street_face_adoption",
@@ -8905,7 +8905,7 @@
         "tier": "inferred",
         "from": "1834-12-03",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-12-03",
@@ -8976,7 +8976,7 @@
         "tier": "inferred",
         "from": "1834-11-26",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-11-26",
@@ -9091,7 +9091,7 @@
         "tier": "inferred",
         "from": "1835-06-08",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-08",
@@ -9552,7 +9552,7 @@
         "tier": "inferred",
         "from": "1834-07-09",
         "to": null,
-        "limit_reason": "The register places this house against business_eagle_tavern and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Eagle Tavern and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-09",
@@ -9623,7 +9623,7 @@
         "tier": "inferred",
         "from": "1833-11-26",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of South Water Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
           "by": "street_face_adoption",
@@ -10409,7 +10409,7 @@
         "tier": "inferred",
         "from": "1835-05-27",
         "to": null,
-        "limit_reason": "The register places this house against franklin+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Franklin Street and Lake Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-05-27",
@@ -10963,7 +10963,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11149,7 +11149,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11195,7 +11195,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11296,7 +11296,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11342,7 +11342,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11547,7 +11547,7 @@
         "tier": "inferred",
         "from": "1834-08-06",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-08-06",
@@ -11693,7 +11693,7 @@
         "tier": "inferred",
         "from": "1833-11-26",
         "to": null,
-        "limit_reason": "The register places this house against clark+south_water and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Clark Street and South Water Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 2,
       "opened": "1833-11-26",
@@ -11968,7 +11968,7 @@
         "tier": "inferred",
         "from": "1833-12-10",
         "to": null,
-        "limit_reason": "The register places this house against sauganash_hotel and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Sauganash Hotel and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1833-12-10",
@@ -12613,7 +12613,7 @@
         "tier": "inferred",
         "from": "1834-07-09",
         "to": null,
-        "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Newberry & Dole and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-09",
@@ -12700,7 +12700,7 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -12845,7 +12845,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "No street the model holds. The anchor is a reach of lake and names nothing narrower."
+        "limit_reason": "No street the model holds. The anchor is a reach of Lake Street and names nothing narrower."
       },
       "locations": 1,
       "opened": "1834-05-28",
@@ -12992,7 +12992,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "No street the model holds. The anchor is a reach of lake and names nothing narrower."
+        "limit_reason": "No street the model holds. The anchor is a reach of Lake Street and names nothing narrower."
       },
       "locations": 1,
       "opened": "1835-08-05",
@@ -13163,7 +13163,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-05-28",
@@ -13221,7 +13221,7 @@
         "tier": "inferred",
         "from": "1834-11-05",
         "to": null,
-        "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Newberry & Dole and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-11-05",
@@ -13283,7 +13283,7 @@
         "tier": "inferred",
         "from": "1834-05-07",
         "to": null,
-        "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Newberry & Dole and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-05-07",
@@ -13806,7 +13806,7 @@
         "tier": "inferred",
         "from": "1834-06-18",
         "to": null,
-        "limit_reason": "The register places this house against business_eagle_tavern and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Eagle Tavern and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-06-18",
@@ -13861,7 +13861,7 @@
         "tier": "inferred",
         "from": "1835-06-24",
         "to": null,
-        "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Exchange Coffee House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-24",
@@ -13934,7 +13934,7 @@
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-05-20",
@@ -13993,7 +13993,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-08",
@@ -14191,7 +14191,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -15091,7 +15091,7 @@
         "tier": "reconstructed",
         "from": null,
         "to": null,
-        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and T-1199 seats the reconstructed layer when the placement policy is written."
+        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and the reconstructed layer is seated when the placement policy is written."
       },
       "locations": 1,
       "opened": null,
@@ -15137,7 +15137,7 @@
         "tier": "reconstructed",
         "from": null,
         "to": null,
-        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and T-1199 seats the reconstructed layer when the placement policy is written."
+        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and the reconstructed layer is seated when the placement policy is written."
       },
       "locations": 1,
       "opened": null,

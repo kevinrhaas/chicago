@@ -1,12 +1,13 @@
 {
   "_": "ROADMAP K45(b3), re-banked by T-1127 for the field T-1123 enlarged. What the timber's detail control does. Read by tools/measure_timber_detail.mjs --gate, measured on the PUBLISHED mirror at 1280x800. The woody layer is planted over the whole field once rather than into a ring that follows the visitor, so unlike the sward its population does not depend on the viewport.",
-  "measured_on": "2026-10-17",
+  "measured_on": "2026-10-18",
   "rebanked_t2743": "T-2743 re-banked the three levels: the timber is now grown per species and instanced at three distance levels (tree-instances.js), so timber_triangles fell from dev's 1512338 / 877010 / 400454 to these, and the grown stems no longer draw from the planter's random stream, which re-rolls which cells take a tree. light's keep had been 0.191 on dev since the 1835 triangle cut (trees.js) while this file still banked 0.225, so dev failed three light checks before T-2743 touched it (measured on dev cb3f1c05 the same day: 46.8 % of full's trees, band 31.5 % vs 39.5 %). band_share widens 0.05 -> 0.09 for the reason the tolerance note gives: at 0.191 the unthinned point-bar stools are a larger share of light's smaller stem count (dev 8.0 points, T-2743 7.4); an emptied band still reads ~37 points off. The screen floor 0.60 -> 0.58: the re-rolled stream moved light's stools from 539 of 849 (63.5 %) to 524 of 876 (59.8 %), the same bar sampled on a different draw.",
+  "rebanked_t2766": "T-2766 raised the keep fractions 0.400 / 0.350 / 0.191 -> 0.700 / 0.500 / 0.300 and the stem caps 3030 / 1920 / 1110 -> 3800 / 3300 / 1700, spending the triangles T-2743's instancing saved on the wood the sources describe. balanced sits below the ratio rule because the West prairie stand had 5k of its 2,535,000 left on dev and 0.600 put it 15k over. Every level still reaches the north end of the field and no cap binds (3165 of 3800, 2144 of 3300, 1347 of 1700). Measured shares of full's trees: balanced 67.7 % against 71.4 % nominal, light 42.6 % against 42.9 %.",
   "measured_against": "the published mirror, walked through window.__chicago4d.setDetail",
   "levels": {
-    "full":     { "keep": 0.400, "trees": 1781, "thickets": 876, "stems": 3036, "timber_triangles": 652594, "scene_triangles": 2291393 },
-    "balanced": { "keep": 0.350, "trees": 1542, "thickets": 756, "stems": 2677, "timber_triangles": 412362, "scene_triangles": 1772703 },
-    "light":    { "keep": 0.191, "trees":  827, "thickets": 524, "stems": 1730, "timber_triangles": 190042, "scene_triangles":  672347 }
+    "full":     { "keep": 0.700, "trees": 3165, "thickets": 874, "stems": 4480, "timber_triangles": 693930, "scene_triangles": 2239419 },
+    "balanced": { "keep": 0.500, "trees": 2144, "thickets": 730, "stems": 3315, "timber_triangles": 418538, "scene_triangles": 1777981 },
+    "light":    { "keep": 0.300, "trees": 1347, "thickets": 531, "stems": 2319, "timber_triangles": 202382, "scene_triangles":  685907 }
   },
   "before": {
     "_": "the same three levels on the same mirror immediately before T-1127, when the keep fractions were 1.00 / 0.80 / 0.60 and every one of the three stem caps BOUND. The tree counts are the caps, exactly, which is what a bound cap looks like; max_station_n_m is the reading that says it truncated rather than thinned, against a field that runs to N +1117.8 m. `uncapped` is the same tree with the caps lifted so the loop could finish — the wood the records actually ask for, one wood counted at three sampling steps.",

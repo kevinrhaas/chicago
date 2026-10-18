@@ -1992,6 +1992,14 @@ step "the settled town's ground re-derives from the plat and every standing roof
 step "the planted poplar rows re-derive from the rule that chose their greens" \
   python3 tools/generate_planted_rows.py --check
 
+# Robert G. Clarke's 1835 shore grove, "perhaps fifty to seventy-five large cottonwoods"
+# from a little north of Sixteenth to a little south of Eighteenth Street, with its
+# clump of eight or nine on Wirt Dexter's lot end. The count, the strip's depth and every
+# stem's place but the clump's are a rule's, re-derived here (T-2766,
+# L-shore-grove-1835-2766).
+step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
+  python3 tools/generate_shore_grove_1835.py --check
+
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a
 # reconstruction chosen by a rule about trades rather than a list of shops somebody liked.
@@ -7339,6 +7347,19 @@ selftest "…and a misspelt locked term, a retired or renamed word, an id and a 
   python3 tools/check_strings.py --self-test
 step "string table: sections register and extend, placeholders fill, no key ever shown (T-2624)" \
   node tools/test_strings.mjs
+
+# T-2668 (NAV-1003). The visitor-UI lint: no file path, link, id, snake_case word, ticket
+# number, or the words "tier", "ticket" or "order book" in what a visitor reads — the string
+# table, the static pages' visible text, and the Go to list's business rows from
+# data/businesses/index.json. Researcher-mode strings are exempt (a `researcher` key segment;
+# a [data-researcher] element, which css/skins.css hides until Researcher mode is on), and a
+# leak another ticket owns sits on the tool's allowlist with that ticket, failing once stale.
+step "no path, id, snake_case, 'tier', 'ticket' or 'order book' in what a visitor reads (T-2668)" \
+  python3 tools/check_visitor_ui.py --check
+selftest "…and a planted path, snake_case id, 'tier', 'ticket', 'order book' and a stale allowlist entry are each refused" \
+  python3 tools/check_visitor_ui.py --self-test
+step "visitor-UI lint: the faults, the Researcher exemption, the Go to rows and the allowlist, on fixtures (T-2668)" \
+  python3 tools/test_check_visitor_ui.py
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a

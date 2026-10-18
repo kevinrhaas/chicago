@@ -67,6 +67,7 @@ can we actually place?" is a query rather than a re-reading.
 
 import argparse
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -407,6 +408,29 @@ def anchor_of(target, structures, businesses, streets):
     }
 
 
+REACH = re.compile(r"\breach of ([a-z0-9_]+(?: and [a-z0-9_]+)*) and names nothing narrower")
+
+
+def street_words(note, names):
+    """The register's street-only note with its street ids read as the town named them
+    ("a reach of south_water" -> "a reach of South Water Street"), because the Go to row and
+    the card print the note verbatim (T-2668). The register keeps its ids."""
+    if not note:
+        return note
+    return REACH.sub(lambda m: "reach of %s and names nothing narrower"
+                     % " and ".join(names.get(i, i) for i in m.group(1).split(" and ")), note)
+
+
+def landmark_words(anchor):
+    """The landmark as a visitor reads it: its title, a corner as "the corner of X and Y",
+    and never its id (T-2668)."""
+    if not anchor or not anchor.get("title"):
+        return "a landmark it names"
+    if anchor.get("kind") == "corner":
+        return "the corner of %s" % anchor["title"]
+    return anchor["title"]
+
+
 def fold_printed_styles(people):
     """ONE ROW A PARTNER, NOT ONE ROW A PRINTING.
 
@@ -475,6 +499,7 @@ def locations_for(entry, gaz, anchors=None):
         # Placeable, and not placed: the paper anchors the house against a landmark the
         # town holds, but the town holds no roof of this house's own. That is a location
         # with a limit on it, not a premises.
+        anchor = anchor_of(target, *anchors) if anchors else None
         out.append({
             "kind": "anchored",
             "structure_id": None,
@@ -485,10 +510,13 @@ def locations_for(entry, gaz, anchors=None):
             "to": None,
             "tier": "inferred",
             "basis": note or "Placeable against the committed town.",
+            # The sentence names the landmark as a visitor reads it (T-2668): the Go to
+            # row and the card print it verbatim, and `tremont_house_1` or the register's
+            # action code there is an id in front of a visitor. The id is `anchor.id`.
             "limit_reason": ("The register places this house against %s and the town holds no roof "
-                             "of its own for it (action: new_building), so the anchor is as far as "
-                             "the reading goes." % (target or "a landmark it names")),
-            "anchor": anchor_of(target, *anchors) if anchors else None,
+                             "of its own for it, so the landmark is as far as the reading goes."
+                             % landmark_words(anchor)),
+            "anchor": anchor,
         })
     elif action == "street_only":
         out.append({
@@ -501,7 +529,8 @@ def locations_for(entry, gaz, anchors=None):
             "to": None,
             "tier": "inferred",
             "basis": "The paper names a street and no house on it.",
-            "limit_reason": note or "The anchor names nothing the committed town holds.",
+            "limit_reason": (street_words(note, anchors[2] if anchors else {})
+                             or "The anchor names nothing the committed town holds."),
         })
     else:
         out.append({
@@ -514,7 +543,8 @@ def locations_for(entry, gaz, anchors=None):
             "to": None,
             "tier": "inferred",
             "basis": "The register resolved no place for this house at the scene date.",
-            "limit_reason": note or "The paper gives no anchor.",
+            "limit_reason": (street_words(note, anchors[2] if anchors else {})
+                             or "The paper gives no anchor."),
         })
 
     # A HOUSE THAT MOVED (T-1402, of T-1182, audited with the sources in front of it).

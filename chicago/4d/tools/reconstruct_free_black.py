@@ -938,7 +938,7 @@ def firm_record(fid, name, what, person_id, person_name, occupation, slot):
             "limit_reason": ("Nothing places this house. The cohort it belongs to is "
                              "unplaced for the same reason — no reading puts a free Black "
                              "household or business on any street of this town — and "
-                             "T-1199 seats the reconstructed layer when the placement "
+                             "the reconstructed layer is seated when the placement "
                              "policy is written."),
         }],
         "dates": {
