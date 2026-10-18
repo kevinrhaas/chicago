@@ -9472,7 +9472,28 @@ for (const [label, viewport, touch] of [
       && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
       JSON.stringify(tagShown));
     if (tagShown.shown) {
-      await clickChrome('#target-tag');
+      // T-2736: the tag holds 3 s, then fades and stays gone for that building. On a runner
+      // where a frame takes seconds, the round trips between the check above and a separate
+      // clickChrome outlast the hold, and the tap finds a hidden tag ("#target-tag has no box
+      // (0x0)"). So the tag is shown afresh (looking away and back, as setEnabled does) and
+      // tapped in the same task it is seen in: the hit-test at its centre is clickChrome's —
+      // a covered tag still fails — and no timer can run between seeing it and tapping it.
+      const tapped = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        const tag = document.getElementById('target-tag');
+        api.targetTag.setEnabled(false);
+        api.targetTag.setEnabled(true);
+        for (let i = 0; i < 150 && (tag.hidden || tag.classList.contains('is-fading')); i++) await new Promise((r) => setTimeout(r, 50));
+        if (tag.hidden) return 'the tag did not show again';
+        const b = tag.getBoundingClientRect();
+        if (b.width < 1 || b.height < 1) return `#target-tag has no box (${b.width}x${b.height})`;
+        const at = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+        if (!at || !(at === tag || tag.contains(at))) return `#target-tag covered at its own centre by ${at?.outerHTML?.slice(0, 80) ?? 'nothing'}`;
+        tag.focus?.({ preventScroll: true });
+        tag.click();
+        return null;
+      });
+      check(`${label}: the target tag shows again and takes a tap at its own centre (T-2627, T-2736)`, tapped === null, tapped ?? '');
       // Since T-2638/T-2639 Inspect is its own screen, not the card: the tap opens the
       // Navigator on Inspect, holding the tagged building.
       const tagOpened = await page.evaluate(async () => {
