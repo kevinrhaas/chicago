@@ -716,11 +716,19 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   // Coarser levels walk every second (mid) or fourth (far) node of a limb:
   // the same limb, in fewer, longer segments.
   const stride = lod === 'near' ? 1 : lod === 'mid' ? 2 : 4;
+  const minRad = lod === 'near' ? 0 : lod === 'far' ? 0.07 : 0.03;
+  // A shrub's stems are all thinner than that, which would leave its coarse
+  // levels with no wood at all: a batch geometry of zero vertices, which the
+  // drawn-timber census cannot read back. Its stoutest stem stays.
+  let keep = null;
+  if (minRad > 0 && !sk.branches.some((b) => sides[Math.min(3, b.order)] && b.rad[0] >= minRad)) {
+    for (const b of sk.branches) if (b.order === 0 && (!keep || b.rad[0] > keep.rad[0])) keep = b;
+  }
   for (const b of sk.branches) {
     const s = sides[Math.min(3, b.order)];
     if (!s) continue;
     // Thin wood a far tree cannot resolve is not drawn at all.
-    if (lod !== 'near' && b.rad[0] < (lod === 'far' ? 0.07 : 0.03)) continue;
+    if (b.rad[0] < minRad && b !== keep) continue;
     // A far tree's limbs are a few strokes against the sky: twice the trunk's stride.
     const k = lod === 'far' && b.order > 0 ? stride * 2 : stride;
     tube(wood, k > 1 ? decimate(b, k) : b, s, barkTile, b.order === 0 ? barkTint : barkUpper, flexOf);
