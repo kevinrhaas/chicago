@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2022, ts: '2026-10-18T22:18:49.197Z', date: 'Oct 18, 2026, 5:18 PM CT', title: 'Settings in the Navigator: text size, machine tiles, Auto and Sound', kind: 'feature',
+    items: [
+      'Settings now reads Display, Show, Machine, Performance, Sound, Units, then About & What\'s new.',
+      'Display has Light or Dark as a two-way choice, and a Text size from 100 % to 140 %. Every Navigator screen grows and reflows to fit.',
+      'The four machines show as small preview tiles in their own colours. Tap one to switch.',
+      'Performance has an Auto key that puts back what suits your device, and says what that is.',
+      'Sound has master, effects and ambience levels. Nothing in the town makes a sound yet, and the group says so.',
+      'Every Navigator screen is easier to read in all four machines, light or dark: faint labels and a few accents are deeper.',
+    ] },
   { v: 2021, ts: '2026-10-18T21:49:33.502Z', date: 'Oct 18, 2026, 4:49 PM CT', title: '1812 and 1835: the woods in clumps, and thickets at their edge', kind: 'feature',
     items: [
       'The North Side and river woods stand in patches with openings between them, and the trees in an opening are younger and smaller.',
