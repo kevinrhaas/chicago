@@ -24,6 +24,8 @@ await writeFile(path.join(js, 'confidence.js'),
 for (const f of ['confidence-presets.js', 'confidence-rows.js', 'apps/confidence-view.js']) {
   await writeFile(path.join(js, f), await readFile(path.join(web, 'js', f), 'utf8'));
 }
+// T-2660: the app counts a preset picked in the field log, which it imports.
+await writeFile(path.join(js, 'field-log.js'), await readFile(path.join(web, 'js/field-log.js'), 'utf8'));
 await cp(path.join(web, 'js/strings'), path.join(js, 'strings'), { recursive: true });
 const load = (f) => import(pathToFileURL(path.join(js, f)).href);
 const THREE = await import(threeURL);
