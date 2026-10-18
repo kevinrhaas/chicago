@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1993, ts: '2026-10-18T14:06:06.314Z', date: 'Oct 18, 2026, 9:06 AM CT', title: '1808 Prairie\'s library bow gets its fourth tall window', kind: 'change',
+    items: [
+      'The round library bay on 1808 Prairie\'s front now has four tall principal-floor windows, each standing directly under one of the four upper windows, as the 1888 floor plan and the 1967 photograph show them. It had three, set between the upper ones.',
+      'Its basement windows move with them, three under the first three; the front stair fills the place of a fourth.',
+      'The principal-floor windows are a little narrower (0.9 m, like the ones above) and the basement windows narrower still (0.73 m), read through the 1888 plate\'s level cameras. Their heights were already right and are unchanged.',
+    ] },
   { v: 1992, ts: '2026-10-18T13:37:37.544Z', date: 'Oct 18, 2026, 8:37 AM CT', title: 'Keith house\'s entrance loggia lowered to the 1888 photograph\'s height', kind: 'change',
     items: [
       '1808 Prairie (1904): the entrance loggia\'s pedestals now stand 0.88 m and its paired columns 2.2 m, down from 1.0 m and 2.5 m, with the pierced parapet between the pedestals lowered to match. The balcony above drops about 40 cm with them.',
