@@ -113,6 +113,7 @@ import { install as installDrawerHost, goToPick } from './apps/drawer-host.js';
 import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
+import { spotTarget } from './photos-tab.js';
 import { createWhere } from './where.js';
 import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
@@ -2983,6 +2984,7 @@ async function boot() {
     return inspectPromise;
   };
   api.inspectSummaries = ensureInspect;
+  api.pictures = ensurePictures;
   // The households' reasoning, per record, on first need (T-2151). publish.sh ships a
   // seated record's households slim — names, roles, grades and basis, which the title,
   // the search and the card draw at once — and the paragraphs behind each `why` toggle
@@ -4257,6 +4259,16 @@ async function boot() {
     return showMe.show(target);
   }
   api.showMe = { show: showMeFor, get last() { return showMe.last; }, cancel: () => showMe.cancel() };
+  // T-2645: the Photos tab's From this spot — where a solved camera of the building says the
+  // picture was taken, facing its way, with Show me's glide and outline. Never anywhere else.
+  function fromSpotFor(id, picture) {
+    const target = spotTarget(picture, loaded.registry.get(id)?.sidecar?.placement);
+    if (!target) return Promise.resolve(false);
+    travel?.stop?.('show-me');
+    showMeId = id;
+    return showMe.show(target);
+  }
+  api.fromSpot = fromSpotFor;
   navigatorUi = createNavigator({
     root: document.getElementById('navigator'),
     scene: loaded.scene,
@@ -4351,6 +4363,7 @@ async function boot() {
         },
         // T-2640: Show me — only along a camera the building's own summary record names.
         showMe: (id, item) => showMeFor(id, item),
+        fromSpot: (id, picture) => fromSpotFor(id, picture),
       },
     }),
   });

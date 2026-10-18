@@ -281,6 +281,10 @@ const COVERAGE = [
   // the 1835 tabs once in the town (T-2639); part 13 the rail.
   ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
   ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
+  // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
+  // spot); part 4 opens every tab of an 1835 building, Photos included.
+  ['renderers/web/js/photos-tab.js', [4, 14], 'Inspect\'s Photos tab (T-2645)'],
+  ['renderers/web/css/photos.css', [4, 14], 'Inspect\'s Photos tab, its grid and tiles (T-2645)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],
