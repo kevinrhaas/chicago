@@ -1398,7 +1398,7 @@ class Assembly:
                            "dress_stone", self._stone_seed(cid, inst, j), conf, recess=recess, bevel=0.0)
                 j += 1
             if v["head"] == "segmental":
-                ros = self._kit["arch"]["segmental"]["working_rise_over_span"]
+                ros = k06_windows.rise_over_span(v, self._kit)
                 rr = v.get("head_radius_ratio", 1.0)
                 rise = k06_windows.Head("segmental", s0, s1, 0.0, ros, rr).rise
                 curve = k06_windows.Head("segmental", s0, s1, y1 - rise, ros, rr).curve(0.0, s1, s0)
