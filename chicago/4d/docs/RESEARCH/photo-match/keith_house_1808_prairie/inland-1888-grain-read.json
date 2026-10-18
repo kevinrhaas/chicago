@@ -1,6 +1,6 @@
 {
  "_what": "T-2772: Keith's front joints, upper capitals and head bands read at the 1888 plate's native 1559 px against the committed render of inland-1888 (tools/keith_plate_grain_read.py)",
- "glb_sha256": "9e39ecfca62f40ea18fbfec229d8120559a4059f1a266991b24f3b1f0e78a6a7",
+ "glb_sha256": "2f924aeb20c84010e64bc261cb2aaaade955b29a5d9f54d9ea90eae89a7af3f4",
  "beds": {
   "print": {
    "strips": [
@@ -105,93 +105,88 @@
    ],
    "beds": [
     1403,
-    1427,
-    1464,
-    1479,
-    1516,
-    1530,
-    1567,
-    1582,
-    1618,
-    1634,
-    1670,
-    1685,
+    1428,
+    1462,
+    1480,
+    1513,
+    1532,
+    1565,
+    1583,
+    1616,
+    1651,
+    1687,
     1721,
     1748,
     1774
    ],
-   "sill_bed": 1618,
+   "sill_bed": 1616,
    "up_from_sill": [
     [
-     36,
+     33,
      "deep"
     ],
     [
-     15,
+     18,
      "thin"
     ],
     [
-     37,
+     33,
      "deep"
     ],
     [
-     14,
+     19,
      "thin"
     ],
     [
-     37,
+     33,
      "deep"
     ],
     [
-     15,
+     18,
      "thin"
     ],
     [
-     37,
+     34,
      "deep"
     ]
    ],
    "below_sill": [
-    16,
+    35,
     36,
-    15,
-    36,
+    34,
     27,
     26
    ],
    "strip_beds": {
     "front's south strip": [
      1403,
-     1427,
-     1464,
-     1479,
-     1516,
-     1530,
-     1567,
-     1582,
-     1618,
-     1634,
-     1670,
-     1685,
+     1428,
+     1462,
+     1480,
+     1513,
+     1532,
+     1565,
+     1583,
+     1616,
+     1651,
+     1687,
      1721,
      1748,
      1774
     ],
     "bow's south flank": [
-     1424,
-     1440,
+     1402,
+     1426,
+     1461,
      1479,
-     1495,
-     1535,
-     1550,
-     1590,
-     1606,
-     1625,
-     1685,
-     1701,
-     1740,
-     1756,
-     1783,
+     1513,
+     1532,
+     1565,
+     1583,
+     1688,
+     1722,
+     1741,
+     1774,
      1810
     ]
    }
@@ -208,22 +203,22 @@
   },
   "render": {
    "sequence_up_from_sill": "DTDTDTD",
-   "deep_px": 36.8,
-   "thin_px": 14.7,
-   "pair_px": 51.4,
-   "courses_below_sill": 6,
-   "front_beds_with_a_bow_bed_within_3px": "1 of 7"
+   "deep_px": 33.2,
+   "thin_px": 18.3,
+   "pair_px": 51.6,
+   "courses_below_sill": 5,
+   "front_beds_with_a_bow_bed_within_3px": "6 of 7"
   },
   "print_m": {
-   "deep_m": 0.44,
-   "thin_m": 0.24,
+   "deep_m": 0.41,
+   "thin_m": 0.22,
    "below_sill_m": [
-    0.47,
-    0.49,
-    0.48,
-    0.65
+    0.44,
+    0.46,
+    0.45,
+    0.61
    ],
-   "render_px_per_m": 75.0
+   "render_px_per_m": 80.1
   }
  },
  "crown": {
@@ -241,7 +236,7 @@
    "lattice_row_pitch_px": 31.5,
    "head_band_shadow_y": 778.0,
    "shadow_below_openings_px": 155.0,
-   "shadow_depth_px": 14.0
+   "shadow_depth_px": 13.5
   },
   "print_over_render_scale": 0.937,
   "render_shadow_below_openings_scaled_px": 145.2
