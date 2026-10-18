@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 622,
+  "count": 623,
   "liberties": [
     {
       "id": "L1",
@@ -35186,6 +35186,10 @@
           "text": "the oriel now stands at the drawing's size, 4.8 m at the wall and 3.4 m of front, over the window and the entrance arch, which stand at the drawing's 1.55 and 4.6 m: their heads clear its lowest corbel course, so it no longer needs the width between them. Its six lights are built, four to its front and one in each cant, the cant lights 0.35 m, narrower than drawn, so their recesses stay in front of the house wall. Its depth is 0.65 m, not the 0.9 m first read: the drawing's level, square-on camera cannot read the depth (the front moves under 3 px between the two), and four 0.2 m corbel courses carry no more under the K08 oversail rule (inferred, stated on the record). Its hood's overhang is 0.1 m, so its eaves stand clear of the front's reconstructed corner pipes. Still not built: the frieze, upper stage and cone (T-2778), and the front's place along the wall, the entrance porch, the basement light and the stone above the springing (T-2779), each open in the match record."
         },
         {
+          "label": "Revised 2026-10-18 (T-2778)",
+          "text": "the oriel is carried up through the main eave as drawn (`through_eave`): its second storey, a carved frieze between string courses from 8.35 to 9.5 m, an upper stage of shorter lights to 10.9 m, four to the front and one in each cant, and a slate spire whose planes meet at one apex at about 13.85 m under a finial, its heights read through the drawing's camera (they stand about 0.35 m over the ticket's first reading). Reconstructed: the frieze's carving, drawn as interlaced strapwork, is a dressed panel on each face carrying a guilloche of interlaced rings; the spire's eaves (0.15 m out, a 0.25 m fascia) and its turned finial are the K08 kit's; the oriel's back over the wall head is closed in its own stone; the cant lights are 0.3 m, narrower than drawn, so their sills clear the house's eave and gutter where those die into the cants. Still open: the front's place along the wall, the entrance porch, the basement light and the stone above the springing (T-2779)."
+        },
+        {
           "label": "Covers",
           "text": "`house_1623_prairie.as_mapped_1904.form.storey_heights_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1623_prairie.as_mapped_1904.form.service_wall_brick`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.wall_head`, `house_1623_prairie.as_mapped_1904.form.roof_form`, `house_1623_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1623_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1623_prairie.as_mapped_1904.form.stair_tread_m`, `house_1623_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1623_prairie.as_mapped_1904.form.rear_bays`, `house_1623_prairie.as_mapped_1904.form.sash_by_storey`, `house_1623_prairie.as_mapped_1904.form.chimneys`, `house_1623_prairie.as_mapped_1904.form.rainwater`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`"
         },
@@ -40654,6 +40658,41 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2766)."
+        }
+      ]
+    },
+    {
+      "id": "L-sand-hills-2768",
+      "title": "The sand hills' red cedar, jack pine and swale poplars: where each reach runs, how dense, and every stem's place",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the scene plants a woody scrub on the lakeshore sand beyond the dune poplars' reach, in three reaches, each its own community in `renderers/web/js/trees.js` (T-2768): north of the river from the Kinzie house's northing to the field's edge, red cedar with jack pine and a few dune cottonwoods; south of about Twelfth Street to the field's south edge, red cedar alone; between the mouth and Twelfth Street, a scanty scatter of jack pine and dune cottonwood. In a hollow of the modelled sand hills the mix is cottonwood and balsam poplar instead of cedar. The same communities plant the 1812 scene, which has the same dune field and no town on it, so the north reach there is not cut short by the 1835 town ground."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "cedars and pines on the sand hills north of the river (Wau-Bun 1856, \"a vast range of sand-hills, covered with stunted cedars, pines, and dwarf-willow trees\", between the Kinzie house and the lake); low cedar, ground pine and sand cherry from about where the Illinois Central round-house stood to about Twenty-Fifth Street (Robert G. Clarke 1890, in Kirkland 1893 Appendix K); \"a scanty growth of cottonwoods and pines\" among the dunes south of the mouth (Currey 1912); jack pine as a dominant tree of the established dunes at the south end of the lake, and cottonwood seedlings in the wet hollows between dunes (Cowles 1901, pp. 153, 173-174)."
+        },
+        {
+          "label": "What is invented",
+          "text": "the species of the cedar (*Juniperus virginiana*, the tree-form cedar of these dunes) and of the pine (*Pinus banksiana*); the densities, 20-80 cedars a hectare as the reading of \"covered\", read as 40-64 stems a hectare north, 40-64 south and 3-9 in the scanty reach; Twelfth Street as the line between Clarke's reach and Currey's, set by the 16th and 22nd Street anchors; the belt behind the shore, the lakeshore zone's band plus up to 140 m (south) and 200 m east of the Kinzie house (north); a hollow as ground 0.12 m below a 9 m ring; the clump field that groups the stems into thickets with sand between; every stem's place, dealt from a generator seeded by its own position. The cedar's cone, the pine's open crooked crown and both foliage tiles are botanical habit under L-tree-architecture-2743."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the original township plat's notes on the sand ridges, an early drawing or photograph of the lake shore south of Twelfth Street or north of the harbour before the fills, or a botanical record of the Chicago dunes before 1860 naming the cedar and the pine."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2768."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-18 (T-2768)."
         }
       ]
     },

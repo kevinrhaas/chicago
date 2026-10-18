@@ -7,7 +7,7 @@
 
 WHAT IT MAKES. Two atlases, painted from code, no photograph sampled:
 
-  leaf_atlas.png       2048 x 2048 RGBA, 4 x 4 tiles of 512. Per leaf family two
+  leaf_atlas.png       2048 x 2560 RGBA, 4 x 5 tiles of 512. Per leaf family two
                        tiles: a SPRAY (one twig and its leaves, for the near
                        cards) and a CLUMP (several sprays massed, for the mid and
                        far cards). Families and their tiles are
@@ -630,6 +630,104 @@ def paint_leaves(img, draw, family, rng, wood, leaves):
         draw_leaf(img, draw, ex, ey, lf['L'], lf['a'], family, rng, shade, lf['under'], lf['fs'])
 
 
+def cord_spray(rng, x0, y0, length, angle, scale, depth, out):
+    """A red cedar's or a juniper's branch end (`scale`): no blade at all. The
+    leaves are scales a millimetre or two long pressed flat along cords of
+    branchlet, and the cords branch three and four times into a dense, ragged,
+    fern-like plate. At a near card's 1.3 m the last cords are a texel wide, so
+    what the tile has to carry is the plate's texture: fine cords, thicker at
+    their bases, shaded by how deep in the plate they sit."""
+    S = TILE * SS
+
+    def grow(x, y, a, L, order, z):
+        steps = 7
+        pts = [(x, y)]
+        for _ in range(steps):
+            a += (rng.random() - 0.5) * 0.35
+            x += math.sin(a) * L / steps
+            y -= math.cos(a) * L / steps
+            pts.append((x, y))
+        w = max(3, int(S * (0.0075, 0.0060, 0.0050, 0.0042)[order] * scale))
+        out.append(dict(kind='cord', pts=pts, w=w, z=z + (rng.random() - 0.5) * 0.2, order=order))
+        if order >= 3:
+            return
+        n = (9, 8, 7)[order] + int(rng.random() * 3)
+        for k in range(n):
+            t = 0.12 + 0.82 * (k + rng.random() * 0.5) / n
+            i = min(steps - 1, int(t * steps))
+            bx, by = pts[i]
+            side = -1 if k % 2 else 1
+            ba = math.atan2(pts[i + 1][0] - bx, -(pts[i + 1][1] - by))
+            sl = L * (0.36 + rng.random() * 0.16) * (1.05 - 0.55 * t)
+            grow(bx, by, ba + side * (0.45 + rng.random() * 0.35), sl, order + 1,
+                 z + (rng.random() - 0.5) * 0.3)
+        # The cord's own tip runs on as a branchlet too.
+        if order < 3:
+            grow(pts[-1][0], pts[-1][1], a, L * 0.38, order + 1, z)
+
+    grow(x0, y0, angle, length, 0, depth)
+
+
+def needle_spray(rng, x0, y0, length, angle, scale, depth, out):
+    """A pine's branch end (`needle`): a twig whose last two or three years of
+    growth carry the needles, in pairs, standing out at thirty to sixty degrees
+    and crowded toward the shoot tip into a brush. The jack pine's needles are
+    2-4 cm and its shoots short and crooked; this paints that."""
+    S = TILE * SS
+    lead = twig_path(rng, x0, y0, length, angle, steps=12, bend=0.28)
+    shoots = [(lead, 0)]
+    for k in range(5 + int(rng.random() * 3)):
+        t = 0.25 + 0.6 * (k + rng.random() * 0.5) / 6
+        b = lead[int(t * 12)]
+        side = -1 if k % 2 else 1
+        shoots.append((twig_path(rng, b[0], b[1], length * (0.30 + rng.random() * 0.2),
+                                 b[2] + side * (0.6 + rng.random() * 0.4), steps=12, bend=0.3), 1))
+    nl = S * 0.062 * scale
+    for sh, order in shoots:
+        out.append(dict(kind='cord', pts=[(x, y) for x, y, _ in sh],
+                        w=max(2, int(S * (0.0055, 0.0035)[order] * scale)), z=depth - 0.15, order=order, wood=True))
+        # Needles on the shoot's outer 60 %, densest at the tip.
+        n = int(150 * (1.0 if order == 0 else 0.7))
+        for k in range(n):
+            t = 0.45 + 0.55 * (rng.random() ** 0.45)
+            px, py, pa = sh[min(12, int(t * 12))]
+            for pair in (-1, 1):
+                na = pa + pair * (0.35 + rng.random() * 0.75) * (1.25 - 0.55 * t)
+                L = nl * (0.7 + rng.random() * 0.5)
+                ex = px + math.sin(na) * L
+                ey = py - math.cos(na) * L
+                out.append(dict(kind='needle', pts=[(px, py), ((px + ex) / 2 + (rng.random() - 0.5) * L * 0.08, (py + ey) / 2), (ex, ey)], w=max(2, int(S * 0.0026 * scale)),
+                                z=depth + (rng.random() - 0.5) * 0.4, order=3))
+        # The terminal brush and its bud.
+        px, py, pa = sh[-1]
+        for k in range(40):
+            na = pa + (rng.random() - 0.5) * 1.6
+            L = nl * (0.6 + rng.random() * 0.5)
+            out.append(dict(kind='needle', pts=[(px, py), (px + math.sin(na) * L, py - math.cos(na) * L)],
+                            w=max(2, int(S * 0.0026 * scale)), z=depth + 0.15, order=3))
+
+
+def paint_conifer(draw, rng, marks):
+    """Draw cord and needle marks back to front. Wood is grey-brown; foliage the
+    same near-neutral green the broadleaf tiles use, so the zone record's July
+    colour (vertex colour) sets the hue, darkened in the deep of the plate."""
+    for m in sorted(marks, key=lambda d: d['z']):
+        z = min(1.0, max(0.0, m['z']))
+        if m.get('wood'):
+            draw.line(m['pts'], fill=(84, 74, 60, 255), width=m['w'])
+            continue
+        shade = 58 + 150 * z ** 1.2 + rng.random() * 18
+        c = leaf_rgb(shade, rng)
+        draw.line(m['pts'], fill=c, width=m['w'])
+        if m['kind'] == 'cord' and m['order'] >= 2:
+            # The scales catch light along a cord's upper edge.
+            hi = tuple(min(255, int(v * 1.16 + 8)) for v in c[:3]) + (255,)
+            draw.line([(x - 1, y - 1) for x, y in m['pts']], fill=hi, width=max(1, m['w'] // 2))
+
+
+CONIFERS = ('scale', 'needle')
+
+
 def leaf_tile(family, rng, clump=False):
     """A SPRAY tile is one shoot with its side shoots, filling the card; a CLUMP
     tile is a dozen or more sprays massed into a rounded tuft, the way a crown's
@@ -637,6 +735,23 @@ def leaf_tile(family, rng, clump=False):
     S = TILE * SS
     img = Image.new('RGBA', (S, S), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
+    if family in CONIFERS:
+        spray = cord_spray if family == 'scale' else needle_spray
+        marks = []
+        if not clump:
+            spray(rng, S * 0.5, S * 0.97, S * (0.62 if family == 'scale' else 0.70),
+                  (rng.random() - 0.5) * 0.25, 1.0, 0.62, marks)
+        else:
+            for _k in range(26 if family == 'scale' else 18):
+                ang = rng.random() * math.pi * 2
+                r = math.sqrt(rng.random())
+                cx = S * 0.5 + math.cos(ang) * r * S * 0.27
+                cy = S * 0.55 + math.sin(ang) * r * S * 0.24
+                z = 0.25 + 0.65 * (1 - r) + rng.random() * 0.1
+                spray(rng, cx, cy + S * 0.12, S * 0.24,
+                      math.atan2(cx - S * 0.5, S * 0.4) + (rng.random() - 0.5) * 1.2, 0.5, z, marks)
+        paint_conifer(draw, rng, marks)
+        return _finish_tile(img)
     wood, leaves = [], []
     if not clump:
         w, l = spray_leaves(rng, family, S * 0.5, S * 0.97, S * 0.82, (rng.random() - 0.5) * 0.25, 1.0, 0.62)
@@ -656,6 +771,10 @@ def leaf_tile(family, rng, clump=False):
             wood += w
             leaves += l
     paint_leaves(img, draw, family, rng, wood, leaves)
+    return _finish_tile(img)
+
+
+def _finish_tile(img):
     img = img.resize((TILE, TILE), Image.LANCZOS)
     a = np.asarray(img).astype(np.float32)
     # Keep the blades' edges crisp under alpha test: harden the antialiased rim.
@@ -664,12 +783,17 @@ def leaf_tile(family, rng, clump=False):
 
 
 FAMILIES = ['poplar', 'willow', 'elm', 'maple', 'oak_round', 'oak_pointed', 'compound', 'heart']
+# T-2768: the two conifer families take a FIFTH ROW, tiles 16-19, and are painted
+# after the sixteen broadleaf tiles from the same random stream, so those tiles
+# stay byte-identical to the T-2743 atlas.
+FAMILIES_ALL = FAMILIES + list(CONIFERS)
+ROWS = 5
 
 
 def make_leaves(seed):
     rng = np.random.default_rng(seed)
-    atlas = np.zeros((TILE * 4, TILE * 4, 4), np.uint8)
-    for f, fam in enumerate(FAMILIES):
+    atlas = np.zeros((TILE * ROWS, TILE * 4, 4), np.uint8)
+    for f, fam in enumerate(FAMILIES_ALL):
         for k, clump in enumerate((False, True)):
             tile = f * 2 + k
             x0 = (tile % 4) * TILE
@@ -755,9 +879,9 @@ def main():
     if not args.no_ktx2:
         write_ktx2(li, ci, ni.resize((ni.width // 2, ni.height // 2), Image.LANCZOS))
     if args.sheet:
-        sheet = Image.new('RGB', (2048, 3072), (200, 214, 230))
+        sheet = Image.new('RGB', (2048, 2560 + 1024), (200, 214, 230))
         sheet.paste(li, (0, 0), li)
-        sheet.paste(ci, (0, 2048))
+        sheet.paste(ci, (0, 2560))
         sheet.save(args.sheet, quality=85)
     for f in sorted(os.listdir(OUT)):
         print(f'{f:28s} {os.path.getsize(os.path.join(OUT, f)) // 1024:6d} KB')
