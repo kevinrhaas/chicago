@@ -1034,7 +1034,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
     junction is refused, since half a window behind a bay's cheek is no window at all.
     An oriel (T-2369) stands from its lowest corbel course to its wall top: its floor is
     one of the house's floors (`base_m`), the record may set its corbel courses and size
-    its canted plan, and its wall top stays a metre under the main eave.
+    its canted plan, and its wall top stays a metre under the main eave — unless the
+    record carries it `through_eave` (T-2778), under a spire, its back closed over the
+    wall head.
     """
     import copy as _copy
     kit = {v["id"]: v for v in json.loads(BAY_KIT.read_text())["variants"]}
@@ -1280,8 +1282,21 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             kit_all = json.loads(BAY_KIT.read_text())
             bottom = v["base"] - v["corbel"]["courses"] * float(kit_all["parts"]["corbel"]["course_height_m"])
             top += v["base"]
-            if top > eave - 1.0:
-                raise ParamError(f"bays: {e['id']}'s wall top {top:.2f} m is not a metre under the eave ({eave:.2f} m)")
+            spire = v["roof"].get("kind") == "spire"
+            if e.get("through_eave"):
+                # T-2778: an oriel carried up through the eave (1623's, from its drawing): its
+                # upper stage stands clear over the main roof under a spire, the house's eave,
+                # gutter and bed moulding die into its cants (so its front stands past them),
+                # and its back is closed over the wall head, where no wall stands behind it
+                front = max(z for _, z in v["plan"]["points"])
+                if not spire or top < eave + 0.3 or front < overhang + 0.15:
+                    raise ParamError(f"bays: {e['id']} is carried through the eave: under a spire, its wall top "
+                                     f"at least 0.3 m over the eave ({eave:.2f} m; has {top:.2f}) and its front "
+                                     f"0.15 m past the eave's {overhang} m (has {front})")
+                v["back_from_m"] = eave
+            elif spire or top > eave - 1.0:
+                raise ParamError(f"bays: {e['id']}'s wall top {top:.2f} m is not a metre under the eave "
+                                 f"({eave:.2f} m), or it stands under a spire without being carried through it")
         for o in list(openings):
             if o.wall != e["wall"]:
                 continue
@@ -1341,6 +1356,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"flush_corner": flush} if flush else {}),
+                    **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"strips": tuple(strips)} if strips else {})})
     return tuple(out)
 
