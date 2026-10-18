@@ -695,12 +695,20 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     for (const g of bins.values()) {
       const at = mul(g.at, 1 / g.n);
       const { outward, colour, flex } = shade(at);
-      const size = Math.sqrt(g.area) * 1.45;
+      // A card reaches about 0.6 of its size past its centre, so a big bin's
+      // card is held inside the crown's own spread (1.1 R): a far tree is no
+      // wider than its near self, and a bank tree hangs no further over the
+      // water. What the cap takes off the one card, a second, crossed card
+      // gives back.
+      const want = Math.sqrt(g.area) * 1.45;
+      const room = Math.max(sk.R * 0.35, (sk.R * 1.1 - Math.hypot(at[0], at[2])) / 0.6);
+      const size = Math.min(want, room);
       // One card per mass, grown outward from the crown so it faces whoever is
       // looking at that side, set back by a third of its length so the mass is
       // centred on its bin, not hung outside it. The cap's card lies up.
       const d1 = norm(add(outward, [0, 0.35, 0]));
       card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
+      if (size < want * 0.7) card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
     }
   } else {
     // Near: every clump as two sprays. Mid: every other clump as one card, a
