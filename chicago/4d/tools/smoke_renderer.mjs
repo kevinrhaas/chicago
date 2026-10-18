@@ -13635,6 +13635,86 @@ for (const [label, viewport, touch] of [
       && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
       JSON.stringify(guideWords));
     // ---- end T-2662
+    // >>> T-2666: Guide › For teachers — the Field Check's seven steps, read from the tour
+    // itself, and three suggested Jaunts per destination, printed as one page at Letter and
+    // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
+    // print stylesheet's layout is then printed by the browser itself to PDF and its pages
+    // counted. Chromium fires afterprint around page.pdf, which takes the copy away, so the
+    // handout is printed afresh for each sheet size. Generous waits: the catalogs are read
+    // the first time Guide opens, behind a lazy module.
+    await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
+    await page.waitForFunction(() => {
+      const h = document.querySelector('#nav-app-guide #guide-handout');
+      return !!h && !/Reading the Jaunts/.test(h.textContent);
+    }, null, { timeout: 60_000, polling: 200 }).catch(() => {});
+    const handoutRead = await page.evaluate(async () => {
+      const h = document.querySelector('#nav-app-guide #guide-handout');
+      const src = document.querySelector('script[src*="main.js"]')?.src;
+      let steps = null;
+      try { steps = (await import(src.replace(/main\.js(\?.*)?$/, 'tour.js'))).STEPS; } catch { /* reported below */ }
+      const scene = String(document.querySelector('#nav-app-guide .handout-dest[data-here="true"]')?.dataset.year ?? '');
+      const rows = [...(h?.querySelectorAll('.handout-step') ?? [])];
+      return {
+        teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
+        print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
+        stepsFromTour: !!steps && steps.length === 7 && rows.length === 7 && rows.every((r, i) =>
+          r.querySelector('.handout-task')?.textContent === steps[i].task
+          && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
+        scene,
+        dests: [...(h?.querySelectorAll('.handout-dest') ?? [])].map((d) => ({ year: d.dataset.year,
+          name: d.querySelector('.handout-dest-name')?.textContent ?? '',
+          jaunts: d.querySelectorAll('.handout-jaunt-title').length,
+          empty: d.querySelector('.handout-empty')?.textContent ?? null })),
+        snake: /[a-z0-9]+_[a-z0-9]+/i.test(document.querySelector('#nav-app-guide #guide-teachers')?.textContent ?? ''),
+        lore: /\b(tier|ticket)\b|\.json\b/i.test(document.querySelector('#nav-app-guide #guide-teachers')?.textContent ?? ''),
+      };
+    });
+    const printOnce = () => page.evaluate(async () => {
+      window.__handoutPrinted = 0;
+      window.__handoutPrint ??= window.print;
+      window.print = () => { window.__handoutPrinted++; };
+      document.getElementById('guide-handout-print')?.click();
+      for (let i = 0; i < 100 && !window.__handoutPrinted; i++) await new Promise((r) => setTimeout(r, 100));
+      const copy = document.getElementById('handout-print');
+      return { printed: window.__handoutPrinted, copy: !!copy && copy.parentElement === document.body,
+        steps: copy?.querySelectorAll('.handout-step').length ?? 0, jaunts: copy?.querySelectorAll('.handout-jaunt-title').length ?? 0 };
+    });
+    const sheets = {};
+    const first = await printOnce();
+    await page.emulateMedia({ media: 'print' });
+    const printedLayout = await page.evaluate(() => ({
+      shown: [...document.body.children].filter((e) => getComputedStyle(e).display !== 'none').map((e) => e.id || e.tagName),
+    }));
+    await page.emulateMedia({ media: null });
+    for (const format of ['Letter', 'A4']) {
+      const before = format === 'Letter' ? first : await printOnce();
+      try {
+        const pdf = await page.pdf({ format });
+        sheets[format] = { ...before, pages: (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) ?? []).length };
+      } catch (err) {
+        sheets[format] = { ...before, pages: null, error: String(err?.message ?? err).slice(0, 160) };
+      }
+      sheets[format].after = await page.evaluate(() => !document.getElementById('handout-print'));
+    }
+    await page.evaluate(() => {
+      window.dispatchEvent(new Event('afterprint'));
+      if (window.__handoutPrint) window.print = window.__handoutPrint;
+      window.__chicago4d.navigator.select('home');
+      window.__chicago4d.navigator.dock();
+    });
+    // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
+    const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
+    check(`${label}: Guide › For teachers prints the seven tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+      handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
+      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
+      && handoutRead.dests.filter((d) => d.year !== '1812').every((d) => d.jaunts === 3)
+      && handoutRead.dests.find((d) => d.year === '1812')?.empty === 'No Jaunts here yet.'
+      && !handoutRead.snake && !handoutRead.lore
+      && printedLayout.shown.join() === 'handout-print'
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 7 && s.jaunts === 6)
+      && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
+      JSON.stringify({ handoutRead, printedLayout, sheets }));
+    // <<< T-2666
     await openSection('settings');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
