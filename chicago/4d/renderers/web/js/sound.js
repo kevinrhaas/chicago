@@ -307,6 +307,9 @@ export function createSound({
     const at = ctx.currentTime;
     glide(v.out.gain, 0, at, FADE_S / 4);
     for (const n of v.nodes) { try { n.stop?.(at + FADE_S + 0.05); } catch { /* already stopped */ } }
+    // Once its sources have ended, the voice lets go of the bus, so a tab hidden and shown
+    // many times leaves nothing behind.
+    if (v.nodes[0]) v.nodes[0].onended = () => { try { v.out.disconnect(); } catch { /* gone */ } };
     return null;
   }
   function osc(type, freq, gain, into, filter = null) {
