@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2006, ts: '2026-10-18T17:10:04.063Z', date: 'Oct 18, 2026, 12:10 PM CT', title: 'Keith house\'s stone courses laid as the 1888 photograph shows them', kind: 'improvement',
+    items: [
+      'Above the main-floor windowsills, the deep and thin granite courses now split the way the 1888 photograph shows them.',
+      'Below the sills, the stone is laid in even courses with no thin ones, as in the photograph.',
+      'The curved bay\'s courses now line up with the front\'s, as they do in the picture.',
+    ] },
   { v: 2005, ts: '2026-10-18T16:50:35.380Z', date: 'Oct 18, 2026, 11:50 AM CT', title: 'The stable-roof check now gives the same answer on every computer', kind: 'fix',
     items: [
       'One way of reading the 1963 survey photograph had no single answer: a slightly stretched picture fits it exactly as well as a true one, so the dovecote\'s place along the roof came out differently from one computer to the next. The check now tries a set of fixed stretches, and gives the same answer every time.',
