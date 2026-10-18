@@ -3,6 +3,7 @@
 """Source-to-preparation invariants on the real pinned hm08 body, not a fake mesh."""
 import math,unittest,json,pathlib,tempfile,gzip,hashlib,io
 import human_base_prepare as prep
+from unittest import mock
 class SourcePreparation(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
@@ -39,6 +40,21 @@ class SourcePreparation(unittest.TestCase):
   self.assertEqual(prep.prepare(prep.DEFAULT,1.75),self.data)
   for a,b in zip(self.mesh['positions_m'][::200],other['meshes'][0]['positions_m'][::200]):
    for av,bv in zip(a,b):self.assertAlmostEqual(av*1.85/1.75,bv,places=10)
+ def test_prepared_bytes_are_independent_of_legacy_float_sum(self):
+  # The first real CI run failed neutral byte 40084 on Python 3.11. Emulate
+  # its left-fold sum and require all actual pinned body recipes to retain
+  # their exact committed bytes, rather than accepting a geometry tolerance.
+  def legacy_sum(values,start=0):
+   total=start
+   for value in values:total+=value
+   return total
+  for age in [None,25,35]:
+   stem='prepared' if age is None else 'prepared_adult_'+str(age)
+   recipe=None if age is None else prep.DEFAULT/('adult_'+str(age)+'.recipe.json')
+   with mock.patch.object(prep,'sum',legacy_sum,create=True):
+    actual=prep.prepare(prep.DEFAULT,1.75,recipe)
+   encoded=(json.dumps(actual,separators=(',',':'))+'\n').encode()
+   self.assertEqual(encoded,(prep.DEFAULT/(stem+'.json')).read_bytes(),stem)
 class TargetPreparation(unittest.TestCase):
  @classmethod
  def setUpClass(cls):

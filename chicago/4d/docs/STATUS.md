@@ -1,4 +1,4 @@
-## T-2672 / T-1789 — generic transport adults (2026-10-18)
+## T-2672 / T-1789 — resident transport adults (2026-10-18)
 
 The owner requested adults for driving, riding, standing near transport and walking,
 with period-specific clothing and photographic quality, then directed us to use existing
@@ -14,6 +14,12 @@ close desktop/mobile review must precede any scene use; canonical skin/cloth ren
 detail, hair, reliable gait, seated driver/rein contact and riding tack remain open.
 The primitive portable-human fixture remains a test artifact. T-1789 is not complete
 on a single base or flat-color outfit. See L418 and the authored source manifest.
+
+The first canonical CI run passed the existing fixture and both browser viewports,
+but stopped before Blender authoring: Python 3.11 and 3.12 floating-point sum
+behavior produced different prepared JSON bytes. Explicit accurate reductions and
+regenerated inputs preserve the exact-byte gate; actual resident exports still await
+the corrected CI build.
 
 ## T-2737 — dev's still-frame ceiling: the trip blur the instrument froze on (2026-10-18)
 

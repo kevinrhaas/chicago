@@ -24,7 +24,7 @@ See `../transport-human-candidates.md`, `../generic-human-period-clothing.md` an
 
 `tools/human_base_prepare.py` verifies hashes of the pinned CC0 graphical inputs and
 writes engine-neutral body geometry, corner UVs, an explicit source-bone mapping,
-normalized four-influence weights and a quantified loss report. Its four tests read the
+normalized four-influence weights and a quantified loss report. Its eleven tests read the
 real source geometry; no Blender runs on this cloud runner.
 
 The owner-visible human authoring PR adds `build_teamsters: true` to the existing
@@ -84,3 +84,20 @@ recipe is not permission to reuse its wardrobe in those scenes.
 not the as-yet unbaked resident model sizes or photographic acceptance. Source PNGs
 and fixture verification bytes are unchanged. Actual resident delivery still must
 pass the existing site budget and both viewport checks.
+
+## Preparation runtime reproducibility
+
+The first canonical CI run 39168738942 passed all ten preparation tests but stopped
+at the exact neutral input comparison, before Blender authoring. Python 3.11 uses
+a left-fold builtin float sum; Python 3.12 changed that reduction. Emulating the
+older behavior reproduced the exact first mismatch at byte 40084, at body vertex
+652 X: -0.02902566498920024 versus -0.029025664989200235. The largest measured
+numeric difference was 6.66e-16. This is a reproducibility defect, not a reason to
+relax the exact-byte assertion.
+
+Dot products, helper averages and weight normalization/pruning now explicitly use
+math.fsum. All three neutral/adult inputs and reports are regenerated. A regression
+reads the real pinned source data with emulated legacy sum behavior and requires
+the full serialized bytes of each recipe to equal its committed input. Source OBJ,
+UVs, weights, graphical targets and legal notices remain unchanged. CI must still
+prove the actual Python 3.11 reproduction and execute the canonical builder.

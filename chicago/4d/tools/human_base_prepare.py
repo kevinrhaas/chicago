@@ -11,14 +11,16 @@ DEFAULT=ROOT/'assets/authored/humans/makehuman_hm08'
 def add(a,b):return [x+y for x,y in zip(a,b)]
 def sub(a,b):return [x-y for x,y in zip(a,b)]
 def mul(a,s):return [x*s for x in a]
-def dot(a,b):return sum(x*y for x,y in zip(a,b))
+# Python 3.12 changed builtin sum's float reduction. Explicit fsum keeps the
+# source-derived JSON byte-identical on the 3.11 CI worker and newer runtimes.
+def dot(a,b):return math.fsum(x*y for x,y in zip(a,b))
 def cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
 def norm(a):return math.sqrt(dot(a,a))
 def unit(a):
  n=norm(a)
  if n<1e-10:raise ValueError('degenerate direction')
  return mul(a,1/n)
-def avg(v):return [sum(x[k] for x in v)/len(v) for k in range(3)]
+def avg(v):return [math.fsum(x[k] for x in v)/len(v) for k in range(3)]
 def rotate(v,a,b):
  """Shortest-arc rotation taking nonzero a to b, including antiparallel case."""
  a,b=unit(a),unit(b);c=max(-1,min(1,dot(a,b)));axis=cross(a,b);s=norm(axis)
@@ -179,10 +181,10 @@ def prepare(source_dir,height,target_recipe=None):
    if w>0:accum[vi][mapping[bone]]+=w;source_counts[vi]+=1
  weights={};discarded={};unpruned={};source_sum_errors=[]
  for vi in used:
-  row=accum[vi];total=sum(row.values())
+  row=accum[vi];total=math.fsum(row.values())
   if total<=0:raise ValueError('unweighted body vertex '+str(vi))
   source_sum_errors.append(abs(total-1));normalized={n:w/total for n,w in row.items()};unpruned[vi]=normalized
-  ranked=sorted(normalized.items(),key=lambda x:(-x[1],x[0]));discarded[vi]=sum(w for n,w in ranked[4:]);kept=ranked[:4];keep_total=sum(w for n,w in kept);weights[vi]={n:w/keep_total for n,w in kept}
+  ranked=sorted(normalized.items(),key=lambda x:(-x[1],x[0]));discarded[vi]=math.fsum(w for n,w in ranked[4:]);kept=ranked[:4];keep_total=math.fsum(w for n,w in kept);weights[vi]={n:w/keep_total for n,w in kept}
  def deform(vi,row):
   v=metric(raw[vi]);out=[0,0,0]
   for n,w in row.items():

@@ -298,7 +298,7 @@
   ],
   "discarded_weight_max": 0.08700000000000001,
   "discarded_weight_mean": 0.00047269812199055337,
-  "discarded_weight_p95": 0,
+  "discarded_weight_p95": 0.0,
   "pruning_pose_displacement_max_m": 0.0049576456682885305,
   "pruning_pose_displacement_mean_m": 1.3575910529904958e-05,
   "zero_area_triangles": 0,
