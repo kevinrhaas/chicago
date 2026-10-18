@@ -212,7 +212,8 @@ async function loadPlaywright() {
 }
 const { chromium } = await loadPlaywright();
 
-const root = path.resolve(ROOT4D, '../../site/4d');
+// `--root <dir>`: a published site other than this checkout's (an A/B copy, say).
+const root = argAt('--root') ? path.resolve(argAt('--root')) : path.resolve(ROOT4D, '../../site/4d');
 if (!fs.existsSync(path.join(root, '1835', 'index.html'))) {
   console.error(`no published mirror at ${root} — run tools/publish.sh first`);
   process.exit(2);

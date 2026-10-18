@@ -336,13 +336,15 @@ function laySection(path, s0, s1, prof, spec, out) {
         const ux = Q[0] - P[0]; const uy = Q[1] - P[1]; const uz = Q[2] - P[2];
         const vx = R[0] - P[0]; const vy = R[1] - P[1]; const vz = R[2] - P[2];
         const gx = uy * vz - uz * vy; const gy = uz * vx - ux * vz; const gz = ux * vy - uy * vx;
-        const order = gx * nrm[0] + gy * nrm[1] + gz * nrm[2] >= 0
-          ? [a0, b0, b1, a0, b1, a1] : [a0, b1, b0, a0, a1, b1];
-        for (const p of order) {
+        // T-2787: a face's four corners once, its two triangles by index
+        const base = out.pos.length / 3;
+        for (const p of [a0, b0, b1, a1]) {
           out.pos.push(wx(p[0]), p[1], wz(p[2]));
           out.nrm.push(nrm[0], nrm[1], nrm[2]);
           out.col.push(tone.r, tone.g, tone.b);
         }
+        const order = gx * nrm[0] + gy * nrm[1] + gz * nrm[2] >= 0 ? [0, 1, 2, 0, 2, 3] : [0, 2, 1, 0, 3, 2];
+        for (const k of order) out.idx.push(base + k);
       }
     }
   }
@@ -354,6 +356,7 @@ function railMesh(name, out, level, mat, castShadow) {
   geo.setAttribute('normal', new THREE.Float32BufferAttribute(out.nrm, 3));
   geo.setAttribute('color', new THREE.Float32BufferAttribute(out.col, 3));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(out.pos.length / 3).fill(level), 1));
+  geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
   geo.computeBoundingSphere();
   const mesh = new THREE.Mesh(geo, mat);
   mesh.name = name;
@@ -366,11 +369,32 @@ function railMesh(name, out, level, mat, castShadow) {
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
 
-async function loadMaps(assetBase) {
+/**
+ * T-2787: a picture at half its size, for a phone. The yard's maps tile every metre or
+ * two and a phone draws them a few pixels across: a 512 map there cost 1.3 MB of GPU
+ * for detail no phone pixel shows, 33 MB over the library.
+ */
+function halved(t) {
+  const img = t.image;
+  const w = Math.max(1, (img?.width ?? 0) >> 1); const h = Math.max(1, (img?.height ?? 0) >> 1);
+  if (!img || w < 64 || typeof document === 'undefined') return t;
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const g = canvas.getContext('2d');
+  if (!g) return t;
+  g.imageSmoothingQuality = 'high';
+  g.drawImage(img, 0, 0, w, h);
+  t.image = canvas;
+  t.needsUpdate = true;
+  return t;
+}
+
+async function loadMaps(assetBase, half = false) {
   const loader = new THREE.TextureLoader();
   const base = new URL(LIBRARY, assetBase);
   const tex = async (url, srgb) => {
     const t = await loader.loadAsync(url);
+    if (half) halved(t);
     t.wrapS = THREE.RepeatWrapping; t.wrapT = THREE.RepeatWrapping;
     t.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
     t.anisotropy = 8;
@@ -390,6 +414,7 @@ async function loadMaps(assetBase) {
   const here = new URL(`${TUFT}/`, base);
   const sheet = await getJSON(new URL('material.json', here));
   const map = await loader.loadAsync(new URL(sheet.web.basecolor_alpha, here).href);
+  if (half) halved(map);
   map.colorSpace = THREE.SRGBColorSpace;
   out.set('grass_tuft', { map, sheet });
   return out;
@@ -601,7 +626,7 @@ export async function createRailway({
   let maps = new Map();
   if (assetBase) {
     try {
-      maps = await loadMaps(assetBase);
+      maps = await loadMaps(assetBase, detail === 'light');
       out.census.textured = true;
     } catch (err) {
       problems.push(`railway maps not bound — ${err.message}`);
@@ -723,7 +748,7 @@ export async function createRailway({
   const zoneCount = Math.max(1, Math.ceil((nTop - nBot) / ZONE_M));
   const zones = Array.from({ length: zoneCount }, (_, z) => ({
     nHi: nTop - z * ZONE_M, nLo: nTop - (z + 1) * ZONE_M,
-    sections: [], railFar: { pos: [], nrm: [], col: [] },
+    sections: [], railFar: { pos: [], nrm: [], col: [], idx: [] },
     ties: [], tufts: [], rocks: [], eSum: 0, eCount: 0, rockE: 0,
   }));
   const zoneOf = (n) => zones[Math.max(0, Math.min(zoneCount - 1, Math.floor((nTop - n) / ZONE_M)))];
@@ -1042,7 +1067,7 @@ export async function createRailway({
   // the eye is well past, so the yard holds a few zones' worth wherever one walks.
   const nearRails = (z) => {
     if (z.railsNear || !z.sections.length) return;
-    const buf = { pos: [], nrm: [], col: [] };
+    const buf = { pos: [], nrm: [], col: [], idx: [] };
     for (const [i, s0, s1] of z.sections) laySection(paths[i], s0, s1, profNear, spec, buf);
     z.railsNear = railMesh(`railway-rails-z${z.index}`, buf, z.level ?? 1, railMat, true);
     group.add(z.railsNear);
