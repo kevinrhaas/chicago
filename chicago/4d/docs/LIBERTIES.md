@@ -28802,3 +28802,41 @@ docstring together.
 **Covers:** `glessner_house.as_built_1887.form.turret_stable`.
 **Ticket:** T-2228.
 **Recorded:** 2026-10-18.
+
+### L-k01-1623-farwell-entrance-2728 — 1623 Prairie's entrance and base from the drawing: a deep round-arched door, the stoop's iron rails, a grille in the basement light and a rock-faced front, their places read and their joinery reconstructed
+
+**Decision:** Granger Farwell's house at 1623 Prairie (T-2728, piece 1 of T-2435) takes the
+entrance Treat & Foltz's Building Budget drawing draws beside the window's arch, in place of the
+flat-headed panelled door T-2433 built. The door is K07's deep-arch entrance
+(`k07.entrance.double_door_deep_arch`): the K01 door's round-headed hole, 1.2 m by 2.7 m to the
+crown over the 1.85 m principal floor, a pair of panelled leaves under a radial fanlight at the back
+of a recess 0.95 m deep, under a ring of long voussoirs 0.45 m deep turned to a curved extrados
+0.04 m before the wall, with the window's keystone (`entrance_kit.arch`, as 1621's, T-2531). The
+stoop loses its stone cheeks and climbs between the K11 kit's iron stair rails, newels at its head
+and foot and a scroll at the foot (`street_front_dress.stoop_rails`, as 1612's, T-2369); the basement
+light under the window takes the kit's grille, seven uprights between a foot bar and a head bar
+(`street_front_dress.grilles`); and the Lemont front is laid rock-faced (`stone_front.dressing`, the
+profile's 0-0.025 m face) over its two rusticated base courses.
+**What is read, not invented.** From the drawing (`building_budget_1886_06_hamline_farwell_houses`),
+through T-2433's camera: that the doorway is a round arch beside the window's and matching it, ringed
+with long voussoirs, its crown at about 485 px (built within about 5 px) and the ring's top at about
+462 px (built within about 5 px); that the door stands at the back of a recess whose south jamb is lit
+inside the arch; that the stoop climbs straight from the walk between iron rails on iron newels, with
+no stone cheeks; that the basement light under the window is barred with iron; and that the front's
+blocks are rock-faced from grade to the arches' springing.
+**What is invented.** The door's 1.2 m width (K01's door, about 30 px narrower than the drawn arch's
+1.85 m); its leaves, panels and fanlight (the drawing half-hides a glazed door under a carved light in
+the recess's shadow); the recess's 0.95 m depth and the ring's 0.04 m projection and 0.45 m depth;
+the rails' square newels and balusters (the drawing's newels are slim posts under flared caps); the
+grille's seven plain bars (the drawing's is a band of C-scrolls over close-set uprights); and the
+rock face's depth, the profile's.
+**What is not built.** The drawing's arch is as broad as the window's, its door and stoop stand about
+1.3 m north of its axis at the back of a porch, a railing with an ornamental panel guards the landing
+to the south, the basement opening is broad and low under a segmental head, the strips beside the
+oriel above the springing read as smoother stone and a carved band runs across both arches at the
+springing. Each is open in the match record and is T-2729's, which changes the K01 assembly they need.
+**How to resolve:** a photograph of the house after 1886 settles the doorway, the door's leaves and
+the iron; the architects' plans would settle the recess and the porch.
+**Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
+**Ticket:** T-2728 (piece 1 of T-2435).
+**Recorded:** 2026-10-17 (T-2728).
