@@ -5362,6 +5362,10 @@
         "/home/claude/chicago/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
       ]
     },
+    "tools/strip_page_comments.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/structure_versions.py": {
       "wrote": [],
       "wrote_ignored": []
