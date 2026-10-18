@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 1996, ts: '2026-10-18T14:52:17.214Z', date: 'Oct 18, 2026, 9:52 AM CT', title: 'Keith\'s photo comparisons keep the pedestal findings', kind: 'fix',
+    items: [
+      'At 1808 Prairie, the comparisons against the 1888 Inland Architect plate and the 1965 slide show the loggia pedestals\' findings again: plain panels in their border, a bordered south side still to build, and why the 1965 slide can\'t settle the stone\'s colour. A later change to the bow windows had dropped them from those two records.',
+    ] },
+  { v: 1995, ts: '2026-10-18T14:43:37.703Z', date: 'Oct 18, 2026, 9:43 AM CT', title: 'The grass drawn by the graphics card, timed while you walk', kind: 'change',
+    items: [
+      'Since yesterday the grass right around you is drawn by the graphics card. We timed walking, turning and flying on a stand-in for a mid-range phone, before that change and after it.',
+      'Moving feels the same as it did. Most of the work of laying out the nearby grass still happens before it reaches the graphics card, because the flower heads are hung from it. Moving that work across too is the next step.',
+    ] },
+  { v: 1994, ts: '2026-10-18T14:29:53.332Z', date: 'Oct 18, 2026, 9:29 AM CT', title: 'Keith\'s stonework read stone by stone from the 1888 plate', kind: 'change',
+    items: [
+      'At 1808 Prairie, the 1888 Inland Architect photograph was read at full size, course by course. On the lower storeys you can see the stones, and they run deep and thin in turn, as the house is built. The basement courses run even, and the bow\'s beds line up with the front\'s. Both are queued to be rebuilt.',
+      'The carved capitals of the top-floor colonnettes, and the exact profile of the band under the checkerwork, sit in shadow behind the street tree in that picture. They stay as drawn, marked as reconstructed.',
+    ] },
+  { v: 1993, ts: '2026-10-18T14:06:06.314Z', date: 'Oct 18, 2026, 9:06 AM CT', title: '1808 Prairie\'s library bow gets its fourth tall window', kind: 'change',
+    items: [
+      'The round library bay on 1808 Prairie\'s front now has four tall principal-floor windows, each standing directly under one of the four upper windows, as the 1888 floor plan and the 1967 photograph show them. It had three, set between the upper ones.',
+      'Its basement windows move with them, three under the first three; the front stair fills the place of a fourth.',
+      'The principal-floor windows are a little narrower (0.9 m, like the ones above) and the basement windows narrower still (0.73 m), read through the 1888 plate\'s level cameras. Their heights were already right and are unchanged.',
+    ] },
   { v: 1992, ts: '2026-10-18T13:37:37.544Z', date: 'Oct 18, 2026, 8:37 AM CT', title: 'Keith house\'s entrance loggia lowered to the 1888 photograph\'s height', kind: 'change',
     items: [
       '1808 Prairie (1904): the entrance loggia\'s pedestals now stand 0.88 m and its paired columns 2.2 m, down from 1.0 m and 2.5 m, with the pierced parapet between the pedestals lowered to match. The balcony above drops about 40 cm with them.',
