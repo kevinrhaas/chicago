@@ -2944,6 +2944,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_visitor_ui.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_wall_relief.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4035,6 +4039,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/generate_shore_grove_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/generate_south_freight.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4076,6 +4084,10 @@
       "wrote_ignored": []
     },
     "tools/glessner_opening_schedule.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/glessner_stable_roof_read.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5406,6 +5418,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_check_visitor_ui.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_claim_value.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5606,6 +5622,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_nav_photos.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_nav_sources.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5799,6 +5819,10 @@
       "wrote_ignored": []
     },
     "tools/test_tour.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_tour_offer.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

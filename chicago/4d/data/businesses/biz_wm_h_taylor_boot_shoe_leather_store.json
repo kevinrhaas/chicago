@@ -50,7 +50,7 @@
       "to": null,
       "tier": "inferred",
       "basis": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south.",
-      "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "structure",
         "id": "dole_warehouse_south",

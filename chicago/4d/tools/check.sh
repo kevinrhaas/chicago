@@ -165,6 +165,9 @@ step "The Navigator's telemetry strip ticks every 800 ms only while the device i
 # T-2663: Tour mode, the Field Check.
 step "The Field Check's seven steps each move on only on their own action, resume after a reload, skip and replay, in bubbles of 14 words or fewer (T-2663)" \
   node tools/test_tour.mjs
+# T-2664: the tour offered once per device, and the one-time hints after it.
+step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
+  node tools/test_tour_offer.mjs
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
@@ -206,6 +209,9 @@ step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop
 # T-2644: Inspect's Sources tab.
 step "Inspect's Sources tab groups every fact by grade with real counts, names each source by its own citation with no id or tier label, folds the full citation, and lists Liberties by name (T-2644)" \
   node tools/test_nav_sources.mjs
+# T-2645: Inspect's Photos tab.
+step "Inspect's Photos tab shows each picture's year, caption and credit by date, the 12 best first and All N, and From this spot only where a solved camera stood (T-2645)" \
+  node tools/test_nav_photos.mjs
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
@@ -1992,6 +1998,14 @@ step "the settled town's ground re-derives from the plat and every standing roof
 step "the planted poplar rows re-derive from the rule that chose their greens" \
   python3 tools/generate_planted_rows.py --check
 
+# Robert G. Clarke's 1835 shore grove, "perhaps fifty to seventy-five large cottonwoods"
+# from a little north of Sixteenth to a little south of Eighteenth Street, with its
+# clump of eight or nine on Wirt Dexter's lot end. The count, the strip's depth and every
+# stem's place but the clump's are a rule's, re-derived here (T-2766,
+# L-shore-grove-1835-2766).
+step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
+  python3 tools/generate_shore_grove_1835.py --check
+
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a
 # reconstruction chosen by a rule about trades rather than a list of shops somebody liked.
@@ -3464,6 +3478,12 @@ step "Source-use backlinks match authored claims (T-1248)" \
 # record change that is not re-scheduled is caught here (T-2211).
 step "Glessner street and stable opening schedule matches its record (T-2211)" \
   python3 tools/glessner_opening_schedule.py --check
+
+# The stable-roof reading re-solves two committed cameras and reads the roof
+# through them, so a camera, pick or record height that moves without the report
+# being re-written and re-read is caught here (T-2758).
+step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
+  python3 tools/glessner_stable_roof_read.py --check
 
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
@@ -7333,6 +7353,19 @@ selftest "…and a misspelt locked term, a retired or renamed word, an id and a 
   python3 tools/check_strings.py --self-test
 step "string table: sections register and extend, placeholders fill, no key ever shown (T-2624)" \
   node tools/test_strings.mjs
+
+# T-2668 (NAV-1003). The visitor-UI lint: no file path, link, id, snake_case word, ticket
+# number, or the words "tier", "ticket" or "order book" in what a visitor reads — the string
+# table, the static pages' visible text, and the Go to list's business rows from
+# data/businesses/index.json. Researcher-mode strings are exempt (a `researcher` key segment;
+# a [data-researcher] element, which css/skins.css hides until Researcher mode is on), and a
+# leak another ticket owns sits on the tool's allowlist with that ticket, failing once stale.
+step "no path, id, snake_case, 'tier', 'ticket' or 'order book' in what a visitor reads (T-2668)" \
+  python3 tools/check_visitor_ui.py --check
+selftest "…and a planted path, snake_case id, 'tier', 'ticket', 'order book' and a stale allowlist entry are each refused" \
+  python3 tools/check_visitor_ui.py --self-test
+step "visitor-UI lint: the faults, the Researcher exemption, the Go to rows and the allowlist, on fixtures (T-2668)" \
+  python3 tools/test_check_visitor_ui.py
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a

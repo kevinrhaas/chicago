@@ -121,7 +121,7 @@
       "to": null,
       "tier": "inferred",
       "basis": "Placeable against the committed town. The landmark is the committed structure chicago_democrat_office.",
-      "limit_reason": "The register places this house against chicago_democrat_office and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "limit_reason": "The register places this house against The Chicago Democrat Office and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "structure",
         "id": "chicago_democrat_office",

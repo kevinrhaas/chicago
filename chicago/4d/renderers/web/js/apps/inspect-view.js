@@ -13,10 +13,11 @@
  * words for a screen reader. The address is printed once.
  *
  * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources. A new
- * building always opens on Overview; the same building keeps its tab. People, Design and
- * Photos are the card's own content for now, rendered by popup.js `sections()` from the same
- * renderers and loaded state as the card, so the two cannot disagree while the card still
- * exists (Design and Photos fill in under T-2642 and T-2645). Story is its own timeline
+ * building always opens on Overview; the same building keeps its tab. People and Design are
+ * the card's own content for now, rendered by popup.js `sections()` from the same renderers
+ * and loaded state as the card, so the two cannot disagree while the card still exists
+ * (Design fills in under T-2642). Photos is its own grid (T-2645, photos-tab.js), from the
+ * card's own pictures file. Story is its own timeline
  * (T-2643, js/inspect-story.js): BUILT, YOU ARE HERE and TODAY from the record's dated facts,
  * filtered to the scene's era. Sources has its own layout (T-2644, inspect-sources.js):
  * every fact grouped by grade, Liberties as a section, human source titles, the full citation
@@ -30,6 +31,7 @@ import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
 import { hydratePictures } from '../pictures.js';
+import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
 import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.js';
 import { storyTimeline, renderStory } from '../inspect-story.js';
@@ -379,9 +381,17 @@ async function fillPane(root, pane, key) {
     });
     pane.append(d);
   } else if (key === 'photos') {
-    const d = html(sec.photos);
-    pane.append(d);
-    hydratePictures(d);
+    // T-2645: the Photos tab (photos-tab.js), from the card's own pictures file; the card's
+    // Images pane where that file is not in hand.
+    const onSpot = ctx.actions?.fromSpot ? (p) => {
+      if (['half', 'full'].includes(ctx.navigator?.detent)) ctx.navigator?.dock?.();
+      void ctx.actions.fromSpot(id, p);
+    } : null;
+    if (!renderPhotos(pane, { doc: ctx.picturesDoc, id, sceneYear: ctx.scene?.id ?? ctx.scene?.scene_id, onSpot })) {
+      const d = html(sec.photos);
+      pane.append(d);
+      hydratePictures(d);
+    }
   } else {
     pane.append(html(sec[key]));
   }

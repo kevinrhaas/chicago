@@ -94,7 +94,7 @@
       "to": null,
       "tier": "inferred",
       "basis": "Placeable against the committed town. The landmark is the committed structure jh_kinzie_forwarding_store.",
-      "limit_reason": "The register places this house against jh_kinzie_forwarding_store and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "limit_reason": "The register places this house against J. H. Kinzie's Store and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "structure",
         "id": "jh_kinzie_forwarding_store",

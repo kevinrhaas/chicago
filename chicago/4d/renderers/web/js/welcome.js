@@ -41,12 +41,16 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   // distance and bearing.
   visitor = () => null, units = () => 'imperial',
   // T-2633: the grades the Confidence view is hiding; their rows are dimmed and say why.
-  hiddenGrades = () => [] }) {
+  hiddenGrades = () => [],
+  // T-2664: the Field Check's offer (js/tour-offer.js: due(), spend(how)) and what taking
+  // it does; any other way into the town while it shows declines it, for good.
+  offer = null, onTour = () => false }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
   const search = $('welcome-search'), list = $('welcome-results'), message = $('welcome-message');
   const roam = $('home-roam'), back = $('welcome-back');
+  const tourOffer = $('tour-offer');
   let state = 'arrival', kind = 'all', limit = 40;
   let sort = (() => { try { return sortStore?.getItem(SORT_KEY); } catch { return null; } })();
   const sorts = destinations.sorts ?? SORTS;
@@ -209,6 +213,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     // third choice, straight into the town.
     gate.querySelector('.gate-eyebrow').textContent = presentation.stamp;
     close.hidden = !hasEntered();
+    if (tourOffer) { let due = false; try { due = !!offer?.due?.(); } catch { due = false; } tourOffer.hidden = !due; }
     if (focus) title.focus({ preventScroll: true });
   }
   function choose(type, id) {
@@ -224,6 +229,8 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       return false;
     }
     state = 'world'; gate.dataset.state = state;
+    // T-2664: the offer was on screen and the visitor went in another way: declined.
+    if (tourOffer && !tourOffer.hidden) { tourOffer.hidden = true; try { offer?.spend?.('declined'); } catch { /* shown again next time */ } }
     // Drop focus from the now-hidden search before movement keys are used.
     document.activeElement?.blur();
     return true;
@@ -242,6 +249,11 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   $('welcome-explore').addEventListener('click', () => region('explore'));
   back.addEventListener('click', top);
   roam.addEventListener('click', () => choose('spawn'));
+  tourOffer?.addEventListener('click', () => {
+    tourOffer.hidden = true;
+    try { offer?.spend?.('taken'); } catch { /* the tour still starts */ }
+    onTour();
+  });
   $('btn-start').addEventListener('click', show);
   close.addEventListener('click', returnToWorld);
   search.addEventListener('input', () => { limit = 40; render(); });
