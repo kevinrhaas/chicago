@@ -7,13 +7,6 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
-    "glessner_stable_roof_read.py": {
-      "placement": "pending",
-      "write_mode": "--write",
-      "measured": "2026-10-18",
-      "finding": "Reproduces: --write on a clean tree rewrites data/comparisons/glessner/stable-roof-heights.json with identical bytes and leaves Git clean; a deliberately perturbed report (its ticket field changed) is repaired by the next --write. It reads two committed reference-view cameras and the glessner_house record and writes nothing else.",
-      "placed": "Reads data/reference_views/glessner_house/{habs-01-northwest,cornell-northwest-west-windows}.json and data/structures/glessner_house.json (ridge_west_wing, gable_west_wing_north, turret_stable, tower_north), none of them generated, so it can sit anywhere after the record; not yet ordered in the manifest because nothing downstream reads its report (a dated reading, gated by --check, T-2758)."
-    },
     "generate_glessner_finish.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -41,6 +34,13 @@
       "measured": "2026-10-12",
       "finding": "Reproduces: run bare on a clean tree it rewrote its own four outputs, docs/RESEARCH/glessner-windows-2211/opening-schedule.{md,json} and (since T-2212) docs/RESEARCH/glessner-windows-2212/opening-schedule.{md,json}, byte for byte and moved nothing else.",
       "placed": "not yet — measured to reproduce. It reads only data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its four outputs, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2211; T-2212)."
+    },
+    "glessner_stable_roof_read.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-10-18",
+      "finding": "Reproduces: two --write runs on a clean tree rewrote its one output, data/comparisons/glessner/stable-roof-heights.json, byte for byte and moved nothing else; a deliberately perturbed report failed --check and was restored by --write. Before the fix in this measurement's commit it did NOT reproduce: its pixel-aspect fit has no minimum (the aspect trades exactly against focal length and distance, RMS 3.9229 px at every aspect from 1.00 to 1.06), so the solver stopped at a machine-dependent point (cupola S11.3 in CI, S11.77 on the steward runner) and --check went red on an unchanged tree. That fit is now walked at pinned aspects, each well posed (T-2758).",
+      "placed": "not yet — measured to reproduce. It reads data/reference_views/glessner_house/habs-01-northwest.json, cornell-northwest-west-windows.json and data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its report, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2758)."
     },
     "check_stone_occlusion_atlas.py": {
       "placement": "not_a_writer",
@@ -923,6 +923,13 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "generate_shore_grove_1835.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-18",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-18 — reasoned, not derived; see the manifest step (beside generate_planted_rows.py, the same planting layer)"
     },
     "generate_planted_rows.py": {
       "placement": "manifest",

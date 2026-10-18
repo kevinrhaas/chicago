@@ -1,4 +1,56 @@
 export const CHANGELOG = [ // newest first
+  { v: 2009, ts: '2026-10-18T17:31:26.395Z', date: 'Oct 18, 2026, 12:31 PM CT', title: 'Inspect\'s Photos tab: pictures by date, the 12 best first', kind: 'feature',
+    items: [
+      'Inspect\'s Photos tab shows a building\'s pictures as a grid sorted by date, each with its year, a short caption and its credit.',
+      'The 12 best come first: photographs of its time, from as many sides as there are, before later views and drawings. The rest sit behind All, over a hundred for Glessner House.',
+      'A picture with no date in the records says Undated.',
+      'From this spot appears on a picture only where its camera position has been worked out, and stands you where it was taken, facing the same way.',
+      'Tap a picture to open it full size with its whole credit.',
+    ] },
+  { v: 2008, ts: '2026-10-18T17:12:35.089Z', date: 'Oct 18, 2026, 12:12 PM CT', title: 'Every year holds less memory; 1904 on a phone: 516 MB', kind: 'fix',
+    items: [
+      'Buildings kept a second copy of every piece after drawing it. That copy is now freed, in every year.',
+      'The 1904 railway freed its leftover build lists too.',
+      'Phone memory at spawn: 1904 696 to 516 MB, 1835 582 to 490 MB, 1812 246 to 192 MB.',
+      'Desktop: 1904 1329 to 1134 MB, 1835 1578 to 1196 MB.',
+    ] },
+  { v: 2007, ts: '2026-10-18T17:12:35.089Z', date: 'Oct 18, 2026, 12:12 PM CT', title: 'Dev preview: the DEV tag and build stamp are back on phones', kind: 'change',
+    items: [
+      'On a phone, the dev preview shows the small DEV tag in the top corner again.',
+      'The arrival card prints the build and its time again.',
+      'The full-width preview banner stays off phones so it can\'t cover the top controls. Production shows none of this.',
+    ] },
+  { v: 2006, ts: '2026-10-18T17:10:04.063Z', date: 'Oct 18, 2026, 12:10 PM CT', title: 'Keith house\'s stone courses laid as the 1888 photograph shows them', kind: 'improvement',
+    items: [
+      'Above the main-floor windowsills, the deep and thin granite courses now split the way the 1888 photograph shows them.',
+      'Below the sills, the stone is laid in even courses with no thin ones, as in the photograph.',
+      'The curved bay\'s courses now line up with the front\'s, as they do in the picture.',
+    ] },
+  { v: 2005, ts: '2026-10-18T16:50:35.380Z', date: 'Oct 18, 2026, 11:50 AM CT', title: 'The stable-roof check now gives the same answer on every computer', kind: 'fix',
+    items: [
+      'One way of reading the 1963 survey photograph had no single answer: a slightly stretched picture fits it exactly as well as a true one, so the dovecote\'s place along the roof came out differently from one computer to the next. The check now tries a set of fixed stretches, and gives the same answer every time.',
+      'The finding holds: the roof was right. Across every stretch the gable\'s peak stays at the same height. Only the dovecote\'s position moves, which is why that photograph cannot place it; the c. 1887 view still does, and puts it about a foot and a half north.',
+    ] },
+  { v: 2004, ts: '2026-10-18T16:44:08.144Z', date: 'Oct 18, 2026, 11:44 AM CT', title: 'Farwell house\'s oriel at its 1886 drawing\'s size, six lights', kind: 'change',
+    items: [
+      '1623 Prairie (1904): the corbelled oriel over the front\'s two arches is now as wide as the 1886 Building Budget drawing draws it, nearly the whole front, with four tall windows across its face and one in each angled side, where it had three and blank sides.',
+      'The arched window and the entrance arch beneath it stand where the drawing puts them.',
+      'Still different from the drawing: the oriel\'s carved band, upper row of windows and cone-shaped roof are not built yet, and the drawing sets its face a little north of where it is built.',
+    ] },
+  { v: 2003, ts: '2026-10-18T16:35:21.898Z', date: 'Oct 18, 2026, 11:35 AM CT', title: '1835: the shore cottonwood grove and a thicker North Side wood', kind: 'feature',
+    items: [
+      'Sixty large cottonwoods stand on the lake shore from Sixteenth to Eighteenth Street, with a clump of nine near the middle, from Robert G. Clarke\'s 1890 letter.',
+      'The two great cottonwoods behind the old Kinzie house still stand in 1835, though the house is gone.',
+      'The woods are drawn at a higher share of their recorded density on every detail level, so the North Side reads as woodland.',
+      'Every new tree\'s position is reconstructed and listed under Liberties.',
+    ] },
+  { v: 2002, ts: '2026-10-18T16:24:45.985Z', date: 'Oct 18, 2026, 11:24 AM CT', title: 'Plainer words where a visitor reads about shops and sources', kind: 'change',
+    items: [
+      'A shop placed beside a landmark now names it in words, such as Mansion House, instead of an internal code. You see this in Go to and on the shop\'s card.',
+      'Shop notes no longer mention internal job numbers, and a street is named the way the town wrote it.',
+      'In Sources, three notes now say "grade", "the Liberties document" and "the terrain record" instead of file names and internal terms.',
+      'A new check stops file paths, internal ids and words like "ticket" from reaching what a visitor reads.',
+    ] },
   { v: 2001, ts: '2026-10-18T15:34:41.950Z', date: 'Oct 18, 2026, 10:34 AM CT', title: 'Glessner\'s stable roof checked against two old photographs: the roof was right', kind: 'improvement',
     items: [
       'The 1963 survey photograph seemed to show the stable roof about 2 feet lower than the model. Measured against the carriage doorway, the one surveyed length on that wall, most of that gap turns out to be the camera.',

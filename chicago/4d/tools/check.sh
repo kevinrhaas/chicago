@@ -212,6 +212,9 @@ step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider who
 # T-2661: Guide's controls sheet.
 step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
   node tools/test_nav_guide.mjs
+# T-2645: Inspect's Photos tab.
+step "Inspect's Photos tab shows each picture's year, caption and credit by date, the 12 best first and All N, and From this spot only where a solved camera stood (T-2645)" \
+  node tools/test_nav_photos.mjs
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
@@ -1997,6 +2000,14 @@ step "the settled town's ground re-derives from the plat and every standing roof
 # the twelve stems and the refusal beside them stay auditable (T-0117).
 step "the planted poplar rows re-derive from the rule that chose their greens" \
   python3 tools/generate_planted_rows.py --check
+
+# Robert G. Clarke's 1835 shore grove, "perhaps fifty to seventy-five large cottonwoods"
+# from a little north of Sixteenth to a little south of Eighteenth Street, with its
+# clump of eight or nine on Wirt Dexter's lot end. The count, the strip's depth and every
+# stem's place but the clump's are a rule's, re-derived here (T-2766,
+# L-shore-grove-1835-2766).
+step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
+  python3 tools/generate_shore_grove_1835.py --check
 
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a

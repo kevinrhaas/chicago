@@ -473,13 +473,13 @@
     "pixel_aspect": 1.0
    }
   },
-  "doorway_aspect": {
-   "what": "as doorway, pixel aspect free",
+  "doorway_aspect_1.02": {
+   "what": "as doorway, pixel aspect pinned at 1.02 (the valley a free aspect cannot leave)",
    "fitted_obs": 17,
    "rms_px": 3.92,
    "max_px": 10.2,
    "doorway_rms_px": 3.23,
-   "north_tower_finial_error_px": 6.5,
+   "north_tower_finial_error_px": 7.6,
    "px_per_ft_at_doorway": 14.02,
    "reads": {
     "gable_coping_apex": [
@@ -494,25 +494,25 @@
     ],
     "cupola_apex_on_ridge_plane": [
      141.0,
-     11.3,
-     45.03
+     12.68,
+     45.55
     ],
     "cupola_apex_at_model_centre_S": [
-     139.5,
+     140.22,
      14.6,
-     46.12
+     46.19
     ]
    },
    "camera": {
     "eye": [
-     -10.2985,
-     55.3495,
+     -8.4704,
+     54.8239,
      1.8
     ],
     "basis_right_up_forward": [
      [
-      -0.790332,
-      -0.612679,
+      -0.807228,
+      -0.59024,
       0.0
      ],
      [
@@ -521,17 +521,139 @@
       1.0
      ],
      [
-      0.612679,
-      -0.790332,
+      0.59024,
+      -0.807228,
       0.0
      ]
     ],
-    "focal_px": 1656.37,
+    "focal_px": 1595.71,
     "principal_px": [
      904.5,
      814.99
     ],
-    "pixel_aspect": 1.0418
+    "pixel_aspect": 1.02
+   }
+  },
+  "doorway_aspect_1.04": {
+   "what": "as doorway, pixel aspect pinned at 1.04 (the valley a free aspect cannot leave)",
+   "fitted_obs": 17,
+   "rms_px": 3.92,
+   "max_px": 10.2,
+   "doorway_rms_px": 3.23,
+   "north_tower_finial_error_px": 6.6,
+   "px_per_ft_at_doorway": 14.02,
+   "reads": {
+    "gable_coping_apex": [
+     140.73,
+     0.0,
+     38.62
+    ],
+    "gable_apex_stone_top": [
+     140.73,
+     0.0,
+     39.08
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     11.4,
+     45.07
+    ],
+    "cupola_apex_at_model_centre_S": [
+     139.56,
+     14.6,
+     46.12
+    ]
+   },
+   "camera": {
+    "eye": [
+     -10.1514,
+     55.3113,
+     1.8
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.791704,
+      -0.610904,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.610904,
+      -0.791704,
+      0.0
+     ]
+    ],
+    "focal_px": 1651.58,
+    "principal_px": [
+     904.5,
+     814.99
+    ],
+    "pixel_aspect": 1.04
+   }
+  },
+  "doorway_aspect_1.06": {
+   "what": "as doorway, pixel aspect pinned at 1.06 (the valley a free aspect cannot leave)",
+   "fitted_obs": 17,
+   "rms_px": 3.92,
+   "max_px": 10.2,
+   "doorway_rms_px": 3.23,
+   "north_tower_finial_error_px": 5.8,
+   "px_per_ft_at_doorway": 14.02,
+   "reads": {
+    "gable_coping_apex": [
+     140.73,
+     0.0,
+     38.62
+    ],
+    "gable_apex_stone_top": [
+     140.73,
+     0.0,
+     39.08
+    ],
+    "cupola_apex_on_ridge_plane": [
+     141.0,
+     10.41,
+     44.7
+    ],
+    "cupola_apex_at_model_centre_S": [
+     138.93,
+     14.6,
+     46.07
+    ]
+   },
+   "camera": {
+    "eye": [
+     -11.7382,
+     55.6867,
+     1.8
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.776766,
+      -0.629789,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.629789,
+      -0.776766,
+      0.0
+     ]
+    ],
+    "focal_px": 1702.63,
+    "principal_px": [
+     904.5,
+     814.99
+    ],
+    "pixel_aspect": 1.06
    }
   }
  },
@@ -801,6 +923,10 @@
     38.07,
     38.62
    ],
+   "habs01_aspect_valley_1.00_1.06": [
+    38.62,
+    38.62
+   ],
    "habs01_doorway_ruler": 38.77,
    "cornell_committed": 42.28,
    "cornell_roof_fits": [
@@ -815,6 +941,10 @@
     45.51,
     46.29
    ],
+   "habs01_aspect_valley_1.00_1.06": [
+    46.07,
+    46.29
+   ],
    "cornell_committed": 51.24,
    "cornell_roof_fits": [
     46.45,
@@ -825,7 +955,11 @@
    "model": 14.6,
    "habs01_committed": 11.0,
    "habs01_doorway_fits": [
-    11.3,
+    13.28,
+    14.39
+   ],
+   "habs01_aspect_valley_1.00_1.06": [
+    10.41,
     14.39
    ],
    "cornell_committed": 11.2,
