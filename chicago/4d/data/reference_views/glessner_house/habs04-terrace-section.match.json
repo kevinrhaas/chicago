@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-terrace-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "glb_sha256": "6430eff3b9d9f0d5279df0fa3a83196e7e2514e75f8fd1ccb21cd3b7bc13899d",
   "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
   "verdict": "differs",
@@ -12,7 +12,11 @@
       "status": "fixed"
     },
     {
-      "what": "The coping still continues across the rounded post in projection. Its circular plan tail reaches the plan-centred post beyond the section endpoint; reconcile HABS2 terminal wall path with HABS4 rather than hiding the mismatch with a cap extension.",
+      "what": "T-2759: the terminal post is built where HABS sheet 2 draws it (circle fit to the plan's ring: centre W33.81/S46.20, radius 0.93 ft at the line's centre; built 0.9 ft) instead of T-2218's section-fitted S46.05 / 0.75 ft, which put the whole post inside the wall's end-on silhouette. It now stands about 0.6 ft proud of the wall's outer face, so in this view its shaft shows from grade to crown and the coping dies into its north side at about 4.45 ft, just above the crown's springing, as the section draws it. The three reconstructed lower tread ends are re-seated on the new surface. Evidence: docs/RESEARCH/glessner-terrace-terminal-T-2759/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2759: sheets 2 and 4 put that junction at different points along S. The section ends the coping at S45.35 and shows 1.22 ft of clear shaft (S45.35-46.57). Built from the plan, the junction lands at about S46.4-46.6, with about 0.5 ft of clear shaft and the post's south face at S47.1. The same two sheets disagree by 0.63 ft the other way at the stair tower, so there is no single datum shift to apply. The plan governs plan positions because the stair boundaries are plan readings.",
       "status": "open"
     },
     {

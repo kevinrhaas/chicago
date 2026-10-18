@@ -23713,7 +23713,7 @@ bow; a photograph or plan of 1808's rear replaces or removes the canted bay.
 **Ticket:** T-2308 (piece 2 of T-1850, K08).
 **Review:** `docs/RESEARCH/k08-1808-bays-2308/README.md`.
 **Recorded:** 2026-10-10 (T-2308).
-**Revised:** 2026-10-15 (T-2499) — **the south bow is two storeys under a flat moulded cap, read off the plate.** It stands 5.0 m on its chord and 1.2 m out, centred 3.7 m from the south corner (the plan under the plate), rises from grade to floor 3 (9.8 m) and stops there under the K10 moulded stone section carried round its plan on a level deck; three principal-storey lights and four second-storey lights, as the plate draws them. The copper cone is gone. See L-k01-1808-flat-top-2499.
+**Revised:** 2026-10-15 (T-2499) — **the south bow is two storeys under a flat moulded cap, read off the plate.** It stands 5.0 m on its chord and 1.2 m out, centred 3.7 m from the south corner (the plan under the plate), rises from grade to floor 3 (9.8 m) and stops there under the K10 moulded stone section carried round its plan on a level deck; three principal-storey lights and four second-storey lights, as the plate draws them. The copper cone is gone. See L-k01-1808-flat-top-2499. 2026-10-18 (T-2765) — **the principal storey carries four lights under the second storey's four, at its bearings (-33, -11, 11 and 33 degrees), and the basement three under the first three.** The plan under the plate draws four openings in the bow's principal-floor wall, symmetric about a pier on its axis; the plate's visible lights stand plumb under the second storey's at all four of T-2762's level fits, and Nickel 1967 shows the fourth beside the loggia. Their widths (0.9 m principal, the second storey's, and 0.73 m basement) are read through those fits. That no fourth basement light stands under the fourth principal light is reconstructed: the stair's mass fills that place in this model and no picture or plan shows the basement there.
 
 ### L-k05-1808-roof-2302 — The 1808 Prairie roof rebuilt from the K05 kit, with two reconstructed chimney stacks
 
@@ -27385,6 +27385,8 @@ derived from it here) puts every dimension above on a side-by-side.
 
 **Revised:** 2026-10-17 (T-2725) — **the column ruled at 2.5 m; both cameras err at the loggia.** Both pictures stand the column at about 2.45 times its pedestal (the plate 190.5 px over about 77, the 1965 view 100 px over about 41), so they disagree only on scale. Read in the plate against the front's own ruler at the same image column, the third storey's north light (10.41-12.70 m, 159.5 px), and corrected for the loggia standing nearer the camera (1.08-1.095 for any heading 0-25 degrees north of square), the column reads 2.51 m (south pair) and 2.50 m (north pair) and the pedestal 1.02 m. Through their own cameras the plate's draws the column and pedestal alike about 7-9 % long and the 1965 view's 12-15 % short: each camera's scale at the loggia's depth, not the column. Built at 2.5 m (from 2.45), the entablature and balcony riding up 0.05 m with it. Still reconstructed: the reading rests on the model's front heights and on the light's opening read as its sash, about ±3 %.
 
+**Revised:** 2026-10-18 (T-2763) — **the loggia lowered to 0.88 of its height over the deck; the plate's camera now determined.** Re-read on the GLB's own edges (the capital's abacus, not the beam's lowest band; the projecting sill's arris, not a height on no edge), every level camera fitted to the 1888 plate with the loggia as built put its eye at grade 40-90 m out and still drew pedestal and column alike 6-8 % long, so the front's ruler T-2725 read the column against was not where its camera stood. One factor on the loggia's heights over its 2.0 m deck, fitted with the camera, read 0.879 and put the eye 2.3 m high about 21 m out; freeing the third-storey sills as well moved them 0.03 m, so the front stands. Built at pedestal 0.88 m and column 2.2 m (their ratio the pictures' 2.44-2.49), the pierced parapet at 0.72 m (its coping at 0.82 of the pedestal, as the plate draws it); the entablature (0.9 m) and balcony front (0.75 m) stand, so the balcony floor is at 5.98 m and its coping 6.73 m. On the rebuilt GLB the plate's level fit puts its eye at [39.19, -0.23, 2.21] with nothing at a bound (RMS 4.94 px) and reads the column 1-2 % short; that is now `inland-1888`'s camera (`tools/keith_plate_level_fit.py`). Still reconstructed: one factor for the whole loggia (only its capital tops and pedestal caps are fitted), and the 1965 close view's camera, which now draws the loggia about a quarter short, is re-fitted at the loggia's depth by T-2764.
+
 ### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
 
 **Decision:** the 1812 scene gains the last two works Captain Whistler's index of January 1808 names
@@ -28264,6 +28266,18 @@ panel, and its dies plain sunk panels in a raised border. What is still invented
 zigzag's 22 mm sink and the strap's width, every leaf's cut, each curl's two and a half
 turns and the scroll's 0.3 m pitch (the 1965 view counts about four loops along the
 front), all below both pictures' grain; the pedestals' panels keep T-1883's low relief.
+**T-2769 (2026-10-18), the pedestals' fields and the 1965 tint:** what is read now, from
+the 1888 plate at its native 1559 px (about 75 px to the metre on the pedestals, x 865-940
+and 1100-1160, y 1585-1650): each loggia pedestal's front carries a PLAIN field inside its
+border, about 32 x 41 px on a 47 px front, as T-2585 read the balcony's dies; the low relief
+leaf scrolls T-1883 laid in those fields are not in the picture and are taken off. The 1965
+close view (about 40 px to the metre there) shows the border only. The tint: none of the
+1965 slide's neutrals calibrates it (the white newel is clipped; balanced on the curtains
+the stone leans violet-blue, on the concrete walk faintly green-yellow), so its chroma is
+bracketed within about 9 CIELAB units of grey and the neutral grey stands, still
+reconstructed (`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json`,
+T2769_1965_neutrals). Still invented: the border's 35 mm bead and the field's depth, below
+the plate's grain; the south pedestal's side shows a like field the model does not yet lay.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
@@ -28828,3 +28842,26 @@ the iron; the architects' plans would settle the recess and the porch.
 **Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
 **Ticket:** T-2728 (piece 1 of T-2435).
 **Recorded:** 2026-10-17 (T-2728).
+
+### L-glessner-terrace-terminal-2759 — the terrace's terminal post where the plan draws it (2026-10-18)
+
+**Decision:** The rounded terminal post at the foot of the bow terrace's coping is built where HABS
+sheet 2 (`habs_glessner_house_il_1015_drawings`) draws it. A circle fitted to the plan's ink ring gives
+centre W33.81/S46.20 and radius 0.93 ft at the line's centre, built at 0.9 ft. This supersedes
+L-glessner-courtyard-steps-2218's section-fitted S46.05 / 0.75 ft, which put the whole post inside the
+wall's end-on silhouette and hid its shaft in every west view. On the plan the post stands about 0.6 ft proud
+of the wall's outer face. Built that way, its shaft shows from grade to crown and the coping dies into its
+north side, as sheet 4 draws it and photograph 5 (`habs_glessner_photo_05_court_c1923`, rights
+check_required, a qualitative cross-check only) shows it. The crown's 5.1 ft height and 0.75 ft rise remain
+section readings. The three obscured lower tread ends are still reconstructions, re-seated 0.04 ft inside the
+new surface along their own lines. Past the traced section end, the coping's shoulder remains the
+reconstructed shoulder of L-glessner-courtyard-steps-2218.
+**Bounds:** Plan reading about ±0.1 ft for the centre and ±0.06 ft for the radius (the ink's inner and outer
+edges). Sheet 4 draws the junction about 0.9-1.1 ft further north (S45.35, with 1.22 ft of clear shaft
+against about 0.5 ft built). The same two sheets disagree by 0.63 ft the other way at the stair tower, so no
+datum shift is applied.
+**How to resolve:** A measured third source for the terminal (a survey, or a rights-cleared photograph with a
+solved camera) can move the junction along S.
+**Applies to:** `data/structures/glessner_house.json` (`v4_detail.bow_terrace.newel_WS`, `newel_radius_ft`,
+the last three `stair_boundaries_WS`); see `docs/RESEARCH/glessner-terrace-terminal-T-2759/`.
+**Recorded:** 2026-10-18 (T-2759).

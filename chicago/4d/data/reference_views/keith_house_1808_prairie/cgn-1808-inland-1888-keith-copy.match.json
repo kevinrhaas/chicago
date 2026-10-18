@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c2153d603a3cfa933a713747db094a38e4762f890dbefc40cb08b50f6099326d",
+  "glb_sha256": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
   "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
-      "status": "open"
+      "what": "T-2765: the bow's principal storey has four lights under the second storey's four, at its bearings, and the basement's three under the first three, read at the plate's native resolution (inland-1888's record says how); this copy shows the same.",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",

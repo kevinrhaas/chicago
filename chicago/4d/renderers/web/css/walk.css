@@ -2228,3 +2228,21 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 10px; box-shadow: var(--shadow); }
 .term-tip[hidden] { display: none; }
 .term-tip strong { margin-right: 4px; }
+
+/* T-2629 (NAV-305): Settings › About — the build stamp, and on a dev build the DEV mark
+   in the preview banner's own amber. On a phone the dev chrome is not drawn on the town:
+   the preview's banner and DEV pill (injected into the dev tree only) covered the HUD's
+   top row, so they are hidden at the Navigator's phone width (navigator.js PHONE_MAX_PX),
+   and the arrival card keeps its build stamp only when the arrival has stalled — the
+   moment the stamp is for. About says both. A desktop is unchanged. */
+.about-build { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: var(--ink-dim);
+  font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.about-dev { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px;
+  font-weight: 800; font-size: 10px; letter-spacing: .06em; vertical-align: 1px;
+  color: #1a1503; background: linear-gradient(135deg, #fbbf24, #d97706); }
+.about-dev[hidden], #s-about-dev-note[hidden] { display: none; }
+#s-about-dev-note a { color: var(--accent); }
+@media (max-width: 620px) {
+  #__dev, #__devpill { display: none !important; }
+  .gate:not(:has(#gate-btn[data-arrival-retry])) #gate-build { display: none; }
+}
