@@ -28873,6 +28873,35 @@ botanical record of the Chicago dunes before 1860 naming the cedar and the pine.
 **Ticket:** T-2768.
 **Recorded:** 2026-10-18 (T-2768).
 
+### L-woods-structure-2807 — The woods in clumps and openings, young trees in the gaps, and the thicket at the woods' prairie edge
+
+**Decision:** the 1835 and 1812 woods are no longer dealt at one even density per community. In
+`renderers/web/js/trees.js` (T-2807) each woods community's recorded density is multiplied by a
+clump field with a mean of one (`WOOD_CLUMP`): dense patches, openings at 10-30 % of the density,
+on value noise of 30-48 m, and a stem in an opening is grown smaller (to 58-66 % of its size at
+the opening's heart). Where a wood faces open prairie a shrub thicket stands at its edge
+(`EDGE_THICKET`): the outer part of the river woods' width in the South Division, and the last
+12-34 m inside the North Side wood's east end at State Street. Hazel stands scattered through the
+oak ridges. The shrubs are hazel, hawthorn, wild plum and gray dogwood, drawn as grown clumps of
+stems (tree-model.js ARCH).
+**What is read, not invented:** hazel as the commonest undergrowth of these woodlands, "thorn" and
+plum as survey undergrowth terms (McBride and Bowles 2007, in `z06_dense_forest`); gray dogwood as
+a floodplain shrub (Swink and Wilhelm 1994, in `z05_riverbank_timber`); each shrub's height,
+width and July colour from those records; the woods as "a mosaic, not a monoculture" (the
+`z06_dense_forest` record).
+**What is invented:** the clump field's cell sizes, floors and the young trees' scale; that the
+thicket stands at those two edges and how deep; its density, 320-520 clumps a hectare in the band
+and 5-12 a hectare of hazel in the oak ridges; its weights, which follow the records' cover
+fractions with hawthorn, plum and dogwood raised against hazel at the edge; every shrub's place
+and bark colour; the shrubs' habit (stems, splay, crown), as for the trees under
+L-tree-architecture-2743. In 1812 the North Side wood's east end is still the fallback line T-2745
+is to move, so the thicket stands where that line is.
+**How to resolve:** the original land survey's line notes for the township's section lines (the
+undergrowth and the "thick" or "scattering" timber at each mile), a witness to the woods' edge
+along the lake before 1840, or the witness-tree layer for the township.
+**Ticket:** T-2807.
+**Recorded:** 2026-10-18 (T-2807).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks

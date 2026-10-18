@@ -46,7 +46,8 @@ import * as THREE from 'three';
  *   crownBase where the crown begins, as a fraction of height (the clear bole)
  *   fork      'decurrent' (the trunk breaks into scaffolds) | 'excurrent' (a
  *             leader runs to the top and carries laterals)
- *   stems     [min, max] co-dominant stems from the ground (willows, silver maple)
+ *   stems     [min, max] co-dominant stems from the ground (willows, silver maple);
+ *             `stemSplay` their lean out of the clump, degrees (10 unless the species says)
  *   scaffolds [min, max] major limbs at the fork
  *   limbAngle degrees from vertical of a scaffold leaving the trunk
  *   rise      how the limb turns as it grows: > 0 climbs (cottonwood, elm),
@@ -197,6 +198,44 @@ export const ARCH = {
     crown: 'irregular', crownBase: 0.14, fork: 'excurrent', stems: [1, 1], scaffolds: [11, 15],
     limbAngle: 70, rise: 0.03, twist: 0.85, order2: [4, 50], order3: [2, 46], droop: 0.03,
     clump: 0.17, clumpMin: 0.40, density: 0.80, gaps: 0.50, leaf: 'needle', bark: 'blocky',
+    farBins: [4, 2],
+  },
+  // T-2807 — THE THICKET AT THE WOODS' EDGE. Where the North Side wood and the
+  // river woods meet the prairie the fire stops, and the shrubs that resprout
+  // after it stand in a band: hazel (the land survey's own undergrowth for the
+  // township), wild plum, hawthorn and gray dogwood. Each is a clump of stems
+  // from the ground, not a small tree, so `stems` carries the count and
+  // `scaffolds` is empty: each stem runs on as its own leader (the sandbar
+  // willow's habit, above). `stemSplay` is how far the outer stems lean out of
+  // the clump, degrees from vertical; hazel's arch out, dogwood's stand up.
+  corylus_americana: {
+    crown: 'round', crownBase: 0.08, fork: 'decurrent', stems: [7, 12], scaffolds: [0, 0],
+    stemSplay: 24, limbAngle: 18, rise: 0.02, twist: 0.30, order2: [4, 44], order3: [0, 0],
+    droop: 0.16, clump: 0.24, clumpMin: 0.34, density: 1.30, gaps: 0.18, leaf: 'elm', bark: 'smooth',
+    farBins: [4, 2],
+  },
+  // Wild plum suckers into thickets but each stem is a small crooked tree: a few
+  // stems, a short bole, a round head of zigzag twigs, dark lenticelled bark.
+  prunus_americana: {
+    crown: 'round', crownBase: 0.28, fork: 'decurrent', stems: [2, 4], scaffolds: [3, 5],
+    stemSplay: 16, limbAngle: 48, rise: 0.0, twist: 0.65, order2: [4, 50], order3: [0, 0],
+    droop: 0.08, clump: 0.26, clumpMin: 0.36, density: 1.15, gaps: 0.30, leaf: 'elm', bark: 'smooth',
+    farBins: [4, 2],
+  },
+  // Hawthorn: a low, flat-topped, spreading head on one to three crooked stems,
+  // the limbs held out nearly level, scaly grey bark; small lobed leaves.
+  crataegus_spp: {
+    crown: 'spread', crownBase: 0.24, fork: 'decurrent', stems: [1, 3], scaffolds: [4, 6],
+    stemSplay: 14, limbAngle: 62, rise: -0.02, twist: 0.75, order2: [4, 56], order3: [0, 0],
+    droop: 0.06, clump: 0.24, clumpMin: 0.34, density: 1.20, gaps: 0.30, leaf: 'maple', bark: 'blocky',
+    farBins: [4, 2],
+  },
+  // Gray dogwood: many upright grey stems in a dense colony, a rounded top of
+  // opposite, entire leaves.
+  cornus_racemosa: {
+    crown: 'round', crownBase: 0.10, fork: 'decurrent', stems: [8, 13], scaffolds: [0, 0],
+    stemSplay: 12, limbAngle: 14, rise: 0.04, twist: 0.25, order2: [3, 38], order3: [0, 0],
+    droop: 0.06, clump: 0.24, clumpMin: 0.32, density: 1.30, gaps: 0.16, leaf: 'heart', bark: 'smooth',
     farBins: [4, 2],
   },
   populus_nigra_italica: {
@@ -444,7 +483,7 @@ function growSkeleton(spec, arch, rnd) {
   const nStems = arch.stems[0] + Math.floor(rnd() * (arch.stems[1] - arch.stems[0] + 1));
   const r0 = dbh / 2;
   const scaffolds = [];
-  const stemAngle = nStems > 1 ? 10 + (spec.lean ?? 0) * 40 : 0;
+  const stemAngle = nStems > 1 ? (arch.stemSplay ?? 10) + (spec.lean ?? 0) * 40 : 0;
   for (let s = 0; s < nStems; s++) {
     const az = leanA + (s / nStems) * Math.PI * 2 + (rnd() - 0.5) * 0.8;
     const dir0 = nStems > 1 ? deflect([0, 1, 0], (stemAngle + rnd() * 10) * Math.PI / 180, az)
