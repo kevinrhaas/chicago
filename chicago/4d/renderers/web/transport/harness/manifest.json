@@ -1,0 +1,242 @@
+{
+  "asset_id": "light_breastcollar_harness_reconstructed_01",
+  "version": "fixture_0.1",
+  "frame": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "left": "+X",
+    "origin": "horse fixture ground root"
+  },
+  "license": "CC0-1.0",
+  "grade": "reconstructed",
+  "source": {
+    "source_id": "john_moore_harness_catalog_1891",
+    "verification": "OCR-read; original page and plate verification outstanding",
+    "title": "John Moore Fine harness saddlery & horse clothing",
+    "year": 1891,
+    "url": "https://archive.org/stream/fineharnesssaddl1891john/fineharnesssaddl1891john_djvu.txt",
+    "locator": "printed p1 Buggy Harness No1",
+    "rights_basis": "Reasoned US public domain: published New York 1891; IA metadata contains no explicit rights statement. Construction text read; plates not read or traced."
+  },
+  "bindings": [
+    {
+      "harness_node": "root",
+      "horse_node": "root",
+      "operation": "copy actor root world transform",
+      "status": "proposed_not_runtime_bound"
+    },
+    {
+      "harness_node": "harness_head",
+      "horse_node": "head",
+      "operation": "copy current head world transform after actor animation; harness geometry is authored head-local",
+      "status": "proposed_not_runtime_bound"
+    }
+  ],
+  "anchors": {
+    "socket_harness_trace_l": {
+      "translation_m": [
+        0.31,
+        1.17,
+        0.2
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": "socket_equine_trace_l"
+    },
+    "socket_harness_trace_end_l": {
+      "translation_m": [
+        0.39,
+        1.04,
+        -2.25
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": null
+    },
+    "socket_harness_breeching_l": {
+      "translation_m": [
+        0.28,
+        1.1,
+        -0.7
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": "socket_equine_breeching_l"
+    },
+    "socket_harness_shaft_l": {
+      "translation_m": [
+        0.36,
+        1.0,
+        0.05
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": "socket_equine_shaft_l"
+    },
+    "socket_harness_rein_hand_l": {
+      "translation_m": [
+        0.13,
+        1.55,
+        -2.3
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": null
+    },
+    "socket_harness_bit_l": {
+      "translation_m": [
+        0.095,
+        -0.2,
+        0.39
+      ],
+      "parent": "harness_head",
+      "horse_socket": "socket_equine_bit_l",
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "socket_harness_trace_r": {
+      "translation_m": [
+        -0.31,
+        1.17,
+        0.2
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": "socket_equine_trace_r"
+    },
+    "socket_harness_trace_end_r": {
+      "translation_m": [
+        -0.39,
+        1.04,
+        -2.25
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": null
+    },
+    "socket_harness_breeching_r": {
+      "translation_m": [
+        -0.28,
+        1.1,
+        -0.7
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": "socket_equine_breeching_r"
+    },
+    "socket_harness_shaft_r": {
+      "translation_m": [
+        -0.36,
+        1.0,
+        0.05
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": "socket_equine_shaft_r"
+    },
+    "socket_harness_rein_hand_r": {
+      "translation_m": [
+        -0.13,
+        1.55,
+        -2.3
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "horse_socket": null
+    },
+    "socket_harness_bit_r": {
+      "translation_m": [
+        -0.095,
+        -0.2,
+        0.39
+      ],
+      "parent": "harness_head",
+      "horse_socket": "socket_equine_bit_r",
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "head_relative_components": [
+    "cheekpiece_l",
+    "cheekpiece_r",
+    "bit_ring_l",
+    "bit_ring_r",
+    "crownpiece",
+    "browband",
+    "noseband",
+    "bit_bar"
+  ],
+  "dynamic_components_unbound": [
+    "rein_l",
+    "rein_r",
+    "round_check_rein_l",
+    "round_check_rein_r",
+    "trace_l",
+    "trace_r"
+  ],
+  "missing": [
+    "source plate verification",
+    "photographic comparison",
+    "correct fitted clearances",
+    "rein and trace tension",
+    "breeching force behavior",
+    "bits/bridle pressure suitability",
+    "riding tack",
+    "collar and hames variants",
+    "LOD derivatives",
+    "Blender authored master",
+    "sourced buckle and mouthpiece shapes"
+  ],
+  "triangles": 5188,
+  "mesh_count": 32,
+  "glb_bytes": 396960
+}

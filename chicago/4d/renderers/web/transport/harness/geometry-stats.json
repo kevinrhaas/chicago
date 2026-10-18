@@ -1,0 +1,130 @@
+{
+  "breastcollar": {
+    "triangles": 68,
+    "material": "tack_leather"
+  },
+  "girth": {
+    "triangles": 292,
+    "material": "tack_leather"
+  },
+  "harness_saddle_pad": {
+    "triangles": 180,
+    "material": "tack_leather"
+  },
+  "breeching": {
+    "triangles": 68,
+    "material": "tack_leather"
+  },
+  "hip_support_l": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "longitudinal_support_l": {
+    "triangles": 20,
+    "material": "tack_leather"
+  },
+  "breastcollar_support_l": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "trace_l": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "trace_end_l": {
+    "triangles": 576,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "rein_terret_l": {
+    "triangles": 576,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "cheekpiece_l": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "bit_ring_l": {
+    "triangles": 576,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "rein_l": {
+    "triangles": 36,
+    "material": "tack_leather"
+  },
+  "round_check_rein_l": {
+    "triangles": 48,
+    "material": "tack_leather"
+  },
+  "girth_billet_l": {
+    "triangles": 20,
+    "material": "tack_leather"
+  },
+  "girth_buckle_l": {
+    "triangles": 64,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "hip_support_r": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "longitudinal_support_r": {
+    "triangles": 20,
+    "material": "tack_leather"
+  },
+  "breastcollar_support_r": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "trace_r": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "trace_end_r": {
+    "triangles": 576,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "rein_terret_r": {
+    "triangles": 576,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "cheekpiece_r": {
+    "triangles": 28,
+    "material": "tack_leather"
+  },
+  "bit_ring_r": {
+    "triangles": 576,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "rein_r": {
+    "triangles": 36,
+    "material": "tack_leather"
+  },
+  "round_check_rein_r": {
+    "triangles": 48,
+    "material": "tack_leather"
+  },
+  "girth_billet_r": {
+    "triangles": 20,
+    "material": "tack_leather"
+  },
+  "girth_buckle_r": {
+    "triangles": 64,
+    "material": "tack_metal_nickel_reconstructed"
+  },
+  "crownpiece": {
+    "triangles": 164,
+    "material": "tack_leather"
+  },
+  "browband": {
+    "triangles": 36,
+    "material": "tack_leather"
+  },
+  "noseband": {
+    "triangles": 292,
+    "material": "tack_leather"
+  },
+  "bit_bar": {
+    "triangles": 32,
+    "material": "tack_metal_nickel_reconstructed"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "exported GLBs coupled in browser; geometric study, not force or full collision certification",
+  "browser": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "page_errors": [],
+      "sample_count": 21,
+      "maximum_strap_geometry_endpoint_error_m": 1.7965767323865506e-07,
+      "maximum_head_binding_error_m": 8.95090418262362e-16,
+      "min_contact_y_m": -9.554711944174954e-05,
+      "max_contact_y_m": 0.1397468958882621,
+      "min_shaft_torso_lateral_envelope_clearance_m": 0.05883704909609705,
+      "min_horse_body_longitudinal_gap_m": 0.7852118507187409,
+      "max_shaft_attachment_endpoint_gap_m": 0.04504193964357897
+    },
+    {
+      "viewport": [
+        390,
+        780
+      ],
+      "page_errors": [],
+      "sample_count": 21,
+      "maximum_strap_geometry_endpoint_error_m": 1.7965767323865506e-07,
+      "maximum_head_binding_error_m": 8.95090418262362e-16,
+      "min_contact_y_m": -9.554711944174954e-05,
+      "max_contact_y_m": 0.1397468958882621,
+      "min_shaft_torso_lateral_envelope_clearance_m": 0.05883704909609705,
+      "min_horse_body_longitudinal_gap_m": 0.7852118507187409,
+      "max_shaft_attachment_endpoint_gap_m": 0.04504193964357897
+    }
+  ],
+  "raw_samples": {
+    "file": "samples.json.gz",
+    "sha256": "470f5dd71a7d936c5290ecc467f3abb9b6e9bcc63fe2224da26a193f96b750cb",
+    "format": "gzip JSON array: one 21-state sample list per viewport"
+  }
+}

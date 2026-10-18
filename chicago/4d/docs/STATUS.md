@@ -23978,3 +23978,8 @@ T-2228 entrance follow-up: the current master preserves the recessed doorway whi
 
 
 T-2228 published entrance validation: three Full desktop and three Light mobile views pass existing scene budgets and were directly reviewed. Thirteen ground contacts per viewport verify the single inset threshold and clear approach. No page/asset errors; all 124 held mobile image tiles load with credits, and doorway23A’s full archive credit and the entrance liberty are reviewed. Current asset and remaining photographic differences are in docs/RESEARCH/glessner-entry-2228/. Latest dev integration preserves all 890 other root asset entries. Fresh full preflight and exact-commit CI govern the pending dev merge; T-2228 remains open.
+
+
+## Period transport studies — T-2793 / T-2794 / T-2800 (2026-10-18)
+
+Original wagon, open-carriage and horse GLBs are now inspectable in the development transport collection, with data-driven regeneration and separately articulated wheels/gear or horse limb clips. This is the first visible engineering checkpoint; photographic fidelity, continuous skinned anatomy, period gear, LOD qualification, town traffic and riding remain open. The existing scene wagons and human policy are unchanged. See [recovery instructions and current limitations](RESEARCH/period-transport-2026-10-18/README.md). Research and claims remain authoritative in chicago-tickets bands 8D/8E.

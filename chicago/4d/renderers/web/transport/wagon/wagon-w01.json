@@ -1,0 +1,48 @@
+{
+  "asset_id": "wagon_w01_prototype",
+  "status": "engineering prototype; not photographically matched",
+  "units": "m",
+  "forward_axis": "+Z",
+  "up_axis": "+Y",
+  "parameters": {
+    "body_m": [
+      3.05,
+      1.07,
+      0.55
+    ],
+    "bed_top_m": 0.95,
+    "wheel_diameter_front_m": 1.07,
+    "wheel_diameter_rear_m": 1.37,
+    "axle_stations_z_m": [
+      -1.175,
+      1.175
+    ],
+    "wheel_center_track_m": 1.21,
+    "tongue_length_m": 2.75,
+    "tier": "reconstructed",
+    "historical_match": false
+  },
+  "wheel_radius_m": {
+    "rear": 0.685,
+    "front": 0.535
+  },
+  "steering_limit_deg": 8,
+  "socket_policy": "empty proposed transforms, not attested installed hardware or seating",
+  "license": "GPL-3.0-or-later",
+  "liberties": [
+    "All geometry and colors reconstructed, original procedural surfaces; no reference-photo pixels or tracing",
+    "No brake, suspension, horse, harness, seated humans, historical load or named owner",
+    "Steering limited to \u00b18 degrees for this box clearance; not historical limit",
+    "Tongue resting pitch optional; no hitch or load physics",
+    "Floor, bolsters, hounds, reach and kingbolt are engineering visual approximations"
+  ],
+  "provenance": {
+    "basis": "Existing declared reconstruction: kevinrhaas/chicago chicago/4d/renderers/web/js/yard.js and data/yard/town_trade_goods.json; vehicle-master-spec.md 2026-10-18",
+    "source_ids": []
+  },
+  "statistics": {
+    "triangles": 9000,
+    "meshes": 22,
+    "nodes": 47
+  }
+}

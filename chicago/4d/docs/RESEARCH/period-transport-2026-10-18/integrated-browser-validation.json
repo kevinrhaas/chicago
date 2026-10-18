@@ -1,0 +1,140 @@
+{
+  "wagon-desktop": {
+    "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
+    "render": {
+      "drawCalls": 46,
+      "triangles": 18002,
+      "width": 1280,
+      "height": 800
+    },
+    "page_errors": [],
+    "failed_requests": []
+  },
+  "carriage-desktop": {
+    "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
+    "render": {
+      "drawCalls": 56,
+      "triangles": 19490,
+      "width": 1280,
+      "height": 800
+    },
+    "page_errors": [],
+    "failed_requests": []
+  },
+  "horse-desktop": {
+    "neutral_contacts": [
+      {
+        "name": "fore_l_contact",
+        "position": [
+          0.195,
+          -5.387515086829886e-9,
+          0.45499998453926155
+        ]
+      },
+      {
+        "name": "fore_r_contact",
+        "position": [
+          -0.195,
+          -5.387515086829886e-9,
+          0.45499998453926155
+        ]
+      },
+      {
+        "name": "hind_l_contact",
+        "position": [
+          0.195,
+          -5.754272378033498e-9,
+          -0.6049999841350661
+        ]
+      },
+      {
+        "name": "hind_r_contact",
+        "position": [
+          -0.195,
+          -5.754272378033498e-9,
+          -0.6049999841350661
+        ]
+      }
+    ],
+    "walk_samples": 1001,
+    "walk_compensated_stance_drift_m": 0.006427450311145888,
+    "max_stance_height_error_m": 0.0021939111386194143,
+    "page_errors": [],
+    "failed_requests": []
+  },
+  "harness-desktop": {
+    "loaded_meshes": 32,
+    "render_calls": 38,
+    "page_errors": [],
+    "failed_requests": []
+  },
+  "wagon-mobile": {
+    "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
+    "render": {
+      "drawCalls": 46,
+      "triangles": 18002,
+      "width": 390,
+      "height": 445
+    },
+    "page_errors": [],
+    "failed_requests": []
+  },
+  "carriage-mobile": {
+    "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
+    "render": {
+      "drawCalls": 56,
+      "triangles": 19490,
+      "width": 390,
+      "height": 445
+    },
+    "page_errors": [],
+    "failed_requests": []
+  },
+  "horse-mobile": {
+    "neutral_contacts": [
+      {
+        "name": "fore_l_contact",
+        "position": [
+          0.195,
+          -5.387515086829886e-9,
+          0.45499998453926155
+        ]
+      },
+      {
+        "name": "fore_r_contact",
+        "position": [
+          -0.195,
+          -5.387515086829886e-9,
+          0.45499998453926155
+        ]
+      },
+      {
+        "name": "hind_l_contact",
+        "position": [
+          0.195,
+          -5.754272378033498e-9,
+          -0.6049999841350661
+        ]
+      },
+      {
+        "name": "hind_r_contact",
+        "position": [
+          -0.195,
+          -5.754272378033498e-9,
+          -0.6049999841350661
+        ]
+      }
+    ],
+    "walk_samples": 1001,
+    "walk_compensated_stance_drift_m": 0.006427450311145888,
+    "max_stance_height_error_m": 0.0021939111386194143,
+    "page_errors": [],
+    "failed_requests": []
+  },
+  "harness-mobile": {
+    "loaded_meshes": 32,
+    "render_calls": 38,
+    "page_errors": [],
+    "failed_requests": []
+  }
+}

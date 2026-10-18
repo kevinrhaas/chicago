@@ -1,0 +1,980 @@
+{
+  "wagon": {
+    "uri": "wagon-w01.glb",
+    "mimeType": "model/gltf-binary",
+    "validatorVersion": "2.0.0-dev.3.10",
+    "validatedAt": "2026-10-18T19:02:30.070Z",
+    "issues": {
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 17,
+      "numHints": 0,
+      "messages": [
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/5"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/6"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/8"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/9"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/11"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/12"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/14"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/15"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/17"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/18"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/19"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/20"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/21"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/22"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/23"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/24"
+        },
+        {
+          "code": "UNUSED_OBJECT",
+          "message": "This object may be unused.",
+          "severity": 2,
+          "pointer": "/materials/5"
+        }
+      ],
+      "truncated": false
+    },
+    "info": {
+      "version": "2.0",
+      "generator": "Original W01 procedural Python generator",
+      "resources": [
+        {
+          "pointer": "/buffers/0",
+          "mimeType": "application/gltf-buffer",
+          "storage": "glb",
+          "byteLength": 648000
+        }
+      ],
+      "animationCount": 0,
+      "materialCount": 6,
+      "hasMorphTargets": false,
+      "hasSkins": false,
+      "hasTextures": false,
+      "hasDefaultScene": true,
+      "drawCallCount": 22,
+      "totalVertexCount": 27000,
+      "totalTriangleCount": 9000,
+      "maxUVs": 0,
+      "maxInfluences": 0,
+      "maxAttributes": 2
+    }
+  },
+  "carriage": {
+    "uri": "carriage-c01.glb",
+    "mimeType": "model/gltf-binary",
+    "validatorVersion": "2.0.0-dev.3.10",
+    "validatedAt": "2026-10-18T19:02:30.106Z",
+    "issues": {
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 13,
+      "numHints": 0,
+      "messages": [
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/4"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/6"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/8"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/10"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/12"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/14"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/15"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/16"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/17"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/18"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/19"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/20"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/21"
+        }
+      ],
+      "truncated": false
+    },
+    "info": {
+      "version": "2.0",
+      "generator": "Original C01 Python geometry",
+      "resources": [
+        {
+          "pointer": "/buffers/0",
+          "mimeType": "application/gltf-buffer",
+          "storage": "glb",
+          "byteLength": 701568
+        }
+      ],
+      "animationCount": 0,
+      "materialCount": 6,
+      "hasMorphTargets": false,
+      "hasSkins": false,
+      "hasTextures": false,
+      "hasDefaultScene": true,
+      "drawCallCount": 27,
+      "totalVertexCount": 29232,
+      "totalTriangleCount": 9744,
+      "maxUVs": 0,
+      "maxInfluences": 0,
+      "maxAttributes": 2
+    }
+  },
+  "horse": {
+    "uri": "equine_light_harness_skinned_prototype_01.glb",
+    "mimeType": "model/gltf-binary",
+    "validatorVersion": "2.0.0-dev.3.10",
+    "validatedAt": "2026-10-18T19:02:30.188Z",
+    "issues": {
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 42,
+      "numHints": 0,
+      "messages": [
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/1"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/3"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/4"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/5"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/6"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/7"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/8"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/9"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/10"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/11"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/12"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/13"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/14"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/16"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/18"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/20"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/22"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/23"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/24"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/27"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/29"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/31"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/32"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/33"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/36"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/38"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/40"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/41"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/42"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/45"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/47"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/49"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/50"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/51"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/63"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/64"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/65"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/66"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/67"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/68"
+        },
+        {
+          "code": "NODE_EMPTY",
+          "message": "Empty node encountered.",
+          "severity": 2,
+          "pointer": "/nodes/69"
+        },
+        {
+          "code": "UNUSED_OBJECT",
+          "message": "This object may be unused.",
+          "severity": 2,
+          "pointer": "/materials/5"
+        }
+      ],
+      "truncated": false
+    },
+    "info": {
+      "version": "2.0",
+      "generator": "original procedural equine skinned fixture",
+      "resources": [
+        {
+          "pointer": "/buffers/0",
+          "mimeType": "application/gltf-buffer",
+          "storage": "glb",
+          "byteLength": 557936
+        }
+      ],
+      "animationCount": 2,
+      "materialCount": 6,
+      "hasMorphTargets": false,
+      "hasSkins": true,
+      "hasTextures": false,
+      "hasDefaultScene": true,
+      "drawCallCount": 5,
+      "totalVertexCount": 7004,
+      "totalTriangleCount": 13872,
+      "maxUVs": 0,
+      "maxInfluences": 4,
+      "maxAttributes": 4
+    }
+  },
+  "harness": {
+    "uri": "light_breastcollar_harness_reconstructed_01.glb",
+    "mimeType": "model/gltf-binary",
+    "validatorVersion": "2.0.0-dev.3.10",
+    "validatedAt": "2026-10-18T19:02:30.251Z",
+    "issues": {
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 1,
+      "numHints": 64,
+      "messages": [
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/0/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/0/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/1/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/1/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/2/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/2/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/3/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/3/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/4/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/4/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/5/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/5/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/6/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/6/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/7/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/7/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/8/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/8/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/9/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/9/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/10/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/10/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/11/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/11/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/12/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/12/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/13/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/13/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/14/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/14/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/15/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/15/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/16/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/16/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/17/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/17/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/18/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/18/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/19/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/19/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/20/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/20/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/21/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/21/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/22/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/22/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/23/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/23/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/24/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/24/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/25/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/25/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/26/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/26/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/27/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/27/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/28/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/28/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/29/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/29/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/30/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/30/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/31/primitives/0/attributes/POSITION"
+        },
+        {
+          "code": "BUFFER_VIEW_TARGET_MISSING",
+          "message": "bufferView.target should be set for vertex or index data.",
+          "severity": 3,
+          "pointer": "/meshes/31/primitives/0/attributes/NORMAL"
+        },
+        {
+          "code": "UNUSED_OBJECT",
+          "message": "This object may be unused.",
+          "severity": 2,
+          "pointer": "/materials/2"
+        }
+      ],
+      "truncated": false
+    },
+    "info": {
+      "version": "2.0",
+      "generator": "original modular breastcollar harness fixture",
+      "resources": [
+        {
+          "pointer": "/buffers/0",
+          "mimeType": "application/gltf-buffer",
+          "storage": "glb",
+          "byteLength": 373536
+        }
+      ],
+      "animationCount": 0,
+      "materialCount": 3,
+      "hasMorphTargets": false,
+      "hasSkins": false,
+      "hasTextures": false,
+      "hasDefaultScene": true,
+      "drawCallCount": 32,
+      "totalVertexCount": 15564,
+      "totalTriangleCount": 5188,
+      "maxUVs": 0,
+      "maxInfluences": 0,
+      "maxAttributes": 2
+    }
+  }
+}

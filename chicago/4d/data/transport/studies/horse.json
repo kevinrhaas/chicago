@@ -1,0 +1,9 @@
+{
+  "asset_id": "equine_light_harness_reconstructed_01",
+  "status": "original conjectural fixture; dimensions are engineering choices",
+  "coat_linear_rgb": [0.25, 0.095, 0.038],
+  "limb_lateral_offset_m": 0.195,
+  "walk_cycle_duration_s": 1.25,
+  "stance_sweep_m": 0.72,
+  "hoof_lift_m": 0.14
+}

@@ -1,0 +1,339 @@
+{
+  "asset_id": "equine_light_harness_skinned_prototype_01",
+  "license": "CC0-1.0",
+  "bytes": 580876,
+  "triangles": 13872,
+  "mesh_draws": 5,
+  "skin_joints": 15,
+  "joint_table": [
+    {
+      "index": 0,
+      "node": 0,
+      "name": "root",
+      "parent_joint": null,
+      "world_rest_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 1,
+      "node": 2,
+      "name": "head",
+      "parent_joint": "root",
+      "world_rest_m": [
+        0.0,
+        1.88,
+        0.8
+      ]
+    },
+    {
+      "index": 2,
+      "node": 15,
+      "name": "tail_base",
+      "parent_joint": "root",
+      "world_rest_m": [
+        0.0,
+        1.38,
+        -0.88
+      ]
+    },
+    {
+      "index": 3,
+      "node": 17,
+      "name": "fore_l_upper",
+      "parent_joint": "root",
+      "world_rest_m": [
+        0.195,
+        1.24,
+        0.43
+      ]
+    },
+    {
+      "index": 4,
+      "node": 19,
+      "name": "fore_l_carpus",
+      "parent_joint": "fore_l_upper",
+      "world_rest_m": [
+        0.195,
+        0.6173684210526317,
+        0.6166277495377014
+      ]
+    },
+    {
+      "index": 5,
+      "node": 21,
+      "name": "fore_l_fetlock",
+      "parent_joint": "fore_l_carpus",
+      "world_rest_m": [
+        0.195,
+        0.10000000000000009,
+        0.43
+      ]
+    },
+    {
+      "index": 6,
+      "node": 26,
+      "name": "fore_r_upper",
+      "parent_joint": "root",
+      "world_rest_m": [
+        -0.195,
+        1.24,
+        0.43
+      ]
+    },
+    {
+      "index": 7,
+      "node": 28,
+      "name": "fore_r_carpus",
+      "parent_joint": "fore_r_upper",
+      "world_rest_m": [
+        -0.195,
+        0.6173684210526317,
+        0.6166277495377014
+      ]
+    },
+    {
+      "index": 8,
+      "node": 30,
+      "name": "fore_r_fetlock",
+      "parent_joint": "fore_r_carpus",
+      "world_rest_m": [
+        -0.195,
+        0.10000000000000009,
+        0.43
+      ]
+    },
+    {
+      "index": 9,
+      "node": 35,
+      "name": "hind_l_upper",
+      "parent_joint": "root",
+      "world_rest_m": [
+        0.195,
+        1.24,
+        -0.63
+      ]
+    },
+    {
+      "index": 10,
+      "node": 37,
+      "name": "hind_l_hock",
+      "parent_joint": "hind_l_upper",
+      "world_rest_m": [
+        0.195,
+        0.6173684210526317,
+        -0.8166277495377015
+      ]
+    },
+    {
+      "index": 11,
+      "node": 39,
+      "name": "hind_l_fetlock",
+      "parent_joint": "hind_l_hock",
+      "world_rest_m": [
+        0.195,
+        0.10000000000000009,
+        -0.6300000000000001
+      ]
+    },
+    {
+      "index": 12,
+      "node": 44,
+      "name": "hind_r_upper",
+      "parent_joint": "root",
+      "world_rest_m": [
+        -0.195,
+        1.24,
+        -0.63
+      ]
+    },
+    {
+      "index": 13,
+      "node": 46,
+      "name": "hind_r_hock",
+      "parent_joint": "hind_r_upper",
+      "world_rest_m": [
+        -0.195,
+        0.6173684210526317,
+        -0.8166277495377015
+      ]
+    },
+    {
+      "index": 14,
+      "node": 48,
+      "name": "hind_r_fetlock",
+      "parent_joint": "hind_r_hock",
+      "world_rest_m": [
+        -0.195,
+        0.10000000000000009,
+        -0.6300000000000001
+      ]
+    }
+  ],
+  "vertex_ranges": [
+    {
+      "original_node": "continuous_body_neck",
+      "material": 0,
+      "vertex_start": 0,
+      "vertex_count": 242,
+      "joint": "root"
+    },
+    {
+      "original_node": "muzzle",
+      "material": 4,
+      "vertex_start": 0,
+      "vertex_count": 410,
+      "joint": "head"
+    },
+    {
+      "original_node": "mane",
+      "material": 1,
+      "vertex_start": 0,
+      "vertex_count": 98,
+      "joint": "root"
+    },
+    {
+      "original_node": "tail",
+      "material": 1,
+      "vertex_start": 98,
+      "vertex_count": 122,
+      "joint": "tail_base"
+    },
+    {
+      "original_node": "fore_l_upper_mesh",
+      "material": 0,
+      "vertex_start": 242,
+      "vertex_count": 98,
+      "joint": "fore_l_upper"
+    },
+    {
+      "original_node": "fore_l_cannon",
+      "material": 0,
+      "vertex_start": 340,
+      "vertex_count": 98,
+      "joint": "fore_l_carpus"
+    },
+    {
+      "original_node": "fore_l_hoof",
+      "material": 2,
+      "vertex_start": 0,
+      "vertex_count": 50,
+      "joint": "fore_l_fetlock"
+    },
+    {
+      "original_node": "fore_r_upper_mesh",
+      "material": 0,
+      "vertex_start": 438,
+      "vertex_count": 98,
+      "joint": "fore_r_upper"
+    },
+    {
+      "original_node": "fore_r_cannon",
+      "material": 0,
+      "vertex_start": 536,
+      "vertex_count": 98,
+      "joint": "fore_r_carpus"
+    },
+    {
+      "original_node": "fore_r_hoof",
+      "material": 2,
+      "vertex_start": 50,
+      "vertex_count": 50,
+      "joint": "fore_r_fetlock"
+    },
+    {
+      "original_node": "hind_l_upper_mesh",
+      "material": 0,
+      "vertex_start": 634,
+      "vertex_count": 98,
+      "joint": "hind_l_upper"
+    },
+    {
+      "original_node": "hind_l_cannon",
+      "material": 0,
+      "vertex_start": 732,
+      "vertex_count": 98,
+      "joint": "hind_l_hock"
+    },
+    {
+      "original_node": "hind_l_hoof",
+      "material": 2,
+      "vertex_start": 100,
+      "vertex_count": 50,
+      "joint": "hind_l_fetlock"
+    },
+    {
+      "original_node": "hind_r_upper_mesh",
+      "material": 0,
+      "vertex_start": 830,
+      "vertex_count": 98,
+      "joint": "hind_r_upper"
+    },
+    {
+      "original_node": "hind_r_cannon",
+      "material": 0,
+      "vertex_start": 928,
+      "vertex_count": 98,
+      "joint": "hind_r_hock"
+    },
+    {
+      "original_node": "hind_r_hoof",
+      "material": 2,
+      "vertex_start": 150,
+      "vertex_count": 50,
+      "joint": "hind_r_fetlock"
+    },
+    {
+      "original_node": "head_material_equine_coat",
+      "material": 0,
+      "vertex_start": 1026,
+      "vertex_count": 1476,
+      "joint": "head"
+    },
+    {
+      "original_node": "head_material_equine_eyes",
+      "material": 3,
+      "vertex_start": 0,
+      "vertex_count": 820,
+      "joint": "head"
+    },
+    {
+      "original_node": "head_material_equine_mane_tail",
+      "material": 1,
+      "vertex_start": 220,
+      "vertex_count": 820,
+      "joint": "head"
+    },
+    {
+      "original_node": "fore_l_fetlock_material_equine_coat",
+      "material": 0,
+      "vertex_start": 2502,
+      "vertex_count": 508,
+      "joint": "fore_l_fetlock"
+    },
+    {
+      "original_node": "fore_r_fetlock_material_equine_coat",
+      "material": 0,
+      "vertex_start": 3010,
+      "vertex_count": 508,
+      "joint": "fore_r_fetlock"
+    },
+    {
+      "original_node": "hind_l_fetlock_material_equine_coat",
+      "material": 0,
+      "vertex_start": 3518,
+      "vertex_count": 508,
+      "joint": "hind_l_fetlock"
+    },
+    {
+      "original_node": "hind_r_fetlock_material_equine_coat",
+      "material": 0,
+      "vertex_start": 4026,
+      "vertex_count": 508,
+      "joint": "hind_r_fetlock"
+    }
+  ],
+  "status": "prototype smooth-weighted skin; anatomical topology/rig/photographic acceptance outstanding"
+}

@@ -28977,3 +28977,10 @@ third rights-cleared photograph whose camera can be solved on two faces of the s
 **Applies to:** `data/structures/glessner_house.json` (`ridge_west_wing`, `turret_stable`); see
 `data/comparisons/glessner/stable-roof-heights.json` (`tools/glessner_stable_roof_read.py`).
 **Recorded:** 2026-10-18 (T-2758).
+
+
+## T-2793 / T-2794 / T-2800 — original transport studies (2026-10-18)
+
+The isolated development collection uses reconstructed 1835 wagon dimensions retained from town_trade_goods.json, independent open-carriage furniture and running gear, and an original generic light-harness horse. No maker, owner, breed, individual horse or original paint/coat color is attested. Furniture, materials, harness sockets and the horse's provisional skinned idle/walk are engineering inventions. Steering limits are provisional, not historical or collision-certified. These studies are not placed in historic scenes and do not authorize later gear in earlier dates. Source-pending photographs were text-cited during research, not traced, textured or measured into these assets.
+
+The coupled study raises C01 shafts by a reconstructed runtime pitch to the horse fixture datum and uses geometric slack curves rather than simulated rein/trace forces. Proposed empty driver-hand targets are not seated people. A remaining shaft-loop fit gap is recorded, not hidden by scaling the horse.

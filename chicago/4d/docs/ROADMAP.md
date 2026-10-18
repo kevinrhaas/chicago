@@ -5509,3 +5509,8 @@ T-2228 window-location clarification: the owner explicitly requested historical 
 T-2228 (2026-10-16): final roof/window correction assets reviewed at eleven canonical cameras plus owner overhead; all remain differs. Southern upper west slit moved two feet north from the ca. 1887 Cornell northwest photo, other seven retained. Straight ridge and seated northeast copper return verified. Correction PR needs green integration; final photographic signoff stays open.
 
 T-2228 follow-up2026-10-16: owner front-entry section/threshold/header/carving pass remains active; fixed-camera validation and green dev merge required.
+
+
+## Period transport studies — T-2793 / T-2794 / T-2800 (2026-10-18)
+
+Original wagon, open-carriage and horse GLBs are now inspectable in the development transport collection, with data-driven regeneration and separately articulated wheels/gear or horse limb clips. This is the first visible engineering checkpoint; photographic fidelity, continuous skinned anatomy, period gear, LOD qualification, town traffic and riding remain open. The existing scene wagons and human policy are unchanged. See [recovery instructions and current limitations](RESEARCH/period-transport-2026-10-18/README.md). Research and claims remain authoritative in chicago-tickets bands 8D/8E.

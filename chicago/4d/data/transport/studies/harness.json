@@ -1,0 +1,17 @@
+{
+  "asset_id": "light_breastcollar_harness_reconstructed_01",
+  "units": "metres",
+  "trace_width_m": 0.0254,
+  "strap_width_m": 0.026,
+  "strap_thickness_m": 0.004,
+  "bridle_width_m": 0.018,
+  "rein_width_m": 0.014,
+  "rein_thickness_m": 0.003,
+  "check_rein_radius_m": 0.003,
+  "trace_tail_z_m": -2.25,
+  "driver_hands_m": [[0.13, 1.55, -2.30], [-0.13, 1.55, -2.30]],
+  "head_origin_m": [0, 1.88, 0.80],
+  "leather_linear_rgb": [0.025, 0.016, 0.010],
+  "metal_linear_rgb": [0.60, 0.59, 0.55],
+  "source_rule": "Only trace width is text-attested to Moore 1891 No1; every other dimension/route is reconstructed fixture geometry."
+}
