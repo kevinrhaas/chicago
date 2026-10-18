@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2011, ts: '2026-10-18T18:36:06.631Z', date: 'Oct 18, 2026, 1:36 PM CT', title: 'Inspect\'s Sources tab sorts every fact by how sure we are', kind: 'feature',
+    items: [
+      'Sources opens with a count, like Glessner House\'s 99 facts: 50 Attested, 14 Inferred, 35 Reconstructed.',
+      'Each fact sits under its grade. Tap one to see why we think so and which sources it rests on.',
+      'Sources are named by their titles and say what kind they are: from the time, first-hand, or a historian\'s account. The full citation folds away underneath.',
+      'Liberties is its own section, listing by name every choice we made without a source.',
+      'The Overview\'s Confidence meter counts the same facts, so the two always agree.',
+    ] },
   { v: 2010, ts: '2026-10-18T18:09:21.344Z', date: 'Oct 18, 2026, 1:09 PM CT', title: '1625 Prairie\'s entrance bay stands forward, as its photograph shows', kind: 'improvement',
     items: [
       'The south part of McBirney\'s house at 1625 Prairie now stands a little forward of the rest, its corners edged in smooth quoin stones and capped by a hood moulding over the wide window.',
