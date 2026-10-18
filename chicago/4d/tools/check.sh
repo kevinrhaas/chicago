@@ -3465,6 +3465,12 @@ step "Source-use backlinks match authored claims (T-1248)" \
 step "Glessner street and stable opening schedule matches its record (T-2211)" \
   python3 tools/glessner_opening_schedule.py --check
 
+# The stable-roof reading re-solves two committed cameras and reads the roof
+# through them, so a camera, pick or record height that moves without the report
+# being re-written and re-read is caught here (T-2758).
+step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
+  python3 tools/glessner_stable_roof_read.py --check
+
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 

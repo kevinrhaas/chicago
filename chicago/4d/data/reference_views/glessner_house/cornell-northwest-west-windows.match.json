@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "7718950f84e7f42e89b4c580a2ab2539c89f53eae0e12d3bd31c05872e367024",
+  "glb_sha256": "6430eff3b9d9f0d5279df0fa3a83196e7e2514e75f8fd1ccb21cd3b7bc13899d",
   "camera_sha256": "0594fb5e78cce8ce5dddef6754b10f2d8b1fffd0868e596be904ffb32bf04fb1",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
   "verdict": "differs",
@@ -12,8 +12,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2228 cupola body: raised so its body shows above the ridge; the cupola apex now stands about 23 px over the west gable apex (was 10 px under). The photograph shows about 80 px, which would put the apex up to about 3 ft higher still; this camera was solved on the west windows and is about 50 px off at the roof, so HABS photograph 1 sets the height and this disagreement stays open.",
-      "status": "open"
+      "what": "T-2228 cupola body: raised so its body shows above the ridge; the cupola apex now stands about 23 px over the west gable apex (was 10 px under). The photograph shows about 80 px, which would put the apex up to about 3 ft higher still; this camera was solved on the west windows and is about 50 px off at the roof, so HABS photograph 1 sets the height and this disagreement stays open. T-2758: it was this camera. Its west-wall homography stands on two reconstructed eave heights and sees one plane, so it reads the north gable's coping apex at 42.3 ft and the cupola's apex at 51.2 ft (model 39.6 and 47.0). Re-solved at the roof on measured controls only (both corners at grade and up their arrises, the carriage doorway's east jamb and its 12.6 ft soffit, the loft opening's sheet-3 jambs; 3.7 px RMS pitched, 4.8 px level), it reads the coping apex at 38.3-39.5 ft and the cupola apex at 46.5-47.8 ft, agreeing with HABS photograph 1's doorway re-solve, and puts the cupola's centre at S13.0-13.2. The same fits leave the west windows where this camera reads them (the upper south slit at S19.8 pitched, S18.7 level), so this camera stays for the west wall. The re-solved camera is in data/comparisons/glessner/stable-roof-heights.json.",
+      "status": "fixed"
     },
     {
       "what": "West/north gable, cupola, portal, framing and surface/lighting residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry.",
