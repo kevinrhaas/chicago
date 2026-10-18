@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3½B brick dwelling (D), the south unit of the group'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md). T-2730 (piece 3 of T-2435) replaces the dormer with the photograph's coped wall gable — K01's shaped-gable slab with a straight outline in the front's stone, its three segment-headed lights and its oval light — raises the south wall's eave to the knee wall at 13.0 m, and stands the tall stack on the north party wall beside the gable; what that needed and did not read is L-k01-1625-mcbirney-wall-gable-2730.",
+  "research_note": "T-2432 (piece 1 of T-1869) refines the district draft (T-2335) in place under the same id from the house's one photograph, the Inland Architect plate of January 1890, 'Residence for Hugh J. McBirney' by Burling & Whitehouse (inland_architect_1890_01_mcbirney_residence), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (7.6 m, where the draft's fit had stopped at 6.75 m): a K02 rock-faced brownstone street front on K03 brick sides and rear, three storeys with the ground floor near grade, the north part two windows wide and the entrance at the south end of the front under one window a storey, as the photograph composes it; a slated K04/K05 hip with a pedimented dormer on the front marking where the photograph's steep wall gable stands. What the photograph shows and K01 cannot yet build — the full-width wall gable with its three lights and oculus, the mullioned and transomed lights, the frontispiece and its carved panel, the four-storey rear section stepping out to the south — is listed open in its match record (data/reference_views/house_1625_prairie/inland_architect_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1625-mcbirney-tudor-2432 (docs/RESEARCH/k01-1625-mcbirney-2432/README.md). T-2730 (piece 3 of T-2435) replaces the dormer with the photograph's coped wall gable — K01's shaped-gable slab with a straight outline in the front's stone, its three segment-headed lights and its oval light — raises the south wall's eave to the knee wall at 13.0 m, and stands the tall stack on the north party wall beside the gable; what that needed and did not read is L-k01-1625-mcbirney-wall-gable-2730. T-2752 (piece 1 of T-2731) reads the street windows off the photograph one by one (street_front_windows): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's segment-headed sash off the columns below and the frontispiece's two narrow lights, on a plain plinth with no basement light (L-k01-1625-mcbirney-street-windows-2752).",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -276,16 +276,91 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "Storey by storey, the photograph's north-part windows through its camera: ground-floor lights 1.1-2.7 m over grade, first-floor 4.15-6.4 m, second-floor 7.8-10.1 m; their widths are the K01 contract's single sash (0.75-1.15 m), where the photograph's lower windows are two lights under a transom about 0.95 m across over all."
+          "note": "Storey by storey, the photograph's north-part windows through its camera: ground-floor lights 1.1-2.7 m over grade, first-floor 4.15-6.4 m, second-floor 7.8-10.1 m. Since T-2752 the street front's windows are street_front_windows'; these rows size the side, rear and north walls' sash, at the contract's single sash widths (0.75-1.15 m)."
         },
-        "basement_lights": {
+        "street_front_windows": {
           "value": {
-            "sill_m": 0.1,
-            "width_m": 0.75,
-            "height_m": 0.4
+            "windows": [
+              {
+                "component": "k01.opening.street_casement_pair",
+                "storey": 0,
+                "s_m": 0.94,
+                "width_m": 1.04,
+                "sill_m": 1.19,
+                "height_m": 1.4
+              },
+              {
+                "component": "k01.opening.street_casement_pair",
+                "storey": 0,
+                "s_m": 2.88,
+                "width_m": 1.17,
+                "sill_m": 1.19,
+                "height_m": 1.4
+              },
+              {
+                "component": "k01.opening.street_casement_pair_transom",
+                "storey": 1,
+                "s_m": 0.96,
+                "width_m": 1.13,
+                "sill_m": 4.14,
+                "height_m": 2.26
+              },
+              {
+                "component": "k01.opening.street_casement_pair_transom",
+                "storey": 1,
+                "s_m": 2.87,
+                "width_m": 1.2,
+                "sill_m": 4.14,
+                "height_m": 2.26
+              },
+              {
+                "component": "k01.opening.street_casement_four_transom",
+                "storey": 1,
+                "s_m": 5.78,
+                "width_m": 2.18,
+                "sill_m": 4.25,
+                "height_m": 2.33
+              },
+              {
+                "component": "k01.opening.street_sash_segmental",
+                "storey": 2,
+                "s_m": 1.15,
+                "width_m": 0.94,
+                "sill_m": 7.74,
+                "height_m": 2.23
+              },
+              {
+                "component": "k01.opening.street_sash_segmental",
+                "storey": 2,
+                "s_m": 3.45,
+                "width_m": 1.02,
+                "sill_m": 7.87,
+                "height_m": 2.31
+              },
+              {
+                "component": "k01.opening.street_sash_narrow_segmental",
+                "storey": 2,
+                "s_m": 5.38,
+                "width_m": 0.62,
+                "sill_m": 8.84,
+                "height_m": 1.58
+              },
+              {
+                "component": "k01.opening.street_sash_narrow_segmental",
+                "storey": 2,
+                "s_m": 6.39,
+                "width_m": 0.62,
+                "sill_m": 8.84,
+                "height_m": 1.58
+              }
+            ],
+            "base_top_m": 0.48
           },
-          "confidence": "reconstructed",
-          "note": "Low basement lights under the ground-floor windows: the sheet prints a basement ('B'), and a K01 front without its own openings row carries area lights. The photograph shows a plain plinth there; T-2435 weighs it."
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1890_01_mcbirney_residence"
+          ],
+          "note": "T-2752: every street window read off the photograph through its camera (data/reference_views/house_1625_prairie/inland_architect_front.json: level and square to the front, 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px), each opening's stone edges and its sill and head on 4x crops of the print: s = (x - 140) / 38.6 m from the north party wall, height = (795 - y) / 38.6 m. Ground floor: two windows in the north part, each two tall casement lights on a stone mullion, 1.19-2.59 m, centred at 0.94 and 2.88 m, 1.04 and 1.17 m across (the print gives the south one of each pair a little wider, at both storeys). First floor: the same two, each two lights on a mullion under a stone transom about a third down, 4.14-6.40 m; over the door the four-light window, mullioned and transomed alike, 2.18 m across at 5.78 m, 4.25-6.58 m (read at the front's plane: its frontispiece stands slightly proud, which T-2753 weighs). Second floor: two one-over-one sash under segmental heads, off the columns below, at 1.15 and 3.45 m, 0.94 and 1.02 m across, from 7.74 and 7.87 m to crowns at 9.97 and 10.18 m; and the frontispiece's two narrow segment-headed two-over-two lights at 5.38 and 6.39 m, 0.62 m across, 8.84-10.42 m. The glazing bars are the K06 kit's: the print shows the lower windows' lights in small panes but cannot say whether on lead or wood. Each edge is good to about a pixel, 0.03 m. The plinth: plain, with no basement light in it (the 1911 sheet's basement is lit elsewhere, or not at the front); its top is the K02 base's least, one 0.25 m course under the 0.23 m coping, 0.48 m, where the print's smooth plinth band stands about 0.26 m over the walk (y 785 px)."
         },
         "roof_covering": {
           "value": {
@@ -348,13 +423,14 @@
         "window_kit": {
           "value": {
             "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
-            "k01.opening.area_light": {
-              "variant": "k06.opening.area_light",
-              "well": false
-            }
+            "k01.opening.street_casement_pair": "k06.opening.casement_pair_mullioned",
+            "k01.opening.street_casement_pair_transom": "k06.opening.casement_pair_transom_mullioned",
+            "k01.opening.street_casement_four_transom": "k06.opening.casement_four_transom_mullioned",
+            "k01.opening.street_sash_segmental": "k06.opening.sash_1over1_segmental",
+            "k01.opening.street_sash_narrow_segmental": "k06.opening.sash_2over2_segmental"
           },
           "confidence": "reconstructed",
-          "note": "Every window from the K06 kit's two-over-two sash: the photograph's leaded, mullioned and transomed lights and its one-over-one segmental sash are kinds the K01 wall does not cut yet (T-2435)."
+          "note": "The street windows from the photograph's kinds (T-2752): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's one-over-one segmental sash and the frontispiece's narrow two-over-two segmental lights. The side, rear and north walls, which the photograph does not show or shows only in raking light, keep the K06 kit's two-over-two sash."
         },
         "entrance_kit": {
           "value": {

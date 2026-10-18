@@ -218,6 +218,7 @@ CONSUMED = frozenset({
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
+    "street_front_windows",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -226,6 +227,9 @@ STRIP_FABRICS = {"stone": "dress_stone", "painted_timber": "bay_strip_paint"}
 #: T-2410: the component a brick street front's round-headed window is cut as — K06's round
 #: sash in a round hole through the K03 wall, under the kit's own arch band as its hood
 ROUND_HOODED = "k01.opening.sash_round_hooded"
+#: T-2752: the street windows a stone front read off a photograph names one by one
+#: (`street_front_windows`), each a component the record's window_kit glazes
+STREET_WINDOW = "k01.opening.street_"
 
 #: T-2358: the one condition kit a record may name (K14, T-2324)
 CONDITION_KIT = "data/components/prairie_1904/k14_condition.json"
@@ -1575,6 +1579,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if entrance != "middle" or len(front_bays) != 3:
             raise ParamError("street_front_openings builds a three-bay front entered in its middle bay")
         door_s = front_bays[1]
+    # T-2752: a stone front whose windows its photograph puts off the bays' columns, each
+    # storey its own (1625's): every street window named with its centre, width, sill and head
+    sfw = val("street_front_windows") or {}
+    if sfw:
+        if not val("stone_front") or sfo or val("front_bays_by_storey") or val("street_front_round_heads"):
+            raise ParamError("street_front_windows names every window of a K02 stone front, and takes "
+                             "no street_front_openings, front_bays_by_storey or street_front_round_heads")
+        if not {"windows", "base_top_m"} >= set(sfw) >= {"windows", "base_top_m"} or not sfw["windows"]:
+            raise ParamError("street_front_windows takes windows: [{component, storey, s_m, width_m, sill_m, "
+                             "height_m}, ...] and base_top_m, the plain plinth's top where no area light sets it")
     # T-2410: a brick front's storeys whose street windows are round-headed under hoods
     rh = val("street_front_round_heads") or {}
     if rh:
@@ -1628,7 +1642,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         drop = 0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch))
         if k + 1 == stories and head + 0.30 > eave - drop - 0.25:
             raise ParamError("the top storey's lintels run into the soffit")
-        for s in (() if sfo else fbs.get(k, front_bays)):
+        for s in (() if sfo or sfw else fbs.get(k, front_bays)):
             if k == 0 and s == door_s:
                 continue
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
@@ -1640,17 +1654,49 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         for s in val("north_bays") or ():
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", float(s), round(sill, 4), w, h))
     openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4), 1.20, 2.70, False))
+    if sfw:
+        kit_ids = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+        door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + 2.70 + 0.30)
+        laid = []
+        for k, w in enumerate(sfw["windows"]):
+            if set(w) != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
+                raise ParamError(f"street_front_windows.windows[{k}] takes component, storey, s_m, width_m, sill_m and height_m")
+            comp, st = w["component"], int(w["storey"])
+            s, wd, sill, h = (float(w[x]) for x in ("s_m", "width_m", "sill_m", "height_m"))
+            entry = (val("window_kit") or {}).get(comp)
+            vid = entry if isinstance(entry, str) else (entry or {}).get("variant")
+            if not comp.startswith(STREET_WINDOW) or vid not in kit_ids:
+                raise ParamError(f"street_front_windows.windows[{k}]: {comp!r} is not a {STREET_WINDOW}* "
+                                 f"component the window_kit glazes")
+            if not 0 <= st < stories or not floors[st] < sill or sill + h + 0.30 > (
+                    floors[st + 1] if st + 1 < stories else eave - 0.25):
+                raise ParamError(f"street_front_windows.windows[{k}] does not stand in storey {st} under "
+                                 f"its flat arch's 0.30 m")
+            s0, s1 = s - wd / 2, s + wd / 2
+            if s0 < 0.30 or s1 > width - 0.30:
+                raise ParamError(f"street_front_windows.windows[{k}] runs within 0.30 m of the front's end")
+            if s0 < door[1] and s1 > door[0] and sill < door[2]:
+                raise ParamError(f"street_front_windows.windows[{k}] stands over the door below its head")
+            for j, (a0, a1, b0, b1) in enumerate(laid):
+                if s0 < a1 + 0.24 and s1 > a0 - 0.24 and sill < b1 + 0.30 and sill + h > b0 - 0.30:
+                    raise ParamError(f"street_front_windows.windows[{k}] meets windows[{j}] or its flat arch")
+            laid.append((s0, s1, sill, sill + h))
+            dh = kit_ids[vid]["operation"].startswith("double_hung")
+            openings.append(Opening(comp, "k01.wall.street_front", round(s, 4), round(sill, 4), wd, h, dh))
     # T-2366: a front that names its own openings names its basement lights among them
     bl = val("basement_lights") or {}
-    if bool(bl) == bool(sfo):
+    if sfw and bl:
+        # T-2752: a front that names its windows one by one names them all; 1625's plinth is plain
+        raise ParamError("street_front_windows names every street window; it takes no basement_lights")
+    if not sfw and bool(bl) == bool(sfo):
         raise ParamError("basement_lights names the area lights of a front without street_front_openings, "
                          "and only of one")
     bsill = float(bl.get("sill_m", 0.0))
-    for s in (() if sfo else front_bays):
+    for s in (() if sfo or sfw else front_bays):
         if s != door_s:
             openings.append(Opening("k01.opening.area_light", "k01.wall.street_front", s, bsill,
                                     float(bl["width_m"]), float(bl["height_m"]), False))
-    if not sfo and bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
+    if not sfo and not sfw and bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
         raise ParamError("the basement lights' lintels run into the principal storey's sills")
     arched_rows, arched_groups = [], []
     if sfo:
@@ -1757,7 +1803,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError(f"street_front_round_heads.key: {key['width_m']} x {key['height_m']} m, "
                                  f"{key['proud_m']} m proud, does not stand on the hood's crown (over its "
                                  f"{band['width_m']} m band and {band['proud_m']} m proud, inside 0.30 m and half the sash)")
-        elif v["head"] != "flat" and not (comp in arched_rows and val("stone_front")):
+        elif v["head"] != "flat" and not (comp in arched_rows and val("stone_front")) and not (
+                comp.startswith(STREET_WINDOW) and v["head"] == "segmental"):
+            # T-2752: the coursed stone front fills a named street window's segmental head
             raise ParamError(f"window_kit: {vid} has a {v['head']} head, and a K01 wall cuts "
                              f"a rectangular hole")
         if comp in arched_rows and v["head"] != "round":
@@ -2169,7 +2217,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if stone:
         # the rusticated base and its coping run up to the area lights' heads, so the
         # coping's top is the line the lights' flat arches spring from (T-2289)
-        top = bsill + float(bl["height_m"]) if bl else float((val("street_front_dress") or {}).get("base_top_m", 0.0))
+        top = bsill + float(bl["height_m"]) if bl else float((val("street_front_dress") or sfw or {}).get("base_top_m", 0.0))
         course = (top - stone["coping_height_m"]) / stone["base_courses"]
         _within(course, stone["course_m"], f"the rusticated base's course height ({stone['fabric']} "
                 f"course_height_m; base courses, coping and the area lights' heads must agree)")
