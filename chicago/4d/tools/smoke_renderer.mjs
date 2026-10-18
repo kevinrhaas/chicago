@@ -15774,6 +15774,85 @@ for (const [label, viewport, touch] of [
       && oneMore.pct > base.pct + 0.05 && (!touch || oldRow.pct > HUD_BUDGET_PCT),
       JSON.stringify({ footprints, plantedOne: oneMore.pct, plantedOldRow: oldRow.pct }), true);
     // <<< T-2628
+    // >>> T-2649 (§09, §10): the Confidence view's legend chip in the HUD. None at Normal; while
+    // the view is anything else, a chip under the year chip on a phone (beside it on a desktop,
+    // where the Navigator's rail stands under it) with a dot per grade in the colour that grade
+    // wears, a hidden grade's dot an empty ring, and its label in words; a tap opens the app.
+    // Then T-2628's footprint taken again with the legend showing: the legend is COUNTED (it
+    // is not one of the owner's exclusions), and its own share is reported beside the total.
+    const legendState = () => page.evaluate(() => {
+      const el = document.getElementById('conf-legend');
+      const yc = document.getElementById('year-badge').getBoundingClientRect();
+      const b = el?.getBoundingClientRect();
+      const shown = !!el && !el.hidden && getComputedStyle(el).display !== 'none' && b.width > 0 && b.height > 0;
+      const at = shown ? document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2) : null;
+      const box = (r) => ({ l: Math.round(r.left), t: Math.round(r.top), r: Math.round(r.right), b: Math.round(r.bottom) });
+      return { shown, label: el?.getAttribute('aria-label') ?? '', mark: el?.querySelector('.conf-legend-mark')?.textContent ?? '',
+        dots: [...(el?.querySelectorAll('[data-grade]') ?? [])].map((d) => ({ grade: d.dataset.grade, state: d.dataset.state ?? '', c: d.style.getPropertyValue('--c') })),
+        colours: Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, window.__chicago4d.confidence.grade(l).color])),
+        box: shown ? box(b) : null, chip: box(yc), reachable: !!at && (at === el || el.contains(at)),
+        share: shown ? +((b.width * b.height) / (innerWidth * innerHeight) * 100).toFixed(2) : 0 };
+    });
+    const legendPreset = async (id) => {
+      await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+      await page.waitForFunction(() => !!document.querySelector('#navigator .nav-preset'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+      await clickChrome(`#navigator .nav-preset[data-preset="${id}"]`);
+      await page.waitForTimeout(300);
+      await page.evaluate(() => { window.__chicago4d.navigator.dock(); document.activeElement?.blur?.(); });
+      // The Navigator docks on a .28 s transition whose clock moves only between frames.
+      await page.waitForFunction(() => window.__chicago4d.navigator.level === 0
+        && !document.getElementById('navigator').getAnimations?.().some((a) => a.playState === 'running'), null, { timeout: 30_000, polling: 150 }).catch(() => {});
+    };
+    const legendNormal = await legendState();
+    await legendPreset('bygrade');
+    const legendByGrade = await legendState();
+    await legendPreset('xray');
+    const legendXray = await legendState();
+    await legendPreset('attested');
+    const legendAttested = await legendState();
+    // Placed under the year chip on a phone, beside it on a desktop; never over it.
+    const legendPlaced = (st) => !!st.box && (touch
+      ? st.box.t >= st.chip.b && st.box.t - st.chip.b <= 12 && Math.abs(st.box.l - st.chip.l) <= 2
+      : st.box.l >= st.chip.r && st.box.l - st.chip.r <= 12 && st.box.t < st.chip.b && st.box.b > st.chip.t);
+    const dotsOf = (st) => st.dots.map((d) => d.state).join(',');
+    check(`${label}: the Confidence view's legend chip shows only while the view is not Normal, by the year chip (T-2649)`,
+      legendNormal.shown === false && legendByGrade.shown && legendXray.shown && legendAttested.shown
+        && [legendByGrade, legendXray, legendAttested].every((st) => legendPlaced(st) && st.reachable && st.mark === 'CONF'),
+      JSON.stringify({ normal: legendNormal.shown, byGrade: { box: legendByGrade.box, chip: legendByGrade.chip, reachable: legendByGrade.reachable },
+        xray: legendXray.reachable, attested: legendAttested.reachable }));
+    check(`${label}: the legend's dots wear each grade's colour and look, and its label says them in words (T-2649)`,
+      dotsOf(legendByGrade) === 'tint,tint,dither' && legendByGrade.dots.every((d) => d.c === legendByGrade.colours[d.grade])
+        && /^Confidence view on: Attested gold, Inferred silver, Reconstructed bronze\. Tap to open it\.$/.test(legendByGrade.label)
+        && dotsOf(legendXray) === 'tint,ghost,ghost'
+        && dotsOf(legendAttested) === 'plain,hidden,hidden' && /Inferred hidden, Reconstructed hidden/.test(legendAttested.label),
+      JSON.stringify({ byGrade: [dotsOf(legendByGrade), legendByGrade.label], xray: dotsOf(legendXray), attested: [dotsOf(legendAttested), legendAttested.label] }));
+    // Tap it, as a visitor does (hit-tested): the Navigator opens on the Confidence view.
+    await clickChrome('#conf-legend');
+    await page.waitForFunction(() => window.__chicago4d.navigator.app === 'confidence' && window.__chicago4d.navigator.level > 0,
+      null, { timeout: 30_000, polling: 150 }).catch(() => {});
+    const legendTap = await page.evaluate(() => ({ app: window.__chicago4d.navigator.app, level: window.__chicago4d.navigator.level,
+      presets: !!document.querySelector('#navigator .nav-preset') }));
+    check(`${label}: tapping the legend chip opens the Confidence view (T-2649)`,
+      legendTap.app === 'confidence' && legendTap.level > 0 && legendTap.presets, JSON.stringify(legendTap));
+    // The footprint with the legend on, as T-2628 measures it (and at 390x844 on the phone leg).
+    await legendPreset('bygrade');
+    await page.evaluate(() => { window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
+    const legendFoot = [{ ...(await hudFootprint()), legend: (await legendState()).share }];
+    if (touch) {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.waitForTimeout(600);
+      legendFoot.push({ ...(await hudFootprint()), legend: (await legendState()).share });
+      await page.setViewportSize(viewport);
+      await page.waitForTimeout(400);
+    }
+    check(`${label}: with the legend chip showing, the HUD still covers ${HUD_BUDGET_PCT} % of the screen or less (T-2649, T-2628)`,
+      legendFoot.every((f) => f.pct <= HUD_BUDGET_PCT && f.legend > 0),
+      JSON.stringify({ withLegend: legendFoot.map((f) => ({ viewport: f.viewport, pct: f.pct, legend: f.legend, streetReadout: f.streetReadout })),
+        without: footprints.map((f) => ({ viewport: f.viewport, pct: f.pct })) }), true);
+    // Give the town back as found: Normal, Home, docked.
+    await legendPreset('normal');
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('home'); n.dock(); document.activeElement?.blur?.(); });
+    // <<< T-2649
 
     // --- the Navigator (T-2617) ----------------------------------------------
     // In the town the device is docked (a 64 px sheet on a phone, the rail on a
@@ -16394,6 +16473,33 @@ for (const [label, viewport, touch] of [
     check(`${label}: a telemetry tick costs no measurable frame time (T-2623)`,
       strip.tickMs < 0.5, `${strip.tickMs.toFixed(3)} ms a tick`);
 
+    // >>> T-2649 (QA-11), before the reload below: hide Reconstructed and set Attested's opacity
+    // to 30 % in the Confidence view, as a visitor does — the row opened from its look, the
+    // slider dragged and let go, Reconstructed's Show switch off. The what's-new reload that
+    // follows is the reload QA-11 asks for; the checks are taken just after it.
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+    await page.waitForFunction(() => !!document.getElementById('cm-look-attested'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    if (await page.evaluate(() => document.getElementById('cm-controls-attested')?.hidden !== false)) {
+      await clickChrome('#cm-look-attested');
+      await page.waitForTimeout(300);
+    }
+    await page.evaluate(() => {
+      const s = document.getElementById('cm-opacity-attested');
+      s.value = '30';
+      s.dispatchEvent(new Event('input', { bubbles: true }));
+      s.dispatchEvent(new Event('change', { bubbles: true }));
+      document.getElementById('cm-reconstructed').click();
+    });
+    await page.waitForTimeout(300);
+    const qa11Before = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      let kept = null;
+      try { kept = JSON.parse(localStorage.getItem('chicago4d.confidence')); } catch { kept = null; }
+      return { on: a.confidenceView, hidden: a.hud.hiddenLevels, attested: Math.round(a.confidence.grade('attested').opacity * 100), kept };
+    });
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); document.activeElement?.blur?.(); });
+    // <<< T-2649
+
     // --- what's new ---------------------------------------------------------
     // The changelog is authored inside the app and mirrored out by publish.sh.
     // That import is the part worth guarding: it resolves differently in the
@@ -16408,6 +16514,36 @@ for (const [label, viewport, touch] of [
     await clickChrome('#home-roam');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
+    // >>> T-2649 (QA-11), after the reload: both choices came back — Reconstructed gone from
+    // the renderer, Attested tinted at 30 % with the colouring on — and the legend says so.
+    // (The same record carries to another year: part 15 takes it across a real Jump.)
+    const qa11After = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const u = a.confidence.uniforms.uHideLevel.value;
+      const el = document.getElementById('conf-legend');
+      await a.navigator.select('confidence');
+      for (let i = 0; i < 100 && !document.getElementById('cm-look-attested'); i++) await new Promise((r) => setTimeout(r, 100));
+      await new Promise((r) => setTimeout(r, 600));
+      const out = { on: a.confidenceView, hidden: a.hud.hiddenLevels, hide: [u.x, u.y, u.z],
+        attested: { ...a.confidence.grade('attested'), pct: Math.round(a.confidence.grade('attested').opacity * 100) },
+        row: document.getElementById('cm-look-attested')?.textContent ?? '',
+        box: document.getElementById('cm-reconstructed')?.checked ?? null,
+        legend: { shown: !!el && !el.hidden, dots: [...el.querySelectorAll('[data-grade]')].map((d) => d.dataset.state).join(',') } };
+      return out;
+    });
+    check(`${label}: QA-11 — Reconstructed hidden and Attested at 30 % both persist across a reload (T-2649)`,
+      qa11Before.on === true && JSON.stringify(qa11Before.hidden) === '["reconstructed"]' && qa11Before.attested === 30
+        && qa11Before.kept?.on === true && JSON.stringify(qa11Before.kept?.hidden) === '["reconstructed"]' && qa11Before.kept?.looks?.attested?.opacity === 0.3
+        && qa11After.on === true && JSON.stringify(qa11After.hidden) === '["reconstructed"]' && JSON.stringify(qa11After.hide) === '[0,0,1]'
+        && qa11After.attested.pct === 30 && qa11After.attested.mode === 'tint' && /^Tint · 30%$/.test(qa11After.row) && qa11After.box === false
+        && qa11After.legend.shown && qa11After.legend.dots === 'tint,tint,hidden',
+      JSON.stringify({ before: qa11Before, after: qa11After }));
+    // Give the town back as found: the grade looks, Normal (which shows every grade), Home, docked.
+    await page.evaluate(() => window.__chicago4d.confidence.resetGrades());
+    await clickChrome('#navigator .nav-preset[data-preset="normal"]');
+    await page.waitForTimeout(150);
+    await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('home'); n.dock(); document.activeElement?.blur?.(); });
+    // <<< T-2649
 
     const unread = await page.evaluate(() => ({
       chip: !document.getElementById('help-dot')?.hasAttribute('hidden'),
@@ -19127,6 +19263,22 @@ for (const [label, viewport, touch] of [
     if (wantPublished) {
       await p14.evaluate(() => { window.__chicago4d.welcome.enter('spawn'); });
       await p14.waitForFunction(() => window.__chicago4d.welcome.state === 'world', null, { timeout: 30_000, polling: 250 });
+      // >>> T-2649: the Confidence view carries across this Jump. Before it, in the Confidence
+      // view app: Attested's opacity to 30 % (which turns the colouring on) and Reconstructed's
+      // Show off — QA-11's two choices; after the landing in the far year, walking in, both are
+      // in force and the legend shows. (Part 13 takes the same two across a reload.)
+      await p14.evaluate(() => window.__chicago4d.navigator.select('confidence'));
+      await until(() => !!document.getElementById('cm-opacity-attested') && !!document.getElementById('cm-reconstructed'));
+      const carryBefore = await p14.evaluate(() => {
+        const sl = document.getElementById('cm-opacity-attested');
+        sl.value = '30';
+        sl.dispatchEvent(new Event('input', { bubbles: true }));
+        sl.dispatchEvent(new Event('change', { bubbles: true }));
+        document.getElementById('cm-reconstructed').click();
+        const a = window.__chicago4d;
+        return { year: a.scene?.id ?? null, on: a.confidenceView, hidden: a.hud.hiddenLevels, attested: Math.round(a.confidence.grade('attested').opacity * 100) };
+      });
+      // <<< T-2649
       await p14.evaluate(() => window.__chicago4d.navigator.select('jump'));
       await until(() => !!document.querySelector('#nav-app-jump .nav-jump:not([aria-current])'));
       const to = await p14.evaluate(() => {
@@ -19143,6 +19295,27 @@ for (const [label, viewport, touch] of [
         !!to && ringShown && String(landed.year) === to && landed.journey === 'landed' && landed.transfer === 'true'
         && landed.years.length >= 2 && Number(landed.years[0]) > Number(to) && landed.years.at(-1) === to,
         JSON.stringify({ to, ringShown, landed: { ...landed, years: `${landed.years[0]} … ${landed.years.at(-1)} (${landed.years.length})` } }));
+      // >>> T-2649: walking in at the far year, the choices made before the Jump are in force.
+      await p14.evaluate(() => { window.__chicago4d.welcome.enter('spawn'); });
+      await p14.waitForFunction(() => window.__chicago4d.welcome.state === 'world', null, { timeout: 120_000, polling: 250 }).catch(() => {});
+      await p14.waitForFunction(() => !document.getElementById('conf-legend')?.hidden, null, { timeout: 30_000, polling: 250 }).catch(() => {});
+      const carryAfter = await p14.evaluate(() => {
+        const a = window.__chicago4d;
+        const u = a.confidence.uniforms.uHideLevel.value;
+        const el = document.getElementById('conf-legend');
+        return { year: a.scene?.id ?? null, world: a.welcome?.state ?? null, on: a.confidenceView, hidden: a.hud.hiddenLevels, hide: [u.x, u.y, u.z],
+          attested: Math.round(a.confidence.grade('attested').opacity * 100), mode: a.confidence.grade('attested').mode,
+          legend: !!el && !el.hidden, dots: [...(el?.querySelectorAll('[data-grade]') ?? [])].map((d) => d.dataset.state).join(',') };
+      });
+      check(`${label}: the Confidence view's choices carry across a Jump to another year — Reconstructed hidden, Attested at 30 %, the legend on (T-2649)`,
+        carryBefore.on === true && JSON.stringify(carryBefore.hidden) === '["reconstructed"]' && carryBefore.attested === 30
+          && String(carryAfter.year) === to && carryAfter.year !== carryBefore.year && carryAfter.on === true
+          && JSON.stringify(carryAfter.hidden) === '["reconstructed"]' && JSON.stringify(carryAfter.hide) === '[0,0,1]'
+          && carryAfter.attested === 30 && carryAfter.mode === 'tint' && carryAfter.legend && carryAfter.dots === 'tint,tint,hidden',
+        JSON.stringify({ before: carryBefore, after: carryAfter }));
+      // Leave the next load as a first visit found it: Normal.
+      await p14.evaluate(() => { localStorage.removeItem('chicago4d.confidence'); localStorage.removeItem('chicago4d.confidence.hidden'); });
+      // <<< T-2649
     }
     // --- a shared screen: ?nav=jump opens after the landing, Back closes it (T-2621) ----
     // The same fresh context, a new load of the page with a deep link. After the landing

@@ -191,11 +191,19 @@
 </div>
 <div id="hud" class="hud" hidden>
   <div class="hud-top">
+    <div class="hud-chips">
     <!-- T-2626 (§10): the year chip — amber LED digits, 1904 · 07.01. A tap opens Jump. -->
     <button type="button" class="badge year-chip" id="year-badge" aria-label="Jump to another year or place"><span
       class="badge-year">1835</span><span class="badge-dot" aria-hidden="true">·</span><span class="badge-sub">07.01</span><span
       class="badge-alt" id="badge-alt" hidden></span><span
       class="badge-version" id="badge-version" role="note" hidden></span></button>
+    <!-- T-2649 (§09, §10): the Confidence view's legend, under the year chip while the view
+         is not Normal — a dot per grade in the colour it wears, then CONF. A tap opens the
+         Confidence view (js/confidence-legend.js fills its label). -->
+    <button type="button" class="conf-legend" id="conf-legend" hidden aria-label="Open the Confidence view"><span
+      class="conf-legend-dots" aria-hidden="true"><i data-grade="attested"></i><i data-grade="inferred"></i><i
+      data-grade="reconstructed"></i></span><span class="conf-legend-mark" aria-hidden="true" data-str="confidence.legend.mark">CONF</span></button>
+    </div>
     <div class="hud-actions">
       <!-- T-2625 (§10 "In-world HUD"): Start / Jaunts, the pace chip and the light / dark
            switch left this row. Start / Jaunts's three choices are the Navigator's Jaunts app

@@ -20,10 +20,11 @@ import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
+// T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
+// beside its looks, so all three carry to the next page and year together.
+import { readChoices, keepChoices } from './confidence-store.js';
 
 const THEME_KEY = 'chicago4d.theme';
-const CONF_KEY = 'chicago4d.confidence';
-const HIDE_KEY = 'chicago4d.confidence.hidden';
 const SET_KEY = 'chicago4d.settings';
 
 const DEFAULT_SETTINGS = {
@@ -179,7 +180,7 @@ export function createHud({
   function setConfidence(on, { announce = true } = {}) {
     confidenceOn = !!on;
     btnConf?.setAttribute('aria-pressed', String(confidenceOn));
-    store(CONF_KEY, confidenceOn ? '1' : '0');
+    keepChoices({ on: confidenceOn });
     onConfidence?.(confidenceOn);
     confidenceChanged();
     if (announce) {
@@ -209,10 +210,7 @@ export function createHud({
   let afterHide = null;
 
   function readHidden() {
-    try {
-      const raw = JSON.parse(window.localStorage.getItem(HIDE_KEY) || '[]');
-      return new Set(Array.isArray(raw) ? raw.filter((l) => LEVELS.includes(l)) : []);
-    } catch { return new Set(); }
+    return new Set((readChoices().hidden ?? []).filter((l) => LEVELS.includes(l)));
   }
 
   // How many structures sit at each level, counted from the loaded registry.
@@ -235,7 +233,7 @@ export function createHud({
   }
 
   function paintHidden() {
-    store(HIDE_KEY, JSON.stringify([...hiddenLevels]));
+    keepChoices({ hidden: [...hiddenLevels] });
   }
 
   function setHidden(level, hide, { announce = true } = {}) {
@@ -846,7 +844,7 @@ export function createHud({
     setAltitude,
     /** Restore the visitor's last choice without narrating it back at them. */
     restore() {
-      if (readStored(CONF_KEY, '0') === '1') setConfidence(true, { announce: false });
+      if (readChoices().on === true) setConfidence(true, { announce: false });
     },
     show() { root.removeAttribute('hidden'); },
     setLocked(locked) { document.body.classList.toggle('is-locked', !!locked); },
