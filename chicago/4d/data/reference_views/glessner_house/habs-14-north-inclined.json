@@ -34,6 +34,12 @@
       0.31734372324425536
     ]
   ],
+  "sky": "sun",
+  "sun_uvy": [
+    -0.262,
+    -0.72,
+    0.643
+  ],
   "solve": {
     "method": "Inclined pinhole fit to north window apertures, north-gable stack crest and great chimney crest. Eye1.8m reconstructed; focal length, principal point, yaw, pitch and roll fitted. Tower tip excluded. Upper-window z20-25.25ft reconciled in independent HABS01; lower course interval9.25-14.4583ft retained. These model-based controls do not constitute an independent survey.",
     "aperture_controls_W_z_px": [
@@ -216,6 +222,7 @@
         1258,
         372
       ]
-    ]
+    ],
+    "light": "T-2848, read off the photograph: the north gable and tower are a silhouette against a bright sky, with glare up and to the right of the gable (south-south-west, behind the house), the poles in front are backlit, and nothing on the north face throws a shadow. So the sun stands behind the building and the face the camera sees is lit only by the sky. Azimuth about 200 degrees is read from the glare; the elevation (40 degrees) is not readable here and is set so the north face falls in shade, which is the reading."
   }
 }
