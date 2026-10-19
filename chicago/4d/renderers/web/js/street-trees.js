@@ -85,10 +85,22 @@ async function getJSON(url) {
  * drew. Near is the elm a visitor stands under, mid the next few down the walk.
  */
 const STREET_LEVELS = {
-  full: { near: 10, mid: 44 },
-  balanced: { near: 10, mid: 40 },
-  light: { near: 0, mid: 32 },
+  full: { near: 10, mid: 44, distant: 420 },
+  balanced: { near: 10, mid: 40, distant: 380 },
+  light: { near: 0, mid: 32, distant: 300 },
 };
+/**
+ * T-2833 — THE CONTEXT CITY'S TREES. The faded city around the district
+ * (context.js) hands its trees here, and they are drawn as these same grown elms,
+ * sharing their crowns, their setting and their season: the owner asked for real
+ * trees at the street ends in place of the old blob crowns. A background tree takes
+ * its levels as if it stood CONTEXT_LOD_K times further off, so past ~280 m it is
+ * the `distant` level (46 triangles, about what the blob and its trunk cost) and
+ * only the nearest few are a parkway elm's full crown.
+ */
+const CONTEXT_LOD_K = 1.5;
+/** The parkway elm's middle height: a background tree's own height scales it. */
+const ELM_MID_H = 20;
 /** Only the elms this close cast shadows (the T-2493 ring was 100 m). */
 const SHADOW_NEAR_M = 32;
 
@@ -148,11 +160,11 @@ function treeCard(t, doc) {
  */
 export async function createStreetTrees({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full',
-  lowSpec = false, mode = 'summer', checkpoint = () => null, levelAt = null,
+  lowSpec = false, mode = 'summer', checkpoint = () => null, levelAt = null, contextTrees = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'street-trees';
-  const stats = { trees: 0, young: 0, triangles: 0, drawCalls: 0, mode, detail, crowns: 0 };
+  const stats = { trees: 0, young: 0, triangles: 0, drawCalls: 0, mode, detail, crowns: 0, context: 0 };
   const out = {
     group, stats, records: [],
     pickAt: () => null, update() {}, setMode: async () => {}, setDetail: async () => {}, dispose() {},
@@ -207,6 +219,11 @@ export async function createStreetTrees({
       p.h = grown.add(spec, p.t.e, p.y, -p.t.n, sc,
         { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
     }
+    const background = contextTrees?.(wantDetail) ?? [];
+    for (const t of background) {
+      grown.add(spec, t.e, t.y + (levelAt?.(t.e, t.n) ?? 0), -t.n, t.h / ELM_MID_H, { lodK: CONTEXT_LOD_K });
+    }
+    stats.context = background.length;
     const pause = checkpoint(); if (pause) await pause;
     forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
     group.add(forest.group);

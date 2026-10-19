@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 627,
+  "count": 629,
   "liberties": [
     {
       "id": "L1",
@@ -36070,7 +36070,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "T-2477 (owner, 2026-10-13: \"very simple buildings in varied appropriate colors based on Sanborn or other projections ... gently faded\") draws the city around Prairie Avenue as faded, opaque stand-ins, from `data/context/1904.json` (`tools/build_context_1904.py`). On the ground the Sanborn 1911 sheets 20, 28 and 35 draw off Prairie Avenue (the Indiana and Calumet faces, the cross-street lots, Calumet's east face at 20th) each drawn part is the smallest rectangle that holds it, in its sheet colour's material: pink brick, blue stone, yellow frame. Everywhere else in the e1871 box and in a 450 m ring past it on the west, north and south, the city is PROJECTED. **What is inferred, not attested.** The sheet outlines and materials, for 1904: a 1911 survey carried back on Glessner House's reading that these sheets changed only at 1609-1611 and 1620 Prairie. **What is invented.** Every height and roof: by size and colour class (a masonry house 10.5 m to the eaves, gabled or flat about half each; a frame house 6.5 m and gabled; a rear building under 110 m2 5.5 m; over 450 m2 a 13 m flat-roofed block, over 1,200 m2 16 m), except three buildings given the figure the sheet prints (1st Presbyterian Church, 48 ft to the eaves and its 90 ft spire; the Thompson-Reid ice cream works, four storeys). Each building's tone within its material's family, and the fade. Every tree. Past the sheets, everything: the avenues on Michigan to Indiana's 128 m pitch repeated west, cross streets at the 20th-21st-22nd pitch (130 m) past 16th and 22nd, lots on the frontages the grid's own Indiana and Calumet lots measure, one house per lot set back 4.5-7.5 m, a stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and bays' shapes and the sheets' storey figures."
+          "text": "T-2477 (owner, 2026-10-13: \"very simple buildings in varied appropriate colors based on Sanborn or other projections ... gently faded\") draws the city around Prairie Avenue as faded, opaque stand-ins, from `data/context/1904.json` (`tools/build_context_1904.py`). On the ground the Sanborn 1911 sheets 20, 28 and 35 draw off Prairie Avenue (the Indiana and Calumet faces, the cross-street lots, Calumet's east face at 20th) each drawn part is the smallest rectangle that holds it, in its sheet colour's material: pink brick, blue stone, yellow frame. Everywhere else in the e1871 box and in a 450 m ring past it on the west, north and south, the city is PROJECTED. **What is inferred, not attested.** The sheet outlines and materials, for 1904: a 1911 survey carried back on Glessner House's reading that these sheets changed only at 1609-1611 and 1620 Prairie. **What is invented.** Every height and roof: by size and colour class (a masonry house 10.5 m to the eaves, gabled or flat about half each; a frame house 6.5 m and gabled; a rear building under 110 m2 5.5 m; over 450 m2 a 13 m flat-roofed block, over 1,200 m2 16 m), except three buildings given the figure the sheet prints (1st Presbyterian Church, 48 ft to the eaves and its 90 ft spire; the Thompson-Reid ice cream works, four storeys). Each building's tone within its material's family, and the fade. Every tree. Past the sheets, everything: the avenues on Michigan to Indiana's 128 m pitch repeated west, cross streets at the 20th-21st-22nd pitch (130 m) past 16th and 22nd, lots on the frontages the grid's own Indiana and Calumet lots measure, one house per lot set back 4.5-7.5 m, a stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and bays' shapes and the sheets' storey figures. **Amended (T-2833, 2026-10-19; owner: the street ends showed \"fake buildings as just boxes and the bad trees\").** Each stand-in's walls are now painted, not modelled, with what its rule already claims: storeys at its height (3.4 m a house storey on a 1.1 m raised stone basement, 3.9 m a loft's), rows of two-over-two sash windows under stone lintels, string courses, a door at the top of a stoop on a house's end and in each house of a row; a row of lots is divided into 25 ft houses (7.6 m), each a slightly different brick, and a gabled row takes a gable to the street per house rather than one ridge; shop blocks carry shop windows under their flats, lofts wide windows, sheds high lights and doors; a flat roof sits behind a cornice. All of that is invented, by building type, and claims nothing about any one building. A drawn building at least 3.5 times as long as it is deep and no deeper than 16 m is read as a row of attached houses at the house rules' height, not a block: so the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer and Tappan's subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees are drawn as the parkway's grown American elm (street-trees.js), sized by each tree's own height; the species is ours, after the elms the prints show on Prairie Avenue."
         },
         {
           "label": "How to resolve",
@@ -39482,7 +39482,7 @@
         },
         {
           "label": "T-2769 (2026-10-18), the pedestals' fields and the 1965 tint",
-          "text": "what is read now, from the 1888 plate at its native 1559 px (about 75 px to the metre on the pedestals, x 865-940 and 1100-1160, y 1585-1650): each loggia pedestal's front carries a PLAIN field inside its border, about 32 x 41 px on a 47 px front, as T-2585 read the balcony's dies; the low relief leaf scrolls T-1883 laid in those fields are not in the picture and are taken off. The 1965 close view (about 40 px to the metre there) shows the border only. The tint: none of the 1965 slide's neutrals calibrates it (the white newel is clipped; balanced on the curtains the stone leans violet-blue, on the concrete walk faintly green-yellow), so its chroma is bracketed within about 9 CIELAB units of grey and the neutral grey stands, still reconstructed (`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json`, T2769_1965_neutrals). Still invented: the border's 35 mm bead and the field's depth, below the plate's grain; the south pedestal's side shows a like field the model does not yet lay."
+          "text": "what is read now, from the 1888 plate at its native 1559 px (about 75 px to the metre on the pedestals, x 865-940 and 1100-1160, y 1585-1650): each loggia pedestal's front carries a PLAIN field inside its border, about 32 x 41 px on a 47 px front, as T-2585 read the balcony's dies; the low relief leaf scrolls T-1883 laid in those fields are not in the picture and are taken off. The 1965 close view (about 40 px to the metre there) shows the border only. The tint: none of the 1965 slide's neutrals calibrates it (the white newel is clipped; balanced on the curtains the stone leans violet-blue, on the concrete walk faintly green-yellow), so its chroma is bracketed within about 9 CIELAB units of grey and the neutral grey stands, still reconstructed (`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json`, T2769_1965_neutrals). Still invented: the border's 35 mm bead and the field's depth, below the plate's grain; the south pedestal's side shows a like field the model does not yet lay. **T-2815 (2026-10-19), the bow's lights and cap, and the south pedestal's side:** what is read now, from the 1888 plate at its native 1559 px on the bow's south light column (77.8 px to the metre, T-2765's camera-free reading): each principal light stands in three tiers between stone bars, a sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m, so two 0.15 m bars in the wall's stone; under the bow's moulded cap a dark carved band from about 9.54 m (y 1054) up to the cap's light top, built as a dressed band 0.26 m deep under the cap's seat (9.8 m), 0.045 m proud; and the south pedestal's side field in a bead border like its front's. Still invented: each fixed light's three panes, which the print does not resolve; the band's carving, which it draws only as a dark texture through the street tree's branches and which is laid as the K08 kit's guilloche of interlaced rings (T-2778's, 1623 Prairie's oriel frieze), its motif, depth and ring size reconstructed; the side field's margins and bead, below the plate's grain. No picture shows the north pedestal's north side, which stays plain."
         },
         {
           "label": "How to resolve",
@@ -40761,6 +40761,78 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2807)."
+        }
+      ]
+    },
+    {
+      "id": "L-north-side-paths-2808",
+      "title": "The North Side wood on the sand east of State Street, Kinzie's Rush Street bridle path and the Green Bay road cut",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "in 1835 the North Side wood no longer stops at State Street north of N +300. In `renderers/web/js/trees.js` (T-2808, `SAND_WOOD`) it runs on east over the beach-ridge sand to about E +1140 (wobbling 36 m), short of the Wau-Bun sand hills, as open ridge oak, with the mesic pocket's closed canopy only in a band 22 m either side of the Rush Street line. Its east end facing the sand hills carries the woods' edge thicket. The thicket at State Street stays, as the edge between the closed wood on the clay and the open oak on the sand. Two ways run through the wood (`PATHS`): a bare tread 2.6 m wide on the Rush Street line from N +300 north, with shrubs crowding its margins out to 4.5 m, and the Green Bay road, a cut 10.06 m (two rods) wide on the Clark Street line from the north end of the town's Clark Street north to the field's edge, its margins in stump sprouts and hazel and its middle bare. Neither is a street record: no wheel track is drawn or graded."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "woods on the line of Rush Street, a closed canopy over the path and shrubs crowding it (Juliette Kinzie, spring 1831, *Wau-Bun* 1856); a wood filling \"almost all the North Side west of the shore sand-hills\" (Judge Blodgett, 1831-32, reported by Kirkland 1893; in the tree research notes, B5, and not yet a source record); the Green Bay road surveyed in 1833 and in 1834 cut \"to the width of two rods\" through the trees (Andreas, vol. 1)."
+        },
+        {
+          "label": "What is invented",
+          "text": "where the sand wood starts and ends (N +300, E +1140) and that it is oak on the sand with a mesic band along the path, and that band's 22 m width; the path's width and that it still runs in 1835, four years after Kinzie rode it, when Rush Street is platted and unopened; the road's line on the Clark Street line (nobody traced the 1834 line, and the later N. Clark Street is only where the histories put the road's name); the shrubs on both, their density and their place."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1833 Green Bay road survey or the 1834 field notes; the original land survey's notes for the section lines through the North Side; a dated witness to the ground between State Street and the sand hills before 1836."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2808."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-18 (T-2808)."
+        }
+      ]
+    },
+    {
+      "id": "L-fruit-trees-1835-2809",
+      "title": "The fort's company-garden fruit trees and currants, and Dr. Harmon's young orchard by the lake",
+      "section": "per_subject",
+      "subjects": [
+        "fort_dearborn_garrison_garden"
+      ],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "in 1835 the fort's company gardens (`fort_dearborn_garrison_garden`, the 1830 plan's 77 m square) are planted (`data/flora/plantings/fort_company_garden_1835.json`): a border row of 36 young fruit trees 4 m inside the fence at 7 m spacing, apple with one in three a sour cherry, 3 to 5.5 m tall, and 124 currant bushes in four long rows running the plot's length between its vegetable beds. Dr. Harmon's orchard (`harmon_orchard_1835.json`) is a 48 x 44 m plot just south of the Sixteenth Street line (N -2961.6 to -3005.6) and 20 m west of the shore cottonwood grove (E 1352.3 to 1400.3): 72 seedlings in rows about 5 m apart, peach with two in five a sour cherry, 2 to 3.8 m tall. Both are written by `tools/generate_fruit_plantings_1835.py`. The three fruit species are new z10 records at a density of zero, so nothing but these records plants them. The currants in these and in every other planting record (the town's dooryards too) are now drawn as grown clumps of stems."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "\"the company gardens, well filled with currant-bushes and young fruit-trees\", south of the fort beyond the parade (Kinzie, *Wau-Bun*, 1856, of 1831); Harmon building \"a sod fence, at a spot he had chosen, near the shore of the lake\", and in it \"planting fruit stones of all descriptions, to make ready a garden and orchard\" (the same, spring 1831); Harmon's claim's north line \"in the vicinity of Sixteenth Street\" (Andreas, vol. 1). The garden's place and size are its own record's."
+        },
+        {
+          "label": "What is invented",
+          "text": "which fruits (neither witness names one: apple as the frontier's orchard tree, sour cherry and peach as the \"fruit stones\" a settler planted), how many of each, their heights, the border row and the currant rows (nothing records the plot's plan; a working garden of long parallel beds was chosen over a laid-out four-square); that Harmon's orchard still stands in 1835; its place, its size and its rows; and that his \"fruit stones\" grew into peach and cherry. The sod fence round Harmon's plot is not drawn (the enclosure layer has no turf bank), nor the vegetables in either garden."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a garrison return or an officer's letter naming the garden's fruit; the 1830s pre-emption entry or a plat of Harmon's claim; any account that sites his garden or names what grew in it."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2809."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2809)."
         }
       ]
     },

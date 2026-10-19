@@ -86,7 +86,10 @@ FIVE ASSERTIONS.
     lies east of the documented limits and is therefore swept and refused. The
     east limits themselves are banked with the street each is read from, and
     that `communityAt` still applies them: a limit that is loaded and consulted
-    by nothing is the loss K45(a) measured one level out.
+    by nothing is the loss K45(a) measured one level out. The area "swept and
+    refused" is east of the street limits and counts ground two later
+    communities plant past them anyway: the sand hills (T-2768) and, north of
+    N +300, the North Side wood on the sand out to about E +1140 (T-2808).
 
 3.  **(absolute, banked both ways) Every woody species a `TIMBER_ZONE`
     contributes, whose form has an archetype, that no community mix and no
@@ -467,6 +470,14 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
     population), with `id` from `EDGE_THICKET`'s own lists. No `tree` or
     `thicket` record can be reached through it, so it neither selects a routed
     record nor hides one.
+
+    T-2808 adds three. `plantSandWood` draws `communitySpecs[key][id]` with `id`
+    from `pickers[key]`, as `plantSandHill` does, for two communities this gate
+    already reads (`ridge_oak`, `mesic_pocket`). `plantPathShrub` draws
+    `edgeSpecs[id]` from `EDGE_THICKET`'s mix, as `plantEdgeThicket` does. And
+    `dryPlant` calls `addTree` into a buffer that is thrown away, with the spec
+    the dealt path already selected, so the shared stream keeps its draws for a
+    stem that stands on a path: it selects nothing and draws nothing.
     """
     sites = len(re.findall(r"\baddTree\(", src)) - len(re.findall(r"function addTree\(", src))
     # T-2743: the two dealt paths call `plant()`, which hands a tree-form stem to
