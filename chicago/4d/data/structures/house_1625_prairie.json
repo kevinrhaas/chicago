@@ -87,16 +87,16 @@
           "note": "The photograph shows a street front of rock-faced coursed stone and a south side wall of brick; the 1911 sheet says only 'brick'. The Tribune's 'red stone' (quoted by chicagology, not yet a source record) is the stone."
         },
         "principal_floor_m": {
-          "value": 0.45,
+          "value": 0.15,
           "confidence": "inferred",
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "The ground floor stands near grade: the photograph's entrance is reached by two low steps from the walk, and its ground-floor sills sit about 1.1 m over grade (the Tribune's 'entrance at ground level', quoted by chicagology). 0.45 m, three risers."
+          "note": "The ground floor stands near grade: the photograph's door opens one low step over the walk, its foot at about 0.15 m (y 789 px, the dark of the doorway ending on its threshold), and its ground-floor sills sit about 1.2 m over grade (the Tribune's 'entrance at ground level', quoted by chicagology). T-2821: 0.15 m, one riser; T-2432 had read two low steps and built 0.45 m in three, which stood the door about 0.3 m too high."
         },
         "storey_heights_m": {
           "value": [
-            3.15,
+            3.45,
             3.6,
             5.8
           ],
@@ -104,7 +104,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "Floor to floor, ground storey first; the top storey's runs to the wall head. Through the photograph's camera (inland_architect_front.json, 38.6 px/m at the front's plane) the first-floor sills read at 4.15 m and the second-floor sills at 7.77 m over grade and the gable's lights at 11.5-13.3 m, so the floors at about 3.6, 7.2 and 11.0 m. T-2730: the photograph's south side wall rises to about 13 m before its eave and the south corner pier stops at 13.15 m (y 286 px), a knee wall under the attic; K01 has no attic storey, so the second floor's storey carries the knee wall and runs 5.8 m to a 13.0 m wall head (the attic floor at about 11.0 m is not built)."
+          "note": "Floor to floor, ground storey first (T-2821: the ground storey 3.45 m from the one-riser floor at 0.15 m, so the first floor stays at 3.6 m); the top storey's runs to the wall head. Through the photograph's camera (inland_architect_front.json, 38.6 px/m at the front's plane) the first-floor sills read at 4.15 m and the second-floor sills at 7.77 m over grade and the gable's lights at 11.5-13.3 m, so the floors at about 3.6, 7.2 and 11.0 m. T-2730: the photograph's south side wall rises to about 13 m before its eave and the south corner pier stops at 13.15 m (y 286 px), a knee wall under the attic; K01 has no attic storey, so the second floor's storey carries the knee wall and runs 5.8 m to a 13.0 m wall head (the attic floor at about 11.0 m is not built)."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -126,15 +126,15 @@
             "fabric": "sandstone_brown",
             "dressing": "rock_faced",
             "trim_fabric": "dressed_trim",
-            "rusticated_base_courses": 1,
-            "coping_height_m": 0.23,
+            "rusticated_base_courses": 0,
+            "coping_height_m": 0.26,
             "corner_bond": []
           },
           "confidence": "inferred",
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "The photograph draws the front in rock-faced coursed stone of irregular course heights, with dressed quoined surrounds at the windows and a plain plinth; K02's brownstone, rock-faced, over one base course: the Tribune's 'red stone' (quoted by chicagology; 'Prentice' brownstone in its gloss) is a brown or red sandstone. The quoined window surrounds are built since T-2753 (street_front_windows.surrounds); the south corner's quoins are not built either, the K01 measure returning them only at its low-v end, which here is the party wall."
+          "note": "The photograph draws the front in rock-faced coursed stone of irregular course heights, with dressed quoined surrounds at the windows and a plain plinth; K02's brownstone, rock-faced, on a plain plinth (T-2821: one dressed course from grade to 0.26 m, the print's plinth top at y 785 px; it had been a rusticated base course under a 0.23 m coping to 0.48 m, the least a rusticated K02 base lays): the Tribune's 'red stone' (quoted by chicagology; 'Prentice' brownstone in its gloss) is a brown or red sandstone. The quoined window surrounds are built since T-2753 (street_front_windows.surrounds); the south corner's quoins are not built either, the K01 measure returning them only at its low-v end, which here is the party wall."
         },
         "street_front_trim": {
           "value": {
@@ -179,7 +179,7 @@
         "stair_tread_m": {
           "value": 0.3,
           "confidence": "reconstructed",
-          "note": "Two or three low steps up from the walk."
+          "note": "One low step up from the walk (T-2821; the floor's one riser), its going the kit's."
         },
         "stair_landing_depth_m": {
           "value": 0.6,
@@ -320,7 +320,7 @@
         "sash_by_storey": {
           "value": [
             {
-              "sill_above_floor_m": 0.66,
+              "sill_above_floor_m": 0.96,
               "width_m": 0.95,
               "height_m": 1.55
             },
@@ -339,7 +339,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "Storey by storey, the photograph's north-part windows through its camera: ground-floor lights 1.1-2.7 m over grade, first-floor 4.15-6.4 m, second-floor 7.8-10.1 m. Since T-2752 the street front's windows are street_front_windows'; these rows size the side, rear and north walls' sash, at the contract's single sash widths (0.75-1.15 m)."
+          "note": "Storey by storey, the photograph's north-part windows through its camera: ground-floor lights 1.1-2.7 m over grade, first-floor 4.15-6.4 m, second-floor 7.8-10.1 m. Since T-2752 the street front's windows are street_front_windows'; these rows size the side, rear and north walls' sash, at the contract's single sash widths (0.75-1.15 m). T-2821: the ground storey's sill 0.96 m over its floor, the floor now at 0.15 m, so the side wall's ground-floor sills stay at 1.11 m."
         },
         "street_front_windows": {
           "value": {
@@ -417,7 +417,7 @@
                 "height_m": 1.58
               }
             ],
-            "base_top_m": 0.48,
+            "base_top_m": 0.26,
             "belts": [
               [
                 3.96,
@@ -440,7 +440,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2752: every street window read off the photograph through its camera (data/reference_views/house_1625_prairie/inland_architect_front.json: level and square to the front, 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px), each opening's stone edges and its sill and head on 4x crops of the print: s = (x - 140) / 38.6 m from the north party wall, height = (795 - y) / 38.6 m. Ground floor: two windows in the north part, each two tall casement lights on a stone mullion, 1.19-2.59 m, centred at 0.94 and 2.88 m, 1.04 and 1.17 m across (the print gives the south one of each pair a little wider, at both storeys). First floor: the same two, each two lights on a mullion under a stone transom about a third down, 4.14-6.40 m; over the door the four-light window, mullioned and transomed alike, 2.18 m across at 5.78 m, 4.25-6.58 m (read at the front's plane: its frontispiece stands slightly proud, which T-2753 weighs). Second floor: two one-over-one sash under segmental heads, off the columns below, at 1.15 and 3.45 m, 0.94 and 1.02 m across, from 7.74 and 7.87 m to crowns at 9.97 and 10.18 m; and the frontispiece's two narrow segment-headed two-over-two lights at 5.38 and 6.39 m, 0.62 m across, 8.84-10.42 m. The glazing bars are the K06 kit's: the print shows the lower windows' lights in small panes but cannot say whether on lead or wood. Each edge is good to about a pixel, 0.03 m. The plinth: plain, with no basement light in it (the 1911 sheet's basement is lit elsewhere, or not at the front); its top is the K02 base's least, one 0.25 m course under the 0.23 m coping, 0.48 m, where the print's smooth plinth band stands about 0.26 m over the walk (y 785 px). T-2753: the belts and the surrounds, read the same way. The photograph runs one string course across the whole front, its top under the first floor's sills: 3.94-4.09 m in the north part (y 637-643 px) and about 4.04-4.22 m on the frontispiece, where its face is nearer the camera; built 3.96-4.14 m, in place of K01's own two belts (3.40-3.60 and 7.05-7.20 m), of which the print shows neither. The ground and first floors' windows stand in dressed surrounds: smooth jamb stones, wider and narrower in turn up the courses (about 0.2-0.3 m on 3x crops), and a dressed lintel over the head running about 0.1-0.25 m past the jambs (the ground floor's 2.64-3.03 m, y 678-693 px, x 147-200 px over a window at x 156-196 px); built as the coursing's own stones dressed and laid flush, 0.18 and 0.30 m in turn, and a 0.35 m lintel course 0.18 m past each jamb. The second floor's segmental sash show no such surround."
+          "note": "T-2752: every street window read off the photograph through its camera (data/reference_views/house_1625_prairie/inland_architect_front.json: level and square to the front, 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px), each opening's stone edges and its sill and head on 4x crops of the print: s = (x - 140) / 38.6 m from the north party wall, height = (795 - y) / 38.6 m. Ground floor: two windows in the north part, each two tall casement lights on a stone mullion, 1.19-2.59 m, centred at 0.94 and 2.88 m, 1.04 and 1.17 m across (the print gives the south one of each pair a little wider, at both storeys). First floor: the same two, each two lights on a mullion under a stone transom about a third down, 4.14-6.40 m; over the door the four-light window, mullioned and transomed alike, 2.18 m across at 5.78 m, 4.25-6.58 m (read at the front's plane: its frontispiece stands slightly proud, which T-2753 weighs). Second floor: two one-over-one sash under segmental heads, off the columns below, at 1.15 and 3.45 m, 0.94 and 1.02 m across, from 7.74 and 7.87 m to crowns at 9.97 and 10.18 m; and the frontispiece's two narrow segment-headed two-over-two lights at 5.38 and 6.39 m, 0.62 m across, 8.84-10.42 m. The glazing bars are the K06 kit's: the print shows the lower windows' lights in small panes but cannot say whether on lead or wood. Each edge is good to about a pixel, 0.03 m. The plinth: plain, with no basement light in it (the 1911 sheet's basement is lit elsewhere, or not at the front); its top is the K02 base's least, one 0.25 m course under the 0.23 m coping, 0.48 m, where the print's smooth plinth band stands about 0.26 m over the walk (y 785 px). T-2753: the belts and the surrounds, read the same way. The photograph runs one string course across the whole front, its top under the first floor's sills: 3.94-4.09 m in the north part (y 637-643 px) and about 4.04-4.22 m on the frontispiece, where its face is nearer the camera; built 3.96-4.14 m, in place of K01's own two belts (3.40-3.60 and 7.05-7.20 m), of which the print shows neither. The ground and first floors' windows stand in dressed surrounds: smooth jamb stones, wider and narrower in turn up the courses (about 0.2-0.3 m on 3x crops), and a dressed lintel over the head running about 0.1-0.25 m past the jambs (the ground floor's 2.64-3.03 m, y 678-693 px, x 147-200 px over a window at x 156-196 px); built as the coursing's own stones dressed and laid flush, 0.18 and 0.30 m in turn, and a 0.35 m lintel course 0.18 m past each jamb. The second floor's segmental sash show no such surround. T-2821: base_top_m 0.26, the print's plain plinth (y 785 px), laid as one dressed course."
         },
         "street_front_frontispiece": {
           "value": {
@@ -457,13 +457,13 @@
             },
             "door_surround": {
               "band_m": 0.35,
-              "top_m": 3.45
+              "top_m": 3.11
             },
             "panel": {
               "s_m": 5.67,
               "width_m": 0.83,
-              "bed_m": 3.45,
-              "height_m": 0.51,
+              "bed_m": 3.11,
+              "height_m": 0.85,
               "proud_m": 0.04
             }
           },
@@ -471,7 +471,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2753: the frontispiece read off the photograph through its camera (inland_architect_front.json: 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px; s = (x - 140) / 38.6 m) on 3x crops of the print. Its north arris is a column of dressed quoins, long and short in turn, at x 287-298 px from the plinth to the hood (s 3.81 m; the quoins about 0.28 and 0.45 m, built 0.25 and 0.42 m); its south arris is the front's south corner, quoined the same way (x 417-437 px). It stands proud of the north part, but the print is taken square to the front and cannot measure by how much: 0.10 m is reconstructed, 'slightly proud' as T-2752 read it. Its top is the hood mould over the four-light window, a projecting weathered course across the frontispiece's whole width, y 513-523 px, 7.05-7.30 m, built 0.08 m past the frontispiece's face and its north arris (reconstructed: the print shows its shadow, not its depth). The door stands in a dressed surround, jambs about 0.35-0.45 m wide (x 320-337 and 385-398 px) and a lintel 0.47 m deep (y 675-693 px); built a 0.35 m band round the as-built door with a 0.30 m lintel to 3.45 m, because the door is K07's and stands about 0.5 m taller than the print's (its head at 3.15 m against y 693 px, 2.64 m: open in the match record). Over it, the carved panel: a square of carved figures about a cartouche, x 343-375 px, 0.83 m across, centred s 5.67 m, 3.16-4.02 m in the print; built 0.83 m across between the surround's lintel and the string course, 3.45-3.96 m, so 0.51 m tall where the print's is 0.86 m (the door again), a raised moulded border 0.04 m proud with a raised oval cartouche inside it standing for the carving, whose figures are not modelled. L-k01-1625-mcbirney-frontispiece-2753."
+          "note": "T-2753: the frontispiece read off the photograph through its camera (inland_architect_front.json: 38.6 px/m at the front's plane, grade at y 795 px, the party wall at x 140 px; s = (x - 140) / 38.6 m) on 3x crops of the print. Its north arris is a column of dressed quoins, long and short in turn, at x 287-298 px from the plinth to the hood (s 3.81 m; the quoins about 0.28 and 0.45 m, built 0.25 and 0.42 m); its south arris is the front's south corner, quoined the same way (x 417-437 px). It stands proud of the north part, but the print is taken square to the front and cannot measure by how much: 0.10 m is reconstructed, 'slightly proud' as T-2752 read it. Its top is the hood mould over the four-light window, a projecting weathered course across the frontispiece's whole width, y 513-523 px, 7.05-7.30 m, built 0.08 m past the frontispiece's face and its north arris (reconstructed: the print shows its shadow, not its depth). The door stands in a dressed surround, jambs about 0.35-0.45 m wide (x 320-337 and 385-398 px) and a lintel 0.47 m deep (y 675-693 px); built a 0.35 m band round the door with its lintel 2.64-3.11 m, the print's (T-2821: the door brought down to the print's 2.64 m head, door_clear_height_m; until then K07's door stood its head at 3.15 m and the lintel at 3.45 m). Over it, the carved panel: a square of carved figures about a cartouche, x 343-375 px, 0.83 m across, centred s 5.67 m, 3.16-4.02 m in the print; built 0.83 m across between the surround's lintel and the string course, 3.11-3.96 m, 0.85 m tall (T-2821; 0.51 m while the door stood high), a raised moulded border 0.04 m proud with a raised oval cartouche inside it standing for the carving, whose figures are not modelled. L-k01-1625-mcbirney-frontispiece-2753."
         },
         "roof_covering": {
           "value": {
@@ -558,6 +558,14 @@
           },
           "confidence": "reconstructed",
           "note": "K07's panelled door at the head of a short stoop; the front yard is 3.78 m, the sheet's front at 19.45 m against the street line at 23.24 m. The photograph's doorway is flat-headed in a dressed surround under a carved panel (T-2435)."
+        },
+        "door_clear_height_m": {
+          "value": 2.49,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1890_01_mcbirney_residence"
+          ],
+          "note": "T-2821: the doorway read off the photograph through its camera (inland_architect_front.json: 38.6 px/m at the front's plane, grade at y 795 px) on a 4x crop: its dark opening runs from the threshold at y 789 px (0.15 m, the floor's one riser) to its flat head at y 693 px (2.64 m), so 2.49 m clear; 1.22 m across (x 337-385 px), the K01 door's 1.20 m. K01's 2.70 m stood the head at 3.15 m. The leaf is K07's panelled door at that size: the print shows the doorway black and cannot say how its leaf is panelled."
         },
         "shaped_gable": {
           "value": {

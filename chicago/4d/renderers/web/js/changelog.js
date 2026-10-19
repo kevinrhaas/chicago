@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2052, ts: '2026-10-19T09:12:42.964Z', date: 'Oct 19, 2026, 4:12 AM CT', title: '1625 Prairie\'s door and plinth brought down to its photograph', kind: 'feature',
+    items: [
+      'Hugh McBirney\'s front door now stands one low step above the walk with its head at 2.64 m, where the three-step stoop had lifted it half a metre too high.',
+      'The dressed lintel over the door and the carved panel above it take back the height the tall door had squeezed out: the panel is now as tall as the photograph\'s.',
+      'The stone plinth along the front is the photograph\'s plain 0.26 m band instead of a rusticated course twice that height.',
+      'The second-floor windows\' arched heads were re-measured against the photograph and already match.',
+    ] },
   { v: 2051, ts: '2026-10-19T08:54:44.339Z', date: 'Oct 19, 2026, 3:54 AM CT', title: 'Shops & work: 94 firms\' cards open again', kind: 'fix',
     items: [
       'Opening one of the 94 firms written up by hand in Shops & work (Thomas Andrus\'s carpentry is one) showed "No card yet", because the card looked for its record in the wrong folder. Each of those cards now opens with its people, places and dates.',
