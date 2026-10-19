@@ -4099,6 +4099,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/glessner_north_pairs.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/glessner_opening_schedule.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6035,6 +6039,10 @@
       "wrote_ignored": []
     },
     "{}": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_confidence_persist.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

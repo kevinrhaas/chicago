@@ -780,6 +780,7 @@
     "spalding_house_1637_prairie/as_mapped_1904/form.chimneys": {
       "kind": "structure",
       "blocked_sources": [
+        "glessner_blog_1637_grosvenor_asbuilt_photo",
         "glessner_blog_1637_spalding_remodel_engraving"
       ],
       "sole_support": true,
@@ -861,6 +862,14 @@
       "kind": "structure",
       "blocked_sources": [
         "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.side_belts": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_grosvenor_asbuilt_photo"
       ],
       "sole_support": true,
       "confidence": "inferred"
