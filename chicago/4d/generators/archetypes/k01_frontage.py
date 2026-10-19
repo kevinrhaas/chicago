@@ -1832,7 +1832,7 @@ class Assembly:
     # sash in the door's joinery, the knob iron, the transom's glass and the dark hall
     # behind it the windows' own. A role not named here — a porch, an area wall, a guard
     # stone — is one this house's variant does not build, and is refused.
-    K07_ROLES = {"reveal": None, "threshold": "stoop_stone", "landing": "stoop_stone",
+    K07_ROLES = {"reveal": None, "porch_back": None, "threshold": "stoop_stone", "landing": "stoop_stone",
                  "tread": "stoop_stone", "riser": "stoop_stone", "stair_end": "stoop_stone",
                  "cheek": "stoop_stone", "frame": "door_leaf", "leaf": "door_leaf",
                  "sash_outer": "door_leaf", "glass_outer": "glass", "glass_leaf": "glass",
@@ -1858,6 +1858,10 @@ class Assembly:
         v = dict(next(x for x in self._entrances["variants"] if x["id"] == p.entrance_kit["variant"]))
         door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
+        # T-2817: a porch's door at the back of the arch, off its axis
+        pd = p.entrance_kit.get("porch_door")
+        if pd:
+            v["porch_door"] = {"s_m": pd["offset_m"], **{k: x for k, x in pd.items() if k != "offset_m"}}
         v["stair"] = dict(v["stair"], floor_m=p.door_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
         # T-2463: a stoop off its door's axis

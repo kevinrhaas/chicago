@@ -1528,6 +1528,18 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
     rails = dress.get("stoop_rails") or {}
     if rails and rails.get("kit") != "k11.rail.stoop_rail":
         raise ParamError("street_front_dress.stoop_rails are the K11 kit's k11.rail.stoop_rail")
+    gd = rails.get("guard")
+    if gd is not None:
+        # T-2817: the landing's guard runs from the stoop's head along the landing to `to_v_m`,
+        # an ornamental panel inside it (k01_arched_front._landing_guard)
+        if set(gd) != {"to_v_m", "panel_v_m"} or len(gd["panel_v_m"]) != 2:
+            raise ParamError("street_front_dress.stoop_rails.guard takes to_v_m and panel_v_m [from, to]")
+        pa, pb = sorted(float(x) for x in gd["panel_v_m"])
+        to = float(gd["to_v_m"])
+        if not 0.1 <= to <= width - 0.05 or not 0.3 <= pb - pa <= 1.2:
+            raise ParamError(f"street_front_dress.stoop_rails.guard: its end (v {to}) stands inside the front, "
+                             f"its panel 0.3-1.2 m long")
+        rails = {**rails, "guard": {"to_v_m": to, "panel_v_m": [pa, pb]}}
     return {"groups": tuple(out), "belts": tuple(belts), "stone_top_m": stone_top, "frieze": fr or {},
             "frontispiece": dress.get("frontispiece") or {}, "portico": po or {},
             "balconettes": dress.get("balconettes") or {}, "grilles": dress.get("grilles") or {},
@@ -1950,7 +1962,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", float(s), round(sill, 4), w, h))
     # T-2821: a door whose height its picture reads (1625's, 2.48 m clear over its one step);
     # K07 hangs its leaf in the K01 hole, so the hole is the door's. K01's 2.70 m otherwise
-    door_h = 2.70
+    door_w, door_h = 1.20, 2.70
     if form.get("door_clear_height_m"):
         dch = form["door_clear_height_m"]
         if dch.get("confidence", "reconstructed") == "reconstructed" or not dch.get("sources"):
@@ -1958,7 +1970,21 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         door_h = float(dch["value"])
         if not 2.0 <= door_h <= 3.2:
             raise ParamError(f"door_clear_height_m {door_h} is not a principal door's: 2.0-3.2 m clear")
-    openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4), 1.20, door_h, False))
+    # T-2817: a stone front's door arch may be cut broader and lower than K01's 1.2 by 2.7 m door
+    # (1623's porch mouth, as broad as the window's arch beside it): `opening_m`, [width, height
+    # to the crown over the door's floor], the door itself then standing at the porch's back
+    om = ((val("entrance_kit") or {}).get("k01.opening.door_leaf") or {}).get("opening_m")
+    if om is not None:
+        if form.get("door_clear_height_m"):
+            raise ParamError("entrance_kit.opening_m and door_clear_height_m both size the door's hole; give one")
+        if not door_arch_of(val("entrance_kit")) or len(om) != 2:
+            raise ParamError("entrance_kit.opening_m [width, height] sizes a round-arched door's hole (`arch`)")
+        door_w, door_h = float(om[0]), float(om[1])
+        if not 1.0 <= door_w <= 2.2 or not door_w / 2 + 1.2 <= door_h <= 3.6:
+            raise ParamError(f"entrance_kit.opening_m {om}: an arch 1.0-2.2 m across whose jambs rise at least "
+                             f"1.2 m to its springing, its crown at most 3.6 m over the floor")
+    openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4),
+                            door_w, door_h, False))
     if sfw:
         kit_ids = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
         door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + door_h + 0.30)
@@ -2270,6 +2296,26 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         door_kit["balustrade"] = dict(balustrade)
     if door_arch:
         door_kit["arch"] = dict(door_arch)
+    if "opening_m" in door_kit_in:
+        door_kit["opening_m"] = [door_w, door_h]
+    # T-2817: a porch behind the arch, its door at the back to one side (1623's drawing): the
+    # door's own opening, `width_m` across and `height_m` to its flat head, its centre
+    # `offset_m` along the front from the arch's axis, with its leaves, transom and glazing;
+    # a wall at the reveal's depth closes the arch round it (k07_entrances, porch_back)
+    if "porch_door" in door_kit_in:
+        pd = door_kit_in["porch_door"]
+        need = {"width_m", "offset_m", "height_m", "leaves", "panels", "transom_m"}
+        if not door_arch or "reveal_depth_m" not in door_kit_in or not need <= set(pd) <= need | {"glazed_rows"}:
+            raise ParamError(f"entrance_kit.porch_door takes {sorted(need)} and optionally glazed_rows, at the back "
+                             f"of a round-arched door's (`arch`) deep reveal (`reveal_depth_m`)")
+        wd, off, hd = float(pd["width_m"]), float(pd["offset_m"]), float(pd["height_m"])
+        if not 0.8 <= wd <= door_w - 0.3 or abs(off) + wd / 2 > door_w / 2 - 0.1 or not 2.0 <= hd < door_h:
+            raise ParamError(f"entrance_kit.porch_door: a {wd} m door {off:+.2f} m off the axis, {hd} m high, does "
+                             f"not stand 0.1 m inside the {door_w} m arch under its {door_h} m crown")
+        door_kit["porch_door"] = {"width_m": wd, "offset_m": off, "height_m": hd, "leaves": int(pd["leaves"]),
+                                  "panels": [int(x) for x in pd["panels"]], "transom_m": float(pd["transom_m"]),
+                                  **({"glazed_rows": [int(x) for x in pd["glazed_rows"]]}
+                                     if "glazed_rows" in pd else {})}
     # T-2369: a stoop between iron rails has no stone cheeks, and a door in a vestibule's
     # mouth stands deeper in its wall than the kit's outer leaf
     if "cheeks" in door_kit_in:
@@ -2314,7 +2360,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # front's own s. The door has to stand on the landing or on a terrace beside it
     if "stoop_v_m" in door_kit_in:
         sv = float(door_kit_in["stoop_v_m"])
-        half, dh = float(val("stoop_width_m")) / 2, 1.20 / 2
+        half, dh = float(val("stoop_width_m")) / 2, door_w / 2
         sides = {t["side"] for t in (door_kit.get("terrace") or [])} if isinstance(door_kit.get("terrace"), list) \
             else ({door_kit["terrace"]["side"]} if door_kit.get("terrace") else set())
         if not 0 <= sv - half or not sv + half <= width:
