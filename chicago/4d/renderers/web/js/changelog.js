@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2075, ts: '2026-10-19T20:21:03.407Z', date: 'Oct 19, 2026, 3:21 PM CT', title: 'Glessner\'s 18th Street chimney is as broad as the photographs show', kind: 'change',
+    items: [
+      'In 1904, the chimney on Glessner House\'s 18th Street gable is now about 7 ft wide, up from 5. The 1965 survey photograph shows it that broad.',
+      'Its two carved stones widen with it, and the small crosses beside the 1886 stone move out to the chimney\'s edges.',
+      'The width is read from the survey photograph through its matched camera, so it is a careful estimate, not a tape measurement.',
+    ] },
   { v: 2074, ts: '2026-10-19T20:08:41.424Z', date: 'Oct 19, 2026, 3:08 PM CT', title: 'A short "Why?" beside brightness, road visibility and eye height', kind: 'feature',
     items: [
       'Under brightness and road visibility in Settings, and eye height in Move, one line now says what the default is.',
