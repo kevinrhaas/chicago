@@ -78,6 +78,8 @@ class Opening:
     width_m: float
     height_m: float
     meeting_rail: bool = True
+    # T-2866: a light over a door's leaf in the top of its hole (1625's rear section door), 0 for none
+    transom_m: float = 0.0
 
     @property
     def head_m(self) -> float:
@@ -115,6 +117,10 @@ class K01FrontageParams:
     side_belts: tuple = ()
     roof: dict = field(default_factory=dict)       # T-2293: covering, caps, flashing (K04)
     dormer: dict = field(default_factory=dict)     # T-2293: the front dormer, if any
+    # T-2866: dormers on a hip's side and rear slopes (1625's on its open south side), each
+    # `_round_dormer`'s numbers with its face, its centre along the slope and how far back
+    # its body runs (`back_m`, in from the wall line) to die into the hip
+    slope_dormers: tuple = ()
     rainwater: dict = field(default_factory=dict)  # T-2293: gutters, outlets, pipes (K04)
     chimneys: tuple = ()              # T-2302: stacks joined into the K05 roof solid
     # T-2298: the K06 variant each K01 opening kind is glazed with (k06_windows.json)
@@ -239,6 +245,7 @@ CONSUMED = frozenset({
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
+    "slope_dormers",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -682,11 +689,12 @@ MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
 
 
 #: T-2452: a lower-face dormer's head — the sash's own arch carried out by the surround
-#: (T-2404, T-2411), or a pitched gable over a square-headed sash — and the K06 head each takes
-DORMER_HEADS = {"round": "round", "gable": "flat"}
+#: (T-2404, T-2411), or a pitched gable over a square-headed sash — and the K06 head each takes.
+#: T-2866: or a hipped roof of its own over the face's square head (1625's south dormer)
+DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat"}
 
 
-def _round_dormer(d: dict, what: str, room: float) -> dict:
+def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
     """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
     T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
     `face_setback_m` in from the fascia's face. `head` is `round` (the default: the sash's
@@ -699,6 +707,8 @@ def _round_dormer(d: dict, what: str, room: float) -> dict:
     head = d.get("head", "round")
     if head not in DORMER_HEADS:
         raise ParamError(f"{what}.head {head!r}: one of {', '.join(DORMER_HEADS)}")
+    if head == "hip" and not hip:
+        raise ParamError(f"{what}.head 'hip': a hipped dormer stands on a hip's slope (slope_dormers)")
     if kit.get(sh.get("variant"), {}).get("head") != DORMER_HEADS[head]:
         raise ParamError(f"{what}.sash.variant: a {DORMER_HEADS[head]}-headed K06 variant under a {head} head")
     sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
@@ -716,7 +726,75 @@ def _round_dormer(d: dict, what: str, room: float) -> dict:
             raise ParamError(f"{what}.gable_pitch_deg {gp}: a dormer's pediment is pitched 30-60 deg")
         out["gable_pitch_deg"] = gp
         out["head_m"] = round(sht + ring + (sw / 2 + ring) * math.tan(math.radians(gp)), 4)
+    if head == "hip":
+        # T-2866: the face's wall head stands `surround_m` over the sash, as its jambs do; the
+        # hip over it is K05's (k05_roofs.hip_element), its eaves the kit's dormer overhang
+        hp = float(d["hip_pitch_deg"])
+        if not 30.0 <= hp <= 60.0:
+            raise ParamError(f"{what}.hip_pitch_deg {hp}: a dormer's hip is pitched 30-60 deg")
+        out["hip_pitch_deg"] = hp
     return out
+
+
+#: T-2866: the hip's side slopes a dormer may stand on (the K01 frame's north and south walls)
+SLOPE_FACES = ("north", "south")
+
+
+def _slope_dormers(entries, roof_form: str, depth: float, width: float, eave: float, pitch: float,
+                   overhang: float, rear_section: dict) -> tuple:
+    """T-2866: dormers on a hip's side slopes — 1625's on its open south side (K01's north),
+    which the McBirney photograph shows over the side wall's eave. Each is a lower-face
+    dormer (`_round_dormer`) with its face `face_setback_m` in from the fascia's face, so its
+    foot is where it leaves the covering; `along_m` is its centre in u (rear wall 0, street
+    front `depth`). Its body runs back into the hip (`back_m`, in from the wall line) until
+    its top, and a hipped head's ridge, are inside the main roof, and never so far that it
+    stands out of the slope behind the ridge."""
+    if not entries:
+        return ()
+    if roof_form != "hip":
+        raise ParamError("slope_dormers stand on a hip's side slopes: a K01 hip roof only")
+    dp = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())["parts"]["dormer"]
+    do, df = float(dp["overhang_m"]), float(dp["fascia_depth_m"])
+    tp = math.tan(math.radians(pitch))
+    half = width / 2
+    ridge = eave + half * tp
+    out = []
+    for i, e in enumerate(entries):
+        what = f"slope_dormers[{i}]"
+        face = e.get("face")
+        if face not in SLOPE_FACES:
+            raise ParamError(f"{what}.face {face!r}: one of {', '.join(SLOPE_FACES)}")
+        r_ = _round_dormer(e, what, half, hip=True)
+        c, r = float(e["along_m"]), r_["width_m"] / 2
+        w0 = r_["face_setback_m"] - overhang          # the face, in from the wall line
+        if w0 < 0.05:
+            raise ParamError(f"{what}.face_setback_m: its face stands on the slope, at least 0.05 m "
+                             f"inside the wall line ({overhang} m of eave)")
+        foot = eave + w0 * tp
+        top = foot + r_["sill_m"] + r_["head_m"]
+        if r_["head"] == "hip":
+            reach = r + do
+            high = top + df + reach * math.tan(math.radians(r_["hip_pitch_deg"]))
+        else:
+            reach, high = r, top
+        if high > ridge - 0.1:
+            raise ParamError(f"{what}: its top at {high:.2f} m stands within 0.1 m of the hip's ridge at {ridge:.2f} m")
+        # back to where its top is inside the near slope; a hipped head's ridge ends `r` short of it
+        back = (r if r_["head"] == "hip" else 0.0) + (high - eave) / tp + 0.05
+        lowest = top + df if r_["head"] == "hip" else high
+        far = eave + (width - back - (do if r_["head"] == "hip" else 0.0)) * tp
+        if far < lowest + 0.02:
+            raise ParamError(f"{what}: run back {back:.2f} m to bury its top, it stands out of the slope behind the ridge")
+        if c - reach < back or c + reach > depth - back:
+            raise ParamError(f"{what}.along_m {c}: it stands on the side slope only for "
+                             f"{back + reach:.2f}-{depth - back - reach:.2f} m")
+        if rear_section and rear_section["side"] == face:
+            clear = rear_section["u_m"][1] + rear_section["attic"]["overhang_m"] + 0.3
+            if c - reach < clear:
+                raise ParamError(f"{what}.along_m {c}: within 0.3 m of the rear section's attic (u {clear - 0.3:.2f})")
+        out.append(dict(r_, face=face, along_m=c, foot_m=round(foot, 4), back_m=round(back, 4),
+                        overhang_m=do, fascia_m=df, top_m=round(high, 4)))
+    return tuple(out)
 
 
 def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
@@ -2033,7 +2111,34 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         for s in val("rear_bays"):
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.rear_service", float(s), round(sill, 4), w, h))
         for s in val("north_bays") or ():
-            openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", float(s), round(sill, 4), w, h))
+            if not isinstance(s, dict):   # T-2866: a window read off a picture is laid once, below
+                openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", float(s), round(sill, 4), w, h))
+    # T-2866: a north-wall window read off a picture (1625's south wall on the McBirney camera:
+    # its top floor's lights at their own sills, a stair light between floors, the ground
+    # floor's one) is {s_m, sill_m, width_m, height_m}, laid once at its own place rather than
+    # a column on every storey; the contract's single sash width, its height read (as
+    # street_front_windows' and rear_section's are), its lintel clear of the soffit
+    soffit = eave - (0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch)))
+    read = []
+    for j, e in enumerate(val("north_bays") or ()):
+        if not isinstance(e, dict):
+            continue
+        what = f"north_bays[{j}]"
+        if set(e) != {"s_m", "sill_m", "width_m", "height_m"}:
+            raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m")
+        s, sill, wd, h = (float(e[x]) for x in ("s_m", "sill_m", "width_m", "height_m"))
+        _within(wd, cw, f"{what}.width_m")
+        if not 1.0 <= h <= 3.2 or sill < 0.3:
+            raise ParamError(f"{what}: a sash read off a picture stands 1.0-3.2 m, its sill at least 0.3 m up")
+        if sill + h + 0.30 > soffit - 0.05:
+            raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
+        if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
+            raise ParamError(f"{what} stands within 0.45 m of the wall's ends")
+        for a0, a1, b0, b1 in read:
+            if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
+                raise ParamError(f"{what} meets another read window, or its lintel")
+        read.append((s - wd / 2, s + wd / 2, sill, sill + h))
+        openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", s, round(sill, 4), wd, h))
     # T-2821: a door whose height its picture reads (1625's, 2.48 m clear over its one step);
     # K07 hangs its leaf in the K01 hole, so the hole is the door's. K01's 2.70 m otherwise
     door_w, door_h = 1.20, 2.70
@@ -2203,6 +2308,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if wg:
             dormer.update(_wall_gable(d, wg, dormer, width))
 
+    slope_dormers = _slope_dormers(val("slope_dormers"), roof_form, depth, width, eave, pitch,
+                                   float(val("eave_overhang_m")), rear_section)
     shaped = _shaped_gable(val("shaped_gable") or {}, roof_form, dormer, width, eave, pitch,
                            float(val("eave_overhang_m")))
 
@@ -2786,10 +2893,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         front_bays=front_bays,
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
-        north_bays=tuple(float(s) for s in val("north_bays") or ()),
+        north_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("north_bays") or ()),
         side_belts=tuple(side_belts),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
-        roof=k04, dormer=dormer, rainwater=rainwater, chimneys=tuple(chimneys),
+        roof=k04, dormer=dormer, slope_dormers=slope_dormers, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
         street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
