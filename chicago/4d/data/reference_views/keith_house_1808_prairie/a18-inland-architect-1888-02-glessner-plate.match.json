@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-inland-architect-1888-02-glessner-plate",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "bee27f8824a16f205a2d905c2af06639f4ff6e50f89dec2b50f56df9478eb203",
+  "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
   "camera_sha256": "585abddb7bf1c9034f76bdbd0b2fea01f40e7927675c8e094030203a8fbd8642",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-inland-architect-1888-02-glessner-plate-side-by-side.jpg",
   "verdict": "matches",
@@ -36,7 +36,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2578: the cowl ventilator the plate shows over the return is built, at the place along the return the plate puts it.",
+      "what": "T-2578: the cowl ventilator the plate shows over the return is built, at the place along the return the plate puts it. T-2811: the cowl's set-back is now 0.45 m (0.6 before), the least-squares reading of this plate and the c. 1888 view looking SW, which disagree by about 0.3 m on it; here the cap's centre moves from y 630.5 to 635.0 against the plate's 629.5 (5.5 px, about 0.15 m at 37 px/m along the return) and its top stays at x 1083 with the plate's.",
       "status": "fixed"
     },
     {

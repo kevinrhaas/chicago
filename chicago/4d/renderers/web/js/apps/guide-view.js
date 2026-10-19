@@ -13,10 +13,27 @@
  * to data/guide/glossary.json by the gates) — and the questions "Is this real?" and "What
  * does Reconstructed mean?", read from data/guide/faq.json the first time Guide opens.
  * Tour mode joins with its own ticket (NAV-801).
+ *
+ * Then (T-2667, NAV-1002, design doc section 12): About this destination — four cards, How
+ * we grade, Sources, Liberties and What lived and grew here, each opening its card of the
+ * old research hub (js/evidence.js), which sits in this screen under the sheet. A fifth,
+ * the order book, carries `data-researcher` and shows only in Researcher mode.
+ *
+ * Last (T-2666, NAV-806, design doc section 11): For teachers, the Field Check's seven steps
+ * and three suggested Jaunts for each destination as a one-page handout to print
+ * (teacher-handout.js). The steps are the tour engine's own; each destination's Jaunts are
+ * read from its catalog the first time Guide opens, never at boot.
  */
 import { CONTROL_SHEETS, SCHEMES } from '../controls/sheet.js';
 import { controlScheme } from '../controls/intent.js';
 import { LOCKED_TERMS } from '../strings/terms.js';
+import { t } from '../strings/index.js';
+import '../strings/teachers.js';
+import '../strings/guide-about.js';
+import { CARDS } from '../evidence.js';
+import { STEPS } from '../tour.js';
+import { DESTINATIONS } from './jump-view.js';
+import { handoutModel, renderHandout, printHandout } from './teacher-handout.js';
 
 const state = { scheme: null, chosen: false, off: null, host: null };
 
@@ -61,6 +78,57 @@ function questions(doc, ctx) {
     body.replaceChildren(Object.assign(doc.createElement('p'), { className: 'nav-sub',
       textContent: 'The answers could not be read just now. The glossary above still says what each grade means.' }));
   });
+  return block;
+}
+
+/** About this destination: one button per card, each opening it in the section below. */
+function about(doc, ctx) {
+  const node = (tag, cls, text) => Object.assign(doc.createElement(tag), cls ? { className: cls } : {}, text != null ? { textContent: text } : {});
+  const block = node('section', 'nav-block nav-guide-about');
+  block.id = 'guide-about';
+  const list = node('div', 'nav-about-cards');
+  for (const card of CARDS) {
+    const key = card.researcher ? 'guide-about.researcher.card' : `guide-about.card.${card.id}`;
+    const b = node('button', 'nav-about-card');
+    b.type = 'button';
+    b.dataset.card = card.id;
+    if (card.researcher) b.setAttribute('data-researcher', '');
+    b.append(node('strong', 'nav-about-title', t(key)), ' ', node('span', 'nav-sub', t(`${key}.line`)));
+    b.addEventListener('click', () => { ctx.actions?.aboutCard?.(card.id); });
+    list.append(b, ' ');
+  }
+  block.append(node('span', 'nav-k', t('guide-about.k')), ' ', node('strong', 'nav-place', t('guide-about.title')), ' ',
+    node('p', 'nav-sub', t('guide-about.intro')), ' ', list);
+  return block;
+}
+
+/** For teachers: the handout, shown folded here and printed on one page. */
+function teachers(doc, ctx) {
+  const node = (tag, cls, text) => Object.assign(doc.createElement(tag), cls ? { className: cls } : {}, text != null ? { textContent: text } : {});
+  const block = node('section', 'nav-block nav-guide-teachers');
+  block.id = 'guide-teachers';
+  const button = node('button', 'setting-button nav-handout-print', t('teachers.print'));
+  button.type = 'button';
+  button.id = 'guide-handout-print';
+  const fold = node('details', 'nav-faq-item nav-handout-fold');
+  const summary = node('summary', null, t('teachers.preview'));
+  const catalogs = {};
+  // The scene the page holds (its sidecar's id, as Jump reads it), or a year given plainly.
+  const scene = typeof ctx.scene === 'object' ? (ctx.scene?.id ?? ctx.scene?.target_date?.slice(0, 4)) : ctx.scene;
+  const draw = () => renderHandout(doc, handoutModel({ steps: STEPS, scene, destinations: DESTINATIONS, catalogs }));
+  let handout = draw();
+  fold.append(summary, handout);
+  block.append(node('span', 'nav-k', t('teachers.k')), ' ', node('strong', 'nav-place', t('teachers.title')), ' ',
+    node('p', 'nav-sub', t('teachers.intro')), ' ', button, ' ', fold);
+  const ready = Promise.all(DESTINATIONS.map((d) => Promise.resolve()
+    .then(() => ctx.actions?.jauntCatalog?.(d.year))
+    .then((rows) => { catalogs[d.year] = Array.isArray(rows) ? rows : null; }, () => { catalogs[d.year] = null; })))
+    .then(() => {
+      const next = draw();
+      fold.replaceChildren(summary, next);
+      handout = next;
+    });
+  button.addEventListener('click', () => { ready.then(() => printHandout(handout, { doc })); });
   return block;
 }
 
@@ -121,7 +189,7 @@ export function mount(el, ctx = {}) {
   const doc = el.ownerDocument;
   state.host = doc.createElement('div');
   state.host.className = 'nav-guide-controls';
-  el.replaceChildren(state.host, glossary(doc), questions(doc, ctx));
+  el.replaceChildren(state.host, glossary(doc), questions(doc, ctx), about(doc, ctx), teachers(doc, ctx));
   render(state.host);
   state.off?.();
   // Follow the live controls until the visitor picks a sheet themselves.

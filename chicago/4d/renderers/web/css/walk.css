@@ -1254,6 +1254,11 @@ body.is-touch .crosshair { display: none; }
 body:is(.is-touch, .touch-first) .crash-notice button { min-height: 44px; }
 .crash-notice-reload { padding: 0 14px; font-weight: 600; color: var(--accent); }
 .crash-notice-reload[hidden] { display: none; }
+/* T-2826: the black box's line after a reset is long, so the card wraps and Copy sits under it. */
+.crash-notice:has(.crash-notice-copy:not([hidden])) { flex-wrap: wrap; align-items: flex-start; }
+.crash-notice:has(.crash-notice-copy:not([hidden])) .crash-notice-text { flex: 1 1 calc(100% - 90px); overflow-wrap: anywhere; }
+.crash-notice-copy { padding: 0 14px; font-weight: 600; color: var(--accent); margin-left: 30px; }
+.crash-notice-copy[hidden] { display: none; }
 .crash-notice-close { width: 36px; display: grid; place-items: center; border-color: transparent; }
 body:is(.is-touch, .touch-first) .crash-notice-close { width: 44px; }
 .crash-notice-close svg { width: 16px; height: 16px; }
@@ -2261,6 +2266,17 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   color: #1a1503; background: linear-gradient(135deg, #fbbf24, #d97706); }
 .about-dev[hidden], #s-about-dev-note[hidden] { display: none; }
 #s-about-dev-note a { color: var(--accent); }
+/* T-2660: Settings › About › Field log — the counts this device keeps, label and number on
+   one line, the number in tabular figures so the column reads down. A long label wraps. */
+.field-log { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
+.field-log > h5 { margin: 0 0 6px; font-size: 10.5px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--accent); }
+.field-log-rows { display: grid; grid-template-columns: minmax(0, 1fr) fit-content(55%); gap: 4px 12px; margin: 8px 0 10px;
+  font-size: 12.5px; line-height: 1.4; }
+.field-log-rows dt { color: var(--ink-dim); min-width: 0; overflow-wrap: anywhere; }
+.field-log-rows dd { margin: 0; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere; min-width: 0; }
+#s-field-log-status:empty { display: none; }
 /* T-2785 (owner, 2026-10-18: "the dev marker tag and date time stamp for dev is now gone
    so that should come back"): on a phone the DEV pill always shows in place of the
    full-width banner, which is the piece that covered the HUD's top row, and the arrival
@@ -2269,3 +2285,16 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   #__dev { display: none !important; }
   #__devpill { display: inline-block !important; }
 }
+/* T-2657 — Researcher mode. Its label is an item of the HUD's top row, between the year chip
+   and the instrument, so the row's own layout keeps it clear of both; level with the chip's
+   middle, it takes no pointer, and it is drawn only while the mode is on (css/skins.css).
+   A full essay it brings back is set off by a dashed rule in the skin's accent. */
+.research-badge {
+  flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  align-self: flex-start; margin-top: 10px; pointer-events: none; padding: 3px 9px; border-radius: 999px;
+  font: 500 9px/1.2 var(--font-mono, ui-monospace, monospace); letter-spacing: .16em;
+  color: var(--accent); background: var(--panel, rgba(16, 32, 58, .94));
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.why-full { border-left: 2px dashed color-mix(in srgb, var(--accent) 70%, transparent); padding-left: 8px; }
+.research-link { color: var(--accent); }

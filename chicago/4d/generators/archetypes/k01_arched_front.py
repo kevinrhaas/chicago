@@ -34,6 +34,7 @@ FRIEZE_RECESS_M = 0.12       # a frieze light's glass behind the frieze's face
 FILLET = (0.08, 0.04)        # the frieze's foot: a fillet this high, this proud
 IRON_BAR_M = 0.018           # a guard's or grille's square bar
 SHAFT_SIDES = 16
+SCROLL_SEGMENTS = 18         # T-2818: one grille scroll's volute, in straight runs of bar
 
 
 def _k01():
@@ -195,6 +196,43 @@ def wedges(cx, cy, r, L, R, top, merge_crown=True):
     return out
 
 
+def wedges_segmental(cx, spring, rise, radius, L, R, top):
+    """T-2818: the block L..R x spring..top over a segmental head cut into stones radiating
+    from the arc's centre (`radius` under the crown, below the spring) along K06's own head
+    vertices (k06_windows.Head.curve: 8 segments over the arc), the two at the crown one
+    stone, and at each end a skewback: the stone between the springing line, the block's
+    side and the first joint, which a round head has no need of. Each as wedges() gives it."""
+    cy = spring + rise - radius
+    t0 = math.acos(max(-1.0, min(1.0, math.sqrt(max(radius * radius - (rise - radius) ** 2, 0.0)) / radius)))
+    n = 8
+    angs = [t0 + (math.pi - 2 * t0) * i / n for i in range(n + 1)]
+    angs = angs[:n // 2] + angs[n // 2 + 1:]
+    corners = [(math.atan2(top - cy, R - cx), (R, top)), (math.atan2(top - cy, L - cx), (L, top))]
+    P = lambda t: (cx + radius * math.cos(t), cy + radius * math.sin(t))
+    out = []
+    # the skewbacks, right then left: spring line, side, (the block's top corner), the joint
+    hr, hl = _hit(cx, cy, angs[0], L, R, top), _hit(cx, cy, angs[-1], L, R, top)
+    right = [P(angs[0]), (R, spring)] + ([(R, top)] if hr[1] > top - 1e-6 and hr[0] < R - 1e-6 else []) + [hr]
+    left = [(L, spring), P(angs[-1]), hl] + ([(L, top)] if hl[1] > top - 1e-6 and hl[0] > L + 1e-6 else [])
+    for pts in (right, left):
+        clean = []
+        for q in pts:
+            if not clean or math.dist(clean[-1], q) > 1e-6:
+                clean.append(q)
+        out.append((clean, ["spring"] + ["side"] * (len(clean) - 2) + ["radial"], math.pi / 2))
+    for a0, a1 in zip(angs, angs[1:]):
+        A, B = P(a0), P(a1)
+        pts = [A, _hit(cx, cy, a0, L, R, top)]
+        pts += [q for ang, q in corners if a0 + 1e-6 < ang < a1 - 1e-6]
+        pts += [_hit(cx, cy, a1, L, R, top), B]
+        clean = []
+        for q in pts:
+            if not clean or math.dist(clean[-1], q) > 1e-6:
+                clean.append(q)
+        out.append((clean, ["radial"] * (len(clean) - 1) + ["intrados"], (a0 + a1) / 2))
+    return out
+
+
 def _keystone(a, frame, k, seed, conf):
     s, y0, y1 = k["s_m"], k["bed_m"], k["top_m"]
     w0, w1 = (x / 2 for x in k["width_m"])
@@ -257,7 +295,9 @@ def _voussoirs(a, frame, g, conf, recess):
     for i, (s0, s1, spring, r, sill) in enumerate(g["lights"] if g.get("extrados") != "curved" else ()):
         cx = (s0 + s1) / 2
         L, Rr = g["cuts"][i], g["cuts"][i + 1]
-        for pts, kinds, mid in wedges(cx, spring, r, L, Rr, g["top_m"]):
+        sg = g.get("segmental")
+        for pts, kinds, mid in (wedges_segmental(cx, spring, r, sg["radius_m"], L, Rr, g["top_m"]) if sg
+                                else wedges(cx, spring, r, L, Rr, g["top_m"])):
             bed = k._unit(k._add(k._mul(R, math.cos(mid)), k._mul(k.Y, math.sin(mid))))
             a.stone(frame, pts, [hj] * len(pts), "rough_stone_trim", a._stone_seed(cid, inst, j), conf,
                     recess=recess, bevel=wk["bevel_m"], F=0.0, bed=bed)
@@ -436,14 +476,61 @@ def _guards(a, frame, af, conf):
         if gr and g["component"] == gr["component"]:
             seed = a.instance("k01.opening.grille", "opening", {"bars": gr["bars"]},
                               {"sill": _P(frame, g["keystone"]["s_m"], g["sill_m"], 0.0)})
+            sc = gr.get("scrolls")
             for (s0, s1, spring, r, sill) in g["lights"]:
                 cx, d = (s0 + s1) / 2, -gr["set_back_m"]
+                # T-2818: under a segmental head the bars stop on its arc, centred below the spring
+                sg = g.get("segmental")
+                rad, cy = (sg["radius_m"], spring + r - sg["radius_m"]) if sg else (r, spring)
+                foot = sc["foot_m"] if sc else None
                 for i in range(1, gr["bars"] + 1):
                     x = s0 + (s1 - s0) * i / (gr["bars"] + 1)
-                    yt = spring + math.sqrt(max(r * r - (x - cx) ** 2, 0.0)) - 0.03
+                    yt = foot if sc else cy + math.sqrt(max(rad * rad - (x - cx) ** 2, 0.0)) - 0.03
                     _bar(a, frame, x - b / 2, x + b / 2, sill + 0.02, yt, d - b, d, seed, conf)
-                for yy in (sill + 0.25, spring - 0.15):
+                for yy in ((sill + 0.25, foot - b) if sc else (sill + 0.25, spring - 0.15)):
                     _bar(a, frame, s0 + 0.02, s1 - 0.02, yy, yy + b, d - 2 * b, d - b, seed, conf)
+                if sc:
+                    _scrolls(a, frame, sc, s0 + 0.02, s1 - 0.02, foot, spring, d - b, d, seed, conf)
+
+
+def _rod(a, frame, p0, p1, w, d0, d1, seed, conf):
+    """An iron bar `w` wide in the wall's plane from (s, y) p0 to p1, d0..d1 deep: its face,
+    its back and its two edges (its ends meet the next rod's)."""
+    ds, dy = p1[0] - p0[0], p1[1] - p0[1]
+    L = math.hypot(ds, dy)
+    if L < 1e-6:
+        return
+    ns, ny = -dy / L * w / 2, ds / L * w / 2
+    lo = [(p0[0] - ns, p0[1] - ny), (p1[0] - ns, p1[1] - ny)]
+    hi = [(p0[0] + ns, p0[1] + ny), (p1[0] + ns, p1[1] + ny)]
+    quad = [lo[0], lo[1], hi[1], hi[0]]
+    _face(a, "iron", frame, [(x, y, d1) for x, y in quad], (0, 0, 1), seed, conf)
+    _face(a, "iron", frame, [(x, y, d0) for x, y in quad], (0, 0, -1), seed, conf)
+    for (e, f), hint in (((lo[0], lo[1]), (-ns, -ny, 0)), ((hi[0], hi[1]), (ns, ny, 0))):
+        _face(a, "iron", frame, [(e[0], e[1], d0), (f[0], f[1], d0), (f[0], f[1], d1), (e[0], e[1], d1)], hint, seed, conf)
+
+
+def _scrolls(a, frame, sc, s0, s1, foot, spring, d0, d1, seed, conf):
+    """T-2818: a grille's band of scrolls, as 1623's drawing draws over its uprights: `count`
+    volutes side by side between the band's foot bar and the springing, each a flat iron bar
+    curled from the cell's edge into its centre, turned alternately, so the band reads as
+    the drawing's row of C-scrolls."""
+    n = int(sc["count"])
+    w = (s1 - s0) / n
+    hb = spring - foot
+    rc = min(w, hb) / 2 - 0.012
+    turns, seg = 1.5, SCROLL_SEGMENTS
+    for i in range(n):
+        cx, cy = s0 + w * (i + 0.5), foot + hb / 2
+        hand = 1 if i % 2 == 0 else -1
+        pts = []
+        for j in range(seg + 1):
+            t = j / seg
+            ang = math.pi / 2 * (1 - hand) + hand * (math.pi * 0.25 + 2 * math.pi * turns * t)
+            rr = rc * (1 - 0.65 * t)
+            pts.append((cx + rr * math.cos(ang), cy + rr * math.sin(ang)))
+        for p0, p1 in zip(pts, pts[1:]):
+            _rod(a, frame, p0, p1, IRON_BAR_M, d0, d1, seed, conf)
 
 
 def _beam(a, mat, frame, s, w, p0, p1, h, seed, conf):

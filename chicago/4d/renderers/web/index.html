@@ -34,9 +34,11 @@
      feature own its style. walk.css stays the base and the tokens. -->
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
+<link rel="stylesheet" href="./css/confidence-overlays.css">
 <link rel="stylesheet" href="./css/inspect.css">
 <link rel="stylesheet" href="./css/photos.css">
 <link rel="stylesheet" href="./css/tour.css">
+<link rel="stylesheet" href="./css/handout.css">
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
@@ -195,6 +197,9 @@
       class="badge-year">1835</span><span class="badge-dot" aria-hidden="true">·</span><span class="badge-sub">07.01</span><span
       class="badge-alt" id="badge-alt" hidden></span><span
       class="badge-version" id="badge-version" role="note" hidden></span></button>
+    <!-- T-2657: Researcher mode's label, in the row between the year chip and the instrument,
+         shown only while it is on (css/skins.css). -->
+    <span class="research-badge" id="research-badge" data-researcher data-str="research.badge">RESEARCHER</span>
     <div class="hud-actions">
       <!-- T-2625 (§10 "In-world HUD"): Start / Jaunts, the pace chip and the light / dark
            switch left this row. Start / Jaunts's three choices are the Navigator's Jaunts app
@@ -235,9 +240,10 @@
         </div>
         <!-- T-2741: where you stand, in the scene's year and today — the era street (none in
              1812) over today's street, corner or house number, read off the City's own
-             centrelines (data/modern/streets.json). -->
+             centrelines (data/modern/streets.json). "Then", not the year: "1904 Prairie
+             Avenue" read as a house number. -->
         <div id="street-readout" class="street-readout" aria-live="polite" hidden>
-          <span class="street-line street-era"><b id="street-era-year"></b><strong id="street-historic"></strong></span>
+          <span class="street-line street-era"><b>Then</b><strong id="street-historic"></strong></span>
           <span class="street-line street-today"><b>Today</b><span class="street-modern" id="street-modern"></span></span>
           <span class="street-approach" id="street-approach" hidden></span>
         </div>
@@ -281,7 +287,7 @@
       <button class="panel-tab" data-tab="travel" role="tab" aria-selected="false" title="Move" data-str-title="hud.tab.move"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h3l2-5h6l2 5h3"/><path d="M9 12l1.5-4h3L15 12"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/><path d="M12 8V4"/></svg><span class="tab-label" data-str="hud.tab.move">Move</span></button>
       <button class="panel-tab" data-tab="people" role="tab" aria-selected="false" title="People" data-str-title="hud.tab.people"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.5A5 5 0 0 1 22 19"/></svg><span class="tab-label" data-str="hud.tab.people">People</span></button>
       <button class="panel-tab" data-tab="businesses" data-title="Shops &amp; work" role="tab" aria-selected="false" title="Shops &amp; work" data-str-title="hud.tab.shops"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 4.7 5.2A1.6 1.6 0 0 1 6.2 4.2h11.6a1.6 1.6 0 0 1 1.5 1L21 9.5"/><path d="M4.5 9.5v9a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-9"/><path d="M3 9.5a2.6 2.6 0 0 0 5 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 5 0"/><path d="M9.5 20v-5h5v5"/></svg><span class="tab-label" data-str="hud.tab.shops.short">Shops</span></button>
-      <button class="panel-tab" data-tab="evidence" role="tab" aria-selected="false" title="Sources" data-str-title="hud.tab.sources"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg><span class="tab-label" data-str="hud.tab.sources">Sources</span></button>
+      <button class="panel-tab" data-tab="evidence" data-title="About this destination" role="tab" aria-selected="false" title="About this destination" data-str-title="guide-about.tab.title"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg><span class="tab-label" data-str="guide-about.tab">About</span></button>
       <button class="panel-tab" data-tab="settings" role="tab" aria-selected="false" title="Settings" data-str-title="hud.tab.settings"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h8M16 17h4"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="17" r="2"/></svg><span class="tab-label" data-str="hud.tab.settings">Settings</span></button>
       <button class="panel-tab" data-tab="controls" role="tab" aria-selected="false" title="Guide" data-str-title="hud.tab.guide"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg><span class="tab-label" data-str="hud.tab.guide">Guide</span></button>
       <button class="panel-tab" data-tab="whatsnew" role="tab" aria-selected="false" title="What's new" data-str-title="hud.tab.whatsnew"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2H4.5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="tab-label" data-str="hud.tab.whatsnew">What's new</span><span class="tab-dot" id="whatsnew-dot" hidden aria-hidden="true"></span></button>
@@ -348,7 +354,9 @@
       <label class="field"><span>Eye height <b id="v-eye"></b></span>
         <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
       <details class="why"><summary>Why this default</summary>
-        <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
+        <p class="legend-note" data-visitor-only data-str="research.why.eye">The default, 1.68 m, is the average height of an American man in the 1830s. Raise it if the view feels low; it moves only the camera, never the town.</p>
+        <!-- T-2657: the full essay, for Researcher mode. -->
+        <p class="legend-note why-full" id="eye-note" data-researcher>The default, 1.68 m, is the mean stature of an adult
           man in the 1830s United States — this walkthrough puts your eye where a person of the
           period had theirs, which is lower than a modern viewer expects and lower than the
           prairie grass beside you, because both of those are true of the place. Raise it if the
@@ -380,8 +388,11 @@
       <div id="businesses-directory"></div>
     </section>
     <section class="panel-body" data-panel="evidence" hidden>
-      <!-- The Evidence hub (evidence.js). Ten topics, one shown at a time; the
-           tiles render into #evidence-hub. Each topic is a container whose mounts
+      <!-- Guide › About this destination (T-2667): the old Evidence hub (evidence.js).
+           Its topics fold into four cards, How we grade, Sources, Liberties and What
+           lived and grew here, drawn into #evidence-hub; the order book's topic is marked
+           data-researcher, hidden until Researcher mode is on. One topic is shown at a
+           time; the tiles sit in their cards. Each topic is a container whose mounts
            keep their ids — liberties.js, ground.js, fauna.js, plants.js and
            exclusions.js still render into them, and the smoke reads them by id.
            The topics carry no `hidden` in the markup on purpose: if the hub
@@ -391,9 +402,9 @@
       <div class="ev-topic" data-topic="grades">
         <h3 class="legend-h ev-topic-title">How we grade</h3>
         <ul class="legend-list">
-          <li><i class="sw sw-doc"></i> <b>attested</b> — a source attests this at the scene date</li>
-          <li><i class="sw sw-inf"></i> <b>inferred</b> — reasoned from evidence about this thing: a described location, a measured lot, an adjacent record</li>
-          <li><i class="sw sw-rec"></i> <b>reconstructed</b> — no source speaks to this one; built to fill a demonstrable need of the town, and drawn as dithered massing</li>
+          <li><i class="sw sw-doc"></i> <b>Attested</b> — a source attests this at the scene date</li>
+          <li><i class="sw sw-inf"></i> <b>Inferred</b> — reasoned from evidence about this thing: a described location, a measured lot, an adjacent record</li>
+          <li><i class="sw sw-rec"></i> <b>Reconstructed</b> — no source speaks to this one; built to fill a demonstrable need of the town, and drawn as dithered massing</li>
           <!-- T-1158. The fourth chip appears on PEOPLE, not on buildings: most of an
                1835 resident's attributes are simply not recorded, and until now the card
                showed that absence with the reconstructed chip — which reads as "we made
@@ -430,8 +441,8 @@
             Liberties document. Every value a record states without evidence is named in
             this list — an invented outline or placement, and equally a roof, a height or a porch
             chosen because it was usual rather than because it was found. An entry says which
-            inventions it admits to — the dashed chips — and the commit gate checks those claims
-            against the records both ways, failing if an invention has no admission or an admission
+            inventions it admits to — the dashed chips — and an automatic check holds those
+            claims to the records both ways, failing if an invention has no admission or an admission
             has no invention. The rule now runs the other way as well: where a record states
             something the model does not build — a stable, a painted sign, a chimney count no
             generator reads — the popup marks that row <em>not built</em> or <em>not modelled from
@@ -556,7 +567,10 @@
         </div>
       </div>
 
-      <div class="ev-topic" data-topic="orderbook">
+      <!-- T-2667: Researcher mode only (owner ruling 2026-10-16). The order book is
+           internal language — the quota, the work still owed — so the whole topic is
+           data-researcher; its mounts keep their ids and still fill at boot. -->
+      <div class="ev-topic" data-topic="orderbook" data-researcher>
         <h3 class="legend-h ev-topic-title">Reconstructing the town</h3>
         <p class="legend-note ev-lead" id="order-book-note" aria-busy="true">Loading…</p>
         <details class="ev-about">
@@ -565,8 +579,8 @@
             minus what the sources can name, bucket by bucket — people by sex, age, division,
             household and trade; households by kind; the December 1835 trade census against the
             firms the town already holds; and the roofs the building programme still owes. Each
-            bucket names the ticket that owes it and carries a counter the reconstruction tools
-            write, so the bars fill as the town does. The section at the top is the other
+            bucket carries a counter the reconstruction tools write, so the bars fill as the town
+            does. The section at the top is the other
             direction: how many of the households the book ordered now have ground under them,
             how many of the town&rsquo;s standing roofs carry one, and which houses have been asked
             for and not yet built. Nothing here is a claim about 1835: it is
@@ -582,39 +596,23 @@
          the reasoning behind a researched default folds under "Why this default".
          Every id here is read by the smoke gate — keep them. -->
     <section class="panel-body" data-panel="settings" hidden>
-      <div class="settings-group">
-        <h4>Units</h4>
-        <label class="field row"><span>Measurement units</span>
-          <select id="s-units">
-            <option value="imperial">Imperial — ft, mi, mph</option>
-            <option value="metric">Metric — m, km, km/h</option>
+      <div class="settings-group" id="s-display">
+        <h4 data-str="settings.display">Display</h4>
+        <!-- T-2625 moved light / dark here from the HUD; T-2656 makes it a two-way choice. -->
+        <div class="field row theme-row"><span data-str="settings.theme">Light or dark</span>
+          <div class="seg" role="radiogroup" id="s-theme" aria-label="Light or dark" data-str-label="settings.theme">
+            <button type="button" class="seg-btn" data-theme-choice="dark" role="radio" aria-checked="false" data-str="settings.theme.dark">Dark</button>
+            <button type="button" class="seg-btn" data-theme-choice="light" role="radio" aria-checked="false" data-str="settings.theme.light">Light</button>
+          </div></div>
+        <!-- T-2656 (QA-18): every Navigator app's text, 100-140 %; the screens reflow. -->
+        <label class="field row"><span data-str="settings.textSize">Text size</span>
+          <select id="s-text-size">
+            <option value="1">100 %</option>
+            <option value="1.1">110 %</option>
+            <option value="1.2">120 %</option>
+            <option value="1.3">130 %</option>
+            <option value="1.4">140 %</option>
           </select></label>
-      </div>
-      <div class="settings-group">
-        <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
-      </div>
-      <div class="settings-group">
-        <h4>View</h4>
-        <!-- T-2625: the light / dark switch moved here from the HUD (Settings › View; the design calls it Display). -->
-        <div class="field row theme-row"><span>Light or dark interface</span>
-          <button id="btn-theme" class="chip icon" title="Light / dark interface" aria-label="Light / dark interface"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor" stroke="none"/></svg></button>
-        </div>
-        <label class="field"><span>Field of view <b id="v-fov"></b></span>
-          <input type="range" id="s-fov" min="55" max="100" step="1"></label>
-        <!-- R-A1. An accessibility aid layered on a default that was measured
-             correct, never a substitute for one. It must not read as a claim
-             about how visible an 1835 street was — see streets.js § R-A1. -->
-        <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
-          <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
-        <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="road-aid-note">These are worn earth tracks through prairie
-            grass, and how much bare earth shows is a modelled figure with its own evidence behind
-            it — so the default paints them exactly as the record describes. Raise this if they are
-            hard to follow: on a phone in daylight, or if faint contrast is difficult to see. It
-            changes nothing but how strongly the roads are painted on your screen, and it is not a
-            claim that 1835 Chicago's streets looked bolder than this.</p>
-        </details>
         <!-- K24, owner-requested. The same standing as the road aid: an
              accommodation for your screen, layered on a grade that was measured
              against a photograph. The ceiling is one stop — see world.js
@@ -622,7 +620,8 @@
         <label class="field"><span>Brightness <b id="v-brightness"></b></span>
           <input type="range" id="s-brightness" min="0" max="1" step="0.05"></label>
         <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="brightness-note">The scene is lit by a sky whose colour was
+          <p class="legend-note" data-visitor-only data-str="research.why.brightness">The default is the light matched to a July photograph taken at this latitude. Raise it for a dim room or a bright window. It changes nothing else.</p>
+          <p class="legend-note why-full" id="brightness-note" data-researcher>The scene is lit by a sky whose colour was
             matched to a July photograph taken at this latitude, and the default position of this
             slider is that measured light — which is why it says "calibrated" rather than showing a
             number. Raise it if the scene is hard to see: a dim room, a bright window, a phone at
@@ -631,39 +630,22 @@
             end is not a second reconstruction of how 1835 looked. All of this project's own
             measurements are taken at the calibrated position whatever you choose here.</p>
         </details>
-      </div>
-      <div class="settings-group">
-        <h4>Performance</h4>
-        <label class="field row"><span>Scene detail</span>
-          <select id="s-detail">
-            <option value="full">Full — every plant and tree</option>
-            <option value="balanced">Balanced — fewer plants</option>
-            <option value="light">Light — fewest, for slow machines</option>
-          </select></label>
-        <label class="field row"><span>Image sharpness</span>
-          <select id="s-quality">
-            <option value="1">Low — smoother</option>
-            <option value="1.5">Medium</option>
-            <option value="2">High — sharper</option>
-          </select></label>
-        <label class="field row"><span>Frame pacing</span>
-          <select id="s-governor">
-            <option value="adaptive">Adaptive — steadier while moving</option>
-            <option value="fixed">Fixed — always the sharpness above</option>
-          </select></label>
-        <p class="legend-note" id="governor-line"></p>
-        <p class="legend-note" id="device-line" hidden></p>
-        <!-- T-2732: dev preview (or ?pacing=read) only — pacing-read.js unhides it. -->
-        <div class="field row" id="pacing-read" hidden><span>Frame pacing reading</span>
-          <span class="pacing-read-actions">
-            <button class="setting-button" id="s-pacing-copy" type="button" hidden>Copy</button>
-            <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
-          </span>
-        </div>
-        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
-          half a minute at Light, Fixed then Adaptive, and puts you back where you were.</p>
-        <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
-          aria-label="Frame pacing reading"></textarea>
+        <label class="field"><span>Field of view <b id="v-fov"></b></span>
+          <input type="range" id="s-fov" min="55" max="100" step="1"></label>
+        <!-- R-A1. An accessibility aid layered on a default that was measured
+             correct, never a substitute for one. It must not read as a claim
+             about how visible an 1835 street was — see streets.js § R-A1. -->
+        <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
+          <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
+        <details class="why"><summary>Why this default</summary>
+          <p class="legend-note" data-visitor-only data-str="research.why.road">The default paints the worn earth tracks as the record describes them. Raise it if they are hard to follow; it changes your screen, not the past.</p>
+          <p class="legend-note why-full" id="road-aid-note" data-researcher>These are worn earth tracks through prairie
+            grass, and how much bare earth shows is a modelled figure with its own evidence behind
+            it — so the default paints them exactly as the record describes. Raise this if they are
+            hard to follow: on a phone in daylight, or if faint contrast is difficult to see. It
+            changes nothing but how strongly the roads are painted on your screen, and it is not a
+            claim that 1835 Chicago's streets looked bolder than this.</p>
+        </details>
       </div>
       <div class="settings-group">
         <h4>Show</h4>
@@ -697,15 +679,103 @@
           <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
+      <div class="settings-group">
+        <h4>Movement</h4>
+        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
+      </div>
+      <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
+      <div class="settings-group" id="s-machine">
+        <h4 data-str="settings.machine">Machine</h4>
+        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Machine" data-str-label="settings.machine"></div>
+      </div>
+      <div class="settings-group">
+        <h4>Performance</h4>
+        <label class="field row"><span>Scene detail</span>
+          <select id="s-detail">
+            <option value="full">Full — every plant and tree</option>
+            <option value="balanced">Balanced — fewer plants</option>
+            <option value="light">Light — fewest, for slow machines</option>
+          </select></label>
+        <label class="field row"><span>Image sharpness</span>
+          <select id="s-quality">
+            <option value="1">Low — smoother</option>
+            <option value="1.5">Medium</option>
+            <option value="2">High — sharper</option>
+          </select></label>
+        <label class="field row"><span>Frame pacing</span>
+          <select id="s-governor">
+            <option value="adaptive">Adaptive — steadier while moving</option>
+            <option value="fixed">Fixed — always the sharpness above</option>
+          </select></label>
+        <!-- T-2656: Auto puts back what this device's profile recommends (js/settings-app.js). -->
+        <div class="field row perf-auto"><span id="s-perf-auto-line">Auto</span>
+          <button class="setting-button" id="s-perf-auto" type="button">Use Auto</button></div>
+        <p class="legend-note" id="governor-line"></p>
+        <p class="legend-note" id="device-line" hidden></p>
+        <!-- T-2732: dev preview (or ?pacing=read) only — pacing-read.js unhides it. -->
+        <div class="field row" id="pacing-read" hidden><span>Frame pacing reading</span>
+          <span class="pacing-read-actions">
+            <button class="setting-button" id="s-pacing-copy" type="button" hidden>Copy</button>
+            <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
+          </span>
+        </div>
+        <!-- T-2733: the longer run is the default; one 5 s sample a mode was too thin to settle. -->
+        <label class="field row" id="pacing-read-length" hidden><span>Reading length</span>
+          <select id="s-pacing-seconds">
+            <option value="15">15 s a mode — steadier</option>
+            <option value="5">5 s a mode — quicker</option>
+          </select></label>
+        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
+          a minute and a half at Light, Fixed then Adaptive, and puts you back where you were.</p>
+        <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
+          aria-label="Frame pacing reading"></textarea>
+      </div>
+      <!-- T-2656: Settings › Sound. The controls are kept now; the sounds are T-2659's. Until
+           they land the note says so, and nothing pretends to play. -->
+      <div class="settings-group" id="s-sound">
+        <h4 data-str="settings.sound">Sound</h4>
+        <label class="field"><span><span data-str="settings.sound.master">Master</span> <b id="v-sound-master"></b></span>
+          <input type="range" id="s-sound-master" min="0" max="1" step="0.05"></label>
+        <label class="field"><span><span data-str="settings.sound.effects">Effects</span> <b id="v-sound-effects"></b></span>
+          <input type="range" id="s-sound-effects" min="0" max="1" step="0.05"></label>
+        <label class="field"><span><span data-str="settings.sound.ambience">Ambience</span> <b id="v-sound-ambience"></b></span>
+          <input type="range" id="s-sound-ambience" min="0" max="1" step="0.05"></label>
+        <p class="legend-note" id="s-sound-note" data-str="settings.sound.none">Nothing in the town makes a sound yet. These are kept for when it does.</p>
+      </div>
+      <div class="settings-group">
+        <h4>Units</h4>
+        <label class="field row"><span>Measurement units</span>
+          <select id="s-units">
+            <option value="imperial">Imperial — ft, mi, mph</option>
+            <option value="metric">Metric — m, km, km/h</option>
+          </select></label>
+      </div>
       <!-- T-2629: About — the build stamp, and on a dev build the DEV mark (js/about.js).
            On a phone this is where they are: the arrival card's stamp and the dev
            preview's banner and pill are not drawn there. -->
       <div class="settings-group about" id="s-about">
-        <h4 data-str="hud.about.title">About</h4>
+        <h4 data-str="settings.about">About &amp; What's new</h4>
         <p class="about-build"><span class="about-dev" id="s-about-dev" hidden data-str="hud.about.dev">DEV</span>
           <span id="s-about-build"></span></p>
         <p class="legend-note" id="s-about-dev-note" hidden><span data-str="hud.about.devNote">A preview build: not production, and not indexed.</span>
           <a href="/4d/" data-str="hud.about.production">Open production</a></p>
+        <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
+        <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
+          <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
+        <!-- T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
+             device only, never sent anywhere, with Clear. The rows are painted from the table. -->
+        <div class="field-log" id="s-field-log">
+          <h5 data-str="fieldlog.title">Field log</h5>
+          <p class="legend-note" data-str="fieldlog.note">Counted on this device only. Nothing is sent anywhere.</p>
+          <dl class="field-log-rows" id="s-field-log-rows"></dl>
+          <div class="field row"><span data-str="fieldlog.clear.line">Start the log again</span>
+            <button class="setting-button" id="s-field-log-clear" type="button" data-str="fieldlog.clear">Clear</button></div>
+          <p class="legend-note" id="s-field-log-status" role="status"></p>
+        </div>
+        <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device. -->
+        <label class="field row check-field"><span data-str="research.switch">Researcher mode</span>
+          <input type="checkbox" id="s-researcher"></label>
+        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Shows the full reasoning and the working records we keep for researchers, in place. This device remembers it.</p>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>

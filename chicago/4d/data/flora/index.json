@@ -1010,6 +1010,18 @@
       "note": "Robert G. Clarke's grove of 'perhaps fifty to seventy-five large cottonwoods' on the shore from a little north of Sixteenth to a little south of Eighteenth Street, with its clump of eight or nine (T-2766). Sixty stems dealt by tools/generate_shore_grove_1835.py and re-derived on every commit; existence inferred, positions reconstructed (L-shore-grove-1835-2766)."
     },
     {
+      "id": "fort_company_garden_1835",
+      "file": "plantings/fort_company_garden_1835.json",
+      "scenes": ["1835"],
+      "note": "The fort's company gardens 'well filled with currant-bushes and young fruit-trees' (Wau-Bun, 1831), planted inside the garrison garden's committed footprint (T-2809): a border row of young apple and sour cherry and long rows of currants between the vegetable beds. Written by tools/generate_fruit_plantings_1835.py and re-derived on every commit; existence attested, species and positions reconstructed (L-fruit-trees-1835-2809)."
+    },
+    {
+      "id": "harmon_orchard_1835",
+      "file": "plantings/harmon_orchard_1835.json",
+      "scenes": ["1835"],
+      "note": "Dr. Harmon's orchard from 'fruit stones of all descriptions' planted in 1831 inside a sod fence near the lake (Wau-Bun), four seasons on: rows of peach and sour cherry seedlings south of the Sixteenth Street line, west of the shore cottonwood grove (T-2809). Written by tools/generate_fruit_plantings_1835.py; existence inferred, place, species and positions reconstructed (L-fruit-trees-1835-2809). The sod fence is not drawn."
+    },
+    {
       "id": "massacre_cottonwoods_1812",
       "file": "plantings/massacre_cottonwoods_1812.json",
       "scenes": ["1812"],

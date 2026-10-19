@@ -85,7 +85,11 @@ const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
   // Halfway along Prairie between 16th and 18th: on Prairie, at no corner.
   const prairie = grid.carriageways.find((c) => c.id === 'prairie_16_18').polygon_local_m;
   const mid = prairie.reduce((a, [e, n]) => [a[0] + e / prairie.length, a[1] + n / prairie.length], [0, 0]);
-  assert.deepEqual(where.at(mid[0], mid[1]), { mode: 'on', place: 'Prairie Avenue' });
+  const onPrairie = where.at(mid[0], mid[1]);
+  assert.equal(onPrairie?.mode, 'on', JSON.stringify(onPrairie));
+  assert.equal(onPrairie.place, 'Prairie Avenue');
+  // T-2741: and the lot beside you gives the period house number.
+  assert.match(onPrairie.address, /^1[67]\d\d(–1[67]\d\d)? Prairie Avenue$/, onPrairie.address);
   assert.equal(where.at(mid[0] + 5000, mid[1]), null, 'far from every street is nowhere named');
   assert.equal(polygonDistance(mid[0], mid[1], prairie), 0, 'inside a polygon is 0 m from it');
 
@@ -1029,9 +1033,11 @@ for (const phone of [true, false]) {
   }
   const parked = html.slice(html.indexOf('<div class="hud-moved"'), html.indexOf('</div>', html.indexOf('<div class="hud-moved"')));
   assert(/id="btn-start"/.test(parked), 'Start / Jaunts waits, hidden, with its id; the Jaunts app holds its choices');
-  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 1);
+  // T-2656: the switch is Settings › Display's two-way choice, #s-theme, and the old chip is gone.
+  assert.equal((html.match(/id="btn-theme"/g) ?? []).length, 0);
+  assert.equal((html.match(/id="s-theme"/g) ?? []).length, 1);
   const settings = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
-  assert(/id="btn-theme"/.test(settings), 'light / dark lives in Settings');
+  assert(/id="s-theme"/.test(settings), 'light / dark lives in Settings');
   assert(!/id="btn-pace"/.test(html), 'the pace chip is gone; Move holds the pace');
   assert(/id="s-move"/.test(html), 'Move\'s picker holds the pace');
 }

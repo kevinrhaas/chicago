@@ -199,6 +199,11 @@ const COVERAGE = [
   ['data/guide/', NONE, 'the Guide glossary and FAQ, read by no module yet: check_guide.py'],
   // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
   ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
+  // T-2641: the style library, compiled with the records into inspect/<scene>.json at publish
+  // and drawn by Inspect's Design tab, which part 14 reads on Glessner House. Its schema is held
+  // by compile_summaries.py in check.sh and fetched by no module.
+  ['data/styles/', [14], 'the style guide modules Inspect\'s Design tab shows (T-2641)'],
+  ['data/style.schema.json', NONE, 'the shape a style module is refused against: compile_summaries.py'],
   // T-2702: 1904's own household cards and the directory compiled from them. main.js
   // fetches a people.json only for a scene that draws `residents`, which 1904 does not
   // (T-1740), so no module reads either; test_people_scene.py holds them in check.sh.
@@ -281,12 +286,16 @@ const COVERAGE = [
   // the 1835 tabs once in the town (T-2639); part 13 the rail.
   ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
   ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
+  ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Sources tab: facts by grade, Liberties, folded citations (T-2644)'],
   // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
   // spot); part 4 opens every tab of an 1835 building, Photos included.
   ['renderers/web/js/photos-tab.js', [4, 14], 'Inspect\'s Photos tab (T-2645)'],
   ['renderers/web/css/photos.css', [4, 14], 'Inspect\'s Photos tab, its grid and tiles (T-2645)'],
   // T-2643: Inspect's Story timeline; part 4 reads it on an 1835 building, part 14 on Glessner.
   ['renderers/web/js/inspect-story.js', [4, 14], 'Inspect\'s Story tab: BUILT, YOU ARE HERE and TODAY (T-2643)'],
+  // T-2641: Inspect's Design tab; part 14 reads Glessner's style card, hotspots and Show me,
+  // part 4 an 1835 building with no record or module, which falls back to its own sidecar.
+  ['renderers/web/js/inspect-design.js', [4, 14], 'Inspect\'s Design tab: the style card, On this house, Compare styles (T-2641)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],
@@ -336,7 +345,7 @@ const COVERAGE = [
   // and holds it to zero pageerrors, which is the claim "not imported" rests on.
   ['renderers/web/js/ground-strip.js', [1], 'the ground-strip proof (T-1797), drawn only under ?proof=ground'],
   ['renderers/web/js/ground-strip-mask.js', [1], 'the ground-strip proof\'s layout and mask pixels (T-1797)'],
-  ['renderers/web/js/citations.js', [3], 'pick -> provenance, and what kind of source'],
+  ['renderers/web/js/citations.js', [3, 4, 14], 'pick -> provenance, and what kind of source; Inspect\'s Sources tab folds them (T-2644)'],
   ['renderers/web/js/liberties.js', [3, 14], 'the liberties on the card, and in the panel'],
   // T-1519. The People directory's person card is `householdHtml` from this module, and
   // that card is opened and read in PART 12 — so 12 joins the building card (3) and the
@@ -376,7 +385,9 @@ const COVERAGE = [
   // T-1160. The Evidence hub is asserted in PART 12 (ten tiles since T-1292, each
   // counting its own mount) and its mounts are stress-measured for overflow in PART 13, so the
   // population profile and the hub itself are read by both and by nothing else.
-  ['renderers/web/js/evidence.js', [13, 14], 'the Evidence hub and its tiles'],
+  // T-2667: the hub is Guide › About this destination; its four cards are opened from
+  // Guide's own block in PART 12, and the 1904 hub's cards are read in PART 14.
+  ['renderers/web/js/evidence.js', [12, 13, 14], 'Guide › About this destination: the four cards and their tiles'],
   ['renderers/web/js/population.js', [13, 14], 'the town\u2019s people, profiled'],
   ['data/reconstruction/1835_population_profile.json', [13, 14], 'the profile the panel renders'],
   // T-1166. The order book's panel is the ninth tile, asserted in the same PART 12
@@ -497,6 +508,9 @@ const COVERAGE = [
   ['data/research/', [14], 'researched, and still open — the third category'],
   // T-0474. The 1904 street grid is drawn only at the /1904/ door, which part 14 boots.
   ['renderers/web/js/street-grid.js', [14], 'the 1904 Prairie Avenue street grid (T-0474)'],
+  // T-2833. The 1904 context city is drawn only at the /1904/ door too.
+  ['renderers/web/js/context.js', [14], 'the 1904 context city: its stand-ins, their facades and its trees (T-2477, T-2833)'],
+  ['data/context/', [14], 'the 1904 context city\'s rows, read by context.js at the /1904/ door'],
   // T-2109/T-2213. Only a transmissive pane is replaced, and only Glessner's GLB carries one: /1904/.
   ['renderers/web/js/glass.js', [14], "Glessner's dark panes, their blinds and sheen (T-2213)"],
   ['data/street_grid/', [14], 'the 1904 carriageways, block faces, alleys and parcels'],

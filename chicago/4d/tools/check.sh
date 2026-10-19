@@ -145,11 +145,19 @@ step "Each grade's look — tint, dither or ghost at an opacity — and the ghos
   node tools/test_confidence_looks.mjs
 step "The Confidence view's presets — NORMAL, BY GRADE, ATTESTED ONLY (exactly the two grades hidden by hand), X-RAY — and C toggling BY GRADE (T-2647)" \
   node tools/test_confidence_presets.mjs
+step "The Confidence view's overlays — street names, building labels, people pins and the Jaunt route, each on its own switch, only what each destination has, and no frame loop while off (T-2650)" \
+  node tools/test_confidence_overlays.mjs
+step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
+  node tools/test_confidence_rows.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
+  node tools/test_blackbox.mjs
+step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
+  node tools/test_pick_boxes.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -160,6 +168,12 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
   node tools/test_navigator.mjs
+step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
+  node tools/test_settings_app.mjs
+step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
+  node tools/check_navigator_contrast.mjs
+selftest "…and a token drifted toward its panel, or the device's overrides removed, is refused (T-2656)" \
+  node tools/check_navigator_contrast.mjs --self-test
 step "The Navigator's telemetry strip ticks every 800 ms only while the device is open and seen, never with the tab hidden or under reduced motion, on the portal's own numbers (T-2623)" \
   node tools/test_nav_telemetry.mjs
 # T-2663: Tour mode, the Field Check.
@@ -168,9 +182,18 @@ step "The Field Check's seven steps each move on only on their own action, resum
 # T-2664: the tour offered once per device, and the one-time hints after it.
 step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
   node tools/test_tour_offer.mjs
+# T-2665: the Navigator License keepsake.
+step "Finishing the Field Check awards the Navigator License once per device, never on Skip, with storage refused safely, and the Jaunts daybook shows it after a reload (T-2665)" \
+  node tools/test_license.mjs
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
+# T-2660: the field log, on the device only.
+step "Settings › About's field log counts landings, first inspects, tabs, Show me, Jaunts, Tour steps and presets in localStorage only, clears, and never sends (T-2660)" \
+  node tools/test_field_log.mjs
+# T-2657: Researcher mode, the Settings › About switch.
+step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
+  node tools/test_researcher_mode.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 # T-2643: Inspect's Story tab.
@@ -206,12 +229,24 @@ step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider who
 # T-2661: Guide's controls sheet.
 step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
   node tools/test_nav_guide.mjs
+# T-2644: Inspect's Sources tab.
+step "Inspect's Sources tab groups every fact by grade with real counts, names each source by its own citation with no id or tier label, folds the full citation, and lists Liberties by name (T-2644)" \
+  node tools/test_nav_sources.mjs
 # T-2645: Inspect's Photos tab.
 step "Inspect's Photos tab shows each picture's year, caption and credit by date, the 12 best first and All N, and From this spot only where a solved camera stood (T-2645)" \
   node tools/test_nav_photos.mjs
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
+# T-2641: Inspect's Design tab.
+step "Inspect's Design tab shows the building's style card from its sourced module, numbered On this house hotspots each with its grade in place of the attribute table, and Compare styles; a building with neither falls back to its own graded sidecar (T-2641)" \
+  node tools/test_nav_design.mjs
+# T-2666: Guide › For teachers, the teacher handout.
+step "Guide › For teachers prints the Field Check's seven steps from the tour itself and three Jaunts per destination by one stated rule, as one top-level copy the print stylesheet keeps (T-2666)" \
+  node tools/test_teacher_handout.mjs
+# T-2667: Guide › About this destination, the old research hub as four cards.
+step "Guide › About this destination folds every research topic into one of four cards, How we grade, Sources, Liberties and What lived and grew here, in every destination, with the order book behind Researcher mode and every id kept (T-2667)" \
+  node tools/test_guide_about.mjs
 # T-2652: getting there — one choice for Go to, the Map and Jaunts.
 step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
   node tools/test_getting_there.mjs
@@ -2011,6 +2046,11 @@ step "the planted poplar rows re-derive from the rule that chose their greens" \
 # L-shore-grove-1835-2766).
 step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
   python3 tools/generate_shore_grove_1835.py --check
+
+# The fort's company gardens and Dr. Harmon's orchard (Wau-Bun, 1831): which fruit,
+# how many and where are a rule's, re-derived here (T-2809, L-fruit-trees-1835-2809).
+step "the 1835 company-garden and Harmon orchard plantings re-derive from their rule" \
+  python3 tools/generate_fruit_plantings_1835.py --check
 
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a
@@ -3845,6 +3885,17 @@ step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
 # no door.
 selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
+
+# …and the page those doors copy ships without the source's developer notes, which is
+# what keeps five identical copies of it under validate.py's 64 KB duplicate floor
+# (T-0722) without moving the floor. The self-test holds the rules (placeholders,
+# conditional comments, raw elements and attribute values untouched); --check holds
+# the shipped page to the source byte for byte, less exactly its comments and stamp.
+selftest "the shipped walk page: developer comments out, placeholders and raw text untouched" \
+  node tools/strip_page_comments.mjs --self-test
+
+step "the published walk page and its doors are the source less its comments (T-0722)" \
+  node tools/strip_page_comments.mjs --check ../../site/4d
 
 # The reference browsers' asset directories leave the mirror only when the site root
 # already ships every byte of them (T-1828) — never a directory with new work in it.
@@ -7362,8 +7413,9 @@ step "string table: sections register and extend, placeholders fill, no key ever
 
 # T-2668 (NAV-1003). The visitor-UI lint: no file path, link, id, snake_case word, ticket
 # number, or the words "tier", "ticket" or "order book" in what a visitor reads — the string
-# table, the static pages' visible text, and the Go to list's business rows from
-# data/businesses/index.json. Researcher-mode strings are exempt (a `researcher` key segment;
+# table, the static pages' visible text, the Go to list's business rows from
+# data/businesses/index.json and the Shops & work card's location lines (T-2657, which holds
+# a record sentence that fails for Researcher mode where the page gates it). Researcher-mode strings are exempt (a `researcher` key segment;
 # a [data-researcher] element, which css/skins.css hides until Researcher mode is on), and a
 # leak another ticket owns sits on the tool's allowlist with that ticket, failing once stale.
 step "no path, id, snake_case, 'tier', 'ticket' or 'order book' in what a visitor reads (T-2668)" \

@@ -545,6 +545,21 @@ visual phase in the whole program.
   a stand-in by T-2721 and rejected), far outside the range the governor acts in. T-2721
   also found that most of a live frame here is the gaze target's synchronous one-pixel
   pick (`readPixels`, 63 of 72 s of moves), now T-2723.*
+  *Read on the owner's phone, 2026-10-19 (T-2733): **T-2592 is read, NOT MET.** With
+  T-2732's Settings → Performance → Read frame pacing, on an iPhone at `/4d/dev/1835/`,
+  Light, one 5 s sample a mode (~160 draws): Adaptive lowered both sd and p95 for the
+  **walk** only (sd 6.0 → 5.0 ms, p95 43 → 41, frames over 50 ms 3 → 0); the **turn** rose
+  (sd 4.7 → 6.5, p95 37 → 41, max 44 → 73 ms) and so did the **flight** (sd 3.9 → 5.0, p95
+  38 → 41). The phone does not hold 60 at Light even on Fixed (medians 27–31 ms), so
+  Adaptive is pacing to 30 there, and on turns the pacing made frames less even, not more.
+  Adaptive stays the default for now; why it worsens turns, and whether Fixed should be
+  the default until it does not, is T-2829 (a decision for the owner if the default is to
+  change). The reading, verbatim, is `docs/measurements/t-2733-owner-phone-1835.txt`, its
+  rows as JSON beside it. The readout now prints the scene, the Sharpness stop and the
+  ratio each drive drew at, defaults to 15 s a mode, and walks each scene's own poses
+  (in 1904, south along Prairie Avenue's east walk — the first 1904 attempt walked due
+  west into the Glessner front, T-2828); `tools/test_pacing_read.mjs` holds every pose
+  clear of its scene's footprints. The 1904 reading is T-2719.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke

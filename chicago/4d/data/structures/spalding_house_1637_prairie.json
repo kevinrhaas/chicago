@@ -216,7 +216,7 @@
         "north_bays": {
           "value": [],
           "confidence": "reconstructed",
-          "note": "The south wall, which no picture shows, stands near the lot line with 1639: left blind."
+          "note": "The south flank (K01's side.north on this east-side house), left blind. The c. 1870 Grosvenor photograph (glessner_blog_1637_grosvenor_asbuilt_photo) shows it blank brick from the front's corner to the canted bay at about u 4 m, and nothing says the remodel opened it; the light over the bay is the bay's own `window_over` (T-2780); east of the photograph's frame, about u 0 to the rear range, no picture shows it (L-k01-1637-spalding-remodel-2441)."
         },
         "rear_bays": {
           "value": [
@@ -418,7 +418,8 @@
             "k01.opening.area_light": {
               "variant": "k06.opening.area_light",
               "well": false
-            }
+            },
+            "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight"
           },
           "confidence": "reconstructed",
           "note": "Two-over-two sashes, the kit's sash for a brick front of the 1880s; the engraving's glazing bars are not legible."
@@ -653,14 +654,111 @@
                 ]
               },
               "plinth_m": 0.1
+            },
+            {
+              "id": "south_flank",
+              "variant": "k08.bay.canted_hooded",
+              "wall": "k01.wall.side.north",
+              "s_m": 8.435,
+              "fabric": "stone",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.775,
+                    0.0
+                  ],
+                  [
+                    -1.11,
+                    0.75
+                  ],
+                  [
+                    1.11,
+                    0.75
+                  ],
+                  [
+                    1.775,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 2.95,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.basement_round",
+                      "clear_width_m": 0.55,
+                      "clear_height_m": 0.65,
+                      "sill_m": 2.04,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the front's small light in the bay's base, read off the Grosvenor photograph under the front's principal light: about 0.6 m across and 0.65 m tall, its foot about 2.05 m over grade"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 5.05,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 1.35,
+                      "clear_height_m": 2.5,
+                      "sill_m": 0.2,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the front's round-arched light, read off the Grosvenor photograph: about 1.35 m wide, from the sill band at about 3.15 m to its crown at about 5.65 m"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.0,
+                "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "overhang_m": 0.35,
+                "fascia_m": 0.25
+              },
+              "brackets": {
+                "consoles": {
+                  "reach_m": 0.35,
+                  "drop_m": 0.6,
+                  "thickness_m": 0.2,
+                  "segments": 8
+                }
+              },
+              "balcony": {
+                "fabric": "stone",
+                "height_m": 0.7,
+                "inset_m": 0.05,
+                "post_m": 0.2,
+                "bar_m": 0.07,
+                "pitch_m": 0.17,
+                "rail_m": [
+                  0.16,
+                  0.12
+                ],
+                "foot_rail_m": 0.12
+              },
+              "window_over": {
+                "sill_m": 8.4,
+                "width_m": 1.4,
+                "height_m": 1.4,
+                "head": "round"
+              }
             }
           ],
           "confidence": "inferred",
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving",
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "glessner_blog_1637_grosvenor_asbuilt_photo"
           ],
-          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre (the second storey's a pair of one-over-one sashes on a mullion, 1.8 m across, T-2537). The principal storey's is the engraving's French window over a balcony (T-2534): its opening at x 672-745 px reads 1.9 m wide on the wing's face (v 9.71-11.63 m, centred on the wing), its head at y 518 px 5.71 m and its transom bar about 4.8-4.9 m, and it runs down to the balcony's floor, the principal floor (y 668 px, 2.3 m); built as K06's French pair under a transom, its threshold 0.05 m over the balcony's floor. The wing's storey line stands 0.15 m under that floor, at 2.15 m, so that the French pair's frame, which K08 holds clear of the stone string course every storey line carries, can come down to the balcony: the course stands at 2.07-2.23 m, behind the balcony's 0.2 m slab (2.1-2.3 m), and the wing's principal storey is 4.45 m to the same 11.35 m wall top. The balcony's rail tops at y 630 px, 0.87 m over that floor, and its bowed front spans x 651-779 px, about 3.4 m along the wing at the wall; its rise off the face the engraving's nearly frontal view does not give, so it is reconstructed at 0.6 m, and its balusters, which the engraving draws pale between dark gaps about 0.17 m apart as it draws the stoop's stone balustrade, are square stone balusters here under a stone coping (L-k01-1637-wing-balcony-2534). The bay rises from grade to the cornice itself, as the engraving carries it (T-2472): its upper storey 4.64 m, so its wall top stands at 11.24 m, the foot of K10's bed moulding (T-2528: 4.552 m and 11.152 m until the soffit was read off the mansard's wall head), and its eaves ARE the cornice, carried round the bow (`eaves.cornice`): the bed moulding swept round its plan under the house's soffit (11.3 m) and fascia (to 11.5 m), 0.5 m out from the bow's face as the main eave stands from the wall, in the same painted timber; the wall's bed moulding stops at the bow's junctions and its brackets stand clear of them. The bow carries no brackets of its own: the engraving draws its top as one plain band, and its brackets would be K10's, not the engraving's. Through the camera that band lands at y 245-267 px on the bow's crown, the engraving's at about 255-270; until T-2472 the bay stopped at 10.7 m under a plain K08 eave (y 270-287 px). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks. Under each, the engraving's basement lights (T-2535), each bay's basement a storey of its own up to the principal floor (2.3 m), as 1621's bow's is, over a 0.1 m plinth (the kit's 0.6 m plinth would stand over the lights' sills; reconstructed), read through its camera on the bay's and the wing's faces: under the bow one barred, flat-headed light at x 388-439 px, y 696-757 px, which reads s 2.57-3.78 and 0.52-1.82 m over grade, so 1.0 m wide and 1.3 m tall over a 0.5 m sill, set under the middle window at the same 2 degrees (the engraving's column, x 413 px, is the middle window's own, x 412); under the wing two round-headed lights at x 675-710 and 736-771 px, y 692-757 px, each about 0.9 m wide on the wing's face with a 0.7 m pier between, 1.4 m to the crown over a 0.3 m sill. The pair's centre reads about 0.35 m south of the wing's (x 723 px against the window's 708), the draughtsman's perspective converging faster than the camera's (the solve's own note), so the pair is centred under the window above, 0.8 m either side. Their glazing bars and the bow light's iron are K06's and K08's, RECONSTRUCTED (L-k01-1637-basement-lights-2535). T-2537: the wing's second-storey window is the engraving's pair, read off the print itself: its dark opening spans x 675-745 px (70 px; the build's 1.1 m sash spanned 688-730, 42 px, so about 38 px a metre on this face through the camera, and 70 px is about 1.83 m), a pale bar down its middle at x 704-707 px, and in each half a meeting rail and no bars, so two one-over-one sashes. It is built as K06's paired sash, 1.8 m clear, two 0.88 m lights on a 0.04 m mullion; through the camera it now spans x 675-743 px. The mullion's width is reconstructed (L-k01-1637-wing-pair-2537): the print draws it as a single 3 px line, as it draws every bar, and the kit's 0.2 m stone mullion stood as an 8 px brick pier between two holes where the print draws one opening. Its height was read and left: the right light is dark from y 353 to 445 px on the print and on the build alike, so the 2.1 m sash at 0.75 m over the floor stands."
+          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre (the second storey's a pair of one-over-one sashes on a mullion, 1.8 m across, T-2537). The principal storey's is the engraving's French window over a balcony (T-2534): its opening at x 672-745 px reads 1.9 m wide on the wing's face (v 9.71-11.63 m, centred on the wing), its head at y 518 px 5.71 m and its transom bar about 4.8-4.9 m, and it runs down to the balcony's floor, the principal floor (y 668 px, 2.3 m); built as K06's French pair under a transom, its threshold 0.05 m over the balcony's floor. The wing's storey line stands 0.15 m under that floor, at 2.15 m, so that the French pair's frame, which K08 holds clear of the stone string course every storey line carries, can come down to the balcony: the course stands at 2.07-2.23 m, behind the balcony's 0.2 m slab (2.1-2.3 m), and the wing's principal storey is 4.45 m to the same 11.35 m wall top. The balcony's rail tops at y 630 px, 0.87 m over that floor, and its bowed front spans x 651-779 px, about 3.4 m along the wing at the wall; its rise off the face the engraving's nearly frontal view does not give, so it is reconstructed at 0.6 m, and its balusters, which the engraving draws pale between dark gaps about 0.17 m apart as it draws the stoop's stone balustrade, are square stone balusters here under a stone coping (L-k01-1637-wing-balcony-2534). The bay rises from grade to the cornice itself, as the engraving carries it (T-2472): its upper storey 4.64 m, so its wall top stands at 11.24 m, the foot of K10's bed moulding (T-2528: 4.552 m and 11.152 m until the soffit was read off the mansard's wall head), and its eaves ARE the cornice, carried round the bow (`eaves.cornice`): the bed moulding swept round its plan under the house's soffit (11.3 m) and fascia (to 11.5 m), 0.5 m out from the bow's face as the main eave stands from the wall, in the same painted timber; the wall's bed moulding stops at the bow's junctions and its brackets stand clear of them. The bow carries no brackets of its own: the engraving draws its top as one plain band, and its brackets would be K10's, not the engraving's. Through the camera that band lands at y 245-267 px on the bow's crown, the engraving's at about 255-270; until T-2472 the bay stopped at 10.7 m under a plain K08 eave (y 270-287 px). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks. Under each, the engraving's basement lights (T-2535), each bay's basement a storey of its own up to the principal floor (2.3 m), as 1621's bow's is, over a 0.1 m plinth (the kit's 0.6 m plinth would stand over the lights' sills; reconstructed), read through its camera on the bay's and the wing's faces: under the bow one barred, flat-headed light at x 388-439 px, y 696-757 px, which reads s 2.57-3.78 and 0.52-1.82 m over grade, so 1.0 m wide and 1.3 m tall over a 0.5 m sill, set under the middle window at the same 2 degrees (the engraving's column, x 413 px, is the middle window's own, x 412); under the wing two round-headed lights at x 675-710 and 736-771 px, y 692-757 px, each about 0.9 m wide on the wing's face with a 0.7 m pier between, 1.4 m to the crown over a 0.3 m sill. The pair's centre reads about 0.35 m south of the wing's (x 723 px against the window's 708), the draughtsman's perspective converging faster than the camera's (the solve's own note), so the pair is centred under the window above, 0.8 m either side. Their glazing bars and the bow light's iron are K06's and K08's, RECONSTRUCTED (L-k01-1637-basement-lights-2535). T-2537: the wing's second-storey window is the engraving's pair, read off the print itself: its dark opening spans x 675-745 px (70 px; the build's 1.1 m sash spanned 688-730, 42 px, so about 38 px a metre on this face through the camera, and 70 px is about 1.83 m), a pale bar down its middle at x 704-707 px, and in each half a meeting rail and no bars, so two one-over-one sashes. It is built as K06's paired sash, 1.8 m clear, two 0.88 m lights on a 0.04 m mullion; through the camera it now spans x 675-743 px. The mullion's width is reconstructed (L-k01-1637-wing-pair-2537): the print draws it as a single 3 px line, as it draws every bar, and the kit's 0.2 m stone mullion stood as an 8 px brick pier between two holes where the print draws one opening. Its height was read and left: the right light is dark from y 353 to 445 px on the print and on the build alike, so the 2.1 m sash at 0.75 m over the floor stands. T-2780: the south wall's canted bay (`south_flank`), which the c. 1870 Grosvenor photograph shows and the 1911 sheet still draws, so the remodel kept it (the photograph's match record weighs that). Its plan is the sheet's (s20fp-1637-b1: junctions at x 1427.06 and 1430.61 m in the trace frame, u 4.34 to 0.79, so 3.55 m at the wall centred at s 8.435 m on K01's side.north wall, which on this east-side house is its south flank; cheeks at 45 degrees and its front 2.22 m, 0.75 m out). Its heights are the photograph's, read through T-2755's camera at about 57 px a metre on the bay's front: the sill band at about y 680 px (3.1 m; the base built to 2.95 m and the lights' sills 0.2 m over it, which K08's frames need), the front's arched light to its crown at y 535 (5.65 m) and about 1.35 m wide (35 px on a front that draws about 26 px a metre), a small light in the base under it at y 690-730 (built round-headed, 0.55 m by 0.65 m from 2.04 m), the entablature's consoles from y 435 (7.4 m) to the soffit at y 400 (8.0 m, the bay's wall top), the corona to y 385 (8.25 m), and the balustrade's coping at y 345 (about 8.95 m), so a stone balustrade 0.7 m high round the bay's flat top. The light over it in the south wall is round-headed, its crown at y 305 on the wall's plane (9.8 m) and about 1.4 m wide between its shutters; its sill, behind the balustrade, is set 0.15 m over the bay's roof (8.4 m). The consoles' reach, the soffit's 0.35 m, the balusters' size and pitch and the cheeks left blank are RECONSTRUCTED (L-k01-1637-south-bay-2780)."
         },
         "rear_wings": {
           "value": [

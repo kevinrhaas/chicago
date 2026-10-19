@@ -14,7 +14,7 @@
 
 import { formatDistance, normalUnitSystem } from './units.js';
 import { isTyping } from './controls/pointerlock.js';
-import { todayText } from './modern-streets.js';
+import { todayText, withLotNumber } from './modern-streets.js';
 
 const DEG = Math.PI / 180;
 const CARDINALS = [
@@ -137,12 +137,10 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
   const fullClose = root?.querySelector('#overview-full-close');
   const fullFoot = root?.querySelector('#overview-full-foot');
   const streetReadout = root?.querySelector('#street-readout');
-  const streetYear = root?.querySelector('#street-era-year');
   const streetHistoric = root?.querySelector('#street-historic');
   const streetModern = root?.querySelector('#street-modern');
   const streetApproach = root?.querySelector('#street-approach');
   const streetToggle = root?.querySelector('#street-toggle');
-  if (streetYear) streetYear.textContent = String(year || '');
   const ctx = canvas?.getContext('2d');
   const fullCtx = fullCanvas?.getContext('2d');
   const background = document.createElement('canvas');
@@ -529,7 +527,7 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
         || Math.abs(b - lastStreet.bearingDeg) > 2) {
       streetState = streets?.status?.(e, n, b) ?? null;
       eraState = eraWhere?.at?.(e, n, b) ?? null;
-      todayState = modern?.at?.(e, n) ?? null;
+      todayState = withLotNumber(modern?.at?.(e, n) ?? null, eraState);
       paintStreet();
       lastStreet = { e, n, bearingDeg: b };
     }
@@ -556,7 +554,7 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
     streetReadout?.toggleAttribute('hidden', !show);
     streetToggle?.setAttribute('aria-pressed', String(show));
     if (!show) return;
-    const era = eraState?.place ?? (eraWhere?.empty ? 'no streets yet' : 'no street here');
+    const era = eraState?.address ?? eraState?.place ?? (eraWhere?.empty ? 'no streets yet' : 'no street here');
     // Until today's streets have loaded, a dash rather than a claim that there are none.
     const today = modern ? todayText(todayState) : '—';
     if (streetHistoric) streetHistoric.textContent = era;
@@ -707,6 +705,8 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
     get eraState() { return eraState; },
     get todayState() { return todayState; },
     get modernLoaded() { return !!modern; },
+    /** T-2650: the scene draws no streets of its own year (1812), for the Confidence view's overlays. */
+    get eraEmpty() { return !!eraWhere?.empty; },
     snapshot() {
       return {
         ...player, compassVisible, mapVisible, streetVisible, streetState, eraState, todayState, units,

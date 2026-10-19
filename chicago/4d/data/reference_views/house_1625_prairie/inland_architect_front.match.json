@@ -2,7 +2,7 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0f7b36aa42e3e04f4402361eb9c5b57004483c0a559a11f74ec07754983506cd",
+  "glb_sha256": "5d606ba8ed0d5d5bd8bf699cd67c38ea717de6eb02e8c780b1d05d46dec4fc7d",
   "camera_sha256": "95ef55fe597125fa212e06ba6af0af5ef13437d278a7399a967719ce5592eef2",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
@@ -39,8 +39,8 @@
     },
     {
       "what": "the frontispiece: the front's south part stands slightly proud, its edges quoined, and the lower windows sit in dressed, quoined surrounds; the photograph has a carved panel over the door and a hood mould over the four-light window; the build lays the four-light mullioned and transomed window over the door and the two narrow segment-headed lights over it (T-2752) in the front's own plane, with no projection, quoins, panel or hood",
-      "status": "open",
-      "how": "T-2753"
+      "status": "fixed",
+      "how": "T-2753 (street_front_frontispiece): the front from s 3.81 m (x 287 px) to its south corner stands 0.10 m proud from grade to the hood mould, its coursing and the four-light window and door laid on that face; both arrises quoined 0.25 and 0.42 m in turn, the north column within about 2 px of the print's (x 287-298); the hood mould a weathered course at 7.05-7.30 m across the frontispiece's width, within about 3 px of the print's (y 513-523), 0.08 m past its face and north arris; the lower windows' and the four-light window's surrounds dressed jamb stones 0.18 and 0.30 m in turn under a 0.35 m dressed lintel course; the door in a 0.35 m dressed band with its lintel to 3.45 m and over it the carved panel, 0.83 m across at s 5.67 m (the print's x 343-375 px), a raised border and a raised oval cartouche standing for the carving. The projection's depth, the hood's overhang and the carving are reconstructed (L-k01-1625-mcbirney-frontispiece-2753); the panel is 0.51 m tall where the print's is 0.86 m, the door's height (below) leaving no more room"
     },
     {
       "what": "the base: the photograph shows a plain plinth with no basement lights; the build has low area lights under the ground-floor windows, which a K01 front without its own openings row must carry",
@@ -50,12 +50,17 @@
     {
       "what": "the plinth's height: the photograph's plain plinth band stands about 0.26 m over the walk (y 785 px); the build's K02 base and coping rise to 0.48 m, the least the K02 base lays (one 0.25 m course under the 0.23 m coping)",
       "status": "open",
-      "how": "T-2753"
+      "how": "T-2754"
     },
     {
       "what": "the belts: the photograph runs a string course under the first-floor windows at about 4.0 m and caps the frontispiece at about 7.2 m; the build carries K01's own belts at 3.40-3.60 and 7.05-7.20 m across the whole front",
+      "status": "fixed",
+      "how": "T-2753 (street_front_windows.belts): one string course at 3.96-4.14 m across the whole front, in place of K01's two; within about 2 px of the print's line in the north part (y 637-643 px) and about 3 px under it on the frontispiece, whose face the print draws a little higher; the frontispiece's cap at about 7.2 m is the hood mould (above)"
+    },
+    {
+      "what": "the door's height: the print's door opening stands about 0.13-2.64 m over grade (y 693 px at its head), its surround's lintel to about 3.11 m and the carved panel 3.16-4.02 m; the build's K07 door stands on the 0.45 m ground floor to a head at 3.15 m, about 20 px higher, so its surround's lintel rises to 3.45 m and the panel between that and the string course is 0.51 m tall",
       "status": "open",
-      "how": "T-2753"
+      "how": "T-2754"
     },
     {
       "what": "the second floor's segmental heads: the photograph's rise about 0.19 m on a 0.94 m span (about a fifth); K06's working segmental rise is an eighth of the span, 0.12 m, about 3 px lower at the crown",
@@ -69,8 +74,23 @@
     },
     {
       "what": "the four-storey rear section: the photograph shows it stepping out to the south behind the main body under a mansard with a dormer and a stack, as the 1911 sheet traces it (s20-1625-a1); not built, a K01 rear wing standing only behind the main body inside its width",
+      "status": "fixed",
+      "how": "T-2820 (rear_section): the step-out 1.3 m past the south wall over the rear 7.6 m, in the K03 brick to the main wall head, its street face with the print's door at its foot and one window a storey (3.66-6.65 and 9.02-11.48 m, read against the cornice where it meets the main eave, y 482-488 px); over the rear part an attic of its own, its steep slated faces to a curb at 17.3 m (the print's top line, y 392 px), the gabled dormer on its street face (sill 13.85 m, sash head 16.3 m), the south end wall carried up its outline as a coped parapet to the rear stack, which tops at 19.6 m; the main roof's ridge dies into the attic's street face (L-k01-1625-rear-section-2820)"
+    },
+    {
+      "what": "the rear section's street face: the print's reads about 50 px across (x 528-577), its corner with the main south wall at x 528 and its lit south end at x 577-610, the stack at x 580-602; on the camera's solve the sheet's 1.3 m step stands at x 505-527, so the face is about 20 px narrower than the print's and stands about 25 px north of it, its windows (0.75 m, the contract's narrowest sash) and dormer narrower with it. No camera that fits the front can stand a 1.3 m face 50 px wide that far back, so either the step is wider than the sheet traces it or the camera's depth is wrong at the rear (its solve: +-3 m)",
       "status": "open",
-      "how": "T-2754"
+      "how": "T-2821"
+    },
+    {
+      "what": "the rear section's door: the print's head reads about 1.7 m over grade (y 730 px), its foot hidden by the fence; the build's plain door stands 2.1 m from grade, about 8 px higher at its head",
+      "status": "open",
+      "how": "T-2821"
+    },
+    {
+      "what": "the oriel on the main south wall just in front of the rear section (x 505-527 px, about 4.0-6.6 m over grade, under a small roof): not built",
+      "status": "open",
+      "how": "T-2821"
     },
     {
       "what": "the picket fence along the open ground to the south, and the builders' stone and barrels on the walk",

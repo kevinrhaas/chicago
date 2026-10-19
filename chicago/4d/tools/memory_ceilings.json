@@ -100,67 +100,88 @@
     },
     "1904": {
       "desktop": {
-        "total_bytes": 1310720000,
-        "reading_bytes": 1188929757,
+        "total_bytes": 1179648000,
+        "reading_bytes": 1053015347,
         "tier": "full",
         "reading_mb": {
-          "total": 1133.9,
-          "js_heap": 48.9,
-          "arraybuffers": 590.4,
-          "gpu_buffers": 223.5,
+          "total": 1004.2,
+          "js_heap": 49.5,
+          "arraybuffers": 522.7,
+          "gpu_buffers": 160.9,
           "gpu_textures": 271.1
         },
         "lowered_by": {
-          "ticket": "T-2786",
-          "on": "2026-10-18T16:43:05.218Z",
-          "build": "a71a7a3e+T-2786",
-          "reading": "docs/measurements/T-2786-memory.json",
-          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 1328.9 -> 1133.9 MB; x 1.1 rounded up to 25 MiB = 1250 MiB.",
+          "ticket": "T-2806",
+          "on": "2026-10-18T19:10:04.962Z",
+          "build": "75420287+T-2806",
+          "reading": "docs/measurements/T-2806-memory.json",
+          "note": "a phone's railway ground strips indexed, the yard's maps halved and only its light share of tufts and stones built; the rails' faces indexed on every tier; one invocation, all six rows. 1133.9 -> 1004.2 MB; x 1.1 rounded up to 25 MiB = 1125 MiB.",
           "before": {
-            "ticket": "T-2775",
-            "on": "2026-10-18T14:21:22.796Z",
-            "build": "7b146804+T-2775",
-            "reading": "docs/measurements/T-2775-memory.json",
-            "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. 1328.9 x 1.1 rounded up to 25 MiB = 1475 MiB.",
+            "ticket": "T-2786",
+            "on": "2026-10-18T16:43:05.218Z",
+            "build": "a71a7a3e+T-2786",
+            "reading": "docs/measurements/T-2786-memory.json",
+            "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 1328.9 -> 1133.9 MB; x 1.1 rounded up to 25 MiB = 1250 MiB.",
             "before": {
-              "ticket": "T-2718",
-              "on": "2026-10-17T17:15:22.450Z",
-              "build": "e62b79251",
-              "reading": "docs/measurements/T-2718-memory-desktop.json",
-              "note": "texture residency (T-2598) at spawn on desktop: 59 of 61 house pictures resident, 96.7 of a 512 MiB budget, 0 uploads pending when read. GPU textures 283.7 MB against 524.4 at T-2595; arraybuffers rose 710.9 -> 757.2 MB on this build, not read to its owner here (no heap snapshot taken)"
+              "ticket": "T-2775",
+              "on": "2026-10-18T14:21:22.796Z",
+              "build": "7b146804+T-2775",
+              "reading": "docs/measurements/T-2775-memory.json",
+              "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. 1328.9 x 1.1 rounded up to 25 MiB = 1475 MiB.",
+              "before": {
+                "ticket": "T-2718",
+                "on": "2026-10-17T17:15:22.450Z",
+                "build": "e62b79251",
+                "reading": "docs/measurements/T-2718-memory-desktop.json",
+                "note": "texture residency (T-2598) at spawn on desktop: 59 of 61 house pictures resident, 96.7 of a 512 MiB budget, 0 uploads pending when read. GPU textures 283.7 MB against 524.4 at T-2595; arraybuffers rose 710.9 -> 757.2 MB on this build, not read to its owner here (no heap snapshot taken)"
+              }
             }
           }
         }
       },
       "mobile": {
-        "total_bytes": 602931200,
-        "reading_bytes": 541360973,
+        "total_bytes": 419430400,
+        "reading_bytes": 363616697,
         "tier": "light",
         "reading_mb": {
-          "total": 516.3,
-          "js_heap": 79.5,
-          "arraybuffers": 149.0,
-          "gpu_buffers": 168.9,
-          "gpu_textures": 118.8
+          "total": 346.8,
+          "js_heap": 78.5,
+          "arraybuffers": 68.1,
+          "gpu_buffers": 102.6,
+          "gpu_textures": 97.7
         },
         "lowered_by": {
-          "ticket": "T-2786",
-          "on": "2026-10-18T16:43:05.218Z",
-          "build": "a71a7a3e+T-2786",
-          "reading": "docs/measurements/T-2786-memory.json",
-          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 696.4 -> 516.3 MB; x 1.1 rounded up to 25 MiB = 575 MiB.",
+          "ticket": "T-2828",
+          "on": "2026-10-19T01:26:58.745Z",
+          "build": "43d8f0a04+T-2828",
+          "reading": "docs/measurements/T-2828-memory.json",
+          "note": "a phone lets go of each GLB KTX2's transcoded levels once uploaded, and transcodes again from the kept file when residency brings a source back (texture-residency.js); GPU textures unchanged. The same build without the change read 403.1 MB here, arraybuffers 124.3 (docs/measurements/T-2828-glessner-approach-before.json, 4 m west of the spawn after GC); with it 346.8, arraybuffers 68.1. 408.1 -> 346.8 MB; x 1.1 rounded up to 25 MiB = 400 MiB.",
           "before": {
-            "ticket": "T-2775",
-            "on": "2026-10-18T14:21:22.796Z",
-            "build": "7b146804+T-2775",
-            "reading": "docs/measurements/T-2775-memory.json",
-            "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. Dev 7b146804 before the change read 854.1 MB on the same machine the same hour (arraybuffers 379.3, railway layer 214.9 MB kept; docs/measurements/T-2775-memory-dev.json). 696.4 x 1.1 rounded up to 25 MiB = 775 MiB.",
+            "ticket": "T-2806",
+            "on": "2026-10-18T19:10:04.962Z",
+            "build": "75420287+T-2806",
+            "reading": "docs/measurements/T-2806-memory.json",
+            "note": "a phone's railway ground strips indexed, the yard's maps halved and only its light share of tufts and stones built; the rails' faces indexed on every tier; one invocation, all six rows. 516.3 -> 408.1 MB; x 1.1 rounded up to 25 MiB = 450 MiB.",
             "before": {
-              "ticket": "T-2718",
-              "on": "2026-10-17T17:09:52.425Z",
-              "build": "e62b79251",
-              "reading": "docs/measurements/T-2718-memory-mobile.json",
-              "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+              "ticket": "T-2786",
+              "on": "2026-10-18T16:43:05.218Z",
+              "build": "a71a7a3e+T-2786",
+              "reading": "docs/measurements/T-2786-memory.json",
+              "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 696.4 -> 516.3 MB; x 1.1 rounded up to 25 MiB = 575 MiB.",
+              "before": {
+                "ticket": "T-2775",
+                "on": "2026-10-18T14:21:22.796Z",
+                "build": "7b146804+T-2775",
+                "reading": "docs/measurements/T-2775-memory.json",
+                "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. Dev 7b146804 before the change read 854.1 MB on the same machine the same hour (arraybuffers 379.3, railway layer 214.9 MB kept; docs/measurements/T-2775-memory-dev.json). 696.4 x 1.1 rounded up to 25 MiB = 775 MiB.",
+                "before": {
+                  "ticket": "T-2718",
+                  "on": "2026-10-17T17:09:52.425Z",
+                  "build": "e62b79251",
+                  "reading": "docs/measurements/T-2718-memory-mobile.json",
+                  "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+                }
+              }
             }
           }
         }

@@ -86,7 +86,10 @@ FIVE ASSERTIONS.
     lies east of the documented limits and is therefore swept and refused. The
     east limits themselves are banked with the street each is read from, and
     that `communityAt` still applies them: a limit that is loaded and consulted
-    by nothing is the loss K45(a) measured one level out.
+    by nothing is the loss K45(a) measured one level out. The area "swept and
+    refused" is east of the street limits and counts ground two later
+    communities plant past them anyway: the sand hills (T-2768) and, north of
+    N +300, the North Side wood on the sand out to about E +1140 (T-2808).
 
 3.  **(absolute, banked both ways) Every woody species a `TIMBER_ZONE`
     contributes, whose form has an archetype, that no community mix and no
@@ -245,9 +248,12 @@ def community_blocks(src: str) -> list[tuple[str, str]]:
 
 
 def mix_entries(block: str, key: str) -> dict[str, list[tuple[str, float]]]:
-    """`{ 'mix': [(species, weight), ...], 'edgeMix': [...] }` for one community."""
+    """`{ 'mix': [(species, weight), ...], 'edgeMix': [...] }` for one community.
+
+    T-2768: `swaleMix`, the sand hills' wet-hollow list, is read the same way —
+    `pick()` draws from it as it does from the other two."""
     lists: dict[str, list[tuple[str, float]]] = {}
-    for name in ("mix", "edgeMix"):
+    for name in ("mix", "edgeMix", "swaleMix"):
         lm = re.search(rf"\b{name}:\s*\[", block)
         if lm:
             inner = bracketed(block, lm.end() - 1)
@@ -311,7 +317,7 @@ def mix_weights(src: str) -> dict[str, dict]:
         out[key] = {
             "dossier_zones": dossier_zones,
             "zones": zones,
-            "departures": sorted(re.findall(r"'((?:mix|edgeMix)\.\w+)':", block)),
+            "departures": sorted(re.findall(r"'((?:mix|edgeMix|swaleMix)\.\w+)':", block)),
             "lists": mix_entries(block, key),
         }
     return out
@@ -452,6 +458,26 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
     `placed_species()` below. The COUNT is banked because a fourth path is
     exactly how this gate would go quietly wrong: an unselectable species drawn
     by a call site nobody told this file about.
+
+    T-2768 adds a fourth `plant(` site, `plantSandHill`, and it is not a new kind
+    of selection: it draws `communitySpecs[key][id]` with `id` from the same
+    `pickers[key]` the dealt path uses, so every id it can reach is a community
+    mix entry this gate already reads.
+
+    T-2807 adds a fifth, `plantEdgeThicket`, and it selects nothing this gate
+    banks: it draws `edgeSpecs[id]`, built from the zone records' `shrub_low`
+    entries (flora.js's stratum, which is not routed to this file's woody
+    population), with `id` from `EDGE_THICKET`'s own lists. No `tree` or
+    `thicket` record can be reached through it, so it neither selects a routed
+    record nor hides one.
+
+    T-2808 adds three. `plantSandWood` draws `communitySpecs[key][id]` with `id`
+    from `pickers[key]`, as `plantSandHill` does, for two communities this gate
+    already reads (`ridge_oak`, `mesic_pocket`). `plantPathShrub` draws
+    `edgeSpecs[id]` from `EDGE_THICKET`'s mix, as `plantEdgeThicket` does. And
+    `dryPlant` calls `addTree` into a buffer that is thrown away, with the spec
+    the dealt path already selected, so the shared stream keeps its draws for a
+    stem that stands on a path: it selects nothing and draws nothing.
     """
     sites = len(re.findall(r"\baddTree\(", src)) - len(re.findall(r"function addTree\(", src))
     # T-2743: the two dealt paths call `plant()`, which hands a tree-form stem to
@@ -1340,9 +1366,12 @@ def self_test() -> int:
     # species unselectable and bank the lot.
     src = dec["source"]
     checks = [
-        ("the community scanner finds the five mixes",
+        ("the community scanner finds the eight mixes",
          set(dec["communities"]) == {"gallery", "wet_woods", "mesic_pocket", "ridge_oak",
-                                     "dune"}),
+                                     "dune", "sand_hills_north", "sand_hills_south",
+                                     "sand_hills_scanty"}),
+        ("…and reads a sand hill's swale mix as well as its mix",
+         "populus_balsamifera" in dec["communities"]["sand_hills_south"]["swaleMix"]),
         ("…and reads the gallery's edge mix as well as its mix",
          "salix_nigra" in dec["communities"]["gallery"]["edgeMix"]),
         ("…and reads a multi-line mix to its END, not to its second entry",
