@@ -8,7 +8,19 @@
   "verdict": "differs",
   "differences": [
     {
-      "what": "Actual master reviewed in the imported unchanged T2200 camera. Prairie aperture/entry/ground correspondence, roof framing and stone/course differences remain; baseline model-vertex associations are not automatically valid after geometry revisions.",
+      "what": "T-2857 openings and entry: fourteen jambs (the four first-floor windows south of the door, the door, the pair, the single and both second-floor groups in the plate) fit the model's spacing camera-free to 3.30 px rms, and the door, its fan and the basement grilles sit on the photograph's (docs/RESEARCH/glessner-prairie-front-T-2857/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2857 south pier: fitted on the openings, the south corner pick reads 0.9 ft nearer the pair than built. The pick stands on the downspout, which sheet 6 draws 0.82 ft in from the corner, so this is within the evidence; ruled with the north-end openings in T-2858.",
+      "status": "open"
+    },
+    {
+      "what": "T-2857 roof framing: the plate cuts the roof about 1.5 m above the eave; the eave cornice line and the south leader head are where the model has them. The ridge and stacks are outside the plate.",
+      "status": "not shown"
+    },
+    {
+      "what": "Stone/course relief and the 1965 sash (painted light, two sashes) against the render's dark frames: the sash is the 1965 state and not compared; course relief stays open.",
       "status": "open"
     },
     {

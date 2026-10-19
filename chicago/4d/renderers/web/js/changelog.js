@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2058, ts: '2026-10-19T12:13:40.138Z', date: 'Oct 19, 2026, 7:13 AM CT', title: 'Glessner\'s front windows checked against its survey drawing and photographs', kind: 'change',
+    items: [
+      'Nothing you can see moved yet. The Glessner House\'s Prairie Avenue windows and door were measured on three street photographs and on the 1965 survey elevation.',
+      'The openings are right relative to one another, and the chimneys and main roof stand at the heights the 1880s photograph shows.',
+      'The survey drawing puts the windows at the 18th Street end up to 0.2 m further north than they are built, and draws the first-floor windows a little wider. The next change moves them.',
+    ] },
   { v: 2057, ts: '2026-10-19T11:32:45.394Z', date: 'Oct 19, 2026, 6:32 AM CT', title: 'Glessner\'s stable gable and cupola matched to their photographs', kind: 'improvement',
     items: [
       'The stable\'s street gable now stands centred over its carriage doorway and loft, as HABS photograph 15 shows it; it had sat a foot off to the west.',
