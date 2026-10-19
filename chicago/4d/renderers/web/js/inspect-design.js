@@ -21,7 +21,9 @@
  *   attribute table, moved down into the same numbered list, with no table. An attribute
  *   with no grade is not listed (every hotspot has a dot); the full record still shows it.
  *
- *   COMPARE STYLES: the module's own lines, up to three, each graded.
+ *   COMPARE STYLES: the module's own lines, up to three, each graded. A line that points at
+ *   another module this file carries (T-2642) opens that style's own two lines and cues in place,
+ *   each graded, so the style library can be read from any building that has a card.
  *
  * The model (`designModel`) is pure and separate from drawing it (`renderDesign`), so the test
  * drives both with fakes.
@@ -102,6 +104,20 @@ export function hotspots(sum, sidecar) {
   return { source, items, tap: items.some((h) => h.camera) };
 }
 
+/** T-2642: the other module a Compare line points at, as the line opens it in place — its two
+ *  lines and its cues, each graded — or null where the line names no module this file carries
+ *  (or names the card's own). Its plate stays on its own card. */
+export function compareCard(line, mod, styles) {
+  const other = typeof line?.style === 'string' && line.style !== mod?.id ? styles?.[line.style] : null;
+  if (!other || typeof other !== 'object') return null;
+  return {
+    id: other.id ?? line.style,
+    name: other.name,
+    description: other.description ? { text: other.description.text, grade: graded(other.description.grade) } : null,
+    cues: (other.cues ?? []).slice(0, 4).map((c) => ({ text: c.text, grade: graded(c.grade) })),
+  };
+}
+
 /** Everything the Design tab shows for one building. */
 export function designModel({ sum = null, sidecar = null, styles = null, pictures = null, scene = null } = {}) {
   const mod = styleFor(sum, styles);
@@ -112,7 +128,8 @@ export function designModel({ sum = null, sidecar = null, styles = null, picture
     description: mod.description ? { text: mod.description.text, grade: graded(mod.description.grade) } : null,
     cues: (mod.cues ?? []).slice(0, 4).map((c) => ({ text: c.text, grade: graded(c.grade) })),
     plate: plateOf(mod.plate, pictures, sceneId),
-    compare: (mod.compare ?? []).slice(0, 3).map((c) => ({ name: c.name, text: c.text, grade: graded(c.grade), style: c.style ?? null })),
+    compare: (mod.compare ?? []).slice(0, 3).map((c) => ({ name: c.name, text: c.text, grade: graded(c.grade), style: c.style ?? null,
+      card: compareCard(c, mod, styles) })),
   } : null;
   return { style, hot: hotspots(sum, sidecar) };
 }
@@ -204,6 +221,19 @@ export function renderDesign(doc, model, { dot, onLook = null } = {}) {
       const li = el('li', 'insp-compare-item');
       if (c.style) li.dataset.style = c.style;
       li.append(mark(el('strong', 'insp-compare-name', c.name), c.grade), el('span', 'nav-sub', c.text));
+      // T-2642: a line that points at another module opens that style's own card in place.
+      if (c.card) {
+        const more = el('details', 'insp-compare-more');
+        more.dataset.style = c.card.id;
+        more.append(el('summary', 'insp-compare-open', t('inspect-design.compare.open', { name: c.card.name })));
+        if (c.card.description?.text) more.append(mark(el('p', 'insp-compare-desc', c.card.description.text), c.card.description.grade));
+        if (c.card.cues.length) {
+          const cues = el('ul', 'insp-cues insp-compare-cues');
+          for (const q of c.card.cues) cues.append(mark(el('li', 'insp-compare-cue', q.text), q.grade));
+          more.append(cues);
+        }
+        li.append(more);
+      }
       ul.append(li);
     }
     cmp.append(ul);

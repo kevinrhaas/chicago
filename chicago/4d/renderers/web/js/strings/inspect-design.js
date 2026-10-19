@@ -15,5 +15,6 @@ export default register('inspect-design', {
   shape: 'Its shape on the ground',
   liberty: 'Listed in Liberties.',
   compare: 'Compare styles',
+  'compare.open': 'How to spot {name}',
   'plate.alt': 'Picture: {caption}',
 });

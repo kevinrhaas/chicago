@@ -1,0 +1,96 @@
+{
+  "id": "jones_house_1834_prairie",
+  "scene": "1904",
+  "name": "Fernando Jones House",
+  "address": "1834 S. Prairie Ave.",
+  "status": {
+    "text": "Gone, 1942",
+    "today": "Torn down in 1942",
+    "grade": "attested",
+    "sources": [
+      "glessner_blog_2015_08_van_osdel"
+    ]
+  },
+  "built": {
+    "year": 1866,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1800_1900_west",
+      "glessner_blog_2015_08_van_osdel"
+    ]
+  },
+  "use": "Home",
+  "summary": "A brick Italianate house by John M. Van Osdel, built in 1866 for Fernando Jones, one of Chicago's earliest settlers. In 1886 it gained a mansard roof, to keep up with its neighbors.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "John M. Van Osdel",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "glessner_blog_2015_08_van_osdel"
+      ]
+    },
+    {
+      "label": "Built for",
+      "value": "Fernando Jones",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "glessner_blog_2015_08_van_osdel"
+      ]
+    },
+    {
+      "label": "Style",
+      "value": "Italianate",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "glessner_blog_2015_08_van_osdel"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "In 1886 a mansard roof was added to bring the house into fashion with its neighbors.",
+      "about": "structure",
+      "surprising": true,
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    {
+      "text": "Fernando Jones ran a land title firm. In 1877 it merged with others to form Chicago Title and Trust.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel"
+      ]
+    }
+  ],
+  "style": "italianate",
+  "story": [
+    {
+      "date": "1886",
+      "text": "A mansard roof is added to keep it in fashion.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    {
+      "date": "1942",
+      "text": "The house is torn down.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel"
+      ]
+    }
+  ]
+}
