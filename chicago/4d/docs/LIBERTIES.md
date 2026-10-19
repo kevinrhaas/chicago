@@ -26328,6 +26328,36 @@ plan, its east cheek and its apron.
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-19 (T-2846).
 
+### L-k01-1625-south-dormer-2866 — 1625 Prairie's dormer on its main roof's south slope, and its rear door's transom
+
+**Decision:** the dormer the 1890 McBirney photograph shows on the main roof's south slope, over the
+side wall's eave, is built (`slope_dormers`, K01's new side-slope dormer): a hipped dormer whose
+face stands 0.1 m up the slope from the wall line, 1.4 m along the wall and centred 7.22 m behind
+the front, one sash 0.9 m wide at 11.52-13.47 m in a 0.25 m surround, its soffit at 13.72 m and
+K05's hip over it at 40 degrees to a 14.55 m ridge, its body run back until that ridge dies into the
+main hip. The rear section's door takes a transom light in the top 0.65 m of its hole.
+**What is read, not invented.** Through the camera T-2846 re-solved: the cheek faces the plate (its
+hood's lines run level) and the face is seen end-on beside it, so the face's corner (x 490 px) and
+edge (x 500), the light's jambs, head and sill and the hood's fascia give its place, width and
+heights once the face's setback is fixed; the hip at the face's end (its ridge stops short of the
+corner, its eave returns level over the face) and its pitch from the hood's rise (38-42 degrees);
+the cheeks as pale as the face, unlike the rear attic's slates. The transom's bar and panes are
+read on the print's pixels.
+**What is invented.** The face's setback, 0.1 m: the one number the print leaves free (each 0.1 m
+moves every height by about 0.15 m), held there by the cornice running unbroken under the face and
+by the main hip's 14.7 m ridge, which a face further up the slope would carry the dormer's ridge
+past; the main roof's own 45-degree pitch is reconstructed (`roof_pitch_deg`), so this bound is
+too. The sash's panes (the kit's two-over-two; the print shows a meeting rail and cannot count
+panes); the face's and cheeks' dressed stone, which the print reads pale and cannot tell from
+painted timber or sheet metal; the kit's 0.15 m eave and 0.12 m fascia; how far the body runs back
+into the hip, which nothing can see. The transom's frame and bar in the leaf's timber, and the dark
+of the hall behind its panes.
+**How to resolve:** a view of 1625 from the south or the rear, or its drawings, would settle the
+dormer's depth into the roof, the main roof's pitch and the face's finish.
+**Ticket:** T-2866 (piece 2 of T-2847).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-19 (T-2866).
+
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
 **Decision:** `house_1619_prairie` keeps the K01 stone front T-2420 built from Treat & Foltz's drawing
