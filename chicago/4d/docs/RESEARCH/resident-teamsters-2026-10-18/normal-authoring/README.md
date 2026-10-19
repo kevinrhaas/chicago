@@ -1,0 +1,9 @@
+# Resident normal authoring: strict experimental recovery
+
+Canonical run39192083053 at9cc7b9ac8 failed before the first resident master/export. Actual80,268corner readback had maximum0.00129065865, mean0.00002201877 and21corners above the unchanged0.001 raw-vector limit. One of1,122 source-UV seam groups exceeded0.001, maximum0.00108215827. Generic fixture checks passed; subsequent resident checks skipped. The complete bounded audit is retained here.
+
+The next explicitly enabled pinned-CI experiment preserves Short2 storage and the original raw-vector guard. Uniform raw probes identify each actual fan frame; independent signed probes must agree before direct code quantization. Actual final raw target errors and seam spreads must each stay within0.001, with unchanged mesh invariant digest. Failure restores original packed codes and rethrows; there is no successful fallback. Geometry, UVs, skin weights, artistic source-normal targets, legacy fixture and normal tolerance do not change.
+
+The three portable test scripts pass13 math/API-mock/CLI cases. They are not Blender execution. The real adapter remains unverified until the next canonical CI run. The resident workflow explicitly supplies --experimental-normal-probes --normal-probe-receipts /tmp/teamster-studies/normal-probes; ordinary builder defaults remain unchanged. No local Blender is permitted. Receipts are bounded diagnostics, never mesh payloads.
+
+A simpler FLOAT_VECTOR custom_normal path exists in the pinned mesh getter, but the shape-key normal/export path still reads Short2. That alternative is not applied. The reversible Short2 experiment retains the existing morph/export storage path; actual source/web normals, morphs, hair, gait, framing and visual quality still require their unchanged checks and image review. Artifact download policy remains a separate blocker; do not relay outputs through logs or Git.

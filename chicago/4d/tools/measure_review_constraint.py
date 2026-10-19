@@ -1,85 +1,14 @@
 #!/usr/bin/env python3
-"""What `review_required` actually blocks.
+"""Measure retained review flags, propagation and explanatory prose.
 
-ROADMAP K34. AGENTS.md puts one constraint above the work — *the final removal of
-the Potawatomi from Chicago occurred in August 1835, inside this project's first
-target year* — and gives it exactly one mechanism:
+T-2672 supersedes K34's release-block policy under the owner's 2026-10-16 rulings.
+Flags still propagate, touches_removal still implies review_required, records must
+say why care is taken, and baseline flags may not silently disappear. Assertion 4
+runs the real scene validator with released=True and now requires that annotations
+never cause a release refusal. Provenance, dates and explanatory prose still gate.
+Historical records may describe the old policy; their flag claims remain measured.
 
-    `review_required: true` on any record blocks a scene from being marked `released`.
-
-Nothing had ever measured what that sentence covers.
-
-    tools/measure_review_constraint.py           print the census
-    tools/measure_review_constraint.py --gate    exit 1 on a divergence
-    tools/measure_review_constraint.py --update  rewrite the baseline (deliberate act)
-
-SIX ASSERTIONS, AND FIVE OF THEM ARE ABSOLUTE. There is no ratchet here on purpose:
-a ratchet is the right instrument for a fault being paid down, and this is not a fault
-being paid down. It is a constraint the project has committed to, so the honest bar is
-zero rather than "no worse than yesterday".
-
-1.  **A record that says it carries the flag carries it.** Two sentences are used in
-    this dataset and both are declarative: *"It carries review_required so that no
-    scene containing it can be marked released"*, and *"review_required is set false …
-    but the call is worth a second opinion"*. Each is a claim ABOUT the field, in the
-    same file as the field, and nothing read the two together.
-
-    A REGEX OVER PROSE IS THE RIGHT INSTRUMENT HERE AND IS USUALLY THE WRONG ONE.
-    R-W4a and the smoke's own `/terrain|water/i` filter were regexes guessing at a
-    CATEGORY from prose — they read like a rule until a name changed under them. This
-    one matches the sentence that IS the claim being tested. If the sentence is
-    reworded, the claim stops being made in a form anything can check, which is a
-    thing worth failing over rather than a thing to sniff harder for.
-
-2.  **`touches_removal` implies `review_required`, at every level that carries either.**
-    `tools/validate.py` holds the household half. Persons carry the same two fields in
-    the schema and nothing had ever asked them.
-
-3.  **The constraint propagates to the buildings.** A household carrying it lives and
-    works somewhere, and the scene draws the building rather than the person. This
-    holds today at 11 links out of 11 — and held only by coincidence before this gate,
-    because nothing required it.
-
-4.  **The release block sees every layer that carries the flag.** Behavioural, against
-    the real dataset: `validate_scene` is run with `released` forced true, and the
-    blocked set it names must be exactly the union of flagged ids across the layers.
-    This is the assertion that fails on the pre-K34 validator, which built that set out
-    of `data/structures/` alone while its own household-side message promised that "any
-    record touching it blocks a scene from being marked released".
-
-5.  **A flag may be added freely and may not be cleared silently.** `--gate` fails when
-    a record in `tools/review_constraint_baseline.json` has lost its flag, and names
-    what clearing one is supposed to mean: the consultation AGENTS.md commits to has
-    happened. New flags pass, print, and are folded in by `--update`.
-
-6.  **A flagged record says WHY it is flagged** — T-0025, and it is a correction of
-    this tool's own K34 write-up as much as a new rule.
-
-    K34 finished by naming three structures that "state no reason at all" —
-    `beaubien_barn`, `clybourn_slaughterhouse`, `robert_kinzie_store` — and left the
-    question open as K35. **Two of the three had said it all along**, in the records'
-    committed bytes at K34's own commit: the barn in its `research_note` (*"REVIEW IS
-    FLAGGED for the reason data/structures/jb_beaubien_homestead.json … give"*), the
-    slaughterhouse in its `function.note` (*"flagged for review with the rest of this
-    record's Indigenous content rather than paraphrased away"*). A fourth record K34
-    never named, `council_house`, said it in `function.note` too. The finding was a
-    hand-read of one field on a record whose reasoning is spread across several, and
-    the ONE real gap in it — `robert_kinzie_store` — sat behind two records that were
-    not gaps. That is the argument for reading the whole record here, exactly as
-    assertion 1 already does, rather than the field a reader expects it in.
-
-    So the bar is two halves, both inside the record's own prose, wherever in it they
-    fall: it must (a) refer to the flag, in one of the phrasings this dataset uses, and
-    (b) name the subject AGENTS.md's constraint is about. **Record-level and not
-    sentence-level, deliberately** — `cobweb_castle` opens with *"THE RECORD IS FLAGGED
-    review_required BECAUSE OF WHAT THIS BUILDING WAS"* and spends the next two
-    sentences saying what that was, which is good writing and would fail a
-    same-sentence rule.
-
-    K35 called this route "the weakest, because 'says something' is not 'says why'",
-    and that is still true and is why the census PRINTS the sentence it matched under
-    every flagged id. The gate can hold the shape of the claim; only a reader can
-    judge the argument, and this makes the argument the thing a reader is handed.
+    tools/measure_review_constraint.py --gate
 """
 
 from __future__ import annotations
@@ -206,23 +135,12 @@ def measure() -> tuple[dict, list[str]]:
                     f"constraint, and does not carry review_required itself. The scene draws "
                     f"the building and not the person, so the flag has to reach the building")
 
-    # ---- assertion 4: the release block sees every layer -------------------------
+    # ---- assertion 4: review annotations no longer block release (T-2672) --------
     blocked, block_error = release_block(structures, households)
-    expected = set(flagged_structures) | set(flagged_households) \
-        | {ref.split("/")[0] for ref in flagged_persons}
     if block_error:
-        problems.append(f"release block: {block_error}")
-    else:
-        missed = sorted(expected - blocked)
-        spurious = sorted(blocked - expected)
-        if missed:
-            problems.append(
-                f"release block: a scene marked released is NOT refused by {missed}, which "
-                f"carry review_required. tools/validate.py's own message says any record "
-                f"touching the removal blocks release; these records are the layers that "
-                f"message does not reach")
-        if spurious:
-            problems.append(f"release block: names {spurious}, which carry no flag")
+        problems.append(f"release policy: {block_error}")
+    elif blocked:
+        problems.append(f"release policy: review_required still blocks release for {sorted(blocked)}")
 
     # ---- assertion 5: nothing loses a flag quietly -------------------------------
     added: dict[str, list[str]] = {}
@@ -240,8 +158,8 @@ def measure() -> tuple[dict, list[str]]:
                 problems.append(
                     f"{layer[:-1]} {rid}: carried review_required in "
                     f"{BASELINE.name} and does not now. Clearing this flag is the claim "
-                    f"that the consultation AGENTS.md commits to has happened for this "
-                    f"record; if it has, say so in the record and re-run this tool with "
+                    f"that the recorded reason no longer applies; explain the change in the "
+                    f"record and re-run this tool with "
                     f"--update in the same commit")
     else:
         problems.append(f"{BASELINE.name} is missing, so nothing can say whether a flag "
@@ -404,8 +322,7 @@ def print_census(c: dict) -> None:
         d = c[layer]
         return f"{layer:<12} {len(d['flagged']):>4} flagged of {d['total']:>4}"
 
-    print("AGENTS.md: `review_required: true` on any record blocks a scene from being "
-          "marked released.\n")
+    print("AGENTS.md: review flags and reasons remain; review_required does not block release.\n")
     for layer in ("structures", "households", "persons"):
         print("  " + row(layer))
         for rid in c[layer]["flagged"]:
@@ -437,8 +354,7 @@ def main() -> int:
             "_doc": "The records carrying AGENTS.md's standing constraint, as of the last "
                     "deliberate change. tools/measure_review_constraint.py fails when one "
                     "of these has lost its review_required flag: adding the flag is always "
-                    "allowed, clearing it is the claim that the consultation this project "
-                    "has committed to has happened, and that is not a thing to do by "
+                    "allowed; clearing it requires a recorded reason, and must not happen by "
                     "accident. Rewrite with --update, in the commit that makes the change.",
             "structures": census["structures"]["flagged"],
             "households": census["households"]["flagged"],
@@ -460,8 +376,8 @@ def main() -> int:
         n_p = len(census["persons"]["flagged"])
         print(f"standing constraint: {n_s} structure(s), {n_h} household(s), {n_p} person(s) "
               f"carry review_required; {len(census['links'])} link(s) reach a building that "
-              f"carries it too; a scene marked released is refused for every one of them, "
-              f"and every one of them says in its own words what it is held for")
+              f"carries it too; review annotations do not block release, "
+              f"and every one says in its own words why care is taken")
     return 0
 
 

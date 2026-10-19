@@ -1,0 +1,214 @@
+{
+  "scope": "exported GLBs coupled in browser; geometric study, not force or full collision certification",
+  "browser": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "page_errors": [],
+      "sample_count": 35,
+      "maximum_strap_geometry_endpoint_error_m": 2.4652813953796444e-07,
+      "maximum_head_binding_error_m": 9.155133597044475e-16,
+      "min_contact_y_m": -2.6494019709596972e-05,
+      "max_contact_y_m": 0.13976482974119753,
+      "min_shaft_torso_lateral_envelope_clearance_m": 0.05459441120264924,
+      "min_horse_body_longitudinal_gap_m": 0.7703017129793821,
+      "min_shaft_tug_radial_clearance_m": 0.0064934768913050105,
+      "max_shaft_attachment_endpoint_gap_m": 1.2399989362441754e-09
+    },
+    {
+      "viewport": [
+        390,
+        780
+      ],
+      "page_errors": [],
+      "sample_count": 35,
+      "maximum_strap_geometry_endpoint_error_m": 2.4652813953796444e-07,
+      "maximum_head_binding_error_m": 9.155133597044475e-16,
+      "min_contact_y_m": -2.6494019709596972e-05,
+      "max_contact_y_m": 0.13976482974119753,
+      "min_shaft_torso_lateral_envelope_clearance_m": 0.05459441120264924,
+      "min_horse_body_longitudinal_gap_m": 0.7703017129793821,
+      "min_shaft_tug_radial_clearance_m": 0.0064934768913050105,
+      "max_shaft_attachment_endpoint_gap_m": 1.2399989362441754e-09
+    }
+  ],
+  "wheel_path_finite_difference": {
+    "method": "actual loaded world wheel centers at rear-axle distances1m and1.01m; compare chord to roll-angle increment times exported radius",
+    "max_error_m": 2.420192258406617e-10,
+    "samples": [
+      {
+        "steer_deg": 0,
+        "wheel": "rear_left",
+        "world_center_chord_m": 0.010000000000000009,
+        "rolled_surface_m": 0.009999999999999943,
+        "error_m": 6.591949208711867e-17
+      },
+      {
+        "steer_deg": 0,
+        "wheel": "rear_right",
+        "world_center_chord_m": 0.010000000000000009,
+        "rolled_surface_m": 0.009999999999999943,
+        "error_m": 6.591949208711867e-17
+      },
+      {
+        "steer_deg": 0,
+        "wheel": "front_left",
+        "world_center_chord_m": 0.010000000000000009,
+        "rolled_surface_m": 0.009999999999999966,
+        "error_m": 4.336808689942018e-17
+      },
+      {
+        "steer_deg": 0,
+        "wheel": "front_right",
+        "world_center_chord_m": 0.010000000000000009,
+        "rolled_surface_m": 0.009999999999999966,
+        "error_m": 4.336808689942018e-17
+      },
+      {
+        "steer_deg": 8,
+        "wheel": "rear_left",
+        "world_center_chord_m": 0.009482217761241522,
+        "rolled_surface_m": 0.00948221797741229,
+        "error_m": 2.1617076705060523e-10
+      },
+      {
+        "steer_deg": 8,
+        "wheel": "rear_right",
+        "world_center_chord_m": 0.010517781782808804,
+        "rolled_surface_m": 0.01051778202258772,
+        "error_m": 2.39778915472888e-10
+      },
+      {
+        "steer_deg": 8,
+        "wheel": "front_left",
+        "world_center_chord_m": 0.009580493484187139,
+        "rolled_surface_m": 0.009580493702598414,
+        "error_m": 2.1841127517685521e-10
+      },
+      {
+        "steer_deg": 8,
+        "wheel": "front_right",
+        "world_center_chord_m": 0.01061605750575454,
+        "rolled_surface_m": 0.010616057747773766,
+        "error_m": 2.420192258406617e-10
+      },
+      {
+        "steer_deg": -8,
+        "wheel": "rear_left",
+        "world_center_chord_m": 0.010517781782808804,
+        "rolled_surface_m": 0.01051778202258772,
+        "error_m": 2.39778915472888e-10
+      },
+      {
+        "steer_deg": -8,
+        "wheel": "rear_right",
+        "world_center_chord_m": 0.009482217761241522,
+        "rolled_surface_m": 0.00948221797741229,
+        "error_m": 2.1617076705060523e-10
+      },
+      {
+        "steer_deg": -8,
+        "wheel": "front_left",
+        "world_center_chord_m": 0.01061605750575454,
+        "rolled_surface_m": 0.010616057747773766,
+        "error_m": 2.420192258406617e-10
+      },
+      {
+        "steer_deg": -8,
+        "wheel": "front_right",
+        "world_center_chord_m": 0.009580493484187139,
+        "rolled_surface_m": 0.009580493702598414,
+        "error_m": 2.1841127517685521e-10
+      },
+      {
+        "steer_deg": 12,
+        "wheel": "rear_left",
+        "world_center_chord_m": 0.009482217761241522,
+        "rolled_surface_m": 0.00948221797741229,
+        "error_m": 2.1617076705060523e-10
+      },
+      {
+        "steer_deg": 12,
+        "wheel": "rear_right",
+        "world_center_chord_m": 0.010517781782808804,
+        "rolled_surface_m": 0.01051778202258772,
+        "error_m": 2.39778915472888e-10
+      },
+      {
+        "steer_deg": 12,
+        "wheel": "front_left",
+        "world_center_chord_m": 0.009580493484187139,
+        "rolled_surface_m": 0.009580493702598414,
+        "error_m": 2.1841127517685521e-10
+      },
+      {
+        "steer_deg": 12,
+        "wheel": "front_right",
+        "world_center_chord_m": 0.01061605750575454,
+        "rolled_surface_m": 0.010616057747773766,
+        "error_m": 2.420192258406617e-10
+      },
+      {
+        "steer_deg": -12,
+        "wheel": "rear_left",
+        "world_center_chord_m": 0.010517781782808804,
+        "rolled_surface_m": 0.01051778202258772,
+        "error_m": 2.39778915472888e-10
+      },
+      {
+        "steer_deg": -12,
+        "wheel": "rear_right",
+        "world_center_chord_m": 0.009482217761241522,
+        "rolled_surface_m": 0.00948221797741229,
+        "error_m": 2.1617076705060523e-10
+      },
+      {
+        "steer_deg": -12,
+        "wheel": "front_left",
+        "world_center_chord_m": 0.01061605750575454,
+        "rolled_surface_m": 0.010616057747773766,
+        "error_m": 2.420192258406617e-10
+      },
+      {
+        "steer_deg": -12,
+        "wheel": "front_right",
+        "world_center_chord_m": 0.009580493484187139,
+        "rolled_surface_m": 0.009580493702598414,
+        "error_m": 2.1841127517685521e-10
+      }
+    ]
+  },
+  "metadata_sensitivity": {
+    "method": "Playwright response overrides only; original geometry unchanged; not a valid alternative physical asset",
+    "factor": 1.1,
+    "fields": [
+      "wheelbase_m",
+      "track_m",
+      "wheel_radius_front_m",
+      "wheel_radius_rear_m",
+      "locomotion.walk.stride_m"
+    ],
+    "actual_wheel_angles_rad": [
+      1.5673087565970645,
+      1.738476367369877,
+      1.9354532732522065,
+      2.144658130863422
+    ],
+    "expected_wheel_angles_rad": [
+      1.5673087565970645,
+      1.738476367369877,
+      1.9354532732522065,
+      2.144658130863422
+    ],
+    "actual_phase": 0.7968609636979626,
+    "expected_phase": 0.7968609636979626,
+    "passed": true
+  },
+  "raw_samples": {
+    "file": "samples.json.gz",
+    "sha256": "601bd266c6218ea026cb8e587ff856e9ff6c6272b05eaf075bffa06f71654911",
+    "format": "gzip JSON array: one 35-state sample list per viewport"
+  }
+}

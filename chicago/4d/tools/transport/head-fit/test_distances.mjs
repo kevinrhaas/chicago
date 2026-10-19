@@ -1,0 +1,4 @@
+import assert from'node:assert/strict';import{segmentDistance,triangleDistance}from'./geometry-distance.js';import{Vector3,Triangle}from'../../../renderers/web/vendor/three-0.185.1/three.module.js';
+const v=(x,y,z)=>new Vector3(x,y,z),near=(a,b)=>assert(Math.abs(a-b)<1e-12);
+near(segmentDistance(v(0,0,0),v(1,0,0),v(.5,-1,.3),v(.5,1,.3)),.3);near(segmentDistance(v(0,0,0),v(1,0,0),v(0,1,0),v(1,1,0)),1);near(segmentDistance(v(0,0,0),v(0,0,0),v(1,0,0),v(2,0,0)),1);
+const a=new Triangle(v(0,0,0),v(2,0,0),v(0,2,0)),b=new Triangle(v(.2,.2,1),v(.5,.2,1),v(.2,.5,1));near(triangleDistance(a,b),1);near(triangleDistance(a,new Triangle(v(.2,.2,0),v(.5,.2,0),v(.2,.5,0))),0);near(triangleDistance(a,b),triangleDistance(b,a));near(triangleDistance(a,new Triangle(v(.5,.5,-1),v(.5,.5,1),v(1,.5,1))),0);console.log('PASS7analytic distance fixtures; unsigned distance is not containment classification');

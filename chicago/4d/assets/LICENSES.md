@@ -1121,3 +1121,169 @@ outlines). No photograph or third-party image is sampled. They are project-autho
 repository licence, and the generator reproduces them. They show what a species' leaf and bark
 generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
 L-tree-architecture-2743).
+
+
+### Anonymous adult source and preparation — `authored/humans/makehuman_hm08/`
+
+The verbatim MakeHuman graphical assets are **CC0-1.0**,
+pinned to [MakeHuman commit a8bc2d54ff0ac92e78ff71431b1023eda42bf482](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482).
+The upstream license documents are preserved verbatim under their own distribution
+terms; LICENSE.CODE.md is a license notice, not included program code.
+`SOURCE.json` records per-file upstream URLs and SHA-256 hashes; the OBJ, skeleton,
+weights and material retain their own CC0 notices. Upstream application code is AGPL
+and is not included or copied into the preprocessing tool. `LICENSE.md.gz` losslessly preserves
+the upstream explanation of this distinction. Original `prepared.json`,
+`prepared.report.json`, `SOURCE.json` and README adaptations are CC0-1.0.
+Height, pose, joint mapping and weight pruning are reconstructed (L418). This is a
+cleared modeling input, not a finished photographic person. No external skin-image
+pack has been imported.
+
+Originally authored canonical workwear masters under `authored/humans/teamsters/`
+and their `humans/*_1835.lod*.glb` / `humans/web/*_1835.lod*.glb`
+exports are CC0-1.0 with the same base provenance and L418 reconstruction declaration.
+These paths become deliverables only after the CI bake produces and validates them;
+listing the license does not assert the files already exist or meet production quality.
+
+Exact covered paths (future canonical/export paths retain the provisional status above):
+
+```text
+authored/humans/makehuman_hm08/LICENSE.ASSETS.md
+authored/humans/makehuman_hm08/LICENSE.CODE.md
+authored/humans/makehuman_hm08/LICENSE.md.gz
+authored/humans/makehuman_hm08/README.md
+authored/humans/makehuman_hm08/SOURCE.json
+authored/humans/makehuman_hm08/adult_25.recipe.json
+authored/humans/makehuman_hm08/adult_35.recipe.json
+authored/humans/makehuman_hm08/makehuman/data/3dobjs/base.obj
+authored/humans/makehuman_hm08/makehuman/data/rigs/default.mhskel
+authored/humans/makehuman_hm08/makehuman/data/rigs/default_weights.mhw
+authored/humans/makehuman_hm08/makehuman/data/skins/default.mhmat
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-old.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-young.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-old.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-young.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-old.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-young.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target
+authored/humans/makehuman_hm08/prepared.json
+authored/humans/makehuman_hm08/prepared.report.json
+authored/humans/makehuman_hm08/prepared_adult_25.json
+authored/humans/makehuman_hm08/prepared_adult_25.report.json
+authored/humans/makehuman_hm08/prepared_adult_35.json
+authored/humans/makehuman_hm08/prepared_adult_35.report.json
+authored/humans/teamsters/bardwell_otis_1835/canonical.blend
+humans/bardwell_otis_1835.lod0.glb
+humans/web/bardwell_otis_1835.lod0.glb
+humans/bardwell_otis_1835.lod1.glb
+humans/web/bardwell_otis_1835.lod1.glb
+humans/bardwell_otis_1835.lod2.glb
+humans/web/bardwell_otis_1835.lod2.glb
+humans/bardwell_otis_1835.lod3.glb
+humans/web/bardwell_otis_1835.lod3.glb
+authored/humans/teamsters/dufresne_joseph_1835/canonical.blend
+humans/dufresne_joseph_1835.lod0.glb
+humans/web/dufresne_joseph_1835.lod0.glb
+humans/dufresne_joseph_1835.lod1.glb
+humans/web/dufresne_joseph_1835.lod1.glb
+humans/dufresne_joseph_1835.lod2.glb
+humans/web/dufresne_joseph_1835.lod2.glb
+humans/dufresne_joseph_1835.lod3.glb
+humans/web/dufresne_joseph_1835.lod3.glb
+authored/humans/teamsters/flynn_martin_1835/canonical.blend
+humans/flynn_martin_1835.lod0.glb
+humans/web/flynn_martin_1835.lod0.glb
+humans/flynn_martin_1835.lod1.glb
+humans/web/flynn_martin_1835.lod1.glb
+humans/flynn_martin_1835.lod2.glb
+humans/web/flynn_martin_1835.lod2.glb
+humans/flynn_martin_1835.lod3.glb
+humans/web/flynn_martin_1835.lod3.glb
+```
+
+
+### Skin material component — `authored/humans/skin_toigo_bronze/`
+
+MargaretToigo, *young light-skinned male, bronze variation* (2017, changed 2019),
+**CC0-1.0** in the actual official MakeHuman pack metadata; source
+<https://files2.makehumancommunity.org/asset_packs/skins02/skins02_cc0.zip>,
+asset page <http://www.makehumancommunity.org/node/1136>. The unchanged 2048² PNG
+is SHA-256 `5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0`.
+Exact metadata, material, official-page copies and extraction checks are retained
+beside it; those documentary copies retain their source terms, while the original
+SOURCE/README are project-authored CC0. This component conveys no historical likeness.
+
+Additional exact covered CC0 graphical/derived and documentary paths:
+
+```text
+authored/humans/skin_toigo_bronze/README.md
+authored/humans/skin_toigo_bronze/SOURCE.json
+authored/humans/skin_toigo_bronze/skins02.official-page.md
+authored/humans/skin_toigo_bronze/skins02.original.json
+authored/humans/skin_toigo_bronze/toigo_light_skin_male_bronze.mhmat
+authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png
+```
+
+The upstream MakeHuman overview notice is retained verbatim as deterministic gzip:
+its original seven-equals Markdown heading conflicts with the repository's literal
+marker scan. SOURCE.json records both original and stored hashes and sizes, and the
+preparation tool verifies the decompressed original too. No notice wording or
+conflict-check assertion is changed.
+
+
+### Hair component — `authored/humans/hair_short04/` (CC0-1.0)
+
+MakeHuman system **short04**, UUID `e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8`, officially listed author `makehuman_system`. Actual original OBJ, mhclo and mhmat headers EACH state:
+
+> This asset was explicitly released as CC0 in september 2020.
+> Copyright (C) 2020 Data Collection AB, https://www.datacollection.se
+> Copyright (C) 2020 Joel Palmius
+> Copyright (C) 2020 Jonas Hauquier
+
+Original archive: <https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip>, ETag `"10bbb7ea-6160e7c0d7996"`. The original material directly names `short04_diffuse.png`; that texture is part of the expressly CC0 asset. No separate PNG license exception found. The headers refer to the upstream CC0 legal text; this component does not falsely claim a separate legal-text file was extracted from the archive. Retain original notices verbatim. No MakeHuman AGPL program or shader code included in the asset.
+
+The periodic padded PNG is an original CC0 source derivative, explicitly labeled draft. README.md and SOURCE.json are original project-authored CC0 documentary provenance; original `.mhmat`/`.mhclo`/`.obj` notices retain their exact upstream wording. All exact component paths and SHA-256 hashes:
+
+| Path relative to assets/ | Kind | SHA-256 |
+|---|---|---|
+| authored/humans/hair_short04/README.md | CC0 original project documentary | `fb920ea8d0082d3080db8acf6ed0d98805335ee166e1e1957861a3c520ac7679` |
+| authored/humans/hair_short04/SOURCE.json | CC0 original project documentary | `68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99` |
+| authored/humans/hair_short04/short04.mhclo | CC0 original graphical/source metadata | `d60640aa4c4ffce1aa269647ba436b6ee0bb21bb948f927b84e27a48d2107157` |
+| authored/humans/hair_short04/short04.mhmat | CC0 original graphical/source metadata | `7a3ac74db8478aa0afdb8a596c6fe3997d1a8a09d12211d70e8f1e9f0b7e0e97` |
+| authored/humans/hair_short04/short04.obj | CC0 original graphical/source metadata | `676964a133ee35ffcea1195382bf75542da7a298931e4001bc7b0d7b707225de` |
+| authored/humans/hair_short04/short04_diffuse.png | CC0 original graphical/source metadata | `0bef7fc0e403db5a40fabb2111ebfa6f7e8158e204c6e56b8da98e9ef527846e` |
+| authored/humans/hair_short04/short04_diffuse_periodic_pad_draft.png | CC0 derived periodic-padded texture | `194e53741c7c96e16d4aac8ba10a1bb87c9cb86e976bda82655ad10d38b58871` |
+
+This is a component entry additive to existing canonical-master and human master/web export entries for `bardwell_otis_1835`, `dufresne_joseph_1835` and `flynn_martin_1835`; their rebuilt byte hashes do not exist yet and must be measured after CI, never fabricated. The source component conveys no period hairstyle, resident likeness, ancestry or historically observed action. Fitting tools remain project GPL-3.0-or-later code; those tools are not CC0 graphical assets.
+
+
+## Original paired equine head/neck and headstrap refinement (T-2800/T-2801/T-2803)
+
+CC0-1.0 original generated geometry and original generator source: `tools/transport/horse_geometry.py`, `tools/transport/generate_horse.py`, `tools/transport/generate_harness.py`; original parameter data `data/transport/studies/horse.json` (unchanged) and `data/transport/studies/harness.json`; derived `renderers/web/transport/horse/{equine_light_harness_skinned_prototype_01.glb,manifest.json}` and `renderers/web/transport/harness/{light_breastcollar_harness_reconstructed_01.glb,manifest.json,geometry-stats.json}`. Exact hashes are recorded in `docs/RESEARCH/period-transport-2026-10-18/head-neck-refinement/integration-inputs.json`. No external model, texture, source pixels or traced plate geometry. Research text informs provisional anatomy/construction but does not attest a horse, owner, breed, exact anatomy or strap dimensions. Original additions retain CC0-1.0 SPDX headers. Demo/integration and reused project fit methodology remain under the project's existing GPL license; CC0 geometry does not relicense those tools. Documentary screenshots/receipts are original diagnostic outputs, not source photographs.
+
+
+## Grounded trot study (2026-10-19)
+
+Original grounded-trot engineering addition (T-2803): tools/transport/horse_geometry.py, unchanged original tools/transport/generate_horse.py, data/transport/studies/horse.json, generated renderers/web/transport/horse/{equine_light_harness_skinned_prototype_01.glb,manifest.json} contain project-original CC0-1.0 procedural geometry/solver/animation/data; no externally copied program/model/texture or image tracing. Original3Dtwo-bone solver uses geometric sphere intersection and shortest-arc quaternions. renderers/web/transport/horse/{demo.js,index.html} and diagnostic test glue retain project's existing GPL license. No source-bounded measured biological gait or historic animal identity asserted. Concrete checkpoint hashes are in `docs/RESEARCH/period-transport-2026-10-18/head-neck-refinement/trot-inputs.json`.
+
+
+## Original harness chest-clearance repair (T-2801, 2026-10-19)
+
+The original CC0-1.0 harness generator, parameter data and generated web geometry retain the existing original reconstructed-asset license. Only breastcollar, two support straps and saddle-pad surfaces change; no external model, photograph, texture or traced source plate is copied. Current exact hashes appear in `docs/RESEARCH/period-transport-2026-10-18/harness-body-fit/INTEGRATION-MANIFEST.json`. Diagnostic screenshots are original project outputs, not historical source images.
+
+`tools/transport/fixtures/harness-before-body-fit.json` is unchanged original CC0 parameter data (SHA-256 `7473be06e127388b07cd67af69db671bcc134999fa66849a5866f40c0794d85d`). `tools/transport/fixtures/harness-before-body-fit.glb.gz` is the original CC0 generated geometry, stored SHA-256 `cce8c06f3ff46346c133bdc4954546aa7533febd645bff61e6db5a2a11b5ebf9`, decompressed SHA-256 `b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b`. Both are regression controls, not newly licensed third-party assets. The new standard-library diagnostic `tools/transport/test_harness_body_fit.py` remains project GPL-3.0-or-later code.
+
+## C02 enclosed carriage reconstruction (T-2794,2026-10-19)
+
+Original project-derived GPL-3.0-or-later source/geometry, based on the already licensed C01 procedural conventions; C02 is standalone source, not a runtime import or downloaded base. Exact source/input/output hashes are in docs/RESEARCH/period-transport-2026-10-18/c02-enclosed-door/INTEGRATION-MANIFEST.json. New files are tools/transport/generate_carriage_c02.py, tools/transport/test_carriage_c02_door.py, tools/transport/smoke_carriage_c02.cjs, data/transport/studies/carriage-c02.json, tools/transport/fixtures/carriage-c02-flag-off.json and renderers/web/transport/carriage-c02/{carriage-c02.glb,carriage-c02.json,parameters.json,index.html,demo.js}; gallery/orchestrator changes and original documentary receipts/screenshots retain projectGPL terms. No external model/texture/sourcepixels or proprietary program code is included. ExistingThree/vendor remains separately licensed and is not copied. No asset under assets/ is added; this entry records original generated-output provenance, not a CC0 external-asset exception.
+
+All cabin/hardware/color dimensions are reconstructed. Reference catalog wording is 'No known restrictions on publication', not a new unconditional license. No rights-pending local photo or unseenWareplate derivation, attested ownership/subtype or historical paint is asserted. BaselineGLB SHA256 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331.
+
+
+**Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+### Supported W01 driver-bench study and named seated authoring (T-2804, 2026-10-19)
+
+`renderers/web/transport/wagon-driver/wagon-w01.glb` and its JSON sidecar are original GPL-3.0-or-later procedural geometry produced by `tools/transport/generate_wagon.py` from `data/transport/studies/wagon-driver-bench.json`. The unoccupied variant is separate from the existing W01 and introduces no external image/model/texture derivation. Bench/hardware dimensions and construction are reconstructed engineering choices; license provenance does not establish period accuracy.
+
+Optional seated resident pose data in `data/humans/poses/w01/` is original reconstructed CC0-1.0 numerical authoring based on the already-cleared CC0 human inputs. Helper, viewer and authoring code remains GPL-3.0-or-later. Existing MakeHuman graphical-base, skin, hair, canonical-master and human-export provenance continues unchanged. Existing L418 records these residents' reconstructed appearance and actions. New seated canonical export hashes and garment/contact/photographic acceptance must be measured after the actual CI export; no new master hash or likeness is invented here.

@@ -1,0 +1,9 @@
+{
+  "test": "independent output directory rebuild matches current GLBs byte-for-byte",
+  "sha256": {
+    "wagon": "f33c98d0634b72ae0429fadc6ebf01dc8597e4aea531323d761aff9b47026e8c",
+    "carriage": "5826a867b2832f5883f75f3dadc14a7536397384e7d72160886c5115dc909b95",
+    "horse": "da8b89ccfefb6fb19751cbfc6fb6ce18854215da4855ae7454f0f330ee7dee18",
+    "harness": "eb4dd12f9537aa46a394ec96de41b20c10d146a47b33850e0a0015d76e931812"
+  }
+}

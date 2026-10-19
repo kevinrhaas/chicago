@@ -1,0 +1,23 @@
+{
+  "id": "anonymous_adult_1904",
+  "identity_kind": "anonymous",
+  "label": "Anonymous adult \u2014 1904 role study",
+  "age_group": "adult",
+  "roles": [
+    "standing",
+    "walking",
+    "driver",
+    "rider"
+  ],
+  "period": {
+    "earliest_year": 1904,
+    "latest_year": 1904
+  },
+  "eligible_assets": [],
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Fallback only: prefer existing attested, inferred or reconstructed people as model references. Owner requested anonymous adult role figures. This 1904 profile identifies no resident, ancestry, likeness or attested individual. No wardrobe/body asset is accepted yet; the empty eligibility list refuses display until an explicitly period-qualified asset is registered.",
+    "liberty": "L418"
+  },
+  "fallback_only": true
+}

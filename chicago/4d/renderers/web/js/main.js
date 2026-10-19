@@ -50,6 +50,7 @@ import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { grownGroupName } from './tree-instances.js';
 import { createPopup } from './popup.js';
+import { showHumanRoleCard } from './human-role-card.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
@@ -798,7 +799,28 @@ const DETAIL_DECLARED = {
   // the next parcel. `light` is NOT moved here: it is the floor, its raises
   // have only ever been the owner's (T-2015, T-2035), and T-2339 puts that
   // question to the owner. Draw calls are unchanged (worst 317, mobile prairie).
-  full:     { triangles: 3400000, shadowReachM: 240, furnitureCastsShadow: true,
+  // Period transport integration, 2026-10-19: fresh production-step pricing
+  // after upstream T-2807's visible woods/tree integration. The tree parcel
+  // changed the scene; separately, the corrected measurement takes two forced
+  // production steps before reading renderer.info, rather than relying on two
+  // RAF callbacks to have rendered a fresh, fully stepped scene. The difference
+  // from earlier unforced CI samples is not attributed wholly to new trees.
+  // At measured source379e7d3d, trees.js/tree-model.js match frozen e5e726ba8;
+  // main.js differs only by the human role-card import/listener, with no actors.
+  // This is the pricing snapshot, before the later a369c613 UI/dev merge.
+  // Six stands x three tiers x both release viewports,
+  // keep-geometry=1, two production steps and GPU finish: initial 27 rows plus
+  // continuation 9 rows, validated as 36 unique measurements. This is split
+  // diagnostic pricing, not one completed CI smoke run. Exact readings:
+  // docs/measurements/period-transport-fresh-detail-2026-10-19.json.
+  // Both full/balanced maxima are desktop West prairie:
+  // full:     3,449,919 + 18,059 = 3,467,978 -> 3,470,000 (20,081 clear)
+  // balanced: 2,607,952 + 16,806 = 2,624,758 -> 2,625,000 (17,048 clear)
+  // Preserve T-0672's absolute margins, rounded up to 5,000. Light remains
+  // 1,190,000 (measured 1,154,091). General draw-call cap stays 330; the
+  // separate light floor stays 90 (measured 89: only one call clear). Earlier notes
+  // and measured strings below are retained as the history of these rungs.
+  full:     { triangles: 3470000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -807,7 +829,16 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,400,000 set 2026-10-11 (T-2338): published dev 0a2491b51 after '
+              measured: '3,470,000 set 2026-10-19: fresh production-step split diagnostic '
+                + 'pricing after T-2807 tree integration; 36 unique rows, six stands '
+                + 'at both viewports and all tiers, 27 initial plus 9 continuation. '
+                + 'At measured379e7d3d, tree modules match e5e726ba8; main differs by human '
+                + 'role-card import/listener, with no human actors placed. Worst 3,449,919 at '
+                + 'desktop West prairie, +18,059 rounded up to 5,000. Measurement '
+                + 'freshness correction is separate from the visible tree parcel; '
+                + 'the whole increase is not attributed to trees. '
+                + 'docs/measurements/period-transport-fresh-detail-2026-10-19.json. '
+                + 'Previously 3,400,000 set 2026-10-11 (T-2338): published dev 0a2491b51 after '
                 + 'the owner-requested openings kit (T-2278) and chained signs (T-2281), '
                 + 'six stands at both viewports: worst 3,379,890 at desktop West prairie; '
                 + '+18,059 rounded up to 5,000. docs/measurements/t-2338-detail-ceilings.json. '
@@ -936,11 +967,16 @@ const DETAIL_DECLARED = {
   // the rule are in the block above `full`.
   // T-2338, 2026-10-11: 2,290,000 -> 2,535,000 with `full` — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2535000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2625000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,535,000 set 2026-10-11 (T-2338): same published six-stand, '
+              measured: '2,625,000 set 2026-10-19: same fresh production-step split '
+                + 'diagnostic pricing (27 initial plus 9 continuation rows), six '
+                + 'stands at both viewports and all tiers; worst 2,607,952 at '
+                + 'desktop West prairie, +16,806 rounded up to 5,000. '
+                + 'docs/measurements/period-transport-fresh-detail-2026-10-19.json. '
+                + 'Previously 2,535,000 set 2026-10-11 (T-2338): same published six-stand, '
                 + 'two-viewport sweep of dev 0a2491b51, worst 2,515,971 at desktop West '
                 + 'prairie; +16,806 rounded up to 5,000. Previously '
                 + '2,290,000 set 2026-10-07 (PR #498 integration): same published '
@@ -3218,6 +3254,7 @@ async function boot() {
     if (!api.people) return;
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
+  api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
   scene3d.add(api.humans.group);
 
   /** A structure's ground position in local ENU metres — footprint centroid where

@@ -1,0 +1,88 @@
+{
+  "desktop": {
+    "walk_stance_world_drift_m": 0.006390590020854958,
+    "walk_stance_max_height_error_m": 0.0019933585529110093,
+    "stance_drift_gate_20mm": true,
+    "errors": [],
+    "neutral_contacts": [
+      {
+        "name": "fore_l_contact",
+        "position": [
+          0.195,
+          5.066445957213617e-9,
+          0.4549999849042547
+        ]
+      },
+      {
+        "name": "fore_r_contact",
+        "position": [
+          -0.195,
+          5.066445957213617e-9,
+          0.4549999849042547
+        ]
+      },
+      {
+        "name": "hind_l_contact",
+        "position": [
+          0.195,
+          6.5576156726976365e-9,
+          -0.6049999852897532
+        ]
+      },
+      {
+        "name": "hind_r_contact",
+        "position": [
+          -0.195,
+          6.5576156726976365e-9,
+          -0.6049999852897532
+        ]
+      }
+    ],
+    "sampled_frames": 1001,
+    "min_contact_y_m": -0.00045403635263566167,
+    "max_contact_y_m": 0.13994748022705467
+  },
+  "mobile": {
+    "walk_stance_world_drift_m": 0.006390590020854958,
+    "walk_stance_max_height_error_m": 0.0019933585529110093,
+    "stance_drift_gate_20mm": true,
+    "errors": [],
+    "neutral_contacts": [
+      {
+        "name": "fore_l_contact",
+        "position": [
+          0.195,
+          5.066445957213617e-9,
+          0.4549999849042547
+        ]
+      },
+      {
+        "name": "fore_r_contact",
+        "position": [
+          -0.195,
+          5.066445957213617e-9,
+          0.4549999849042547
+        ]
+      },
+      {
+        "name": "hind_l_contact",
+        "position": [
+          0.195,
+          6.5576156726976365e-9,
+          -0.6049999852897532
+        ]
+      },
+      {
+        "name": "hind_r_contact",
+        "position": [
+          -0.195,
+          6.5576156726976365e-9,
+          -0.6049999852897532
+        ]
+      }
+    ],
+    "sampled_frames": 1001,
+    "min_contact_y_m": -0.00045403635263566167,
+    "max_contact_y_m": 0.13994748022705467
+  }
+}
