@@ -1084,6 +1084,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * @param {THREE.Camera} camera
      */
     pickAt: pick.pickAt,
+    /** The same, answered when the GPU has got to it: the gaze target's look (T-2723). */
+    pickAtAsync: pick.pickAtAsync,
     /** The structure whose part's box the ray meets first: no draw (gpu-pick.js
      *  `boxPick`, T-2827). A phone's target probe asks this. */
     pickAtBox: pick.pickAtBox,

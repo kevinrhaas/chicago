@@ -1,0 +1,249 @@
+{
+  "year": "1835",
+  "source": "source",
+  "throttle": 4,
+  "rebuild": "spread",
+  "gl": "llvmpipe",
+  "noGaze": false,
+  "ceilingMs": {
+    "full": 60,
+    "balanced": 32,
+    "light": 21
+  },
+  "p95CeilingMs": {
+    "full": 15,
+    "balanced": 9,
+    "light": 7
+  },
+  "readings": [
+    {
+      "viewport": "desktop",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "walk",
+      "mode": "fixed",
+      "draws": 3,
+      "mean": 7795.85,
+      "sd": 355.35,
+      "median": 8151.2,
+      "p95": 8151.2,
+      "max": 8151.2,
+      "over33": 2,
+      "over50": 2,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 29.7,
+      "offscreen": 2
+    },
+    {
+      "viewport": "desktop",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "walk",
+      "mode": "adaptive",
+      "draws": 3,
+      "mean": 6662.85,
+      "sd": 337.85,
+      "median": 7000.7,
+      "p95": 7000.7,
+      "max": 7000.7,
+      "over33": 2,
+      "over50": 2,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 26.1,
+      "offscreen": 2
+    },
+    {
+      "viewport": "desktop",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "turn",
+      "mode": "fixed",
+      "draws": 3,
+      "mean": 6302.9,
+      "sd": 115.2,
+      "median": 6418.1,
+      "p95": 6418.1,
+      "max": 6418.1,
+      "over33": 2,
+      "over50": 2,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 30.8,
+      "offscreen": 12
+    },
+    {
+      "viewport": "desktop",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "turn",
+      "mode": "adaptive",
+      "draws": 3,
+      "mean": 6973.25,
+      "sd": 389.65,
+      "median": 7362.9,
+      "p95": 7362.9,
+      "max": 7362.9,
+      "over33": 2,
+      "over50": 2,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 28.1,
+      "offscreen": 6
+    },
+    {
+      "viewport": "desktop",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "flight",
+      "mode": "fixed",
+      "draws": 3,
+      "mean": 5410.85,
+      "sd": 112.15,
+      "median": 5523,
+      "p95": 5523,
+      "max": 5523,
+      "over33": 2,
+      "over50": 2,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 33.4,
+      "offscreen": 2
+    },
+    {
+      "viewport": "desktop",
+      "throttle": 1,
+      "live": true,
+      "tier": "light",
+      "move": "flight",
+      "mode": "adaptive",
+      "draws": 3,
+      "mean": 6124.1,
+      "sd": 299.7,
+      "median": 6423.8,
+      "p95": 6423.8,
+      "max": 6423.8,
+      "over33": 2,
+      "over50": 2,
+      "ratioMin": 1,
+      "ratioMedian": 1,
+      "ceiling": 1,
+      "pacedRafs": 0,
+      "decisions": 0,
+      "renderMs": 27.4,
+      "offscreen": 2
+    }
+  ],
+  "rasterisers": {
+    "desktop": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "profiles": {
+    "desktop": {
+      "selfMs": [
+        [
+          "(program) :0",
+          76468
+        ],
+        [
+          "readPixels :0",
+          41193
+        ],
+        [
+          "driveLive :1",
+          2555
+        ],
+        [
+          "(garbage collector) :0",
+          534
+        ],
+        [
+          "blocksGrowth streets.js:2235",
+          308
+        ],
+        [
+          "onBeforeRender three.core.js:27473",
+          94
+        ],
+        [
+          "at flora.js:2699",
+          94
+        ],
+        [
+          "matches flora-zones.js:350",
+          89
+        ],
+        [
+          "getBoundingSphereAt three.core.js:26976",
+          76
+        ],
+        [
+          "atTexel flora.js:2694",
+          71
+        ]
+      ],
+      "totalMs": [
+        [
+          "(program) :0",
+          76468
+        ],
+        [
+          "onAnimationFrame three.module.js:16",
+          42957
+        ],
+        [
+          "onAnimationFrame three.module.js:17545",
+          42956
+        ],
+        [
+          "(anon) main.js:4808",
+          42956
+        ],
+        [
+          "tick main.js:4663",
+          42871
+        ],
+        [
+          "look target.js:43",
+          41248
+        ],
+        [
+          "pick main.js:4270",
+          41247
+        ],
+        [
+          "(anon) gpu-pick.js:437",
+          41247
+        ],
+        [
+          "pickAt gpu-pick.js:446",
+          41247
+        ],
+        [
+          "gpuPick gpu-pick.js:267",
+          41244
+        ]
+      ]
+    }
+  }
+}

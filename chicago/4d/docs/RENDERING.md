@@ -544,7 +544,9 @@ visual phase in the whole program.
   about a second apart on SwiftShader AND on Mesa's llvmpipe (`--gl llvmpipe`, weighed as
   a stand-in by T-2721 and rejected), far outside the range the governor acts in. T-2721
   also found that most of a live frame here is the gaze target's synchronous one-pixel
-  pick (`readPixels`, 63 of 72 s of moves), now T-2723.*
+  pick (`readPixels`, 63 of 72 s of moves). T-2723 took it off the frame: on a computer the
+  look now reads its pixel back behind a fence (`gpuPickAsync`), and a phone has drawn no
+  look at all since T-2827 (`docs/measurements/t-2723-live-*.json`).*
   *Read on the owner's phone, 2026-10-19 (T-2733): **T-2592 is read, NOT MET.** With
   T-2732's Settings → Performance → Read frame pacing, on an iPhone at `/4d/dev/1835/`,
   Light, one 5 s sample a mode (~160 draws): Adaptive lowered both sd and p95 for the

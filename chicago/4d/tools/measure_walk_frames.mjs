@@ -131,7 +131,10 @@
  *     from gpu-pick.js through target.js's look: the gaze target's one-pixel
  *     pick waits for the GPU to finish the frame before it, on the main thread,
  *     every 500 ms of movement. That is the runner's multi-second frame, and on
- *     any device a stall the governor cannot remove (T-2723).
+ *     any device a stall the governor cannot remove (T-2723). T-2723 reads that
+ *     pick back behind a fence instead (gpu-pick.js `gpuPickAsync`): on the
+ *     desktop profile `readPixels` went from 41 s of the moves to none, and the
+ *     frame interval did not move — the software draw is the floor here.
  *   - The pick's own `renderer.render` calls into its 1x1 target were counted
  *     as frames until this: only a draw to the canvas is one now, and the rest
  *     are reported as `offscreen`.
