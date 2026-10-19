@@ -1,3 +1,4 @@
+import { count as countField } from './field-log.js'; // T-2660: started and finished, on this device only
 /** Content-only session state. No destination or jaunt identity is special. */
 export const SESSION_KEY = 'c4d.jaunt.session.v1';
 export const emptyState = () => ({ jaunt: null, session: null, leg: 0, stopIndex: 0,
@@ -224,7 +225,10 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     state = reduce(state, event);
     if (state === old) return false;
     // T-1258: the one moment an outing completes; the daybook's award is idempotent anyway.
-    if (state.phase === 'outcome' && old.phase !== 'outcome') { try { onComplete(state); } catch { /* the outing still ends */ } }
+    if (state.phase === 'outcome' && old.phase !== 'outcome') {
+      countField('jauntFinished'); // T-2660
+      try { onComplete(state); } catch { /* the outing still ends */ }
+    }
     if (old.phase === 'detail' && state.phase !== 'detail') dismissDetail();
     if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode))
       state = { ...state, estimate: estimate(state) };
@@ -264,6 +268,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       previousMode = travel.mode;
       state = reduce(state, { type: 'START', jaunt, session: generation, mode: mode ?? preferredMode(jaunt) ?? undefined });
       dispatch({ type: 'ARRIVE', session: generation, leg: state.leg });
+      countField('jauntStarted'); // T-2660
       return true;
     } catch (error) { if (generation === serial && error.name !== 'AbortError') onError(error); return false; }
     finally { if (generation === serial) request = null; }

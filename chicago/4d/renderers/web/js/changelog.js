@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2040, ts: '2026-10-19T03:48:03.317Z', date: 'Oct 18, 2026, 10:48 PM CT', title: 'A field log in Settings › About, kept on this device only', kind: 'feature',
+    items: [
+      'Settings › About now has a Field log: how many times you landed, inspected a building, opened an Inspect tab, used Show me, started and finished a Jaunt, reached a Tour step and chose a Confidence view preset.',
+      'It also shows how long the last first inspect took after landing, and how many landings got there within 90 seconds.',
+      'The counts stay in this browser. Nothing is sent anywhere, and Clear empties the log.',
+    ] },
+  { v: 2039, ts: '2026-10-19T03:38:07.387Z', date: 'Oct 18, 2026, 10:38 PM CT', title: '1835: fruit trees and currants in the fort\'s gardens and Dr. Harmon\'s orchard', kind: 'feature',
+    items: [
+      'The fort\'s company gardens south of the parade, which Juliette Kinzie saw in 1831 \'well filled with currant-bushes and young fruit-trees\', now hold a border row of young apple and sour cherry trees and long rows of currant bushes between the vegetable beds.',
+      'Dr. Harmon\'s orchard, grown from the \'fruit stones of all descriptions\' he planted in 1831 near the lake, stands south of Sixteenth Street beside the shore cottonwood grove as rows of young peach and cherry trees.',
+      'Apple, sour cherry and peach each have their own branching, bark and leaves, and currant bushes everywhere in the town (the dooryards too) are now drawn as clumps of arching stems.',
+      'Fruit kinds and placement reconstructed under a new liberty.',
+    ] },
+  { v: 2038, ts: '2026-10-19T03:38:07.387Z', date: 'Oct 18, 2026, 10:38 PM CT', title: 'The city past Prairie Avenue looks built, not boxed', kind: 'improvement',
+    items: [
+      'The faded stand-ins seen down every street now have storeys, sash windows, doors on stoops and cornices.',
+      'A row of lots reads as separate houses, each its own brick, with a gable to the street where it has one.',
+      'Shop blocks show shop windows, lofts their wide windows, sheds their doors.',
+      'The long row on 16th Street north of Prairie is drawn as the row of houses the 1886 atlas shows, not a five-storey block.',
+      'The round blob trees are gone: the city\'s trees are the same grown elms that line Prairie Avenue.',
+    ] },
   { v: 2037, ts: '2026-10-19T03:15:35.101Z', date: 'Oct 18, 2026, 10:15 PM CT', title: '1904 on a phone holds 56 MB less at the Glessner house', kind: 'fix',
     items: [
       'Nothing you can see changes: this fixes the owner\'s report of 1904 closing on an iPhone while walking up to the Glessner house.',

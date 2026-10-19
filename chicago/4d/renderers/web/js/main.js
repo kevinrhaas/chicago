@@ -28,6 +28,8 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { fieldLog, count as countField } from './field-log.js'; // T-2660
+import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -1552,6 +1554,11 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 api.journey = journey;
+// T-2660: the field log, kept on this device only and never sent (js/field-log.js). A landing
+// is the journey reaching `landed`; Settings › About shows the counts, with Clear.
+journey.on(({ to }) => { if (to === 'landed') countField('landed'); });
+api.fieldLog = fieldLog;
+api.fieldLogView = wireFieldLogView({ log: fieldLog });
 // Back to the Observatory is the journey's recall, from wherever the link sits. T-2735: the
 // way home asks first and plays the reverse ring (js/recall.js), so the journey moves to
 // `recall` only as the page actually leaves; a cancelled prompt leaves it where it was.
@@ -1559,8 +1566,19 @@ recallHome?.onReturn(() => journey.recall());
 api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
-const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag') });
+// T-2659: the Navigator's sounds (js/sound.js), on by default. The module is fetched with the
+// first gesture, or on the way in when the jump that opened the page lets audio play
+// (sound.js § mayStartEarly), so it is never part of the boot payload.
+const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
+  .then(({ createSound }) => (api.sound = createSound({
+    audio: () => gesture.audio, unlock: () => gesture.unlockAudio(), early, journey,
+    settings: () => api.hud?.settings ?? null, scene: () => YEAR, navigator: () => api.navigator ?? null,
+  })))
+  .catch(() => { api.soundReady = null; return null; }));
+const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag'),
+  onGesture: () => { void loadSound().then((sound) => sound?.sync()); } });
 api.gesture = gesture;
+if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 // T-2624: the page's static words from the string table, before anything paints over them.
 applyStrings(document);
@@ -1592,7 +1610,7 @@ const arrival = createArrival({
   observatoryEl: document.getElementById('gate-observatory'),
   detailsEl: document.getElementById('gate-details'),
   detailEl: document.getElementById('gate-detail'),
-  onYear: year => { api.timeStream?.passYear(year); api.telemetry?.year(year); },
+  onYear: year => { api.timeStream?.passYear(year); api.telemetry?.year(year); api.sound?.ticker(year); },
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
@@ -2116,25 +2134,27 @@ async function boot() {
   // listing `street_trees` is handed a data base. The Season and Street trees
   // settings (T-2481) are read here so the first frame already shows the visitor's pick.
   const seasonPref = readSeasonPreference();
-  const streetTrees = await createStreetTrees({
-    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('street_trees'), lowSpec: coarse,
-    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
-    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
-  });
-  scene3d.add(streetTrees.group);
-  api.streetTrees = streetTrees;
-
   // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
   // projected past them), so Prairie Avenue reads in full colour against a sketch of the
   // city around it. Each gives way to any placed structure whose footprint it touches.
+  // Built before the parkway elms, which draw its trees as their own (T-2833).
   let contextCity = await createContext({
     dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR, terrain, footprints,
     confidence, problems: layerProblems('context'), detail: detailLevel,
   });
   scene3d.add(contextCity.group);
   api.contextCity = contextCity;
+  const streetTrees = await createStreetTrees({
+    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_trees'), lowSpec: coarse,
+    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
+    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    contextTrees: (level) => contextCity.treeStems?.(level) ?? [],
+  });
+  scene3d.add(streetTrees.group);
+  api.streetTrees = streetTrees;
+
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
   // the 1911 sheets draw, on cinder ballast, with ties, rails and weedy verges
@@ -2990,6 +3010,7 @@ async function boot() {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
       tourCounts.opens++; tourCounts.deeper++;
+      countField('inspect'); // T-2660: the first since landing is the field log's
       // T-2664: the first Reconstructed building's card says, once, what the word means.
       if (isReconstructed(record?.sidecar)) api.hints?.show('reconstructed');
       void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures();
@@ -3246,6 +3267,7 @@ async function boot() {
     // Hiding a level removes it from the view outright — see confidence.setHidden.
     onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); tourCounts.confChanges++; api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
+      api.sound?.setting(key); // T-2659: Settings › Sound's levels, live
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
       gateFrame.invalidate();
@@ -4355,6 +4377,7 @@ async function boot() {
     if (!target) return Promise.resolve(false);
     travel?.stop?.('show-me');
     showMeId = id;
+    countField('showMe'); // T-2660
     return showMe.show(target);
   }
   api.showMe = { show: showMeFor, get last() { return showMe.last; }, cancel: () => showMe.cancel() };

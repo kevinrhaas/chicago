@@ -15667,15 +15667,91 @@ for (const [label, viewport, touch] of [
       settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
-    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says nothing plays yet, About opens What's new (T-2656)`,
+    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says what each covers, About opens What's new (T-2656)`,
       settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
-      && settingsApp.sound === 3 && /^Nothing in the town makes a sound yet\./.test(settingsApp.soundNote) && settingsApp.whatsNew,
+      && settingsApp.sound === 3 && /not a recording of the past\./.test(settingsApp.soundNote) && settingsApp.whatsNew,  // the note: T-2659
       JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
     check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
       settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
       JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
     // <<< T-2656
+    // >>> T-2660: Settings › About › Field log (DESIGN §14). Clear empties it; a Field Check
+    // step (the Tour's own start, then Skip) and two Confidence view presets picked by tap in
+    // their app count through their real hooks, and the rest through the one call every hook
+    // makes; About shows each count and localStorage holds them. Nothing is sent: every
+    // request the page makes while the events fire is watched, and none may post, beacon or
+    // carry the log. Settings is left open as found. Waits are generous for a starved runner.
+    const fieldRequests = [];
+    const onFieldRequest = (req) => fieldRequests.push({ url: req.url(), method: req.method(), body: req.postData() ?? '', type: req.resourceType() });
+    page.on('request', onFieldRequest);
+    const fieldLogRun = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const beacons = [];
+      const realBeacon = navigator.sendBeacon;
+      navigator.sendBeacon = (...a) => { beacons.push(String(a[0])); return false; };
+      const cell = (k) => document.querySelector(`#s-field-log-rows [data-field-log="${k}"]`)?.textContent ?? null;
+      const keys = ['landed', 'firstInspect', 'time', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'];
+      const cells = () => Object.fromEntries(keys.map((k) => [k, cell(k)]));
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.fieldLog') ?? 'null'); } catch { return 'unreadable'; } };
+      const section = document.getElementById('s-field-log');
+      const out = { inAbout: !!section?.closest('#s-about'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
+        labels: [...document.querySelectorAll('#s-field-log-rows dt')].map((d) => d.textContent) };
+      document.getElementById('s-field-log-clear')?.click();
+      await wait(100);
+      out.cleared = cells();
+      out.clearedStore = stored();
+      out.status = document.getElementById('s-field-log-status')?.textContent ?? '';
+      // A Field Check step, through the Tour's own hook.
+      api.tour?.start();
+      await wait(300);
+      api.tour?.skip();
+      // Two presets tapped in the Confidence view app, then Normal is where it was.
+      await n.select('confidence');
+      await until(() => document.querySelector('#navigator .nav-preset[data-preset="bygrade"]'), 30000);
+      document.querySelector('#navigator .nav-preset[data-preset="bygrade"]')?.click();
+      await wait(150);
+      document.querySelector('#navigator .nav-preset[data-preset="normal"]')?.click();
+      await wait(150);
+      // The rest through the call each hook makes: a landing, then its first inspect.
+      for (const e of ['landed', 'inspect', 'inspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished']) api.fieldLog?.count(e);
+      await n.select('settings');
+      await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
+      if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 30000);
+      out.after = cells();
+      out.afterStore = stored();
+      // On a phone and a desktop alike the rows stay inside the section.
+      const box = document.getElementById('s-field-log')?.getBoundingClientRect();
+      out.past = [...document.querySelectorAll('#s-field-log *')].filter((el) => {
+        const r = el.getBoundingClientRect(); return r.width > 0 && box && (r.right > box.right + 1 || r.left < box.left - 1);
+      }).map((el) => el.tagName.toLowerCase() + (el.dataset.fieldLog ? `[${el.dataset.fieldLog}]` : '')).slice(0, 6);
+      navigator.sendBeacon = realBeacon;
+      out.beacons = beacons;
+      return out;
+    });
+    page.off('request', onFieldRequest);
+    const fieldSent = fieldRequests.filter((r) => !['GET', 'HEAD'].includes(r.method) || r.body || ['beacon', 'ping'].includes(r.type)
+      || /fieldLog|field_log|firstInspect|confidencePreset/i.test(decodeURIComponent(r.url)));
+    const zeroes = (c) => ['landed', 'firstInspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'].every((k) => c?.[k] === '0');
+    check(`${label}: Settings › About has the field log in plain words, and Clear empties it (T-2660)`,
+      fieldLogRun.inAbout && fieldLogRun.shown && fieldLogRun.labels.length === 9 && fieldLogRun.labels.every((l) => !/_|[a-z][A-Z]/.test(l))
+      && zeroes(fieldLogRun.cleared) && fieldLogRun.cleared.time === 'Not yet' && fieldLogRun.clearedStore === null
+      && /^Cleared\./.test(fieldLogRun.status),
+      JSON.stringify({ inAbout: fieldLogRun.inAbout, shown: fieldLogRun.shown, labels: fieldLogRun.labels, cleared: fieldLogRun.cleared, store: fieldLogRun.clearedStore, status: fieldLogRun.status }));
+    const fieldAfter = fieldLogRun.after ?? {};
+    check(`${label}: the field log counts a landing, its first inspect, a tab, Show me, a Jaunt started and finished, a Tour step and two presets, kept in localStorage (T-2660)`,
+      fieldAfter.landed === '1' && fieldAfter.firstInspect === '1' && /^\d+ s last time, 1 of 1 within 90 s$/.test(fieldAfter.time ?? '') && fieldAfter.tab === '1' && fieldAfter.showMe === '1'
+      && fieldAfter.jauntStarted === '1' && fieldAfter.jauntFinished === '1' && fieldAfter.tourStep === '1' && fieldAfter.confidencePreset === '2'
+      && fieldLogRun.afterStore?.counts?.confidencePreset === 2 && fieldLogRun.afterStore?.counts?.tourStep === 1
+      && fieldLogRun.past.length === 0,
+      JSON.stringify({ after: fieldAfter, store: fieldLogRun.afterStore, past: fieldLogRun.past }));
+    check(`${label}: no request carries the field log — nothing posted, no beacon, no counts in a URL (T-2660)`,
+      fieldSent.length === 0 && fieldLogRun.beacons.length === 0,
+      JSON.stringify({ sent: fieldSent.slice(0, 5), beacons: fieldLogRun.beacons, watched: fieldRequests.length }));
+    // <<< T-2660
     // >>> T-2657: Researcher mode, the Settings › About switch. Off by default: no RESEARCHER
     // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
     // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
@@ -15730,6 +15806,111 @@ for (const [label, viewport, touch] of [
         JSON.stringify({ off: a, click: researchClick, on: b, click2: researchClick2, back: c }));
     }
     // <<< T-2657
+    // >>> T-2659: the Navigator's sounds (js/sound.js). The gesture is the visitor's own: a
+    // TRUSTED tap (touchscreen on a phone, mouse on a desktop) at the centre of a Settings
+    // control in the open Navigator — the tone already chosen, so nothing changes — hit-tested
+    // in the page first. clickChrome's untrusted .click() is no gesture to a browser (or to
+    // gesture-gate.js), which is why it must not be the instrument here. Then the graph is
+    // built on a running context, the device open hums and the destination's bed tone plays, a
+    // relay click and a ticker tick play, Settings › Sound's sliders move the real gains
+    // (Master at Off is silence, Ambience at Off stops the bed), a hidden tab stops the hum and
+    // the bed and they come back, and every level is put back as found. Every wait is bounded
+    // by the clock, not by a count of timer ticks a starved runner stretches.
+    await openSection('settings').catch(() => {});
+    const soundTapSel = '#s-theme .seg-btn[aria-checked="true"]';
+    const soundTap = await page.evaluate(async (s) => {
+      const el = document.querySelector(s);
+      if (!el) return { miss: `nothing matches ${s}` };
+      const device = el.closest('#navigator');
+      const until = Date.now() + 30000;
+      while (Date.now() < until && device?.getAnimations?.().some((a) => a.playState === 'running')) await new Promise((r) => setTimeout(r, 50));
+      el.scrollIntoView({ block: 'center', inline: 'center' });
+      const b = el.getBoundingClientRect();
+      if (b.width < 1 || b.height < 1) return { miss: `${s} has no box` };
+      const x = b.x + b.width / 2, y = b.y + b.height / 2;
+      const top = document.elementFromPoint(x, y);
+      if (!top || !(top === el || el.contains(top))) {
+        let owner = top;
+        while (owner && !owner.id && owner !== document.body) owner = owner.parentElement;
+        return { miss: `${s} is covered at its centre by <${top ? top.tagName.toLowerCase() : 'nothing'}>${owner?.id ? ` inside #${owner.id}` : ''}` };
+      }
+      return { x, y, inNavigator: !!device };
+    }, soundTapSel);
+    if (!soundTap.miss) {
+      if (touch) await page.touchscreen.tap(soundTap.x, soundTap.y);
+      else await page.mouse.click(soundTap.x, soundTap.y);
+    }
+    const soundRead = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { const end = Date.now() + ms; while (Date.now() < end) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const out = { loaded: await until(() => !!api.sound, 60000), gestured: !!api.gesture?.gestured };
+      if (!out.loaded) return out;
+      const sound = api.sound;
+      const near = (a, b) => Math.abs(a - b) < 0.03;
+      const gain = (k) => sound.nodes?.[k]?.gain?.value ?? null;
+      const slider = (k) => document.getElementById(`s-sound-${k}`);
+      const slide = (k, v) => { const el = slider(k); el.value = String(v); el.dispatchEvent(new Event('input', { bubbles: true })); };
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
+      out.running = await until(() => sound.state.context === 'running', 15000);
+      out.graph = !!sound.nodes?.master && !!sound.nodes?.effects && !!sound.nodes?.ambience;
+      out.year = String(api.scene?.target_date ?? '').slice(0, 4);
+      out.hum = await until(() => sound.state.hum, 10000);
+      out.bed = await until(() => sound.state.ambience === out.year, 10000);
+      out.clunked = sound.state.clunked;
+      const was = { master: slider('master').value, effects: slider('effects').value, ambience: slider('ambience').value };
+      out.was = was;
+      for (const k of ['master', 'effects', 'ambience']) slide(k, 1);
+      out.full = await until(() => near(gain('master'), 1) && near(gain('effects'), 1) && near(gain('ambience'), 1), 10000);
+      await wait(60);
+      const clicks = sound.state.clicks;
+      out.relay = sound.relay() && sound.state.clicks === clicks + 1;
+      sound.ticker(2001);
+      out.tick = sound.ticker(2000) > 0;
+      slide('master', 0.5);
+      out.half = await until(() => near(gain('master'), 0.25), 10000);
+      out.storedHalf = stored().soundMaster === 0.5;
+      slide('effects', 0);
+      out.effectsOff = await until(() => near(gain('effects'), 0) && !sound.state.hum, 10000);
+      await wait(60);
+      out.noRelay = sound.relay() === false;
+      slide('ambience', 0);
+      out.bedOff = await until(() => sound.state.ambience === null, 10000);
+      slide('effects', 1); slide('ambience', 1); slide('master', 0);
+      out.silent = await until(() => near(gain('master'), 0) && sound.state.silent && !sound.state.hum && sound.state.ambience === null, 10000);
+      slide('master', 1);
+      out.back = await until(() => near(gain('master'), 1) && sound.state.hum && sound.state.ambience === out.year, 10000);
+      // A hidden tab: the page is told so, as the browser would tell it, then shown again.
+      const hide = (on) => {
+        for (const [k, v] of [['visibilityState', 'hidden'], ['hidden', true]]) {
+          if (on) Object.defineProperty(document, k, { configurable: true, get: () => v });
+          else delete document[k];
+        }
+        document.dispatchEvent(new Event('visibilitychange'));
+      };
+      hide(true);
+      out.hidden = await until(() => !sound.state.hum && sound.state.ambience === null, 10000);
+      hide(false);
+      out.shown = await until(() => sound.state.hum && sound.state.ambience === out.year, 10000);
+      for (const k of ['master', 'effects', 'ambience']) slide(k, was[k]);
+      out.restored = ['Master', 'Effects', 'Ambience'].every((k) => String(stored()[`sound${k}`]) === String(Number(was[k.toLowerCase()])));
+      out.note = document.getElementById('s-sound-note')?.textContent.trim() ?? '';
+      out.state = sound.state;
+      return out;
+    });
+    check(`${label}: after a tap the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
+      !soundTap.miss && soundRead.loaded && soundRead.running && soundRead.graph && soundRead.hum && soundRead.bed && soundRead.clunked
+      && soundRead.relay && soundRead.tick,
+      JSON.stringify({ tap: soundTap, gestured: soundRead.gestured, loaded: soundRead.loaded, running: soundRead.running, graph: soundRead.graph, hum: soundRead.hum, bed: soundRead.bed,
+        year: soundRead.year, clunked: soundRead.clunked, relay: soundRead.relay, tick: soundRead.tick, state: soundRead.state }));
+    check(`${label}: Settings › Sound's sliders move the real gains and are stored, Effects or Ambience at Off stops theirs, Master at Off is silence, a hidden tab stops the hum and the bed, all put back (T-2659)`,
+      soundRead.loaded && soundRead.full && soundRead.half && soundRead.storedHalf && soundRead.effectsOff && soundRead.noRelay
+      && soundRead.bedOff && soundRead.silent && soundRead.back && soundRead.hidden && soundRead.shown && soundRead.restored
+      && /made up for mood: it is not a recording of the past\./.test(soundRead.note ?? ''),
+      JSON.stringify({ full: soundRead.full, half: soundRead.half, storedHalf: soundRead.storedHalf, effectsOff: soundRead.effectsOff,
+        noRelay: soundRead.noRelay, bedOff: soundRead.bedOff, silent: soundRead.silent, back: soundRead.back, hidden: soundRead.hidden,
+        shown: soundRead.shown, restored: soundRead.restored, was: soundRead.was, note: soundRead.note }));
+    // <<< T-2659
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
