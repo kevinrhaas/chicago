@@ -463,7 +463,14 @@
                         11,
                         33
                       ],
-                      "why_not_ordinary": "The 1888 plate shows tall principal sashes including fixed transoms, rounded to 2.95 m."
+                      "why_not_ordinary": "The 1888 plate shows tall principal lights, rounded to 2.95 m. T-2815: it draws each in three tiers between stone bars, read on one level column at 77.8 px/m (inland-1888-bow-lights.json): the main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m, so two 0.15 m stone bars under a 0.5 m light and a 0.45 m top light.",
+                      "tiers": {
+                        "bar_m": 0.15,
+                        "lights_m": [
+                          0.5,
+                          0.45
+                        ]
+                      }
                     }
                   ]
                 },
@@ -508,7 +515,19 @@
                   "rhythm": "street_front"
                 }
               },
-              "plinth_m": 0.15
+              "plinth_m": 0.15,
+              "cap_band": {
+                "height_m": 0.26,
+                "proud_m": 0.045,
+                "guilloche": {
+                  "radius_m": 0.11,
+                  "ring_width_m": 0.025,
+                  "ring_proud_m": 0.015,
+                  "margin_m": 0.02,
+                  "pitch": 1.5,
+                  "segments": 12
+                }
+              }
             },
             {
               "id": "rear_canted",
