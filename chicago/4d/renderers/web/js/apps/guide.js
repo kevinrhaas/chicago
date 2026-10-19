@@ -14,7 +14,8 @@ export default {
   icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"/><path d="M12 17h.01"/></svg>',
   // The controls sheet (T-2661), device-aware: touch or keyboard, from controls/intent.js,
   // with T-2662's glossary and questions. Under it, the drawer's Guide and Sources
-  // sections, moved in as they are (T-2620); Sources becomes the Guide's own in T-2667.
+  // sections, moved in as they are (T-2620); the old Sources hub is Guide › About this
+  // destination, four cards (T-2667), which the sheet's own block opens.
   // `load` hands back the screen at once, so the rail switches to Guide in the same turn;
   // the sheet's module loads behind it and fills its own element when it arrives (on a
   // starved runner a first lazy load took longer than a 10 s wait, T-2620). The sheet

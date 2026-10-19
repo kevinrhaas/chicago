@@ -50,7 +50,10 @@ WHAT IT READS — the surfaces, and why each is one:
   honest check is the rendered DOM in the smoke, which wants the runner. Of the research
   records (T-2825), `records` reads the compiled ones listed above. Not read yet: the
   plants and wildlife topics and a person's card, which their renderers fill from authored
-  files no compiler rewrites, and the rest of the Shops & work card; T-2825 says which. What's New (js/changelog.js) is the release history Manager and the launcher parse,
+  files no compiler rewrites, and the rest of the Shops & work card; T-2825 says which. Guide ›
+  About this destination (T-2667) folded the old hub into four cards and put its order
+  book behind `data-researcher`; the records those cards render are the ones read above.
+  What's New (js/changelog.js) is the release history Manager and the launcher parse,
   held by its own length budget, and is not rewritten after the fact.
 
 THE RESEARCHER-MODE EXEMPTION (owner ruling 2026-10-16: strings shown only in Researcher
@@ -104,10 +107,6 @@ MARKER = "data-researcher"
 # Each entry: surface, a regex the finding's "where: text" must match, why, and the ticket
 # that owns the fix. An entry that matches nothing fails the gate (it is stale).
 ALLOWLIST = [
-    {"surface": "page", "match": r"^index\.html:\d+: The order book: what the models say",
-     "ticket": "T-2667",
-     "why": "The Evidence hub's order-book topic. T-2667 folds the hub into Guide › About this "
-            "destination and moves the order book behind Researcher mode."},
 ]
 
 
@@ -507,7 +506,9 @@ def self_test():
                                                        "ticket": "T-0000", "why": "planted"}])
     expect(any("T-0000" in s for s in stale2), "an allowlist entry that matches nothing is refused as stale")
     f3, _, _ = lint(base, allowlist=[])
-    expect(bool(f3), "without the allowlist the leaks it holds are reported")
+    expect(bool(f3) or not ALLOWLIST, "without the allowlist the leaks it holds are reported")
+    expect(not ALLOWLIST or all(a["ticket"] == "T-2825" for a in ALLOWLIST),
+           "the allowlist is empty, or every entry is a surface T-2825 is still fixing")
     expect(not contract_errors(), "css/skins.css hides a [data-researcher] element while Researcher mode is off")
     expect(bool(contract_errors(".x { display: none; }")), "a stylesheet without that rule is refused")
     expect(all(a.get("ticket", "").startswith("T-") and a.get("why") for a in ALLOWLIST),
