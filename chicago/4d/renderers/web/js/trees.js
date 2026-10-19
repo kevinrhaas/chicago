@@ -962,6 +962,85 @@ const EDGE_THICKET = {
   sources: ['mcbride_bowles_2007', 'swink_wilhelm_1994'],
 };
 
+/**
+ * T-2808 — THE NORTH SIDE WOOD ON THE SAND, EAST OF STATE STREET. The timber's
+ * east limit north of the river is State Street (TIMBER_EAST_LIMIT_STREETS),
+ * read off Andreas's exception for "the sandy hills near the lake". Two
+ * witnesses put woods further east than that, over the sand prairie of the
+ * beach ridges, and stop them at the shore's own sand hills:
+ *
+ *   - Juliette Kinzie, spring 1831 (Wau-Bun, 1856): "through the woods on the
+ *     north side of the river ... a little bridle-path took us along what is
+ *     now Rush street. The thick boughs of the trees arched over our heads, and
+ *     we were often compelled ... to break away the projecting branches of the
+ *     shrubs which impeded our path." Rush Street is E 1054 here, 230 m east of
+ *     State.
+ *   - Judge Blodgett, 1831-32 (reported by Kirkland, 1893; the research notes'
+ *     B5, not yet a source record): "the thick, tangled underbrush which filled
+ *     the woods, covering almost all the North Side west of the shore
+ *     sand-hills".
+ *
+ * So from `fromN` north the wood runs on east of State to `toE`, short of the
+ * Wau-Bun sand hills (`sand_hills_north.inlandFromE`). On dry sand ridges the
+ * lake plain's wood is oak: the ridge-oak community, open, with the mesic
+ * pocket's closed canopy in a band either side of the Rush Street path
+ * (`PATHS`), which is the one place a witness says the boughs met. The band is
+ * kept narrow on purpose: the mesic pocket's basswood carries its July flower
+ * and is drawn on the chunked path at full detail at any distance, which is the
+ * dearest stem in the wood (T-2808 measured it). Its east end faces the sand hills with the same
+ * edge thicket as the woods' other prairie edges. Dealt from a position-seeded
+ * generator, so the shared stream and every other stem stand where they stood.
+ *
+ * Read, not invented: woods here at all, and a closed canopy and shrubs along
+ * Rush Street. Invented: `toE`, `fromN`, the oak, the band.
+ * docs/LIBERTIES.md L-north-side-paths-2808.
+ */
+const SAND_WOOD = {
+  label: 'The North Side wood on the beach-ridge sand, east of State Street',
+  fromN: 300, fadeN: 40, toE: 1140, wobbleM: 36,
+  confidence: 'inferred',
+  sources: ['kinzie_waubun_1856'],
+};
+
+/**
+ * T-2808 — THE TWO WAYS THROUGH THE NORTH SIDE WOOD, each on a street line the
+ * scene already holds:
+ *
+ *   rush   Kinzie's "little bridle-path ... along what is now Rush street"
+ *          (Wau-Bun, 1831): a bare tread `clearM` either side of the platted
+ *          line, the closed wood `closeBandM` either side of it (SAND_WOOD), and
+ *          the shrubs she broke away crowding its margins (`shrubM`).
+ *   green  "The northern, or Green Bay road ... was surveyed in 1833, stakes
+ *          driven and trees blazed along the line. It was somewhat improved as
+ *          far as Milwaukee in 1834, by ... cutting out the trees to the width of
+ *          two rods" (Andreas, vol. 1, p. 299 of the IA index). Two rods is
+ *          10.06 m. Drawn on the Clark Street line north of the town's Clark
+ *          Street, the later N. Clark Street that carries the road's name in
+ *          the histories; nobody traced the 1834 line. A year after the cut its
+ *          margins carry stump sprouts and hazel (`shrubM`) and its middle is
+ *          bare.
+ *
+ * No trunk stands within `treeClearM` of either line, a little wider than the
+ * tread, so the edge trees' crowns leave the cut open to the sky the way a cut
+ * through grown wood is.
+ *
+ * Neither is a street record: no wheel track is graded or drawn (the State road
+ * to Vincennes is, T-1702, and that regraded the terrain). Here the woods give
+ * way and the ground is the sward's. The lines are the street records'
+ * centrelines, carried past their platted ends (`fromN` / `toN`, null for the
+ * field's edge). docs/LIBERTIES.md L-north-side-paths-2808.
+ */
+const PATHS = [
+  { id: 'rush_bridle_path', street: 'rush', label: "Kinzie's bridle path along the Rush Street line",
+    fromN: 300, toN: null, clearM: 1.3, treeClearM: 1.8, shrubM: [1.3, 4.5], shrubPerHa: [300, 480],
+    closeBandM: 22,
+    sources: ['kinzie_waubun_1856'] },
+  { id: 'green_bay_road_cut', street: 'clark_north', label: 'The Green Bay road, cut two rods wide (1834)',
+    fromN: 'end', toN: null, clearM: 3.2, treeClearM: 8.5, shrubM: [3.2, 8.5], shrubPerHa: [160, 300],
+    closeBandM: 0,
+    sources: ['andreas_1884_v1'] },
+];
+
 /* -------------------------------------------------------------------------- */
 /* the timber beyond the modelled ground                                       */
 /* -------------------------------------------------------------------------- */
@@ -2268,6 +2347,8 @@ export async function createTrees({
     sandHills: { offered: 0, reachFade: 0, belowBand: 0, planted: 0, swale: 0 },
     /** T-2807: the woods' edge thicket and the savanna hazel. */
     edgeThicket: { offered: 0, planted: 0, savanna: 0 },
+    sandWood: { offered: 0, planted: 0, mesic: 0 },
+    paths: { lines: {}, cleared: 0, shrubs: 0 },
     /** T-2807: stems the clump field set in an opening, grown young. */
     youngInOpenings: 0,
     rejectedBelowWaterline: 0, lowestStationY: null,
@@ -2309,6 +2390,40 @@ export async function createTrees({
   // is a question that gets asked at every cell rather than never.
   const eastLimit = timberEastLimits(streetRecords, problems);
   stats.eastLimits = eastLimit.streets;
+  // T-2808: the wood on the sand east of State, where the east limit was read
+  // off the street data (so 1835: 1812 still stands at the fallback line).
+  const sandWood = eastLimit.streets.north ? SAND_WOOD : null;
+  // T-2808: the two ways through the North Side wood, on their street lines.
+  const pathLines = [];
+  for (const p of PATHS) {
+    const pts = (streetRecords ?? []).find((s) => s.id === p.street)?.path_local_enu_m;
+    if (!Array.isArray(pts) || pts.length < 2) continue;
+    const a = pts.reduce((m, q) => (q[1] < m[1] ? q : m));
+    const b = pts.reduce((m, q) => (q[1] > m[1] ? q : m));
+    const k = (b[0] - a[0]) / Math.max(1e-6, b[1] - a[1]);
+    const fromN = p.fromN === 'end' ? b[1] : p.fromN;
+    const toN = p.toN ?? Infinity;
+    pathLines.push({ ...p, fromN, toN, eAt: (n) => a[0] + (n - a[1]) * k });
+    stats.paths.lines[p.id] = { street: p.street, fromN: Math.round(fromN), clearM: p.clearM };
+  }
+  /**
+   * The path whose bare tread (e, n) is on, or null; with `trunks`, the wider
+   * strip no tree stands in, so the edge trees' crowns leave the cut open.
+   */
+  const pathCutAt = (e, n, trunks = false) => {
+    for (const l of pathLines) {
+      if (n < l.fromN || n > l.toN) continue;
+      if (Math.abs(e - l.eAt(n)) < (trunks ? l.treeClearM : l.clearM)) return l;
+    }
+    return null;
+  };
+  /** T-2808: where the sand wood ends in the east at northing n, wobbling. */
+  const sandWoodEndE = (n) => SAND_WOOD.toE + (noise2(SAND_WOOD.toE, n, 120, 83) - 0.5) * SAND_WOOD.wobbleM;
+  /** Distance from (e, n) to the path `id`'s line, Infinity off its reach. */
+  const pathDist = (id, e, n) => {
+    const l = pathLines.find((q) => q.id === id);
+    return l && n >= l.fromN && n <= l.toN ? Math.abs(e - l.eAt(n)) : Infinity;
+  };
 
   stats.zoneRecords = records.zonesRead;
   stats.unimplementedForms = records.unimplemented;
@@ -2650,6 +2765,12 @@ export async function createTrees({
     // growth either. Wau-Bun's cedars, pines and dwarf willows stand on them
     // north of the river and Clarke's low cedars south of Twelfth Street;
     // `plantSandHill` holds each reach to its own belt behind the shore.
+    // T-2808: north of `fromN` the North Side wood runs on east of State over
+    // the sand, to short of the shore's sand hills (SAND_WOOD).
+    if (sandWood && d === NORTH && e > eastLimit.north && e < sandWoodEndE(n)) {
+      const t = smoothstep(sandWood.fromN - sandWood.fadeN, sandWood.fromN, n);
+      if (t >= 1 || (t > 0 && noise2(e, n, 8, 47) < t)) return 'sand_wood';
+    }
     const pastTimber = e > (d === NORTH ? eastLimit.north : eastLimit.south);
     if (pastTimber && zoneAt?.(e, n) === SAND_PRAIRIE_ZONE) return 'sand_hill_inland';
     if (e > (d === NORTH ? eastLimit.north : eastLimit.south)) return null;
@@ -2739,7 +2860,7 @@ export async function createTrees({
   // waterline margin: fewer of the same trees in the same places, never a
   // different wood. `lowSpec` is the device guess; an explicit choice outranks it.
   const level = lowSpec && detail === 'full' ? 'light' : detail;
-  const grown = new TreeInstances({ level });
+  const grown = new TreeInstances({ level, cull: true });
   /**
    * The stem budget, scaled to the ground the loop now sweeps (ROADMAP K45(b2)).
    *
@@ -3165,7 +3286,9 @@ export async function createTrees({
       const width = lerp(30, 74, noise2(px, pz, 130, 11));
       band = smoothstep(t.galleryBand[0], t.galleryBand[1], bank / width);
     } else if (d === NORTH && key !== 'gallery') {
-      const inside = eastLimit.north - px;
+      // T-2808: on the sand east of State the wood's own east end is the edge.
+      const endE = sandWood && px > eastLimit.north ? sandWoodEndE(pz) : eastLimit.north;
+      const inside = endE - px;
       band = 1 - smoothstep(t.eastBandM[0], t.eastBandM[1], inside);
     }
     const savanna = key === 'ridge_oak' && band <= 0;
@@ -3189,6 +3312,83 @@ export async function createTrees({
     if (savanna) stats.edgeThicket.savanna++;
     bump(stats.species, id);
     return true;
+  };
+
+  /**
+   * T-2808. The shrubs at a path's margins (PATHS `shrubM`: the bridle path's
+   * crowding shrubs, the road cut's sprouts), from the edge thicket's mix and
+   * their own position-seeded generator. True when a shrub took the cell.
+   */
+  const plantPathShrub = (px, pz, gy) => {
+    for (const l of pathLines) {
+      if (pz < l.fromN || pz > l.toN) continue;
+      const dist = Math.abs(px - l.eAt(pz));
+      if (dist < l.shrubM[0] || dist >= l.shrubM[1]) continue;
+      const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x28080);
+      const clump = 2 * smoothstep(0.30, 0.78, noise2(px, pz, EDGE_THICKET.clumpM, 67));
+      const perHa = lerp(l.shrubPerHa[0], l.shrubPerHa[1], noise2(px, pz, 58, 9)) * clump
+        * clearedFactor(px, pz);
+      if (hr() > (perHa * cellArea * keep) / 10000) return false;
+      if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz)) return false;
+      const id = edgePick.mix(hr());
+      const spec = edgeSpecs[id];
+      if (!spec) return false;
+      plant(spec, px, gy, pz, hr, 0.80 + hr() * 0.30);
+      noteStation(px, pz, gy);
+      stats.edgeThicket.planted++;
+      stats.paths.shrubs++;
+      bump(stats.species, id);
+      return true;
+    }
+    return false;
+  };
+  /**
+   * T-2808. A cell of the wood on the sand east of State (SAND_WOOD): the Rush
+   * Street path's tread and margins first, then the edge thicket and the
+   * savanna hazel, then a tree. Its own position-seeded generator throughout.
+   */
+  const closeBandOf = (id) => PATHS.find((p) => p.id === id)?.closeBandM ?? 0;
+  const plantSandWood = (px, pz, gy) => {
+    stats.sandWood.offered++;
+    if (pathCutAt(px, pz)) { stats.paths.cleared++; return; }
+    if (plantPathShrub(px, pz, gy)) return;
+    const near = pathDist('rush_bridle_path', px, pz) < closeBandOf('rush_bridle_path');
+    const key = near ? 'mesic_pocket' : 'ridge_oak';
+    if (plantEdgeThicket(px, pz, gy, key, NORTH, Infinity)) return;
+    if (pathCutAt(px, pz, true)) return;
+    const c = COMMUNITIES[key];
+    const wc = WOOD_CLUMP[key];
+    const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x2808);
+    const ct = smoothstep(0.28, 0.72, noise2(px, pz, wc.cellM, 73));
+    // Along the path the boughs met: no openings in the band, the patches' density.
+    const clumpK = near ? 1 + 0.6 * ct : wc.floor + (2 - 2 * wc.floor) * ct;
+    const perHa = lerp(c.perHa[0], c.perHa[1], noise2(px, pz, 58, 7)) * clearedFactor(px, pz) * clumpK;
+    if (hr() > (perHa * cellArea * keep) / 10000) return;
+    if (stats.trees >= maxTrees || blocked(px, pz)) return;
+    const id = pickers[key].mix(hr());
+    const spec = communitySpecs[key][id];
+    if (!spec) return;
+    const young = !near && ct < 0.35 ? lerp(wc.young, 1, ct / 0.35) : 1;
+    if (young < 1) stats.youngInOpenings++;
+    plant(spec, px, gy, pz, hr, young);
+    noteStation(px, pz, gy);
+    stats.trees++;
+    stats.sandWood.planted++;
+    if (key === 'mesic_pocket') stats.sandWood.mesic++;
+    bump(stats.communities, key);
+    bump(stats.species, id);
+  };
+  /**
+   * T-2808. A stem the shared stream dealt onto a path's bare tread is grown
+   * nowhere, but its draws are still taken, so every stem after it stands where
+   * it stood: a grown tree takes none, the chunked path's into a buffer that is
+   * thrown away.
+   */
+  let scratchBuf = null;
+  const dryPlant = (spec, e, gy, n, scale) => {
+    if (isGrownForm(spec)) return;
+    scratchBuf = scratchBuf ?? new MeshBuf(level);
+    addTree(scratchBuf, spec, e, gy, worldZ(n), rnd, scale);
   };
 
   const sweepE0 = originE + step;
@@ -3218,6 +3418,11 @@ export async function createTrees({
       // from `rnd` for this point, and `plantSandHill` does not either.
       if (comm === 'sand_hill_inland') {
         plantSandHill(px, pz, gy, records.woody?.[DUNE_ZONE], true);
+        continue;
+      }
+      // T-2808: the wood on the sand east of State, likewise off the stream.
+      if (comm === 'sand_wood') {
+        plantSandWood(px, pz, gy);
         continue;
       }
       // T-1056 — THE DUNE'S POPLARS STAND ON THE SANDY HILLS, NOT ON THE BAR.
@@ -3322,6 +3527,10 @@ export async function createTrees({
         : 1;
       // T-2807: the woods' prairie edge is a thicket, offered the cell first.
       if (comm !== 'gallery_edge' && plantEdgeThicket(px, pz, gy, key, div[i], bank)) continue;
+      // T-2808: on a path's tread (the Green Bay road cut) the margins take the
+      // sprouts, from their own generator; the stream's stem is dealt dry below.
+      const cut = pathLines.length ? pathCutAt(px, pz, true) : null;
+      if (cut) plantPathShrub(px, pz, gy);
       // T-2807: patches and openings, mean one (WOOD_CLUMP).
       const wc = WOOD_CLUMP[key];
       const ct = wc && comm !== 'gallery_edge'
@@ -3348,6 +3557,7 @@ export async function createTrees({
       if (!spec) continue;
       // In an opening the stem is a young one: smaller toward the opening's heart.
       const young = wc && ct < 0.35 ? lerp(wc.young, 1, ct / 0.35) : 1;
+      if (cut) { dryPlant(spec, px, gy, pz, young); stats.paths.cleared++; continue; }
       if (young < 1) stats.youngInOpenings++;
       plant(spec, px, gy, pz, rnd, young);
       noteStation(px, pz, gy);
