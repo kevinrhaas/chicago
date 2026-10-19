@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2086, ts: '2026-10-19T23:52:55.555Z', date: 'Oct 19, 2026, 6:52 PM CT', title: 'Glessner\'s north windows: slimmer columns between the paired lights', kind: 'improvement',
+    items: [
+      'On the 18th Street side of Glessner House, the stone column between each pair of upstairs windows is now as slim as the 1965 survey photographs show it: about 1.3 feet at the capital rather than 1.9, with a taller carved capital and a low base block.',
+      'Read from both north photographs, which agree to within an inch on the clear pair; the windows either side widen to suit.',
+    ] },
+  { v: 2085, ts: '2026-10-19T23:52:55.555Z', date: 'Oct 19, 2026, 6:52 PM CT', title: 'The Keith house\'s loggia gains its wall piers; every picture now matches', kind: 'improvement',
+    items: [
+      'A flat stone pier now stands on the wall behind each rear pair of columns in the north loggia at 1808 Prairie. The 1888 floor plan draws it, and the 1888 photograph catches the north one\'s sunlit side.',
+      'The photograph\'s pale upright beside the rear columns is the pier\'s face. It is not the door\'s edge or a third column, and the model now draws it within two pixels of the print.',
+      'All sixteen photographs and drawings of the house were compared again, and each one now matches the model.',
+    ] },
+  { v: 2084, ts: '2026-10-19T23:52:55.555Z', date: 'Oct 19, 2026, 6:52 PM CT', title: 'Shrubs, slough willows and lone trees on the open prairie', kind: 'feature',
+    items: [
+      'Wild rose, New Jersey tea and leadplant now grow in small patches through the prairie grass west and south of the river, in 1812 and 1835.',
+      'Pussy willow, slender willow and meadowsweet grow in clumps on the wet prairie, with buttonbush in the wettest ground near the water.',
+      'Here and there a lone bur oak or cottonwood stands just east of the river, where the water broke the prairie fires.',
+      'The rose and New Jersey tea are in July flower. The phone draws fewer shrubs.',
+      'Where each plant stands is a reconstruction, listed in the liberties.',
+    ] },
   { v: 2083, ts: '2026-10-19T23:05:28.778Z', date: 'Oct 19, 2026, 6:05 PM CT', title: 'Nothing you can see changed: rear wings can take slate roofs', kind: 'chore',
     items: [
       'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now roof a rear wing with a slated hip or gable, where every wing was decked flat in tin.',
