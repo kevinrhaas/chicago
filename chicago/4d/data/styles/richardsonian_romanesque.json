@@ -77,6 +77,18 @@
       ]
     },
     {
+      "name": "Italianate",
+      "style": "italianate",
+      "text": "Older, with deep eaves on brackets. See 1834 Prairie.",
+      "grade": "inferred",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "glessner_blog_2015_08_van_osdel",
+        "glessner_blog_2022_01_burley_tyrrell"
+      ],
+      "note": "The marker calls 1834 Prairie Italianate and dates it 1866. The deep eaves on brackets are what its photograph shares with 1720 Prairie, the other house a source calls Italianate."
+    },
+    {
       "name": "French Chateauesque",
       "style": "chateauesque",
       "text": "See the Kimball house at 1801 Prairie, built 1890.",
