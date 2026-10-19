@@ -23982,3 +23982,18 @@ T-2228 published entrance validation: three Full desktop and three Light mobile 
 ## T-2857 — Glessner's Prairie front read (2026-10-19)
 
 Nothing in the scene changed. T-2851 was split into this reading and T-2858, which builds what it found. The Prairie openings were read camera-free, with a one-dimensional projective fit along each course, on Taylor 2135, HABS 16 and HABS 17. They fit the model's spacing to 1.5, 3.3 and 1.6 px rms. HABS sheet 6 was re-measured off its scale bar, and its front measures 73.98 ft against the printed 74'-0". Against it, first-floor A, B and the door, and the second-floor north group, are built 0.30-0.63 ft too far south. The sheet also draws the first-floor lights 4.3-4.45 ft wide where 3.9 ft is built. Taylor's camera has its corner controls on the downspouts, and through it the openings and the stacks register 15-22 px left together. That is the camera, not the building. The stack tops agree with that photograph within 2 px. The match records' generic front items are now specific, and all three views still read `differs`. See docs/RESEARCH/glessner-prairie-front-T-2857/.
+
+## T-2858 — Glessner's Prairie lights on HABS sheet 6 (2026-10-19)
+
+The four first-floor Prairie lights are now built at sheet 6's outer lines (4.36-4.46 ft wide;
+A and B 0.38-0.63 ft further north). The basement grilles are centred under them, and the
+second-floor north group is 0.30 ft north. The NE photographs had read the lights narrower
+because, seen obliquely, the far jamb is the sash behind the reveal. With that projected (no free
+parameter), sheet 6 fits all three street photographs better than the old 3.9 ft. The door stays
+where it was: the sheet gives only its fan's centre, and the photographs split on it. The corner
+picks read on the downspouts, so the piers stand. Taylor 2135 is refitted on the jambs at 1.36 px
+rms, against 20.5 px off before. Its withheld stacks fall from 14.5 to 6.5 px rms, and the south
+stack's face is still 14.6 px off and open. Rebaked; the three front views are re-rendered and
+their front items closed, and all still read `differs`. See
+docs/RESEARCH/glessner-prairie-front-T-2858/.
+

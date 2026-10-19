@@ -260,13 +260,31 @@ def record_openings():
     return by
 
 
+def close(a, b, tol=0.05):
+    """Numbers to tolerance (CI's scipy lands a solve about 1e-7 from a runner's, and a
+    rounded figure can tip a last digit), everything else exactly."""
+    if isinstance(a, dict) and isinstance(b, dict):
+        return a.keys() == b.keys() and all(close(a[k], b[k], tol) for k in a)
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(close(x, y, tol) for x, y in zip(a, b))
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)) and not isinstance(a, bool):
+        return abs(a - b) <= tol
+    return a == b
+
+
+def camera_agrees(cam, t):
+    return (np.abs(np.array(cam["eye"]) - np.array(t["eye"])).max() <= 0.01
+            and np.abs(np.array(cam["basis_right_up_forward"]) - np.array(t["basis_right_up_forward"])).max() <= 1e-4
+            and abs(cam["focal_px"] - t["focal_px"]) <= 0.5)
+
+
 def check(result):
     errs = []
-    if json.loads(OUT.read_text()) != json.loads(json.dumps(result)):
+    if not close(json.loads(OUT.read_text()), json.loads(json.dumps(result))):
         errs.append(f"{OUT.relative_to(ROOT)} is stale: run python3 tools/glessner_prairie_front.py")
     cam = json.loads((VIEWS / "taylor-2135-ne.json").read_text())
     t = result["taylor_2135"]
-    if np.abs(np.array(cam["eye"]) - np.array(t["eye"])).max() > 1e-4 or abs(cam["focal_px"] - t["focal_px"]) > 0.01:
+    if not camera_agrees(cam, t):
         errs.append("taylor-2135-ne.json is not the refitted camera: run with --camera")
     rec = record_openings()
     lights = sorted(tuple(a) for a in rec["first-floor windows"])
@@ -294,7 +312,8 @@ def main():
         ok = check(result)
         print("Glessner's Prairie front stands on sheet 6, Taylor 2135 refitted" if ok else "")
         sys.exit(0 if ok else 1)
-    OUT.write_text(json.dumps(result, indent=2) + "\n")
+    if not (OUT.exists() and close(json.loads(OUT.read_text()), json.loads(json.dumps(result)))):
+        OUT.write_text(json.dumps(result, indent=2) + "\n")
     t = result["taylor_2135"]
     print(f"wrote {OUT.relative_to(ROOT)}")
     for view, rows in result["camera_free"].items():
@@ -306,6 +325,9 @@ def main():
     if a.camera:
         path = VIEWS / "taylor-2135-ne.json"
         cam = json.loads(path.read_text())
+        if camera_agrees(cam, t):
+            print(f"{path.relative_to(ROOT)} already agrees to tolerance; left untouched")
+            return
         for k in ("eye", "yaw_deg", "basis_right_up_forward", "focal_px", "principal_px"):
             cam[k] = t[k]
         cam["solve"]["method"] = (

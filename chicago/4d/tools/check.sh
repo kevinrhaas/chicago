@@ -3558,6 +3558,12 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
   python3 tools/glessner_north_pairs.py --check
 
+# Taylor 2135 is refitted on the Prairie front's first-floor jambs with the stacks withheld,
+# and the front's lights stand at HABS sheet 6's places and widths, so a pick, camera or
+# opening that moves without the reading being re-written is caught here (T-2858).
+step "Glessner's Prairie lights stand on HABS sheet 6, Taylor 2135 refitted on them (T-2858)" \
+  python3 tools/glessner_prairie_front.py --check
+
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 
