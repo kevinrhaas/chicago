@@ -218,7 +218,7 @@
               "variant": "k08.oriel.canted_corbelled",
               "wall": "k01.wall.side.north",
               "s_m": 8.8,
-              "fabric": "frame",
+              "fabric": "stone",
               "base_m": 3.6,
               "corbel": {
                 "courses": 5
@@ -246,27 +246,18 @@
               },
               "storeys": [
                 {
-                  "height_m": 2.0,
+                  "height_m": 2.1,
                   "windows": [
                     {
-                      "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.36,
-                      "clear_height_m": 1.85,
-                      "sill_m": 0.05,
-                      "at": [
-                        0.1067,
-                        0.8933
-                      ],
-                      "why_not_ordinary": "the oriel's cheek lights: the print's west cheek is 0.48 m deep and its light about 0.37 m across (x 506-517 px)"
-                    },
-                    {
-                      "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.6,
-                      "clear_height_m": 1.85,
-                      "sill_m": 0.05,
+                      "opening": "k06.opening.casement_pair_transom_mullioned",
+                      "clear_width_m": 0.7,
+                      "clear_height_m": 1.75,
+                      "sill_m": 0.12,
                       "at": [
                         0.5
-                      ]
+                      ],
+                      "recess_m": 0.33,
+                      "why_not_ordinary": "the oriel's south light: the house's first-floor kind (two lights on a mullion under a transom, as the front's first floor), in a south face 1.29 m long; the print's bar across the cheek's light stands about 0.43 of its height down"
                     }
                   ]
                 }
@@ -282,7 +273,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2846: the oriel the photograph shows on the main south wall just in front of the rear section (x 504-527 px), read through the re-solved camera (inland_architect_front.json). A box on the wall, not canted: its west cheek faces the plate (x 505-519.5 px) and its long south face recedes beside it (x 519.5-527.5); only a cheek 0.48 m deep puts both of the west cheek's edges at one depth (8.16 m behind the front), and the south face's far end then stands at 9.45 m, so the oriel is 1.29 m along the wall, centred 8.8 m back. Its far end hides the wall from there to the rear section's corner, which is why it seems to abut it. Heights at the cheek's scale (30.05 px/m): the foot of its apron about 2.3 m (y 718), its lights' sills about 3.5 m (y 681) and their heads about 5.5 m (y 621), the moulded cornice to about 5.8 m (y 613); nothing shows over it, so its roof is low. Built as K08's oriel on the first floor (3.6 m), a storey of 2.0 m to its wall top under K08's eaves (to about 5.8 m), on five corbel courses, the most a 0.48 m reach may carry and still bear 0.08 m on the wall (to 2.6 m, about 10 px over the print's foot); one light in each cheek and one in the south face, two-over-two sash as the kit's oriel, 1.85 m tall from 0.05 m over its floor. Reconstructed: the plan's square corners (the print cannot tell a square cheek from a slightly canted one), the east cheek and its light (hidden behind the oriel), the panes, the timber of its walls (the print reads joinery: thin framing round the lights, a moulded cornice, a panelled apron), the corbel courses for the apron, and the low copper hip (L-k01-1625-oriel-2846). Earlier: none, the front being flat (T-2435), which still holds for the front."
+          "note": "T-2846: the oriel the photograph shows on the main south wall just in front of the rear section (x 504-527 px), read through the re-solved camera (inland_architect_front.json). A box on the wall: its west cheek faces the plate (x 505-519.5 px) and its long south face recedes beside it (x 519.5-527.5); a cheek 0.48 m deep puts both of the west cheek's edges at one depth (8.16 m behind the front), and the south face's far end then stands at 9.45 m, so the oriel is 1.29 m along the wall, centred 8.8 m back. It cannot reach further: the rear section's lower window (x 534-557) shows past it at its own height. Its far end hides the wall from there to the rear section's corner, which is why it seems to abut it. Heights at the cheek's scale (30.05 px/m): the foot of its apron about 2.3 m (y 718), its lights' sills about 3.5 m (y 681) and their heads about 5.5 m (y 621), the moulded cornice to about 5.8 m (y 613); nothing shows over it, so its roof is low. Built as K08's oriel on the first floor (3.6 m), a storey of 2.1 m to its wall top under K08's eaves, on five corbel courses (the most a 0.48 m reach may carry and still bear 0.08 m on the wall), to 2.6 m; in its south face one light 0.7 m across and 1.75 m tall from 0.12 m over its floor, two casements on a mullion under a transom, the house's first-floor kind (the print's light carries a bar about 0.43 of its height down). Not built: the light in the west cheek, the print's most visible (about 0.3 m across, x 507-516): the kit's frame and piers need 0.7 m of cheek for any light and its corbel cannot carry a cheek that deep on a face this short. Reconstructed: the plan's square corners, the east cheek (hidden), the casement kind, the dressed stone of its walls (the print reads it light, near the trim's tone, with a darker apron, and cannot say stone or painted timber), the corbel courses for the apron, and the low copper hip (L-k01-1625-oriel-2846). Earlier: none, the front being flat (T-2435), which still holds for the front."
         },
         "side_bays": {
           "value": [],

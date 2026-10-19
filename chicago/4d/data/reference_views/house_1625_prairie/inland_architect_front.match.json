@@ -2,7 +2,7 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3dc0cdf94cf1519901d8631e3a0281386826ad9fb5dc50a12b6788f21b9c5c86",
+  "glb_sha256": "7dea3a5267cffbd48237c624755304c0003d9c2a207b61b7cdbf497f66fe38f3",
   "camera_sha256": "c38fa66c558625703b0e5df1ac52544c7c184e62b1c357844035aeb11defe13b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
@@ -90,7 +90,12 @@
     {
       "what": "the oriel on the main south wall just in front of the rear section (x 505-527 px, about 4.0-6.6 m over grade, under a small roof): not built",
       "status": "fixed",
-      "how": "T-2846 (bays.south_oriel): K08's oriel on the first floor, a box 0.48 m out and 1.29 m along the wall, centred 8.8 m back (the only depth at which both edges of its west cheek, x 505 and 519.5, stand at one depth); its lights 3.65-5.5 m, its cornice to about 5.8 m, on five corbel courses to 2.6 m. Its cheek, its south face and its lights each within about 2 px of the print's, its foot about 5 px over the print's (y 718), where the print's apron reads as a panelled face rather than stepped courses (L-k01-1625-oriel-2846)"
+      "how": "T-2846 (bays.south_oriel): K08's oriel on the first floor, a box 0.48 m out and 1.29 m along the wall, centred 8.8 m back (a cheek that deep puts both edges of the west cheek, x 505 and 519.5, at one depth); its wall top under K08's eaves at about 5.7 m, on five corbel courses to 2.6 m, a transomed casement pair in its south face, in dressed stone. Its outline stands within about 2-8 px of the print's (L-k01-1625-oriel-2846); its west cheek's light and its apron's face are open below"
+    },
+    {
+      "what": "the oriel's west cheek and apron: the print's west cheek is mostly glass, a light about 0.3 m across (x 507-516 px, y 621-681), and its apron a flat darker face to a moulded foot at about 2.3 m (y 718); the build's cheek is plain (K08's frame and piers need 0.7 m of cheek for any light) and its apron is the kit's five stepped corbel courses to 2.6 m, about 8 px over the print's foot",
+      "status": "open",
+      "how": "T-2847"
     },
     {
       "what": "the rear section's heights on the re-solved camera: its cornice meets the main eave at 10.9 m (y 486), its windows read about 3.4-5.9 and 7.75-9.7 m, the dormer's sill about 11.6 m and its sash's head 13.4 m, the curb about 14.3 m, and the door has a transom light over its leaf (y 731-745); the build stands them on the 13.0 m wall head, so its lower window's head is about 20 px and its upper window, dormer and curb 40-60 px over the print's",
