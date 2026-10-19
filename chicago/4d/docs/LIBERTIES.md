@@ -29290,6 +29290,35 @@ the dress and the cheeks' lights.
 **Ticket:** T-2780 (piece 1 of T-2756).
 **Recorded:** 2026-10-18 (T-2780).
 
+### L-glessner-west-court-door-2760 — Glessner's west-court door brought down to grade (2026-10-19)
+
+**Decision:** The stable wing's courtyard door beside the north-range junction (W35.5, S44.6-47.1) is
+built at grade, 0.35-7.85 ft above the 18th Street grade, where it had stood at the main-floor landing
+datum (sill 5.8 ft, head 14.0 ft) with nothing to climb to it. The 2024 courtyard photograph
+(`wlemay_glessner_courtyard_2024_159537058`, CC BY-SA 2.0, the library's 1920 px copy, SHA-256
+fca788a6…) shows this door low beside the railed walk: its stone lintel courses with the sills of the
+first-floor windows beside it, and the opening is about 34 brick courses tall (a course of 66.675 mm,
+counted at about 5.4 px in the photograph's own coursing beside the jamb), so about 7.5 ft. The head is
+set 0.35 ft above the record's 7.5 ft window sills, where the photograph puts it, and the sill 7.5 ft
+below that. HABS sheet 2 (`habs_glessner_house_il_1015_drawings`, 1963) draws a narrow flight
+descending north toward this door, at the south end of a long narrow landing, which also puts the
+door below the court's walk rather than above it.
+**Bounds:** The head is read against the record's own 7.5 ft first-floor sills (themselves this
+record's reading), so it carries their error plus about ±0.2 ft of coursing; the sill carries a further
+±0.3 ft from where the door's foot meets the 2024 walk. The photograph is 2024 fabric: the head is
+fixed in original coursing and is not likely to have moved, but the 1904 threshold may have been a
+step lower, into the areaway the 1963 plan draws.
+**What is not built:** the 1963 plan's descending flight and its areaway. The plan gives no level, no
+riser count anyone can read with confidence and no date for them (its only dated note is the c.1955
+wooden stair behind the service wing, a different stair), and the 2024 view shows a sloping railed walk
+in their place. The lawn runs to the wall as before.
+**How to resolve:** a dated photograph of the west court before 1955, or a level survey of the door's
+threshold against the court, settles both the threshold and whether the areaway is original.
+**Applies to:** `data/structures/glessner_house.json`
+(`v4_detail.supplemental_openings`, face east at 125.75, the stable courtyard door); see
+`docs/RESEARCH/glessner-west-court-door-T-2760/`.
+**Recorded:** 2026-10-19 (T-2760).
+
 ### L-ambience-2659 — Each destination's ambience is a made-up bed tone, not a recording of the past
 
 **Decision:** once a visitor's first tap lets the page play sound, each destination plays a quiet
