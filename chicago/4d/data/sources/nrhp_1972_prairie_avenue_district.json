@@ -1,0 +1,30 @@
+{
+  "id": "nrhp_1972_prairie_avenue_district",
+  "type": "legal",
+  "citation": "National Register of Historic Places Inventory-Nomination Form, 'Prairie Avenue District', Chicago, Cook County, Illinois; prepared by John F. Hern, Commission on Chicago Historical and Architectural Landmarks, 17 March 1972.",
+  "author": "John F. Hern, Commission on Chicago Historical and Architectural Landmarks",
+  "date": "1972-03-17 (form prepared); nominated by the state 5 April 1972; entry stamp 15 November 1972",
+  "describes_date": "1870-1972",
+  "repository": "National Archives, Record Group 79 (National Park Service), Illinois nominations; a scanned PDF of 44 pages, file 72000452",
+  "url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "locator": "PDF page 1 (the form's first sheet: name, location, entry stamp); page 4 (item 7 continued, Glessner House, page 1 of 12 pages); page 17 (item 11, form prepared by; item 12, certifications); page 18 (item 8, Prairie Avenue, page 1 of two pages); page 19 (item 8, Glessner House continued, page 2 of two pages).",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A federal register form prepared by a City commission and scanned by the National Archives. Its text is cited in words only. Its photographs and maps are not copied from it, and their rights are not established here.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-19 (T-2642) from the PDF at the url, its text layer checked against the page images at each quotation below; a received stamp covers two words on page 19, given in brackets. The Wayback Machine's availability service returned no snapshot of the url on 2026-10-19 and web.archive.org reset the connection to direct queries, so no archived_url is recorded. The Prairie library's image store holds this file's page 24 as a link only.",
+  "note": "Read: page 4, of Glessner House at 1800 South Prairie Avenue, 'The house is modified Romanesque in style, characterized by rugged masonry, a round arch motif, striking window-wall relationships, and a simple geometric form defined by the relationship of walls to the red-tiled, gabled roof.' Page 18: 'The John J. Glessner House is Henry Hobson Richardson's magnificent tribute to the Romanesque. The William W. Kimball House, patterned after the Chateau de Josselin in France, illustrates nineteenth century America's imitative attempt at duplicating the classical opulence of Europe. The Joseph G. Coleman House is an elegant amalgamation of the styles found in both the Glessner and Kimball mansions.' Page 19: 'Two stories high, with both a full basement and attic, the house is faced with heavily rusticated Wellesley granite.' And: 'With Richardson's work came the first break with traditional, classic forms of design and detail. And because that happened, a whole new style of American architecture was allowed to grow to maturity in the work of the \"Chicago School\". Flourishing in the 1880s and '90s, the Chicago School was a specific style of commercial architecture typified by the introduction of the structural steel frame and embracing design principles totally without reference to historical styles.' Then: 'Glessner House was not only one of Richardson's greatest achievements, but it was also a model, along with his Marshall Field Wholesale Store, [which would] later influence such famous architects as John Root, Louis Sullivan, and Frank Lloyd Wright.' Page 17: prepared by John F. Hern, Commission on Chicago Historical and Architectural Landmarks, 3/17/72; the State Liaison Officer's nomination dated April 5, 1972.",
+  "what_it_supplies": [
+    "Glessner House as Romanesque, with rugged masonry, a round arch motif and a red-tiled gabled roof",
+    "that Glessner House is faced with heavily rusticated granite",
+    "the Kimball house as patterned on the Chateau de Josselin, and the Coleman house as a blend of the Glessner and Kimball styles",
+    "the Chicago School as a style of commercial architecture built on the steel frame, which the form says Glessner House helped to bring about"
+  ],
+  "what_it_does_not_supply": [
+    "a Chicago School building on Prairie Avenue: the form names the style only as one Glessner House helped bring about, and as commercial architecture",
+    "any house's 1904 state: it describes the four houses as they stood in 1972",
+    "the granite's quarry beyond the form's own word 'Wellesley'",
+    "measurement"
+  ]
+}

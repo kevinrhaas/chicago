@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2045, ts: '2026-10-19T06:24:43.488Z', date: 'Oct 19, 2026, 1:24 AM CT', title: 'Two new style guides: Second Empire and Italianate', kind: 'feature',
+    items: [
+      'Inspect\'s Design tab has style guides for Second Empire and Italianate, each with four things to look for and a period picture with its credit.',
+      '1900 and 2115 Prairie open on the Second Empire guide, and 1834 Prairie on the Italianate one. Each now has its own front page.',
+      'A Compare styles line that names another guide opens that guide\'s cues in place, so Glessner House now leads to both.',
+      'There are no Greek Revival, Queen Anne or Chicago School guides: no source we hold puts a building of those styles in either scene.',
+    ] },
   { v: 2044, ts: '2026-10-19T05:59:34.092Z', date: 'Oct 19, 2026, 12:59 AM CT', title: '1812: the North Side woods and the shore cottonwoods match 1835', kind: 'feature',
     items: [
       'In 1812 the North Side wood now runs east to the sand at the State Street ridge, with its edge thicket and the wood on the sand beyond, as it does in 1835. Before, it stopped 500 m short.',
