@@ -324,7 +324,8 @@ export function createNavigator({
     paintedAt = t0;
     const p = pose();
     const at = where?.at?.(p.e, p.n, p.bearingDeg) ?? null;
-    put(out.where, at?.place ? at.place.charAt(0).toUpperCase() + at.place.slice(1) : str('nav.where.off'));
+    const here = at?.address ?? at?.place;
+    put(out.where, here ? here.charAt(0).toUpperCase() + here.slice(1) : str('nav.where.off'));
     put(out.whereDetail, [facingWords(p.bearingDeg), clock].filter(Boolean).join(' · '));
     if (target) paintFront(target.current(FRONT_M));
     const j = jaunt();

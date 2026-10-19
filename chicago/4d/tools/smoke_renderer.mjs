@@ -18656,18 +18656,18 @@ for (const [label, viewport, touch] of [
           return {
             at1800,
             midBlock,
-            year: document.getElementById('street-era-year')?.textContent,
+            then: document.querySelector('#street-readout .street-era b')?.textContent,
             label: document.getElementById('s-street-names-label')?.textContent,
             shown: !document.getElementById('street-readout')?.hasAttribute('hidden'),
           };
         });
-        check(`${label}: 1904 names Prairie Avenue then and the City's address now (T-2741)`,
-          streetNames1904.shown && streetNames1904.year === '1904'
+        check(`${label}: 1904 names Prairie Avenue then and the address now, mid-block off the traced lot (T-2741)`,
+          streetNames1904.shown && streetNames1904.then === 'Then'
           && streetNames1904.label === '1904 / current street names'
           && /Prairie Avenue/.test(streetNames1904.at1800.era) && /Eighteenth/.test(streetNames1904.at1800.era)
           && /S Prairie Ave/.test(streetNames1904.at1800.today) && /E 18th St/.test(streetNames1904.at1800.today)
-          && streetNames1904.midBlock.era === 'Prairie Avenue'
-          && /^17\d\d S Prairie Ave$/.test(streetNames1904.midBlock.today),
+          && /^17\d\d Prairie Avenue$/.test(streetNames1904.midBlock.era)
+          && streetNames1904.midBlock.today === `${streetNames1904.midBlock.era.split(' ')[0]} S Prairie Ave`,
           JSON.stringify(streetNames1904));
         const at = await page.evaluate(({ neLot, lotMid, ghFront }) => {
           const a = window.__chicago4d;
