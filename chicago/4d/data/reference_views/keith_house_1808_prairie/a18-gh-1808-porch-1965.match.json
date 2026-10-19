@@ -5,7 +5,7 @@
   "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
   "camera_sha256": "bfb140cc76c6fd84c1d81f670fe0abbef1e933332a0628b2bd9f60c0f58f8e6f",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -112,8 +112,8 @@
       "status": "fixed"
     },
     {
-      "what": "the column pairs' width (found by T-2845 on the rebuilt loggia): at mid-shaft the slide reads the south pair 27.8 px across (x 355.8-383.6) and the north 24.0 (408.5-432.5), where the rebuilt pairs draw 19.3 and 16.5 px on this view's camera (shaft silhouettes 6.0 and -2.7, 5.7 and -2.0 px off). This camera looks about 59 degrees off the front's normal, so a pitch along the front counts for half: 0.45 m draws 21.2 and 17.9 px and only about 0.8 m would close it, which the 1888 plate refuses (its pairs' outer silhouettes 54 px across, fitted at 0.36 m within 2-4 px). A pair staggered about 0.2 m in depth at the plate's 0.36 m draws 26.1 and 22.7 px, and the near-square plate could hardly tell it (about 7 px at most). Neither picture is read for it yet.",
-      "status": "open",
+      "what": "the column pairs' width (found by T-2845 on the rebuilt loggia): at mid-shaft the slide reads the south pair 27.8 px across (x 355.8-383.6) and the north 24.0 (408.5-432.5), where the rebuilt pairs draw 19.3 and 16.5 px on this view's camera (shaft silhouettes 6.0 and -2.7, 5.7 and -2.0 px off). This camera looks about 59 degrees off the front's normal, so a pitch along the front counts for half: 0.45 m draws 21.2 and 17.9 px and only about 0.8 m would close it, which the 1888 plate refuses (its pairs' outer silhouettes 54 px across, fitted at 0.36 m within 2-4 px). A pair staggered about 0.2 m in depth at the plate's 0.36 m draws 26.1 and 22.7 px, and the near-square plate could hardly tell it (about 7 px at most). Neither picture is read for it yet. T-2874 ruled it (tools/keith_loggia_pairs_rule.py; report docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-pairs-rule.json), drawing each pair four ways on this camera, the 1888 plate's and Nickel 1967's: as built; staggered, the north shaft forward; the south shaft set back; and as coupled shafts, radius and pitch free. The plate refuses what this view asks. A stagger or set-back that closes the slide (0.2-0.25 m: -1.8 and -1.4 px here, -0.1 and +0.2 px at 0.25 m staggered) draws the plate's pairs 7.4-10.2 px wider than its print, which reads their outer silhouettes at 2-4 px and holds them as built within 0.6 and 1.6 px. The most the plate allows, about 0.07 m, leaves this view 6.1 and 5.4 px narrow. Coupled shafts fitted to the plate's own split (a whole south shaft, 32.5 px, in front of a partial north one, 18.5 px) leave this view 7.0 and 5.7 px narrow. Nickel 1967, from the north, reads both pairs narrower than drawn (+5.5 and +4.2 px), the sense this view's stagger would give, so the two 1960s pictures may record the pairs as they then stood. But no plan of two round shafts brings all three pictures within their grain, and the 1904 state follows the earlier picture, as it does for the flight-side die's finial above. The pairs stay side by side at 0.36 m; this view's 8 px is not shown in 1904.",
+      "status": "not shown",
       "how": "T-2816's (Keith's image gate): the pairs' plan arrangement ruled between this slide, the 1888 plate and Nickel 1967, built or argued, rebaked, and this view brought to matches"
     }
   ],

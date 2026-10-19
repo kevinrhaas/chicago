@@ -1756,6 +1756,35 @@ def underpass(b,params):
 
 
 
+def date_device(b,stone,a,c,z0,z1,right,off,mat,conf):
+    """A monogram drawn as its strokes, not set in a font (T-2869).
+
+    HABS photograph 14 reads the north stack's upper stone as one joined device:
+    two bowls facing outward, each closed by a stem, and a bar between the stems at
+    mid-height. `device` gives the stems' places as shares of the device's width,
+    the bar's height as a share of its height, and the stroke as a share of its
+    height; `fill` and `height_fill` its share of the stone.
+    """
+    d=stone['device'];w=stone['fill']*(c-a);h=stone['height_fill']*(z1-z0)
+    t=d['stroke']*h;cu,cz=(a+c)/2,(z0+z1)/2
+    s1,s2=(-w/2+u*w for u in d['stems_u']);bar=-h/2+d['bar_z']*h
+
+    def quad(pts):
+        b.raw([legacy._plane_point(stone,cu+right*u,cz+v,off) for u,v in pts],conf,mat,legacy._plane_dir(stone))
+    for s in (s1,s2):
+        quad([(s-t/2,-h/2),(s+t/2,-h/2),(s+t/2,h/2),(s-t/2,h/2)])
+    quad([(s1,bar-t/2),(s2,bar-t/2),(s2,bar+t/2),(s1,bar+t/2)])
+    # Each bowl a half-ellipse from its stem's centre line out to the device's edge.
+    for s,rx,side in ((s1,s1+w/2,-1),(s2,w/2-s2,1)):
+        n=12
+        for i in range(n):
+            ring=[]
+            for k,r in ((i,0),(i+1,0),(i+1,t),(i,t)):
+                q=math.pi*(k/n-.5)
+                ring.append((s+side*(rx-r)*math.cos(q),(h/2-r)*math.sin(q)))
+            quad(ring)
+
+
 def date_stones(b,params):
     """The north-gable chimney's 1886 and AD stones, as HABS photograph 4 reads them.
 
@@ -1775,6 +1804,10 @@ def date_stones(b,params):
         slab(b,stone,a,c,z0,z1,0,proud,conf,GRANITE)
         incised=stone.get('incised')
         right=-stone['sign'] if stone['axis']=='y' else stone['sign']
+        if stone.get('device'):
+            date_device(b,stone,a,c,z0,z1,right,(proud+.002) if incised else .064,
+                        DARK_GLASS if incised else TRIM,conf)
+            continue
         curve=bpy.data.curves.new('glessner_datestone_lettering','FONT')
         curve.body=stone['text'];curve.align_x='CENTER';curve.align_y='CENTER'
         curve.size=(z1-z0)*.82

@@ -478,6 +478,13 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
     `dryPlant` calls `addTree` into a buffer that is thrown away, with the spec
     the dealt path already selected, so the shared stream keeps its draws for a
     stem that stands on a path: it selects nothing and draws nothing.
+
+    T-2810 adds a selection that is neither `addTree` nor `plant`: `dressEdgeTree`
+    hangs the z05 vines on gallery trees straight into the grown trees, and the
+    ids it can draw are the keys of `VINE_EDGE.reach`, read by `vine_ids()` below,
+    so the two `vine_drape` records count as selected only while the table that
+    selects them names them. (Its
+    dead wood, `deadSpecOf`, is the dealt stem's own species and selects nothing.)
     """
     sites = len(re.findall(r"\baddTree\(", src)) - len(re.findall(r"function addTree\(", src))
     # T-2743: the two dealt paths call `plant()`, which hands a tree-form stem to
@@ -488,6 +495,19 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
         sites += len(re.findall(r"(?<![.\w])plant\(", src)) - 1
     named = set(re.findall(r"\bspecs\.(\w+)\b", src))
     return sites, named
+
+
+def vine_ids(src: str) -> set[str]:
+    """The vine records `dressEdgeTree` can hang (T-2810): `VINE_EDGE.reach`'s keys.
+
+    Kept apart from the named ids because a vine is built by tree-model.js
+    `buildVineTemplate` from its own record, never from a `SPECIES` archetype,
+    so it cannot be drawn wearing another species' bark."""
+    vine = re.search(r"const VINE_EDGE = \{.*?\breach: \{([^}]*)\}", src, re.S)
+    if not vine:
+        raise LookupError(f"{TREES_JS} no longer declares `VINE_EDGE.reach` — the vines it "
+                          f"names are how the two `vine_drape` records are selected")
+    return set(re.findall(r"(\w+):\s*\[", vine.group(1)))
 
 
 def placed_species() -> dict[str, list[str]]:
@@ -680,7 +700,7 @@ def declarations() -> dict:
         "placed": placed,
         # A placed stem is a selection like any other — by a record rather than
         # by a mix, and just as drawn.
-        "selectable": selectable | named | set(placed),
+        "selectable": selectable | named | set(placed) | vine_ids(trees),
         "planter": planter_bounds(trees, heightfield()),
         "east_limits": east_limits(trees),
     }
