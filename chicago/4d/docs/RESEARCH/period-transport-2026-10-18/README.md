@@ -102,3 +102,32 @@ Stage5 now forces a production step after its existing two animation callbacks b
 Conscious measured repricing follows the standing rule: full 3,449,919 +18,059 rounded to 5,000 gives 3,470,000; balanced 2,607,952 +16,806 gives 2,625,000. These maxima are desktop West prairie. Upstream T2807 tree integration and the measurement freshness correction are distinct; the whole change is not attributed to new trees. Historical notes remain. Light stays at 1,190,000 triangles, measured 1,154,091. General draw calls stay at 330; Light's separate 90-call limit stays strict, measured 89. No future actors are prepaid. See docs/measurements/period-transport-fresh-detail-2026-10-19.json.
 
 Full preflight and complete published desktop/mobile coverage of this corrected merged head are required before merge. Photographic fidelity, anatomy/material refinement, harness forces, traffic, boarding, riders and driver occupation remain open production work.
+
+
+
+
+## Recovery diagnostics on current dev
+
+The frozen9a84 full fast gate passed983 steps. Its newer stage1-2 restoration and
+stage5 budget checks passed both viewports, but mobile6-7 refused two old
+`notice === null` assertions. T-2826 on dev intentionally shows the previous
+reset diagnostic even when the prior page subsequently left cleanly. Actual
+receipts showed the expected navigation counts and tier changes; this was a
+conflict between the old smoke predicate and the new feature contract.
+
+The next revision retains dev43d8f0a04, including Researcher mode, and requires
+that exact prior-reset diagnostic: readable rendered text equals the notice,
+Copy matches the actual previous record, no extra Reload prompt appears, and
+its previous-page ID equals the page that just reset. Navigation counts,
+single automatic reload and balanced-to-light policy stay strict. The manual
+reload also requires null pending lowering, two session losses and active
+watching. A regression imports the real blackbox and actual smoke predicate,
+checks two clean navigation sequences, and refuses eleven wrong/missing states.
+It proves the predicate and record semantics; actual browser context loss and
+tier behavior still require the complete published smoke on the next commit.
+
+The old e5 batch finished with16 successful legs and two failures. The frozen9a84
+batch had15 accepted successes, one mobile6-7 failure and two desktop legs still
+running at last observation. These results are retained, not replaced with a
+new-head pass. No model photographic gate, occupied traffic or boarding/riding
+acceptance follows from a corrected test predicate.

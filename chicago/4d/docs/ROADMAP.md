@@ -5521,3 +5521,6 @@ Transport integration validation (2026-10-18): the original full mobile smoke fa
 
 
 Transport integration repair, 2026-10-19: merge current dev, rebuild conflicted source-use outputs from source, await bounded baseline readiness and force fresh stage5 frames. Measured full/balanced caps become 3.47m/2.625m under the existing absolute-margin rule; Light stays at 1.19m and 90 calls. New exact-head full desktop/mobile coverage remains required; production photographic/traffic/riding tickets remain open.
+
+
+Transport recovery assertions: retain currentdev Researcher mode and T-2826 prior-reset diagnostic. Replace stale no-notice predicates with exact readable diagnostic/Copy/previous-page checks while preserving navigation, autoreload and tier invariants. Focused actual blackbox regression passes; next exact-head full preflight and all published desktop/mobile stage groups remain required before dev merge. No horse-head/wheel trial is included in this correction.

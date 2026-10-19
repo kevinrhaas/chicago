@@ -184,6 +184,9 @@ step "Finishing the Field Check awards the Navigator License once per device, ne
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
+# T-2657: Researcher mode, the Settings › About switch.
+step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
+  node tools/test_researcher_mode.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 # T-2643: Inspect's Story tab.
@@ -249,6 +252,8 @@ step "The building card prints no '[object Object]' and no other year's law (T-2
   node tools/test_claim_value.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
   node tools/test_repo_file.mjs
+step "Recovered display diagnostics preserve actual previous-reset records and strict smoke assertions (T-2793)" \
+  node tools/test_recovered_display_diagnostic.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
   node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
@@ -7392,8 +7397,9 @@ step "string table: sections register and extend, placeholders fill, no key ever
 
 # T-2668 (NAV-1003). The visitor-UI lint: no file path, link, id, snake_case word, ticket
 # number, or the words "tier", "ticket" or "order book" in what a visitor reads — the string
-# table, the static pages' visible text, and the Go to list's business rows from
-# data/businesses/index.json. Researcher-mode strings are exempt (a `researcher` key segment;
+# table, the static pages' visible text, the Go to list's business rows from
+# data/businesses/index.json and the Shops & work card's location lines (T-2657, which holds
+# a record sentence that fails for Researcher mode where the page gates it). Researcher-mode strings are exempt (a `researcher` key segment;
 # a [data-researcher] element, which css/skins.css hides until Researcher mode is on), and a
 # leak another ticket owns sits on the tool's allowlist with that ticket, failing once stale.
 step "no path, id, snake_case, 'tier', 'ticket' or 'order book' in what a visitor reads (T-2668)" \
